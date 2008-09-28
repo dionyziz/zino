@@ -90,7 +90,7 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
 	text-decoration: none;
 }
 div.messages {
-	position: relative;
+    position: relative;
 }
 div.messages div.message {
 	position: relative; 
@@ -100,8 +100,8 @@ div.message div.infobar {
 	height: 21px;
 	border: 1px solid #cdcdcb;
 	padding: 3px 3px 0px 3px;
-	cursor: move;
-	background-color: white;
+    cursor: move;
+    background-color: white;
 }
 div.message div.infobar a.deletelink {
 	float: right;
@@ -123,7 +123,7 @@ div.message div.text {
 	background-color: #f8f8f6;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
-	padding-right: 60px;
+    padding-right: 60px;
 	overflow: auto;
 }
 div.message div.text div {

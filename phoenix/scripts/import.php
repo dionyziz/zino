@@ -1,43 +1,43 @@
 <?php
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
-	global $user;
-	
-	require_once 'libs/rabbit/rabbit.php';
-	Rabbit_Construct( 'HTML' );
-	$req = $_GET;
-	
-	Rabbit_ClearPostGet();
+    set_include_path( '../:./' );
+    
+    global $page;
+    global $libs;
+    global $user;
+    
+    require_once 'libs/rabbit/rabbit.php';
+    Rabbit_Construct( 'HTML' );
+    $req = $_GET;
+    
+    Rabbit_ClearPostGet();
 
-	global $db;
+    global $db;
 
-	ob_start();
+    ob_start();
 
-	$lines = file( $_GET[ "filename" ] );
-	if ( !$lines ) {
-		echo "cannot open file " . $_GET[ "filename" ];
-		exit( 1 );
-	}
+    $lines = file( $_GET[ "filename" ] );
+    if ( !$lines ) {
+        echo "cannot open file " . $_GET[ "filename" ];
+        exit( 1 );
+    }
 
-	$sql = "";
-	$count = 0;
-	foreach ( $lines as $line ) {
-		$line = trim( $line );
-		if ( !ereg( '^--', $line ) ) {
-			$sql .= " " . $line;
-			++$count;
-		}
-		if ( $count == 200 ) {
-			$db->Query( $sql );
-			$sql = "";
-		}
-	}
-	$db->Query( $sql );
+    $sql = "";
+    $count = 0;
+    foreach ( $lines as $line ) {
+        $line = trim( $line );
+        if ( !ereg( '^--', $line ) ) {
+            $sql .= " " . $line;
+            ++$count;
+        }
+        if ( $count == 200 ) {
+            $db->Query( $sql );
+            $sql = "";
+        }
+    }
+    $db->Query( $sql );
 
-	?>Import Done.<?php
+    ?>Import Done.<?php
 
-	Rabbit_Destruct();
-	
+    Rabbit_Destruct();
+    
 ?>

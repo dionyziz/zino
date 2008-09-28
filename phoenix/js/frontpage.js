@@ -24,9 +24,9 @@ var Frontpage = {
 };
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inuser div.shoutbox' )[ 0 ] ) {
-		if ( $( 'div.frontpage div.members div.join' )[ 0 ] ) {
-			$( 'div.frontpage div.members div.join input' )[ 1 ].focus();
-		}
+        if ( $( 'div.frontpage div.members div.join' )[ 0 ] ) {
+            $( 'div.frontpage div.members div.join input' )[ 1 ].focus();
+        }
 		$( 'div.frontpage div.inuser div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
 			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;

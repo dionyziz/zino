@@ -1,75 +1,75 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
-	<database name="cclive" type="mysql">
-		<table name="images">
-			<field name="image_id" type="int" autoincrement="yes" />
-			<field name="image_userid" type="int" ref="users.user_id" />
-			<field name="image_created" type="datetime" />
-			<field name="image_userip" type="int" />
-			<field name="image_name" type="varchar" length="255" />
-			<field name="image_width" type="int" />
-			<field name="image_height" type="int" />
-			<field name="image_size" type="int" />
-			<field name="image_delid" type="int" />
-			<field name="image_albumid" type="int" ref="albums.album_id" />
-			<field name="image_numcomments" type="int" />
-			<index type="primary">
-				<indexfield>image_id</indexfield>
-			</index>
-			<index name="image_userid" type="index">
-				<indexfield>image_userid</indexfield>
-				<indexfield>image_delid</indexfield>
-			</index>
-			<index name="LATEST" type="index">
-				<indexfield>image_albumid</indexfield>
-				<indexfield>image_delid</indexfield>
-			</index>
-		</table>
-		<table name="albums">
-			<field name="album_id" type="int" autoincrement="yes" />
-			<field name="album_userid" type="int" ref="users.user_id" />
-			<field name="album_created" type="datetime" />
-			<field name="album_userip" type="int" />
-			<field name="album_name" type="varchar" length="255" />
-			<field name="album_mainimage" type="int" ref="images.image_id" />
-			<field name="album_description" type="varchar" length="511" />
-			<field name="album_delid" type="int" />
-			<field name="album_numcomments" type="int" />
-			<field name="album_numphotos" type="int" />
-			<index type="primary">
-				<indexfield>album_id</indexfield>
-			</index>
-			<index type="index" name="USER">
-			</index>
-		</table>
-		<table name="imagesfrontpage">
-			<field name="frontpage_imageid" type="int" ref="images.image_id" />
-			<field name="frontpage_userid" type="int" ref="users.user_id" />
-			<index name="BYUSER" type="index">
-				<indexfield>frontpage_userid</indexfield>
-			</index>
-			<index type="primary">
-				<indexfield>frontpage_imageid</indexfield>
-			</index>
-		</table>
-		<table name="imagetags">
-			<field name="tag_id" type="int" autoincrement="yes" />
-			<field name="tag_imageid" type="int" ref="images.image_id" />
-			<field name="tag_personid" type="int" ref="users.user_id" />
-			<field name="tag_ownerid" type="int" ref="users.user_id" />
-			<field name="tag_created" type="datetime" />
-			<field name="tag_left" type="int" />
-			<field name="tag_top" type="int" />
-			<field name="tag_width" type="int" />
-			<field name="tag_height" type="int" />
-			<index type="primary">
-				<indexfield>tag_id</indexfield>
-			</index>
-			<index name="PERSON_IN_IMAGE" type="unique">
-				<indexfield>tag_imageid</indexfield>
-				<indexfield>tag_personid</indexfield>
-			</index>
-		</table>
-	</database>
+    <database name="cclive" type="mysql">
+        <table name="images">
+            <field name="image_id" type="int" autoincrement="yes" />
+            <field name="image_userid" type="int" ref="users.user_id" />
+            <field name="image_created" type="datetime" />
+            <field name="image_userip" type="int" />
+            <field name="image_name" type="varchar" length="255" />
+            <field name="image_width" type="int" />
+            <field name="image_height" type="int" />
+            <field name="image_size" type="int" />
+            <field name="image_delid" type="int" />
+            <field name="image_albumid" type="int" ref="albums.album_id" />
+            <field name="image_numcomments" type="int" />
+            <index type="primary">
+                <indexfield>image_id</indexfield>
+            </index>
+            <index name="image_userid" type="index">
+                <indexfield>image_userid</indexfield>
+                <indexfield>image_delid</indexfield>
+            </index>
+            <index name="LATEST" type="index">
+                <indexfield>image_albumid</indexfield>
+                <indexfield>image_delid</indexfield>
+            </index>
+        </table>
+        <table name="albums">
+            <field name="album_id" type="int" autoincrement="yes" />
+            <field name="album_userid" type="int" ref="users.user_id" />
+            <field name="album_created" type="datetime" />
+            <field name="album_userip" type="int" />
+            <field name="album_name" type="varchar" length="255" />
+            <field name="album_mainimage" type="int" ref="images.image_id" />
+            <field name="album_description" type="varchar" length="511" />
+            <field name="album_delid" type="int" />
+            <field name="album_numcomments" type="int" />
+            <field name="album_numphotos" type="int" />
+            <index type="primary">
+                <indexfield>album_id</indexfield>
+            </index>
+            <index type="index" name="USER">
+            </index>
+        </table>
+        <table name="imagesfrontpage">
+            <field name="frontpage_imageid" type="int" ref="images.image_id" />
+            <field name="frontpage_userid" type="int" ref="users.user_id" />
+            <index name="BYUSER" type="index">
+                <indexfield>frontpage_userid</indexfield>
+            </index>
+            <index type="primary">
+                <indexfield>frontpage_imageid</indexfield>
+            </index>
+        </table>
+        <table name="imagetags">
+            <field name="tag_id" type="int" autoincrement="yes" />
+            <field name="tag_imageid" type="int" ref="images.image_id" />
+            <field name="tag_personid" type="int" ref="users.user_id" />
+            <field name="tag_ownerid" type="int" ref="users.user_id" />
+            <field name="tag_created" type="datetime" />
+            <field name="tag_left" type="int" />
+            <field name="tag_top" type="int" />
+            <field name="tag_width" type="int" />
+            <field name="tag_height" type="int" />
+            <index type="primary">
+                <indexfield>tag_id</indexfield>
+            </index>
+            <index name="PERSON_IN_IMAGE" type="unique">
+                <indexfield>tag_imageid</indexfield>
+                <indexfield>tag_personid</indexfield>
+            </index>
+        </table>
+    </database>
 </project>

@@ -1,29 +1,29 @@
 table.stats {
-	margin: 0 0 5px 0;
-	border-collapse: collapse;
-	width: 100%;
+    margin: 0 0 5px 0;
+    border-collapse: collapse;
+    width: 100%;
 }
 table.stats tr th {
-	text-align: left;
-	background-color: #e5e5e5;
-	padding: 3px;
+    text-align: left;
+    background-color: #e5e5e5;
+    padding: 3px;
 }
 table.stats tr td {
-	padding: 3px;
+    padding: 3px;
 }
 table.stats tr th.numeric, table.stats tr td.numeric {
-	text-align: right;
+    text-align: right;
 }
 table.stats tr {
-	border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 table.stats tr.l {
-	background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 table.stats tr.deleted {
-	background-color: #ffe9e9;
+    background-color: #ffe9e9;
 }
 table.stats tr.edited {
-	background-color: #e9e9ff;
+    background-color: #e9e9ff;
 }
 

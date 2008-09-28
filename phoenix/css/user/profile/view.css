@@ -214,7 +214,7 @@ div#profile div.sidebar div.notice {
 }
 /*
 div#profile div.sidebar div.eof {
-	float: right;
+    float: right;
 	position: relative;
 	top: 14px;
 	background-image: url('http://static.zino.gr/phoenix/sidebarend.jpg');
@@ -223,15 +223,15 @@ div#profile div.sidebar div.eof {
 }
 */
 div#profile div#antisocial {
-	background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
-	padding: 10px;
-	margin: 0 20px 10px 330px;
-	height: 40px;
+    background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
+    padding: 10px;
+    margin: 0 20px 10px 330px;
+    height: 40px;
 }
 div#profile div#antisocial div {
-	padding: 10px 5px 0 0px;
-	width: 100%;
-	height: 20px;
+    padding: 10px 5px 0 0px;
+    width: 100%;
+    height: 20px;
 }
 div#profile div#antisocial div a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -969px;
@@ -260,8 +260,8 @@ div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 	height: 40px;
 }
 div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
-	height: 40px;
-	margin-left: 30px;
+    height: 40px;
+    margin-left: 30px;
 }
 div#profile div.main div.photos {
 	height: 150px;
@@ -385,7 +385,7 @@ div.comments div.pagifycomments {
 	text-align: center;
 }
 div#profile div.friends div.people {
-	overflow: hidden;
-	height: 110px;
+    overflow: hidden;
+    height: 110px;
 }
 

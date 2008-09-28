@@ -1,5 +1,5 @@
 div#pollview {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 div#pollview div.comments {
 	float: left;
@@ -28,12 +28,12 @@ div#pollview dl {
 	margin: 0;
 }
 div#pollview dl.toolbar {
-	margin-left: 170px;
+    margin-left: 170px;
 }
 div#pollview dd.delete {
-	display: inline;
-	margin: 0;
-	padding: 0 0 0 2px;
+    display: inline;
+    margin: 0;
+    padding: 0 0 0 2px;
 }
 div#pollview dd.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
@@ -42,8 +42,8 @@ div#pollview dd.delete a span {
 	margin-right: 2px;
 }
 div#pollview dl dd.createdate {
-	margin: 0 0 10px 0;
-	padding: 0;
+    margin: 0 0 10px 0;
+    padding: 0;
 }
 div#pollview dl dd.commentsnum {
 	margin: 0 5px 0 0;

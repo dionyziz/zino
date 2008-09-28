@@ -1,9 +1,9 @@
 <?php
-	class UserCount extends Satori {
-		protected $mDbTableAlias = 'usercounts';
+    class UserCount extends Satori {
+        protected $mDbTableAlias = 'usercounts';
 
-		protected function Relations() {
-			$this->User = $this->HasOne( 'User', 'Userid' );
-		}
-	}
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+        }
+    }
 ?>

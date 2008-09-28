@@ -1,33 +1,33 @@
 <?php
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
-	global $user;
-	
-	require_once 'libs/rabbit/rabbit.php';
-	Rabbit_Construct( 'HTML' );
-	$req = $_GET;
-	
-	Rabbit_ClearPostGet();
+    set_include_path( '../:./' );
+    
+    global $page;
+    global $libs;
+    global $user;
+    
+    require_once 'libs/rabbit/rabbit.php';
+    Rabbit_Construct( 'HTML' );
+    $req = $_GET;
+    
+    Rabbit_ClearPostGet();
 
-	global $db;
+    global $db;
 
-	ob_start();
+    ob_start();
 
-	?>PHP Time: <?php
-	echo NowDate();
-	?><br />
-	MySQL Time: <?php
-	
-	$sql = "SELECT NOW();";
+    ?>PHP Time: <?php
+    echo NowDate();
+    ?><br />
+    MySQL Time: <?php
+    
+    $sql = "SELECT NOW();";
 
-	$fetched = $db->Query( $sql )->FetchArray();
+    $fetched = $db->Query( $sql )->FetchArray();
 
-	echo $fetched[ "NOW()" ];
+    echo $fetched[ "NOW()" ];
 
-	?><br /><?php
-	
-	Rabbit_Destruct();
-	
+    ?><br /><?php
+    
+    Rabbit_Destruct();
+    
 ?>

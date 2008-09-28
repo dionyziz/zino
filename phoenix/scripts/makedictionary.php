@@ -1,14 +1,14 @@
 <?php
-	set_include_path( '../:./' );
+    set_include_path( '../:./' );
 
-	global $water;
-	global $libs;
-	global $db;
-	global $user;
-	
-	require 'libs/rabbit/rabbit.php';
+    global $water;
+    global $libs;
+    global $db;
+    global $user;
+    
+    require 'libs/rabbit/rabbit.php';
 
-	Rabbit_Construct( 'empty' );
+    Rabbit_Construct( 'empty' );
 
 $words = 
 "ΑΒΑΘΕΣ
@@ -76849,11 +76849,11 @@ $words =
 $words = explode( "\n", $words );
 
 foreach ( $words as $word ) {
-	$sql = "INSERT INTO
-				`merlin_dictionarywords`
-			(`word_id`, `word_dictionaryid`, `word_text`) VALUES
-			('', '1', '" . addslashes( $word ) . "')";
-	$db->Query( $sql );
+    $sql = "INSERT INTO
+                `merlin_dictionarywords`
+            (`word_id`, `word_dictionaryid`, `word_text`) VALUES
+            ('', '1', '" . addslashes( $word ) . "')";
+    $db->Query( $sql );
 }
 
 ?>

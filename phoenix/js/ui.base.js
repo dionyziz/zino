@@ -60,11 +60,11 @@
 			if (e.style) e.style.MozUserSelect = "";
 		},
 		hasScroll: function(e, a) {
-			  var scroll = /top/.test(a||"top") ? 'scrollTop' : 'scrollLeft', has = false;
-			  if (e[scroll] > 0) return true; e[scroll] = 1;
-			  has = e[scroll] > 0 ? true : false; e[scroll] = 0;
-			  return has; 
-		}
+      		var scroll = /top/.test(a||"top") ? 'scrollTop' : 'scrollLeft', has = false;
+      		if (e[scroll] > 0) return true; e[scroll] = 1;
+      		has = e[scroll] > 0 ? true : false; e[scroll] = 0;
+      		return has; 
+    	}
 	});
 
 	/******* fn scope modifications ********/
@@ -80,7 +80,7 @@
 	var _remove = $.fn.remove;
 	$.fn.extend({
 		position: function() {
-			var offset	   = this.offset();
+			var offset       = this.offset();
 			var offsetParent = this.offsetParent();
 			var parentOffset = offsetParent.offset();
 

@@ -42,9 +42,9 @@ div#favourites ul.events {
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	text-align: left;
-	position: relative;
-	top: -1px;
+    text-align: left;
+    position: relative;
+    top: -1px;
 }
 div#favourites ul.events li.last {
 	border-bottom: 1px solid #d7d7d7;

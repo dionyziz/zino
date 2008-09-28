@@ -1,7 +1,7 @@
 h2 {
 	font-size: 130%;
 	color: #666;
-	text-align: left;
+    text-align: left;
 }
 h3 {
 	font-size: 105%;
@@ -9,5 +9,5 @@ h3 {
 	text-align: left;
 }
 h2>span, h3>span {
-	font-size: 90%;
+    font-size: 90%;
 }

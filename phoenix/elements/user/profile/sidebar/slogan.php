@@ -1,10 +1,10 @@
 <?php
-	class ElementUserProfileSidebarSlogan extends Element {
+    class ElementUserProfileSidebarSlogan extends Element {
 
-		public function Render( $slogan ) {
-			?><span class="subtitle"><?php
-			echo htmlspecialchars( $slogan );
-			?></span><?php
-		}
-	}
+        public function Render( $slogan ) {
+            ?><span class="subtitle"><?php
+            echo htmlspecialchars( $slogan );
+            ?></span><?php
+        }
+    }
 ?>

@@ -10,9 +10,9 @@ a img {
 }
 a.button {
 	padding: 5px;
-	margin: 2px;
-	border: 1px solid #ccf;
-	background-color: white;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background-color: white;
 	text-align: center;
 }
 a.button_big {

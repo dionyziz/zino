@@ -64,7 +64,7 @@
 			$fontSize = 8;
 			$lineSpacing = 1;
 
-			 list ($llx, $lly, $lrx, $lry, $urx, $ury, $ulx, $uly) = imageftbbox($fontSize, 0, $fontFileName, $text, array("linespacing" => $lineSpacing));
+ 			list ($llx, $lly, $lrx, $lry, $urx, $ury, $ulx, $uly) = imageftbbox($fontSize, 0, $fontFileName, $text, array("linespacing" => $lineSpacing));
 
 			$textWidth = $lrx - $llx;
 			$textHeight = $lry - $ury;
@@ -118,7 +118,7 @@
 
 			$lineSpacing = 1;
 
-			 list ($lx, $ly, $rx, $ry) = imageftbbox($fontSize, 0, $fontFileName, $text, array("linespacing" => $lineSpacing));
+ 			list ($lx, $ly, $rx, $ry) = imageftbbox($fontSize, 0, $fontFileName, $text, array("linespacing" => $lineSpacing));
 			$textWidth = $rx - $lx;
 
 			$angle = -45;
