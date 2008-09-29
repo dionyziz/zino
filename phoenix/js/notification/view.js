@@ -28,5 +28,6 @@ var Notification = {
 		} );
 		Coala.Warm( 'notification/addfriend' , { userid : theuserid } );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		return false;
 	}
 };

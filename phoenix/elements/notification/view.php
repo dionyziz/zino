@@ -108,11 +108,11 @@
                             if ( !$res ) {
                                 ?><div class="addfriend" id="addfriend_<?php
                                 echo $notif->Fromuserid;
-                                ?>"><a href="" onclick="Notification.AddFriend( '<?php
+                                ?>"><a href="" onclick="return Notification.AddFriend( '<?php
                                 echo $notif->Event->Id;
                                 ?>' , '<?php
                                 echo $notif->FromUser->Id;
-                                ?>' );return false">Πρόσθεσέ τ<?php
+                                ?>' )">Πρόσθεσέ τ<?php
                                 if ( $notif->FromUser->Gender == 'f' ) {
                                     ?>η<?php
                                 }
