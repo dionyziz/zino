@@ -9,14 +9,14 @@
 	            return;
 	        }
 	        
-	        $page->setTitle( 'Administration Panel' );
+	        $page->setTitle( 'Κεντρική σελίδα διαχειριστών' );
 	        
-	        ?><h2>Administration Panel</h2><?php
+	        ?><h2>Κεντρική σελίδα διαχειριστών</h2><?php
 	        
 	        ?><ul><?php
-		        ?><li><a href="?p=statistics" > Daily Statistics </a></li><?php
-		        ?><li><a href="?p=ban" > Ban list(not implemented yet) </a></li><?php
-		        ?><li><a href="?p=adminlog" > Admin's log </a></li><?php
+		        ?><li><a href="?p=statistics" >Στατιστικά στοιχεία του Zino</a></li><?php
+		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
+		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
         }
     }

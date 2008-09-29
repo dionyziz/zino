@@ -42,6 +42,10 @@
             ?><p><input type="submit" value="Ban" /></p><?php
             ?></form><?php
             
+            ?><br><br><br><?php
+            ?><p>Υποσημείωση : ο αποκλεισμός διαρκεί 20 ημέρες</p><?php
+            
+            
             return;
         }
     }
