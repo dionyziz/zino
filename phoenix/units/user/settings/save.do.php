@@ -183,16 +183,36 @@
                 }
             }
             if ( $gtalk ) {
-                $user->Profile->Gtalk = $gtalk;
+				if ( $gtalk == '-1' ) {
+					$user->Profile->Gtalk = '';
+				}
+				else {
+					$user->Profile->Gtalk = $gtalk;
+				}
             }
             if ( $skype ) {
-                $user->Profile->Skype = $skype;
+				if ( $skype == '-1' ) {
+					$user->Profile->Skype = '';
+				}
+				else { 
+					$user->Profile->Skype = $skype;
+				}
             }
             if ( $yahoo ) {
-                $user->Profile->Yim = $yahoo;
+				if ( $yahoo == '-1' ) {
+					$user->Profile->Yim = '';
+				}
+				else {
+					$user->Profile->Yim = $yahoo;
+				}
             }
             if ( $web ) {
-                $user->Profile->Homepage = $web;
+				if ( $web == '-1' ) {
+					$user->Profile->Homepage = '';
+				}
+				else {
+					$user->Profile->Homepage = $web;
+				}
             }
             if ( !$emailerror && !$msnerror ) {
                 ?>$( Settings.showsaving )
