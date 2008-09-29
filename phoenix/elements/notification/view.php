@@ -19,9 +19,9 @@
                     <span class="time"><?php
                     Element( 'date/diff', $notif->Event->Created );
                     ?></span>
-                    <a href="" onclick="Notification.Delete( '<?php
+                    <a href="" onclick="return Notification.Delete( '<?php
                     echo $notif->Event->Id;
-                    ?>' );return false" title="Διαγραφή"><img src="<?php
+                    ?>' )" title="Διαγραφή"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>delete.png" /></a>
                 </div>

@@ -16,6 +16,7 @@ var Notification = {
 			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		return false;
 	},
 	AddFriend : function( eventid , theuserid ) {
 		$( 'div#addfriend_' + theuserid  + ' a' )
