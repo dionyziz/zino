@@ -36,7 +36,7 @@ div#favourites div.list ul.favcategories li a {
 	display: block;
 }
 div#favourites div.list ul.favcategories li.selected {
-	background-color: #e5f0ff;
+	background: #e5f0ff;
 }
 div#favourites ul.events {
 	padding: 0;
@@ -59,17 +59,12 @@ div#favourites ul.events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
-/*
-div#favourites ul.events li.poll div {
-	background-image: url('images/chart_bar-trans.png');
-}
-*/
 div#favourites ul.events li.photo div {
-	background-image: url( 'http://static.zino.gr/phoenix/photo.png' );
+	background: url( 'http://static.zino.gr/phoenix/photo.png' );
 }
 div#favourites ul.events li.photo img {
 	padding: 3px 3px 3px 0px;
 }
 div#favourites ul.events li.journal div {
-	background-image: url( 'http://static.zino.gr/phoenix/book.png' );
+	background: url( 'http://static.zino.gr/phoenix/book.png' );
 }

@@ -12,9 +12,7 @@ div#search div.ybubble form input.submit {
     width: 110px;
     height: 32px;
     padding: 0;
-    background-image: url('http://static.zino.gr/phoenix/s_button.png');
-    background-repeat: no-repeat;
-    background-position: top;
+    background: url('http://static.zino.gr/phoenix/s_button.png') no-repeat top;
     position: relative;
     top: 15px;
 }
@@ -31,7 +29,7 @@ div.ybubble div.body {
     padding: 10px 0 0 10px;
 }
 div.ybubble i.tr, div.ybubble i.br {
-right: -10px;
+	right: -10px;
 }
 div.ybubble i.tl {
     height: 9px;

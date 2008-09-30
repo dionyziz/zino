@@ -6,7 +6,7 @@ div.wysiwyg iframe {
 div.wysiwyg div.toolbox {
     float: right;
     padding: 3px;
-    background-color: #eee;
+    background: #eee;
     border: 1px solid #666;
     border-bottom-style: none;
 }
@@ -22,7 +22,7 @@ div.wysiwyg div.toolbox a:hover span {
     display: block;
     top: 18px;
     right: 0;
-    background-color: #feffee;
+    background: #feffee;
     border: 1px solid #ccc;
     padding: 3px;
 }
@@ -43,7 +43,7 @@ form.wysiwyg-control-image-album div.albumlist {
     float: left;
     border-right: 1px solid black;
     width: 144px;
-    background-color: white;
+    background: #fff;
     height: 500px;
     overflow: auto;
 }

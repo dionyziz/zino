@@ -6,14 +6,14 @@ div.paginate a {
     padding: 5px;
     margin: 2px;
     border: 1px solid #ccf;
-    background-color: white;
+    background: white;
 }
 div.paginate a:hover {
-    background-color: #eef;
+    background: #eef;
 }
 div.paginate a.selected {
     border: 2px solid #aaf;
-    background-color: #eef;
+    background: #eef;
 }
 div.paginate span {
     font-size: 80%;

@@ -11,7 +11,7 @@ div.moodpicker div.view {
     width: 65px;
     height: 52px;
     position: relative;
-    background-color: #ccc;
+    background: #ccc;
     overflow: hidden;
 }
 div.moodpicker div.view:hover {
@@ -33,15 +33,13 @@ div.moodpicker div.view a {
     padding: 2px 1px 0 3px;
     display: block;
     color: #333;
-    background-image: url( 'http://static.zino.gr/phoenix/dropbutton.png' );
-    background-repeat: no-repeat;
-    background-position: 3px 0;
+    background: url( 'http://static.zino.gr/phoenix/dropbutton.png' ) no-repeat 3px 0;
 }
 div.moodpicker a img {
     border-width: 0px;
 }
 div.moodpicker div.pick {
-    background-color: white;
+    background: #fff;
     border: 1px solid #666;
     width: 328px;
     margin: -1px 1px 1px 1px;

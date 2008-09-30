@@ -6,14 +6,12 @@ div.body div.upper {
 	margin-bottom: 1px;
 }
 div.body div.upper span.title {
-	font-family: arial;
+	font: arial;
 	font-size: 14pt;
 	color: #9b9696;
 }
 div.body div.upper div.subheading {
-	font-family: arial;
-	font-size: 10pt;
-	font-weight: bold;
+	font: 10pt arial bold;
 	float: right;
 	color: #838080;
 	position: relative;
@@ -22,8 +20,7 @@ div.body div.upper div.subheading {
 div.body div.leftbar {
 	padding: 10px 30px 20px 0;
 	float: left;
-	font-size: 10pt;
-	font-family: tahoma;
+	font: 10pt tahoma;
 }
 div.body div.rightbar {
 	padding: 10px 0 0 10px;
@@ -105,12 +102,12 @@ div.message div.infobar {
 }
 div.message div.infobar a.deletelink {
 	float: right;
-	padding-left: 12px;
+	padding: 0 0 0 12px;
 	margin-top: 1px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
 }
 div.message div.infobar span.unreadpm {
-	padding-left: 16px;
+	padding: 0 0 0 16px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -392px;
 }
 div.message div.infobar div.infobar_info {
@@ -120,10 +117,10 @@ div.message div.infobar div.infobar_info {
 	cursor: pointer;
 }
 div.message div.text {
-	background-color: #f8f8f6;
+	background: #f8f8f6;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
-    padding-right: 60px;
+    padding: 0 60px 0 0;
 	overflow: auto;
 }
 div.message div.text div {
@@ -141,9 +138,7 @@ div.message div.lowerline div.leftcorner {
 }
 
 div.message div.lowerline div.middle {
-	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' );
-	background-repeat: repeat-x;
-	background-position: bottom;
+	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
 	height: 13px;
 }
 
@@ -191,7 +186,7 @@ a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:ho
 	padding-top: 5px;
 }
 div.hoverfolder {
-	background-color: #f4f5f7;
+	background: #f4f5f7;
 }
 form#newfolderform a.acceptcreate {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -746px;

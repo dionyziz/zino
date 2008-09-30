@@ -1,9 +1,6 @@
 div.bubble {
     position: relative;
-    background-color: #f6f6f6;
-    background-image: url( 'http://static.zino.gr/phoenix/q_top.jpg' );
-    background-repeat: repeat-x;
-    background-position: top;
+    background: #f6f6f6 url( 'http://static.zino.gr/phoenix/q_top.jpg' ) repeat-x top;
     padding: 10px;
 }
 i.tl {

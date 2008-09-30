@@ -6,7 +6,7 @@ div.footer {
 div.footer div.copy {
 	width: 100%;
 	color: #aaa;
-	font: 80%;
+	font-size: 80%;
 	text-align: center;
 	margin-top: 15px;
 }
@@ -32,7 +32,7 @@ div.footer ul li {
 div.footer ul li a {
 	text-decoration: none;
 	color: #666;
-	font: 80%;
+	font-size: 80%;
 	margin: 5px;
 }
 div.footer ul li a:hover {

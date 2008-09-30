@@ -1,18 +1,13 @@
 div.pagify a.next {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -716px;
-	background-repeat: no-repeat;
+	background: url( 'http://static.zino.gr/phoenix/iconlist.png' ) no-repeat -80px -716px;
 	padding: 0 0 0 16px;
 }
 div.pagify a.previous {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -782px;
-	background-repeat: no-repeat;
+	background: url( 'http://static.zino.gr/phoenix/iconlist.png' ) no-repeat -80px -782px;
 	padding: 0 0 0 16px;
 }
 div.pagify a.nextbacklinks, div.pagify strong {
-    padding-left: 4px;
-    padding-right: 4px;
+	padding: 0 4px;
 }
 div.pagify div.pagifycount {
     color: #aaa;
