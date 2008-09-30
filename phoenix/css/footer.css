@@ -1,15 +1,12 @@
 div.footer {
 	width: 100%;
 	padding: 15px 0 20px 0;
-	background-color: white;
-	background-image: url('http://static.zino.gr/phoenix/copybg.jpg');
-	background-repeat: repeat-x;
-	background-position: 0 10px;
+	background: #fff url('http://static.zino.gr/phoenix/copybg.jpg') repeat-x 0 10px;
 }
 div.footer div.copy {
 	width: 100%;
 	color: #aaa;
-	font-size: 80%;
+	font: 80%;
 	text-align: center;
 	margin-top: 15px;
 }
@@ -35,7 +32,7 @@ div.footer ul li {
 div.footer ul li a {
 	text-decoration: none;
 	color: #666;
-	font-size: 80%;
+	font: 80%;
 	margin: 5px;
 }
 div.footer ul li a:hover {
