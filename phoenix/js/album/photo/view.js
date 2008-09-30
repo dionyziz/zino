@@ -14,11 +14,13 @@ var PhotoView = {
 			$( 'div#photoview h2' ).empty().append( inputbox );
 		}
 		$( 'div#photoview h2 input' )[ 0 ].select();
+		return false;
 	},
 	Delete : function( photoid ) {
 		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την φωτογραφία;" ) ) {
 			Coala.Warm( 'album/photo/delete' , { photoid : photoid } );
 		}
+		return false;
 	},
 	MainImage : function( photoid ) {
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
@@ -27,6 +29,7 @@ var PhotoView = {
 		.css( "opacity" , "0" )
 		.show()
 		.animate( { opacity : "1" } , 400 );
+		return false;
 	},
 	AddFav : function( photoid , linknode ) {
 		if ( $( linknode ).hasClass( 'add' ) ) {
@@ -41,7 +44,8 @@ var PhotoView = {
 				.animate( { opacity: "1" } , 800 );
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
-		}	
+		}
+		return false;
 	},
 	renameFunc : function( elem, photoid, photoname, albumname ) {
 		var name = elem.value;

@@ -111,9 +111,9 @@
                         else {
                             ?>Αγαπημένο<?php
                         }
-                        ?>" onclick="PhotoView.AddFav( '<?php
+                        ?>" onclick="return PhotoView.AddFav( '<?php
                         echo $image->Id;
-                        ?>' , this );return false"><?php
+                        ?>' , this )"><?php
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
@@ -129,11 +129,11 @@
                  ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
-                        <div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
+                        <div class="edit"><a href="" onclick="return PhotoView.Rename( '<?php
                         echo $image->Id;
                         ?>' , <?php
                         echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-                        ?> );return false"><?php
+                        ?> )"><?php
                         if ( $image->Name == '' ) {
                             ?>Όρισε όνομα<?php
                         }
@@ -141,13 +141,13 @@
                             ?>Μετονομασία<?php
                         }
                         ?></a></div>
-                        <div class="delete"><a href="" onclick="PhotoView.Delete( '<?php
+                        <div class="delete"><a href="" onclick="return PhotoView.Delete( '<?php
                         echo $image->Id;
-                        ?>' );return false">Διαγραφή</a></div><?php
+                        ?>' )">Διαγραφή</a></div><?php
                         if ( $image->Album->Mainimageid != $image->Id ) {
-                            ?><div class="mainimage"><a href="" onclick="PhotoView.MainImage( '<?php
+                            ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
-                            ?>' );return false">
+                            ?>' )">
                             Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }

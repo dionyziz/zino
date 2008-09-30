@@ -22,6 +22,7 @@ var Profile = {
 			.show( 400 );
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
+		return false;
 	},
 	DeleteFriend : function( relationid , theuserid ) {
 		$( 'div.sidebar div.basicinfo div.deletefriend a' ).hide( 400 , function() {
@@ -32,6 +33,7 @@ var Profile = {
 			.show( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
+		return false;
 	},
     AntisocialAddFriend : function ( userid ) {
         this.AntisocialCalled = true;

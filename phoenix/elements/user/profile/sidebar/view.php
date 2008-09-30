@@ -16,16 +16,16 @@
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
                         if ( !$res ) {
-                            ?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
+                            ?><div class="addfriend"><a href="" onclick="return Profile.AddFriend( '<?php
                             echo $theuser->Id;
-                            ?>' );return false"><span>&nbsp;</span>Προσθήκη στους φίλους</a></div><?php
+                            ?>' )"><span>&nbsp;</span>Προσθήκη στους φίλους</a></div><?php
                         }
                         else {
-                            ?><div class="deletefriend"><a href="" onclick="Profile.DeleteFriend( '<?php
+                            ?><div class="deletefriend"><a href="" onclick="return Profile.DeleteFriend( '<?php
                             echo $res->Id;
                             ?>' , '<?php
                             echo $theuser->Id;
-                            ?>' );return false"><span>&nbsp;</span>Διαγραφή από τους φίλους</a></div><?php
+                            ?>' )"><span>&nbsp;</span>Διαγραφή από τους φίλους</a></div><?php
                         }
                     }
                     Element( 'user/profile/sidebar/info', $theuser );
