@@ -78,7 +78,7 @@ $( document ).ready( function() {
 					.attr( {
 						title : 'Απόκρυψη'
 					} );
-					$( notiflist ).removeClass( 'invisible' ).animate( { height : notiflistheight } , 400 );
+					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
 				}
 				else {
 					$( 'div.frontpage div.notifications div.expand a' )
@@ -87,7 +87,7 @@ $( document ).ready( function() {
 						title : 'Εμφάνιση'
 					} );
 					$( notiflist ).animate( { height : "0" } , 400 , function() {
-						$( notiflist ).addClass( 'invisible' );
+						$( notiflist ).hide();
 					} );
 				}
 				return false;
