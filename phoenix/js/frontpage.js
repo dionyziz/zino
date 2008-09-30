@@ -72,7 +72,7 @@ $( document ).ready( function() {
 			} );
 			
 			$( 'div.frontpage div.notifications div.expand a' ).click( function() {
-				if ( $( notiflist ).hasClass( 'invisible' ) ) {
+				if ( $( notiflist ).css( 'display' ) == "none" ) {
 					$( 'div.frontpage div.notifications div.expand a' )
 					.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' )
 					.attr( {
