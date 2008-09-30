@@ -2,12 +2,11 @@ html, body {
     height: 100%;
 }
 body {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 83%;
+	font: Helvetica, Arial sans-serif 83%;
 	margin: 0;
 }
 div.content {
-	padding: 0 30px 0 30px;
+	padding: 0 30px;
 }
 div.eof {
 	clear: both;
@@ -16,21 +15,18 @@ div.eof {
 	display: none;
 }
 div.barfade {
-	background-image: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' );
-	background-repeat: repeat-x;
+	background-image: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
 	height: 1px;
 }
 div.barfade div.leftbar {
 	float: left;
-	background-image: url('http://static.zino.gr/phoenix/barfade-left.jpg');
-	background-repeat: no-repeat;
+	background-image: url('http://static.zino.gr/phoenix/barfade-left.jpg') no-repeat;
 	height: 1px;
 	width: 153px;
 }
 div.barfade div.rightbar {
 	float: right;
-	background-image: url('http://static.zino.gr/phoenix/barfade-right.jpg');
-	background-repeat: no-repeat;
+	background-image: url('http://static.zino.gr/phoenix/barfade-right.jpg') no-repeat;
 	height: 1px;
 	width: 153px;
 }
