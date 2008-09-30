@@ -2,7 +2,7 @@ html, body {
     height: 100%;
 }
 body {
-	font: Helvetica, Arial sans-serif 83%;
+	font: 83% Helvetica, Arial sans-serif;
 	margin: 0;
 }
 div.content {
