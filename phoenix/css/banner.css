@@ -11,7 +11,7 @@ div.header a.novisual {
     display: block;
 }
 div.header a {
-	font: bold;
+	font-weight: bold;
 	color: #fff;
 }
 div.header a:hover {
