@@ -1,9 +1,8 @@
 div.header {
 	position: relative;
-	background-image: url('http://static.zino.gr/phoenix/roxasbg3.jpg');
-	background-repeat: repeat-x;
+	background: url('http://static.zino.gr/phoenix/roxasbg3.jpg') repeat-x;
 	height: 50px;
-	margin: 0 30px 0 30px;
+	margin: 0 30px;
 }
 div.header a.novisual {
     width: 0;
@@ -12,17 +11,16 @@ div.header a.novisual {
     display: block;
 }
 div.header a {
-	font-weight: bold;
-	color: white;
+	font: bold;
+	color: #fff;
 }
 div.header a:hover {
-	color: white;
+	color: #fff;
 }
 div.header h1 {
 	display: inline;
-	color: white;
-	font-size: 180%;
-	font-weight: normal;
+	color: #fff;
+	font: 180% normal;
 	margin: 0;
 	padding: 0;
     height: 50px;
@@ -66,10 +64,10 @@ div.header ul li {
 	padding: 1px;
 	margin: 0;
 	display: inline;
-	color: white;
+	color: #fff;
 }
 div.header ul li a.unread {
-    color: #FF0044;
+    color: #ff0044;
 }
 div.header ul li a {
 	padding-left: 0;
