@@ -156,7 +156,7 @@
         }
         public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
             if ( !class_exists( $finderClass ) ) {
-                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . $this->mQueryModel . '\' specified for HasMany relation does not exist' );
+                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
             }
             $this->mQueryModel = $queryModel;
             $this->mFinderClass = $finderClass;

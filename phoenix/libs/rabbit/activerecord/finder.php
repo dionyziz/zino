@@ -124,6 +124,9 @@
             $row = $res->FetchArray();
             return ( int )$row[ 'numrows' ];
         }
+        protected function FindAll( $offset = 0, $limit = 25, $order = false ) {
+            return $this->FindByPrototype( New $this->mModel(), $offset, $limit, $order );
+        }
         final public function __construct() {
             global $rabbit_settings;
 
