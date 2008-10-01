@@ -163,7 +163,7 @@ div.fontpage div.notifications div.list div.event div.subject div.addfriend a {
     padding-left: 18px;
 }
 
-/*  CSS FO MASKED ELEMENT */
+/*  CSS FOR ASKED ELEMENT 
 div.onlinenow a {
     magin-right: 10px;
 }
@@ -203,8 +203,7 @@ div.inuse div.right div.latest div.barfade {
 div.inuse div.right div.latest div.comments {
     width: 100%;
 }
-div.inuse div.right div.latest div.journals {
-    width: 100%;
+
 }
 div.inuse div.right div.latest div.polls {
     width: 100%;
