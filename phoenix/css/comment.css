@@ -20,7 +20,7 @@ div.comment div.toolbox {
 }
 div.comment div.toolbox span.time {
 	color: #999;
-	font: 80%;
+	font-size: 80%;
 }
 div.comment div.toolbox img {
 	vertical-align: text-bottom;
@@ -72,5 +72,5 @@ div.newcomment div.text textarea {
 	width: 90%;
 }
 div.newcomment div.bottom input {
-	font: 90%;
+	font-size: 90%;
 }

@@ -6,8 +6,7 @@ div.body div.upper {
 	margin-bottom: 1px;
 }
 div.body div.upper span.title {
-	font: arial;
-	font-size: 14pt;
+	font: 14pt arial;
 	color: #9b9696;
 }
 div.body div.upper div.subheading {
@@ -98,7 +97,7 @@ div.message div.infobar {
 	border: 1px solid #cdcdcb;
 	padding: 3px 3px 0px 3px;
     cursor: move;
-    background-color: white;
+    background: #fff;
 }
 div.message div.infobar a.deletelink {
 	float: right;
@@ -138,7 +137,7 @@ div.message div.lowerline div.leftcorner {
 }
 
 div.message div.lowerline div.middle {
-	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
+	background: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
 	height: 13px;
 }
 
