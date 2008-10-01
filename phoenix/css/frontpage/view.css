@@ -1,211 +1,164 @@
-div.fontpage {
+div.frontpage {
     text-align: left;
-    position: elative;
+    position: relative;
 }
-div.fontpage div.ybubble {
-    magin: 0 auto 10px auto;
-    text-align: cente;
+div.frontpage div.ybubble {
+    margin: 0 auto 10px auto;
+    text-align: center;
     width: 700px;
     height: 170px;
 }
-div.fontpage div.ybubble div.body a {
+div.frontpage div.ybubble div.body a {
     width: 16px;
     height: 16px;
-    float: ight;
+    float: right;
     padding: 3px 1px 0 0;
 }
-div.fontpage div.ybubble div.body form {
+div.frontpage div.ybubble div.body form {
     text-align: left;
     padding: 5px;
 }
-div.fontpage div.ybubble div.body form div span {
-    magin-right: 5px;
+div.frontpage div.ybubble div.body form div span {
+    margin-right: 5px;
 }
-div.fontpage div.ybubble div.body form p {
+div.frontpage div.ybubble div.body form p {
     padding-bottom: 0;
-    magin-bottom: 0;
+    margin-bottom: 0;
 }
-div.fontpage div.ybubble div.body form div div#selectplace { 
+div.frontpage div.ybubble div.body form div div#selectplace { 
     padding: 3px;
 }
-div.fontpage div.ybubble div.body form div div#selecteducation {
+div.frontpage div.ybubble div.body form div div#selecteducation {
     padding: 3px;
 }
-div.fontpage div.ybubble div.body form div div#selectuni {
+div.frontpage div.ybubble div.body form div div#selectuni {
     padding: 3px;
 }
-div.fontpage div.ybubble div.body form div span {
-    padding-ight: 3px;
+div.frontpage div.ybubble div.body form div span {
+    padding-right: 3px;
 }
 div.latestimages {
     height: 130px;
-    oveflow: hidden;
-    magin: 0 4px 20px 4px;
+    overflow: hidden;
+    margin: 0 4px 20px 4px;
 }
 div.latestimages ul {
-    magin: 0;
+    margin: 0;
     padding: 17px 0 14px 0;
     list-style: none;
     height: 110px;
 }
 div.latestimages ul li {
     float: left;
-    magin: 5px;
+    margin: 5px;
     height: 110px;
-    text-align: cente;
+    text-align: center;
 }
 div.latestimages ul li img {
-    boder: 1px solid #cce;
+    border: 1px solid #cce;
 }
-div.membes div.join {
-    backgound: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' ) no-repeat;
+div.members div.join {
+    background: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' ) no-repeat;
     height: 133px;
     width: 486px;
     float: left;
-    magin: 0 100px 0 0;
+    margin: 0 100px 0 0;
 }
-div.membes div.join form {
+div.members div.join form {
     text-align: left;
     width: 40%;
-    magin: 30px 0 0 250px;
-    colo: #ffffff;
+    margin: 30px 0 0 250px;
+    color: #ffffff;
     font-weight: bold;
 }
-div.membes div.join form div {
-    magin: 9px 0 9px 0;
+div.members div.join form div {
+    margin: 9px 0 9px 0;
     width: 123%;
 }
-div.membes div.join form h2 {
+div.members div.join form h2 {
     padding: 0;
-    magin: 0;
-    font-weight: nomal;
+    margin: 0;
+    font-weight: normal;
     display: inline;
     font-size: 100%;
-    colo: #ffffff;
+    color: #ffffff;
 }
-div.membes form label {
-    magin-right: 5px;
+div.members form label {
+    margin-right: 5px;
 }
-div.membes div.login {
-    backgound: url( 'http://static.zino.gr/phoenix/frontpagelogin.jpg' ) no-repeat;
+div.members div.login {
+    background: url( 'http://static.zino.gr/phoenix/frontpagelogin.jpg' ) no-repeat;
     text-align: left;
     height: 129px;
     width: 293px;
     float: left;
     padding: 20px 0 0 10px;
 }
-div.membes div.login form div {
-    magin: 5px; 
+div.members div.login form div {
+    margin: 5px; 
 }
-div.membes div.login form h2 {
+div.members div.login form h2 {
     padding: 0;
-    magin: 0;
+    margin: 0;
     font-size: 110%;
 }
-div.membes div.login form div label {
+div.members div.login form div label {
     float: left;
     display: block;
     width: 70px;
 }
-div.fontpage div.notifications {
+div.frontpage div.notifications {
     padding: 5px 0 0 0;
     top: 0;
-    magin: 0 0 20px 15%;
+    margin: 0 0 20px 15%;
     width: 70%;
-    boder: 1px solid #ccc;
-    boder-top: 0;
+    border: 1px solid #ccc;
+    border-top: 0;
     position: absolute;
-    backgound-color: #fdfdfd;
+    background-color: #fdfdfd;
     z-index: 2;
 }
-div.fontpage div.notifications div.expand a {
-    backgound: #cfc9fd url( 'http://static.zino.gr/phoenix/arrow_up.png' ) no-repeat 4px 5px;
+div.frontpage div.notifications div.expand a {
+    backrgound: #cfc9fd url( 'http://static.zino.gr/phoenix/arrow_up.png' ) no-repeat 4px 5px;
     padding-left: 18px;
 }
 div.fontpage div.notifications h3 {
-    magin: 0 0 10px 0;
+    margin: 0 0 10px 0;
     padding: 5px 0 0 20px;
 }
-div.fontpage div.notifications  div.list div.event {
+div.frontpage div.notifications div.list div.event {
     float: none;
     width: 95%;
-    magin: 2px auto;
+    margin: 2px auto;
     padding: 5px;
-    cusor: pointer;
+    cursor: pointer;
 }
-div.fontpage div.notifications div.list div.event div.toolbox a {
+div.frontpage div.notifications div.list div.event div.toolbox a {
     z-index: 100;
 }
-div.fontpage div.notifications div.list div.event div.who img.avatar {
+div.frontpage div.notifications div.list div.event div.who img.avatar {
     width: 50px;
     height: 50px;
-    boder: 1px solid #666;
+    border: 1px solid #666;
     float: left;
-    magin: 0 4px 0 0;
+    margin: 0 4px 0 0;
 }
-div.fontpage div.notifications  div.list div.event div.subject p img {
-    float: ight;
-    magin-top: -17px;
+div.frontpage div.notifications  div.list div.event div.subject p img {
+    float: right;
+    margin-top: -17px;
 }
-div.fontpage div.notificatios div.list div.event div.subject p a.itempic img {
+div.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
     width: 75px;
     height: 75px;
 }
 div.fontpage div.notifications div.list div.event div.subject div.addfriend {
-    magin-bottom: 4px;
+    margin-bottom: 4px;
     font-size: 90%;
 }
-div.fontpage div.notifications div.list div.event div.subject div.viewprofile {
+div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
     font-size: 90%;
 }
-div.fontpage div.notifications div.list div.event div.subject div.addfriend a {
-    backgound: url( 'http://static.zino.gr/phoenix/user_add.png' ) no-repeat 0 -1px;
+div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
+    background: url( 'http://static.zino.gr/phoenix/user_add.png' ) no-repeat 0 -1px;
     padding-left: 18px;
 }
-
-/*  CSS FOR ASKED ELEMENT 
-div.onlinenow a {
-    magin-right: 10px;
-}
-div.onlinenow a img {
-    boder: 1px solid #666;
-    magin-bottom: 10px;
-}
-div.fontpage div.inuser {
-    float: none;
-    width: 100%;
-}
-div.inuse div.left {
-    width: 48%;
-    float: left;
-}
-div.inuse div.right {
-    width: 48%;
-    float: ight;
-}
-div.inuse div.left div.onlinenow {
-    padding-left: 10px;
-    magin-top: 40px;
-}
-div.latest div.jounals {
-    magin-bottom: 10px;
-}
-div.inuse div.right div.latest > h2 {
-    magin-bottom: 5px;
-}
-div.inuse div.right div.latest div h2 {
-    font-size: 90%;
-}
-div.inuse div.right div.latest div.barfade {
-    magin-top: 10px;
-    padding-bottom: 10px;
-}
-div.inuse div.right div.latest div.comments {
-    width: 100%;
-}
-
-}
-div.inuse div.right div.latest div.polls {
-    width: 100%;
-}
-/* END OF CSS FO MASKED ELEMENTS */
