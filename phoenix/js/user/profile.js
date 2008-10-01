@@ -52,5 +52,6 @@ var Profile = {
             }, 200 )
         } );
         this.AddFriend( userid );
+        return false;
     }
 };
