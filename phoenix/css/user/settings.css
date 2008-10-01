@@ -5,7 +5,7 @@ div.settings div.sidebar {
     float: right;
     width: 300px;
     height: 100%;
-    background-color: white;
+    background: #fff;
     padding-left: 50px;
 }
 div.settings div.sidebar div {
@@ -16,7 +16,8 @@ div.settings div.sidebar div span  {
 	opacity: 0;
 }
 div.settings div.sidebar div span.saved span {
-    background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;    padding-left: 23px;
+    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;
+    padding-left: 23px;
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
@@ -49,10 +50,7 @@ div.settings div.sidebar ol {
 div.settings div.sidebar ol li {
     padding: 0 0 0 18px;
     margin: 0 0 0 22px;
-    background-repeat: no-repeat;
-    background-position: left;
-	background-color: white;
-	background-image: none;
+    background: #fff none no-repeat left;
 }
 div.settings div.sidebar ol li.selected {
 	font-weight: bold;
