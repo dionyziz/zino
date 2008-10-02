@@ -45,6 +45,12 @@
                     <th>Τελειώνει</th>
                     <th>Αιτία</th>
                 </tr>
+                <tr>
+                    <td>aaaaaaaaaaaaaaaaaa</td>
+                    <td>aaaaa</td>
+                    <td><td>
+                    <td>dddddddddddddddddd</td>
+                </tr>
               </table><?php                    
             
             foreach ( $bannedUsers as $bannedUser ) {
