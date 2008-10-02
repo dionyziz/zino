@@ -10,6 +10,8 @@
         assert( $condition );
     }
 
+    set_error_handler( array( $water, 'HandleError' ) );
+
     class Water {
         protected $mProjectName = 'test';
         protected $mProjectKey = 'thebigtest';
@@ -25,6 +27,12 @@
         public function ProfileEnd() {}
         public function LogSQL() {}
         public function LogSQLEnd() {}
+        public function HandleError( $errno, $errstr ) {
+            echo "WATER ERROR: " . $errstr . "<br />";
+        }
+        public function HandleException( Exception $e ) {
+            echo "WATER EXCEPTION: " . $e->getMessage() . "<br />";
+        }
         public function __destruct() {
             die( 'Another day.' );
         }
