@@ -325,6 +325,7 @@ div#profile div.main div.questions ul li p.answer {
 div#profile div.main div.lastpoll {
 	float: right;
 	padding-bottom: 20px;
+    margin: 0 50px;
 }
 
 div#profile div.main div.lastpoll h3 {

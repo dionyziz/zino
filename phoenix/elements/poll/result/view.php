@@ -8,9 +8,7 @@
                     ?><li>
                         <dl><?php
                             if ( $showresults ) {
-                                ?><span class="resultterm"><?php
-                                    echo htmlspecialchars( $option->Text );
-                                ?></span>
+                                ?>
                                 <dd><?php //max width will be 220px and minimum 24px
                                 ?><div class="option">
                                     <div class="percentagebar" style="width:<?php
@@ -22,7 +20,10 @@
                                     </div>
                                 </div><?php
                                     echo round( $option->Percentage * 100, 0 );
-                                ?>%</dd><?php
+                                ?>%</dd>
+                                <span class="resultterm"><?php
+                                    echo htmlspecialchars( $option->Text );
+                                ?></span>
                             }
                             else {
                                 ?><dt class="voteterm"><input type="radio" name="poll_<?php

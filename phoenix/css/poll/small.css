@@ -7,9 +7,9 @@ div.pollsmall h4 {
 }
 div.pollsmall div.results ul {
 	padding: 0;
-	margin: 10px 0 10px 0;
+	margin: 10px 0;
 	list-style: none;
-	width: 475px;
+	width: 100%;
 }
 div.pollsmall div.results ul li {
 	margin-bottom: 10px;
@@ -20,11 +20,8 @@ div.pollsmall div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
-div.pollsmall div.results ul li dl dt.resultterm {
-	width: 200px;
-	float: right;
-	padding: 0;
-	margin: 0;
+div.pollsmall div.results ul li dl span {
+	margin-left: 20px;
 }
 div.pollsmall div.results ul li dl dt.voteterm {
 	margin-right: 3px;
@@ -38,9 +35,7 @@ div.pollsmall div.results ul li dl dd.votedefinition {
     margin-left: 23px;
 }
 div.pollsmall div.results ul li dl dd {
-	width: 270px;
-	padding: 0;
-	margin: 0;
+    float: left;
 }
 div.pollsmall div.results ul li dl dd span {
 	padding-left: 7px;
