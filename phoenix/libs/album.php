@@ -144,6 +144,7 @@
             }
             $frontpage->Imageid = $image->Id;
             $frontpage->Save();
+            Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
             $this->Save();
         }
         public function ImageDeleted( Image $image ) {
@@ -172,6 +173,7 @@
                         $frontpage->Imageid = $oldimage->Id;
                         $frontpage->Save();
                     }
+                    Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
                 }
             }
             $this->Save();
