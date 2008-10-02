@@ -23,6 +23,7 @@
         public function Warning() {}
         public function Profile() {}
         public function ProfileEnd() {}
+        public function LogSQL() {}
         public function __destruct() {
             die( 'Another day.' );
         }
