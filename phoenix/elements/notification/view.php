@@ -26,9 +26,7 @@
                     ?>delete.png" /></a>
                 </div>
                 <div class="who"<?php
-                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED
-                      && $notif->Event->Typeid != EVENT_IMAGETAG_CREATED
-                      && $notif->Event->Typeid != EVENT_FAVOURITE_CREATED ) {
+                if ( $notif->Event->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
                     Element( 'url' , $notif->Item );
@@ -54,7 +52,7 @@
                         case EVENT_FAVOURITE_CREATED:
                             ?> πρόσθεσε στα αγαπημένα:<?php
                             break;
-                        default:
+                        case EVENT_COMMENT_CREATED:
                             if ( $notif->Item->Parentid == 0 ) {
                                 ?> έγραψε:<?php
                             }
@@ -74,7 +72,7 @@
                         ?>' , '0', '<?php
                         echo $notif->Event->Id;
                         ?>', '0' );"<?php
-                    break;
+                        break;
                     case EVENT_FRIENDRELATION_CREATED:
                         break;
                     case EVENT_FAVOURITE_CREATED:
@@ -86,7 +84,7 @@
                         echo $notif->Event->Id;
                         ?>', '0' );"<?php
                         break;
-                    default: // Comment
+                    case EVENT_COMMENT_CREATED:
                         ?> onclick="Notification.Visit( '<?php
                         ob_start();
                         Element( 'url' , $notif->Item );
@@ -191,7 +189,7 @@
                             }
                             ?></p><?php
                             break;
-                        default: // Comment
+                        case EVENT_COMMENT_CREATED: 
                             ?><p><span class="text">"<?php
                             $comment = $notif->Item;
                             $text = $comment->GetText( 30 );

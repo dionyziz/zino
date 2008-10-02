@@ -219,6 +219,9 @@
                 case EVENT_IMAGETAG_CREATED:
                     $target = 'notification/email/imagetag';
                     break;
+                case EVENT_FAVOURITE_CREATED:
+                    $target = 'notification/email/favourite';
+                    break;
                 default:
                     return;
             }

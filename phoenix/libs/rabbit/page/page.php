@@ -233,7 +233,7 @@ class PageHTML extends Page {
         }
     }
     private function OutputHTMLMain() {
-		ob_start();
+        ob_start();
         ?><body><?php
         echo $this->mBody;
         foreach ( $this->mScripts as $script ) {

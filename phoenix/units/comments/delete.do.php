@@ -24,7 +24,7 @@
             return;
         }
         $finder = New CommentFinder();
-        if ( $finder->CommentHasChildren( $comment ) ) {
+        if ( $finder->CommentHasChildren( $comment ) ) { // TODO: this check can and HAS failed under race conditions; make it atomic
             ?>alert( 'Το σχόλιο που προσπαθήτε να διαγράψετε έχει απαντήσεις' );
             window.location.reload();<?php
             return;

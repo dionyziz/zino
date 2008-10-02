@@ -66,9 +66,9 @@ class XMLNode {
     }
     public function getElementsByTagName( $name ) { // only direct children! (unlike DOM)
         $ret = array();
-        foreach ( $this->childNodes as $child ) {
+        foreach ( $this->childNodes as $i => $child ) {
             if ( $child->nodeName == $name ) {
-                $ret[] =& $child;
+                $ret[] = $this->childNodes[ $i ];
             }
         }
         return $ret;
@@ -157,7 +157,7 @@ class XMLParser {
         $current = $this->mNodesQueue[ count( $this->mNodesQueue ) - 1 ];
         $current->appendChild( $string );
     }
-    public function XMLParser( $xml ) {
+    public function __construct( $xml ) {
         $this->mXML = $xml;
         $this->mNodesQueue = array();
         $this->mError = false;
