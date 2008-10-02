@@ -37,6 +37,7 @@ div.pollsmall div.results ul li dl dd.votedefinition {
 div.pollsmall div.results ul li dl dd {
     float: left;
     width: 270px;
+    margin: 0;
 }
 div.pollsmall div.results ul li dl dd span {
 	padding-left: 7px;
@@ -63,9 +64,7 @@ div.pollsmall div.results ul li dl dd div.option div.percentagebar div.rightroun
 	width: 9px;
 }
 div.pollsmall div.results ul li dl dd div.option div.percentagebar div.middlerounded {
-	background-image: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' );
-	background-repeat: repeat-x;
-	background-position: top;
+	background: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' ) repeat-x top;
 	height: 13px;
 }
 div.pollsmall div.results dl.pollinfo {
