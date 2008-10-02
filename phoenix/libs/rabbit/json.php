@@ -1,4 +1,8 @@
 <?php
+    if ( function_exists( 'w_json_encode' ) ) {
+        return;
+    }
+
     function w_json_encode( $what, $chopstrings = -1, $depth = 0, $ascii = true ) {
         if ( $depth > 6 ) {
             return '"[and more]"';
