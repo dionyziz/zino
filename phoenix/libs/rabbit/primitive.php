@@ -21,7 +21,7 @@
     set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
     // load the debugging library
-    if ( UserIp() == '87.202.123.86' ) {
+    if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.202.123.86' ) {
         require_once 'libs/rabbit/water/water.php';
     }
     else {
