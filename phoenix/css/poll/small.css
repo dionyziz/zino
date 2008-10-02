@@ -9,7 +9,7 @@ div.pollsmall div.results ul {
 	padding: 0;
 	margin: 10px 0 10px 0;
 	list-style: none;
-	width: 550px;
+	width: 475px;
 }
 div.pollsmall div.results ul li {
 	margin-bottom: 10px;
@@ -21,7 +21,7 @@ div.pollsmall div.results ul li dl {
 	margin: 0;
 }
 div.pollsmall div.results ul li dl dt.resultterm {
-	width: 275px;
+	width: 200px;
 	float: right;
 	padding: 0;
 	margin: 0;
