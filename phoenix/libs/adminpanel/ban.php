@@ -138,6 +138,7 @@
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
             $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->Delalbums = 0;            
+            $banneduser->Reason = $reason;
             $banneduser->Save();            
             return;        
         }
