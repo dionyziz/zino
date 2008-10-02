@@ -44,19 +44,20 @@
                     <th>Πότε</th>
                     <th>Αιτία</th>
                 </tr>
-                <tr>
-                    <td>aaaaaaaaaaaaaaaaaa</td>
-                    <td>aaaaa</td>
-                    <td>dddddddddddddddddd</td>
-                </tr><?php
-                               
+            <?php
             
             foreach ( $bannedUsers as $bannedUser ) {
-                    ?><tr><td><?php
+                    ?><tr><?php
+                    ?><td><?php
                     echo $bannedUser->Name;
                     ?></td><td><?php                    
                     Element( 'date/diff', $bannedUser->Started );              
-                    ?></td><td></td></tr><?php
+                    ?></td><td><?php
+                    ?><form method="post" action="do/adminpanel/revoke"><?php
+                    ?><input type="submit" value="Επαναφορά" /><?php
+                    ?><input type="hidden" name="userid" value="<?php
+                    ?></form><?php
+                    ?></td></tr><?php
             }
             ?></table><?php   
             //
