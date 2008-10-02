@@ -73,7 +73,7 @@
                     </div>
                 </div><?php
             }
-            Element( 'frontpage/image/list' , $sequences[ SEQUENCE_IMAGE ] );
+            Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
             if ( !$user->Exists() ) {
                 ?><div class="members">
                     <div class="join">
