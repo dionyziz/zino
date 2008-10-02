@@ -43,6 +43,7 @@
                     <th>Χρήστης</th>
                     <th>Πότε</th>
                     <th>Αιτία</th>
+                    <th></th>
                 </tr>
             <?php
             
@@ -53,8 +54,9 @@
                     ?></td><td><?php                    
                     Element( 'date/diff', $bannedUser->Started );              
                     ?></td><td><?php
-                    ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?>Δεν αναφέρθηκε  <?php
+                    ?></td><td><?php
+                    ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><input type="submit" value="Επαναφορά" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid;
