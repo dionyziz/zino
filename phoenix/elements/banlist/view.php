@@ -57,9 +57,9 @@
                     ?><tr><td><?php
                     echo $bannedUser->Name;
                     ?></td><td><?php                    
-                    echo $bannedUser->Started;
+                    Element( 'date/diff', $bannedUser->Started );
                     ?></td><td><?php
-                    echo $bannedUser->Expire;                
+                    Element( 'date/diff', $bannedUser->Expire );                
                     ?></td><td></td></tr><?php
             }
             ?></table><?php   
