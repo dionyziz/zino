@@ -6,6 +6,10 @@
     define( 'WATER_EVENTTYPE_PROFILE', 2 );
     define( 'WATER_EVENTTYPE_QUERY', 3 );
     
+    function w_assert( $condition, $description ) {
+        assert( $condition, $description );
+    }
+
     class Water {
         protected $mProjectName = 'test';
         protected $mProjectKey = 'thebigtest';
