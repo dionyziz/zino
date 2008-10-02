@@ -50,25 +50,27 @@
                     <td>aaaaa</td>
                     <td></td>
                     <td>dddddddddddddddddd</td>
-                </tr>
-              </table><?php                    
+                </tr><?php
+                               
             
             foreach ( $bannedUsers as $bannedUser ) {
-                ?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?><p>Ο χρήστης <?php
+                //?><form method="post" action="do/adminpanel/revoke"><?php
+                    //?><p>Ο χρήστης <?php
+                    ?><tr><td><?php
                     echo $bannedUser->Name;
-                    ?> αποκλείστηκε στις <?php
+                    ?></td><td><?php                    
                     echo $bannedUser->Started;
-                    ?> μέχρι τις <?php
+                    ?></td><td><?php
                     echo $bannedUser->Expire;                
-                    ?>.  <?php
-                    ?><input type="submit" value="Επαναφορά" /><?php
-                    ?><input type="hidden" name="userid" value="<?php
-                    echo $bannedUser->Userid; 
-                    ?>" /><?php
-                    ?></p><?php
-                ?></form><?php
+                    ?></td><td></td></tr><?php
+                    //?><input type="submit" value="Επαναφορά" /><?php
+                    //?><input type="hidden" name="userid" value="<?php
+                    //echo $bannedUser->Userid; 
+                    //?>" /><?php
+                    //?></p><?php
+                //?></form><?php
             }
+            ?></table><?php   
             //
 
             ?><form method="post" action="do/adminpanel/ban"><?php
