@@ -20,7 +20,7 @@
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
-            ?><table>
+            ?><table class="stats">
                 <tr>
                     <th>Χρήστης</th>
                     <th>Πότε</th>
