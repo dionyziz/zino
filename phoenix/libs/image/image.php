@@ -198,16 +198,34 @@
             return $this->Delid > 0 || !$this->Exists();
         }
         public function OnCommentCreate() {
+            $frontpageimagefinder = New FrontpageImageFinder();
+            $latest = $frontpageimagefinder->FindLatest();
+            foreach ( $latest as $photo ) {
+                if ( $photo->Id == $this->Id ) {
+                    Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
+                    break;
+                }
+            }
+
             if ( $this->Albumid ) {
-                $this->Album->OnCommentCreate();
+                $this->Album->OnCommentCreate( $this );
             }
            
             ++$this->Numcomments;
             return $this->Save();
         }
         public function OnCommentDelete() {
+            $frontpageimagefinder = New FrontpageImageFinder();
+            $latest = $frontpageimagefinder->FindLatest();
+            foreach ( $latest as $photo ) {
+                if ( $photo->Id == $this->Id ) {
+                    Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
+                    break;
+                }
+            }
+
             if ( $this->Albumid ) {
-                $this->Album->OnCommentDelete();
+                $this->Album->OnCommentDelete( $this );
             }
 
             --$this->Numcomments;
@@ -323,7 +341,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Increment( TYPE_IMAGE );
+            Sequence_Increment( SEQUENCE_IMAGE );
         }
         protected function OnDelete() {
             global $libs;
@@ -344,7 +362,7 @@
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
-            Sequence_Increment( TYPE_IMAGE );
+            Sequence_Increment( SEQUENCE_IMAGE );
         }
         protected function OnUndelete() {
             if ( $this->Albumid ) {

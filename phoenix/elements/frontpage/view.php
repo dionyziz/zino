@@ -73,7 +73,7 @@
                     </div>
                 </div><?php
             }
-            Element( 'frontpage/image/list' , $sequences[ TYPE_IMAGE ] );
+            Element( 'frontpage/image/list' , $sequences[ SEQUENCE_IMAGE ] );
             if ( !$user->Exists() ) {
                 ?><div class="members">
                     <div class="join">
@@ -108,7 +108,7 @@
             ?><div class="inuser">
                 <div class="left">
                     <div class="shoutbox"><?php
-                        Element( 'frontpage/shoutbox/list' , $sequences[ TYPE_SHOUT ] );
+                        Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
                     ?></div>
                     <div class="onlinenow"><?php
                         Element( 'frontpage/online' );
@@ -118,7 +118,7 @@
                     <div class="latest">
                         <h2>Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
-                            Element( 'frontpage/comment/list' , $sequences[ TYPE_COMMENT ] );
+                            Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
@@ -126,7 +126,7 @@
                                 <div class="rightbar"></div>
                             </div>
                         <div class="journals"><?php
-                            Element( 'frontpage/journal/list' , $sequences[ TYPE_JOURNAL ] );
+                            Element( 'frontpage/journal/list' , $sequences[ SEQUENCE_JOURNAL ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
@@ -134,7 +134,7 @@
                                 <div class="rightbar"></div>
                             </div>
                         <div class="polls"><?php
-                            Element( 'frontpage/poll/list' , $sequences[ TYPE_POLL ] );
+                            Element( 'frontpage/poll/list' , $sequences[ SEQUENCE_POLL ] );
                         ?></div>
                     </div>
                 

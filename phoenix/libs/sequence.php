@@ -10,11 +10,19 @@
         $query->Execute();
     }
 
+    define( 'SEQUENCE_SHOUT', TYPE_SHOUT );
+    define( 'SEQUENCE_COMMENT', TYPE_COMMENT );
+    define( 'SEQUENCE_IMAGE', TYPE_IMAGE );
+    define( 'SEQUENCE_JOURNAL', TYPE_JOURNAL );
+    define( 'SEQUENCE_POLL', TYPE_POLL );
+
+    define( 'SEQUENCE_FRONTPAGEIMAGECOMMENTS', 1001 );
+
     class SequenceFinder extends Finder {
         protected $mModel = 'Sequence';
 
         public function FindFrontpage() {
-            static $frontpagetypes = array( TYPE_SHOUT, TYPE_COMMENT, TYPE_IMAGE, TYPE_JOURNAL, TYPE_POLL );
+            static $frontpagetypes = array( SEQUENCE_SHOUT, SEQUENCE_COMMENT, SEQUENCE_IMAGE, SEQUENCE_JOURNAL, SEQUENCE_POLL, SEQUENCE_FRONTPAGEIMAGECOMMENTS );
 
             $query = $this->mDb->Prepare(
                 'SELECT

@@ -123,13 +123,13 @@
 
             return false;
         }
-        public function OnCommentCreate() {
+        public function OnCommentCreate( Image $image ) {
             ++$this->Numcomments;
-            $this->Save();    
+            $this->Save();
         }
-        public function OnCommentDelete() {
+        public function OnCommentDelete( Image $image ) {
             --$this->Numcomments;
-            $this->Save();    
+            $this->Save();
         }
         public function ImageAdded( Image $image ) {
             $this->Numcomments += $image->Numcomments;

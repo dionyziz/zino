@@ -95,7 +95,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Increment( TYPE_JOURNAL );
+            Sequence_Increment( SEQUENCE_JOURNAL );
         }
         protected function OnBeforeDelete() {
             $this->Delid = 1;
@@ -127,7 +127,7 @@
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
 
-            Sequence_Increment( TYPE_JOURNAL );
+            Sequence_Increment( SEQUENCE_JOURNAL );
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

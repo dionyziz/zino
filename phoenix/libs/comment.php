@@ -518,7 +518,7 @@
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
 
-            Sequence_Increment( TYPE_COMMENT );
+            Sequence_Increment( SEQUENCE_COMMENT );
         }
         public function OnUpdate() {
             /* 
@@ -528,7 +528,7 @@
              */
             
             // Comment_RegenerateMemcache( $this->Item );
-            Sequence_Increment( TYPE_COMMENT );            
+            Sequence_Increment( SEQUENCE_COMMENT );            
         }
         public function OnBeforeUpdate() {
             global $user;

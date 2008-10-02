@@ -107,7 +107,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Increment( TYPE_POLL );
+            Sequence_Increment( SEQUENCE_POLL );
         }
         protected function OnDelete() {
             global $libs;
@@ -124,13 +124,13 @@
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
-            Sequence_Increment( TYPE_POLL );
+            Sequence_Increment( SEQUENCE_POLL );
         }
         public function UndoDelete() {
             $this->Delid = 0;
             $this->Save();
 
-            Sequence_Increment( TYPE_POLL );
+            Sequence_Increment( SEQUENCE_POLL );
         }
         protected function LoadDefaults() {
             $this->Created = NowDate();
