@@ -21,6 +21,7 @@
         public function Notice() {}
         public function Warning() {}
         public function Profile() {}
+        public function ProfileEnd() {}
         public function __destruct() {
             die( 'Another day.' );
         }
