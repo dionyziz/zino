@@ -81,7 +81,7 @@
             }
         }
         
-        public function BanUser( $user_name ) {
+        public function BanUser( $user_name, $reason ) {
             global $libs;
             
             $libs->Load( 'user/user' );        
@@ -118,7 +118,7 @@
             
             //ban this ips and ban user with this username
             $this->addBannedIps( $logs, $b_user );            
-            $this->addBannedUser( $b_user );
+            $this->addBannedUser( $b_user, $reason );
 
             $b_user->Rights=0;
             $b_user->Save();
@@ -127,7 +127,7 @@
             return true;
         }
         
-        protected function addBannedUser( $b_user ) {
+        protected function addBannedUser( $b_user, $reason ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
