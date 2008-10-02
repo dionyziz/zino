@@ -36,6 +36,7 @@ div.pollsmall div.results ul li dl dd.votedefinition {
 }
 div.pollsmall div.results ul li dl dd {
     float: left;
+    width: 270px;
 }
 div.pollsmall div.results ul li dl dd span {
 	padding-left: 7px;
