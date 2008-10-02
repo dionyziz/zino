@@ -10,8 +10,6 @@
         assert( $condition );
     }
 
-    set_error_handler( array( $water, 'HandleError' ) );
-
     class Water {
         protected $mProjectName = 'test';
         protected $mProjectKey = 'thebigtest';
@@ -128,6 +126,9 @@
     global $water;
 
     $water = New Water();
+
+    set_error_handler( array( $water, 'HandleError' ) );
+    set_exception_handler( array( $water, 'HandleException' ) );
 
     return $water;
 ?>
