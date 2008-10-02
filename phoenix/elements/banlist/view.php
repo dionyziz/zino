@@ -54,7 +54,7 @@
                     Element( 'date/diff', $bannedUser->Started );              
                     ?></td><td><?php
                     ?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?>mpla mpla mpla mpla<?php
+                    ?>mpla mpla mpla mpla  <?php
                     ?><input type="submit" value="Επαναφορά" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid;
