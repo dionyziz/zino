@@ -30,7 +30,7 @@
                     Element( 'user/url', $user->Id , $user->Subdomain );
                     ?>" class="profile"><?php
                     if ( $user->Avatar->Id > 0 ) {
-                        Element( 'image/view', $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height ,  IMAGE_CROPPED_100x100 , '' , $user->Name, '' , true , 16 , 16  );
+                        Element( 'image/view', $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height ,  IMAGE_CROPPED_100x100 , '' , $user->Name, '' , true , 16 , 16 , 0 );
                     }
                     Element( 'user/name', $user->Id , $user->Name , $user->Subdomain , false );
                     ?></a></li>

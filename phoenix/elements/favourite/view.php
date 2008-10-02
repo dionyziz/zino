@@ -164,7 +164,7 @@
                                             ?>"<?php
                                         }
                                         ?><br /><?php
-                                            Element( 'image/view' , $favourite->Item->Id , $favourite->Item->User->Id , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 );
+                                            Element( 'image/view' , $favourite->Item->Id , $favourite->Item->User->Id , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 , 0 );
                                             ?>
                                         </a><?php
                                         break;

@@ -1,7 +1,7 @@
 <?php
     class ElementImageView extends Element {
-		protected $mPersistent = array( 'imageid' , 'type' , 'class' , 'alttitle' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' );
-		public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
+		protected $mPersistent = array( 'imageid' , 'type' , 'class' , 'alttitle' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' , 'numcom' );
+		public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 ) {
             //imageid  , imageuserid, imagewidth, imageheight
 			global $xc_settings;
             global $rabbit_settings;
@@ -53,7 +53,12 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><span class="info"><span class="commentsnumber">&nbsp;</span>23</span></span><?php
+			?>" /><?php
+            if ( $numcom != 0 ) {
+                ?><span class="info"><span class="commentsnumber">&nbsp;</span><?php
+                echo $numcom;
+                ?></span></span><?php
+            }
         }
     }
 ?>

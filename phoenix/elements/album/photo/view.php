@@ -186,19 +186,19 @@
                                     ?><li><span><a href="?p=photo&amp;id=<?php
                                     echo $photos[ $i ]->Id;
                                     ?>"><?php
-                                    Element( 'image/view' , $photos[ $i ]->Id , $photos[ $i ]->User->Id , $photos[ $i ]->Width , $photos[ $i ]->Height  , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , '' , false , 0 , 0 );
+                                    Element( 'image/view' , $photos[ $i ]->Id , $photos[ $i ]->User->Id , $photos[ $i ]->Width , $photos[ $i ]->Height  , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , '' , false , 0 , 0 , $photos[ $i ]->Numcomments );
                                     ?></a></span></li><?php
                                 }
                             }
                             ?><li class="selected"><?php
-                                Element( 'image/view' , $photos[ $pivot ]->Id , $photos[ $pivot ]->User->Id , $photos[ $pivot ]->Width , $photos[ $pivot ]->Height , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
+                                Element( 'image/view' , $photos[ $pivot ]->Id , $photos[ $pivot ]->User->Id , $photos[ $pivot ]->Width , $photos[ $pivot ]->Height , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , '' , false , 0 , 0 , 0 );
                             ?></li><?php
                             if ( $pivot < 12 ) {                        
                                 for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
                                     ?><li><span><a href="?p=photo&amp;id=<?php
                                     echo $photos[ $i ]->Id;
                                     ?>"><?php
-                                    Element( 'image/view' , $photos[ $i ]->Id , $photos[ $i ]->User->Id , $photos[ $i ]->Width , $photos[ $i ]->Height  , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , '' , false , 0 , 0 );
+                                    Element( 'image/view' , $photos[ $i ]->Id , $photos[ $i ]->User->Id , $photos[ $i ]->Width , $photos[ $i ]->Height  , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , '' , false , 0 , 0 , $photos[ $i ]->Numcomments );
                                     ?></a></span></li><?php
                                 }
                             }
@@ -210,7 +210,7 @@
                 ?>px;height:<?php
                 echo $image->Height;
                 ?>px;" onmousedown="Tag.katoPontike( event );return false" onmouseup="Tag.showSug( event );return false" onmouseout="Tag.ekso( event, true );return false" onmousemove="Tag.drag( event );return false"><?php
-                    Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
+                    Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 , 0 );
                     if ( $image->Width > 45 && $image->Height > 45 ) {
                         ?><div class="tanga"><?php
                             $tagfinder = New ImageTagFinder();

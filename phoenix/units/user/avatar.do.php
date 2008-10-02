@@ -36,7 +36,7 @@
                     ?>'
                 } ).html( <?php
                 ob_start();
-                Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $user->Name , '' );
+                Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $user->Name , '' , false , 0 , 0 , 0 );
                 echo w_json_encode( ob_get_clean() );
                 ?> );
                 $( $( 'div.main div.photos' )[ 0 ] ).show();<?php

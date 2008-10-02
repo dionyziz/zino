@@ -87,7 +87,7 @@
                                                 ?><a href="?p=photo&amp;id=<?php
                                                 echo $one->Item->Id;
                                                 ?>"><?php
-                                                Element( 'image/view' , $one->Item->Id , $one->Item->User->Id , $one->Item->Width , $one->Item->Height , IMAGE_CROPPED_100x100 , '' , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 );
+                                                Element( 'image/view' , $one->Item->Id , $one->Item->User->Id , $one->Item->Width , $one->Item->Height , IMAGE_CROPPED_100x100 , '' , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 , 0 );
                                                 ?></a><?php
                                             }
                                             break;

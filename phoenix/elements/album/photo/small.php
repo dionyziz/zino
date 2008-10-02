@@ -11,7 +11,7 @@
                 <a href="?p=photo&amp;id=<?php
                 echo $image->Id;
                 ?>"><?php
-                    Element( 'image/view', $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_PROPORTIONAL_210x210, '' , $title , '' , false , 0 , 0 ); 
+                    Element( 'image/view', $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_PROPORTIONAL_210x210, '' , $title , '' , false , 0 , 0 , 0 ); 
                     if ( $showdesc && $image->Name != '') {
                         ?><br /><?php
                         echo htmlspecialchars( $image->Name );
