@@ -17,6 +17,7 @@
 
         public function Enable() {}
         public function Disable() {}
+        public function Enabled() {}
         public function Trace() {}
         public function Notice() {}
         public function Warning() {}
