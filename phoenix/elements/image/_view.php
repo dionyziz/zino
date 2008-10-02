@@ -57,8 +57,9 @@
             if ( $numcom != 0 ) {
                 ?><span class="info"><span class="commentsnumber">&nbsp;</span><?php
                 echo $numcom;
-                ?></span></span><?php
+                ?></span><?php
             }
+            ?></span><?php
         }
     }
 ?>
