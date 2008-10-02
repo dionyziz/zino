@@ -47,7 +47,7 @@
             ?></table><?php   
 
             ?><form method="post" action="do/adminpanel/ban"><?php
-            ?><p>Όνομα χρήστη : <input type="text" name="username" /> 
+            ?><p>Όνομα χρήστη : <input type="text" name="username" /> &nbsp;&nbsp;  
                         Λόγος Αποκλεισμού : <input type="text" name="reason" /></p><?php
             ?><p><input type="submit" value="Ban" /></p><?php
             ?></form><?php
