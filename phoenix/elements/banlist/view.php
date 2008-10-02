@@ -54,8 +54,6 @@
                                
             
             foreach ( $bannedUsers as $bannedUser ) {
-                //?><form method="post" action="do/adminpanel/revoke"><?php
-                    //?><p>Ο χρήστης <?php
                     ?><tr><td><?php
                     echo $bannedUser->Name;
                     ?></td><td><?php                    
@@ -63,12 +61,6 @@
                     ?></td><td><?php
                     echo $bannedUser->Expire;                
                     ?></td><td></td></tr><?php
-                    //?><input type="submit" value="Επαναφορά" /><?php
-                    //?><input type="hidden" name="userid" value="<?php
-                    //echo $bannedUser->Userid; 
-                    //?>" /><?php
-                    //?></p><?php
-                //?></form><?php
             }
             ?></table><?php   
             //
