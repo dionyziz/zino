@@ -23,7 +23,7 @@
                                 ?>%</dd>
                                 <span class="resultterm"><?php
                                     echo htmlspecialchars( $option->Text );
-                                ?></span>
+                                ?></span><?php
                             }
                             else {
                                 ?><dt class="voteterm"><input type="radio" name="poll_<?php
