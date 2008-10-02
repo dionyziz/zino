@@ -56,6 +56,8 @@
                     ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><input type="submit" value="Επαναφορά" /><?php
                     ?><input type="hidden" name="userid" value="<?php
+                    echo $bannedUser->Userid;
+                    ?>" /><?php
                     ?></form><?php
                     ?></td></tr><?php
             }
