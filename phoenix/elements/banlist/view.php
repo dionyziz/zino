@@ -41,14 +41,12 @@
             ?><table>
                 <tr>
                     <th>Χρήστης</th>
-                    <th>Άρχισε</th>
-                    <th>Τελειώνει</th>
+                    <th>Πότε</th>
                     <th>Αιτία</th>
                 </tr>
                 <tr>
                     <td>aaaaaaaaaaaaaaaaaa</td>
                     <td>aaaaa</td>
-                    <td></td>
                     <td>dddddddddddddddddd</td>
                 </tr><?php
                                
@@ -57,9 +55,7 @@
                     ?><tr><td><?php
                     echo $bannedUser->Name;
                     ?></td><td><?php                    
-                    Element( 'date/diff', $bannedUser->Started );
-                    ?></td><td><?php
-                    Element( 'date/diff', $bannedUser->Expire );                
+                    Element( 'date/diff', $bannedUser->Started );              
                     ?></td><td></td></tr><?php
             }
             ?></table><?php   
