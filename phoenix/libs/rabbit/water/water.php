@@ -24,6 +24,7 @@
         public function Profile() {}
         public function ProfileEnd() {}
         public function LogSQL() {}
+        public function LogSQLEnd() {}
         public function __destruct() {
             die( 'Another day.' );
         }
