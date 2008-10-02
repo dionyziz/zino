@@ -18,9 +18,11 @@ div#polllist ul li div.results ul {
 	margin: 0;
 	padding: 0;
 }
+/*
 div#polllist ul li div.results dl.pollinfo {
 	text-align: right;
 }
+*/
 div#polllist ul li div.results dl.pollinfo dd {
 	display: inline;
 	margin: 0;
