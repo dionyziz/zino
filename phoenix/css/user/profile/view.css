@@ -296,7 +296,7 @@ div#profile div.main div.friends a.button {
 	margin-left: 0;
 }
 div#profile div.main div.questions {
-	width: 70%;
+/*	width: 70%;*/
 }
 div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
@@ -328,7 +328,7 @@ div#profile div.main div.lastpoll {
 }
 
 div#profile div.main div.lastpoll h3 {
-	padding: 5px 0 5px 0;
+	padding: 5px 0;
 	margin: 0;
 }
 div#profile div.main div.lastpoll h4 {
