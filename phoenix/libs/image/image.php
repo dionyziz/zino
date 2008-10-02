@@ -201,7 +201,7 @@
             $frontpageimagefinder = New FrontpageImageFinder();
             $latest = $frontpageimagefinder->FindLatest();
             foreach ( $latest as $photo ) {
-                if ( $photo->Id == $this->Id ) {
+                if ( $photo->Imageid == $this->Id ) {
                     Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
                     break;
                 }
@@ -218,7 +218,7 @@
             $frontpageimagefinder = New FrontpageImageFinder();
             $latest = $frontpageimagefinder->FindLatest();
             foreach ( $latest as $photo ) {
-                if ( $photo->Id == $this->Id ) {
+                if ( $photo->Imageid == $this->Id ) {
                     Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
                     break;
                 }
