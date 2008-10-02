@@ -7,7 +7,7 @@
     define( 'WATER_EVENTTYPE_QUERY', 3 );
     
     function w_assert( $condition, $description ) {
-        assert( $condition, $description );
+        assert( $condition );
     }
 
     class Water {
@@ -15,6 +15,11 @@
         protected $mProjectKey = 'thebigtest';
         protected $mFootprintData = '[';
 
+        public function Enable() {}
+        public function Disable() {}
+        public function Trace() {}
+        public function Notice() {}
+        public function Warning() {}
         public function __destruct() {
             die( 'Another day.' );
         }
