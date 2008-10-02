@@ -24,11 +24,9 @@
                 ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><p>Ο χρήστης <?php
                     echo $bannedUser->Name;
-                    ?> αποκλείστηκε στις <?php
-                    echo $bannedUser->Started;
-                    ?> μέχρι τις <?php
-                    echo $bannedUser->Expire;                
-                    ?>.  <?php
+                    ?> έχει αποκλείστηκε για <?php
+                    Element( 'date/diff', $bannedUser->Expire );
+                    ?> μέρες. <?php
                     ?><input type="submit" value="Επαναφορά" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid; 
