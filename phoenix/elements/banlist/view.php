@@ -34,7 +34,7 @@
                     ?></td><td><?php                    
                     Element( 'date/diff', $bannedUser->Started );              
                     ?></td><td><?php
-                    echo $bannedUser->Reason;
+                    echo htmlspecialchars( $bannedUser->Reason );
                     ?></td><td><?php
                     ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><input type="submit" value="Επαναφορά" /><?php
