@@ -1,6 +1,6 @@
 <?php
     class ElementFrontpagePollList extends Element {
-        protected $mPersistent = array( 'pollseq' );
+        //protected $mPersistent = array( 'pollseq' );
 
         public function Render( $pollseq ) {
             global $libs;

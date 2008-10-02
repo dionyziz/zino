@@ -1,6 +1,6 @@
 <?php    
     class ElementFrontpageShoutboxRecent extends Element {
-        protected $mPersistent = array( 'shoutboxseq' );
+        //protected $mPersistent = array( 'shoutboxseq' );
         public function Render( $shoutboxseq ) {
             global $libs;
             $libs->Load( 'shoutbox' );
