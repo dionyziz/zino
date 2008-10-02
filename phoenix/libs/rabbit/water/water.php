@@ -2,9 +2,15 @@
     error_reporting( E_ALL );
 
     define( 'WATER_PROTOCOL_VERSION', 1 );
+
     define( 'WATER_EVENTTYPE_ALERT', 1 );
     define( 'WATER_EVENTTYPE_PROFILE', 2 );
     define( 'WATER_EVENTTYPE_QUERY', 3 );
+
+    define( 'WATER_ALERTTYPE_TRACE', 0 );
+    define( 'WATER_ALERTTYPE_NOTICE', 1 );
+    define( 'WATER_ALERTTYPE_WARNING', 2 );
+    define( 'WATER_ALERTTYPE_ERROR', 3 );
     
     function w_assert( $condition, $description = false ) {
         assert( $condition );
@@ -15,7 +21,7 @@
         protected $mProjectKey = 'thebigtest';
         protected $mFootprintData = '[';
 
-        public function Enable() {}
+        public function Enable() {} // tODO...
         public function Disable() {}
         public function Enabled() {}
         public function Trace() {}
@@ -26,13 +32,36 @@
         public function LogSQL() {}
         public function LogSQLEnd() {}
         public function HandleError( $errno, $errstr ) {
-            echo "WATER ERROR: " . $errstr . "<br />";
+            switch ( $errno ) {
+                case E_ERROR:
+                case E_CORE_ERROR:
+                case E_PARSE:
+                case E_COMPILE_ERROR:
+                case E_USER_ERROR:
+                case E_RECOVERABLE_ERROR:
+                    $type = WATER_ALERTTYPE_ERROR;
+                    break;
+                case E_WARNING:
+                case E_CORE_WARNING:
+                case E_COMPILE_WARNING:
+                case E_USER_WARNING:
+                    $type = WATER_ALERTTYPE_WARNING;
+                    break;
+                case E_NOTICE:
+                case E_USER_NOTICE:
+                case E_STRICT:
+                case E_DEPRECATED:
+                case E_USER_DEPRECATED:
+                    $type = WATER_ALERTTYPE_NOTICE;
+                    break;
+            }
+            $this->AppendAlert( $type, $errstr, time(), debug_backtrace() );
         }
         public function HandleException( Exception $e ) {
             echo "WATER EXCEPTION: " . $e->getMessage() . "<br />";
         }
         public function __destruct() {
-            die( 'Another day.' );
+            $this->Post();
         }
         public function AppendAlert( $type, $description, $start, $callstack ) {
             $this->mFootprintData .= w_json_encode( array(
@@ -120,6 +149,7 @@
             ?><br /><?php
             var_dump( $data );
             curl_close( $curl );
+            die();
         }
     }
 
