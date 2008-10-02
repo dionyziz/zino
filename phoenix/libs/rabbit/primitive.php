@@ -21,12 +21,17 @@
     set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
     // load the debugging library
-    $water = require_once 'libs/rabbit/water.php';
-    $water->SetSetting( 'window_url'   , $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
-    $water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
-    $water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
-    $water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
-    $water->SetSetting( 'calltracelvl' , 8 );
+    if ( UserIp() == '87.202.123.86' ) {
+        require_once 'libs/rabbit/water/water.php';
+    }
+    else {
+        $water = require_once 'libs/rabbit/water.php';
+        $water->SetSetting( 'window_url'   , $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
+        $water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
+        $water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
+        $water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
+        $water->SetSetting( 'calltracelvl' , 8 );
+    }
     
     w_assert( isset( $rabbit_settings[ 'rootdir' ] ), "`rootdir' setting is not defined" );
     w_assert( isset( $rabbit_settings[ 'applicationname' ] ), "`applicationname' setting is not defined" );
