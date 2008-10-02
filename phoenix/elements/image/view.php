@@ -1,7 +1,7 @@
 <?php
     class ElementImageView extends Element {
-		protected $mPersistent = array( 'imageid' , 'type' , 'class' , 'alttitle' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' );
-		public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
+		protected $mPersistent = array( 'imageid' , 'type' , 'class' , 'alttitle' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' , 'numcom' );
+		public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 ) {
             //imageid  , imageuserid, imagewidth, imageheight
 			global $xc_settings;
             global $rabbit_settings;
@@ -23,7 +23,7 @@
 				default:
 					throw New Exception( 'Invalid image type' );
 			}
-            ?><img src="<?php
+            ?><span class="imageview"><img src="<?php
             Element( 'image/url', $imageid , $imageuserid , $type );
             ?>"<?php
             if ( $class != "" ) {
@@ -54,6 +54,12 @@
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
 			?>" /><?php
+            if ( $numcom != 0 ) {
+                ?><span class="info"><span class="commentsnumber">&nbsp;</span><?php
+                echo $numcom;
+                ?></span><?php
+            }
+            ?></span><?php
         }
     }
 ?>
