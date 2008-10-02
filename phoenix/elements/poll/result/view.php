@@ -8,9 +8,9 @@
                     ?><li>
                         <dl><?php
                             if ( $showresults ) {
-                                ?><dt class="resultterm"><?php
+                                ?><span class="resultterm"><?php
                                     echo htmlspecialchars( $option->Text );
-                                ?></dt>
+                                ?></span>
                                 <dd><?php //max width will be 220px and minimum 24px
                                 ?><div class="option">
                                     <div class="percentagebar" style="width:<?php
