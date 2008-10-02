@@ -1,6 +1,6 @@
 <?php
     class ElementFrontpageImageList extends Element {
-        protected $mPersistent = array( 'imageseq' );
+        //protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
