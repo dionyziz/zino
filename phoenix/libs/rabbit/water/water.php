@@ -82,8 +82,8 @@
     }
 
     class Water {
-        protected $mProjectName = 'test';
-        protected $mProjectKey = 'thebigtest';
+        protected $mProjectName = 'zino';
+        protected $mProjectKey = 'flowing314sand';
         protected $mFootprintData = '[';
         protected $mNumErrors = 0;
         protected $mNumWarnings = 0;
