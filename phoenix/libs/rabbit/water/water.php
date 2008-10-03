@@ -177,7 +177,7 @@
             return $ret;
         }
         protected function Finalize() {
-            if ( count( $this->mFootprintData ) > 1 ) {
+            if ( strlen( $this->mFootprintData ) > 1 ) {
                 $this->mFootprintData = substr( $this->mFootprintData, 0, -1 );
             }
             $this->mFootprintData .= ']';
