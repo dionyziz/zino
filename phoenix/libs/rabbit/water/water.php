@@ -163,6 +163,8 @@
             ) ) . ',';
         }
         protected function FormatCallstack( $callstack ) {
+            // return array();
+
             $ret = array();
             foreach ( $callstack as $item ) {
                 $retitem = array(
@@ -170,7 +172,7 @@
                     isset( $item[ 'file' ] )? $item[ 'file' ]: '',
                     isset( $item[ 'line' ] )? $item[ 'line' ]: 0
                 );
-                $ret[] = $item;
+                $ret[] = $retitem;
             }
             return $ret;
         }
