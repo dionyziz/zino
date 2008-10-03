@@ -102,7 +102,7 @@
             return $this->mEnabled;
         }
         public function Trace( $description, $dump = false ) {
-            $this->AppendAlert( WATER_E_USER_TRACE, $description, microtime( true ), debug_backtrace() );
+            $this->HandleError( WATER_E_USER_TRACE, $description );
         }
         public function Notice( $description, $dump = false ) {
             trigger_error( $description, E_USER_NOTICE );
@@ -162,6 +162,10 @@
                 case E_USER_DEPRECATED:
                     $type = WATER_ALERTTYPE_NOTICE;
                     ++$this->mNumNotices;
+                    break;
+                case WATER_E_USER_TRACE:
+                    $type = WATER_ALERTTYPE_TRACE;
+                    ++$this->mNumTraces;
                     break;
             }
             $this->AppendAlert( $type, $errstr, microtime( true ), debug_backtrace() );
