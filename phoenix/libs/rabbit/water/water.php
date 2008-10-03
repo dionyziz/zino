@@ -152,8 +152,8 @@
             foreach ( $callstack as $item ) {
                 $retitem = array(
                     $item[ 'function' ],
-                    $item[ 'file' ],
-                    $item[ 'line' ]
+                    isset( $item[ 'file' ] )? $item[ 'file' ]: '',
+                    isset( $item[ 'line' ] )? $item[ 'line' ]: 0
                 );
                 $ret[] = $item;
             }
