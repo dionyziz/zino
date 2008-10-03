@@ -268,12 +268,18 @@
                     margin: 0;
                     list-style: none;
                 }
-                div#water ul li {
+                div#water ul li, div#water p {
                     color: white;
                 }
             </style>
             <div id="water" onclick="window.open('<?php
-                echo htmlspecialchars( $this->mFootprintURL );
+                if ( $this->mResponseStatus == 200 ) {
+                    echo htmlspecialchars( $this->mFootprintURL );
+                }
+                else {
+                    ?>https://water.kamibu.com/errors/<?php
+                    echo $this->mResponseStatus;
+                }
                 ?>')" title="Debug this page"><?php
                 if ( $this->mResponseStatus == 200 ) {
                     ?><h2>Debug this page</h2>
