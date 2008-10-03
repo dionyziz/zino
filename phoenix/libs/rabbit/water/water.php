@@ -188,7 +188,7 @@
             $this->Finalize();
             $curl = curl_init();
 
-            die( $this->mFootprintData );
+            // die( $this->mFootprintData );
 
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
