@@ -101,7 +101,7 @@
         public function Enabled() {
             return $this->mEnabled;
         }
-        public function Trace( $description, $dump ) {
+        public function Trace( $description, $dump = false ) {
             $this->AppendAlert( WATER_E_USER_TRACE, $description, time(), debug_backtrace() );
         }
         public function Notice( $description, $dump = false ) {
