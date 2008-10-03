@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Ζino</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
     </head>
     <body>
         <h1 style="text-align:center;font-size: 120%;">Zino</h1>
