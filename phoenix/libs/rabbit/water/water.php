@@ -225,7 +225,7 @@
             ?><style type="text/css">
                 div#water, div#water h2, div#water ul, div#water li {
                     /* clear parent application stylesheets */
-                    size: 100%;
+                    font-size: 11pt;
                     clear: none;
                     float: none;
                     background: inherit;
