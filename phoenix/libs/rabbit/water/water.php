@@ -184,6 +184,8 @@
         }
         public function Post() {
             $this->AppendAlert( WATER_ALERTTYPE_ERROR, 'This is a test', 12, array() );
+            $this->AppendAlert( WATER_ALERTTYPE_NOTICE, 'This is another test', 99, array() );
+            $this->AppendAlert( WATER_ALERTTYPE_TRACE, 'This is yet another test', 2259327, array() );
 
             $this->mDataSent = true;
 
