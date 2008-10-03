@@ -105,6 +105,7 @@
         public function LogSQL() {}
         public function LogSQLEnd() {}
         public function HandleError( $errno, $errstr ) {
+            return;
             switch ( $errno ) {
                 case E_ERROR:
                 case E_CORE_ERROR:
@@ -134,6 +135,7 @@
             $this->AppendAlert( $type, $errstr, time(), debug_backtrace() );
         }
         public function HandleException( Exception $e ) {
+            return;
             $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), time(), $e->getTrace() );
         }
         public function __destruct() {
