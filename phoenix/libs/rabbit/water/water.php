@@ -194,8 +194,8 @@
             curl_setopt( $curl, CURLOPT_POST, 1 );
             curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
             curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
-            curl_setopt( $curl, CURLOPT_CAINFO, 'orion.kamibu.com.crt' );
-            curl_setopt( $curl, CURLOPT_CAPATH, 'orion.kamibu.com.crt' );
+            curl_setopt( $curl, CURLOPT_CAINFO, 'libs/rabbit/water/orion.kamibu.com.crt' );
+            curl_setopt( $curl, CURLOPT_CAPATH, 'libs/rabbit/water/orion.kamibu.com.crt' );
             curl_setopt( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
             $data = curl_exec( $curl );
 
