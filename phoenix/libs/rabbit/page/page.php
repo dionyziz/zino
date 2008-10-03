@@ -314,7 +314,7 @@ class PageHTML extends Page {
         global $water;
         
         if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.202.123.86' ) {
-            unset( $water );
+            $water->Post();
         }
         // keep in mind that profiles and alerts beyond this point will not be dumped
         if ( $this->mDoWaterDump ) {

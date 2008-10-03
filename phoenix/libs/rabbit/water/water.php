@@ -89,6 +89,7 @@
         protected $mNumTraces = 0;
         protected $mNumQueries = 0;
         protected $mFootprintURL = '';
+        protected $mDataSent = false;
 
         public function Enable() {} // TODO...
         public function Disable() {}
@@ -133,7 +134,9 @@
             $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), time(), $e->getTrace() );
         }
         public function __destruct() {
-            $this->Post();
+            if ( !$this->mDataSent ) {
+                $this->Post();
+            }
         }
         public function AppendAlert( $type, $description, $start, $callstack ) {
             $this->mFootprintData .= w_json_encode( array(
@@ -172,6 +175,8 @@
             $this->mFootprintData .= ']';
         }
         public function Post() {
+            $this->mDataSent = true;
+
             $this->Finalize();
             $curl = curl_init();
 
