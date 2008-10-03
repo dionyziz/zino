@@ -105,7 +105,6 @@
         public function LogSQL() {}
         public function LogSQLEnd() {}
         public function HandleError( $errno, $errstr ) {
-            return;
             switch ( $errno ) {
                 case E_ERROR:
                 case E_CORE_ERROR:
@@ -135,7 +134,6 @@
             $this->AppendAlert( $type, $errstr, time(), debug_backtrace() );
         }
         public function HandleException( Exception $e ) {
-            return;
             $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), time(), $e->getTrace() );
         }
         public function __destruct() {
@@ -165,6 +163,8 @@
             ) ) . ',';
         }
         protected function FormatCallstack( $callstack ) {
+            return array();
+
             $ret = array();
             foreach ( $callstack as $item ) {
                 $retitem = array(
@@ -183,10 +183,6 @@
             $this->mFootprintData .= ']';
         }
         public function Post() {
-            $this->AppendAlert( WATER_ALERTTYPE_ERROR, 'This is a test', 12, array() );
-            $this->AppendAlert( WATER_ALERTTYPE_NOTICE, 'This is another test', 99, array() );
-            $this->AppendAlert( WATER_ALERTTYPE_TRACE, 'This is yet another test', 2259327, array() );
-
             $this->mDataSent = true;
 
             $this->Finalize();
