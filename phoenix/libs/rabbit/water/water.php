@@ -13,6 +13,8 @@
     define( 'WATER_ALERTTYPE_ERROR', 3 );
 
     define( 'WATER_HTTPERROR_CURL', 418 );
+
+    define( 'WATER_E_USER_TRACE', 0 );
     
     function w_assert( $condition, $description = false ) {
         assert( $condition );
@@ -30,17 +32,12 @@
         }
         if ( is_string( $what ) ) {
             if ( $chopstrings > 0 && $chopstrings < strlen( $what ) ) { 
-                // avoid SELECT queries ( There is no point in hiding them ) -- Aleksis
-                // NO. How do you know it's a query? The json encoding system should be generalized. 
-                // Say I have a 50MB-string starting with the word "SELECT", this doesn't mean it has to crash water! --dionyziz
                 $what = substr( $what, 0, $chopstrings ) . '...';
             }
             if ( $ascii ) {
                 return '"' . addcslashes( $what, "\\\"\n\r\t\0..\37" ) . '"';
             }
-            else {
-                return '"' . addcslashes( $what, "\\\"\n\r\t\0..\37!@\@\177..\377" ) . '"';
-            }
+            return '"' . addcslashes( $what, "\\\"\n\r\t\0..\37!@\@\177..\377" ) . '"';
         }
         if ( is_resource( $what ) ) {
             return '"[resource: ' . get_resource_type( $what ) . ']"';
@@ -52,31 +49,28 @@
             return '"[object: ' . get_class( $what ) . ']"';
         }
         if ( is_array( $what ) ) {
+            $ret = '';
             // check if it is non-assosiative
             if ( empty( $what ) || array_keys( $what ) === range( 0, count( $what ) - 1 ) ) {
-                $ret = '[';
                 for ( $i = 0; $i < count( $what ); ++$i ) {
                     $ret .= w_json_encode( $what[ $i ], $chopstrings, $depth + 1, $ascii );
                     if ( $i + 1 < count( $what ) ) {
                         $ret .= ',';
                     }
                 }
-                $ret .= ']';
-                return $ret;
+                return '[' . $ret . ']';
             }
-            $ret = '{';
             reset( $what );
             for ( $i = 0 ; $i < count( $what ) ; ++$i ) {
                 $item = each( $what );
-                $ret .= w_json_encode( $item[ 'key' ], $chopstrings, $depth, $ascii );
-                $ret .= ':';
-                $ret .= w_json_encode( $item[ 'value'], $chopstrings, $depth + 1, $ascii );
+                $ret .= w_json_encode( $item[ 'key' ], $chopstrings, $depth, $ascii )
+                     . ':'
+                     . w_json_encode( $item[ 'value'], $chopstrings, $depth + 1, $ascii );
                 if ( $i + 1 < count( $what ) ) {
                     $ret .= ',';
                 }
             }
-            $ret .= '}';
-            return $ret;
+            return '{' . $ret . '}';
         }
         return '"[unknown]"';
     }
@@ -93,17 +87,56 @@
         protected $mFootprintURL = '';
         protected $mDataSent = false;
         protected $mResponseStatus = 0;
+        protected $mLastSQLQuery = '';
+        protected $mLastSQLQueryStart = false;
+        protected $mProfiles = array();
+        protected $mEnabled = true;
 
-        public function Enable() {} // TODO...
-        public function Disable() {}
-        public function Enabled() {}
-        public function Trace() {}
-        public function Notice() {}
-        public function Warning() {}
-        public function Profile() {}
-        public function ProfileEnd() {}
-        public function LogSQL() {}
-        public function LogSQLEnd() {}
+        public function Enable() {
+            $this->mEnabled = true;
+        }
+        public function Disable() {
+            $this->mEnabled = false;
+        }
+        public function Enabled() {
+            return $this->mEnabled;
+        }
+        public function Trace( $description, $dump ) {
+            $this->AppendAlert( WATER_E_USER_TRACE, $description, time(), debug_backtrace() );
+        }
+        public function Notice( $description, $dump = false ) {
+            trigger_error( $description, E_USER_NOTICE );
+        }
+        public function Warning( $description, $dump = false ) {
+            trigger_error( $description, E_USER_WARNING );
+        }
+        public function Profile( $description, $dump = false ) {
+            array_push( $this->mProfiles, array( $description, time() ) );
+        }
+        public function ProfileEnd() {
+            if ( empty( $this->mProfiles ) ) {
+                $this->Warning( 'Water could not complete the profile you requested; make sure you run $water->Profile() when starting and $water->ProfileEnd() when completing your benchmark' );
+                return;
+            }
+            $profile = array_pop( $this->mProfiles );
+            $this->AppendProfile( $profile[ 0 ], $profile[ 1 ], time(), debug_backtrace() );
+        }
+        public function LogSQL( $description ) {
+            if ( $this->mLastSQLQueryStart !== false ) {
+                $this->Warning( 'Water could not log SQL query "'
+                    . $description
+                    . '" -- we are currently logging another SQL query ("'
+                    . $this->mLastSQLQuery
+                    . '"); use $water->LogSQLEnd() to terminate logging the previous query once it is done.' );
+                return;
+            }
+            $this->mLastSQLQueryStart = time();
+            $this->mLastSQLQuery = $description;
+        }
+        public function LogSQLEnd() {
+            $this->AppendQuery( $this->mLastSQLQuery, $this->mLastSQLQueryStart, time(), debug_backtrace() );
+            $this->mLastSQLQueryStart = false;
+        }
         public function HandleError( $errno, $errstr ) {
             switch ( $errno ) {
                 case E_ERROR:
