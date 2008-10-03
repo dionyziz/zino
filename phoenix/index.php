@@ -1,42 +1,28 @@
 <?php
     /*
-           This source code and all other source code files in
-               this repository, unless otherwise stated, are
+    This source code and all other source code files in
+    this repository, unless otherwise stated, are
 
-                   Copyright (c) 2005 - 2008, Kamibu Development Group.
+    Copyright (c) 2005 - 2008, Kamibu Development Group.
+    
+    More information can be found at /etc/legal.txt.
+    
+    Please leave this notice only in index.php and do not
+    paste it in other files of the source code repository.
+    */
 
-                       More information can be found at /etc/legal.txt.
+    global $page;
+    
+    require_once 'libs/rabbit/rabbit.php';
+    
+    Rabbit_Construct( 'HTML' );
 
-                           Please leave this notice only in index.php and do not
-                               paste it in other files of the source code repository.
-                                   */
+    $req = $_GET;
 
-//    global $page;
-  ?> <html>
-          <head>
-                         <title>Ζino</title>
-                                                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                                                                           </head>
-                                                                                                          <body>
-                                                                                                                                                 <h1 style="text-align:center;font-size: 120%;">Zino</h1>
-                                                                                                                                                                                                <p>
-                                                                                                                                                                                                                                                           Στο Zino γίνονται εργασίες συντήρησης. <br />
-                                                                                                                                                                                                                                                                                                                                  Το site θα είναι διαθέσιμο και πάλι σε λίγα λεπτά.
-                                                                                                                                                                                                                                                                                                                                                                                                                 </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </html><?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           die();
+    Rabbit_ClearPostGet();
+    
+    $page->AttachMainElement( 'main', $req );
+    $page->Output();
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               require_once 'libs/rabbit/rabbit.php';
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Rabbit_Construct( 'HTML' );
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       $req = $_GET;
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Rabbit_ClearPostGet();
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               $page->AttachMainElement( 'main', $req );
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   $page->Output();
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Rabbit_Destruct();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ?>
+    Rabbit_Destruct();
+?>

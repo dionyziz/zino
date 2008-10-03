@@ -5,7 +5,6 @@
     define( 'AD_POLL', 4 );
 
     function Project_Construct( $mode ) {
-        die();
         global $xc_settings;
         global $rabbit_settings;
         global $water;
