@@ -183,6 +183,8 @@
             $this->mFootprintData .= ']';
         }
         public function Post() {
+            $this->AppendAlert( WATER_ALERTTYPE_ERROR, 'This is a test', 12, array() );
+
             $this->mDataSent = true;
 
             $this->Finalize();
