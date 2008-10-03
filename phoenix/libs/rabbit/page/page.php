@@ -313,18 +313,20 @@ class PageHTML extends Page {
     protected function WaterLink() {
         global $water;
         
-        if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.202.123.86' ) {
-            ob_start();
-            $water->Post();
-            $this->mBody = ob_get_clean() . $this->mBody;
-        }
         // keep in mind that profiles and alerts beyond this point will not be dumped
         if ( $this->mDoWaterDump ) {
-            $water->SetSetting( 'strict', $this->XMLStrict() );
-            ob_start();
-            $water->GenerateHTML();
-            $this->mBody = ob_get_clean() . $this->mBody;
-            $this->AttachStylesheet( 'css/water.css' );
+            if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.202.123.86' ) {
+                ob_start();
+                $water->Post();
+                $this->mBody = ob_get_clean() . $this->mBody;
+            }
+            else {
+                $water->SetSetting( 'strict', $this->XMLStrict() );
+                ob_start();
+                $water->GenerateHTML();
+                $this->mBody = ob_get_clean() . $this->mBody;
+                $this->AttachStylesheet( 'css/water.css' );
+            }
         }
     }
 
