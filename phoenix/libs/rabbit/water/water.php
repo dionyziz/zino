@@ -230,7 +230,7 @@
             ?><style type="text/css">
                 div#water, div#water h2, div#water ul, div#water li {
                     /* clear parent application stylesheets */
-                    font-size: 11pt;
+                    font-size: 10pt;
                     clear: none;
                     float: none;
                     background: inherit;
@@ -245,6 +245,7 @@
                     border: none;
                     text-decoration: none;
                     cursor: pointer;
+                    z-index: 99999999999; /* a wild maximum guess */
                 }
                 div#water {
                     font-family: Verdana;
@@ -262,6 +263,7 @@
                     padding: 4px;
                     background-color: #3a5d89;
                     color: #eee;
+                    border-bottom: #5a8da9;
                 }
                 div#water ul {
                     padding: 5px;
