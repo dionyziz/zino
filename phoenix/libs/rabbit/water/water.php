@@ -53,7 +53,7 @@
         }
         if ( is_array( $what ) ) {
             // check if it is non-assosiative
-            if ( array_keys( $what ) === range( 0, count( $what ) - 1 ) ) {
+            if ( empty( $what ) || array_keys( $what ) === range( 0, count( $what ) - 1 ) ) {
                 $ret = '[';
                 for ( $i = 0; $i < count( $what ); ++$i ) {
                     $ret .= w_json_encode( $what[ $i ], $chopstrings, $depth + 1, $ascii );
