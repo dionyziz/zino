@@ -11,6 +11,8 @@
     define( 'WATER_ALERTTYPE_NOTICE', 1 );
     define( 'WATER_ALERTTYPE_WARNING', 2 );
     define( 'WATER_ALERTTYPE_ERROR', 3 );
+
+    define( 'WATER_HTTPERROR_CURL', 418 );
     
     function w_assert( $condition, $description = false ) {
         assert( $condition );
@@ -90,6 +92,7 @@
         protected $mNumQueries = 0;
         protected $mFootprintURL = '';
         protected $mDataSent = false;
+        protected $mResponseStatus = 0;
 
         public function Enable() {} // TODO...
         public function Disable() {}
@@ -183,11 +186,7 @@
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
                 'authentication' => $this->mProjectName . ':' . $this->mProjectKey,
-                'footprintdata' => '[
-                    [ 1, [ 2, "Testing", 1222902047 ], [ [ "ElementUserProfileView", "elements/user/profile/view.php", 29 ], [ "CommentCreate", "libs/comment.php", 713 ], [ "UserRegister", "libs/user.php", 40 ] ] ],
-                    [ 2, [ "Test test!!", 1222222222, 1222222257 ] , [ [ 14, 15, 16 ], [ 28, 29, 30 ], [ 31, 32, 33 ]] ],
-                    [ 3, [ "SELECT RAND();", 1222222222, 1222222361 ], [] ]
-                ]',
+                'footprintdata' => $this->mFootprintData,
             );
 
             $header[ 0 ] = "Accept: text/plain";
@@ -214,15 +213,14 @@
             $data = curl_exec( $curl );
 
             if ( $data === false ) {
-                ?>FAILURE!<?php
-                echo curl_error( $curl );
-                return;
+                $this->mResponseStatus = WATER_HTTPERROR_CURL;
+                curl_error( $curl );
             }
-            
-            $code = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
-            
-            $this->mFootprintURL = $data;
-            curl_close( $curl );
+            else {
+                $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
+                $this->mFootprintURL = $data;
+                curl_close( $curl );
+            }
 
             $this->DumpHTML();
         }
@@ -276,20 +274,28 @@
             </style>
             <div id="water" onclick="window.open('<?php
                 echo htmlspecialchars( $this->mFootprintURL );
-                ?>')" title="Debug this page">
-                <h2>Debug this page</h2>
-                <ul>
-                    <li><?php
-                    echo $this->mNumWarnings;
-                    ?> warnings</li>
-                    <li><?php
-                    echo $this->mNumNotices;
-                    ?> notices</li>
-                    <li><?php
-                    echo $this->mNumTraces;
-                    ?> traces</li>
-                </ul>
-            </div><?php
+                ?>')" title="Debug this page"><?php
+                if ( $this->mResponseStatus == 200 ) {
+                    ?><h2>Debug this page</h2>
+                        <ul>
+                            <li><?php
+                            echo $this->mNumWarnings;
+                            ?> warnings</li>
+                            <li><?php
+                            echo $this->mNumNotices;
+                            ?> notices</li>
+                            <li><?php
+                            echo $this->mNumTraces;
+                            ?> traces</li>
+                        </ul><?php
+                }
+                else {
+                    ?><h2>Debugger error</h2>
+                        <p>Your debug session could not be started.<br />
+                        Click here to fix this problem.</p>
+                    <?php
+                }
+            ?></div><?php
         }
     }
 
