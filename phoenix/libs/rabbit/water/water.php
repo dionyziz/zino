@@ -146,21 +146,21 @@
                 WATER_EVENTTYPE_ALERT,
                 array( $type, $description, $start ),
                 $this->FormatCallstack( $callstack )
-            ) );
+            ) ) . ',';
         }
         public function AppendProfile( $description, $start, $end, $callstack ) {
             $this->mFootprintData .= w_json_encode( array(
                 WATER_EVENTTYPE_PROFILE,
                 array( $description, $start, $end ),
                 $this->FormatCallstack( $callstack )
-            ) );
+            ) ) . ',';
         }
         public function AppendQuery( $description, $start, $end, $callstack ) {
             $this->mFootprintData .= w_json_encode( array(
                 WATER_EVENTTYPE_QUERY,
                 array( $description, $start, $end ),
                 $this->FormatCallstack( $callstack )
-            ) );
+            ) ) . ',';
         }
         protected function FormatCallstack( $callstack ) {
             $ret = array();
@@ -175,6 +175,9 @@
             return $ret;
         }
         protected function Finalize() {
+            if ( count( $this->mFootprintData ) > 1 ) {
+                $this->mFootprintData = substr( $this->mFootprintData, 0, -1 );
+            }
             $this->mFootprintData .= ']';
         }
         public function Post() {
@@ -268,8 +271,12 @@
                     margin: 0;
                     list-style: none;
                 }
-                div#water ul li, div#water p {
+                div#water ul li {
                     color: white;
+                }
+                div#water p {
+                    color: white;
+                    padding: 5px;
                 }
             </style>
             <div id="water" onclick="window.open('<?php
