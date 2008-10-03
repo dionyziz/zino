@@ -83,8 +83,14 @@
         protected $mProjectName = 'test';
         protected $mProjectKey = 'thebigtest';
         protected $mFootprintData = '[';
+        protected $mNumErrors = 0;
+        protected $mNumWarnings = 0;
+        protected $mNumNotices = 0;
+        protected $mNumTraces = 0;
+        protected $mNumQueries = 0;
+        protected $mFootprintURL = '';
 
-        public function Enable() {} // tODO...
+        public function Enable() {} // TODO...
         public function Disable() {}
         public function Enabled() {}
         public function Trace() {}
@@ -103,12 +109,14 @@
                 case E_USER_ERROR:
                 case E_RECOVERABLE_ERROR:
                     $type = WATER_ALERTTYPE_ERROR;
+                    ++$this->mNumErrors;
                     break;
                 case E_WARNING:
                 case E_CORE_WARNING:
                 case E_COMPILE_WARNING:
                 case E_USER_WARNING:
                     $type = WATER_ALERTTYPE_WARNING;
+                    ++$this->mNumWarnings;
                     break;
                 case E_NOTICE:
                 case E_USER_NOTICE:
@@ -116,12 +124,13 @@
                 case E_DEPRECATED:
                 case E_USER_DEPRECATED:
                     $type = WATER_ALERTTYPE_NOTICE;
+                    ++$this->mNumNotices;
                     break;
             }
             $this->AppendAlert( $type, $errstr, time(), debug_backtrace() );
         }
         public function HandleException( Exception $e ) {
-            echo "WATER EXCEPTION: " . $e->getMessage() . "<br />";
+            $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), time(), $e->getTrace() );
         }
         public function __destruct() {
             $this->Post();
@@ -207,12 +216,73 @@
             
             $code = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
             
-            ?>SUCCESS! <?php
-            echo $code;
-            ?><br /><?php
-            var_dump( $data );
+            $this->mFootprintURL = $data;
             curl_close( $curl );
-            die();
+
+            $this->DumpHTML();
+        }
+        protected function DumpHTML() {
+            ?><style type="text/css">
+                div#water, div#water h2, div#water ul, div#water li {
+                    /* clear parent application stylesheets */
+                    size: 100%;
+                    clear: none;
+                    float: none;
+                    background: inherit;
+                    color: black;
+                    text-align: left;
+                    position: static;
+                    padding: 0;
+                    margin: 0;
+                    font-weight: normal;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    border: none;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+                div#water {
+                    font-family: Verdana;
+                    border: 1px solid #abc;
+                    width: 200px;
+                    background-color: #333;
+                    opacity: 0.9;
+                    position: fixed;
+                    bottom: 10px;
+                    right: 10px;
+                    cursor: pointer;
+                }
+                div#water h2 {
+                    margin: 0;
+                    padding: 4px;
+                    background-color: #3a5d89;
+                    color: #eee;
+                }
+                div#water ul {
+                    padding: 5px;
+                    margin: 0;
+                    list-style: none;
+                }
+                div#water ul li {
+                    color: white;
+                }
+            </style>
+            <div id="water" onclick="window.open('<?php
+                echo htmlspecialchars( $this->mFootprintURL );
+                ?>')" title="Debug this page">
+                <h2>Debug this page</h2>
+                <ul>
+                    <li><?php
+                    echo $this->mNumWarnings;
+                    ?> warnings</li>
+                    <li><?php
+                    echo $this->mNumNotices;
+                    ?> notices</li>
+                    <li><?php
+                    echo $this->mNumTraces;
+                    ?> traces</li>
+                </ul>
+            </div><?php
         }
     }
 
