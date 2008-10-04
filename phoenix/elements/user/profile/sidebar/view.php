@@ -1,17 +1,20 @@
 <?php
     class ElementUserProfileSidebarView extends Element {
         public function Render( $theuser ) {
-            global $rabbit_settings;
+            //global $rabbit_settings;
             global $libs;
-            global $user;
+            //global $user;
             
             $libs->Load( 'relation/relation' );
             
             ?><div class="sidebar">
                 <div class="basicinfo"><?php
-                    Element( 'user/profile/sidebar/who', $theuser );
+                    Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuser->Id , $theuser->Profile->Updated ); 
+                    /*
+                    Element( 'user/profile/sidebar/who', $theuser , $theuser->Id , $theuser->Avatar->Id );
                     Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );
                     Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Mood->Id, $theuser->Gender );
+                    
                     if ( $user->Id != $theuser->Id && $user->Exists() ) {
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
@@ -28,7 +31,20 @@
                             ?>' )"><span>&nbsp;</span>Διαγραφή από τους φίλους</a></div><?php
                         }
                     }
+                    
                     Element( 'user/profile/sidebar/info', $theuser );
+                    */
+					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
+						?><dt><strong>Online</strong></dt>
+						<dd><?php
+						if ( $theuser->LastActivity->IsOnline() ) {
+							?>αυτή τη στιγμή!<?php
+						}
+						else {
+							Element( 'date/diff' , $theuser->LastActivity->Updated );
+						}
+						?></dd><?php
+					}
                 ?></div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuser->Id , $theuser->Profile->Updated );
             ?></div><?php
