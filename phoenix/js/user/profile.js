@@ -35,6 +35,31 @@ var Profile = {
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
 		return false;
 	},
+    ShowFriendLinks : function( relationstatus , id ) {
+        if ( relationstatus ) {
+            var text = document.createTextNode( 'Προσθήκη στους φίλους' );
+            $( 'div.sidebar div.basicinfo div.friendedit' )
+            .addClass( 'addfriend' )
+            .removeClass( 'friendedit' )
+            .show()
+            .find( 'a' ).onclick( function() {
+                return Profile.AddFriend( id );
+            } )
+            .append( text );
+        }
+        if ( relationstatus ) {
+            var text = document.createTextNode( 'Διαγραφή από τους φίλους' );
+            $( 'div.sidebar div.basicinfo div.friendedit' )
+            .addClass( 'deletefriend' )
+            .removeClass( 'friendedit' )
+            .show()
+            .find( 'a' ).onclick( function() {
+                return Profile.DeleteFriend( id );
+            } )
+            .append( text );
+        }
+        //if relationstatus is anything else don't do something, user views his own profile
+    },
     AntisocialAddFriend : function ( userid ) {
         this.AntisocialCalled = true;
         if ( !$( '#antisocial' )[ 0 ] ) {

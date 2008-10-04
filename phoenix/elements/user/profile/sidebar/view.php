@@ -10,6 +10,18 @@
             ?><div class="sidebar">
                 <div class="basicinfo"><?php
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuser->Id , $theuser->Profile->Updated ); 
+                    ?><div class="friendedit"><a href=""><span>&nbsp;</span></a></div><?php
+                    if ( $user->Id != $theuser->Id && $user->Exists() ) {
+                        $finder = New FriendRelationFinder();
+                        $res = $finder->FindFriendship( $user , $theuser );
+                        if ( !$res ) {
+                            $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , ' .$theuser->Id . ' );' );
+                        }
+                        else {
+                            $page->AttachInlineScript( 'Profile.ShowFriendLink( false , ' . $res->Id . ' );' );
+                        }                    
+
+                    }
                     /*
                     Element( 'user/profile/sidebar/who', $theuser , $theuser->Id , $theuser->Avatar->Id );
                     Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );

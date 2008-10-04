@@ -14,6 +14,7 @@
                 $relation->Friendid = $theuser->Id;
                 $relation->Typeid = 3;
                 $relation->Save();
+                /*
                 ?>$( 'div.sidebar div.basicinfo div.deletefriend a' )
                 .css( 'display' , 'block' )
                 .animate( { opacity : "1" } , 400 )
@@ -23,6 +24,7 @@
                     ?>' );
                     return false;
                 } );<?php
+                */
             }
         }
     }

@@ -10,6 +10,7 @@
         if ( $relation->Exists() ) {
             if ( $relation->Userid == $user->Id ) {
                 $relation->Delete();
+                /*
                 ?>$( 'div.sidebar div.basicinfo div.addfriend a' )
                 .css( 'display' , 'block' )
                 .animate( { opacity : "1" } , 400 )
@@ -19,6 +20,7 @@
                     ?>' );
                     return false;
                 } );<?php
+                */
             }
         }
     }
