@@ -14,8 +14,10 @@
         $query->Bind( 'ip', $ip );
         $res = $query->Execute();
         
-        $amount = $res->FetchArray();
-        if ( $amount[ 'count' ] > 3 ) {
+        $row = $res->FetchArray();
+        $amount = $row[ 'count' ];
+        return $amount;
+        if ( $amount > 3 ) {
             return true;
         }
         return false;
