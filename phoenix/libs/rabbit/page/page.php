@@ -315,18 +315,9 @@ class PageHTML extends Page {
         
         // keep in mind that profiles and alerts beyond this point will not be dumped
         if ( $this->mDoWaterDump ) {
-            if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.202.123.86' ) {
-                ob_start();
-                $water->Post();
-                $this->mBody = ob_get_clean() . $this->mBody;
-            }
-            else {
-                $water->SetSetting( 'strict', $this->XMLStrict() );
-                ob_start();
-                $water->GenerateHTML();
-                $this->mBody = ob_get_clean() . $this->mBody;
-                $this->AttachStylesheet( 'css/water.css' );
-            }
+            ob_start();
+            $water->Post();
+            $this->mBody = ob_get_clean() . $this->mBody;
         }
     }
 
