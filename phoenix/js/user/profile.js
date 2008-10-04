@@ -36,29 +36,29 @@ var Profile = {
 		return false;
 	},
     ShowFriendLinks : function( relationstatus , id ) {
-        alert( 'showfriendlinks' );
+        var text;
         if ( relationstatus ) {
-            var text = document.createTextNode( 'Προσθήκη στους φίλους' );
+            text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'addfriend' )
             .removeClass( 'friendedit' )
             .show()
-            .find( 'a' )/*.onclick( function() {
+            .find( 'a' ).onclick( function() {
                 Profile.AddFriend( id );
                 return false;
-            } );*/
+            } )
             .append( text );
         }
-        if ( relationstatus ) {
-            var text = document.createTextNode( 'Διαγραφή από τους φίλους' );
+        else {
+            text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'deletefriend' )
             .removeClass( 'friendedit' )
             .show()
-            .find( 'a' )/*.onclick( function() {
+            .find( 'a' ).onclick( function() {
                 Profile.DeleteFriend( id );
                 return false;
-            } );*/
+            } )
             .append( text );
         }
         //if relationstatus is anything else don't do something, user views his own profile
