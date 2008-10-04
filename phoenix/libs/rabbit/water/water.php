@@ -285,57 +285,7 @@
             $this->DumpHTML();
         }
         protected function DumpHTML() {
-            ?><style type="text/css">
-                div#water, div#water h2, div#water ul, div#water li {
-                    /* clear parent application stylesheets */
-                    font-size: 10pt;
-                    clear: none;
-                    float: none;
-                    background: inherit;
-                    color: black;
-                    text-align: left;
-                    position: static;
-                    padding: 0;
-                    margin: 0;
-                    font-weight: normal;
-                    border-collapse: collapse;
-                    border-spacing: 0;
-                    border: none;
-                    text-decoration: none;
-                    cursor: pointer;
-                    z-index: 99999999999; /* a wild maximum guess */
-                }
-                div#water {
-                    font-family: Verdana;
-                    border: 1px solid #abc;
-                    width: 200px;
-                    background-color: #333;
-                    opacity: 0.9;
-                    position: fixed;
-                    bottom: 10px;
-                    right: 10px;
-                    cursor: pointer;
-                }
-                div#water h2 {
-                    margin: 0;
-                    padding: 4px;
-                    background-color: #3a5d89;
-                    color: #eee;
-                    border-bottom: #5a8da9;
-                }
-                div#water ul {
-                    padding: 5px;
-                    margin: 0;
-                    list-style: none;
-                }
-                div#water ul li {
-                    color: white;
-                }
-                div#water p {
-                    color: white;
-                    padding: 5px;
-                }
-            </style>
+            ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css" />
             <div id="water" onclick="window.open('<?php
                 if ( $this->mResponseStatus == 200 ) {
                     echo htmlspecialchars( $this->mFootprintURL );
