@@ -282,7 +282,7 @@
                 curl_close( $curl );
             }
 
-            $this->DumpHTML();
+            // $this->DumpHTML();
         }
         protected function DumpHTML() {
             ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css" />
