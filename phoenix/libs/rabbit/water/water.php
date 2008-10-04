@@ -112,7 +112,7 @@
             return $this->mEnabled;
         }
         public function Trace( $description, $dump = false ) {
-            $this->HandleError( WATER_E_USER_TRACE, $description, debug_backtrace() );
+            $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
         }
         public function Notice( $description, $dump = false ) {
             trigger_error( $description, E_USER_NOTICE );
@@ -147,7 +147,10 @@
             $this->AppendQuery( $this->mLastSQLQuery, $this->mLastSQLQueryStart, microtime( true ), debug_backtrace() );
             $this->mLastSQLQueryStart = false;
         }
-        public function HandleError( $errno, $errstr, $backtrace = false ) {
+        public function HandleError( $errno, $errstr ) {
+            $this->ProcessError( $errno, $errstr );
+        }
+        public function ProcessError( $errno, $errstr, $backtrace = false ) {
             switch ( $errno ) {
                 case E_ERROR:
                 case E_CORE_ERROR:
