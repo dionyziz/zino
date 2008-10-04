@@ -44,7 +44,8 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).click( function() {
-                return Profile.AddFriend( id );
+                Profile.AddFriend( id );
+                return false;
             } )
             .append( text );
         }
@@ -55,7 +56,8 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).click( function() {
-                return Profile.DeleteFriend( id );
+                Profile.DeleteFriend( id );
+                return false;
             } )
             .append( text );
         }
