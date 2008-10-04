@@ -1,6 +1,6 @@
 <?php
     
-    function UnitUserRelationsDelete( tInteger $relationid , tInteger $theuserid ) {
+    function UnitUserRelationsDelete( tInteger $relationid ) {
         global $user;
         global $libs;
         

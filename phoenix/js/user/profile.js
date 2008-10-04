@@ -24,7 +24,7 @@ var Profile = {
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 		return false;
 	},
-	DeleteFriend : function( relationid , theuserid ) {
+	DeleteFriend : function( theuserid ) {
 		$( 'div.sidebar div.basicinfo div.deletefriend a' ).hide( 400 , function() {
 			$( this )
 			.parent()
@@ -32,7 +32,7 @@ var Profile = {
 			.append( document.createTextNode( 'Έγινε διαγραφή' ) )
 			.show( 400 );
 		} );
-		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
+		Coala.Warm( 'user/relations/delete' , { theuserid : theuserid } );		
 		return false;
 	},
     ShowFriendLinks : function( relationstatus , id ) {
@@ -44,8 +44,7 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).click( function() {
-                Profile.AddFriend( id );
-                return false;
+                return Profile.AddFriend( id );
             } )
             .append( text );
         }
@@ -56,8 +55,7 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).click( function() {
-                Profile.DeleteFriend( id );
-                return false;
+                return Profile.DeleteFriend( id );
             } )
             .append( text );
         }
