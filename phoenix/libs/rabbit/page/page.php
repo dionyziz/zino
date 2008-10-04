@@ -37,6 +37,8 @@ abstract class Page {
         }
         $this->mNaturalLanguage = $languagecode;
     }
+    protected function OutputHeaders() {
+    }
     final protected function OutputStart() {
         ob_start();
         // $this->mOutputLevel = ob_get_level();
@@ -70,7 +72,7 @@ abstract class Page {
         
         $water->Trace( $libs->CountLoaded() . ' libraries loaded before rendering' );
         $this->GenerateBody();
-        
+        $this->OutputHeaders();
         $this->WaterLink();
         
         if ( $this->mRedirection instanceof HTTPRedirection ) {
@@ -138,13 +140,12 @@ class PageHTML extends Page {
         $this->mFavIcon = $favicon;
     }
     protected function OutputPage() {
-        $this->OutputHeaders();
         $this->OutputHTMLStart();
         $this->OutputHTMLHeader();
         $this->OutputHTMLMain();
         $this->OutputHTMLEnd();
     }
-    private function OutputHeaders() {
+    protected function OutputHeaders() {
         if ( $this->mSupportsXML ) {
             header( "Content-Type: application/xhtml+xml; charset=utf-8" );
         }
@@ -430,7 +431,7 @@ final class PageCoala extends Page {
         
         parent::__construct();
     }
-    private function OutputHeaders() {
+    protected function OutputHeaders() {
         header( 'Content-type: text/javascript; charset=utf-8' );
     }
     public function Output() {
