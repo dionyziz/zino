@@ -15,6 +15,7 @@
                     if ( $user->Id != $theuser->Id && $user->Exists() ) {
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
+                        $page->AttachInlineScript( 'alert( test );' );
                         if ( !$res ) {
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , ' .$theuser->Id . ' );' );
                         }
