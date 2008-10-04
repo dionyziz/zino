@@ -236,7 +236,7 @@
             $this->mFootprintData .= ']';
         }
         protected function FindContentType() {
-            $headers = get_headers();
+            $headers = headers_list();
             // die( var_dump( $headers ) );
             foreach ( $headers as $header ) {
                 $split = explode( ':', $header, 2 );
