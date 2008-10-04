@@ -10,7 +10,7 @@
              AND `login_created` > NOW() - INTERVAL 15 MINUTE
              AND `login_success` = 'no'"
         );
-        $query->BindTable( 'loginattemps' );
+        $query->BindTable( 'loginattempts' );
         $query->Bind( 'ip', $ip );
         $res = $query->Execute();
         
