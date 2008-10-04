@@ -96,7 +96,12 @@ $( document ).ready( function() {
         //insert deletion in shoutbox 
         //check if user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
-            var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+            if ( $( 'a.profile span.imageview img' )[ 0 ] ) }
+                var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+            }
+            else {
+                var username = $( 'a.profile' ).html();
+            }
             alert( username );
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
                 alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );
