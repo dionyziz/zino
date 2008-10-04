@@ -93,5 +93,14 @@ $( document ).ready( function() {
 				return false;
 			} );
 		}
+        //insert deletion in shoutbox 
+        //check if user is logged in
+        if ( $( 'a.profile' )[ 0 ] ) {
+            var username = $( 'a.profile span.imageview img' ).attr( 'alt' ) ); //get the username of the logged in user from the banner
+            alert( username );
+            $( 'div.shoutbox div.comment' ).each( function() {
+                alert( 'test' );    
+            } );
+        }
 	}
 } );
