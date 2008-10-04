@@ -237,6 +237,7 @@
         }
         protected function FindContentType() {
             $headers = get_headers();
+            die( var_dump( $headers ) );
             foreach ( $headers as $header ) {
                 $split = explode( ':', $header, 2 );
                 if ( count( $split ) > 1 ) {
