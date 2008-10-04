@@ -237,13 +237,15 @@
         }
         protected function FindContentType() {
             $headers = headers_list();
-            die( var_dump( $headers ) );
             foreach ( $headers as $header ) {
                 $split = explode( ':', $header, 2 );
                 if ( count( $split ) > 1 ) {
                     $key = trim( $split[ 0 ] );
                     $value = trim( $split[ 1 ] );
                     if ( strtolower( $key ) == 'content-type' ) {
+                        $valueparts = explode( ';', $value, 2 );
+                        $value = trim( $value[ 0 ] );
+                        die( $value );
                         switch ( strtolower( $value ) ) {
                             case 'text/html':
                             case 'application/xhtml+xml':
