@@ -17,10 +17,6 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php  
             
-            $libs->Load( 'loginattempt' );
-            $amount = LoginAttempt_checkBot( UserIp() );
-            echo '<p>'.$amount.'</p>';
-            
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             

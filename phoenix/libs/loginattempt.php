@@ -16,8 +16,7 @@
         
         $row = $res->FetchArray();
         $amount = $row[ 'count' ];
-        return $amount;
-        if ( $amount > 3 ) {
+        if ( $amount >= 3 ) {
             return true;
         }
         return false;
