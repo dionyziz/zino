@@ -81,7 +81,7 @@
             }
         }
 
-        public function BanIp( $ip, $time_banned ) {//time in seconds
+        public function BanIp( $ip, $time_banned = 1728000 ) {//20 days ,time in seconds
             w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
             w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
             $this->addBannedIps( array( $ip ), -1 , $time_banned );
@@ -89,7 +89,10 @@
         }
     
         
-        public function BanUser( $user_name, $reason ) {
+        public function BanUser( $user_name, $reason, $time_banned = 1728000 ) {//20 days
+            w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
+            w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
+        
             global $libs;
             
             $libs->Load( 'user/user' );        
@@ -125,8 +128,8 @@
             //
             
             //ban this ips and ban user with this username
-            $this->addBannedIps( $logs, $b_user->Id );            
-            $this->addBannedUser( $b_user, $reason );
+            $this->addBannedIps( $logs, $b_user->Id, $time_banned );            
+            $this->addBannedUser( $b_user, $reason, $time_banned );
 
             $b_user->Rights=0;
             $b_user->Save();
@@ -135,7 +138,7 @@
             return true;
         }
         
-        protected function addBannedUser( $b_user, $reason, $time_banned =  1728000 ) {//1728000 sec,20 days
+        protected function addBannedUser( $b_user, $reason, $time_banned ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
@@ -151,7 +154,7 @@
             return;        
         }
         
-        protected function addBannedIps( $ips, $user_id, $time_banned =  1728000 ) {//1728000 sec,20 days
+        protected function addBannedIps( $ips, $user_id, $time_banned ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
