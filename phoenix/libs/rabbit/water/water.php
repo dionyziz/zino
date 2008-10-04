@@ -245,7 +245,6 @@
                     if ( strtolower( $key ) == 'content-type' ) {
                         $valueparts = explode( ';', $value, 2 );
                         $value = trim( $valueparts[ 0 ] );
-                        die( $value );
                         switch ( strtolower( $value ) ) {
                             case 'text/html':
                             case 'application/xhtml+xml':
