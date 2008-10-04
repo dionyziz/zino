@@ -19,7 +19,7 @@ var Frontpage = {
 				$( this ).remove();
 			} );
 			Coala.Warm( 'shoutbox/delete' , { shoutid : shoutid } );
-		}
+		    return false;}
 	}
 };
 $( document ).ready( function() {
@@ -106,8 +106,9 @@ $( document ).ready( function() {
                     alert( shoutid );
                     var toolbox = document.createElement( 'div' ); 
                     var deletelink = document.createElement( 'a' );
-                    $( deletelink ).click( function() {
-                        return false;
+                    $( deletelink ).css( 'padding-left' , '16px' )
+                    .click( function() {
+                        return Frontpage.DeleteShout( shoutid );
                     } );
                     $( toolbox ).addClass( 'toolbox' ).append( deletelink );
                     
