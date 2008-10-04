@@ -56,7 +56,7 @@ $( document ).ready( function() {
 			} );
 			$( '#selectuni select' ).change( function() {
 				var uni = $( '#selectuni select' )[ 0 ].value;
-				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+                $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
 			} );
 		}
@@ -97,24 +97,18 @@ $( document ).ready( function() {
         //check if user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
             var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
-            alert( username );
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
-                //alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );    
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                    //alert( 'deletion OK' );
                     var shoutid = this.id.substr( 2 );
-                    alert( shoutid );
                     var toolbox = document.createElement( 'div' ); 
                     var deletelink = document.createElement( 'a' );
-                    $( deletelink ).css( 'padding-left' , '16px' )
+                    $( deletelink ).attr( 'href' , '' )
+                    .css( 'padding-left' , '16px' )
                     .click( function() {
                         return Frontpage.DeleteShout( shoutid );
                     } );
                     $( toolbox ).addClass( 'toolbox' ).append( deletelink );
-                    
                     $( this ).prepend( toolbox );
-
-                    
                 }
             } );
         }

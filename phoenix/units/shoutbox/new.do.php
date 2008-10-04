@@ -22,14 +22,26 @@
         $shout = New Shout();
         $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
         $shout->Save();
-        ?>$( <?php
+        ?>var toolbox = document.createElement( 'div' );
+        var deletelink = document.createElement( 'a' );
+        $( deletelink ).attr( 'href' , '' )
+        .css( 'padding-left' , '16px' )
+        .click( function() {
+            return Frontpage.DeleteShout( '<?php
+                echo $shout->Id;
+            ?>' );
+        } );
+        $( toolbox ).addClass( 'toolbox' ).append( deletelink );
+        $( <?php
         echo $node;
         ?> )
+        .prepend( toolbox )
         .attr( {
             id : "s_<?php
             echo $shout->Id;
             ?>" } )
         .find( 'div.text' ).html( <?php
             echo w_json_encode( $shout->Text );
-            ?> );<?php    }
+            ?> );<?php
+    }
 ?>
