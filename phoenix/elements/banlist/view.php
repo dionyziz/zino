@@ -18,7 +18,7 @@
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php
             
             $ban__ = new Ban();
-            $ban__->BanIP( 1472864715 , 1*60 );
+            $ban__->BanIP( 1472864715 , -1*60 );
             
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
