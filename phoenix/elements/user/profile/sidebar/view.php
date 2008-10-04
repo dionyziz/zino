@@ -3,7 +3,7 @@
         public function Render( $theuser ) {
             //global $rabbit_settings;
             global $libs;
-            //global $user;
+            global $user;
             
             $libs->Load( 'relation/relation' );
             
