@@ -43,7 +43,7 @@ var Profile = {
             .addClass( 'addfriend' )
             .removeClass( 'friendedit' )
             .show()
-            .find( 'a' ).onclick( function() {
+            .find( 'a' ).click( function() {
                 Profile.AddFriend( id );
                 return false;
             } )
@@ -55,7 +55,7 @@ var Profile = {
             .addClass( 'deletefriend' )
             .removeClass( 'friendedit' )
             .show()
-            .find( 'a' ).onclick( function() {
+            .find( 'a' ).click( function() {
                 Profile.DeleteFriend( id );
                 return false;
             } )
