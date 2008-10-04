@@ -282,7 +282,7 @@
                 curl_close( $curl );
             }
 
-            $this->DumpHTML();
+            //$this->DumpHTML();
         }
         protected function DumpHTML() {
             ?><style type="text/css">
