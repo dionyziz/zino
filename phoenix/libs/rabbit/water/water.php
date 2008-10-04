@@ -235,6 +235,25 @@
             }
             $this->mFootprintData .= ']';
         }
+        protected function FindContentType() {
+            $headers = get_headers();
+            foreach ( $headers as $header ) {
+                $split = explode( ':', $header, 2 );
+                if ( count( $split ) > 1 ) {
+                    $key = trim( $split[ 0 ] );
+                    $value = trim( $split[ 1 ] );
+                    if ( strtolower( $key ) == 'content-type' ) {
+                        switch ( strtolower( $value ) ) {
+                            case 'text/html':
+                            case 'application/xhtml+xml':
+                                return 'HTML';
+                            default:
+                                return false;
+                        }
+                    }
+                }
+            }
+        }
         public function Post() {
             $this->mDataSent = true;
 
@@ -282,7 +301,11 @@
                 curl_close( $curl );
             }
 
-            $this->DumpHTML();
+            switch ( $this->FindContentType() ) {
+                case 'HTML':
+                    $this->DumpHTML();
+                    return;
+            }
         }
         protected function DumpHTML() {
            ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css"></link>
