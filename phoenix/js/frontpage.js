@@ -23,11 +23,11 @@ var Frontpage = {
 	}
 };
 $( document ).ready( function() {
-	if ( $( 'div.frontpage div.inuser div.shoutbox' )[ 0 ] ) {
-        if ( $( 'div.frontpage div.members div.join' )[ 0 ] ) {
-            $( 'div.frontpage div.members div.join input' )[ 1 ].focus();
+	if ( $( 'div.frontpage' )[ 0 ] ) {
+        if ( $( 'div.members div.join' )[ 0 ] ) {
+            $( 'div.members div.join input' )[ 1 ].focus();
         }
-		$( 'div.frontpage div.inuser div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
+		$( 'div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
 			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( $.trim( text ) === '' ) {
@@ -46,34 +46,34 @@ $( document ).ready( function() {
 		if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
 			$( '#selectplace select' ).change( function() {
 				var place = $( '#selectplace select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
 			} );
 			$( '#selecteducation select' ).change( function() {
 				var edu = $( '#selecteducation select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
 			} );
 			$( '#selectuni select' ).change( function() {
 				var uni = $( '#selectuni select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
 			} );
 		}
 		if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
-			var notiflist = $( 'div.frontpage div.notifications div.list' )[ 0 ];
+			var notiflist = $( 'div.notifications div.list' )[ 0 ];
 			var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
 			
-			$( 'div.frontpage div.notifications div.list div.event' ).mouseover( function() {
+			$( 'div.notifications div.list div.event' ).mouseover( function() {
 				$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 			} )
 			.mouseout( function() {
 				$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 			} );
 			
-			$( 'div.frontpage div.notifications div.expand a' ).click( function() {
+			$( 'div.notifications div.expand a' ).click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
-					$( 'div.frontpage div.notifications div.expand a' )
+					$( 'div.notifications div.expand a' )
 					.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' )
 					.attr( {
 						title : 'Απόκρυψη'
@@ -81,7 +81,7 @@ $( document ).ready( function() {
 					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
 				}
 				else {
-					$( 'div.frontpage div.notifications div.expand a' )
+					$( 'div.notifications div.expand a' )
 					.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' )
 					.attr( {
 						title : 'Εμφάνιση'
