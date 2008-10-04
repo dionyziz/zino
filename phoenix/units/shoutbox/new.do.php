@@ -22,8 +22,8 @@
         $shout = New Shout();
         $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
         $shout->Save();
-        /*
-        var toolbox = document.createElement( 'div' );
+        
+        ?>var toolbox = document.createElement( 'div' );
         var deletelink = document.createElement( 'a' );
         $( deletelink ).attr( 'href' , '' )
         .css( 'padding-left' , '16px' )
@@ -44,6 +44,5 @@
         .find( 'div.text' ).html( <?php
             echo w_json_encode( $shout->Text );
             ?> );<?php
-        */
     }
 ?>
