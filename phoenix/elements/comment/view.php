@@ -33,7 +33,7 @@
                         ?>px;" onclick="return Comments.Delete( <?php
                         echo $comment->Id;
                          // There is a reason for the dot. If there's no character between <a></a> the background css image is not shown in IE7
-                        ?> );" title="Διαγραφή">.</a><?php
+                        ?> );" title="Διαγραφή">&nbsp;</a><?php
                     }
                 ?></div><div class="who"><?php
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );

@@ -99,9 +99,21 @@ $( document ).ready( function() {
             var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
             alert( username );
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
-                alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );    
+                //alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );    
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                    alert( 'deletion OK' );
+                    //alert( 'deletion OK' );
+                    var shoutid = this.id.substr( 2 );
+                    alert( shoutid );
+                    var toolbox = document.createElement( 'div' ); 
+                    var deletelink = document.createElement( 'a' );
+                    $( deletelink ).click( function() {
+                        return false;
+                    } );
+                    $( toolbox ).addClass( 'toolbox' ).append( deletelink );
+                    
+                    $( this ).prepend( toolbox );
+
+                    
                 }
             } );
         }
