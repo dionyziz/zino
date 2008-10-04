@@ -44,9 +44,10 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).onclick( function() {
-                return Profile.AddFriend( id );
-            } )
-            .append( text );
+                Profile.AddFriend( id );
+                return false;
+            } );
+            //.append( text );
         }
         if ( relationstatus ) {
             var text = document.createTextNode( 'Διαγραφή από τους φίλους' );
@@ -55,9 +56,10 @@ var Profile = {
             .removeClass( 'friendedit' )
             .show()
             .find( 'a' ).onclick( function() {
-                return Profile.DeleteFriend( id );
-            } )
-            .append( text );
+                Profile.DeleteFriend( id );
+                return false;
+            } );
+            //.append( text );
         }
         //if relationstatus is anything else don't do something, user views his own profile
     },
