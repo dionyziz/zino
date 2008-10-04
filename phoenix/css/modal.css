@@ -24,5 +24,5 @@ div.modalbg {
     _height: 100%;
     _filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
     z-index: 680;
-    background: url( 'http://static.zino.gr/images/modalbg.png' );
+    background-image: url( 'http://static.zino.gr/images/modalbg.png' );
 }
