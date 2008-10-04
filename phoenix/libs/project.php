@@ -47,8 +47,7 @@
             }
         }
         
-        $banChecker = new Ban();
-        
+        $banChecker = new Ban();        
         
         if ( ( $user->Exists() && $banChecker->isBannedUser( $user->Id ) ) 
             || $banChecker->isBannedIp( UserIp() )  
