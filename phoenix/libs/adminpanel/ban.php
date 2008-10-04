@@ -80,6 +80,13 @@
                 }
             }
         }
+
+        public function BanIp( $ip, $time_banned ) {//time in seconds
+            w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
+            w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
+            $this->addBannedIps( array( $ip ), -1 , $time_banned );
+        }
+    
         
         public function BanUser( $user_name, $reason ) {
             global $libs;
@@ -117,7 +124,7 @@
             //
             
             //ban this ips and ban user with this username
-            $this->addBannedIps( $logs, $b_user );            
+            $this->addBannedIps( $logs, $b_user->Id );            
             $this->addBannedUser( $b_user, $reason );
 
             $b_user->Rights=0;
@@ -143,17 +150,17 @@
             return;        
         }
         
-        protected function addBannedIps( $ips, $b_user ) {
+        protected function addBannedIps( $ips, $user_id, $time_banned =  1728000 ) {//1728000=20*24*60*60 sec
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
         
             $started = date( 'Y-m-d H:i:s', time() );
-            $expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
+            $expire = date( 'Y-m-d H:i:s', time() + $time_banned );
             foreach( $ips as $ip ) {
                 $banip = new BannedIp();
                 $banip->Ip = $ip;
-                $banip->Userid = $b_user->Id;
+                $banip->Userid = $user_id;
                 $banip->Started = $started;
                 $banip->Expire = $expire;
                 $banip->Save();
