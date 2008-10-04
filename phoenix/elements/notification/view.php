@@ -218,7 +218,7 @@
                                             Element( 'url', $comment );
                                             echo htmlspecialchars( ob_get_clean() );
                                             ?>" class="itempic"><?php
-                                            Element( 'user/avatar' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , $user->Name , IMAGE_CROPPED_100x100 , '' , '' , false , 0 , 0 );
+                                            Element( 'user/avatar' , $comment->Item->Avatar->Id , $comment->Item->Id , $comment->Item->Avatar->Width , $comment->Item->Avatar->Height , $comment->Item->Name , IMAGE_CROPPED_100x100 , '' , '' , false , 0 , 0 );
                                             ?></a><?php
                                         }
                                     }
