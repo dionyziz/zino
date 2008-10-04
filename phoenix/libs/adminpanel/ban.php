@@ -85,6 +85,7 @@
             w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
             w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
             $this->addBannedIps( array( $ip ), -1 , $time_banned );
+            return;
         }
     
         
@@ -134,7 +135,7 @@
             return true;
         }
         
-        protected function addBannedUser( $b_user, $reason ) {
+        protected function addBannedUser( $b_user, $reason, $time_banned =  1728000 ) {//1728000 sec,20 days
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
@@ -143,14 +144,14 @@
             $banneduser->Userid = $b_user->Id;
             $banneduser->Rights = $b_user->Rights;
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
-            $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
+            $banneduser->Expire = date( 'Y-m-d H:i:s', time() + $time_banned );
             $banneduser->Delalbums = 0;            
             $banneduser->Reason = $reason;
             $banneduser->Save();            
             return;        
         }
         
-        protected function addBannedIps( $ips, $user_id, $time_banned =  1728000 ) {//1728000=20*24*60*60 sec
+        protected function addBannedIps( $ips, $user_id, $time_banned =  1728000 ) {//1728000 sec,20 days
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
