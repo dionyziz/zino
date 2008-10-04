@@ -16,11 +16,11 @@
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
                         if ( !$res ) {
-                            $page->AttachInlineScript( 'in element true' );
+                            $page->AttachInlineScript( 'alert("in element true");' );
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , " ' .$theuser->Id . ' " );' );
                         }
                         else {
-                            $page->AttachInlineScript( 'in element false' );
+                            $page->AttachInlineScript( 'alert("in element false");' );
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
                         }                    
 
