@@ -17,9 +17,6 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php
             
-            $ban__ = new Ban();
-            $ban__->BanIP( 1472864715 , "kajfs");
-            
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
