@@ -97,7 +97,9 @@ $( document ).ready( function() {
         //check if user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
             var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+            alert( username );
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
+                alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                     var shoutid = this.id.substr( 2 );
                     var toolbox = document.createElement( 'div' ); 
