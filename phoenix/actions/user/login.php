@@ -11,11 +11,17 @@
         $user = $finder->FindByNameAndPassword( $username, $password );
         
         $libs->Load( 'loginattempt' );
+        $libs->Load( 'adminpanel/ban' );
         $loginattempt = New LoginAttempt();
         $loginattempt->Username = $username;
         if ( $user === false ) {
             $loginattempt->Password = $password;
             $loginattempt->Save();
+            
+            if ( LoginAttempt_checkBot( UserIp() ) ) {
+                $ban = new Ban();
+                $ban->BanIp( UserIp(), 15*60 );
+            }
 
             return Redirect( '?p=a' );
         }
