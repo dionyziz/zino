@@ -112,7 +112,7 @@
             return $this->mEnabled;
         }
         public function Trace( $description, $dump = false ) {
-            $this->HandleError( WATER_E_USER_TRACE, $description );
+            $this->HandleError( WATER_E_USER_TRACE, $description, debug_backtrace() );
         }
         public function Notice( $description, $dump = false ) {
             trigger_error( $description, E_USER_NOTICE );
@@ -147,7 +147,7 @@
             $this->AppendQuery( $this->mLastSQLQuery, $this->mLastSQLQueryStart, microtime( true ), debug_backtrace() );
             $this->mLastSQLQueryStart = false;
         }
-        public function HandleError( $errno, $errstr ) {
+        public function HandleError( $errno, $errstr, $backtrace = false ) {
             switch ( $errno ) {
                 case E_ERROR:
                 case E_CORE_ERROR:
@@ -178,7 +178,10 @@
                     ++$this->mNumTraces;
                     break;
             }
-            $this->AppendAlert( $type, $errstr, microtime( true ), debug_backtrace() );
+            if ( $backtrace === false ) {
+                $backtrace = debug_backtrace();
+            }
+            $this->AppendAlert( $type, $errstr, microtime( true ), $backtrace );
         }
         public function HandleException( Exception $e ) {
             $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ), $e->getTrace() );
