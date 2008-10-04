@@ -99,7 +99,7 @@ $( document ).ready( function() {
             var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
             alert( username );
             $( 'div.shoutbox div.comment' ).each( function() {
-                alert( this.id );    
+                alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );    
             } );
         }
 	}
