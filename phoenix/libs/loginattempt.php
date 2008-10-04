@@ -1,4 +1,26 @@
 <?php
+
+    function LoginAttempt_checkBot( $ip ) {
+        global $db;
+        
+        $query = $db->Prepare(
+            "SELECT COUNT(*) AS 'count' 
+             FROM :loginattempts
+             WHERE `login_ip` = :ip
+             AND `login_created` > NOW() - INTERVAL 15 MINUTE
+             AND `login_success` = 'no'"
+        );
+        $query->BindTable( 'loginattemps' );
+        $query->Bind( 'ip', $ip );
+        $res = $query->Execute();
+        
+        $amount = $res->FetchArray();
+        if ( $amount[ 'count' ] > 3 ) {
+            return true;
+        }
+        return false;
+    }
+
     class LoginAttemptFinder extends Finder {
         protected $mModel = 'LoginAttempt';
         

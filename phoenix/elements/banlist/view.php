@@ -17,6 +17,11 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php  
             
+            $libs->Load( 'loginattempt' );
+            if ( LoginAttempt_checkBot( UserIp() ) ) {
+                ?><p>Bot</p><?php
+            }
+            
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
