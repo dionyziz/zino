@@ -96,12 +96,13 @@ $( document ).ready( function() {
         //insert deletion in shoutbox 
         //check if user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
+            var username;
             if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
-                var username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+                username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
             }
             else {
                 //for users without avatar
-                var username = $( 'a.profile' ).html();
+                username = $( 'a.profile' ).html();
             }
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
