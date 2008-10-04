@@ -4,6 +4,7 @@
             //global $rabbit_settings;
             global $libs;
             global $user;
+            global $page;
             
             $libs->Load( 'relation/relation' );
             
