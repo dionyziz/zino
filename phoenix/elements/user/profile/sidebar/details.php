@@ -3,21 +3,22 @@
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
         public function Render( $theuser , $theuserid ,  $lastupdated ) {
+            $profile = $theuser->Profile;
             ?><div class="look">
 				<span class="malebody">&nbsp;</span><?php
-                Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight,  $theuser->Gender );
+                Element( 'user/profile/sidebar/look', $profile->Height, $profile->Weight,  $theuser->Gender );
             ?></div>
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
             ?></div>
             <div class="aboutme"><?php
-                Element( 'user/profile/sidebar/aboutme' , $theuser->Profile->Aboutme, $theuser->Id, $theuser->Profile->Updated );
+                Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
             <div class="interests"><?php
                 Element( 'user/profile/sidebar/interests' , $theuser );
             ?></div>
             <div class="contacts"><?php
-                Element( 'user/profile/sidebar/contacts' , $theuser, $theuser->Id, $theuser->Profile->Updated );
+                Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim );
             ?></div><?php
         }
     }

@@ -1,31 +1,31 @@
 <?php
     class ElementUserProfileSidebarContacts extends Element {
-        public function Render( $theuser, $userid, $updated ) {
+        public function Render( $skype , $msn , $gtalk , $yim ) {
             global $rabbit_settings;
             
             ?><dl><?php
-                if ( $theuser->Profile->Skype != '' ) {
+                if ( $skype != '' ) {
                     ?><dt class="skype"></dt>
                     <dd><?php 
-                    echo htmlspecialchars( $theuser->Profile->Skype );
+                    echo htmlspecialchars( $skype );
                     ?></dd><?php
                 }
-                if ( $theuser->Profile->Msn != '' ) {
+                if ( $msn != '' ) {
                     ?><dt class="msn"></dt>
                     <dd><?php
-                    echo htmlspecialchars( $theuser->Profile->Msn );
+                    echo htmlspecialchars( $msn );
                     ?></dd><?php
                 }
-                if ( $theuser->Profile->Gtalk != '' ) {
+                if ( $gtalk != '' ) {
                     ?><dt class="gtalk"></dt>
                     <dd><?php
-                    echo htmlspecialchars( $theuser->Profile->Gtalk );
+                    echo htmlspecialchars( $gtalk );
                     ?></dd><?php
                 }
-                if ( $theuser->Profile->Yim != '' ) {
+                if ( $yim != '' ) {
                     ?><dt class="yim"></dt>
                     <dd><?php
-                    echo htmlspecialchars( $theuser->Profile->Yim );
+                    echo htmlspecialchars( $yim );
                     ?></dd><?php
                 }
             ?></dl><?php
