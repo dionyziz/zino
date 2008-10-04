@@ -17,6 +17,14 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php  
             
+            $libs->Load( 'loginattempt' );
+            $users = LoginAttempt_checkDuplicate( UserIp() );
+            foreach ( $users as $one ) {
+                ?><p><?php
+                echo $one;
+                ?></p><?php
+            }
+            
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
