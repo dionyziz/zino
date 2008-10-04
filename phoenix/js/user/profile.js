@@ -36,6 +36,7 @@ var Profile = {
 		return false;
 	},
     ShowFriendLinks : function( relationstatus , id ) {
+        alert( 'showfriendlinks' );
         if ( relationstatus ) {
             var text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
