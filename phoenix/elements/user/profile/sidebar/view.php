@@ -20,7 +20,7 @@
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( "true" , " ' .$theuser->Id . ' " );' );
                         }
                         else {
-                            $page->AttachInlineScript( 'Profile.ShowFriendLink( "false" , " ' . $res->Id . ' " );' );
+                            $page->AttachInlineScript( 'Profile.ShowFriendLinks( "false" , " ' . $res->Id . ' " );' );
                         }                    
 
                     }
