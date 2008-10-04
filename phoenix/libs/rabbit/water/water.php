@@ -285,8 +285,7 @@
             $this->DumpHTML();
         }
         protected function DumpHTML() {
-            /* ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css" /><?php */
-            ?>
+           ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css"></link>
             <div id="water" onclick="window.open('<?php
                 if ( $this->mResponseStatus == 200 ) {
                     echo htmlspecialchars( $this->mFootprintURL );
