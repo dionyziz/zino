@@ -17,6 +17,8 @@
                 $res[ $sample->Name ] = $this->Calculate( $sample );
             }
             
+            w_assert( !empty( $res ), "No results" );
+            
             rsort( $res );
             
             return $res;
@@ -55,6 +57,7 @@
                 $total_score += $value - $score;
             }
             
+            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );
             return $total_score;
         }
     }
