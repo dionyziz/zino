@@ -12,6 +12,11 @@
         public function GetResult() {
             $res = array();
             foreach ( $this->mInput as $sample ) {
+                
+                if ( $sampe->Id == $target->Id ) {//exclude the target from  evaluating
+                    continue;
+                }
+            
                 $res[ $sample->Name ] = $this->Calculate( $sample );
             }
             
