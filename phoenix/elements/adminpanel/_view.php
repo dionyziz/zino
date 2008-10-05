@@ -40,8 +40,8 @@
 	        ?><p>results</p><?php
 	        
 	        ?><h3>Results</h3><?php
-	        foreach ( $res as $key ) {
-	            echo '<p>'.$key.'</p>';
+	        foreach ( $res as $key=>$val ) {
+	            echo '<p>'.$key.' '.$val.'</p>';
 
             }
 	        
