@@ -31,13 +31,13 @@
             
             //date
             
-            /*
+            
             //age sigma = 2
             $score = ( 2 * ( $sample->Profile->Age - $this->mTarget->Profile->Age ) ) / $value;
             if ( $score > 0 ) {
                 $total_score += $value - $score;
             }
-            
+            /*
             //location
             if ( $sample->Profile->Placeid === $this->mTarget->Profile->Placeid ) {
                 $total_score += $value;
