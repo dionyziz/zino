@@ -32,7 +32,7 @@
             }   
 	        
 	        $target = $userFinder->FindByName( 'pagio91' );
-	        
+	        /*
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        $res = $bennu->GetResult();
@@ -41,7 +41,7 @@
 	        foreach ( $res as $key ) {
 	            echo '<p>'.$key.'</p>';
 
-            }
+            }*/
 	        
         }
     }
