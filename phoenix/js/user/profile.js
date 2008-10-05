@@ -41,8 +41,8 @@ var Profile = {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'addfriend' )
-            .show()
-            .css( 'clear' , 'left' )
+            .addClass( 'common' )
+            .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
                 Profile.AddFriend( id );
                 return false;
@@ -53,8 +53,8 @@ var Profile = {
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'deletefriend' )
-            .show()
-            .css( 'clear' , 'left' )
+            .addClass( 'common' )
+            .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
                 Profile.DeleteFriend( id );
                 return false;

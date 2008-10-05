@@ -28,6 +28,9 @@ div#profile div.sidebar div.basicinfo div.mood img {
 	margin-top: 3px;
 }
 div#profile div.sidebar div.bacicinfo div.friendedit {
+    display: none;
+}
+div#profile div.sidebar div.basicinfo div.common {
     clear: left;
     margin-bottom: 15px;
     height: 20px;
