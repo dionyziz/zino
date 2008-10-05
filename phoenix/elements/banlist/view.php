@@ -52,9 +52,6 @@
                         Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες</p><?php
             ?><p><input type="submit" value="Ban" /></p><?php
             ?></form><?php
-            
-            ?><br/><br/><br/><?php
-            ?><p>Υποσημείωση : ο αποκλεισμός διαρκεί 20 ημέρες</p><?php
    
             return;
         }
