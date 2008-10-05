@@ -19,8 +19,6 @@
             
             w_assert( !empty( $res ), "No results" );
             
-            rsort( $res );
-            
             return $res;
         }
         

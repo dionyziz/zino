@@ -25,19 +25,11 @@
 	        
 	        $userFinder = new UserFinder();
 	        $input = $userFinder->FindLatest();
-	        
-	        ?><p>Latest</p><?php
-	        foreach ( $input as $_user ) {
-	            echo '<p>'.$_user->Name.'</p>';
-            }   
-	        
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
-	        ?><p>set data done</p><?php
 	        $res = $bennu->GetResult();
-	        ?><p>results</p><?php
 	        
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
