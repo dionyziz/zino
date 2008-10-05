@@ -24,7 +24,7 @@
 	        $libs->Load( 'bennu/bennu' );
 	        
 	        $userFinder = new UserFinder();
-	        $input = $userFinder->FindLatest();
+	        $input = $userFinder->FindOnline();
 	        
 	        ?><p>Latest</p><?php
 	        foreach ( $input as $_user ) {
