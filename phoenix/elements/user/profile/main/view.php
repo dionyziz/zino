@@ -158,30 +158,12 @@
                 }
                 ?><div style="clear:right"></div><?php
                 if ( !empty( $journals ) || ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) ) {
-                    ?><div class="lastjournal">
-                        <h3>Ημερολόγιο <?php
-                        if ( $theuser->Count->Journals > 0 ) {
-                            ?><span>(<a href="<?php
-                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                            ?>journals">προβολή όλων</a>)</span><?php
-                        }
-                        ?></h3><?php
-                        if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
-                            ?><div class="nojournals">
-                            Δεν έχεις καμία καταχώρηση.<br />
-                            Κανε click στο παρακάτω link για να δημιουργήσεις μια.<br />
-                            <a href="?p=addjournal">Καταχώρηση Ημερολογίου</a>
-                            <div></div>
-                            </div><?php
-                        }
-                        else {
-                            Element( 'journal/small' , $journals[ 0 ] );
-                        }    
-                    ?></div>
-                    <div class="barfade">
-                        <div class="leftbar"></div>
-                        <div class="rightbar"></div>
-                    </div><?php
+                    if ( $user->Id == $theuser->Id && $user->Count->Journals > 0 ) {
+                        Element( 'user/profile/main/lastjournal' , $journals[ 0 ] , $theuser , $journals[ 0 ]->Id , $journals[ 0 ]->Numcomments , $theuser->Count->Journals , true );
+                    }
+                    else {
+                        Element( 'user/profile/main/lastjournal' , $journals[ 0 ] , $theuser , $journals[ 0 ]->Id , $journals[ 0 ]->Numcomments , $theuser->Count->Journals , false );
+                    }
                 }
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     ?><div class="comments">
