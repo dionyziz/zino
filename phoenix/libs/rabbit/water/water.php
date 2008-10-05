@@ -217,15 +217,16 @@
 
             $ret = array();
             foreach ( $callstack as $item ) {
-                switch ( $item[ 'type' ] ) {
-                    case '->':
-                        $func = $item[ 'class' ] . '->';
-                        break;
-                    case '::':
-                        $func = $item[ 'class' ] . '::';
-                        break;
-                    default:
-                        $func = '';
+                $func = '';
+                if ( isset( $item[ 'type' ] ) ) {
+                    switch ( $item[ 'type' ] ) {
+                        case '->':
+                            $func = $item[ 'class' ] . '->';
+                            break;
+                        case '::':
+                            $func = $item[ 'class' ] . '::';
+                            break;
+                    }
                 }
                 $func .= $item[ 'function' ];
                 $retitem = array(
