@@ -11,7 +11,6 @@
             ?><div class="sidebar">
                 <div class="basicinfo"><?php
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuser->Id , $theuser->Profile->Updated ); 
-                    ?><div class="friendedit"><a href=""><span>&nbsp;</span></a></div><?php
                     if ( $user->Id != $theuser->Id && $user->Exists() ) {
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
