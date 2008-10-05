@@ -25,6 +25,12 @@
 	        
 	        $userFinder = new UserFinder();
 	        $input = $userFinder->FindLatest();
+	        
+	        ?><p>Latest</p><?php
+	        foreach ( $input as $_user ) {
+	            echo '<p>'.$user->Name.'</p>';
+            }   
+	        
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
 	        $bennu = new Bennu();
