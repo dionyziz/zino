@@ -20,7 +20,7 @@
             return $res;
         }
         
-        protected function Caclulate( $sample ) {
+        protected function Calculate( $sample ) {
             $total_score = 0;
             $score;
             $value = 10;
