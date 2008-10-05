@@ -37,7 +37,7 @@
             if ( $score > 0 ) {
                 $total_score += $value - $score;
             }
-            /*
+            
             //location
             if ( $sample->Profile->Placeid === $this->mTarget->Profile->Placeid ) {
                 $total_score += $value;
@@ -46,7 +46,7 @@
             //friends
             
             //sex
-            if ( $sample->Profile->Gender === $this->mTarget->Profile->Gender ) {
+            if ( $sample->Gender === $this->mTarget->Gender ) {
                 $total_score += $value;
             }
             
@@ -57,7 +57,7 @@
                 $total_score += $value - $score;
             }
             
-            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );*/
+            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );
             return $total_score;
         }
     }
