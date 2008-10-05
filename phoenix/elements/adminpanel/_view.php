@@ -38,8 +38,8 @@
 	        $res = $bennu->GetResult();
 	        
 	        ?><p>Results</p><?php
-	        foreach ( $res as $key=>$val ) {
-	            echo '<p>'.$key.' '.$val.'</p>';
+	        foreach ( $res as $key ) {
+	            echo '<p>'.$key.'</p>';
 
             }
 	        
