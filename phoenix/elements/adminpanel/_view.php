@@ -31,6 +31,7 @@
 	        $bennu->SetData( $input, $target );
 	        $res = $bennu->GetResult();
 	        
+	        ?><p>Results</p><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
 
