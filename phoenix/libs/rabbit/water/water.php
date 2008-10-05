@@ -148,9 +148,9 @@
             $this->mLastSQLQueryStart = false;
         }
         public function HandleError( $errno, $errstr ) {
-            $this->ProcessError( $errno, $errstr );
+            $this->ProcessError( $errno, $errstr, debug_backtrace() );
         }
-        public function ProcessError( $errno, $errstr, $backtrace = false ) {
+        public function ProcessError( $errno, $errstr, $backtrace ) {
             switch ( $errno ) {
                 case E_ERROR:
                 case E_CORE_ERROR:
@@ -180,9 +180,6 @@
                     $type = WATER_ALERTTYPE_TRACE;
                     ++$this->mNumTraces;
                     break;
-            }
-            if ( $backtrace === false ) {
-                $backtrace = debug_backtrace();
             }
             $this->AppendAlert( $type, $errstr, microtime( true ), $backtrace );
         }
@@ -220,8 +217,19 @@
 
             $ret = array();
             foreach ( $callstack as $item ) {
+                switch ( $item[ 'type' ] ) {
+                    case '->':
+                        $func = $item[ 'class' ] . '->';
+                        break;
+                    case '::':
+                        $func = $item[ 'class' ] . '::';
+                        break;
+                    default:
+                        $func = '';
+                }
+                $func .= $item[ 'function' ];
                 $retitem = array(
-                    $item[ 'function' ],
+                    $func,
                     isset( $item[ 'file' ] )? $item[ 'file' ]: '',
                     isset( $item[ 'line' ] )? $item[ 'line' ]: 0
                 );
