@@ -5,9 +5,9 @@
        
         public function SetData( $users, $target ) {
             foreach ( $users as $_user ) {
-                $this->mInput[] = $_user;
+                $this->mInput[] = new User( $_user->Id );
             }
-            $this->mTarget = $target;
+            $this->mTarget = new User( $target->Id );
             return;
         }
         
