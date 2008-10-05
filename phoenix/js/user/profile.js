@@ -42,6 +42,7 @@ var Profile = {
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'addfriend' )
             .show()
+            .css( 'clear' , 'left' )
             .find( 'a' ).click( function() {
                 Profile.AddFriend( id );
                 return false;
@@ -53,6 +54,7 @@ var Profile = {
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'deletefriend' )
             .show()
+            .css( 'clear' , 'left' )
             .find( 'a' ).click( function() {
                 Profile.DeleteFriend( id );
                 return false;
