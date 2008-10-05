@@ -127,8 +127,8 @@ Project_Destruct()' );
             'alljournals'          => 'journal/recent/list',
             'search2'               => 'search',
             'search'                => 'search/view',
-            'adminlog'              => 'adminlog/view',
-            'banlist'               => '/banlist/view',
+            'adminlog'              => 'adminpanel/adminlog/view',
+            'banlist'               => 'adminpanel/banlist/view',
             'dublicate'             => 'adminpanel/dublicate/view'
 
 
