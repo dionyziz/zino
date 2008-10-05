@@ -19,7 +19,7 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        global $libs;
+	        /*global $libs;
 	        $libs->Load( 'user/user' );
 	        $libs->Load( 'bennu/bennu' );
 	        
@@ -36,6 +36,7 @@
 	            echo '<p>'.$key.' '.$val.'</p>';
 
             }
+            */
 	        
         }
     }
