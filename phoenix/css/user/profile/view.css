@@ -29,21 +29,28 @@ div#profile div.sidebar div.basicinfo div.mood img {
 }
 div#profile div.sidebar div.bacicinfo div.friendedit {
     display: none;
+    margin-bottom: 15px;
+    height: 20px;
+    clear: left;
 }
+/*
 div#profile div.sidebar div.basicinfo div.addfriend {
 	clear: left;
 	margin-bottom: 15px;
 	height: 20px;
 }
+*/
 div#profile div.sidebar div.basicinfo div.addfriend a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -130px;
 	padding-left: 16px;
 }
+/*
 div#profile div.sidebar div.basicinfo div.deletefriend {
 	clear: left;
 	margin-bottom: 15px;
 	height: 20px;
 }
+*/
 div#profile div.sidebar div.basicinfo div.deletefriend a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -845px;
 	padding-left: 16px;
