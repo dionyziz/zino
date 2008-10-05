@@ -32,7 +32,7 @@
             $ipFinder = new BannedIpFinder();//delete related ips
             $ips = $ipFinder->FindByUserId( $userid );            
             
-            foreach( $ips as $ip ) {
+            foreach ( $ips as $ip ) {
                 $ip_d = new BannedIp( $ip->Id );
                 $ip_d->Delete();
             }
@@ -161,7 +161,7 @@
         
             $started = date( 'Y-m-d H:i:s', time() );
             $expire = date( 'Y-m-d H:i:s', time() + $time_banned );
-            foreach( $ips as $ip ) {
+            foreach ( $ips as $ip ) {
                 $banip = new BannedIp();
                 $banip->Ip = $ip;
                 $banip->Userid = $user_id;

@@ -32,16 +32,18 @@
             }   
 	        
 	        $target = $userFinder->FindByName( 'pagio91' );
-	        /*
+	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
+	        ?><p>set data done</p><?php
 	        $res = $bennu->GetResult();
+	        ?><p>results</p><?php
 	        
-	        ?><p>Results</p><?php
+	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key ) {
 	            echo '<p>'.$key.'</p>';
 
-            }*/
+            }
 	        
         }
     }
