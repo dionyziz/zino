@@ -48,7 +48,8 @@
 
             ?><form method="post" action="do/adminpanel/ban"><?php
             ?><p>Όνομα χρήστη : <input type="text" maxlength="30" name="username" /> &nbsp;&nbsp;  
-                        Λόγος Αποκλεισμού : <input type="text" maxlength="30" name="reason" /></p><?php
+                        Λόγος Αποκλεισμού : <input type="text" maxlength="30" name="reason" /> &nbsp;&nbsp;
+                        Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες</p><?php
             ?><p><input type="submit" value="Ban" /></p><?php
             ?></form><?php
             
