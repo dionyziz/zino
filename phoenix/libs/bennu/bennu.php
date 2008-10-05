@@ -12,10 +12,11 @@
         public function GetResult() {
             $res = array();
             foreach ( $mInput as $sample ) {
-                $res[ $sample->Id ] = $this->Calculate( $sample );
+                $res[ $sample->Name ] = $this->Calculate( $sample );
             }
             
             rsort( $res );
+            
             return $res;
         }
         
