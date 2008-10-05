@@ -213,8 +213,6 @@
             ) ) . ',';
         }
         protected function FormatCallstack( $callstack ) {
-            // return array();
-
             $ret = array();
             foreach ( $callstack as $item ) {
                 $func = '';
