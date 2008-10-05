@@ -54,6 +54,8 @@
             if ( $score > 0 ) {
                 $total_score += $value - $score;
             }
+            
+            return $total_score;
         }
     }
 ?>
