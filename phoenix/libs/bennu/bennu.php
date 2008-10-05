@@ -33,8 +33,8 @@
             
             
             //age sigma = 2
-            $score = ( 2 * ( $sample->Profile->Age - $this->mTarget->Profile->Age ) ) / $value;
-            if ( $score > 0 ) {
+            $score = abs( ( 2 * ( $sample->Profile->Age - $this->mTarget->Profile->Age ) ) / $value );
+            if ( $score < $value ) {
                 $total_score += $value - $score;
             }
             
@@ -52,8 +52,8 @@
             
             //activity sigma = 7*24*60*60
             $sigma = 7*24*60*60;
-            $score = ( $sigma * ( strtotime( $sample->Lastlogin ) - strtotime( $this->mTarget->Lastlogin ) ) ) / $value;
-            if ( $score > 0 ) {
+            $score = abs( ( $sigma * ( strtotime( $sample->Lastlogin ) - strtotime( $this->mTarget->Lastlogin ) ) ) / $value );
+            if ( $score < $value ) {
                 $total_score += $value - $score;
             }
             
