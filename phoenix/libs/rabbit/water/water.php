@@ -229,12 +229,11 @@
                     }
                 }
                 $func .= $item[ 'function' ];
-                $retitem = array(
+                $ret[] = array(
                     $func,
                     isset( $item[ 'file' ] )? $item[ 'file' ]: '',
                     isset( $item[ 'line' ] )? $item[ 'line' ]: 0
                 );
-                $ret[] = $retitem;
             }
             return $ret;
         }
