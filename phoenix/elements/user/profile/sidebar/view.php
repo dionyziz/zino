@@ -16,11 +16,9 @@
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
                         if ( !$res ) {
-                            ?>friend addition<?php
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , " ' .$theuser->Id . ' " );' );
                         }
-                            else {
-                            ?>friend deletion<?php
+                        else {
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
                         }                    
 

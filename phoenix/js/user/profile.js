@@ -38,7 +38,6 @@ var Profile = {
     ShowFriendLinks : function( relationstatus , id ) {
         var text;
         if ( relationstatus ) {
-            alert( 'userid is ' + id );
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'addfriend' )
@@ -51,7 +50,6 @@ var Profile = {
             .append( text );
         }
         else {
-            alert( 'relation id is ' + id );
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'deletefriend' )
