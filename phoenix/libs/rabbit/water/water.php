@@ -115,10 +115,10 @@
             $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
         }
         public function Notice( $description, $dump = false ) {
-            trigger_error( $description, E_USER_NOTICE );
+            $this->ProcessError( E_USER_NOTICE, $description, debug_backtrace() );
         }
         public function Warning( $description, $dump = false ) {
-            trigger_error( $description, E_USER_WARNING );
+            $this->ProcessError( E_USER_WARNING, $description, debug_backtrace() );
         }
         public function Profile( $description, $dump = false ) {
             array_push( $this->mProfiles, array( $description, microtime( true ) ) );
@@ -317,6 +317,7 @@
         }
         protected function DumpHTML() {
            ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css"></link>
+            <script type="text/javascript" src="https://water.kamibu.com/js/client.js"></script>
             <div id="water" onclick="window.open('<?php
                 if ( $this->mResponseStatus == 200 ) {
                     echo htmlspecialchars( $this->mFootprintURL );
