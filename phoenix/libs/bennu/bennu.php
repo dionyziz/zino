@@ -31,7 +31,7 @@
             
             //date
             
-            
+            /*
             //age sigma = 2
             $score = ( 2 * ( $sample->Profile->Age - $this->mTarget->Profile->Age ) ) / $value;
             if ( $score > 0 ) {
@@ -57,7 +57,7 @@
                 $total_score += $value - $score;
             }
             
-            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );
+            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );*/
             return $total_score;
         }
     }
