@@ -4,7 +4,9 @@
         protected $mTarget;
        
         public function SetData( $users, $target ) {
-            $this->mInput = $users;
+            foreach ( $users as $_user ) {
+                $this->mInput[] = $_user;
+            }
             $this->mTarget = $target;
             return;
         }
