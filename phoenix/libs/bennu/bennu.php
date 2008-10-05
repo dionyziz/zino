@@ -11,7 +11,7 @@
         
         public function GetResult() {
             $res = array();
-            foreach ( $mInput as $sample ) {
+            foreach ( $this->mInput as $sample ) {
                 $res[ $sample->Name ] = $this->Calculate( $sample );
             }
             
