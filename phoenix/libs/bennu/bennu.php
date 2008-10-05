@@ -4,10 +4,8 @@
         protected $mTarget;
        
         public function SetData( $users, $target ) {
-            foreach ( $users as $_user ) {
-                $this->mInput[] = new User( $_user->Id );
-            }
-            $this->mTarget = new User( $target->Id );
+            $this->mInput = $users;
+            $this->mTarget = $target;
             return;
         }
         
@@ -55,7 +53,6 @@
                 $total_score += $value - $score;
             }
             
-            w_assert( is_numeric( $total_score ), "total score isnt numeric value" );
             return $total_score;
         }
     }
