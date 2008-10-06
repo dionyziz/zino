@@ -31,13 +31,13 @@
 	        $bennu->SetData( $input, $target );
 	        $out = $bennu->AddRule( 'User->Gender', $target->Gender );
 	        echo $out;
-	        $res = $bennu->GetResult();
+	        /*$res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
 
-            }
+            }*/
             
 	        
         }

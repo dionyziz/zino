@@ -23,7 +23,7 @@
         public function Calculate( $sample ) {
             $value;
             if ( $this->mSigma == 0 ) {
-                if ( $this->Value( $sample ) === $value ) {
+                if ( $this->Value( $sample ) === $this->mValue ) {
                     $value = 1;
                 }
                 else {
