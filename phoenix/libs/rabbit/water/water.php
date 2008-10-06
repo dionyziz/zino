@@ -305,7 +305,7 @@
             }
             else {
                 $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
-                $this->mFootprintURL = $data;
+                $this->mFootprintURL = 
                 curl_close( $curl );
             }
 
