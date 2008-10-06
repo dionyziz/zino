@@ -31,13 +31,13 @@
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        $res = $bennu->GetResult();
-	        /*
+	        
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
 
             }
-            */
+            
 	        
         }
     }
