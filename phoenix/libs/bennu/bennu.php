@@ -1,4 +1,12 @@
 <?php
+    class Rule {
+        protected $mAccesName;
+        protected $mType;
+        protected $sigma;
+        protected $value;
+        protected $significance;
+    }
+
     class Bennu {
         protected $mInput;
         protected $mTarget;
