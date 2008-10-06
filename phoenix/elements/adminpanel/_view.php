@@ -27,10 +27,6 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
-	        ?><p>class<?php
-	        echo get_class($target->Created);
-	        ?></p><?php
-	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        $bennu->AddRule( 'User->Profile->Age', $target->Profile->Age, 'medium', 2 );
