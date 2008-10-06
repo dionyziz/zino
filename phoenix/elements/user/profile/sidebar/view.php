@@ -20,32 +20,7 @@
                         else {
                             $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
                         }                    
-
                     }
-                    /*
-                    Element( 'user/profile/sidebar/who', $theuser , $theuser->Id , $theuser->Avatar->Id );
-                    Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );
-                    Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Mood->Id, $theuser->Gender );
-                    
-                    if ( $user->Id != $theuser->Id && $user->Exists() ) {
-                        $finder = New FriendRelationFinder();
-                        $res = $finder->FindFriendship( $user , $theuser );
-                        if ( !$res ) {
-                            ?><div class="addfriend"><a href="" onclick="return Profile.AddFriend( '<?php
-                            echo $theuser->Id;
-                            ?>' )"><span>&nbsp;</span>Προσθήκη στους φίλους</a></div><?php
-                        }
-                        else {
-                            ?><div class="deletefriend"><a href="" onclick="return Profile.DeleteFriend( '<?php
-                            echo $res->Id;
-                            ?>' , '<?php
-                            echo $theuser->Id;
-                            ?>' )"><span>&nbsp;</span>Διαγραφή από τους φίλους</a></div><?php
-                        }
-                    }
-                    
-                    Element( 'user/profile/sidebar/info', $theuser );
-                    */
 					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
 						?><dl class="online"><dt><strong>Online</strong></dt>
 						<dd><?php
