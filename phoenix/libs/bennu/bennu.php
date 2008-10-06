@@ -20,7 +20,7 @@
             $res = array();
             foreach ( $this->mInput as $sample ) {
                 
-                if ( $sampe->Id == $target->Id ) {//exclude the target from  evaluating
+                if ( $sampe->Id == $this->mTarget->Id ) {//exclude the target from  evaluating
                     continue;
                 }
             
