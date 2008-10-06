@@ -66,7 +66,7 @@
             
             $this->mRules[] = $rule;
             
-            $score = $rule->Calculate( $ths->mTarget );
+            $score = $rule->Calculate( $this->mTarget );
             
             return $score;
         }
