@@ -27,8 +27,9 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
-	        $att='Profile->Age';
-	        echo $target->$att;
+	        $att='Profile';
+	        $at2='Age';
+	        echo $target->$att->$at2;
 
 	        
 	        $bennu = new Bennu();
