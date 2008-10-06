@@ -5,12 +5,12 @@
         protected $mValue;
         protected $mCost;//low medium high 
         
-        public function SetRule( $attribute, $value, $significanse, $sigma ) {
+        public function SetRule( $attribute, $value, $priority, $sigma ) {
             $this->mAttribute = $attribute;
             $this->mSigma = $sigma;
             $this->mValue = $value;
             
-            switch ( $significance ) {
+            switch ( $priority ) {
                 case 'low' : 
                     $this->mCost = 5;
                 case 'medium' : 
@@ -60,9 +60,9 @@
             return;
         }
         
-        public function AddRule( $attribute, $value, $significanse = 'medium', $sigma = 0 ) {
+        public function AddRule( $attribute, $value, $priority = 'medium', $sigma = 0 ) {
             $rule = new Rule;         
-            $rule->SetRule( $attribute, $value, $significanse, $sigma );
+            $rule->SetRule( $attribute, $value, $priority, $sigma );
             
             $this->mRules[] = $rule;
             
