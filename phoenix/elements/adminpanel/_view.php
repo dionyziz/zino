@@ -30,7 +30,7 @@
 	        $aName = 'Name';
 	        
 	        echo $target->$aName;
-	        
+	        /*
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        $res = $bennu->GetResult();
@@ -40,7 +40,7 @@
 	            echo '<p>'.$key.' '.$val.'</p>';
 
             }
-            
+            */
 	        
         }
     }
