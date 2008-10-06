@@ -28,18 +28,14 @@
             
             if ( $this->mSigma == 0 ) {// for yes-on type of rules
                 if ( $this->Value( $sample ) === $this->mValue ) {
-                    $value = 1;
+                    return $this->mCost;
                 }
                 else {
-                    $value = 0;
+                    return 0;
                 }
-                
-                return $this->mCost*$value;
-            }
+            }            
             
-            
-            if ( $this->mSigma > 0 ) {//for int rules with sigma
-            
+            if ( $this->mSigma > 0 ) {//for int rules with sigma            
                 $value = abs( ( $this->mSigma * ( $this->Value( $sample )  - $this->mValue ) ) / $this->mCost );
                 if ( $value < $this->mCost ) {
                     return ( $this->mCost - $value );
@@ -47,16 +43,13 @@
                 else {
                     return 0;
                 }
-            }
-            
+            }   
             
             return;
         }
         
-        protected function Value( $sample ) {
-        
-            $attributes = explode( '->', $this->mAttribute );
-            
+        protected function Value( $sample ) {        
+            $attributes = explode( '->', $this->mAttribute );                       
             if ( count( $attributes ) == 2 ) {
                 return $sample->$attributes[ 1 ];
             }
@@ -80,13 +73,9 @@
         
         public function AddRule( $attribute, $value, $priority = 'medium', $sigma = 0 ) {
             $rule = new Rule;         
-            $rule->SetRule( $attribute, $value, $priority, $sigma );
-            
+            $rule->SetRule( $attribute, $value, $priority, $sigma );            
             $this->mRules[] = $rule;
-            
-            $score = $rule->Calculate( $this->mTarget );
-            
-            return $score;
+            return;
         }
         
         public function GetResult() {
@@ -100,12 +89,20 @@
                 $res[ $sample->Name ] = $this->Calculate( $sample );
             }
             
-            w_assert( !empty( $res ), "No results" );
-            
             return $res;
         }
         
         protected function Calculate( $sample ) {
+        
+            $total_score = 0;
+            
+            foreach ( $this->mRules as $rule ) {
+                $score += $rule->Calculate( $sample );
+            }
+            
+            return $score;      
+        
+        
             $total_score = 0;
             $score;
             $value = 10;
