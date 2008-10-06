@@ -36,7 +36,7 @@
             }            
             
             if ( $this->mSigma > 0 ) {//for int rules with sigma            
-                $value = abs( ( $this->mSigma * ( $this->Value( $sample )  - $this->mValue ) ) / $this->mCost );
+                $value = abs( ( $this->mCost * ( $this->Value( $sample )  - $this->mValue ) ) / $this->mSigma );
                 if ( $value < $this->mCost ) {
                     return ( $this->mCost - $value );
                 }
