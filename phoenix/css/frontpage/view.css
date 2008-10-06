@@ -41,12 +41,14 @@ div.latestimages {
     height: 130px;
     overflow: hidden;
     margin: 0 4px 20px 4px;
+	border: 1px solid green;
 }
 div.latestimages ul {
     margin: 0;
     padding: 17px 0 14px 0;
     list-style: none;
     height: 110px;
+	border: 1px solid red;
 }
 div.latestimages ul li {
     float: left;
