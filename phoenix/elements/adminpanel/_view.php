@@ -27,6 +27,10 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
+	        $aName = 'Name';
+	        
+	        echo $target->$aName;
+	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        $res = $bennu->GetResult();
