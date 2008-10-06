@@ -13,10 +13,13 @@
             switch ( $priority ) {
                 case 'low' : 
                     $this->mCost = 5;
+                    break;
                 case 'medium' : 
                     $this->mCost = 10;
+                    break;
                 case 'high' : 
                     $this->mCost = 15;
+                    break;
             }      
         }
         
