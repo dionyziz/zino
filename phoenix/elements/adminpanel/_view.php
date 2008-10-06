@@ -27,13 +27,10 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
-	        $att='Profile';
-	        $at2='Age';
-	        echo $target->$att->$at2;
-
-	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
+	        $out = $bennu->AddRule( 'User->Gender', $target->Gender );
+	        echo $out;
 	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php

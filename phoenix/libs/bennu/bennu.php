@@ -5,7 +5,7 @@
         protected $mValue;
         protected $mSignificance;//low medium high 
         
-        public function SetRule( $attribute, $sigma, $value, $significanse ) {
+        public function SetRule( $attribute, $value, $significanse, $sigma ) {
             $this->mAttribute;
             $this->mSigma;
             $this->mValue;
@@ -16,10 +16,21 @@
     class Bennu {
         protected $mInput;
         protected $mTarget;
+        protected $mRules;
        
         public function SetData( $users, $target ) {
             $this->mInput = $users;
             $this->mTarget = $target;
+            return;
+        }
+        
+        public function AddRule( $attribute, $value, $significanse = 'medium', $sigma = 0 ) {
+            $rule = new Rule;         
+            $attributes = explode( '->', $attribute );
+            $rule->SetRule( $attributes[ 1 ], $value, $significanse, $sigma );
+            
+            $this->mRules[] = $rule;
+            
             return;
         }
         
