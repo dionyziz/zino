@@ -26,7 +26,7 @@
             $page->SetBase( $rabbit_settings[ 'webaddress' ] . '/' );
         }
         if ( method_exists( $page, 'SetWaterDump' ) ) {
-            $page->SetWaterDump( $water->Enabled() );
+            $page->SetWaterDump( !$rabbit_settings[ 'production' ] );
         }
         
         if ( function_exists( 'Project_Construct' ) ) {

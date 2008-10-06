@@ -1,4 +1,8 @@
 <?php
+    if ( !defined( 'WATER_ENABLE' ) ) {
+        define( 'WATER_ENABLE', true );
+    }
+
     error_reporting( E_ALL );
 
     define( 'WATER_PROTOCOL_VERSION', 1 );
@@ -85,7 +89,41 @@
         return '"[unknown]"';
     }
 
-    class Water {
+    interface WaterBase {
+        public function Trace( $description, $dump = false );
+        public function Notice( $description, $dump = false );
+        public function Warning( $description, $dump = false );
+        public function Profile( $description, $dump = false );
+        public function ProfileEnd();
+        public function LogSQL( $description );
+        public function LogSQLEnd();
+        public function HandleError( $errno, $errstr );
+        public function ProcessError( $errno, $errstr, $backtrace );
+        public function HandleException( Exception $e );
+        public function AppendAlert( $type, $description, $start, $callstack );
+        public function AppendProfile( $description, $start, $end, $callstack );
+        public function AppendQuery( $description, $start, $end, $callstack );
+        public function Post();
+    }
+
+    class WaterDummy implements WaterBase {
+        public function Trace( $description, $dump = false ) {}
+        public function Notice( $description, $dump = false ) {}
+        public function Warning( $description, $dump = false ) {}
+        public function Profile( $description, $dump = false ) {}
+        public function ProfileEnd() {}
+        public function LogSQL( $description ) {}
+        public function LogSQLEnd() {}
+        public function HandleError( $errno, $errstr ) {}
+        public function ProcessError( $errno, $errstr, $backtrace ) {}
+        public function HandleException( Exception $e ) {}
+        public function AppendAlert( $type, $description, $start, $callstack ) {}
+        public function AppendProfile( $description, $start, $end, $callstack ) {}
+        public function AppendQuery( $description, $start, $end, $callstack ) {}
+        public function Post() {}
+    }
+
+    class Water implements WaterBase {
         protected $mProjectName = 'zino';
         protected $mProjectKey = 'flowing314sand';
         protected $mFootprintData = '[';
@@ -100,17 +138,7 @@
         protected $mLastSQLQuery = '';
         protected $mLastSQLQueryStart = false;
         protected $mProfiles = array();
-        protected $mEnabled = true;
 
-        public function Enable() {
-            $this->mEnabled = true;
-        }
-        public function Disable() {
-            $this->mEnabled = false;
-        }
-        public function Enabled() {
-            return $this->mEnabled;
-        }
         public function Trace( $description, $dump = false ) {
             $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
         }
@@ -132,6 +160,9 @@
             $this->AppendProfile( $profile[ 0 ], $profile[ 1 ], microtime( true ), debug_backtrace() );
         }
         public function LogSQL( $description ) {
+            if ( !$this->mEnabled ) {
+                return;
+            }
             if ( $this->mLastSQLQueryStart !== false ) {
                 $this->Warning( 'Water could not log SQL query "'
                     . $description
@@ -353,7 +384,12 @@
 
     global $water;
 
-    $water = New Water();
+    if ( WATER_ENABLE ) {
+        $water = New Water();
+    }
+    else {
+        $water = New WaterDummy();
+    }
 
     set_error_handler( array( $water, 'HandleError' ) );
     set_exception_handler( array( $water, 'HandleException' ) );

@@ -20,6 +20,9 @@
     // set the include path that will be used from now on, relative to the rootdir of our site
     set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
+    // enable the debugging library if we're not on a production environment
+    define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
+    
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
     
@@ -42,11 +45,6 @@
         setlocale( LC_ALL, $rabbit_settings[ 'locale' ] );
     }
 
-    // enable the debugging library if we're not on a production environment
-    if ( !$rabbit_settings[ 'production' ] ) {
-        $water->Enable(); // might be disabled later using ->Disable() if you wish
-    }
-    
     require_once 'libs/rabbit/mask.php';
     
     // load the libraries system -- it will be used to load everything else

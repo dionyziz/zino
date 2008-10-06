@@ -118,6 +118,7 @@
         }
         public function Query( $sql ) {
             global $water;
+            global $rabbit_settings;
             
             $this->ActualConnect(); // lazy connect
             if ( !$this->mConnected ) {
@@ -125,7 +126,7 @@
                 return false;
             }
             $this->CharSetApply();
-            if ( $water->Enabled() ) {
+            if ( !$rabbit_settings[ 'production' ] ) {
                 $backtrace = debug_backtrace();
                 $lasttrace = array_shift( $backtrace );
                 if ( strpos( $lasttrace[ 'file' ] , '/elements/' ) ) {

@@ -8,7 +8,6 @@
             global $page;
             
             $page->SetTitle( 'Ανέβασε μια εικόνα' );
-            $water->Disable();
             $page->SetWaterDump( false );
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
