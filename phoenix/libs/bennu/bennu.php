@@ -3,13 +3,36 @@
         protected $mAttribute;
         protected $mSigma;
         protected $mValue;
-        protected $mSignificance;//low medium high 
+        protected $mCost;//low medium high 
         
         public function SetRule( $attribute, $value, $significanse, $sigma ) {
-            $this->mAttribute;
-            $this->mSigma;
-            $this->mValue;
-            $this->mSignificance;        
+            $this->mAttribute = $attribute;
+            $this->mSigma = $sigma;
+            $this->mValue = $value;
+            
+            switch ( $significance ) {
+                case 'low' : 
+                    $this->mCost = 5;
+                case 'medium' : 
+                    $this->mCost = 10;
+                case 'high' : 
+                    $this->mCost = 15;
+            }      
+        }
+        
+        public function Calculate( $_user ) {
+            $value;
+            if ( $this->mSigma == 0 ) {
+                if ( $_user->$this->mAttribute === $value ) {
+                    $value = 1;
+                }
+                else {
+                    $value = 0;
+                }
+                
+                return $this->mCost*$value;
+            }
+            return;
         }
     }
 
@@ -31,7 +54,9 @@
             
             $this->mRules[] = $rule;
             
-            return $attributes[ 1 ];
+            $score = $rule->Calculate( $ths->mTarget );
+            
+            return $score;
         }
         
         public function GetResult() {
