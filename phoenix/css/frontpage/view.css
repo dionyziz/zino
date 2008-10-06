@@ -38,7 +38,7 @@ div.frontpage div.ybubble div.body form div span {
     padding-right: 3px;
 }
 div.latestimages {
-    height: 130px;
+    height: 120px;
     overflow: hidden;
     margin: 0 4px 20px 4px;
 	border: 1px solid green;
@@ -56,6 +56,7 @@ div.latestimages ul li {
     margin: 5px;
     height: 110px;
     text-align: center;
+	position: relative;
 }
 div.latestimages ul li img {
     border: 1px solid #cce;
