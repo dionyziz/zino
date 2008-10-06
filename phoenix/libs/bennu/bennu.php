@@ -37,7 +37,7 @@
         
         protected function Value( $sample ) {
         
-            $attributes = explode( '->', $this->mAttributes );
+            $attributes = explode( '->', $this->mAttribute );
             
             if ( count( $attributes ) == 2 ) {
                 return $sample->$attributes[ 1 ];
