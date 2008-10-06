@@ -42,6 +42,7 @@ div.latestimages {
     overflow: hidden;
     margin: 0 4px 20px 4px;
 	border: 1px solid green;
+	word-wrap: break-word; 
 }
 div.latestimages ul {
     margin: 0;
