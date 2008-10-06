@@ -1,10 +1,9 @@
 <?php
     class Rule {
-        protected $mAccesName;
-        protected $mType;
-        protected $sigma;
-        protected $value;
-        protected $significance;
+        protected $mAttribute;
+        protected $mSigma;
+        protected $mValue;
+        protected $mSignificance;
     }
 
     class Bennu {
