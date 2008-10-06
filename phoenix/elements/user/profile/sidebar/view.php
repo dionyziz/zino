@@ -47,7 +47,7 @@
                     Element( 'user/profile/sidebar/info', $theuser );
                     */
 					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
-						?><dt><strong>Online</strong></dt>
+						?><dl class="online"><dt><strong>Online</strong></dt>
 						<dd><?php
 						if ( $theuser->LastActivity->IsOnline() ) {
 							?>αυτή τη στιγμή!<?php
@@ -55,7 +55,7 @@
 						else {
 							Element( 'date/diff' , $theuser->LastActivity->Updated );
 						}
-						?></dd><?php
+						?></dd></dl><?php
 					}
                 ?></div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuser->Id , $theuser->Profile->Updated );
