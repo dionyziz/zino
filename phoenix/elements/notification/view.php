@@ -230,7 +230,7 @@
                                     break;
                                 case TYPE_IMAGE:
                                     ?>στη φωτογραφία <?php
-                                    Element( 'image/view' , $comment->Item->Id , $comment->Item->User->Id , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 , 0 );
+                                    Element( 'image/view' , $comment->Item->Id , $comment->Item->User->Id , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
                                     break;
                                 case TYPE_JOURNAL:
                                     ?>στο ημερολόγιο "<?php
