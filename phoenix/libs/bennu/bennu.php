@@ -3,7 +3,14 @@
         protected $mAttribute;
         protected $mSigma;
         protected $mValue;
-        protected $mSignificance;
+        protected $mSignificance;//low medium high 
+        
+        public function SetRule( $attribute, $sigma, $value, $significanse ) {
+            $this->mAttribute;
+            $this->mSigma;
+            $this->mValue;
+            $this->mSignificance;        
+        }
     }
 
     class Bennu {
