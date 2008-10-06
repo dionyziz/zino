@@ -29,7 +29,7 @@
 	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
-	        $out = $bennu->AddRule( 'User->Gender', $target->Gender );
+	        $out = $bennu->AddRule( 'User->Profile->Age', $target->Profile->Age, 'medium', 2 );
 	        echo $out;
 	        /*$res = $bennu->GetResult();
 	        

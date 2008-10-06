@@ -8,7 +8,7 @@
         public function SetRule( $attribute, $value, $priority, $sigma ) {
             $this->mAttribute = $attribute;
             $this->mSigma = $sigma;
-            $this->mValue = $value;
+            $this->mValue = $value;//the ideal value
             
             switch ( $priority ) {
                 case 'low' : 
@@ -25,7 +25,8 @@
         
         public function Calculate( $sample ) {
             $value;
-            if ( $this->mSigma == 0 ) {
+            
+            if ( $this->mSigma == 0 ) {// for yes-on type of rules
                 if ( $this->Value( $sample ) === $this->mValue ) {
                     $value = 1;
                 }
@@ -35,6 +36,20 @@
                 
                 return $this->mCost*$value;
             }
+            
+            
+            if ( $this->mSigma > 0 ) {//for int rules with sigma
+            
+                $value = abs( ( $this->mSigma * ( $this->Value( $sample )  - $this->mValue ) ) / $this->mCost );
+                if ( $value < $this->mCost ) {
+                    return ( $this->mCost - $value );
+                }
+                else {
+                    return 0;
+                }
+            }
+            
+            
             return;
         }
         
