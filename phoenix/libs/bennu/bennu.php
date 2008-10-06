@@ -31,7 +31,7 @@
             
             $this->mRules[] = $rule;
             
-            return;
+            return $attributes[ 1 ];
         }
         
         public function GetResult() {
