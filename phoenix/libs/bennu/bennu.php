@@ -20,10 +20,10 @@
             }      
         }
         
-        public function Calculate( $_user ) {
+        public function Calculate( $sample ) {
             $value;
             if ( $this->mSigma == 0 ) {
-                if ( $_user->$this->mAttribute === $value ) {
+                if ( $this->Value( $sample ) === $value ) {
                     $value = 1;
                 }
                 else {
@@ -31,6 +31,19 @@
                 }
                 
                 return $this->mCost*$value;
+            }
+            return;
+        }
+        
+        protected function Value( $sample ) {
+        
+            $attributes = explode( '->', $this->mAttributes );
+            
+            if ( count( $attributes ) == 2 ) {
+                return $sample->$attributes[ 1 ];
+            }
+            else if ( count( $attributes ) == 3 ) {
+                return $sample->$attributes[ 1 ]->$attributes[ 2 ];
             }
             return;
         }
@@ -49,8 +62,7 @@
         
         public function AddRule( $attribute, $value, $significanse = 'medium', $sigma = 0 ) {
             $rule = new Rule;         
-            $attributes = explode( '->', $attribute );
-            $rule->SetRule( $attributes[ 1 ], $value, $significanse, $sigma );
+            $rule->SetRule( $attribute, $value, $significanse, $sigma );
             
             $this->mRules[] = $rule;
             
