@@ -21,7 +21,7 @@
             }      
         }
         
-        protected function Calculate( $sample ) {
+        public function Calculate( $sample ) {
             $value;
             
             if ( $this->mSigma == 0 ) {// for yes-on type of rules
@@ -87,7 +87,7 @@
             return $sample->Gender;
         }
         
-        protected function Calculate( $sample ) {
+        public function Calculate( $sample ) {
             if ( $sampe->Get() == $this->mValue ) {
                 return $this->mCost;    
             }
