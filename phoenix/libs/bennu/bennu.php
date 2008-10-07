@@ -4,7 +4,7 @@
         protected $mValue;
         protected $mCost;//low medium high 
         
-        public function SetRule( $value, $priority, $sigma ) {
+        public function SetRule( $value, $priority, $sigma = 0 ) {
             $this->mSigma = $sigma;
             $this->mValue = $value;//the ideal value
             
@@ -88,7 +88,12 @@
         }
         
         protected function Calculate( $sample ) {
-            return 1;
+            if ( $sampe->Get() == $this->mValue ) {
+                return $this->mCost;    
+            }
+            else {
+                return 0;
+            }
         }
     }
     

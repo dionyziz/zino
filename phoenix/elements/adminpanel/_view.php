@@ -29,12 +29,11 @@
 	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
-	        $bennu->AddRule( 'User->Profile->Age', $target->Profile->Age, 'medium', 2 );
-	        $bennu->AddRule( 'User->Gender', $target->Gender, 'medium' );
-	        $bennu->AddRule( 'User->Profile->Location', $target->Profile->Location, 'high' );
+	        
+	        $gender = new BennuRuleGender();
+	        $gender->SetRule( $target->Gender, 'medium' );  
 
-            $str = "GetResult";
-	        $res = $bennu->$str();
+	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
