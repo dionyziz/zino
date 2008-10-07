@@ -88,7 +88,7 @@
         }
         
         public function Calculate( $sample ) {
-            if ( $sampe->Get() == $this->mValue ) {
+            if ( $this->Get( $sample ) == $this->mValue ) {
                 return $this->mCost;    
             }
             else {
