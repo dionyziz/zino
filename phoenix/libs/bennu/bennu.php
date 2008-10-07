@@ -116,6 +116,12 @@
             return strtotime( $sample->Lastlogin );
         }
     }
+    
+    class BennuRuleCreated extends BennuRule {
+        protected function Get( $sample ) {
+            return strtotime( $sample->Lastlogin );
+        }
+    }
 
 
     
