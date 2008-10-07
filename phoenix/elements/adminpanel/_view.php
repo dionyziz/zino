@@ -33,6 +33,7 @@
 	        $gender = new BennuRuleGender();
 	        $gender->SetRule( $target->Gender, 'medium' );  
 
+            $bennu->AddRule( $gender );
 	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php
