@@ -31,9 +31,13 @@
 	        $bennu->SetData( $input, $target );
 	        
 	        $gender = new BennuRuleGender();
-	        $gender->SetRule( $target->Gender, 'medium' );  
+	        $gender->SetRule( $target->Gender, 'medium' ); 
+	        
+	        $lastactive = new BennuRuleLastActive();
+	        $lastactive->SetRule( strtotime( $target->Lastlogin ), 'medium' , 7*24*60*60 );
 
             $bennu->AddRule( $gender );
+            $bennu->AddRule( $lastactive );
 	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php

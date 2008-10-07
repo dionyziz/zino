@@ -1,4 +1,38 @@
 <?php
+    class Bennu {
+        protected $mInput;
+        protected $mTarget;
+        protected $mRules;
+       
+        public function SetData( $users, $target ) {
+            $this->mInput = $users;
+            $this->mTarget = $target;
+            return;
+        }
+        
+        public function AddRule( $rule ) {            
+            $this->mRules[] = $rule;
+            return;
+        }
+        
+        public function GetResult() {
+            $res = array();
+            foreach ( $this->mInput as $sample ) {
+                $res[ $sample->Name ] = $this->GetScore( $sample );
+            }
+            
+            return $res;
+        }
+        
+        protected function GetScore( $sample ) {        
+            $total_score = 0;            
+            foreach ( $this->mRules as $rule ) {
+                $score += $rule->Calculate( $sample );
+            }            
+            return $score;      
+        }
+    }
+    
     class BennuRule {
         protected $mSigma;
         protected $mValue;
@@ -47,41 +81,6 @@
         }
     }
     
-
-    class Bennu {
-        protected $mInput;
-        protected $mTarget;
-        protected $mRules;
-       
-        public function SetData( $users, $target ) {
-            $this->mInput = $users;
-            $this->mTarget = $target;
-            return;
-        }
-        
-        public function AddRule( $rule ) {            
-            $this->mRules[] = $rule;
-            return;
-        }
-        
-        public function GetResult() {
-            $res = array();
-            foreach ( $this->mInput as $sample ) {
-                $res[ $sample->Name ] = $this->GetScore( $sample );
-            }
-            
-            return $res;
-        }
-        
-        protected function GetScore( $sample ) {        
-            $total_score = 0;            
-            foreach ( $this->mRules as $rule ) {
-                $score += $rule->Calculate( $sample );
-            }            
-            return $score;      
-        }
-    }
-    
     class BennuRuleGender extends BennuRule {
         protected function Get( $sample ) {
             return $sample->Gender;
@@ -96,5 +95,28 @@
             }
         }
     }
+    
+    class BennuRuleSex extends BennuRule {
+        protected function Get( $sample ) {
+            return $sample->Profile->Sexualorientation;
+        }
+        
+        public function Calculate( $sample ) {
+            if ( $this->Get( $sample ) == $this->mValue ) {
+                return $this->mCost;    
+            }
+            else {
+                return 0;
+            }    
+        }
+    }
+    
+    class BennuRuleLastActive extends BennuRule {
+        protected function Get( $sample ) {
+            return strtotime( $sample->Lastlogin );
+        }
+    }
+
+
     
 ?>
