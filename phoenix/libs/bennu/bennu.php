@@ -1,12 +1,12 @@
 <?php
-    class Rule {
+    class BennuRule {
         protected $mAttribute;
         protected $mSigma;
         protected $mValue;
         protected $mCost;//low medium high 
         
         public function SetRule( $attribute, $value, $priority, $sigma ) {
-            $this->mAttribute = $attribute;
+            $this->mAttribute = $attribute;//attribute's name
             $this->mSigma = $sigma;
             $this->mValue = $value;//the ideal value
             
@@ -72,7 +72,7 @@
         }
         
         public function AddRule( $attribute, $value, $priority = 'medium', $sigma = 0 ) {
-            $rule = new Rule;         
+            $rule = new BennuRule;         
             $rule->SetRule( $attribute, $value, $priority, $sigma );            
             $this->mRules[] = $rule;
             return;
@@ -138,4 +138,5 @@
             return $total_score;
         }
     }
+    
 ?>

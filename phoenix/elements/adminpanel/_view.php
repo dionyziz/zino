@@ -19,7 +19,7 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        /*global $libs;
+	        global $libs;
 	        $libs->Load( 'user/user' );
 	        $libs->Load( 'bennu/bennu' );
 	        
@@ -33,14 +33,14 @@
 	        $bennu->AddRule( 'User->Gender', $target->Gender, 'medium' );
 	        $bennu->AddRule( 'User->Profile->Location', $target->Profile->Location, 'high' );
 
-	        $res = $bennu->GetResult();
+            $str = "GetResult";
+	        $res = $bennu->$str();
 	        
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
 
-            }
-            */
+            }            
 	        
         }
     }
