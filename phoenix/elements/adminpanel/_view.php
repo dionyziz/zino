@@ -33,6 +33,9 @@
 	        $gender = new BennuRuleGender();
 	        $gender->SetRule( $target->Gender, 'medium' ); 
 	        
+	        $sex = new BennuRuleSex();
+	        $sex->SetRule( $target->Profile->SexualOrientation, 'medium' );
+	        
 	        $lastactive = new BennuRuleLastActive();
 	        $lastactive->SetRule( strtotime( $target->Lastlogin ), 'medium' , 7*24*60*60 );
 
