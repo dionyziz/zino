@@ -226,6 +226,8 @@
                     return;
             }
 
+            die( 'Breakpoint 144' );
+
             ob_start();
             $subject = Element( $target, $this );
             $message = ob_get_clean();
@@ -243,15 +245,11 @@
             $this->mRelations[ 'ToUser' ]->Rebuild();
             $field = Notification_FieldByEvent( $this->Event );
 
-            echo "Breakpoint 126D";
-
             $attribute = 'Email' . $field;
             if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Profile->Email ) && $this->ToUser->Emailverified ) {
                 $this->Email();
             }
             
-            echo "Breakpoint 126C";
-
             $attribute = 'Notify' . $field;
             // $trace .= "Notify attribute", $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
@@ -262,11 +260,9 @@
                 if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
-                die( 'Breakpoint 126B' );
                 return false;
             }
             // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
-            die( 'Breakpoint 126A' );
             return true;
         }
         public function Relations() {
