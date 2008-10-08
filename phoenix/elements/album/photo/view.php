@@ -113,7 +113,7 @@
                         }
                         ?>" onclick="return PhotoView.AddFav( '<?php
                         echo $image->Id;
-                        ?>' , this )"><?php
+                        ?>' , this )"><span>&nbsp;</span><?php
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
@@ -148,7 +148,7 @@
                             ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
                             ?>' )"><span>&nbsp;</span>
-                            Ορισμός προεπιλεγμένης</a>
+							Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }
                     ?></div><?php

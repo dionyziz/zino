@@ -25,8 +25,8 @@ div#photoview div.owner div.mainimage {
 	display: inline;
 }
 div#photoview div.owner div.mainimage a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1078px;
-	padding: 0 0 0 14px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -233px -1078px;
+	padding: 0 0 0 11px;
 }
 div#photoview dl {
 	margin: 5px 0 0 0;
@@ -46,8 +46,8 @@ div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	display: inline;
 }
 div#photoview dl dd.addtag span {
-	padding: 0 0 0 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1079px;
+	padding: 0 0 0 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1401px;
 }
 div#photoview dl dd.addfav a span {
 	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
