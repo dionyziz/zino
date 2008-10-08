@@ -46,18 +46,7 @@
             }
             ?>.
             
-Για να δεις <?php
-            switch ( $notif->Item->Typeid ) {
-                case TYPE_IMAGE:
-                    ?>την εικόνα<?php
-                    break;
-                case TYPE_JOURNAL:
-                    ?>το ημερολόγιο<?php
-                    break;
-            }
-            ?> κάνε κλικ στον παρακάτω σύνδεσμο:
 <?php
-            Element( 'url', $notif->Item->Item );
             Element( 'email/footer' );
             
             return $subject;
