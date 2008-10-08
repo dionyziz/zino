@@ -30,7 +30,7 @@
 	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );	        
-	        $bennu->SetRuleBoolean( 'User->Gender', $target->Gender );
+	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );
 	        $res = $bennu->GetResult();
 	        
 	        /*
