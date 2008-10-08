@@ -47,13 +47,13 @@ div#journalview div.journal dl dd.addfav {
 div#journalview div.journal dl dd.addfav a span{
 	background-image: url('http://static.zino.gr/phoenix/icons.jpg');
 	background-repeat: no-repeat;
-	padding-left: 19px;
+	padding-left: 16px;
 }
 div#journalview div.journal dl dd.addfav a.add span{
 	background-position: -235px -276px;
 }
 div#journalview div.journal dl dd.addfav a.isadded {
-	background-position: 0 -1261px;
+	background-position: -235px -210px;
 	cursor: default;
 }
 div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
@@ -62,9 +62,6 @@ div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delet
 }
 div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd.delete a img {
 	padding-right: 2px;
-}
-div#journalview div.journal dl dd.edit {
-
 }
 div#journalview div.journal p {
 	text-align: left;
@@ -75,9 +72,6 @@ div#journalview div.comments {
 	float: left;
 	width: 90%;
 	overflow: hidden;
-}
-div#journalview img.delete1 , div#journalview img.delete2 {
-	display: none;
 }
 div#journalview div.comments {
 	margin-top: 50px;
