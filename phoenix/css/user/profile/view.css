@@ -51,13 +51,11 @@ div#profile div.sidebar div.basicinfo div dl {
 	margin: 0;
 }
 div#profile div.sidebar div.basicinfo dl dt {
-	display: block;
 	float: left;
 	width: 12em;
 	padding: 3px 0;
 }
 div#profile div.sidebar div.basicinfo dl dd {
-	display: block;
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
@@ -137,13 +135,11 @@ div#profile div.sidebar div.social dl {
 	margin: 0;
 }
 div#profile div.sidebar div.social dl dt {
-	display: block;
 	float: left;
 	width: 170px;
 	padding: 3px 0;
 }
 div#profile div.sidebar div.social dl dd {
-	display: block;
 	text-align: left;
 	margin-left: 170px;
 	padding: 3px 0;
@@ -172,12 +168,10 @@ div#profile div.sidebar div.aboutme dl {
 	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dt {
-	display: block;
 	padding: 3px 0 1px 0;
 	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dd {
-	display: block;
 	margin: 0;
 	padding: 1px 0 0 0;
 }
@@ -190,11 +184,9 @@ div#profile div.sidebar div.interests dl {
 	margin: 0;
 }
 div#profile div.sidebar div.interests dl dt {
-	display: block;
 	padding: 3px 0 1px 0;
 }
 div#profile div.sidebar div.interests dl dd {
-	display: block;
 	padding: 1px 0 5px 0;
 	margin: 0;
 }
@@ -309,9 +301,6 @@ div#profile div.main div.friends h3 {
 }
 div#profile div.main div.friends a.button {
 	margin-left: 0;
-}
-div#profile div.main div.questions {
-/*	width: 70%;*/
 }
 div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
