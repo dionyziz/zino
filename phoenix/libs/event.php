@@ -358,7 +358,6 @@
             $notif->Eventid = $this->Id;
             $notif->Fromuserid = $this->Userid;
             $notif->Save();
-            die( 'Breakpoint 126' );
         }
         protected function OnBeforeUpdate() {
             throw New Exception( 'Events cannot be updated' );
