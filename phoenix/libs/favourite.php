@@ -48,6 +48,7 @@
 
             $libs->Load( 'event' );
 
+            die( 'Breakpoint 108' );
             $event = New Event();
             $event->Typeid = EVENT_FAVOURITE_CREATED;
             $event->Itemid = $this->Id;

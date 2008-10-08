@@ -9,6 +9,5 @@
         $favourite->Itemid = $itemid->Get();
         $favourite->Typeid = $typeid->Get();
         $favourite->Save();
-        die( 'Breakpoint 107' );
     }
 ?>
