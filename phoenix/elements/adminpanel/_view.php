@@ -50,12 +50,12 @@
             $bennu->AddRule( $lastactive );
             $bennu->AddRule( $sex );
 	        $res = $bennu->GetResult();
-	        
+	        */
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
 
-            }*/            
+            }            
 	        
         }
     }
