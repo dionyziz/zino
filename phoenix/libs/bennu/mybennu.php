@@ -78,11 +78,11 @@
             $sampe_value;
             $ideal_value;
             if ( $this->mType == 'INT' ) {
-                $sample_type = $this->Get( $sample );
+                $sample_value = $this->Get( $sample );
                 $ideal_value = $this->mValue;
             }
             else if ( $this->mType == 'DATE' ) {
-                $sample_type = strtotime( $this->Get( $sample ) ); 
+                $sample_value = strtotime( $this->Get( $sample ) ); 
                 $ideal_value = strtotime( $this->mValue );
             }            
                  
