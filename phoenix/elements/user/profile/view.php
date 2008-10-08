@@ -63,7 +63,7 @@
                 $page->AttachInlineScript( 'Profile.ShowOnlineSince( false );' );
             }
             ?><div id="profile"><?php
-                Element( 'user/profile/sidebar/view' , $theuser );
+                Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated );
                 Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
                 ?><div class="eof"></div><?php
                 Element( 'ad/view', AD_USERPROFILE, $page->XMLStrict() );
