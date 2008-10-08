@@ -37,7 +37,7 @@ div#journalview div.journal dl dd.commentsnum {
 	display: inline;
 }
 div#journalview div.journal dl dd.commentsnum span {
-	padding: 0 0 0 18px;
+	padding: 0 0 0 15px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
 div#journalview div.journal dl dd.addfav {
