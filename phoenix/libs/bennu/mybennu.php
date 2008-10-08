@@ -159,7 +159,7 @@
                 $users[ $sample->Id ] = $sample;
             }
             
-            arsort( $res );
+            asort( $res );
             
             $i = 0;
             foreach ( $res as $key=>$val ) {
