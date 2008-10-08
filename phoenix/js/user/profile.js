@@ -63,6 +63,15 @@ var Profile = {
         }
         //if relationstatus is anything else don't do something, user views his own profile
     },
+    ShowOnlineSince : function( lastonline ) {
+        if ( lastonline ) {
+            text = document.createTextNode( lastonline );
+            $( 'div.sidebar div.basicinfo dl.online dd' ).append( text ); 
+        }
+        else {
+            $( 'div.sidebar div.basicinfo dl.online dd' ).hide();
+        }
+    },
     AntisocialAddFriend : function ( userid ) {
         this.AntisocialCalled = true;
         if ( !$( '#antisocial' )[ 0 ] ) {

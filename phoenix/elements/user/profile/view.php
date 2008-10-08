@@ -5,7 +5,9 @@
             global $page;
             global $user;
             global $water;
-            
+            global $libs;
+
+            $libs->Load( 'relation/relation' );
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $name = $name->Get();
@@ -35,6 +37,31 @@
                 return;
             }
             $page->SetTitle( $theuser->Name );
+
+            if ( $user->Id != $theuser->Id && $user->Exists() ) {
+                $finder = New FriendRelationFinder();
+                $res = $finder->FindFriendship( $user , $theuser );
+                if ( !$res ) {
+                    $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , " ' .$theuser->Id . ' " );' );
+                }
+                else {
+                    $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
+                }                    
+            } 
+            if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
+                if ( $theuser->LastActivity->IsOnline() ) {
+                    $text = "αυτή τη στιγμή!";
+                }
+                else {
+                    ob_start();
+                    Element( 'date/diff' , $theuser->LastActivity->Updated );
+                    $text = ob_get_clean();
+                }
+                $page->AttachInlineScript( 'Profile.ShowOnlineSince( " ' . $text . ' " );' );
+            }
+            else {
+                $page->AttachInlineScript( 'Profile.ShowOnlineSince( false );' );
+            }
             ?><div id="profile"><?php
                 Element( 'user/profile/sidebar/view' , $theuser );
                 Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
