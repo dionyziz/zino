@@ -28,8 +28,10 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
-	        
-	        
+	        $bennu = new Bennu();
+	        $bennu->SetData( $input, $target );	        
+	        $bennu->SetRuleBoolean( 'User->Gender', $target->Gender );
+	        $res = $bennu->GetResult();
 	        
 	        /*
 	        $bennu = new Bennu();

@@ -1,9 +1,11 @@
 <?php
     class BennuRule {
         protected $mSigma;
-        protected $mValue;
-        protected $mCost;//low medium high 
-        protected $mAttribute;
+        protected $mValue; // best value
+        protected $mCost; // cost defined by the priority of the rule
+        protected $mAttribute; // attributes name, ex User->Profile->Age
+        protected $mType; // Int,Date
+        protected $mRuleType; // Boolean, Sigma, InArray
         
         protected function Get( $sample ) {
             $parts = explode( '->', $this->mAttribute );
@@ -15,51 +17,87 @@
                 return $sample->$parts[ 1 ]->$parts[ 2 ];
             }
         }
-        
-        public function SetRule( $attribute, $value, $priority, $sigma = 0 ) {
-            $this->mSigma = $sigma;
-            $this->mValue = $value;//the ideal value
-            $this->mAttribute = $attribute;
-            
+                
+        protected function SetCost( $priority ) {
             switch ( $priority ) {
                 case 'low' : 
                     $this->mCost = 5;
-                    break;
                 case 'medium' : 
                     $this->mCost = 10;
-                    break;
                 case 'high' : 
                     $this->mCost = 15;
-                    break;
-            }      
+            }
         }
         
-        public function Calculate( $sample ) {
-            $value;
-            
-            if ( $this->mSigma == 0 ) {// for yes-on type of rules
-                if ( $this->Get( $sample ) === $this->mValue ) {
-                    return $this->mCost;
-                }
-                else {
-                    return 0;
-                }
-            }            
-            
-            if ( $this->mSigma > 0 ) {//for int rules with sigma            
-                $value = abs( ( $this->mCost * ( $this->Get( $sample )  - $this->mValue ) ) / $this->mSigma );
-                if ( $value < $this->mCost ) {
-                    return ( $this->mCost - $value );
-                }
-                else {
-                    return 0;
-                }
-            }   
-            
+        public function SetRuleBoolean( $attribute, $value, $priority ) {
+            $this->mValue = $value;//the ideal value
+            $this->mAttribute = $attribute;
+            $this->RuleType = 'Boolean';
+            $this->SetCost( $priority );
+            return;  
+        }
+                
+        public function SetRuleSigma( $attribute, $value, $sigma, $type, $priority ) {
+            $this->mValue = $value;
+            $this->mSigma = $sigma;            
+            $this->mAttribute = $attribute;
+            $this->mType = $type;
+            $this->mRuleType = 'Sigma';            
+            $this->SetCost( $priority );
             return;
         }
+        
+        public function SetRuleInArray( $attribute, $value, $priority, $sigma ) {
+            //TODO
+        } 
+        
+        public function Calculate( $sample ) {
+            switch ( $this->mRuleType ) {
+                case 'Boolean' :
+                    return $this->CalculateBoolean( $sample );
+                case 'Sigma' :
+                    return $this->CalculateBoolean( $sample );
+                case 'InArray' :
+                    return $this->CalculateInArray( $sample );
+            }
+        }
+        
+        protected function CalculateBoolean( $sample ) {
+            if ( $this->Get( $sample ) === $this->mValue ) {
+                return $this->mCost;
+            }
+            else {
+                return 0;
+            }
+        }
+        
+        protected function CalculateSigma( $sample ) {   
+            $sampe_value;
+            $ideal_value;
+            if ( $this->mType == 'Int' ) {
+                $sample_type = $this->Get( $sample );
+                $ideal_value = $this->mValue;
+            }
+            else if ( $this->mType == 'Date' ) {
+                $sample_type = strtotime ( $this->Get( $sample ) ); 
+                $ideal_value = strtotime( $this->mValue );
+            }            
+                 
+            $value = abs( ( $this->mCost * ( $sample_value  - $ideal_value ) ) / $this->mSigma );
+            if ( $value < $this->mCost ) {
+                return ( $this->mCost - $value );
+            }
+            else {
+                return 0;
+            }
+        }
+        
+        protected function CalculateInArray( $sample ) {
+            //TODO
+            return 0;        
+        }
     }
-
+            
     class Bennu {
         protected $mInput;
         protected $mTarget;
@@ -71,9 +109,23 @@
             return;
         }
         
-        public function AddRule( $attribute, $value, $priority = 'medium', $sigma = 0 ) {     
+        public function AddRuleBoolean( $attribute, $value, $priority = 'medium' ) {     
             $rule = new BennuRule();
-            $rule->SetRule( $attribute, $value, $priority, $sigma );       
+            $rule->SetRuleBoolean( $attribute, $value, $priority );       
+            $this->mRules[] = $rule;
+            return;
+        }
+        
+        public function AddRuleSigma( $attribute, $value, $sigma, $type, $priority = 'medium' ) {     
+            $rule = new BennuRule();
+            $rule->SetRuleSigma( $attribute, $value, $sigma, $type, $priority = 'medium' );       
+            $this->mRules[] = $rule;
+            return;
+        }
+        
+        public function AddRuleInArray( $attribute, $value, $priority = 'medium', $sigma = 0 ) {     
+            $rule = new BennuRule();//TODO
+            $rule->SetRuleInArray( $attribute, $value, $priority, $sigma );       
             $this->mRules[] = $rule;
             return;
         }
