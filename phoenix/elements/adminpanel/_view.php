@@ -19,7 +19,7 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        global $libs;
+	        /*global $libs;
 	        $libs->Load( 'user/user' );
 	        //$libs->Load( 'bennu/bennu' );
 	        $libs->Load( 'bennu/mybennu' );
@@ -41,7 +41,7 @@
 	        foreach ( $res as $sample ) {
 	            echo '<p>'.$sample->Name.'</p>';
 
-            }            
+            }*/            
 	        
         }
     }
