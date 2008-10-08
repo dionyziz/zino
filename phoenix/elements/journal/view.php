@@ -73,12 +73,12 @@
                                     <div class="edit">
                                         <a href="?p=addjournal&amp;id=<?php
                                         echo $journal->Id;
-                                        ?>">Επεξεργασία</a>
+                                        ?>"><span>&nbsp;</span>Επεξεργασία</a>
                                     </div>
                                     <div class="delete">
                                         <a href="" onclick="JournalView.Delete( '<?php
                                         echo $journal->Id;
-                                        ?>' );return false">Διαγραφή
+                                        ?>' );return false"><span>&nbsp;</span>Διαγραφή
                                         </a>
                                     </div>                        
                                 </div><?php
