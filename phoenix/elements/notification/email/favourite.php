@@ -5,7 +5,7 @@
             global $rabbit_settings;
             global $user;
         
-            die( 'Breakpoint 230' );
+            echo( 'Breakpoint 230' );
 
             $image = New Image( $notification->Item->Imageid );
             $from = $notification->FromUser;
@@ -21,6 +21,7 @@
                 ?>Ο<?php
             }
             ?> <?php
+            echo( 'Breakpoint 230A' );
             echo $from->Name;
             ?> πρόσθεσε στα αγαπημένα <?php
             switch ( $notif->Item->Typeid ) {
@@ -49,6 +50,7 @@
             ?>.
             
 Για να δεις <?php
+            echo( 'Breakpoint 231' );
             switch ( $notif->Item->Typeid ) {
                 case TYPE_IMAGE:
                     ?>την εικόνα στην οποία<?php
@@ -65,6 +67,7 @@
                 ?>ο<?php
             }
             ?> <?php
+            echo( 'Breakpoint 232' );
             echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
 <?php
