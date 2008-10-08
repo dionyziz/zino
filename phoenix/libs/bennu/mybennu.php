@@ -5,6 +5,7 @@
         protected $mCost; // cost defined by the priority of the rule
         protected $mAttribute; // attributes name, ex User->Profile->Age
         protected $mType; // { 'INT', 'DATE' }
+        protected $mPlace; // { 'IN', 'OUT' }
         protected $mRuleType; // Boolean, Sigma, InArray
         
         protected function Get( $sample ) {
@@ -50,8 +51,12 @@
             return;
         }
         
-        public function SetRuleInArray( $attribute, $value, $priority, $sigma ) {
-            //TODO
+        public function SetRuleInArray( $attribute, $values, $place, $priority ) {
+            $this->mValue = $values;
+            $this->mAttribute = $attribute;
+            $this->mPlace = $place;
+            $this->SetCost( $priority );
+            return;
         } 
         
         public function Calculate( $sample ) {
@@ -92,8 +97,22 @@
         }
         
         protected function CalculateInArray( $sample ) {
-            //TODO
-            return 0;        
+            $in = false;
+            $val = $this->Get( $sample );
+            foreach ( $this->mValue as $part ) {
+                if ( $val === $part ) {
+                    $in = true;
+                    break;
+                }
+            }
+            
+            if ( ( $in == true && $this->mPlace == 'IN' )
+                || ( $in == false && $this->mPlace == 'OUT' ) ) {
+                return $this->mCost;
+            }
+            else {
+            return 0;
+            }
         }
     }
             
@@ -122,9 +141,9 @@
             return;
         }
         
-        public function AddRuleInArray( $attribute, $value, $priority = 'MEDIUM', $sigma = 0 ) {     
+        public function AddRuleInArray( $attribute, $values, $place = 'IN', $priority = 'MEDIUM' ) {     
             $rule = new BennuRule();//TODO
-            $rule->SetRuleInArray( $attribute, $value, $priority, $sigma );       
+            $rule->SetRuleInArray( $attribute, $values, $place, $priority );       
             $this->mRules[] = $rule;
             return;
         }
