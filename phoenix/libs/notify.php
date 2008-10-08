@@ -236,7 +236,6 @@
         public function OnBeforeCreate() {
             global $water;
 
-            die( 'Breakpoint 123' );
             if ( $this->Touserid == $this->Fromuserid ) {
                 return false;
             }
