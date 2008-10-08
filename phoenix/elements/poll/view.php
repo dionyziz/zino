@@ -38,7 +38,7 @@
                             Element( 'date/diff', $poll->Created );
                             ?></dd><?php
                             if ( $poll->Numcomments > 0 ) {
-                                ?><dd class="commentsnum"><?php
+                                ?><dd class="commentsnum"><span>&nbsp;</span><?php
                                 echo $poll->Numcomments;
                                 ?> σχόλι<?php
                                 if ( $poll->Numcomments == 1 ) {
@@ -49,31 +49,6 @@
                                 }
                                 ?></dd><?php
                             }
-                            /*
-                            if ( $poll->User->Id != $user->Id ) {
-                                ?><dd class="addfav"><a href="" class="<?php
-                                if ( !$fav ) {
-                                    ?>add<?php
-                                }
-                                else {
-                                    ?>isadded<?php
-                                }
-                                ?>" title="<?php
-                                if ( !$fav ) {
-                                    ?>Προσθήκη στα αγαπημένα<?php
-                                }
-                                else {
-                                    ?>Αγαπημένο<?php
-                                }
-                                ?>" onclick="PollView.AddFav( '<?php
-                                echo $poll->Id;
-                                ?>' , this );return false"><?php
-                                if ( !$fav ) {
-                                    ?>Προσθήκη στα αγαπημένα<?php
-                                }
-                                ?></a></dd><?php
-                            }
-                            */
                             if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
                                 ?><dd class="delete">
                                     <a href="" onclick="PollView.Delete( '<?php

@@ -47,27 +47,10 @@ div#pollview dl dd.createdate {
 }
 div#pollview dl dd.commentsnum {
 	margin: 0 5px 0 0;
-	padding: 0 0 0 18px;
 	display: inline;
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -670px;
-	background-repeat: no-repeat;
 	font-size: 90%;
 }
-div#pollview dl dd.addfav {
-	margin: 0;
-	padding: 0 0 0 2px;
-	display: inline;
-}
-div#pollview dl dd.addfav a {
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-repeat: no-repeat;
-	padding-left: 18px;
-}
-div#pollview dl dd.addfav a.add {
-	background-position: 0 -1327px;
-}
-div#pollview dl dd.addfav a.isadded {
-	background-position: 0 -1261px;
-	cursor: default;
+div#pollview dl dd.commentsnum span {
+	padding: 0 0 0 15px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
