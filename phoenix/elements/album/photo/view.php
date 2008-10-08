@@ -147,8 +147,7 @@
                         if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
-                            ?>' )"><span>&nbsp;</span>
-							Ορισμός προεπιλεγμένης</a>
+                            ?>' )"><span>&nbsp;</span>Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }
                     ?></div><?php
