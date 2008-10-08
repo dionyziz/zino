@@ -44,17 +44,13 @@ div#journalview div.journal dl dd.addfav {
 	padding: 0 0 0 2px;
 	display: inline;
 }
-div#journalview div.journal dl dd.addfav span{
-	padding: 0 0 0 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -276px;
-}
-div#journalview div.journal dl dd.addfav a {
+div#journalview div.journal dl dd.addfav a span{
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
 	background-repeat: no-repeat;
-	padding-left: 18px;
+	padding-left: 19px;
 }
-div#journalview div.journal dl dd.addfav a.add {
-	background-position: 0 -1327px;
+div#journalview div.journal dl dd.addfav a.add span{
+	background-position: -235px -276px;
 }
 div#journalview div.journal dl dd.addfav a.isadded {
 	background-position: 0 -1261px;

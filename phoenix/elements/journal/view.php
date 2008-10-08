@@ -61,7 +61,7 @@
                                 }
                                 ?>" onclick="JournalView.AddFav( '<?php
                                 echo $journal->Id;
-                                ?>' , this );return false"><?php
+                                ?>' , this );return false"><span>&nbsp;</span><?php
                                 if ( !$fav ) {
                                     ?>Προσθήκη στα αγαπημένα<?php
                                 }
