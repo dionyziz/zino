@@ -50,12 +50,12 @@
                 ?></h2>
                 <dl><?php
                     if ( $album->Numphotos > 0 ) {
-                        ?><dt class="photonum"><?php
+                        ?><dt class="photonum"><span>&nbsp;</span><?php
                         echo $album->Numphotos;
                         ?></dt><?php
                     }
                     if ( $album->Numcomments > 0 ) {
-                        ?><dt class="commentsnum"><?php
+                        ?><dt class="commentsnum"><span>&nbsp;</span><?php
                         echo $album->Numcomments;
                         ?></dt><?php
                     }
@@ -65,11 +65,11 @@
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
                             echo $album->Id;
-                            ?>' );return false">Μετονομασία</a>
+                            ?>' );return false"><span>&nbsp;</span>Μετονομασία</a>
                             </div>
                             <div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
                             echo $album->Id;
-                            ?>' );return false">Διαγραφή</a></div>
+                            ?>' );return false"><span>&nbsp;</span>Διαγραφή</a></div>
                         </div><?php
                     }
                 }
