@@ -30,7 +30,7 @@
 	        
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );	        
-	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );//TODO friends,sex
+	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );//TODO sex
 	        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
 	        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
 	        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
@@ -38,8 +38,8 @@
 	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php
-	        foreach ( $res as $key=>$val ) {
-	            echo '<p>'.$key.' '.$val.'</p>';
+	        foreach ( $res as $sample ) {
+	            echo '<p>'.$sample->Name.'</p>';
 
             }            
 	        

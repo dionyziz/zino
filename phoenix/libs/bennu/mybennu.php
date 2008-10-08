@@ -143,7 +143,7 @@
         }
         
         public function AddRuleInArray( $attribute, $values, $place = 'IN', $priority = 'MEDIUM' ) {     
-            $rule = new BennuRule();//TODO
+            $rule = new BennuRule();
             $rule->SetRuleInArray( $attribute, $values, $place, $priority );       
             $this->mRules[] = $rule;
             return;
@@ -151,11 +151,23 @@
         
         public function GetResult() {
             $res = array();
+            $users = array();           
+            $last = array();
+            
             foreach ( $this->mInput as $sample ) {
-                $res[ $sample->Name ] = $this->GetScore( $sample );
+                $res[ $sample->Id ] = $this->GetScore( $sample );
+                $users[ $sample->Id ] = $sample;
             }
             
-            return $res;
+            arsort( $res );
+            
+            $i = 0;
+            foreach ( $res as $key=>$val ) {
+                $last[ $i ] = $users[ $key ];
+                $i++;
+            }
+            
+            return $last;
         }
         
         protected function GetScore( $sample ) {        
