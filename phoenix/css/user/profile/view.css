@@ -51,11 +51,13 @@ div#profile div.sidebar div.basicinfo div dl {
 	margin: 0;
 }
 div#profile div.sidebar div.basicinfo dl dt {
+	display: block;
 	float: left;
 	width: 12em;
 	padding: 3px 0;
 }
-div#profile div.sidebar div.basicinfo dl dd 
+div#profile div.sidebar div.basicinfo dl dd {
+	display: block;
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
@@ -79,13 +81,12 @@ div#profile div.sidebar div.basicinfo h2 span.name {
 	display: block;
 	font-weight: bold;
 }
-/*
 div#profile div.sidebar dl.online {
 	padding: 0;
 	margin: 0;
 }
-*/
 div#profile div.sidebar dl.online dt{
+	display: block;
 	float: left;
 	padding: 3px 0;
 }
@@ -131,18 +132,18 @@ div#profile div.sidebar div.social {
 	clear: both;
 	margin-top: 10px;
 }
-/*
 div#profile div.sidebar div.social dl {
 	padding: 0;
 	margin: 0;
 }
-*/
 div#profile div.sidebar div.social dl dt {
+	display: block;
 	float: left;
 	width: 170px;
 	padding: 3px 0;
 }
 div#profile div.sidebar div.social dl dd {
+	display: block;
 	text-align: left;
 	margin-left: 170px;
 	padding: 3px 0;
@@ -168,27 +169,34 @@ div#profile div.sidebar div.aboutme {
 }
 div#profile div.sidebar div.aboutme dl {
 	padding: 7px 0 0 0;
+	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dt {
+	display: block;
 	padding: 3px 0 1px 0;
+	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dd {
+	display: block;
+	margin: 0;
 	padding: 1px 0 0 0;
 }
 div#profile div.sidebar div.interests {
 	padding: 4px;
 	clear: both;
 }
-/*
 div#profile div.sidebar div.interests dl {
 	padding: 0;
+	margin: 0;
 }
-*/
 div#profile div.sidebar div.interests dl dt {
+	display: block;
 	padding: 3px 0 1px 0;
 }
 div#profile div.sidebar div.interests dl dd {
+	display: block;
 	padding: 1px 0 5px 0;
+	margin: 0;
 }
 div#profile div.sidebar div.contacts {
 	padding: 4px;
@@ -397,4 +405,3 @@ div#profile div.friends div.people {
     height: 110px;
 	position: relative;
 }
-
