@@ -91,7 +91,7 @@
                 return ( $this->mCost - $value );
             }
             else {
-                return 2;
+                return 0;
             }
         }
         
