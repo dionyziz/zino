@@ -41,14 +41,14 @@ div#photoview dl dd.comentsnum span {
 	padding: 0 0 0 15px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
-div#photoview dl dd.addfav, div#photoview, dl dd.addtag{
+div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
 }
 div#photoview dl dd.addfav a span {
 	background-image: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
-	padding-left: 16px;
+	padding: 0 0 0 16px;
 }
 div#photoview dl dd.addfav a.add span {
 	background-position: -235px -276px;
@@ -59,7 +59,7 @@ div#photoview dl dd.addfav a.isadded span {
 }
 div#photoview dl dd.addtag a span {
     background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1078px;
-	padding-left: 18px;
+	padding: 0 0 0 18px;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {
