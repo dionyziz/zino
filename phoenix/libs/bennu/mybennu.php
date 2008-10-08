@@ -22,17 +22,20 @@
             switch ( $priority ) {
                 case 'low' : 
                     $this->mCost = 5;
+                    return;
                 case 'medium' : 
                     $this->mCost = 10;
+                    return;
                 case 'high' : 
                     $this->mCost = 15;
+                    return;
             }
         }
         
         public function SetRuleBoolean( $attribute, $value, $priority ) {
             $this->mValue = $value;//the ideal value
             $this->mAttribute = $attribute;
-            $this->RuleType = 'Boolean';
+            $this->mRuleType = 'Boolean';
             $this->SetCost( $priority );
             return;  
         }
@@ -67,7 +70,7 @@
                 return $this->mCost;
             }
             else {
-                return 2;
+                return 0;
             }
         }
         
