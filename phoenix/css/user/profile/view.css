@@ -2,10 +2,7 @@ div#profile {
 	margin: 0;
 }
 div#profile div.sidebar {
-	background-color: white;
-	background-image: url('http://static.zino.gr/phoenix/sidebarbg.jpg');
-	background-repeat: repeat-y;
-	background-position: right;
+	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
 	float: left;
 	position: relative;
 	width: 330px;
