@@ -32,8 +32,9 @@ div#journalview div.journal dl dd.createdate {
     margin-bottom: 10px;
 }
 div#journalview div.journal dl dd.commentsnum {
-	margin: 0 5px 0 0;
+	margin: 0 5px 2px 0;
 	font-size: 90%;
+	display: inline;
 }
 div#journalview div.journal dl dd.commentsnum span {
 	padding: 0 0 0 18px;
