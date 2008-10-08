@@ -69,7 +69,7 @@ var Profile = {
             $( 'div.sidebar div.basicinfo dl.online dd' ).append( text ); 
         }
         else {
-            $( 'div.sidebar div.basicinfo dl.online dd' ).hide();
+            $( 'div.sidebar div.basicinfo dl.online' ).hide();
         }
     },
     AntisocialAddFriend : function ( userid ) {
