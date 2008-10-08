@@ -5,6 +5,8 @@
             global $rabbit_settings;
             global $user;
         
+            die( 'Breakpoint 230' );
+
             $image = New Image( $notification->Item->Imageid );
             $from = $notification->FromUser;
 

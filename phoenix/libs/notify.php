@@ -226,16 +226,12 @@
                     return;
             }
 
-            echo( 'Breakpoint 144' );
-
             ob_start();
             $subject = Element( $target, $this );
             $message = ob_get_clean();
 
-            echo( 'Breakpoint 145' );
             // send an email
             Email( $this->ToUser->Name, $this->ToUser->Profile->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
-            echo( 'Breakpoint 146' );
         }
         public function OnBeforeCreate() {
             global $water;
