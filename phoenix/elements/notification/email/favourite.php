@@ -10,7 +10,9 @@
             $image = New Image( $notification->Item->Imageid );
             $from = $notification->FromUser;
 
+            echo( 'Breakpoint 230A1' );
             w_assert( $from instanceof User );
+            echo( 'Breakpoint 230A2' );
             w_assert( $from->Exists() );
 
             ob_start();
