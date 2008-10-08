@@ -19,14 +19,19 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        /*global $libs;
+	        global $libs;
 	        $libs->Load( 'user/user' );
-	        $libs->Load( 'bennu/bennu' );
+	        //$libs->Load( 'bennu/bennu' );
+	        $libs->Load( 'bennu/mybennu' );
 	        
 	        $userFinder = new UserFinder();
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'pagio91' );
 	        
+	        
+	        
+	        
+	        /*
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );
 	        
