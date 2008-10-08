@@ -34,7 +34,7 @@
 	        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
 	        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
 	        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
-	        $bennu->AddRuleInArray( 'User->Name', array( 'test55','mommy' ), 'IN' );
+	        //$bennu->AddRuleInArray( 'User->Name', array( 'test55','mommy' ), 'IN' );
 	        $res = $bennu->GetResult();
 	        
 	        ?><h3>Results</h3><?php
