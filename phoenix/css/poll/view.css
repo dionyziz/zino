@@ -28,7 +28,7 @@ div#pollview dl {
 	margin: 0;
 }
 div#pollview dl.toolbar {
-    margin-left: 170px;
+    margin: 0 0 0 168px;
 }
 div#pollview dd.delete {
     display: inline;
