@@ -8,6 +8,7 @@
             echo( 'Breakpoint 230' );
 
             $image = New Image( $notification->Item->Imageid );
+            echo( 'Breakpoint 230A0' );
             $from = $notification->FromUser;
 
             echo( 'Breakpoint 230A1' );
