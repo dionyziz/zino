@@ -20,13 +20,13 @@
                 
         protected function SetCost( $priority ) {
             switch ( $priority ) {
-                case 'low' : 
+                case 'LOW' : 
                     $this->mCost = 5;
                     return;
-                case 'medium' : 
+                case 'MEDIUM' : 
                     $this->mCost = 10;
                     return;
-                case 'high' : 
+                case 'HIGH' : 
                     $this->mCost = 15;
                     return;
             }
@@ -112,21 +112,21 @@
             return;
         }
         
-        public function AddRuleBoolean( $attribute, $value, $priority = 'medium' ) {     
+        public function AddRuleBoolean( $attribute, $value, $priority = 'MEDIUM' ) {     
             $rule = new BennuRule();
             $rule->SetRuleBoolean( $attribute, $value, $priority );       
             $this->mRules[] = $rule;
             return;
         }
         
-        public function AddRuleSigma( $attribute, $value, $sigma, $type, $priority = 'medium' ) {     
+        public function AddRuleSigma( $attribute, $value, $sigma, $type, $priority = 'MEDIUM' ) {     
             $rule = new BennuRule();
-            $rule->SetRuleSigma( $attribute, $value, $sigma, $type, $priority = 'medium' );       
+            $rule->SetRuleSigma( $attribute, $value, $sigma, $type, $priority );       
             $this->mRules[] = $rule;
             return;
         }
         
-        public function AddRuleInArray( $attribute, $value, $priority = 'medium', $sigma = 0 ) {     
+        public function AddRuleInArray( $attribute, $value, $priority = 'MEDIUM', $sigma = 0 ) {     
             $rule = new BennuRule();//TODO
             $rule->SetRuleInArray( $attribute, $value, $priority, $sigma );       
             $this->mRules[] = $rule;

@@ -31,28 +31,11 @@
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );	        
 	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );
-	        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
+	        //$bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
 	        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
+	        $bennu->AddRuleBoolean( 'User->Location' , $target->Location, 'HIGH' );
 	        $res = $bennu->GetResult();
 	        
-	        /*
-	        $bennu = new Bennu();
-	        $bennu->SetData( $input, $target );
-	        
-	        $gender = new BennuRuleGender();
-	        $gender->SetRule( $target->Gender, 'medium' ); 
-	        
-	        $sex = new BennuRuleSex();
-	        $sex->SetRule( $target->Profile->Sexualorientation, 'medium' );
-	        
-	        $lastactive = new BennuRuleLastActive();
-	        $lastactive->SetRule( strtotime( $target->Lastlogin ), 'medium' , 7*24*60*60 );
-
-            $bennu->AddRule( $gender );
-            $bennu->AddRule( $lastactive );
-            $bennu->AddRule( $sex );
-	        $res = $bennu->GetResult();
-	        */
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $key=>$val ) {
 	            echo '<p>'.$key.' '.$val.'</p>';
