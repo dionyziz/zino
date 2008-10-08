@@ -357,6 +357,7 @@
             }
             $notif->Eventid = $this->Id;
             $notif->Fromuserid = $this->Userid;
+            die( 'Breakpoint 113' );
             $notif->Save();
         }
         protected function OnBeforeUpdate() {
