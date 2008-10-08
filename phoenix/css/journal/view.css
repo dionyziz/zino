@@ -52,7 +52,7 @@ div#journalview div.journal dl dd.addfav a span{
 div#journalview div.journal dl dd.addfav a.add span{
 	background-position: -235px -276px;
 }
-div#journalview div.journal dl dd.addfav a.isadded {
+div#journalview div.journal dl dd.addfav a.isadded span {
 	background-position: -235px -210px;
 	cursor: default;
 }
