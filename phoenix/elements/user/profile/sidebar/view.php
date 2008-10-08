@@ -7,7 +7,7 @@
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuserid , $updated ); 
                     ?><dl class="online"><dt><strong>Online</strong></dt><dd></dd></dl><?php
                 ?></div><?php
-                Element( 'user/profile/sidebar/details' , $theuser , $theuseid , $updated );
+                Element( 'user/profile/sidebar/details' , $theuser , $theuserid , $updated );
             ?></div><?php
         }
     }
