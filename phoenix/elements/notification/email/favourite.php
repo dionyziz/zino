@@ -5,10 +5,6 @@
             global $rabbit_settings;
             global $user;
         
-            echo( 'Breakpoint 230' );
-
-            $image = New Image( $notification->Item->Imageid );
-            echo( 'Breakpoint 230A0' );
             $from = $notification->FromUser;
 
             echo( 'Breakpoint 230A1' );
@@ -45,8 +41,9 @@
                     }
                     break;
                 case TYPE_JOURNAL:
+                    $journal = $notif->Item->Item;
                     ?>το ημερολόγιό σου "<?php
-                    echo $favourite->Item->Title;
+                    echo $journal->Title;
                     ?>"<?php
                     break;
             }
@@ -74,7 +71,7 @@
             echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
 <?php
-            Element( 'url', $image );
+            Element( 'url', $notif->Item );
             
             Element( 'email/footer' );
             
