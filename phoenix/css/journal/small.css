@@ -38,12 +38,8 @@ div.journalsmall ul li dt {
 	display: inline;
 }
 div.journalsmall ul li dl dt.commentsnum {
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -670px;
-	background-repeat: no-repeat;
-	padding: 0 0 0 1px;
+	background: url('http://static.zino.gr/phoenix/iconlist.png') no-repeat 0 -670px;
 	vertical-align: 3px;
-	margin-left: 3px;
 }
 div.journalsmall ul li dl dt.commentsnum a {
 	padding-left: 16px;
@@ -55,8 +51,7 @@ div.journalsmall ul li dl dt.addfav {
 	display: inline;
 }
 div.journalsmall ul li dl dt.addfav a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-repeat: no-repeat;
+	background: url( 'http://static.zino.gr/phoenix/iconlist.png' ) no-repeat;
 	padding-left: 16px;
 }
 div.journalsmall ul li dl dt.addfav a.add  {
