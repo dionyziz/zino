@@ -46,7 +46,7 @@ div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	display: inline;
 }
 div#photoview dl dd.addtag span {
-	padding: 0 0 0 16px;
+	padding: 0 0 0 21px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1401px;
 }
 div#photoview dl dd.addfav a span {
@@ -59,10 +59,6 @@ div#photoview dl dd.addfav a.add span {
 div#photoview dl dd.addfav a.isadded span {
 	background-position: -235px -210px;
 	cursor: default;
-}
-div#photoview dl dd.addtag a span {
-    background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1078px;
-	padding: 0 0 0 18px;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {
