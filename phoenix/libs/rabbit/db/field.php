@@ -151,7 +151,7 @@
                     throw New DBException( 'Invalid DB datatype: ' . $this->mType );
             }
         }
-        public function DBField( $parenttable = false, $info = false ) {
+        public function __construct( $parenttable = false, $info = false ) {
             $this->mLength = false;
             $this->mIsAutoIncrement = false;
             $this->mDefault = '';
