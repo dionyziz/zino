@@ -82,7 +82,7 @@
                 $ideal_value = $this->mValue;
             }
             else if ( $this->mType == 'Date' ) {
-                $sample_type = strtotime ( $this->Get( $sample ) ); 
+                $sample_type = strtotime( $this->Get( $sample ) ); 
                 $ideal_value = strtotime( $this->mValue );
             }            
                  
@@ -91,7 +91,7 @@
                 return ( $this->mCost - $value );
             }
             else {
-                return 0;
+                return 2;
             }
         }
         
