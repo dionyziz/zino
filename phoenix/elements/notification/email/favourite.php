@@ -7,9 +7,7 @@
         
             $from = $notification->FromUser;
 
-            echo( 'Breakpoint 230A1' );
             w_assert( $from instanceof User );
-            echo( 'Breakpoint 230A2' );
             w_assert( $from->Exists() );
 
             ob_start();
@@ -20,7 +18,6 @@
                 ?>Ο<?php
             }
             ?> <?php
-            echo( 'Breakpoint 230A' );
             echo $from->Name;
             ?> πρόσθεσε στα αγαπημένα <?php
             switch ( $notif->Item->Typeid ) {
@@ -50,29 +47,17 @@
             ?>.
             
 Για να δεις <?php
-            echo( 'Breakpoint 231' );
             switch ( $notif->Item->Typeid ) {
                 case TYPE_IMAGE:
-                    ?>την εικόνα στην οποία<?php
+                    ?>την εικόνα<?php
                     break;
                 case TYPE_JOURNAL:
-                    ?>το ημερολόγιο στο οποίο<?php
+                    ?>το ημερολόγιο<?php
                     break;
             }
-            ?> σε αναγνώρισε <?php
-            if ( $from->Gender == 'f' ) {
-                ?>η<?php
-            }
-            else {
-                ?>ο<?php
-            }
-            ?> <?php
-            echo( 'Breakpoint 232' );
-            echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
 <?php
-            Element( 'url', $notif->Item );
-            
+            Element( 'url', $notif->Item->Item );
             Element( 'email/footer' );
             
             return $subject;
