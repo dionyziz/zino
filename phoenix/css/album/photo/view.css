@@ -8,29 +8,24 @@ div#photoview div.owner {
 div#photoview div.owner div.edit {
 	display: inline;
 }
-div#photoview div.owner div.edit a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: 0 -1873px;
-	background-repeat: no-repeat;
-	padding: 0 0 0 18px;
+div#photoview div.owner div.edit a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
+	padding: 0 0 0 16px;
 }
 div#photoview div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
 }
-div#photoview div.owner div.delete a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
-	background-repeat: no-repeat;
-	padding: 0 0 0 16px;
+div#photoview div.owner div.delete a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
+	padding: 0 0 0 13px;
 }
 div#photoview div.owner div.mainimage {
 	margin: 0 0 0 8px;
 	display: inline;
 }
-div#photoview div.owner div.mainimage a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -176px;
-	background-repeat: no-repeat;
+div#photoview div.owner div.mainimage a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1078px;
 	padding: 0 0 0 14px;
 }
 div#photoview dl {
@@ -39,33 +34,31 @@ div#photoview dl {
 }
 div#photoview dl dd.commentsnum {
 	margin: 0 5px 0 0;
-	padding: 0 0 0 18px;
 	display: inline;
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -670px;
-	background-repeat: no-repeat;
 	font-size: 90%;
+}
+div#photoview dl dd.comentsnum span {
+	padding: 0 0 0 15px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
 div#photoview dl dd.addfav, div#photoview, dl dd.addtag{
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
 }
-div#photoview dl dd.addfav a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-repeat: no-repeat;
-	padding-left: 18px;
+div#photoview dl dd.addfav a span {
+	background-image: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
+	padding-left: 16px;
 }
-div#photoview dl dd.addfav a.add {
-	background-position: 0 -1327px;
+div#photoview dl dd.addfav a.add span {
+	background-position: -235px -276px;
 }
-div#photoview dl dd.addfav a.isadded {
-	background-position: 0 -1261px;
+div#photoview dl dd.addfav a.isadded span {
+	background-position: -235px -210px;
 	cursor: default;
 }
-div#photoview dl dd.addtag a {
-    background-image: url( 'http://static.zino.gr/phoenix/vcard_add.png' );
-	background-repeat: no-repeat;
+div#photoview dl dd.addtag a span {
+    background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1078px;
 	padding-left: 18px;
 }
 /* all this trouble to make it resizable :-) */

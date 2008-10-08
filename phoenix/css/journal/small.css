@@ -47,19 +47,3 @@ div.journalsmall ul li dl dt.commentsnum a span {
 div.journalsmall ul li dl dt.commentsnum a {
 	font-size: 90%;
 }
-div.journalsmall ul li dl dt.addfav {
-	padding: 0;
-	margin: 0;
-	display: inline;
-}
-div.journalsmall ul li dl dt.addfav a {
-	background: url( 'http://static.zino.gr/phoenix/iconlist.png' ) no-repeat;
-	padding-left: 16px;
-}
-div.journalsmall ul li dl dt.addfav a.add  {
-	background-position: 0 -1327px;
-}
-div.journalsmall ul li dl dt.addfav a.isadded {
-	background-position: 0 -1261px;
-	cursor: default;
-}

@@ -85,7 +85,7 @@
                 ?></a>
                 <dl><?php
                     if ( $image->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><?php
+                        ?><dd class="commentsnum"><span>&nbsp;</span><?php
                         echo $image->Numcomments;
                         ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
@@ -133,7 +133,7 @@
                         echo $image->Id;
                         ?>' , <?php
                         echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-                        ?> )"><?php
+                        ?> )"><span>&nbsp;</span><?php
                         if ( $image->Name == '' ) {
                             ?>Όρισε όνομα<?php
                         }
@@ -143,11 +143,11 @@
                         ?></a></div>
                         <div class="delete"><a href="" onclick="return PhotoView.Delete( '<?php
                         echo $image->Id;
-                        ?>' )">Διαγραφή</a></div><?php
+                        ?>' )"><span>&nbsp;</span>Διαγραφή</a></div><?php
                         if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
-                            ?>' )">
+                            ?>' )"><span>&nbsp;</span>
                             Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }
