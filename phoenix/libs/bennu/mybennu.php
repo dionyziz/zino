@@ -85,14 +85,10 @@
                 $sample_value = strtotime( $this->Get( $sample ) ); 
                 $ideal_value = strtotime( $this->mValue );
             }            
-                 
-            $value = abs( ( $this->mCost * ( $sample_value  - $ideal_value ) ) / $this->mSigma );
-            if ( $value < $this->mCost ) {
-                return ( $this->mCost - $value );
-            }
-            else {
-                return 0;
-            }
+            //value for normal distrinution graph with sigma = mSigma,x=sample_value,and m = ideal_value 
+            $value = ( exp( -1*2*pow( ( ( $sample_value - $ideal_value ) / $this->mSigma ) , 2 ) ) / ( $this->mSigma * sqrt( 2 * pi() ) ) );    
+            
+            return $value;
         }
         
         protected function CalculateInArray( $sample ) {
