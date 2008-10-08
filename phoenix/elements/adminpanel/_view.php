@@ -31,7 +31,7 @@
 	        $bennu = new Bennu();
 	        $bennu->SetData( $input, $target );	        
 	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );
-	        $bennu->AddRuleSigma( 'User->Created', NowDate(), 20*356*24*60*60, 'Date' ); 
+	        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Age, 2, 'INT' ); 
 	        $res = $bennu->GetResult();
 	        
 	        /*

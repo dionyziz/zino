@@ -4,7 +4,7 @@
         protected $mValue; // best value
         protected $mCost; // cost defined by the priority of the rule
         protected $mAttribute; // attributes name, ex User->Profile->Age
-        protected $mType; // Int,Date
+        protected $mType; // { 'INT', 'DATE' }
         protected $mRuleType; // Boolean, Sigma, InArray
         
         protected function Get( $sample ) {
@@ -33,7 +33,7 @@
         }
         
         public function SetRuleBoolean( $attribute, $value, $priority ) {
-            $this->mValue = $value;//the ideal value
+            $this->mValue = $value;
             $this->mAttribute = $attribute;
             $this->mRuleType = 'Boolean';
             $this->SetCost( $priority );
@@ -77,11 +77,11 @@
         protected function CalculateSigma( $sample ) {   
             $sampe_value;
             $ideal_value;
-            if ( $this->mType == 'Int' ) {
+            if ( $this->mType == 'INT' ) {
                 $sample_type = $this->Get( $sample );
                 $ideal_value = $this->mValue;
             }
-            else if ( $this->mType == 'Date' ) {
+            else if ( $this->mType == 'DATE' ) {
                 $sample_type = strtotime( $this->Get( $sample ) ); 
                 $ideal_value = strtotime( $this->mValue );
             }            
