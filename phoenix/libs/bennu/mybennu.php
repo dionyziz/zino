@@ -59,7 +59,7 @@
                 case 'Boolean' :
                     return $this->CalculateBoolean( $sample );
                 case 'Sigma' :
-                    return $this->CalculateBoolean( $sample );
+                    return $this->CalculateSigma( $sample );
                 case 'InArray' :
                     return $this->CalculateInArray( $sample );
             }
