@@ -9,7 +9,6 @@ div.comment {
 }
 div.comment div.who {
 	border-top: 1px solid #ccc !important;
-	display: block;
 	padding: 2px 0 2px 4px;
 	background: #f4f4f4 no-repeat top right;
 	color: #666;
@@ -31,7 +30,6 @@ div.comment div.toolbox a {
 	margin-left: 5px;
 	/* A little hack for IE7 */
 	color: #f4f4f4;
-	
 }
 div.comment div.who img.avatar {
 	float: left;
