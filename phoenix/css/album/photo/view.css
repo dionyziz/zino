@@ -37,7 +37,7 @@ div#photoview dl dd.commentsnum {
 	display: inline;
 	font-size: 90%;
 }
-div#photoview dl dd.comentsnum span {
+div#photoview dl dd.commentsnum span {
 	padding: 0 0 0 15px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
@@ -45,6 +45,10 @@ div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
+}
+div#photoview dl dd.addtag span {
+	padding-left: 14px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1079px;
 }
 div#photoview dl dd.addfav a span {
 	background-image: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
