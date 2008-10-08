@@ -56,6 +56,7 @@
             $this->mAttribute = $attribute;
             $this->mPlace = $place;
             $this->SetCost( $priority );
+            $this->mRuleType = 'InArray';
             return;
         } 
         
