@@ -8,7 +8,7 @@
         $favourite = New Favourite();
         $favourite->Itemid = $itemid->Get();
         $favourite->Typeid = $typeid->Get();
-        die( 'Breakpoint 104' );
         $favourite->Save();
+        die( 'Breakpoint 107' );
     }
 ?>
