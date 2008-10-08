@@ -43,15 +43,14 @@ div#photoview dl dd.commentsnum span {
 }
 div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	margin: 0;
-	padding: 0 0 0 2px;
 	display: inline;
 }
 div#photoview dl dd.addtag span {
-	padding-left: 14px;
+	padding: 0 0 0 14px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1079px;
 }
 div#photoview dl dd.addfav a span {
-	background-image: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
+	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
 	padding: 0 0 0 16px;
 }
 div#photoview dl dd.addfav a.add span {

@@ -46,7 +46,7 @@ div#journalview div.journal dl dd.addfav {
 	display: inline;
 }
 div#journalview div.journal dl dd.addfav a span{
-	background-image: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
+	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
 	padding-left: 16px;
 }
 div#journalview div.journal dl dd.addfav a.add span{
