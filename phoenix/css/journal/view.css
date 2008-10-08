@@ -13,7 +13,7 @@ div#journalview div.owner div.edit {
 }
 div#journalview div.owner div.edit a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
-	padding: 0 0 0 18px;
+	padding: 0 0 0 16px;
 }
 div#journalview div.owner div.delete {
 	margin: 0 0 0 5px;
@@ -21,7 +21,7 @@ div#journalview div.owner div.delete {
 }
 div#journalview div.owner div.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
-	padding: 0 0 0 16px;
+	padding: 0 0 0 13px;
 }
 div#journalview div.journal dl {
 	text-align: left;
@@ -33,17 +33,20 @@ div#journalview div.journal dl dd.createdate {
 }
 div#journalview div.journal dl dd.commentsnum {
 	margin: 0 5px 0 0;
-	padding: 0 0 0 18px;
-	display: inline;
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -670px;
-	background-repeat: no-repeat;
 	font-size: 90%;
 }
-div#journalview div.journal dl dd.addfav{
+div#journalview div.journal dl dd.commentsnum span {
+	padding: 0 0 0 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
+}
+div#journalview div.journal dl dd.addfav {
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
+}
+div#journalview div.journal dl dd.addfav span{
+	padding: 0 0 0 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -276px;
 }
 div#journalview div.journal dl dd.addfav a {
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');

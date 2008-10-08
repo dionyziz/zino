@@ -42,7 +42,7 @@ div.journalsmall ul li dl dt.commentsnum {
 }
 div.journalsmall ul li dl dt.commentsnum a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-	padding-left: 17px;
+	padding: 0 0 0 17px;
 }
 div.journalsmall ul li dl dt.commentsnum a {
 	font-size: 90%;

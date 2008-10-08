@@ -33,7 +33,7 @@
                             Element( 'date/diff', $journal->Created );
                             ?></dd><?php
                             if ( $journal->Numcomments > 0 ) {
-                                ?><dd class="commentsnum"><?php
+                                ?><dd class="commentsnum"><span>&nbsp;</span><?php
                                 echo $journal->Numcomments;
                                 ?> σχόλι<?php
                                 if ( $journal->Numcomments == 1 ) {
