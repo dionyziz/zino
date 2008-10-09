@@ -182,6 +182,34 @@
     
     function Bennu_OnlineNow( $target, $input ) {
         global $db;
+        global $libs;
+        
+        $libs->Load( 'user/profile' );
+        
+        //add Profile values from database to speed things up
+        $ids = array();
+        foreach ( $input as $sample ) {
+            $ids[] = $sample->Id;
+        }
+        
+        $sql = $db->Prepare(
+            'SELECT * FROM :userprofiles
+             WHERE `profile_userid` IN :ids
+             ;'
+        );
+        $sql->BindTable( 'userprofiles' );
+        $sql->Bind( 'ids', $ids );
+        $res = $sql->Execute();
+        
+        $profiles = array();
+        while ( $row = $res->FetchArray() ) {
+            $profiles[ 'profile_userid' ] = new UserProfile( $row );
+        }
+        
+        foreach ( $input as $sample ) {
+            $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
+        }
+        //
 
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
@@ -206,15 +234,13 @@
         while ( $row = $list->FetchArray() ) {
             $friends[] = $row[ 'relation_friendid' ];
         }
-        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );
         
+        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
         $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
         $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
         $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
 
         $res = $bennu->GetResult();
         return $res;
-    }
-    
-    
+    } 
 ?>

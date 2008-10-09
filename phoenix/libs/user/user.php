@@ -189,6 +189,9 @@
         public function CopyAvatarFrom( $value ) {
             $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
+        public function CopyProfileFrom( $value ) {
+            $this->mRelations[ 'Profile' ]->CopyFrom( $value );
+        }
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Password':
