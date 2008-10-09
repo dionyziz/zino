@@ -6,7 +6,7 @@
         protected $mAttribute; // attributes name, ex User->Profile->Age
         protected $mType; // { 'INT', 'DATE' }
         protected $mPlace; // { 'IN', 'OUT' }
-        protected $mRuleType; // Boolean, Sigma, InArray
+        protected $mRuleType; // Boolean, NormalDist , InArray
         
         protected function Get( $sample ) {
             $parts = explode( '->', $this->mAttribute );
@@ -41,12 +41,12 @@
             return;  
         }
                 
-        public function SetRuleSigma( $attribute, $value, $sigma, $type, $priority ) {
+        public function SetRuleNormalDist( $attribute, $value, $sigma, $type, $priority ) {
             $this->mValue = $value;
             $this->mSigma = $sigma;            
             $this->mAttribute = $attribute;
             $this->mType = $type;
-            $this->mRuleType = 'Sigma';            
+            $this->mRuleType = 'NormalDist';            
             $this->SetCost( $priority );
             return;
         }
@@ -64,7 +64,7 @@
             switch ( $this->mRuleType ) {
                 case 'Boolean' :
                     return $this->CalculateBoolean( $sample );
-                case 'Sigma' :
+                case 'NormalDist' :
                     return $this->CalculateSigma( $sample );
                 case 'InArray' :
                     return $this->CalculateInArray( $sample );
@@ -80,7 +80,7 @@
             }
         }
         
-        protected function CalculateSigma( $sample ) {   
+        protected function CalculateNormalDist( $sample ) {   
             $sampe_value;
             $ideal_value;
             if ( $this->mType == 'INT' ) {
@@ -135,9 +135,9 @@
             return;
         }
         
-        public function AddRuleSigma( $attribute, $value, $sigma, $type, $priority = 'MEDIUM' ) {     
+        public function AddRuleNormalDist( $attribute, $value, $sigma, $type, $priority = 'MEDIUM' ) {     
             $rule = new BennuRule();
-            $rule->SetRuleSigma( $attribute, $value, $sigma, $type, $priority );       
+            $rule->SetRuleNormalDist( $attribute, $value, $sigma, $type, $priority );       
             $this->mRules[] = $rule;
             return;
         }
@@ -204,8 +204,8 @@
         }
         $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );
         
-        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
-        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
+        $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
         $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
 
         $res = $bennu->GetResult();
