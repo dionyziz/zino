@@ -8,17 +8,17 @@
         protected $mValue; // best value
         protected $mCost; // cost defined by the priority of the rule
         protected $mAttribute; // attributes name, ex User->Profile->Age
+        protected $mParts;//nubmer of attribute parts
         protected $mType; // { 'INT', 'DATE' }
         protected $mPlace; // { 'IN', 'OUT' }
         protected $mRuleType; // { 'Boolean' , 'NormalDist' , 'InArray' }
         
-        protected function Get( $sample ) {
-            $parts = explode( '->', $this->mAttribute );
-            
-            if ( count( $parts ) == 2 ) {
+        protected function Get( $sample ) {    
+                
+            if ( count( $this->mParts ) == 2 ) {
                 return $sample->$parts[ 1 ];
             }
-            else if ( count( $parts ) == 3 ) {
+            else if ( count( $this->mParts ) == 3 ) {
                 return $sample->$parts[ 1 ]->$parts[ 2 ];
             }
         }
@@ -37,11 +37,18 @@
             }
         }
         
+        protected function SetParts() {
+            $parts = explode( '->', $this->mAttribute );
+            $this->mParts = $parts;
+            return;
+        }
+        
         public function SetRuleBoolean( $attribute, $value, $priority ) {
             $this->mValue = $value;
             $this->mAttribute = $attribute;
             $this->mRuleType = 'Boolean';
             $this->SetCost( $priority );
+            $this->SetParts();
             return;  
         }
                 
@@ -52,6 +59,7 @@
             $this->mType = $type;
             $this->mRuleType = 'NormalDist';            
             $this->SetCost( $priority );
+            $this->SetParts();
             return;
         }
         
@@ -65,6 +73,7 @@
             $this->mPlace = $place;
             $this->SetCost( $priority );
             $this->mRuleType = 'InArray';
+            $this->SetParts();
             return;
         } 
         
@@ -100,7 +109,7 @@
                 $ideal_value = strtotime( $this->mValue );
             }            
             //value for normal distrinution graph with sigma = mSigma,x=sample_value,and m = ideal_value 
-            $value = ( exp( -1*2*pow( ( ( $sample_value - $ideal_value ) / $this->mSigma ) , 2 ) ) / ( $this->mSigma * sqrt( 2 * pi() ) ) );    
+            $value = ( exp( -0.5*pow( ( ( $sample_value - $ideal_value ) / $this->mSigma ) , 2 ) ) / ( $this->mSigma * 2.5 ) );    
             
             return $value;
         }
