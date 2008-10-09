@@ -209,7 +209,7 @@ var Comments = {
                             return Comments.Delete( id , 0 ); 
                         }
                         else {
-                            var prvid = $( parent ).previous().id;
+                            var prvid = $( parent ).prev().id;
                             return Comments.Delete( id , prvid );
                         }
                     } );
@@ -304,7 +304,7 @@ $( document ).ready( function() {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
-                                    var prvid = $( this ).previous().id;
+                                    var prvid = $( this ).prev().id;
                                     return Comments.Delete( id , prvid );
                                 }
                             } );
