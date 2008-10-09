@@ -71,7 +71,7 @@
         public function SetRuleInArray( $attribute, $values, $place, $priority ) {
             
             /*foreach ( $value as $values ) {
-            
+            TODO
             }*/
             $this->mValue = $values;
             $this->mAttribute = $attribute;
@@ -205,7 +205,7 @@
         $a = array();
         return $a;
         
-        /*$libs->Load( 'user/profile' );
+        $libs->Load( 'user/profile' );
         $libs->Load( 'user/user' );
         
         //add Profile values from database to speed things up
@@ -230,7 +230,7 @@
         
         foreach ( $input as $sample ) {
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
-        }*/
+        }
         //
         
         $bennu = new Bennu();
@@ -242,7 +242,7 @@
         else if ( $target->Gender == 'f' ) {
             $bennu->AddRuleBoolean( 'User->Gender', 'm' );
         }  
-        /*
+        
         $sql = $db->Prepare( 
             'SELECT `relation_friendid`
              FROM :relations
@@ -255,12 +255,12 @@
         $friends = array();
         while ( $row = $list->FetchArray() ) {
             $friends[] = $row[ 'relation_friendid' ];
-        }*/
+        }
         
-        //$bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
-        //$bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
-        //$bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
-        //$bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
+        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
+        $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
+        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
 
         $res = $bennu->GetResult();
         return $res;

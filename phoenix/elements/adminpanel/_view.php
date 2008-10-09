@@ -24,8 +24,8 @@
 	        $libs->Load( 'bennu/mybennu' );
 	        
 	        $userFinder = new UserFinder();
-	        $input = $userFinder->FindOnline();
-	        $target = $userFinder->FindById( 1 );
+	        $input = $userFinder->FindLatest();
+	        $target = $userFinder->FindById( $user->Id );
 	        
 	        $res = Bennu_OnlineNow( $target, $input );
 
