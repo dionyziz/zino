@@ -253,8 +253,7 @@ $( document ).ready( function() {
                         var nextleftpadd = $( this ).next().css( 'padding-left' );
                         var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
                         if ( value != nextvalue ) {
-                            var id = this.id.substr( 7 );
-                            alert( id );
+                            var id = this.id.substr( 8 );
                             $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
