@@ -249,7 +249,6 @@ $( document ).ready( function() {
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = $( this ).css( 'padding-left' );
-                        alert( leftpadd );
                         var value = leftpadd.substr( 0 , leftpadd.length - 2 );
                         alert( value );
                         /*
