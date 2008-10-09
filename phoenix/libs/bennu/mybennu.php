@@ -8,17 +8,18 @@
         protected $mValue; // best value
         protected $mCost; // cost defined by the priority of the rule
         protected $mAttribute; // attributes name, ex User->Profile->Age
-        protected $mParts;//nubmer of attribute parts
+        protected $mParts;//attribute's parts array
+        protected $mPartsN;
         protected $mType; // { 'INT', 'DATE' }
         protected $mPlace; // { 'IN', 'OUT' }
         protected $mRuleType; // { 'Boolean' , 'NormalDist' , 'InArray' }
         
-        protected function Get( $sample ) {    
+        protected function Get( $sample ) { 
                 
-            if ( count( $this->mParts ) == 2 ) {
+            if ( $this->mPartsN == 2 ) {
                 return $sample->$this->mParts[ 1 ];
             }
-            else if ( count( $this->mParts ) == 3 ) {
+            else if ( $this->mPartsN == 3 ) {
                 return $sample->$this->mParts[ 1 ]->$this->mParts[ 2 ];
             }
         }
@@ -40,6 +41,7 @@
         protected function SetParts() {
             $parts = explode( '->', $this->mAttribute );
             $this->mParts = $parts;
+            $this->mPartsN = count( $parts );
             return;
         }
         
