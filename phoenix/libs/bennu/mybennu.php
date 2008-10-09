@@ -16,10 +16,10 @@
         protected function Get( $sample ) {    
                 
             if ( count( $this->mParts ) == 2 ) {
-                return $sample->$parts[ 1 ];
+                return $sample->$this->parts[ 1 ];
             }
             else if ( count( $this->mParts ) == 3 ) {
-                return $sample->$parts[ 1 ]->$parts[ 2 ];
+                return $sample->$this->parts[ 1 ]->$this->parts[ 2 ];
             }
         }
                 
