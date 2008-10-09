@@ -249,10 +249,9 @@ $( document ).ready( function() {
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = $( this ).css( 'padding-left' );
-                        var value = leftpadd.substr( 0 , leftpadd.length - 2 );
-                        value += 20;
+                        var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
                         var nextleftpadd = $( this ).next().css( 'padding-left' );
-                        var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 );
+                        var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
                         if ( value != nextvalue ) {
                             $( this ).css( 'border' , '1px solid red' );
                         }
