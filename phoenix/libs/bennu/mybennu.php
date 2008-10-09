@@ -201,7 +201,7 @@
         $friends = array();
         while ( $row = $list->FetchArray() ) {
             $friends[] = $row[ 'relation_friendid' ];
-            return $row;    
+            return $row[ 'relation_friendid' ];    
         }
         $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );
         
