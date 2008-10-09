@@ -248,7 +248,15 @@ $( document ).ready( function() {
                 }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                        $( this ).css( 'border' , '1px solid red' );
+                        var leftpadd = $( this ).css( 'padding-left' );
+                        alert( leftpadd );
+                        var value = leftpadd.substr( 0 , leftpadd.length - 2 );
+                        alert( value );
+                        /*
+                        if ( !$( this ).next( "div.comment[style='padding-left:20px;']" )[ 0 ] ) {
+                            $( this ).css( 'border' , '1px solid red' );
+                        */
+
                     }
                 } );
 
