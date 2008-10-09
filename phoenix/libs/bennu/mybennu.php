@@ -219,13 +219,13 @@
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
                 
-        /*if ( $target->Gender == 'm' ) {
-            //$bennu->AddRuleBoolean( 'User->Gender', 'f' );
+        if ( $target->Gender == 'm' ) {
+            $bennu->AddRuleBoolean( 'User->Gender', 'f' );
         }
         else if ( $target->Gender == 'f' ) {
-            //$bennu->AddRuleBoolean( 'User->Gender', 'm' );
+            $bennu->AddRuleBoolean( 'User->Gender', 'm' );
         }  
-        
+        /*
         $sql = $db->Prepare( 
             'SELECT `relation_friendid`
              FROM :relations
