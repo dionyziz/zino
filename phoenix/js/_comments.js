@@ -172,32 +172,34 @@ var Comments = {
 	}, 
 	Delete : function( nodeid, parentid ) {
 		var node = $( "#comment_" + nodeid );
-		node.fadeOut( 450, function() { $( this ).remove(); } );
+		node.fadeOut( 450, function() { 
+            $( this ).remove(); 
+        } );
 		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
-		Coala.Warm( 'comments/delete', { commentid : nodeid, 
-										callback : Comments.DeleteCommentCallback
-							} );
+        Comments.DeleteCommentCallback( parentid );
+		Coala.Warm( 'comments/delete', { 
+            commentid : nodeid
+		} );
         return false;
 	},
-	DeleteCommentCallback : function( nodeid, parentid, show ) {
-		Comments.numchildren[ nodeid ] = -1;
-		if ( parentid !== 0 ) {
-			--Comments.numchildren[ parentid ];
-		}
-		if ( Comments.numchildren[ parentid] !== 0 || !show ) {
-			return;
-		}
-		
-		var a = document.createElement( 'a' );
-		a.onclick = function() { 
-				Comments.Delete( parentid );
-				return false;
-			};
-		a.title = "Διαγραφή";
-		a.style.marginRight = parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) + 'px';
-		
-		$( '#comment_' + parentid + " div.toolbox" ).find( "span" ).css( "marginRight", 0 ).end().append( a );
-	},
+	DeleteCommentCallback : function( parentid ) {
+	    var parent = $( '#comment_' + parentid );
+        var leftpadd = $( parent ).css( 'padding-left' );
+        var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
+        var nextleftpadd = $( parent ).next().css( 'padding-left' );
+        var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
+        alert( 'padding of parent comment is ' + value );
+        alert( 'nextvalue padding is ' + nextvalue );
+        if ( value != nextvalue ) {
+            var id = parent.id.substr( 8 , this.id.length - 8 );
+            $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
+            $( this ).find( 'div.toolbox a' )
+            .removeClass( 'invisible' )
+            .click( function() {
+                return Comments.Delete( id ); 
+            } );
+        }
+    },
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
@@ -252,8 +254,6 @@ $( document ).ready( function() {
                         var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
                         var nextleftpadd = $( this ).next().css( 'padding-left' );
                         var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
-                        alert( 'padding of comment is ' + value );
-                        alert( 'nextvalue padding is ' + nextvalue );
                         if ( value != nextvalue ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
