@@ -246,15 +246,16 @@ $( document ).ready( function() {
                     //for users without avatar
                     username = $( 'a.profile' ).text();
                 }
-                alert( 'logged in user is ' + username );
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
-                    alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = $( this ).css( 'padding-left' );
                         var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
                         var nextleftpadd = $( this ).next().css( 'padding-left' );
                         var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
+                        alert( 'padding of comment is ' + value );
+                        alert( 'nextvalue padding is ' + nextvalue );
                         if ( value != nextvalue ) {
+                            alert( 'id is ' + id );
                             var id = this.id.substr( 8 );
                             $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
