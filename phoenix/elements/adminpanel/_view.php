@@ -21,7 +21,6 @@
 	        
 	        global $libs;
 	        $libs->Load( 'user/user' );
-	        //$libs->Load( 'bennu/bennu' );
 	        $libs->Load( 'bennu/mybennu' );
 	        
 	        $userFinder = new UserFinder();

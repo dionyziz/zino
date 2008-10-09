@@ -1,4 +1,8 @@
 <?php
+    /*
+        Developer:Pagio
+    */
+
     class BennuRule {
         protected $mSigma;
         protected $mValue; // best value
@@ -6,7 +10,7 @@
         protected $mAttribute; // attributes name, ex User->Profile->Age
         protected $mType; // { 'INT', 'DATE' }
         protected $mPlace; // { 'IN', 'OUT' }
-        protected $mRuleType; // Boolean, NormalDist , InArray
+        protected $mRuleType; // { 'Boolean' , 'NormalDist' , 'InArray' }
         
         protected function Get( $sample ) {
             $parts = explode( '->', $this->mAttribute );
@@ -22,13 +26,13 @@
         protected function SetCost( $priority ) {
             switch ( $priority ) {
                 case 'LOW' : 
-                    $this->mCost = 5;
-                    return;
-                case 'MEDIUM' : 
                     $this->mCost = 10;
                     return;
+                case 'MEDIUM' : 
+                    $this->mCost = 20;
+                    return;
                 case 'HIGH' : 
-                    $this->mCost = 15;
+                    $this->mCost = 40;
                     return;
             }
         }
@@ -211,4 +215,6 @@
         $res = $bennu->GetResult();
         return $res;
     }
+    
+    
 ?>
