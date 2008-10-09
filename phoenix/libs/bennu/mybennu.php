@@ -17,10 +17,13 @@
         protected function Get( $sample ) { 
                 
             if ( $this->mPartsN == 2 ) {
-                return $sample->$this->mParts[ 1 ];
+                $part1 = $this->mParts[ 1 ];
+                return $sample->$part1;
             }
             else if ( $this->mPartsN == 3 ) {
-                return $sample->$this->mParts[ 1 ]->$this->mParts[ 2 ];
+                $part1 = $this->mParts[ 1 ];
+                $part2 = $this->mParts[ 2 ];
+                return $sample->$parts1->$parts2;
             }
         }
                 
