@@ -28,7 +28,7 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'kostis90' );
 	        
-	        $res = Bennu_OnilneNow( $target, $input );
+	        $res = Bennu_OnlineNow( $target, $input );
 	        
 	        echo $res;
 	        
