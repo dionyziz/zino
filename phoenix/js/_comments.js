@@ -250,12 +250,9 @@ $( document ).ready( function() {
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = $( this ).css( 'padding-left' );
                         var value = leftpadd.substr( 0 , leftpadd.length - 2 );
-                        alert( value );
-                        /*
-                        if ( !$( this ).next( "div.comment[style='padding-left:20px;']" )[ 0 ] ) {
+                        if ( !$( this ).next( "div.comment[style='padding-left:" value + 20  "px;']" )[ 0 ] ) {
                             $( this ).css( 'border' , '1px solid red' );
-                        */
-
+                        }
                     }
                 } );
 
