@@ -246,7 +246,7 @@ $( document ).ready( function() {
                     //for users without avatar
                     username = $( 'a.profile' ).html();
                 }
-                $( "div.comments div.comment[id^='comment_']" )[ 0 ] ).each( function() {    
+                $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         $( this ).css( 'border' , '1px solid red' ); 
                 } );
