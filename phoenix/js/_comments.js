@@ -253,6 +253,9 @@ $( document ).ready( function() {
                         var nextleftpadd = $( this ).next().css( 'padding-left' );
                         var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
                         if ( value != nextvalue ) {
+                            var id = this.id.substr( 7 );
+                            $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
+                            $( this ).find( 'div.toolbox a' ).removeClass( 'invisible' );
                             $( this ).css( 'border' , '1px solid red' );
                         }
                     }
