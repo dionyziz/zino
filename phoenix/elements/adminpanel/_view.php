@@ -19,7 +19,7 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        /*global $libs;
+	        global $libs;
 	        $libs->Load( 'user/user' );
 	        //$libs->Load( 'bennu/bennu' );
 	        $libs->Load( 'bennu/mybennu' );
@@ -28,21 +28,17 @@
 	        $input = $userFinder->FindLatest();
 	        $target = $userFinder->FindByName( 'kostis90' );
 	        
-	        $bennu = new Bennu();
-	        $bennu->SetData( $input, $target );	        
-	        $bennu->AddRuleBoolean( 'User->Gender', $target->Gender );//TODO sex
-	        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
-	        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
-	        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
-	        //$bennu->AddRuleInArray( 'User->Name', array( 'test55','mommy' ), 'IN' );
-	        $res = $bennu->GetResult();
+	        $res = Bennu_OnilneNow( $target, $input );
 	        
+	        echo $res;
+	        
+	        /*
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $sample ) {
 	            echo '<p>'.$sample->Name.'</p>';
-
-            }*/            
-	        
+            
+            }
+	        */
         }
     }
 ?>

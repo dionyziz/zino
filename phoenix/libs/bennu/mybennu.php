@@ -153,20 +153,17 @@
             $res = array();
             $users = array();           
             $last = array();
-            
+                        
             foreach ( $this->mInput as $sample ) {
                 $res[ $sample->Id ] = $this->GetScore( $sample );
                 $users[ $sample->Id ] = $sample;
-            }
-            
-            asort( $res );
-            
+            }           
+            asort( $res );            
             $i = 0;
             foreach ( $res as $key=>$val ) {
                 $last[ $i ] = $users[ $key ];
                 $i++;
-            }
-            
+            }            
             return $last;
         }
         
@@ -177,5 +174,42 @@
             }            
             return $score;      
         }
+    }
+    
+    function Bennu_OnlineNow( $target, $input ) {
+        global $db;
+
+        $bennu = new Bennu();
+        $bennu->SetData( $input, $target );	
+                
+        if ( $target->Gender == 'm' ) {
+            $bennu->AddRuleBoolean( 'User->Gender', 'f' );
+        }
+        else if ( $target->Gender == 'f' ) {
+            $bennu->AddRuleBoolean( 'User->Gender', 'm' );
+        }  
+        
+        $sql = $db->Prepare( 
+            'SELECT `relation_friendid`
+             FROM :relations
+             WHERE `relation_userid` = :targetid
+             ;'
+        );
+        $sql->BindTable( 'relations' );
+        $sql->Bind( 'targetid', $target->Id );
+        $list = $sql->Execute();
+        $friends = array();
+        while ( $row = $list->FetchArray() ) {
+            $friends[] = $row[ 'relation_friendid' ];
+            return $row;    
+        }
+        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );
+        
+        $bennu->AddRuleSigma( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
+        $bennu->AddRuleSigma( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
+        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
+
+        $res = $bennu->GetResult();
+        return $res;
     }
 ?>
