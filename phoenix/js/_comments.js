@@ -255,9 +255,7 @@ $( document ).ready( function() {
                         alert( 'padding of comment is ' + value );
                         alert( 'nextvalue padding is ' + nextvalue );
                         if ( value != nextvalue ) {
-                            alert( this.id.substr( 8 , this.id.length - 8 ) );
-                            alert( 'id is ' + id );
-                            var id = $( this ).attr( 'id' ).substr( 8 );
+                            var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )

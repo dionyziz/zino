@@ -106,7 +106,7 @@ $( document ).ready( function() {
             }
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                    var shoutid = this.id.substr( 2 );
+                    var shoutid = this.id.substr( 2 , this.id.length - 2 );
                     var toolbox = document.createElement( 'div' ); 
                     var deletelink = document.createElement( 'a' );
                     $( deletelink ).attr( 'href' , '' )
