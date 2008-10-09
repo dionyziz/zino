@@ -254,6 +254,7 @@ $( document ).ready( function() {
                         var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
                         if ( value != nextvalue ) {
                             var id = this.id.substr( 7 );
+                            alert( id );
                             $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
