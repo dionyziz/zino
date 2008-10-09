@@ -208,7 +208,7 @@
         }
         
         foreach ( $input as $sample ) {
-            $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
+            $sample->CopyUserProfileFrom( $profiles[ $sample->Id ] );
         }
         //
 
