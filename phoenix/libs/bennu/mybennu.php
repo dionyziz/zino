@@ -220,10 +220,10 @@
         $bennu->SetData( $input, $target );	
                 
         if ( $target->Gender == 'm' ) {
-            $bennu->AddRuleBoolean( 'User->Gender', 'f' );
+            //$bennu->AddRuleBoolean( 'User->Gender', 'f' );
         }
         else if ( $target->Gender == 'f' ) {
-            $bennu->AddRuleBoolean( 'User->Gender', 'm' );
+            //$bennu->AddRuleBoolean( 'User->Gender', 'm' );
         }  
         
         $sql = $db->Prepare( 
@@ -240,10 +240,10 @@
             $friends[] = $row[ 'relation_friendid' ];
         }
         
-        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
+        //$bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
         //$bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
         //$bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
-        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
+        //$bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
 
         $res = $bennu->GetResult();
         return $res;
