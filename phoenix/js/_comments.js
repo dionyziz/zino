@@ -179,6 +179,7 @@ var Comments = {
         /*
         check whether the comment has parents
         */
+        alert( 'parent id is ' + parentid );
         if ( parentid != 0 ) {
             var parent = $( '#' + parentid );
             var username;
