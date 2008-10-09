@@ -306,7 +306,7 @@ $( document ).ready( function() {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
-                                    var prvid = $( this ).prev( "div.comment[id^='comment_']" )[ 0 ].id;
+                                    var prvid = $( this ).prev( "div.comment[id^='comment_']" ).attr( 'id' );
                                     alert( 'previous id is ' + prvid );
                                     return Comments.Delete( id , prvid );
                                 }
