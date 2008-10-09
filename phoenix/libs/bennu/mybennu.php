@@ -211,7 +211,7 @@
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
         }
         //
-        return $input;
+        
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
                 
