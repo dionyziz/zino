@@ -202,6 +202,9 @@
         global $db;
         global $libs;
         
+        $a = array();
+        return $a;
+        
         /*$libs->Load( 'user/profile' );
         $libs->Load( 'user/user' );
         
