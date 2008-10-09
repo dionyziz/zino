@@ -211,7 +211,7 @@ var Comments = {
                             return Comments.Delete( id , 0 ); 
                         }
                         else {
-                            var prvid = $( parent ).prev().id;
+                            var prvid = $( parent ).prev( "div.comment[id=^'comment_']").id;
                             return Comments.Delete( id , prvid );
                         }
                     } );
@@ -306,7 +306,8 @@ $( document ).ready( function() {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
-                                    var prvid = $( this ).prev().id;
+                                    var prvid = $( this ).prev( "div.comment[id^='comment_']" ).id;
+                                    alert( 'previous id is ' + prvid );
                                     return Comments.Delete( id , prvid );
                                 }
                             } );
