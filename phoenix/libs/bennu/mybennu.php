@@ -185,6 +185,7 @@
         global $libs;
         
         $libs->Load( 'user/profile' );
+        $libs->Load( 'user/user' );
         
         //add Profile values from database to speed things up
         $ids = array();

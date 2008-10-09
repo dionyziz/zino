@@ -190,7 +190,7 @@
             $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
         public function CopyProfileFrom( $value ) {
-            $this->mRelations[ 'Profile' ]->CopyFrom( $value );
+            $this->mRelations[ 'UserProfile' ]->CopyFrom( $value );
         }
         public function __set( $key, $value ) {
             switch ( $key ) {
