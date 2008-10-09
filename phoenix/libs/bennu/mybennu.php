@@ -204,7 +204,7 @@
         
         $profiles = array();
         while ( $row = $res->FetchArray() ) {
-            $profiles[ 'profile_userid' ] = new UserProfile( $row );
+            $profiles[ $row[ 'profiles_userid' ] ] = new UserProfile( $row );
         }
         
         foreach ( $input as $sample ) {
