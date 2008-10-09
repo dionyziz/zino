@@ -240,9 +240,9 @@
             $friends[] = $row[ 'relation_friendid' ];
         }
         
-        //$bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
-        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
-        $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
+        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
+        //$bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
+        //$bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
         $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
 
         $res = $bennu->GetResult();
