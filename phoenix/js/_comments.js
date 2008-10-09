@@ -170,13 +170,52 @@ var Comments = {
 		.append( div );
 		node.find( "div.text textarea" ).get( 0 ).focus();
 	}, 
-	Delete : function( nodeid, parentid ) {
+	Delete : function( nodeid , parentid ) {
 		var node = $( "#comment_" + nodeid );
 		node.fadeOut( 450, function() { 
             $( this ).remove(); 
         } );
 		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
-        Comments.DeleteCommentCallback( parentid );
+        /*
+        check whether the comment has parents
+        */
+        if ( parentid != 0 ) {
+            var parent = $( '#' + parentid );
+            var username;
+
+            if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
+                username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+            }
+            else {
+                //for users without avatar
+                username = $( 'a.profile' ).text();
+            }
+            if ( username == $( parent ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
+                //if the comment is owned by the logged in user 
+                //start checking if it has any children
+                 
+                var leftpadd = $( parent ).css( 'padding-left' );
+                var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
+                var nextleftpadd = $( parent ).next().css( 'padding-left' );
+                var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
+                if ( value == nextvalue ) {
+                    //the comment hasn't any children, show the deletion button 
+                    var id = parent.id.substr( 8 , this.id.length - 8 );
+                    $( parent ).find( 'span' ).css( 'margin-right' + value + 'px;' );
+                    $( parent ).find( 'div.toolbox a' )
+                    .removeClass( 'invisible' )
+                    .click( function() {
+                        if ( value == 0 ) {
+                            return Comments.Delete( id , 0 ); 
+                        }
+                        else {
+                            var prvid = $( parent ).previous().id;
+                            return Comments.Delete( id , prvid );
+                        }
+                    } );
+                }
+            }
+        }
 		Coala.Warm( 'comments/delete', { 
             commentid : nodeid
 		} );
@@ -261,7 +300,13 @@ $( document ).ready( function() {
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
-                                return Comments.Delete( id ); 
+                                if ( value == 0 ) {
+                                    return Comments.Delete( id , 0 ); 
+                                }
+                                else {
+                                    var prvid = $( this ).previous().id;
+                                    return Comments.Delete( id , prvid );
+                                }
                             } );
                         }
                     }
