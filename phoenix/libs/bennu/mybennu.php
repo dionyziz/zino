@@ -158,7 +158,7 @@
                 $res[ $sample->Id ] = $this->GetScore( $sample );
                 $users[ $sample->Id ] = $sample;
             }           
-            asort( $res );            
+            arsort( $res );            
             $i = 0;
             foreach ( $res as $key=>$val ) {
                 $last[ $i ] = $users[ $key ];
