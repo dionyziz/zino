@@ -29,16 +29,12 @@
 	        $target = $userFinder->FindByName( 'kostis90' );
 	        
 	        $res = Bennu_OnlineNow( $target, $input );
-	        
-	        echo $res;
-	        
-	        /*
+
 	        ?><h3>Results</h3><?php
 	        foreach ( $res as $sample ) {
 	            echo '<p>'.$sample->Name.'</p>';
             
             }
-	        */
         }
     }
 ?>
