@@ -192,7 +192,7 @@
         $libs->Load( 'user/user' );
         
         //add Profile values from database to speed things up
-        $ids = array();
+        /*$ids = array();
         foreach ( $input as $sample ) {
             $ids[] = $sample->Id;
         }
@@ -213,7 +213,7 @@
         
         foreach ( $input as $sample ) {
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
-        }
+        }*/
         //
         
         $bennu = new Bennu();
