@@ -244,9 +244,11 @@ $( document ).ready( function() {
                 }
                 else {
                     //for users without avatar
-                    username = $( 'a.profile' ).html();
+                    username = $( 'a.profile' ).text();
                 }
+                alert( 'logged in user is ' + username );
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
+                    alert( $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) );
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = $( this ).css( 'padding-left' );
                         var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
