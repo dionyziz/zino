@@ -193,12 +193,13 @@ var Comments = {
             if ( username == $( parent ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                 //if the comment is owned by the logged in user 
                 //start checking if it has any children
-                 
+                alert( 'parent belongs to loggedin user' );         
                 var leftpadd = $( parent ).css( 'padding-left' );
                 var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
                 var nextleftpadd = $( parent ).next().css( 'padding-left' );
                 var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
                 if ( value == nextvalue ) {
+                    alert( 'no other children' );
                     //the comment hasn't any children, show the deletion button 
                     var id = parent.id.substr( 8 , this.id.length - 8 );
                     $( parent ).find( 'span' ).css( 'margin-right' + value + 'px;' );
