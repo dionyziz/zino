@@ -26,7 +26,7 @@
 	        
 	        $userFinder = new UserFinder();
 	        $input = $userFinder->FindLatest();
-	        $target = $userFinder->FindByName( 'kostis90' );
+	        $target = $userFinder->FindByName( 'pagio91' );
 	        
 	        $res = Bennu_OnlineNow( $target, $input );
 
