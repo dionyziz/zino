@@ -23,7 +23,7 @@
             else if ( $this->mPartsN == 3 ) {
                 $part1 = $this->mParts[ 1 ];
                 $part2 = $this->mParts[ 2 ];
-                return $sample->$parts1->$parts2;
+                return $sample->$part1->$part2;
             }
         }
                 
