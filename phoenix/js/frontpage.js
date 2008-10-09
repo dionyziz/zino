@@ -102,7 +102,7 @@ $( document ).ready( function() {
             }
             else {
                 //for users without avatar
-                username = $( 'a.profile' ).html();
+                username = $( 'a.profile' ).text();
             }
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
