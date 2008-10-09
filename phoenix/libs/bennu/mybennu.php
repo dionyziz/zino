@@ -65,7 +65,7 @@
                 case 'Boolean' :
                     return $this->CalculateBoolean( $sample );
                 case 'NormalDist' :
-                    return $this->CalculateSigma( $sample );
+                    return $this->CalculateNormalDist( $sample );
                 case 'InArray' :
                     return $this->CalculateInArray( $sample );
             }
