@@ -183,7 +183,8 @@ var Comments = {
         return false;
 	},
 	DeleteCommentCallback : function( parentid ) {
-	    var parent = $( '#comment_' + parentid );
+        alert( 'parentid is ' + parentid );
+        var parent = $( '#comment_' + parentid );
         var leftpadd = $( parent ).css( 'padding-left' );
         var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
         var nextleftpadd = $( parent ).next().css( 'padding-left' );
