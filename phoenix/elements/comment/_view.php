@@ -26,14 +26,10 @@
                     }
                     ?>px;" class="time"><?php
                     Element( 'date/diff', $comment->Created );
-                    ?></span><?php
-                    if ( $deletable ) {
-                        ?><a href="" style="margin-right:<?php
-                            echo $indent * 20;
-                        ?>px;" onclick="return Comments.Delete( <?php
-                        echo $comment->Id;
-                        ?> );" title="Διαγραφή">&nbsp;</a><?php
-                    }
+                    ?></span>
+                    <a href="" class="invisible" style="margin-right:<?php
+                        echo $indent * 20;
+                    ?>px;" title="Διαγραφή">&nbsp;</a><?php
                 ?></div><div class="who"><?php
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
                     ?> είπε:
