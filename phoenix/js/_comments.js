@@ -257,7 +257,8 @@ $( document ).ready( function() {
                         if ( value != nextvalue ) {
                             var id = this.id.substr( 8 , this.id.length - 8 ) - 0;
                             alert( id );
-                            $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
+                            $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
+                            alert( 'test' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
