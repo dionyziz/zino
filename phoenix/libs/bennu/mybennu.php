@@ -219,7 +219,7 @@
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
                 
-        if ( $target->Gender == 'm' ) {
+        /*if ( $target->Gender == 'm' ) {
             //$bennu->AddRuleBoolean( 'User->Gender', 'f' );
         }
         else if ( $target->Gender == 'f' ) {
@@ -238,7 +238,7 @@
         $friends = array();
         while ( $row = $list->FetchArray() ) {
             $friends[] = $row[ 'relation_friendid' ];
-        }
+        }*/
         
         //$bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
         //$bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
