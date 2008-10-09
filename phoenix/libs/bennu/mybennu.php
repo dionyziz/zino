@@ -208,10 +208,10 @@
         }
         
         foreach ( $input as $sample ) {
-            $sample->CopyUserProfileFrom( $profiles[ $sample->Id ] );
+            $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
         }
         //
-
+        return;
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
                 
