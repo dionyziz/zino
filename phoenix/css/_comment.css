@@ -2,7 +2,7 @@ div.comment {
 	float: left;
 	clear: both;
 	margin: 5px 0 5px 0;
-	padding: 0 3px 3px 3px;
+	padding: 0 3px 3px 0px;
 	background: #fff repeat-x top;
     border-color: #dee;
 	width: 100%;
