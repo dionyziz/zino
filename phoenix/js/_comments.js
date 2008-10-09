@@ -248,7 +248,8 @@ $( document ).ready( function() {
                 }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                        $( this ).css( 'border' , '1px solid red' ); 
+                        $( this ).css( 'border' , '1px solid red' );
+                    }
                 } );
 
                 
