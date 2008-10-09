@@ -255,8 +255,11 @@ $( document ).ready( function() {
                         if ( value != nextvalue ) {
                             var id = this.id.substr( 7 );
                             $( this ).find( 'span' ).css( 'margin-right' , value + 'px;' );
-                            $( this ).find( 'div.toolbox a' ).removeClass( 'invisible' );
-                            $( this ).css( 'border' , '1px solid red' );
+                            $( this ).find( 'div.toolbox a' )
+                            .removeClass( 'invisible' )
+                            .click( function() {
+                                return Comments.Delete( id ); 
+                            } );
                         }
                     }
                 } );
