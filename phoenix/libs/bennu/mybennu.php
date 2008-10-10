@@ -244,7 +244,7 @@
                 break;
         }
           
-        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT', 30 ); 
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 3, 'INT', 30 ); 
         $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE', 10 );
         $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 20 );
 
