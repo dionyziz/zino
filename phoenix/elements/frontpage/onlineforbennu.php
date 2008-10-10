@@ -12,8 +12,10 @@
             $count = $users[ 1 ];
             $users = $users[ 0 ];
             
-            $target = $finder->FindById( $user->Id );//bennu            
-            $users = Bennu_OnlineNow( $target, $users );//bennu
+            if( exists( $user ) ) {
+                $target = $finder->FindById( $user->Id );//bennu            
+                $users = Bennu_OnlineNow( $target, $users );//bennu
+            }
             
             if ( $count ) {        
                 ?><div class="onlineusers">
