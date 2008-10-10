@@ -262,6 +262,7 @@ var Comments = {
     FindLeftPadding : function( node ) {
         var leftpadd = $( node ).css( 'padding-left' );
         if ( leftpadd ) {
+            alert( 'left padding is ' + leftpadd );
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
         else {
@@ -303,13 +304,15 @@ $( document ).ready( function() {
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = Comments.FindLeftPadding( this ) + 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
+                        alert( 'leftpadding outside function is ' + leftpadd );
+                        alert( 'next left padding outside function is ' + nextleftpadd );
                         if ( leftpadd != nextleftpadd ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
-                                if ( leftpadd == 0 ) {
+                                if ( leftpadd === 0 ) {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
