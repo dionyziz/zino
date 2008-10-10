@@ -2,6 +2,24 @@
 
     class ElementBennu extends Element {
         public function Render( tInteger $age, tText $gender ) {
+        
+            global $libs;
+            global $user;
+	        $libs->Load( 'user/user' );
+	        $libs->Load( 'bennu/mybennu' );
+	        
+	        $userFinder = new UserFinder();
+	        $input = $userFinder->FindOnline();
+	        $target = $userFinder->FindById( $user->Id );
+	        
+	        $res = Bennu_OnlineNow( $target, $input );
+
+	        ?><h3>Results</h3><?php
+	        foreach ( $res as $sample ) {
+	            echo '<p>'.$sample->Name.'</p>';            
+            }
+        
+/*
             global $user;
             global $libs;
 
@@ -88,7 +106,7 @@
             }
 
             ?></ul><?php
+*/            
         }
-
     }
 ?>

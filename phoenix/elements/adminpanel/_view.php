@@ -18,22 +18,6 @@
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
-	        
-	        /*global $libs;
-	        $libs->Load( 'user/user' );
-	        $libs->Load( 'bennu/mybennu' );
-	        
-	        $userFinder = new UserFinder();
-	        $input = $userFinder->FindLatest();
-	        $target = $userFinder->FindById( $user->Id );
-	        
-	        $res = Bennu_OnlineNow( $target, $input );
-
-	        ?><h3>Results</h3><?php
-	        foreach ( $res as $sample ) {
-	            echo '<p>'.$sample->Name.'</p>';
-            
-            }*/
         }
     }
 ?>
