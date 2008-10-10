@@ -304,12 +304,12 @@ $( document ).ready( function() {
                         var leftpadd = Comments.FindLeftPadding( this ) + 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         alert( '1' );
-                        if ( leftpadd !== nextleftpadd ) {
+                        if ( leftpadd != nextleftpadd ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             //find parent of the comment
                             alert( '2' );
-                            if ( leftpadd !=== 0 ) {
+                            if ( leftpadd !== 0 ) {
                                 var node = this;
                                 var lefter = Comments.FindeLeftPadding( node );
                                 alert( '3' );
