@@ -137,7 +137,7 @@
         }
         
         protected function CalculateRandom() {
-            return rand( 0, $this->mCost );
+            return mt_rand( 0, $this->mCost );
         }
     }
             
@@ -266,7 +266,7 @@
         $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 3, 'INT', 30 ); 
         $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE', 10 );
         $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 23 );
-        $bennu->AddRuleRandom( 10 );
+        $bennu->AddRuleRandom( 7 );
 
         $res = $bennu->GetResult();
         return $res;
