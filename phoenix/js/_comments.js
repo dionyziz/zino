@@ -308,7 +308,7 @@ $( document ).ready( function() {
                         alert( 'next left padding outside function is ' + nextleftpadd );
                         if ( leftpadd != nextleftpadd ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
-                            $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
+                            $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
