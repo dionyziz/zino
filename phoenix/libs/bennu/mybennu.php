@@ -210,6 +210,7 @@
         foreach ( $input as $sample ) {
             $ids[] = $sample->Id;
         }
+        unset( $sample );
         
         $sql = $db->Prepare(
             'SELECT * FROM :userprofiles
@@ -228,6 +229,7 @@
         foreach ( $input as $sample ) {
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
         }
+        unset( $sample );
         //
         
         $bennu = new Bennu();
