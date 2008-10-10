@@ -233,20 +233,20 @@
         switch ( $target->Profile->Sexualorientation ) {
             case 'straight' :
                 if ( $target->Gender == 'm' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 10 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 25 );
                 }
                 else if ( $target->Gender == 'f' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 10 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 25 );
                 }
                 break;
             case 'gay' :
-                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 10 );
+                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 25 );
                 break;
         }
           
-        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT', 10 ); 
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT', 30 ); 
         $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE', 10 );
-        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 10 );
+        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 20 );
 
         $res = $bennu->GetResult();
         return $res;
