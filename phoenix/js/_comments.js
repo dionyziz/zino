@@ -310,15 +310,9 @@ $( document ).ready( function() {
                             if ( leftpadd !== 0 ) {
                                 var node = $( this ).prev( "div.comment[id^='comment_']" )[ 0 ];
                                 var lefter = Comments.FindLeftPadding( node );
-                                alert( 'lefter is ' + lefter );
                                 while ( ( lefter - 20 != leftpadd ) && ( lefter >= 0 ) ) {
                                     node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
-                                    if ( node ) {
-                                        lefter = Comments.FindLeftPadding( node );
-                                    }
-                                    else {
-                                        break;
-                                    }
+                                    lefter = Comments.FindLeftPadding( node );
                                 }
                                 $( node ).css( 'border' , '1px solid red' );
                             }
