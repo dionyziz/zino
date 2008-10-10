@@ -12,7 +12,7 @@
             $count = $users[ 1 ];
             $users = $users[ 0 ];
             
-            if( $user->Exists ) {//bennu
+            if( $user->Exists() ) {//bennu
                 $target = $finder->FindById( $user->Id );//bennu            
                 $users = Bennu_OnlineNow( $target, $users );//bennu
             }//bennu
