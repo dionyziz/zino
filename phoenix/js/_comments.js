@@ -259,8 +259,8 @@ var Comments = {
 			$( "div dl" ).prepend( dd );
 		}
 	},
-    FindLeftPadding : function( nodeid ) {
-        var leftpadd = $( '#' + nodeid ).css( 'padding-left' );
+    FindLeftPadding : function( node ) {
+        var leftpadd = $( node ).css( 'padding-left' );
         if ( leftpadd ) {
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
