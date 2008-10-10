@@ -303,13 +303,13 @@ $( document ).ready( function() {
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var leftpadd = Comments.FindLeftPadding( this ) + 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
-                        if ( value != nextvalue ) {
+                        if ( leftpadd != nextleftpadd ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
-                                if ( value == 0 ) {
+                                if ( leftpadd == 0 ) {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
