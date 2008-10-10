@@ -313,10 +313,10 @@ $( document ).ready( function() {
                                     node = $( node ).prev()[ 0 ];
                                     if ( node ) {
                                         lefter = Comments.FindLeftPadding( node );
-                                        alert( 'left padding is ' + lefter );
+                                        //alert( 'left padding is ' + lefter );
                                     }   
 
-                                } while( node && lefter != leftpadd + 20 )
+                                } while( node && lefter + 20 != leftpadd )
                                 /*
                                 while ( node && lefter - 20 != leftpadd  && lefter >= 0  ) {
                                     node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
