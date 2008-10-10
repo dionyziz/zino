@@ -1,7 +1,7 @@
 <?php
 
     class ElementBennu extends Element {
-        public function Render( ) {
+        public function Render( tBoolean $newuser ) {
         
             global $libs;
             global $user;
