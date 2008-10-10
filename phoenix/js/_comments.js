@@ -258,7 +258,16 @@ var Comments = {
 			dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
 			$( "div dl" ).prepend( dd );
 		}
-	}
+	},
+    FindLeftPadding : function( nodeid ) {
+        var leftpadd = $( '#' + nodeid ).css( 'padding-left' );
+        if ( leftpadd ) {
+            return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
+        }
+        else {
+            return false;
+        }
+    }
 };
 $( document ).ready( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
@@ -292,10 +301,8 @@ $( document ).ready( function() {
                 }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                        var leftpadd = $( this ).css( 'padding-left' );
-                        var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
-                        var nextleftpadd = $( this ).next().css( 'padding-left' );
-                        var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
+                        var leftpadd = Comments.FindLeftPadding( this ) + 20;
+                        var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         if ( value != nextvalue ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
@@ -306,9 +313,7 @@ $( document ).ready( function() {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
-                                    var prvid = $( this ).prev( "div.comment[id^='comment_']" ).attr( 'id' );
-                                    alert( 'previous id is ' + prvid );
-                                    return Comments.Delete( id , prvid );
+                                    $( this ).prev().css( 'border' , '1px solid red' );
                                 }
                             } );
                         }
