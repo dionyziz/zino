@@ -1,5 +1,4 @@
 function dateDiff( dateTimeBegin, dateTimeEnd ) {
-    // TODO: Use client's timezone in calculations
     var endval = new Date();
     var beginval = new Date();
 
@@ -23,20 +22,23 @@ function dateDiff( dateTimeBegin, dateTimeEnd ) {
     var dateParts = dateBegin.split( '-' );
     var timeParts = timeBegin.split( ':' );
 
-    endval.setFullYear( dateParts[ 0 ] );
-    endval.setMonth( dateParts[ 1 ] );
-    endval.setDate( dateParts[ 2 ] );
-    endval.setHours( timeParts[ 0 ] );
-    endval.setMinutes( timeParts[ 1 ] );
-    endval.setSeconds( timeParts[ 2 ] );
+    beginval.setFullYear( dateParts[ 0 ] );
+    beginval.setMonth( dateParts[ 1 ] );
+    beginval.setDate( dateParts[ 2 ] );
+    beginval.setHours( timeParts[ 0 ] );
+    beginval.setMinutes( timeParts[ 1 ] );
+    beginval.setSeconds( timeParts[ 2 ] );
 
-    var diff = Date.parse( dateTimeEnd.toString() ) - Date.parse( dateTimeBegin.toString() );
+    var diff = Date.parse( endval.toString() ) - Date.parse( beginval.toString() );
+    diff /= 1000;
 
     if ( diff < 0 ) {
         // error condition
         return false;
     }
 
+    var years = 0;
+    var months = 0;
     var weeks = 0;
     var days = 0;
     var hours = 0;
@@ -95,3 +97,66 @@ function dateDiff( dateTimeBegin, dateTimeEnd ) {
         'minutes': minutes
     };
 }
+
+function greekDateDiff( diff ) {
+    years = diff[ 'years' ];
+    months = diff[ 'months' ];
+    weeks = diff[ 'weeks' ];
+    days = diff[ 'days' ];
+    hours = diff[ 'hours' ];
+    minutes = diff[ 'minutes' ];
+
+    if ( years ) {
+        if ( years == 1 ) {
+            return 'πέρσι';
+        }
+        if ( years == 2 ) {
+            return 'πρόπερσι';
+        }
+        return 'πριν ' + years + ' χρόνια';
+    }
+    if ( months ) {
+        if ( months == 1 ) {
+            return 'τον προηγούμενο μήνα';
+        }
+        return 'πριν ' + months + ' μήνες';
+    }
+    if ( weeks ) {
+        if ( weeks == 1 ) {
+            return 'την προηγούμενη εβδομάδα';
+        }
+        return 'πριν ' + weeks + ' εβδομάδες';
+    }
+    if ( days ) {
+        if ( days == 1 ) {
+            return 'χθες';
+        }
+        if ( days == 2 ) {
+            return 'προχθές';
+        }
+        return 'πριν ' + days + ' μέρες';
+    }
+    if ( hours ) {
+        if ( hours == 1 ) {
+            return 'πριν 1 ώρα';
+        }
+        return 'πριν ' + hours + ' ώρες';
+    }
+    if ( minutes ) {
+        if ( minutes == 1 ) {
+            return 'πριν 1 λεπτό';
+        }
+        if ( minutes == 15 ) {
+            return 'πριν ένα τέταρτο';
+        }
+        if ( minutes == 30 ) {
+            return 'πριν μισή ώρα';
+        }
+        if ( minutes == 45 ) {
+            return 'πριν τρία τέταρτα';
+        }
+        return 'πριν ' + minutes + ' λεπτά';
+    }
+    return 'πριν λίγο';
+}
+
