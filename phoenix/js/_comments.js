@@ -308,14 +308,21 @@ $( document ).ready( function() {
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             //find parent of the comment
                             if ( leftpadd !== 0 ) {
-                                var node = $( this ).prev( "div.comment[id^='comment_']" )[ 0 ];
-                                var lefter = Comments.FindLeftPadding( node );
+                                do { 
+                                    node = $( node ).prev()[ 0 ];
+                                    if ( node ) {
+                                        lefter = Comments.FindLeftPadding( node );
+                                    }   
+
+                                } while( node && lefter != leftpadd + 20 )
+                                /*
                                 while ( node && lefter - 20 != leftpadd  && lefter >= 0  ) {
                                     node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
                                     if ( node ) {
                                         lefter = Comments.FindLeftPadding( node );
                                     }
                                 }
+                                */
                                 $( node ).css( 'border' , '1px solid red' );
                             }
                             $( this ).find( 'div.toolbox a' )
