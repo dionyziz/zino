@@ -1,5 +1,5 @@
 <?php
-   class ElementFrontpageOnline extends Element {
+   class ElementFrontpageOnlineforbennu extends Element {
         public function Render() {
             global $libs;
             global $user;
