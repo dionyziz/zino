@@ -309,10 +309,19 @@ $( document ).ready( function() {
                             //find parent of the comment
                             if ( leftpadd !=== 0 ) {
                                 var node = this;
-                                while ( Comments.FindLeftPadding( node ) - 20 != leftpadd ) {
-                                    node = $( node ).prev();
+                                var lefter = Comments.FindeLeftPadding( node );
+                                while ( lefter - 20 != leftpadd && lefter >= 0 ) {
+                                    node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
+                                    if ( node ) {
+                                        lefter = Comments.FindLeftPadding( node );
+                                    }
+                                    else {
+                                        break;
+                                    }
                                 }
-                                $( node ).css( 'border' , '1px solid red' );
+                                if ( node ) {
+                                    $( node ).css( 'border' , '1px solid red' );
+                                }
                             }
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
