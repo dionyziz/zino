@@ -15,6 +15,7 @@
 	        $libs->Load( 'bennu/mybennu' );
 	        
 	        $userFinder = new UserFinder();
+	        $input = array();
 	        $input = $userFinder->FindOnline();
 	        $target = $userFinder->FindById( $user->Id );
 	        
