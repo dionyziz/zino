@@ -28,20 +28,6 @@
                 return $sample->$part1->$part2;
             }
         }
-                
-        protected function SetCost( $priority ) {
-            switch ( $priority ) {
-                case 'LOW' : 
-                    $this->mCost = 10;
-                    return;
-                case 'MEDIUM' : 
-                    $this->mCost = 20;
-                    return;
-                case 'HIGH' : 
-                    $this->mCost = 40;
-                    return;
-            }
-        }
         
         protected function SetParts() {
             $parts = array();
@@ -51,27 +37,27 @@
             return;
         }
         
-        public function SetRuleBoolean( $attribute, $value, $priority ) {
+        public function SetRuleBoolean( $attribute, $value, $cost ) {
             $this->mValue = $value;
             $this->mAttribute = $attribute;
             $this->mRuleType = 'Boolean';
-            $this->SetCost( $priority );
+            $this->mCost = $cost;
             $this->SetParts();
             return;  
         }
                 
-        public function SetRuleNormalDist( $attribute, $value, $sigma, $type, $priority ) {
+        public function SetRuleNormalDist( $attribute, $value, $sigma, $type, $cost ) {
             $this->mValue = $value;
             $this->mSigma = $sigma;            
             $this->mAttribute = $attribute;
             $this->mType = $type;
             $this->mRuleType = 'NormalDist';            
-            $this->SetCost( $priority );
+            $this->mCost = $cost;
             $this->SetParts();
             return;
         }
         
-        public function SetRuleInArray( $attribute, $values, $place, $priority ) {
+        public function SetRuleInArray( $attribute, $values, $place, $cost ) {
             
             /*foreach ( $value as $values ) {
             TODO
@@ -79,7 +65,7 @@
             $this->mValue = $values;
             $this->mAttribute = $attribute;
             $this->mPlace = $place;
-            $this->SetCost( $priority );
+            $this->mCost = $cost;
             $this->mRuleType = 'InArray';
             $this->SetParts();
             return;
@@ -154,23 +140,23 @@
             return;
         }
         
-        public function AddRuleBoolean( $attribute, $value, $priority = 'MEDIUM' ) {     
+        public function AddRuleBoolean( $attribute, $value, $cost = 10 ) {     
             $rule = new BennuRule();
-            $rule->SetRuleBoolean( $attribute, $value, $priority );       
+            $rule->SetRuleBoolean( $attribute, $value, $cost );       
             $this->mRules[] = $rule;
             return;
         }
         
-        public function AddRuleNormalDist( $attribute, $value, $sigma, $type, $priority = 'MEDIUM' ) {     
+        public function AddRuleNormalDist( $attribute, $value, $sigma, $type, $cost = 10 ) {     
             $rule = new BennuRule();
-            $rule->SetRuleNormalDist( $attribute, $value, $sigma, $type, $priority );       
+            $rule->SetRuleNormalDist( $attribute, $value, $sigma, $type, $cost );       
             $this->mRules[] = $rule;
             return;
         }
         
-        public function AddRuleInArray( $attribute, $values, $place = 'IN', $priority = 'MEDIUM' ) {     
+        public function AddRuleInArray( $attribute, $values, $place = 'IN' , $cost = 10 ) {     
             $rule = new BennuRule();
-            $rule->SetRuleInArray( $attribute, $values, $place, $priority );       
+            $rule->SetRuleInArray( $attribute, $values, $place, $cost );       
             $this->mRules[] = $rule;
             return;
         }
@@ -194,11 +180,11 @@
         }
         
         protected function GetScore( $sample ) {        
-            $total_score = 0;            
+            $total_score = 0;                        
             foreach ( $this->mRules as $rule ) {
-                $score += $rule->Calculate( $sample );
+                $total_score += $rule->Calculate( $sample );
             }            
-            return $score;      
+            return $total_score;      
         }
     }
     
@@ -209,10 +195,11 @@
         $libs->Load( 'user/profile' );
         $libs->Load( 'user/user' );
         
-        //checks
+        //check data 
         if ( count ( $input ) < 2 ) {
             return $input;
         }
+        //
         
         
         //add Profile values from database to speed things up
@@ -242,32 +229,24 @@
         
         $bennu = new Bennu();
         $bennu->SetData( $input, $target );	
-                
-        if ( $target->Gender == 'm' ) {
-            $bennu->AddRuleBoolean( 'User->Gender', 'f' );
-        }
-        else if ( $target->Gender == 'f' ) {
-            $bennu->AddRuleBoolean( 'User->Gender', 'm' );
-        }  
         
-        $sql = $db->Prepare( 
-            'SELECT `relation_friendid`
-             FROM :relations
-             WHERE `relation_userid` = :targetid
-             ;'
-        );
-        $sql->BindTable( 'relations' );
-        $sql->Bind( 'targetid', $target->Id );
-        $list = $sql->Execute();
-        $friends = array();
-        while ( $row = $list->FetchArray() ) {
-            $friends[] = $row[ 'relation_friendid' ];
+        switch ( $target->Profile->Sexualorientation ) {
+            case 'straight' :
+                if ( $target->Gender == 'm' ) {
+                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 10 );
+                }
+                else if ( $target->Gender == 'f' ) {
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 10 );
+                }
+                break;
+            case 'gay' :
+                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 10 );
+                break;
         }
-        
-        $bennu->AddRuleInArray( 'User->Id', $friends, 'OUT' );        
-        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT' ); 
-        $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE' );
-        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 'HIGH' );
+          
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 2, 'INT', 10 ); 
+        $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE', 10 );
+        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 10 );
 
         $res = $bennu->GetResult();
         return $res;
