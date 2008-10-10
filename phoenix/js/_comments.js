@@ -313,6 +313,7 @@ $( document ).ready( function() {
                                     node = $( node ).prev()[ 0 ];
                                     if ( node ) {
                                         lefter = Comments.FindLeftPadding( node );
+                                        alert( 'left padding is ' + lefter );
                                     }   
 
                                 } while( node && lefter != leftpadd + 20 )
