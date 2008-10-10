@@ -119,7 +119,7 @@
                         Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
                     ?></div>
                     <div class="onlinenow"><?php
-                        Element( 'frontpage/onlinefobennu' );
+                        Element( 'frontpage/onlineforbennu' );
                     ?></div>
                 </div>
                 <div class="right">
