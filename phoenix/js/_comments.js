@@ -314,7 +314,7 @@ $( document ).ready( function() {
                                     node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
                                     if ( node ) {
                                         lefter = Comments.FindLeftPadding( node );
-                                    {
+                                    }
                                 }
                                 $( node ).css( 'border' , '1px solid red' );
                             }
