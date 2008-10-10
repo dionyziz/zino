@@ -15,6 +15,8 @@
         protected $mRuleType; // { 'Boolean' , 'NormalDist' , 'InArray' }
         
         protected function Get( $sample ) { 
+            $part1;
+            $part2;
                 
             if ( $this->mPartsN == 2 ) {
                 $part1 = $this->mParts[ 1 ];
@@ -42,6 +44,7 @@
         }
         
         protected function SetParts() {
+            $parts = array();
             $parts = explode( '->', $this->mAttribute );
             $this->mParts = $parts;
             $this->mPartsN = count( $parts );
@@ -105,6 +108,7 @@
         protected function CalculateNormalDist( $sample ) {   
             $sampe_value;
             $ideal_value;
+            $value;
             if ( $this->mType == 'INT' ) {
                 $sample_value = $this->Get( $sample );
                 $ideal_value = $this->mValue;
@@ -205,12 +209,17 @@
         $libs->Load( 'user/profile' );
         $libs->Load( 'user/user' );
         
+        //checks
+        if ( count ( $input ) < 2 ) {
+            return $input;
+        }
+        
+        
         //add Profile values from database to speed things up
         $ids = array();
         foreach ( $input as $sample ) {
             $ids[] = $sample->Id;
         }
-        unset( $sample );
         
         $sql = $db->Prepare(
             'SELECT * FROM :userprofiles
@@ -229,7 +238,6 @@
         foreach ( $input as $sample ) {
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
         }
-        unset( $sample );
         //
         
         $bennu = new Bennu();
