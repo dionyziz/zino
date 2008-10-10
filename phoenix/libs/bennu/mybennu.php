@@ -71,6 +71,12 @@
             return;
         } 
         
+        public function SetRuleRandom( $cost ) {
+            $this->mCost = $cost;
+            $this->mRuleType = 'Random';
+            return;
+        }
+        
         public function Calculate( $sample ) {
             switch ( $this->mRuleType ) {
                 case 'Boolean' :
@@ -79,6 +85,8 @@
                     return $this->CalculateNormalDist( $sample );
                 case 'InArray' :
                     return $this->CalculateInArray( $sample );
+                case 'Random' :
+                    return $this->CalculateRandom();
             }
         }
         
@@ -92,9 +100,9 @@
         }
         
         protected function CalculateNormalDist( $sample ) {   
-            $sampe_value;
-            $ideal_value;
-            $value;
+            $sampe_value = 0;
+            $ideal_value = 0;
+            $value = 0;
             if ( $this->mType == 'INT' ) {
                 $sample_value = $this->Get( $sample );
                 $ideal_value = $this->mValue;
@@ -127,6 +135,10 @@
             return 0;
             }
         }
+        
+        protected function CalculateRandom() {
+            return rand( 0, $this->mCost );
+        }
     }
             
     class Bennu {
@@ -157,6 +169,13 @@
         public function AddRuleInArray( $attribute, $values, $place = 'IN' , $cost = 10 ) {     
             $rule = new BennuRule();
             $rule->SetRuleInArray( $attribute, $values, $place, $cost );       
+            $this->mRules[] = $rule;
+            return;
+        }
+        
+        public function AddRuleRandom( $cost ) {
+            $rule = new BennuRule();
+            $rule->SetRuleRandom( $cost );
             $this->mRules[] = $rule;
             return;
         }
@@ -233,20 +252,21 @@
         switch ( $target->Profile->Sexualorientation ) {
             case 'straight' :
                 if ( $target->Gender == 'm' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 25 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 23 );
                 }
                 else if ( $target->Gender == 'f' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 25 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 23 );
                 }
                 break;
             case 'gay' :
-                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 25 );
+                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 23 );
                 break;
         }
           
         $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 3, 'INT', 30 ); 
         $bennu->AddRuleNormalDist( 'User->Created' , NowDate(), 7*24*60*60, 'DATE', 10 );
-        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 20 );
+        $bennu->AddRuleBoolean( 'User->Profile->Location' , $target->Profile->Location, 23 );
+        $bennu->AddRuleRandom( 10 );
 
         $res = $bennu->GetResult();
         return $res;
