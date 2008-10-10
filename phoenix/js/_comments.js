@@ -325,7 +325,7 @@ $( document ).ready( function() {
                                     }
                                 }
                                 */
-                                $( node ).css( 'border' , '1px solid red' );
+                                //$( node ).css( 'border' , '1px solid red' );
                             }
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
@@ -334,7 +334,8 @@ $( document ).ready( function() {
                                     return Comments.Delete( id , 0 ); 
                                 }
                                 else {
-                                    
+                                    $( '#' + node.id ).css( 'border' , '1px solid red' );
+                                    return Comments.Delete( id , node.id );
                                 }
                             } );
                         }
