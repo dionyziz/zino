@@ -308,6 +308,7 @@ $( document ).ready( function() {
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             //find parent of the comment
                             if ( leftpadd !== 0 ) {
+                                var node = $( this )[ 0 ];
                                 do { 
                                     node = $( node ).prev()[ 0 ];
                                     if ( node ) {
