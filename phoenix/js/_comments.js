@@ -314,7 +314,7 @@ $( document ).ready( function() {
                                 var lefter = Comments.FindeLeftPadding( node );
                                 alert( '3' );
                                 alert( node );
-                                while ( lefter - 20 != leftpadd && lefter >= 0 ) {
+                                while ( ( lefter - 20 != leftpadd ) && ( lefter >= 0 ) ) {
                                     node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
                                     alert( node );
                                     if ( node ) {
