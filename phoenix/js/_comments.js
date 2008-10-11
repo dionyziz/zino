@@ -92,14 +92,14 @@ var Comments = {
                 return false;
             }
         );
-		node.find( 'div.text' ).html( newtext ).get( 0 ).dblclick( function() {
+		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
             Comments.Edit( id );
             return false;
-        } );
-		node.find( 'div.toolbox a' ).get( 0 ).click( function() {
+        }
+		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
             Comments.Delete( id );
             return false;
-        } );
+        }
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
