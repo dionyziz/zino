@@ -129,41 +129,47 @@ var Comments = {
 		var form = document.createElement( 'form' );
 		form.onsubmit = function() {
 					return false;
-				};
+		};
 				
 		var input = document.createElement( 'input' );
-		input.type = "submit";
-		input.value = "Επεξεργασία";
-		input.onclick = function() {
-					var daddy = $( this ).parents().eq(2); // get big div
-					var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
-					texter = $.trim( texter );
-					if ( texter === '' ) {
-						alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
-						return;
-					}
-					daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
-					.find( "div.bottom:last" ).remove().end()
-					.find( "div.bottom" ).css( 'display', 'block' );
-					Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
-													text : texter
-												} );
-				};
+		$( input )
+        .attr( { 
+                type : "submit",
+                value : "Επεξεργασία"
+        } )
+        .click( function() {
+            var daddy = $( this ).parents().eq(2); // get big div
+            var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
+            texter = $.trim( texter );
+            if ( texter === '' ) {
+                alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
+                return;
+            }
+            daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
+            .find( "div.bottom:last" ).remove().end()
+            .find( "div.bottom" ).css( 'display', 'block' );
+            Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
+                                            text : texter
+                                        } );
+        } );
 			
 		var input2 = document.createElement( 'input' );
-		input2.type = "reset";
-		input2.value = "Ακύρωση";
-		input2.onclick = function() {
-					var daddy = $( this ).parents().eq(2); // get big div
-					daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
-					.find( "div.bottom:last" ).remove().end()
-					.find( "div.bottom" ).css( 'display', 'block' );
-				};
-		
-		form.appendChild( input );
-		form.appendChild( document.createTextNode( ' ' ) );
-		form.appendChild( input2 );
-		div.appendChild( form );
+        $( input2 )
+        .attr( {
+                type : "reset",
+                value : "Ακύρωση"
+        } )
+        .click( function() {
+            var daddy = $( this ).parents().eq(2); // get big div
+            daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
+            .find( "div.bottom:last" ).remove().end()
+            .find( "div.bottom" ).css( 'display', 'block' );
+        };
+		$( form )
+        .append( input )
+        .append( document.createTextNode( ' ' ) )
+        .append( input2 );
+		$( div ).append( form );
 		
 		node.find( "div.text" ).empty().append( textarea ).end()
 		.find( "div.bottom" ).css( 'display', 'none' ).end()
