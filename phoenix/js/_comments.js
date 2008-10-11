@@ -92,7 +92,7 @@ var Comments = {
                 return false;
             }
         );
-		node.find( 'div.text' ).html( newtext ).get( 0 ).dblclick( function() {{
+		node.find( 'div.text' ).html( newtext ).get( 0 ).dblclick( function() {
             Comments.Edit( id );
             return false;
         } );
