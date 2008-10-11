@@ -96,10 +96,10 @@ var Comments = {
             Comments.Edit( id );
             return false;
         } );
-		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
+		node.find( 'div.toolbox a' ).get( 0 ).click( function() {
             Comments.Delete( id );
             return false;
-        };
+        } );
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
@@ -270,15 +270,12 @@ $( document ).ready( function() {
                         leftpadd += 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         if ( leftpadd != nextleftpadd ) {
+                            $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
                                 return Comments.Delete( id );
                             } );
-                        }
-                        else {
-                            $( this ).find( 'div.toolbox span' )
-                            .css( 'margin-right' , leftpadd - 20 + 'px;' );
                         }
                     }
                 } );
