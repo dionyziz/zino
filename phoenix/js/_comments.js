@@ -244,13 +244,18 @@ $( document ).ready( function() {
                     username = $( 'a.profile' ).text();
                 }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
+                    var leftpadd = Comments.FindLeftPadding( this );
+                    if ( leftpadd > 1000 ) {
+                        $( this ).find( 'div.toolbox div.bottom' )
+                        .addClass( 'invisible' );
+                    }
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var id = this.id.substr( 8 , this.id.length - 8 );
                         $( this ).find( "div.text" )
                         .dblclick( function() {
                             return Comments.Edit( id );
                         } );
-                        var leftpadd = Comments.FindLeftPadding( this ) + 20;
+                        leftpadd += 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         if ( leftpadd != nextleftpadd ) {
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
@@ -265,5 +270,11 @@ $( document ).ready( function() {
 
                 
             }
+        }
+        else {
+            $( "div.comments div.comment[id^='comment_']" ).each( function() {
+                $( this ).find( 'div.toolbox div.bottom' )
+                .addClass( 'invisible' );
+            } );
         }
 } );
