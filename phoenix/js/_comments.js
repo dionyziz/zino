@@ -246,8 +246,8 @@ $( document ).ready( function() {
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     var leftpadd = Comments.FindLeftPadding( this );
                     if ( leftpadd > 1000 ) {
-                        $( this ).find( 'div.bottom a' )
-                        .addClass( 'invisible' );
+                        $( this ).find( 'div.bottom' )
+                        .empty();
                     }
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var id = this.id.substr( 8 , this.id.length - 8 );
@@ -274,8 +274,8 @@ $( document ).ready( function() {
         else {
             $( "div.comments div.comment[id^='comment_']" ).each( function() {
                 $( this )
-                .find( 'div.bottom a' )
-                .addClass( 'invisible' );
+                .find( 'div.bottom' )
+                .empty();
             } );
         }
 } );
