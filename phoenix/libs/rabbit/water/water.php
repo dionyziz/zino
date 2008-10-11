@@ -138,7 +138,11 @@
         protected $mLastSQLQuery = '';
         protected $mLastSQLQueryStart = false;
         protected $mProfiles = array();
+        protected $mPageURL = '';
 
+        public function __construct() {
+            $this->mPageURL = $_SERVER[ 'PHP_SELF' ];
+        }
         public function Trace( $description, $dump = false ) {
             $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
         }
@@ -301,6 +305,7 @@
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
                 'authentication' => $this->mProjectName . ':' . $this->mProjectKey,
+                'url' => $this->mPageURL,
                 'footprintdata' => $this->mFootprintData,
             );
             
