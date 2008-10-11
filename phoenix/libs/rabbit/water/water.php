@@ -142,6 +142,9 @@
 
         public function __construct() {
             $this->mPageURL = $_SERVER[ 'PHP_SELF' ];
+            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
+                die( var_dump( $this->mPageURL ) );
+            }
         }
         public function Trace( $description, $dump = false ) {
             $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
