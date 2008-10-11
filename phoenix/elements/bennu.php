@@ -4,13 +4,7 @@
         public function Render( tBoolean $newuser ) {
         
             global $libs;
-            global $user;
-            
-            if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
-	            ?> Permission Denied <?php
-	            return;
-	        }
-	        
+            global $user;	        
 	        global $rabbit_settings;
             
             $libs->Load( 'notify' );
