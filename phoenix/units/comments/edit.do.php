@@ -35,6 +35,9 @@
         $text = nl2br( htmlspecialchars( $text ) );
         $comment->Text = WYSIWYG_PostProcess( $text );
         $comment->Save();
+
+        Element::ClearFromCache( 'comment/list', $comment->TypeId, $comment->ItemId );
+
         ?>$( 'div#comment_<?php
         echo $id;
         ?> div.text' ).html( <?php

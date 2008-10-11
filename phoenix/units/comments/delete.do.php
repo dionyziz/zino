@@ -29,6 +29,8 @@
             window.location.reload();<?php
             return;
         }
+        Element::ClearFromCache( 'comment/list', $comment->TypeId, $comment->ItemId );
+
         $parent = $comment->Parent;
         $comment->Delete();
         
@@ -36,13 +38,18 @@
         ?>( <?php
         echo $commentid;
         ?>, <?php
-        echo ( empty( $parent->Id )?0:$parent->Id );
-        ?>, <?php
-        if ( $parent->Userid == $user->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
-            echo "true";
+        if ( empty( $parent->Id ) ) {
+            ?>0<?php
         }
         else {
-            echo "false";
+            echo $parent->Id;
+        }
+        ?>, <?php
+        if ( $parent->Userid == $user->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
+            ?>true<?php
+        }
+        else {
+            ?>false<?php
         }
         ?> );<?php
     }    

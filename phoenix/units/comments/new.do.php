@@ -38,7 +38,6 @@
         $compage = $compage->Get();
         $type = $type->Get();
         
-
         $comment = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
         $text = WYSIWYG_PostProcess( $text );
@@ -48,6 +47,8 @@
         $comment->Typeid = $type;
         $comment->Itemid = $compage;
         $comment->Save();
+
+        Element::ClearFromCache( 'comment/list', $type, $compage );
         
         echo $callback;
         ?>( <?php
