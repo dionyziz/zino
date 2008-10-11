@@ -2,7 +2,7 @@
     class ElementCommentList extends Element {
         protected $mPersistent = array( 'typeid' , 'itemid' );
 
-        public function Render( $comments, $typeid = 0, $itemid = 0 ) {
+        public function Render( $comments, $typeid = 0 , $itemid = 0 ) {
             global $water;
             global $page;
             global $user;
