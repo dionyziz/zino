@@ -246,7 +246,7 @@ $( document ).ready( function() {
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     var leftpadd = Comments.FindLeftPadding( this );
                     if ( leftpadd > 1000 ) {
-                        $( this ).find( 'div.bottom' )
+                        $( this ).find( 'div.bottom a' )
                         .addClass( 'invisible' );
                     }
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
@@ -273,7 +273,8 @@ $( document ).ready( function() {
         }
         else {
             $( "div.comments div.comment[id^='comment_']" ).each( function() {
-                $( this ).find( 'div.bottom' )
+                $( this )
+                .find( 'div.bottom a' )
                 .addClass( 'invisible' );
             } );
         }
