@@ -307,7 +307,7 @@
                 'footprintdata' => $this->mFootprintData,
             );
             
-            if ( UserIp() === '85.75.151.93' ) {
+            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
                 die( $this->mFootprintData );
             }
 
