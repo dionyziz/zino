@@ -1,6 +1,6 @@
 <?php
     class ElementCommentList extends Element {
-        // protected $mPersistent = array( $typeid, $itemid );
+        protected $mPersistent = array( 'typeid' , 'itemid' );
 
         public function Render( $comments, $typeid = 0, $itemid = 0 ) {
             global $water;
@@ -21,9 +21,6 @@
                 }
                 $children_nums[ $comment->Parentid ] = $children_nums[ $comment->Parentid ] + 1;
             }
-            
-            //$jsarr = "Comments.numchildren = { ";
-
             foreach ( $comments as $comment ) {
                 $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
                 
@@ -32,15 +29,6 @@
 
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
             }
-            
-            /*
-            $jsarr = substr( $jsarr, 0, -2);
-            $jsarr .= " };";
-
-            if ( $user->Id > 0 ) {
-                $page->AttachInlineScript( $jsarr );
-            }
-            */
         }   
     }
 ?>
