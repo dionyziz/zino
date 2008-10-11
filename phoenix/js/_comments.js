@@ -74,7 +74,7 @@ var Comments = {
 										callback : Comments.NewCommentCallback
 									} );
 	},
-	NewCommentCallback : function( node, id, parentid, newtext ) {
+    NewCommentCallback : function( node, id, parentid, newtext ) {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
@@ -170,60 +170,18 @@ var Comments = {
 		.append( div );
 		node.find( "div.text textarea" ).get( 0 ).focus();
 	}, 
-	Delete : function( nodeid , parentid ) {
+	Delete : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
 		node.fadeOut( 450, function() { 
             $( this ).remove(); 
         } );
-		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
-        /*
-        check whether the comment has parents
-        */
-        alert( 'parent id is ' + parentid );
-        if ( parentid != 0 ) {
-            var parent = $( '#' + parentid );
-            var username;
-
-            if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
-                username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
-            }
-            else {
-                //for users without avatar
-                username = $( 'a.profile' ).text();
-            }
-            if ( username == $( parent ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-                //if the comment is owned by the logged in user 
-                //start checking if it has any children
-                alert( 'parent belongs to loggedin user' );         
-                var leftpadd = $( parent ).css( 'padding-left' );
-                var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
-                var nextleftpadd = $( parent ).next().css( 'padding-left' );
-                var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
-                if ( value == nextvalue ) {
-                    alert( 'no other children' );
-                    //the comment hasn't any children, show the deletion button 
-                    var id = parent.id.substr( 8 , this.id.length - 8 );
-                    $( parent ).find( 'span' ).css( 'margin-right' + value + 'px;' );
-                    $( parent ).find( 'div.toolbox a' )
-                    .removeClass( 'invisible' )
-                    .click( function() {
-                        if ( value == 0 ) {
-                            return Comments.Delete( id , 0 ); 
-                        }
-                        else {
-                            var prvid = $( parent ).prev( "div.comment[id=^'comment_']").id;
-                            return Comments.Delete( id , prvid );
-                        }
-                    } );
-                }
-            }
-        }
 		Coala.Warm( 'comments/delete', { 
             commentid : nodeid
 		} );
         return false;
 	},
-	DeleteCommentCallback : function( parentid ) {
+	/*
+    DeleteCommentCallback : function( parentid ) {
         alert( 'parentid is ' + parentid );
         var parent = $( '#comment_' + parentid );
         var leftpadd = $( parent ).css( 'padding-left' );
@@ -242,6 +200,7 @@ var Comments = {
             } );
         }
     },
+    */
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
