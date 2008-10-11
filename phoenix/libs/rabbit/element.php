@@ -219,6 +219,8 @@
             
             self::$mMasterElementAlias = $req[ 'p' ];
 
+            $water->SetPageURL( $_SERVER[ 'PHP_SELF' ] . ' - ' . self::$mMasterElementAlias );
+
             unset( $req[ 'p' ] );
 
             self::$mMainReq = $req;

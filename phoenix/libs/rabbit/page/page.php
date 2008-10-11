@@ -98,8 +98,6 @@ abstract class Page {
     public function AttachMainElement( $mainelementid , $req ) {
         global $water;
 
-        $water->SetPageURL( $_SERVER[ 'PHP_SELF' ] . ' - ' . $mainelementid );
-
         w_assert( is_array( $req ) );
         
         $this->mMainElements[] = array(
