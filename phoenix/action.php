@@ -39,6 +39,8 @@
         }
     }
     
+    $water->Trace( 'Special page type: ACTION' );
+
     $p = $_GET[ 'p' ];
     $req = array_merge( $_POST, $_FILES );
     
