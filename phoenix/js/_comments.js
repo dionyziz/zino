@@ -235,13 +235,13 @@ $( document ).ready( function() {
 		} );
 
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
-            alert( nowdate );
-            /*
-            $( "div.comments div.comment[id^='comment_']" ).each( function() {
-
+            $( "div.comments div.comment[id^='comment_']" ).each( function() { 
+                var commdate = $( this ).find( "div.toolbox span.time" ).text();
+                $( this ).find( "div.toolbox span.time" )
+                .empty()
+                .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) )
+                .removeClass( 'invisible' );
             } );
-            */
-
         }
         //if the user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
