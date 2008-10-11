@@ -4,6 +4,11 @@
             global $libs;
             global $user;
             
+            if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
+	            ?> Permission Denied <?php
+	            return;
+	        }
+            
             $libs->Load( 'user/user' );
 	        $libs->Load( 'bennu/bennu' );
 
