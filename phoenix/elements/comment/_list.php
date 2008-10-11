@@ -1,6 +1,6 @@
 <?php
     class ElementCommentList extends Element {
-        protected $mPersistent = array( 'typeid' , 'itemid' );
+        //protected $mPersistent = array( 'typeid' , 'itemid' );
 
         public function Render( $comments, $typeid = 0 , $itemid = 0 ) {
             global $water;
