@@ -89,7 +89,7 @@
                                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                                         }
                                         $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
-                                        Element( 'comment/list' , $comments );
+                                        Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
                                         ?><div class="pagifycomments"><?php
                                             $link = '?p=poll&id=' . $poll->Id . '&pageno=';
                                             Element( 'pagify', $pageno, $link, $total_pages );

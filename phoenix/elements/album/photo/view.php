@@ -325,7 +325,7 @@
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
                         $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
-                        Element( 'comment/list' , $comments );
+                        Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
                         ?><div class="pagifycomments"><?php
                             $link = '?p=photo&id=' . $image->Id . '&pageno=';
                             Element( 'pagify', $pageno, $link, $total_pages );

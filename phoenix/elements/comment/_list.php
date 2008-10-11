@@ -1,6 +1,6 @@
 <?php
     class ElementCommentList extends Element {
-        //protected $mPersistent = array( 'typeid' , 'itemid' );
+        protected $mPersistent = array( 'typeid' , 'itemid' );
 
         public function Render( $comments, $typeid = 0 , $itemid = 0 ) {
             global $water;
@@ -23,10 +23,7 @@
             }
             foreach ( $comments as $comment ) {
                 $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
-                
                 $children = isset( $children_nums[ $comment->Id ] ) ? $children_nums[ $comment->Id ] : 0;
-                //$jsarr .= $comment->Id . " : $children, ";
-
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
             }
         }   
