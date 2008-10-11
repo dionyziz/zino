@@ -306,9 +306,6 @@
                 'url' => $this->mPageURL,
                 'footprintdata' => $this->mFootprintData,
             );
-            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
-                die( $this->mPageURL );
-            }
             
             $header[ 0 ] = "Accept: text/plain";
             $header[] = "Accept-Language: en-us,en;q=0.5";
@@ -339,7 +336,7 @@
             }
             else {
                 $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
-                $this->mFootprintURL = 
+                $this->mFootprintURL = $data;
                 curl_close( $curl );
             }
 
