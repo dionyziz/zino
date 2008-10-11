@@ -30,7 +30,6 @@ var Comments = {
         */
 		
 		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
-		alert( 'create indent is ' + indent );
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
             return false;
@@ -85,10 +84,8 @@ var Comments = {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
-		Comments.numchildren[ id ] = 0;
-        alert( 'parent id is ' + parentid );	
+		Comments.numchildren[ id ] = 0;	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
-		alert( 'indent is ' + indent );
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
                 Comments.Reply( id , indent + 1 );
