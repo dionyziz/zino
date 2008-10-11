@@ -249,28 +249,28 @@
         switch ( $target->Profile->Sexualorientation ) {
             case 'straight':
                 if ( $target->Gender == 'm' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 23 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'f', 15 );
                 }
                 else if ( $target->Gender == 'f' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 23 );
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 15 );
                 }
                 break;
             case 'gay':
-                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 23 );
+                $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 15 );
                 break;
             case '-':
                 if ( $target->Gender == 'm' ) {
-                   $bennu->AddRuleBoolean( 'User->Gender', 'f', 23 ); 
+                   $bennu->AddRuleBoolean( 'User->Gender', 'f', 15 ); 
                 }
                 else if ( $target->Gender == 'f' ) {
-                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 23 ); 
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 15 ); 
                 }
                 break;
             case 'bi':
                 break;
         }
           
-        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 3, 'INT', 15 ); 
+        $bennu->AddRuleNormalDist( 'User->Profile->Age', $target->Profile->Age, 3, 'INT', 25 ); 
         $bennu->AddRuleNormalDist( 'User->Created', NowDate(), 7 * 24 * 60 * 60, 'DATE', 10 );
         $bennu->AddRuleBoolean( 'User->Profile->Location', $target->Profile->Location, 23 );
         $bennu->AddRuleRandom( 7 );
