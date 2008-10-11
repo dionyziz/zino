@@ -42,7 +42,7 @@ var Comments = {
             title : "Διαγραφή",
             href : ""
         } )
-        .css( 'margin-right' , ( parentid === 0 )? 0 : ( indent + 1 )*20 + 'px;' );
+        .css( 'margin-right' , ( parentid === 0 )? 0 : ( indent + 1 )*20 + 'px;' )
         .click( function() {
             return false; 
         } );
