@@ -81,7 +81,7 @@ var Comments = {
 		}
 		Comments.numchildren[ id ] = 0;
 	
-		var indent = ( parentid === 0 )?-1:parseInt( $( "#comment_" + parentid ).css( "padding-left" ), 10 )/20;
+		var indent = ( parentid === 0 )?-1:Comments.FindLeftPadding( $( "#comment_" + parentid )[ 0 ] ) / 20;
         alert( 'indent is ' + indent );
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
