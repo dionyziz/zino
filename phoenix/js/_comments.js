@@ -86,7 +86,9 @@ var Comments = {
                 Comments.Reply( id, indent+1 );
                 return false;
             }, function() {
-                $( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
+                $( '#comment_reply_' + id ).hide( 300 , function() { 
+                    $( this ).remove(); 
+                } );
                 return false;
             }
         );
