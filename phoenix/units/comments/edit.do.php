@@ -36,7 +36,7 @@
         $comment->Text = WYSIWYG_PostProcess( $text );
         $comment->Save();
 
-        Element::ClearFromCache( 'comment/list', $comment->TypeId, $comment->ItemId );
+        Element::ClearFromCache( 'comment/list', $comment->Typeid, $comment->Itemid );
 
         ?>$( 'div#comment_<?php
         echo $id;
