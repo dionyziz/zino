@@ -324,6 +324,7 @@
                             $finder = New NotificationFinder();
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
+                        $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                         Element( 'comment/list' , $comments );
                         ?><div class="pagifycomments"><?php
                             $link = '?p=photo&id=' . $image->Id . '&pageno=';

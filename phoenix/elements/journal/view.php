@@ -109,7 +109,8 @@
                                 $comments = $comments[ 2 ];
                                 $finder = New NotificationFinder();
                                 $finder->DeleteByCommentAndUser( $speccomment, $user );
-                            }
+                            }       
+                            $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                             Element( 'comment/list' , $comments );
                             ?><div class="pagifycomments"><?php
                                 $link = '?p=journal&id=' . $journal->Id . '&pageno=';
