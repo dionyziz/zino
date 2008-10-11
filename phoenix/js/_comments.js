@@ -239,7 +239,7 @@ $( document ).ready( function() {
                 var commdate = $( this ).find( "div.toolbox span.time" ).text();
                 $( this ).find( "div.toolbox span.time" )
                 .empty()
-                .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) )
+                .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) ) )
                 .removeClass( 'invisible' );
             } );
         }
