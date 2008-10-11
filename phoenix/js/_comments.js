@@ -22,7 +22,7 @@ var Comments = {
 		};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
 		
-		var indent = ( parentid === 0 )?-1:parseInt( $( "#comment_" + parentid ).css( "padding-left" ), 10 ) / 20;
+		var indent = ( parentid === 0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
 		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
@@ -33,7 +33,7 @@ var Comments = {
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "margin-right", 0 ).text( "πριν λίγο" ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
 		.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
@@ -60,7 +60,7 @@ var Comments = {
 			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
 				deletes.fadeOut( 400 );
-				deletes.parent().find( "span" ).css( "margin-right", indent*20 + 'px' );
+				deletes.parent().find( "span" ).css( "marginRight", indent*20 + 'px' );
 			}
 		}
 		
