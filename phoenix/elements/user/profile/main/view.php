@@ -5,6 +5,7 @@
             global $user;
             global $water;
             global $xc_settings;
+            global $page;
 
             $libs->Load( 'poll/poll' );
             $libs->Load( 'comment' );
