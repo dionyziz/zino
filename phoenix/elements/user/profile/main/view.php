@@ -186,6 +186,7 @@
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
                             $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
+                            $water->Trace( 'comments caching debuggin' );
                             Element( 'comment/list' , $comments , TYPE_USERPROFILE , $theuser->Id );
                             ?><div class="pagifycomments"><?php
                                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
