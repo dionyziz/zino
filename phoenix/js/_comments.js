@@ -86,7 +86,7 @@ var Comments = {
 			++Comments.numchildren[ parentid ];
 		}
 		Comments.numchildren[ id ] = 0;
-	
+        alert( 'parent id is ' + parentid );	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		alert( 'indent is ' + indent );
         node.attr( 'id', 'comment_' + id );
