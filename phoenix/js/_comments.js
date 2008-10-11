@@ -36,17 +36,11 @@ var Comments = {
             return false;
         };
 		del.title = "Διαγραφή";
-		del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
-        */
-        var mrgnvalue = ( parentid === 0 )?0 : ( indent + 1 ) * 20;
-        alert( 'margin value is ' + mrgnvalue );
+		*/
+        del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
         $( del ).attr( {
             title : "Διαγραφή",
             href : ""
-        } )
-        .css( 'marginRight' , mrgnvalue +  'px;' )
-        .click( function() {
-            return false; 
         } );
 		
 		// Dimiourgisa ena teras :-S
