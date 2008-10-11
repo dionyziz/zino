@@ -17,13 +17,20 @@ var Comments = {
 		}
 
 		var a = document.createElement( 'a' );
+        $( a ).append( document.createTextNode( "Απάντησε" ) )
+        .attr( 'href' , '' )
+        .click( function() {
+            return false;
+        } );
+        /*
 		a.onclick = function() {
 				return false;
 			};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
+        */
 		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
-		
+		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		alert( 'create indent is ' + indent );
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
             return false;
@@ -80,11 +87,11 @@ var Comments = {
 		}
 		Comments.numchildren[ id ] = 0;
 	
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
+		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		alert( 'indent is ' + indent );
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
-                Comments.Reply( id, indent+1 );
+                Comments.Reply( id , indent + 1 );
                 return false;
             }, function() {
                 $( '#comment_reply_' + id ).hide( 300 , function() { 
