@@ -67,12 +67,12 @@ var Comments = {
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
 		Coala.Warm( 'comments/new', { 	text : texter, 
-										parent : parentid,
-										compage : temp.find( "#item:first" ).text(),
-										type : type,
-										node : temp, 
-										callback : Comments.NewCommentCallback
-									} );
+            parent : parentid,
+            compage : temp.find( "#item:first" ).text(),
+            type : type,
+            node : temp, 
+            callback : Comments.NewCommentCallback
+        } );
 	},
     NewCommentCallback : function( node, id, parentid, newtext ) {
 		if ( parentid !== 0 ) {
@@ -186,27 +186,6 @@ var Comments = {
 		} );
         return false;
 	},
-	/*
-    DeleteCommentCallback : function( parentid ) {
-        alert( 'parentid is ' + parentid );
-        var parent = $( '#comment_' + parentid );
-        var leftpadd = $( parent ).css( 'padding-left' );
-        var value = leftpadd.substr( 0 , leftpadd.length - 2 ) - 0 + 20;
-        var nextleftpadd = $( parent ).next().css( 'padding-left' );
-        var nextvalue = nextleftpadd.substr( 0 , nextleftpadd.length - 2 ) - 0;
-        alert( 'padding of parent comment is ' + value );
-        alert( 'nextvalue padding is ' + nextvalue );
-        if ( value != nextvalue ) {
-            var id = parent.id.substr( 8 , this.id.length - 8 );
-            $( this ).find( 'span' ).css( 'margin-right' + value + 'px;' );
-            $( this ).find( 'div.toolbox a' )
-            .removeClass( 'invisible' )
-            .click( function() {
-                return Comments.Delete( id ); 
-            } );
-        }
-    },
-    */
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
@@ -266,10 +245,14 @@ $( document ).ready( function() {
                 }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
+                        var id = this.id.substr( 8 , this.id.length - 8 );
+                        $( this ).find( "div.text" )
+                        .dblclick( function() {
+                            return Comments.Edit( id );
+                        } );
                         var leftpadd = Comments.FindLeftPadding( this ) + 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         if ( leftpadd != nextleftpadd ) {
-                            var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
