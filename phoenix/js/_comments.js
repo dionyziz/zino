@@ -74,7 +74,7 @@ var Comments = {
             callback : Comments.NewCommentCallback
         } );
 	},
-    NewCommentCallback : function( node, id, parentid, newtext ) {
+    NewCommentCallback : function( node , id , newtext ) {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
@@ -92,12 +92,12 @@ var Comments = {
                 return false;
             }
         );
-		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
-                Comments.Edit( id );
-                return false;
-            };
+		node.find( 'div.text' ).html( newtext ).get( 0 ).dblclick( function() {{
+            Comments.Edit( id );
+            return false;
+        } );
 		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
-            Comments.Delete( id, parentid );
+            Comments.Delete( id );
             return false;
         };
 	},
