@@ -18,9 +18,12 @@
     
     $units = $coala->ParseRequest( $warmable, $req );
 
+    $pages = array();
     foreach ( $units as $unit ) {
         $page->AttachMainElement( $unit[ 'type' ], $unit[ 'id' ], $unit[ 'req' ] );
+        $pages[] = $unit[ 'type' ] . ':' . $unit[ 'id' ]; 
     }
+    $water->SetPageURL( $_SERVER[ 'PHP_SELF' ] . ' - ' . implode( '; ', $pages ) );
     $page->Output();
     
     Rabbit_Destruct();

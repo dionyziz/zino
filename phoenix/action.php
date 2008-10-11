@@ -43,6 +43,8 @@
 
     $p = $_GET[ 'p' ];
     $req = array_merge( $_POST, $_FILES );
+
+    $water->SetPageURL( $_SERVER[ 'PHP_SELF' ] . ' - ' . $p );
     
     Rabbit_ClearPostGet();
 

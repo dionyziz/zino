@@ -90,6 +90,7 @@
     }
 
     interface WaterBase {
+        public function SetPageURL( $url );
         public function Trace( $description, $dump = false );
         public function Notice( $description, $dump = false );
         public function Warning( $description, $dump = false );
@@ -107,6 +108,7 @@
     }
 
     class WaterDummy implements WaterBase {
+        public function SetPageURL( $url ) {}
         public function Trace( $description, $dump = false ) {}
         public function Notice( $description, $dump = false ) {}
         public function Warning( $description, $dump = false ) {}
@@ -142,6 +144,9 @@
 
         public function __construct() {
             $this->mPageURL = $_SERVER[ 'PHP_SELF' ];
+        }
+        public function SetPageURL( $url ) {
+            $this->mPageURL = $url;
         }
         public function Trace( $description, $dump = false ) {
             $this->ProcessError( WATER_E_USER_TRACE, $description, debug_backtrace() );
