@@ -184,6 +184,7 @@
                                 Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE , $user->Id , $user->Avatar->Id );
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
+                            $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                             Element( 'comment/list' , $comments );
                             ?><div class="pagifycomments"><?php
                                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';

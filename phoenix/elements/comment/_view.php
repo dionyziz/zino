@@ -17,15 +17,8 @@
                 ?>px;<?php
             }
             ?>"><div class="toolbox">
-                    <span style="margin-right:<?php
-                    if ( !$deletable ) {
-                        echo $indent * 20;
-                    }
-                    else {
-                        ?>0<?php
-                    }
-                    ?>px;" class="time"><?php
-                    Element( 'date/diff', $comment->Created );
+                    <span class="time invisible"><?php
+                        echo $comment->Created;
                     ?></span>
                     <a href="" class="invisible" style="margin-right:<?php
                         echo $indent * 20;

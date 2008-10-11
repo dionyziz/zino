@@ -233,6 +233,16 @@ $( document ).ready( function() {
 				}
 			);
 		} );
+
+        if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
+            alert( nowdate );
+            /*
+            $( "div.comments div.comment[id^='comment_']" ).each( function() {
+
+            } );
+            */
+
+        }
         //if the user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
             //if the page has at least one comment
