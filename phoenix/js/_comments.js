@@ -44,7 +44,7 @@ var Comments = {
             title : "Διαγραφή",
             href : ""
         } )
-        .css( 'margin-right' , mrgnvalue +  'px;' )
+        .css( 'marginRight' , mrgnvalue +  'px;' )
         .click( function() {
             return false; 
         } );
