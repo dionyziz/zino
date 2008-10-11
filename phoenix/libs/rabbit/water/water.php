@@ -306,6 +306,10 @@
                 'authentication' => $this->mProjectName . ':' . $this->mProjectKey,
                 'footprintdata' => $this->mFootprintData,
             );
+            
+            if ( UserIp() === '85.75.151.93' ) {
+                die( $this->mFootprintData );
+            }
 
             $header[ 0 ] = "Accept: text/plain";
             $header[] = "Accept-Language: en-us,en;q=0.5";
