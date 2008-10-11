@@ -242,6 +242,7 @@
             $sample->CopyProfileFrom( $profiles[ $sample->Id ] );
         }
         
+        //initiate bennu
         $bennu = New Bennu();
         $bennu->SetData( $input, $target );	
 
@@ -256,6 +257,16 @@
                 break;
             case 'gay':
                 $bennu->AddRuleBoolean( 'User->Gender', $target->Gender, 23 );
+                break;
+            case '-':
+                if ( $target->Gender == 'm' ) {
+                   $bennu->AddRuleBoolean( 'User->Gender', 'f', 23 ); 
+                }
+                else if ( $target->Gender == 'f' ) {
+                    $bennu->AddRuleBoolean( 'User->Gender', 'm', 23 ); 
+                }
+                break;
+            case 'bi':
                 break;
         }
           
