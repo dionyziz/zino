@@ -265,37 +265,10 @@ $( document ).ready( function() {
                         if ( leftpadd != nextleftpadd ) {
                             var id = this.id.substr( 8 , this.id.length - 8 );
                             $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
-                            //find parent of the comment
-                            if ( leftpadd !== 0 ) {
-                                var node = $( this )[ 0 ];
-                                do { 
-                                    node = $( node ).prev()[ 0 ];
-                                    if ( node ) {
-                                        lefter = Comments.FindLeftPadding( node );
-                                        //alert( 'left padding is ' + lefter );
-                                    }   
-
-                                } while( node && lefter + 20 != leftpadd )
-                                /*
-                                while ( node && lefter - 20 != leftpadd  && lefter >= 0  ) {
-                                    node = $( node ).prev( "div.comment[id^='comment_']")[ 0 ];
-                                    if ( node ) {
-                                        lefter = Comments.FindLeftPadding( node );
-                                    }
-                                }
-                                */
-                                //$( node ).css( 'border' , '1px solid red' );
-                            }
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
-                                if ( leftpadd === 0 ) {
-                                    return Comments.Delete( id , 0 ); 
-                                }
-                                else {
-                                    $( '#' + node.id ).css( 'border' , '1px solid red' );
-                                    return Comments.Delete( id , node.id );
-                                }
+                                return Comments.Delete( id );
                             } );
                         }
                     }
