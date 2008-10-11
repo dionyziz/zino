@@ -81,7 +81,7 @@ var Comments = {
             callback : Comments.NewCommentCallback
         } );
 	},
-    NewCommentCallback : function( node , parentid , id , newtext ) {
+    NewCommentCallback : function( node , id , parent , newtext ) {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
