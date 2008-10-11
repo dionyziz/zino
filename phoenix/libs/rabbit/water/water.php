@@ -160,6 +160,10 @@
             $this->AppendProfile( $profile[ 0 ], $profile[ 1 ], microtime( true ), debug_backtrace() );
         }
         public function LogSQL( $description ) {
+            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
+                die( $description );
+            }
+
             if ( !$this->mEnabled ) {
                 return;
             }
@@ -307,10 +311,6 @@
                 'footprintdata' => $this->mFootprintData,
             );
             
-            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
-                die( $this->mFootprintData );
-            }
-
             $header[ 0 ] = "Accept: text/plain";
             $header[] = "Accept-Language: en-us,en;q=0.5";
             $header[] = "Accept-Encoding: ";
