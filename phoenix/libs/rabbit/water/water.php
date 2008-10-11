@@ -163,10 +163,6 @@
             if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.75.151.93' ) {
                 die( $description );
             }
-
-            if ( !$this->mEnabled ) {
-                return;
-            }
             if ( $this->mLastSQLQueryStart !== false ) {
                 $this->Warning( 'Water could not log SQL query "'
                     . $description
