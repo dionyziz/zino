@@ -31,11 +31,21 @@ var Comments = {
 		
 		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
 		var del = document.createElement( 'a' );
-		del.onclick = function() {
+		/*
+        del.onclick = function() {
             return false;
         };
 		del.title = "Διαγραφή";
 		del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
+        */
+        $( del ).attr( {
+            title : "Διαγραφή",
+            href : ""
+        } )
+        .css( 'margin-right' , ( parentid === 0 )? 0 : ( indent + 1 )*20 + 'px;' );
+        .click( function() {
+            return false; 
+        } );
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
