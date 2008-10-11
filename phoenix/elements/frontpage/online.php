@@ -1,10 +1,21 @@
 <?php
    class ElementFrontpageOnline extends Element {
         public function Render() {
+            global $libs;
+            global $user;
+            
+            $libs->Load( 'user/user' );
+	        $libs->Load( 'bennu/bennu' );
+        
             $finder = New UserFinder();
 		    $users = $finder->FindOnline( 0 , 70 );
             $count = $users[ 1 ];
             $users = $users[ 0 ];
+            
+            if( $user->Exists() ) {//sort online users using bennu
+                $target = $finder->FindById( $user->Id );       
+                $users = Bennu_OnlineNow( $target, $users );
+            }
             
             if ( $count ) {        
                 ?><div class="onlineusers">
