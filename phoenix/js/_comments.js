@@ -265,7 +265,7 @@ $( document ).ready( function() {
                         leftpadd += 20;
                         var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
                         if ( leftpadd != nextleftpadd ) {
-                            $( this ).find( 'span' ).css( 'margin-right' + leftpadd + 'px;' );
+                            $( this ).find( 'span' ).css( 'margin-right' , leftpadd + 'px;' );
                             $( this ).find( 'div.toolbox a' )
                             .removeClass( 'invisible' )
                             .click( function() {
