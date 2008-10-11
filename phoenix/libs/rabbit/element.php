@@ -106,25 +106,14 @@
         }
         static public function ClearFromCache( $elementpath, $args ) {
             global $mc;
-            global $water;
 
-            // retrieve positions of significant arguments
-            $significant = self::GetPersistentElementSignificantArgs( $elementpath );
-            if ( $significant === false ) { // not a persistent element
-                return false;
-            }
             $mtime = self::GetPersistentElementMtime( $elementpath );
             // it's a persistent element, check cache
-            $params = array(); // a list of the values of the significant arguments, in order
-            foreach ( $significant as $pos ) {
-                w_assert( is_int( $pos ) );
-                w_assert( isset( $args[ $pos ] ) );
-                $params[] = $args[ $pos ];
-                w_assert( is_scalar( $args[ $pos ] ), 'Persistent element significant argument must be scalar; ' . gettype( $args[ $pos ] ) . ' given for argument ' . $pos . ' of element `' . $elementpath . '\'' );
+            foreach ( $args as $i => $arg ) {
+                w_assert( is_scalar( $arg ), 'Persistent element significant argument must be scalar; ' . gettype( $arg ) . ' given for significant argument ' . $pos . ' of element `' . $elementpath . '\' when clearing cache' );
             }
             $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
             $mc->delete( 'persistent:' . $elementpath . ':' . $sig . ':' . $mtime );
-            $water->Trace( 'Persistent element CLEAR: ' . $elementpath . ' ( "' . implode( '", "', $params ) . '" )' );
         }
         static public function IncludeFile( $elementpath ) {
             w_assert( is_string( $elementpath ) && strlen( $elementpath ) );
