@@ -2,7 +2,6 @@ var Comments = {
 	numchildren : {},
 	Create : function( parentid ) {
 		var texter;
-
 		if ( parentid === 0 ) { // Clear new comment message
 			texter = $( "div.newcomment div.text textarea" ).get( 0 ).value;
 			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
@@ -15,34 +14,19 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
-
 		var a = document.createElement( 'a' );
         $( a ).append( document.createTextNode( "Απάντησε" ) )
         .attr( 'href' , '' )
         .click( function() {
             return false;
         } );
-        /*
-		a.onclick = function() {
-				return false;
-			};
-		a.appendChild( document.createTextNode( "Απάντησε" ) );
-        */
-		
 		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
 		var del = document.createElement( 'a' );
-		/*
-        del.onclick = function() {
-            return false;
-        };
-		del.title = "Διαγραφή";
-		*/
         del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
         $( del ).attr( {
             title : "Διαγραφή",
             href : ""
-        } );
-		
+        } );	
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
