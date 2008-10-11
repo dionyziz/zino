@@ -7,9 +7,9 @@
     
     require_once 'libs/rabbit/rabbit.php';
     
-    $water->Trace( 'Special page type: UNIT' );
-
     Rabbit_Construct( 'coala' );
+
+    $water->Trace( 'Special page type: UNIT' );
 
     $warmable = count( $_POST ) > 0 || !$rabbit_settings[ 'production' ]; // TODO: Coala console
     $req = array_merge( $_GET, $_POST );
