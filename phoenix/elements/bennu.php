@@ -146,7 +146,7 @@
         <div class="eof"></div><?php
             
 	        /*$libs->Load( 'user/user' );
-	        $libs->Load( 'bennu/mybennu' );
+	        $libs->Load( 'bennu/bennu' );
 	        
 	        $userFinder = new UserFinder();
 	        $input = array();

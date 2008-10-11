@@ -5,7 +5,7 @@
             global $user;
             
             $libs->Load( 'user/user' );
-	        $libs->Load( 'bennu/mybennu' );
+	        $libs->Load( 'bennu/bennu' );
 
             $finder = New UserFinder();
 		    $users = $finder->FindOnline( 0 , 70 );
