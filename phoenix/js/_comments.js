@@ -274,7 +274,7 @@ $( document ).ready( function() {
         else {
             $( "div.comments div.comment[id^='comment_']" ).each( function() {
                 $( this ).find( 'div.bottom' )
-                .addClass( 'invisible' );
+                .css( 'visibililty' , 'hidden' );
             } );
         }
 } );
