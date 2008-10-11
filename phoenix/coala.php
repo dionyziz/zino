@@ -3,6 +3,7 @@
     global $page;
     global $rabbit_settings;
     global $coala;
+    global $water;
     
     require_once 'libs/rabbit/rabbit.php';
     
