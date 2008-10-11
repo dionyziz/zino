@@ -26,7 +26,8 @@ var Comments = {
         $( del ).attr( {
             title : "Διαγραφή",
             href : ""
-        } );	
+        } )
+        .append( document.createTextNode( ' ' ) );	
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
