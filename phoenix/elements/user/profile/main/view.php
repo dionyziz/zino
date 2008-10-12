@@ -103,8 +103,7 @@
                     }
                 ?></div><?php
                 $finder = New FriendRelationFinder();
-                $friends = $finder->FindByUser( $theuser , 0 , 12 ); 
-                
+                $friends = $finder->FindByUser( $theuser , 0 , 12 );  
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
                         if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
                             $usernorel = true;
@@ -113,23 +112,6 @@
                             $usernorel = false;
                         }
                         Element( 'user/profile/main/friends' , $friends , $theuser->Count->Relations , $theuser->Id , $theuser->Subdomain , $usernorel );
-                        /*
-                        <div class="friends"><?php
-                        ?><h3>Οι φίλοι μου<?php
-                        if ( $theuser->Count->Relations > 5 ) {
-                            ?> <span>(<a href="<?php
-                            echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
-                            ?>">προβολή όλων</a>)</span><?php
-                        }
-                        ?></h3><?php
-                        if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
-                            ?>Δεν έχεις προσθέσει κανέναν φίλο. Μπορείς να προσθέσεις φίλους από το προφίλ τους.<?php
-                        }
-                        else {
-                            Element( 'user/list' , $friends );
-                        }
-                    ?></div>
-                    */
                     ?><div class="barfade">
                         <div class="leftbar"></div>
                         <div class="rightbar"></div>

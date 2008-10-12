@@ -70,7 +70,27 @@ $( function() {
 			.mouseout( function() {
 				$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 			} );
-			
+		    $( 'div.notifications div.expand a' ).toggle( 
+                function() {
+                    $( this ).find( 'a' )
+					.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' )
+					.attr( {
+						title : 'Απόκρυψη'
+					} );
+					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
+                },
+                function() {
+                    $( this ).find( 'a' )
+					.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' )
+					.attr( {
+						title : 'Εμφάνιση'
+					} );
+					$( notiflist ).animate( { height : "0" } , 400 , function() {
+						$( notiflist ).hide();
+					} );
+                }
+            } );
+            /*
 			$( 'div.notifications div.expand a' ).click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
 					$( 'div.notifications div.expand a' )
@@ -92,7 +112,8 @@ $( function() {
 				}
 				return false;
 			} );
-		}
+		    */
+        }
         //insert deletion in shoutbox 
         //check if user is logged in
         if ( $( 'a.profile' )[ 0 ] ) {
