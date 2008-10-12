@@ -106,7 +106,15 @@
                 $friends = $finder->FindByUser( $theuser , 0 , 12 ); 
                 
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
-                    ?><div class="friends"><?php
+                        if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
+                            $usernorel = true;
+                        }
+                        else {
+                            $usernorel = false;
+                        }
+                        Element( 'user/profile/main/friends' , $friends , $theuser->Count->Relations , $theuser->Id , $theuser->Subdomain , $usernorel );
+                        /*
+                        <div class="friends"><?php
                         ?><h3>Οι φίλοι μου<?php
                         if ( $theuser->Count->Relations > 5 ) {
                             ?> <span>(<a href="<?php
@@ -121,7 +129,8 @@
                             Element( 'user/list' , $friends );
                         }
                     ?></div>
-                    <div class="barfade">
+                    */
+                    ?><div class="barfade">
                         <div class="leftbar"></div>
                         <div class="rightbar"></div>
                     </div><?php
