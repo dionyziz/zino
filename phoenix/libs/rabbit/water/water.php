@@ -341,11 +341,6 @@
                 curl_error( $curl );
             }
             else {
-                if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
-                    echo $this->mResponseStatus;
-                    echo $data;
-                    die( 'Water SUCCESS!' );
-                }
                 $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
                 $this->mFootprintURL = $data;
                 curl_close( $curl );
