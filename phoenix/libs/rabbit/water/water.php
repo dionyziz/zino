@@ -337,14 +337,13 @@
             $data = curl_exec( $curl );
 
             if ( $data === false ) {
-                if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
-                    die( 'Water ERROR!' );
-                }
                 $this->mResponseStatus = WATER_HTTPERROR_CURL;
                 curl_error( $curl );
             }
             else {
                 if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
+                    echo $this->mResponseStatus;
+                    echo $data;
                     die( 'Water SUCCESS!' );
                 }
                 $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
