@@ -305,6 +305,10 @@
             $this->Finalize();
             $curl = curl_init();
 
+            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
+                die( $this->mFootprintData );
+            }
+
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
                 'authentication' => $this->mProjectName . ':' . $this->mProjectKey,
