@@ -305,9 +305,6 @@
             $this->Finalize();
             $curl = curl_init();
 
-            if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
-                die( $this->mFootprintData );
-            }
 
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
@@ -340,10 +337,16 @@
             $data = curl_exec( $curl );
 
             if ( $data === false ) {
+                if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
+                    die( 'Water ERROR!' );
+                }
                 $this->mResponseStatus = WATER_HTTPERROR_CURL;
                 curl_error( $curl );
             }
             else {
+                if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.73.228.199' ) {
+                    die( 'Water SUCCESS!' );
+                }
                 $this->mResponseStatus = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
                 $this->mFootprintURL = $data;
                 curl_close( $curl );
