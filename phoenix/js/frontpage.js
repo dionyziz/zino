@@ -91,7 +91,7 @@ $( function() {
 					} );
                     return false;
                 }
-            } );
+             );
             /*
 			$( 'div.notifications div.expand a' ).click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
