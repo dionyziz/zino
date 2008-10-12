@@ -18,7 +18,7 @@ var Join = {
 	},
 	enabled : true
 };
-$( document ).ready( function(){
+$( function() {
 	if ( Join.username ) {
 		$( 'form.joinform' ).submit( function() {
 			return false;

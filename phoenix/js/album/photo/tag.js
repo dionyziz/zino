@@ -405,7 +405,7 @@ var Tag = {
 		}
 	}
 };
-$( document ).ready( function() {
+$( function() {
         // Already Tagged people
         $( 'div.image_tags div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();

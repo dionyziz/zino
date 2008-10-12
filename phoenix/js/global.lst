@@ -22,7 +22,6 @@ user/joined.js
 user/settings.js
 user/profile.js
 user/suggest.js
-space/space.js
 banner.js
 date.js
 pm.js

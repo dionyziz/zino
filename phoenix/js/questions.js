@@ -181,6 +181,6 @@ var Questions = {
 	}
 };
 
-$( document ).ready( function() {
+$( function() {
 		Questions.show();
-	} );
+} );

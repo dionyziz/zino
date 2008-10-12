@@ -21,7 +21,7 @@ var JournalView = {
 		}
 	}
 };
-$( document ).ready( function() {
+$( function() {
 	if ( $( 'div#journalview' )[ 0 ] ) {
 		var delete1 = new Image();
 		delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';

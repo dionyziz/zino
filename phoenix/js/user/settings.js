@@ -204,7 +204,7 @@ var Settings = {
 		}
 	}
 };
-$( document ).ready( function() {
+$( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
@@ -546,4 +546,4 @@ $( document ).ready( function() {
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
 	}
-});
+} );

@@ -1,4 +1,3 @@
-
 var pms = {
 	unreadpms : 0,
 	activefolder : 0,
@@ -323,7 +322,7 @@ var pms = {
 		}
 	}
 };
-$( document ).ready( function() {
+$( function() {
     if ( $( '#pms' )[ 0 ] ) {
     	$( 'div.message' ).draggable( { 
     		helper : 'original',

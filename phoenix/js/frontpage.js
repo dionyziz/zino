@@ -22,7 +22,7 @@ var Frontpage = {
 		    return false;}
 	}
 };
-$( document ).ready( function() {
+$( function() {
 	if ( $( 'div.frontpage' )[ 0 ] ) {
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();

@@ -14,7 +14,7 @@ var JournalNew = {
 		return true;
 	}
 };
-$( document ).ready( function() {
+$( function() {
     if ( $( '#journalnew' )[ 0 ] ) {
         window.title = 'Firing "Create"';
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [

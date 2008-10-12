@@ -7,7 +7,7 @@ var Joined = {
 	enabled : true,
 	invaliddob : false
 };
-$( document ).ready( function() {
+$( function() {
 	if ( $( 'div#joined' )[ 0 ] ) {
 		$( 'div a.button' ).click( function() {
 			if ( Joined.enabled ) {
