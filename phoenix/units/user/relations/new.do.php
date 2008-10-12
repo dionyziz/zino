@@ -14,6 +14,7 @@
                 $relation->Friendid = $theuser->Id;
                 $relation->Typeid = 3;
                 $relation->Save();
+                Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
                 /*
                 ?>$( 'div.sidebar div.basicinfo div.deletefriend a' )
                 .css( 'display' , 'block' )

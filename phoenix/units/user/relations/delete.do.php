@@ -10,6 +10,7 @@
         if ( $relation->Exists() ) {
             if ( $relation->Userid == $user->Id ) {
                 $relation->Delete();
+                Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
                 /*
                 ?>$( 'div.sidebar div.basicinfo div.addfriend a' )
                 .css( 'display' , 'block' )
