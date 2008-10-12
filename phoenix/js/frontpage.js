@@ -78,6 +78,7 @@ $( function() {
 						title : 'Απόκρυψη'
 					} );
 					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
+                    return false;
                 },
                 function() {
                     $( this ).find( 'a' )
@@ -88,6 +89,7 @@ $( function() {
 					$( notiflist ).animate( { height : "0" } , 400 , function() {
 						$( notiflist ).hide();
 					} );
+                    return false;
                 }
             } );
             /*
