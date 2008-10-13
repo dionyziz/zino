@@ -21,10 +21,7 @@
                         </div>
                     </div><?php
                 }
-				// Sticky Journal
-				//$journal = New Journal( 2190 );
-				?>
-				</div><?php
+				?></div><?php
         }
     }
 ?>
