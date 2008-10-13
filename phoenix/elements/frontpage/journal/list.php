@@ -1,6 +1,6 @@
 <?php
     class ElementFrontpageJournalList extends Element {
-        //protected $mPersistent = array( 'journalseq' );
+        protected $mPersistent = array( 'journalseq' );
         public function Render( $journalseq ) {
             $finder = New JournalFinder();
             $journals = $finder->FindAll( 0 , 4 );
