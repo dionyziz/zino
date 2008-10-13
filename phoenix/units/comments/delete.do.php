@@ -29,7 +29,7 @@
             window.location.reload();<?php
             return;
         }
-        Element::ClearFromCache( 'comment/list', $comment->TypeId, $comment->ItemId );
+        Element::ClearFromCache( 'comment/list', $comment->Typeid, $comment->Itemid );
 
         $parent = $comment->Parent;
         $comment->Delete();
