@@ -4,6 +4,8 @@
         global $libs;
         global $water;
         
+        die( '1013' );
+
         $commentid = $commentid->Get();
         
         $water->Trace( 'Comment deletion A' );
