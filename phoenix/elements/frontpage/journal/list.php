@@ -22,7 +22,7 @@
                     </div><?php
                 }
 				// Sticky Journal
-				$journal = $finder->FindById( 2191 );
+				$journal = new Journal( 2191 );
 				?><div style="background:#feff77;" class="event">
 					<div class="who"><?php
 						Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
