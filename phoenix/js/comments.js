@@ -2,7 +2,6 @@ var Comments = {
 	numchildren : {},
 	Create : function( parentid ) {
 		var texter;
-
 		if ( parentid === 0 ) { // Clear new comment message
 			texter = $( "div.newcomment div.text textarea" ).get( 0 ).value;
 			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
@@ -15,22 +14,23 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
-
 		var a = document.createElement( 'a' );
-		a.onclick = function() {
-				return false;
-			};
-		a.appendChild( document.createTextNode( "Απάντησε" ) );
-		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
-		
-		var del = document.createElement( 'a' );
-		del.onclick = function() {
+        $( a ).append( document.createTextNode( "Απάντησε" ) )
+        .attr( 'href' , '' )
+        .click( function() {
             return false;
-        };
-		del.title = "Διαγραφή";
-		del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
-		
+        } );
+		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		var del = document.createElement( 'a' );
+        del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
+        $( del ).attr( {
+            title : "Διαγραφή",
+            href : ""
+        } )
+        .append( document.createTextNode( ' ' ) )
+        .click( function() {
+            return false;
+        } );
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
@@ -67,37 +67,38 @@ var Comments = {
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
 		Coala.Warm( 'comments/new', { 	text : texter, 
-										parent : parentid,
-										compage : temp.find( "#item:first" ).text(),
-										type : type,
-										node : temp, 
-										callback : Comments.NewCommentCallback
-									} );
+            parent : parentid,
+            compage : temp.find( "#item:first" ).text(),
+            type : type,
+            node : temp, 
+            callback : Comments.NewCommentCallback
+        } );
 	},
-	NewCommentCallback : function( node, id, parentid, newtext ) {
+    NewCommentCallback : function( node , id , parentid , newtext ) {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
-		Comments.numchildren[ id ] = 0;
-	
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
-		node.attr( 'id', 'comment_' + id );
+		Comments.numchildren[ id ] = 0;	
+		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
+        node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
-                Comments.Reply( id, indent+1 );
+                Comments.Reply( id , indent + 1 );
                 return false;
             }, function() {
-                $( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
+                $( '#comment_reply_' + id ).hide( 300 , function() { 
+                    $( this ).remove(); 
+                } );
                 return false;
             }
         );
 		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
-                Comments.Edit( id );
-                return false;
-            };
-		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
-            Comments.Delete( id, parentid );
+            Comments.Edit( id );
             return false;
-        };
+        }
+		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
+            Comments.Delete( id );
+            return false;
+        }
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
@@ -129,74 +130,62 @@ var Comments = {
 		var form = document.createElement( 'form' );
 		form.onsubmit = function() {
 					return false;
-				};
+		};
 				
 		var input = document.createElement( 'input' );
-		input.type = "submit";
-		input.value = "Επεξεργασία";
-		input.onclick = function() {
-					var daddy = $( this ).parents().eq(2); // get big div
-					var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
-					texter = $.trim( texter );
-					if ( texter === '' ) {
-						alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
-						return;
-					}
-					daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
-					.find( "div.bottom:last" ).remove().end()
-					.find( "div.bottom" ).css( 'display', 'block' );
-					Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
-													text : texter
-												} );
-				};
+		$( input )
+        .attr( { 
+                type : "submit",
+                value : "Επεξεργασία"
+        } )
+        .click( function() {
+            var daddy = $( this ).parents().eq(2); // get big div
+            var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
+            texter = $.trim( texter );
+            if ( texter === '' ) {
+                alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
+                return;
+            }
+            daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
+            .find( "div.bottom:last" ).remove().end()
+            .find( "div.bottom" ).css( 'display', 'block' );
+            Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
+                                            text : texter
+                                        } );
+        } );
 			
 		var input2 = document.createElement( 'input' );
-		input2.type = "reset";
-		input2.value = "Ακύρωση";
-		input2.onclick = function() {
-					var daddy = $( this ).parents().eq(2); // get big div
-					daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
-					.find( "div.bottom:last" ).remove().end()
-					.find( "div.bottom" ).css( 'display', 'block' );
-				};
-		
-		form.appendChild( input );
-		form.appendChild( document.createTextNode( ' ' ) );
-		form.appendChild( input2 );
-		div.appendChild( form );
+        $( input2 )
+        .attr( {
+                type : "reset",
+                value : "Ακύρωση"
+        } )
+        .click( function() {
+            var daddy = $( this ).parents().eq(2); // get big div
+            daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
+            .find( "div.bottom:last" ).remove().end()
+            .find( "div.bottom" ).css( 'display', 'block' );
+        } );
+		$( form )
+        .append( input )
+        .append( document.createTextNode( ' ' ) )
+        .append( input2 );
+		$( div ).append( form );
 		
 		node.find( "div.text" ).empty().append( textarea ).end()
 		.find( "div.bottom" ).css( 'display', 'none' ).end()
 		.append( div );
 		node.find( "div.text textarea" ).get( 0 ).focus();
 	}, 
-	Delete : function( nodeid, parentid ) {
+	Delete : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
-		node.fadeOut( 450, function() { $( this ).remove(); } );
-		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
-		Coala.Warm( 'comments/delete', { commentid : nodeid, 
-										callback : Comments.DeleteCommentCallback
-							} );
+		node.fadeOut( 450, function() { 
+            $( this ).remove(); 
+        } );
+		Coala.Warm( 'comments/delete', { 
+            commentid : nodeid
+		} );
         return false;
-	},
-	DeleteCommentCallback : function( nodeid, parentid, show ) {
-		Comments.numchildren[ nodeid ] = -1;
-		if ( parentid !== 0 ) {
-			--Comments.numchildren[ parentid ];
-		}
-		if ( Comments.numchildren[ parentid] !== 0 || !show ) {
-			return;
-		}
-		
-		var a = document.createElement( 'a' );
-		a.onclick = function() { 
-				Comments.Delete( parentid );
-				return false;
-			};
-		a.title = "Διαγραφή";
-		a.style.marginRight = parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) + 'px';
-		
-		$( '#comment_' + parentid + " div.toolbox" ).find( "span" ).css( "marginRight", 0 ).end().append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
@@ -214,7 +203,16 @@ var Comments = {
 			dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
 			$( "div dl" ).prepend( dd );
 		}
-	}
+	},
+    FindLeftPadding : function( node ) {
+        var leftpadd = $( node ).css( 'padding-left' );
+        if ( leftpadd ) {
+            return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
+        }
+        else {
+            return false;
+        }
+    }
 };
 $( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
@@ -234,4 +232,62 @@ $( function() {
 				}
 			);
 		} );
-	} );
+
+        if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
+            $( "div.comments div.comment[id^='comment_']" ).each( function() { 
+                var commdate = $( this ).find( "div.toolbox span.time" ).text();
+                $( this ).find( "div.toolbox span.time" )
+                .empty()
+                .css( 'margin-right' , Comments.FindLeftPadding( this ) + 'px' )
+                .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) ) )
+                .removeClass( 'invisible' );
+            } );
+        }
+        //if the user is logged in
+        if ( $( 'a.profile' )[ 0 ] ) {
+            //if the page has at least one comment
+            if ( $( "div.comment[id^='comment_']" )[ 0 ] ) { 
+                var username;
+                if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
+                    username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
+                }
+                else {
+                    //for users without avatar
+                    username = $( 'a.profile' ).text();
+                }
+                $( "div.comments div.comment[id^='comment_']" ).each( function() {    
+                    var leftpadd = Comments.FindLeftPadding( this );
+                    if ( leftpadd > 1000 ) {
+                        $( this ).find( 'div.bottom' )
+                        .empty();
+                    }
+                    if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
+                        var id = this.id.substr( 8 , this.id.length - 8 );
+                        $( this ).find( "div.text" )
+                        .dblclick( function() {
+                            return Comments.Edit( id );
+                        } );
+                        leftpadd += 20;
+                        var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
+                        if ( leftpadd != nextleftpadd ) {
+                            $( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
+							.find( 'div.toolbox a' )
+                            .removeClass( 'invisible' )
+                            .click( function() {
+                                return Comments.Delete( id );
+                            } );
+                        }
+                    }
+                } );
+
+                
+            }
+        }
+        else {
+            $( "div.comments div.comment[id^='comment_']" ).each( function() {
+                $( this )
+                .find( 'div.bottom' )
+                .empty();
+            } );
+        }
+} );
