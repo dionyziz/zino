@@ -23,7 +23,7 @@
                 }
 				// Sticky Journal
 				$journal = $finder->FindById( 5579 );
-				?><div class="event">
+				?><div class="event" style="background: #feff77;">
 					<div class="who"><?php
 						Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
 					?> καταχώρησε
