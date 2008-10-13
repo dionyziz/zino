@@ -30,6 +30,7 @@
             return;
         }
         $parent = $comment->Parent;
+        Element::ClearFromCache( 'comment/list', $comment->Typeid, $comment->Itemid );
         $comment->Delete();    
     }    
 ?>
