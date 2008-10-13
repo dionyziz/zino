@@ -22,21 +22,9 @@
                     </div><?php
                 }
 				// Sticky Journal
-				$journal = New Journal( 2190 );
-				?><div style="background:#feffb7;" class="event">
-					<div class="who"><?php
-						Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
-					?> καταχώρησε
-					</div>
-					<div class="subject">
-						<a href="?p=journal&amp;id=<?php
-						echo $journal->Id;
-						?>"><?php
-						echo htmlspecialchars( $journal->Title );
-						?></a>
-					</div>
-				</div>
-			</div><?php
+				//$journal = New Journal( 2190 );
+				?>
+				</div><?php
         }
     }
 ?>
