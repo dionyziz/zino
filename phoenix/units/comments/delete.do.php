@@ -29,7 +29,9 @@
             window.location.reload();<?php
             return;
         }
+        echo 'X';
         Element::ClearFromCache( 'comment/list', $comment->Typeid, $comment->Itemid );
+        echo 'Y';
 
         $parent = $comment->Parent;
         $comment->Delete();
