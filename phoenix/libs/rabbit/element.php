@@ -104,18 +104,21 @@
             // return its cached data (usually empty)
             return $ret[ 1 ];
         }
-        static public function ClearFromCache( $elementpath, $params ) {
+        static public function ClearFromCache( /* $elementpath, $param1, $param2, ... */ ) {
             global $mc;
             global $water;
 
+            $args = func_get_args();
+            $elementpath = array_shift( $args );
+
             $mtime = self::GetPersistentElementMtime( $elementpath );
             // it's a persistent element, check cache
-            foreach ( $params as $i => $arg ) {
+            foreach ( $args as $i => $arg ) {
                 w_assert( is_scalar( $arg ), 'Persistent element significant argument must be scalar; ' . gettype( $arg ) . ' given for significant argument ' . $pos . ' of element `' . $elementpath . '\' when clearing cache' );
             }
-            $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
+            $sig = self::EncodeArguments( $args ); // retrieve invokation signature (string)
             $mc->delete( 'persistent:' . $elementpath . ':' . $sig . ':' . $mtime );
-            $water->Trace( 'Persistent element CLEAR: ' . $elementpath . ' ( "' . implode( '", "', $params ) . '" )' );
+            $water->Trace( 'Persistent element CLEAR: ' . $elementpath . ' ( "' . implode( '", "', $args ) . '" )' );
         }
         static public function IncludeFile( $elementpath ) {
             w_assert( is_string( $elementpath ) && strlen( $elementpath ) );
