@@ -22,8 +22,8 @@
                     </div><?php
                 }
 				$journal = New Journal( 2190 );
-					?><div style="background: yellow" class="event">
-						<div class="who"><?php
+					?><div style="background: #dfebf4;" class="event">
+						<div style="background: #adcbe0;" class="who"><?php
 							Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
 						?> καταχώρησε
 						</div>
