@@ -4,7 +4,7 @@
         public function Render( $imageseq ) {
             global $libs;
             
-            $libs->Load( 'bennu/bennu' );
+            //$libs->Load( 'bennu/bennu' );
         
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
