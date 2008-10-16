@@ -280,6 +280,8 @@
     
     
     function Bennu_Images_Frontpage( $target, $input ) {
+        
+        return 5;
             
         $bennu = new Bennu(); 
         $bennu->SetData( $input, $target );
