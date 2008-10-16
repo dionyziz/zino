@@ -1,6 +1,6 @@
 <?php
     class ElementFrontpageImageListforbennu extends Element {
-        protected $mPersistent = array( 'imageseq' );
+        //protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
             global $libs;
             
