@@ -8,7 +8,9 @@
         
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
-
+            
+            $images = Bennu_Images_Frontpage( 5, $images );//bennu - target is not required yet            
+            
             $finder = New NotificationFinder();
             if ( count( $images ) > 0 ) {
                 ?><div class="latestimages">
