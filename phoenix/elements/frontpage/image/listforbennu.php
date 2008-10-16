@@ -2,14 +2,14 @@
     class ElementFrontpageImageListforbennu extends Element {
         protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
-            //global $libs;
+            global $libs;
             
-            //$libs->Load( 'bennu/bennu' );
+            $libs->Load( 'bennu/bennu' );
         
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
             
-            //$images = Bennu_Images_Frontpage( 5, $images );//bennu - target is not required yet            
+            $images = Bennu_Images_Frontpage( 5, $images );//bennu - target is not required yet            
             
             $finder = New NotificationFinder();
             if ( count( $images ) > 0 ) {
