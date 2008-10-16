@@ -284,8 +284,8 @@
         $bennu = new Bennu(); 
         $bennu->SetData( $input, $target );
         
-        $bennu->AddRuleNormalDist( 'Image->Created', NowDate(), 4*24*60*60, 'DATE', 10 );
-        $bennu->AddRuleNormalDist( 'Image->Numcomments', 40, 40, 'INT', 10 );
+        $bennu->AddRuleNormalDist( 'Image->Created', NowDate(), 4*24*60*60, 'DATE', 0 );
+        $bennu->AddRuleNormalDist( 'Image->Numcomments', 40, 30, 'INT', 10 );
         $bennu->AddRuleRandom( 2 );
         
         return $bennu->GetResult();
