@@ -2,7 +2,7 @@
     class ElementFrontpageImageList extends Element {
         protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
-            global $libs;
+            //global $libs;
             
             //$libs->Load( 'bennu/bennu' );
         
