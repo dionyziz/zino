@@ -24,6 +24,11 @@
                 else {
                     $speccomment = New Comment( $commentid );
                     $comments = $finder->FindNear( $theuser, $speccomment );
+                    if ( $comments === false ) {
+                        ob_start();
+                        Element( 'user/url', $theuser->Id, $theuser->Subdomain );
+                        return Redirect( ob_get_clean() );
+                    }
                     $total_pages = $comments[ 0 ];
                     $pageno = $comments[ 1 ];
                     $comments = $comments[ 2 ];
