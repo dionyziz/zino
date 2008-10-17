@@ -122,6 +122,10 @@
                 }
             }
 
+            if ( $cur_page === -1 ) {
+                return false;
+            }
+
             $commentids = $paged[ $cur_page ];
             $comments = $this->FindData( $commentids );
 

@@ -318,6 +318,9 @@
                         else {
                             $speccomment = New Comment( $commentid );
                             $comments = $finder->FindNear( $image , $speccomment );
+                            if ( $comments === false ) { // no such comment
+                                return Redirect( '?p=photo&id=' . $image->Id );
+                            }
                             $total_pages = $comments[ 0 ];
                             $pageno = $comments[ 1 ];
                             $comments = $comments[ 2 ];
