@@ -64,7 +64,10 @@
             }
             ?><div id="profile"><?php
                 Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated );
-                Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
+                $e = Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
+                if ( $e instanceof HTTPRedirection ) {
+                    return $e;
+                }
                 ?><div class="eof"></div><?php
                 Element( 'ad/view', AD_USERPROFILE, $page->XMLStrict() );
             ?></div><?php
