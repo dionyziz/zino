@@ -18,7 +18,7 @@ div.list div.event div.toolbox span.time {
 div.list div.event div.who {
 	border-top: 1px solid #ccc !important;
 	padding: 2px 0 2px 4px;
-	background-color: #f4f4f4;
+	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
 	color: #666;
 }
 div.list div.event div.who a img.avatar {
