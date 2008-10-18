@@ -9,7 +9,7 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Revision: $Id$
+ * Revision: $Id: jquery.lazyload.js 332 2008-03-15 13:30:44Z tuupola $
  * Version:  1.3.0
  *
  */
