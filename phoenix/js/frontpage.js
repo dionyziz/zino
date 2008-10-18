@@ -95,6 +95,7 @@ $( function() {
         }
         //insert deletion in shoutbox 
         //check if user is logged in
+		var username = GetUsername();
         if ( username ) {
             $( "div.shoutbox div.comment[id^='s_']" ).each( function() { //match shouts that have an id (exclude the reply)
                 if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {

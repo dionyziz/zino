@@ -1,4 +1,4 @@
-$( function() {
+function GetUsername() {
 	var username = false;
 	if ( $( 'a.profile' )[ 0 ] ) {
 		if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
@@ -12,4 +12,5 @@ $( function() {
 	else {
 		username = false;
 	}
-} );
+	return username;
+}

@@ -245,6 +245,7 @@ $( function() {
             } );
         }
         //if the user is logged in
+		var username = GetUsername();
         if ( username ) {
             //if the page has at least one comment
             if ( $( "div.comment[id^='comment_']" )[ 0 ] ) { 
