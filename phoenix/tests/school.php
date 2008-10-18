@@ -1,7 +1,7 @@
 <?php
 
     class TestSchool extends Testcase {
-        protected $mAppliesTo = 'libs/school';
+        protected $mAppliesTo = 'libs/school/school';
         protected $mUser;
         protected $mFinder;
         protected $mSchool;

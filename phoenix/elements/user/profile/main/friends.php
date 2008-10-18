@@ -1,6 +1,7 @@
 <?php
     class ElementUserProfileMainFriends extends Element {
         protected $mPersistent = array( 'userid' );
+
         public function Render( $friends , $friendsnum , $userid , $subdomain , $usernorel ) { 
             global $xc_settings;
 

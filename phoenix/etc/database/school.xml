@@ -9,12 +9,25 @@
             <field name="school_typeid" type="int" />
             <field name="school_created" type="datetime" />
             <field name="school_approved" type="int" />
+            <field name="school_institutionid" type="int" ref="institutions.instituion_id" /><!-- each school may or may not belong to an institution -->
             <index type="primary">
                 <indexfield>school_id</indexfield>
             </index>
             <index type="index" name="ATTRIBUTES">
                 <indexfield>school_placeid</indexfield>
                 <indexfield>school_typeid</indexfield>
+            </index>
+        </table>
+        <table name="institutions">
+            <field name="institution_id" type="int" autoincrement="yes" />
+            <field name="institution_name" type="varchar" length="511" />
+            <field name="institution_placeid" type="int" ref="places.place_id" />
+            <field name="institution_created" type="datetime" />
+            <index type="primary">
+                <indexfield>institution_id</indexfield>
+            </index>
+            <index type="index" name="LOCATION">
+                <indexfield>institution_placeid</indexfield>
             </index>
         </table>
     </database>

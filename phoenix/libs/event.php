@@ -168,7 +168,7 @@
         }
         public function FindItemsByModel( $model, $events ) {
             global $libs;
-            $libs->Load( 'school' );
+            $libs->Load( 'school/school' );
             $libs->Load( 'place' );
             $libs->Load( 'mood' );
 

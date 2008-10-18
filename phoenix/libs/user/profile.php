@@ -2,7 +2,7 @@
     global $libs;
     
     $libs->Load( 'place' );
-    $libs->Load( 'school' );
+    $libs->Load( 'school/school' );
     $libs->Load( 'user/oldprofile' );
     
     class UserProfile extends Satori {
