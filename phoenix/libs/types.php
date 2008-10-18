@@ -12,7 +12,8 @@
             3 => array( 'TYPE_USERPROFILE', 'User' ),
             4 => array( 'TYPE_JOURNAL', 'Journal' ),
             5 => array( 'TYPE_COMMENT', 'Comment' ),
-            6 => array( 'TYPE_SHOUT', 'Shout' )
+            6 => array( 'TYPE_SHOUT', 'Shout' ),
+            7 => array( 'TYPE_GROUPCOMMENT', 'Groupcomment' )
         );
     }
 
