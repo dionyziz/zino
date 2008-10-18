@@ -234,7 +234,7 @@ $( function() {
 		} );
 
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
-			$( "img" ).lazyload( { threshold : 2000 } );
+			//$( "img" ).lazyload( { threshold : 2000 } );
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
                 var commdate = $( this ).find( "div.toolbox span.time" ).text();
                 $( this ).find( "div.toolbox span.time" )
