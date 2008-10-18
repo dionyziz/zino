@@ -245,17 +245,9 @@ $( function() {
             } );
         }
         //if the user is logged in
-        if ( $( 'a.profile' )[ 0 ] ) {
+        if ( username ) {
             //if the page has at least one comment
             if ( $( "div.comment[id^='comment_']" )[ 0 ] ) { 
-                var username;
-                if ( $( 'a.profile span.imageview img' )[ 0 ] ) {
-                    username = $( 'a.profile span.imageview img' ).attr( 'alt' ); //get the username of the logged in user from the banner
-                }
-                else {
-                    //for users without avatar
-                    username = $( 'a.profile' ).text();
-                }
                 $( "div.comments div.comment[id^='comment_']" ).each( function() {    
                     var leftpadd = Comments.FindLeftPadding( this );
                     if ( leftpadd > 1000 ) {
@@ -279,9 +271,7 @@ $( function() {
                             } );
                         }
                     }
-                } );
-
-                
+                } );                
             }
         }
         else {
