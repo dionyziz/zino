@@ -12,4 +12,4 @@ $( function() {
 	else {
 		var username = false;
 	}
-}
+} );
