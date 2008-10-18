@@ -1,4 +1,5 @@
 jquery.js
+jquery.dimensions.js
 ui.base.js
 ui.draggable.js
 ui.droppable.js
