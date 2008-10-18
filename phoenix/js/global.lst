@@ -2,7 +2,7 @@ jquery.js
 ui.base.js
 ui.draggable.js
 ui.droppable.js
-jquery.dimensions.js
+jquery.lazyload.js
 modal.js
 trivial/dates.js
 coala.js
