@@ -548,7 +548,7 @@
             $this->Bulk->Save();
         }
         public function OnBeforeCreate() {
-            if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL ) ) ) {
+            if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }
             $this->Bulk->Save();
