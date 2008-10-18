@@ -10,7 +10,7 @@ div.comment {
 div.comment div.who {
 	border-top: 1px solid #ccc !important;
 	padding: 2px 0 2px 4px;
-	background: #f4f4f4 no-repeat top right;
+	background: url( 'commgradient.jpg' ) repeat-x top right;
 	color: #666;
 }
 div.comment div.toolbox {
