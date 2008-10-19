@@ -21,7 +21,7 @@
 	        
 	        ?><ul><?php
 	        foreach( $notapproved as $school ) {
-	            ?><li><p>Όνομα : <?php    
+	            ?><li>Όνομα : <?php    
 	            echo $shool->Name;        
 	            ?> Περιοχή : <?php
 	            echo $school->Place;
