@@ -29,6 +29,12 @@
             }
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
+        
+        public function FindNotApproved( $offset = 0, $limit = 10000 ) {
+            $prototype = new School();            
+            $prototype->Approved = 0;            
+            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
+        }
 
         public function Count() {
             $query = $this->mDb->Prepare( 'SELECT COUNT(*) AS schoolsnum FROM :schools;' );
