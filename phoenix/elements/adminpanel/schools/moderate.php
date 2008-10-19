@@ -19,16 +19,23 @@
 	        $schoolFinder = new SchoolFinder();
 	        $notapproved = $schoolFinder->FindNotApproved();
 	        
-	        ?><ul><?php
+	        
+	        ?><table class="stats">
+	            <tr>
+	                <th>Όνομα</th>
+	                <th>Περιοχή</th>
+	                <th>Αποδοχή</th>
+                </tr>
+            <?php
 	        foreach( $notapproved as $school ) {
-	            ?><li>Όνομα : <?php    
+	            ?><tr><td><?php            
 	            echo $school->Name;        
-	            ?> Περιοχή : <?php
+	            ?></td><td><?php
 	            echo $school->Place->Name;
-	            ?></li><?php
+	            ?></td></tr<<?php
 	        }
-	        ?></ul><?php
-	           
+	        ?></table><?php
+
         }
     }
 ?>
