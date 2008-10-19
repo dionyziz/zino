@@ -32,7 +32,7 @@
 	            echo $school->Name;        
 	            ?></td><td><?php
 	            echo $school->Place->Name;
-	            ?></td></tr<<?php
+	            ?></td></tr><?php
 	        }
 	        ?></table><?php
 
