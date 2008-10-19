@@ -24,7 +24,8 @@
 	            <tr>
 	                <th>Όνομα</th>
 	                <th>Περιοχή</th>
-	                <th>Αποδοχή</th>
+	                <th></th>
+	                <th></th>
                 </tr>
             <?php
 	        foreach( $notapproved as $school ) {
@@ -32,6 +33,20 @@
 	            echo $school->Name;        
 	            ?></td><td><?php
 	            echo $school->Place->Name;
+	            ?></td><td><?php
+	            ?><form method="post" action=""><?php
+	            ?><input type="submit" value="Αποδοχή" /><?php
+                ?><input type="hidden" name="userid" value="<?php
+                echo $school->Id;
+                ?>" /><?php
+                ?></form><?php
+                ?></td><td><?php
+	            ?><form method="post" action=""><?php
+	            ?><input type="submit" value="Κατάργηση" /><?php
+                ?><input type="hidden" name="userid" value="<?php
+                echo $school->Id;
+                ?>" /><?php
+                ?></form><?php
 	            ?></td></tr><?php
 	        }
 	        ?></table><?php
