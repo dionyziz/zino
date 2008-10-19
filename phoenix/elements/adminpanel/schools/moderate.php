@@ -22,9 +22,9 @@
 	        ?><ul><?php
 	        foreach( $notapproved as $school ) {
 	            ?><li>Όνομα : <?php    
-	            echo $shool->Name;        
+	            echo $school->Name;        
 	            ?> Περιοχή : <?php
-	            echo $school->Place;
+	            echo $school->Place->Name;
 	            ?></li><?php
 	        }
 	        ?></ul><?php
