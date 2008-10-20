@@ -81,8 +81,8 @@
         );
         $new = '';
         $putUnderscore = false;
-        for ( $i = 0; $i < strlen( $string ); ++$i ) {
-            $c = $string[ $i ];
+        for ( $i = 0; $i < mb_strlen( $string ); ++$i ) {
+            $c = mb_substr( $string, $i, 1 );
             if ( isBetween( $c, 'A', 'z' ) ||
                 isBetween( $c, '0', '9' ) ||
                 in_array( $c, $punctuation ) ) {
