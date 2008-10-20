@@ -67,7 +67,8 @@
             'Ί' => 'I',
             'Ό' => 'O',
             'Ύ' => 'Y',
-            'Ώ' => 'W'
+            'Ώ' => 'W',
+            'ς' => 's'
         );
         static $punctuation = array(
             '.',
@@ -89,7 +90,7 @@
                 $new .= $c;
                 $putUnderscore = true;
             }
-            else if ( isBetween( $c, 'Ά', 'ω' ) ) {
+            else if ( isBetween( $c, 'Ά', 'ώ' ) ) {
                 $new .= $greekToLatin[ $c ];
                 $putUnderscore = true;
             }
