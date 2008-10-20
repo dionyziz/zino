@@ -20,6 +20,13 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
+            $prototype = New Journal();
+            $prototype->Userid = $user->Id;
+            $prototype->Url = $url;
+
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function Count() {
             return parent::Count();
         }

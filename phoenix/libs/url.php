@@ -5,7 +5,7 @@
     }
 
     function URL_Format( $string ) {
-        $greekToLatin = array(
+        static $greekToLatin = array(
             'α' => 'a',
             'β' => 'b',
             'γ' => 'g',
@@ -69,7 +69,7 @@
             'Ύ' => 'Y',
             'Ώ' => 'W'
         );
-        $punctuation = array(
+        static $punctuation = array(
             '.',
             ',',
             ':',
