@@ -11,11 +11,11 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
 
-            if ( $username->Exists() && $title->Exists() ) {
+            // if ( $username->Exists() && $title->Exists() ) {
                 $username = $usernmae->Get();
                 $title = $title->Get();
                 die( "$username $title" );
-            }
+            // }
 
             $journal = New Journal( $id->Get() );
             $commentid = $commentid->Get();
