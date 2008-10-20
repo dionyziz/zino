@@ -1,7 +1,7 @@
 <?php
     
     class ElementJournalView extends Element {
-        public function Render( tInteger $id, tInteger $commentid, tInteger $pageno, tText $username, tText $title ) {
+        public function Render( tInteger $id, tInteger $commentid, tInteger $pageno, tText $subdomain, tText $title ) {
             global $page;
             global $rabbit_settings;
             global $user;
@@ -10,11 +10,14 @@
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
+            $libs->Load( 'user/user' );
 
-            if ( $username->Exists() && $title->Exists() ) {
-                $username = $username->Get();
+            if ( $subdomain->Exists() && $title->Exists() ) {
+                $subdomain = $subdomain->Get();
                 $title = $title->Get();
-                die( "$username $title" );
+                $finder = New UserFinder();
+                $owner = $finder->FindBySubdomain( $subdomain );
+                
             }
 
             $journal = New Journal( $id->Get() );
