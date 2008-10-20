@@ -37,6 +37,7 @@
         }
 
         for ( $i = 0; $i < count( $journals ); ++$i ) {
+            echo 'hey!!<br />';
             $journals[ $i ]->Url = $urls[ $i ];
             $journals[ $i ]->Save();
         }
