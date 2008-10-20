@@ -42,6 +42,7 @@
         }
     }
 
+    echo 'end!!!';
     Rabbit_Destruct();
 
 ?>
