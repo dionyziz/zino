@@ -36,14 +36,12 @@
             echo "$candidate<br />";
         }
 
-        for ( $i = 0; $i < count( $journals ); ++$i ) {
-            echo 'hey!!<br />';
+        /*for ( $i = 0; $i < count( $journals ); ++$i ) {
             $journals[ $i ]->Url = $urls[ $i ];
             $journals[ $i ]->Save();
-        }
+        }*/
     }
 
-    echo 'end!!!';
     Rabbit_Destruct();
 
 ?>
