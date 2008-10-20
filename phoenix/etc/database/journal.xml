@@ -7,6 +7,7 @@
 			<field name="journal_created" type="datetime" default="0000-00-00 00:00:00" />
             <field name="journal_numcomments" type="int" />
             <field name="journal_title" type="varchar" length="512" />
+            <field name="journal_url" type="varchar" length="512" />
             <field name="journal_bulkid" type="int" ref="bulk.bulk_id" />
             <field name="journal_userid" type="int" ref="users.user_id" />
 			<index type="primary">

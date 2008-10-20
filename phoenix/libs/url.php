@@ -5,7 +5,8 @@
     }
 
     function URL_Format( $string ) {
-        $greekToLatin = array( 'α' => 'a',
+        $greekToLatin = array(
+            'α' => 'a',
             'β' => 'b',
             'γ' => 'g',
             'δ' => 'd',
@@ -66,15 +67,18 @@
             'Ί' => 'I',
             'Ό' => 'O',
             'Ύ' => 'Y',
-            'Ώ' => 'W' );
-        $punctuation = array( '.',
+            'Ώ' => 'W'
+        );
+        $punctuation = array(
+            '.',
             ',',
             ':',
             '-',
             '_',
             '(',
             ')',
-            ';' );
+            ';'
+        );
         $new = '';
         $putUnderscore = false;
         for ( $i = 0; $i < strlen( $string ); ++$i ) {
