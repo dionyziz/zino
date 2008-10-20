@@ -12,7 +12,7 @@
             $libs->Load( 'notify' );
 
             if ( $username->Exists() && $title->Exists() ) {
-                $username = $usernmae->Get();
+                $username = $username->Get();
                 $title = $title->Get();
                 die( "$username $title" );
             }
