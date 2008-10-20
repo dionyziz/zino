@@ -31,6 +31,7 @@
             }
         }
         $urls[] = $candidate;
+        echo "$candidate\n";
     }
 
     for ( $i = 0; $i < count( $journals ); ++$i ) {
