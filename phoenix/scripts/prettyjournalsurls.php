@@ -1,6 +1,5 @@
 <?php
 
-    echo '...';
     set_include_path( '../:./' );
 
     require '../libs/rabbit/rabbit.php';
@@ -12,12 +11,10 @@
     $libs->Load( 'journal' );
     $libs->Load( 'url' );
 
-    echo 'starting<br />';
     $urls = array();
     $finder = New JournalFinder();
     $journals = $finder->FindAll();
     foreach ( $journals as $journal ) {
-        echo '!<br />';
         $candidate = URL_Format( $journal->Title );
         $exists = True;
         while ( $exists ) {
