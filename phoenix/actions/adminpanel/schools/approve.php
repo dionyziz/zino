@@ -6,10 +6,8 @@
         
         $libs->Load( 'school/school' );
         
-        $school = new School( $userid );
-        if ( $school->Exists ) {
-            $school->Approved = 1;
-        }
+        $school = new School( $userid );        
+        $school->Approved = 1;
            
         return Redirect( '?p=moderateschools' );
     }
