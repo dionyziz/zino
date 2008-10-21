@@ -13,7 +13,7 @@
     $libs->Load( 'url' );
 
     $finder = New UserFinder();
-    $users = $finder->FindAll( 0, 1000000 );
+    $users = $finder->FindAll( 0, 100 );
     echo count( $users );
 
     foreach ( $users as $user ) {
@@ -22,13 +22,13 @@
         $journals = $finder->FindByUser( $user, 0, 1000000 );
         foreach ( $journals as $journal ) {
             $candidate = URL_Format( $journal->Title );
-            $exists = True;
+            $exists = true;
             while ( $exists ) {
-                $exists = False;
+                $exists = false;
                 foreach ( $urls as $url ) {
                     if ( $candidate == $url ) {
                         $candidate .= '_';
-                        $exists = True;
+                        $exists = true;
                         break;
                     }
                 }
