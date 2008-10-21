@@ -1,5 +1,5 @@
 <?php
-    function ActionAdminpanelSchoolsApprove( tText $schoolid ) {
+    function ActionAdminpanelSchoolsApprove( tInteger $schoolid ) {
         global $libs;
         
         $schoolid = $schoolid->Get();

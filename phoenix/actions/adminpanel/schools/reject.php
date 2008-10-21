@@ -1,5 +1,5 @@
 <?php
-    function ActionAdminpanelSchoolsReject( tText $schoolid ) {
+    function ActionAdminpanelSchoolsReject( tInteger $schoolid ) {
         global $libs;
         
         $schoolid = $schoolid->Get();
