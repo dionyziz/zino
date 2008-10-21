@@ -2,6 +2,7 @@
     global $libs;
 
     $libs->Load( 'bulk' );
+    $libs->Load( 'url' );
 
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
@@ -72,6 +73,23 @@
             return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
+            $url = URL_Format( $this->Title );
+            $finder = New JournalFinder();
+            $therest = $finder->FindByUser( $this->User, 0, 1000000 );
+            $exists = True;
+            while ( $exists ) {
+                $exists = False;
+                foreach ( $therest as $j ) {
+                    if ( $j->Url == $url ) {
+                        $url .= '_';
+                        $exists = True;
+                        break;
+                    }
+                }
+            }
+            $this->Url = $url;
+            $this->Save();
+
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }
