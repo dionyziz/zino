@@ -7,7 +7,7 @@
         $libs->Load( 'school/school' );
         
         $school = new School( $schoolid );    
-        if ( $school->Exists ) {
+        if ( $school->Exists() ) {
             $school->Approved = 1;
             $school->Save();
         }
