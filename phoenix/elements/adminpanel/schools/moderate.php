@@ -28,7 +28,7 @@
 	                <th></th>
                 </tr>
             <?php
-	        foreach( $notapproved as $school ) {
+	        foreach ( $notapproved as $school ) {
 	            ?><tr><td><?php            
 	            echo $school->Name;        
 	            ?></td><td><?php
