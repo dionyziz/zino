@@ -41,7 +41,7 @@
                 ?>" /><?php
                 ?></form><?php
                 ?></td><td><?php
-	            ?><form method="post" action=""><?php
+	            ?><form method="post" action="do/adminpanel/schools/reject"><?php
 	            ?><input type="submit" value="Κατάργηση" /><?php
                 ?><input type="hidden" name="id" value="<?php
                 echo $school->Id;
