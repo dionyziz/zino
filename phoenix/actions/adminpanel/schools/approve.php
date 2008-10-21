@@ -1,12 +1,12 @@
 <?php
-    function ActionAdminpanelSchoolsApprove( tText $userid ) {
+    function ActionAdminpanelSchoolsApprove( tText $schoolid ) {
         global $libs;
         
-        $userid = $userid->Get();
+        $schoolid = $schoolid->Get();
         
         $libs->Load( 'school/school' );
         
-        $school = new School( $userid );        
+        $school = new School( $schoolid );        
         $school->Approved = 1;
            
         return Redirect( '?p=moderateschools' );
