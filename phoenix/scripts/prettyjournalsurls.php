@@ -14,8 +14,9 @@
 
     $finder = New UserFinder();
     $users = $finder->FindAll();
+    echo count( $users );
 
-    foreach ( $users as $user ) {
+    /*foreach ( $users as $user ) {
         $urls = array();
         $finder = New JournalFinder();
         $journals = $finder->FindByUser( $user, 0, 1000000 );
@@ -39,7 +40,7 @@
             $journals[ $i ]->Url = $urls[ $i ];
             $journals[ $i ]->Save();
         }
-    }
+    }*/
 
     Rabbit_Destruct();
 
