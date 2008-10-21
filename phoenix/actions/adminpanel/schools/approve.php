@@ -7,7 +7,8 @@
         $libs->Load( 'school/school' );
         
         $school = new School( $schoolid );        
-        //$school->Approved = 1;
+        $school->Approved = 1;
+        $school->Save();
            
         return Redirect( '?p=moderateschools' );
     }
