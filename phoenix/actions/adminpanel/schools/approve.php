@@ -9,7 +9,7 @@
         $school = new School( $schoolid );    
         if ( $school->Exists ) {
             $school->Approved = 1;
-           $school->Save();
+            $school->Save();
         }
            
         return Redirect( '?p=moderateschools' );
