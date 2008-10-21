@@ -34,7 +34,7 @@
 	            ?></td><td><?php
 	            echo $school->Place->Name;
 	            ?></td><td><?php
-	            ?><form method="post" action="do/adminpanel/school/approve"><?php
+	            ?><form method="post" action="do/adminpanel/schools/approve"><?php
 	            ?><input type="submit" value="Αποδοχή" /><?php
                 ?><input type="hidden" name="userid" value="<?php
                 echo $school->Id;
