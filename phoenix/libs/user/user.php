@@ -40,10 +40,7 @@
     
     class UserFinder extends Finder {
         protected $mModel = 'User';
-        
-        public function FindAll( $offset = 0, $limit = 25 ) {
-            return $this->FindByPrototype( New User(), $offset, $limit );
-        }
+
         public function IsTaken( $username ) {
             if ( $this->FindByName( $username ) !== false ) {
                 return true;
@@ -56,6 +53,9 @@
                 return true;
             }
             return false;
+        }
+        public function FindAll( $offset = 0, $limit = 25, $order = false ) {
+            return parent::FindAll( $offset, $limit, $order );
         }
         public function FindById( $userid ) {
             $prototype = New User();
