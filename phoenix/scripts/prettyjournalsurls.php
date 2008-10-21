@@ -14,6 +14,7 @@
 
     $finder = New UserFinder();
     $users = $finder->FindAll( 0, 1000000 );
+    echo count( $users );
 
     foreach ( $users as $user ) {
         $urls = array();
