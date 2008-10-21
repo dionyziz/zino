@@ -73,6 +73,11 @@
                     </div>
                 </div><?php
             }
+			?><div class="zinomeeting">
+				<h3>Zino Meeting</h3>
+				Το <b>Σάββατο 25 Οκτωβρίου</b> θα πραγματοποιηθεί μεγάλο Zino Meeting στη <b>Θεσαλλονική</b>. Τόπος συγκέντρωσης <b>19:00 στην Καμάρα</b>, να είστε όλοι εκει!
+				<br /><a href="http://www.zino.gr/?p=journal&amp;id=5579">Μάθε περισσότερα&raquo;</a>
+			</div><?php
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
             if ( !$user->Exists() ) {
                 ?><div class="members">

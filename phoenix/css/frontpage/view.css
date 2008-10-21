@@ -2,6 +2,19 @@ div.frontpage {
     text-align: left;
     position: relative;
 }
+div.frontpage div.zinomeeting {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f7f7ff;
+	border-top: none;
+	margin: 0px auto;
+	width: 70%;
+	text-align: center;
+}
+div.frontpage div.zinomeeting h3 {
+	margin: 5px 0;
+	text-align: center;
+}
 div.frontpage div.ybubble {
     margin: 0 auto 10px auto;
     text-align: center;
