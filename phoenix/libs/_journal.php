@@ -76,13 +76,13 @@
             $url = URL_Format( $this->Title );
             $finder = New JournalFinder();
             $therest = $finder->FindByUser( $this->User, 0, 1000000 );
-            $exists = True;
+            $exists = true;
             while ( $exists ) {
-                $exists = False;
+                $exists = false;
                 foreach ( $therest as $j ) {
                     if ( $j->Url == $url ) {
                         $url .= '_';
-                        $exists = True;
+                        $exists = true;
                         break;
                     }
                 }

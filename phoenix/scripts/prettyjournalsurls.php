@@ -13,8 +13,7 @@
     $libs->Load( 'url' );
 
     $finder = New UserFinder();
-    $users = $finder->FindAll( 0, 100 );
-    echo count( $users );
+    $users = $finder->FindAll( 0, 1000000 );
 
     foreach ( $users as $user ) {
         $urls = array();
