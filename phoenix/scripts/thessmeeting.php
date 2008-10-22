@@ -5,7 +5,7 @@
     
     $emails = 'dionyziz@gmail.com, pagio@kamibu.com';
     
-    mail( '', Email_FormatSubject( 'Πρόσκληση: Zino Meeting Θεσσαλονίκης' ), 
+    mail( '<oniz@kamibu.com>', Email_FormatSubject( 'Πρόσκληση: Zino Meeting Θεσσαλονίκης' ), 
         'Σε προσκαλούμε στο μεγάλο Zino Meeting στη Θεσσαλονίκη, το Σάββατο 25 Οκτωβρίου.
 
 Τόπος και ώρα συγκέντρωσης 19.00 στην Καμάρα.
@@ -15,6 +15,6 @@
 
 ____
 Αν θέλεις να ορίσεις τι e-mail λαμβάνεις από το Zino, πήγαινε στο:
-http://www.zino.gr/settings#settings', 'Bcc: ' . $emails
+http://www.zino.gr/settings#settings', "From: Zino <oniz@kamibu.com>\r\nBcc: " . $emails
     );
 ?>
