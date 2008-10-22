@@ -4,7 +4,6 @@
 
     require '../libs/rabbit/rabbit.php';
 
-    define( 'WATER_ENABLE', false );
     Rabbit_Construct();
 
     global $libs;
@@ -13,34 +12,40 @@
     $libs->Load( 'journal' );
     $libs->Load( 'url' );
 
+    $usersOffset = 0;
     $finder = New UserFinder();
-    $users = $finder->FindAll( 0, 1000000 );
-
-    foreach ( $users as $user ) {
-        $urls = array();
-        $finder = New JournalFinder();
-        $journals = $finder->FindByUser( $user, 0, 1000000 );
-        foreach ( $journals as $journal ) {
-            $candidate = URL_Format( $journal->Title );
-            $exists = true;
-            while ( $exists ) {
-                $exists = false;
-                foreach ( $urls as $url ) {
-                    if ( $candidate == $url ) {
-                        $candidate .= '_';
-                        $exists = true;
-                        break;
+    do {
+        $someUsers = $finder->FindAll( $usersOffset, 100 );
+        foreach ( $someUsers as $user ) {
+            $urls = array();
+            $journalsOffset = 0;
+            $finder = New JournalFinder();
+            do {
+                $someJournals = $finder->FindByUser( $user, $journalsOffset, 100 );
+                foreach ( $someJournals as $journal ) {
+                    $candidate = URL_Format( $journal->Title );
+                    $exists = true;
+                    while ( $exists ) {
+                        $exists = false;
+                        foreach ( $urls as $url ) {
+                            if ( $candidate == $url ) {
+                                $candidate .= '_';
+                                $exists = true;
+                                break;
+                            }
+                        }
                     }
+                    $urls[] = $candidate;
                 }
-            }
-            $urls[] = $candidate;
+                for ( $i = 0; $i < count( $someJournals ); ++$i ) {
+                    $someJournals[ $i ]->Url = $urls[ $i ];
+                    $someJournals[ $i ]->Save();
+                }
+                $journalsOffset += 100;
+            } while ( count( $someJournals ) );
         }
-
-        for ( $i = 0; $i < count( $journals ); ++$i ) {
-            $journals[ $i ]->Url = $urls[ $i ];
-            $journals[ $i ]->Save();
-        }
-    }
+        $usersOffset += 100;
+    } while ( count( $someUsers ) );
 
     Rabbit_Destruct();
 
