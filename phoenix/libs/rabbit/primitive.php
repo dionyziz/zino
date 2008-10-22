@@ -21,7 +21,9 @@
     set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
     // enable the debugging library if we're not on a production environment
-    define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
+    if ( !defined( 'WATER_ENABLE' ) ) {
+        define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
+    }
     
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
