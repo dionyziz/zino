@@ -74,19 +74,23 @@
         }
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Title );
+            $offset = 0;
             $finder = New JournalFinder();
-            $therest = $finder->FindByUser( $this->User, 0, 1000000 );
-            $exists = true;
-            while ( $exists ) {
-                $exists = false;
-                foreach ( $therest as $j ) {
-                    if ( $j->Url == $url ) {
-                        $url .= '_';
-                        $exists = true;
-                        break;
+            do {
+                $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                $exists = true;
+                while ( $exists ) {
+                    $exists = false;
+                    foreach ( $someOfTheRest as $j ) {
+                        if ( $j->Url == $url ) {
+                            $url .= '_';
+                            $exists = true;
+                            break;
+                        }
                     }
                 }
-            }
+                $offset += 100;
+            } while ( count( $someOfTheRest ) );
             $this->Url = $url;
             $this->Save();
 
