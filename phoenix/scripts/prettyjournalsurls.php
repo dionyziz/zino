@@ -16,8 +16,9 @@
     $usersOffset = 0;
     $finder = New UserFinder();
     do {
-        $someUsers = $finder->FindAll( $usersOffset, 100 );
-        foreach ( $someUsers as $user ) {
+        // $someUsers = $finder->FindAll( $usersOffset, 100 );
+        $user = $finder->FindById( 1 );
+        // foreach ( $someUsers as $user ) {
             $urls = array();
             $journalsOffset = 0;
             $finder = New JournalFinder();
@@ -44,8 +45,9 @@
                 }
                 $journalsOffset += 100;
             } while ( count( $someJournals ) );
-        }
+        // }
         $usersOffset += 100;
+        break;
     } while ( count( $someUsers ) );
 
     Rabbit_Destruct();
