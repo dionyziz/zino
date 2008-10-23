@@ -18,6 +18,7 @@
     do {
         // $someUsers = $finder->FindAll( $usersOffset, 100 );
         $user = $finder->FindById( 1 );
+        echo $user->Name;
         // foreach ( $someUsers as $user ) {
             $urls = array();
             $journalsOffset = 0;
@@ -25,6 +26,7 @@
             do {
                 $someJournals = $finder->FindByUser( $user, $journalsOffset, 100 );
                 foreach ( $someJournals as $journal ) {
+                    echo '!';
                     $candidate = URL_Format( $journal->Title );
                     $exists = true;
                     while ( $exists ) {
