@@ -27,15 +27,14 @@
             if ( $typeid !== false ) {
                 $prototype->Typeid = $typeid;
             }
+            $prototype->Approved = 1;
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
-        
         public function FindNotApproved( $offset = 0, $limit = 10000 ) {
             $prototype = new School();            
             $prototype->Approved = 0;            
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
-
         public function Count() {
             $query = $this->mDb->Prepare( 'SELECT COUNT(*) AS schoolsnum FROM :schools;' );
             $query->BindTable( 'schools' );
@@ -56,10 +55,29 @@
             }
             parent::__set( $key, $value );
         }
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Numstudents':
+                    $query = $this->mDb->Prepare(
+                        'SELECT
+                            COUNT(*) AS numusers
+                        FROM
+                            :userprofiles
+                        WHERE
+                            `profile_schoolid`=:schoolid;'
+                    ); // TODO: Optimize (denormalize)
+                    $query->Bind( 'userprofiles' );
+                    $query->Bind( 'schoolid', $this->Id );
+                    return array_shift( $query->Execute()->FetchArray() );
+                default:
+                    return parent::__get( $key );
+            }
+        }
 
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
             $this->Users = $this->HasMany( 'UserFinder', 'FindBySchool', $this );
+            $this->Institution = $this->HasOne( 'Institution', 'Institutionid' );
         }
 
         protected function LoadDefaults() {

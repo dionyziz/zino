@@ -108,6 +108,7 @@
                 <value>university</value>
                 <value>finished</value>
             </field>
+            <field name="profile_educationyear" type="int" />
             <field name="profile_sexualorientation" type="enum">
                 <value>-</value>
                 <value>straight</value>
