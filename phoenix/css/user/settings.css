@@ -325,14 +325,13 @@ div.settings form#settingsinfo div.changepwd label {
     width: 400px;
 }
 div.settings div.tabs form#settingsinfo div.barfade {
-    margin: 20px 0 30px 0;
     width: 400px;
     clear: left;
 }
-div.emailbarfade { 
+div.settings div.tabs form#settingsinfo div.emailbarfade { 
     margin: 10px 0;
 }
-div.pwdbarfade {
+div.settings div.tabs form#settingsinfo div.pwdbarfade {
     margin: 30px 0 0 0;
 }
 div.settings div.tabs form#settingsinfo span.notifyme {
