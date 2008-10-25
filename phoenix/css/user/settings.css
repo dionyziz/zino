@@ -15,10 +15,9 @@ div.settings div.sidebar div span  {
 	display: none;
 	opacity: 0;
 }
-/*div.settings div.sidebar div.savesettings {
-
+div.settings div.sidebar div.saving {
+    margin-top: 10px;
 }
-*/
 div.settings div.sidebar div span.saved span {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;
     padding-left: 23px;
