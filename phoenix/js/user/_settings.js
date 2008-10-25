@@ -565,9 +565,10 @@ $( function() {
 		} );	
         $( 'a.savebutton' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
-                Settings.Save;
+                Settings.Save();
             }
             return false;
         } );
 	}
+
 });
