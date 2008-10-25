@@ -318,6 +318,9 @@ div.settings div.tabs form#settingsinfo div.email label {
     float: none;
     margin: 10px 0;
 }
+div.settings form#settingsinfo div.changepwd {
+    display:block;
+}
 div.settings form#settingsinfo div.changepwd label {
     width: 400px;
 }
