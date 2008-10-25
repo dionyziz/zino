@@ -74,6 +74,8 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
+            <?php
+            /*
             <div class="option">
                 <label for="photo">Φωτογραφία:</label>
                 <div class="setting" id="photo"><?php
@@ -84,6 +86,8 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
+            */
+            ?>
             <div class="option">
                 <label for="mood">Διάθεση:</label>
                 <div class="setting" id="mood"><?php

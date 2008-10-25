@@ -12,16 +12,12 @@
                 <li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false"><span>&nbsp;</span>Λογαριασμός</a></li>
             </ol>
             <div>
-            <?php    
-            /*
                 <span class="saving"><img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
                 ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                 </span> 
                 <span class="saved"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
                 <a class="savebutton button" href="">Αποθήκευση ρυθμίσεων</a>
-                */
-            ?>
             </div>
             <a class="backtoprofile button" href="<?php
             Element( 'user/url' , $user->Id , $user->Subdomain );
