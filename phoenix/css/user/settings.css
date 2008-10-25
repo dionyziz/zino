@@ -316,8 +316,12 @@ div.settings div.tabs form#settingsinfo label {
 }
 div.settings div.tabs form#settingsinfo div.email label {
     font-weight: normal;
+    float: none;
+    margin: 0 0 3px 0;
 }
-
+div.settings div.tabs form#settingsinfo div.barfade {
+    width: 400px;
+}
 div.settings div.tabs form#settingsinfo span.notifyme {
 	font-weight: bold;
 	clear: left;

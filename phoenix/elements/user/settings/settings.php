@@ -2,12 +2,11 @@
     class ElementUserSettingsSettings extends Element {
         public function Render() {
             global $rabbit_settings;
-            global $user;
+            global $user; 
             
-            ?>
-            <div class="email">
+            ?><div class="email">
                 <label>E-mail:</label>
-                <div class="setting" id="email">
+                <div id="email">
                     <input type="text" name="email" class="small" value="<?php
                     echo htmlspecialchars( $user->Profile->Email );
                     ?>" />
