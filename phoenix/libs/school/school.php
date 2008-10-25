@@ -1,4 +1,8 @@
 <?php
+    global $libs;
+
+    $libs->Load( 'school/institution' );
+
     $types = array(
         'SCHOOL_ELEMENTARY',
         'SCHOOL_JUNIORHIGH',
