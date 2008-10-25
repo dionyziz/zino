@@ -565,7 +565,7 @@ $( function() {
 		} );	
         $( 'a.savebutton' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
-                alert( 'test' );
+                Settings.Save;
             }
             return false;
         } );
