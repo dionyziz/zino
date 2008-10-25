@@ -21,7 +21,8 @@
                         </div>
                     </div><?php
                 }
-				// Stick article
+				// Sticky article
+				/*
 				$journal = New Journal( 5579 );
 					?><div class="event">
 						<div style="background: #fff8d2;" class="who"><?php
@@ -36,7 +37,7 @@
 							?></a>
 						</div>
 					</div>
-				</div><?php
+				</div><?php */
         }
     }
 ?>
