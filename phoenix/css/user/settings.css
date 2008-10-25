@@ -201,7 +201,6 @@ div.settings div.tabs form div div.setting ul.interesttags li {
 	padding: 0;
 	float: left;
 }
-
 div#email span {
 	font-weight: bold;
 	font-size: 80%;
@@ -319,10 +318,19 @@ div.settings div.tabs form#settingsinfo div.email label {
     float: none;
     margin: 10px 0;
 }
+div.settings form#settingsinfo div.changepwd label {
+    width: 400px;
+}
 div.settings div.tabs form#settingsinfo div.barfade {
     margin: 20px 0 30px 0;
     width: 400px;
     clear: left;
+}
+div.emailbarfade { 
+    margin: 10px 0;
+}
+div.pwdbarfade {
+    margin: 30px 0 0 0;
 }
 div.settings div.tabs form#settingsinfo span.notifyme {
 	font-weight: bold;
