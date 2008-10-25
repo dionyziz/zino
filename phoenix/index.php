@@ -12,6 +12,8 @@
     */
 
     global $page;
+
+    define( 'WATER_ENABLE', 0 );
     
     require_once 'libs/rabbit/rabbit.php';
     
