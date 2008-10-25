@@ -562,6 +562,10 @@ $( function() {
 				value = 'no';
 			}
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
-		} );		
+		} );	
+        $( 'a.savebutton' ).click( function() {
+            alert( 'test' );
+            return false;
+        } );
 	}
 });
