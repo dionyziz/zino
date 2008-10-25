@@ -1,7 +1,7 @@
 <?php
-    return;
     class ElementUserSettingsPersonalSchool extends Element {
         public function Render( $placeid, $typeid ) {
+            return;
             global $user;
             
             if ( ( $placeid > 0 ) && ( $typeid >= 1 && $typeid <= 6 ) ) {
