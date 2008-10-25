@@ -244,9 +244,11 @@ $( function() {
 		});
 		$( '#place select' ).change( function() {
 			Settings.Enqueue( 'place' , this.value , 1000 );
+            Settings.Save();
 		});
 		$( '#education select' ).change( function() {
 			Settings.Enqueue( 'education' , this.value , 1000 );
+            Settings.Save();
 		});
 		$( '#university select' ).change( function() {
 			Settings.Enqueue( 'school' , this.value , 1000 );
