@@ -1,7 +1,6 @@
 <?php
     class ElementUserSettingsPersonalSchool extends Element {
         public function Render( $placeid, $typeid ) {
-            return;
             global $user;
             
             if ( ( $placeid > 0 ) && ( $typeid >= 1 && $typeid <= 6 ) ) {
@@ -9,7 +8,7 @@
                 $schools = $finder->Find( $placeid, $typeid );
                 if ( count( $schools ) > 0 ) {    
                     ?><select>
-                        <option value="-1"<?php
+                        <option value="0"<?php
                         if ( $user->Profile->School->Id == 0 ) {
                             ?> selected="selected"<?php
                         }
