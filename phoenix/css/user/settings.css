@@ -39,6 +39,9 @@ div.settings div.sidebar a.backtoprofile, div.settings div.sidebar a.savebutton 
 div.settings div.sidebar a.disabled {
     opacity: 0.3;
 }
+div.settings div.sidebar a.disabled:hover {
+    color: #105cb6;
+}
 div.settings div.sidebar a.backtoprofile:hover span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1038px;
 }
