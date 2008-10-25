@@ -17,7 +17,7 @@
                 ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                 </span> 
                 <span class="saved"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
-                <a class="savebutton button" href="" onclick="return false;">Αποθήκευση ρυθμίσεων</a>
+                <a href="" class="savebutton button">Αποθήκευση ρυθμίσεων</a>
             </div>
             <a class="backtoprofile button" href="<?php
             Element( 'user/url' , $user->Id , $user->Subdomain );
