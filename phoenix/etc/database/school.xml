@@ -30,5 +30,13 @@
                 <indexfield>institution_placeid</indexfield>
             </index>
         </table>
+        <table name="schoolphotos">
+            <field name="schoolphoto_schoolid" type="int" ref="schools.school_id" />
+            <field name="schoolphoto_imageid" type="int" ref="images.image_id" />
+            <index type="primary">
+                <indexfield>schoolphoto_schoolid</indexfield>
+                <indexfield>schoolphoto_imageid</indexfield>
+            </index>
+        </table>
     </database>
 </project>

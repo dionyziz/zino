@@ -19,6 +19,7 @@
     class SchoolFinder extends Finder {
         protected $mModel = 'School';
 
+        /*
         public function Find( $placeid = false, $typeid = false, $offset = 0, $limit = 10000 ) {
             $prototype = New School();
             if ( $placeid !== false ) {
@@ -42,6 +43,7 @@
             $row = $res->FetchArray();
             return ( int )$row[ 'schoolsnum' ];
         }
+        */
     }
 
     class School extends Satori {
