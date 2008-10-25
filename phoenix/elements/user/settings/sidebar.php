@@ -16,7 +16,7 @@
                 echo $rabbit_settings[ 'imagesurl' ];
                 ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                 </span> 
-                <span class="saved"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
+                <span class="saved invisible"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
                 <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
             </div>
             <a class="backtoprofile button" href="<?php
