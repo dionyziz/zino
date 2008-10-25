@@ -69,11 +69,8 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		$( Settings.showsaving )
-			.css( "display" , "inline" )
-			.animate( { opacity : "1" } , 200 , function() {
-                $( 'a.savebutton' ).addClass( 'disabled' );
-            } );
+		$( Settings.showsaving ).removeClass( 'invisible' );
+        $( 'a.savebutton' ).addClass( 'disabled' );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
