@@ -545,6 +545,7 @@ $( function() {
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
         $( 'a.savebutton' ).click( function() {
+            alert( 'test' );
             if ( !$( this ).hasClass( 'disabled' ) ) {
                 Settings.Save();
             }
