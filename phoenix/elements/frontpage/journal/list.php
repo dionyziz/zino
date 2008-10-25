@@ -22,8 +22,7 @@
                     </div><?php
                 }
 				// Sticky article
-				/*
-				$journal = New Journal( 5579 );
+				/*$journal = New Journal( 5579 );
 					?><div class="event">
 						<div style="background: #fff8d2;" class="who"><?php
 							Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
@@ -36,8 +35,8 @@
 							echo htmlspecialchars( $journal->Title );
 							?></a>
 						</div>
-					</div>
-				</div><?php */
+					</div>*/?>
+				</div><?php
         }
     }
 ?>
