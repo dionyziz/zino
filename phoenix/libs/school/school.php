@@ -1,6 +1,4 @@
 <?php
-    die( 'Hoho' );
-
     $types = array(
         'SCHOOL_ELEMENTARY',
         'SCHOOL_JUNIORHIGH',

@@ -31,7 +31,9 @@
     }
     
     function w_assert( $condition, $description = false ) {
-        assert( $condition );
+        if ( !$condition ) {
+            die( 'Assertion failed: ' . $description );
+        }
     }
 
     function w_json_encode( $what, $chopstrings = -1, $depth = 0, $ascii = true ) {
