@@ -20,7 +20,7 @@
                 </span>
                  */
                 ?>
-                <a class="savebutton button" href="">Αποθήκευση</a>
+                <a class="savebutton button" href="">Αποθήκευση ρυθμίσεων</a>
                 <span class="saved"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
             </div>
             <a class="backtoprofile button" href="<?php
