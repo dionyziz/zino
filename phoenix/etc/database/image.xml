@@ -28,7 +28,8 @@
         </table>
         <table name="albums">
             <field name="album_id" type="int" autoincrement="yes" />
-            <field name="album_userid" type="int" ref="users.user_id" />
+            <field name="album_ownerid" type="int" /> <!-- ref="users.user_id"/ref="schools.school_id" -->
+            <field name="album_ownertype" type="int" />
             <field name="album_created" type="datetime" />
             <field name="album_userip" type="int" />
             <field name="album_name" type="varchar" length="255" />
