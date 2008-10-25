@@ -6,8 +6,8 @@
             if ( ( $placeid > 0 ) && ( $typeid >= 1 && $typeid <= 6 ) ) {
                 $finder = New SchoolFinder();
                 $schools = $finder->Find( $placeid, $typeid );
+                return;
                 if ( count( $schools ) > 0 ) {    
-                    return;
                     ?><select>
                         <option value="0"<?php
                         if ( $user->Profile->School->Id == 0 ) {
