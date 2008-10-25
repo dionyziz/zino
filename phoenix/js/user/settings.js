@@ -205,7 +205,11 @@ var Settings = {
 };
 $( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
-		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
+		$( 'a.savebutton' ).click( function() {
+            alert( 'test' );
+            return false;
+        } );
+        Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
 			var sexselected = $( '#sex select' )[ 0 ].value;
 			var relselected = $( '#religion select' )[ 0 ].value;
@@ -544,12 +548,5 @@ $( function() {
 			}
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
-        $( 'a.savebutton' ).click( function() {
-            alert( 'test' );
-            if ( !$( this ).hasClass( 'disabled' ) ) {
-                Settings.Save();
-            }
-            return false;
-        } );
 	}
 } );
