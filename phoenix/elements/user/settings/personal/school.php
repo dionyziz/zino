@@ -4,6 +4,7 @@
             global $user;
             
             if ( ( $placeid > 0 ) && ( $typeid >= 1 && $typeid <= 6 ) ) {
+                return;
                 $finder = New SchoolFinder();
                 $schools = $finder->Find( $placeid, $typeid );
                 if ( count( $schools ) > 0 ) {    
