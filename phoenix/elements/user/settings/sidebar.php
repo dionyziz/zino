@@ -12,11 +12,15 @@
                 <li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false"><span>&nbsp;</span>Λογαριασμός</a></li>
             </ol>
             <div class="savesettings">
-                <span class="saving invisible"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
-                </span> 
-                <span class="saved invisible"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
+                <div class="saving invisible">
+                    <span class="saving invisible"><img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
+                    </span> 
+                </div>
+                <div class="saved invisible">
+                    <span class="saved invisible"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
+                </div>
                 <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
             </div>
             <a class="backtoprofile button" href="<?php

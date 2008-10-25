@@ -216,21 +216,19 @@
             }
             if ( !$emailerror && !$msnerror ) {
                 ?>$( Settings.showsaving )
-                    .animate( { opacity : "0" }, 200, function() {
+                    .fadeOut( 200 , function() {
                     $( Settings.showsaving ).css( "display", "none" );
                     $( Settings.showsaved )
-                        .css( "display", "block" )
-                        .css( "opacity", "1" )
-                        .animate( { opacity : "0" }, 1500, function() {
-                            $( Settings.showsaved ).css( "display", "none" ).css( "opacity", "0" );
+                        .removeClass( 'invisible' )
+                        .fadeOut( 1500 , function() {
+                            $( Settings.showsaved ).addClass( 'invisible' );
                         });
-                });
-                <?php
+                    } );<?php
             }
             else {
-                ?>$( Settings.showsaving ).animate( { opacity : "0" }, 200, function() {
-                        $( Settings.showsaving ).css( "display", "none" );
-                    });<?php        
+                ?>$( Settings.showsaving ).fadeOut( 200 , function() {
+                        $( Settings.showsaving ).addClass( 'invisible' );
+                });<?php        
             }
             if ( $oldpassword && $newpassword ) {
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {
