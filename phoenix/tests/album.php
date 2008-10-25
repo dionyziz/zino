@@ -50,7 +50,7 @@
         public function TestCreation() {
             $album = New Album();
             $album->Name = 'Example';
-            $album->Userid = $this->mUser->Id;
+            $album->Ownerid = $this->mUser->Id;
             $album->Save();
             
             $album = New Album( $album->Id );
@@ -62,7 +62,7 @@
 
             $album = New Album();
             $album->Name = 'Forsaken';
-            $album->Userid = $this->mUser->Id;
+            $album->Ownerid = $this->mUser->Id;
             $album->Save();
 
             $this->mAlbums[] = $album;
