@@ -5,7 +5,7 @@
             global $user;
             
             ?>
-            <div class="option">
+            <div class="email">
                 <label>E-mail:</label>
                 <div class="setting" id="email">
                     <input type="text" name="email" class="small" value="<?php
