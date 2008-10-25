@@ -74,8 +74,8 @@
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
+                die( '.'. $image->Album->Exists() );
                 echo $image->Album->Id;
-                die( 'Hahaho!!' );
                 ?>"><?php
                 if ( $image->Album->Id == $image->User->Egoalbumid ) {
                     ?>Εγώ<?php
