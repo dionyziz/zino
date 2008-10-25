@@ -564,7 +564,7 @@ $( function() {
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );	
         $( 'a.savebutton' ).click( function() {
-            if ( !$( this.hasClass( 'disabled' ) ) {
+            if ( !$( this ).hasClass( 'disabled' ) ) {
                 alert( 'test' );
             }
             return false;
