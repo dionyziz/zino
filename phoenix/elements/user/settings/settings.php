@@ -22,7 +22,7 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
-                <div class="changepwd"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+                <div class="changepwdl"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
             <div class="barfade pwdbarfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
