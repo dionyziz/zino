@@ -7,9 +7,9 @@
                 $finder = New SchoolFinder();
                 $schools = $finder->Find( $placeid, $typeid );
                 if ( count( $schools ) > 0 ) {    
+                    return;
                     ?><select>
                         <option value="0"<?php
-                        return;
                         if ( $user->Profile->School->Id == 0 ) {
                             ?> selected="selected"<?php
                         }
