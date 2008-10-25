@@ -217,7 +217,7 @@
             if ( !$emailerror && !$msnerror ) {
                 ?>$( Settings.showsaving )
                     .fadeOut( 200 , function() {
-                    $( Settings.showsaving ).css( "display", "none" );
+                    $( Settings.showsaving ).addClass( 'invisible' );
                     $( Settings.showsaved )
                         .removeClass( 'invisible' )
                         .fadeOut( 1500 , function() {
