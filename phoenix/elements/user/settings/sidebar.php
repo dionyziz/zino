@@ -11,7 +11,7 @@
                 <li class="contact"><a href="" onclick="Settings.SwitchSettings( 'contact' );return false"><span>&nbsp;</span>Επικοινωνία</a></li>
                 <li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false"><span>&nbsp;</span>Λογαριασμός</a></li>
             </ol>
-            <div>
+            <div class="savesettings">
                 <span class="saving"><img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
                 ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
