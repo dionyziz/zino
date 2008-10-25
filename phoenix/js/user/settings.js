@@ -62,12 +62,9 @@ var Settings = {
 	DoSwitchSettings : function() {
 		setTimeout( Settings.SwitchSettings, 20 );
 	},
-	Enqueue : function( key , value , timerinterval ) {
-		if ( Settings.saver !== 0 ) {
-			clearTimeout( Settings.saver );
-		}
-		Settings.saver = setTimeout( Settings.Save , timerinterval );
+	Enqueue : function( key , value ) {
 		Settings.queue[ key ] = value;
+        $( 'a.savebutton' ).removeClass( 'disabled' );
 	},
 	Dequeue : function() {
 		Settings.queue = {};
@@ -75,7 +72,9 @@ var Settings = {
 	Save : function() {
 		$( Settings.showsaving )
 			.css( "display" , "inline" )
-			.animate( { opacity : "1" } , 200 );
+			.animate( { opacity : "1" } , 200 , function() {
+                $( 'a.savebutton' ).addClass( 'disabled' );
+            } );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -545,5 +544,11 @@ $( function() {
 			}
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
+        $( 'a.savebutton' ).click( function() {
+            if ( !$( this ).hasClass( 'disabled' ) ) {
+                Settings.Save();
+            }
+            return false;
+        } );
 	}
 } );
