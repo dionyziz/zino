@@ -23,6 +23,10 @@
                 <div class="rightbar"></div>
             </div>
                 <div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
             <span class="notifyme">Να λαμβάνω ειδοποιήσεις</span>
             <div class="setting">
                 <table>
