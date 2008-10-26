@@ -37,12 +37,6 @@ div.sidebar a.disabled {
 div.sidebar a.disabled:hover {
     color: #105cb6;
 }
-div.sidebar a.backtoprofile span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px 0;
-	float: right;
-	padding: 0 0 2px 16px;
-	line-height: 2px;
-}
 div.settings div.sidebar ol {
     list-style: none;
     padding: 10px;

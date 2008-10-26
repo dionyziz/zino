@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="backtoprofile">
-                <a href="" class="button">Επιστροφή στο προφίλ<span>&nbsp;</span></a>
+                <a href="" class="button">Επιστροφή στο προφίλ</a>
             </div><?php
         }
     }
