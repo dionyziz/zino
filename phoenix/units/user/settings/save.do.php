@@ -218,7 +218,8 @@
                 ?>$( Settings.contentsaves ).fadeOut( 200 , function() {
                     $( this ).html( $( Settings.showsaved ).html() )
                     .fadeIn( 200 , function() {
-                        $( this ).fadeOut( 1500 );
+                        $( this ).fadeOut( 1500 ).html( '' ).css( 'display' , 'block' );
+                        
                     } );
                 } );<?php
             }
