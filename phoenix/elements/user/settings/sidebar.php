@@ -15,17 +15,17 @@
                 <div class="showstatus">
                 </div>
                 <div class="saving">
-                    Αποθήκευση...
+                    <span><span>&nbsp;</span>Αποθήκευση...</span>
                 </div>
                 <div class="saved">
-                    Οι επιλογές σου αποθηκεύτηκαν
+                    <span><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν</span>
                 </div>
                 <div class="savebutton">
                     <a href="" class="button">Αποθήκευση ρυθμίσεων</a>
                 </div>
             </div>
             <div class="backtoprofile">
-                <a href="" class="button">Επιστροφή στο προφίλ</a>
+                <a href="" class="button"><span>&nbsp;</span>Επιστροφή στο προφίλ</a>
             </div><?php
         }
     }
