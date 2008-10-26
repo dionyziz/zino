@@ -215,20 +215,15 @@
 				}
             }
             if ( !$emailerror && !$msnerror ) {
-                ?>$( Settings.showsaving )
-                    .fadeOut( 200 , function() {
-                    $( Settings.showsaving ).addClass( 'invisible' );
-                    $( Settings.showsaved )
-                        .removeClass( 'invisible' )
-                        .fadeOut( 1500 , function() {
-                            $( Settings.showsaved ).addClass( 'invisible' );
-                        });
-                    } );<?php
+                ?>$( Settings.contentsaves ).fadeOut( 200 , function() {
+                    $( this ).html( $( Settings.showsaved ).html() )
+                    .fadeIn( 200 , function() {
+                        $( this ).fadeOut( 1500 );
+                    } );
+                } );<?php
             }
             else {
-                ?>$( Settings.showsaving ).fadeOut( 200 , function() {
-                        $( Settings.showsaving ).addClass( 'invisible' );
-                });<?php        
+                ?>$( Settings.contentsaves ).fadeOut( 200 );<?php
             }
             if ( $oldpassword && $newpassword ) {
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {

@@ -1,8 +1,9 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaved : $( 'div.settings div.sidebar div.savesettings div.saved span' ),
-	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving span' ),
+    contentsaves : $( 'div.settings div.sidebar div.savesettings div.showstatus' ),
+	showsaved : $( 'div.settings div.sidebar div.savesettings div.saved' ),
+	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
 	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
@@ -69,8 +70,9 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		$( Settings.showsaving ).removeClass( 'invisible' );
-        $( 'a.savebutton' ).addClass( 'disabled' );
+		$( Settings.contentsaves ).html( $( Settings.showsaving ).html() )
+        .fadeIn( 20 );
+        $( 'div.savebutton a' ).addClass( 'disabled' );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -562,7 +564,7 @@ $( function() {
 			}
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );	
-        $( 'a.savebutton' ).click( function() {
+        $( 'div.savebutton a' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
                 Settings.Save();
             }
