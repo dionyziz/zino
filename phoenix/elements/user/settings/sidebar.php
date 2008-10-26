@@ -15,7 +15,7 @@
                 <div class="showstatus">
                 </div>
                 <div class="saving">
-                    <span><span>&nbsp;</span>Αποθήκευση...</span>
+                    Αποθήκευση...
                 </div>
                 <div class="saved">
                     <span><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν</span>
