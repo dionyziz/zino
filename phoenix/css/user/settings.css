@@ -29,6 +29,9 @@ div.settings div.sidebar div span.saved span {
     line-height: 30px;
     vertical-align: middle;
 }
+div.settings div.sidebar div.backtoprofile {
+    margin-top: 30px;
+}
 div.settings div.sidebar div.backtoprofile a , div.settings div.sidebar a.savebutton {
     margin: 10px;
     display: block;

@@ -12,7 +12,7 @@
                 <li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false"><span>&nbsp;</span>Λογαριασμός</a></li>
             </ol>
             <div class="savesettings">
-                <div class="saving">
+                <div class="saving ">
                     <span><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
