@@ -14,15 +14,15 @@
             <div class="savesettings">
                 <div class="showstatus">
                 </div>
-                <div class="saving">
+                <div class="saving invisible">
                     <img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" alt="Αποθήκευση" /><span>Αποθήκευση... </span>
                 </div>
-                <div class="saved">
+                <div class="saved invisible">
                     <span><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν</span>
                 </div>
-                <div class="savebutton">
+                <div class="savebutton disabled">
                     <a href="" class="button">Αποθήκευση ρυθμίσεων</a>
                 </div>
             </div>
