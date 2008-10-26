@@ -24,11 +24,11 @@
                 <div class="savebutton">
                     <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
                 </div>
-            </div>
-            <div class="backtoprofile">
-                <a class="button" href="<?php
-                Element( 'user/url' , $user->Id , $user->Subdomain );
-                ?>">Επιστροφή στο προφίλ<span>&nbsp;</span></a>
+                <div class="backtoprofile">
+                    <a class="button" href="<?php
+                    Element( 'user/url' , $user->Id , $user->Subdomain );
+                    ?>">Επιστροφή στο προφίλ<span>&nbsp;</span></a>
+                </div>
             </div><?php
         }
     }
