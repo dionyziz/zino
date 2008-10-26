@@ -8,6 +8,21 @@ div.settings div.sidebar {
     background: #fff;
     padding-left: 50px;
 }
+div.sidebar div.savesettings div.showstatus {
+    height: 30px;
+}
+div.sidebar div.savesettings div.savebutton {
+    margin: 5px 0 0 0;
+}
+div.sidebar div.savesettings div.savebutton a {
+    display: block;
+}
+div.sidebar div.backtoprofile {
+    margin: 20px 0 0 0;
+}
+div.sidebar div.backtoprofile a {
+    display: block;
+}
 /*
 div.settings div.sidebar div span.saved span {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;

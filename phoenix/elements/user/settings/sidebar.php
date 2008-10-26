@@ -21,11 +21,11 @@
                     Οι επιλογές σου αποθηκεύτηκαν
                 </div>
                 <div class="savebutton">
-                    <a class="button">Αποθήκευση ρυθμίσεων</a>
+                    <a href="" class="button">Αποθήκευση ρυθμίσεων</a>
                 </div>
             </div>
             <div class="backtoprofile">
-                <a class="button">Επιστροφή στο προφίλ</a>
+                <a href="" class="button">Επιστροφή στο προφίλ</a>
             </div><?php
         }
     }
