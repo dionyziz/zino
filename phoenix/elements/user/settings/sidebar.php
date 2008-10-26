@@ -15,7 +15,10 @@
                 <div class="showstatus">
                 </div>
                 <div class="saving">
-                    Αποθήκευση...
+                    <span><img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>ajax-loader.gif" alt="Αποθήκευση" />Αποθήκευση... 
+                    </span>
                 </div>
                 <div class="saved">
                     <span><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν</span>
