@@ -1,8 +1,8 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaved : $( 'div.settings div.sidebar div.savesettings div.saved' ),
-	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving' ),
+	showsaved : $( 'div.settings div.sidebar div.savesettings div.saved span' ),
+	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving span' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
 	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
