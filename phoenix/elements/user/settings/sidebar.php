@@ -22,8 +22,8 @@
                 <div class="saved invisible">
                     <span><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν</span>
                 </div>
-                <div class="savebutton disabled">
-                    <a href="" class="button">Αποθήκευση ρυθμίσεων</a>
+                <div class="savebutton">
+                    <a href="" class="button disabled">Αποθήκευση ρυθμίσεων</a>
                 </div>
             </div>
             <div class="backtoprofile">
