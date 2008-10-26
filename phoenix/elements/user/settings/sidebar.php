@@ -21,7 +21,9 @@
                 <div class="saved invisible">
                     <span class="saved invisible"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
                 </div>
-                <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
+                <div class="savebutton">
+                    <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
+                </div>
             </div>
             <a class="backtoprofile button" href="<?php
             Element( 'user/url' , $user->Id , $user->Subdomain );
