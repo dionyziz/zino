@@ -64,7 +64,7 @@ var Settings = {
 	},
 	Enqueue : function( key , value ) {
 		Settings.queue[ key ] = value;
-        $( 'a.savebutton' ).removeClass( 'disabled' );
+        $( 'div.savebutton a' ).removeClass( 'disabled' );
 	},
 	Dequeue : function() {
 		Settings.queue = {};
