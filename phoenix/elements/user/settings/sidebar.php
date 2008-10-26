@@ -13,13 +13,13 @@
             </ol>
             <div class="savesettings">
                 <div class="saving invisible">
-                    <span class="saving invisible"><img src="<?php
+                    <span><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                     </span> 
                 </div>
                 <div class="saved invisible">
-                    <span class="saved invisible"><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
+                    <span><span>&nbsp;</span>Οι αλλαγές σου αποθηκεύτηκαν</span>
                 </div>
                 <div class="savebutton">
                     <a href="" class="savebutton button disabled">Αποθήκευση ρυθμίσεων</a>
