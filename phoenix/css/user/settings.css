@@ -40,9 +40,8 @@ div.sidebar a.disabled:hover {
 div.sidebar a.backtoprofile span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px 0;
 	float: right;
-	padding: 0 0 0 16px;
-	margin: -25px 5px 0 0;
-	line-height: 22px;
+	padding: 0 0 2px 16px;
+	line-height: 2px;
 }
 div.settings div.sidebar ol {
     list-style: none;
