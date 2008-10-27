@@ -30,13 +30,13 @@
 	        $contacts = $fetcher->Retrieve();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
-            }*/
+            }
             
             $to = 'pagio91i@gmail.com';
             $subject = 'Zino';
-            $message = 'Ο φιλος σου Χ σε προσκαλεί να γίνεις μέλος στο <a href="http://www.zino.gr">zino</a>!Είσαι μέσα?';
+            $message = 'Ο φιλος σου Χ σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr!Είσαι μέσα?';
             $headers = 'From: oniz@kamibu.gr';
-            mail( $to, $subject, $message, $headers );	        
+            mail( $to, $subject, $message, $headers );*/
         }
     }
 ?>
