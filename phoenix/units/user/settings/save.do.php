@@ -213,6 +213,7 @@
 					$user->Profile->Homepage = $web;
 				}
             }
+            /*
             if ( !$emailerror && !$msnerror ) {
                 ?>$( 'div.savebutton a'  ).empty()
                 .append( document.createTextNode( 'Αποθήκευση ρυθμίσεων' ) );<?php
@@ -220,6 +221,7 @@
             else {
                 ?>$( Settings.contentsaves ).fadeOut( 200 );<?php
             }
+            */
             if ( $oldpassword && $newpassword ) {
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {
                     if ( strlen( $newpassword ) >= 4 ) {
