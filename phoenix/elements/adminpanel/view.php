@@ -30,7 +30,9 @@
 	        $contacts = $fetcher->Retrieve();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
-            }*/	        
+            }*/
+            
+            mail( 'pagio91i@gmail.com', 'HI', 'eat shit' );	        
         }
     }
 ?>
