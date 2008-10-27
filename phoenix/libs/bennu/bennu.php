@@ -112,10 +112,8 @@
                 $sample_value = strtotime( $this->Get( $sample ) ); 
                 $ideal_value = strtotime( $this->mValue );
             }            
-            // value for normal distrinution graph with sigma = mSigma, x = sample_value, and m = ideal_value 
+            // value for normal distribution graph with sigma = mSigma, x = sample_value, and m = ideal_value 
             $value = ( exp( -0.5 * pow( ( ( $sample_value - $ideal_value ) / $this->mSigma ), 2 ) ) / ( $this->mSigma * 2.5 ) );    
-            
-            if( $value > $this->mCost ) die();
             
             return $value;
         }
@@ -307,7 +305,7 @@
         
         $bennu->AddRuleInArray( 'Image->Userid', $friends, 'IN', 15 );
         $bennu->AddRuleNormalDist( 'Image->Created', NowDate(), 4 * 24 * 60 * 60, 'DATE', 15 );
-        $bennu->AddRuleNormalDist( 'Image->Numcomments', 100, 100, 'INT', 2 );
+        $bennu->AddRuleNormalDist( 'Image->Numcomments', 1, 20, 'INT', 2 );
         //$bennu->AddRuleRandom( 50 );
         
         return $bennu->GetResult();
