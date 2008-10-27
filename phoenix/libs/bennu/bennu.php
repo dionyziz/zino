@@ -286,7 +286,7 @@
         $sql = $db->Prepare( 
                 "SELECT `relation_friendid` AS `friend_id`
                  FROM :relations 
-                 WHERE `realtion_userid` = :userid
+                 WHERE `relation_userid` = :userid
                 ;"
         );
         $sql->BindTable( "relations" );
