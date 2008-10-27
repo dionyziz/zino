@@ -32,7 +32,11 @@
                 echo '<p>'.$key.' '.$val.'</p>';
             }*/
             
-            mail( 'pagio91i@gmail.com', 'HI', 'eat shit' );	        
+            $to = 'pagio91i@gmail.com';
+            $subject = 'Zino';
+            $message = 'Ο φιλος σου Χ σε προσκαλεί να γίνεις μέλος στο <a href="http://www.zino.gr">zino</a>!Είσαι μέσα?';
+            $headers = 'From: oniz@kamibu.gr';
+            mail( $to, $subject, $message, $headers );	        
         }
     }
 ?>
