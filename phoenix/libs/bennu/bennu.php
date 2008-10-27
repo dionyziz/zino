@@ -284,15 +284,19 @@
        
         //find friends
         $sql = $db->Prepare( 
-                "SELECT *
+                "SELECT `relation_friendid` AS `friend_id`
                  FROM :relations 
                  WHERE `realtion_userid` = :userid
                 ;"
         );
         $sql->BindTable( "relations" );
-        $sql->Bind( "userid", $target->Userid );
+        $sql->Bind( "userid", $target->Userid );        
+        $res = $sql->Execute();
+        
         $friends = array();
-        $friends = $sql->Execute();
+        while ( $row = $res->FetchArray() ) {
+            $friends[] = $row[ 'friend_id' ];
+        }
         //        
     
             
