@@ -280,10 +280,10 @@
     
     
     function Bennu_Images_Frontpage( $target, $input ) {
-        $db;
+        global $db;
        
         //find friends
-       $sql = $db->Prepare( 
+        $sql = $db->Prepare( 
                 "SELECT *
                  FROM :relations 
                  WHERE `realtion_userid` = :userid
