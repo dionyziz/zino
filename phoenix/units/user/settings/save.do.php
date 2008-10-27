@@ -1,5 +1,4 @@
 <?php
-
     function UnitUserSettingsSave( tInteger $dobd, tInteger $dobm,
          tInteger $doby, tText $gender,
          tInteger $place, tInteger $education,
@@ -215,14 +214,8 @@
 				}
             }
             if ( !$emailerror && !$msnerror ) {
-                ?>$( Settings.contentsaves ).fadeOut( 200 , function() {
-                    $( this ).html( $( Settings.showsaved ).html() )
-                    .fadeIn( 200 , function() {
-                        $( this ).fadeOut( 1500 , function() {
-                            html( '' ).css( 'display' , 'block' )
-                        } );
-                    } );
-                } );<?php
+                ?>$( 'div.savebutton a'  ).empty()
+                .append( document.createTextNode( 'Αποθήκευση ρυθμίσεων' ) );<?php
             }
             else {
                 ?>$( Settings.contentsaves ).fadeOut( 200 );<?php

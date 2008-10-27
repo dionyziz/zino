@@ -2,7 +2,6 @@ var Settings = {
 	saver : 0,
 	queue : {},
     contentsaves : $( 'div.settings div.sidebar div.savesettings div.showstatus' ),
-	showsaved : $( 'div.settings div.sidebar div.savesettings div.saved' ),
 	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
@@ -70,9 +69,7 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		$( Settings.contentsaves ).html( $( Settings.showsaving ).html() )
-        .fadeIn( 20 );
-        $( 'div.savebutton a' ).addClass( 'disabled' );
+        $( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
