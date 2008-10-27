@@ -1,6 +1,6 @@
 <?php    
     class ElementAdminpanelView extends Element {
-        public function Render() {
+        public function Render( tText $username, tText $pass ) {
 	        global $page;
 	        global $user;
 	        
@@ -18,6 +18,19 @@
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
+	        
+	        
+	        global $libs;
+	        $libs->Load( 'contacts/fetcher' );
+	        
+	        $username = $username->Get();
+	        $pass = $pass->Get();
+	        $fetcher = new ContactsFetcher();
+	        $fetcher->Login( $username, $pass );
+	        $contacts = $fetcher->Retrieve();
+	        foreach ( $contacts as $key=>$val ) {
+                echo '<p>'.$key.' '.$val.'</p>';
+            }	        
         }
     }
 ?>
