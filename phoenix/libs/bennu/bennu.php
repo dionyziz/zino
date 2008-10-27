@@ -114,7 +114,9 @@
             }            
             // value for normal distrinution graph with sigma = mSigma, x = sample_value, and m = ideal_value 
             $value = ( exp( -0.5 * pow( ( ( $sample_value - $ideal_value ) / $this->mSigma ), 2 ) ) / ( $this->mSigma * 2.5 ) );    
-
+            
+            if( $value > $this->mCost ) die();
+            
             return $value;
         }
 
