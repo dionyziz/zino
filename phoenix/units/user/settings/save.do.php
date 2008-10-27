@@ -279,7 +279,7 @@
             $user->Profile->Save();
             
             ?>$( 'div.savebutton a' ).empty()
-            .append( document.createTextNode( 'Αποθήκευση ρυθμίσεων' );<?php
+            .append( document.createTextNode( 'Αποθήκευση ρυθμίσεων' ) );<?php
 
             $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
