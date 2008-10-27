@@ -278,9 +278,6 @@
             $user->Save();
             $user->Profile->Save();
             
-            ?>alert( 'skype is <?php
-            echo $user->Profile->Skype;
-            ?>' );<?php
             ?>$( 'div.savebutton a' ).empty()
             .append( document.createTextNode( 'Αποθήκευση ρυθμίσεων' ) );<?php
 
