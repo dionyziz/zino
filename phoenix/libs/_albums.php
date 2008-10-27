@@ -7,14 +7,15 @@
         protected $mModel = 'Album';
         
         public function FindByUser( User $theuser, $offset = 0, $limit = 25 ) {
-            $query = $this->mDb->Prepare( "
-                SELECT
+            $query = $this->mDb->Prepare( 
+                "SELECT
                     *
                 FROM
                     :albums LEFT JOIN :images
                         ON `album_mainimageid` = `image_id`
                 WHERE
-                    `album_userid` = :userid AND
+                    `album_ownerid` = :userid AND
+                    `album_ownertype` = :typeid AND
                     `album_delid` = 0
                 ORDER BY
                     `album_id` DESC
@@ -22,6 +23,7 @@
                     :offset, :limit;" );
             
             $query->BindTable( 'albums', 'images' );
+            $query->Bind( 'typeid', TYPE_USERPROFILE );
             $query->Bind( 'userid', $theuser->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
@@ -208,7 +210,8 @@
             global $user;
             
             $this->Created = NowDate();
-            $this->Userid = $user->Id;
+            $this->Ownertype = TYPE_USERPROFILE;
+            $this->Ownerid = $user->Id;
             $this->Userip = UserIp();
         }
     }
