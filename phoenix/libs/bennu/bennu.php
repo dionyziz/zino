@@ -306,7 +306,7 @@
         $bennu->AddRuleInArray( "Image->Userid", $friends, "IN", 10 );
         $bennu->AddRuleNormalDist( 'Image->Created', NowDate(), 4 * 24 * 60 * 60, 'DATE', 10 );
         //$bennu->AddRuleNormalDist( 'Image->Numcomments', 40, 30, 'INT', 10 );
-        $bennu->AddRuleRandom( 50 );
+        //$bennu->AddRuleRandom( 50 );
         
         return $bennu->GetResult();
     }
