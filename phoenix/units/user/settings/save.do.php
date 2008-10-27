@@ -164,6 +164,9 @@
                 //if email == -1 save empty
             }
             $msnerror = false;
+            ?>alert( 'msn is <?php
+            echo $msn;
+            ?> ' );<?php
             if ( $msn ) {
                 if ( $msn == '-1' ) {
                     $user->Profile->Msn = '';
@@ -189,6 +192,9 @@
 					$user->Profile->Gtalk = $gtalk;
 				}
             }
+            ?>alert( 'skype is <?php
+            echo $skype;
+            ?> ' );<?php
             if ( $skype ) {
 				if ( $skype == '-1' ) {
 					$user->Profile->Skype = '';
