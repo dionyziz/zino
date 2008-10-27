@@ -20,7 +20,7 @@
 	        ?></ul><?php    
 	        
 	        
-	        global $libs;
+	        /*global $libs;
 	        $libs->Load( 'contacts/fetcher' );
 	        
 	        $username = $username->Get();
@@ -30,7 +30,7 @@
 	        $contacts = $fetcher->Retrieve();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
-            }	        
+            }*/	        
         }
     }
 ?>
