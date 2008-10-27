@@ -290,7 +290,7 @@
                 ;"
         );
         $sql->BindTable( "relations" );
-        $sql->Bind( "userid", $input->Userid );
+        $sql->Bind( "userid", $target->Userid );
         $friends = array();
         $friends = $sql->Execute();
         //        
