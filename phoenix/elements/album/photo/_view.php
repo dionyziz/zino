@@ -1,4 +1,5 @@
 <?php
+    // Mask: Generalize album ownership --dionyziz
     
     class ElementAlbumPhotoView extends Element {
         public function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {

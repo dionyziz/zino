@@ -1,4 +1,5 @@
 <?php
+    // Mask: Generalize album ownership --dionyziz
 
     global $libs;
     $libs->Load( 'image/image' );
