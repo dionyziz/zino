@@ -8,14 +8,15 @@ div.settings div.sidebar {
     background: #fff;
     padding-left: 50px;
 }
-div.sidebar div.savesettings div.showstatus {
-    height: 30px;
-}
 div.sidebar div.savesettings div.savebutton {
     margin: 5px 0 0 0;
 }
 div.sidebar div.savesettings div.savebutton a {
     display: block;
+}
+div.sidebar div.savesettings div.savebutton img {
+    vertical-align: -2px;
+    margin-right: 3px;
 }
 div.sidebar div.backtoprofile {
     margin: 20px 0 0 0;

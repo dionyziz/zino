@@ -1,7 +1,6 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-    contentsaves : $( 'div.settings div.sidebar div.savesettings div.showstatus' ),
 	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
