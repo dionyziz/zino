@@ -4,6 +4,7 @@
             global $user;
             global $rabbit_settings;
             
+            /*
             ?><div class="option">
                 <label>E-mail:</label>
                 <div class="setting" id="email">
@@ -22,6 +23,8 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
+            */
+            ?>
             <div class="option">
                 <label>MSN:</label>
                 <div class="setting" id="msn">
