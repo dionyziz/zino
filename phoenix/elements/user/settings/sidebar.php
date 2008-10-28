@@ -22,7 +22,9 @@
                 </div>
             </div>
             <div class="backtoprofile">
-                <a href="" class="button">Επιστροφή στο προφίλ</a>
+                <a href="<?php
+                Element( 'user/url' , $user->Id , $user->Subdomain );
+                ?>" class="button">Επιστροφή στο προφίλ</a>
             </div><?php
         }
     }
