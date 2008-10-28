@@ -1,8 +1,7 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaved : $( 'div.settings div.sidebar div span.saved' ),
-	showsaving : $( 'div.settings div.sidebar div span.saving' ),
+	showsaving : $( 'div.settings div.sidebar div.saving' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
 	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
@@ -64,17 +63,13 @@ var Settings = {
 	},
 	Enqueue : function( key , value ) {
 		Settings.queue[ key ] = value;
-        $( 'a.savebutton' ).removeClass( 'disabled' );
+        $( 'div.savebutton a' ).removeClass( 'disabled' );
 	},
 	Dequeue : function() {
 		Settings.queue = {};
 	},
 	Save : function() {
-		$( Settings.showsaving )
-			.css( "display" , "inline" )
-			.animate( { opacity : "1" } , 200 , function() {
-                $( 'a.savebutton' ).addClass( 'disabled' );
-            } );
+        $( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -198,17 +193,13 @@ var Settings = {
 			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-			Settings.Enqueue( 'oldpassword' , oldpassword , 100 );
-			Settings.Enqueue( 'newpassword' , newpassword , 100 );
+			Settings.Enqueue( 'oldpassword' , oldpassword );
+			Settings.Enqueue( 'newpassword' , newpassword );
 		}
 	}
 };
 $( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
-		$( 'a.savebutton' ).click( function() {
-            alert( 'test' );
-            return false;
-        } );
         Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
 			var sexselected = $( '#sex select' )[ 0 ].value;
@@ -220,7 +211,7 @@ $( function() {
 				religion : relselected,
 				politics : polselected
 			} );
-			Settings.Enqueue( 'gender' , this.value , 3000 );
+			Settings.Enqueue( 'gender' , this.value );
 		});
 		$( '#dateofbirth select' ).change( function() {
 			var day = $( '#dateofbirth select' )[ 0 ].value;
@@ -236,9 +227,9 @@ $( function() {
 							});
 						Settings.invaliddob = false;
 					}
-					Settings.Enqueue( 'dobd' , day , 4000 );
-					Settings.Enqueue( 'dobm' , month , 4000 );
-					Settings.Enqueue( 'doby' , year , 3000 );
+					Settings.Enqueue( 'dobd' , day );
+					Settings.Enqueue( 'dobm' , month );
+					Settings.Enqueue( 'doby' , year );
 				}
 				else {
 					if ( !Settings.invaliddob ) {
@@ -251,40 +242,40 @@ $( function() {
 			}
 		});
 		$( '#place select' ).change( function() {
-			Settings.Enqueue( 'place' , this.value , 1000 );
+			Settings.Enqueue( 'place' , this.value );
 		});
 		$( '#education select' ).change( function() {
-			Settings.Enqueue( 'education' , this.value , 1000 );
+			Settings.Enqueue( 'education' , this.value );
 		});
 		$( '#university select' ).change( function() {
-			Settings.Enqueue( 'university' , this.value , 1000 );
+			Settings.Enqueue( 'university' , this.value );
 		});
 		$( '#sex select' ).change( function() {
-			Settings.Enqueue( 'sex' , this.value , 3000 );
+			Settings.Enqueue( 'sex' , this.value );
 		});
 		$( '#religion select' ).change( function() {
-			Settings.Enqueue( 'religion' , this.value , 3000 );
+			Settings.Enqueue( 'religion' , this.value );
 		});
 		$( '#politics select' ).change( function() {
-			Settings.Enqueue( 'politics' , this.value , 3000 );
+			Settings.Enqueue( 'politics' , this.value );
 		});
 		$( '#haircolor select' ).change( function() {
-			Settings.Enqueue( 'haircolor' , this.value , 3000 );
+			Settings.Enqueue( 'haircolor' , this.value );
 		});
 		$( '#eyecolor select' ).change( function() {
-			Settings.Enqueue( 'eyecolor' , this.value , 3000 );
+			Settings.Enqueue( 'eyecolor' , this.value );
 		});
 		$( '#height select' ).change( function() {
-			Settings.Enqueue( 'height' , this.value , 3000 );
+			Settings.Enqueue( 'height' , this.value );
 		});
 		$( '#weight select' ).change( function() {
-			Settings.Enqueue( 'weight' , this.value , 3000 );
+			Settings.Enqueue( 'weight' , this.value );
 		});
 		$( '#smoker select' ).change( function() {
-			Settings.Enqueue( 'smoker' , this.value , 3000 );
+			Settings.Enqueue( 'smoker' , this.value );
 		});
 		$( '#drinker select' ).change( function() {
-			Settings.Enqueue( 'drinker' , this.value , 3000 );
+			Settings.Enqueue( 'drinker' , this.value );
 		});
 		
 		$( '#slogan input' ).change( function() {
@@ -292,13 +283,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'slogan' , text , 500 );
+			Settings.Enqueue( 'slogan' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'slogan' , text , 3000 );
+			Settings.Enqueue( 'slogan' , text );
 			if ( Settings.slogan ) {
 				Settings.slogan = this.value;
 			}
@@ -309,14 +300,14 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'aboutme' , text , 3000 );
+			Settings.Enqueue( 'aboutme' , text );
 		}).keyup( function() {
 			if ( Settings.aboutmetext != this.value ) {
 				var text = this.value;
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'aboutme' , text , 3000 );
+				Settings.Enqueue( 'aboutme' , text );
 				if ( Settings.aboutmetext ) {
 					Settings.aboutmetext = this.value;
 				}
@@ -328,13 +319,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'favquote' , text , 500 );
+			Settings.Enqueue( 'favquote' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'favquote' , text , 3000 );
+			Settings.Enqueue( 'favquote' , text );
 			if ( Settings.favquote ) {
 				Settings.favquote = this.value;
 			}
@@ -345,7 +336,7 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'email' , text , 500 );
+			Settings.Enqueue( 'email' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( Settings.invalidemail ) {
@@ -354,14 +345,14 @@ $( function() {
 						$( 'div#email span' ).css( "display" , "none" );
 					});
 					Settings.invalidemail = false;
-					Settings.Enqueue( 'email' , text , 3000 );
+					Settings.Enqueue( 'email' , text );
 				}
 			}
 			else {
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'email' , text , 3000 );
+				Settings.Enqueue( 'email' , text );
 			}
 			if ( Settings.email ) {
 				Settings.email = this.value;
@@ -382,14 +373,14 @@ $( function() {
 						$( 'div#msn span' ).css( "display" , "none" );
 					});
 					Settings.invalidmsn = false;
-					Settings.Enqueue( 'msn' , text , 3000 );
+					Settings.Enqueue( 'msn' , text );
 				}
 			}
 			else {
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'msn' , text , 3000 );
+				Settings.Enqueue( 'msn' , text );
 			}
 			if ( Settings.msn ) {
 				Settings.msn = this.value;
@@ -401,13 +392,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'gtalk' , text , 500 );
+			Settings.Enqueue( 'gtalk' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'gtalk' , text , 3000 );
+			Settings.Enqueue( 'gtalk' , text );
 			if ( Settings.gtalk ) {
 				Settings.gtalk = this.value;
 			}
@@ -418,13 +409,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'skype' , text , 500 );
+			Settings.Enqueue( 'skype' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'skype' , text , 3000 );
+			Settings.Enqueue( 'skype' , text );
 			if ( Settings.skype ) {
 				Settings.skype = this.value;
 			}
@@ -435,13 +426,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'yahoo' , text , 500 );
+			Settings.Enqueue( 'yahoo' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'yahoo' , text , 3000 );
+			Settings.Enqueue( 'yahoo' , text );
 			if ( Settings.yahoo ) {
 				Settings.yahoo = this.value;
 			}
@@ -452,13 +443,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'web' , text , 500 );
+			Settings.Enqueue( 'web' , text0 );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'web' , text , 3000 );
+			Settings.Enqueue( 'web' , text );
 			if ( Settings.skype ) {
 				Settings.skype = this.value;
 			}
@@ -546,7 +537,13 @@ $( function() {
 			else {
 				value = 'no';
 			}
-			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
-		} );		
+			Settings.Enqueue( $( this )[ 0 ].id , value );
+		} );
+        $( 'div.savebutton a' ).click( function() {
+            if ( !$( this ).hasClass( 'disabled' ) ) {
+                Settings.Save();
+            }
+            return false;
+        } );
 	}
 } );
