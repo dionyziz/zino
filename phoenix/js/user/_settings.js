@@ -238,42 +238,42 @@ $( function() {
 			}
 		});
 		$( '#place select' ).change( function() {
-			Settings.Enqueue( 'place' , this.value , 1000 );
+			Settings.Enqueue( 'place' , this.value );
             Settings.Save();
 		});
 		$( '#education select' ).change( function() {
-			Settings.Enqueue( 'education' , this.value , 1000 );
+			Settings.Enqueue( 'education' , this.value );
             Settings.Save();
 		});
 		$( '#university select' ).change( function() {
-			Settings.Enqueue( 'school' , this.value , 1000 );
+			Settings.Enqueue( 'school' , this.value );
 		});
 		$( '#sex select' ).change( function() {
-			Settings.Enqueue( 'sex' , this.value , 3000 );
+			Settings.Enqueue( 'sex' , this.value );
 		});
 		$( '#religion select' ).change( function() {
-			Settings.Enqueue( 'religion' , this.value , 3000 );
+			Settings.Enqueue( 'religion' , this.value );
 		});
 		$( '#politics select' ).change( function() {
-			Settings.Enqueue( 'politics' , this.value , 3000 );
+			Settings.Enqueue( 'politics' , this.value );
 		});
 		$( '#haircolor select' ).change( function() {
-			Settings.Enqueue( 'haircolor' , this.value , 3000 );
+			Settings.Enqueue( 'haircolor' , this.value );
 		});
 		$( '#eyecolor select' ).change( function() {
-			Settings.Enqueue( 'eyecolor' , this.value , 3000 );
+			Settings.Enqueue( 'eyecolor' , this.value );
 		});
 		$( '#height select' ).change( function() {
-			Settings.Enqueue( 'height' , this.value , 3000 );
+			Settings.Enqueue( 'height' , this.value );
 		});
 		$( '#weight select' ).change( function() {
-			Settings.Enqueue( 'weight' , this.value , 3000 );
+			Settings.Enqueue( 'weight' , this.value );
 		});
 		$( '#smoker select' ).change( function() {
-			Settings.Enqueue( 'smoker' , this.value , 3000 );
+			Settings.Enqueue( 'smoker' , this.value );
 		});
 		$( '#drinker select' ).change( function() {
-			Settings.Enqueue( 'drinker' , this.value , 3000 );
+			Settings.Enqueue( 'drinker' , this.value );
 		});
 		
 		$( '#slogan input' ).change( function() {
@@ -281,13 +281,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'slogan' , text , 500 );
+			Settings.Enqueue( 'slogan' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'slogan' , text , 3000 );
+			Settings.Enqueue( 'slogan' , text );
 			if ( Settings.slogan ) {
 				Settings.slogan = this.value;
 			}
@@ -298,14 +298,14 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'aboutme' , text , 3000 );
+			Settings.Enqueue( 'aboutme' , text );
 		}).keyup( function() {
 			if ( Settings.aboutmetext != this.value ) {
 				var text = this.value;
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'aboutme' , text , 3000 );
+				Settings.Enqueue( 'aboutme' , text );
 				if ( Settings.aboutmetext ) {
 					Settings.aboutmetext = this.value;
 				}
@@ -317,13 +317,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'favquote' , text , 500 );
+			Settings.Enqueue( 'favquote' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'favquote' , text , 3000 );
+			Settings.Enqueue( 'favquote' , text );
 			if ( Settings.favquote ) {
 				Settings.favquote = this.value;
 			}
@@ -334,7 +334,7 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'email' , text , 500 );
+			Settings.Enqueue( 'email' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( Settings.invalidemail ) {
@@ -343,14 +343,14 @@ $( function() {
 						$( 'div#email span' ).css( "display" , "none" );
 					});
 					Settings.invalidemail = false;
-					Settings.Enqueue( 'email' , text , 3000 );
+					Settings.Enqueue( 'email' , text );
 				}
 			}
 			else {
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'email' , text , 3000 );
+				Settings.Enqueue( 'email' , text );
 			}
 			if ( Settings.email ) {
 				Settings.email = this.value;
@@ -362,7 +362,7 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'msn' , text , 500 );
+			Settings.Enqueue( 'msn' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( Settings.invalidmsn ) {
@@ -371,14 +371,14 @@ $( function() {
 						$( 'div#msn span' ).css( "display" , "none" );
 					});
 					Settings.invalidmsn = false;
-					Settings.Enqueue( 'msn' , text , 3000 );
+					Settings.Enqueue( 'msn' , text );
 				}
 			}
 			else {
 				if ( this.value === '' ) {
 					text = '-1';
 				}
-				Settings.Enqueue( 'msn' , text , 3000 );
+				Settings.Enqueue( 'msn' , text );
 			}
 			if ( Settings.msn ) {
 				Settings.msn = this.value;
@@ -390,13 +390,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'gtalk' , text , 500 );
+			Settings.Enqueue( 'gtalk' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'gtalk' , text , 3000 );
+			Settings.Enqueue( 'gtalk' , text );
 			if ( Settings.gtalk ) {
 				Settings.gtalk = this.value;
 			}
@@ -407,13 +407,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'skype' , text , 500 );
+			Settings.Enqueue( 'skype' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'skype' , text , 3000 );
+			Settings.Enqueue( 'skype' , text );
 			if ( Settings.skype ) {
 				Settings.skype = this.value;
 			}
@@ -424,13 +424,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'yahoo' , text , 500 );
+			Settings.Enqueue( 'yahoo' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'yahoo' , text , 3000 );
+			Settings.Enqueue( 'yahoo' , text );
 			if ( Settings.yahoo ) {
 				Settings.yahoo = this.value;
 			}
@@ -441,13 +441,13 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'web' , text , 500 );
+			Settings.Enqueue( 'web' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'web' , text , 3000 );
+			Settings.Enqueue( 'web' , text );
 			if ( Settings.skype ) {
 				Settings.skype = this.value;
 			}
