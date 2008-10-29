@@ -32,7 +32,7 @@
 	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
-                //$contact->AddContact( $val, $username );
+                $contact->AddContact( $key, $username );
             }
             /*
             $to = 'pagio91i@gmail.com';
