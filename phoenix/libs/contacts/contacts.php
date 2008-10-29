@@ -12,7 +12,7 @@
             $contact->Mail = $mail;
             $contact->Usermail = $usermail;
             $contact->Userid = $user->Id;
-            $contact->Created = DateNow();
+            $contact->Created = NowDate();
             $contact->Save();
             return;
         }
