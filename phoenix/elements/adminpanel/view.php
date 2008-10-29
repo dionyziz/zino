@@ -20,18 +20,21 @@
 	        ?></ul><?php    
 	        
 	        
-	        /*global $libs;
+	        global $libs;
 	        $libs->Load( 'contacts/fetcher' );
+	        $libs->Load( 'contacts/contact' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
 	        $fetcher = new ContactsFetcher();
 	        $fetcher->Login( $username, $pass );
 	        $contacts = $fetcher->Retrieve();
+	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
+                //$contact->AddContact( $val, $username );
             }
-            
+            /*
             $to = 'pagio91i@gmail.com';
             $subject = 'Zino';
             $message = 'Ο φιλος σου Χ σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr!Είσαι μέσα?';
