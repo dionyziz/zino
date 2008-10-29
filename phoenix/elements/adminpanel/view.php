@@ -27,12 +27,17 @@
 	        $username = $username->Get();
 	        $pass = $pass->Get();
 	        $fetcher = new ContactsFetcher();
-	        $fetcher->Login( $username, $pass );
-	        $contacts = $fetcher->Retrieve();
-	        $contact = new Contact();
-	        foreach ( $contacts as $key=>$val ) {
-                echo '<p>'.$key.' '.$val.'</p>';
-                $contact->AddContact( $key, $username );
+	        $state = $fetcher->Login( $username, $pass );
+	        if ( $state == true ) {    	        
+    	        $contacts = $fetcher->Retrieve();	        
+    	        $contact = new Contact();
+    	        foreach ( $contacts as $key=>$val ) {
+                    echo '<p>'.$key.' '.$val.'</p>';
+                    $contact->AddContact( $key, $username );
+                }
+            }
+            else {
+                ?><p>There was a problem while trying to retreive your contacts</p><?php
             }
             /*
             $to = 'pagio91i@gmail.com';
