@@ -1,14 +1,14 @@
 <?php
-    class Contact extends Finder {
-        protected $mModel = 'Contact';
+    class Contacts extends Finder {
+        protected $mModel = 'Contacts';
     }
     
-    class Contact extends Satori {
+    class Contacts extends Satori {
         protected $mDbTableAlias = 'contacts';
         
         public function AddContact( $mail, $usermail ) {
             global $user;
-            $contact = new Contact();
+            $contact = new Contacts();
             $contact->Mail = $mail;
             $contact->Usermail = $usermail;
             $contact->Userid = $user->Id;
