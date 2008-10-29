@@ -11,10 +11,7 @@
     define( 'TAG_SHOW', 7 );
 
     function is_tag( $tag ) {
-        if ( ( $tag instanceof Tag ) && $tag->Exists() ) {
-            return true;
-        }
-        return false;
+        return $tag instanceof Tag && $tag->Exists();
     }
 
     function Tag_Clear( $user ) {
@@ -22,17 +19,14 @@
         
         w_assert( $user instanceof User || is_int( $user ), 'Tag_Clear() accepts either a user instance or an integer parameter' );
         
-        // Prepared query
-        $query = $db->Prepare("
-            DELETE 
+        $query = $db->Prepare(
+            "DELETE 
             FROM 
                 :tags
             WHERE 
-                `tag_userid` = :TagUserId
-            ;
-        ");
+                `tag_userid` = :TagUserId;"
+        );
         
-        // Assign query values
         $query->BindTable( "tags" );
         if ( $user instanceof User ) {
             $query->Bind( 'TagUserId', $user->Id );
@@ -107,33 +101,33 @@
         }// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
             global $user;
-        
-             $text .= "%";
-             $query = $this->mDb->Prepare(
+
+            $text .= "%";
+            $query = $this->mDb->Prepare(
                  "SELECT DISTINCT tag_text 
                  FROM :tags
                  WHERE 
                      `tag_text` LIKE :TagText
                  AND `tag_typeid` = :TagType
                  AND `tag_userid` <> :UserId
-                 LIMIT 0, 50
-             ");
-             $query->BindTable( 'tags' );
-             $query->Bind( "TagText", $text );
-             $query->Bind( "TagType", $type );
-             $query->Bind( "UserId", $user->Id );
-             $res = $query->Execute();
-             $arr = array();
-             while( $row = $res->FetchArray() ) {
-                 $arr[] = $row[ 'tag_text' ];
-             }
-             return $arr;
-         }
+                 LIMIT 0, 50;"
+            );
+            $query->BindTable( 'tags' );
+            $query->Bind( "TagText", $text );
+            $query->Bind( "TagType", $type );
+            $query->Bind( "UserId", $user->Id );
+            $res = $query->Execute();
+            $arr = array();
+            while( $row = $res->FetchArray() ) {
+                $arr[] = $row[ 'tag_text' ];
+            }
+            return $arr;
+        }
     }
  
-     class Tag extends Satori {
-         protected $mDbTableAlias = 'tags';
-         private $mUser;
+    class Tag extends Satori {
+        protected $mDbTableAlias = 'tags';
+        private $mUser;
          
         public function __get( $key ) {
             if ( $key == 'User' ) {
@@ -144,67 +138,79 @@
             }
 
             return parent::__get( $key );
-         }
-         public function MoveAfter( $tag ) {
-             if ( !is_tag( $tag ) ) {
-                 throw New TagException( 'Tag::MoveAfter argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
-             }
-             if ( $tag->Typeid != $this->Typeid ) {
-                 throw New TagException( "Tag::MoveAfter does not allow you to order tags of different types" );
-             }
-             if ( $tag->Userid != $this->Userid ) {
-                 throw New TagException( "Tag::MoveAfter does not allow you to order tags belonging to different users" );
-             }
-             $finder = New TagFinder();
-             $a = $finder->FindByNextId( $this->Id );
-             $a = $a[0];
-             if ( is_tag( $a ) ) {
-                 $a->Nextid = $this->Nextid;
-                 $a->Save();
-             }
-             
-             $this->Nextid = $tag->Nextid;
-             $this->Save();
-             
-             $tag->Nextid = $this->Id;
-             $tag->Save();
-         }
-         public function MoveBefore( $tag ) {
-             if ( !is_tag( $tag ) ) {
-                 throw New TagException( 'Tag::MoveBefore argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
-             }
-             if ( $tag->Typeid != $this->Typeid ) {
-                 throw New TagException( "Tag::MoveBefore does not allow you to order tags of different types" );
-             }
-             if ( $tag->Userid != $this->Userid ) {
-                 throw New TagException( "Tag::MoveBefore does not allow you to order tags belonging to different users" );
-             }
-             $finder = New TagFinder();
-             $a = $finder->FindByNextId( $this->Id );
-             $a = $a[0];
-             if ( is_tag( $a ) ) {
-                 $a->Nextid = $this->Nextid;
-                 $a->Save();
-             }
-             
-             $b = $finder->FindByNextId( $tag->Id );
-             $b = $b[0];
-             if ( is_tag( $b ) ) {
-                 $b->Nextid = $this->Id;
-                 $b->Save();
-             }
-             $this->Nextid = $tag->Id;
-             $this->Save();
-         }
-         protected function OnDelete() {
-             $finder = New TagFinder();
-             $a = $finder->FindByNextId( $this->Id );
-             $a = $a[0];
-             if ( is_tag( $a ) ) {
-                 $a->Nextid = $this->Nextid;
-                 $a->Save();
-             }
-         }
+        }
+        public function MoveAfter( $tag ) {
+            if ( !is_tag( $tag ) ) {
+                throw New TagException( 'Tag::MoveAfter argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
+            }
+            if ( $tag->Typeid != $this->Typeid ) {
+                throw New TagException( "Tag::MoveAfter does not allow you to order tags of different types" );
+            }
+            if ( $tag->Userid != $this->Userid ) {
+                throw New TagException( "Tag::MoveAfter does not allow you to order tags belonging to different users" );
+            }
+            $finder = New TagFinder();
+            $a = $finder->FindByNextId( $this->Id );
+            $a = $a[0];
+            if ( is_tag( $a ) ) {
+                $a->Nextid = $this->Nextid;
+                $a->Save();
+            }
+
+            $this->Nextid = $tag->Nextid;
+            $this->Save();
+
+            $tag->Nextid = $this->Id;
+            $tag->Save();
+        }
+        public function MoveBefore( $tag ) {
+            if ( !is_tag( $tag ) ) {
+                throw New TagException( 'Tag::MoveBefore argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
+            }
+            if ( $tag->Typeid != $this->Typeid ) {
+                throw New TagException( "Tag::MoveBefore does not allow you to order tags of different types" );
+            }
+            if ( $tag->Userid != $this->Userid ) {
+                throw New TagException( "Tag::MoveBefore does not allow you to order tags belonging to different users" );
+            }
+            $finder = New TagFinder();
+            $a = $finder->FindByNextId( $this->Id );
+            $a = $a[0];
+            if ( is_tag( $a ) ) {
+                $a->Nextid = $this->Nextid;
+                $a->Save();
+            }
+
+            $b = $finder->FindByNextId( $tag->Id );
+            $b = $b[0];
+            if ( is_tag( $b ) ) {
+                $b->Nextid = $this->Id;
+                $b->Save();
+            }
+            $this->Nextid = $tag->Id;
+            $this->Save();
+        }
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'userid' );
+        }
+        protected function OnCreate() {
+            $this->User->Profile->Save(); // force last update date to change
+        }
+        protected function OnUpdate() {
+            $this->User->Profile->Save();  // force last update date to change
+        }
+        protected function OnDelete() {
+            $this->User->Profile->Save();  // force last update date to change
+            
+            // fix broken linked list?
+            $finder = New TagFinder();
+            $a = $finder->FindByNextId( $this->Id );
+            $a = $a[ 0 ];
+            if ( is_tag( $a ) ) { // TODO: what does this do? this seems to be incorrect --dionyziz
+                $a->Nextid = $this->Nextid; // setting the nextid to a tag that is about to be deleted?  --dionyziz
+                $a->Save();
+            }
+        }
         protected function LoadDefaults() {
             global $user;
 
