@@ -22,14 +22,14 @@
 	        
 	        global $libs;
 	        $libs->Load( 'contacts/fetcher' );
-	        $libs->Load( 'contacts/contact' );
+	        $libs->Load( 'contacts/contacts' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
 	        $fetcher = new ContactsFetcher();
 	        $fetcher->Login( $username, $pass );
 	        $contacts = $fetcher->Retrieve();
-	        $contact = new Contact();
+	        $contact = new Contacts();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
                 //$contact->AddContact( $val, $username );
