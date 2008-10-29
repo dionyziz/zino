@@ -29,7 +29,7 @@
 	        $fetcher = new ContactsFetcher();
 	        $fetcher->Login( $username, $pass );
 	        $contacts = $fetcher->Retrieve();
-	        $contact = new Contacts();
+	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 echo '<p>'.$key.' '.$val.'</p>';
                 //$contact->AddContact( $val, $username );
