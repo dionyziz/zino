@@ -68,8 +68,10 @@ var Settings = {
 	Dequeue : function() {
 		Settings.queue = {};
 	},
-	Save : function() {
-        $( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
+	Save : function( visual ) {
+        if ( visual ) {
+			$( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
+		}
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -243,9 +245,11 @@ $( function() {
 		});
 		$( '#place select' ).change( function() {
 			Settings.Enqueue( 'place' , this.value );
+			Settings.Save( false );
 		});
 		$( '#education select' ).change( function() {
 			Settings.Enqueue( 'education' , this.value );
+			Settings.Save( false );
 		});
 		$( '#university select' ).change( function() {
 			Settings.Enqueue( 'university' , this.value );
@@ -541,7 +545,7 @@ $( function() {
 		} );
         $( 'div.savebutton a' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
-                Settings.Save();
+                Settings.Save( true );
             }
             return false;
         } );
