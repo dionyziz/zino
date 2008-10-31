@@ -63,7 +63,7 @@ else {
             }
             
             if ( $return_value != 0 ) { // unknown error
-                die ( "Error: $allcontacts \n$errors" );
+                //die ( "Error: $allcontacts \n$errors" );
                 return false;
             }
 

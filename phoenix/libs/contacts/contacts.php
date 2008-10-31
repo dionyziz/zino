@@ -14,9 +14,9 @@
             }
         }
         else {
-            ;
+            return false;//if the failed
         }
-        return;
+        return true;//if contacts added succesfully
     }    
     
     class ContactFinder extends Finder {
