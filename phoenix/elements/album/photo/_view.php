@@ -58,7 +58,7 @@
                     else {
                         $page->SetTitle( $image->Album->Owner->Name . " φωτογραφίες" );
                     }
-                    $title = $image->Owner->Name;
+                    $title = $image->User->Name;
                 }    
                 else {
                     $page->SetTitle( $image->Album->Name );
