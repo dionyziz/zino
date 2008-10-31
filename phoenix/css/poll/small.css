@@ -1,92 +1,90 @@
-div.pollsmall {
+div.posmall {
 	padding: 10px 0;
 }
-div.pollsmall h4 {
+div.posmall h4 {
 	padding: 0;
 	margin: 0;
 }
-div.pollsmall div.results ul {
-	padding: 0;
+div.posmall div.results ul {
 	margin: 10px 0;
-	list-style: none;
 	width: 100%;
 }
-div.pollsmall div.results ul li {
+div.posmall div.results ul li {
 	margin-bottom: 10px;
 	padding: 3px 0;
     clear: both;
 }
-div.pollsmall div.results ul li dl {
+div.posmall div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
-div.pollsmall div.results ul li dl span {
+div.posmall div.results ul li dl span {
 	margin-left: 20px;
 }
-div.pollsmall div.results ul li dl dt.voteterm {
+div.posmall div.results ul li dl dt.voteterm {
 	margin-right: 3px;
     width: 20px;
     float: left;
     display: block;
 }
-div.pollsmall div.results ul li dl dd.votedefinition {
+div.posmall div.results ul li dl dd.votedefinition {
 	display: block;
 	vertical-align: 3px;
     margin-left: 23px;
 }
-div.pollsmall div.results ul li dl dd {
+div.posmall div.results ul li dl dd {
     float: left;
     width: 270px;
     margin: 0;
 }
-div.pollsmall div.results ul li dl dd span {
+div.posmall div.results ul li dl dd span {
 	padding-left: 7px;
 }
-div.pollsmall div.results ul li dl dd div.option {
+div.posmall div.results ul li dl dd div.option {
 	height: 15px;
 	float: left;
 }
-div.pollsmall div.results ul li dl dd div.option div.percentagebar {
+div.posmall div.results ul li dl dd div.option div.percentagebar {
     float: left;
     height: 13px;
     margin-right: 10px;
 }
-div.pollsmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
+div.posmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -952px;
 	height: 13px;
 	width: 9px;
 }
-div.pollsmall div.results ul li dl dd div.option div.percentagebar div.rightrounded {
+div.posmall div.results ul li dl dd div.option div.percentagebar div.rightrounded {
 	float: right;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1015px;
 	height: 13px;
 	width: 9px;
 }
-div.pollsmall div.results ul li dl dd div.option div.percentagebar div.middlerounded {
+div.posmall div.results ul li dl dd div.option div.percentagebar div.middlerounded {
 	background: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' ) repeat-x top;
 	height: 13px;
 }
-div.pollsmall div.results dl.pollinfo {
+div.posmall div.results dl.pollinfo {
 	text-align: right;
 	margin: 0;
 	padding: 0;
 }
-div.pollsmall div.results dl.pollinfo2 {
+div.posmall div.results dl.pollinfo2 {
 	text-align: left;
 	margin: 5px 0 0 0;
 	padding: 0;
 }
-div.pollsmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
+div.posmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
 	display: inline;
 	margin: 0;
 	padding: 0;
 	font-size: 80%;
 }
-div.pollsmall div.results a span {
+div.posmall div.results a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 	padding-left: 16px;
 }
-div.pollsmall div.voting {
+div.posmall div.voting {
 	display: none;
 }

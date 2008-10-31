@@ -7,7 +7,7 @@
             $finder = New PollVoteFinder();
             $showresults = $finder->FindByPollAndUser( $poll, $user );
             //used to show results, will be true if the user has voted or is anonymous
-            ?><div class="pollsmall">
+            ?><div class="posmall">
                 <h4><a href="<?php
                     ?>?p=poll&amp;id=<?php
                     echo $poll->Id;
