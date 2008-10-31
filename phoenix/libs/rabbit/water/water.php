@@ -394,13 +394,12 @@
 
     if ( WATER_ENABLE ) {
         $water = New Water();
+        set_error_handler( array( $water, 'HandleError' ) );
+        set_exception_handler( array( $water, 'HandleException' ) );
     }
     else {
         $water = New WaterDummy();
     }
-
-    set_error_handler( array( $water, 'HandleError' ) );
-    set_exception_handler( array( $water, 'HandleException' ) );
 
     return $water;
 ?>
