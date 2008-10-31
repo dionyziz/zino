@@ -8,7 +8,7 @@
             $libs->Load( 'favourite' );
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $journal );
-            ?><div class="journalsmall">
+            ?><div class="jsmall">
                 <h4><a href="?p=journal&amp;id=<?php
                 echo $journal->Id;
                 ?>"><?php
