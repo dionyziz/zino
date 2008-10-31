@@ -24,6 +24,9 @@
     Rabbit_ClearPostGet();
     
     $page->AttachMainElement( 'main', $req );
+
+    assert( false, 'Just testing' );
+
     $page->Output();
 
     Rabbit_Destruct();
