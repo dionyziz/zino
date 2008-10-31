@@ -19,14 +19,13 @@
     
     Rabbit_Construct( 'HTML' );
 
+    assert( false, 'Just testing' );
+
     $req = $_GET;
 
     Rabbit_ClearPostGet();
     
     $page->AttachMainElement( 'main', $req );
-
-    assert( false, 'Just testing' );
-
     $page->Output();
 
     Rabbit_Destruct();
