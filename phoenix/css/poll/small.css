@@ -10,7 +10,7 @@ div.posmall div.results ul {
 	width: 100%;
 }
 div.posmall div.results ul li {
-	margin-bottom: 10px;
+	margin: 0 0 10px 0;
 	padding: 3px 0;
     clear: both;
 }
@@ -24,7 +24,7 @@ div.posmall div.results ul li dl span {
 	margin-left: 20px;
 }
 div.posmall div.results ul li dl dt.voteterm {
-	margin-right: 3px;
+	margin: 0 3px 0 0;
     width: 20px;
     float: left;
     display: block;
@@ -39,7 +39,7 @@ div.posmall div.results ul li dl dd {
     width: 270px;
 }
 div.posmall div.results ul li dl dd span {
-	padding-left: 7px;
+	padding: 0 0 0 7px;
 }
 div.posmall div.results ul li dl dd div.option {
 	height: 15px;
@@ -48,7 +48,7 @@ div.posmall div.results ul li dl dd div.option {
 div.posmall div.results ul li dl dd div.option div.percentagebar {
     float: left;
     height: 13px;
-    margin-right: 10px;
+    margin: 0 10px 0 0;
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;
@@ -79,7 +79,7 @@ div.posmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 d
 }
 div.posmall div.results a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-	padding-left: 16px;
+	padding: 0 0 0 16px;
 }
 div.posmall div.voting {
 	display: none;
