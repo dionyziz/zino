@@ -8,17 +8,9 @@ div#photoview div.owner {
 div#photoview div.owner div.edit {
 	display: inline;
 }
-div#photoview div.owner div.edit a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
-	padding: 0 0 0 16px;
-}
 div#photoview div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
-}
-div#photoview div.owner div.delete a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
-	padding: 0 0 0 13px;
 }
 div#photoview div.owner div.mainimage {
 	margin: 0 0 0 8px;
@@ -37,10 +29,6 @@ div#photoview dl dd.commentsnum {
 	display: inline;
 	font-size: 85%;
 }
-div#photoview dl dd.commentsnum span {
-	padding: 0 0 0 15px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-}
 div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 	display: inline;
 }
@@ -51,13 +39,6 @@ div#photoview dl dd.addtag span {
 div#photoview dl dd.addfav a span {
 	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
 	padding: 0 0 0 16px;
-}
-div#photoview dl dd.addfav a.add span {
-	background-position: -235px -276px;
-}
-div#photoview dl dd.addfav a.isadded span {
-	background-position: -235px -210px;
-	cursor: default;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.pthumbs {
