@@ -33,7 +33,6 @@ div#poview dd.delete {
     padding: 0 0 0 2px;
 }
 div#poview dd.delete a span {
-	vertical-align: -1px;
 	margin: 0 2px 0 0;
 }
 div#poview dl dd.createdate {
