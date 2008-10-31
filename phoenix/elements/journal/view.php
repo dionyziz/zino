@@ -78,7 +78,7 @@
                                     <div class="delete">
                                         <a href="" onclick="JournalView.Delete( '<?php
                                         echo $journal->Id;
-                                        ?>' );return false"><span>&nbsp;</span>Διαγραφή
+                                        ?>' );return false"><span class="s_delete">&nbsp;</span>Διαγραφή
                                         </a>
                                     </div>                        
                                 </div><?php
