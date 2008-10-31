@@ -8,7 +8,6 @@
             global $page;
             
             $page->SetTitle( 'Ανέβασε μια εικόνα' );
-            $page->SetWaterDump( false );
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
