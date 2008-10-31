@@ -2,7 +2,7 @@ div#polist ul li h3 {
 	margin: 0;
 	padding: 0;
 }
-div#polist ul {
+div#polist > ul {
 	margin: 0 0 0 170px;
 }
 div#polist ul li {
