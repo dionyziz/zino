@@ -90,16 +90,16 @@ div#photoview div.pthumbs ul {
 	height: 110px;
 	text-align: center;
 }
-div#photoview div.photothumbs ul li {
+div#photoview div.pthumbs ul li {
     margin: 25px 2px 0 2px;
 	display: inline;
 	/*height: 160px;*/
 }
-div#photoview div.photothumbs ul li.selected img {
+div#photoview div.pthumbs ul li.selected img {
 	border: 4px solid #82a4b6;
 	padding: 1px;
 }
-div#photoview div.photothumbs ul li a img {
+div#photoview div.pthumbs ul li a img {
 	border: 1px solid #ccc;
 	padding: 1px;	
 }
