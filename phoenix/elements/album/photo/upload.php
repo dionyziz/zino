@@ -14,7 +14,7 @@
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
                 $page->AttachInlineScript( "document.body.style.backgroundColor = '#ffdf80';" );
             }
-            if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+            if ( $album->Ownertype == TYPE_USERPROFILE && $album->Owner->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                 ?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
                         <input type="hidden" name="albumid" value="<?php
                         echo $album->Id;
