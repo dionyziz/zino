@@ -19,7 +19,7 @@
     
     Rabbit_Construct( 'HTML' );
 
-    assert( false, 'Just testing' );
+    w_assert( false, 'Just testing' );
 
     $req = $_GET;
 
