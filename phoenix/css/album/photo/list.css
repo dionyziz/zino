@@ -23,12 +23,6 @@ div#photolist div.owner div.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
 	padding: 0 0 0 13px;
 }
-/*
-div#photolist dl {
-	padding: 0;
-	margin: 0;
-}
-*/
 div#photolist dl dt.photonum {
 	display: inline;
 	font-size: 90%;

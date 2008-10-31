@@ -14,7 +14,6 @@ div.jsmall h3 {
 div.jsmall p {
 	padding: 5px 0;
 	margin: 0;
-	/*border-bottom: 1px solid #cfcfcf;*/
 }
 div.jsmall ul {
 	padding: 3px 0 0 0;
@@ -24,13 +23,9 @@ div.jsmall ul li {
 	display: inline;
 }
 div.jsmall ul li dl {
-	padding: 0;
-	margin: 0;
 	display: inline;
 }
 div.jsmall ul li dt {
-	padding: 0;
-	margin: 0;
 	display: inline;
 }
 div.jsmall ul li dl dt.commentsnum {
