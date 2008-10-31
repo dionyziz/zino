@@ -53,7 +53,7 @@
                                 ?><dd class="delete">
                                     <a href="" onclick="PollView.Delete( '<?php
                                     echo $poll->Id;
-                                    ?>' );return false"><span>&nbsp;</span>Διαγραφή
+                                    ?>' );return false"><span class="s_delete">&nbsp;</span>Διαγραφή
                                     </a>
                                 </dd><?php
                             }

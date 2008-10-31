@@ -33,8 +33,6 @@ div#poview dd.delete {
     padding: 0 0 0 2px;
 }
 div#poview dd.delete a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
-	padding: 0 0 0 12px;
 	vertical-align: -1px;
 	margin: 0 2px 0 0;
 }
