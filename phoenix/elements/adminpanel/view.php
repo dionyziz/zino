@@ -36,7 +36,7 @@
             }
             
             
-            $toname = 'pagio91@hotmail.com';
+            $toname = 'pagio91hotmail.com';
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση!';
             $message = 'Ο φιλος σου ' . $user->Name . ' σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr!Είσαι μέσα?';
