@@ -18,13 +18,9 @@ div.journalsmall p {
 }
 div.journalsmall ul {
 	padding: 3px 0 0 0;
-	margin: 0;
-	list-style: none;
 	width: 100%;
 }
 div.journalsmall ul li {
-	padding: 0 0 0 0;
-	margin: 0;
 	display: inline;
 }
 div.journalsmall ul li dl {
