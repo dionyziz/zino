@@ -38,7 +38,7 @@
                             Element( 'date/diff', $poll->Created );
                             ?></dd><?php
                             if ( $poll->Numcomments > 0 ) {
-                                ?><dd class="commentsnum"><span>&nbsp;</span><?php
+                                ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
                                 echo $poll->Numcomments;
                                 ?> σχόλι<?php
                                 if ( $poll->Numcomments == 1 ) {
