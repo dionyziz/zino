@@ -34,6 +34,7 @@ div.sidebar div.savesettings div.saved span span {
 }
 div.sidebar a.disabled {
     opacity: 0.3;
+	filter: alpha(opacity = 30);
 }
 div.sidebar a.disabled:hover {
     color: #105cb6;
