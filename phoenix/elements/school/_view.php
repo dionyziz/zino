@@ -100,6 +100,7 @@
 						<div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div> 
 					</div>
 				</div>
+				<div class="eof"></div>
 			</div><?php
 		}
 	}

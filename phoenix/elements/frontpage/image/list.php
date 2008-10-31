@@ -6,7 +6,7 @@
             $images = $finder->FindFrontpageLatest( 0, 15 );
             $finder = New NotificationFinder();
             if ( count( $images ) > 0 ) {
-                ?><div class="latestimages">
+                ?><div class="lstimages plist">
                 <ul><?php
                     foreach ( $images as $image ) {
                         ?><li><a href="?p=photo&amp;id=<?php
