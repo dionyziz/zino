@@ -59,14 +59,7 @@
                                 ?></dd><?php
                             }
                             if ( $journal->User->Id != $user->Id ) {
-                                ?><dd class="addfav"><a href="" class="<?php
-                                if ( !$fav ) {
-                                    ?>add<?php
-                                }
-                                else {
-                                    ?>isadded<?php
-                                }
-                                ?>" title="<?php
+                                ?><dd class="addfav"><a href="" title="<?php
                                 if ( !$fav ) {
                                     ?>Προσθήκη στα αγαπημένα<?php
                                 }
@@ -75,7 +68,14 @@
                                 }
                                 ?>" onclick="JournalView.AddFav( '<?php
                                 echo $journal->Id;
-                                ?>', this );return false"><span>&nbsp;</span><?php
+                                ?>', this );return false"><span class="<?php
+                                if ( !$fav ) {
+                                    ?>s_addfav<?php
+                                }
+                                else {
+                                    ?>s_isaddedfav<?php
+                                }
+                                ?>">&nbsp;</span><?php
                                 if ( !$fav ) {
                                     ?>Προσθήκη στα αγαπημένα<?php
                                 }

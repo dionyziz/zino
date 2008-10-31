@@ -10,3 +10,11 @@
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 	padding: 0 0 0 15px;
 }
+.s_addfav {
+	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -276px;
+	padding: 0 0 0 16px;
+}
+.s_isaddedfav {
+	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -210px;
+	padding: 0 0 0 16px;
+}
