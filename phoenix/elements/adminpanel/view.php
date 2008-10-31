@@ -26,7 +26,7 @@
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
-	        //$state = GetContacts( $username, $pass );
+	        $state = GetContacts( $username, $pass );
 	        $state = true;
 	        if( $state == true ) {
                 ?><p>Success!</p><?php
@@ -35,7 +35,7 @@
                 ?><p>Failure...</p><?php
             }
             
-            
+            /*
             $toname = $user->Name;
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στην Zino κοινοτητα';
@@ -47,7 +47,7 @@
             $fromname = 'Zino';
             $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
-            
+            */
         }
     }
 ?>
