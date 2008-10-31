@@ -57,7 +57,7 @@
                                     </a>
                                 </dd><?php
                             }
-                            ?></dl><div><div class="pollsmall">
+                            ?></dl><div><div class="posmall">
                                 <div class="results"><?php
                                 Element( 'poll/result/view', $poll, $showresults );
                                 Element( 'poll/vote' );
