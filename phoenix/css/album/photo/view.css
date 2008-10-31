@@ -61,43 +61,36 @@ div#photoview dl dd.addfav a.isadded span {
 	cursor: default;
 }
 /* all this trouble to make it resizable :-) */
-div#photoview div.photothumbs {
+div#photoview div.pthumbs {
     height: 110px;
-    overflow: hidden;
 	margin: 50px 0 20px 0;
     text-align: center;
     width: 96%;
-	position: relative;
 }
-div#photoview div.photothumbs div.arrow {
+div#photoview div.pthumbs div.arrow {
     height: 150px;
     line-height: 150px;
     width: 50px;
 }
-div#photoview div.photothumbs div.arrow a img {
+div#photoview div.pthumbs div.arrow a img {
 	border: none;
 	margin-bottom: 30px;
     vertical-align: middle;
 }
-div#photoview div.photothumbs div.arrow a {
+div#photoview div.pthumbs div.arrow a {
     vertical-align: middle;
 }
-div#photoview div.photothumbs div.left {
+div#photoview div.pthumbs div.left {
     float: left;
 }
-div#photoview div.photothumbs div.right {
+div#photoview div.pthumbs div.right {
     float: right;
 }
-div#photoview div.photothumbs ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+div#photoview div.pthumbs ul {
 	height: 110px;
-	text-align: center;
 	text-align: center;
 }
 div#photoview div.photothumbs ul li {
-    padding: 0;
     margin: 25px 2px 0 2px;
 	display: inline;
 	/*height: 160px;*/

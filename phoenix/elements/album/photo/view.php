@@ -153,7 +153,7 @@
                 }
                 ?><div class="eof"></div><?php
                 if ( $image->Album->Numphotos > 1 ) {
-                    ?><div class="photothumbs"><?php
+                    ?><div class="pthumbs plist"><?php
                         $finder = New ImageFinder();
                         $photos = $finder->FindAround( $image , 12 );
                         $pivot = $i = 0;
