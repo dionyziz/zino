@@ -1,33 +1,33 @@
-div#polllist ul li h3 {
+div#polist ul li h3 {
 	margin: 0;
 	padding: 0;
 }
-div#polllist ul {
-	list-style: none;
+div#polist ul {
 	margin: 0 0 0 170px;
-	padding: 0;
 }
-div#polllist ul li {
+div#polist ul li {
 	padding: 10px 0;
 }
-div#polllist ul li div.results {
+div#polist ul li div.results {
 	width: 100%;
 	padding-top: 10px;
 }
+/*
 div#polllist ul li div.results ul {
 	margin: 0;
 	padding: 0;
 }
-div#polllist ul li div.results dl.pollinfo {
+*/
+div#polist ul li div.results dl.pollinfo {
 	text-align: left;
 }
-div#polllist ul li div.results dl.pollinfo dd {
+div#polist ul li div.results dl.pollinfo dd {
 	display: inline;
 	margin: 0;
 	padding: 0;
 	font-size: 80%;
 }
-div#polllist ul li div.results ul li {
+div#polist ul li div.results ul li {
 	padding: 5px 0 1px 0;
     clear: both;
 }
@@ -55,7 +55,7 @@ div.creationmockup div.tip span , div#polllist div.tip2 span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1599px;
 	padding: 0 5px 0 12px;
 }
-div#polllist div.tip2 {
+div#polist div.tip2 {
 	display: none;
 	margin-bottom: 25px;
 }
@@ -65,22 +65,22 @@ div.creationmockup div.newoption {
 	margin: 2px 0;
 	overflow: hidden;
 }
-div#polllist div.creatingpoll {
+div#polist div.creatingpoll {
 	display: none;
 }
-div#polllist ul li.create a.new span {
+div#polist ul li.create a.new span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -132px;
 	vertical-align: -5px;
 	padding: 12px 0 0 30px;
 }
-div#polllist ul li.create a {
+div#polist ul li.create a {
 	font-weight: bold;
 }
-div#polllist ul li.create a img {
+div#polist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
 }
-div#polllist div.pagifypolls {
+div#polist div.pagifypolls {
 	text-align: center;
 	margin-top: 20px;
 }
