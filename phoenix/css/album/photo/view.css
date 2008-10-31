@@ -42,7 +42,6 @@ div#photoview dl dd.commentsnum span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
 div#photoview dl dd.addfav, div#photoview dl dd.addtag{
-	margin: 0;
 	display: inline;
 }
 div#photoview dl dd.addtag span {
