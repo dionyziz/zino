@@ -397,17 +397,17 @@
 
     if ( WATER_ENABLE ) {
         $water = New Water();
-        set_error_handler( array( $water, 'HandleError' ), 
-                              E_WARNING | E_NOTICE 
-                            | E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE 
-                            | E_STRICT | E_RECOVERABLE_ERROR 
-                            | E_DEPRECATED | E_USER_DEPRECATED 
-                          );
-        set_exception_handler( array( $water, 'HandleException' ) );
     }
     else {
         $water = New WaterDummy();
     }
+    set_error_handler( array( $water, 'HandleError' ), 
+                          E_WARNING | E_NOTICE 
+                        | E_USER_ERROR | E_USER_WARNING | E_USER_NOTICE 
+                        | E_STRICT | E_RECOVERABLE_ERROR 
+                        | E_DEPRECATED | E_USER_DEPRECATED 
+                      );
+    set_exception_handler( array( $water, 'HandleException' ) );
 
     return $water;
 ?>
