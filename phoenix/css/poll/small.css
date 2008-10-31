@@ -14,10 +14,12 @@ div.posmall div.results ul li {
 	padding: 3px 0;
     clear: both;
 }
+/*
 div.posmall div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
+*/
 div.posmall div.results ul li dl span {
 	margin-left: 20px;
 }
@@ -35,7 +37,6 @@ div.posmall div.results ul li dl dd.votedefinition {
 div.posmall div.results ul li dl dd {
     float: left;
     width: 270px;
-    margin: 0;
 }
 div.posmall div.results ul li dl dd span {
 	padding-left: 7px;
@@ -67,18 +68,13 @@ div.posmall div.results ul li dl dd div.option div.percentagebar div.middleround
 }
 div.posmall div.results dl.pollinfo {
 	text-align: right;
-	margin: 0;
-	padding: 0;
 }
 div.posmall div.results dl.pollinfo2 {
 	text-align: left;
 	margin: 5px 0 0 0;
-	padding: 0;
 }
 div.posmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
 	display: inline;
-	margin: 0;
-	padding: 0;
 	font-size: 80%;
 }
 div.posmall div.results a span {
