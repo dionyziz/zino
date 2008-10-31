@@ -16,7 +16,7 @@ div.jsmall p {
 	margin: 0;
 	/*border-bottom: 1px solid #cfcfcf;*/
 }
-div.jsmall ul !important {
+div.jsmall ul {
 	padding: 3px 0 0 0;
 	width: 100%;
 }

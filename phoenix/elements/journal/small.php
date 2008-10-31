@@ -17,7 +17,7 @@
                 <p><?php
                 echo $journal->GetText( 300 );
                 ?></p>
-                <ul>
+                <ul style="margin:0">
                     <li>
                         <dl><?php
                         if ( $journal->Numcomments > 0 ) {
