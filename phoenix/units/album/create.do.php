@@ -4,6 +4,10 @@
         global $user;
         global $rabbit_settings;
         
+        if ( !$user->Exists() ) {
+            return;
+        }
+        
         $albumname = $albumname->Get();
         if ( $albumname !== '' ) {
             $album = new Album();

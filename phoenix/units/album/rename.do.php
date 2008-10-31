@@ -4,7 +4,7 @@
         global $user;
         
         $album = New Album( $albumid->Get() );
-        if ( $album->User->Id == $user->Id ) {
+        if ( $album->Ownertype == TYPE_USERPROFILE && $album->Owner->Id == $user->Id ) {
             $album->Name = $albumname->Get();
             $album->Save();
         }

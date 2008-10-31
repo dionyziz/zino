@@ -96,9 +96,11 @@
             $this->Delid = 1;
             $this->Save();
             
-            --$this->User->Count->Albums;
-            $this->User->Count->Save();
-
+            if ( $this->Ownertype == TYPE_USERPROFILE ) {
+                --$this->Owner->Count->Albums;
+                $this->Owner->Count->Save();
+            }
+            
             /*
             This would be nicer this way:
             $album->Images->Delete();
@@ -188,9 +190,11 @@
         }
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimageid' ] ) ) {
-                if ( $this->User->EgoAlbum->Id == $this->Id ) {
-                    $this->User->Avatarid = $this->Mainimageid;
-                    $this->User->Save();
+                if ( $this->Ownertype == TYPE_USERPROFILE ) {
+                    if ( $this->User->EgoAlbum->Id == $this->Id ) {
+                        $this->User->Avatarid = $this->Mainimageid;
+                        $this->User->Save();
+                    }
                 }
             }
         }
@@ -198,9 +202,11 @@
             global $libs;
             $libs->Load( 'event' );
 
-            ++$this->User->Count->Albums;
-            $this->User->Count->Save();
-
+            if ( $this->Ownertype == TYPE_USERPROFILE ) {
+                ++$this->User->Count->Albums;
+                $this->User->Count->Save();
+            }
+            
             /*
             $event = New Event();
             $event->Typeid = EVENT_ALBUM_CREATED;
@@ -214,6 +220,7 @@
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
+            $this->Ownertype = TYPE_USERPROFILE;
             $this->Userip = UserIp();
         }
     }
