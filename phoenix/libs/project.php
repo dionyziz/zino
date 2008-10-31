@@ -115,7 +115,7 @@ Project_Destruct()' );
             'b'                    => 'mail/sent',
             'pms'               => 'pm/list',
             'shoutbox'          => 'shoutbox/list',
-			'schoo'				=> 'school/view',
+			'school'				=> 'school/view',
             'questions'            => 'question/list',
             'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
