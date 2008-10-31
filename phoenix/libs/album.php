@@ -14,7 +14,8 @@
                     :albums LEFT JOIN :images
                         ON `album_mainimageid` = `image_id`
                 WHERE
-                    `album_userid` = :userid AND
+                    `album_ownerid` = :userid AND
+                    `album_ownertype` = :user AND
                     `album_delid` = 0
                 ORDER BY
                     `album_id` DESC
@@ -23,6 +24,7 @@
             
             $query->BindTable( 'albums', 'images' );
             $query->Bind( 'userid', $theuser->Id );
+            $query->Bind( 'user', TYPE_USERPROFILE );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
@@ -68,11 +70,14 @@
             $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
         }
         public function CopyUserFrom( $value ) {
-            $this->mRelations[ 'User' ]->CopyFrom( $value );
+            $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
-            $this->User = $this->HasOne( 'User', 'Userid' );
+            switch ( $this->Ownertype ) {
+                case TYPE_USERPROFILE:
+                    $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+            }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
         public function IsDeleted() {
