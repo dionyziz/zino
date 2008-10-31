@@ -18,6 +18,7 @@
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $image = New Image( $id );
+            die( $image->Albumid . '.' );
             
             $relfinder = New FriendRelationFinder();
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
@@ -75,7 +76,7 @@
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
-                die( $image->Albumid . '.' );
+                // die( $image->Albumid . '.' );
                 echo $image->Album->Id;
                 ?>"><?php
                 if ( $image->Album->Id == $image->User->Egoalbumid ) {
