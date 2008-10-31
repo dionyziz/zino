@@ -1,4 +1,24 @@
 <?php
+    function GetContacts( $username, $pass ) {
+        global $libs;
+        
+        $libs->Load( 'contacts/fetcher' );        
+        
+        $fetcher = new ContactsFetcher();
+        $state = $fetcher->Login( $username, $pass );
+        if ( $state == true ) {    	        
+	        $contacts = $fetcher->Retrieve();	        
+	        $contact = new Contact();
+	        foreach ( $contacts as $key=>$val ) {
+                $contact->AddContact( $key, $username );
+            }
+        }
+        else {
+            ;
+        }
+        return;
+    }    
+    
     class ContactFinder extends Finder {
         protected $mModel = 'Contact';
     }

@@ -20,7 +20,7 @@
 	        ?></ul><?php    
 	        
 	        
-	        global $libs;
+	        /*global $libs;
 	        $libs->Load( 'contacts/fetcher' );
 	        $libs->Load( 'contacts/contacts' );
 	        
