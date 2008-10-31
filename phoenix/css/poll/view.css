@@ -32,9 +32,11 @@ div#poview dd.delete {
     display: inline;
     padding: 0 0 0 2px;
 }
+/*
 div#poview dd.delete a span {
 	margin: 0 2px 0 0;
 }
+*/
 div#poview dl dd.createdate {
     margin: 0 0 10px 0;
 }

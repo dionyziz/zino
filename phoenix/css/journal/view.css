@@ -19,12 +19,12 @@ div#journalview div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
 }
+/*
 div#journalview div.owner div.delete a span {
-	/*
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
 	padding: 0 0 0 13px;
-	*/
 }
+*/
 div#journalview div.journal dl {
 	text-align: left;
 	padding: 0;
