@@ -40,10 +40,10 @@
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στην Zino κοινοτητα';
             $message = 'Ο φιλος σου  http://' . $user->Name . '.zino.gr σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr .
-                                        Είσαι μέσα?
+Είσαι μέσα?
                                         
-                                        Ευχαριστούμε,
-                                        Η Ομάδα του Zino';
+Ευχαριστούμε,
+Η Ομάδα του Zino';
             $fromname = 'Zino';
             $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
