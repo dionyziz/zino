@@ -22,7 +22,7 @@
 	        
 	        global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
-	        //$libs->Load( 'rabbit/helpers/email' );
+	        $libs->Load( 'rabbit/helpers/email' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
@@ -35,7 +35,7 @@
                 ?><p>Failure...</p><?php
             }
             
-            /*
+            
             $toname = 'pagio91@hotmail..com';
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση!';
@@ -43,7 +43,7 @@
             $fromname = 'zino';
             $fromemail = 'oniz@kamibu.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
-            */
+            
         }
     }
 ?>
