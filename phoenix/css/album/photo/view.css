@@ -1,90 +1,90 @@
-div#photoview h2 {
+div#pview h2 {
 	margin: 0;
 	padding: 0;
 }
-div#photoview div.owner {
+div#pview div.owner {
 	margin: 5px 0 0 0;
 }
-div#photoview div.owner div.edit {
+div#pview div.owner div.edit {
 	display: inline;
 }
-div#photoview div.owner div.delete {
+div#pview div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
 }
-div#photoview div.owner div.mainimage {
+div#pview div.owner div.mainimage {
 	margin: 0 0 0 8px;
 	display: inline;
 }
-div#photoview dl {
+div#pview dl {
 	margin: 5px 0 0 0;
 }
-div#photoview dl dd.commentsnum {
+div#pview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
 	font-size: 85%;
 }
-div#photoview dl dd.addfav, div#photoview dl dd.addtag{
+div#pview dl dd.addfav, div#pview dl dd.addtag{
 	display: inline;
 }
-div#photoview dl dd.addtag span {
+div#pview dl dd.addtag span {
 	padding: 0 0 0 21px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1401px;
 }
 /* all this trouble to make it resizable :-) */
-div#photoview div.pthumbs {
+div#pview div.pthumbs {
     height: 110px;
 	margin: 50px 0 20px 0;
     text-align: center;
     width: 96%;
 }
-div#photoview div.pthumbs div.arrow {
+div#pview div.pthumbs div.arrow {
     height: 150px;
     line-height: 150px;
     width: 50px;
 }
-div#photoview div.pthumbs div.arrow a img {
+div#pview div.pthumbs div.arrow a img {
 	border: none;
 	margin-bottom: 30px;
     vertical-align: middle;
 }
-div#photoview div.pthumbs div.arrow a {
+div#pview div.pthumbs div.arrow a {
     vertical-align: middle;
 }
-div#photoview div.pthumbs div.left {
+div#pview div.pthumbs div.left {
     float: left;
 }
-div#photoview div.pthumbs div.right {
+div#pview div.pthumbs div.right {
     float: right;
 }
-div#photoview div.pthumbs ul {
+div#pview div.pthumbs ul {
 	height: 110px;
 	text-align: center;
 }
-div#photoview div.pthumbs ul li {
+div#pview div.pthumbs ul li {
     margin: 25px 2px 0 2px;
 	display: inline;
 }
-div#photoview div.pthumbs ul li.selected img {
+div#pview div.pthumbs ul li.selected img {
 	border: 4px solid #82a4b6;
 	padding: 1px;
 }
-div#photoview div.pthumbs ul li a img {
+div#pview div.pthumbs ul li a img {
 	border: 1px solid #ccc;
 	padding: 1px;	
 }
-div#photoview div.thephoto {
+div#pview div.thephoto {
 	text-align:center;
 	padding-top: 0;
 	position: relative;
 	margin: auto;
 }
-div#photoview div.banner {
+div#pview div.banner {
 	margin: 20px 0 0 0;
 }
-div#photoview div.comments {
+div#pview div.comments {
 	margin: 20px 0 0 0;
 }
-div#photoview div.comments div.pagifycomments {
+div#pview div.comments div.pagifycomments {
 	text-align: center;
 }

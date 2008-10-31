@@ -68,7 +68,7 @@
             }
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $image );
-            ?><div id="photoview">
+            ?><div id="pview">
                 <h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
@@ -146,7 +146,7 @@
                         if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
-                            ?>' )"><span>&nbsp;</span>Ορισμός προεπιλεγμένης</a>
+                            ?>' )"><span class="s_mainimage">&nbsp;</span>Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }
                     ?></div><?php
