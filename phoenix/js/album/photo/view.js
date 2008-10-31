@@ -28,7 +28,7 @@ var PhotoView = {
 		.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη' ) )
 		.css( "opacity" , "0" )
 		.show()
-		.animate( { opacity : "1" } , 400 );
+		.fadeIn( 400 );
 		return false;
 	},
 	AddFav : function( photoid , linknode ) {
