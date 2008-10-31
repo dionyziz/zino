@@ -16,7 +16,6 @@ var JournalView = {
 				.find( 'span' )
 				.removeClass( 's_addfav' )
 				.addClass( 's_isaddedfav' )
-				.empty()
 				.animate( { opacity: "1" } , 800 );
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
