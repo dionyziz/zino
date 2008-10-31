@@ -18,30 +18,30 @@
                 return;
             }
             
-            Element( 'user/sections', 'album' , $album->User );
+            Element( 'user/sections', 'album' , $album->Owner );
             ?><div id="photolist"><?php
                 if ( $album->IsDeleted() ) {
                     $page->SetTitle( 'Το album έχει διαγραφεί' ); 
                     ?>Το album έχει διαγραφεί</div><div class="eof"></div><?php
                     return;
                 }
-                $water->Trace( "egoalbumid " . $album->User->Egoalbumid );
+                $water->Trace( "egoalbumid " . $album->Owner->Egoalbumid );
                 $water->Trace( "albumid " . $album->Id );
                 $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $album , ( $pageno - 1 )*20 , 20 );
-                if ( $album->Id == $album->User->Egoalbumid ) {
-                    if ( strtoupper( substr( $album->User->Name, 0, 1 ) ) == substr( $album->User->Name, 0, 1 ) ) {
-                        $page->SetTitle( $album->User->Name . " Φωτογραφίες" );
+                $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
+                if ( $album->Id == $album->Owner->Egoalbumid ) {
+                    if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
+                        $page->SetTitle( $album->Owner->Name . " Φωτογραφίες" );
                     }
                     else {
-                        $page->SetTitle( $album->User->Name . " φωτογραφίες" );
+                        $page->SetTitle( $album->Owner->Name . " φωτογραφίες" );
                     }
                 }
                 else {
                     $page->SetTitle( $album->Name );
                 }
                 ?><h2><?php
-                if ( $album->Id == $album->User->Egoalbumid ) {
+                if ( $album->Id == $album->Owner->Egoalbumid ) {
                     ?>Εγώ<?php
                 }
                 else {
@@ -60,7 +60,7 @@
                         ?></dt><?php
                     }
                 ?></dl><?php
-                if ( $album->User->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) {
+                if ( $album->Owner->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) {
                     if ( $album->Id != $user->Egoalbumid ) {
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
@@ -73,7 +73,7 @@
                         </div><?php
                     }
                 }
-                if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+                if ( $album->Owner->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                     ?><div class="uploaddiv"><?php
                     if ( UserBrowser() == 'MSIE' ) {
                         ?>
