@@ -191,27 +191,28 @@
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimageid' ] ) ) {
                 if ( $this->Ownertype == TYPE_USERPROFILE ) {
-                    if ( $this->User->EgoAlbum->Id == $this->Id ) {
-                        $this->User->Avatarid = $this->Mainimageid;
-                        $this->User->Save();
+                    if ( $this->Owner->EgoAlbum->Id == $this->Id ) {
+                        $this->Owner->Avatarid = $this->Mainimageid;
+                        $this->Owner->Save();
                     }
                 }
             }
         }
         protected function OnCreate() {
             global $libs;
+            
             $libs->Load( 'event' );
 
             if ( $this->Ownertype == TYPE_USERPROFILE ) {
-                ++$this->User->Count->Albums;
-                $this->User->Count->Save();
+                ++$this->Owner->Count->Albums;
+                $this->Owner->Count->Save();
             }
             
             /*
             $event = New Event();
             $event->Typeid = EVENT_ALBUM_CREATED;
             $event->Itemid = $this->Id;
-            $event->Userid = $this->Ownerid;
+            $event->Ownerid = $this->Ownerid;
             $event->Save();
             */
         }
