@@ -30,9 +30,6 @@ div#journalview div.journal dl dd.addfav {
 	padding: 0 0 0 2px;
 	display: inline;
 }
-div#journalview div.journal dl dd.addfav a span.s_isaddedfav {
-	cursor: default;
-}
 div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
 	margin-left: 5px;
 	display: inline;

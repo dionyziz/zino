@@ -8,10 +8,13 @@ var JournalView = {
 	AddFav : function( journalid , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
 			$( linknode ).animate( { opacity: "0" } , 800 , function() {
-				$( linknode ).attr( {
+				$( linknode )
+				.css( 'cursor' , 'default' )
+				.attr( {
 					href : '',
 					title : 'Αγαπημένο'
 				} )
+				.find( 'span' )
 				.removeClass( 's_addfav' )
 				.addClass( 's_isaddedfav' )
 				.empty()
