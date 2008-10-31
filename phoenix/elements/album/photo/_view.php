@@ -18,7 +18,7 @@
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $image = New Image( $id );
-            die( $image->Albumid . '.' );
+            die( $image->Album->Id . '.' );
             
             $relfinder = New FriendRelationFinder();
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
