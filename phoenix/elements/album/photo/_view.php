@@ -51,14 +51,14 @@
                 $page->SetTitle( $title );
             }
             else {
-                if ( $image->Album->User->Egoalbumid == $image->Album->Id ) {
-                    if ( strtoupper( substr( $image->Album->User->Name, 0, 1 ) ) == substr( $image->Album->User->Name, 0, 1 ) ) {
-                        $page->SetTitle( $image->Album->User->Name . " Φωτογραφίες" );
+                if ( $image->Album->Owner->Egoalbumid == $image->Album->Id ) {
+                    if ( strtoupper( substr( $image->Album->Owner->Name, 0, 1 ) ) == substr( $image->Album->Owner->Name, 0, 1 ) ) {
+                        $page->SetTitle( $image->Album->Owner->Name . " Φωτογραφίες" );
                     }
                     else {
-                        $page->SetTitle( $image->Album->User->Name . " φωτογραφίες" );
+                        $page->SetTitle( $image->Album->Owner->Name . " φωτογραφίες" );
                     }
-                    $title = $image->User->Name;
+                    $title = $image->Owner->Name;
                 }    
                 else {
                     $page->SetTitle( $image->Album->Name );
