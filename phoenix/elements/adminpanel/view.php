@@ -33,12 +33,15 @@
                 ?><p>Failure...</p><?php
             }
             
-            /*
-            $to = 'pagio91i@gmail.com';
-            $subject = 'Zino';
-            $message = 'Ο φιλος σου Χ σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr!Είσαι μέσα?';
-            $headers = 'From: oniz@kamibu.gr';
-            mail( $to, $subject, $message, $headers );*/
+            
+            $toname = 'pagio91i@gmail.com';
+            $toemail = 'pagio91i@gmail.com';
+            $subject = 'Πρόσκληση!';
+            $message = 'Ο φιλος σου ' . $user->Name . ' σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr!Είσαι μέσα?';
+            $fromname = 'zino';
+            $fromemail = 'oniz@kamibu.gr';            
+            Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
+            
         }
     }
 ?>
