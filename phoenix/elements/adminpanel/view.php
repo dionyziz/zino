@@ -38,9 +38,9 @@
             
             $toname = 'φιλος του ' . $user->Name;
             $toemail = 'pagio91@hotmail.com';
-            $subject = 'Πρόσκληση απο τον ' . $user->Name . ' !';
+            $subject = 'Πρόσκληση απο τον ' . $user->Name;
             $message = 'Ο φιλος σου ' . $user->Name . ' σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr! Είσαι μέσα?';
-            $fromname = $user->Name;
+            $fromname = 'Zino community - ' . $user->Name;
             $fromemail = 'oniz@kamibu.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
             
