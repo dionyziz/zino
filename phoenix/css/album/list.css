@@ -1,13 +1,11 @@
 ul.albums {
-    padding: 0;
     margin: 0 20px 0 200px;
 }
 ul.albums li {
     float: left;
     width: 180px;
-    list-style: none;
     padding: 10px;
-    margin: 0 15px 0 15px;
+    margin: 0 15px;
 	height: 220px;
 }
 ul.albums li a {
@@ -23,9 +21,7 @@ span.desc {
 /*
 ul.albums li a div {*/
 span.albummain {
-    background-image: url( 'images/album.png' );
-    background-position: top left;
-    background-repeat: no-repeat;
+    background: url( 'images/album.png' ) no-repeat top left;
     width: 185px;
     height: 185px;
     line-height: 175px;
@@ -39,18 +35,17 @@ span.albummain a img {
     border: 2px solid #7ea3c2;
 }
 ul.albums li.create {
-	padding-top: 85px;
+	padding: 85px 0 0 0;
 	text-align: center;
 	height: 160px;
 	margin-bottom: 0;
-	
 }
 ul.albums li.create a {
 	font-weight: bold;
 }
 ul.albums li.create a img {
 	vertical-align: -10px;
-	margin-right: 5px;
+	margin: 0 5px 0 0;
 }
 ul.albums li a:hover span img {
     border: 2px solid white;
