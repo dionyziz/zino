@@ -7,16 +7,16 @@ var JournalView = {
 	},
 	AddFav : function( journalid , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
-			$( linknode ).animate( { opacity: "0" } , 800 , function() {
+			$( linknode ).fadeOut( 800 , function() {
 				$( linknode )
 				.attr( {
 					href : '',
 					title : 'Αγαπημένο'
 				} )
-				.find( 'span' )
 				.removeClass( 's_addfav' )
 				.addClass( 's_isaddedfav' )
-				.animate( { opacity: "1" } , 800 );
+				.empty()
+				.fadeIn( 800 );
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
 		}
