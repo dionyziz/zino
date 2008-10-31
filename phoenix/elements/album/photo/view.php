@@ -84,7 +84,7 @@
                 ?></a>
                 <dl><?php
                     if ( $image->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span>&nbsp;</span><?php
+                        ?><dd class="commentsnum"><span class="s_commnum" >&nbsp;</span><?php
                         echo $image->Numcomments;
                         ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
@@ -96,14 +96,7 @@
                         ?></dd><?php
                     }
                     if( $user->Id != $image->User->Id ) { 
-                        ?><dd class="addfav"><a href="" class="<?php
-                        if ( !$fav ) {
-                            ?>add<?php
-                        }
-                        else {
-                            ?>isadded<?php
-                        }
-                        ?>" title="<?php
+                        ?><dd class="addfav"><a href="" title="<?php
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         } 
@@ -112,7 +105,14 @@
                         }
                         ?>" onclick="return PhotoView.AddFav( '<?php
                         echo $image->Id;
-                        ?>' , this )"><span>&nbsp;</span><?php
+                        ?>' , this )"><span class="<?php
+                        if ( !$fav ) {
+                            ?>s_addfav<?php
+                        }
+                        else {
+                            ?>s_isaddedfav<?php
+                        }
+						?>">&nbsp;</span><?php
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
@@ -132,7 +132,7 @@
                         echo $image->Id;
                         ?>' , <?php
                         echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-                        ?> )"><span>&nbsp;</span><?php
+                        ?> )"><span class="s_edit">&nbsp;</span><?php
                         if ( $image->Name == '' ) {
                             ?>Όρισε όνομα<?php
                         }
@@ -142,7 +142,7 @@
                         ?></a></div>
                         <div class="delete"><a href="" onclick="return PhotoView.Delete( '<?php
                         echo $image->Id;
-                        ?>' )"><span>&nbsp;</span>Διαγραφή</a></div><?php
+                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a></div><?php
                         if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><div class="mainimage"><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;

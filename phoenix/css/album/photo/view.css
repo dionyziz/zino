@@ -35,7 +35,7 @@ div#photoview dl {
 div#photoview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
-	font-size: 90%;
+	font-size: 85%;
 }
 div#photoview dl dd.commentsnum span {
 	padding: 0 0 0 15px;

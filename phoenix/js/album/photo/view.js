@@ -32,16 +32,16 @@ var PhotoView = {
 		return false;
 	},
 	AddFav : function( photoid , linknode ) {
-		if ( $( linknode ).hasClass( 'add' ) ) {
-			$( linknode ).animate( { opacity: "0" } , 800 , function() {
+		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
+			$( linknode ).fadeOut( 800 , function() {
 				$( linknode ).attr( {
 					href : '',
 					title : 'Αγαπημένο'
 				} )
-				.removeClass( 'add' )
-				.addClass( 'isadded' )
+				.removeClass( 's_addfav' )
+				.addClass( 's_isaddedfav' )
 				.empty()
-				.animate( { opacity: "1" } , 800 );
+				.fadeIn( 800 );
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
 		}
