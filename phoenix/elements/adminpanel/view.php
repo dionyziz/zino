@@ -26,7 +26,8 @@
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
-	        $state = GetContacts( $username, $pass );
+	        //$state = GetContacts( $username, $pass );
+	        $state = true;
 	        if( $state == true ) {
                 ?><p>Success!</p><?php
             }
