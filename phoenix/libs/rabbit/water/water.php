@@ -223,7 +223,7 @@
             $this->AppendAlert( $type, $errstr, microtime( true ), $backtrace );
         }
         public function HandleException( Exception $e ) {
-            assert( false, $e->getMessage() );
+            w_assert( false, $e->getMessage() );
             // $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ), $e->getTrace() );
         }
         public function __destruct() {

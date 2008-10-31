@@ -19,8 +19,6 @@
     
     Rabbit_Construct( 'HTML' );
 
-    w_assert( false, 'Just testing' );
-
     $req = $_GET;
 
     Rabbit_ClearPostGet();
