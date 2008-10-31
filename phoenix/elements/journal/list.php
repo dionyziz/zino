@@ -50,7 +50,7 @@
             $journals = $finder->FindByUser( $theuser , ( $pageno - 1 )*5 , 5 );
             
             Element( 'user/sections' , 'journal' , $theuser );
-            ?><div id="journallist">
+            ?><div id="jlist">
                 <ul><?php
                     if ( $theuser->Id == $user->Id ) {
                         ?><li class="create">

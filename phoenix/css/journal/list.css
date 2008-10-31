@@ -1,28 +1,28 @@
-div#journallist {
+div#jlist {
 	margin: 0 0 20px 0;
 }
-div#journallist > ul {
+div#jlist > ul {
 	margin: 0 0 0 170px;
 	width: 60%;
 }
-div#journallist ul li {
+div#jlist ul li {
 	padding: 10px 0 25px 0;
 }
-div#journallist ul li div.barfade {
+div#jlist ul li div.barfade {
 	margin: 5px 0 0 0;
 	clear: right;
 }
-div#journallist ul li div.journalsmall ul {
+div#jlist ul li div.journalsmall ul {
 	width: 100%;
 }
-div#journallist ul li.create a {
+div#jlist ul li.create a {
 	font-weight: bold;
 }
-div#journallist ul li.create a img {
+div#jlist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
 }
-div#journallist div.pagifyjournals {
+div#jlist div.pagifyjournals {
 	text-align: center;
 	margin-top: 10px;
 }
