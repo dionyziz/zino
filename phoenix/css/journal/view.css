@@ -11,10 +11,12 @@ div#journalview div.owner {
 div#journalview div.owner div.edit {
 	display: inline;
 }
+/*
 div#journalview div.owner div.edit a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
 	padding: 0 0 0 16px;
 }
+*/
 div#journalview div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
@@ -27,8 +29,6 @@ div#journalview div.owner div.delete a span {
 */
 div#journalview div.journal dl {
 	text-align: left;
-	padding: 0;
-	margin: 0;
 }
 div#journalview div.journal dl dd.createdate {
     margin-bottom: 10px;
@@ -61,9 +61,11 @@ div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delet
 	margin-left: 5px;
 	display: inline;
 }
+/*
 div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd.delete a img {
 	padding-right: 2px;
 }
+*/
 div#journalview div.journal p {
 	text-align: left;
 	width: 70%;

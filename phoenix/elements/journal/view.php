@@ -73,7 +73,7 @@
                                     <div class="edit">
                                         <a href="?p=addjournal&amp;id=<?php
                                         echo $journal->Id;
-                                        ?>"><span>&nbsp;</span>Επεξεργασία</a>
+                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία</a>
                                     </div>
                                     <div class="delete">
                                         <a href="" onclick="JournalView.Delete( '<?php
