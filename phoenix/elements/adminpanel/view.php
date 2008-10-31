@@ -36,12 +36,12 @@
             }
             
             
-            $toname = 'you!';
+            $toname = $user->Name;
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση απο τον ' . $user->Name;
             $message = 'Ο φιλος σου  http://' . $user->Name . '.zino.gr σε προσκαλεί να γίνεις μέλος στο http://www.zino.gr !Είσαι μέσα?';
-            $fromname = 'Zino community - ' . $user->Name;
-            $fromemail = 'oniz@kamibu.gr';            
+            $fromname = 'Zino';
+            $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
             
         }
