@@ -208,7 +208,7 @@
             global $user;
             
             $this->Created = NowDate();
-            $this->Userid = $user->Id;
+            $this->Ownerid = $user->Id;
             $this->Userip = UserIp();
         }
     }
