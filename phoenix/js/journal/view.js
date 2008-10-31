@@ -9,7 +9,6 @@ var JournalView = {
 		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
 			$( linknode ).animate( { opacity: "0" } , 800 , function() {
 				$( linknode )
-				.css( 'cursor' , 'default' )
 				.attr( {
 					href : '',
 					title : 'Αγαπημένο'
