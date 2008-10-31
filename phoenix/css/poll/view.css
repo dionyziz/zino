@@ -32,11 +32,6 @@ div#poview dd.delete {
     display: inline;
     padding: 0 0 0 2px;
 }
-/*
-div#poview dd.delete a span {
-	margin: 0 2px 0 0;
-}
-*/
 div#poview dl dd.createdate {
     margin: 0 0 10px 0;
 }
@@ -45,9 +40,3 @@ div#poview dl dd.commentsnum {
 	display: inline;
 	font-size: 90%;
 }
-/*
-div#poview dl dd.commentsnum span {
-	padding: 0 0 0 15px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-}
-*/

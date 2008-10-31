@@ -23,7 +23,7 @@
                         if ( $journal->Numcomments > 0 ) {
                             ?><dt class="commentsnum"><a href="?p=journal&amp;id=<?php
                             echo $journal->Id;
-                            ?>"><span>&nbsp;</span><?php
+                            ?>"><span class="s_commnum">&nbsp;</span><?php
                             echo $journal->Numcomments;
                             ?> σχόλι<?php
                             if ( $journal->Numcomments == 1 ) {

@@ -31,10 +31,6 @@ div.jsmall ul li dt {
 div.jsmall ul li dl dt.commentsnum {
 	vertical-align: 3px;
 }
-div.jsmall ul li dl dt.commentsnum a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-	padding: 0 0 0 17px;
-}
 div.jsmall ul li dl dt.commentsnum a {
 	font-size: 90%;
 }
