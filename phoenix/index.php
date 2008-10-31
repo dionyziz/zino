@@ -15,6 +15,8 @@
 
     require_once 'libs/rabbit/rabbit.php';
     
+    define( 'WATER_ENABLE', false );
+    
     Rabbit_Construct( 'HTML' );
 
     $req = $_GET;
