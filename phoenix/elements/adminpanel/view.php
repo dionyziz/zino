@@ -20,25 +20,19 @@
 	        ?></ul><?php    
 	        
 	        
-	        /*global $libs;
-	        $libs->Load( 'contacts/fetcher' );
+	        global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
-	        $fetcher = new ContactsFetcher();
-	        $state = $fetcher->Login( $username, $pass );
-	        if ( $state == true ) {    	        
-    	        $contacts = $fetcher->Retrieve();	        
-    	        $contact = new Contact();
-    	        foreach ( $contacts as $key=>$val ) {
-                    echo '<p>'.$key.' '.$val.'</p>';
-                    $contact->AddContact( $key, $username );
-                }
+	        $state = GetContacts( $username, $pass );
+	        if( $state == true ) {
+                ?><p>Success!</p><?php
             }
             else {
-                ?><p>There was a problem while trying to retreive your contacts</p><?php
+                ?><p>Failure...</p><?php
             }
+            
             /*
             $to = 'pagio91i@gmail.com';
             $subject = 'Zino';
