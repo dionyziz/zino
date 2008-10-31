@@ -32,7 +32,9 @@
     
     function w_assert( $condition, $description = false ) {
         if ( !$condition ) {
-            die( 'Assertion failed: ' . $description );
+            echo 'Assertion failed: ' . $description;
+            print_r( debug_backtrace() );
+            die();
         }
     }
 
