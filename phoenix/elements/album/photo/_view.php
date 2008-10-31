@@ -18,8 +18,6 @@
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $image = New Image( $id );
-            $album = New Album( 6019 );
-            die( 'Breakpoint 0833' );
             die( $image->Album->Id . '.' );
             
             $relfinder = New FriendRelationFinder();
