@@ -22,6 +22,7 @@
 	        
 	        global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
+	        $libs->Load( 'rabbit/helpers' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
