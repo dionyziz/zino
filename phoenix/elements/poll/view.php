@@ -28,7 +28,7 @@
                     }
                     Element( 'user/sections' , 'poll' , $poll->User );
                     if ( !$poll->IsDeleted() ) {
-                        ?><div id="pollview"><?php
+                        ?><div id="poview"><?php
                         $page->SetTitle( $poll->Question );
                         ?><h2><?php
                             echo htmlspecialchars( $poll->Question );
