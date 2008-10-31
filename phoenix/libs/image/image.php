@@ -286,7 +286,7 @@
             $this->mTemporaryFile = $value;
             w_assert( !empty( $this->mTemporaryFile ), 'Could not set mTemporaryFile' );
 
-            if ( filesize( $value ) > 4 * 1024 * 1024 ) { // 1 MB
+            if ( filesize( $value ) > 4 * 1024 * 1024 ) { // 4 MB
                 return -1;
             }
             return 0;
