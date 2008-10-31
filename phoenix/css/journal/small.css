@@ -16,10 +16,9 @@ div.jsmall p {
 	margin: 0;
 	/*border-bottom: 1px solid #cfcfcf;*/
 }
-div.jsmall ul {
+div.jsmall ul !important {
 	padding: 3px 0 0 0;
 	width: 100%;
-	margin: 0;
 }
 div.jsmall ul li {
 	display: inline;
