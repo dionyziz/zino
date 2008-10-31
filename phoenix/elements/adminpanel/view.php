@@ -34,7 +34,7 @@
                 ?><p>Failure...</p><?php
             }
             
-            
+            /*
             $toname = 'pagio91@hotmail..com';
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση!';
@@ -42,7 +42,7 @@
             $fromname = 'zino';
             $fromemail = 'oniz@kamibu.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
-            
+            */
         }
     }
 ?>
