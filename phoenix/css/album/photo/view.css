@@ -16,13 +16,8 @@ div#photoview div.owner div.mainimage {
 	margin: 0 0 0 8px;
 	display: inline;
 }
-div#photoview div.owner div.mainimage a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -233px -1078px;
-	padding: 0 0 0 16px;
-}
 div#photoview dl {
 	margin: 5px 0 0 0;
-	padding: 0;
 }
 div#photoview dl dd.commentsnum {
 	margin: 0 5px 0 0;
@@ -35,10 +30,6 @@ div#photoview dl dd.addfav, div#photoview dl dd.addtag{
 div#photoview dl dd.addtag span {
 	padding: 0 0 0 21px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1401px;
-}
-div#photoview dl dd.addfav a span {
-	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat;
-	padding: 0 0 0 16px;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.pthumbs {
@@ -89,10 +80,10 @@ div#photoview div.thephoto {
 	margin: auto;
 }
 div#photoview div.banner {
-	margin-top: 20px;
+	margin: 20px 0 0 0;
 }
 div#photoview div.comments {
-	margin-top: 20px;
+	margin: 20px 0 0 0;
 }
 div#photoview div.comments div.pagifycomments {
 	text-align: center;
