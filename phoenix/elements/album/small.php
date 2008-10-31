@@ -9,7 +9,7 @@
             if ( !$creationmockup ) {
                 $commentsnum = $album->Numcomments;
                 $photonum = $album->Numphotos;
-                if ( $album->Id == $album->User->Egoalbumid ) {
+                if ( $album->Id == $album->Owner->Egoalbumid ) {
                     $albumname = 'Εγώ';
                 }
                 else {
