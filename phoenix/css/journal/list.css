@@ -1,7 +1,7 @@
 div#journallist {
 	margin: 0 0 20px 0;
 }
-div#journallist ul {
+div#journallist > ul {
 	margin: 0 0 0 170px;
 	width: 60%;
 }
