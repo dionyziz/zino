@@ -45,6 +45,9 @@ div#schview div.photos div.plist ul li {
 	height: 110px;
 	text-align: center;
 }
+div#schview div.photos div.plist ul li:first-child {
+	margin-left: 0;
+}
 div#schview div.comments {
 	margin: 20px 0 0 0;
 }
