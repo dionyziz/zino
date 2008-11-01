@@ -16,6 +16,9 @@ div.gname h3 {
 div#schview > div {
 	padding: 20px 0 0 0;
 }
+div#schview div.eof {
+	padding: 0;
+}
 div#schview h4 {
 	padding: 0;
 	margin: 0;
