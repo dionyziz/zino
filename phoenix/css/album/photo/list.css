@@ -11,34 +11,18 @@ div#photolist div.owner {
 div#photolist div.owner div.edit {
 	display: inline;
 }
-div#photolist div.owner div.edit a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
-	padding: 0 0 0 16px;
-}
 div#photolist div.owner div.delete {
 	margin: 0 0 0 5px;
 	display: inline;
-}
-div#photolist div.owner div.delete a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
-	padding: 0 0 0 13px;
 }
 div#photolist dl dt.photonum {
 	display: inline;
 	font-size: 90%;
 }
-div#photolist dl dt.photonum span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -480px;
-	padding: 0 0 0 14px;
-}
 div#photolist dl dt.commentsnum {
 	margin: 0 5px 2px 3px;
-	font-size: 90%;
+	font-size: 85%;
 	display: inline;
-}
-div#photolist dl dt.commentsnum span {
-	padding: 0 0 0 15px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 }
 div#photolist ul {
 	padding: 10px 0 0 0;

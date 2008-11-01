@@ -7,6 +7,7 @@ var PhotoList = {
 			Coala.Warm( 'album/delete' , { albumid : albumid } );
 		}
 		$( 'div#photolist div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );		
+		return false;
 	},
 	Rename : function( albumid ) {
 		if ( !PhotoList.renaming ) {
@@ -22,6 +23,7 @@ var PhotoList = {
 			$( 'div#photolist h2' ).empty().append( inputbox );
 		}
 		$( 'div#photolist h2 input' )[ 0 ].select();
+		return false;
 	},
 	UploadPhoto : function() {
 		$( 'form#uploadform' )[ 0 ].submit();

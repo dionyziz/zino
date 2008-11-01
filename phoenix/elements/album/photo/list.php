@@ -50,12 +50,12 @@
                 ?></h2>
                 <dl><?php
                     if ( $album->Numphotos > 0 ) {
-                        ?><dt class="photonum"><span>&nbsp;</span><?php
+                        ?><dt class="photonum"><span class="s_photonum">&nbsp;</span><?php
                         echo $album->Numphotos;
                         ?></dt><?php
                     }
                     if ( $album->Numcomments > 0 ) {
-                        ?><dt class="commentsnum"><span>&nbsp;</span><?php
+                        ?><dt class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
                         echo $album->Numcomments;
                         ?></dt><?php
                     }
@@ -63,13 +63,13 @@
                 if ( $album->Owner->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) {
                     if ( $album->Id != $user->Egoalbumid ) {
                         ?><div class="owner">
-                            <div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
+                            <div class="edit"><a href="" onclick="return PhotoList.Rename( '<?php
                             echo $album->Id;
-                            ?>' );return false"><span>&nbsp;</span>Μετονομασία</a>
+                            ?>' )"><span class="s_edit">&nbsp;</span>Μετονομασία</a>
                             </div>
-                            <div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
+                            <div class="delete"><a href="" onclick="return PhotoList.Delete( '<?php
                             echo $album->Id;
-                            ?>' );return false"><span>&nbsp;</span>Διαγραφή</a></div>
+                            ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a></div>
                         </div><?php
                     }
                 }
