@@ -67,6 +67,7 @@ var PollList = {
 			return false;
 		} );
 		$( 'div#polllist ul li.create' ).empty().append( link );
+		return false;
 	},
 	Cancel : function() {
 		PollList.numoptions = 0;
