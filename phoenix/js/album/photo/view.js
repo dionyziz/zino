@@ -51,16 +51,18 @@ var PhotoView = {
 		var name = elem.value;
 		if ( photoname != name ) {
 			Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
+			var span = document.createElement( 'span' );
+			$( span ).addClass( 's_edit' );
 			if ( name === '' ) {
 				window.document.title = albumname + ' | ' + ExcaliburSettings.applicationname;
 				$( 'div.owner div.edit a' ).empty()
-				.append( document.createElement( 'span' ) )
+				.append( span )
 				.append( document.createTextNode( 'Όρισε όνομα' ) );
 			}
 			else {
 				window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
 				$( 'div.owner div.edit a' ).empty()
-				.append( document.createElement( 'span' ) )
+				.append( span )
 				.append( document.createTextNode( 'Μετονομασία' ) );
 			}
 		}
