@@ -41,7 +41,7 @@ div#schview div.photos div.plist ul {
 }
 div#schview div.photos div.plist ul li {
 	float: left;
-	margin: 5px;
+	margin: 0 5px 5px 5px;
 	height: 110px;
 	text-align: center;
 }
