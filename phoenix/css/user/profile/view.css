@@ -123,6 +123,7 @@ div#profile div.sidebar div.social dl dd {
 div#profile div.sidebar div.social ul {
 	float:left;
 	padding:3px 0;
+	margin: 10px 0 0 0;
 }
 div#profile div.sidebar div.social li {
 	clear: both;
