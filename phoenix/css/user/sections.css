@@ -1,6 +1,5 @@
 div.usersections {
 	padding: 25px 0 5px 0;
-
 }
 div.usersections a img {
 	float: left;
@@ -15,12 +14,8 @@ div.usersections a span.name {
 div.usersections ul {
 	margin: 0 0 0 160px;
 	padding: 15px 10px 0 0;
-	list-style: none;
 	text-align: right;
-	background-color: white;
-	background-image: url('http://static.zino.gr/phoenix/copybg_rev.jpg');
-	background-repeat: repeat-x;
-	background-position: 0 -8px;
+	background: #fff url( 'http://static.zino.gr/phoenix/copybg_rev.jpg' ) repeat-x 0 -8px;
 	height: 30px;
 	vertical-align: bottom;
 }
