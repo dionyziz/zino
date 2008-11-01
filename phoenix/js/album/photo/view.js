@@ -52,7 +52,7 @@ var PhotoView = {
 		if ( photoname != name ) {
 			Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 			var span = document.createElement( 'span' );
-			$( span ).addClass( 's_edit' ).css( 'paddingLeft' , '18px' );
+			$( span ).addClass( 's_edit' ).css( 'paddingLeft' , '19px' );
 			if ( name === '' ) {
 				window.document.title = albumname + ' | ' + ExcaliburSettings.applicationname;
 				$( 'div.owner div.edit a' ).empty()
