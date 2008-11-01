@@ -25,7 +25,7 @@ var Profile = {
 		return false;
 	},
 	DeleteFriend : function( relationid ) {
-		$( 'div.sidebar div.basicinfo div.deletefriend a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
+		$( 'div.sidebar div.basicinfo div a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
 			$( this )
 			.parent()
 			.css( 'display' , 'hidden' )
