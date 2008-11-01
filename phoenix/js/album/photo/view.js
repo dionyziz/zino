@@ -4,16 +4,16 @@ var PhotoView = {
 		if ( !PhotoView.renaming ) {
 			PhotoView.renaming = true;
 			var inputbox = document.createElement( 'input' );
-			var photoname = $( 'div#photoview h2' ).text();
+			var photoname = $( 'div#pview h2' ).text();
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					PhotoView.renameFunc( this, photoid, photoname, albumname );
 				}
 			} ).blur( function() { PhotoView.renameFunc( this, photoid, photoname, albumname ); } );
 			$( inputbox )[ 0 ].value = photoname;
-			$( 'div#photoview h2' ).empty().append( inputbox );
+			$( 'div#pview h2' ).empty().append( inputbox );
 		}
-		$( 'div#photoview h2 input' )[ 0 ].select();
+		$( 'div#pview h2 input' )[ 0 ].select();
 		return false;
 	},
 	Delete : function( photoid ) {
@@ -24,7 +24,7 @@ var PhotoView = {
 	},
 	MainImage : function( photoid ) {
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
-		$( 'div#photoview div.owner div.mainimage' ).hide().empty()
+		$( 'div#pview div.owner div.mainimage' ).hide().empty()
 		.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη' ) )
 		.css( "opacity" , "0" )
 		.show()
@@ -60,7 +60,7 @@ var PhotoView = {
 				$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Μετονομασία' ) );
 			}
 		}
-		$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
+		$( 'div#pview h2' ).empty().append( document.createTextNode( name ) );
 		PhotoView.renaming = false;
 	}
 };
