@@ -14,23 +14,23 @@ var Profile = {
         if ( !this.AntisocialCalled ) {
             return this.AntisocialAddFriend( userid );
         }
-		$( 'div.sidebar div.basicinfo div.addfriend a' ).hide( 400 , function() {
+		$( 'div.sidebar div.basicinfo div a span.s_addfriend' ).parent().fadeOut( 400 , function() {
 			$( this )
 			.parent()
 			.css( 'display' , 'hidden' )
 			.append( document.createTextNode( 'Έγινε προσθήκη' ) )
-			.show( 400 );
+			.fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 		return false;
 	},
 	DeleteFriend : function( relationid ) {
-		$( 'div.sidebar div.basicinfo div.deletefriend a' ).hide( 400 , function() {
+		$( 'div.sidebar div.basicinfo div.deletefriend a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
 			$( this )
 			.parent()
 			.css( 'display' , 'hidden' )
 			.append( document.createTextNode( 'Έγινε διαγραφή' ) )
-			.show( 400 );
+			.fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
 		return false;
