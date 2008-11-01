@@ -53,11 +53,15 @@ var PhotoView = {
 			Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 			if ( name === '' ) {
 				window.document.title = albumname + ' | ' + ExcaliburSettings.applicationname;
-				$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Όρισε όνομα' ) );
+				$( 'div.owner div.edit a' ).empty()
+				.append( document.createElement( 'span' ) )
+				.append( document.createTextNode( 'Όρισε όνομα' ) );
 			}
 			else {
 				window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
-				$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Μετονομασία' ) );
+				$( 'div.owner div.edit a' ).empty()
+				.append( document.createElement( 'span' ) )
+				.append( document.createTextNode( 'Μετονομασία' ) );
 			}
 		}
 		$( 'div#pview h2' ).empty().append( document.createTextNode( name ) );
