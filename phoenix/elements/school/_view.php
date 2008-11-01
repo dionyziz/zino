@@ -2,13 +2,13 @@
 	
 	class ElementSchoolView extends Element {
 		public function Render() {
-			?><div id="schoolview">
+			?><div id="schlview">
 				<div class="gname">
 					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
 					<h2>Σχολή Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</h2>
 					<h3>Εθνικό Μετσόβειο Πολυτεχνείο</h3>
 				</div>
-				<div class="photos">
+				<div class="photos plist">
 					<h4>Φωτογραφίες</h4>
 					<ul>
 						<li>

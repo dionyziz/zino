@@ -52,9 +52,7 @@ div.frontpage div.ybubble div.body form div span {
 }
 div.lstimages {
     height: 130px;
-    /*overflow: hidden;*/
     margin: 0 4px 20px 4px;
-	/*position: relative;*/
 }
 div.lstimages ul {
     padding: 17px 0 14px 0;
