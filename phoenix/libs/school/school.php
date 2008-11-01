@@ -77,8 +77,12 @@
             }
         }
         public function OnCommentCreate() {
+            ++$this->Numcomments;
+            $this->Save();
         }
         public function OnCommentDelete() {
+            --$this->Numcomments;
+            $this->Save();
         }
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
