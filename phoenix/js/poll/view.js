@@ -6,8 +6,8 @@ var PollView = {
 		}
 	},
 	Vote : function( optionid , pollid , node ) {
-		var parent = $( 'div.pollsmall div.results' );
-		$( parent ).html( $( 'div.pollsmall div.voting' ).html() );
+		var parent = $( 'div.posmall div.results' );
+		$( parent ).html( $( 'div.posmall div.voting' ).html() );
 		//$( 'div.lastpoll div.container' ).css( { marginRight : '260px' } );
 		Coala.Warm( 'poll/vote' , { optionid : optionid , pollid : pollid , node : parent } );
 		//$( 'div.lastpoll' ).css( { marginRight : '0px' } );
