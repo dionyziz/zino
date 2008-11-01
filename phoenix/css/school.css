@@ -1,6 +1,7 @@
 div.gname img {
 	float: left;
 	border: 1px solid #cce;
+	margin: 0 7px 0 0;
 }
 div.gname h2 {
 	color: #105cb6;
