@@ -2,6 +2,9 @@ div.gname img {
 	float: left;
 	border: 1px solid #cce;
 }
+div.gname h2 {
+	color: #105cb6;
+}
 div#schview div.photos div.plist {
 	height: 130px;
 }
