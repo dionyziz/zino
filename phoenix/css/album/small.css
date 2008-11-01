@@ -9,9 +9,7 @@ div.album a span.desc {
 	overflow: hidden;
 }
 div.album a span.albummain {
-    background-image: url( 'http://static.zino.gr/phoenix/album.png' );
-    background-position: top left;
-    background-repeat: no-repeat;
+    background-image: url( 'http://static.zino.gr/phoenix/album.png' ) no-repeat top left;
     width: 185px;
     height: 185px;
     line-height: 175px;
@@ -31,20 +29,18 @@ div.album dl {
     display: block;
     margin: auto;
     width: 100px;
-    padding-top: 5px;
+    padding: 5px 0 0 0;
     white-space: nowrap;
     overflow: visible;
     text-align: center;
 }
 div.album dl dt {
     display: inline;
-    margin: 0;
     padding: 0  0 0 5px;
 }
 div.album dl dd {
     display: inline;
-    margin: 0;
     padding: 0 5px 0 0;
-    font-size: 80%;
+    font-size: 85%;
 	vertical-align: 3px;
 }

@@ -39,18 +39,12 @@
                     </a>
                     <dl><?php
                         if ( $photonum > 0 ) {
-                            ?><dt><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>imagegallery.png" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
-                            <dd><?php
+                            ?><dd><span class="s_photonum">&nbsp;</span><?php
                             echo $photonum;
                             ?></dd><?php
                         }
                         if ( $commentsnum > 0 ) {
-                            ?><dt><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-                            <dd><?php
+                            ?><dd><span class="s_commnum">&nbsp;</span><?php
                             echo $commentsnum;
                             ?></dd><?php
                         }
