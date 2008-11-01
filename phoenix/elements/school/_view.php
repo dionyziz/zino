@@ -50,6 +50,7 @@
 								<a href="http://metalo92.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/1522/111676/111676_100.jpg" style="width:100px;height:100px;" title="metalo92" alt="metalo92" /></span></a>
 							</li>
 						</ul> 
+					</div>
 				</div>
 				<div class="photos">
 					<h4>Φωτογραφίες</h4>
