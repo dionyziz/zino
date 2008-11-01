@@ -1,8 +1,8 @@
-div.schview div.photos ul {
+div#schview div.photos ul {
 	padding: 17px 0 14px 0;
 	height: 110px;
 }
-div.schview div.photos ul li {
+div#schview div.photos ul li {
 	float: left;
 	margin: 5px;
 	height: 110px;
