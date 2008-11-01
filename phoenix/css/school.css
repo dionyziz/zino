@@ -28,16 +28,16 @@ div#schview div.members div.people {
 	margin: 2px 0 0 0;
 }
 div#schview div.photos div.plist {
-	height: 110px;
+	height: 100px;
 	margin: 2px 0 0 0;
 }
 div#schview div.photos div.plist ul {
-	height: 110px;
+	height: 100px;
 }
 div#schview div.photos div.plist ul li {
 	float: left;
 	margin: 0 5px;
-	height: 110px;
+	height: 100px;
 	text-align: center;
 }
 div#schview div.photos div.plist ul li:first-child {
