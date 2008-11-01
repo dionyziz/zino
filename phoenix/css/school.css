@@ -11,10 +11,10 @@ div.gname h2 {
 	margin: 0;
 }
 div.gname h3 {
-	margin: 5px 0 0 0;
+	margin: 7px 0 0 0;
 }
 div#schview div.photos {
-	margin: 15px 0 0 0;
+	margin: 20px 0 0 0;
 }
 div#schview div.photos h4 {
 	padding: 0;
@@ -26,7 +26,6 @@ div#schview div.photos div.plist {
 	margin: 2px 0 0 0;
 }
 div#schview div.photos div.plist ul {
-	padding: 17px 0 14px 0;
 	height: 110px;
 }
 div#schview div.photos div.plist ul li {
@@ -35,6 +34,11 @@ div#schview div.photos div.plist ul li {
 	height: 110px;
 	text-align: center;
 }
+div#schview div.comments {
+	margin: 20px 0 0 0;
+}
 div#schview div.comments h4 {
 	color: #666;
+	padding: 0;
+	margin: 0;
 }	
