@@ -35,10 +35,6 @@ div#profile div.sidebar div.basicinfo div.common {
 div#profile div.sidebar div.basicinfo div.info {
 	clear: left;
 }
-div#profile div.sidebar div.basicinfo div dl {
-	padding: 0;
-	margin: 0;
-}
 div#profile div.sidebar div.basicinfo dl dt {
 	float: left;
 	width: 12em;
@@ -67,10 +63,6 @@ div#profile div.sidebar div.basicinfo h2 span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
-}
-div#profile div.sidebar dl.online {
-	padding: 0;
-	margin: 0;
 }
 div#profile div.sidebar dl.online dt{
 	display: block;
@@ -106,8 +98,6 @@ div#profile div.sidebar div.look img {
 }
 div#profile div.sidebar div.look ul {
 	margin: 0 0 0 30px;
-	padding: 0;
-	list-style: none;
 }
 div#profile div.sidebar div.look ul li {
 	font-weight: bold;
@@ -119,10 +109,6 @@ div#profile div.sidebar div.social {
 	clear: both;
 	margin-top: 10px;
 }
-div#profile div.sidebar div.social dl {
-	padding: 0;
-	margin: 0;
-}
 div#profile div.sidebar div.social dl dt {
 	float: left;
 	width: 170px;
@@ -130,18 +116,17 @@ div#profile div.sidebar div.social dl dt {
 }
 div#profile div.sidebar div.social dl dd {
 	text-align: left;
-	margin-left: 170px;
+	margin: 0 0 0 170px;
 	padding: 3px 0;
 	width: 100px;
 }
 div#profile div.sidebar div.social ul {
-	list-style: none;
 	float:left;
 	padding:3px 0;
 }
 div#profile div.sidebar div.social li {
 	clear: both;
-	margin-bottom: 4px;
+	margin: 0 0 4px 0;
 }
 div#profile div.sidebar div.social li strong {
 	display:block;
@@ -154,30 +139,22 @@ div#profile div.sidebar div.aboutme {
 }
 div#profile div.sidebar div.aboutme dl {
 	padding: 7px 0 0 0;
-	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dt {
 	padding: 3px 0 1px 0;
-	margin: 0;
 }
 div#profile div.sidebar div.aboutme dl dd {
-	margin: 0;
 	padding: 1px 0 0 0;
 }
 div#profile div.sidebar div.interests {
 	padding: 4px;
 	clear: both;
 }
-div#profile div.sidebar div.interests dl {
-	padding: 0;
-	margin: 0;
-}
 div#profile div.sidebar div.interests dl dt {
 	padding: 3px 0 1px 0;
 }
 div#profile div.sidebar div.interests dl dd {
 	padding: 1px 0 5px 0;
-	margin: 0;
 }
 div#profile div.sidebar div.contacts {
 	padding: 4px;
@@ -207,16 +184,6 @@ div#profile div.sidebar div.notice {
 	margin: 10px 0 20px 0;
 	text-align: left;
 }
-/*
-div#profile div.sidebar div.eof {
-    float: right;
-	position: relative;
-	top: 14px;
-	background-image: url('http://static.zino.gr/phoenix/sidebarend.jpg');
-	width: 41px;
-	height: 51px;
-}
-*/
 div#profile div#antisocial {
     background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
     padding: 10px;
@@ -230,7 +197,7 @@ div#profile div#antisocial div {
 }
 div#profile div#antisocial div a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -969px;
-	padding-left: 16px;
+	padding: 0 0 0 16px;
 }
 div#profile div.main {
 	padding: 14px 0 0 25px;
@@ -256,20 +223,20 @@ div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 }
 div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
     height: 40px;
-    margin-left: 30px;
+    margin: 0 0 0 30px;
 }
 div#profile div.main div.photos {
 	height: 115px;
 }
 div#profile div.main div.photos div.more {
 	float: right;
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 }
 div.morealbums {
 	margin: 0 0 10px 0;
 }
 div#profile div.main div.photos div.viewalbums {
-	margin-top: 20px;
+	margin: 20px 0 0 0;
 }
 div#profile div.main div.photos ul {
 	height: 100px;
@@ -290,14 +257,10 @@ div#profile div.main div.questions h3 {
 	margin: 0;
 }
 div#profile div.main div.questions ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
 	width: 70%;
 }
 div#profile div.main div.questions ul li {
 	padding: 5px 0 5px 0;
-	margin: 0;
 	overflow: hidden;
 }
 div#profile div.main div.questions ul li p.question {
@@ -311,7 +274,7 @@ div#profile div.main div.questions ul li p.answer {
 }
 div#profile div.main div.lastpoll {
 	float: right;
-	padding-bottom: 20px;
+	padding: 0 0 20px 0;
     margin: 0 50px;
 }
 
@@ -333,11 +296,11 @@ div#profile div.main div.lastpoll div.nopolls {
 	width: 400px;
 }	
 div#profile div.main div.lastpoll div.nopolls div {
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 	font-weight: bold;
 }
 div#profile div.main div.lastjournal div.jsmall {
-	margin-bottom: 10px;
+	margin: 0 0 10px 0;
 }
 div#profile div.main div.lastjournal h3 {
 	padding: 20px 0 5px 0;
@@ -345,13 +308,13 @@ div#profile div.main div.lastjournal h3 {
 }
 div#profile div.main div.lastjournal div.nojournals div {
 	font-weight: bold;
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 }
 div#profile div.main div.space {
-	margin-bottom: 20px;
+	margin: 0 0 20px 0;
 }
 div#profile div.main div.space div {
-	margin-bottom: 20px;
+	margin: 0  0 20px 0;
 }
 div#profile div.main div.space h3 {
 	padding: 20px 0 5px 0;
