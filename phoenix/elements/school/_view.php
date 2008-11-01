@@ -2,7 +2,7 @@
 	
 	class ElementSchoolView extends Element {
 		public function Render() {
-			?><div id="schlview">
+			?><div id="schview">
 				<div class="gname">
 					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
 					<h2>Σχολή Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</h2>
