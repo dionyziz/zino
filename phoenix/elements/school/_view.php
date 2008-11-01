@@ -10,6 +10,7 @@
 				</div>
 				<div class="eof"></div>
 				<div class="members">
+					<h4>Μέλη</h4>
 					<div class="people"> 
 						<ul>
 							<li>
