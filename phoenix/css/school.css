@@ -13,24 +13,16 @@ div.gname h2 {
 div.gname h3 {
 	margin: 7px 0 0 0;
 }
-div#schview div.members {
+div#schview > div {
 	margin: 20px 0 0 0;
 }
-div#schview div.members h4 {
+div#schview h4 {
 	padding: 0;
 	margin: 0;
 	color: #666;
 }
 div#schview div.members div.people {
 	margin: 2px 0 0 0;
-}
-div#schview div.photos {
-	margin: 20px 0 0 0;
-}
-div#schview div.photos h4 {
-	padding: 0;
-	margin: 0;
-	color: #666;
 }
 div#schview div.photos div.plist {
 	height: 110px;
@@ -48,11 +40,3 @@ div#schview div.photos div.plist ul li {
 div#schview div.photos div.plist ul li:first-child {
 	margin-left: 0;
 }
-div#schview div.comments {
-	margin: 20px 0 0 0;
-}
-div#schview div.comments h4 {
-	color: #666;
-	padding: 0;
-	margin: 0;
-}	
