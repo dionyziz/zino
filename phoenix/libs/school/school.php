@@ -76,10 +76,13 @@
                     return parent::__get( $key );
             }
         }
-
+        public function OnCommentCreate() {
+        }
+        public function OnCommentDelete() {
+        }
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
-            $this->Users = $this->HasMany( 'UserFinder', 'FindBySchool', $this );
+            $this->Students = $this->HasMany( 'UserFinder', 'FindBySchool', $this );
             $this->Institution = $this->HasOne( 'Institution', 'Institutionid' );
         }
 
