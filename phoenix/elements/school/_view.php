@@ -52,6 +52,7 @@
 						</ul> 
 					</div>
 				</div>
+				<div class="eof"></div>
 				<div class="photos">
 					<h4>Φωτογραφίες</h4>
 					<div class="plist">
@@ -104,6 +105,7 @@
 						</ul>
 					</div>
 				</div>
+				<div class="eof"></div>
 				<div class="comments">
 					<h4>Σχόλια σχετικά με Σχολή Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</h4>
                     <div class="comment newcomment"> 
