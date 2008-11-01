@@ -21,6 +21,9 @@ div#schview div.members h4 {
 	margin: 0;
 	color: #666;
 }
+div#schview div.members div.people {
+	margin: 2px 0 0 0;
+}
 div#schview div.photos {
 	margin: 20px 0 0 0;
 }
