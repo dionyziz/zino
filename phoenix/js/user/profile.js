@@ -40,26 +40,26 @@ var Profile = {
         if ( relationstatus ) {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
-            .addClass( 'addfriend' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
                 Profile.AddFriend( id );
                 return false;
             } )
-            .append( text );
+            .append( text )
+			.find( 'span' ).addClass( 's_addfriend' );
         }
         else {
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
-            .addClass( 'deletefriend' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
                 Profile.DeleteFriend( id );
                 return false;
             } )
-            .append( text );
+            .append( text )
+			.find( 'span' ).addClass( 's_deletefriend' );
         }
         //if relationstatus is anything else don't do something, user views his own profile
     },

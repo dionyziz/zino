@@ -26,3 +26,11 @@
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -480px;
 	padding: 0 0 0 14px;
 }
+.s_addfriend {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -130px;
+	padding-left: 16px;
+}
+.s_deletefriend {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -845px;
+	padding-left: 16px;
+}
