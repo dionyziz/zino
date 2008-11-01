@@ -93,7 +93,7 @@
                 $user->Profile->Education = $education;
             }
             if ( $school ) {
-                $user->Profile->School = New School( $school );
+                $user->Profile->Schoolid = $school;
             }
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
