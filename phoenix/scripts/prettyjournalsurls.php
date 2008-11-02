@@ -14,15 +14,15 @@
     $libs->Load( 'url' );
 
     $usersOffset = 0;
-    $finder = New UserFinder();
+    $userFinder = New UserFinder();
     do {
-        $someUsers = $finder->FindAll( $usersOffset, 100 );
+        $someUsers = $userFinder->FindAll( $usersOffset, 100 );
         foreach ( $someUsers as $user ) {
             $urls = array();
             $journalsOffset = 0;
-            $finder = New JournalFinder();
+            $journalFinder = New JournalFinder();
             do {
-                $someJournals = $finder->FindByUser( $user, $journalsOffset, 100 );
+                $someJournals = $journalFinder->FindByUser( $user, $journalsOffset, 100 );
                 foreach ( $someJournals as $journal ) {
                     $candidate = URL_Format( $journal->Title );
                     $exists = true;
