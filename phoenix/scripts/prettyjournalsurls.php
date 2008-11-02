@@ -39,9 +39,8 @@
                     $urls[] = $candidate;
                 }
                 for ( $i = 0; $i < count( $someJournals ); ++$i ) {
-                    /*$someJournals[ $i ]->Url = $urls[ $i ];
-                    $someJournals[ $i ]->Save();*/
-                    echo $someJournals[ $i ]->Id . '<br />';
+                    $someJournals[ $i ]->Url = $urls[ $i ];
+                    $someJournals[ $i ]->Save();
                 }
                 $journalsOffset += 100;
             } while ( count( $someJournals ) );
