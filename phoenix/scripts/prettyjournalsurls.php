@@ -48,6 +48,10 @@
         $usersOffset += 100;
     } while ( count( $someUsers ) );
 
+    function process( $journal, $urls ) {
+        
+    }
+
     Rabbit_Destruct();
 
 ?>
