@@ -276,7 +276,8 @@
             $libs->Load( 'pm/pm' );
             $libs->Load( 'event' );
 
-            $this->EgoAlbum->Userid = $this->Id;
+            $this->EgoAlbum->Ownerid = $this->Id;
+            $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
             
             $this->OnUpdate();
