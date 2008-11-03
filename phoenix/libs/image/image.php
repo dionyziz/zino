@@ -242,9 +242,9 @@
             $libs->Load( 'adminpanel/adminaction' );
             $libs->Load( 'image/tag' );
                         
-            if ( $user->id != $this->userid ) {
+            if ( $user->Id != $this->Userid ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_IMAGE, $this->id );
+                $adminaction->saveAdminAction( $user->Id, UserIp(), OPERATION_DELETE, TYPE_IMAGE, $this->Id );
             }
             
             $finder = New ImageTagFinder();
