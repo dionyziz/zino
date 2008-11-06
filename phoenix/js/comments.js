@@ -234,7 +234,6 @@ $( function() {
 		} );
 		
 		if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
-			
 			$( "img" ).lazyload( { 
 				threshold : 2000,
 				placeholder : "http://static.zino.gr/phoenix/anonymous100.jpg"
