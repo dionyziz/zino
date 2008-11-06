@@ -23,6 +23,7 @@
             <field name="institution_name" type="varchar" length="511" />
             <field name="institution_placeid" type="int" ref="places.place_id" />
             <field name="institution_created" type="datetime" />
+            <field name="institution_avatarid" type="int" />
             <index type="primary">
                 <indexfield>institution_id</indexfield>
             </index>

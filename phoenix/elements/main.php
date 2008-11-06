@@ -63,7 +63,7 @@
                 $page->SetTitle( $page->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
             }
             else {
-                $water->Notice( 'Title not defined for page' ); // Produce a notice at the php debugger
+                $water->Notice( 'Title not defined for page' );
                 $page->SetTitle( $rabbit_settings[ 'applicationname' ] );
             }
             
