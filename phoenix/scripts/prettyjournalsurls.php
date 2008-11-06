@@ -19,27 +19,23 @@
         $someUsers = $userFinder->FindAll( $usersOffset, 100 );
         foreach ( $someUsers as $user ) {
             $urls = array();
-            $journalsOffset = 0;
             $journalFinder = New JournalFinder();
-            do {
-                $someJournals = $journalFinder->FindByUser( $user, $journalsOffset, 100 );
-                foreach ( $someJournals as $journal ) {
-                    $candidate = URL_Format( $journal->Title );
-                    while ( isset( $urls[ $candidate ] ) ) {
-                        $candidate .= '_';
-                    }
-                    $urls[ $candidate ] = true;
-                    $journal->Url = $candidate;
-                    $journal->Save();
-                }
-                $journalsOffset += 100;
-            } while ( count( $someJournals ) );
+            $journals = $journalFinder->FindByUser( $user, 0, 100 );
+            foreach ( $journals as $journal ) {
+                $urls[ process( $journal, $urls ) ] = true;
+            }
         }
         $usersOffset += 100;
     } while ( count( $someUsers ) );
 
     function process( $journal, $urls ) {
-        // TODO
+        $candidate = URL_Format( $journal->Title );
+        while ( isset( $urls[ $candidate ] ) ) {
+            $candidate .= '_';
+        }
+        $journal->Url = $candidate;
+        $journal->Save();
+        return $candidate;
     }
 
     Rabbit_Destruct();
