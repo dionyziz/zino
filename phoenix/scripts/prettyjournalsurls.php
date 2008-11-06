@@ -29,7 +29,7 @@
         $someUsers = $userFinder->FindAll( $usersOffset, 100 );
         foreach ( $someUsers as $user ) {
             if ( $user->Name == 'stacie' ) {
-                echo 'found stacie';
+                echo 'found stacie<br />';
             }
             $urls = array();
             $journalFinder = New JournalFinder();
