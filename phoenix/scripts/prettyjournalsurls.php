@@ -10,7 +10,7 @@
     global $libs;
 
     $libs->Load( 'user/user' );
-    $libs->Load( 'journal' );
+    /*$libs->Load( 'journal' );
     $libs->Load( 'url' );
 
     function process( $journal, $urls ) {
@@ -18,8 +18,8 @@
         while ( isset( $urls[ $candidate ] ) ) {
             $candidate .= '_';
         }
-        /*$journal->Url = $candidate;
-        $journal->Save();*/
+        $journal->Url = $candidate;
+        $journal->Save();
         return $candidate;
     }
 
@@ -36,6 +36,17 @@
             }
         }
         $usersOffset += 100;
+    } while ( count( $someUsers ) );*/
+
+    $offset = 0;
+    $finder = New UserFinder();
+    do {
+        $someUsers = $finder->FindAll( $offset, 100 );
+        foreach ( $someUsers as $user ) {
+            echo $user->Id;
+            echo '<br />';
+        }
+        $offset += 100;
     } while ( count( $someUsers ) );
 
     Rabbit_Destruct();
