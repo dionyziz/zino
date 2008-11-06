@@ -32,7 +32,7 @@
             else {
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
-            $page->AttachScript( 'jquery.lazyload.js' );
+            $page->AttachScript( 'js/jquery.lazyload.js' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
             $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
