@@ -20,10 +20,6 @@
         }
         /*$journal->Url = $candidate;
         $journal->Save();*/
-        echo $journal->Id;
-        echo "<br />\n";
-        echo $candidate;
-        echo "<br />\n\n";
         return $candidate;
     }
 
@@ -39,6 +35,7 @@
             $journalFinder = New JournalFinder();
             $journals = $journalFinder->FindByUser( $user, 0, 100 );
             foreach ( $journals as $journal ) {
+                echo $journal->Id; echo "<br />";
                 $urls[ process( $journal, $urls ) ] = true;
             }
         }
