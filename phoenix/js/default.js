@@ -14,3 +14,9 @@ function GetUsername() {
 	}
 	return username;
 }
+$( function() {
+	$( "img" ).lazyload( { 
+		threshold : 2000,
+		placeholder : "http://static.zino.gr/phoenix/anonymous100.jpg"
+	} ); 
+} );
