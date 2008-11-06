@@ -53,7 +53,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><?php
+			?>"></img><?php
             if ( $numcom != 0 ) {
                 ?><span class="info"><span class="commentsnumber">&nbsp;</span><?php
                 echo $numcom;
