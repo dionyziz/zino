@@ -49,7 +49,7 @@
     } while ( count( $someUsers ) );
 
     function process( $journal, $urls ) {
-        
+        // TODO
     }
 
     Rabbit_Destruct();
