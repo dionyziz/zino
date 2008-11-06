@@ -18,8 +18,12 @@
         while ( isset( $urls[ $candidate ] ) ) {
             $candidate .= '_';
         }
-        $journal->Url = $candidate;
-        $journal->Save();
+        /*$journal->Url = $candidate;
+        $journal->Save();*/
+        echo $journal->Id;
+        echo "<br />\n";
+        echo $candidate;
+        echo "<br />\n\n";
         return $candidate;
     }
 
