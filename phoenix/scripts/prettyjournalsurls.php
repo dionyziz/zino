@@ -25,22 +25,12 @@
                 $someJournals = $journalFinder->FindByUser( $user, $journalsOffset, 100 );
                 foreach ( $someJournals as $journal ) {
                     $candidate = URL_Format( $journal->Title );
-                    $exists = true;
-                    while ( $exists ) {
-                        $exists = false;
-                        foreach ( $urls as $url ) {
-                            if ( $candidate == $url ) {
-                                $candidate .= '_';
-                                $exists = true;
-                                break;
-                            }
-                        }
+                    while ( isset( $urls[ $candidate ] ) ) {
+                        $candidate .= '_';
                     }
-                    $urls[] = $candidate;
-                }
-                for ( $i = 0; $i < count( $someJournals ); ++$i ) {
-                    $someJournals[ $i ]->Url = $urls[ $i ];
-                    $someJournals[ $i ]->Save();
+                    $urls[ $candidate ] = true;
+                    $journal->Url = $candidate;
+                    $journal->Save();
                 }
                 $journalsOffset += 100;
             } while ( count( $someJournals ) );
