@@ -13,6 +13,16 @@
     $libs->Load( 'journal' );
     $libs->Load( 'url' );
 
+    function process( $journal, $urls ) {
+        $candidate = URL_Format( $journal->Title );
+        while ( isset( $urls[ $candidate ] ) ) {
+            $candidate .= '_';
+        }
+        $journal->Url = $candidate;
+        $journal->Save();
+        return $candidate;
+    }
+
     $usersOffset = 0;
     $userFinder = New UserFinder();
     do {
@@ -27,16 +37,6 @@
         }
         $usersOffset += 100;
     } while ( count( $someUsers ) );
-
-    function process( $journal, $urls ) {
-        $candidate = URL_Format( $journal->Title );
-        while ( isset( $urls[ $candidate ] ) ) {
-            $candidate .= '_';
-        }
-        $journal->Url = $candidate;
-        $journal->Save();
-        return $candidate;
-    }
 
     Rabbit_Destruct();
 
