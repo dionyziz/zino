@@ -71,6 +71,7 @@
             /* When appear is triggered load original image. */
             $(self).one("appear", function() {
                 if (!this.loaded) {
+					alert( 'id is : ' + self.id );
                     $(self)
                         .attr("src", $(self).attr("id"))
                         .bind("load", function() {
