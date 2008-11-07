@@ -55,6 +55,7 @@
         
             /* TODO: use .data() instead of .attr() */
             $(self).attr("id", $(self).attr("src"));
+			alert( 'src is ' + $( self ).attr("src" ) );
             if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
