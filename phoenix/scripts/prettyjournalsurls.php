@@ -45,7 +45,7 @@
         foreach ( $someUsers as $user ) {
             $urls = array();
             $journalFinder = New JournalFinder();
-            $journals = $journalFinder->FindByUser( $user, 0, 100 );
+            // $journals = $journalFinder->FindByUser( $user, 0, 100 );
             echo $user->Id;
             echo '<br />';
         }
