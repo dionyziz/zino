@@ -10,10 +10,10 @@
     global $libs;
 
     $libs->Load( 'user/user' );
-    /*$libs->Load( 'journal' );
+    $libs->Load( 'journal' );
     $libs->Load( 'url' );
 
-    function process( $journal, $urls ) {
+    /*function process( $journal, $urls ) {
         $candidate = URL_Format( $journal->Title );
         while ( isset( $urls[ $candidate ] ) ) {
             $candidate .= '_';
