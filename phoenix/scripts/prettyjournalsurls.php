@@ -39,11 +39,12 @@
     } while ( count( $someUsers ) );*/
 
     $offset = 0;
-    $finder = New UserFinder();
+    $userFinder = New UserFinder();
     do {
-        $someUsers = $finder->FindAll( $offset, 100 );
+        $someUsers = $userFinder->FindAll( $offset, 100 );
         foreach ( $someUsers as $user ) {
             $urls = array();
+            $journalFinder = New JournalFinder();
             echo $user->Id;
             echo '<br />';
         }
