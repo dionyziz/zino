@@ -4,7 +4,7 @@
 
     require '../libs/rabbit/rabbit.php';
 
-    define( 'WATER_ENABLE', false );
+    // define( 'WATER_ENABLE', false );
     Rabbit_Construct();
 
     global $libs;
