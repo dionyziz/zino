@@ -54,7 +54,7 @@
             var self = this;
         
             /* TODO: use .data() instead of .attr() */
-            $(this).attr("id", $(self).attr("src"));
+            $(self).attr("id", $(self).attr("src"));
             if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
@@ -69,10 +69,10 @@
             }
             
             /* When appear is triggered load original image. */
-            $(this).one("appear", function() {
+            $(self).one("appear", function() {
                 if (!this.loaded) {
-					alert( 'id is : ' + self.id );
-                    $(self)
+					alert( 'id is : ' + this.id );
+                    $(this)
                         .attr("src", $(self).attr("id"))
                         .bind("load", function() {
                             $(self)
