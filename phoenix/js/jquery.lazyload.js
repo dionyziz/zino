@@ -70,7 +70,6 @@
             
             /* When appear is triggered load original image. */
             $(self).one("appear", function() {
-				alert( $(self).attr("id") );
                 if (!this.loaded) {
                     $(self)
                         .attr("src", $(self).attr("id"))
