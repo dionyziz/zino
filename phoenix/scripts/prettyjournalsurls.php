@@ -52,6 +52,7 @@
         $offset += 100;
     } while ( count( $someUsers ) );
 
+    echo 'done';
     Rabbit_Destruct();
 
 ?>
