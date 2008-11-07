@@ -43,6 +43,7 @@
     do {
         $someUsers = $finder->FindAll( $offset, 100 );
         foreach ( $someUsers as $user ) {
+            $urls = array();
             echo $user->Id;
             echo '<br />';
         }
