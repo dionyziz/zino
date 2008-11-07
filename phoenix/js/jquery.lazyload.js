@@ -72,7 +72,7 @@
             $(self).one("appear", function() {
                 if (!this.loaded) {
                     $(self)
-                        .attr("src", $(self).attr("id"))
+                        //.attr("src", $(self).attr("id"))
                         .bind("load", function() {
                             $(self)
                                 .hide()
