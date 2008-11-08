@@ -47,7 +47,7 @@
 						</dl><?php
 						if ( $user->Exists() ) {
 							?><ul class="edit"><?php
-							if ( $user->Id != $theuser->Id ) {
+							if ( $user->Id != $theuser->Id && !$user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL )) {
 								?><li>
 									<a href="" title="<?php
 									if ( !$fav ) {
