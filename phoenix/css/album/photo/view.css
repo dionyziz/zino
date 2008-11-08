@@ -3,6 +3,7 @@ div#pview h2 {
 	padding: 0;
 	display: inline;
 }
+/*
 div#pview div.owner {
 	margin: 5px 0 0 0;
 }
@@ -17,6 +18,7 @@ div#pview div.owner div.mainimage {
 	margin: 0 0 0 8px;
 	display: inline;
 }
+*/
 div#pview dl {
 	margin: 5px 0 0 0;
 }
@@ -30,8 +32,17 @@ div#pview dl dd.time {
 	font-size: 85%;
 }
 div#pview dl dd.time span {
-	padding: 2px 0 2px 16px;
+	padding: 2px 0 2px 17px;
 }
+div#pview ul.edit {
+	margin: 5px 0 0 0;
+}
+div#pview ul.edit li {
+	display: inline;
+	margin: 0 0 0 3px;
+}
+
+/*
 div#pview dl dd.addfav, div#pview dl dd.addtag{
 	display: inline;
 }
@@ -39,6 +50,7 @@ div#pview dl dd.addtag span {
 	padding: 0 0 0 21px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1401px;
 }
+*/
 /* all this trouble to make it resizable :-) */
 div#pview div.pthumbs {
     height: 110px;

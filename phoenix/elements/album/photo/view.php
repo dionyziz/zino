@@ -131,6 +131,51 @@
                     }
 					*/
                  ?></dl><?php
+				if ( $user->Exists() ) {
+					?><ul class="edit"><?php
+					if ( $user->Id != $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+						?><li>
+							<a href="" title="<?php
+	                        if ( !$fav ) {
+	                            ?>Προσθήκη στα αγαπημένα<?php
+	                        } 
+	                        else {
+	                            ?>Αγαπημένο<?php
+	                        }
+	                        ?>" onclick="return PhotoView.AddFav( '<?php
+	                        echo $image->Id;
+	                        ?>' , this )"><span class="<?php
+	                        if ( !$fav ) {
+	                            ?>s_addfav<?php
+	                        }
+	                        else {
+	                            ?>s_isaddedfav<?php
+	                        }
+							?>">&nbsp;</span><?php
+	                        if ( !$fav ) {
+	                            ?>Προσθήκη στα αγαπημένα<?php
+	                        }
+	                        ?></a>
+						</li><?php
+						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
+							&& ( $image->User->Id == $user->Id || 
+                            $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
+							&& $image->Width > 45 && $image->Height > 45 ) {
+							?><li>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+							</li><?php
+						}
+					}
+					else if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					
+					}
+					else {
+					
+					}
+					?></ul><?php
+				}
+				 
+				/*
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
                         <div class="edit"><a href="" onclick="return PhotoView.Rename( '<?php
@@ -156,6 +201,7 @@
                         }
                     ?></div><?php
                 }
+				*/
                 ?><div class="eof"></div><?php
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="pthumbs plist"><?php
