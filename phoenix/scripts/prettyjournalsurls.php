@@ -54,7 +54,6 @@
         $query->Execute();
     }
 
-    echo 'done';
     Rabbit_Destruct();
 
 ?>

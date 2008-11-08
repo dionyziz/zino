@@ -99,7 +99,8 @@
                 $putUnderscore = false;
             }
         }
-        return rtrim( $new, '_' );
+        $new = rtrim( $new, '_' );
+        return $new || '_';
     }
 
 ?>
