@@ -29,7 +29,7 @@
             $pageno = $pageno->Get();
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $journal );
-            
+            $theuser = $journal->User;
             if ( $journal->Exists() ) {
                 if ( $pageno <= 0 ) {
                     $pageno = 1;
