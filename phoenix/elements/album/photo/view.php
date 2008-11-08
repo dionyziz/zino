@@ -103,7 +103,6 @@
 				if ( $user->Exists() ) {
 					?><ul class="edit"><?php
 					if ( $user->Id != $theuser->Id ) {
-						
 						?><li>
 							<a href="" title="<?php
 	                        if ( !$fav ) {
