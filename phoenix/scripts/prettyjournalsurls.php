@@ -23,24 +23,21 @@
             'id' => $row[ 'journal_id' ],
             'title' => $row[ 'journal_title' ]
         );
-        if ( isset( $journals[ $userId ] ) ) {
-            $journals[ $userId ][] = $journalInfo;
+        if ( !isset( $journals[ $userId ] ) ) {
+            $journals[ $userId ] = array();
         }
-        else {
-            $journals[ $userId ] = array( $journalInfo );
-        }
+        $journals[ $userId ][] = $journalInfo;
     }
 
-    $urls = array();
     $result = array();
     foreach ( $journals as $userId => $hisJournals ) {
-        $urls[ $userId ] = array();
+        $urls = array();
         foreach ( $hisJournals as $journalInfo ) {
             $candidate = URL_Format( $journalInfo[ 'title' ] );
-            while ( isset( $urls[ $userId ][ $candidate ] ) ) {
+            while ( isset( $urls[ $candidate ] ) ) {
                 $candidate .= '_';
             }
-            $urls[ $userId ][ $candidate ] = true;
+            $urls[ $candidate ] = true;
             $result[ $journalInfo[ 'id' ] ] = $candidate;
         }
     }
