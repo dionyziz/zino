@@ -11,7 +11,7 @@
 	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 $contact->AddContact( $key, $username );
-                EmailContact( $key );
+                EmailFriend( $key );
             }
         }
         else {
@@ -20,7 +20,7 @@
         return true;//if contacts added succesfully
     }    
     
-    function EmailContact( $toemail ) {
+    function EmailFriend( $toemail ) {
             global $user;
             
             $parts = array();
