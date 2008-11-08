@@ -5,34 +5,30 @@ div#journalview h2 {
 	margin: 0;
 	padding: 0 0 3px 0;
 }
-div#journalview div.owner {
-	margin: 4px 0;
+div#journalview dl {
+	margin: 2px 0 0 0;
 }
-div#journalview div.owner div.edit {
+div#journalview dl dd.commentsnum {
+	margin: 0 5px 0 0;
 	display: inline;
-}
-div#journalview div.owner div.delete {
-	margin: 0 0 0 5px;
-	display: inline;
-}
-div#journalview div.journal dl {
-	text-align: left;
-}
-div#journalview div.journal dl dd.createdate {
-    margin-bottom: 10px;
-}
-div#journalview div.journal dl dd.commentsnum {
-	margin: 0 5px 2px 0;
 	font-size: 85%;
-	display: inline;
 }
-div#journalview div.journal dl dd.addfav {
-	padding: 0 0 0 2px;
+div#journalview dl dd.time {
 	display: inline;
+	font-size: 85%;
 }
-div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
-	margin-left: 5px;
+div#journalview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+div#journalview ul.edit {
+	margin: 25px 0 0 0;
+}
+div#journalview ul.edit li {
 	display: inline;
+	margin: 0 0 0 2px;
+}
+div#journalview ul.edit li:first {
+	margin: 0;
 }
 div#journalview div.journal p {
 	text-align: left;
