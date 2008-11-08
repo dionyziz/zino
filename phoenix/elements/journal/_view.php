@@ -43,61 +43,92 @@
                     ?></h2>
                     <div class="journal" style="clear:none">    
                         <dl><?php
-                            ?><dd class="createdate"><?php
-                            Element( 'date/diff', $journal->Created );
-                            ?></dd><?php
-                            if ( $journal->Numcomments > 0 ) {
-                                ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
-                                echo $journal->Numcomments;
-                                ?> σχόλι<?php
-                                if ( $journal->Numcomments == 1 ) {
-                                    ?>ο<?php
-                                }
-                                else {
-                                    ?>α<?php
-                                }
-                                ?></dd><?php
-                            }
-                            if ( $journal->User->Id != $user->Id ) {
-                                ?><dd class="addfav"><a href="" title="<?php
-                                if ( !$fav ) {
-                                    ?>Προσθήκη στα αγαπημένα<?php
-                                }
-                                else {
-                                    ?>Αγαπημένο<?php
-                                }
-                                ?>" onclick="JournalView.AddFav( '<?php
-                                echo $journal->Id;
-                                ?>', this );return false"><span class="<?php
-                                if ( !$fav ) {
-                                    ?>s_addfav<?php
-                                }
-                                else {
-                                    ?>s_isaddedfav<?php
-                                }
-                                ?>">&nbsp;</span><?php
-                                if ( !$fav ) {
-                                    ?>Προσθήκη στα αγαπημένα<?php
-                                }
-                                ?></a></dd><?php
-                            }
-                            ?></dl><?php
-                            if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
-                                ?><div class="owner">
-                                    <div class="edit">
-                                        <a href="?p=addjournal&amp;id=<?php
-                                        echo $journal->Id;
-                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία</a>
-                                    </div>
-                                    <div class="delete">
-                                        <a href="" onclick="JournalView.Delete( '<?php
-                                        echo $journal->Id;
-                                        ?>' );return false"><span class="s_delete">&nbsp;</span>Διαγραφή
-                                        </a>
-                                    </div>                        
-                                </div><?php
-                            }
-                        ?><div class="eof"></div>
+		                    if ( $journal->Numcomments > 0 ) {
+		                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+		                        echo $journal->Numcomments;
+		                        ?> σχόλι<?php
+		                        if ( $journal->Numcomments == 1 ) {
+		                            ?>ο<?php
+		                        }
+		                        else {
+		                            ?>α<?php
+		                        }
+		                        ?></dd><?php
+		                    }
+							?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+							Element( 'date/diff', $journal->Created );
+							?></dd>
+						</dl><?php
+						if ( $user->Exists() ) {
+							?><ul class="edit"><?php
+							if ( $user->Id != $theuser->Id ) {
+								?><li>
+									<a href="" title="<?php
+									if ( !$fav ) {
+										?>Προσθήκη στα αγαπημένα<?php
+									} 
+									else {
+										?>Αγαπημένο<?php
+									}
+									?>" onclick="return JournalView.AddFav( '<?php
+									echo $journal->Id;
+									?>' , this )"><span class="<?php
+									if ( !$fav ) {
+										?>s_addfav<?php
+									}
+									else {
+										?>s_isaddedfav<?php
+									}
+									?>">&nbsp;</span><?php
+									if ( !$fav ) {
+										?>Προσθήκη στα αγαπημένα<?php
+									}
+									?></a>
+								</li><?php
+							}
+							else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
+								if ( $user->Id != $theuser->Id ) {
+									?><li>
+										<a href="" title="<?php
+										if ( !$fav ) {
+											?>Προσθήκη στα αγαπημένα<?php
+										} 
+										else {
+											?>Αγαπημένο<?php
+										}
+										?>" onclick="return JournalView.AddFav( '<?php
+										echo $journal->Id;
+										?>' , this )"><span class="<?php
+										if ( !$fav ) {
+											?>s_addfav<?php
+										}
+										else {
+											?>s_isaddedfav<?php
+										}
+										?>">&nbsp;</span><?php
+										if ( !$fav ) {
+											?>Προσθήκη στα αγαπημένα<?php
+										}
+										?></a>
+									</li><?php
+								}
+								if ( $user->Id == $theuser->Id ) {
+									?><li>
+										<a href="?p=addjournal&amp;id=<?php
+										echo $journal->Id;
+                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
+										</a>
+									</li><?php
+								}
+								?><li>
+									<a href="" onclick="return JournalView( '<?php
+									echo $journal->Id;
+									?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+								</li><?php
+							}
+							?></ul><?php
+						}
+						?><div class="eof"></div>
                         <p><?php
                         echo $journal->Text; // purposely not formatted
                         ?></p>

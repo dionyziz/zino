@@ -5,29 +5,29 @@ div#journalview h2 {
 	margin: 0;
 	padding: 0 0 3px 0;
 }
-div.journal dl {
+div#journalview dl {
 	margin: 2px 0 0 0;
 }
-div.journal dl dd.commentsnum {
+div#journalview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
 	font-size: 85%;
 }
-div.journal dl dd.time {
+div#journalview dl dd.time {
 	display: inline;
 	font-size: 85%;
 }
-div.journal dl dd.time span {
+div#journalview dl dd.time span {
 	padding: 2px 0 2px 17px;
 }
-div.journal ul.edit {
+div#journalview ul.edit {
 	margin: 25px 0 0 0;
 }
-div.journal ul.edit li {
+div#journalview ul.edit li {
 	display: inline;
 	margin: 0 0 0 2px;
 }
-div.journal ul.edit li:first {
+div#journalview ul.edit li:first {
 	margin: 0;
 }
 div#journalview div.journal p {
