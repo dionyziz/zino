@@ -11,6 +11,7 @@
 	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 $contact->AddContact( $key, $username );
+                EmailContact( $key );
             }
         }
         else {
@@ -18,6 +19,30 @@
         }
         return true;//if contacts added succesfully
     }    
+    
+    function EmailContact( $toemail ) {
+            global $user;
+            
+            $parts = array();
+            $parts = explode( '@', $toemail );
+            $toname = $parts[ 0 ];            
+            
+            $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στην Zino κοινοτητα';
+            
+            $message = "Γεια σου $toname,
+
+Ο/Η $user->Name σε πρόσθεσε στους φίλους του στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες σου και τα νέα σου.
+
+Για να δεις το προφίλ του/της $user->Name στο Zino, πήγαινε στο:
+http://$user->Name.zino.gr/
+
+Ευχαριστούμε,
+Η Ομάδα του Zino";
+            $fromname = 'Zino';
+            $fromemail = 'noreply@zino.gr';            
+            Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
+            return;
+    }
     
     class ContactFinder extends Finder {
         protected $mModel = 'Contact';
