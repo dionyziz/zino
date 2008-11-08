@@ -100,7 +100,7 @@
             }
         }
         $new = rtrim( $new, '_' );
-        return $new || '_';
+        return $new ? $new : '_';
     }
 
 ?>
