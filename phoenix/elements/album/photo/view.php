@@ -84,7 +84,7 @@
                 ?></a>
                 <dl><?php
                     if ( $image->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span class="s_commnum" >&nbsp;</span><?php
+                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
                         echo $image->Numcomments;
                         ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
@@ -95,6 +95,10 @@
                         }
                         ?></dd><?php
                     }
+					?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+					Element( 'date/diff', $image->Created );
+					?></dd><?php
+					/*
                     if( $user->Id != $image->User->Id ) { 
                         ?><dd class="addfav"><a href="" title="<?php
                         if ( !$fav ) {
@@ -125,6 +129,7 @@
                         && $image->Width > 45 && $image->Height > 45 ) {
                         ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span>&nbsp;</span>Γνωρίζεις κάποιον;</a></dd><?php
                     }
+					*/
                  ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
