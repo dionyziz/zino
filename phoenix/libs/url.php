@@ -75,7 +75,6 @@
             ',',
             ':',
             '-',
-            '_',
             '(',
             ')',
             ';'
@@ -84,17 +83,19 @@
         $putUnderscore = false;
         for ( $i = 0; $i < mb_strlen( $string ); ++$i ) {
             $c = mb_substr( $string, $i, 1 );
-            if ( isBetween( $c, 'A', 'z' ) ||
+            if ( isBetween( $c, 'A', 'Z' ) ||
+                isBetween( $c, 'a', 'z' ) ||
                 isBetween( $c, '0', '9' ) ||
                 in_array( $c, $punctuation ) ) {
                 $new .= $c;
                 $putUnderscore = true;
             }
-            else if ( isBetween( $c, 'Ά', 'ώ' ) ) {
+            else if ( isBetween( $c, 'Ά', 'ώ' ) &&
+                isset( $greekToLatin[ $c ] ) ) {
                 $new .= $greekToLatin[ $c ];
                 $putUnderscore = true;
             }
-            else if ( $putUnderscore ) {
+            else if ( $putUnderscore || $c == '_' ) {
                 $new .= '_';
                 $putUnderscore = false;
             }
