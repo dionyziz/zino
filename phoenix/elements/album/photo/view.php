@@ -186,6 +186,14 @@
 	                        echo $image->Id;
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 						</li><?php
+						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
+							&& ( $image->User->Id == $user->Id || 
+                            $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
+							&& $image->Width > 45 && $image->Height > 45 ) {
+							?><li>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+							</li><?php
+						}
 						if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><li><a href="" onclick="return PhotoView.MainImage( '<?php
                             echo $image->Id;
