@@ -166,22 +166,49 @@
 							</li><?php
 						}
 					}
-					else if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+						if ( $user->Id != $theuser->Id && $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+							?><li>
+								<a href="" title="<?php
+		                        if ( !$fav ) {
+		                            ?>Προσθήκη στα αγαπημένα<?php
+		                        } 
+		                        else {
+		                            ?>Αγαπημένο<?php
+		                        }
+		                        ?>" onclick="return PhotoView.AddFav( '<?php
+		                        echo $image->Id;
+		                        ?>' , this )"><span class="<?php
+		                        if ( !$fav ) {
+		                            ?>s_addfav<?php
+		                        }
+		                        else {
+		                            ?>s_isaddedfav<?php
+		                        }
+								?>">&nbsp;</span><?php
+		                        if ( !$fav ) {
+		                            ?>Προσθήκη στα αγαπημένα<?php
+		                        }
+		                        ?></a>
+							</li><?php
+						}
+						if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+							?><li>
+								<a href="" onclick="return PhotoView.Rename( '<?php
+		                        echo $image->Id;
+		                        ?>' , <?php
+		                        echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
+		                        ?> )"><span class="s_edit">&nbsp;</span><?php
+		                        if ( $image->Name == '' ) {
+		                            ?>Όρισε όνομα<?php
+		                        }
+		                        else {
+		                            ?>Μετονομασία<?php
+		                        }
+		                        ?></a>
+							</li><?php
+						}
 						?><li>
-							<a href="" onclick="return PhotoView.Rename( '<?php
-	                        echo $image->Id;
-	                        ?>' , <?php
-	                        echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-	                        ?> )"><span class="s_edit">&nbsp;</span><?php
-	                        if ( $image->Name == '' ) {
-	                            ?>Όρισε όνομα<?php
-	                        }
-	                        else {
-	                            ?>Μετονομασία<?php
-	                        }
-	                        ?></a>
-						</li>
-						<li>
 							<a href="" onclick="return PhotoView.Delete( '<?php
 	                        echo $image->Id;
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
@@ -194,15 +221,14 @@
 								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
-						if ( $image->Album->Mainimageid != $image->Id ) {
-                            ?><li><a href="" onclick="return PhotoView.MainImage( '<?php
-                            echo $image->Id;
-                            ?>' )"><span class="s_mainimage">&nbsp;</span>Ορισμός προεπιλεγμένης</a>
-                            </li><?php
-                        }
-					}
-					else {
-					
+						if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+							if ( $image->Album->Mainimageid != $image->Id ) {
+	                            ?><li><a href="" onclick="return PhotoView.MainImage( '<?php
+	                            echo $image->Id;
+	                            ?>' )"><span class="s_mainimage">&nbsp;</span>Ορισμός προεπιλεγμένης</a>
+	                            </li><?php
+	                        }
+						}
 					}
 					?></ul><?php
 				}
