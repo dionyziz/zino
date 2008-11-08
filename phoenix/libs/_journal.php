@@ -73,7 +73,7 @@
             return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
-            /*$url = URL_Format( $this->Title );
+            $url = URL_Format( $this->Title );
             $offset = 0;
             $finder = New JournalFinder();
             do {
@@ -91,8 +91,7 @@
                 }
                 $offset += 100;
             } while ( count( $someOfTheRest ) );
-            // $this->Url = $url;
-            die( $url );*/
+            $this->Url = $url;
 
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
