@@ -4,6 +4,7 @@ var JournalView = {
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'journal/delete' , { journalid : journalid } );
 		}
+		return false;
 	},
 	AddFav : function( journalid , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
@@ -20,5 +21,6 @@ var JournalView = {
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
 		}
+		return false;
 	}
 };
