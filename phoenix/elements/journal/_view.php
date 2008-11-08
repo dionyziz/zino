@@ -121,7 +121,7 @@
 									</li><?php
 								}
 								?><li>
-									<a href="" onclick="return JournalView( '<?php
+									<a href="" onclick="return JournalView.Delete( '<?php
 									echo $journal->Id;
 									?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 								</li><?php
