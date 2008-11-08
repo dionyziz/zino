@@ -20,7 +20,7 @@ div#pview div.owner div.mainimage {
 }
 */
 div#pview dl {
-	margin: 5px 0 0 0;
+	margin: 2px 0 0 0;
 }
 div#pview dl dd.commentsnum {
 	margin: 0 5px 0 0;
@@ -35,7 +35,7 @@ div#pview dl dd.time span {
 	padding: 2px 0 2px 17px;
 }
 div#pview ul.edit {
-	margin: 5px 0 0 0;
+	margin: 25px 0 0 0;
 }
 div#pview ul.edit li {
 	display: inline;
