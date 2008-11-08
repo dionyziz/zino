@@ -27,7 +27,6 @@
 	        $username = $username->Get();
 	        $pass = $pass->Get();
 	        $state = GetContacts( $username, $pass );
-	        $state = true;
 	        if( $state == true ) {
                 ?><p>Success!</p><?php
             }
@@ -35,7 +34,7 @@
                 ?><p>Failure...</p><?php
             }
             
-            /*
+            
             $toname = $user->Name;
             $toemail = 'pagio91@hotmail.com';
             $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στην Zino κοινοτητα';
@@ -44,10 +43,18 @@
                                         
 Ευχαριστούμε,
 Η Ομάδα του Zino';
+            $message = ' Γεια σου Γιώργο,
+
+Ο $user->Name σε πρόσθεσε στους φίλους του στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες σου και τα νέα σου.
+
+Για να δεις το προφίλ του $user->Name στο Zino, πήγαινε στο:
+http://$user->Name.zino.gr/
+
+Ευχαριστούμε,
+Η Ομάδα του Zino';
             $fromname = 'Zino';
             $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
-            */
         }
     }
 ?>
