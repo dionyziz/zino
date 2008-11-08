@@ -56,7 +56,7 @@
 									else {
 										?>Αγαπημένο<?php
 									}
-									?>" onclick="return PhotoView.AddFav( '<?php
+									?>" onclick="return JournalView.AddFav( '<?php
 									echo $journal->Id;
 									?>' , this )"><span class="<?php
 									if ( !$fav ) {
@@ -82,7 +82,7 @@
 										else {
 											?>Αγαπημένο<?php
 										}
-										?>" onclick="return PhotoView.AddFav( '<?php
+										?>" onclick="return JournalView.AddFav( '<?php
 										echo $journal->Id;
 										?>' , this )"><span class="<?php
 										if ( !$fav ) {
@@ -98,18 +98,17 @@
 										?></a>
 									</li><?php
 								}
+								/*
 								if ( $user->Id == $theuser->Id ) {
 									?><li>
-										<a href="" onclick="return PhotoView.Rename( '<?php
-										echo $journal->Id;
-										?>' , <?php
-										echo htmlspecialchars( w_json_encode( $journal->Title ) );
-										?> )"><span class="s_edit">&nbsp;</span>Μετονομασία
+										<a href="?p=addjournal&amp;id=<?php
+-                                        echo $journal->Id;
+-                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
 										</a>
 									</li><?php
-								}
+								}*/
 								?><li>
-									<a href="" onclick="return PhotoView.Delete( '<?php
+									<a href="" onclick="return JournalView( '<?php
 									echo $journal->Id;
 									?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 								</li><?php
