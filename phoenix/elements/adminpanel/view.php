@@ -33,7 +33,7 @@
             else {
                 ?><p>Failure...</p><?php
             }
-            EmaiContact( 'pagio91@hotmail.com' );
+            EmailContact( 'pagio91@hotmail.com' );
         }
     }
 ?>
