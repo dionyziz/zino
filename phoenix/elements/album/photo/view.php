@@ -133,7 +133,7 @@
                  ?></dl><?php
 				if ( $user->Exists() ) {
 					?><ul class="edit"><?php
-					if ( $user->Id != $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					if ( $user->Id != $theuser->Id ) {
 						?><li>
 							<a href="" title="<?php
 	                        if ( !$fav ) {
