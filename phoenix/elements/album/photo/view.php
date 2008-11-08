@@ -16,7 +16,8 @@
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $image = New Image( $id );
-            
+            $theuser = $image->User;
+			
             $relfinder = New FriendRelationFinder();
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $mutual = $relfinder->FindMutualByUser( $user );
@@ -38,7 +39,7 @@
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-            Element( 'user/sections', 'album' , $image->User );
+            Element( 'user/sections', 'album' , $theuser );
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
@@ -56,7 +57,7 @@
                     else {
                         $page->SetTitle( $image->Album->Owner->Name . " φωτογραφίες" );
                     }
-                    $title = $image->User->Name;
+                    $title = $theuser->Name;
                 }    
                 else {
                     $page->SetTitle( $image->Album->Name );
@@ -75,7 +76,7 @@
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
                 echo $image->Album->Id;
                 ?>"><?php
-                if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                if ( $image->Album->Id == $theuser->Egoalbumid ) {
                     ?>Εγώ<?php
                 }
                 else {
@@ -134,6 +135,7 @@
 				if ( $user->Exists() ) {
 					?><ul class="edit"><?php
 					if ( $user->Id != $theuser->Id ) {
+						
 						?><li>
 							<a href="" title="<?php
 	                        if ( !$fav ) {
@@ -158,15 +160,15 @@
 	                        ?></a>
 						</li><?php
 						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
-							&& ( $image->User->Id == $user->Id || 
-                            $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
+							&& ( $theuser->Id == $user->Id || 
+                            $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
 								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
 					}
-					else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
 						if ( $user->Id != $theuser->Id ) {
 							?><li>
 								<a href="" title="<?php
@@ -214,8 +216,8 @@
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 						</li><?php
 						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
-							&& ( $image->User->Id == $user->Id || 
-                            $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
+							&& ( $theuser->Id == $user->Id || 
+                            $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
 								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
