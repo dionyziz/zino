@@ -11,7 +11,7 @@
 	        $contact = new Contact();
 	        foreach ( $contacts as $key=>$val ) {
                 $contact->AddContact( $key, $username );
-                EmailFriend( $key );
+                //EmailFriend( $key );
             }
         }
         else {
