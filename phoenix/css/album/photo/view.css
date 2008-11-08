@@ -25,6 +25,13 @@ div#pview dl dd.commentsnum {
 	display: inline;
 	font-size: 85%;
 }
+div#pview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+div#pview dl dd.time span {
+	padding: 2px 0 2px 16px;
+}
 div#pview dl dd.addfav, div#pview dl dd.addtag{
 	display: inline;
 }
