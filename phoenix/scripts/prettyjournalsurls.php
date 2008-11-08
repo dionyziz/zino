@@ -43,7 +43,7 @@
     }
 
     foreach ( $result as $id => $url ) {
-        $sql = 'UPDATE :journals 
+        /*$sql = 'UPDATE :journals 
                     SET `journal_url` = :journal_url
                 WHERE `journal_id` = :journal_id
                     LIMIT 1';
@@ -51,9 +51,11 @@
         $query->BindTable( 'journals' );
         $query->Bind( 'journal_url', $url );
         $query->Bind( 'journal_id', $id );
-        $query->Execute();
+        $query->Execute();*/
+        echo "$id => $url<br />";
     }
 
+    echo 'done';
     Rabbit_Destruct();
 
 ?>
