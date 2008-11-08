@@ -136,7 +136,7 @@
 							</li><?php
 						}
 					}
-					if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
 						if ( $user->Id != $theuser->Id ) {
 							?><li>
 								<a href="" title="<?php
