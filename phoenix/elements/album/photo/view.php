@@ -167,7 +167,7 @@
 						}
 					}
 					else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
-						if ( $user->Id != $theuser->Id && $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+						if ( $user->Id != $theuser->Id ) {
 							?><li>
 								<a href="" title="<?php
 		                        if ( !$fav ) {
@@ -192,7 +192,7 @@
 		                        ?></a>
 							</li><?php
 						}
-						if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+						if ( $user->Id == $theuser->Id ) {
 							?><li>
 								<a href="" onclick="return PhotoView.Rename( '<?php
 		                        echo $image->Id;
@@ -221,7 +221,7 @@
 								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
-						if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+						if ( $user->Id == $theuser->Id ) {
 							if ( $image->Album->Mainimageid != $image->Id ) {
 	                            ?><li><a href="" onclick="return PhotoView.MainImage( '<?php
 	                            echo $image->Id;
