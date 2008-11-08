@@ -86,7 +86,7 @@
 									?></a>
 								</li><?php
 							}
-							else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
+							else if ( $user->Id == $theuser->Id && !$user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
 								if ( $user->Id != $theuser->Id ) {
 									?><li>
 										<a href="" title="<?php
