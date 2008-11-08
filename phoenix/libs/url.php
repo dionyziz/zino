@@ -95,7 +95,7 @@
                 $new .= $greekToLatin[ $c ];
                 $putUnderscore = true;
             }
-            else if ( $putUnderscore || $c == '_' ) {
+            else if ( $putUnderscore ) {
                 $new .= '_';
                 $putUnderscore = false;
             }
