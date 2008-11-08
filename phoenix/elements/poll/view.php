@@ -30,39 +30,44 @@
                     if ( !$poll->IsDeleted() ) {
                         ?><div id="poview"><?php
                         $page->SetTitle( $poll->Question );
-                        ?><h2><?php
-                            echo htmlspecialchars( $poll->Question );
-                        ?></h2>
-                        <dl class="toolbar"><?php
-                            ?><dd class="createdate"><?php
-                            Element( 'date/diff', $poll->Created );
-                            ?></dd><?php
-                            if ( $poll->Numcomments > 0 ) {
-                                ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
-                                echo $poll->Numcomments;
-                                ?> σχόλι<?php
-                                if ( $poll->Numcomments == 1 ) {
-                                    ?>ο<?php
-                                }
-                                else {
-                                    ?>α<?php
-                                }
-                                ?></dd><?php
-                            }
-                            if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
-                                ?><dd class="delete">
-                                    <a href="" onclick="PollView.Delete( '<?php
-                                    echo $poll->Id;
-                                    ?>' );return false"><span class="s_delete">&nbsp;</span>Διαγραφή
-                                    </a>
-                                </dd><?php
-                            }
-                            ?></dl><div><div class="posmall">
-                                <div class="results"><?php
-                                Element( 'poll/result/view', $poll, $showresults );
-                                Element( 'poll/vote' );
-                                ?></div>
-                            </div>
+	                        ?><h2><?php
+	                            echo htmlspecialchars( $poll->Question );
+	                        ?></h2>
+							<dl><?php
+			                    if ( $image->Numcomments > 0 ) {
+			                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+			                        echo $image->Numcomments;
+			                        ?> σχόλι<?php
+			                        if ( $image->Numcomments == 1 ) {
+			                            ?>ο<?php
+			                        }
+			                        else {
+			                            ?>α<?php
+			                        }
+			                        ?></dd><?php
+			                    }
+								?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+								Element( 'date/diff', $poll->Created );
+								?></dd><?php
+							?></dl><?php
+							if ( $user->Exists() ) {
+								?><ul class="edit"><?php
+									if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
+										?><li>
+											<a href="" onclick="return PollView.Delete( '<?php
+					                        echo $poll->Id;
+					                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+										</li><?php
+									}
+								?></ul><?php
+							}
+							?><div>
+								<div class="posmall">
+	                                <div class="results"><?php
+	                                Element( 'poll/result/view', $poll, $showresults );
+	                                Element( 'poll/vote' );
+	                                ?></div>
+	                            </div>
                             </div>
                             <div class="eof"></div>
                             <br /><?php
