@@ -43,7 +43,7 @@
                                         
 Ευχαριστούμε,
 Η Ομάδα του Zino';
-            $message = " Γεια σου Γιώργο,
+            $message = "Γεια σου Γιώργο,
 
 Ο $user->Name σε πρόσθεσε στους φίλους του στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες σου και τα νέα σου.
 
@@ -51,7 +51,10 @@
 http://$user->Name.zino.gr/
 
 Ευχαριστούμε,
-Η Ομάδα του Zino";
+Η Ομάδα του Zino
+______
+Αν δεν θέλεις στο μέλλον να λαμβάνεις άλλα ενημερωτικά e-mail από το Zino, κάνε κλικ στον παρακάτω σύνδεσμο:
+http://www.zino.gr/unsubscribe/$toemail";
             $fromname = 'Zino';
             $fromemail = 'noreply@zino.gr';            
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
