@@ -10,29 +10,29 @@ div#poview h2 {
 	margin: 0 0 0 165px;
 	padding: 0 0 3px 0;
 }
-div#pview dl {
+div#poview dl {
 	margin: 2px 0 0 0;
 }
-div#pview dl dd.commentsnum {
+div#poview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
 	font-size: 85%;
 }
-div#pview dl dd.time {
+div#poview dl dd.time {
 	display: inline;
 	font-size: 85%;
 }
-div#pview dl dd.time span {
+div#poview dl dd.time span {
 	padding: 2px 0 2px 17px;
 }
-div#pview ul.edit {
+div#poview ul.edit {
 	margin: 25px 0 0 0;
 }
-div#pview ul.edit li {
+div#poview ul.edit li {
 	display: inline;
 	margin: 0 0 0 2px;
 }
-div#pview ul.edit li:first {
+div#poview ul.edit li:first {
 	margin: 0;
 }
 div#poview div.posmall {
