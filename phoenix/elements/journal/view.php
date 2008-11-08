@@ -98,15 +98,14 @@
 										?></a>
 									</li><?php
 								}
-								/*
 								if ( $user->Id == $theuser->Id ) {
 									?><li>
 										<a href="?p=addjournal&amp;id=<?php
--                                        echo $journal->Id;
--                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
+										echo $journal->Id;
+                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
 										</a>
 									</li><?php
-								}*/
+								}
 								?><li>
 									<a href="" onclick="return JournalView( '<?php
 									echo $journal->Id;
