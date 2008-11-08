@@ -91,8 +91,8 @@
                 }
                 $offset += 100;
             } while ( count( $someOfTheRest ) );
-            $this->Url = $url;
-            $this->Save();
+            // $this->Url = $url;
+            die( $url );
 
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
