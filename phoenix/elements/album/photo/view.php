@@ -102,7 +102,7 @@
                  ?></dl><?php
 				if ( $user->Exists() ) {
 					?><ul class="edit"><?php
-					if ( $user->Id != $theuser->Id ) {
+					if ( $user->Id != $theuser->Id && !$user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
 						?><li>
 							<a href="" title="<?php
 	                        if ( !$fav ) {
@@ -135,7 +135,7 @@
 							</li><?php
 						}
 					}
-					else if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+					else {
 						if ( $user->Id != $theuser->Id ) {
 							?><li>
 								<a href="" title="<?php
