@@ -3,13 +3,13 @@
         protected $mPersistent = array( 'journalseq' );
         public function Render( $journalseq ) {
             $finder = New JournalFinder();
-            $journals = $finder->FindAll( 0 , 4 );
+            $journals = $finder->FindAll( 0, 4 );
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
                     ?><div class="event">
                         <div class="who"><?php
-                            Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
+                            Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User );
                         ?> καταχώρησε
                         </div>
                         <div class="subject">

@@ -35,14 +35,16 @@
             $journal = New Journal();
             $journal->Delid = 0;
 
-            return $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
+            $journals = $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
+            // TODO
+            return $journals;
         }
     }
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
-       
-           public function LoadDefaults() {
+
+        public function LoadDefaults() {
             global $user;
 
             $this->Userid = $user->Id;
@@ -157,6 +159,9 @@
             $finder->DeleteByEntity( $this );
 
             Sequence_Increment( SEQUENCE_JOURNAL );
+        }
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

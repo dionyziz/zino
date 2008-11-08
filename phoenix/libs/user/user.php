@@ -80,25 +80,48 @@
             $prototype->Name = $name;
             return $this->FindByPrototype( $prototype );
         }
+        public function FindByIds( $ids ) {
+            if ( !is_array( $ids ) ) {
+                $ids = array( $ids );
+            }
+
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :users
+                WHERE
+                    `user_id` IN :ids
+                LIMIT
+                    :limit;'
+            );
+
+            $query->BindTable( 'users' );
+            $query->Bind( 'ids', $ids );
+            $query->Bind( 'limit', count( $ids ) );
+
+            return $this->FindBySqlResource( $query->Execute() );
+        }
         public function FindByNames( $names ) {
             if ( !is_array( $names ) ) {
                 $names = array( $names );
             }
-            
-            $query = $this->mDb->Prepare( '
-                SELECT
+
+            $query = $this->mDb->Prepare(
+                'SELECT
                     *
                 FROM
                     :users
                 WHERE
                     `user_name` IN :names
                 LIMIT
-                    :limit;' );
+                    :limit;'
+            );
 
             $query->BindTable( 'users' );
             $query->Bind( 'names', $names );
             $query->Bind( 'limit', count( $names ) );
-            
+
             return $this->FindBySqlResource( $query->Execute() );
         }
         public function FindBySubdomain( $subdomain ) {
@@ -107,7 +130,7 @@
             return $this->FindByPrototype( $prototype );
         }
         public function FindLatest() {
-            return $this->FindByPrototype( New User(), 0, 25, array('Created', 'DESC') );
+            return $this->FindByPrototype( New User(), 0, 25, array( 'Created', 'DESC' ) );
         }
         public function FindOnline( $offset = 0, $limit = 100 ) {
             global $xc_settings;
