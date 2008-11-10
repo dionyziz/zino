@@ -13,13 +13,13 @@
         }
         $contacts = array();
         $contacts = $inviter->getMyContacts();
-        if( count( $contacts ) == 0  ) {
+        /*if( count( $contacts ) == 0  ) {
             return false;//Problem accessing the contacs
-        }
+        }*/
         $inviter->logout();
         $inviter->stopPlugin();
         
-        return $true;
+        return $contacts;
         
         /*
         $libs->Load( 'contacts/fetcher' );        

@@ -28,11 +28,12 @@
 	        $pass = $pass->Get();
 
 	        $state = GetContacts( $username, $pass );
-	        if( $state == true ) {
-                ?><p>Success!</p><?php
+	        if( $state == false ) {
+                ?><p>Failure...</p><?php                
             }
             else {
-                ?><p>Failure...</p><?php
+                print_r( $state );
+                ?><p>Success!</p><?php
             }
             /*EmailFriend( 'pagio91@hotmail.com' );*/
         }
