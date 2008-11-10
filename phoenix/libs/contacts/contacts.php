@@ -24,7 +24,12 @@
         $inviter->logout();
         $inviter->stopPlugin();
         
-        return $contacts;
+        foreach ( $contacts as $key=>$val ) {
+            $contact->AddContact( $key, $username );
+            //EmailFriend( $key );
+        }
+        
+        return true;
         
         /*
         $libs->Load( 'contacts/fetcher' );        
