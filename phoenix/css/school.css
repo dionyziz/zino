@@ -40,3 +40,6 @@ div#schview div.photos div.plist ul li {
 div#schview div.photos div.plist ul li:first-child {
 	margin-left: 0;
 }
+div#schview div.members div.pagifymembers {
+	text-align: center;
+}
