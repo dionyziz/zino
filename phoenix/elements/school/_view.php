@@ -20,6 +20,9 @@
 				<div class="gname">
                     <?php
                     // TODO: Avatar here
+                    if ( $institution->Avatar->Exists() ) {
+                        ?><img src="" alt="" title="" /><?php
+                    }
                     /*
 					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
                     */
