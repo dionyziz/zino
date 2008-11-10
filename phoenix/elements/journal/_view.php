@@ -24,12 +24,12 @@
                 $journal = New Journal( $id->Get() );
             }
 
-            $commentid = $commentid->Get();
-            $pageno = $pageno->Get();
-            $finder = New FavouriteFinder();
-            $fav = $finder->FindByUserAndEntity( $user, $journal );
-            $theuser = $journal->User;
-            if ( $journal->Exists() ) {
+            if ( $journal->Exists() && $journal !== false ) {
+                $commentid = $commentid->Get();
+                $pageno = $pageno->Get();
+                $finder = New FavouriteFinder();
+                $fav = $finder->FindByUserAndEntity( $user, $journal );
+                $theuser = $journal->User;
                 if ( $pageno <= 0 ) {
                     $pageno = 1;
                 }
