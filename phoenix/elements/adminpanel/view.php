@@ -30,7 +30,7 @@
 	        
 	        $inviter = new OpenInviter();
 	        $inviter->getPlugins();
-	        $inviter->startPlugin( 'gmail' );
+	        $inviter->startPlugin( 'hotmail' );
 	        $state = $inviter->login( $username, $pass );
 	        if( $state == false ) echo '<p>Problem login in</p>';
 	        $contacts = $inviter->getMyContacts();
