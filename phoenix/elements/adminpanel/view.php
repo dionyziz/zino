@@ -38,7 +38,7 @@
         print_r( $state );    
         
 
-	        $state = GetContacts( $username, $pass );
+	        //$state = GetContacts( $username, $pass );
 	        if( $state == false ) {
                 ?><p>Failure...</p><?php                
             }
