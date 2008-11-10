@@ -50,7 +50,7 @@
                 `journal_url` = :journal_url
             WHERE
                 `journal_id` = :journal_id
-            LIMIT 1;'
+            LIMIT 1'
         );
         $query->BindTable( 'journals' );
         $query->Bind( 'journal_url', $url );
@@ -58,6 +58,7 @@
         $query->Execute();
     }
 
+    echo 'done';
     Rabbit_Destruct();
 
 ?>
