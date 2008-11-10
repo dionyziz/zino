@@ -18,21 +18,9 @@
                 return Element( '404' );
             }
 
-			?><div id="schview">
-				<div class="gname"><?php
-                    if ( $institution->Avatar->Exists() ) {
-                        ?><img src="" alt="" title="" /><?php
-                    }
-                    ?>
-					<h2><?php
-                    echo htmlspecialchars( $school->Name );
-                    ?></h2>
-					<h3><?php
-                    echo htmlspecialchars( $institution->Name );
-                    ?></h3>
-				</div>
-				<div class="eof"></div><?php
-					Element( 'school/members/members' , $students );
+			?><div id="schview"><?php
+				Element( 'school/info' , $school->Name , $institution->Name , $institution->Avatar );
+				Element( 'school/members/members' , $students );
 				?><div class="photos">
 					<h4>Φωτογραφίες</h4>
 					<div class="plist">
