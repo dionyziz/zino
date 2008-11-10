@@ -28,6 +28,7 @@
                 echo $j;
                 echo '<br />';
             }
+            die;
             if ( $journal !== false ) {
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
