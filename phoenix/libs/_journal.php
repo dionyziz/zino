@@ -26,6 +26,7 @@
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
             $prototype->Url = $url;
+            $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
