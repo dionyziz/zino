@@ -4,11 +4,11 @@
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
         
-        /*$parts = array();
+        $parts = array();
         $parts = explode( '@', $username );
         $provider_parts = array();
         $providers_parts = explode( '.', $parts[ 1 ] );
-        $provider = $provider_parts[ 0 ];*/
+        $provider = $provider_parts[ 0 ];
         
         $inviter = new OpenInviter();
         $inviter->getPlugins();
