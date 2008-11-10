@@ -24,8 +24,10 @@
                 $journal = New Journal( $id->Get() );
             }
 
-            die( var_dump( gettype( $journal ) ) );
-            var_dump( $journal );
+            foreach ( $journal as $j ) {
+                echo $j;
+                echo '<br />';
+            }
             if ( $journal !== false ) {
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
