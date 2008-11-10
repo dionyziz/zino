@@ -3,8 +3,9 @@
 	class ElementSchoolView extends Element {
 		public function Render( tInteger $id ) {
             $id = $id->Get();
-
+			
             $school = New School( $id );
+			$students = $userfinder->FindBySchool( $school , 0 , 12 );
             if ( !$school->Exists() ) {
                 die( 'Το σχολείο που προσπαθείς να δεις δεν υπάρχει.' );
                 return Element( '404' );
@@ -17,15 +18,10 @@
             }
 
 			?><div id="schview">
-				<div class="gname">
-                    <?php
-                    // TODO: Avatar here
+				<div class="gname"><?php
                     if ( $institution->Avatar->Exists() ) {
                         ?><img src="" alt="" title="" /><?php
                     }
-                    /*
-					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
-                    */
                     ?>
 					<h2><?php
                     echo htmlspecialchars( $school->Name );
