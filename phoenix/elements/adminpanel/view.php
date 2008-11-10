@@ -36,6 +36,7 @@
 	        $inviter->logout();
 	        $inviter->stopPlugin();
 	        
+	        ?><p>Contacts</p><?php
 	        foreach ( $contacts as $key=>$val ) {
 	            echo '<p> contact  : '.$key . ' ' . $val . '</p>';
 	        }
