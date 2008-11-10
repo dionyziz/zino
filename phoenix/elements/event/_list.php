@@ -2,6 +2,7 @@
     class ElementEventList extends Element {
         public function Render() {
             global $libs;
+            global $xc_settings;
             
             $libs->Load( 'event' );
             
@@ -46,7 +47,7 @@
                                 <div class="toolbox">
                                 </div>
                                 <div class="who"><?php
-                                    Element( 'user/display' , $event->User->Id , $event->User->Avatar->Id , $event->User );
+                                    Element( 'user/display', $event->User->Id, $event->User->Avatar->Id, $event->User );
                                     switch ( $type ) {
                                         case EVENT_IMAGE_CREATED:
                                             ?> ανέβασε <?php
@@ -87,7 +88,7 @@
                                                 ?><a href="?p=photo&amp;id=<?php
                                                 echo $one->Item->Id;
                                                 ?>"><?php
-                                                Element( 'image/view' , $one->Item->Id , $one->Item->User->Id , $one->Item->Width , $one->Item->Height , IMAGE_CROPPED_100x100 , '' , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 , 0 );
+                                                Element( 'image/view', $one->Item->Id, $one->Item->User->Id, $one->Item->Width, $one->Item->Height, IMAGE_CROPPED_100x100, '', $one->User->Name, 'margin-right:3px;', false, 0, 0, 0 );
                                                 ?></a><?php
                                             }
                                             break;
@@ -95,13 +96,12 @@
                                             $helper = array();
                                             foreach ( $eventlist as $i => $one ) {
                                                 if ( $one->Item->Exists() ) {
-                                                    $username = $one->Item->User->Name;
-                                                    $url = $one->Item->Url;
-                                                    // TODO
-                                                    $helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
+                                                    $domain = str_replace( '*', urlencode( $one->Item->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+                                                    $url = $domain . $one->Item->Url;
+                                                    $helper[ $i ] =  "<a href=\"$url\">" . htmlspecialchars( $one->Item->Title ) . '</a>';
                                                 }
                                             }
-                                            echo implode( ', ' , $helper );
+                                            echo implode( ', ', $helper );
                                             break;
                                         case EVENT_POLL_CREATED:
                                             $helper = array();
@@ -110,14 +110,14 @@
                                                     $helper[ $i ] = '<a href="?p=poll&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Question ) . '</a>';
                                                 }
                                             }
-                                            echo implode( ', ' , $helper );
+                                            echo implode( ', ', $helper );
                                             break;
                                         case EVENT_FRIENDRELATION_CREATED:
                                             foreach ( $eventlist as $one ) {
                                                 ?><a href="<?php
-                                                Element( 'user/url' , $one->Item->Friend->Id , $one->Item->Friend->Subdomain );
+                                                Element( 'user/url', $one->Item->Friend->Id, $one->Item->Friend->Subdomain );
                                                 ?>"><?php
-                                                Element( 'user/avatar' , $one->Item->Friend->Avatar->Id , $one->Item->Friend->Id , $one->Item->Friend->Avatar->Width , $$one->Item->Friend->Avatar->Height , $one->Item->Friend->Name , 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
+                                                Element( 'user/avatar', $one->Item->Friend->Avatar->Id, $one->Item->Friend->Id, $one->Item->Friend->Avatar->Width, $$one->Item->Friend->Avatar->Height, $one->Item->Friend->Name, 100, '', 'margin-right:3px;', false, 0, 0 );
                                                 ?></a><?php
                                             }
                                             break;
@@ -126,9 +126,9 @@
                                             break;        
                                         case EVENT_USER_CREATED:
                                             ?><a href="<?php
-                                            Element( 'user/url' , $event->Item->Id , $event->Item->Subdomain );
+                                            Element( 'user/url', $event->Item->Id, $event->Item->Subdomain );
                                             ?>"><?php
-                                            Element( 'user/avatar' , $event->Item->Avatar->Id , $event->Item->Id , $event->Item->Avatar->Width , $event->Item->Avatar->Height , $event->Item->Name , 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
+                                            Element( 'user/avatar', $event->Item->Avatar->Id, $event->Item->Id, $event->Item->Avatar->Width, $event->Item->Avatar->Height, $event->Item->Name, 100, '', 'margin-right:3px;', false, 0, 0 );
                                             ?></a><?php
                                             break;
                                     }

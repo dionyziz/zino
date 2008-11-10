@@ -2,6 +2,8 @@
     class ElementFrontpageJournalList extends Element {
         protected $mPersistent = array( 'journalseq' );
         public function Render( $journalseq ) {
+            global $xc_settings;
+
             $finder = New JournalFinder();
             $journals = $finder->FindAll( 0, 4 );
             ?><div class="list">
@@ -13,11 +15,10 @@
                         ?> καταχώρησε
                         </div>
                         <div class="subject"><?php
-                            $username = $journal->User->Name;
-                            $url = $journal->Url;
-                            // TODO
-                            ?><a href="?p=journal&amp;id=<?php
-                            echo $journal->Id;
+                            $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+                            $url = $domain . $journal->Url;
+                            ?><a href="<?php
+                            echo $url;
                             ?>"><?php
                             echo htmlspecialchars( $journal->Title );
                             ?></a>

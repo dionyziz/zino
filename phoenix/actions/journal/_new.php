@@ -2,6 +2,7 @@
     function ActionJournalNew( tInteger $id , tText $title , tText $text ) {
         global $user;
         global $libs;
+        global $xc_settings;
 
         header( 'Content-type: text/plain' );
 
@@ -31,9 +32,8 @@
         $journal->Text = $result;
         $journal->Save();
 
-        $username = $journal->User->Name;
-        $url = $journal->Url;
-        // TODO
-        return Redirect( '?p=journal&id=' . $journal->Id );
+        $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+        $url = $domain . $journal->Url;
+        return Redirect( $url );
     }
 ?>
