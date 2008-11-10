@@ -174,10 +174,14 @@
                 $total
             );
         }
-        public function FindBySchool( $school, $offset = 0, $limit = 10000 ) {
-            $prototype = New User();
-            $prototype->Schoolid = $schoolid;
-            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
+        public function FindBySchool( School $school, $offset = 0, $limit = 10000 ) {
+            $profilefinder = New UserProfileFinder();
+            $userprofiles = $profilefinder->FindBySchool( $school, $offset, $limit ); 
+            $userids = array();
+            foreach ( $userprofiles as $userprofile ) {
+                $userids[] = $userprofile->Id;
+            }
+            return $this->FindByIds( $userids );
         }
         public function Count() {
             $query = $this->mDb->Prepare(

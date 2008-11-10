@@ -5,6 +5,14 @@
     $libs->Load( 'school/school' );
     $libs->Load( 'user/oldprofile' );
     
+    class UserProfileFinder extends Finder {
+        public function FindBySchool( $school, $offset = 0, $limit = 10000 ) {
+            $prototype = New UserProfile();
+            $prototype->Schoolid = $schoolid;
+            return $this->FindByPrototype( $prototype, $offset, $limit );
+        }
+    }
+
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
         
