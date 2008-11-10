@@ -32,8 +32,8 @@
 	        $state = $inviter->getPlugins();
 	        if( $state == false ) echo '<p>Problem on plugins</p>';
 	        else {
-	            foreach ( $state as $key=>$val ) {
-	                echo '<p> plugin  : '.$key . ' ' . $val . '</p>';
+	            foreach ( $state as $a ) {
+	                echo '<p> plugin  : ' . $a['name'] . ' ' . $a[ 'version' ] . ' ' . $a[ 'description'] . '</p>';
 	            }
 	        }
 	        $inviter->startPlugin( 'hotmail' );
