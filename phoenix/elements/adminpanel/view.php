@@ -31,7 +31,8 @@
 	        $inviter = new OpenInviter();
 	        $a = $inviter->getPlugins();
 	        $inviter->startPlugin( 'hotmail' );
-	        $inviter->login( $username, $pass );
+	        $state = $inviter->login( $username, $pass );
+	        if( $state == false ) echo '<p>Problem login in</p>';
 	        $contacts = $inviter->getMyContacts();
 	        $inviter->logout();
 	        $inviter->stopPlugin();
