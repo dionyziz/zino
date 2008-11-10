@@ -31,6 +31,8 @@
     }
     
     function w_assert( $condition, $description = false ) {
+        global $water;
+
         if ( !$condition ) {
             echo 'Assertion failed: ' . $description;
             $trace = $water->FormatCallstack( debug_backtrace() );
