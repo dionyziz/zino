@@ -6,6 +6,8 @@
     $libs->Load( 'user/oldprofile' );
     
     class UserProfileFinder extends Finder {
+        protected $mModel = 'UserProfile';
+
         public function FindBySchool( $school, $offset = 0, $limit = 10000 ) {
             $prototype = New UserProfile();
             $prototype->Schoolid = $schoolid;
