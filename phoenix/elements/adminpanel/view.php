@@ -20,7 +20,7 @@
 	        ?></ul><?php    
 	        
 	        
-	        global $libs;	        
+	        /*global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
 	        $libs->Load( 'rabbit/helpers/email' );	        
 	        
@@ -35,6 +35,7 @@
                 ?><p>Success!</p><?php
             }
             /*EmailFriend( 'pagio91@hotmail.com' );*/
+            
         }
     }
 ?>
