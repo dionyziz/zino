@@ -12,9 +12,6 @@
             return false;//Problem login in
         }
         $contacts = $inviter->getMyContacts();
-        if( $contacts === false  ) {
-            return false;//Problem accessing the contacs
-        }
         $inviter->logout();
         $inviter->stopPlugin();
         
