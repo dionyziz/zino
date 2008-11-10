@@ -29,14 +29,8 @@
 	        $pass = $pass->Get();
 	        
 	        $inviter = new OpenInviter();
-	        $state = $inviter->getPlugins();
-	        if( $state == false ) echo '<p>Problem on plugins</p>';
-	        else {
-	            foreach ( $state as $a ) {
-	                print_r( $state );
-	            }
-	        }
-	        $inviter->startPlugin( 'hotmail' );
+	        $inviter->getPlugins();
+	        $inviter->startPlugin( 'gmail' );
 	        $state = $inviter->login( $username, $pass );
 	        if( $state == false ) echo '<p>Problem login in</p>';
 	        $contacts = $inviter->getMyContacts();
