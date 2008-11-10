@@ -174,7 +174,7 @@
                 $total
             );
         }
-        public function FindBySchool( $schoolid, $offset = 0, $limit = 10000 ) {
+        public function FindBySchool( $school, $offset = 0, $limit = 10000 ) {
             $prototype = New User();
             $prototype->Schoolid = $schoolid;
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
