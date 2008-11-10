@@ -3,6 +3,7 @@
 
     $libs->Load( 'bulk' );
     $libs->Load( 'url' );
+    $libs->Load( 'user/user' );
 
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
@@ -36,7 +37,10 @@
             $journal->Delid = 0;
 
             $journals = $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
-            // TODO
+
+            for ( $i = 0; $i < count( $journals ); ++$i ) {
+                $journals[ $i ]->CopyUserFrom( New User( $journals[ $i ]->Userid ) );
+            }
             return $journals;
         }
     }
