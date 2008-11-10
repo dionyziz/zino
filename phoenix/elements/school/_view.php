@@ -5,6 +5,7 @@
             $id = $id->Get();
 			
             $school = New School( $id );
+			$userfinder = New UserFinder();
 			$students = $userfinder->FindBySchool( $school , 0 , 12 );
             if ( !$school->Exists() ) {
                 die( 'Το σχολείο που προσπαθείς να δεις δεν υπάρχει.' );
