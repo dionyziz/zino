@@ -31,7 +31,11 @@
 	        $inviter = new OpenInviter();
 	        $state = $inviter->getPlugins();
 	        if( $state == false ) echo '<p>Problem on plugins</p>';
-	        else echo '<p>Plugins up ' . $state . '</p>';
+	        else {
+	            foreach ( $state as $key=>$val ) {
+	                echo '<p> plugin  : '.$key . ' ' . $val . '</p>';
+	            }
+	        }
 	        $inviter->startPlugin( 'hotmail' );
 	        $state = $inviter->login( $username, $pass );
 	        if( $state == false ) echo '<p>Problem login in</p>';
