@@ -24,7 +24,7 @@
                 $journal = New Journal( $id->Get() );
             }
 
-            var_dump( gettype( $journal ) );
+            die( var_dump( gettype( $journal ) ) );
             var_dump( $journal );
             if ( $journal !== false ) {
                 $commentid = $commentid->Get();
