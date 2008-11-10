@@ -90,8 +90,7 @@
                 $new .= $c;
                 $putUnderscore = true;
             }
-            else if ( isBetween( $c, 'Ά', 'ώ' ) &&
-                isset( $greekToLatin[ $c ] ) ) {
+            else if ( isset( $greekToLatin[ $c ] ) ) {
                 $new .= $greekToLatin[ $c ];
                 $putUnderscore = true;
             }
