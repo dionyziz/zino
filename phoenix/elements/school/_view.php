@@ -1,7 +1,21 @@
 <?php
 	
 	class ElementSchoolView extends Element {
-		public function Render() {
+		public function Render( tInteger $id ) {
+            $id = $id->Get();
+
+            $school = New School( $id );
+            if ( !$school->Exists() ) {
+                die( 'Το σχολείο που προσπαθείς να δεις δεν υπάρχει.' );
+                return Element( '404' );
+            }
+
+            $institution = $school->Institution;
+            if ( !$institution->Exists() ) {
+                die( 'Το σχολείο που προσπαθείς να δεις δεν εντάσσεται σε κάποιο ίδρυμα.' );
+                return Element( '404' );
+            }
+
 			?><div id="schview">
 				<div class="gname">
 					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
