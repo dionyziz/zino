@@ -21,13 +21,15 @@ div#schview h4 {
 	margin: 0;
 	color: #666;
 }
+div#schview div.members div.people {
+	margin: 2px 0 0 0;
+}
 div#schview div.photos div.plist {
 	height: 100px;
 	margin: 2px 0 0 0;
 }
 div#schview div.photos div.plist ul {
 	height: 100px;
-	margin: 2px 0 0 0;
 }
 div#schview div.photos div.plist ul li {
 	float: left;
