@@ -33,7 +33,7 @@
         $journal->Save();
 
         $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-        $url = $domain . $journal->Url;
+        $url = $domain . 'journals/' . $journal->Url;
         return Redirect( $url );
     }
 ?>

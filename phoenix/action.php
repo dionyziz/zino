@@ -4,7 +4,6 @@
     global $page;
     global $rabbit_settings;
 
-    define( 'WATER_ENABLE', false );
     require_once 'libs/rabbit/rabbit.php';
 
     Rabbit_Construct( 'action' );

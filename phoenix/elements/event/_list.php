@@ -97,7 +97,7 @@
                                             foreach ( $eventlist as $i => $one ) {
                                                 if ( $one->Item->Exists() ) {
                                                     $domain = str_replace( '*', urlencode( $one->Item->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-                                                    $url = $domain . $one->Item->Url;
+                                                    $url = $domain . 'journals/' . $one->Item->Url;
                                                     $helper[ $i ] =  "<a href=\"$url\">" . htmlspecialchars( $one->Item->Title ) . '</a>';
                                                 }
                                             }
