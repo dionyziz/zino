@@ -2,6 +2,25 @@
     function GetContacts( $username, $pass ) {
         global $libs;
         
+        $libs->Load( 'contacts/OpenInviter/openinviter' );        
+        
+        $inviter = new OpenInviter();
+        $inviter->getPlugins();
+        $inviter->startPlugin( 'gmail' );
+        $state = $inviter->login( $username, $pass );
+        if( $state == false ) {
+            return false;//Problem login in
+        }
+        $contacts = $inviter->getMyContacts();
+        if( $contacts == false ) {
+            return false;//Problem accessing the contacs
+        }
+        $inviter->logout();
+        $inviter->stopPlugin();
+        
+        return $true;
+        
+        /*
         $libs->Load( 'contacts/fetcher' );        
         
         $fetcher = new ContactsFetcher();
@@ -18,6 +37,7 @@
             return false;//if the failed
         }
         return true;//if contacts added succesfully
+        */
     }    
     
     function EmailFriend( $toemail ) {

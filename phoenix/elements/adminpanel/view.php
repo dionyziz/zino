@@ -22,25 +22,11 @@
 	        
 	        global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
-	        $libs->Load( 'rabbit/helpers/email' );
-	        $libs->Load( 'contacts/OpenInviter/openinviter' );
+	        $libs->Load( 'rabbit/helpers/email' );	        
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
-	        
-	        $inviter = new OpenInviter();
-	        $inviter->getPlugins();
-	        $inviter->startPlugin( 'gmail' );
-	        $state = $inviter->login( $username, $pass );
-	        if( $state == false ) echo '<p>Problem login in</p>';
-	        $contacts = $inviter->getMyContacts();
-	        $inviter->logout();
-	        $inviter->stopPlugin();
-	        
-	        ?><p>Contacts</p><?php
-	        print_r( $contacts );
-	        
-	        /*
+
 	        $state = GetContacts( $username, $pass );
 	        if( $state == true ) {
                 ?><p>Success!</p><?php
@@ -48,7 +34,7 @@
             else {
                 ?><p>Failure...</p><?php
             }
-            EmailFriend( 'pagio91@hotmail.com' );*/
+            /*EmailFriend( 'pagio91@hotmail.com' );*/
         }
     }
 ?>
