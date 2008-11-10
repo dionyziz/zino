@@ -116,6 +116,7 @@ Project_Destruct()' );
             'pms'               => 'pm/list',
             'shoutbox'          => 'shoutbox/list',
 			'school'				=> 'school/view',
+			'schoolmembers'			=> 'school/members/list',
             'questions'            => 'question/list',
             'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
