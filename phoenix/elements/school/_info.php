@@ -3,11 +3,10 @@
 		
 		public function Render( $school , $link ) {
 			?><div class="gname"><?php
-				if ( $avatar->Exists() ) {
+				if ( $school->Institution->Avatar->Exists() ) {
 					?><img src="" alt="" title="" /><?php
 				}
-				?>
-				<h2><?php
+				?><h2><?php
 				if ( $link ) {
 					?><a href="?p=school&amp;id=<?php
 					echo $school->Id;

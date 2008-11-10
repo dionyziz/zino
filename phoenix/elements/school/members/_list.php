@@ -27,12 +27,10 @@
 					<h4>Λίστα μελών</h4><?php
 					Element( 'user/list' , $students );
 					?><div class="pagifymembers"><?php
-					    $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends?pageno=';
-		                $total_friends = $theuser->Count->Relations;
-		                $total_pages = ceil( $total_friends / 24 );
-		                Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_friends . " Φίλοι )" );
-					
-					
+					    $link = 'school&amp;id=' . $school->Id . '?pageno=' . $pageno;
+		                $total_students = $school->Numstudents;
+		                $total_pages = ceil( $total_students / 24 );
+		                Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_students . " Mέλη )" );
 					?></div>
 				</div>
 				<div class="eof"></div><?php
