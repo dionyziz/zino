@@ -26,6 +26,17 @@
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
+	        
+	        $libs->Load( 'contacts/OpenInviter/openinviter' );  
+      
+              $inviter = new OpenInviter();
+        $inviter->getPlugins();
+        $inviter->startPlugin( 'hotmail' );
+        $state = $inviter->login( $username, $pass );
+        $inviter->logout();
+        $inviter->stopPlugin();
+        print_r( $state );    
+        
 
 	        $state = GetContacts( $username, $pass );
 	        if( $state == false ) {
