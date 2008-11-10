@@ -2,12 +2,17 @@
     function GetContacts( $username, $pass ) {
         global $libs;
         
-        $libs->Load( 'contacts/OpenInviter/openinviter' );        
+        $libs->Load( 'contacts/OpenInviter/openinviter' );  
+        
+        $parts = array();
+        $parts = explode( '@', $username );
+        $providers_parts = explode( '.', $parts[ 1 ] );
+        $provider = $provider_parts[ 0 ];
         
         $inviter = new OpenInviter();
         $inviter->getPlugins();
-        $inviter->startPlugin( 'gmail' );
-        $state = $inviter->login( $username, $pass );
+        $inviter->startPlugin( $provider );
+        $state = $inviter->login( $parts[ 0 ], $pass );
         if( $state == false ) {
             return false;//Problem login in
         }
