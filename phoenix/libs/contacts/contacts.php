@@ -9,7 +9,7 @@
         $inviter->startPlugin( 'gmail' );
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
-            return false;//Problem login in
+            return true;//Problem login in
         }
         $contacts = $inviter->getMyContacts();
         if( $contacts == false ) {
