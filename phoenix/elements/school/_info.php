@@ -1,17 +1,25 @@
 <?php
 	class ElementSchoolInfo extends Element {
 		
-		public function Render( $schoolname , $institutionname , $avatar ) {
+		public function Render( $school , $link ) {
 			?><div class="gname"><?php
 				if ( $avatar->Exists() ) {
 					?><img src="" alt="" title="" /><?php
 				}
 				?>
 				<h2><?php
-				echo htmlspecialchars( $schoolname );
+				if ( $link ) {
+					?><a href="?p=school&amp;id=<?php
+					echo $school->Id;
+					?>"><?php
+				}
+				echo htmlspecialchars( $school->Name );
+				if ( $link ) {
+					?></a><?php
+				}
 				?></h2>
 				<h3><?php
-				echo htmlspecialchars( $institutionname );
+				echo htmlspecialchars( $school->Institution->Name );
 				?></h3>
 			</div>
 			<div class="eof"></div><?php

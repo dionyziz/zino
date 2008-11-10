@@ -1,8 +1,11 @@
 <?php
 	
 	class ElementSchoolView extends Element {
+		
 		public function Render( tInteger $id ) {
-            $id = $id->Get();
+            global $user; 
+			
+			$id = $id->Get();
 			
             $school = New School( $id );
 			$userfinder = New UserFinder();
@@ -19,7 +22,7 @@
             }
 
 			?><div id="schview"><?php
-				Element( 'school/info' , $school->Name , $institution->Name , $institution->Avatar );
+				Element( 'school/info' , $school , false );
 				Element( 'school/members/members' , $students );
 				?><div class="photos">
 					<h4>Φωτογραφίες</h4>
@@ -75,22 +78,13 @@
 				</div>
 				<div class="eof"></div>
 				<div class="comments">
-					<h4>Σχόλια σχετικά με Σχολή Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</h4>
-                    <div class="comment newcomment"> 
-						<div class="toolbox"><span class="time">τα σχόλια είναι επεξεργάσιμα για ένα τέταρτο</span></div> 
-						<div class="who">
-							<a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/58/117694/117694_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual" /></span>izual</a> πρόσθεσε ένα σχόλιο
-						</div> 
-		                <div class="text"> 
-		                    <textarea rows="" cols=""></textarea> 
-		                </div> 
-		                <div class="bottom"> 
-		                    <form onsubmit="return false" action=""><input type="submit" value="Σχολίασε!" onclick="Comments.Create(0);" /></form> 
-		                </div> 
-		                <div style="display:none" id="item">58</div> 
-		                <div style="display:none" id="type">3</div> 
-					</div>
-					<div id="comment_1638730" class="comment" style="">
+					<h4>Σχόλια σχετικά με <?php
+					echo htmlspecialchars( $school->Name );
+					?></h4><?php
+					if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatar->Id );
+					}
+					?><div id="comment_1638730" class="comment" style="">
 						<div class="toolbox"><span class="time invisible">2008-10-31 16:45:49</span><a href="" class="invisible" style="margin-right:0px;" title="Διαγραφή">&nbsp;</a></div>
 						<div class="who">
 							<a href="http://realrealthanos.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/4765/125895/125895_100.jpg" class="avatar" style="width:50px;height:50px;" title="realrealthanos" alt="realrealthanos" /></span>realrealthanos</a> είπε:
