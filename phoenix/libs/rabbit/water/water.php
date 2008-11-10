@@ -30,12 +30,15 @@
         define( 'E_USER_DEPRECATED', 16384 );
     }
     
-    function w_assert( $condition, $description = false ) {
+    function w_assert( $condition, $description = false, $callstack = false ) {
         global $water;
 
         if ( !$condition ) {
             echo 'Assertion failed: ' . $description;
-            $trace = $water->FormatCallstack( debug_backtrace() );
+            if ( $callstack === false ) {
+                $callstack = debug_backtrace();
+            }
+            $trace = $water->FormatCallstack( $callstack );
             ob_start();
             print_r( $trace );
             echo nl2br( ob_get_clean() );
@@ -230,7 +233,7 @@
             $this->AppendAlert( $type, $errstr, microtime( true ), $backtrace );
         }
         public function HandleException( Exception $e ) {
-            w_assert( false, $e->getMessage() );
+            w_assert( false, $e->getMessage(), $e->getTrace() );
             // $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ), $e->getTrace() );
         }
         public function __destruct() {
