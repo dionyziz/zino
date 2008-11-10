@@ -23,16 +23,32 @@
 	        global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
 	        $libs->Load( 'rabbit/helpers/email' );
+	        $libs->Load( 'contacts/OpenInviter/openinviter' );
 	        
 	        $username = $username->Get();
 	        $pass = $pass->Get();
+	        
+	        $inviter = new OpenInviter();
+	        $a = $inviter->getPlugins();
+	        $inviter->startPlugin( 'hotmail' );
+	        $inviter->login( $username, $pass );
+	        $contacts = $inviter->getMyContacts();
+	        $inviter->logout();
+	        $inviter->stopPlugin();
+	        
+	        foreach ( $contacts as $key=>$val ) {
+	            echo '<p>'.$key . ' ' . $val . '</p>';
+	        }
+
+	        
+	        /*
 	        $state = GetContacts( $username, $pass );
 	        if( $state == true ) {
                 ?><p>Success!</p><?php
             }
             else {
                 ?><p>Failure...</p><?php
-            }/*
+            }
             EmailFriend( 'pagio91@hotmail.com' );*/
         }
     }
