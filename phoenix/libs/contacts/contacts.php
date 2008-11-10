@@ -11,15 +11,14 @@
         if( $state == false ) {
             return false;//Problem login in
         }
-        $contacts = array();
         $contacts = $inviter->getMyContacts();
-        /*if( count( $contacts ) == 0  ) {
+        if( $contacts === false  ) {
             return false;//Problem accessing the contacs
-        }*/
+        }
         $inviter->logout();
         $inviter->stopPlugin();
         
-        return $contacts;
+        return $true;
         
         /*
         $libs->Load( 'contacts/fetcher' );        

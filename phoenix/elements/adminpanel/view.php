@@ -31,8 +31,7 @@
 	        if( $state == false ) {
                 ?><p>Failure...</p><?php                
             }
-            else {
-                print_r( $state );
+            else {                
                 ?><p>Success!</p><?php
             }
             /*EmailFriend( 'pagio91@hotmail.com' );*/
