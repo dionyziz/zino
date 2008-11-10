@@ -6,6 +6,7 @@
         
         $parts = array();
         $parts = explode( '@', $username );
+        $provider_parts = array();
         $providers_parts = explode( '.', $parts[ 1 ] );
         $provider = $provider_parts[ 0 ];
         
