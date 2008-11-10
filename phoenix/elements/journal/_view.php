@@ -24,11 +24,6 @@
                 $journal = New Journal( $id->Get() );
             }
 
-            foreach ( $journal as $j ) {
-                echo $j;
-                echo '<br />';
-            }
-            die;
             if ( $journal !== false ) {
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();

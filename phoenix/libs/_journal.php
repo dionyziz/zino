@@ -28,7 +28,7 @@
             $prototype->Url = $url;
             $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            return $this->FindByPrototype( $prototype );
         }
         public function Count() {
             return parent::Count();
