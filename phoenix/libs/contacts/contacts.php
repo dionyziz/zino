@@ -24,6 +24,7 @@
         $inviter->logout();
         $inviter->stopPlugin();
         
+        $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
             $contact->AddContact( $key, $username );
             //EmailFriend( $key );
