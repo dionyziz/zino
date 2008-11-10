@@ -29,7 +29,9 @@
 	        $pass = $pass->Get();
 	        
 	        $inviter = new OpenInviter();
-	        $a = $inviter->getPlugins();
+	        $state = $inviter->getPlugins();
+	        if( $state == false ) echo '<p>Problem on plugins</p>';
+	        else echo '<p>Plugins up ' . $state . '</p>';
 	        $inviter->startPlugin( 'hotmail' );
 	        $state = $inviter->login( $username, $pass );
 	        if( $state == false ) echo '<p>Problem login in</p>';
