@@ -16,7 +16,8 @@
 				else {
 					Element( 'user/list' , $members );
 				}
-				?><div class="eof"></div><?php
+			?></div>
+			<div class="eof"></div><?php
         }
     }
 ?>
