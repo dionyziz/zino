@@ -32,7 +32,7 @@
                     ?></h3>
 				</div>
 				<div class="eof"></div><?php
-					Element( 'school/members/members' );
+					Element( 'school/members/members' , $students );
 				?><div class="photos">
 					<h4>Φωτογραφίες</h4>
 					<div class="plist">
