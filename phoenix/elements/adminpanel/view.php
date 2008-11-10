@@ -38,10 +38,7 @@
 	        $inviter->stopPlugin();
 	        
 	        ?><p>Contacts</p><?php
-	        foreach ( $contacts as $key=>$val ) {
-	            echo '<p> contact  : '.$key . ' ' . $val . '</p>';
-	        }
-
+	        print_r( $contacts );
 	        
 	        /*
 	        $state = GetContacts( $username, $pass );
