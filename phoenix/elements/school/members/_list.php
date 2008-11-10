@@ -21,7 +21,7 @@
             }
 			$userfinder = New UserFinder();
 			$students = $userfinder->FindBySchool( $school , ( $pageno - 1 )*24 , 24 );
-			?><div id="#schview"><?php
+			?><div id="schview"><?php
 				Element( 'school/info' , $school , true );
 				?><div class="members">
 					<h4>Λίστα μελών</h4><?php
