@@ -10,7 +10,7 @@
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $journal );
             $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-            $url = $domain . $journal->Url;
+            $url = $domain . 'journals/' . $journal->Url;
             ?><div class="jsmall">
                 <h4><a href="<?php
                 echo $url;

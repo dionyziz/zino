@@ -20,7 +20,7 @@
                             <div class="who"><?php
                                 Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
                                 $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-                                $url = $domain . $journal->Url;
+                                $url = $domain . 'journals/' . $journal->Url;
                             ?> καταχώρησε
                             </div>
                             <div class="subject">

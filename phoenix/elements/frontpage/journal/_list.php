@@ -16,7 +16,7 @@
                         </div>
                         <div class="subject"><?php
                             $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-                            $url = $domain . $journal->Url;
+                            $url = $domain . 'journals/' . $journal->Url;
                             ?><a href="<?php
                             echo $url;
                             ?>"><?php
