@@ -24,7 +24,7 @@
                 $journal = New Journal( $id->Get() );
             }
 
-            if ( $journal->Exists() && $journal !== false ) {
+            if ( $journal !== false ) {
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
                 $finder = New FavouriteFinder();
