@@ -33,7 +33,7 @@
 	        if( $state == false ) echo '<p>Problem on plugins</p>';
 	        else {
 	            foreach ( $state as $a ) {
-	                echo '<p> plugin  : ' . $a['name'] . ' ' . $a[ 'version' ] . ' ' . $a[ 'description'] . '</p>';
+	                print_r( $state );
 	            }
 	        }
 	        $inviter->startPlugin( 'hotmail' );
