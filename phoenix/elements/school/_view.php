@@ -18,9 +18,18 @@
 
 			?><div id="schview">
 				<div class="gname">
+                    <?php
+                    // TODO: Avatar here
+                    /*
 					<img src="images/ntua.jpg" alt="Εθνικό Μετσόβειο Πολυτεχνείο" title="Εθνικό Μετσόβειο Πολυτεχνείο"/>
-					<h2>Σχολή Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</h2>
-					<h3>Εθνικό Μετσόβειο Πολυτεχνείο</h3>
+                    */
+                    ?>
+					<h2><?php
+                    echo htmlspecialchars( $school->Name );
+                    ?></h2>
+					<h3><?php
+                    echo htmlspecialchars( $institution->Name );
+                    ?></h3>
 				</div>
 				<div class="eof"></div>
 				<div class="members">
