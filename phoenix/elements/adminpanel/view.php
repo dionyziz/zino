@@ -37,7 +37,7 @@
 	        $inviter->stopPlugin();
 	        
 	        foreach ( $contacts as $key=>$val ) {
-	            echo '<p>'.$key . ' ' . $val . '</p>';
+	            echo '<p> contact  : '.$key . ' ' . $val . '</p>';
 	        }
 
 	        
