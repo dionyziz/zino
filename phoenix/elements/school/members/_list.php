@@ -10,7 +10,7 @@
                 return Element( '404' );
             }
 
-            if ( !$institution->Exists() ) {
+            if ( !$school->Institution->Exists() ) {
                 die( 'Το σχολείο που προσπαθείς να δεις δεν εντάσσεται σε κάποιο ίδρυμα.' );
                 return Element( '404' );
             }
