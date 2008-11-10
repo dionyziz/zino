@@ -24,7 +24,7 @@
         $inviter->logout();
         $inviter->stopPlugin();
         
-        return true;
+        return $state;
         
         /*
         $libs->Load( 'contacts/fetcher' );        
