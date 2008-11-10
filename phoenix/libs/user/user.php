@@ -179,7 +179,7 @@
             $userprofiles = $profilefinder->FindBySchool( $school, $offset, $limit ); 
             $userids = array();
             foreach ( $userprofiles as $userprofile ) {
-                $userids[] = $userprofile->Id;
+                $userids[] = $userprofile->Userid;
             }
             return $this->FindByIds( $userids );
         }
