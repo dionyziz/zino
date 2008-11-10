@@ -69,7 +69,7 @@
                         WHERE
                             `profile_schoolid`=:schoolid;'
                     ); // TODO: Optimize (denormalize)
-                    $query->Bind( 'userprofiles' );
+                    $query->BindTable( 'userprofiles' );
                     $query->Bind( 'schoolid', $this->Id );
                     return array_shift( $query->Execute()->FetchArray() );
                 default:
