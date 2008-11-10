@@ -33,7 +33,10 @@
     function w_assert( $condition, $description = false ) {
         if ( !$condition ) {
             echo 'Assertion failed: ' . $description;
-            print_r( debug_backtrace() );
+            $trace = $water->FormatCallstack( debug_backtrace() );
+            ob_start();
+            print_r( $trace );
+            echo nl2br( ob_get_clean() );
             die();
         }
     }
@@ -254,7 +257,7 @@
                 $this->FormatCallstack( $callstack )
             ) ) . ',';
         }
-        protected function FormatCallstack( $callstack ) {
+        public function FormatCallstack( $callstack ) {
             $ret = array();
             foreach ( $callstack as $item ) {
                 $func = '';
