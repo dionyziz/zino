@@ -67,7 +67,9 @@
     }
     if ( $limit < count( $result ) ) {
         $offset += 100;
+        echo 'before<br />';
         Redirect( "prettyjournalsurls.php?offset=$offset" );
+        echo 'after<br />';
     }
 
     Rabbit_Destruct();
