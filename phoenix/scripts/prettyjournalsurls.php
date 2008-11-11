@@ -76,7 +76,7 @@
         ?>
         <script type="text/javascript">
         setTimeout( function() {
-            window.location.href = "prettyjournalurls.php?offset=<?php
+            window.location.href = "prettyjournalsurls.php?offset=<?php
             echo $offset;
             ?>";
         }, 1000 );
