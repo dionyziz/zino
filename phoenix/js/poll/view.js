@@ -4,6 +4,7 @@ var PollView = {
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'poll/delete' , { pollid : pollid } );
 		}
+		return false;
 	},
 	Vote : function( optionid , pollid , node ) {
 		var parent = $( 'div.posmall div.results' );
