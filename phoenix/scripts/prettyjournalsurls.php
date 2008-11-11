@@ -1,14 +1,11 @@
 <?php
-
-    $offset = $_GET[ 'offset' ];
-    $limit = $offset + 100;
-    $i = 0;
+    $offset = ( integer )$_GET[ 'offset' ];
+    $limit = 100;
 
     set_include_path( '../:./' );
 
     require '../libs/rabbit/rabbit.php';
 
-    define( 'WATER_ENABLE', false );
     Rabbit_Construct();
 
     global $libs;
@@ -23,14 +20,13 @@
     $journals = array();
     while ( $row = $res->FetchArray() ) {
         $userId = $row[ 'journal_userid' ];
-        $journalInfo = array(
-            'id' => $row[ 'journal_id' ],
-            'title' => $row[ 'journal_title' ]
-        );
         if ( !isset( $journals[ $userId ] ) ) {
             $journals[ $userId ] = array();
         }
-        $journals[ $userId ][] = $journalInfo;
+        $journals[ $userId ][] = array(
+            'id' => $row[ 'journal_id' ],
+            'title' => $row[ 'journal_title' ]
+        );
     }
 
     $result = array();
@@ -46,8 +42,9 @@
         }
     }
 
+    $i = 0;
     foreach ( $result as $id => $url ) {
-        if ( $i >= $offset && $i <= $limit ) {
+        if ( $i >= $offset && $i <= $offset + $limit ) {
             $query = $db->Prepare(
                 'UPDATE
                     :journals 
