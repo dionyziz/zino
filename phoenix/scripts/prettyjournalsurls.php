@@ -46,7 +46,6 @@
         }
     }
 
-    echo "$limit<br />";
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $limit ) {
             $query = $db->Prepare(
@@ -67,9 +66,7 @@
     }
     if ( $limit < count( $result ) ) {
         $offset += 100;
-        echo 'before<br />';
-        Redirect( "prettyjournalsurls.php?offset=$offset" );
-        echo 'after<br />';
+        Redirect( "prettyjournalsurls.php?offset=$offset" );  // this doesn't work
     }
 
     Rabbit_Destruct();
