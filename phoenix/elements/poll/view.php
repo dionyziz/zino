@@ -21,7 +21,7 @@
 
                 $finder = New PollVoteFinder();
                 $showresults = $finder->FindByPollAndUser( $poll, $user );
-                
+                $theuser = $poll->User;
                 if ( $poll->Exists() ) {
                     if ( $pageno <= 0 ) {
                         $pageno = 1;
