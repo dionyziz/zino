@@ -1,5 +1,9 @@
 <?php
 
+    $offset = $_GET[ 'offset' ];
+    $limit = $offset + 100;
+    $i = 0;
+
     set_include_path( '../:./' );
 
     require '../libs/rabbit/rabbit.php';
@@ -43,22 +47,28 @@
     }
 
     foreach ( $result as $id => $url ) {
-        $query = $db->Prepare(
-            'UPDATE
-                :journals 
-            SET
-                `journal_url` = :journal_url
-            WHERE
-                `journal_id` = :journal_id
-            LIMIT 1'
-        );
-        $query->BindTable( 'journals' );
-        $query->Bind( 'journal_url', $url );
-        $query->Bind( 'journal_id', $id );
-        $query->Execute();
+        if ( $i >= $offset && $i <= $limit ) {
+            $query = $db->Prepare(
+                'UPDATE
+                    :journals 
+                SET
+                    `journal_url` = :journal_url
+                WHERE
+                    `journal_id` = :journal_id
+                LIMIT 1;'
+            );
+            $query->BindTable( 'journals' );
+            $query->Bind( 'journal_url', $url );
+            $query->Bind( 'journal_id', $id );
+            $query->Execute();
+        }
+        ++$i;
+    }
+    if ( $limit < count( $result ) ) {
+        $offset += 100;
+        Redirect( "prettyjournalsurls.php?offset=$offset" );
     }
 
-    echo 'done';
     Rabbit_Destruct();
 
 ?>
