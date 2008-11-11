@@ -137,7 +137,8 @@
                         <p><?php
                         echo $journal->Text; // purposely not formatted
                         ?></p>
-                    </div><?php
+                    </div>
+					<div class="eof"></div><?php
                     Element( 'ad/view', AD_JOURNAL, $page->XMLStrict() ); 
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
