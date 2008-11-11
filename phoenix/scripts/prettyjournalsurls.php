@@ -70,7 +70,7 @@
         Processed <?php
         echo $offset;
         ?> out of <?php
-        echo count( $reult );
+        echo count( $result );
         ?>.<?php
         $water->Post();
         ?>
