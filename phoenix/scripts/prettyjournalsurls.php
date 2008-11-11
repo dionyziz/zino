@@ -1,4 +1,6 @@
 <?php
+    global $water;
+
     $offset = ( integer )$_GET[ 'offset' ];
     $limit = 100;
 
@@ -63,17 +65,21 @@
     }
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
-        ?><html><head><title>Processing...</title></head><body>
+        ?><html><head><title>Processing...</title>
+        <script type="javascript">
+        setTimeout( function() {
+            window.location.href = "scripts/prettyjournalurls.php?offset=<?php
+            echo $offset;
+            ?>";
+        }, 1000 );
+        </script></head><body>
         Processed <?php
         echo $offset;
         ?> out of <?php
         echo count( $reult );
-        ?>.
-        <script type="javascript">
-        window.location.href = "scripts/prettyjournalurls.php?offset=<?php
-        echo $offset;
-        ?>";
-        </script>
+        ?>.<?php
+        unset( $water );
+        ?>
         </body></html><?php
     }
 
