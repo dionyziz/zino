@@ -46,6 +46,7 @@
         }
     }
 
+    echo "$limit<br />";
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $limit ) {
             $query = $db->Prepare(
