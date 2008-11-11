@@ -66,7 +66,7 @@
     }
     if ( $limit < count( $result ) ) {
         $offset += 100;
-        Redirect( "prettyjournalsurls.php?offset=$offset" );  // this doesn't work
+        Redirect( "prettyjournalsurls.php?offset=$offset" )->Redirect();
     }
 
     Rabbit_Destruct();
