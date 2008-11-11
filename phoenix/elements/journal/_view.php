@@ -127,7 +127,10 @@
 							}
 							?></ul><?php
 						}
-						?><div class="eof"></div>
+						?><div class="b300x250">
+						
+						</div>
+						<div class="eof"></div>
                         <p><?php
                         echo $journal->Text; // purposely not formatted
                         ?></p>
