@@ -78,7 +78,7 @@
         ?> out of <?php
         echo count( $reult );
         ?>.<?php
-        unset( $water );
+        $water->Post();
         ?>
         </body></html><?php
     }
