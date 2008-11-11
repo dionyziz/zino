@@ -62,8 +62,19 @@
         ++$i;
     }
     if ( $offset + $limit <= count( $result ) ) {
-        $offset += 100;
-        Redirect( "scripts/prettyjournalsurls.php?offset=$offset" )->Redirect();
+        $offset += $limit;
+        ?><html><head><title>Processing...</title></head><body>
+        Processed <?php
+        echo $offset;
+        ?> out of <?php
+        echo count( $reult );
+        ?>.
+        <script type="javascript">
+        window.location.href = "scripts/prettyjournalurls.php?offset=<?php
+        echo $offset;
+        ?>";
+        </script>
+        </body></html><?php
     }
 
     Rabbit_Destruct();
