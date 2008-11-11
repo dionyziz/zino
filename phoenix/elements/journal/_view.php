@@ -131,7 +131,7 @@
 						?><div class="b300x250">
 							<embed src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>klak-300x250.swf" type="application/x-shockwave-flash" width="425" height="344"></embed>
+							?>klak-300x250.swf" type="application/x-shockwave-flash" width="300" height="250"></embed>
 						</div>
 						<div class="eof"></div>
                         <p><?php
