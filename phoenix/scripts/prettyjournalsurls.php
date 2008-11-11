@@ -74,9 +74,9 @@
         ?>.<?php
         $water->Post();
         ?>
-        <script type="javascript">
+        <script type="text/javascript">
         setTimeout( function() {
-            window.location.href = "scripts/prettyjournalurls.php?offset=<?php
+            window.location.href = "prettyjournalurls.php?offset=<?php
             echo $offset;
             ?>";
         }, 1000 );
