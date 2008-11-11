@@ -61,7 +61,7 @@
         }
         ++$i;
     }
-    if ( $offset + $limit < count( $result ) ) {
+    if ( $offset + $limit <= count( $result ) ) {
         $offset += 100;
         Redirect( "scripts/prettyjournalsurls.php?offset=$offset" )->Redirect();
     }
