@@ -5,7 +5,8 @@
             global $page;
             global $user;
             global $libs;
-            
+            global $xc_settings;
+			
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
@@ -128,7 +129,11 @@
 							?></ul><?php
 						}
 						?><div class="b300x250">
-						
+							<object width="300" height="250">
+								<embed src="<?php
+								echo $xc_settings[ 'imagesurl' ];
+								?>klak-300x250.swf" type="application/x-shockwave-flash" width="425" height="344"></embed>
+							</object>
 						</div>
 						<div class="eof"></div>
                         <p><?php
