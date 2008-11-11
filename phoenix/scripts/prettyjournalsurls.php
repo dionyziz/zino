@@ -66,13 +66,7 @@
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
         ?><html><head><title>Processing...</title>
-        <script type="javascript">
-        setTimeout( function() {
-            window.location.href = "scripts/prettyjournalurls.php?offset=<?php
-            echo $offset;
-            ?>";
-        }, 1000 );
-        </script></head><body>
+        </head><body>
         Processed <?php
         echo $offset;
         ?> out of <?php
@@ -80,6 +74,13 @@
         ?>.<?php
         $water->Post();
         ?>
+        <script type="javascript">
+        setTimeout( function() {
+            window.location.href = "scripts/prettyjournalurls.php?offset=<?php
+            echo $offset;
+            ?>";
+        }, 1000 );
+        </script>
         </body></html><?php
     }
 
