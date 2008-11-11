@@ -2,6 +2,7 @@
     class ElementJournalRecentList extends Element {
         public function Render( tInteger $pageno ) {
             global $libs;
+            global $xc_settings;
 
             $pageno = $pageno->Get();
 
@@ -18,11 +19,13 @@
                         ?><div class="event">
                             <div class="who"><?php
                                 Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
+                                $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+                                $url = $domain . 'journals/' . $journal->Url;
                             ?> καταχώρησε
                             </div>
                             <div class="subject">
-                                <a href="?p=journal&amp;id=<?php
-                                echo $journal->Id;
+                                <a href="<?php
+                                echo $url;
                                 ?>"><?php
                                 echo htmlspecialchars( $journal->Title );
                                 ?></a>

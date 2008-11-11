@@ -4,13 +4,16 @@
         public function Render( $journal ) {
             global $user;
             global $libs;
+            global $xc_settings;
             
             $libs->Load( 'favourite' );
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $journal );
+            $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+            $url = $domain . 'journals/' . $journal->Url;
             ?><div class="jsmall">
-                <h4><a href="?p=journal&amp;id=<?php
-                echo $journal->Id;
+                <h4><a href="<?php
+                echo $url;
                 ?>"><?php
                 echo htmlspecialchars( $journal->Title );
                 ?></a></h4>
@@ -21,8 +24,8 @@
                     <li>
                         <dl><?php
                         if ( $journal->Numcomments > 0 ) {
-                            ?><dt class="commentsnum"><a href="?p=journal&amp;id=<?php
-                            echo $journal->Id;
+                            ?><dt class="commentsnum"><a href="<?php
+                            echo $url;
                             ?>"><span class="s_commnum">&nbsp;</span><?php
                             echo $journal->Numcomments;
                             ?> σχόλι<?php

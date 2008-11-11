@@ -1,22 +1,36 @@
 <?php
     
     class ElementJournalView extends Element {
-        public function Render( tInteger $id, tInteger $commentid, tInteger $pageno ) {
+        public function Render( tInteger $id, tInteger $commentid, tInteger $pageno, tText $subdomain, tText $url ) {
             global $page;
-            global $rabbit_settings;
             global $user;
             global $libs;
-            
+            global $rabbit_settings;
+			
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
-            $journal = New Journal( $id->Get() );
-            $commentid = $commentid->Get();
-            $pageno = $pageno->Get();
-            $finder = New FavouriteFinder();
-            $fav = $finder->FindByUserAndEntity( $user, $journal );
-            $theuser = $journal->User;
-            if ( $journal->Exists() ) {
+            $libs->Load( 'user/user' );
+            $libs->Load( 'journal' );
+
+            if ( $subdomain->Exists() && $url->Exists() ) {
+                $subdomain = $subdomain->Get();
+                $url = $url->Get();
+                $finder = New UserFinder();
+                $owner = $finder->FindBySubdomain( $subdomain );
+                $finder = New JournalFinder();
+                $journal = $finder->FindByUserAndUrl( $owner, $url );
+            }
+            else {
+                $journal = New Journal( $id->Get() );
+            }
+
+            if ( $journal !== false ) {
+                $commentid = $commentid->Get();
+                $pageno = $pageno->Get();
+                $finder = New FavouriteFinder();
+                $fav = $finder->FindByUserAndEntity( $user, $journal );
+                $theuser = $journal->User;
                 if ( $pageno <= 0 ) {
                     $pageno = 1;
                 }
@@ -120,10 +134,11 @@
 							?>klak-300x250.swf" type="application/x-shockwave-flash" width="300" height="250"></embed>
 						</div>
 						<div class="eof"></div>
-						<p><?php
-						echo $journal->Text; // purposely not formatted
-						?></p>
-                    </div><?php
+                        <p><?php
+                        echo $journal->Text; // purposely not formatted
+                        ?></p>
+                    </div>
+					<div class="eof"></div><?php
                     Element( 'ad/view', AD_JOURNAL, $page->XMLStrict() ); 
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
