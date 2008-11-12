@@ -68,9 +68,6 @@
                 case 'Text':
                     $this->Bulk->Text = $value;
                     break;
-                case 'Title':
-                    $this->GenerateURL( $value );
-                    // fallthru
                 default:
                     return parent::__set( $key, $value );
             }
@@ -82,7 +79,7 @@
             $text = mb_substr( $text, 0, $length );
             return htmlspecialchars( $text );
         }
-        private function GenerateURL( $title ) {
+        public function OnBeforeCreate() {
             $url = URL_Format( $title );
             $offset = 0;
             $finder = New JournalFinder();
@@ -102,9 +99,6 @@
                 $offset += 100;
             } while ( count( $someOfTheRest ) );
             $this->Url = $url;
-        }
-        public function OnBeforeCreate() {
-            $this->GenerateURL( $this->Title );
 
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
