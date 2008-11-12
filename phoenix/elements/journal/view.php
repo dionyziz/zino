@@ -13,6 +13,8 @@
             $libs->Load( 'user/user' );
             $libs->Load( 'journal' );
 
+            Element( 'user/subdomainmatch' );
+
             if ( $subdomain->Exists() && $url->Exists() ) {
                 $subdomain = $subdomain->Get();
                 $url = $url->Get();
