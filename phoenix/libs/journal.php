@@ -2,6 +2,8 @@
     global $libs;
 
     $libs->Load( 'bulk' );
+    $libs->Load( 'url' );
+    $libs->Load( 'user/user' );
 
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
@@ -24,8 +26,9 @@
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
             $prototype->Url = $url;
+            $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            return $this->FindByPrototype( $prototype );
         }
         public function Count() {
             return parent::Count();
@@ -34,14 +37,19 @@
             $journal = New Journal();
             $journal->Delid = 0;
 
-            return $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
+            $journals = $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
+
+            for ( $i = 0; $i < count( $journals ); ++$i ) {
+                $journals[ $i ]->CopyUserFrom( New User( $journals[ $i ]->Userid ) );
+            }
+            return $journals;
         }
     }
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
-       
-           public function LoadDefaults() {
+
+        public function LoadDefaults() {
             global $user;
 
             $this->Userid = $user->Id;
@@ -72,6 +80,26 @@
             return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
+            $url = URL_Format( $this->Title );
+            $offset = 0;
+            $finder = New JournalFinder();
+            do {
+                $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                $exists = true;
+                while ( $exists ) {
+                    $exists = false;
+                    foreach ( $someOfTheRest as $j ) {
+                        if ( $j->Url == $url ) {
+                            $url .= '_';
+                            $exists = true;
+                            break;
+                        }
+                    }
+                }
+                $offset += 100;
+            } while ( count( $someOfTheRest ) );
+            $this->Url = $url;
+
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }
@@ -136,6 +164,9 @@
             $finder->DeleteByEntity( $this );
 
             Sequence_Increment( SEQUENCE_JOURNAL );
+        }
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
