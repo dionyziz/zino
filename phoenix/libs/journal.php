@@ -80,7 +80,7 @@
             return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
-            $url = URL_Format( $title );
+            $url = URL_Format( $this->Title );
             $offset = 0;
             $finder = New JournalFinder();
             do {
