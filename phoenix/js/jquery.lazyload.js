@@ -9,8 +9,8 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Revision: $Id: jquery.lazyload.js 332 2008-03-15 13:30:44Z tuupola $
- * Version:  1.3.0
+ * Revision: $Id$
+ * Version:  1.3.1
  *
  */
 (function($) {
@@ -54,7 +54,7 @@
             var self = this;
         
             /* TODO: use .data() instead of .attr() */
-            $(self).attr("id", $(self).attr("src"));
+            $(self).attr("original", $(self).attr("src"));
             if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
@@ -71,12 +71,12 @@
             /* When appear is triggered load original image. */
             $(self).one("appear", function() {
                 if (!this.loaded) {
-                    $(self)
-                        //.attr("src", $(self).attr("id"))
+                    $("<img />")
+                        .attr("src", $(self).attr("original"))
                         .bind("load", function() {
                             $(self)
                                 .hide()
-                                .attr("src", $(self).attr("id"))
+                                .attr("src", $(self).attr("original"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    

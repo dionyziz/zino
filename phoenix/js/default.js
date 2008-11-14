@@ -14,13 +14,8 @@ function GetUsername() {
 	}
 	return username;
 }
-/*
- $(function() {          
-     $("img:below-the-fold").lazyload({ 
-         event : "sporty" 
-     });
- });
- $(window).bind("load", function() { 
-     var timeout = setTimeout(function() {$("img").trigger("sporty")}, 5000);
- }); 
- */
+$( function() {
+	$("img").lazyload( { 
+		threshold : 200
+	} );
+} );
