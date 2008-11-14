@@ -5,8 +5,6 @@
             global $libs;
             global $water;
 
-            die( 'Breakpoint 608' );
-
             $libs->Load( 'comment' );
             $deletable = ( $user->Id == $comment->Userid || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
             
