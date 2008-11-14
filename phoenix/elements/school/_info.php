@@ -4,7 +4,8 @@
 		public function Render( $school , $link ) {
 			?><div class="gname"><?php
 				if ( $school->Institution->Avatar->Exists() ) {
-					?><img src="" alt="" title="" /><?php
+                    $avatar = $school->Institution->Avatar;
+                    Element( 'image/view', $avatar->Id, $avatar->Userid, $avatar->Width, $avatar->Height, IMAGE_PROPORTIONAL_210x210, '', $school->Institution->Name );
 				}
 				?><h2><?php
 				if ( $link ) {
