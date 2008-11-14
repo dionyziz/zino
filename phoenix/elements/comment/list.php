@@ -22,7 +22,6 @@
                 $children_nums[ $comment->Parentid ] = $children_nums[ $comment->Parentid ] + 1;
             }
             foreach ( $comments as $comment ) {
-                die( 'Breakpoint 607' );
                 $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
                 $children = isset( $children_nums[ $comment->Id ] ) ? $children_nums[ $comment->Id ] : 0;
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
