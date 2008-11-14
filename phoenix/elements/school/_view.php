@@ -31,6 +31,7 @@
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
+                    die( 'Breakpoint 451' );
                     $comments = $finder->FindByPage( $school, $pageno, true );
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
