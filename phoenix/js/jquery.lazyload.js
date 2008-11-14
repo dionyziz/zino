@@ -54,7 +54,7 @@
             var self = this;
         
             /* TODO: use .data() instead of .attr() */
-            $(self).attr("id", $(self).attr("src"));
+            $(self).attr("original", $(self).attr("src"));
             if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
@@ -72,11 +72,11 @@
             $(self).one("appear", function() {
                 if (!this.loaded) {
                     $("<img />")
-                        .attr("src", $(self).attr("id"))
+                        .attr("src", $(self).attr("original"))
                         .bind("load", function() {
                             $(self)
                                 .hide()
-                                .attr("src", $(self).attr("id"))
+                                .attr("src", $(self).attr("original"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    

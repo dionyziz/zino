@@ -15,7 +15,9 @@ function GetUsername() {
 	return username;
 }
 $( function() {
-	$("img").lazyload( { 
-		threshold : 200
-	} );
+	if ( $.browser.mozilla ) {
+		$("img").lazyload( { 
+			threshold : 200
+		} );
+	}
 } );
