@@ -332,11 +332,17 @@
                     if ( $comment->Parentid > 0 ) {
                         $notif->Touserid = $comment->Parent->Userid;
                     }
-                    else if ( $entity instanceof User ) {
-                        $notif->Touserid = $entity->Id;
-                    }
                     else {
-                        $notif->Touserid = $entity->Userid;
+                        switch ( get_class( $entity ) ) {
+                            case 'User':
+                                $notif->Touserid = $entity->Id;
+                                break;
+                            case 'Image':
+                            case 'Journal':
+                            case 'Poll':
+                                $notif->Touserid = $entity->Userid;
+                                break;
+                        }
                     }
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
