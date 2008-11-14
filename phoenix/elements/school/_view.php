@@ -26,6 +26,8 @@
                 return Element( '404' );
             }
 
+            $page->SetTitle( $school->Name );
+
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
