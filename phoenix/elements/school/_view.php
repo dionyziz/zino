@@ -4,6 +4,7 @@
 		public function Render( tInteger $id, tInteger $pageno, tInteger $commentid ) {
             global $user; 
             global $libs;
+            global $page;
 
             $libs->Load( 'comment' );
 			
