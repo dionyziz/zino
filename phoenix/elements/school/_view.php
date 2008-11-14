@@ -1,11 +1,12 @@
 <?php
 	
 	class ElementSchoolView extends Element {
-		
-		public function Render( tInteger $id ) {
+		public function Render( tInteger $id, tInteger $pageno, tInteger $commentid ) {
             global $user; 
 			
 			$id = $id->Get();
+            $pageno = $pageno->Get();
+            $commentid = $commentid->Get();
 			
             $school = New School( $id );
 			$userfinder = New UserFinder();
@@ -19,6 +20,29 @@
             if ( !$institution->Exists() ) {
                 die( 'Το σχολείο που προσπαθείς να δεις δεν εντάσσεται σε κάποιο ίδρυμα.' );
                 return Element( '404' );
+            }
+
+            if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
+                $finder = New CommentFinder();
+                if ( $commentid == 0 ) {
+                    $comments = $finder->FindByPage( $school, $pageno, true );
+                    $total_pages = $comments[ 0 ];
+                    $comments = $comments[ 1 ];
+                }
+                else {
+                    $speccomment = New Comment( $commentid );
+                    $comments = $finder->FindNear( $school, $speccomment );
+                    if ( $comments === false ) {
+                        ob_start();
+                        Element( 'url', $school );
+                        return Redirect( ob_get_clean() );
+                    }
+                    $total_pages = $comments[ 0 ];
+                    $pageno = $comments[ 1 ];
+                    $comments = $comments[ 2 ];
+                    $finder = New NotificationFinder();
+                    $finder->DeleteByCommentAndUser( $speccomment, $user );
+                }
             }
 
 			?><div id="schview"><?php
@@ -87,31 +111,12 @@
 					if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatar->Id );
 					}
-					?><div id="comment_1638730" class="comment" style="">
-						<div class="toolbox"><span class="time invisible">2008-10-31 16:45:49</span><a href="" class="invisible" style="margin-right:0px;" title="Διαγραφή">&nbsp;</a></div>
-						<div class="who">
-							<a href="http://realrealthanos.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/4765/125895/125895_100.jpg" class="avatar" style="width:50px;height:50px;" title="realrealthanos" alt="realrealthanos" /></span>realrealthanos</a> είπε:
-						</div>
-						<div class="text">treat or SAE?<img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" class="emoticon" width="22" height="22" />
-						</div> 
-						<div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div> 
-					</div>	
-					<div id="comment_1638882" class="comment" style="padding-left:20px;">
-						<div class="toolbox"><span class="time invisible">2008-10-31 17:05:00</span><a href="" class="invisible" style="margin-right:20px;" title="Διαγραφή">&nbsp;</a></div>
-						<div class="who">
-							<a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/58/117694/117694_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual" /></span>izual</a> είπε:
-						</div>
-						<div class="text">treat?</div> 
-						<div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div> 
-					</div>
-					<div id="comment_1638892" class="comment" style="padding-left:40px;">
-						<div class="toolbox"><span class="time invisible">2008-10-31 17:07:08</span><a href="" class="invisible" style="margin-right:40px;" title="Διαγραφή">&nbsp;</a></div>
-						<div class="who">
-							<a href="http://realrealthanos.zino.gr/"><span class="imageview"><img src="http://images.zino.gr/media/4765/125895/125895_100.jpg" class="avatar" style="width:50px;height:50px;" title="realrealthanos" alt="realrealthanos" /></span>realrealthanos</a> είπε:
-						</div>
-						<div class="text"><img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" class="emoticon" width="22" height="22" />more candy<img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" class="emoticon" width="22" height="22" /><img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" class="emoticon" width="22" height="22" /><img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" class="emoticon" width="22" height="22" /></div> 
-						<div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div> 
-					</div>
+                    $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
+                    Element( 'comment/list' , $comments , TYPE_SCHOOL , $school->Id );
+                    ?><div class="pagifycomments"><?php
+                    $link = '?p=school&id=' . $school->Id . '?pageno=';
+                    Element( 'pagify' , $pageno , $link, $total_pages );
+                    ?></div>
 				</div>
 				<div class="eof"></div>
 			</div><?php

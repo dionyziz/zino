@@ -38,6 +38,10 @@
                     ?>/?p=poll&id=<?php
                     echo $target->Id;
                     return;
+                case 'School':
+                    ?>/?p=school&id=<?php
+                    echo $target->Id;
+                    return;
                 case 'Comment':
                     ob_start();
                     Element( 'url', $target->Item );
