@@ -32,7 +32,7 @@
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
                     $comments = $finder->FindByPage( $school, $pageno, true );
-                    echo '.'.count( $comments );
+                    echo '.'.count( $comments[ 1 ] );
                     die();
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
