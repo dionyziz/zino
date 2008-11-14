@@ -3,6 +3,9 @@
 	class ElementSchoolView extends Element {
 		public function Render( tInteger $id, tInteger $pageno, tInteger $commentid ) {
             global $user; 
+            global $libs;
+
+            $libs->Load( 'Comment' );
 			
 			$id = $id->Get();
             $pageno = $pageno->Get();
