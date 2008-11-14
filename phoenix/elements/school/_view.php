@@ -32,8 +32,6 @@
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
                     $comments = $finder->FindByPage( $school, $pageno, true );
-                    echo '.'.count( $comments[ 1 ] );
-                    die();
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
                 }
@@ -120,7 +118,7 @@
 						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatar->Id );
 					}
                     $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
-                    Element( 'comment/list' , $comments , TYPE_SCHOOL , $school->Id );
+                    Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
                     ?><div class="pagifycomments"><?php
                     $link = '?p=school&id=' . $school->Id . '?pageno=';
                     Element( 'pagify' , $pageno , $link, $total_pages );

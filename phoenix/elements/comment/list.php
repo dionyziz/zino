@@ -11,6 +11,8 @@
                 return; // why did you call me?
             }
 
+            die( 'Breakpoint 605' );
+
             $indent = array(); /* comment_parentid => comment_indent */
             $indent[ 0 ] = 0;
             $children_nums = array();
