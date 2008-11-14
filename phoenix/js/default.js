@@ -16,6 +16,6 @@ function GetUsername() {
 }
 $( function() {
 	$("img").lazyload( { 
-		threshold : 0
+		threshold : 200
 	} );
 } );
