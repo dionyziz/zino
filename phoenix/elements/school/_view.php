@@ -120,7 +120,10 @@
                     $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                     Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
                     ?><div class="pagifycomments"><?php
-                    $link = '?p=school&id=' . $school->Id . '?pageno=';
+                    $link = '?p=school&id=' . $school->Id . '&pageno=';
+                    if ( $pageno <= 0 ) {
+                        $pageno = 1;
+                    }
                     Element( 'pagify' , $pageno , $link, $total_pages );
                     ?></div>
 				</div>
