@@ -88,8 +88,8 @@
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
             $this->Students = $this->HasMany( 'UserFinder', 'FindBySchool', $this );
             $this->Institution = $this->HasOne( 'Institution', 'Institutionid' );
+            $this->Album = $this->HasOne( 'Album', 'Albumid' );
         }
-
         protected function LoadDefaults() {
             $this->Created = NowDate();
             $this->Approved = 0;
