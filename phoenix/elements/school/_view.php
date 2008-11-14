@@ -5,7 +5,7 @@
             global $user; 
             global $libs;
 
-            $libs->Load( 'Comment' );
+            $libs->Load( 'comment' );
 			
 			$id = $id->Get();
             $pageno = $pageno->Get();
