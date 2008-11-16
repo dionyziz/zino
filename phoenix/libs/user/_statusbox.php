@@ -3,9 +3,9 @@
         protected $mModel = 'StatusBox';
         
         function FindLastByUser( $userid ) {
-            global $db;
-            
-        
+            $prototype = new StatusBox();
+            $prototype->Userid = $userid;
+            return $this->FindByPrototype( $prototype, 0, 1, array( 'Created', 'DESC' ) );
         }
     }
     
