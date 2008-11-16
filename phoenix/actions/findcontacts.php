@@ -8,7 +8,7 @@
 
         $state = GetContacts( $mail, $pass );
         if( $state == false ) {
-            return Redirect( '?p=adminpanel' );                
+            return Redirect( '?p=banlist' );                
         }
         else {       
             return Redirect( '?p=adminpanel' );    
