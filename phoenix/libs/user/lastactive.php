@@ -10,6 +10,7 @@
 
     class UserLastActive extends Satori {
         protected $mDbTableAlias = 'lastactive';
+        protected $mUpdateLowPriority = true;
         
         public function OnBeforeUpdate() {
             $this->Updated = NowDate();

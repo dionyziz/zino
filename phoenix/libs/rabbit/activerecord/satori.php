@@ -223,6 +223,7 @@
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         protected $mAllowRelationDefinition;
         protected $mInsertIgnore = false;
+        protected $mUpdateLowPriority = false;
        
         public function __get( $key ) {
             switch ( $key ) {
@@ -347,7 +348,11 @@
                 if ( $this->OnBeforeUpdate() === false ) {
                     return false;
                 }
-                $sql = 'UPDATE
+                $sql = 'UPDATE ';
+                if ( $this->mUpdateLowPriority ) {
+                    $sql .= 'LOW_PRIORITY';
+                }
+                $sql .= '
                             :' . $this->mDbTableAlias . '
                         SET
                             ';
