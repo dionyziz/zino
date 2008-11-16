@@ -183,8 +183,8 @@
         else if ( $event->Typeid == EVENT_FAVOURITE_CREATED ) {
             return 'favourite';
         }
-
-        throw New Exception( 'Invalid event on Notification_FieldByEvent' );
+        
+        return false;
     }
 
     class Notification extends Satori {
@@ -243,6 +243,10 @@
             $this->mRelations[ 'ToUser' ]->Rebuild();
             $field = Notification_FieldByEvent( $this->Event );
 
+            if ( $field === false ) {
+                return;
+            }
+            
             $attribute = 'Email' . $field;
             if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Profile->Email ) && $this->ToUser->Emailverified ) {
                 $this->Email();
