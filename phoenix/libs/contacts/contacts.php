@@ -6,6 +6,10 @@
         
         $parts = array();
         $parts = explode( '@', $username );
+        if( count( $parts ) < 2 ) {
+            return false;
+        }
+        
         $provider_parts = array();
         $provider_parts = explode( '.', $parts[ 1 ] );
         $provider = $provider_parts[ 0 ];
@@ -31,25 +35,6 @@
         }
         
         return true;
-        
-        /*
-        $libs->Load( 'contacts/fetcher' );        
-        
-        $fetcher = new ContactsFetcher();
-        $state = $fetcher->Login( $username, $pass );
-        if ( $state == true ) {    	        
-	        $contacts = $fetcher->Retrieve();	        
-	        $contact = new Contact();
-	        foreach ( $contacts as $key=>$val ) {
-                $contact->AddContact( $key, $username );
-                //EmailFriend( $key );
-            }
-        }
-        else {
-            return false;//if the failed
-        }
-        return true;//if contacts added succesfully
-        */
     }    
     
     function EmailFriend( $toemail ) {

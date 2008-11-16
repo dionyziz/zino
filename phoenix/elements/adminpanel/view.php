@@ -19,6 +19,13 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
+	        ?><h3>Contact Finder</h3>
+    	          <form method="post" action="do/findcontacts">
+                  <p>Email : <input type="text" maxlength="30" name="username" /></p>  
+                  <p>Κωδικός : <input type="password" maxlength="30" name="reason" /></p>
+                  </form>
+            <?php
+	        
 	        
 	        /*global $libs;	        
 	        $libs->Load( 'contacts/contacts' );
