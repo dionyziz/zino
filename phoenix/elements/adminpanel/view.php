@@ -27,24 +27,6 @@
                   </form>
                   <p>Ο κωδικός σου δεν θα αποθηκευτεί.</p>
             <?php
-	        
-	        
-	        /*global $libs;	        
-	        $libs->Load( 'contacts/contacts' );
-	        $libs->Load( 'rabbit/helpers/email' );	        
-	        
-	        $username = $username->Get();
-	        $pass = $pass->Get();
-
-	        $state = GetContacts( $username, $pass );
-	        if( $state == false ) {
-                ?><p>Failure...</p><?php                
-            }
-            else {       
-                ?><p>Success!</p><?php
-            }
-            /*EmailFriend( 'pagio91@hotmail.com' );*/
-            
         }
     }
 ?>
