@@ -1,12 +1,12 @@
 <?php
-    function ActionFindcontacts( tText $mail, tText $pass ) {
+    function ActionFindcontacts( tText $email, tText $pass ) {
         global $libs;
         $libs->Load( 'contacts/contacts' );	        
         
-        $mail = $mail->Get();
+        $email = $email->Get();
         $pass = $pass->Get();
 
-        $state = GetContacts( $mail, $pass );
+        $state = GetContacts( $email, $pass );
         if( $state == false ) {
             return Redirect( '?p=banlist' );                
         }
