@@ -17,6 +17,7 @@
                 return;
             }
             
+            ?><p>Επαφές : </p><?php
             foreach ( $res as $sample ) {
                 ?><p><?php 
                 echo $sampe->Mail;
