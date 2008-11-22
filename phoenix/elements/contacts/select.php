@@ -22,6 +22,7 @@
             foreach ( $res as $sample ) {
                 ?><p><?php 
                 echo $sampe->Mail;
+                echo $sampe->Userid;
                 ?></p><?php
             }
         }
