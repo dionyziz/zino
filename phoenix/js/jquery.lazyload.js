@@ -54,14 +54,15 @@
             var self = this;
         
             /* TODO: use .data() instead of .attr() */
-            $(self).attr("original", $(self).attr("src"));
+            $(self).attr("original", $(self).attr("src"))
+            .attr("originalalt",$(self).attr("alt"));
             if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
                 if (settings.placeholder) {
                     $(self).attr("src", settings.placeholder);      
                 } else {
-                    $(self).removeAttr("src");
+                    $(self).removeAttr("src").removeAttr("alt");
                 }
                 self.loaded = false;
             } else {
@@ -73,10 +74,12 @@
                 if (!this.loaded) {
                     $("<img />")
                         .attr("src", $(self).attr("original"))
+                        .attr("alt", $(self).attr("altoriginal"))
                         .bind("load", function() {
                             $(self)
                                 .hide()
                                 .attr("src", $(self).attr("original"))
+                                .attr("alt",$(self).attr("altoriginal"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    
