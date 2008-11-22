@@ -18,6 +18,7 @@
             }
             
             ?><p>Επαφές : </p><?php
+            echo count( $res );
             foreach ( $res as $sample ) {
                 ?><p><?php 
                 echo $sampe->Mail;
