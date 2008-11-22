@@ -9,7 +9,7 @@
             
             $page->SetTitle( "Επιλογή Επαφών" );
             
-            $finder = new ContactsFinder();
+            $finder = new ContactFinder();
             $res = $finder->FindByUseridAndMail( $user->Id, $email );
             
             if( count( $res ) == 0 ) {
