@@ -13,7 +13,7 @@
             $res = $finder->FindByUseridAndMail( $user->Id, $email );
             
             if( count( $res ) == 0 ) {
-                ?><p>Παρουσιάστηκε κάποιο πρόβλημα.<p><?php
+                ?><p>Παρουσιάστηκε κάποιο πρόβλημα.</p><?php
                 return;
             }
             
