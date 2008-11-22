@@ -132,7 +132,8 @@ Project_Destruct()' );
             'adminlog'              => 'adminlog/view',
             'banlist'               => 'banlist/view',
             'dublicate'             => 'adminpanel/dublicate/view',
-            'moderateschools'        => 'adminpanel/schools/moderate'
+            'moderateschools'        => 'adminpanel/schools/moderate',
+            'contactfinder'            => 'contacts/select'
 
 
         );

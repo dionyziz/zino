@@ -63,6 +63,13 @@ http://$user->Name.zino.gr/
     
     class ContactFinder extends Finder {
         protected $mModel = 'Contact';
+        
+        public function FindByUseridAndMail( $userid, $email ) {
+            $prototype = new Contact();
+            $prototype->Usermail = $email;
+            $prototype->Userid = $userid;
+            return $this->FindByPrototype( $prototype );
+        }
     }
     
     class Contact extends Satori {
