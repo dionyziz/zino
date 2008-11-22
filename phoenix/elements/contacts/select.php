@@ -21,8 +21,8 @@
             echo count( $res );
             foreach ( $res as $sample ) {
                 ?><p><?php 
-                echo $sampe->Mail;
-                echo $sampe->Userid;
+                $contact = new Contact( $sample->Id );
+                echo $contact->Mail;
                 ?></p><?php
             }
         }
