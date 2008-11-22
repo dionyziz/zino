@@ -68,7 +68,7 @@ http://$user->Name.zino.gr/
             $prototype = new Contact();
             $prototype->Usermail = $email;
             $prototype->Userid = $userid;
-            return $this->FindByPrototype( $prototype );
+            return $this->FindByPrototype( $prototype, 0, 10000 );
         }
     }
     

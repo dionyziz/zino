@@ -22,7 +22,6 @@
             foreach ( $res as $sample ) {
                 ?><p><?php 
                 $contact = new Contact( $sample->Id );
-                echo $sample->Id;
                 echo $contact->Mail;
                 ?></p><?php
             }
