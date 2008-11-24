@@ -129,3 +129,8 @@ div.header a:hover {
 div.header a img {
 	vertical-align: text-top;
 }
+div.header a.search {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
