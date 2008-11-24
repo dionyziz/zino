@@ -131,6 +131,7 @@ div.header a img {
 }
 div.header a.search {
     position: absolute;
-    top: 50px;
+    top: 27px;
     right: 10px;
+    z-index: 10;
 }
