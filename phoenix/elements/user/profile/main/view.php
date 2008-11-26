@@ -157,7 +157,7 @@
                 }
                 ?><div style="clear:right"></div><?php
                 if ( !empty( $journals ) || ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) ) {
-                    if ( $user->Id == $theuser->Id && $user->Count->Journals ==  0 ) {
+                    if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
                         Element( 'user/profile/main/lastjournal' , $journals[ 0 ] , $theuser , $journals[ 0 ]->Id , $journals[ 0 ]->Numcomments , $theuser->Count->Journals , true );
                     }
                     else {
