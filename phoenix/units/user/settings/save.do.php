@@ -93,10 +93,6 @@
                 $user->Profile->Education = $education;
             }
             if ( $school ) {
-                ?>alert( '<?php
-                echo $school;
-                ?>' );<?php
-                return;
                 $user->Profile->Schoolid = $school;
             }
             if ( $mood ) {
