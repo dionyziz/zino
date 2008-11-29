@@ -4,7 +4,7 @@
             ?><div class="info">
                 <dl><?php
                     if ( $theuser->Profile->Age ) {
-                        ?><dt><strong>Ηλικία</strong></dt>
+                        ?><dt id="birthday"><strong>Ηλικία</strong></dt>
                         <dd><?php
                         echo $theuser->Profile->Age;
                         ?></dd><?php

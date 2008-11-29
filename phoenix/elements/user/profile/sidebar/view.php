@@ -1,6 +1,7 @@
 <?php
     class ElementUserProfileSidebarView extends Element {
         protected $mPersistent = array( 'theuserid' , 'updated' );
+        
         public function Render( $theuser , $theuserid , $updated ) {            
             ?><div class="sidebar">
                 <div class="basicinfo"><?php

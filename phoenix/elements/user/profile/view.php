@@ -62,6 +62,10 @@
             else {
                 $page->AttachInlineScript( 'Profile.ShowOnlineSince( false );' );
             }
+            $dob = explode( '-', $theuser->Profile->Dob );
+            if ( count( $dob ) == 3 && $dob[ 0 ] != '0000' ) {
+                $page->AttachInlineScript( 'Profile.CheckBirthday( ' . $dob[ 0 ] . ', ' . $dob[ 1 ] . ', ' . $dob[ 2 ] . ' )' );
+            }
             ?><div id="profile"><?php
                 Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated );
                 $e = Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );

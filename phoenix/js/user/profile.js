@@ -90,5 +90,12 @@ var Profile = {
         } );
         this.AddFriend( userid );
         return false;
+    },
+    CheckBirthday : function ( year, month, day ) {
+        var Now = new Date();
+        
+        if ( Now.getDate() == day && Now.getMonth() == month && Now.getFullYear() == year ) {
+            $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" /> Μόλις έγινε' );
+        }
     }
 };

@@ -1,6 +1,6 @@
 <?php
     class ElementUserProfileSidebarBasicinfo extends Element {
-        protected $mPersistent = array( 'theuserid' , 'updated' );
+        protected $mPersistent = array( 'theuserid', 'updated' );
         
         public function Render( $theuser , $theuserid , $updated ) {  
             Element( 'user/profile/sidebar/who', $theuser , $theuserid , $theuser->Avatar->Id );
@@ -8,7 +8,6 @@
             Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Mood->Id, $theuser->Gender );
             ?><div class="friendedit"><a href=""><span>&nbsp;</span></a></div><?php
             Element( 'user/profile/sidebar/info', $theuser );
-
         }
     }
 ?>
