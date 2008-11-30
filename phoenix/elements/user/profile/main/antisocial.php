@@ -12,7 +12,7 @@
             }
             ?> <?php
             echo $theuser->Name;
-            ?> σε έχει προσθέσει στους φίλους, αλλά εσυ οχι.
+            ?> σε έχει προσθέσει στους φίλους, αλλά εσύ όχι.
             <div><a href="" onclick="Profile.AntisocialAddFriend( <?php
             echo $theuser->Id;
             ?> ); return false"><span>&nbsp;</span>Πρόσθεσέ <?php
