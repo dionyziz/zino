@@ -13,6 +13,24 @@
             $prototype->Schoolid = $school->Id;
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
+        
+        public function FindAllUserEmails() {
+            $query = $this->mDb->Prepare(
+                'SELECT `profile_email` AS `mail`
+                FROM :userprofiles
+                WHERE `profile_email` != ""
+                ;'
+            );
+            
+            $query->BindTable( `userprofiles` );
+            
+            $res = $query->Execute();
+            $mails = array();
+            while ( $row = $res->FetchArray() ) {
+                $mails[ $row[ 'mail' ] ] = true;
+            }
+            return $mails;
+        }
     }
 
     class UserProfile extends Satori {
