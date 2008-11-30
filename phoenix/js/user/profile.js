@@ -94,8 +94,9 @@ var Profile = {
     CheckBirthday : function ( year, month, day ) {
         var Now = new Date();
         
-        if ( Now.getDate() == day && Now.getMonth() == month && Now.getFullYear() == year ) {
-            $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" /> Μόλις έγινε' );
+        if ( Now.getDate() == day && Now.getMonth() - 1 == month ) {
+            $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" /> <strong>Μόλις έγινε</strong>' );
+            $( '#birthday + dd' ).html( Now.getFullYear() - year ); // real birthday year, based on user date settings, not on server date
         }
     }
 };
