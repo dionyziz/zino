@@ -22,8 +22,7 @@
                 ;'
             );
             
-            $query->BindTable( `userprofiles` );
-            
+            $query->BindTable( 'userprofiles' );            
             $res = $query->Execute();
             $mails = array();
             while ( $row = $res->FetchArray() ) {
