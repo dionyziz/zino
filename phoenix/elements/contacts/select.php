@@ -27,11 +27,11 @@
             foreach ( $res as $sample ) {
                 ?><p><?php
                 ?><input type="checkbox" name="approved" /> <?php 
-                $contact = new Contact( $sample->Id );
-                if ( $mails[ $contact->Mail ] == true ) {
-                    ?>Already a zino user : <?php
-                }                 
+                $contact = new Contact( $sample->Id );                              
                 echo $contact->Mail;
+                if ( $mails[ $contact->Mail ] == true ) {
+                    ?> <---- Ηδη μέλος στο Zino <?php
+                }   
                 ?></p><?php
             }
             ?></form><?php
