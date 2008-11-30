@@ -30,7 +30,7 @@
                 $contact = new Contact( $sample->Id );                              
                 echo $contact->Mail;
                 if ( $mails[ $contact->Mail ] == true ) {
-                    ?> <---- Ηδη μέλος στο Zino <?php
+                    ?> ---- Ηδη μέλος στο Zino <?php
                 }   
                 ?></p><?php
             }
