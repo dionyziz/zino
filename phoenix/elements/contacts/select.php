@@ -18,13 +18,16 @@
             }
             
             ?><p>Επαφές : </p><?php
+            ?><form method="post" action=""><?php
             echo count( $res );
             foreach ( $res as $sample ) {
-                ?><p><?php 
+                ?><p><?php
+                ?><input type="checkbox" name="approved" /> <?php 
                 $contact = new Contact( $sample->Id );
                 echo $contact->Mail;
                 ?></p><?php
             }
+            ?></form><?php
         }
     }
 ?>
