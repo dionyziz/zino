@@ -95,7 +95,7 @@ var Profile = {
         var Now = new Date();
         
         if ( Now.getDate() == day && Now.getMonth() == month - 1 ) {
-            $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" /> <strong>Μόλις έγινε</strong>' );
+            $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" title="Χρόνια πολλά!" /> <strong>Μόλις έγινε</strong>' );
             $( '#birthday + dd' ).html( Now.getFullYear() - year ); // real birthday year, based on user date settings, not on server date
         }
     }
