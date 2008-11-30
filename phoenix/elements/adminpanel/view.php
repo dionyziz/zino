@@ -19,7 +19,7 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
 	        
-	        ?><h3>Στείλε προσκλήσεις στους φίλους σου!</h3>
+	        ?><h3>Στείλε προσκλήσεις στους φίλους σου!( Μονο hotmail )</h3>
     	          <form method="post" action="do/findcontacts">
                   <p>Email : <input type="text" maxlength="30" name="email" /></p>  
                   <p>Κωδικός : <input type="password" maxlength="30" name="pass" /></p>

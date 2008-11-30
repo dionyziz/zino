@@ -3,8 +3,8 @@
         global $libs;
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
-        
-        $parts = array();
+        $provider = "hotmail";//<--TODO ADD provider argument 
+        /*$parts = array();
         $parts = explode( '@', $username );
         if( count( $parts ) < 2 ) {
             return false;
@@ -12,7 +12,7 @@
         
         $provider_parts = array();
         $provider_parts = explode( '.', $parts[ 1 ] );
-        $provider = $provider_parts[ 0 ];
+        $provider = $provider_parts[ 0 ];*/
         
         $inviter = new OpenInviter();
         $inviter->getPlugins();
