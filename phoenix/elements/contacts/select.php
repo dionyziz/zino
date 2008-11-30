@@ -17,7 +17,7 @@
                 return;
             }
             
-            ?><p>Επαφές : </p><?php
+            ?><p>Επέλεξε τις επαφες τους φίλουσ σου που θες να σταλεί πρόσκληση: </p><?php
             ?><form method="post" action=""><?php
             echo count( $res );
             foreach ( $res as $sample ) {
