@@ -22,7 +22,9 @@
 
             $value = $mc->get( $key );
             ?><br /><br /><br /><?php
+            ob_start();
             echo var_dump( $value );
+            echo htmlspecialchars( ob_get_clean() );
             ?><br /><br />---------------<br /><br /><?php
             print_r( $value );
 
