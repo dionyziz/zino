@@ -26,8 +26,9 @@
             echo var_dump( $value );
             echo htmlspecialchars( ob_get_clean() );
             ?><br /><br />---------------<br /><br /><?php
+            ob_start();
             print_r( $value );
-
+            echo htmlspecialchars( ob_get_clean() );
 
             ?><form action="do/memcache/delete" method="post">
                 <input type="hidden" name="key" value="<?php
