@@ -16,7 +16,7 @@
             ?><div class="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <p>Η e-mail διεύθυνσή σου επιβεαιώθηκε επιτυχώς.</p>
+                <p>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</p>
                 </div></div><?php
             }
             else if ( $newuser && $user->Exists() ) {
