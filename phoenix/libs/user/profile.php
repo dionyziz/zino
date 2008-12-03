@@ -232,6 +232,7 @@
         public function ChangeEmail( $email ) {
             global $libs;
             global $user;
+            global $rabbir_settings;
             
             $libs->Load( 'rabbit/helpers/helpers' );
         
