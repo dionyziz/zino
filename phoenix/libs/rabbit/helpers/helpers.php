@@ -10,6 +10,7 @@
     $libs->Load( 'rabbit/helpers/string' );
     $libs->Load( 'rabbit/helpers/http' );
     $libs->Load( 'rabbit/helpers/file' );
+    $libs->Load( 'rabbit/helpers/hashstring' );
     
     function uid() {
         static $uid;

@@ -228,6 +228,32 @@
             --$this->Numcomments;
             $this->Save();
         }
+        
+        public function ChangeEmail( $email ) {
+            global $libs;
+            
+            $libs->Load( 'rabbit/helpers/helpers' );
+        
+            if ( $email != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
+                if ( $email != "" ) {
+                    $this->Email = $email;
+                    $this->Emailvalidated = false;                
+                    $this->Emailvalidationhash = GenerateRandomHash();
+                    
+                    ob_start();
+                    $subject = Element( 'email/validate', $username, $link );
+                    $message = ob_get_clean();
+                    Email( $user->Name, $email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
+                }
+                else {
+                    $this->Email = $email;
+                    $this->Emailvalidated = false;                
+                    $this->Emailvalidationhash = "";
+                }
+            }
+            
+            return;
+        }
     }
 
 ?>
