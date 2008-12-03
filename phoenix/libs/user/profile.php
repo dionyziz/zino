@@ -231,6 +231,7 @@
         
         public function ChangeEmail( $email ) {
             global $libs;
+            global $user;
             
             $libs->Load( 'rabbit/helpers/helpers' );
         
