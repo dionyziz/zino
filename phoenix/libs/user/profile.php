@@ -242,7 +242,7 @@
                     $this->Save();
                     
                     ob_start();
-                    $subject = Element( 'email/validate', $username, $link );
+                    $subject = Element( 'email/validate', $user->Name, $link );
                     $message = ob_get_clean();
                     Email( $user->Name, $email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
                 }
@@ -255,6 +255,13 @@
             }
             
             return;
+        }
+        
+        public function ValidateEmail( $id, $hash ) {
+            $_user = new User( $id );
+            if( $_user->Profile->emailvalidationhash == $hash ) {
+                $_user->Profile->emailvalidate = true;
+            }
         }
     }
 
