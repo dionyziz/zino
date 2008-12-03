@@ -241,6 +241,7 @@
                     $this->Emailvalidationhash = GenerateRandomHash();
                     $this->Save();
                     
+                    $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $user->Id . '&hash=' . $this->Emailvalidationhash;                    
                     ob_start();
                     $subject = Element( 'email/validate', $user->Name, $link );
                     $message = ob_get_clean();
@@ -259,9 +260,12 @@
         
         public function ValidateEmail( $id, $hash ) {
             $_user = new User( $id );
-            if( $_user->Profile->emailvalidationhash == $hash ) {
+            if( $_user->Exists() 
+               && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
                 $_user->Profile->emailvalidate = true;
+                return true;
             }
+            return false;            
         }
     }
 
