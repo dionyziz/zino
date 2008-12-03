@@ -5,6 +5,20 @@
     $libs->Load( 'school/school' );
     $libs->Load( 'user/oldprofile' );
     
+    function ValidateEmail( $id, $hash ) {
+        global $libs;
+        
+        $libs->Load( 'user/user');
+    
+        $_user = new User( $id );
+        if( $_user->Exists() 
+            && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
+            $_user->Profile->emailvalidate = true;
+            return true;
+        }
+        return false;            
+    }
+    
     class UserProfileFinder extends Finder {
         protected $mModel = 'UserProfile';
 
@@ -260,15 +274,7 @@
             return;
         }
         
-        public function ValidateEmail( $id, $hash ) {
-            $_user = new User( $id );
-            if( $_user->Exists() 
-               && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
-                $_user->Profile->emailvalidate = true;
-                return true;
-            }
-            return false;            
-        }
+        
     }
 
 ?>
