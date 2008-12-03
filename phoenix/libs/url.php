@@ -71,13 +71,10 @@
             'ς' => 's'
         );
         static $punctuation = array(
-            '.',
-            ',',
             ':',
             '-',
             '(',
-            ')',
-            ';'
+            ')'
         );
         $new = '';
         $putUnderscore = false;
