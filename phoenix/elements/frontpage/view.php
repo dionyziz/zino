@@ -16,7 +16,7 @@
             ?><div class="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <a href="" onclick="Frontpage.Closenewuser();return false"><img src="images/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+                <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="images/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
                 <p>
                 <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong>
                 <br /><br />
@@ -32,7 +32,7 @@
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
-                            <a href="" onclick="Frontpage.Closenewuser();return false"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+                            <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
                             <form>
                                 <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
                                 <div>

@@ -21,7 +21,7 @@ div.frontpage div.ybubble {
     width: 700px;
     height: 170px;
 }
-div.frontpage div.ybubble div.body a {
+div.frontpage div.ybubble div.body a.delete {
     width: 16px;
     height: 16px;
     float: right;
