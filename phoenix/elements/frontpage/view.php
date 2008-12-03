@@ -16,7 +16,13 @@
             ?><div class="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <p>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</p>
+                <a href="" onclick="Frontpage.Closenewuser();return false"><img src="images/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+                <p>
+                Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.
+                <br /><br />
+                Για την δική σου ασφάλεια, μην δίνεις ποτέ τον κωδικό του λογαριασμού σου σε τρίτους.
+                Να θυμάσαι να κάνεις "Έξοδο" από το προφίλ σου κάθε φορά που χρησιμοποιείς δημόσιο υπολογιστή.
+                </p>
                 </div></div><?php
             }
             else if ( $newuser && $user->Exists() ) {
