@@ -239,6 +239,7 @@
                     $this->Email = $email;
                     $this->Emailvalidated = false;                
                     $this->Emailvalidationhash = GenerateRandomHash();
+                    $this->Save();
                     
                     ob_start();
                     $subject = Element( 'email/validate', $username, $link );
@@ -249,6 +250,7 @@
                     $this->Email = $email;
                     $this->Emailvalidated = false;                
                     $this->Emailvalidationhash = "";
+                    $this->Save();
                 }
             }
             
