@@ -133,9 +133,8 @@ Project_Destruct()' );
             'banlist'               => 'banlist/view',
             'dublicate'             => 'adminpanel/dublicate/view',
             'moderateschools'        => 'adminpanel/schools/moderate',
-            'contactfinder'            => 'contacts/select'
-
-
+            'contactfinder'            => 'contacts/select',
+            'emailvalidate'         => 'user/settings/emailvalidate'
         );
     }
 ?>

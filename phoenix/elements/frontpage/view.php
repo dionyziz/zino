@@ -1,19 +1,25 @@
 <?php
    class ElementFrontpageView extends Element {
-        public function Render( tBoolean $newuser ) {
+        public function Render( tBoolean $newuser, tBoolean $validated ) {
             global $user;
             global $rabbit_settings;
             global $libs;
             
             $libs->Load( 'notify' );
-            $newuser = $newuser->Get(); // TODO
+            $newuser = $newuser->Get();
+            $validated = $validated->Get();
             $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user, 0, 5 );
             $shownotifications = count( $notifs ) > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
             ?><div class="frontpage"><?php
-            if ( $newuser && $user->Exists() ) {
+            if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
+                ?><div class="ybubble"><div class="body">
+                <p>Η e-mail διεύθυνσή σου επιβεαιώθηκε επιτυχώς.</p>
+                </div></div><?php
+            }
+            else if ( $newuser && $user->Exists() ) {
                 $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
