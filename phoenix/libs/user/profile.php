@@ -14,6 +14,7 @@
         if( $_user->Exists() 
             && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
             $_user->Profile->emailvalidated = true;
+            $this->Save();
             return true;
         }
         return false;            
