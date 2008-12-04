@@ -235,8 +235,8 @@
 
             $this->OldProfile->Save();
             
-            if( $updatedAttributes[ 'Email' ] ) {
-                $this->ChangeEmail( $previousValues[ 'Email' ] );
+            if ( $updatedAttributes[ 'Email' ] ) {
+                $this->ChangedEmail( $previousValues[ 'Email' ] );
             }
         }
         public function OnCommentCreate() {
@@ -248,7 +248,7 @@
             $this->Save();
         }
         
-        public function ChangeEmail( $previousEmail ) {
+        public function ChangedEmail( $previousEmail ) {
             global $libs;
             global $user;
             global $rabbit_settings;
