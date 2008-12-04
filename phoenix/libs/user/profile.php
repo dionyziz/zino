@@ -236,7 +236,7 @@
             $this->OldProfile->Save();
             
             if ( $updatedAttributes[ 'Email' ] ) {
-                $this->ChangedEmail( $previousValues[ 'Email' ] );
+                $this->ChangedEmail( $previousValues[ 'Email' ], $this->Name );
             }
         }
         public function OnCommentCreate() {
@@ -250,14 +250,11 @@
         
         public function ChangedEmail( $previousEmail, $username ) {
             global $libs;
-            global $user;
             global $rabbit_settings;
             global $water;
                         
             $libs->Load( 'rabbit/helpers/helpers' );
-            
-            w_assert( $user->Exists(), "the user does'nt exists" );
-        
+       
             if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
                 if ( $this->Email != "" ) {
                     //$this->Email = $email;
@@ -265,11 +262,11 @@
                     $this->Emailvalidationhash = GenerateRandomHash();
                     $this->Save();
                     
-                    $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $user->Id . '&hash=' . $this->Emailvalidationhash;                    
+                    $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash;                    
                     ob_start();
-                    $subject = Element( 'email/validate', $user->Name, $link );
+                    $subject = Element( 'email/validate', $username, $link );
                     $message = ob_get_clean();
-                    Email( $user->Name, $this->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
+                    Email( $username, $this->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
                 }
                 else {
                     //$this->Email = $email;
