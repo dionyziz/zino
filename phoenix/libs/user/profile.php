@@ -235,7 +235,9 @@
 
             $this->OldProfile->Save();
             
+            w_assert( $updatedAttributes[ 'Email' ], "not true:pagio" );
             if ( $updatedAttributes[ 'Email' ] ) {
+                w_assert( false, $previousValues[ 'Email' ] );
                 $this->ChangedEmail( $previousValues[ 'Email' ] );
             }
         }
