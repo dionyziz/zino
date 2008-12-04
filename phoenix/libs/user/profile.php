@@ -235,9 +235,7 @@
 
             $this->OldProfile->Save();
             
-            w_assert( $updatedAttributes[ 'Email' ], "not true:pagio" );
             if ( $updatedAttributes[ 'Email' ] ) {
-                w_assert( false, $previousValues[ 'Email' ] );
                 $this->ChangedEmail( $previousValues[ 'Email' ] );
             }
         }
@@ -255,9 +253,7 @@
             global $user;
             global $rabbit_settings;
             global $water;
-            
-            w_assert( false, $previousEmail );
-            
+                        
             $libs->Load( 'rabbit/helpers/helpers' );
         
             if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
