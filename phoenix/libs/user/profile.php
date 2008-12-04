@@ -195,6 +195,7 @@
         }
         protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $libs;
+            global $user;
             $libs->Load( 'event' );
 
             $events = array(
@@ -236,7 +237,7 @@
             $this->OldProfile->Save();
             
             if ( $updatedAttributes[ 'Email' ] ) {
-                $this->ChangedEmail( $previousValues[ 'Email' ], $this->Name );
+                $this->ChangedEmail( $previousValues[ 'Email' ], $user->Name );
             }
         }
         public function OnCommentCreate() {

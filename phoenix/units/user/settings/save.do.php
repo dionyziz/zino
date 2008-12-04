@@ -152,7 +152,6 @@
                     //if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
                     if ( ValidEmail( $email ) ) {
                         $user->Profile->Email = $email;                        
-                        //$user->Profile->ChangeEmail( $email );
                     }
                     else {
                         $emailerror = true;
