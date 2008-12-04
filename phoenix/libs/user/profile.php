@@ -234,6 +234,10 @@
             }
 
             $this->OldProfile->Save();
+            
+            if( $updatedAttributes[ 'Email' ] ) {
+                ChangeEmail( $previousValues[ 'email' ] );
+            }
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
@@ -244,16 +248,16 @@
             $this->Save();
         }
         
-        public function ChangeEmail( $email ) {
+        public function ChangeEmail( $previousEmail ) {
             global $libs;
             global $user;
             global $rabbit_settings;
             
             $libs->Load( 'rabbit/helpers/helpers' );
         
-            if ( $email != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
-                if ( $email != "" ) {
-                    $this->Email = $email;
+            if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
+                if ( $this->Email != "" ) {
+                    //$this->Email = $email;
                     $this->Emailvalidated = false;                
                     $this->Emailvalidationhash = GenerateRandomHash();
                     $this->Save();
@@ -262,10 +266,10 @@
                     ob_start();
                     $subject = Element( 'email/validate', $user->Name, $link );
                     $message = ob_get_clean();
-                    Email( $user->Name, $email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
+                    Email( $user->Name, $this->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
                 }
                 else {
-                    $this->Email = $email;
+                    //$this->Email = $email;
                     $this->Emailvalidated = false;                
                     $this->Emailvalidationhash = "";
                     $this->Save();
