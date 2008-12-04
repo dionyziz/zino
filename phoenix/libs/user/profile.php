@@ -235,6 +235,7 @@
 
             $this->OldProfile->Save();
             
+            w_assert( false, $previousEmail );
             if ( $updatedAttributes[ 'Email' ] ) {
                 $this->ChangedEmail( $previousValues[ 'Email' ] );
             }
