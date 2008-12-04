@@ -248,13 +248,15 @@
             $this->Save();
         }
         
-        public function ChangedEmail( $previousEmail ) {
+        public function ChangedEmail( $previousEmail, $username ) {
             global $libs;
             global $user;
             global $rabbit_settings;
             global $water;
                         
             $libs->Load( 'rabbit/helpers/helpers' );
+            
+            w_assert( $user->Exists(), "the user does'nt exists" );
         
             if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
                 if ( $this->Email != "" ) {
