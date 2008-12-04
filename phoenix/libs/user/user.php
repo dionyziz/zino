@@ -325,6 +325,9 @@
                 $text = ob_get_clean();
 
                 Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
+                
+                //send validation e-mail
+                $this->Profile->ChangedEmail( "" );
             }
         }
         protected function OnUpdate() {
