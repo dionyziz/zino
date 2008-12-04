@@ -252,6 +252,9 @@
             global $libs;
             global $user;
             global $rabbit_settings;
+            global $water;
+            
+            w_assert( false, $previousEmail );
             
             $libs->Load( 'rabbit/helpers/helpers' );
         
