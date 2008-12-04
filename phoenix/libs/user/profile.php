@@ -236,7 +236,7 @@
             $this->OldProfile->Save();
             
             if( $updatedAttributes[ 'Email' ] ) {
-                ChangeEmail( $previousValues[ 'Email' ] );
+                $this->ChangeEmail( $previousValues[ 'Email' ] );
             }
         }
         public function OnCommentCreate() {
