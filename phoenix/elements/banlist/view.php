@@ -24,7 +24,6 @@
                 <tr>
                     <th>Χρήστης</th>
                     <th>Πότε</th>
-                    <th>Μέχρι</th>
                     <th>Αιτία</th>
                     <th></th>
                 </tr>
@@ -34,8 +33,6 @@
                     echo $bannedUser->Name;
                     ?></td><td><?php                    
                     Element( 'date/diff', $bannedUser->Started );              
-                    ?></td><td><?php
-                    Element( 'date/diff', $bannedUser->Expire );              
                     ?></td><td><?php
                     echo htmlspecialchars( $bannedUser->Reason );
                     ?></td><td><?php
