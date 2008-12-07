@@ -7,7 +7,7 @@
             <div class="banner b728x90"><?php
             switch ( $type ) {
                 case AD_JOURNAL:
-                    return;
+                    break;
                     
                     if ( !$xmlstrict ) {
                         ?><script type="text/javascript"><!--
