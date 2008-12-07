@@ -7,6 +7,7 @@
             <div class="banner b728x90"><?php
             switch ( $type ) {
                 case AD_JOURNAL:
+                    return;
                     if ( !$xmlstrict ) {
                         ?><script type="text/javascript"><!--
                         google_ad_client = "pub-6131563030489305";
