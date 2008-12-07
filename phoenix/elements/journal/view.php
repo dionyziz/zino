@@ -140,7 +140,7 @@
                         echo $journal->Text; // purposely not formatted
                         ?></p>
                     </div>
-					<div class="eof"></div><?php
+					<div class="eof"></div>hahahaho<?php
                     Element( 'ad/view', AD_JOURNAL, $page->XMLStrict() ); 
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
