@@ -40,7 +40,7 @@
             
             $users = array();
             while ( $row = $res->FetchArray() ) {
-                $users[ $row[ 'mail' ] ] = $row[ 'userid' ];
+                $users[ $row[ 'profile_mail' ] ] = $row[ 'profile_userid' ];
             }
             return $users;
         }
