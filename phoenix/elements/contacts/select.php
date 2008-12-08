@@ -19,7 +19,7 @@
             }
             
             $mailfinder = new UserProfileFinder();
-            $mails = $mailfinder->FindAllUserEmails();
+            $mails = $mailfinder->FindAllUsersByEmails( $res );
             
             ?><p>Επέλεξε τους φίλους σου που θες να σταλεί πρόσκληση: </p><?php
             ?><form method="post" action=""><?php
@@ -29,7 +29,7 @@
                 ?><input type="checkbox" name="approved" /> <?php 
                 $contact = new Contact( $sample->Id );                              
                 echo $contact->Mail;
-                if ( $mails[ $contact->Mail ] == true ) {
+                if ( $mails[ $contact->Mail ] !== ""  ) {
                     ?> ---- Ηδη μέλος στο Zino <?php
                 }   
                 ?></p><?php

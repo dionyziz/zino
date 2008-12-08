@@ -29,21 +29,20 @@
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
         
-        public function FindAllUserEmails() {
+        public function FindAllUsersByEmails( $mails ) {
             $query = $this->mDb->Prepare(
-                'SELECT `profile_email` AS `mail`
-                FROM :userprofiles
-                WHERE `profile_email` != ""
+                'SELECT * FROM `userprofiles` WHERE
+                `profile_email` IN :emails
                 ;'
-            );
-            
-            $query->BindTable( 'userprofiles' );            
+            );            
+            $query->Bind( 'emails', $mails );  
             $res = $query->Execute();
-            $mails = array();
+            
+            $users = array();
             while ( $row = $res->FetchArray() ) {
-                $mails[ $row[ 'mail' ] ] = true;
+                $users[ $row[ 'mail' ] ] = $row[ 'userid' ];
             }
-            return $mails;
+            return $users;
         }
     }
 
