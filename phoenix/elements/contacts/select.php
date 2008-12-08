@@ -18,8 +18,12 @@
                 return;
             }
             
+            $emails = array();
+            foreach ( $res as $sample ) {
+                $emails[] = $sample->Mail;
+            }
             $mailfinder = new UserProfileFinder();
-            $mails = $mailfinder->FindAllUsersByEmails( $res );
+            $mails = $mailfinder->FindAllUsersByEmails( $emails );
             
             ?><p>Επέλεξε τους φίλους σου που θες να σταλεί πρόσκληση: </p><?php
             ?><form method="post" action=""><?php
