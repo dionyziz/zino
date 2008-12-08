@@ -29,7 +29,7 @@
                 ?><input type="checkbox" name="approved" /> <?php 
                 $contact = new Contact( $sample->Id );                              
                 echo $contact->Mail;
-                if ( $mails[ $contact->Mail ] !== ""  ) {
+                if ( $mails[ $contact->Mail ] !== NULL  ) {
                     ?> ---- Ηδη μέλος στο Zino <?php
                 }   
                 ?></p><?php
