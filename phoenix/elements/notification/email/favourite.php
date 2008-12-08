@@ -20,6 +20,9 @@
             ?> <?php
             echo $from->Name;
             ?> πρόσθεσε στα αγαπημένα <?php
+            $subject = ob_get_clean();
+            echo $subject;
+            $subject .= 'κάτι δικό σου';
             switch ( $notif->Item->Typeid ) {
                 case TYPE_IMAGE:
                     $image = $notif->Item->Item;
