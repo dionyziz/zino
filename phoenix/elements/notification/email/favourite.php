@@ -23,7 +23,7 @@
             $subject = ob_get_clean();
             echo $subject;
             $subject .= 'κάτι δικό σου';
-            switch ( $notif->Item->Typeid ) {
+            switch ( $notification->Item->Typeid ) {
                 case TYPE_IMAGE:
                     $image = $notif->Item->Item;
                     if ( $image->Name != '' ) {
