@@ -34,7 +34,7 @@
         global $water;
 
         if ( !$condition ) {
-            echo 'Assertion failed: ' . $description;
+            echo 'Assertion failed: ' . $description . "\n";
             if ( $callstack === false ) {
                 $callstack = debug_backtrace();
             }
