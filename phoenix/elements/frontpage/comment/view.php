@@ -72,7 +72,7 @@
                                 ob_start();
                                 Element( 'url', $comment );
                                 echo htmlspecialchars( ob_get_clean() );
-                                ?>"<?php
+                                ?>"><?php
                                 echo htmlspecialchars( $comment->Item->Name );
                                 ?></a><?php
                                 break;
