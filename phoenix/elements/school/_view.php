@@ -81,7 +81,7 @@
                                 ?></div><?php
                             }
                         }
-                        ?><a class="button">Ακύρωση</a>
+                        ?><a class="close button" href="">Ακύρωση</a>
                     </div><?php
                 }
                 ?><div class="eof"></div>
