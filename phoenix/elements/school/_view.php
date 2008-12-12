@@ -61,7 +61,8 @@
                         $images = $finder->FindByAlbum( $school->Album );
                         Element( 'school/image/list', $images , $id );
                     ?></div>
-                    <div id="schooluploadmodal" style="display:none"><?php
+                    <div id="schooluploadmodal" style="display:none">
+                        <div class="schooluploadcontainer"><?php
                         if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                             if ( $user->Profile->Schoolid == $school->Album->Owner->Id ) {
                                 ?><div class="uploaddiv"><?php
@@ -81,6 +82,7 @@
                             }
                         }
                         ?><a class="close button" href="">Ακύρωση</a>
+                        </div>
                     </div><?php
                 }
                 ?><div class="eof"></div>
