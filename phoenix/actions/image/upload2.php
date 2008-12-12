@@ -109,6 +109,11 @@
                 ?> );<?php
             }
             else if ( $typeid == 3 ) {
+                $album = New Album( $albumid );
+                $jsimage = array(
+                    'id' => $image->Id,
+                    'imagesnum' => $album->Numphotos,
+                );
                 ?>parent.PhotoList.AddPhoto( <?php
                 echo w_json_encode( $jsimage );
                 ?> , true );<?php
