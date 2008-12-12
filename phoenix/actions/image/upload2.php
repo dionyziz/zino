@@ -110,7 +110,7 @@
             }
             else if ( $typeid == 3 ) {
                 ?>parent.PhotoList.AddPhoto( <?php
-                echo $image->Id;
+                echo w_json_encode( $jsimage );
                 ?> , true );<?php
             }
         } 
