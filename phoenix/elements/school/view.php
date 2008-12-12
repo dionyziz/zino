@@ -21,11 +21,6 @@
             }
 
             $institution = $school->Institution;
-            if ( !$institution->Exists() ) {
-                die( 'Το σχολείο που προσπαθείς να δεις δεν εντάσσεται σε κάποιο ίδρυμα.' );
-                return Element( '404' );
-            }
-
             $page->SetTitle( $school->Name );
 
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
