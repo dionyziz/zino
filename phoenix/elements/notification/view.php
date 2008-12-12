@@ -150,7 +150,14 @@
                             }
                             else {
                                 ?>σε μια εικόνα του Album "<?php
-                                echo htmlspecialchars( $image->Album->Name );
+                                switch ( $image->Album->Ownertype ) {
+                                    case TYPE_USERPROFILE:
+                                        echo htmlspecialchars( $image->Album->Name );
+                                        break;
+                                    case TYPE_SCHOOL:
+                                        echo htmlspecialchars( $image->Album->Owner->Name );
+                                        break;
+                                }
                                 ?>"<?php
                             }
                             Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
@@ -171,7 +178,15 @@
                                     }
                                     else {
                                         ?>μια εικόνα του Album "<?php
-                                        echo htmlspecialchars( $image->Album->Name );
+                                        switch ( $image->Album->Ownertype ) {
+                                            case TYPE_USERPROFILE:
+                                                echo htmlspecialchars( $image->Album->Name );
+                                                break;
+                                            case TYPE_SCHOOL:
+                                                echo htmlspecialchars( $image->Album->Owner->Name );
+                                                break;
+                                        }
+                                        ?>"<?php
                                     }
                                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                                     
