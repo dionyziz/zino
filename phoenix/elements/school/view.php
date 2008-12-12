@@ -51,10 +51,13 @@
 				Element( 'school/members/members' , $students );
                 if ( $school->Album->Exists() ) {
                     ?><div class="photos">
-                        <h4>Φωτογραφίες</h4><?php
+                        <?php
                         $finder = New ImageFinder();
                         $images = $finder->FindByAlbum( $school->Album );
-                        Element( 'school/image/list', $images , $id );
+                        if ( count( $images ) || $user->Profile->Schoolid == $school->Id ) {
+                            ?><h4>Φωτογραφίες</h4><?php
+                            Element( 'school/image/list', $images , $id );
+                        }
                     ?></div>
                     <div id="schooluploadmodal" style="display:none">
                         <div class="schooluploadcontainer"><?php
