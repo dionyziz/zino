@@ -252,6 +252,10 @@
                                     echo htmlspecialchars( $comment->Item->Title );
                                     ?>"<?php
                                     break;
+                                case TYPE_SCHOOL:
+                                    ?>στο <?php
+                                    echo htmlspecialchars( $comment->Item->Name );
+                                    break;
                             }
                             ?></p>
                             <div class="eof"></div><?php
