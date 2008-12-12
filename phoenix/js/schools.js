@@ -4,6 +4,7 @@ $( function() {
         $( modal ).show();
         $( modal ).find( 'a.close' ).click( function() {
             Modals.Destroy();
+            return false;
         } );
         Modals.Create( modal , 600 , 500 );
         return false;

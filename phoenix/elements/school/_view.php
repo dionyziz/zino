@@ -68,15 +68,15 @@
                                 ?><div class="uploaddiv"><?php
                                     if ( UserBrowser() == 'MSIE' ) {
                                         ?><iframe src="?p=upload&amp;albumid=<?php
-                                            echo $album->Id;
+                                        echo $school->Album->Id;
                                         ?>&amp;typeid=3" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
-                                            </iframe><?php
+                                        </iframe><?php
                                     }
                                     else {
                                         ?><object data="?p=upload&amp;albumid=<?php
-                                            echo $album->Id;
+                                        echo $school->Album->Id;
                                         ?>&amp;typeid=3" class="uploadframe" id="uploadframe" type="text/html">
-                                            </object><?php
+                                        </object><?php
                                     }
                                 ?></div><?php
                             }
