@@ -68,6 +68,7 @@
             }
             ?><div id="profile"><?php
                 $schoolexists = $theuser->Profile->School->Numstudents > 2;
+                die( var_dump( $schoolexists ) );
                 Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated, $schooolexists );
                 $e = Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
                 if ( $e instanceof HTTPRedirection ) {
