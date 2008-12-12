@@ -58,7 +58,11 @@ div#schview div.photos ul li a.uploadphoto {
     padding: 12px 0 0 25px;
     line-height: 40px;
 }
+div#schview div.photos div.plist#photolist ul {
+    padding: 0;
+}
 div#schview div.photos div.plist#photolist ul li {
     width: 100px;
+    padding: 0;
 }
 
