@@ -5,7 +5,10 @@
         public function Render( Array $images ) {
             if ( count( $images ) > 0 ) {
                 ?><div class="plist">
-                    <ul><?php
+                    <ul>
+                        <li>
+                            <a href="" class="uploadphoto">&nbsp;</a>
+                        </li><?php
                         foreach ( $images as $image ) {
                             ?><li><a href="?p=photo&amp;id=<?php
                             echo $image->Id;

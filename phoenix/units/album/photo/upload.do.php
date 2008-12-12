@@ -1,12 +1,14 @@
 <?php
     
-    function UnitAlbumPhotoUpload( tInteger $imageid , tCoalaPointer $node ) {
+    function UnitAlbumPhotoUpload( tInteger $imageid , tCoalaPointer $node , tBoolean $x100 ) {
         global $libs;
         global $user;
         global $rabbit_settings;
         
         $libs->Load( 'image/image' );
         
+        $x100 = $x100->Get();
+        $x100 = $x100 ? 'cropped_100x100' : 'proportional_210x210';
         $image = New Image( $imageid->Get() );
         ?>$( <?php
         echo $node;
@@ -27,7 +29,9 @@
                         echo $image->Id;
                         ?>/<?php
                         echo $image->Id;
-                        ?>' + ExcaliburSettings.image_proportional_210x210 + '.jpg'
+                        ?>' + ExcaliburSettings.image_<?php
+                        echo $x100;
+                        ?> + '.jpg'
                     } );<?php
                 }
                 else {
@@ -38,7 +42,9 @@
                         echo $image->Id;
                         ?>/<?php
                         echo $image->Id;
-                        ?>_' + ExcaliburSettings.image_proportional_210x210 + '.jpg'
+                        ?>_' + ExcaliburSettings.image_<?php
+                        echo $x100;
+                        ?> + '.jpg'
                     } );<?php
                 }
             }

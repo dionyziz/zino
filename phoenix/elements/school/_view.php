@@ -60,10 +60,41 @@
                         $finder = New ImageFinder();
                         $images = $finder->FindByAlbum( $school->Album );
                         Element( 'school/image/list', $images );
-                    ?></div><?php
+                    ?></div>
+                    <div id="uploadmodal" style="display:none">
+                        <h4>Ανέβασε μια φωτογραφία</h4><?php
+                        if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+                            switch ( $album->Ownertype ) {
+                                case TYPE_USERPROFILE:
+                                    $canupload = $album->Owner->Id == $user->Id;
+                                    break;
+                                case TYPE_SCHOOL:
+                                    $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                                    break;
+                                default:
+                                    $canupload = false;
+                            }
+                            if ( $canupload ) {
+                                ?><div class="uploaddiv"><?php
+                                    if ( UserBrowser() == 'MSIE' ) {
+                                        ?><iframe src="?p=upload&amp;albumid=<?php
+                                            echo $album->Id;
+                                        ?>&amp;typeid=3" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
+                                            </iframe><?php
+                                    }
+                                    else {
+                                        ?><object data="?p=upload&amp;albumid=<?php
+                                            echo $album->Id;
+                                        ?>&amp;typeid=3" class="uploadframe" id="uploadframe" type="text/html">
+                                            </object><?php
+                                    }
+                                ?></div><?php
+                            }
+                        }
+                        ?><a class="button">Ακύρωση</a>
+                    </div><?php
                 }
-                ?>
-				<div class="eof"></div>
+                ?><div class="eof"></div>
 				<div class="comments">
 					<h4>Σχόλια σχετικά με <?php
 					echo htmlspecialchars( $school->Name );

@@ -53,3 +53,6 @@ div#schview div.members div.pagifymembers {
 div.content div#photolist.schoolupload div.uploaddiv { 
     top: 113px;
 }
+div#schview div.photos ul li a.uploadphoto {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
+}

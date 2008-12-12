@@ -96,7 +96,7 @@
                 );
                 ?>parent.PhotoList.AddPhoto( <?php
                     echo w_json_encode( $jsimage );
-                ?> );<?php
+                ?> , false );<?php
             }
             else if ( $typeid == 1 ) {
                 ?>parent.Settings.AddAvatar( <?php
@@ -107,6 +107,11 @@
                 ?>parent.Profile.AddAvatar( <?php
                 echo $image->Id;
                 ?> );<?php
+            }
+            else if ( $typeid == 3 ) {
+                ?>parent.PhotoList.AddPhoto( <?php
+                echo $image->Id;
+                ?> , true );<?php
             }
         } 
         ?>

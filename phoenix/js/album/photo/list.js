@@ -30,12 +30,12 @@ var PhotoList = {
 		$( 'form#uploadform' ).hide();
 		$( 'div#uploadingwait' ).show();
 	},
-	AddPhoto : function( imageinfo ) {
+	AddPhoto : function( imageinfo , x100 ) {
 		imageid = imageinfo.id;
 		var li = document.createElement( 'li' );
 		$( li ).css( 'display' , 'none' );
 		$( 'div#photolist ul' ).prepend( li );
-		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li } );
+		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li , x100 : x100 } );
 		if ( imageinfo.imagesnum == 1 ) {
 			var dt = document.createElement( 'dt' );
 			$( dt ).addClass( 'photonum' );
