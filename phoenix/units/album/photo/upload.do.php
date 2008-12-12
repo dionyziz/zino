@@ -8,13 +8,22 @@
         $libs->Load( 'image/image' );
         
         $x100 = $x100->Get();
-        $x100 = $x100 ? 'cropped_100x100' : 'proportional_210x210';
         $image = New Image( $imageid->Get() );
         ?>$( <?php
         echo $node;
         ?> ).html( <?php
         ob_start();
-        Element( 'album/photo/small' , $image , false , true , true );
+        if ( $x100 ) {
+            ?><a href="?p=photo&amp;id=<?php
+            echo $image->Id;
+            ?>"><?php
+            Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
+            ?></a><?php
+        }
+        else {
+            Element( 'album/photo/small' , $image , false , true , true );
+        }
+        $x100 = $x100 ? 'cropped_100x100' : 'proportional_210x210';
         echo w_json_encode( ob_get_clean() );
         ?> ).show();<?php
         if ( $image->Album->Numphotos == 1 ) {

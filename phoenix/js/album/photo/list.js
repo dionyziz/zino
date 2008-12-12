@@ -41,6 +41,9 @@ var PhotoList = {
 			$( dt ).addClass( 'photonum' );
 			$( 'div#photolist dl' ).prepend( dt );
 		}
+        if ( x100 ) { // if on schools page...
+            Modals.Destroy();
+        }
 		PhotoList.UpdatePhotoNum( imageinfo.imagesnum );
 	},
 	UpdatePhotoNum : function( photonum ) {
