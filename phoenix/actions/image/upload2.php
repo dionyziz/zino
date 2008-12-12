@@ -18,8 +18,20 @@
         $albumid = $albumid->Get();
         if ( $albumid > 0 ) {
             $album = New Album( $albumid );
-            if ( $album->IsDeleted() || $album->Ownertype != TYPE_USERPROFILE || $album->Owner->Id != $user->Id ) {
-                die( "Not allowed" );
+            if ( $album->IsDeleted() ) {
+                switch ( $album->Ownertype ) {
+                    case TYPE_USERPROFILE:
+                        $canupload = $album->Owner->Id == $user->Id;
+                        break;
+                    case TYPE_SCHOOL:
+                        $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                        break;
+                    default:
+                        $canupload = false;
+                }
+                if ( !$canupload ) {
+                    die( "Not allowed" );
+                }
             }
         }
         $extension = File_GetExtension( $uploadimage->Name );

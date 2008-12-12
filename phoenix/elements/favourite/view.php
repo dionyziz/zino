@@ -29,6 +29,12 @@
                     $type = false; // all
             }
             
+            if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
+                $page->SetTitle( $album->Owner->Name . " Αγαπημένα" );
+            }
+            else {
+                $page->SetTitle( $album->Owner->Name . " αγαπημένα" );
+            }
             // Find all user's favourite journals
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );

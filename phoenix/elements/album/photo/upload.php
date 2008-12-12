@@ -13,26 +13,38 @@
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
                 $page->AttachInlineScript( "document.body.style.backgroundColor = '#ffdf80';" );
             }
-            if ( $album->Ownertype == TYPE_USERPROFILE && $album->Owner->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-                ?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
-                        <input type="hidden" name="albumid" value="<?php
-                        echo $album->Id;
-                        ?>" />
-                        <input type="hidden" name="typeid" value="<?php
-                        echo $typeid->Get();
-                        ?>" />
-                        <div class="colorlink">
-                            Νέα φωτογραφία
-                        </div>
-                        <input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
-                        <input type="submit" value="upload" style="display:none" />
-                    </form>
-                    <div id="uploadingwait">
-                        <img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
-                        Παρακαλώ περιμένετε                
-                    </div><?php    
+            if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+                switch ( $album->Ownertype ) {
+                    case TYPE_USERPROFILE:
+                        $canupload = $album->Owner->Id == $user->Id;
+                        break;
+                    case TYPE_SCHOOL:
+                        $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                        break;
+                    default:
+                        $canupload = false;
+                }
+                if ( $canupload ) {
+                    ?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
+                            <input type="hidden" name="albumid" value="<?php
+                            echo $album->Id;
+                            ?>" />
+                            <input type="hidden" name="typeid" value="<?php
+                            echo $typeid->Get();
+                            ?>" />
+                            <div class="colorlink">
+                                Νέα φωτογραφία
+                            </div>
+                            <input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
+                            <input type="submit" value="upload" style="display:none" />
+                        </form>
+                        <div id="uploadingwait">
+                            <img src="<?php
+                            echo $rabbit_settings[ 'imagesurl' ];
+                            ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
+                            Παρακαλώ περιμένετε                
+                        </div><?php    
+                }
             }
             return array( 'tiny' => true );
         }

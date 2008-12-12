@@ -77,6 +77,9 @@
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+                    break;
+                case TYPE_SCHOOL:
+                    $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
