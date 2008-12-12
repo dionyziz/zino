@@ -7,7 +7,7 @@
             global $page;
 
             $libs->Load( 'comment' );
-            $libs->Load( 'notification' );
+            $libs->Load( 'notify' );
 			
 			$id = $id->Get();
             $pageno = $pageno->Get();
