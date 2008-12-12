@@ -59,7 +59,7 @@
                         <h4>Φωτογραφίες</h4><?php
                         $finder = New ImageFinder();
                         $images = $finder->FindByAlbum( $school->Album );
-                        Element( 'school/image/list', $images );
+                        Element( 'school/image/list', $images , $id );
                     ?></div>
                     <div id="uploadmodal" style="display:none">
                         <h4>Ανέβασε μια φωτογραφία</h4><?php

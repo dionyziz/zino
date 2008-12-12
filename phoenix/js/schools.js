@@ -3,5 +3,6 @@ $( function() {
         var modal = $( '#uploadmodal' )[ 0 ].cloneNode( true );
         $( modal ).show();
         Modals.Create( modal , 600 , 500 );
+        return false;
     } );
 } );

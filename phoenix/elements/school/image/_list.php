@@ -2,7 +2,11 @@
 
     class ElementSchoolImageList extends Element {
 
-        public function Render( Array $images ) {
+        public function Render( Array $images , $schoolid ) {
+            global $user; 
+            if ( $user->Profile->Schoolid != $schoolid && !count( $images ) ) {
+                return;
+            }
             ?><div class="plist">
                 <ul>
                     <li>
