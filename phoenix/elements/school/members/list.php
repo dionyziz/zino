@@ -10,11 +10,6 @@
                 return Element( '404' );
             }
 
-            if ( !$school->Institution->Exists() ) {
-                die( 'Το σχολείο που προσπαθείς να δεις δεν εντάσσεται σε κάποιο ίδρυμα.' );
-                return Element( '404' );
-            }
-			
 			$pageno = $pageno->Get();
             if ( $pageno <= 0 ) {
                 $pageno = 1;
