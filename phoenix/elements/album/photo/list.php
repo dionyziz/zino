@@ -7,7 +7,6 @@
             global $water;
             
             $album = New Album( $id->Get() );
-            
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {
                 $pageno = 1;
@@ -17,19 +16,25 @@
                 ?>To album δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-            
-            Element( 'user/sections', 'album' , $album->Owner );
-            ?><div id="photolist"><?php
+            if ( $album->Ownertype == TYPE_USERPROFILE ) {
+                Element( 'user/sections', 'album' , $album->Owner );
+            }
+            else {
+                Element( 'school/info', $album->Owner, true );
+            }
+            ?><div id="photolist"<?php
+                if ( $album->Ownertype == TYPE_SCHOOL ) {
+                    ?> class="schoolupload"<?php   
+                }
+                ?>><?php
                 if ( $album->IsDeleted() ) {
                     $page->SetTitle( 'Το album έχει διαγραφεί' ); 
                     ?>Το album έχει διαγραφεί</div><div class="eof"></div><?php
                     return;
                 }
-                $water->Trace( "egoalbumid " . $album->Owner->Egoalbumid );
-                $water->Trace( "albumid " . $album->Id );
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
-                if ( $album->Id == $album->Owner->Egoalbumid ) {
+                if ( $album->Ownertype == TYPE_USERPROFILE && $album->Id == $album->Owner->Egoalbumid ) {
                     if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
                         $page->SetTitle( $album->Owner->Name . " Φωτογραφίες" );
                     }
@@ -41,7 +46,7 @@
                     $page->SetTitle( $album->Name );
                 }
                 ?><h2><?php
-                if ( $album->Id == $album->Owner->Egoalbumid ) {
+                    if ( $album->Ownertype == TYPE_USERPROFILE && $album->Id == $album->Owner->Egoalbumid ) {
                     ?>Εγώ<?php
                 }
                 else {
@@ -60,7 +65,7 @@
                         ?></dt><?php
                     }
                 ?></dl><?php
-                if ( $album->Owner->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) {
+                if ( $album->Ownertype == TYPE_USERPROFILE && ( $album->Owner->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) ) {
                     if ( $album->Id != $user->Egoalbumid ) {
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="return PhotoList.Rename( '<?php
@@ -73,26 +78,33 @@
                         </div><?php
                     }
                 }
-                if ( $album->Owner->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-                    ?><div class="uploaddiv"><?php
-                    if ( UserBrowser() == 'MSIE' ) {
-                        ?>
-                        <iframe src="?p=upload&amp;albumid=<?php
-                        echo $album->Id;
-                        ?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
-                        </iframe>
-                        <?php
+                if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+                    switch ( $album->Ownertype ) {
+                        case TYPE_USERPROFILE:
+                            $canupload = $album->Owner->Id == $user->Id;
+                            break;
+                        case TYPE_SCHOOL:
+                            $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                            break;
+                        default:
+                            $canupload = false;
                     }
-                    else {
-                        ?>
-                        <object data="?p=upload&amp;albumid=<?php
-                        echo $album->Id;
-                        ?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html">
-                        </object>
-                        <?php
+                    if ( $canupload ) {
+                        ?><div class="uploaddiv"><?php
+                        if ( UserBrowser() == 'MSIE' ) {
+                            ?><iframe src="?p=upload&amp;albumid=<?php
+                            echo $album->Id;
+                            ?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
+                            </iframe><?php
+                        }
+                        else {
+                            ?><object data="?p=upload&amp;albumid=<?php
+                            echo $album->Id;
+                            ?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html">
+                            </object><?php
+                        }
+                        ?></div><?php
                     }
-                    ?>
-                    </div><?php
                 }
                 ?><ul><?php
                     foreach( $images as $image ) {

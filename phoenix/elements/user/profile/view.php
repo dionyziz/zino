@@ -67,7 +67,8 @@
                 $page->AttachInlineScript( 'Profile.CheckBirthday( ' . $dob[ 0 ] . ', ' . $dob[ 1 ] . ', ' . $dob[ 2 ] . ' );' );
             }
             ?><div id="profile"><?php
-                Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated );
+                $schoolexists = $theuser->Profile->School->Numstudents > 2;
+                Element( 'user/profile/sidebar/view' , $theuser , $theuser->Id , $theuser->Profile->Updated, $schoolexists );
                 $e = Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
                 if ( $e instanceof HTTPRedirection ) {
                     return $e;

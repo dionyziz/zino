@@ -39,7 +39,14 @@
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-            Element( 'user/sections', 'album' , $theuser );
+            switch ( $image->Album->Ownertype ) {
+                case TYPE_USERPROFILE:
+                    Element( 'user/sections', 'album' , $theuser );
+                    break;
+                case TYPE_SCHOOL:
+                    Element( 'school/info', $image->Album->Owner, false );
+                    break;
+            }
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
@@ -50,18 +57,26 @@
                 $page->SetTitle( $title );
             }
             else {
-                if ( $image->Album->Owner->Egoalbumid == $image->Album->Id ) {
-                    if ( strtoupper( substr( $image->Album->Owner->Name, 0, 1 ) ) == substr( $image->Album->Owner->Name, 0, 1 ) ) {
-                        $page->SetTitle( $image->Album->Owner->Name . " Φωτογραφίες" );
-                    }
-                    else {
-                        $page->SetTitle( $image->Album->Owner->Name . " φωτογραφίες" );
-                    }
-                    $title = $theuser->Name;
-                }    
-                else {
-                    $page->SetTitle( $image->Album->Name );
-                    $title = $image->Album->Name;
+                switch ( $image->Album->Ownertype ) {
+                    case TYPE_USERPROFILE:
+                        if ( $image->Album->Owner->Egoalbumid == $image->Album->Id ) {
+                            if ( strtoupper( substr( $image->Album->Owner->Name, 0, 1 ) ) == substr( $image->Album->Owner->Name, 0, 1 ) ) {
+                                $page->SetTitle( $image->Album->Owner->Name . " Φωτογραφίες" );
+                            }
+                            else {
+                                $page->SetTitle( $image->Album->Owner->Name . " φωτογραφίες" );
+                            }
+                            $title = $theuser->Name;
+                        }    
+                        else {
+                            $page->SetTitle( $image->Album->Name );
+                            $title = $image->Album->Name;
+                        }
+                        break;
+                    case TYPE_SCHOOL:
+                        $page->SetTitle( $image->Album->Owner->Name );
+                        $title = $image->Album->Owner->Name;
+                        break;
                 }
             }
             if ( $pageno <= 0 ) {
@@ -76,11 +91,18 @@
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
                 echo $image->Album->Id;
                 ?>"><?php
-                if ( $image->Album->Id == $theuser->Egoalbumid ) {
-                    ?>Εγώ<?php
-                }
-                else {
-                    echo htmlspecialchars( $image->Album->Name );
+                switch ( $image->Album->Ownertype ) {
+                    case TYPE_USERPROFILE:
+                        if ( $image->Album->Id == $theuser->Egoalbumid ) {
+                            ?>Εγώ<?php
+                        }
+                        else {
+                            echo htmlspecialchars( $image->Album->Name );
+                        }
+                        break;
+                    case TYPE_SCHOOL:
+                        echo htmlspecialchars( $image->Album->Owner->Name );
+                        break;
                 }
                 ?></a>
                 <dl><?php
@@ -100,7 +122,7 @@
 					Element( 'date/diff', $image->Created );
 					?></dd><?php
                  ?></dl><?php
-				if ( $user->Exists() ) {
+				 if ( $user->Exists() ) {
 					?><ul class="edit"><?php
 					if ( $user->Id != $theuser->Id && !$user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
 						?><li>
@@ -126,7 +148,8 @@
 	                        }
 	                        ?></a>
 						</li><?php
-						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
+						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
+                            && $user->HasPermission( PERMISSION_TAG_CREATE )
 							&& ( $theuser->Id == $user->Id || 
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
@@ -161,7 +184,7 @@
 		                        ?></a>
 							</li><?php
 						}
-						if ( $user->Id == $theuser->Id ) {
+                        if ( $user->Id == $theuser->Id ) {
 							?><li>
 								<a href="" onclick="return PhotoView.Rename( '<?php
 		                        echo $image->Id;
@@ -182,7 +205,8 @@
 	                        echo $image->Id;
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 						</li><?php
-						if ( $user->HasPermission( PERMISSION_TAG_CREATE )
+						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
+                            && $user->HasPermission( PERMISSION_TAG_CREATE )
 							&& ( $theuser->Id == $user->Id || 
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
@@ -190,7 +214,7 @@
 								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
-						if ( $user->Id == $theuser->Id ) {
+						if ( $image->Album->Ownertype == TYPE_USERPROFILE && $user->Id == $theuser->Id ) {
 							if ( $image->Album->Mainimageid != $image->Id ) {
 	                            ?><li><a href="" onclick="return PhotoView.MainImage( '<?php
 	                            echo $image->Id;
