@@ -50,6 +50,6 @@ div#schview div.photos div.plist ul li:first-child {
 div#schview div.members div.pagifymembers {
 	text-align: center;
 }
-div.schoolupload div.uploaddiv { 
+div.content div#photolist.schoolupload div.uploaddiv { 
     top: 113px;
 }
