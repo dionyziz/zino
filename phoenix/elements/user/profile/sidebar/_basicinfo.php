@@ -1,7 +1,7 @@
 <?php
     class ElementUserProfileSidebarBasicinfo extends Element {
         protected $mPersistent = array( 'theuserid', 'updated', 'schoolexists' );
-        
+         
         public function Render( $theuser , $theuserid , $updated, $schoolexists ) {  
             Element( 'user/profile/sidebar/who', $theuser , $theuserid , $theuser->Avatar->Id );
             Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );
