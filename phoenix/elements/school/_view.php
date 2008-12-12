@@ -64,17 +64,7 @@
                     <div id="uploadmodal" style="display:none">
                         <h4>Ανέβασε μια φωτογραφία</h4><?php
                         if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-                            switch ( $album->Ownertype ) {
-                                case TYPE_USERPROFILE:
-                                    $canupload = $album->Owner->Id == $user->Id;
-                                    break;
-                                case TYPE_SCHOOL:
-                                    $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
-                                    break;
-                                default:
-                                    $canupload = false;
-                            }
-                            if ( $canupload ) {
+                            if ( $user->Profile->Schoolid == $school->Album->Owner->Id ) {
                                 ?><div class="uploaddiv"><?php
                                     if ( UserBrowser() == 'MSIE' ) {
                                         ?><iframe src="?p=upload&amp;albumid=<?php
