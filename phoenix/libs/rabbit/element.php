@@ -85,7 +85,7 @@
             $params = array(); // a list of the values of the significant arguments, in order
             foreach ( $significant as $pos ) {
                 w_assert( is_int( $pos ) );
-                w_assert( isset( $args[ $pos ] ) );
+                w_assert( isset( $args[ $pos ] ), 'Persistent element significant argument must be defined; not passed for argument ' . $pos . ' of element `' . $elementpath . '\'' );
                 $params[] = $args[ $pos ];
                 w_assert( is_scalar( $args[ $pos ] ), 'Persistent element significant argument must be scalar; ' . gettype( $args[ $pos ] ) . ' given for argument ' . $pos . ' of element `' . $elementpath . '\'' );
             }
