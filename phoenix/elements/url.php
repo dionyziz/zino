@@ -39,6 +39,7 @@
                     echo $target->Id;
                     return;
                 case 'School':
+                    echo $rabbit_settings[ 'webaddress' ];
                     ?>/?p=school&id=<?php
                     echo $target->Id;
                     return;

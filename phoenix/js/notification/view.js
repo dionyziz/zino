@@ -31,3 +31,4 @@ var Notification = {
 		return false;
 	}
 };
+
