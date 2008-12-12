@@ -9,7 +9,7 @@ div#profile div.sidebar {
 	padding: 14px 0 4px 0;
 	overflow: hidden;
 }
-div#profile div.sidebar div.basicinfo div.info dl dt {
+div#profile div.sidebar div.basicinfo dl dt {
     clear: both;
 }
 div#profile div.sidebar div.basicinfo {
