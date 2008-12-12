@@ -44,7 +44,7 @@
                     Element( 'user/sections', 'album' , $theuser );
                     break;
                 case TYPE_SCHOOL:
-                    Element( 'school/info', $image->Album->Owner, false );
+                    Element( 'school/info', $image->Album->Owner, true );
                     break;
             }
             if ( $image->IsDeleted() ) {
