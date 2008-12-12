@@ -48,7 +48,7 @@
 
 			?><div id="schview"><?php
 				Element( 'school/info' , $school , false );
-				Element( 'school/members/members' , $students );
+				Element( 'school/members/members' , $students, $school->Id );
                 if ( $school->Album->Exists() ) {
                     ?><div class="photos">
                         <?php
