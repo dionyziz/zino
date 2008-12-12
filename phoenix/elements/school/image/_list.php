@@ -9,9 +9,7 @@
             }
             ?><div class="plist">
                 <ul>
-                    <li>
-                        <a href="" class="uploadphoto">&nbsp;</a>
-                    </li><?php
+                    <?php
                     foreach ( $images as $image ) {
                         ?><li><a href="?p=photo&amp;id=<?php
                         echo $image->Id;
@@ -19,7 +17,11 @@
                         Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
                         ?></a></li><?php
                     }
-                ?></ul>
+                ?>
+                    <li>
+                        <a href="" class="uploadphoto">&nbsp;</a>
+                    </li>
+                </ul>
             </div><?php
         }
     }
