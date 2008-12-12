@@ -61,8 +61,7 @@
                         $images = $finder->FindByAlbum( $school->Album );
                         Element( 'school/image/list', $images , $id );
                     ?></div>
-                    <div id="uploadmodal" style="display:none">
-                        <h4>Ανέβασε μια φωτογραφία</h4><?php
+                    <div id="uploadmodal" style="display:none"><?php
                         if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                             if ( $user->Profile->Schoolid == $school->Album->Owner->Id ) {
                                 ?><div class="uploaddiv"><?php

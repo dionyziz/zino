@@ -6,7 +6,7 @@ $( function() {
             Modals.Destroy();
             return false;
         } );
-        Modals.Create( modal , 600 , 500 );
+        Modals.Create( modal , 400 , 250 );
         return false;
     } );
 } );

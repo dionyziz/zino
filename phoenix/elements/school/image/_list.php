@@ -7,7 +7,7 @@
             if ( $user->Profile->Schoolid != $schoolid && !count( $images ) ) {
                 return;
             }
-            ?><div class="plist">
+            ?><div class="plist" id="photolist">
                 <ul>
                     <?php
                     foreach ( $images as $image ) {
