@@ -4,7 +4,6 @@
         public function Render( $imageseq ) {
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
-            $finder = New NotificationFinder();
             if ( count( $images ) > 0 ) {
                 ?><div class="lstimages plist">
                 <ul><?php
