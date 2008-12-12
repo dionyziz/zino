@@ -22,7 +22,11 @@
             else {
                 Element( 'school/info', $album->Owner, true );
             }
-            ?><div id="photolist"><?php
+            ?><div id="photolist"<?php
+                if ( $album->Ownertype == TYPE_SCHOOL ) {
+                    ?> class="schoolupload"<?php   
+                }
+                ?>><?php
                 if ( $album->IsDeleted() ) {
                     $page->SetTitle( 'Το album έχει διαγραφεί' ); 
                     ?>Το album έχει διαγραφεί</div><div class="eof"></div><?php
