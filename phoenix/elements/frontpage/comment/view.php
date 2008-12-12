@@ -67,6 +67,15 @@
                                 echo htmlspecialchars( $comment->Item->Title );
                                 ?></a><?php
                                 break;
+                            case TYPE_SCHOOL:
+                                ?>στο <a href="<?php
+                                ob_start();
+                                Element( 'url', $comment );
+                                echo htmlspecialchars( ob_get_clean() );
+                                ?>"<?php
+                                echo htmlspecialchars( $comment->Item->Name );
+                                ?></a><?php
+                                break;
                         }
                         ?>
                     </p>
