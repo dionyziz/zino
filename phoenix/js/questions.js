@@ -182,6 +182,8 @@ var Questions = {
 };
 
 $( function() {
-	$( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ].focus();
+	if ( $( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ] ) {
+		$( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ].focus();
+	}
 	Questions.show();
 } );
