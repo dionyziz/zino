@@ -36,7 +36,7 @@
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
             
                 $relationfinder = new FriendRelationFinder();
-                $res = $relationfinder->FindByUser( $user->Id );
+                $res = $relationfinder->FindByFriend( $user->Id );
                 $zino_friends = array();
                 echo '<p>' . count( $res ) .  '</p>';
                 foreach ( $res as $relation ) {
