@@ -7,7 +7,7 @@
               
         foreach ( $approved as $userid ) {
             $userid = $userid->Get();            
-            $theuser = new User( $userid->Get() );
+            $theuser = new User( $userid );
             if ( $theuser->Exists() ) {
                 $relation = New FriendRelation();
                 $relation->Userid = $user->Id;
