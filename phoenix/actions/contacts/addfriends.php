@@ -17,6 +17,6 @@
             }
         }
            
-        return Redirect( 'contactfinder&email='.$email.'&step=2');
+        return Redirect( '?p=contactfinder&email='.$email.'&step=2');
     }
 ?>
