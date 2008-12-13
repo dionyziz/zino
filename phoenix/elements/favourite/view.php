@@ -47,13 +47,6 @@
             ?><div id="favourites">
                 <div class="list">
                     <ul class="favcategories">
-                        <?php
-                        /*
-                           <li><a href=""><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>chart_bar-trans.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
-                        */
-                        ?>
                         <li<?php
                         if ( $type === TYPE_JOURNAL ) {
                             ?> class="selected"<?php
@@ -134,11 +127,6 @@
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>"><?php
                                 switch ( $favourite->Typeid ) {
-                                    /*
-                                    case TYPE_POLL:
-                                        ?><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a><?php
-                                        break;
-                                    */
                                     case TYPE_JOURNAL:
                                         echo htmlspecialchars( $favourite->Item->Title );
                                         ?></a> από <?php

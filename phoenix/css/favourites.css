@@ -68,3 +68,7 @@ div#favourites ul.events li.photo img {
 div#favourites ul.events li.journal div {
 	background: url( 'http://static.zino.gr/phoenix/book.png' ) no-repeat;
 }
+div#favourites div.pagify {
+	margin: 20px 0 0 0;
+	text-align: center;
+}

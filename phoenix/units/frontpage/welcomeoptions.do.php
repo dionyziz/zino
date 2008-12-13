@@ -42,7 +42,7 @@
                 if ( $place || $education ) {
                     ?>$( '#selectuni' ).html( <?php
                         ob_start();
-                        ?><span>Πανεπιστήμιο</span><?php
+                        ?><span>Πανεπιστήμιο:</span><?php
                         Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
