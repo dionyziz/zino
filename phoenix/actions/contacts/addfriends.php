@@ -4,6 +4,8 @@
         global $libs;
         
         $libs->Load( 'relation/relation' );
+        
+        $email->Get();
               
         foreach ( $approved as $userid ) {
             $userid = $userid->Get();            
@@ -16,7 +18,10 @@
                 $relation->Save();
             }
         }
-           
-        return Redirect( '?p=contactfinder&email='.$email.'&step=2');
+        
+
+        die($email);
+                   
+        return Redirect( '?p=contactfinder&email=' . $email . '&step=2');
     }
 ?>
