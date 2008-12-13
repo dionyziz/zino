@@ -25,13 +25,5 @@ div#search div.ybubble form div.search {
     width: 49%;
 }
 div#search div.ybubble div.body {
-    padding: 10px 0 0 10px;
+    padding: 10px 0 0 0;
 }
-/*
-div.ybubble i.tr, div.ybubble i.br {
-	right: -10px;
-}
-div.ybubble i.tl {
-    height: 9px;
-}
-*/
