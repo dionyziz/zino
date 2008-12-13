@@ -38,6 +38,7 @@
                 $relationfinder = new FriendRelationFinder();
                 $res = $relationfinder->FindByUser( $user->Id );
                 $zino_friends = array();
+                echo '<p>' . count( $res ) .  '</p>';
                 foreach ( $res as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
                     echo '<p>' . $relation->Friend->Name . '</p>';
