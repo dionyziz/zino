@@ -46,12 +46,12 @@
                 ?></form><?php
             }
             
-            if ( $step == 2 ) {                
+            if ( $step == 2 ) { //step 2 - send invites to non zino users      
                 ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλοι στο Ζινο.</h3><?php
                 ?><form method="post" action=""><?php
                 //echo count( $res );
                 foreach ( $res as $sample ) {
-                    if ( $zino_emails[ $sample>Mail ] == NULL  ) {
+                    if ( $zino_emails[ $sample->Mail ] == NULL  ) {
                         ?><p><?php
                         ?><input type="checkbox" name="approved" /> <?php 
                         echo $sample->Mail;                        
