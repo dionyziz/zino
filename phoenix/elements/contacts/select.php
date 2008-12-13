@@ -43,7 +43,7 @@
                     //echo count( $zino_emails );
                     foreach ( $zino_emails as $key=>$val ) {
                         ?><p><?php
-                        ?><input type="checkbox" name="approved[]" /> <?php 
+                        ?><input type="checkbox" name="approved[]" value="<?php echo $key; ?>" /> <?php 
                         $friend = new User( $val );                              
                         echo $friend->Name . " - " . $friend->Profile->Email;                    
                         ?></p><?php
@@ -60,7 +60,7 @@
                 foreach ( $res as $sample ) {
                     if ( $zino_emails[ $sample->Mail ] == NULL  ) {
                         ?><p><?php
-                        ?><input type="checkbox" name="approved[]" /> <?php 
+                        ?><input type="checkbox" name="approved[]" value="<?php echo $sample->Mail; ?>" /> <?php 
                         echo $sample->Mail;                        
                         ?></p><?php
                     }

@@ -1,12 +1,11 @@
 <?php
-    function ActionContactsInvite( tBooleanArray $approved ) {
+    function ActionContactsInvite( tTextArray $approved ) {
         global $libs;
-        
-        die(var_dump($approved));
         
         $str = count( $approved );
         foreach ( $approved as $sampe ) {
-            $str = $str . (int)$sample;
+            $sample = $sample->Get();
+            $str = $str . $sample;
         }
            
         return Redirect( '?p=contactfinder&email='.$str );
