@@ -68,8 +68,9 @@
                         ?></p><?php
                     }
                 }
-                ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
-                ?></form><?php
+                ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
+                  <input type="hidden" name="email" value="<?php echo $email; ?>" />
+                  </form><?php
             }
             return;
         }
