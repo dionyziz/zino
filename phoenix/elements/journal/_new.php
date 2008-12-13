@@ -5,6 +5,9 @@
             global $user;
             global $page;
             global $water;
+            global $libs;
+            
+            $libs->Load( 'wysiwyg' );
             
             $id = $id->Get();
             
