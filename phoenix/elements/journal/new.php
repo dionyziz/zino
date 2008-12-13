@@ -5,6 +5,9 @@
             global $user;
             global $page;
             global $water;
+            global $libs;
+            
+            $libs->Load( 'wysiwyg' );
             
             $id = $id->Get();
             
@@ -43,7 +46,7 @@
                             </div>
                             <?php
                             if ( $id > 0 ) {
-                                $text = $journal->Text;
+                                $text = WYSIWYG_PreProcess( $journal->Text );
                             }
                             else {
                                 $text = '';
