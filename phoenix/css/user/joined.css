@@ -8,8 +8,8 @@ div#joined div.ybubble {
 	height: 50px;
 	margin: auto;
 }
-div#joined div.ybubble > div > div.welcome > div {
-	padding: 2px 0pt 0pt 5px; 
+div#joined div.ybubble > div > div.welcome {
+	padding: 5px 0 0 0;
 	text-align: center;
 }
 div#joined div.profinfo{

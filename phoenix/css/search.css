@@ -3,16 +3,15 @@ div#search h2 {
 }
 div#search div.ybubble form input.submit {
 	border: 0 none transparent;
-    background-color: transparent;
     font-size: 110%;
 	color: #105cb6;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     font-weight: bold;
     cursor: pointer;
     width: 110px;
     height: 32px;
     padding: 0;
-    background: url('http://static.zino.gr/phoenix/s_button.png') no-repeat top;
+    background: transparent url('http://static.zino.gr/phoenix/s_button.png') no-repeat top;
     position: relative;
     top: 15px;
 }
@@ -22,22 +21,17 @@ div#search div.ybubble i.tl {
 div#search div.ybubble form input.submit:hover {
     color: #000033;
 }
-div.ybubble form div.search {
+div#search div.ybubble form div.search {
     width: 49%;
 }
-div.ybubble div.body {
+div#search div.ybubble div.body {
     padding: 10px 0 0 10px;
 }
+/*
 div.ybubble i.tr, div.ybubble i.br {
 	right: -10px;
 }
 div.ybubble i.tl {
     height: 9px;
 }
-/*
-div#search div.ybubble i.tl {
-    background-image: url( 'http://staticzino.gr/phoenix/s_tl.png' );
-}
-div#search div.ybubble i.tr{
-    background-image: url( 'http://staticzino.gr/phoenix/s_tr.png' );
-}*/
+*/
