@@ -43,7 +43,7 @@
             $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
             $newuser->Save();
             User_SetCookie( $newuser->Id, $newuser->Authtoken );
-            ?>location.href = '<?php
+            ?>window.location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
 			?>/?p=joined';<?php
         }
