@@ -20,6 +20,7 @@
         }
        
         $address =  '?p=contactfinder&email=' . $email . '&step=2';
+        $address = '?p=success' . $email;
         return Redirect( $address );
     }
 ?>
