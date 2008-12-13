@@ -7,7 +7,8 @@
             $sample = $sample->Get();
             $str = $str . $sample;
         }
+        die($str);
            
-        return Redirect( '?p=contactfinder&email='.$str );
+        return Redirect( '?p=contactfinder&email=');
     }
 ?>
