@@ -4,15 +4,6 @@ var Frontpage = {
 			$( this ).remove();
 		} );
 	},
-	/*
-	Showunis : function( node ) {
-		var divlist = node.getElementsByTagName( 'div' );
-		var contenthtml = "<span style=\"padding-left:5px;\">?aia?eoo?iei:</span><select><option value=\"0\" selected=\"selected\">-</option><option value=\"2\">Oeeieia?a</option><option value=\"6\">Ceaeonieuaui Ic?aiee?i &amp; Ic?aiee?i O?ieiaeoo?i</option><option value=\"9\">Eaonee?</option><option value=\"23\">Ceaeoniiee?</option><option value=\"25\">Oeeioio?a</option><option value=\"43\">Eaieia?a</option><option value=\"35\">?ecnioinee?</option><option value=\"67\">Ic?aieeuo O?ieiaeoo?i</option><option value=\"98\">Iaiioiuaonee?</option></select>";
-		var newdiv = document.createElement( 'div' );
-		newdiv.innerHTML = contenthtml;
-		node.insertBefore( newdiv, divlist[ 0 ].nextSibling );
-	},
-	*/
 	DeleteShout : function( shoutid ) {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
 			$( 'div#s_' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {

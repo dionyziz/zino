@@ -182,5 +182,6 @@ var Questions = {
 };
 
 $( function() {
-		Questions.show();
+	$( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ].focus();
+	Questions.show();
 } );
