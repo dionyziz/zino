@@ -39,16 +39,16 @@ div.frontpage div.ybubble div.body form p {
     margin-bottom: 0;
 }
 div.frontpage div.ybubble div.body form div div#selectplace { 
-    padding: 3px;
+    margin: 3px 0 0 0;
 }
 div.frontpage div.ybubble div.body form div div#selecteducation {
-    padding: 3px;
+    margin: 10px 0 0 0;
 }
 div.frontpage div.ybubble div.body form div div#selectuni {
-    padding: 3px;
+    margin: 10px 0 0 0;
 }
 div.frontpage div.ybubble div.body form div span {
-    padding-right: 3px;
+    padding: 0 3px 0 0;
 }
 div.lstimages {
     height: 130px;
