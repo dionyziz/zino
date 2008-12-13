@@ -36,16 +36,16 @@
                             <form>
                                 <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
                                 <div>
-                                    <span>Πόλη:</span><?php
-                                    if ( $user->Profile->Placeid != 0 ) {
-                                        echo htmlspecialchars( $user->Profile->Location->Name );
-                                    }
-                                    else { 
-                                        ?><div id="selectplace"><?php
-                                        Element( 'user/settings/personal/place', $user );
-                                        ?></div><?php
-                                    }
-                                    ?><div id="selecteducation">
+									<div id="selectplace">
+										<span>Πόλη:</span><?php
+										if ( $user->Profile->Placeid != 0 ) {
+	                                        echo htmlspecialchars( $user->Profile->Location->Name );
+	                                    }
+	                                    else {
+	                                        Element( 'user/settings/personal/place', $user );
+	                                    }
+                                    ?></div>
+									<div id="selecteducation">
                                         <span>Εκπαίδευση:</span><?php
                                         Element( 'user/settings/personal/education', $user );
                                     ?></div>
