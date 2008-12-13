@@ -6,8 +6,6 @@
             global $page;
             global $water;
             
-            die( 'Editing journal' );
-            
             $id = $id->Get();
             
             $page->AttachScript( 'js/wysiwyg.js' ); // TODO
@@ -45,7 +43,7 @@
                             </div>
                             <?php
                             if ( $id > 0 ) {
-                                $text = $journal->Text;
+                                $text = WYSIWYG_PreProcess( $journal->Text );
                             }
                             else {
                                 $text = '';
