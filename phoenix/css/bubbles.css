@@ -80,10 +80,9 @@ div.bubble i.qbottom {
 }
 
 div.ybubble {
-	padding: 0;
     position: relative;
     width: 80%;
-    margin: 10px auto 40px auto;
+    margin: 0 auto 40px auto;
 }
 div.ybubble div.body {
 	background: #ffda74; 
@@ -97,9 +96,11 @@ div.ybubble i.tr {
 }
 div.ybubble i.bl {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1708px;
+	left: 0;
 }
 div.ybubble i.br {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1768px;
+	right: 0;
 	/*
 	position: relative;
 	left: 99%;
