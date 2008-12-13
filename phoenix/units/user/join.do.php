@@ -42,11 +42,14 @@
             $_SESSION[ 's_userid' ] = $newuser->Id;
             $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
             $newuser->Save();
-            //User_SetCookie( $newuser->Id, $newuser->Authtoken );
-            ?>alert( 'redirecting' );
+            User_SetCookie( $newuser->Id, $newuser->Authtoken );
+            ?>alert( '<?php
+			echo $rabbit_settings[ 'webaddress' ];
+			?>/?p=joined' );
 			location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
-			?>/?p=joined';<?php
+			?>/?p=joined';
+			alert( 'redirected' );<?php
         }
     }
 ?>
