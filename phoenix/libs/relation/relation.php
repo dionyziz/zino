@@ -11,7 +11,10 @@
     class FriendRelationFinder extends Finder {
         protected $mModel = 'FriendRelation';
 
-        public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
+        public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
+            w_assert( $user instanceof User );
+            w_assert( $user->Exists() );
+            
             $query = $this->mDb->Prepare(
                 'SELECT
                     *
