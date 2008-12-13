@@ -18,9 +18,7 @@
                 $relation->Save();
             }
         }
-       
-        $address =  '?p=contactfinder&email=' . $email . '&step=2';
-        $address = '?p=' . urlencode( $email );
-        return Redirect( $address );
+        
+        return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=2' );
     }
 ?>

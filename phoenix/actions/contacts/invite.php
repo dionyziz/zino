@@ -9,6 +9,6 @@
             EmailFriend( $sample );
         }
            
-        return Redirect( '?p=success');
+        return Redirect( '?p=success' );
     }
 ?>

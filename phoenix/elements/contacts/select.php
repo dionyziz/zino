@@ -11,6 +11,7 @@
             $page->SetTitle( "Επιλογή Επαφών" );
             
             $email = $email->Get();
+            $email = urldecode( $email );
             $step = $step->Get();            
             if ( $step != 1 && $step != 2 ) {
                 $step = 0;
