@@ -10,6 +10,12 @@
             
             $page->SetTitle( "Επιλογή Επαφών" );
             
+            $email = $email->Get();
+            $step = $step->Get();            
+            if ( $step != 1 && $step != 2 ) {
+                $step = 0;
+            }
+            
             $finder = new ContactFinder();
             $res = $finder->FindByUseridAndMail( $user->Id, $email );
             
@@ -26,17 +32,17 @@
             $zino_emails = $mailfinder->FindAllUsersByEmails( $all_emails );
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
-                ?><p>Αυτοί οι φίλοι σου είναι ήδη στο zino.</p><?php
+                ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino.</h3><?php
                 ?><form method="post" action=""><?php
                 echo count( $zino_emails );
                 foreach ( $zino_emails as $key=>$val ) {
                     ?><p><?php
                     ?><input type="checkbox" name="approved" /> <?php 
                     $friend = new User( $val );                              
-                    echo $friend->Name . " " . $friend->Profile->Email;                    
+                    echo $friend->Name . " - " . $friend->Profile->Email;                    
                     ?></p><?php
                 }
-                ?><input type="button" name="Στείλε τις προσκλήσεις!" /><?php
+                ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
                 ?></form><?php
             }
             /*
