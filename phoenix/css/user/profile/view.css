@@ -217,11 +217,13 @@ div#profile div.main div.ybubble {
 	width: 500px;
 	height: 85px;
 }
+/*
 div#profile div.main div.ybubble div.body {
 	padding-left: 5px;
 }
+*/
 div#profile div.main div.ybubble div.body h3 {
-	padding-top: 3px;
+	padding: 3px 0 0 5px;
 }	
 div#profile div.main div.ybubble div.body div.uploaddiv {
 	margin: 0 0 5px -30px;
