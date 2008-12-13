@@ -71,6 +71,7 @@ var PollList = {
 	},
 	Cancel : function() {
 		PollList.numoptions = 0;
+		PollList.OptionsText = '';
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
