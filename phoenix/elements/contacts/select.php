@@ -32,9 +32,9 @@
             $zino_emails = $mailfinder->FindAllUsersByEmails( $all_emails );
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
-                ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino.</h3><?php
+                ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
                 ?><form method="post" action=""><?php
-                echo count( $zino_emails );
+                //echo count( $zino_emails );
                 foreach ( $zino_emails as $key=>$val ) {
                     ?><p><?php
                     ?><input type="checkbox" name="approved" /> <?php 
@@ -45,22 +45,24 @@
                 ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
                 ?></form><?php
             }
-            /*
-            ?><p>Επέλεξε τους φίλους σου που θες να σταλεί πρόσκληση: </p><?php
-            ?><form method="post" action=""><?php
-            echo count( $res );
-            foreach ( $res as $sample ) {
-                ?><p><?php
-                ?><input type="checkbox" name="approved" /> <?php 
-                $contact = new Contact( $sample->Id );                              
-                echo $contact->Mail;
-                if ( $zino_emails[ $contact->Mail ] !== NULL  ) {
-                    ?> ---- Ηδη μέλος στο Zino <?php
-                }   
-                ?></p><?php
+            
+            if ( $step == 2 ) {                
+                ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλοι στο Ζινο.</h3><?php
+                ?><form method="post" action=""><?php
+                //echo count( $res );
+                foreach ( $res as $sample ) {
+                    if ( $zino_emails[ $contact->Mail ] == NULL  ) {
+                        ?><p><?php
+                        ?><input type="checkbox" name="approved" /> <?php 
+                        $contact = new Contact( $sample->Id );                              
+                        echo $contact->Mail;                        
+                        ?></p><?php
+                    }
+                }
+                ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
+                ?></form><?php
             }
-            ?></form><?php
-            */
+            return;
         }
     }
 ?>
