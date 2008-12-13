@@ -40,7 +40,7 @@
                 $zino_friends = array();
                 foreach ( $res as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
-                    echo '<p>' . $relation->Friend->Id . '</p>';
+                    echo '<p>' . var_dump( $relation->Friend ) . '</p>';
                 }
             
                 $friendsN = count( $zino_emails );
