@@ -49,7 +49,7 @@
                         ?></p><?php
                     }
                     ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
-                      <input type="hidden" name="email" value=<?php echo $email; ?> />
+                      <input type="hidden" name="email" value="<?php echo $email; ?>" />
                       </form>
                     <?php
                 }
