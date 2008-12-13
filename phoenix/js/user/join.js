@@ -170,6 +170,7 @@ $( function() {
 				if ( Join.enabled ) {
 					document.body.style.cursor = 'wait';
 					$( this ).addClass( 'button_disabled' );
+					alert( 'fine' );
 					Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
 				}
 			}
