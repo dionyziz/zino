@@ -32,22 +32,29 @@
             $zino_emails = $mailfinder->FindAllUsersByEmails( $all_emails );
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
-                ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
-                ?><form method="post" action=""><?php
-                //echo count( $zino_emails );
-                foreach ( $zino_emails as $key=>$val ) {
-                    ?><p><?php
-                    ?><input type="checkbox" name="approved" /> <?php 
-                    $friend = new User( $val );                              
-                    echo $friend->Name . " - " . $friend->Profile->Email;                    
-                    ?></p><?php
+                $friendsN = count( $zino_emails );
+                if ( $friendsN == 0 ) {
+                    ?><h3>Κανένας φίλος σου δεν είναι μέλος στο zino.Πήγαινε στο επόμενο βήμα για να τους προσκαλέσεις!</h3><?php
+                    ?><input type="submit" value="Επόμενο βήμα" /><?php
                 }
-                ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
-                ?></form><?php
+                else {            
+                    ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
+                    ?><form method="post" action=""><?php
+                    //echo count( $zino_emails );
+                    foreach ( $zino_emails as $key=>$val ) {
+                        ?><p><?php
+                        ?><input type="checkbox" name="approved" /> <?php 
+                        $friend = new User( $val );                              
+                        echo $friend->Name . " - " . $friend->Profile->Email;                    
+                        ?></p><?php
+                    }
+                    ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
+                    ?></form><?php
+                }
             }
             
             if ( $step == 2 ) { //step 2 - send invites to non zino users      
-                ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλοι στο Ζινο.</h3><?php
+                ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλη στο Ζινο.</h3><?php
                 ?><form method="post" action=""><?php
                 //echo count( $res );
                 foreach ( $res as $sample ) {
