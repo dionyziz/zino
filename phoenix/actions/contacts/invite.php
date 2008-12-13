@@ -2,13 +2,13 @@
     function ActionContactsInvite( tTextArray $approved ) {
         global $libs;
         
-        $str = count( $approved );
+        $libs->Load( "contacts/contacts" );
+        
         foreach ( $approved as $sample ) {
             $sample = $sample->Get();
-            $str = $str . $sample;
+            EmailFriend( $sample );
         }
-        die($str);
            
-        return Redirect( '?p=contactfinder&email=');
+        return Redirect( '?p=success');
     }
 ?>
