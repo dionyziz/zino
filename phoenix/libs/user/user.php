@@ -176,7 +176,7 @@
         }
         public function FindBySchool( School $school, $offset = 0, $limit = 10000 ) {
             $profilefinder = New UserProfileFinder();
-            $userprofiles = $profilefinder->FindBySchool( $school, $offset, $limit, array( 'Id', 'DESC' ) ); 
+            $userprofiles = $profilefinder->FindBySchool( $school, $offset, $limit ); 
             $userids = array();
             foreach ( $userprofiles as $userprofile ) {
                 $userids[] = $userprofile->Userid;

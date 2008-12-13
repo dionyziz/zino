@@ -26,7 +26,7 @@
         public function FindBySchool( $school, $offset = 0, $limit = 10000 ) {
             $prototype = New UserProfile();
             $prototype->Schoolid = $school->Id;
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Userid', 'DESC' ) );
         }
         
         public function FindAllUsersByEmails( $mails ) {
