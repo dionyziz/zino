@@ -51,11 +51,10 @@
                 ?><form method="post" action=""><?php
                 //echo count( $res );
                 foreach ( $res as $sample ) {
-                    if ( $zino_emails[ $contact->Mail ] !== NULL  ) {
+                    if ( $zino_emails[ $sample>Mail ] == NULL  ) {
                         ?><p><?php
                         ?><input type="checkbox" name="approved" /> <?php 
-                        $contact = new Contact( $sample->Id );                              
-                        echo $contact->Mail;                        
+                        echo $sample->Mail;                        
                         ?></p><?php
                     }
                 }
