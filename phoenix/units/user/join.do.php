@@ -43,7 +43,10 @@
             $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
             $newuser->Save();
             User_SetCookie( $newuser->Id, $newuser->Authtoken );
-			header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/?p=joined' );
+            ?>alert( 'redirecting' );
+			window.location = '<?php
+			echo $rabbit_settings[ 'webaddress' ];
+			?>/?p=joined';<?php
         }
     }
 ?>
