@@ -39,7 +39,7 @@
                 }
                 else {            
                     ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
-                    ?><form method="post" action=""><?php
+                    ?><form method="post" action="do/contacts/addfriends"><?php
                     //echo count( $zino_emails );
                     foreach ( $zino_emails as $key=>$val ) {
                         ?><p><?php
