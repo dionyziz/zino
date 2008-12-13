@@ -59,7 +59,7 @@
                 ?> invisible<?php
             }
             ?>">
-                <label for="university">Πανεπιστήμιο</label>
+                <label for="school">Πανεπιστήμιο</label>
                 <div class="setting" id="school"><?php
                    if ( $showschool ) {
                         Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education  );
