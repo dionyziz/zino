@@ -6,7 +6,6 @@
     function WYSIWYG_PreProcess( $html ) {
         global $rabbit_settings;
 
-        die( 'Preprocessing HTML' );
         $html = preg_replace(
             '#\<object [^>]++\>\s*\<param [^>]*?value\="http\://www\.youtube\.com/v/([a-zA-Z0-9_-]+)"[^>]*+\>.*?\</object\>#i',
             '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?v=$1" />',
