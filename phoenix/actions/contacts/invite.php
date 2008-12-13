@@ -2,10 +2,9 @@
     function ActionContactsInvite( tBooleanArray $approved ) {
         global $libs;
         
-        $approved = $approved->Get();
-        
         $str = count( $approved );
         foreach ( $approved as $sampe ) {
+            $sample = $sample->Get();
             $str = $str . (int)$sample;
         }
            
