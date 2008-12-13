@@ -251,8 +251,8 @@ $( function() {
 			Settings.Enqueue( 'education' , this.value );
 			Settings.Save( false );
 		});
-		$( '#university select' ).change( function() {
-			Settings.Enqueue( 'university' , this.value );
+		$( '#school select' ).change( function() {
+			Settings.Enqueue( 'school' , this.value );
 		});
 		$( '#sex select' ).change( function() {
 			Settings.Enqueue( 'sex' , this.value );

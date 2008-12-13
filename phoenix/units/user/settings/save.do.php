@@ -285,24 +285,24 @@
             $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
                 if ( $place || $education ) {
-                    ?>$( '#university' ).html( <?php
+                    ?>$( '#school' ).html( <?php
                         ob_start();
                         Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
-                    $( '#university select' ).change( function() {
-                        Settings.Enqueue( 'university', this.value, 1000 );
+                    $( '#school select' ).change( function() {
+                        Settings.Enqueue( 'school', this.value, 1000 );
                     });
-                    if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-                        $( $( '#university' )[ 0 ].parentNode ).css( "opacity", "0" ).removeClass( "invisible" ).animate( { opacity : "1" }, 200 );
+                    if ( $( $( '#school' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
+                        $( $( '#school' )[ 0 ].parentNode ).css( "opacity", "0" ).removeClass( "invisible" ).animate( { opacity : "1" }, 200 );
                         $( '#unibarfade' ).css( "opacity", "0" ).removeClass( "invisible" ).animate( { opacity : "1" }, 200 );
                     }<?php
                 }
             }
             else {
                 if ( $place || $education ) {
-                    ?>if ( !$( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-                        $( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "0" }, 200, function() {
+                    ?>if ( !$( $( '#school' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
+                        $( $( '#school' )[ 0 ].parentNode ).animate( { opacity : "0" }, 200, function() {
                             $( this ).addClass( "invisible" );
                         } );
                         $( '#unibarfade' ).animate( { opacity : "0" }, 200, function() {

@@ -60,7 +60,7 @@
             }
             ?>">
                 <label for="university">Πανεπιστήμιο</label>
-                <div class="setting" id="university"><?php
+                <div class="setting" id="school"><?php
                    if ( $showschool ) {
                         Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education  );
                     } 
