@@ -43,13 +43,15 @@
                     //echo count( $zino_emails );
                     foreach ( $zino_emails as $key=>$val ) {
                         ?><p><?php
-                        ?><input type="checkbox" name="approved[]" value="<?php echo $key; ?>" /> <?php 
-                        $friend = new User( $val );                              
+                        $friend = new User( $val ); 
+                        ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
                         echo $friend->Name . " - " . $friend->Profile->Email;                    
                         ?></p><?php
                     }
-                    ?><input type="submit" value="Στείλε τις προσκλήσεις!" /><?php
-                    ?></form><?php
+                    ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
+                      <input type="hidden" name="email" value=<?php echo $email; ?> />
+                      </form>
+                    <?php
                 }
             }
             

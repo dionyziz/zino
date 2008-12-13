@@ -45,7 +45,7 @@
             $toname = $parts[ 0 ];            
             
             $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στο Zino';
-            
+            //<>TODO
             $message = "Γεια σου $toname,
 
 Ο/Η $user->Name σε πρόσθεσε στους φίλους του στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες  και τα νέα σου.
@@ -55,8 +55,8 @@ http://$user->Name.zino.gr/
 
 Ευχαριστούμε,
 Η Ομάδα του Zino";
-            $fromname = 'Zino';
-            $fromemail = 'noreply@zino.gr';            
+            $fromname = 'Zino';//<-TODO
+            $fromemail = 'noreply@zino.gr';            //<-TODO
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
             return;
     }
