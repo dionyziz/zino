@@ -18,9 +18,6 @@
                 $relation->Save();
             }
         }
-        
-
-        die($email);
                    
         return Redirect( '?p=contactfinder&email=' . $email . '&step=2');
     }
