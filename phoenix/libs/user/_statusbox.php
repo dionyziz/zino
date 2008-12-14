@@ -12,15 +12,17 @@
             return $res[ 0 ];
         }
     }
-    
-    function ChangeMessage( $userid, $msg ) {
-            $status = new StatusBox();
-            $status->Message = $msg;
-            $status->Userid = $userid;
-            $status->Created = NowDate();
-            $status->Save();
-        }
-    
+
     class StatusBox extends Satori {
-        protected $mDbTableAlias = 'statusbox';        
+        protected $mDbTableAlias = 'statusbox';      
+        
+        public function LoadDefaults() {
+            global $user;
+            
+            $this->Userid = $user->Id;
+            $this->Created = NowDate();
+            
+            return;
+        }  
     }        
+?>
