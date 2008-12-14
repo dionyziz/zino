@@ -1,8 +1,10 @@
 div.tweetbox {
-    position: relative;
+    position: absolute;
+    top: 30px;
+    left: 100px;
 }
 div.tweet {
-    background-image: url( 'tweet-mid.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/tweet-mid.png' );
     background-repeat: repeat-x;
     background-position: top;
     height: 55px;
@@ -19,12 +21,12 @@ div.tweet i.corner, div.tweetbox i.corner {
     position: absolute;
 }
 div.tweet i.left {
-    background-image: url( 'tweet-start.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/tweet-start.png' );
     left: -1px;
     top: 1px;
 }
 div.tweetbox i.right {
-    background-image: url( 'tweet-end.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/tweet-end.png' );
     right: -10px;
     top: 2px;
 }

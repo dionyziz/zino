@@ -73,7 +73,7 @@
                         else {
                             ?>Ο <?php
                         }
-                        echo htmlspecialchars( $user->Name );
+                        echo htmlspecialchars( $theuser->Name );
                         ?> <?php
                         echo htmlspecialchars( $tweet->Message );
                         ?></span>
