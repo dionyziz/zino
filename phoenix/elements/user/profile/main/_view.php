@@ -59,6 +59,7 @@
             }
 
             $finder = New StatusBoxFinder();
+            echo "(" . ( string )$theuser->Id . ")";
             $tweet = $finder->FindLastByUserId( $theuser->Id );
             die( var_dump( $tweet ) );
             if ( $tweet !== false ) {
