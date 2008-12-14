@@ -2,9 +2,9 @@
     class StatusBoxFinder extends Finder {
         protected $mModel = 'StatusBox';
         
-        function FindLastByUserId( $_user ) {
+        function FindLastByUserId( $userid ) {
             $prototype = new StatusBox();
-            $prototype->Userid = $_user->Id;
+            $prototype->Userid = $userid;
             $res = $this->FindByPrototype( $prototype, 0, 1, array( 'Created', 'DESC' ) );
             if ( empty( $res )  ) {
                 return false;
