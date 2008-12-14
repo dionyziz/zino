@@ -11,6 +11,7 @@
             $libs->Load( 'comment' );
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'user/statusbox' );
         
             $water->Trace( 'Test A' );
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
@@ -57,8 +58,30 @@
                 Element( 'user/profile/main/antisocial', $theuser );
             }
 
-            //show avatar upload only if there are no notifications
-            ?><div class="main"><?php
+            $finder = New StatusBoxFinder();
+            $tweet = $finder->FindLastByUser( $theuser );
+            if ( $tweet !== false ) {
+                ?>
+                <div class="tweetbox">
+                    <i class="right corner"></i>
+                    <div class="tweet">
+                        <i class="left corner">&nbsp;</i>
+                        <span><?php
+                        if ( $theuser->Gender == 'f' ) {
+                            ?>Η <?php
+                        }
+                        else {
+                            ?>Ο <?php
+                        }
+                        echo htmlspecialchars( $user->Name );
+                        ?> <?php
+                        echo htmlspecialchars( $tweet->Message );
+                        ?></span>
+                    </div>
+                </div><?php
+            }
+            ?>
+            <div class="main"><?php
                 if ( $showuploadavatar ) {
                     ?><div class="ybubble">    
                         <div class="body">
@@ -100,12 +123,6 @@
                         ?><ul></ul><?php
                     }
                 ?></div>
-                <div class="tweet">
-                    <i class="left corner">&nbsp;</i><i class="right corner"></i>
-                    <span><?php
-                    echo htmlspecialchars( $theuser->Name );
-                    ?> is cute!</span>
-                </div>
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php

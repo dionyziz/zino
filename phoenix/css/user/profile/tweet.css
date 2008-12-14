@@ -1,14 +1,16 @@
+div.tweetbox {
+    position: relative;
+}
 div.tweet {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-mid.png' );
+    background-image: url( 'tweet-mid.png' );
     background-repeat: repeat-x;
     background-position: top;
     height: 55px;
-    position: relative;
     float: left;
     margin-left: 40px;
-    margin-right: -10px;
+    padding: 0;
 }
-div.tweet i.corner {
+div.tweet i.corner, div.tweetbox i.corner {
     display: block;
     width: 41px;
     height: 55px;
@@ -17,12 +19,12 @@ div.tweet i.corner {
     position: absolute;
 }
 div.tweet i.left {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-start.png' );
-    left: -41px;
+    background-image: url( 'tweet-start.png' );
+    left: -1px;
     top: 1px;
 }
-div.tweet i.right {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-end.png' );
+div.tweetbox i.right {
+    background-image: url( 'tweet-end.png' );
     right: -10px;
     top: 2px;
 }
@@ -32,4 +34,8 @@ div.tweet span {
     float: left;
     position: relative;
     left: -18px;
+}
+div.tweetbox {
+    float: left;
+    padding-right: 25px;
 }
