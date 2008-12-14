@@ -16,7 +16,7 @@
     class StatusBox extends Satori {
         protected $mDbTableAlias = 'statusbox';      
         
-        public function LoadDefaults() {
+        protected function LoadDefaults() {
             global $user;            
             $this->Userid = $user->Id;
             $this->Created = NowDate();
