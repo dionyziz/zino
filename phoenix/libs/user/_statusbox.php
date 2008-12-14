@@ -17,12 +17,9 @@
         protected $mDbTableAlias = 'statusbox';      
         
         public function LoadDefaults() {
-            global $user;
-            
+            global $user;            
             $this->Userid = $user->Id;
             $this->Created = NowDate();
-            
-            return;
         }  
     }        
 ?>
