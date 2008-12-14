@@ -60,6 +60,7 @@
 
             $finder = New StatusBoxFinder();
             $tweet = $finder->FindLastByUserId( $theuser->Id );
+            die( var_dump( $tweet ) );
             if ( $tweet !== false ) {
                 ?>
                 <div class="tweetbox">
