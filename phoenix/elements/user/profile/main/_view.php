@@ -100,6 +100,12 @@
                         ?><ul></ul><?php
                     }
                 ?></div>
+                <div class="tweet">
+                    <i class="left corner">&nbsp;</i><i class="right corner"></i>
+                    <span><?php
+                    echo htmlspecialchars( $theuser->Name );
+                    ?> is cute!</span>
+                </div>
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php

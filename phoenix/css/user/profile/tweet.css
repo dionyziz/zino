@@ -1,0 +1,35 @@
+div.tweet {
+    background-image: url( 'tweet-mid.png' );
+    background-repeat: repeat-x;
+    background-position: top;
+    height: 55px;
+    position: relative;
+    float: left;
+    margin-left: 40px;
+    margin-right: -10px;
+}
+div.tweet i.corner {
+    display: block;
+    width: 41px;
+    height: 55px;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: absolute;
+}
+div.tweet i.left {
+    background-image: url( 'tweet-start.png' );
+    left: -41px;
+    top: 1px;
+}
+div.tweet i.right {
+    background-image: url( 'tweet-end.png' );
+    right: -10px;
+    top: 2px;
+}
+div.tweet span {
+    padding-top: 18px;
+    display: block;
+    float: left;
+    position: relative;
+    left: -18px;
+}

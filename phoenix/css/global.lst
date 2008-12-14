@@ -42,6 +42,7 @@ spriting.css
 user/join.css
 user/joined.css
 user/list.css
+user/profile/tweet.css
 user/profile/view.css
 user/relations.css
 user/sections.css
