@@ -122,12 +122,15 @@ $( function() {
         var links = $( win ).find( 'a' );
         $( links[ 0 ] ).click( function () { // save
             Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
+            return false;
         } );
         $( links[ 1 ] ).click( function () { // cancel
             Modals.Destroy();
+            return false;
         } );
         $( links[ 2 ] ).click( function () { // delete
             Profile.Tweet.Delete();
+            return false;
         } );
         Modals.Create( win, 400, 200 );
         var inp = $( win ).find( 'input' )[ 0 ];
