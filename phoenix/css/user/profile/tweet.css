@@ -49,3 +49,10 @@ div.tweetactive:hover div.tweet span {
     text-decoration: underline;
     color: #149;
 }
+div#tweetedit form {
+    padding: 20px;
+}
+div#tweetedit ul li {
+    display: inline;
+    margin: 10px;
+}

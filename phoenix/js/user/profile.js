@@ -98,6 +98,21 @@ var Profile = {
         if ( Now.getDate() == day && Now.getMonth() == month - 1 ) {
             $( '#birthday' ).html( '<img src="' + ExcaliburSettings.imagesurl + 'cake.png" alt="Χρόνια πολλά!" title="Χρόνια πολλά!" /> <strong>Μόλις έγινε</strong>' );
         }
+    },
+    Tweet: {
+        Delete: function () {
+            Coala.Warm( 'status/new', { message: '' );
+            $( 'div.tweetactive' ).remove();
+            Modals.Destroy();
+        },
+        Renew: function ( message ) {
+            if ( message === '' ) {
+                return Tweet.Delete();
+            }
+            $( 'div.tweetactive div.tweet span div' )[ 0 ].innerText = message;
+            Coala.Warm( 'status/new', { message: message );
+            Modals.Destroy();
+        }
     }
 };
 $( function() {
@@ -106,15 +121,18 @@ $( function() {
         win.style.display = '';
         var links = $( win ).find( 'a' );
         $( links[ 0 ] ).click( function () { // save
-            Modals.Destroy();
+            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value, win );
         } );
         $( links[ 1 ] ).click( function () { // cancel
             Modals.Destroy();
         } );
         $( links[ 2 ] ).click( function () { // delete
+            Profile.Tweet.Delete( win );
             Modals.Destroy();
         } );
-        Modals.Create( win );
-        $( win ).find( 'input' )[ 0 ].focus();
+        Modals.Create( win, 200, 200 );
+        var inp = $( win ).find( 'input' )[ 0 ];
+        inp.select();
+        inp.focus();
     } );
 } );

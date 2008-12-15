@@ -82,26 +82,33 @@
                             ?>Ο <?php
                         }
                         echo htmlspecialchars( $theuser->Name );
-                        ?> <?php
+                        ?> <div style="display:inline"><?php
                         echo htmlspecialchars( $tweet->Message );
-                        ?></span>
+                        ?></div></span>
                     </div>
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {
                     ?><div style="display:none" id="tweetedit">
                         <form>
                             <div>Τι κάνεις τώρα;</div>
-                            <div>
-                                <input type="text" id="" value="<?php
+                            <div><?php
+                                if ( $theuser->Gender == 'f' ) {
+                                    ?>Η <?php
+                                }
+                                else {
+                                    ?>Ο <?php
+                                }
+                                echo htmlspecialchars( $theuser->Name );
+                                ?> <input type="text" value="<?php
                                 echo htmlspecialchars( $tweet->Message );
                                 ?>" />
                                 <input type="submit" style="display:none" />
                             </div>
                             <div>
                                 <ul>
-                                    <li><a class="button">Αποθήκευση</a></li>
-                                    <li><a class="button">Ακύρωση</a></li>
-                                    <li><a class="button">Διαγραφή</a></li>
+                                    <li><a href="" class="button">Αποθήκευση</a></li>
+                                    <li><a href="" class="button">Ακύρωση</a></li>
+                                    <li><a href="" class="button">Διαγραφή</a></li>
                                 </ul>
                             </div>
                         </form>
