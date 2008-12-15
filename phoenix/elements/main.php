@@ -36,6 +36,7 @@
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
             $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
+            $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             
             ob_start();
             $res = Element::MasterElement();
