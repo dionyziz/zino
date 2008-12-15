@@ -100,3 +100,19 @@ var Profile = {
         }
     }
 };
+$( function() {
+    $( 'div.tweetactive' ).click( function () {
+        var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
+        var links = $( win ).find( 'a' );
+        links[ 0 ].click( function () { // save
+            Modals.Destroy();
+        } );
+        links[ 1 ].click( function () { // cancel
+            Modals.Destroy();
+        } );
+        links[ 2 ].click( function () { // delete
+            Modals.Destroy();
+        } );
+        Modals.Create( win );
+    } );
+} );

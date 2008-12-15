@@ -66,7 +66,11 @@
                     if ( $theuser->Id == $user->Id ) {
                         ?> tweetactive<?php
                     }
-                    ?>">
+                    ?>"<?php
+                    if ( $theuser->Id == $user->Id ) {
+                        ?> title="Άλλαξε το μήνυμα του &quot;τι κάνεις τώρα;&quot;"<?php
+                    }
+                    ?>>
                     <i class="right corner"></i>
                     <div class="tweet">
                         <i class="left corner">&nbsp;</i>
@@ -83,6 +87,26 @@
                         ?></span>
                     </div>
                 </div><?php
+                if ( $theuser->Id == $user->Id ) {
+                    ?><div style="display:none" id="tweetedit">
+                        <form>
+                            <div>Τι κάνεις τώρα;</div>
+                            <div>
+                                <input type="text" id="" value="<?php
+                                echo htmlspecialchars( $tweet->Message );
+                                ?>" />
+                                <input type="submit" style="display:none" />
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><a class="button">Αποθήκευση</a></li>
+                                    <li><a class="button">Ακύρωση</a></li>
+                                    <li><a class="button">Διαγραφή</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div><?php
+                }
             }
             ?>
             <div class="main"><?php
