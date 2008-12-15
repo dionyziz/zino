@@ -276,7 +276,7 @@ class PageHTML extends Page {
         $this->mBase = $base;
     }
     public function AddMeta( $name, $content ) {
-        w_assert( preg_match( '#^[a-z]+$#', $name ) );
+        w_assert( preg_match( '#^[A-Za-z-]+$#', $name ) );
         $this->mMeta[ $name ] = $content;
     }
     public function AttachStylesheet( $filename, $ieversion = false ) {
