@@ -89,7 +89,12 @@
                         }
                         echo htmlspecialchars( $theuser->Name );
                         ?> <span><?php
-                        echo htmlspecialchars( $tweet->Message );
+                        if ( $tweet !== false ) {
+                            echo htmlspecialchars( $tweet->Message );
+                        }
+                        else {
+                            ?><i>τι κάνεις τώρα;</i><?php
+                        }
                         ?></span><?php
                         if ( $theuser->Id == $user->Id ) {
                             ?></a><?php
