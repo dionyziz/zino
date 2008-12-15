@@ -103,6 +103,7 @@ var Profile = {
 $( function() {
     $( 'div.tweetactive' ).click( function () {
         var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
+        win.style.display = '';
         var links = $( win ).find( 'a' );
         $( links[ 0 ] ).click( function () { // save
             Modals.Destroy();
@@ -114,5 +115,6 @@ $( function() {
             Modals.Destroy();
         } );
         Modals.Create( win );
+        $( win ).find( 'input' )[ 0 ].focus();
     } );
 } );
