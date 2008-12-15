@@ -90,8 +90,8 @@
                 if ( $theuser->Id == $user->Id ) {
                     ?><div style="display:none" id="tweetedit">
                         <form>
-                            <div>Τι κάνεις τώρα;</div>
-                            <div><?php
+                            <h5>Τι κάνεις τώρα;</h5>
+                            <div class="input"><?php
                                 if ( $theuser->Gender == 'f' ) {
                                     ?>Η <?php
                                 }

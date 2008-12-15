@@ -121,16 +121,15 @@ $( function() {
         win.style.display = '';
         var links = $( win ).find( 'a' );
         $( links[ 0 ] ).click( function () { // save
-            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value, win );
+            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
         } );
         $( links[ 1 ] ).click( function () { // cancel
             Modals.Destroy();
         } );
         $( links[ 2 ] ).click( function () { // delete
-            Profile.Tweet.Delete( win );
-            Modals.Destroy();
+            Profile.Tweet.Delete();
         } );
-        Modals.Create( win, 200, 200 );
+        Modals.Create( win, 400, 200 );
         var inp = $( win ).find( 'input' )[ 0 ];
         inp.select();
         inp.focus();
