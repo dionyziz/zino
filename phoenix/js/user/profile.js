@@ -133,6 +133,10 @@ $( function() {
             return false;
         } );
         Modals.Create( win, 400, 200 );
+        $( win ).find( 'form' ).submit( function () {
+            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
+            return false;
+        } );
         var inp = $( win ).find( 'input' )[ 0 ];
         inp.select();
         inp.focus();
