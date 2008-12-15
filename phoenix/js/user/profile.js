@@ -101,7 +101,7 @@ var Profile = {
     },
     Tweet: {
         Delete: function () {
-            Coala.Warm( 'status/new', { message: '' );
+            Coala.Warm( 'status/new', { message: '' } );
             $( 'div.tweetactive' ).remove();
             Modals.Destroy();
         },
@@ -110,7 +110,7 @@ var Profile = {
                 return Tweet.Delete();
             }
             $( 'div.tweetactive div.tweet span div' )[ 0 ].innerText = message;
-            Coala.Warm( 'status/new', { message: message );
+            Coala.Warm( 'status/new', { message: message } );
             Modals.Destroy();
         }
     }
