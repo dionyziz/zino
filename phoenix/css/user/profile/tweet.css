@@ -27,7 +27,7 @@ div.tweetbox i.right {
     width: 27px;
     background: url( 'http://static.zino.gr/phoenix/tweet-end.png' ) 0 2px;
 }
-div.tweet a {
+div.tweet div {
     padding-top: 19px;
     display: block;
     float: left;

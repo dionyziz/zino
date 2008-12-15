@@ -76,7 +76,8 @@
                     ?>>
                     <i class="right corner">&nbsp;</i>
                     <i class="left corner">&nbsp;</i>
-                    <div class="tweet"><?php
+                    <div class="tweet">
+                        <div><?php
                         if ( $theuser->Id == $user->Id ) {
                             ?><a href=""><?php
                         }
@@ -93,7 +94,7 @@
                         if ( $theuser->Id == $user->Id ) {
                             ?></a><?php
                         }
-                        ?>
+                        ?></div>
                     </div>
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {
