@@ -9,26 +9,23 @@ div.tweet {
     background-position: top;
     height: 55px;
     float: left;
-    margin-left: 40px;
     padding: 0;
 }
-div.tweet i.corner, div.tweetbox i.corner {
+div.tweetbox i.corner {
     display: block;
-    width: 41px;
+    width: 40px;
     height: 55px;
     background-repeat: no-repeat;
     background-position: top;
-    position: absolute;
 }
-div.tweet i.left {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-start.png' );
-    left: -1px;
-    top: 1px;
+div.tweetbox i.left {
+    float: left;
+    background: url( 'http://static.zino.gr/phoenix/tweet-start.png' ) 0 1px;
 }
 div.tweetbox i.right {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-end.png' );
-    right: -10px;
-    top: 2px;
+    float: right;
+    width: 27px;
+    background: url( 'http://static.zino.gr/phoenix/tweet-end.png' ) 0 2px;
 }
 div.tweet span {
     padding-top: 19px;
@@ -43,7 +40,6 @@ div.tweetbox {
 }
 div.tweetactive:hover {
     cursor: pointer;
-    opacity: 0.8;
 }
 div.tweetactive:hover div.tweet span {
     text-decoration: underline;

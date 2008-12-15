@@ -60,20 +60,23 @@
 
             $finder = New StatusBoxFinder();
             $tweet = $finder->FindLastByUserId( $theuser->Id );
-            if ( $tweet !== false ) {
+            if ( $tweet !== false || $theuser->Id == $user->Id ) {
                 ?>
                 <div class="tweetbox<?php
                     if ( $theuser->Id == $user->Id ) {
                         ?> tweetactive<?php
+                        if ( $tweet === false ) {
+                            ?> tweetblind<?php
+                        }
                     }
                     ?>"<?php
                     if ( $theuser->Id == $user->Id ) {
                         ?> title="Άλλαξε το μήνυμα του &quot;τι κάνεις τώρα;&quot;"<?php
                     }
                     ?>>
-                    <i class="right corner"></i>
+                    <i class="right corner">&nbsp;</i>
+                    <i class="left corner">&nbsp;</i>
                     <div class="tweet">
-                        <i class="left corner">&nbsp;</i>
                         <span><?php
                         if ( $theuser->Gender == 'f' ) {
                             ?>Η <?php
