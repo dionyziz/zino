@@ -62,7 +62,11 @@
             $tweet = $finder->FindLastByUserId( $theuser->Id );
             if ( $tweet !== false ) {
                 ?>
-                <div class="tweetbox">
+                <div class="tweetbox<?php
+                    if ( $theuser->Id == $user->Id ) {
+                        ?> tweetactive<?php
+                    }
+                    ?>">
                     <i class="right corner"></i>
                     <div class="tweet">
                         <i class="left corner">&nbsp;</i>

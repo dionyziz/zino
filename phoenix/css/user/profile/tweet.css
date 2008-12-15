@@ -41,3 +41,11 @@ div.tweetbox {
     float: left;
     padding-right: 25px;
 }
+div.tweetactive:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+div.tweetactive:hover div.tweet span {
+    text-decoration: underline;
+    color: #149;
+}
