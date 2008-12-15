@@ -3,7 +3,7 @@
         global $user;
         
         $message = $message->Get();
-        if ( !$user->Exists() ) {
+        if ( $user->Exists() ) {
             $status = New StatusBox();
             $status->Message = $message;
             $status->Save();
