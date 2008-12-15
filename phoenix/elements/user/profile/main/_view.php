@@ -77,7 +77,7 @@
                     <i class="right corner">&nbsp;</i>
                     <i class="left corner">&nbsp;</i>
                     <div class="tweet">
-                        <span><?php
+                        <a href=""><?php
                         if ( $theuser->Gender == 'f' ) {
                             ?>Η <?php
                         }
@@ -85,9 +85,9 @@
                             ?>Ο <?php
                         }
                         echo htmlspecialchars( $theuser->Name );
-                        ?> <div style="display:inline"><?php
+                        ?> <span><?php
                         echo htmlspecialchars( $tweet->Message );
-                        ?></div></span>
+                        ?></span></a>
                     </div>
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {

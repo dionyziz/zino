@@ -27,7 +27,7 @@ div.tweetbox i.right {
     width: 27px;
     background: url( 'http://static.zino.gr/phoenix/tweet-end.png' ) 0 2px;
 }
-div.tweet span {
+div.tweet a {
     padding-top: 19px;
     display: block;
     float: left;
@@ -41,7 +41,7 @@ div.tweetbox {
 div.tweetactive:hover {
     cursor: pointer;
 }
-div.tweetactive:hover div.tweet span {
+div.tweetactive:hover div.tweet a {
     text-decoration: underline;
     color: #149;
 }
