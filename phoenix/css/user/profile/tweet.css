@@ -37,6 +37,7 @@ div.tweet a {
 div.tweetbox {
     float: left;
     padding-right: 25px;
+    z-index: 2;
 }
 div.tweetactive div.tweet a:hover {
     text-decoration: underline;
