@@ -117,7 +117,7 @@ var Profile = {
     }
 };
 $( function() {
-    $( 'div.tweetactive' ).click( function () {
+    $( 'div.tweetactive div.tweet a' ).click( function () {
         var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
         win.style.display = '';
         var links = $( win ).find( 'a' );
@@ -141,5 +141,6 @@ $( function() {
         var inp = $( win ).find( 'input' )[ 0 ];
         inp.select();
         inp.focus();
+        return false;
     } );
 } );
