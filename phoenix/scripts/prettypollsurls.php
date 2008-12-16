@@ -74,19 +74,22 @@
             $query->BindTable( 'polls' );
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
-            $query->Execute();
+            // $query->Execute();
         }
         ++$i;
     }
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
-        ?><html><head><question>Processing...</question>
+        ?><html><head><title>Processing...</title>
         </head><body>
         Processed <?php
         echo $offset;
         ?> out of <?php
         echo count( $result );
         ?>.<?php
+        foreach ( $result as $id => $url ) {
+        	echo "$id => $url<br />\n";
+        }
         $water->Post();
         ?>
         <script type="text/javascript">
