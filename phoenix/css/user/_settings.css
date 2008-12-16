@@ -128,10 +128,11 @@ form#personalinfo div span.invaliddob span {
 div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
 	display: none;
 	top: 10%;
-	left: 50%;
+	left: 30%;
 	position: fixed;
 	background: yellow;
 	border: 1px solid red;
+
 }
 /*
 div.settings div.tabs form#personalinfo div.option div.forstudents {
@@ -219,19 +220,19 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
-div.avatarlist {
+div#avatarlist {
 	margin: 10px 0 0 5px;
 	position: relative;
 }
-div.avatarlist div.uploaddiv {
+div#avatarlist div.uploaddiv {
 	position: absolute;
 	top: -2px;
 	right: 0;
 }
-div.avatarlist div.uploaddiv object.uploadframe {
+div#avatarlist div.uploaddiv object.uploadframe {
 	height: 40px;
 }
-div.avatarlist ul {
+div#avatarlist ul {
 	margin-top: 30px;
 	padding: 0;
 	list-style: none;
@@ -239,7 +240,7 @@ div.avatarlist ul {
 	height: 400px;
 	overflow: auto;
 }
-div.avatarlist ul li {
+div#avatarlist ul li {
 	margin: 0 5px 5px 0;
 	padding: 0;
 	float: left;
@@ -247,11 +248,11 @@ div.avatarlist ul li {
 	height: 110px;
 	text-align: center;
 }
-div.avatarlist ul li img.photosmall {
+div#avatarlist ul li img.photosmall {
 	padding: 1px;
 	border: 1px solid #ccc;
 }
-div.avatarlist div.cancel {
+div#avatarlist div.cancel {
 	text-align: center;
 }
 div.changepwd {
