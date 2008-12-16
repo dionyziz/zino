@@ -45,6 +45,7 @@
         $urls = array();
         foreach ( $hispolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
+            echo $pollInfo[ 'question' ] . "<br />\n";
             $length = strlen( $candidate );
             while ( isset( $urls[ $candidate ] ) ) {
                 if ( $length < 255 ) {
@@ -59,6 +60,7 @@
         }
     }
 
+    die;
     $i = 0;
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $offset + $limit ) {
@@ -86,12 +88,7 @@
         echo $offset;
         ?> out of <?php
         echo count( $result );
-        ?>.<?php
-        foreach ( $result as $id => $url ) {
-        	echo "$id => $url<br />\n";
-        }
-        $water->Post();
-        ?>
+        ?>.
         <script type="text/javascript">
         setTimeout( function() {
             window.location.href = "prettypollsurls.php?offset=<?php
