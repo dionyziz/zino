@@ -41,6 +41,7 @@
                 $zino_friends = array();
                 foreach ( $res as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
+                    echo '<p>' . $relation->Friend->Id . " " . $relation->Friend->Name . "</p>";
                 }
                 
                 foreach ( $contactsLoaded as $sampe ) {
