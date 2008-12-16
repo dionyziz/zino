@@ -2,6 +2,7 @@
     global $libs;
 
     $libs->Load( 'poll/option' );
+    $libs->Load( 'url' );
 
     class PollFinder extends Finder {
         protected $mModel = 'Poll';
@@ -72,6 +73,27 @@
             $this->Options[] = $option;
             
             return $option;
+        }
+        public function OnBeforeCreate() {
+            $url = URL_Format( $this->Question );
+            $offset = 0;
+            $finder = New PollFinder();
+            do {
+                $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                $exists = true;
+                while ( $exists ) {
+                    $exists = false;
+                    foreach ( $someOfTheRest as $p ) {
+                        if ( $p->Url == $url ) {
+                            $url .= '_';
+                            $exists = true;
+                            break;
+                        }
+                    }
+                }
+                $offset += 100;
+            } while ( count( $someOfTheRest ) );
+            $this->Url = $url;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
