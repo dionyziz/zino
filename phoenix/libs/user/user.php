@@ -304,7 +304,7 @@
             $this->Rights = 10; // logged out permissions
         }
         public function UpdateLastLogin() {
-            $this->Lastlogin = time();
+            $this->Lastlogin = NowDate();
         }
         protected function OnBeforeCreate() {
             $this->EgoAlbum->Save();
