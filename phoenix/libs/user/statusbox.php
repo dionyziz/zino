@@ -16,8 +16,17 @@
     class StatusBox extends Satori {
         protected $mDbTableAlias = 'statusbox';      
         
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Message':
+                    $this->mCurrentValues[ 'Message' ] = mb_substr( $value, 0, 256 );
+                    return;
+            }
+            return parent::__set( $key, $value );
+        }
         protected function LoadDefaults() {
-            global $user;            
+            global $user;
+            
             $this->Userid = $user->Id;
             $this->Created = NowDate();
         }  
