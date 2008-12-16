@@ -19,7 +19,7 @@
         "UPDATE
             :polls 
         SET
-            `poll_url` = '';"
+            `poll_url` = NULL;"
     );
     $query->BindTable( 'polls' );
     $query->Execute();
