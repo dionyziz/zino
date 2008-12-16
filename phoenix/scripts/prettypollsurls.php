@@ -34,10 +34,9 @@
         if ( !isset( $polls[ $userId ] ) ) {
             $polls[ $userId ] = array();
         }
-        echo $row[ 'poll_question' ] . "<br />\n";
         $polls[ $userId ][] = array(
             'id' => $row[ 'poll_id' ],
-            'question' => array_slice( $row[ 'poll_question' ], 0, 255 )
+            'question' => substr( $row[ 'poll_question' ], 0, 255 )
         );
     }
 
@@ -60,7 +59,6 @@
         }
     }
 
-    die;
     $i = 0;
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $offset + $limit ) {
