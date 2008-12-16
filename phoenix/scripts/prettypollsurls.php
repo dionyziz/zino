@@ -34,6 +34,7 @@
         if ( !isset( $polls[ $userId ] ) ) {
             $polls[ $userId ] = array();
         }
+        echo $row[ 'poll_question' ] . "<br />\n";
         $polls[ $userId ][] = array(
             'id' => $row[ 'poll_id' ],
             'question' => array_slice( $row[ 'poll_question' ], 0, 255 )
@@ -45,7 +46,6 @@
         $urls = array();
         foreach ( $hispolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
-            echo $pollInfo[ 'question' ] . "<br />\n";
             $length = strlen( $candidate );
             while ( isset( $urls[ $candidate ] ) ) {
                 if ( $length < 255 ) {
