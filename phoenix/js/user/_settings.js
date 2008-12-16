@@ -545,7 +545,6 @@ $( function() {
         } );
 		$( '#avatarlist' ).jqm( {
 			trigger : 'div.changeavatar a',
-			overlay : 100,
 			overlayClass : 'mdloverlay1',
 			closeClass : 'cancelb'
 		} );
