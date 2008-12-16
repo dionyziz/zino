@@ -37,44 +37,27 @@
             
                 $relationfinder = new FriendRelationFinder();//find already zino friends
                 $userRelations = $relationfinder->FindByUser( $user );
-                $real_friendsN = 0;
                 $zino_friends = array();
                 foreach ( $userRelations as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
-                    echo '<p>' . $relation->Friend->Id . " " . $relation->Friend->Name . "</p>";
                 }
-                
-                foreach ( $contactsLoaded as $sampe ) {
-                    if ( $zino_friends[ $sampe->Userid ] == true ) {
-                        $real_friendsN++;
+                       
+                ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
+                ?><form method="post" action="do/contacts/addfriends"><?php
+                //echo count( $zino_emails );
+                foreach ( $zino_emails as $key=>$val ) {
+                    $friend = new User( $val ); 
+                    if ( $zino_friends[ $friend->Id ] == NULL ) {
+                        ?><p><?php
+                        ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
+                        echo $friend->Name . " - " . $friend->Profile->Email;                    
+                        ?></p><?php
                     }
                 }
-            
-                $friendsN = count( $zino_emails );
-                echo '<p>' . $friendsN . ' ' . $real_friendsN . '</p>';
-                if ( ( $friendsN - $real_friendsN ) <= 0 ) {
-                    $step = 2;                    
-                    /*?><h3>Κανένας φίλος σου δεν είναι μέλος στο zino.Πήγαινε στο επόμενο βήμα για να τους προσκαλέσεις!</h3><?php
-                    ?><input type="submit" value="Επόμενο βήμα" /><?php*/
-                }
-                else {            
-                    ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
-                    ?><form method="post" action="do/contacts/addfriends"><?php
-                    //echo count( $zino_emails );
-                    foreach ( $zino_emails as $key=>$val ) {
-                        $friend = new User( $val ); 
-                        if ( $zino_friends[ $friend->Id ] == NULL ) {
-                            ?><p><?php
-                            ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
-                            echo $friend->Name . " - " . $friend->Profile->Email;                    
-                            ?></p><?php
-                        }
-                    }
-                    ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
-                      <input type="hidden" name="email" value="<?php echo $email; ?>" />
-                      </form>
-                    <?php
-                }
+                ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
+                    <input type="hidden" name="email" value="<?php echo $email; ?>" />
+                    </form>
+                <?php    
             }
             
             if ( $step == 2 ) { //step 2 - send invites to non zino users      
