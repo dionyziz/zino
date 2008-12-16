@@ -1,7 +1,7 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaving : $( 'div.settings div.sidebar div.saving' ),
+	showsaving : $( 'div.settings div.sidebar div.savesettings div.saving' ),
 	invaliddob : false,
 	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
 	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
@@ -41,11 +41,11 @@ var Settings = {
 			Settings.FocusSettingLink( settingslis[ 0 ] , true , validtabs[ 0 ] );
 		}
 	},
-	FocusSettingLink : function( li, focus , tabname ) {
+	FocusSettingLink : function( li , focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-				$( li ).addClass( 'selected' )
-				.removeClass( tabname )
+				$( li ).removeClass( tabname )
+				.addClass( 'selected' )
 				.addClass( 'selected' + tabname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
@@ -53,7 +53,6 @@ var Settings = {
 				$( li ).removeClass( 'selected' )
 				.removeClass( 'selected' + tabname )
 				.addClass( tabname );
-				;
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
@@ -91,15 +90,12 @@ var Settings = {
 			else {
 				alert( 'Το κείμενό σου μπορεί να έχει 32 χαρακτήρες το πολύ' );
 			}
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 		else {
 			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
+		$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+		$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 	},
 	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
@@ -195,14 +191,14 @@ var Settings = {
 			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-			Settings.Enqueue( 'oldpassword' , oldpassword );
-			Settings.Enqueue( 'newpassword' , newpassword );
+			Settings.Enqueue( 'oldpassword' , oldpassword , 100 );
+			Settings.Enqueue( 'newpassword' , newpassword , 100 );
 		}
 	}
 };
 $( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
-        Settings.SwitchSettings( window.location.hash.substr( 1 ) );
+		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
 			var sexselected = $( '#sex select' )[ 0 ].value;
 			var relselected = $( '#religion select' )[ 0 ].value;
@@ -213,7 +209,7 @@ $( function() {
 				religion : relselected,
 				politics : polselected
 			} );
-			Settings.Enqueue( 'gender' , this.value );
+			Settings.Enqueue( 'gender' , this.value , 3000 );
 		});
 		$( '#dateofbirth select' ).change( function() {
 			var day = $( '#dateofbirth select' )[ 0 ].value;
@@ -229,9 +225,9 @@ $( function() {
 							});
 						Settings.invaliddob = false;
 					}
-					Settings.Enqueue( 'dobd' , day );
-					Settings.Enqueue( 'dobm' , month );
-					Settings.Enqueue( 'doby' , year );
+					Settings.Enqueue( 'dobd' , day , 4000 );
+					Settings.Enqueue( 'dobm' , month , 4000 );
+					Settings.Enqueue( 'doby' , year , 3000 );
 				}
 				else {
 					if ( !Settings.invaliddob ) {
@@ -245,14 +241,14 @@ $( function() {
 		});
 		$( '#place select' ).change( function() {
 			Settings.Enqueue( 'place' , this.value );
-			Settings.Save( false );
+            Settings.Save( false );
 		});
 		$( '#education select' ).change( function() {
 			Settings.Enqueue( 'education' , this.value );
-			Settings.Save( false );
+            Settings.Save( false );
 		});
 		$( '#school select' ).change( function() {
-			Settings.Enqueue( 'school' , this.value );
+			Settings.Enqueue( 'school', this.value );
 		});
 		$( '#sex select' ).change( function() {
 			Settings.Enqueue( 'sex' , this.value );
@@ -368,7 +364,7 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'msn' , text , 500 );
+			Settings.Enqueue( 'msn' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( Settings.invalidmsn ) {
@@ -447,7 +443,7 @@ $( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'web' , text0 );
+			Settings.Enqueue( 'web' , text );
 		}).keyup( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
@@ -460,6 +456,8 @@ $( function() {
 		});
 		
 		//interesttags
+		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+		
 		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				Settings.AddInterest( 'hobbies' , 1 );
@@ -467,6 +465,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
 			Settings.AddInterest( 'hobbies' , 1 );
+			if ( Suggest.timeoutid.hobbies !== false ) {
+				window.clearTimeout( Suggest.timeoutid.hobbies );
+			}
 			return false;
 		} );
 		
@@ -477,6 +478,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
 			Settings.AddInterest( 'movies' , 2 );
+			if ( Suggest.timeoutid.movies !== false ) {
+				window.clearTimeout( Suggest.timeoutid.movies );
+			}
 			return false;
 		} );
 		
@@ -487,6 +491,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
 			Settings.AddInterest( 'books' , 3 );
+			if ( Suggest.timeoutid.books !== false ) {
+				window.clearTimeout( Suggest.timeoutid.books );
+			}
 			return false;
 		} );
 
@@ -497,6 +504,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
 			Settings.AddInterest( 'songs' , 4 );
+			if ( Suggest.timeoutid.songs !== false ) {
+				window.clearTimeout( Suggest.timeoutid.songs );
+			}
 			return false;
 		} );
 		
@@ -507,6 +517,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
 			Settings.AddInterest( 'artists' , 5 );
+			if ( Suggest.timeoutid.artists !== false ) {
+				window.clearTimeout( Suggest.timeoutid.artists );
+			}
 			return false;
 		} );
 		
@@ -517,6 +530,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
 			Settings.AddInterest( 'games' , 6 );
+			if ( Suggest.timeoutid.games !== false ) {
+				window.clearTimeout( Suggest.timeoutid.games );
+			}
 			return false;
 		} );
 		$( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
@@ -526,6 +542,9 @@ $( function() {
 		} );
 		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
 			Settings.AddInterest( 'shows' , 7);
+			if ( Suggest.timeoutid.shows !== false ) {
+				window.clearTimeout( Suggest.timeoutid.shows );
+			}
 			return false;
 		} );
 		$( 'div.tabs form#settingsinfo div a.changepwdlink' ).click( function() {
@@ -541,18 +560,14 @@ $( function() {
 			else {
 				value = 'no';
 			}
-			Settings.Enqueue( $( this )[ 0 ].id , value );
-		} );
+			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
+		} );	
         $( 'div.savebutton a' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
                 Settings.Save( true );
             }
             return false;
         } );
-		$( '#avatarlist' ).jqm( {
-			trigger : 'div.changeavatar a',
-			overlay : 30,
-			closeClass : 'cancelb'
-		} );
 	}
-} );
+
+});
