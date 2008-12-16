@@ -39,7 +39,7 @@
                 $userRelations = $relationfinder->FindByUser( $user );
                 $real_friendsN = 0;
                 $zino_friends = array();
-                foreach ( $res as $relation ) {
+                foreach ( $userRelations as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
                     echo '<p>' . $relation->Friend->Id . " " . $relation->Friend->Name . "</p>";
                 }
