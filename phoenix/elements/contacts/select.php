@@ -51,6 +51,7 @@
                 }
             
                 $friendsN = count( $zino_emails );
+                echo '<p>' . $friendsN . ' ' . $real_friendsN . '</p>';
                 if ( ( $friendsN - $real_friendsN ) <= 0 ) {
                     $step = 2;                    
                     /*?><h3>Κανένας φίλος σου δεν είναι μέλος στο zino.Πήγαινε στο επόμενο βήμα για να τους προσκαλέσεις!</h3><?php
