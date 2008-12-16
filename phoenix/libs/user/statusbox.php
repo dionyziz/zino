@@ -16,7 +16,7 @@
     class StatusBox extends Satori {
         protected $mDbTableAlias = 'statusbox';      
         
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Message':
                     $this->mCurrentValues[ 'Message' ] = mb_substr( $value, 0, 256 );
