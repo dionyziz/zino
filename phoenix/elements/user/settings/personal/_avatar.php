@@ -9,7 +9,7 @@
             ?><div class="changeavatar">
 				<a href="">Αλλαγή εικόνας</a>
             </div>
-            <div class="jqmWindow" id="avatarlist">
+            <div id="avatarlist">
                 <h3>Επέλεξε μια φωτογραφία</h3>
                 <div class="uploaddiv">
                     <?php
