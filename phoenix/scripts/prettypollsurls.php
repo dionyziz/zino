@@ -15,6 +15,15 @@
 
     $libs->Load( 'url' );
 
+    $query = $db->Prepare(
+        "UPDATE
+            :polls 
+        SET
+            `poll_url` = '';"
+    );
+    $query->BindTable( 'polls' );
+    $query->Execute();
+
     $query = $db->Prepare( 'SELECT * FROM :polls' );
     $query->BindTable( 'polls' );
     $res = $query->Execute();
@@ -27,7 +36,7 @@
         }
         $polls[ $userId ][] = array(
             'id' => $row[ 'poll_id' ],
-            'question' => $row[ 'poll_question' ]
+            'question' => array_slice( $row[ 'poll_question' ], 0, 255 )
         );
     }
 
@@ -36,14 +45,13 @@
         $urls = array();
         foreach ( $hispolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
-            $i = 0;
+            $length = strlen( $candidate );
             while ( isset( $urls[ $candidate ] ) ) {
-                ++$i;
-                if ( $i <= 254 ) {
+                if ( $length < 255 ) {
                     $candidate .= '_';
                 }
                 else {
-                    $candidate[ rand( 0, strlen( $candidate ) - 1 ) ] = '_';
+                    $candidate[ rand( 0, $length - 1 ) ] = '_';
                 }
             }
             $urls[ $candidate ] = true;
