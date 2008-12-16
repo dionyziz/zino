@@ -49,3 +49,7 @@ div.barfade div.rightbar {
 	overflow: hidden;
 	position: relative;
 }
+/* modal overlays stylings */
+div.mdloverlay1 {
+	background: #000;
+}
