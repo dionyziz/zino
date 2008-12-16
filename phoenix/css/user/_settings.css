@@ -217,7 +217,8 @@ div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
 	top: 10%;
 	left: 30%;
 	position: fixed;
-	background: #c0d2de;
+	background: #eef5f9;
+	opacity: 90%;
 	border: 1px solid red;
 
 }
