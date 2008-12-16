@@ -45,7 +45,7 @@
                 }
                 ?></ul>
                 <div class="cancel">
-                    <a href="" onclick="Modals.Destroy();return false" class="changeb button">Ακύρωση</a>
+                    <a href="" class="changeb button">Ακύρωση</a>
                 </div>
             </div><?php
         }
