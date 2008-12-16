@@ -3,9 +3,6 @@
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];
-    if ( $offset < 2000 ) {
-    	$offset = 2000;
-    }
     $limit = 100;
 
     set_include_path( '../:./' );
@@ -50,7 +47,6 @@
                 }
             }
             $urls[ $candidate ] = true;
-            echo $candidate . '<br />';
             $result[ $pollInfo[ 'id' ] ] = $candidate;
         }
     }
