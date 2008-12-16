@@ -545,8 +545,7 @@ $( function() {
         } );
 		$( '#avatarlist' ).jqm( {
 			trigger : 'div.changeavatar a',
-			overlayClass : 'mdloverlay1',
-			closeClass : 'cancelb'
+			overlayClass : 'mdloverlay1'
 		} );
 	}
 } );

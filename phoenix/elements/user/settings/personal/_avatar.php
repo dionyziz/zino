@@ -15,7 +15,7 @@
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
                         ?>
-                        <iframe frameborder="0" style="height: 50px" src="?p=upload&amp;albumid=<?php
+                        <iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
                         ?>&amp;typeid=1" class="uploadframe" id="uploadframe">
                         </iframe>
@@ -23,7 +23,7 @@
                     }
                     else {
                         ?>
-                        <object style="height:250px" data="?p=upload&amp;albumid=<?php
+                        <object style="height:50px" data="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
                         ?>&amp;typeid=1" class="uploadframe" id="uploadframe" type="text/html">
                         </object>
@@ -43,9 +43,6 @@
                     }
                 }
                 ?></ul>
-                <div class="cancel">
-                    <a href="" class="cancelb button">Ακύρωση</a>
-                </div>
             </div><?php
         }
     }

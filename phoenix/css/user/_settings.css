@@ -125,15 +125,7 @@ form#personalinfo div span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
 	padding: 0 4px 0 12px;
 }
-div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
-	display: none;
-	top: 10%;
-	left: 30%;
-	position: fixed;
-	background: yellow;
-	border: 1px solid red;
 
-}
 /*
 div.settings div.tabs form#personalinfo div.option div.forstudents {
 	font-size: 80%;
@@ -220,13 +212,18 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
-div#avatarlist {
-	margin: 10px 0 0 5px;
-	position: relative;
+div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
+	display: none;
+	top: 10%;
+	left: 30%;
+	position: fixed;
+	background: #c0d2de;
+	border: 1px solid red;
+
 }
 div#avatarlist div.uploaddiv {
 	position: absolute;
-	top: -2px;
+	top: 0;
 	right: 0;
 }
 div#avatarlist div.uploaddiv object.uploadframe {
