@@ -33,6 +33,9 @@ div.tweet div {
     float: left;
     position: relative;
     left: -18px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 1000px;
 }
 div.tweetbox {
     float: left;
