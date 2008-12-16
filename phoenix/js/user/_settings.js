@@ -107,12 +107,6 @@ var Settings = {
 		$( parent ).hide( 'slow' );
 		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
 	},
-	ShowAvatarChange : function() {   
-		var avies = $( '#avatarlist' )[ 0 ].cloneNode( true );
-		$( avies ).show();
-		Modals.Create( avies, 500, 500 );
-		
-	},
 	SelectAvatar : function( imageid ) {
 		Modals.Destroy();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
@@ -551,7 +545,7 @@ $( function() {
         } );
 		$( '#avatarlist' ).jqm( {
 			trigger : 'div.changeavatar a',
-			overlay : 30,
+			overlay : 90,
 			closeClass : 'cancelb'
 		} );
 	}
