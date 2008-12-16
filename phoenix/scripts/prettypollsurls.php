@@ -47,6 +47,7 @@
                 }
             }
             $urls[ $candidate ] = true;
+            echo $candidate . '<br />';
             $result[ $pollInfo[ 'id' ] ] = $candidate;
         }
     }
