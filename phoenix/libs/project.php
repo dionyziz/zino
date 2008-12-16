@@ -11,7 +11,6 @@
         global $page;
         global $user;
         global $libs;
-        global $PROJECT_LOADTIME;
 
         $libs->Load( 'magic' );
         $libs->Load( 'user/user' );
@@ -60,28 +59,9 @@
         if ( $user->Exists() ) {
             $user->LastActivity->Save();
         }
-        
-        $PROJECT_LOADTIME = microtime( true );
     }
     
     function Project_Destruct() {
-        global $rabbit_settings;
-        global $PROJECT_LOADTIME;
-        
-        $time = microtime( true ) - $PROJECT_LOADTIME;
-        
-        if ( false && $rabbit_settings[ 'production' ] && $time > 4 ) {
-            mail( 'dionyziz@gmail.com, abresas@gmail.com', 'Zino: Slow page rendering', "Hello,
-
-The following page took " . round( $time, 3 ) . " seconds to render:
-
-http://" . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ] . '
-
-I believe you should investigate.
-
-Sincerely yours,
-Project_Destruct()' );
-        }
     }
     
     function Project_PagesMap() {
