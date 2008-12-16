@@ -44,7 +44,7 @@
                 }
                 ?></ul>
                 <div class="cancel">
-                    <a href="" class="closeb button">Ακύρωση</a>
+                    <a href="" class="cancelb button">Ακύρωση</a>
                 </div>
             </div><?php
         }
