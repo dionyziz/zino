@@ -44,11 +44,10 @@
                 }
                 
                 foreach ( $contactsLoaded as $sampe ) {
-                    if ( $zino_friends[ $sampe->Mail ] == true ) {
+                    if ( $zino_friends[ $sampe->Userid ] == true ) {
                         $real_friendsN++;
                     }
                 }
-                echo $real_friendsN . " " . $friendsN;
             
                 $friendsN = count( $zino_emails );
                 if ( ( $friendsN - $real_friendsN ) <= 0 ) {
