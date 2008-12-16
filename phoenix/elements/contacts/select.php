@@ -37,11 +37,18 @@
             
                 $relationfinder = new FriendRelationFinder();//find already zino friends
                 $userRelations = $relationfinder->FindByUser( $user );
-                $real_friendsN = count( $userRelations );
+                $real_friendsN = 0;
                 $zino_friends = array();
                 foreach ( $res as $relation ) {
                     $zino_friends[ $relation->Friend->Id ] = true;
                 }
+                
+                foreach ( $contactsLoaded as $sampe ) {
+                    if ( $zino_friends[ $sampe->Mail ] == true ) {
+                        $real_friendsN++;
+                    }
+                }
+                echo $real_friendsN . " " . $friendsN;
             
                 $friendsN = count( $zino_emails );
                 if ( ( $friendsN - $real_friendsN ) <= 0 ) {
