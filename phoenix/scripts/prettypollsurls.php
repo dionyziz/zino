@@ -16,10 +16,10 @@
     $libs->Load( 'url' );
 
     $query = $db->Prepare(
-        "UPDATE
+        'UPDATE
             :polls 
         SET
-            `poll_url` = NULL;"
+            `poll_url` = NULL;'
     );
     $query->BindTable( 'polls' );
     $query->Execute();
