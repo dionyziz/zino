@@ -74,7 +74,7 @@
             $query->BindTable( 'polls' );
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
-            // $query->Execute();
+            $query->Execute();
         }
         ++$i;
     }
