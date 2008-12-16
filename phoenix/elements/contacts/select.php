@@ -27,7 +27,7 @@
             }
             
             $all_emails = array();
-            foreach ( $res as $sample ) {
+            foreach ( $contactsLoaded as $sample ) {
                 $all_emails[] = $sample->Mail;
             }
             $mailfinder = new UserProfileFinder();
