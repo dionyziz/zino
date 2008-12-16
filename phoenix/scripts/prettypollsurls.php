@@ -36,8 +36,15 @@
         $urls = array();
         foreach ( $hispolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
+            $i = 0;
             while ( isset( $urls[ $candidate ] ) ) {
-                $candidate .= '_';
+                ++$i;
+                if ( $i <= 254 ) {
+                    $candidate .= '_';
+                }
+                else {
+                    $candidate[ rand( 0, strlen( $candidate ) - 1 ) ] = '_';
+                }
             }
             $urls[ $candidate ] = true;
             $result[ $pollInfo[ 'id' ] ] = $candidate;
