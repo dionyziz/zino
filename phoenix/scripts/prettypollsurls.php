@@ -1,4 +1,5 @@
 <?php
+
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];
@@ -41,9 +42,9 @@
     }
 
     $result = array();
-    foreach ( $polls as $userId => $hispolls ) {
+    foreach ( $polls as $userId => $hisPolls ) {
         $urls = array();
-        foreach ( $hispolls as $pollInfo ) {
+        foreach ( $hisPolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
             $length = strlen( $candidate );
             while ( isset( $urls[ $candidate ] ) ) {
