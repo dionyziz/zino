@@ -75,9 +75,13 @@
             $query->BindTable( 'polls' );
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
+            echo $query->Apply() . '<br />';
             $query->Execute();
         }
         ++$i;
+        if ( $i == 2 ) {
+        	die;
+        }
     }
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
