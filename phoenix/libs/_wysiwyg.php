@@ -175,7 +175,7 @@
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
                 $smileysprocessed[ $i ] = '<span class="'
-                                        . htmlspecialchars( $i ) 
+                                        . htmlspecialchars( $smiley ) 
                                         . '">&nbsp;</span>';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
