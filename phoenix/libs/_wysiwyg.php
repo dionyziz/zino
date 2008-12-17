@@ -174,24 +174,16 @@
         
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<img src="' 
-                                        . $xc_settings[ 'staticimagesurl' ] 
-                                        . 'emoticons/' 
-                                        . $smiley 
-                                        . '.png" alt="' 
+                $smileysprocessed[ $i ] = '<span class="'
                                         . htmlspecialchars( $i ) 
-                                        . '" title="' 
-                                        . htmlspecialchars( $i ) 
-                                        . '" class="emoticon" width="22" height="22" />';
+                                        . '">&nbsp;</span>';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<img src="' 
-            . $xc_settings[ 'staticimagesurl' ] 
-            . 'emoticons/wink.png" alt=";-)" title=";-)" class="emoticon" width="22" height="22" />\2', $text );
+        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="wink">&nbsp;</span>', $text );
         return $text;
     }
 ?>
