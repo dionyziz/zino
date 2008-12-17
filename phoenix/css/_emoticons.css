@@ -55,6 +55,7 @@
 }
 .emoticon_smile {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -966px;
+    padding: 0 0 4px 18px;
 }
 .emoticon_computer {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1018px;
