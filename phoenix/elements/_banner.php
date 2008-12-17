@@ -63,7 +63,7 @@
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout" style="color:black;">Έξοδος<span style="background:url('http://static.zino.gr/phoenix/exit.png') 6px 6px;">&nbsp;</span></a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout" style="color:black;">Έξοδος<span style="background: transparent url(http://static.zino.gr/phoenix/exit.png) no-repeat scroll 6px 20px;">&nbsp;</span></a></form><?php
             }
             ?>
             <a class="search" href="?p=search"><img src="<?php
