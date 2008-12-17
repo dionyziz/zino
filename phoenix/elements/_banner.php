@@ -7,7 +7,7 @@
             global $rabbit_settings;
             
             ?><div class="header" id="banner">
-            <div style="position:absolute;right:205px;top:0;z-index:10;width:162px;height:100px;background-image:url('http://static.zino.gr/phoenix/xmas3.png');background-position:right;background-repeat: no-repeat;">&nbsp;</div>
+            <div style="position:absolute;right:105px;top:0;z-index:10;width:120px;height:74px;background-image:url('http://static.zino.gr/phoenix/xmas3.png');background-position:right;background-repeat: no-repeat;">&nbsp;</div>
             <h1><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
 ?>"><img src="<?php
