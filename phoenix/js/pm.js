@@ -205,8 +205,14 @@ var pms = {
 		$( actions ).append( sendbutton ).append( cancelbutton );
 		$( pms.messagescontainer ).append ( pmtext ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) ).append( actions );
 		pms.ShowFolderNameTop( 'Νέο μήνυμα' );
-		receiversinput.focus();
-		receiversinput.select();
+	    if ( answertext !== '' ) {
+            pmtext.focus();
+            pmtext.select();
+        }
+        else {
+            receiversinput.focus();
+            receiversinput.select();
+        }
 		pms.writingnewpm = true;
 	}
 	,
