@@ -174,7 +174,7 @@
         
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<span class="emoticon_'
+                $smileysprocessed[ $i ] = '<span class="emoticon-}'
                                         . htmlspecialchars( $smiley ) 
                                         . '">&nbsp;</span>';
             }
