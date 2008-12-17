@@ -180,7 +180,7 @@ var pms = {
 		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
 			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
-			$( textmargin ).append( document.createTextNode( answertext ) );
+			$( textmargin ).html( answertext );
 			$( pms.messagescontainer ).append( textmargin ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) );
 		}
 		var receiverstext = document.createElement( 'span' );
