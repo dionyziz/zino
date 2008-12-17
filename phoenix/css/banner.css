@@ -123,6 +123,9 @@ div.header a.logout span {
 	padding: 17px 0 0 15px;
 	margin-left: 2px;
 }
+div.header a.nohover:hover {
+	text-decoration: none;
+}
 div.header a:hover {
 	text-decoration: underline;
 }
