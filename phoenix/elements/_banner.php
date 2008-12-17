@@ -63,12 +63,12 @@
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout">Έξοδος<span>&nbsp;</span></a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout" style="color:black;background-image:none;">Έξοδος<span>&nbsp;</span></a></form><?php
             }
             ?>
             <a class="search" href="?p=search"><img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-            ?>glass.jpg" alt="Αναζήτηση" title="Αναζήτησε Φίλους!" /></a>
+            ?>glass-xmas.jpg" alt="Αναζήτηση" title="Αναζήτησε Φίλους!" /></a>
             <div class="eof"></div>
             </div><?php
         }
