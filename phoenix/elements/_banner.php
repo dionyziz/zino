@@ -63,7 +63,7 @@
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout" style="color:black;">Έξοδος<!--<span>&nbsp;</span>--></a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout" style="color:black;">Έξοδος<span style="background-image:none">&nbsp;</span></a></form><?php
             }
             ?>
             <a class="search" href="?p=search"><img src="<?php
