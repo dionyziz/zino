@@ -174,7 +174,7 @@
         
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<span class="emoticon-}'
+                $smileysprocessed[ $i ] = '<span class="emoticon-'
                                         . htmlspecialchars( $smiley ) 
                                         . '">&nbsp;</span>';
             }
@@ -183,7 +183,7 @@
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="emoticon_wink">&nbsp;</span>', $text );
+        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="emoticon-wink">&nbsp;</span>', $text );
         return $text;
     }
 ?>
