@@ -10,7 +10,7 @@
 				<a href="">Αλλαγή εικόνας</a>
             </div>
             <div id="avatarlist">
-                <h3>Επέλεξε μια φωτογραφία</h3>
+				<div class="title"><h3>Επέλεξε μια φωτογραφία...</h3></div>
                 <div class="uploaddiv">
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
