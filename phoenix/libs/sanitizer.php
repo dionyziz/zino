@@ -207,7 +207,7 @@
                 return $this->XMLInnerHTML( $root );
             }
             if ( $this->mMaxLength !== false && $this->mCurrentLength >= $this->mMaxLength ) {
-                return '';
+                return '(hidden)';
             }
             
             $tagrule = $this->mAllowedTags[ $root->nodeName ];
