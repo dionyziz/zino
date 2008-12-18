@@ -51,7 +51,7 @@
             $subject = ob_get_clean();
             echo $subject;
 
-            $text = trim( htmlspecialchars_decode( strip_tags( $comment->Text ) ) );
+            $text = html_entity_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $comment->Text ) ), ENT_QUOTES );
             if ( !empty( $text ) ) {
                 ?> και έγραψε: 
                 

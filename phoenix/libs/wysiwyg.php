@@ -13,7 +13,7 @@
         // html_entity_decode replaces &nbsp; (used in smileys) with the unicode character of non-breaking space
         // which renders weirdly in browser; replace it with the entity of the normal space (&#032;) prior to 
         // passing it to html_entity_decode so as to achieve a normal space after it is decoded
-        $html =  html_entity_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $html ) ), ENT_QUOTES );
+        $html = html_entity_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $html ) ), ENT_QUOTES );
         $html = mb_substr( $html, 0, $length );
         return htmlspecialchars( $html );
     }
