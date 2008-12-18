@@ -160,17 +160,15 @@
     vertical-align: 7px;
 }
 .emoticon-thumbs-down {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1694px; 
-    padding: 0 0 4px 18px;
+    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1694px;    padding: 0 0 4px 18px;
     vertical-align: 7px;
 }
 .emoticon-indifferent {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1746px; 
-    padding: 0 0 4px 18px;
+    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1746px;    padding: 0 0 4px 18px;
     vertical-align: 7px;
 }
 .emoticon-cigarette {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1798px; 
+    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1798px;
     padding: 0 0 4px 18px;
     vertical-align: 7px;
 }
