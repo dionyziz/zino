@@ -29,7 +29,8 @@
         'map' => array( 'map' ),
         'noframes', 'noscript', 'ol', 'optgroup', 'option', 'p', 
         'q' => array( 'cite' ),
-        'samp', 'small', 'span', 'strong', 'sub', 'sup', 
+        'samp', 'small', 'strong', 'sub', 'sup', 
+        'span' => array( 'class' ),
         'table' => array( 'cellpadding', 'cellspacing', 'rules', 'summary' ),
         // 'tbody', // preserved but not outputted
         'td' => array( 'abbr', 'colspan', 'rowspan' ),
