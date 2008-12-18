@@ -10,10 +10,8 @@
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
         
-        $html = mb_substr( $html, 0, $length ); // breaks XHTML strict validy
-        
         $html = str_replace( '&nbsp;', ' ', $html );
-
+        
         $sanitizer = New XHTMLSanitizer();
         $sanitizer->SetMaxLength( $length );
         
