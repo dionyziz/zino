@@ -102,6 +102,7 @@ var Comments = {
             node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
                 Comments.Edit( id );
                 return false;
+            }
         }
         
 		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
