@@ -33,16 +33,23 @@
             ?>' );
         } );
         $( toolbox ).addClass( 'toolbox' ).append( deletelink );
-        $( <?php
+        var node = <?php
         echo $node;
-        ?> )
+        ?>;
+        $( node )
         .prepend( toolbox )
         .attr( {
             id : "s_<?php
             echo $shout->Id;
-            ?>" } )
-        .find( 'div.text' ).html( <?php
+            ?>" } );
+        var text = <?php
             echo w_json_encode( $shout->Text );
-            ?> );<?php
+        ?> );
+        if ( !$.browser.msie ) {
+            $( node ).find( 'div.text' ).html( text );
+        }
+        else {
+            $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
+        }<?php
     }
 ?>
