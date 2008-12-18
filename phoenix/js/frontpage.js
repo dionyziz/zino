@@ -31,10 +31,10 @@ $( function() {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' );
                 if ( !$.browser.msie ) {
-                    $( newshout ).html( text );
+                    newshout.append( document.createTextNode( text ) );
                 }
                 else {
-                    $( newshout ).html( text );
+                    newshout.append( document.createTextNode( text.replace( /&nbsp;/g , ' ' );
                 }  
 				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
