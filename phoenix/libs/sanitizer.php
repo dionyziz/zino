@@ -268,7 +268,8 @@
                 if ( is_string( $xmlnode ) ) {
                     if ( $this->mTextProcessor !== false ) {
                         $atmax = false;
-                        if ( $this->mMaxLength !== false && $this->mCurrentLength + strlen( $xmlnode ) > $this->mMaxLength ) {
+                        die( '$$' . htmlspecialchars( $xmlnode ) . '$$' );
+                        if ( $this->mMaxLength !== false && $this->mCurrentLength + mb_strlen( $xmlnode ) > $this->mMaxLength ) {
                             $xmlnode = mb_substr( $xmlnode, 0, $this->mMaxLength - $this->mCurrentLength + 1 );
                             $atmax = true;
                         }
