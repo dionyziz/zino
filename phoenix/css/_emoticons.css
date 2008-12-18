@@ -156,8 +156,7 @@
     vertical-align: 7px;
 }
 .emoticon-note {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1642px; 
-    padding: 0 0 4px 18px;
+    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1642px;    padding: 0 0 5px 18px;
     vertical-align: 7px;
 }
 .emoticon-thumbs-down {
@@ -257,7 +256,7 @@
 }
 .emoticon-clock {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -706px; 
-    padding: 0 0 4px 18px;
+    padding: 0 0 5px 18px;
     vertical-align: 7px;
 }
 .emoticon-wink {
@@ -277,7 +276,7 @@
 }
 .emoticon-film {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -914px; 
-    padding: 0 0 4px 18px;
+    padding: 0 0 5px 18px;
     vertical-align: 7px;
 }
 .emoticon-tongue {
