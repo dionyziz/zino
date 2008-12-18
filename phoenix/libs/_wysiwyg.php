@@ -176,14 +176,14 @@
             foreach ( $smileys as $i => $smiley ) {
                 $smileysprocessed[ $i ] = '<span class="emoticon-'
                                         . htmlspecialchars( $smiley ) 
-                                        . '"></span>';
+                                        . '">&nbsp;</span>';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="emoticon-wink"></span>', $text );
+        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="emoticon-wink">&nbsp;</span>', $text );
         return $text;
     }
 ?>
