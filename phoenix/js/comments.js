@@ -92,7 +92,7 @@ var Comments = {
             }
         );
         //IE problem with &nbsp; and innerHTML
-		if ( !$.browser.msie() ) {
+		if ( !$.browser.msie ) {
             node.find( 'div.text' ).html( newtext.replace( /&nbsp;/g , ' ' ) ).get( 0 ).ondblclick = function() {
                 Comments.Edit( id );
                 return false;
