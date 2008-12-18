@@ -10,10 +10,8 @@
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
         
-        // $html = str_replace( '&nbsp;', ' ', $html );
-        
         $sanitizer = New XHTMLSanitizer();
-        // $sanitizer->SetMaxLength( $length );
+        $sanitizer->SetMaxLength( $length );
         
         $goodtag = New XHTMLSaneTag( 'span' );
         $goodtag->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
