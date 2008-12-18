@@ -10,6 +10,8 @@
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
         
+        $html = 'blue martian red martian yellow martian pink martian purple martian orange martian vanilla martian chocolate martian cake martian';
+        
         $sanitizer = New XHTMLSanitizer();
         $sanitizer->SetMaxLength( $length );
         
