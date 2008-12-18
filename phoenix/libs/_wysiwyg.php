@@ -12,6 +12,10 @@
         
         $html = str_replace( '&nbsp;', ' ', $html );
         
+        if ( substr( $html, 0, strlen( 'blue' ) ) == 'blue' ) {
+            die( '**' . $html . '**' );
+        }
+        
         $sanitizer = New XHTMLSanitizer();
         $sanitizer->SetMaxLength( $length );
         

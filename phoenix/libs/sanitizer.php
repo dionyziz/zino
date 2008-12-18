@@ -204,11 +204,10 @@
             global $xhtmlsanitizer_noautoclose;
             
             if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
-                return '(disallowed ' . $root->nodeName . ')';
                 return $this->XMLInnerHTML( $root );
             }
             if ( $this->mMaxLength !== false && $this->mCurrentLength >= $this->mMaxLength ) {
-                return '(hidden)';
+                return '';
             }
             
             $tagrule = $this->mAllowedTags[ $root->nodeName ];
