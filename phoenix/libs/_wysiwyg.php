@@ -13,7 +13,7 @@
         $html = str_replace( '&nbsp;', ' ', $html );
         
         $sanitizer = New XHTMLSanitizer();
-        $sanitizer->SetMaxLength( $length );
+        // $sanitizer->SetMaxLength( $length );
         
         $goodtag = New XHTMLSaneTag( 'span' );
         $goodtag->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
