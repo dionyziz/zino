@@ -10,8 +10,6 @@
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
         
-        $html = 'blue <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> <span class="emoticon-love">&nbsp;</span> martian red<span class="emoticon-love">&nbsp;</span> martian <span class="emoticon-love">&nbsp;</span> yellow <span class="emoticon-love">&nbsp;</span> martian pink martian purple martian orange martian vanilla martian chocolate martian cake martian';
-        
         $sanitizer = New XHTMLSanitizer();
         $sanitizer->SetMaxLength( $length );
         
