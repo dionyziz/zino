@@ -425,11 +425,11 @@
             }
         }
         public function GetText( $length ) {
-            w_assert( is_int( $length ) );
-            $text = $this->Bulk->Text;
-            $text = htmlspecialchars_decode( strip_tags( $text ) );
-            $text = mb_substr( $text, 0, $length );
-            return htmlspecialchars( $text );
+            global $libs;
+            
+            $libs->Load( 'wysiwyg' );
+            
+            return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
