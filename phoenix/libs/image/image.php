@@ -84,17 +84,11 @@
                     :images
                 WHERE
                     `image_albumid` = :albumid
-                    AND `image_delid` = :delid
-                ORDER BY
-                    ABS(`image_id` - :imageid)
-                LIMIT
-                    :limit'
+                    AND `image_delid` = :delid'
             );
             $query->BindTable( 'images' );
             $query->Bind( 'albumid', $pivot->Album->Id );
-            $query->Bind( 'imageid', $pivot->Id );
             $query->Bind( 'delid', 0 );
-            $query->Bind( 'limit', $limit );
             $res = $query->Execute();
 
             $ret = array();
@@ -102,8 +96,23 @@
                 $ret[ $row[ 'image_id' ] ] = New Image( $row );
             }
             krsort( $ret );
-
-            $ret = array_values( $ret );
+            
+            $i = 0;
+            foreach ( $ret as $id => $image ) {
+                if ( $id == $pivot->Id ) {
+                    break;
+                }
+                ++$i;
+            }
+            $begin = $i - floor( $limit / 2 );
+            $end = $i + floor( $limit / 2 );
+            if ( $begin < 0 ) {
+                $begin = 0;
+            }
+            if ( $end >= count( $ret ) ) {
+                $end = count( $ret ) - 1;
+            }
+            $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
 
             return $ret;
         }
