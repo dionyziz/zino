@@ -4,8 +4,15 @@
     $libs->Load( 'sanitizer' );
 
     function WYSIWYG_PresentAndSubstr( $html, $length ) {
+        // called to trim an HTML string ($html) to a given length ($length) in order for it to be 
+        // used as a preview for a comment/journal/etc., but reserve XHTML strict-ness
+        
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
+        
+        // html_entity_decode replaces &nbsp; (used in smileys) with the unicode character of non-breaking space
+        // which renders weirdly in browser; replace it with the entity of the normal space (&#032;) prior to 
+        // passing it to html_entity_decode so as to achieve a normal space after it is decoded
         $html =  html_entity_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $html ) ), ENT_QUOTES );
         $html = mb_substr( $html, 0, $length );
         return htmlspecialchars( $html );
