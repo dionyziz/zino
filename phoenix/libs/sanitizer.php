@@ -266,22 +266,21 @@
             $ret = '';
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
+                    $atmax = false;
+                    if ( $this->mMaxLength !== false && $this->mCurrentLength + mb_strlen( $xmlnode ) > $this->mMaxLength ) {
+                        $xmlnode = mb_substr( $xmlnode, 0, $this->mMaxLength - $this->mCurrentLength + 1 );
+                        $atmax = true;
+                    }
+                    $this->mCurrentLength += strlen( $xmlnode );
                     if ( $this->mTextProcessor !== false ) {
-                        $atmax = false;
-                        die( '$$' . htmlspecialchars( $xmlnode ) . '$$' );
-                        if ( $this->mMaxLength !== false && $this->mCurrentLength + mb_strlen( $xmlnode ) > $this->mMaxLength ) {
-                            $xmlnode = mb_substr( $xmlnode, 0, $this->mMaxLength - $this->mCurrentLength + 1 );
-                            $atmax = true;
-                        }
-                        $this->mCurrentLength += strlen( $xmlnode );
                         $callback = $this->mTextProcessor;
                         $ret .= $callback( $xmlnode );
-                        if ( $atmax ) {
-                            return $ret;
-                        }
                     }
                     else {
                         $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );
+                    }
+                    if ( $atmax ) {
+                        return $ret;
                     }
                 }
                 else {
