@@ -5,17 +5,22 @@
 
     function WYSIWYG_PresentAndSubstr( $html, $length ) {
         // called to trim an HTML string ($html) to a given length ($length) in order for it to be 
-        // used as a preview for a comment/journal/etc., but reserve XHTML strict-ness
+        // used as a preview for a comment/journal/etc., but reserve XHTML strict validy
         
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
         
-        // html_entity_decode replaces &nbsp; (used in smileys) with the unicode character of non-breaking space
-        // which renders weirdly in browser; replace it with the entity of the normal space (&#032;) prior to 
-        // passing it to html_entity_decode so as to achieve a normal space after it is decoded
-        $html = html_entity_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $html ) ), ENT_QUOTES );
-        $html = mb_substr( $html, 0, $length );
-        return htmlspecialchars( $html );
+        $sanitizer = New XHTMLSanitizer();
+        $sanitizer->SetMaxLength( $length );
+        
+        $goodtag = New XHTMLSaneTag( 'span' );
+        $goodtag->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
+        $sanitizer->AllowTag( $goodtag );
+        
+        $sanitizer->SetSource( $html );
+        $html = $sanitizer->GetXHTML();
+        
+        return $html;
     }
     
     function WYSIWYG_PreProcess( $html ) {
@@ -35,8 +40,8 @@
         return $html;
     }
 
-    function WYSIWYG_PostProcess( $html ) {
-        global $xhtmlsanitizer_goodtags, $rabbit_settings;
+    function WYSIWYG_MakeValid( $html ) {
+        global $xhtmlsanitizer_goodtags;
 
         $html = str_replace( '&nbsp;', ' ', $html );
 
@@ -61,6 +66,14 @@
         $sanitizer->SetSource( $html );
         $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
         $html = $sanitizer->GetXHTML();
+        
+        return $html;
+    }
+    
+    function WYSIWYG_PostProcess( $html ) {
+        global $rabbit_settings;
+        
+        $html = WYSIWYG_MakeValid( $html );
         
         // YouTube support
         $html = preg_replace(
