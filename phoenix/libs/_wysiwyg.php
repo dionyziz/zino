@@ -129,7 +129,7 @@
               "LOL" => "lol" ,
               ":phone:" => "phone" ,
               ":cool:" => "shade" ,
-              ":no:" => "thumb-down" ,
+              ":no:" => "thumbs-down" ,
               ":yes:" => "thumbs-up" ,
               ":yuck:" => "tongue" ,
               ":heartbroken:" => "unlove" ,
