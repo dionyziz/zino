@@ -1,12 +1,14 @@
 .emoticon-teeth {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -30px;
-
+    padding: 0 0 4px 18px;
 }
 .emoticon-sun {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -82px;
+    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -82px;    
+    padding: 0 0 4px 18px;
 }
 .emoticon-airplane {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -134px;
+    padding: 0 0 4px 18px;
 }
 .emoticon-sad {
     background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -186px;
