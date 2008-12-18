@@ -6,7 +6,7 @@
     function WYSIWYG_PresentAndSubstr( $html, $length ) {
         w_assert( is_string( $html ) );
         w_assert( is_int( $length ) );
-        $html = html_entity_decode( strip_tags( $html ), ENT_QUOTES );
+        $html = htmlspecialchars_decode( str_replace( '&nbsp;', '&#032;', strip_tags( $html ) ), ENT_QUOTES );
         $html = mb_substr( $html, 0, $length );
         return htmlspecialchars( $html );
     }
