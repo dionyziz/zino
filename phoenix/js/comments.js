@@ -91,7 +91,7 @@ var Comments = {
                 return false;
             }
         );
-		node.find( 'div.text' ).html( newtext.( /&nbsp;/g , ' ' ).get( 0 ).ondblclick = function() {
+		node.find( 'div.text' ).html( newtext.( /&nbsp;/g , ' ' ) ).get( 0 ).ondblclick = function() {
             Comments.Edit( id );
             return false;
         }
