@@ -138,7 +138,7 @@
                 return '';
             }
             
-            die( '@' . htmlspecialchars( $source ) . '!' );
+            $source = 'blue <span class="emoticon-love">&nbsp;</span> martian!';
             fwrite( $pipes[ 0 ], $source );
             fclose( $pipes[ 0 ] );
             
