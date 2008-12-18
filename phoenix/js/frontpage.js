@@ -30,11 +30,12 @@ $( function() {
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' );
+                var copytext = text;
                 if ( !$.browser.msie ) {
-                    $( newshout ).append( document.createTextNode( text ) );
+                    $( newshout ).append( document.createTextNode( copytext ) );
                 }
                 else {
-                    $( newshout ).append( document.createTextNode( text.replace( /&nbsp;/g , ' ' ) ) );
+                    $( newshout ).append( document.createTextNode( copytext.replace( /&nbsp;/g , ' ' ) ) );
                 }  
 				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
