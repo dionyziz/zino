@@ -263,6 +263,7 @@
             }
             
             $ret = '';
+            die( '.'.count( $root->childNodes ) );
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
                     if ( $this->mTextProcessor !== false ) {
@@ -283,7 +284,6 @@
                     }
                 }
                 else {
-                    die( '.' . $xmlnode->nodeName );
                     $ret .= $this->XMLOuterHTML( $xmlnode );
                 }
             }
