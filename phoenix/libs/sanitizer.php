@@ -138,7 +138,6 @@
                 return '';
             }
             
-            $source = 'blue <span class="emoticon-love">&nbsp;</span> martian!';
             fwrite( $pipes[ 0 ], $source );
             fclose( $pipes[ 0 ] );
             
@@ -157,7 +156,6 @@
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
             $ret = trim( $this->ReduceWhitespace( $ret ) );
-            die( '.' . htmlspecialchars( $ret ) . '@' );
             $parser = New XMLParser( '<body>' .$ret . '</body>' );
             $parser->ignoreEmptyTextNodes( false );
             $body = $parser->Parse();
