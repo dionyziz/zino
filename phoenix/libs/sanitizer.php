@@ -156,6 +156,7 @@
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
             $ret = trim( $this->ReduceWhitespace( $ret ) );
+            die( '.' . htmlspecialchars( $ret ) . '@' );
             $parser = New XMLParser( '<body>' .$ret . '</body>' );
             $parser->ignoreEmptyTextNodes( false );
             $body = $parser->Parse();
@@ -263,7 +264,6 @@
             }
             
             $ret = '';
-            die( '.'.count( $root->childNodes ) );
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
                     if ( $this->mTextProcessor !== false ) {
