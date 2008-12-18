@@ -129,13 +129,13 @@
               "LOL" => "lol" ,
               ":phone:" => "phone" ,
               ":cool:" => "shade" ,
-              ":no:" => "thumbs_down" ,
-              ":yes:" => "thumbs_up" ,
+              ":no:" => "thumbs-down" ,
+              ":yes:" => "thumbs-up" ,
               ":yuck:" => "tongue" ,
               ":heartbroken:" => "unlove" ,
               ":unlove:" => "unlove" ,
               ":hate:" => "unlove" ,
-              ":rose:" => "wilted_rose" ,
+              ":rose:" => "wilted-rose" ,
               ":star:" => "star" ,
               ":X" => "uptight" ,
               ":gift:" => "present" ,
@@ -154,7 +154,7 @@
               ":-|" => "indifferent" ,
               ":island:" => "ip" ,
               ":!!:" => "lightning" ,
-              ":sms:" => "mobile_phone" ,
+              ":sms:" => "mobile-phone" ,
               ":wow:" => "omg" ,
               ":-(" => "sad" ,
               ":sheep:" => "sheep" ,
@@ -174,24 +174,16 @@
         
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<img src="' 
-                                        . $xc_settings[ 'staticimagesurl' ] 
-                                        . 'emoticons/' 
-                                        . $smiley 
-                                        . '.png" alt="' 
-                                        . htmlspecialchars( $i ) 
-                                        . '" title="' 
-                                        . htmlspecialchars( $i ) 
-                                        . '" class="emoticon" width="22" height="22" />';
+                $smileysprocessed[ $i ] = '<span class="emoticon-'
+                                        . htmlspecialchars( $smiley ) 
+                                        . '">&nbsp;</span>';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<img src="' 
-            . $xc_settings[ 'staticimagesurl' ] 
-            . 'emoticons/wink.png" alt=";-)" title=";-)" class="emoticon" width="22" height="22" />\2', $text );
+        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<span class="emoticon-wink">&nbsp;</span>', $text );
         return $text;
     }
 ?>
