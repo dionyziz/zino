@@ -73,7 +73,7 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
-        public function FindAround( Image $pivot, $limit = 6 ) {
+        public function FindAround( Image $pivot, $limit = 12 ) {
             w_assert( $pivot->Exists(), 'Image->FindAround() must only be called for an existing pivot image' );
             w_assert( $pivot->Album->Exists(), 'Image->FindAround() must only be called for a pivot image within an album' );
 
