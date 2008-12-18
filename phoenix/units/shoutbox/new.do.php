@@ -45,6 +45,7 @@
         var text = <?php
             echo w_json_encode( $shout->Text );
         ?>;
+
         if ( $.browser.msie ) {
             $( node ).find( 'div.text' ).html( text );
         }
