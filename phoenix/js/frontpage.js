@@ -32,10 +32,10 @@ $( function() {
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' );
                 var copytext = text;
                 if ( !$.browser.msie ) {
-                    $( newshout ).append( document.createTextNode( copytext ) );
+                    $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) );
                 }
                 else {
-                    $( newshout ).append( document.createTextNode( copytext.replace( /&nbsp;/g , ' ' ) ) );
+                    $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext.replace( /&nbsp;/g , ' ' ) ) );
                 }  
 				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
