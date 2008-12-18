@@ -34,7 +34,7 @@ $( function() {
                     newshout.append( document.createTextNode( text ) );
                 }
                 else {
-                    newshout.append( document.createTextNode( text.replace( /&nbsp;/g , ' ' );
+                    newshout.append( document.createTextNode( text.replace( /&nbsp;/g , ' ' ) ) );
                 }  
 				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
