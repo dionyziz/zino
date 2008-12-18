@@ -65,6 +65,8 @@
         private $mSource;
         private $mAllowedTags;
         private $mTextProcessor;
+        private $mMaxLength = false;
+        private $mCurrentLength = 0;
         
         public function XHTMLSanitizer() {
             $this->mAllowedTags = array();
@@ -73,6 +75,10 @@
         }
         public function SetTextProcessor( $textprocessor ) {
             $this->mTextProcessor = $textprocessor;
+        }
+        public function SetMaxLength( $length = false ) {
+            w_assert( $length === false || is_int( $length ) );
+            $this->mMaxLength = $length;
         }
         public function SetSource( $source ) {
             global $water;
@@ -200,6 +206,9 @@
             if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
                 return $this->XMLInnerHTML( $root );
             }
+            if ( $this->mMaxLength !== false && $this->mCurrentLength >= $this->mMaxLength ) {
+                return '';
+            }
             
             $tagrule = $this->mAllowedTags[ $root->nodeName ];
             
@@ -257,8 +266,17 @@
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
                     if ( $this->mTextProcessor !== false ) {
+                        $atmax = false;
+                        if ( $this->mMaxLength !== false && $this->mCurrentLength + strlen( $xmlnode ) > $this->mMaxLength ) {
+                            $xmlnode = mb_substr( $xmlnode, 0, $this->mMaxLength - $this->mCurrentLength + 1 );
+                            $atmax = true;
+                        }
+                        $this->mCurrentLength += strlen( $xmlnode );
                         $callback = $this->mTextProcessor;
                         $ret .= $callback( $xmlnode );
+                        if ( $atmax ) {
+                            return $ret;
+                        }
                     }
                     else {
                         $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );

@@ -12,31 +12,11 @@
         
         $html = mb_substr( $html, 0, $length ); // breaks XHTML strict validy
         
-        // since the original string is HTML valid, a < with no matching > can be safely removed from the end
-        $safe = 0;
-        for ( $i = strlen( $html ) - 1; $i >= 0; --$i ) { // TODO: this loop is not UTF-8 safe
-            switch ( $html[ $i ] ) {
-                case '<':
-                    $safe = 1;
-                    break;
-                case '>':
-                    $safe = 2;
-                    break;
-            }
-            if ( $safe !== 0 ) {
-                break;
-            }
-        }
-        if ( $safe === 1 ) {
-            $html = substr( $html, 0, $i ); // TODO: UTF-8 safety
-        }
-        
-        global $xhtmlsanitizer_goodtags;
-
         $html = str_replace( '&nbsp;', ' ', $html );
 
         $sanitizer = New XHTMLSanitizer();
-
+        $sanitizer->SetMaxLength( $length );
+        
         $goodtag = New XHTMLSaneTag( 'span' );
         $goodtag->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
         $sanitizer->AllowTag( $goodtag );
