@@ -66,6 +66,7 @@
         private $mAllowedTags;
         private $mTextProcessor;
         private $mMaxLength = false;
+        private $mMaxTrimString = '...';
         private $mCurrentLength = 0;
         
         public function XHTMLSanitizer() {
@@ -269,6 +270,7 @@
                     $atmax = false;
                     if ( $this->mMaxLength !== false && $this->mCurrentLength + mb_strlen( $xmlnode ) > $this->mMaxLength ) {
                         $xmlnode = mb_substr( $xmlnode, 0, $this->mMaxLength - $this->mCurrentLength + 1 );
+                        $xmlnode .= $this->mMaxTrimString;
                         $atmax = true;
                     }
                     $this->mCurrentLength += strlen( $xmlnode );
