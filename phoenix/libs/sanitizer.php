@@ -258,6 +258,7 @@
             return $ret;
         }
         private function XMLInnerHTML( XMLNode $root ) {
+            die( '.' . $root->nodeName );
             if ( $root->nodeName == 'script' ) { // boo
                 return '';
             }
