@@ -13,7 +13,7 @@
         $html = str_replace( '&nbsp;', ' ', $html );
         
         if ( substr( $html, 0, strlen( 'blue' ) ) == 'blue' ) {
-            die( '**' . $html . '**' );
+            die( '**' . htmlspecialchars( $html ) . '**' );
         }
         
         $sanitizer = New XHTMLSanitizer();
