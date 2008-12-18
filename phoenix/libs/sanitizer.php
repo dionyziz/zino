@@ -138,6 +138,7 @@
                 return '';
             }
             
+            die( '@' . htmlspecialchars( $source ) . '!' );
             fwrite( $pipes[ 0 ], $source );
             fclose( $pipes[ 0 ] );
             
