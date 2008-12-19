@@ -132,9 +132,8 @@ var Profile = {
                 Profile.Tweet.Delete();
                 return false;
             } );
-            var inp = $( win ).find( 'input' )[ 0 ];
             $( win ).find( 'form' ).submit( function () {
-                Profile.Tweet.Renew( inp.value );
+                Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 alert( 'value is ' + inp.value );
                 return false;
             } );
@@ -144,6 +143,7 @@ var Profile = {
                     $( win ).find( 'form' ).submit();
                 }
             } );
+            var inp = $( win ).find( 'input' )[ 0 ];
             inp.select();
             inp.focus();
             return false;
