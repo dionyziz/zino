@@ -128,20 +128,18 @@ var Profile = {
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 return false;
             } );
+            $( links[ 1 ] ).click( function () { // cancel
+                Modals.Destroy();
+                return false;
+            } );
             $( links[ 2 ] ).click( function () { // delete
                 Profile.Tweet.Delete();
                 return false;
             } );
+            Modals.Create( win, 400, 200 );
             $( win ).find( 'form' ).submit( function () {
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
-                alert( 'value is ' + inp.value );
                 return false;
-            } );
-            $( win ).find( 'input' ).keyup( function( event ) {
-                if ( event.keyCode == 13 ) {
-                    alert( 'enter hit' );
-                    $( win ).find( 'form' ).submit();
-                }
             } );
             var inp = $( win ).find( 'input' )[ 0 ];
             inp.select();
