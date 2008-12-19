@@ -159,7 +159,8 @@ var Profile = {
                     'padding': '19px 2px'
                 } );
                 $( 'div.mood div.moodpicker' ).css( {
-                    'margin-left': '160px'
+                    'margin-left': '160px',
+                    'z-index': '10'
                 } );
                 $( 'div.mood div.moodpicker div.view' ).css( {
                     'position': 'relative'
