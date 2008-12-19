@@ -102,8 +102,8 @@
                 if ( $id == $pivot->Id ) {
                     break;
                 }
-                ++$i;
             }
+            ++$i;
             $begin = $i - floor( $limit / 2 );
             $end = $i + floor( $limit / 2 );
             if ( $begin < 0 ) {
@@ -112,6 +112,7 @@
             if ( $end >= count( $ret ) ) {
                 $end = count( $ret ) - 1;
             }
+            die( "|$begin ... $end|" );
             $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
 
             return $ret;
