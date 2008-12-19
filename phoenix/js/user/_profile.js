@@ -141,6 +141,7 @@ var Profile = {
             } );
 		    $( inp ).keyup( function( event ) {
                 if ( event.keyCode == 13 ) {
+                    alert( 'enter hit' );
                     $( win ).find( 'form' ).submit();
                 }
             } );
