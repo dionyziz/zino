@@ -156,6 +156,35 @@ var Profile = {
                     f( id, moodid, who );
                     Settings.Save( false );
                 };
+                $( 'div.mood div.moodpicker div.view a' ).css( {
+                    'padding': '19px 2px'
+                } );
+                $( 'div.mood div.moodpicker' ).css( {
+                    'margin-left': '160px'
+                } );
+                $( 'div.mood div.moodpicker div.view' ).css( {
+                    'position': 'relative'
+                } );
+                var g = MoodDropdown.Push;
+                MoodDropdown.Push = function ( who ) {
+                    g( who );
+                    $( 'div.profile div.sidebar' ).css( {
+                        'overflow': 'visible'
+                    } );
+                    $( 'div.mood div.moodpicker div.view' ).css( {
+                        'top': '-94px'
+                    } );
+                };
+                var h = MoodDropdown.Unpush;
+                MoodDropdown.Unpush = function () {
+                    h();
+                    $( 'div.profile div.sidebar' ).css( {
+                        'overflow': 'hidden'
+                    } );
+                    $( 'div.mood div.moodpicker div.view' ).css( {
+                        'top': '0'
+                    } );
+                };
                 window.document.body.style.cursor = 'default';
             } } );
         } );

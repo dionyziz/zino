@@ -1,3 +1,4 @@
+// if you modify these signatures, also modify the function modifiers in js/user/profile.js
 var MoodDropdown = {
     CurrentOpen: 0,
     Unpush: function () {
@@ -10,7 +11,7 @@ var MoodDropdown = {
         $( this.CurrentOpen ).find( 'div.view' ).css( 'opacity', 1 );
         this.CurrentOpen = 0;
     },
-    Select: function ( id, moodid, who ) { // if you modify this signature, also modify the caller in js/user/profile.js
+    Select: function ( id, moodid, who ) {
         Settings.Enqueue( 'mood', moodid, 3000 );
         var imgnode = $( who.parentNode.parentNode.parentNode.parentNode ).find( 'div.view img.selected' )[ 0 ];
         imgnode.src = $( who ).find( 'img' )[ 0 ].src;
