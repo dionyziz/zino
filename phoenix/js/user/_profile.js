@@ -134,17 +134,13 @@ var Profile = {
             } );
             var inp = $( win ).find( 'input' )[ 0 ];
             $( win ).find( 'form' ).submit( function () {
-                if ( inp.value ) {
-                     Profile.Tweet.Renew( inp.value );
-                }
+                Profile.Tweet.Renew( inp.value );
                 alert( 'value is ' + inp.value );
                 return false;
             } );
-		    $( inp ).keyup( function( event ) {
-                if ( event.keyCode == 13 ) {
-                    alert( 'enter hit' );
-                    $( win ).find( 'form' ).submit();
-                }
+            $( win ).find( 'input' ).keyup( function( event ) {
+                alert( 'enter hit' );
+                $( win ).find( 'form' ).submit();
             } );
             inp.select();
             inp.focus();
