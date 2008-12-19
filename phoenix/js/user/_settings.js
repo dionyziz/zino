@@ -108,7 +108,7 @@ var Settings = {
 		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
 	},
 	SelectAvatar : function( imageid ) {
-		Modals.Destroy();
+        $( '#avatarlist' ).jqmHide();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	},
 	AddAvatar : function( imageid ) {
