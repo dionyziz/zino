@@ -122,7 +122,6 @@
                             <div>
                                 <ul>
                                     <li><a href="" class="button">Αποθήκευση</a></li>
-                                    <li><a href="" class="button">Ακύρωση</a></li>
                                     <li><a href="" class="button">Διαγραφή</a></li>
                                 </ul>
                             </div>
