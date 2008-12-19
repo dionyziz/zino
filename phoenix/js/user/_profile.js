@@ -116,6 +116,10 @@ var Profile = {
         }
     },
     MyProfileOnLoad: function () {
+        $( '#tweetedit' ).jqm( {
+            trigger : 'div.tweetbox div.tweet div a',
+            overlayClass : 'mdloverlay1'
+        } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
             //var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
             var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
@@ -134,10 +138,6 @@ var Profile = {
                 return false;
             } );
             //Modals.Create( win, 400, 200 );
-            $( '#tweetedit' ).jqm( {
-                trigger : 'div.tweetbox div.tweet div a',
-                overlayClass : 'mdloverlay1'
-            } );
             $( win ).find( 'form' ).submit( function () {
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 return false;
