@@ -9,8 +9,7 @@
         echo w_json_encode( ob_get_clean() );
         ?>;
         $( $( 'div#avatarlist ul li' )[ 0 ] ).html( inner ).show();
-        $( $( 'div#avatarlist ul li' )[ 0 ] ).html( inner );
-        alert( 'added' );<?php
+        $( $( 'div#avatarlist ul li' )[ 0 ] ).html( inner );<?php
         if ( $image->Album->Numphotos == 1 ) {
             ?>Coala.Warm( 'user/settings/avatar' , { imageid : <?php
             echo $image->Id;

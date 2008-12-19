@@ -112,11 +112,9 @@ var Settings = {
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	},
 	AddAvatar : function( imageid ) {
-		alert( 'adding avatar' );
         var li = document.createElement( 'li' );
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
-        alert( 'calling coala' );
 		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
