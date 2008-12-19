@@ -150,7 +150,6 @@ var Profile = {
             self.style.cursor = 'wait';
             Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
                 $( self ).replaceWith( html );
-                MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
                 var f = MoodDropdown.Select;
                 MoodDropdown.Select = function ( id, moodid, who ) {
                     f( id, moodid, who );
@@ -165,20 +164,24 @@ var Profile = {
                 $( 'div.mood div.moodpicker div.view' ).css( {
                     'position': 'relative'
                 } );
+                $( 'div.mood div.moodpicker div.view img' ).css( {
+                    'position': 'relative',
+                    'top': '-50px'
+                } );
                 var g = MoodDropdown.Push;
                 MoodDropdown.Push = function ( who ) {
-                    g( who );
-                    $( 'div.profile div.sidebar' ).css( {
+                    $( 'div#profile div.sidebar' ).css( {
                         'overflow': 'visible'
                     } );
                     $( 'div.mood div.moodpicker div.view' ).css( {
                         'top': '-94px'
                     } );
+                    g( who );
                 };
                 var h = MoodDropdown.Unpush;
                 MoodDropdown.Unpush = function () {
                     h();
-                    $( 'div.profile div.sidebar' ).css( {
+                    $( 'div#profile div.sidebar' ).css( {
                         'overflow': 'hidden'
                     } );
                     $( 'div.mood div.moodpicker div.view' ).css( {
@@ -186,6 +189,7 @@ var Profile = {
                     } );
                 };
                 window.document.body.style.cursor = 'default';
+                MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
             } } );
         } );
     }
