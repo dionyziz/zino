@@ -2,14 +2,14 @@
 var MoodDropdown = {
     CurrentOpen: 0,
     Unpush: function () {
-        if ( this.CurrentOpen === 0 ) {
+        if ( MoodDropdown.CurrentOpen === 0 ) {
             return;
         }
 
-        $( this.CurrentOpen ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'' + ExcaliburSettings.imagesurl + 'dropbutton.png\')';
-        $( this.CurrentOpen ).find( 'div.pick' ).fadeOut( 400 );
-        $( this.CurrentOpen ).find( 'div.view' ).css( 'opacity', 1 );
-        this.CurrentOpen = 0;
+        $( MoodDropdown.CurrentOpen ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'' + ExcaliburSettings.imagesurl + 'dropbutton.png\')';
+        $( MoodDropdown.CurrentOpen ).find( 'div.pick' ).fadeOut( 400 );
+        $( MoodDropdown.CurrentOpen ).find( 'div.view' ).css( 'opacity', 1 );
+        MoodDropdown.CurrentOpen = 0;
     },
     Select: function ( id, moodid, who ) {
         Settings.Enqueue( 'mood', moodid, 3000 );
@@ -20,13 +20,13 @@ var MoodDropdown = {
         MoodDropdown.Unpush();
     },
     Push: function ( who ) {
-        if ( this.CurrentOpen !== 0 ) {
-            if ( this.CurrentOpen == who ) {
-                this.Unpush();
+        if ( MoodDropdown.CurrentOpen !== 0 ) {
+            if ( MoodDropdown.CurrentOpen == who ) {
+                MoodDropdown.Unpush();
                 return;
             }
         }
-        this.CurrentOpen = who;
+        MoodDropdown.CurrentOpen = who;
         $( who ).css( 'overflow', '' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'' + ExcaliburSettings.imagesurl + 'dropbuttonpushed.png\')';
         $( who ).find( 'div.view' ).css( 'opacity', 0.5 );
         $( who ).find( 'div.pick' ).hide();
