@@ -133,10 +133,17 @@ var Profile = {
             } );
             var inp = $( win ).find( 'input' )[ 0 ];
             $( win ).find( 'form' ).submit( function () {
-                Profile.Tweet.Renew( inp.value );
+                if ( inp.value ) {
+                     Profile.Tweet.Renew( inp.value );
+                }
                 alert( 'value is ' + inp.value );
                 return false;
             } );
+		    $( inp ).keyup( function( event ) {
+                if ( event.keyCode == 13 ) {
+                    $( win ).find( 'form' ).submit();
+                }
+            }
             inp.select();
             inp.focus();
             return false;
