@@ -109,8 +109,8 @@
             if ( $begin < 0 ) {
                 $begin = 0;
             }
-            if ( $end >= count( $ret ) ) {
-                $end = count( $ret ) - 1;
+            if ( $end > count( $ret ) ) {
+                $end = count( $ret );
             }
             $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
             foreach ( $ret as $key => $image ) {
