@@ -53,9 +53,10 @@ div#tweetedit {
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
+    height: 120px;
 }
 div#tweetedit form {
-    margin: 20px 0 0 0;
+    margin: 20px 15px 0 15px;
     text-align: center;
 }
 div#tweetedit ul li {
