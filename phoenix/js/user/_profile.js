@@ -143,7 +143,7 @@ var Profile = {
                 if ( event.keyCode == 13 ) {
                     $( win ).find( 'form' ).submit();
                 }
-            }
+            } );
             inp.select();
             inp.focus();
             return false;
