@@ -131,12 +131,12 @@ var Profile = {
                 Profile.Tweet.Delete();
                 return false;
             } );
-            //Modals.Create( win, 400, 200 );
+            var inp = $( win ).find( 'input' )[ 0 ];
             $( win ).find( 'form' ).submit( function () {
-                Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
+                Profile.Tweet.Renew( inp.value );
+                alert( 'value is ' , inp.value );
                 return false;
             } );
-            var inp = $( win ).find( 'input' )[ 0 ];
             inp.select();
             inp.focus();
             return false;
