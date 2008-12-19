@@ -151,6 +151,11 @@ var Profile = {
             Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
                 $( self ).replaceWith( html );
                 MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
+                var f = MoodDropdown.Select;
+                MoodDropdown.Select = function () {
+                    f();
+                    Settings.Save();
+                };
                 window.document.body.style.cursor = 'default';
             } } );
         } );
