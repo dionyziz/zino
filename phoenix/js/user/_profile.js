@@ -149,7 +149,7 @@ var Profile = {
             window.document.body.style.cursor = 'wait';
             self.style.cursor = 'wait';
             Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
-                self.replaceWith( html );
+                $( self ).replaceWith( html );
                 MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
                 window.document.body.style.cursor = 'default';
             } } );
