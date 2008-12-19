@@ -114,10 +114,10 @@ var Settings = {
 	AddAvatar : function( imageid ) {
         var li = document.createElement( 'li' );
 		$( li ).hide();
-		$( 'divr#.avatarlist ul' ).prepend( li );
+		$( 'div#avatarlist ul' ).prepend( li );
 		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
 		var li2 = document.createElement( 'li' );
-		$( 'di#.avatarlist ul' ).prepend( li2 );
+		$( 'div#avatarlist ul' ).prepend( li2 );
 	},
 	CreateModal : function() {
 		var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
