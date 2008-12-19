@@ -46,10 +46,15 @@ div.tweetactive div.tweet a:hover {
     text-decoration: underline;
     color: #149;
 }
-div#tweetedit form {
-}
 div#tweetedit {
-    padding: 30px 0 0 0;
+	display: none;
+	top: 10%;
+	left: 30%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+}
+div#tweetedit form {
 }
 div#tweetedit ul li {
     display: inline;

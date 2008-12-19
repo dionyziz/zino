@@ -217,14 +217,6 @@ div#profile div.main div.ybubble {
 	width: 500px;
 	height: 85px;
 }
-div#tweetedit {
-	display: none;
-	top: 10%;
-	left: 30%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
-}
 div#profile div.main div.ybubble div.body h3 {
 	padding: 5px 0 0 5px;
 }	
