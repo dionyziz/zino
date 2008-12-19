@@ -139,8 +139,10 @@ var Profile = {
                 return false;
             } );
             $( win ).find( 'input' ).keyup( function( event ) {
-                alert( 'enter hit' );
-                $( win ).find( 'form' ).submit();
+                if ( event.keyCode == 13 ) {
+                    alert( 'enter hit' );
+                    $( win ).find( 'form' ).submit();
+                }
             } );
             inp.select();
             inp.focus();
