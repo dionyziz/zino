@@ -152,9 +152,9 @@ var Profile = {
                 $( self ).replaceWith( html );
                 MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
                 var f = MoodDropdown.Select;
-                MoodDropdown.Select = function () {
-                    f();
-                    Settings.Save();
+                MoodDropdown.Select = function ( id, moodid, who ) {
+                    f( id, moodid, who );
+                    Settings.Save( false );
                 };
                 window.document.body.style.cursor = 'default';
             } } );
