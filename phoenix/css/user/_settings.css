@@ -221,21 +221,17 @@ div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
 	border: 1px solid #284659;
 
 }
-div#avatarlist div.title {
-	background: #
-}
 div#avatarlist div.uploaddiv {
 	position: absolute;
-	top: 0;
+	top: 25px;
 	right: 0;
 }
 div#avatarlist div.uploaddiv object.uploadframe {
 	height: 40px;
 }
 div#avatarlist ul {
-	margin-top: 30px;
+	margin: 60px 0 0 0;
 	padding: 0;
-	list-style: none;
 	width: 490px;
 	height: 400px;
 	overflow: auto;
