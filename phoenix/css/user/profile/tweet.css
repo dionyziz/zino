@@ -55,6 +55,8 @@ div#tweetedit {
 	border: 1px solid #284659;
 }
 div#tweetedit form {
+    margin: 20px 0 0 0;
+    text-align: center;
 }
 div#tweetedit ul li {
     display: inline;
