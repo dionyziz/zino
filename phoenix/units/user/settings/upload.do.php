@@ -8,9 +8,10 @@
         Element( 'user/settings/personal/photosmall' , $image );
         echo w_json_encode( ob_get_clean() );
         ?>;
-        alert( 'added photo' );
         $( $( 'div.modal div.avatarlist ul li' )[ 0 ] ).html( inner ).show();
-        $( $( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li' )[ 0 ] ).html( inner );<?php
+        alert( 'adding innerhtml' );
+        $( $( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li' )[ 0 ] ).html( inner );
+        alert( 'added' );<?php
         if ( $image->Album->Numphotos == 1 ) {
             ?>Coala.Warm( 'user/settings/avatar' , { imageid : <?php
             echo $image->Id;
