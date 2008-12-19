@@ -147,9 +147,11 @@ var Profile = {
         } ).click( function () {
             var self = this;
             window.document.body.style.cursor = 'wait';
+            self.style.cursor = 'wait';
             Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
-                alert( self );
-                alert( html );
+                self.replaceWith( html );
+                MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
+                window.document.body.style.cursor = 'default';
             } } );
         } );
     }
