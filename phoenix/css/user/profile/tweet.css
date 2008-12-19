@@ -48,8 +48,8 @@ div.tweetactive div.tweet a:hover {
 }
 div#tweetedit {
 	display: none;
-	top: 10%;
-	left: 30%;
+	top: 25%;
+	left: 40%;
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
