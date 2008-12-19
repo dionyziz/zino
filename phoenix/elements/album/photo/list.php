@@ -94,13 +94,13 @@
                         if ( UserBrowser() == 'MSIE' ) {
                             ?><iframe src="?p=upload&amp;albumid=<?php
                             echo $album->Id;
-                            ?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
+                            ?>&amp;typeid=0&amp;color=fff" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
                             </iframe><?php
                         }
                         else {
                             ?><object data="?p=upload&amp;albumid=<?php
                             echo $album->Id;
-                            ?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html">
+                            ?>&amp;typeid=0&amp;color=fff" class="uploadframe" id="uploadframe" type="text/html">
                             </object><?php
                         }
                         ?></div><?php
