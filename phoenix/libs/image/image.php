@@ -113,10 +113,6 @@
                 $end = count( $ret );
             }
             $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
-            foreach ( $ret as $key => $image ) {
-                echo "[" . $image->Id. "]";
-            }
-            die( "|$begin ... $end|" );
 
             return $ret;
         }
