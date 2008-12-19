@@ -11,7 +11,6 @@
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
             $color = $color->Get();
-            die( 'color ' . $color );
             $page->AttachInlineScript( "document.body.style.backgroundColor = '#" . $color . "';" );
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
                 $page->AttachInlineScript( "document.body.style.backgroundColor = '#ffdf80';" );
