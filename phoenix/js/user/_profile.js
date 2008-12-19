@@ -170,7 +170,9 @@ var Profile = {
                     'top': '-53px'
                 } );
                 var g = MoodDropdown.Push;
+                document.title = 0;
                 MoodDropdown.Push = function ( who ) {
+                    ++document.title;
                     $( 'div#profile div.sidebar' ).css( {
                         'overflow': 'visible'
                     } );
