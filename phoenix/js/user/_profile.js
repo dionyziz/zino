@@ -128,11 +128,7 @@ var Profile = {
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 return false;
             } );
-            $( links[ 1 ] ).click( function () { // cancel
-                Modals.Destroy();
-                return false;
-            } );
-            $( links[ 2 ] ).click( function () { // delete
+            $( links[ 1 ] ).click( function () { // delete
                 Profile.Tweet.Delete();
                 return false;
             } );
