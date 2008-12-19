@@ -103,7 +103,7 @@
                     </div>
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {
-                    ?><div style="display:none" id="tweetedit">
+                    ?><div id="tweetedit">
                         <form>
                             <h5>Τι κάνεις τώρα;</h5>
                             <div class="input"><?php
