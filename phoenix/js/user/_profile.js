@@ -103,7 +103,7 @@ var Profile = {
         Delete: function () {
             Coala.Warm( 'status/new', { message: '' } );
             $( 'div.tweetactive' ).remove();
-            Modals.Destroy();
+            $( '#tweetedit' ).jqmHide();
         },
         Renew: function ( message ) {
             if ( message === '' ) {
@@ -121,16 +121,10 @@ var Profile = {
             overlayClass : 'mdloverlay1'
         } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
-            //var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
             var win = $( '#tweetedit' )[ 0 ];
-           // win.style.display = '';
             var links = $( win ).find( 'a' );
             $( links[ 0 ] ).click( function () { // save
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
-                return false;
-            } );
-            $( links[ 1 ] ).click( function () { // cancel
-                Modals.Destroy();
                 return false;
             } );
             $( links[ 2 ] ).click( function () { // delete
