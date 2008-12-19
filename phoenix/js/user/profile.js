@@ -103,7 +103,7 @@ var Profile = {
         Delete: function () {
             Coala.Warm( 'status/new', { message: '' } );
             $( 'div.tweetactive' ).remove();
-            Modals.Destroy();
+            $( '#tweetedit' ).jqmHide();
         },
         Renew: function ( message ) {
             if ( message === '' ) {
@@ -112,27 +112,25 @@ var Profile = {
             $( 'div.tweetactive div.tweet a span' ).empty()[ 0 ].appendChild( document.createTextNode( message ) );
             $( '#tweetedit form input' )[ 0 ].value = message;
             Coala.Warm( 'status/new', { message: message } );
-            Modals.Destroy();
+            $( '#tweetedit' ).jqmHide();
         }
     },
     MyProfileOnLoad: function () {
+        $( '#tweetedit' ).jqm( {
+            trigger : 'div.tweetbox div.tweet div a',
+            overlayClass : 'mdloverlay1'
+        } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
-            var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
-            win.style.display = '';
+            var win = $( '#tweetedit' )[ 0 ];
             var links = $( win ).find( 'a' );
             $( links[ 0 ] ).click( function () { // save
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 return false;
             } );
-            $( links[ 1 ] ).click( function () { // cancel
-                Modals.Destroy();
-                return false;
-            } );
-            $( links[ 2 ] ).click( function () { // delete
+            $( links[ 1 ] ).click( function () { // delete
                 Profile.Tweet.Delete();
                 return false;
             } );
-            Modals.Create( win, 400, 200 );
             $( win ).find( 'form' ).submit( function () {
                 Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
                 return false;
