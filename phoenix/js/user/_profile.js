@@ -165,9 +165,9 @@ var Profile = {
                 $( 'div.mood div.moodpicker div.view' ).css( {
                     'position': 'relative'
                 } );
-                $( 'div.mood div.moodpicker div.view img' ).css( {
+                $( 'div.mood div.moodpicker div.view img.selected' ).css( {
                     'position': 'relative',
-                    'top': '-50px'
+                    'top': '-53px'
                 } );
                 var g = MoodDropdown.Push;
                 MoodDropdown.Push = function ( who ) {
