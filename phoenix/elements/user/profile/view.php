@@ -47,7 +47,10 @@
                 else {
                     $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
                 }                    
-            } 
+            }
+            if ( $user->Id == $theuser->Id ) {
+                $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
+            }
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
                     $text = "αυτή τη στιγμή!";

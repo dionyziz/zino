@@ -114,33 +114,34 @@ var Profile = {
             Coala.Warm( 'status/new', { message: message } );
             Modals.Destroy();
         }
+    },
+    MyProfileOnLoad: function () {
+        $( 'div.tweetactive div.tweet a' ).click( function () {
+            var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
+            win.style.display = '';
+            var links = $( win ).find( 'a' );
+            $( links[ 0 ] ).click( function () { // save
+                Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
+                return false;
+            } );
+            $( links[ 1 ] ).click( function () { // cancel
+                Modals.Destroy();
+                return false;
+            } );
+            $( links[ 2 ] ).click( function () { // delete
+                Profile.Tweet.Delete();
+                return false;
+            } );
+            Modals.Create( win, 400, 200 );
+            $( win ).find( 'form' ).submit( function () {
+                Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
+                return false;
+            } );
+            var inp = $( win ).find( 'input' )[ 0 ];
+            inp.select();
+            inp.focus();
+            return false;
+        } );
     }
 };
-$( function() {
-    $( 'div.tweetactive div.tweet a' ).click( function () {
-        var win = $( '#tweetedit' )[ 0 ].cloneNode( true );
-        win.style.display = '';
-        var links = $( win ).find( 'a' );
-        $( links[ 0 ] ).click( function () { // save
-            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
-            return false;
-        } );
-        $( links[ 1 ] ).click( function () { // cancel
-            Modals.Destroy();
-            return false;
-        } );
-        $( links[ 2 ] ).click( function () { // delete
-            Profile.Tweet.Delete();
-            return false;
-        } );
-        Modals.Create( win, 400, 200 );
-        $( win ).find( 'form' ).submit( function () {
-            Profile.Tweet.Renew( $( win ).find( 'input' )[ 0 ].value );
-            return false;
-        } );
-        var inp = $( win ).find( 'input' )[ 0 ];
-        inp.select();
-        inp.focus();
-        return false;
-    } );
-} );
+
