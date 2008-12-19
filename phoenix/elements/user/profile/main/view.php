@@ -104,8 +104,8 @@
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {
                     ?><div id="tweetedit">
+                        <h3 class="modaltitle">Τι κάνεις τώρα;</h3>
                         <form>
-                            <h5>Τι κάνεις τώρα;</h5>
                             <div class="input"><?php
                                 if ( $theuser->Gender == 'f' ) {
                                     ?>Η <?php
