@@ -17,7 +17,7 @@
                         ?>
                         <iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
-                        ?>&amp;typeid=1&amp;color=284659" class="uploadframe" id="uploadframe">
+                        ?>&amp;typeid=1&amp;color=eef5f9" class="uploadframe" id="uploadframe">
                         </iframe>
                         <?php
                     }
@@ -25,7 +25,7 @@
                         ?>
                         <object style="height:50px" data="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
-                        ?>&amp;typeid=1&amp;color=284659" class="uploadframe" id="uploadframe" type="text/html">
+                        ?>&amp;typeid=1&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html">
                         </object>
                         <?php
                     }
