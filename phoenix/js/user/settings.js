@@ -107,18 +107,12 @@ var Settings = {
 		$( parent ).hide( 'slow' );
 		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
 	},
-	ShowAvatarChange : function() {   
-		var avies = $( '#avatarlist' )[ 0 ].cloneNode( true );
-		$( avies ).show();
-		Modals.Create( avies, 500, 500 );
-		
-	},
 	SelectAvatar : function( imageid ) {
-		Modals.Destroy();
+        $( '#avatarlist' ).jqmHide();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	},
 	AddAvatar : function( imageid ) {
-		var li = document.createElement( 'li' );
+        var li = document.createElement( 'li' );
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
 		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
@@ -549,5 +543,9 @@ $( function() {
             }
             return false;
         } );
+		$( '#avatarlist' ).jqm( {
+			trigger : 'div.changeavatar a',
+			overlayClass : 'mdloverlay1'
+		} );
 	}
 } );

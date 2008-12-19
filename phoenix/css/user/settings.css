@@ -125,9 +125,7 @@ form#personalinfo div span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
 	padding: 0 4px 0 12px;
 }
-div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
-	display: none;
-}
+
 /*
 div.settings div.tabs form#personalinfo div.option div.forstudents {
 	font-size: 80%;
@@ -214,27 +212,31 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
-div.avatarlist {
-	margin: 10px 0 0 5px;
-	position: relative;
+div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
+	display: none;
+	top: 10%;
+	left: 30%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+
 }
-div.avatarlist div.uploaddiv {
+div#avatarlist div.uploaddiv {
 	position: absolute;
-	top: -2px;
+	top: 25px;
 	right: 0;
 }
-div.avatarlist div.uploaddiv object.uploadframe {
+div#avatarlist div.uploaddiv object.uploadframe {
 	height: 40px;
 }
-div.avatarlist ul {
-	margin-top: 30px;
+div#avatarlist ul {
+	margin: 60px 0 0 0;
 	padding: 0;
-	list-style: none;
 	width: 490px;
 	height: 400px;
 	overflow: auto;
 }
-div.avatarlist ul li {
+div#avatarlist ul li {
 	margin: 0 5px 5px 0;
 	padding: 0;
 	float: left;
@@ -242,11 +244,11 @@ div.avatarlist ul li {
 	height: 110px;
 	text-align: center;
 }
-div.avatarlist ul li img.photosmall {
+div#avatarlist ul li img.photosmall {
 	padding: 1px;
 	border: 1px solid #ccc;
 }
-div.avatarlist div.cancel {
+div#avatarlist div.cancel {
 	text-align: center;
 }
 div.changepwd {

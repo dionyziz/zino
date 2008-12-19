@@ -1,7 +1,7 @@
 <?php
     
     class ElementAlbumPhotoUpload extends Element {
-        public function Render( tInteger $albumid , tInteger $typeid ) {
+        public function Render( tInteger $albumid , tInteger $typeid , tString $color ) {
             global $water;
             global $user;
             global $rabbit_settings;
@@ -10,6 +10,8 @@
             $page->SetTitle( 'Ανέβασε μια εικόνα' );
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
+            $color = $color->Get();
+            $page->AttachInlineScript( "document.body.style.backgroundColor = '#" . $color . "';" );
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
                 $page->AttachInlineScript( "document.body.style.backgroundColor = '#ffdf80';" );
             }
@@ -31,6 +33,9 @@
                             ?>" />
                             <input type="hidden" name="typeid" value="<?php
                             echo $typeid->Get();
+                            ?>" />
+                            <input type="hidden" name="color" value="<?php
+                            echo $color;
                             ?>" />
                             <div class="colorlink">
                                 Νέα φωτογραφία
