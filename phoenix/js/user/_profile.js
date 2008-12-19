@@ -134,7 +134,7 @@ var Profile = {
             var inp = $( win ).find( 'input' )[ 0 ];
             $( win ).find( 'form' ).submit( function () {
                 Profile.Tweet.Renew( inp.value );
-                alert( 'value is ' , inp.value );
+                alert( 'value is ' + inp.value );
                 return false;
             } );
             inp.select();
