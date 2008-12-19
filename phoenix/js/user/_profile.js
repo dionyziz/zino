@@ -144,7 +144,7 @@ var Profile = {
         } );
         $( 'div.mood img' ).css( {
             'cursor': 'pointer'
-        } )click( function () {
+        } ).click( function () {
             alert( 'Clicked!' );
         } );
     }
