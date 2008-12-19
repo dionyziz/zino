@@ -112,7 +112,7 @@ var Profile = {
             $( 'div.tweetactive div.tweet a span' ).empty()[ 0 ].appendChild( document.createTextNode( message ) );
             $( '#tweetedit form input' )[ 0 ].value = message;
             Coala.Warm( 'status/new', { message: message } );
-            Modals.Destroy();
+            $( '#tweetedit' ).jqmHide();
         }
     },
     MyProfileOnLoad: function () {
