@@ -16,7 +16,7 @@ var MoodDropdown = {
         imgnode.src = $( who ).find( 'img' )[ 0 ].src;
         imgnode.alt = $( who ).find( 'img' )[ 0 ].alt;
         imgnode.title = $( who ).find( 'img' )[ 0 ].title;
-        this.Unpush();
+        MoodDropdown.Unpush();
     },
     Push: function ( who ) {
         if ( this.CurrentOpen !== 0 ) {
