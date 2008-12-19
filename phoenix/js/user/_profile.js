@@ -101,6 +101,7 @@ var Profile = {
     },
     Tweet: {
         Delete: function () {
+            alert( 'deleting tweet' );
             Coala.Warm( 'status/new', { message: '' } );
             $( 'div.tweetactive' ).remove();
             $( '#tweetedit' ).jqmHide();
