@@ -102,8 +102,8 @@
                 if ( $id == $pivot->Id ) {
                     break;
                 }
+                ++$i;
             }
-            ++$i;
             $begin = $i - floor( $limit / 2 );
             $end = $i + floor( $limit / 2 );
             if ( $begin < 0 ) {
