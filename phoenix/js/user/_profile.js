@@ -145,7 +145,12 @@ var Profile = {
         $( 'div.mood img' ).css( {
             'cursor': 'pointer'
         } ).click( function () {
-            alert( 'Clicked!' );
+            var self = this;
+            window.document.body.style.cursor = 'wait';
+            Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
+                alert( self );
+                alert( html );
+            } } );
         } );
     }
 };
