@@ -112,11 +112,11 @@
             if ( $end >= count( $ret ) ) {
                 $end = count( $ret ) - 1;
             }
+            $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
             foreach ( $ret as $key => $image ) {
                 echo "[" . $image->Id. "]";
             }
             die( "|$begin ... $end|" );
-            $ret = array_values( array_slice( $ret, $begin, $end - $begin ) );
 
             return $ret;
         }
