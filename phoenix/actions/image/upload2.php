@@ -1,6 +1,6 @@
 <?php
 
-    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage , tInteger $typeid ) {
+    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage , tInteger $typeid , tString $color ) {
         global $libs;
         global $water;
         global $rabbit_settings;
@@ -121,7 +121,7 @@
         } 
         ?>
         window.location.href = <?php
-        echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid . '&typeid=' . $typeid );
+        echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid . '&typeid=' . $typeid . '&color='.$color );
         ?>;</script></body></html><?php
     }
 

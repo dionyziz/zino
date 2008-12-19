@@ -34,6 +34,9 @@
                             <input type="hidden" name="typeid" value="<?php
                             echo $typeid->Get();
                             ?>" />
+                            <input type="hidden" name="color" value="<?php
+                            echo $color;
+                            ?>" />
                             <div class="colorlink">
                                 Νέα φωτογραφία
                             </div>
