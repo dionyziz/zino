@@ -126,7 +126,8 @@ var Settings = {
 		Modals.Create(  area , 440 , 330 );
 		Settings.oldpassworddiv = $( 'div#pwdmodal div.oldpassword' );
 		Settings.newpassworddiv = $( 'div#pwdmodal div.newpassword' );
-		Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' ); Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
+		Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' );
+		Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
 		Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
 		Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
 
