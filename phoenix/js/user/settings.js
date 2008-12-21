@@ -192,360 +192,358 @@ var Settings = {
 			Settings.Enqueue( 'oldpassword' , oldpassword );
 			Settings.Enqueue( 'newpassword' , newpassword );
 		}
-	}
-};
-$( function() {
-	if ( $( 'div.settings' )[ 0 ] ) {
+	},
+    SettingsOnLoad : function() {
         Settings.SwitchSettings( window.location.hash.substr( 1 ) );
-		$( '#gender select' ).change( function() {
-			var sexselected = $( '#sex select' )[ 0 ].value;
-			var relselected = $( '#religion select' )[ 0 ].value;
-			var polselected = $( '#politics select' )[ 0 ].value;
-			Coala.Cold( 'user/settings/genderupdate' , { 
-				gender : this.value,
-				sex : sexselected,
-				religion : relselected,
-				politics : polselected
-			} );
-			Settings.Enqueue( 'gender' , this.value );
-		});
-		$( '#dateofbirth select' ).change( function() {
-			var day = $( '#dateofbirth select' )[ 0 ].value;
-			var month = $( '#dateofbirth select' )[ 1 ].value;
-			var year = $( '#dateofbirth select' )[ 2 ].value;
-			//check for validdate
-			if ( day != -1 && month != -1 && year != -1 ) {
-				if ( Dates.ValidDate( day , month , year ) ) {
-					if ( Settings.invaliddob ) {
-						$( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
-							.animate( { opacity: "0" } , 1000 , function() {
-								$( this ).css( "display" , "none" );
-							});
-						Settings.invaliddob = false;
-					}
-					Settings.Enqueue( 'dobd' , day );
-					Settings.Enqueue( 'dobm' , month );
-					Settings.Enqueue( 'doby' , year );
-				}
-				else {
-					if ( !Settings.invaliddob ) {
-						$( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
-							.css( "display" , "inline" )
-							.animate( { opacity: "1" } , 200 );	
-						Settings.invaliddob = true;
-					}
-				}
-			}
-		});
-		$( '#place select' ).change( function() {
-			Settings.Enqueue( 'place' , this.value );
-			Settings.Save( false );
-		});
-		$( '#education select' ).change( function() {
-			Settings.Enqueue( 'education' , this.value );
-			Settings.Save( false );
-		});
-		$( '#school select' ).change( function() {
-			Settings.Enqueue( 'school' , this.value );
-		});
-		$( '#sex select' ).change( function() {
-			Settings.Enqueue( 'sex' , this.value );
-		});
-		$( '#religion select' ).change( function() {
-			Settings.Enqueue( 'religion' , this.value );
-		});
-		$( '#politics select' ).change( function() {
-			Settings.Enqueue( 'politics' , this.value );
-		});
-		$( '#haircolor select' ).change( function() {
-			Settings.Enqueue( 'haircolor' , this.value );
-		});
-		$( '#eyecolor select' ).change( function() {
-			Settings.Enqueue( 'eyecolor' , this.value );
-		});
-		$( '#height select' ).change( function() {
-			Settings.Enqueue( 'height' , this.value );
-		});
-		$( '#weight select' ).change( function() {
-			Settings.Enqueue( 'weight' , this.value );
-		});
-		$( '#smoker select' ).change( function() {
-			Settings.Enqueue( 'smoker' , this.value );
-		});
-		$( '#drinker select' ).change( function() {
-			Settings.Enqueue( 'drinker' , this.value );
-		});
-		
-		$( '#slogan input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'slogan' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'slogan' , text );
-			if ( Settings.slogan ) {
-				Settings.slogan = this.value;
-			}
-		});
-		
-		$( '#aboutme textarea' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'aboutme' , text );
-		}).keyup( function() {
-			if ( Settings.aboutmetext != this.value ) {
-				var text = this.value;
-				if ( this.value === '' ) {
-					text = '-1';
-				}
-				Settings.Enqueue( 'aboutme' , text );
-				if ( Settings.aboutmetext ) {
-					Settings.aboutmetext = this.value;
-				}
-			}
-		} );
-		
-		$( '#favquote input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'favquote' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'favquote' , text );
-			if ( Settings.favquote ) {
-				Settings.favquote = this.value;
-			}
-		});
-		
-		$( '#email input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'email' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( Settings.invalidemail ) {
-				if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
-					$( 'div#email span' ).animate( { opacity: "0" } , 1000 , function() {
-						$( 'div#email span' ).css( "display" , "none" );
-					});
-					Settings.invalidemail = false;
-					Settings.Enqueue( 'email' , text );
-				}
-			}
-			else {
-				if ( this.value === '' ) {
-					text = '-1';
-				}
-				Settings.Enqueue( 'email' , text );
-			}
-			if ( Settings.email ) {
-				Settings.email = this.value;
-			}
-		});
-		
-		$( '#msn input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'msn' , text , 500 );
-		}).keyup( function() {
-			var text = this.value;
-			if ( Settings.invalidmsn ) {
-				if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
-					$( 'div#msn span' ).animate( { opacity: "0" } , 1000 , function() {
-						$( 'div#msn span' ).css( "display" , "none" );
-					});
-					Settings.invalidmsn = false;
-					Settings.Enqueue( 'msn' , text );
-				}
-			}
-			else {
-				if ( this.value === '' ) {
-					text = '-1';
-				}
-				Settings.Enqueue( 'msn' , text );
-			}
-			if ( Settings.msn ) {
-				Settings.msn = this.value;
-			}
-		});
-		
-		$( '#gtalk input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'gtalk' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'gtalk' , text );
-			if ( Settings.gtalk ) {
-				Settings.gtalk = this.value;
-			}
-		});
-		
-		$( '#skype input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'skype' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'skype' , text );
-			if ( Settings.skype ) {
-				Settings.skype = this.value;
-			}
-		});
-		
-		$( '#yahoo input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'yahoo' , text );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'yahoo' , text );
-			if ( Settings.yahoo ) {
-				Settings.yahoo = this.value;
-			}
-		});
-		
-		$( '#web input' ).change( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'web' , text0 );
-		}).keyup( function() {
-			var text = this.value;
-			if ( this.value === '' ) {
-				text = '-1';
-			}
-			Settings.Enqueue( 'web' , text );
-			if ( Settings.skype ) {
-				Settings.skype = this.value;
-			}
-		});
-		
-		//interesttags
-		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'hobbies' , 1 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
-			Settings.AddInterest( 'hobbies' , 1 );
-			return false;
-		} );
-		
-		$( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'movies' , 2 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
-			Settings.AddInterest( 'movies' , 2 );
-			return false;
-		} );
-		
-		$( 'form#interestsinfo div.option div.setting div.books input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'books' , 3 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
-			Settings.AddInterest( 'books' , 3 );
-			return false;
-		} );
+        $( '#gender select' ).change( function() {
+            var sexselected = $( '#sex select' )[ 0 ].value;
+            var relselected = $( '#religion select' )[ 0 ].value;
+            var polselected = $( '#politics select' )[ 0 ].value;
+            Coala.Cold( 'user/settings/genderupdate' , { 
+                gender : this.value,
+                sex : sexselected,
+                religion : relselected,
+                politics : polselected
+            } );
+            Settings.Enqueue( 'gender' , this.value );
+        });
+        $( '#dateofbirth select' ).change( function() {
+            var day = $( '#dateofbirth select' )[ 0 ].value;
+            var month = $( '#dateofbirth select' )[ 1 ].value;
+            var year = $( '#dateofbirth select' )[ 2 ].value;
+            //check for validdate
+            if ( day != -1 && month != -1 && year != -1 ) {
+                if ( Dates.ValidDate( day , month , year ) ) {
+                    if ( Settings.invaliddob ) {
+                        $( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
+                            .animate( { opacity: "0" } , 1000 , function() {
+                                $( this ).css( "display" , "none" );
+                            });
+                        Settings.invaliddob = false;
+                    }
+                    Settings.Enqueue( 'dobd' , day );
+                    Settings.Enqueue( 'dobm' , month );
+                    Settings.Enqueue( 'doby' , year );
+                }
+                else {
+                    if ( !Settings.invaliddob ) {
+                        $( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
+                            .css( "display" , "inline" )
+                            .animate( { opacity: "1" } , 200 );	
+                        Settings.invaliddob = true;
+                    }
+                }
+            }
+        });
+        $( '#place select' ).change( function() {
+            Settings.Enqueue( 'place' , this.value );
+            Settings.Save( false );
+        });
+        $( '#education select' ).change( function() {
+            Settings.Enqueue( 'education' , this.value );
+            Settings.Save( false );
+        });
+        $( '#school select' ).change( function() {
+            Settings.Enqueue( 'school' , this.value );
+        });
+        $( '#sex select' ).change( function() {
+            Settings.Enqueue( 'sex' , this.value );
+        });
+        $( '#religion select' ).change( function() {
+            Settings.Enqueue( 'religion' , this.value );
+        });
+        $( '#politics select' ).change( function() {
+            Settings.Enqueue( 'politics' , this.value );
+        });
+        $( '#haircolor select' ).change( function() {
+            Settings.Enqueue( 'haircolor' , this.value );
+        });
+        $( '#eyecolor select' ).change( function() {
+            Settings.Enqueue( 'eyecolor' , this.value );
+        });
+        $( '#height select' ).change( function() {
+            Settings.Enqueue( 'height' , this.value );
+        });
+        $( '#weight select' ).change( function() {
+            Settings.Enqueue( 'weight' , this.value );
+        });
+        $( '#smoker select' ).change( function() {
+            Settings.Enqueue( 'smoker' , this.value );
+        });
+        $( '#drinker select' ).change( function() {
+            Settings.Enqueue( 'drinker' , this.value );
+        });
+        
+        $( '#slogan input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'slogan' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'slogan' , text );
+            if ( Settings.slogan ) {
+                Settings.slogan = this.value;
+            }
+        });
+        
+        $( '#aboutme textarea' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'aboutme' , text );
+        }).keyup( function() {
+            if ( Settings.aboutmetext != this.value ) {
+                var text = this.value;
+                if ( this.value === '' ) {
+                    text = '-1';
+                }
+                Settings.Enqueue( 'aboutme' , text );
+                if ( Settings.aboutmetext ) {
+                    Settings.aboutmetext = this.value;
+                }
+            }
+        } );
+        
+        $( '#favquote input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'favquote' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'favquote' , text );
+            if ( Settings.favquote ) {
+                Settings.favquote = this.value;
+            }
+        });
+        
+        $( '#email input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'email' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( Settings.invalidemail ) {
+                if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+                    $( 'div#email span' ).animate( { opacity: "0" } , 1000 , function() {
+                        $( 'div#email span' ).css( "display" , "none" );
+                    });
+                    Settings.invalidemail = false;
+                    Settings.Enqueue( 'email' , text );
+                }
+            }
+            else {
+                if ( this.value === '' ) {
+                    text = '-1';
+                }
+                Settings.Enqueue( 'email' , text );
+            }
+            if ( Settings.email ) {
+                Settings.email = this.value;
+            }
+        });
+        
+        $( '#msn input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'msn' , text , 500 );
+        }).keyup( function() {
+            var text = this.value;
+            if ( Settings.invalidmsn ) {
+                if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+                    $( 'div#msn span' ).animate( { opacity: "0" } , 1000 , function() {
+                        $( 'div#msn span' ).css( "display" , "none" );
+                    });
+                    Settings.invalidmsn = false;
+                    Settings.Enqueue( 'msn' , text );
+                }
+            }
+            else {
+                if ( this.value === '' ) {
+                    text = '-1';
+                }
+                Settings.Enqueue( 'msn' , text );
+            }
+            if ( Settings.msn ) {
+                Settings.msn = this.value;
+            }
+        });
+        
+        $( '#gtalk input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'gtalk' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'gtalk' , text );
+            if ( Settings.gtalk ) {
+                Settings.gtalk = this.value;
+            }
+        });
+        
+        $( '#skype input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'skype' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'skype' , text );
+            if ( Settings.skype ) {
+                Settings.skype = this.value;
+            }
+        });
+        
+        $( '#yahoo input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'yahoo' , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'yahoo' , text );
+            if ( Settings.yahoo ) {
+                Settings.yahoo = this.value;
+            }
+        });
+        
+        $( '#web input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'web' , text0 );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( 'web' , text );
+            if ( Settings.skype ) {
+                Settings.skype = this.value;
+            }
+        });
+        
+        //interesttags
+        $( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'hobbies' , 1 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
+            Settings.AddInterest( 'hobbies' , 1 );
+            return false;
+        } );
+        
+        $( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'movies' , 2 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
+            Settings.AddInterest( 'movies' , 2 );
+            return false;
+        } );
+        
+        $( 'form#interestsinfo div.option div.setting div.books input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'books' , 3 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
+            Settings.AddInterest( 'books' , 3 );
+            return false;
+        } );
 
-		$( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'songs' , 4 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
-			Settings.AddInterest( 'songs' , 4 );
-			return false;
-		} );
-		
-		$( 'form#interestsinfo div.option div.setting div.artists input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'artists' , 5 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
-			Settings.AddInterest( 'artists' , 5 );
-			return false;
-		} );
-		
-		$( 'form#interestsinfo div.option div.setting div.games input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'games' , 6 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
-			Settings.AddInterest( 'games' , 6 );
-			return false;
-		} );
-		$( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'shows' , 7 );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
-			Settings.AddInterest( 'shows' , 7);
-			return false;
-		} );
-		$( 'div.tabs form#settingsinfo div a.changepwdlink' ).click( function() {
-			Settings.CreateModal();
-			return false;
-		} );	
-		//settingsinfo
-		$( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
-			var value = $( this )[ 0 ].checked;
-			if ( value ) {
-				value = 'yes';
-			}
-			else {
-				value = 'no';
-			}
-			Settings.Enqueue( $( this )[ 0 ].id , value );
-		} );
+        $( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'songs' , 4 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
+            Settings.AddInterest( 'songs' , 4 );
+            return false;
+        } );
+        
+        $( 'form#interestsinfo div.option div.setting div.artists input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'artists' , 5 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
+            Settings.AddInterest( 'artists' , 5 );
+            return false;
+        } );
+        
+        $( 'form#interestsinfo div.option div.setting div.games input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'games' , 6 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
+            Settings.AddInterest( 'games' , 6 );
+            return false;
+        } );
+        $( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
+            if ( event.keyCode == 13 ) {
+                Settings.AddInterest( 'shows' , 7 );
+            }
+        } );
+        $( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
+            Settings.AddInterest( 'shows' , 7);
+            return false;
+        } );
+        $( 'div.tabs form#settingsinfo div a.changepwdlink' ).click( function() {
+            Settings.CreateModal();
+            return false;
+        } );	
+        //settingsinfo
+        $( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
+            var value = $( this )[ 0 ].checked;
+            if ( value ) {
+                value = 'yes';
+            }
+            else {
+                value = 'no';
+            }
+            Settings.Enqueue( $( this )[ 0 ].id , value );
+        } );
         $( 'div.savebutton a' ).click( function() {
             if ( !$( this ).hasClass( 'disabled' ) ) {
                 Settings.Save( true );
             }
             return false;
         } );
-		$( '#avatarlist' ).jqm( {
-			trigger : 'div.changeavatar a',
-			overlayClass : 'mdloverlay1'
-		} );
-	}
-} );
+        $( '#avatarlist' ).jqm( {
+            trigger : 'div.changeavatar a',
+            overlayClass : 'mdloverlay1'
+        } );
+    }
+};
