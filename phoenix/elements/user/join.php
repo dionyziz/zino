@@ -86,6 +86,7 @@
                 ?></div>
                 <a href="" class="button" onclick="Modals.Destroy();return false">Κλείσιμο</a>
             </div><?php
+            $page->AttachInlineScript( 'Join.JoinOnLoad();' );
         }
     }
 ?>
