@@ -4,6 +4,7 @@
             global $user;
             global $rabbit_settings;
             global $libs;
+            global $page;
             
             $libs->Load( 'notify' );
             $newuser = $newuser->Get();
