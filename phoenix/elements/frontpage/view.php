@@ -157,6 +157,7 @@
             </div>
         </div>
         <div class="eof"></div><?php
+        $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
         }
     }
 ?>

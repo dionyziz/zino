@@ -11,10 +11,8 @@ var Frontpage = {
 			} );
 			Coala.Warm( 'shoutbox/delete' , { shoutid : shoutid } );
 		    return false;}
-	}
-};
-$( function() {
-	if ( $( 'div.frontpage' )[ 0 ] ) {
+	},
+    FrontpageOnLoad : function() {
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();
         }
@@ -112,4 +110,4 @@ $( function() {
             } );
         }
 	}
-} );
+};
