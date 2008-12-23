@@ -3,9 +3,6 @@
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];
-    if ( $offset === 0 ) {
-        $db->Prepare( 'UPDATE :polls SET `poll_url` = NULL WHERE `poll_url` NOT IS NULL' )->BindTable( 'polls' )->Execute();
-    }
 
     $limit = 100;
 
@@ -20,6 +17,9 @@
 
     $libs->Load( 'url' );
 
+    if ( $offset === 0 ) {
+        $db->Prepare( 'UPDATE :polls SET `poll_url` = NULL WHERE `poll_url` NOT IS NULL' )->BindTable( 'polls' )->Execute();
+    }
     $query = $db->Prepare( 'SELECT * FROM :polls ORDER BY `poll_id`' );
     $query->BindTable( 'polls' );
     $res = $query->Execute();
