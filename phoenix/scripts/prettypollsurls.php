@@ -16,7 +16,7 @@
 
     $libs->Load( 'url' );
 
-    $query = $db->Prepare( 'SELECT * FROM :polls' );
+    $query = $db->Prepare( 'SELECT * FROM :polls ORDER BY `poll_id`' );
     $query->BindTable( 'polls' );
     $res = $query->Execute();
 
