@@ -18,7 +18,9 @@
     $libs->Load( 'url' );
 
     if ( $offset === 0 ) {
-        $db->Prepare( 'UPDATE :polls SET `poll_url` = NULL WHERE `poll_url` NOT IS NULL' )->BindTable( 'polls' )->Execute();
+        $query = $db->Prepare( 'UPDATE :polls SET `poll_url` = NULL WHERE `poll_url` NOT IS NULL' );
+        $query->BindTable( 'polls' );
+        $query->Execute();
     }
     $query = $db->Prepare( 'SELECT * FROM :polls ORDER BY `poll_id`' );
     $query->BindTable( 'polls' );
