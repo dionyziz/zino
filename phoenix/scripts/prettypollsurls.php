@@ -49,7 +49,7 @@
             $urls[ $candidate ] = true;
             $result[ $pollInfo[ 'id' ] ] = $candidate;
             if ( $pollInfo[ 'id' ] == 3398 ) {
-                die( 'Etreksa' );
+                die( $candidate );
             }
         }
     }
