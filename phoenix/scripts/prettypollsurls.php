@@ -46,11 +46,12 @@
                     $candidate[ rand( 0, $length - 1 ) ] = '_';
                 }
             }
-            $urls[ $candidate ] = true;
-            $result[ $pollInfo[ 'id' ] ] = $candidate;
             if ( $pollInfo[ 'id' ] == 3398 ) {
+                var_dump( isset( $urls[ $candidate ] ) );
                 die( $candidate );
             }
+            $urls[ $candidate ] = true;
+            $result[ $pollInfo[ 'id' ] ] = $candidate;
         }
     }
 
