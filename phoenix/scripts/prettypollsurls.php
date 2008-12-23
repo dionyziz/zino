@@ -53,6 +53,10 @@
                 }
             }
             $urls[ $candidate ] = true;
+            if ( $pollInfo[ 'id' ] == 3398 ) {
+                var_dump( $urls );
+                die();
+            }
             $result[ $pollInfo[ 'id' ] ] = $candidate;
         }
     }
