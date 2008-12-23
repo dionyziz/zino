@@ -16,7 +16,7 @@
 
     $libs->Load( 'url' );
 
-    $query = $db->Prepare( 'SELECT * FROM :polls WHERE `poll_url` IS NULL' );
+    $query = $db->Prepare( 'SELECT * FROM :polls' );
     $query->BindTable( 'polls' );
     $res = $query->Execute();
 
@@ -54,6 +54,9 @@
     $i = 0;
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $offset + $limit ) {
+            if ( $id == 3398 ) {
+                die( 'Etreksa' );
+            }
             $query = $db->Prepare(
                 'UPDATE
                     :polls 
