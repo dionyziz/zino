@@ -16,7 +16,7 @@
 
     $libs->Load( 'url' );
 
-    $query = $db->Prepare( 'SELECT * FROM :polls' );
+    $query = $db->Prepare( 'SELECT * FROM :polls WHERE `poll_url` IS NULL' );
     $query->BindTable( 'polls' );
     $res = $query->Execute();
 
