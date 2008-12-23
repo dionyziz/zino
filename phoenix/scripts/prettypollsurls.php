@@ -54,9 +54,6 @@
     $i = 0;
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $offset + $limit ) {
-            if ( $id == 3398 ) {
-                die( 'Etreksa' );
-            }
             $query = $db->Prepare(
                 'UPDATE
                     :polls 
@@ -69,6 +66,9 @@
             $query->BindTable( 'polls' );
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
+            if ( $id == 3398 ) {
+                die( $query->Apply() );
+            }
             $query->Execute();
         }
         ++$i;
