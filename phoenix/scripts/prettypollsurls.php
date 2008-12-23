@@ -44,7 +44,7 @@
         foreach ( $hisPolls as $pollInfo ) {
             $candidate = URL_Format( $pollInfo[ 'question' ] );
             $length = strlen( $candidate );
-            while ( isset( $urls[ $candidate ] ) ) {
+            while ( isset( $urls[ strtolower( $candidate ) ] ) ) {
                 if ( $length < 255 ) {
                     $candidate .= '_';
                 }
@@ -52,11 +52,7 @@
                     $candidate[ rand( 0, $length - 1 ) ] = '_';
                 }
             }
-            $urls[ $candidate ] = true;
-            if ( $pollInfo[ 'id' ] == 3398 ) {
-                var_dump( $urls );
-                die();
-            }
+            $urls[ strtolower( $candidate ) ] = true;
             $result[ $pollInfo[ 'id' ] ] = $candidate;
         }
     }
