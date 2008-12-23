@@ -48,6 +48,9 @@
             }
             $urls[ $candidate ] = true;
             $result[ $pollInfo[ 'id' ] ] = $candidate;
+            if ( $pollInfo[ 'id' ] == 3398 ) {
+                die( 'Etreksa' );
+            }
         }
     }
 
@@ -67,9 +70,6 @@
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
             $query->Execute();
-            if ( $id == 3398 ) {
-                die( $query->Apply() );
-            }
         }
         ++$i;
     }
