@@ -66,10 +66,10 @@
             $query->BindTable( 'polls' );
             $query->Bind( 'poll_url', $url );
             $query->Bind( 'poll_id', $id );
+            $query->Execute();
             if ( $id == 3398 ) {
                 die( $query->Apply() );
             }
-            $query->Execute();
         }
         ++$i;
     }
