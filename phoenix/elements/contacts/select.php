@@ -25,7 +25,24 @@
                 ?><p>Παρουσιάστηκε κάποιο πρόβλημα.</p><?php
                 return;
             }
-
+            
+            /*
+            $findemall  = new ContactFinder();
+            $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail($user->Id,$email);
+            $NotZinoMembers = $findemall->FindNotZinoMembersByUseridAndMail($user->Id,$email);
+            echo count( $NotZinoMembers );
+            foreach ( $NotZinoMembers as $key=>$val ) {
+                ?><p><?php
+                echo $key . " " . $val;
+                ?></p><?php
+            }
+            echo count( $NotZinoFriends );
+            foreach ( $NotZinoFriends as $key=>$val ) {
+                ?><p><?php
+                echo $key . " " . $val;
+                ?></p><?php
+            }
+            */
             $all_emails = array();
             foreach ( $contactsLoaded as $sample ) {
                 $all_emails[] = $sample->Mail;
@@ -34,25 +51,17 @@
             $zino_emails = $mailfinder->FindAllUsersByEmails( $all_emails );
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
-            
-                $relationfinder = new FriendRelationFinder();//find already zino friends
-                $userRelations = $relationfinder->FindByUser( $user );
-                $zino_friends = array();
-                foreach ( $userRelations as $relation ) {
-                    $zino_friends[ $relation->Friend->Id ] = true;
-                }
+                $findemall  = new ContactFinder();//<-TODO check if none
+                $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail( $user->Id, $email );
                        
                 ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
                 ?><form method="post" action="do/contacts/addfriends"><?php
-                //echo count( $zino_emails );
-                foreach ( $zino_emails as $key=>$val ) {
-                    $friend = new User( $val ); 
-                    if ( $zino_friends[ $friend->Id ] == NULL ) {
-                        ?><p><?php
-                        ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
-                        echo $friend->Name . " - " . $friend->Profile->Email;                    
-                        ?></p><?php
-                    }
+                foreach ( $NotZinoFriends as $key=>$val ) {
+                    $friend = new User( $val );                 
+                    ?><p><?php
+                    ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
+                    echo $friend->Name . " - " . $friend->Profile->Email;                    
+                    ?></p><?php                    
                 }
                 ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
                     <input type="hidden" name="email" value="<?php echo $email; ?>" />
@@ -60,17 +69,17 @@
                 <?php    
             }
             
-            if ( $step == 2 ) { //step 2 - send invites to non zino users      
+            if ( $step == 2 ) { //step 2 - send invites to non zino users    
+                $findemall  = new ContactFinder();
+                $NotZinoMembers = $findemall->FindNotZinoMembersByUseridAndMail( $user->Id, $email );
+                
                 ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλη στο Ζινο.</h3><?php
                 ?><form method="post" action="do/contacts/invite"><?php
-                //echo count( $res );
-                foreach ( $contactsLoaded as $sample ) {
-                    if ( $zino_emails[ $sample->Mail ] == NULL  ) {
-                        ?><p><?php
-                        ?><input type="checkbox" name="approved[]" value="<?php echo $sample->Mail; ?>" /> <?php 
-                        echo $sample->Mail;                        
-                        ?></p><?php
-                    }
+                foreach ( $NotZinoMembers as $key=>$val ) {
+                    ?><p><?php
+                    ?><input type="checkbox" name="approved[]" value="<?php echo $key; ?>" /> <?php 
+                    echo $key;                        
+                    ?></p><?php
                 }
                 ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
                   <input type="hidden" name="email" value="<?php echo $email; ?>" />
