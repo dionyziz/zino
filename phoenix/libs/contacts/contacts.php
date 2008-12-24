@@ -1,18 +1,15 @@
 <?php
-    function GetContacts( $username, $pass ) {
+    function GetContacts( $username, $pass , $provider ) {//provider { gmail , hotmail , yahoo }
         global $libs;
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
-        $provider = "hotmail";//<--TODO ADD provider argument 
-        /*$parts = array();
-        $parts = explode( '@', $username );
-        if( count( $parts ) < 2 ) {
+        $providers[ "hotmail" ] = true;
+        $providers[ "gmail" ] = true;
+        $providers[ "yahoo" ] = true;
+        
+        if( $providers[ $provider ] == false ) {
             return false;
         }
-        
-        $provider_parts = array();
-        $provider_parts = explode( '.', $parts[ 1 ] );
-        $provider = $provider_parts[ 0 ];*/
         
         $inviter = new OpenInviter();
         $inviter->getPlugins();
@@ -31,9 +28,7 @@
         $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
             $contact->AddContact( $key, $username );
-            //EmailFriend( $key );
-        }
-        
+        }        
         return true;
     }    
     
