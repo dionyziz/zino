@@ -75,10 +75,10 @@
                 
                 ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλη στο Ζινο.</h3><?php
                 ?><form method="post" action="do/contacts/invite"><?php
-                foreach ( $NotZinoMembers as $key=>$val ) {
+                foreach ( $NotZinoMembers as $sample ) {
                     ?><p><?php
-                    ?><input type="checkbox" name="approved[]" value="<?php echo $key; ?>" /> <?php 
-                    echo $key;                        
+                    ?><input type="checkbox" name="approved[]" value="<?php echo $sample; ?>" /> <?php 
+                    echo $sample;                        
                     ?></p><?php
                 }
                 ?><input type="submit" value="Στείλε τις προσκλήσεις!" />
