@@ -30,9 +30,9 @@
             $findemall  = new ContactFinder();
             $asxeto = $findemall->FindAllZinoMembersByUseridAndMail($user->Id,$email);
             echo count( $asxeto );
-            foreach ( $asxeto as $sample ) {
+            foreach ( $asxeto as $key=>$val ) {
                 ?><p><?php
-                echo $sample->Name . " " . $sample->Id;
+                echo $key . " " . $val;
                 ?></p><?php
             }
             
