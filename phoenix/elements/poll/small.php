@@ -11,8 +11,7 @@
             $url = $domain . 'polls/' . $poll->Url;
             ?><div class="posmall">
                 <h4><a href="<?php
-                    ?>?p=poll&amp;id=<?php
-                    echo $poll->Id;
+                Element( 'url', $poll ); 
                 ?>"><?php
                 echo htmlspecialchars( $poll->Question );
                 ?></a></h4>
