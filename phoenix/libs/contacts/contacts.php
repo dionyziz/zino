@@ -78,7 +78,7 @@ http://$user->Name.zino.gr/
             $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts that the user added
             $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
             
-            $not_members = $array();
+            $not_members = array();
             foreach ( $all as $sample ) {
                 if ( $members[ $sample->Mail ] !== NULL ) {
                     $not_members[] = $sample->Mail;
