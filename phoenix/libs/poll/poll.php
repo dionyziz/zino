@@ -165,6 +165,9 @@
         protected function LoadDefaults() {
             $this->Created = NowDate();
         }
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Options = $this->HasMany( 'PollOptionFinder', 'FindByPoll', $this );
