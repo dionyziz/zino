@@ -46,9 +46,15 @@
             $length = strlen( $candidate );
             while ( isset( $urls[ strtolower( $candidate ) ] ) ) {
                 if ( $length < 255 ) {
+                    if ( $pollInfo[ 'id' ] == 10251 ) {
+		        echo 'pros8esa<br />';
+		    }
                     $candidate .= '_';
                 }
-                else {
+		else {
+                    if ( $pollInfo[ 'id' ] == 10251 ) {
+		        echo 'antikatesthsa<br />';
+		    }
                     $candidate[ rand( 0, $length - 1 ) ] = '_';
                 }
             }
