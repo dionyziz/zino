@@ -45,9 +45,6 @@
             $candidate = URL_Format( $pollInfo[ 'question' ] );
             $length = strlen( $candidate );
             while ( isset( $urls[ strtolower( $candidate ) ] ) ) {
-		if ( $pollInfo[ 'id' ] == 10251 ) {
-		    die( 'Etreksa' );
-		}
                 if ( $length < 255 ) {
                     $candidate .= '_';
                 }
