@@ -110,6 +110,7 @@ http://$user->Name.zino.gr/
         
         public function FindNotZinoFriendMembersByUseridAndMail( $userid, $email ) {
             global $libs;
+            global $user;
             
             $libs->Load( 'relation/relation' );
         
