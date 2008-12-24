@@ -26,30 +26,6 @@
                 return;
             }
             
-            /*
-            $findemall  = new ContactFinder();
-            $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail($user->Id,$email);
-            $NotZinoMembers = $findemall->FindNotZinoMembersByUseridAndMail($user->Id,$email);
-            echo count( $NotZinoMembers );
-            foreach ( $NotZinoMembers as $key=>$val ) {
-                ?><p><?php
-                echo $key . " " . $val;
-                ?></p><?php
-            }
-            echo count( $NotZinoFriends );
-            foreach ( $NotZinoFriends as $key=>$val ) {
-                ?><p><?php
-                echo $key . " " . $val;
-                ?></p><?php
-            }
-            */
-            $all_emails = array();
-            foreach ( $contactsLoaded as $sample ) {
-                $all_emails[] = $sample->Mail;
-            }
-            $mailfinder = new UserProfileFinder();
-            $zino_emails = $mailfinder->FindAllUsersByEmails( $all_emails );
-            
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
                 $findemall  = new ContactFinder();//<-TODO check if none
                 $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail( $user->Id, $email );
