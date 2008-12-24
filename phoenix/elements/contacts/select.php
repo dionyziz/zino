@@ -26,6 +26,15 @@
                 return;
             }
             
+            
+            $findemall  = new ContactFinder();
+            $asxeto = $findemall->FindAllZinoMembersByUseridAndMail($user->Id,$email);
+            foreach ( $asxeto as $sample ) {
+                ?><p><?php
+                echo $sample->Name;
+                ?></p><?php
+            }
+            
             $all_emails = array();
             foreach ( $contactsLoaded as $sample ) {
                 $all_emails[] = $sample->Mail;

@@ -70,6 +70,21 @@ http://$user->Name.zino.gr/
             $prototype->Userid = $userid;
             return $this->FindByPrototype( $prototype, 0, 10000 );
         }
+        
+        public function FindAllZinoMembersByUseridAndMail( $userid, $email ) {
+            global $libs;            
+            $libs->Load( "user/profile" );
+        
+            $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts tha the user added
+            
+            $all_emails = array();//Get members only mails
+            foreach ( $all as $contact ) {
+                $all_emails = $contact->Mail;
+            }
+            $mailfinder = new UserProfileFinder();
+            $members = $mailfinder->FindAllUsersByEmails( $all_emails );
+            return $members;
+        }
     }
     
     class Contact extends Satori {
