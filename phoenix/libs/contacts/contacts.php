@@ -76,7 +76,13 @@ http://$user->Name.zino.gr/
             $libs->Load( "user/profile" );
         
             $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts that the user added
-            $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
+            
+            $all_emails = array();//Get members only mails
+            foreach ( $all as $contact ) {
+                $all_emails[] = $contact->Mail;
+            }
+            $mailfinder = new UserProfileFinder();
+            $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
             
             $not_members = array();
             foreach ( $all as $sample ) {
@@ -100,6 +106,29 @@ http://$user->Name.zino.gr/
             $mailfinder = new UserProfileFinder();
             $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
             return $members;
+        }
+        
+        public function FindNotZinoFriendMembersByUseridAndMail( $userid, $email ) {
+            global $libs;
+            
+            $libs->Load( 'relation/relation' );
+        
+            $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
+            
+            $relationfinder = new FriendRelationFinder();//find already zino friends
+            $userRelations = $relationfinder->FindByUser( $user );
+            $zino_friends = array();
+            foreach ( $userRelations as $relation ) {
+                $zino_friends[ $relation->Friend->Id ] = true;
+            }
+            
+            $notzino_friends = array();
+            foreach ( $members as $key=>$val ) {
+                if ( $zino_friends[ $val ] == NULL ) {
+                    $notzino_friends[ $key ] = $val;
+                }
+            }
+            return $notzino_friends;
         }
     }
     

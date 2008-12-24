@@ -28,9 +28,16 @@
             
             
             $findemall  = new ContactFinder();
-            $asxeto = $findemall->FindNotZinoMembersByUseridAndMail($user->Id,$email);
-            echo count( $asxeto );
-            foreach ( $asxeto as $key=>$val ) {
+            $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail($user->Id,$email);
+            $NotZinoMembers = $findemall->FindNotZinoMembersByUseridAndMail($user->Id,$email);
+            echo count( $NotZinoMembers );
+            foreach ( $NotZinoMembers as $key=>$val ) {
+                ?><p><?php
+                echo $key . " " . $val;
+                ?></p><?php
+            }
+            echo count( $NotZinoFriends );
+            foreach ( $NotZinoFriends as $key=>$val ) {
                 ?><p><?php
                 echo $key . " " . $val;
                 ?></p><?php
