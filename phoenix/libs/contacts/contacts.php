@@ -79,7 +79,7 @@ http://$user->Name.zino.gr/
             
             $all_emails = array();//Get members only mails
             foreach ( $all as $contact ) {
-                $all_emails = $contact->Mail;
+                $all_emails[] = $contact->Mail;
             }
             $mailfinder = new UserProfileFinder();
             $members = $mailfinder->FindAllUsersByEmails( $all_emails );
