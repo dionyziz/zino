@@ -14,6 +14,14 @@
 
             return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
+            $prototype = New Poll();
+            $prototype->Userid = $user->Id;
+            $prototype->Url = $url;
+            $prototype->Delid = 0;
+
+            return $this->FindByPrototype( $prototype );
+        }
         public function Count() {
             $query = $this->mDb->Prepare(
                 'SELECT

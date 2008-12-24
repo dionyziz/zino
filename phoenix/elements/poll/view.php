@@ -1,6 +1,6 @@
 <?php
     class ElementPollView extends Element {
-        function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {
+        function Render( tInteger $id , tInteger $commentid , tInteger $pageno, tText $subdomain, tText $url ) {
                 global $page;
                 global $libs;
                 global $water;
@@ -12,7 +12,17 @@
                 $libs->Load( 'notify' );
                 $libs->Load( 'favourite' );
 
-                $poll = New Poll( $id->Get() );
+                if ( $subdomain->Exists() && $url->Exists() ) {
+                    $subdomain = $subdomain->Get();
+                    $url = $url->Get();
+                    $finder = New UserFinder();
+                    $owner = $finder->FindBySubdomain( $subdomain );
+                    $finder = New PollFinder();
+                    $poll = $finder->FindByUserAndUrl( $owner, $url );
+                }
+                else {
+                    $poll = New Poll( $id->Get() );
+                }
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
 
