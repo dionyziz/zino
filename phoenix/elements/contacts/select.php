@@ -28,7 +28,7 @@
             
             
             $findemall  = new ContactFinder();
-            $asxeto = $findemall->FindAllZinoMembersByUseridAndMail($user->Id,$email);
+            $asxeto = $findemall->FindNotZinoMembersByUseridAndMail($user->Id,$email);
             echo count( $asxeto );
             foreach ( $asxeto as $key=>$val ) {
                 ?><p><?php
