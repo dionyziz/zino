@@ -47,7 +47,7 @@
             }
             
             $finder = New JournalFinder();
-            $journals = $finder->FindByUser( $theuser , ( $pageno - 1 )*5 , 5 );
+            $journals = $finder->FindByUser( $theuser, ( $pageno - 1 ) * 5, 5 );
             
             Element( 'user/sections' , 'journal' , $theuser );
             ?><div id="jlist">

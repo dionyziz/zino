@@ -2,11 +2,13 @@
     class ElementPollSmall extends Element {
         public function Render( $poll , $showcommnum = false ) {
             global $user;
-            global $rabbit_settings; 
+            global $xc_settings;
             
             $finder = New PollVoteFinder();
             $showresults = $finder->FindByPollAndUser( $poll, $user );
             //used to show results, will be true if the user has voted or is anonymous
+            $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+            $url = $domain . 'polls/' . $poll->Url;
             ?><div class="posmall">
                 <h4><a href="<?php
                     ?>?p=poll&amp;id=<?php
@@ -25,8 +27,8 @@
                         ?>pollinfo2<?php
                     }
                     ?>">
-                        <dd><a href="?p=poll&amp;id=<?php
-                        echo $poll->Id;
+                        <dd><a href="<?php
+                        echo $url;
                         ?>"><span>&nbsp;</span><?php
                         echo $poll->Numcomments;
                         ?> σχόλι<?php

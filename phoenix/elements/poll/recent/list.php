@@ -2,6 +2,7 @@
 class ElementPollRecentList extends Element {
         public function Render( tInteger $pageno ) {
         global $libs;
+        global $xc_settings;
 
         $pageno = $pageno->Get();
 
@@ -15,14 +16,16 @@ class ElementPollRecentList extends Element {
             <h2>Δημοσκοπήσεις</h2>
             <div class="list"><?php
                 foreach ( $polls as $poll ) {
+                    $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
+                    $url = $domain . 'polls/' . $poll->Url;
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
                         ?> δημιούργησε τη δημοσκόπηση
                         </div>
                         <div class="subject">
-                            <a href="?p=poll&amp;id=<?php
-                            echo $poll->Id;
+                            <a href="<?php
+                            echo $url;
                             ?>"><?php
                             echo htmlspecialchars( $poll->Question );
                             ?></a>
