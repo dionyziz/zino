@@ -71,18 +71,34 @@ http://$user->Name.zino.gr/
             return $this->FindByPrototype( $prototype, 0, 10000 );
         }
         
+        public function FindNotZinoMembersByUseridAndMail( $userid, $email ) {
+            global $libs;            
+            $libs->Load( "user/profile" );
+        
+            $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts that the user added
+            $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
+            
+            $not_members = $array();
+            foreach ( $all as $sample ) {
+                if ( $members[ $sample->Mail ] !== NULL ) {
+                    $not_members[] = $sample->Mail;
+                }
+            }
+            return $not_members;
+        }
+        
         public function FindAllZinoMembersByUseridAndMail( $userid, $email ) {
             global $libs;            
             $libs->Load( "user/profile" );
         
-            $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts tha the user added
+            $all = $this->FindByUseridAndMail( $userid, $email );//Get all contacts that the user added
             
             $all_emails = array();//Get members only mails
             foreach ( $all as $contact ) {
                 $all_emails[] = $contact->Mail;
             }
             $mailfinder = new UserProfileFinder();
-            $members = $mailfinder->FindAllUsersByEmails( $all_emails );
+            $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
             return $members;
         }
     }
