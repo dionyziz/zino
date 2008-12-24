@@ -12,6 +12,8 @@
                 $libs->Load( 'notify' );
                 $libs->Load( 'favourite' );
 
+                Element( 'user/subdomainmatch' );
+
                 if ( $subdomain->Exists() && $url->Exists() ) {
                     $subdomain = $subdomain->Get();
                     $url = $url->Get();
