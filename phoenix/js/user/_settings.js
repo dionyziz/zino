@@ -140,7 +140,7 @@ var Settings = {
         Settings.invalidmsn = false;
         Settings.oldpassworderror = false;
         Settings.newpassworderror = false;
-        Settings.renewpassworderror : false;
+        Settings.renewpassworderror = false;
         Settings.oldpassworddiv = $( 'div#pwdmodal div.oldpassword' );
         Settings.newpassworddiv = $( 'div#pwdmodal div.newpassword' );
         Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' );
