@@ -102,6 +102,9 @@ var Settings = {
 		$( 'div#avatarlist ul' ).prepend( li2 );
 	},
 	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
+        alert( 'oldpassword is: ' + oldpassword );
+        alert( 'newpassword is: ' + newpassword );
+        alert( 'renewpassword is : ' + renewpassword );
 		if ( oldpassword.length < 4 ) {
 			Settings.oldpassworderror = true;
 			$( Settings.oldpassworddiv ).find( 'div div span' ).fadeIn( 300 );
@@ -528,12 +531,8 @@ var Settings = {
                 $( Settings.renewpassworddiv ).find( 'div div span' ).fadeOut( 300 );
             }
         } );
-        $( 'div#pwdmodal div.save a.save' ).click( function() {
+        $( 'div#pwdmodal div.save a' ).click( function() {
             Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
-            return false;
-        } );
-        $( 'div#pwdmodal div.save a.cancel' ).click( function() {
-            Modals.Destroy();
             return false;
         } );
         Settings.oldpassword.focus();

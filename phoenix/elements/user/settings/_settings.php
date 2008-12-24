@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="save">
-                    <a href="" class="button save">Αποθήκευση</a>
+                    <a href="" class="button">Αποθήκευση</a>
                 </div>
             </div><?php
         }
