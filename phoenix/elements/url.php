@@ -3,6 +3,7 @@
     class ElementURL extends Element {
         public function Render( $target ) {
             global $rabbit_settings;
+            global $xc_settings;
 
             w_assert( is_object( $target ) );
 
@@ -29,14 +30,14 @@
                     echo $target->Id;
                     return;
                 case 'Journal':
-                    echo $rabbit_settings[ 'webaddress' ];
-                    ?>/?p=journal&id=<?php
-                    echo $target->Id;
+                    Element( 'user/url', $target->User->Id , $target->User->Subdomain );
+                    ?>/journals/<?php
+                    echo $target->Url;
                     return;
                 case 'Poll':
-                    echo $rabbit_settings[ 'webaddress' ];
-                    ?>/?p=poll&id=<?php
-                    echo $target->Id;
+                    Element( 'user/url', $target->User->Id, $target->User->Subdomain );
+                    ?>/polls/<?php
+                    echo $target->Url;
                     return;
                 case 'School':
                     echo $rabbit_settings[ 'webaddress' ];
