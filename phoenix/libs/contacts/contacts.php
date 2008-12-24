@@ -80,7 +80,7 @@ http://$user->Name.zino.gr/
             
             $not_members = array();
             foreach ( $all as $sample ) {
-                if ( $members[ $sample->Mail ] !== NULL ) {
+                if ( $members[ $sample->Mail ] == NULL ) {
                     $not_members[] = $sample->Mail;
                 }
             }
