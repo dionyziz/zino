@@ -121,8 +121,10 @@ var Settings = {
 			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+            alert( 'saving' );
 			Settings.Enqueue( 'oldpassword' , oldpassword );
 			Settings.Enqueue( 'newpassword' , newpassword );
+            Settings.Save();
 		}
 	},
     SettingsOnLoad : function() {
