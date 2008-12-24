@@ -311,7 +311,8 @@ div.renewpassword div div.wrongrepwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
-div.changepwd div.save {
+div#pwdmodal div.save {
+    margin: 0 0 20px 0;
 	text-align: center;
 }
 div.settings div.tabs form#settingsinfo label { 
