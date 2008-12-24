@@ -258,6 +258,10 @@ div#pwdmodal {
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
+    width: 400px;
+}
+div#pwdmodal > div {
+    padding: 0 0 0 20px;
 }
 div.oldpassword {
 	margin: 10px 0;
