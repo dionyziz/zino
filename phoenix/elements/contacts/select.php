@@ -31,7 +31,7 @@
             $asxeto = $findemall->FindAllZinoMembersByUseridAndMail($user->Id,$email);
             foreach ( $asxeto as $sample ) {
                 ?><p><?php
-                echo $sample->Name;
+                echo $sample->Name . " " . $sample->Id;
                 ?></p><?php
             }
             
