@@ -31,12 +31,12 @@
                     return;
                 case 'Journal':
                     Element( 'user/url', $target->User->Id , $target->User->Subdomain );
-                    ?>/journals/<?php
+                    ?>journals/<?php
                     echo $target->Url;
                     return;
                 case 'Poll':
                     Element( 'user/url', $target->User->Id, $target->User->Subdomain );
-                    ?>/polls/<?php
+                    ?>polls/<?php
                     echo $target->Url;
                     return;
                 case 'School':
