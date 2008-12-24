@@ -147,7 +147,7 @@
             </div>
             
             <div id ="pwdmodal" class="changepwd">
-                <h3>Αλλαγή κωδικού πρόσβασης</h3>
+                <h3 class="modaltitle">Αλλαγή κωδικού πρόσβασης</h3>
                 <div class="oldpassword">
                     <span>Κωδικός πρόσβασης:</span>
                     <div>
