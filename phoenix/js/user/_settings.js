@@ -524,7 +524,7 @@ var Settings = {
         $( 'div.tabs form#settingsinfo div a.changepwdlink' ).click( function() {
             Settings.CreateModal();
             return false;
-        } );	
+        } );
         */
         //settingsinfo
         $( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
