@@ -251,9 +251,9 @@ div#avatarlist ul li img.photosmall {
 div#avatarlist div.cancel {
 	text-align: center;
 }
-div#changepwd {
+div#pwdmodal {
 	display: none;
-	top: 10%;
+    top: 10%;
 	left: 30%;
 	position: fixed;
 	background: #eef5f9;
