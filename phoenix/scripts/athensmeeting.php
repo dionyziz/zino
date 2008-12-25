@@ -1,6 +1,7 @@
 <?php
     require_once '../libs/rabbit/helpers/email.php';
-    
+   
+    return;
     
     $emails = 'dionyziz@kamibu.com, petros_aggelatos@yahoo.com, petrosagg18@hotmail.com';
     
