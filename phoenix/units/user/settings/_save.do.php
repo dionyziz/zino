@@ -213,10 +213,10 @@
 					$user->Profile->Homepage = $web;
 				}
             }
-            ?>alert( "oldpassword is "<?php
+            ?>alert( "oldpassword is <?php
             echo $oldpassword;
             ?>" );
-            alert( "newpassword is "<?php
+            alert( "newpassword is <?php
             echo $newpassword;
             ?>" );<?php
             if ( $oldpassword && $newpassword ) {
