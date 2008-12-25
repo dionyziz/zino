@@ -10,10 +10,6 @@
 Τόπος και ώρα συγκέντρωσης 19.00 στην Νομαρχία.
 
 Ελπίζουμε να είσαι εκεί! Ευχαριστούμε,
-Η Ομάδα του Zino
-
-____
-Αν θέλεις να ορίσεις τι e-mail λαμβάνεις από το Zino, πήγαινε στο:
-http://www.zino.gr/settings#settings', "From: Zino <oniz@kamibu.com>\r\nBcc: " . $emails
+Η Ομάδα του Zino', "From: Zino <oniz@kamibu.com>\r\nBcc: " . $emails
     );
 ?>
