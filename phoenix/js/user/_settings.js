@@ -54,6 +54,8 @@ var Settings = {
         if ( visual ) {
 			$( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
 		}
+        alert( Settings.queue.length );
+        alert( Settings.queue )
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -124,7 +126,7 @@ var Settings = {
             alert( 'saving' );
 			Settings.Enqueue( 'oldpassword' , oldpassword );
 			Settings.Enqueue( 'newpassword' , newpassword );
-            Settings.Save();
+            Settings.Save( false );
 		}
 	},
     SettingsOnLoad : function() {
