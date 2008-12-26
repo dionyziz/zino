@@ -11,7 +11,7 @@
             $poll->Delete();
             ?>window.location.href = '<?php
             echo str_replace( '*', urlencode( $user->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-            ?>/polls';<?php
+            ?>polls';<?php
         }
     }
 ?>
