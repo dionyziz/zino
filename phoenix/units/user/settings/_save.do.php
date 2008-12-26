@@ -223,7 +223,8 @@
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {
                     if ( strlen( $newpassword ) >= 4 ) {
                         $user->Password = $newpassword;
-                        ?>Modals.Destroy();<?php
+                        ?>alert( 'setting password' );
+                        $( 'div#pwdmodal' ).jqmHide();<?php
                     }
                 }
                 else {

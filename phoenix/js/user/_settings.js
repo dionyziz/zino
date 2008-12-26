@@ -54,8 +54,6 @@ var Settings = {
         if ( visual ) {
 			$( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
 		}
-        alert( Settings.queue.length );
-        alert( Settings.queue )
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
@@ -104,9 +102,6 @@ var Settings = {
 		$( 'div#avatarlist ul' ).prepend( li2 );
 	},
 	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
-        alert( 'oldpassword is: ' + oldpassword );
-        alert( 'newpassword is: ' + newpassword );
-        alert( 'renewpassword is : ' + renewpassword );
 		if ( oldpassword.length < 4 ) {
 			Settings.oldpassworderror = true;
 			$( Settings.oldpassworddiv ).find( 'div div span' ).fadeIn( 300 );
@@ -123,7 +118,6 @@ var Settings = {
 			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-            alert( 'saving' );
 			Settings.Enqueue( 'oldpassword' , oldpassword );
 			Settings.Enqueue( 'newpassword' , newpassword );
             Settings.Save( false );
