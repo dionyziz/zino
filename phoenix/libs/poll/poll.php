@@ -84,6 +84,7 @@
         }
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Question );
+            $length = strlen( $url );
             $offset = 0;
             $finder = New PollFinder();
             do {
@@ -92,8 +93,14 @@
                 while ( $exists ) {
                     $exists = false;
                     foreach ( $someOfTheRest as $p ) {
-                        if ( $p->Url == $url ) {
-                            $url .= '_';
+                        if ( strtolower( $p->Url ) == strtolower( $url ) ) {
+                            if ( $length < 255 ) {
+                                $url .= '_';
+                                ++$length;
+                            }
+                            else {
+                                $url[ rand( 0, $length - 1 ) ] = '_';
+                            }
                             $exists = true;
                             break;
                         }

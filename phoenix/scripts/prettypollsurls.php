@@ -47,9 +47,9 @@
             while ( isset( $urls[ strtolower( $candidate ) ] ) ) {
                 if ( $length < 255 ) {
                     $candidate .= '_';
-		    ++$length;
+                    ++$length;
                 }
-		else {
+                else {
                     $candidate[ rand( 0, $length - 1 ) ] = '_';
                 }
             }
