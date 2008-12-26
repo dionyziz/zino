@@ -9,8 +9,8 @@
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
             global $water;
 
-            $query = $this->mDb->Prepare( "
-                SELECT
+            $query = $this->mDb->Prepare( 
+                "SELECT SQL_CALC_FOUND_ROWS
                     *
                 FROM
                     :notify
@@ -21,8 +21,7 @@
                 ORDER BY
                     `notify_eventid` DESC
                 LIMIT
-                    :offset, :limit
-                ;" );
+                    :offset, :limit;" );
 
             $query->BindTable( 'notify', 'events' );
             $query->Bind( 'userid', $user->Id );
@@ -38,7 +37,13 @@
                 $ret[] = $notif;
             }
 
-            return $ret;
+            $totalcount = ( int )array_shift(
+                $this->mDb->Prepare(
+                    'SELECT FOUND_ROWS();'
+                )->Execute()->FetchArray()
+            );
+
+            return New Collection( $ret, $totalcount );
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
             $query = $this->mDb->Prepare( "

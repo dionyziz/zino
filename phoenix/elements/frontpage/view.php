@@ -11,7 +11,7 @@
             $validated = $validated->Get();
             $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user, 0, 5 );
-            $shownotifications = count( $notifs ) > 0;
+            $shownotifications = $notifs->TotalCount() > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
             ?><div class="frontpage"><?php
@@ -78,6 +78,7 @@
                 }
             }
             if ( $shownotifications ) {
+                $page->SetTitle( 'Zino (' . $notifs->TotalCount() . ')' );
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
