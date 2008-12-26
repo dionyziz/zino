@@ -213,18 +213,11 @@
 					$user->Profile->Homepage = $web;
 				}
             }
-            ?>alert( "oldpassword is <?php
-            echo $oldpassword;
-            ?>" );
-            alert( "newpassword is <?php
-            echo $newpassword;
-            ?>" );<?php
             if ( $oldpassword && $newpassword ) {
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {
                     if ( strlen( $newpassword ) >= 4 ) {
                         $user->Password = $newpassword;
-                        ?>alert( 'setting password' );
-                        $( 'div#pwdmodal' ).jqmHide();<?php
+                        ?>$( 'div#pwdmodal' ).jqmHide();<?php
                     }
                 }
                 else {
