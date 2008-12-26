@@ -15,7 +15,11 @@
 
     require_once 'libs/rabbit/rabbit.php';
     
-    Rabbit_Construct( 'HTML' );
+    class PageZinoHTML extends PageHTML {
+        public $titleFinal = false;
+    }
+
+    Rabbit_Construct( 'ZinoHTML' );
 
     $req = $_GET;
 
