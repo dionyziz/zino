@@ -15,7 +15,7 @@
 
     require_once 'libs/rabbit/rabbit.php';
     
-    Rabbit_Construct( 'ZinoHTML' );
+    Rabbit_Construct( 'ExcaliburHTML' );
 
     $req = $_GET;
 

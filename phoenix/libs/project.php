@@ -4,6 +4,17 @@
     define( 'AD_USERPROFILE', 3 );
     define( 'AD_POLL', 4 );
 
+    class PageExcaliburHTML extends PageHTML {
+        private $mTitleFinal = false;
+
+        public function FinalizeTitle() {
+            $this->mTitleFinal = true;
+        }
+        public function TitleFinal() {
+            return $this->mTitleFinal;
+        }
+    }
+
     function Project_Construct( $mode ) {
         global $xc_settings;
         global $rabbit_settings;

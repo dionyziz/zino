@@ -60,7 +60,7 @@
                     Element( 'footer' );
                 }
             }
-            if ( $page->Title() != '' ) { // If the title's page is not blank
+            if ( $page->Title() != '' && !$page->TitleFinal() ) { // If the title's page is not blank
                 $page->SetTitle( $page->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
             }
             else {

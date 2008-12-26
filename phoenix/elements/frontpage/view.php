@@ -79,6 +79,7 @@
             }
             if ( $shownotifications ) {
                 $page->SetTitle( 'Zino (' . $notifs->TotalCount() . ')' );
+                $page->FinalizeTitle();
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
