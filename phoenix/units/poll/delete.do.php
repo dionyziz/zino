@@ -11,7 +11,7 @@
             $poll->Delete();
             ?>window.location.href = '<?php
             echo $rabbit_settings[ 'webaddress' ];
-            ?>polls';<?php
+            ?>/polls';<?php
         }
     }
 ?>
