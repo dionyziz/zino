@@ -81,6 +81,7 @@
         }
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Title );
+            $length = strlen( $url );
             $offset = 0;
             $finder = New JournalFinder();
             do {
@@ -89,8 +90,14 @@
                 while ( $exists ) {
                     $exists = false;
                     foreach ( $someOfTheRest as $j ) {
-                        if ( $j->Url == $url ) {
-                            $url .= '_';
+                        if ( strtolower( $j->Url ) == strtolower( $url ) ) {
+                            if ( $length < 255 ) {
+                                $url .= '_';
+                                ++$length;
+                            }
+                            else {
+                                $url[ rand( 0, $length - 1 ) ] = '_';
+                            }
                             $exists = true;
                             break;
                         }
