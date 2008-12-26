@@ -1,5 +1,6 @@
 var Notification = {
 	Visit : function( url , typeid , eventid , commentid ) {
+        Notification.DecrementCount();
 		if ( typeid == 3 ) {
 			document.location.href = url;
 		} 
@@ -16,7 +17,11 @@ var Notification = {
 			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
-        var count = document.title.split('(')[1].split(')')[0];
+        Notification.DecrementCount(); 
+		return false;
+	},
+    DecrementCount: function () {
+        var count = document.title.split( '(' )[ 1 ].split( ')' )[ 0 ];
         --count;
         if ( count == 0 ) {
             document.title = 'Zino';
@@ -24,8 +29,7 @@ var Notification = {
         else {
             document.title = 'Zino (' + count + ')';
         }
-		return false;
-	},
+    },
 	AddFriend : function( eventid , theuserid ) {
 		$( 'div#addfriend_' + theuserid  + ' a' )
 		.fadeOut( 400 , function() {
@@ -36,6 +40,7 @@ var Notification = {
 		} );
 		Coala.Warm( 'notification/addfriend' , { userid : theuserid } );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+        Notification.DecrementCount();
 		return false;
 	}
 };
