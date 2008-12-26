@@ -37,7 +37,8 @@
                     $finder->DeleteByCommentAndUser( $speccomment, $user );
                     $water->Trace( 'speccoment is ' . $speccomment->Id );
                     if ( $user->Exists() ) {
-                        $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', 0 );' );
+                        // TODO: find indentation level of $commentid 
+                        // $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', 0 );' );
                     }
                 }
             // }
