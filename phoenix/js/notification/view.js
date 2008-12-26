@@ -16,6 +16,14 @@ var Notification = {
 			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+        var count = document.title.split('(')[1].split(')')[0];
+        --count;
+        if ( count == 0 ) {
+            document.title = 'Zino';
+        }
+        else {
+            document.title = 'Zino (' + count + ')';
+        }
 		return false;
 	},
 	AddFriend : function( eventid , theuserid ) {
