@@ -145,9 +145,8 @@
                     </tbody>
                 </table>
             </div>
-            
-            <div class="changepwd">
-                <h3>Αλλαγή κωδικού πρόσβασης</h3>
+            <div id ="pwdmodal">
+                <h3 class="modaltitle">Αλλαγή κωδικού πρόσβασης</h3>
                 <div class="oldpassword">
                     <span>Κωδικός πρόσβασης:</span>
                     <div>
@@ -187,8 +186,7 @@
                     </div>
                 </div>
                 <div class="save">
-                    <a href="" class="button save">Αποθήκευση</a>
-                    <a href="" class="button cancel">Ακύρωση</a>
+                    <a href="" class="button">Αποθήκευση</a>
                 </div>
             </div><?php
         }
