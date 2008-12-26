@@ -60,14 +60,16 @@
                     Element( 'footer' );
                 }
             }
-            if ( $page->Title() != '' && !$page->TitleFinal() ) { // If the title's page is not blank
-                $page->SetTitle( $page->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
+            if ( !$page->TitleFinal() ) {
+                if ( $page->Title() != '' ) { // If the title's page is not blank
+                    $page->SetTitle( $page->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
+                }
+                else {
+                    $water->Notice( 'Title not defined for page' );
+                    $page->SetTitle( $rabbit_settings[ 'applicationname' ] );
+                }
             }
-            else {
-                $water->Notice( 'Title not defined for page' );
-                $page->SetTitle( $rabbit_settings[ 'applicationname' ] );
-            }
-            
+
             // pass
             return $res;
         }
