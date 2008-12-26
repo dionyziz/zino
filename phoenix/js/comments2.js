@@ -1,3 +1,5 @@
+// UNUSED! 
+//
 var Comments = {
 	numchildren : {},
 	Create : function( parentid ) {

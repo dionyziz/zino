@@ -1,4 +1,6 @@
 <?php
+// UNUSED!
+
     class ElementCommentList extends Element {
         // protected $mPersistent = array( $typeid, $itemid );
 

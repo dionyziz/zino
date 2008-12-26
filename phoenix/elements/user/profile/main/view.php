@@ -36,6 +36,9 @@
                     $finder = New NotificationFinder();
                     $finder->DeleteByCommentAndUser( $speccomment, $user );
                     $water->Trace( 'speccoment is ' . $speccomment->Id );
+                    if ( $user->Exists() ) {
+                        $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', 0 );' );
+                    }
                 }
             // }
             }
