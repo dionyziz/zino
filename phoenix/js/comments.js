@@ -243,6 +243,7 @@ $( function() {
 			//----------------------
             $( this ).find( "div.bottom a" ).click( function() {
                 Comments.ToggleReply( id, indent, this );
+                return false;
             } );
 		} );
 		
