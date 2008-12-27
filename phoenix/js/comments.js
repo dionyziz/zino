@@ -73,6 +73,7 @@ var Comments = {
             node : temp, 
             callback : Comments.NewCommentCallback
         } );
+        Comments.ToggledReplies[ parentid ] = 0;
 	},
     NewCommentCallback : function( node , id , parentid , newtext ) {
 		if ( parentid !== 0 ) {
