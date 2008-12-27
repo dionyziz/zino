@@ -242,7 +242,7 @@ $( function() {
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
             $( this ).find( "div.bottom a" ).click( function() {
-                Comment.ToggleReply( id, indent, this );
+                Comments.ToggleReply( id, indent, this );
             } );
 		} );
 		
