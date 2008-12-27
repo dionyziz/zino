@@ -82,15 +82,16 @@
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
-            $offset = 0;
             $finder = New JournalFinder();
-            do {
-                $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
-                $exists = true;
-                while ( $exists ) {
-                    $exists = false;
+            $exists = true;
+            while ( $exists ) {
+                $offset = 0;
+                $exists = false;
+                do {
+                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
                     foreach ( $someOfTheRest as $j ) {
                         if ( strtolower( $j->Url ) == strtolower( $url ) ) {
+                            $exists = true;
                             if ( $length < 255 ) {
                                 $url .= '_';
                                 ++$length;
@@ -98,13 +99,12 @@
                             else {
                                 $url[ rand( 0, $length - 1 ) ] = '_';
                             }
-                            $exists = true;
                             break;
                         }
                     }
-                }
-                $offset += 100;
-            } while ( count( $someOfTheRest ) );
+                    $offset += 100;
+                } while ( count( $someOfTheRest ) && !$exists );
+            }
             $this->Url = $url;
 
             $this->Bulk->Save();
