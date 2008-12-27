@@ -81,13 +81,8 @@ var Comments = {
 		Comments.numchildren[ id ] = 0;	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
-		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
-                Comments.Reply( id , indent + 1 );
-                return false;
-            }, function() {
-                $( '#comment_reply_' + id ).hide( 300 , function() { 
-                    $( this ).remove(); 
-                } );
+		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
+                Comments.ToggleReply( id , indent + 1 );
                 return false;
             }
         );
@@ -222,6 +217,19 @@ var Comments = {
         else {
             return false;
         }
+    },
+    ToggledReplies: {},
+    ToggleReply: function ( id, indent, obj ) {
+        if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
+            $( '#comment_reply_' + id ).hide( 300, function() {
+                $( obj ).remove();
+            } );
+            Comments.ToggledReplies[ id ] = 0;
+            return;
+        }
+        // else...
+        Comments.ToggledReplies[ id ] = 1;
+        Comments.Reply( id, indent );
     }
 };
 $( function() {
@@ -233,14 +241,10 @@ $( function() {
 			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
-			$( this ).find( "div.bottom a" ).unbind( "click" ).toggle( function() {
-					Comments.Reply( id, indent );
-					return false;
-				}, function() {
-					$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
-					return false;
-				}
-			);
+            $( this ).find( "div.bottom a" ).click( function() {
+                Comment.ToggleReply( id, indent, obj );
+                return false;
+            } );
 		} );
 		
 		if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
