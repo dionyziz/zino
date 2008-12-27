@@ -82,7 +82,7 @@ var Comments = {
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
-                Comments.ToggleReply( id , indent + 1 );
+                Comments.ToggleReply( id , indent + 1, this );
                 return false;
             }
         );
@@ -242,8 +242,7 @@ $( function() {
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
             $( this ).find( "div.bottom a" ).click( function() {
-                Comment.ToggleReply( id, indent, obj );
-                return false;
+                Comment.ToggleReply( id, indent, this );
             } );
 		} );
 		
