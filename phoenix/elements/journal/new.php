@@ -19,7 +19,7 @@
             else {
                 $page->SetTitle( "Δημιουργία καταχώρησης" );
             }
-            Element( 'user/sections' , 'journal' , $user );
+            Element( 'user/sections', 'journal', $user );
             ?><div id="journalnew">
                 <h2><?php
                 if ( $id > 0 ) {
@@ -31,7 +31,7 @@
                 ?> καταχώρησης</h2><?php
                 if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
                     ?><div class="edit">
-                        <form method="post" action="do/journal/new" onsubmit="return JournalNew.Create( '<?php
+                        <form method="post" action="do/journal/new" onsubmit="$( '#publish' )[ 0 ].disabled = true; return JournalNew.Create( '<?php
                                 echo $id;
                                 ?>' );">
                             <input type="hidden" name="id" value="<?php
@@ -54,7 +54,7 @@
                             Element( 'wysiwyg/view', 'wysiwyg', $text );
                             ?>
                             <div class="submit">
-                                <input type="submit" value="Δημοσίευση" />
+                                <input type="submit" value="Δημοσίευση" id="publish" />
                             </div>
                         </form>
                     </div><?php
