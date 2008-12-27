@@ -94,6 +94,7 @@
                     $exists = false;
                     foreach ( $someOfTheRest as $p ) {
                         if ( strtolower( $p->Url ) == strtolower( $url ) ) {
+                            echo 'same case insensitive';
                             if ( $length < 255 ) {
                                 $url .= '_';
                                 ++$length;
