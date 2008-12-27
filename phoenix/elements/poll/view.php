@@ -109,7 +109,7 @@
                                     $indentation = Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
                                     if ( $commentid !== 0 ) {
                                         if ( $user->Exists() ) {
-                                            $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
+                                            $page->AttachInlineScript( 'Comments.ToggleReply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
                                         }
                                     }
                                     ?><div class="pagifycomments"><?php

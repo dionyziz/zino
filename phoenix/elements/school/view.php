@@ -96,7 +96,7 @@
                     Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
                     if ( $commentid !== 0 ) {
                         if ( $user->Exists() ) {
-                            $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
+                            $page->AttachInlineScript( 'Comments.ToggleReply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
                         }
                     }
                     ?><div class="pagifycomments"><?php
