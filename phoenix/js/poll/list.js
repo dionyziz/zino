@@ -7,10 +7,10 @@ var PollList = {
 			var heading = document.createElement( 'h4' );
 			var headinglink = document.createElement( 'a' );
 			$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polist ul div.creationmockup input' )[ 0 ].value ) );
-			$( heading ).append( headinglink ).css( 'margin-top' , '0' );
+			$( heading ).append( headinglink ).css( 'margin-top', '0' );
 			PollList.QuestionText = $( 'div#polist ul div.creationmockup input' )[ 0 ].value;
 			$( 'div#polist ul div.creationmockup' ).empty().append( heading );
-			$( 'div#polist ul div.creationmockup' ).append( $( 'div#polist div.tip2' ).clone().css( 'display' , 'block' ) );
+			$( 'div#polist ul div.creationmockup' ).append( $( 'div#polist div.tip2' ).clone().css( 'display', 'block' ) );
 			PollList.NewOption();
 		}
 	},
@@ -19,16 +19,16 @@ var PollList = {
 			var option = document.createElement( 'div' );
 			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
 			$( $( newoption )[ 0 ].parentNode ).remove();
-			$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
+			$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( option, $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
 			if ( PollList.numoptions === 0 ) {
 				var donelink = document.createElement( 'a' );
-				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
-					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
+				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight', 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
+					PollList.OptionsText = PollList.OptionsText.substr( 0, PollList.OptionsText.length - 1 );
 					var newpoll = document.createElement( 'li' );
 					$( newpoll ).html( $( 'div#polist div.creatingpoll' ).html() );
-					$( 'div#polist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polist ul li div.creationmockup' )[ 0 ].parentNode.nextSibling.nextSibling );
+					$( 'div#polist ul' )[ 0 ].insertBefore( newpoll, $( 'div#polist ul li div.creationmockup' )[ 0 ].parentNode.nextSibling.nextSibling );
 					$( $( 'div#polist ul li div.creationmockup' )[ 0 ].parentNode ).remove();
-					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText , node : newpoll } );
+					Coala.Warm( 'poll/new', { question : PollList.QuestionText, options : PollList.OptionsText, node : newpoll } );
 					PollList.numoptions = 0;
 					PollList.OptionsText = '';
 					return false;
@@ -43,9 +43,9 @@ var PollList = {
 	Create : function() {
 		var newpoll = document.createElement( 'li' );
 		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
-		$( 'div#polist ul' )[ 0 ].insertBefore( newpoll , $( 'ul li.create' )[ 0 ] );
-		$( 'div#polist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 400 , function() {
-			$( this ).css( 'height' , '' );
+		$( 'div#polist ul' )[ 0 ].insertBefore( newpoll, $( 'ul li.create' )[ 0 ] );
+		$( 'div#polist ul div.creationmockup' ).css( 'height', '0' ).animate( { height: '40px' }, 400, function() {
+			$( this ).css( 'height', '' );
 		} );
 		$( 'div#polist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polist ul div.creationmockup input' ).keydown( function( event ) {
@@ -59,9 +59,9 @@ var PollList = {
 		} );
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
-			$( 'div#polist ul div.creationmockup' ).animate( { height: "0" } , 400 , function() {
+			$( 'div#polist ul div.creationmockup' ).animate( { height: "0" }, 400, function() {
 				$( newpoll ).remove();
-				$( this ).css( 'display' , 'none');
+				$( this ).css( 'display', 'none');
 			} );
 			PollList.Cancel();
 			return false;
@@ -95,7 +95,7 @@ var PollList = {
 			'alt' : "Δημιουργία",
 			'title' : "Δημιουργία"
 		} );
-		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
+		$( newoption ).attr( { 'type' : 'text' } ).css( 'width', '300px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				PollList.CreateOption( newoption );
 				return false;
@@ -103,7 +103,7 @@ var PollList = {
 		} );
 
 		$( container ).append( newoption ).append( acceptlink );
-		$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
+		$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( container, $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
 		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( node ) {
 			PollList.CreateOption( newoption );
 			return false;
