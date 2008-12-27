@@ -401,7 +401,12 @@
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
                         $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
-                        Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
+                        $indentation = Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
+                        if ( $commentid !== 0 ) {
+                            if ( $user->Exists() ) {
+                                $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
+                            }
+                        }
                         ?><div class="pagifycomments"><?php
                             $link = '?p=photo&id=' . $image->Id . '&pageno=';
                             Element( 'pagify', $pageno, $link, $total_pages );

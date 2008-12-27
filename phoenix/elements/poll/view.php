@@ -106,7 +106,12 @@
                                         $finder->DeleteByCommentAndUser( $speccomment, $user );
                                     }
                                     $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
-                                    Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
+                                    $indentation = Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
+                                    if ( $commentid !== 0 ) {
+                                        if ( $user->Exists() ) {
+                                            $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
+                                        }
+                                    }
                                     ?><div class="pagifycomments"><?php
                                         $link = '?p=poll&id=' . $poll->Id . '&pageno=';
                                         Element( 'pagify', $pageno, $link, $total_pages );

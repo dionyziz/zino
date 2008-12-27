@@ -94,6 +94,11 @@
 					}
                     $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                     Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
+                    if ( $commentid !== 0 ) {
+                        if ( $user->Exists() ) {
+                            $page->AttachInlineScript( 'Comments.Reply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
+                        }
+                    }
                     ?><div class="pagifycomments"><?php
                     $link = '?p=school&id=' . $school->Id . '&pageno=';
                     if ( $pageno <= 0 ) {
