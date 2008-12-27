@@ -85,16 +85,16 @@
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Question );
             $length = strlen( $url );
-            $offset = 0;
             $finder = New PollFinder();
-            do {
-                $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
-                $exists = true;
-                while ( $exists ) {
-                    $exists = false;
+            $exists = true;
+            while ( $exists ) {
+                $offset = 0;
+                $exists = false;
+                do {
+                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
                     foreach ( $someOfTheRest as $p ) {
                         if ( strtolower( $p->Url ) == strtolower( $url ) ) {
-                            echo 'same case insensitive';
+                            $exists = true;
                             if ( $length < 255 ) {
                                 $url .= '_';
                                 ++$length;
@@ -102,13 +102,12 @@
                             else {
                                 $url[ rand( 0, $length - 1 ) ] = '_';
                             }
-                            $exists = true;
                             break;
                         }
                     }
-                }
-                $offset += 100;
-            } while ( count( $someOfTheRest ) );
+                    $offset += 100;
+                } while ( count( $someOfTheRest ) && !$exists );
+            }
             $this->Url = $url;
         }
         public function IsDeleted() {
