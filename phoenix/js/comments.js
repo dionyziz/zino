@@ -82,7 +82,7 @@ var Comments = {
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
-                Comments.ToggleReply( id , indent + 1, this );
+                Comments.ToggleReply( id , indent + 1 );
                 return false;
             }
         );
@@ -219,10 +219,10 @@ var Comments = {
         }
     },
     ToggledReplies: {},
-    ToggleReply: function ( id, indent, obj ) {
+    ToggleReply: function ( id, indent ) {
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
             $( '#comment_reply_' + id ).hide( 300, function() {
-                $( obj ).remove();
+                $( this ).remove();
             } );
             Comments.ToggledReplies[ id ] = 0;
             return;
@@ -242,7 +242,7 @@ $( function() {
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
             $( this ).find( "div.bottom a" ).click( function() {
-                Comments.ToggleReply( id, indent, this );
+                Comments.ToggleReply( id, indent );
                 return false;
             } );
 		} );
