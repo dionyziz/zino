@@ -40,9 +40,8 @@
 							echo htmlspecialchars( $journal->Title );
 							?></a>
 						</div>
-					</div>
-				</div><?php
-                */
+					</div><?php */
+				?></div><?php
         }
     }
 ?>
