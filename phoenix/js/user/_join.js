@@ -4,12 +4,11 @@ var Join = {
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
 	},
-	enabled : true,
     JoinOnLoad : function() {
         Join.timervar = 0;
         Join.hadcorrect = false;
         Join.usernameerror = false; //used to check if a username has been given
-        Join.invalidusername : false;
+        Join.invalidusername = false;
         Join.pwderror = false; //used to check if a password has been given
         Join.repwderror = false; //used to check if password is equal with the retyped password
         Join.usernameexists = false;
@@ -17,6 +16,7 @@ var Join = {
         Join.username = $( 'form.joinform div input' )[ 0 ];
         Join.password = $( 'form.joinform div input' )[ 1 ];
         Join.repassword = $( 'form.joinform div input' )[ 2 ];
+        Join.enabled = true;
         Join.email = $( 'form.joinform div input' )[ 3 ];
         $( 'form.joinform' ).submit( function() {
             return false;
