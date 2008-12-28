@@ -20,9 +20,9 @@ var Comments = {
         .click( function() {
             return false;
         } );
-		var indent = ( parentid===0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
 		var del = document.createElement( 'a' );
-        del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
+        del.style.marginRight = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
         $( del ).attr( {
             title : "Διαγραφή",
             href : ""
@@ -44,8 +44,8 @@ var Comments = {
 		//---------------------
 		if ( parentid !== 0 ) {
 			var kimeno = temp.find( "div.text" );
-			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
-			kimeno.css( "width", wid-indent*20+'px' );
+			var wid = ( $.browser.msie ) ? ( kimeno.get( 0 ).offsetWidth-20 ) : parseInt( kimeno.css( "width" ), 10 );
+			kimeno.css( "width", wid-indent * 20 + 'px' );
 		}
 		//----------------------
 
