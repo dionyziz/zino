@@ -48,10 +48,16 @@
                         }
                     ?></ul>
                     <div class="add hobbies">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
+                        <?php
+                        //<input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
+                        ?>
+                        <input type="text" onkeyup="Suggest.fire( event, 'hobbies' );" />
                         <a href="" onclick="return false" title="Προσθήκη"></a>
                         <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'hobbies' );"><option value=""/></select>
+                            <?php
+                             //<select onkeypress="Suggest.selectMove( event, 'hobbies' );"><option value=""/></select>
+                             ?>
+                             <ul><li></li></ul>
                         </form>
                     </div>
                 </div>
