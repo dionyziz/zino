@@ -122,6 +122,9 @@ var Suggest = {
 		    counter = sel.childNodes.length;
 		}
 		
+        // Akiro
+        $( 'div.' + type + ' form ul li' ).remove();
+        
 		// Display at last the suggestions
 		var text = $( 'div.' + type + ' input' ).val();
 		for( var i in suggestions ) {
