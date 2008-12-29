@@ -57,8 +57,6 @@
                     }
                     ?>commentid=<?php
                     echo $target->Id;
-                    ?>#comment_<?php
-                    echo $target->Id;
                     return;
                 default:
                     throw New Exception( 'Unknown comment target item "' . get_class( $target ) . '"' );
