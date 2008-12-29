@@ -238,7 +238,7 @@ var Comments = {
 
         cmd.scrollIntoView( false );
         if ( loggedin ) {
-            Comments.ToggleReply( id, indent );
+            Comments.ToggleReply( id, indent - 1 );
         }
     }
 };
