@@ -25,7 +25,7 @@
             else {
                 $poll = New Poll( $id->Get() );
             }
-            if ( !$poll->Exists() ) {
+            if ( $poll === false || !$poll->Exists() ) {
                 return Element( '404' );
             }
             $commentid = $commentid->Get();
