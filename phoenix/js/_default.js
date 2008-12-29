@@ -21,5 +21,5 @@ $( function() {
 		} );
 	}
     var renderingend = new Date();
-    alert( "Render time: " + ( renderingend.getTime() - renderingstart.getTime() )/1000 );
+    alert( "Render time: " + ( renderingend.getTime() - renderingstart.getTime() )/1000 + "seconds" );
 } );
