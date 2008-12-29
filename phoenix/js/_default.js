@@ -29,7 +29,11 @@ $( function() {
         var renderingend = new Date();
         var renderspan = document.createElement( 'div' );
         renderspan.appendChild( document.createTextNode( 'Rendering time: ' + ( renderingend.getTime() - renderingstart.getTime() ) / 1000 + ' seconds' ) ); 
-        $( renderspan ).css( "color" , "red" );
+        $( renderspan ).css( {
+            'color' : 'red', 
+            'font-size' : '90%',
+            'text-align' : 'center'
+        } );
         $( 'div.footer' ).append( renderspan );
     }
 } );
