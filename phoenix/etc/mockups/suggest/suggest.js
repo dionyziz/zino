@@ -83,7 +83,7 @@ $( function() {
             ul.find( 'li.selected' ).removeClass( 'selected' );
             $( this ).addClass( 'selected' );
         }
-    ).click(
+    ).mousedown(
         function() {
             $( 'div.hobbies input' ).attr( 'value', $( this ).text() );
             ul.css( 'display', 'none' );
