@@ -231,6 +231,14 @@ var Comments = {
         // else...
         Comments.ToggledReplies[ id ] = 1;
         Comments.Reply( id, indent );
+    },
+    Focus: function ( id, indent, loggedin ) {
+        var cmd = $( '#' + id )[ 0 ];
+
+        cmd.scrollIntoView( false );
+        if ( loggedin ) {
+            Comments.ToggleReply( id, indent );
+        }
     }
 };
 $( function() {

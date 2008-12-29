@@ -258,9 +258,7 @@
                             $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                             $indentation = Element( 'comment/list' , $comments , TYPE_USERPROFILE , $theuser->Id );
                             if ( $commentid !== 0 ) {
-                                if ( $user->Exists() ) {
-                                    $page->AttachInlineScript( 'Comments.ToggleReply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
-                                }
+                                $page->AttachInlineScript( 'Comments.Focus( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ', ' . $user->Exists() . ' );' );
                             }
                             ?><div class="pagifycomments"><?php
                                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
