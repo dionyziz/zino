@@ -6,17 +6,18 @@
             
             if ( $commentid !== 0 ) {
                 ob_start();
-                ?>Comments.Focus( <?php
+                ?>Comments.Focus(<?php
                 echo $commentid;
-                ?>, <?php
+                ?>,<?php
                 echo $indentation;
-                ?>, <?php
+                ?>,<?php
                 if ( $user->Exists() ) {
-                ?>1<?php
+                    ?>1<?php
                 }
                 else {
-                ?>0<?php
+                    ?>0<?php
                 }
+                ?>)<?php
                 $page->AttachInlineScript( ob_get_clean() );
             }
         }
