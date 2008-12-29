@@ -107,10 +107,8 @@
                                     }
                                     $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                                     $indentation = Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
-                                    if ( $commentid !== 0 ) {
-                                        if ( $user->Exists() ) {
-                                            $page->AttachInlineScript( 'Comments.ToggleReply( ' . $commentid . ', ' . ( $indentation[ $commentid ] - 1 ) . ' );' );
-                                        }
+                                    if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
+                                        Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                                     }
                                     ?><div class="pagifycomments"><?php
                                         $link = '?p=poll&id=' . $poll->Id . '&pageno=';
