@@ -258,7 +258,7 @@
                             $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                             $indentation = Element( 'comment/list' , $comments , TYPE_USERPROFILE , $theuser->Id );
                             if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
-                                Element( 'comment/focus', $commentid, $indentation[ $commentid ] + 1 );
+                                Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                             }
                             ?><div class="pagifycomments"><?php
                                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
