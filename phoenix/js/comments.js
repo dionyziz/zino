@@ -233,7 +233,7 @@ var Comments = {
         Comments.Reply( id, indent );
     },
     Focus: function ( id, indent, loggedin ) {
-        var cmd = $( '#' + id )[ 0 ];
+        var cmd = $( '#comment_' + id )[ 0 ];
 
         cmd.scrollIntoView( false );
         if ( loggedin ) {
