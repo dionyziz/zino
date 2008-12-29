@@ -24,6 +24,12 @@ $( function() {
 			threshold : 200
 		} );
 	}
-    var renderingend = new Date();
-    //alert( "Render time: " + ( renderingend.getTime() - renderingstart.getTime() )/1000 + " seconds" );
+    var loggedinuser = GetUsername();
+    if ( loggedinuser == 'dionyziz' || loggedinuser == 'izual' || loggedinuser == 'kostis90gr' || loggedinuser == 'pagio' || loggedinuser == 'indy' || loggedinuser == 'd3nnn1z' ) {
+        var renderingend = new Date();
+        var renderspan = document.createElement( 'div' );
+        renderspan.appendChild( document.createTextNode( 'Rendering time: ' + ( renderingend.getTime() - renderingstart.getTime() ) / 1000 + ' seconds' ) ); 
+        $( renderspan ).css( "color" , "red" );
+        $( 'div.footer' ).append( renderspan );
+    }
 } );
