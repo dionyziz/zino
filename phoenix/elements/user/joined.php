@@ -49,6 +49,7 @@
                     <a href="" class="button button_big">Συνέχεια &raquo;</a>
                 </div>
             </div><?php
+            $page->AttachInlineScript( 'Joined.JoinedOnLoad();' );
         }
     }
 ?>
