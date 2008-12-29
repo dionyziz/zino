@@ -1,23 +1,23 @@
 var Join = {
-	timervar : 0,
-	hadcorrect : false,
-	usernameerror : false, //used to check if a username has been given
-	invalidusername : false,
-	pwderror : false, //used to check if a password has been given
-	repwderror : false, //used to check if password is equal with the retyped password
-	usernameexists : false,
-	emailerror : false,
-	username : $( 'form.joinform div input' )[ 0 ],
-	password : $( 'form.joinform div input' )[ 1 ],
-	repassword : $( 'form.joinform div input' )[ 2 ],
-	email : $( 'form.joinform div input' )[ 3 ],
 	ShowTos : function () {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
 	},
-	enabled : true,
     JoinOnLoad : function() {
+        Join.timervar = 0;
+        Join.hadcorrect = false;
+        Join.usernameerror = false; //used to check if a username has been given
+        Join.invalidusername = false;
+        Join.pwderror = false; //used to check if a password has been given
+        Join.repwderror = false; //used to check if password is equal with the retyped password
+        Join.usernameexists = false;
+        Join.emailerror = false;
+        Join.username = $( 'form.joinform div input' )[ 0 ];
+        Join.password = $( 'form.joinform div input' )[ 1 ];
+        Join.repassword = $( 'form.joinform div input' )[ 2 ];
+        Join.enabled = true;
+        Join.email = $( 'form.joinform div input' )[ 3 ];
         $( 'form.joinform' ).submit( function() {
             return false;
         } );
