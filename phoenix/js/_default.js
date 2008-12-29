@@ -20,5 +20,6 @@ $( function() {
 			threshold : 200
 		} );
 	}
-    alert( 'test2' );
+    var renderingend = new Date();
+    alert( renderingend.getTime() );
 } );
