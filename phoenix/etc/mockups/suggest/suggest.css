@@ -1,0 +1,13 @@
+div.hobbies ul {
+    border: 1px solid grey;
+    border-top-width:0px;
+    width:200px;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+}
+div.hobbies ul li.selected {
+    background-color: #3377EE;
+    color: white;
+    cursor: pointer;
+}

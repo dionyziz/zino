@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el"><head><title>Ρυθμίσεις | Zino</title><base href="http://www.zino.gr/" /><link href="http://static.zino.gr/css/global.css?48" rel="stylesheet" type="text/css" /><link href="http://beta.zino.gr/phoenix/etc/mockups/suggest/suggest.css" rel="stylesheet" type="text/css" /><meta name="author" content="Kamibu Development Team" /><meta name="keywords" content="greek friends chat community greece meet people" /><meta name="description" content="Το Zino είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;" /></head><body>            <!--
+                    Σε ενδιαφέρει ο κώδικάς μας; Τότε ίσως θα ήθελες να δουλέψεις μαζί μας. Τσέκαρε στο http://www.kamibu.com/join
+                    και μην διστάσεις να επικοινωνήσεις μαζί μας.
+                -->
+            <div class="header" id="banner">
+            <a class="nohover" style="display:block;position:absolute;right:105px;top:0;z-index:10;width:120px;height:74px;background-image:url('http://static.zino.gr/phoenix/xmas4.png');background-position:right;background-repeat: no-repeat;" title="Χριστουγεννιάτικο Zino Meeting στα Ιωάννινα">&nbsp;</a>
+            <h1><a href="http://www.zino.gr"><img src="http://static.zino.gr/phoenix/zino.png" alt="Zino" /></a></h1>
+            <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
+            <ul>
+                    <li title="Προβολή προφίλ"><a href="http://kostis90gr.zino.gr/" class="profile"><span class="imageview"><img src="http://images.zino.gr/media/791/2795/2795_100.jpg" style="width:16px;height:16px;" title="kostis90gr" alt="kostis90gr"></img></span>kostis90gr</a></li>
+                    <li>·</li>
+                    <li><a id="unreadmessages" href="messages" class="messages icon"><span>&nbsp;</span>Μηνύματα</a></li>
+                    <li>·</li>
+                    <li><a href="settings" class="settings icon"><span>&nbsp;</span>Ρυθμίσεις</a></li>
+                    </ul><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout">Έξοδος<span>&nbsp;</span></a></form>            <a class="search" href="?p=search"><img src="http://static.zino.gr/phoenix/glass.jpg" alt="Αναζήτηση" title="Αναζήτησε Φίλους!" /></a>
+            <div class="eof"></div>
+            </div><div class="content" id="content"><div class="settings">
+                <div class="sidebar"><ol id="settingslist">
+                <li class="personal"><a href="" onclick="Settings.SwitchSettings( 'personal' );return false"><span>&nbsp;</span>Πληροφορίες</a></li>
+                <li class="characteristics"><a href="" onclick="Settings.SwitchSettings( 'characteristics' );return false"><span>&nbsp;</span>Χαρακτηριστικά</a></li>
+                <li class="interests"><a href="" onclick="Settings.SwitchSettings( 'interests' );return false"><span>&nbsp;</span>Ενδιαφέροντα</a></li>
+                <li class="contact"><a href="" onclick="Settings.SwitchSettings( 'contact' );return false"><span>&nbsp;</span>Επικοινωνία</a></li>
+                <li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false"><span>&nbsp;</span>Λογαριασμός</a></li>
+            </ol>
+            <div class="savesettings">
+                <div class="saving invisible">
+                    <img src="http://static.zino.gr/phoenix/ajax-loader.gif" alt="Αποθήκευση" /><span>Αποθήκευση... </span>
+                </div>
+                <div class="savebutton">
+                    <a href="" class="button disabled">Αποθήκευση ρυθμίσεων</a>
+                </div>
+            </div>
+            <div class="backtoprofile">
+                <a href="http://kostis90gr.zino.gr/" class="button">Επιστροφή στο προφίλ</a>
+            </div></div>
+                <div class="tabs">
+                    <form id="personalinfo" action="" style="display:none"><div class="option">
+                <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
+                <div class="setting" id="dateofbirth"><select class="small">
+                <option value="-1">-</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17" selected="selected">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+            <select class="small">
+                <option value="-1">-</option><option value="01">Ιανουαρίου</option><option value="02">Φεβρουαρίου</option><option value="03" selected="selected">Μαρτίου</option><option value="04">Απριλίου</option><option value="05">Μαίου</option><option value="06">Ιουνίου</option><option value="07">Ιουλίου</option><option value="08">Αυγούστου</option><option value="09">Σεπτεμβρίου</option><option value="10">Οκτωβρίου</option><option value="11">Νοεμβρίου</option><option value="12">Δεκεμβρίου</option></select>
+            <select class="small">
+                <option value="-">-</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990" selected="selected">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option></select><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη
+                </span>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="gender">Φύλο:</label>
+                <div class="setting" id="gender"><select><option value="-">-</option><option value="m" selected="selected">Άνδρας</option><option value="f">Γυναίκα</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="place">Περιοχή:</label>
+                <div class="setting" id="place"><select>
+                <option value="-1">-</option><option value="109">Άγιος Νικόλαος</option><option value="35">Αγρίνιο</option><option value="2">Αθήνα</option><option value="113" selected="selected">Αλεξανδρούπολη</option><option value="159">Αμφιλοχία</option><option value="98">Άμφισσα</option><option value="46">Άργος</option><option value="149">Αργοστόλι</option><option value="117">Άρτα</option><option value="160">Ασπρόπυργος</option><option value="102">Βέροια</option><option value="137">Βόλος</option><option value="143">Γρεβενά</option><option value="112">Δράμα</option><option value="146">Έδεσσα</option><option value="157">Ελευσίνα</option><option value="37">Ερέτρια</option><option value="133">Ερμούπολη</option><option value="124">Ζάκυνθος</option><option value="120">Ηγουμενίτσα</option><option value="110">Ηράκλειο</option><option value="107">Θεσσαλονίκη</option><option value="154">Θήβα</option><option value="155">Ιεράπετρα</option><option value="1">Ιωάννινα</option><option value="114">Καβάλα</option><option value="132">Καλαμάτα</option><option value="135">Καρδίτσα</option><option value="97">Καρπενήσι</option><option value="144">Καστοριά</option><option value="105">Κατερίνη</option><option value="121">Κέρκυρα</option><option value="122">Κεφαλλονιά</option><option value="161">Κιάτο</option><option value="103">Κιλκίς</option><option value="145">Κοζάνη</option><option value="115">Κομοτηνή</option><option value="130">Κόρινθος</option><option value="26">Κύπρος</option><option value="99">Λαμία</option><option value="136">Λάρισα</option><option value="126">Λέσβος</option><option value="123">Λευκάδα</option><option value="153">Ληξούρι</option><option value="100">Λιβαδειά</option><option value="140">Μεσολόγγι</option><option value="158">Μέτσοβο</option><option value="147">Μυτιλήνη</option><option value="152">Νάουσα</option><option value="129">Ναύπλιο</option><option value="116">Ξάνθη</option><option value="151">Ορεστιάδα</option><option value="139">Πάτρα</option><option value="148">Πειραιάς</option><option value="101">Πολύγυρος</option><option value="119">Πρέβεζα</option><option value="162">Πτολεμαΐδα</option><option value="141">Πύργος</option><option value="111">Ρέθυμνο</option><option value="134">Ρόδος</option><option value="127">Σάμος</option><option value="106">Σέρρες</option><option value="44">Σκύρος</option><option value="131">Σπάρτη</option><option value="156">Σπέτσες</option><option value="150">Σύρος</option><option value="138">Τρίκαλα</option><option value="128">Τρίπολη</option><option value="142">Φλώρινα</option><option value="96">Χαλκίδα</option><option value="11">Χανιά</option><option value="125">Χίος</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="education">Εκπαίδευση:</label>
+                <div class="setting" id="education"><select><option value="0">-</option><option value="1">Δημοτικό</option><option value="2">Γυμνάσιο</option><option value="3">ΤΕΕ</option><option value="4">Λύκειο</option><option value="5">ΤΕΙ</option><option value="6" selected="selected">Πανεπιστήμιο</option></select><div class="forstudents invisible">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="school">Πανεπιστήμιο</label>
+                <div class="setting" id="school"><select>
+                        <option value="0">-</option><option value="45">Επιστημών Εκπαίδευσης στην Προσχολική Ηλικία</option><option value="117" selected="selected">Ιατρική</option><option value="130">Μοριακή Βιολογία &amp; Γενετική</option><option value="39">Παιδαγωγικό Δημοτικής Εκπ/σης</option></select></div>
+            </div>
+            <div id="unibarfade" class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="photo">Φωτογραφία:</label>
+                <div class="setting" id="photo"><span class="imageview"><img src="http://images.zino.gr/media/791/2795/2795_150.jpg" class="avie" style="width:150px;height:150px;" title="kostis90gr" alt="kostis90gr"></img></span><div class="changeavatar">
+				<a href="">Αλλαγή εικόνας</a>
+            </div>
+            <div id="avatarlist">
+				<h3 class="modaltitle">Επέλεξε μια φωτογραφία...</h3>
+                <div class="uploaddiv">
+                                            <object style="height:50px" data="?p=upload&amp;albumid=32&amp;typeid=1&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html">
+                        </object>
+                                        </div><ul><li><a href="" onclick="Settings.SelectAvatar( '139077' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/139077/139077_100.jpg" class="photosmall" style="width:100px;height:100px;" title="To Xristougenniatiko dentro sto hotel!" alt="To Xristougenniatiko dentro sto hotel!"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '139076' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/139076/139076_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Kostis aka Plusenko" alt="Kostis aka Plusenko"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137622' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137622/137622_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Kane ntou" alt="Kane ntou"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137621' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137621/137621_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Girnontas apto treksimo" alt="Girnontas apto treksimo"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137620' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137620/137620_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Mikroskopisi" alt="Mikroskopisi"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137619' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137619/137619_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Sto Ergastirio Biologias" alt="Sto Ergastirio Biologias"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137618' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137618/137618_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Nisteri e?" alt="Nisteri e?"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '137617' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/137617/137617_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Kotsos Mastouras" alt="Kotsos Mastouras"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '68846' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/68846/68846_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '68845' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/68845/68845_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '68844' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/68844/68844_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Stn taberna Liogerma sto Monastiraki" alt="Stn taberna Liogerma sto Monastiraki"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '50224' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/50224/50224_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Erxome k se allo xroma" alt="Erxome k se allo xroma"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '50223' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/50223/50223_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '42936' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/42936/42936_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Apantisi stis xazes fatses tou izual :P" alt="Apantisi stis xazes fatses tou izual :P"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '42331' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/42331/42331_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Oniroupoli 2006-2007 Sto spitaki tou Paramithiou" alt="Oniroupoli 2006-2007 Sto spitaki tou Paramithiou"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '28997' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/28997/28997_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Stn bibliothiki tou sxoliou" alt="Stn bibliothiki tou sxoliou"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '27981' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/27981/27981_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Stou Stefanou,ena sandwichadiko" alt="Stou Stefanou,ena sandwichadiko"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '27980' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/27980/27980_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '19449' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/19449/19449_100.jpg" class="photosmall" style="width:100px;height:100px;" title="me to xamogelo sta xili opos panta" alt="me to xamogelo sta xili opos panta"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '16220' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/16220/16220_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Siga tha spasete kamia egkefaliki flantza" alt="Siga tha spasete kamia egkefaliki flantza"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '16219' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/16219/16219_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '16218' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/16218/16218_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '16217' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/16217/16217_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Apo kati latomia stn Aliki" alt="Apo kati latomia stn Aliki"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2808' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2808/2808_100.jpg" class="photosmall" style="width:100px;height:100px;" title="San narkomanis miazo" alt="San narkomanis miazo"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2807' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2807/2807_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Stn Thaso diakopes" alt="Stn Thaso diakopes"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2805' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2805/2805_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2804' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2804/2804_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Komm nur komm" alt="Komm nur komm"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2803' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2803/2803_100.jpg" class="photosmall" style="width:100px;height:100px;" title="" alt=""></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2802' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2802/2802_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Sto ksenodoxio stis diakopes to kalokeri" alt="Sto ksenodoxio stis diakopes to kalokeri"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2800' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2800/2800_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Kapios na skotosi auto to arkoudakiii" alt="Kapios na skotosi auto to arkoudakiii"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2799' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2799/2799_100.jpg" class="photosmall" style="width:100px;height:100px;" title="ego" alt="ego"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2798' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2798/2798_100.jpg" class="photosmall" style="width:100px;height:100px;" title="no comment" alt="no comment"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2796' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2796/2796_100.jpg" class="photosmall" style="width:100px;height:100px;" title="asxeto" alt="asxeto"></img></span></a></li><li><a href="" onclick="Settings.SelectAvatar( '2795' );return false"><span class="imageview"><img src="http://images.zino.gr/media/791/2795/2795_100.jpg" class="photosmall" style="width:100px;height:100px;" title="Dose m mia Harley k efiga" alt="Dose m mia Harley k efiga"></img></span></a></li></ul>
+            </div></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="mood">Διάθεση:</label>
+                <div class="setting" id="mood">            <div class="moodpicker" style="overflow:hidden">
+                <div class="view" onclick="MoodDropdown.Push( this.parentNode );">
+                    <a href="" onclick="return false">
+                        <img src="http://static.zino.gr/phoenix/dropdown.png" alt="v" />
+                    </a>
+                    <img src="http://static.zino.gr/phoenix/moods/xmas.jpg" alt="Χριστουγεννιάτικος" title="Χριστουγεννιάτικος" class="selected" />
+                </div>
+                <div class="pick">
+                    <ul><li><a href="" onclick="MoodDropdown.Select( 'moodid', 3, this );return false"><img src="http://static.zino.gr/phoenix/moods/cool.jpg" alt="Cool" title="Cool" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 31, this );return false"><img src="http://static.zino.gr/phoenix/moods/high.jpg" alt="High" title="High" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 28, this );return false"><img src="http://static.zino.gr/phoenix/moods/trendy.jpg" alt="Trendy" title="Trendy" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 22, this );return false"><img src="http://static.zino.gr/phoenix/moods/yo.jpg" alt="Yo" title="Yo" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 10, this );return false"><img src="http://static.zino.gr/phoenix/moods/nervous.jpg" alt="Αγχωμένος" title="Αγχωμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 27, this );return false"><img src="http://static.zino.gr/phoenix/moods/surprised.jpg" alt="Αιφνιδιασμένος" title="Αιφνιδιασμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 29, this );return false"><img src="http://static.zino.gr/phoenix/moods/akiros.jpg" alt="Άκυρος" title="Άκυρος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 13, this );return false"><img src="http://static.zino.gr/phoenix/moods/sick.jpg" alt="Άρρωστος" title="Άρρωστος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 5, this );return false"><img src="http://static.zino.gr/phoenix/moods/cute.jpg" alt="Γλυκούλης" title="Γλυκούλης" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 4, this );return false"><img src="http://static.zino.gr/phoenix/moods/creative.jpg" alt="Δημιουργικός" title="Δημιουργικός" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 6, this );return false"><img src="http://static.zino.gr/phoenix/moods/famous.jpg" alt="Διάσημος" title="Διάσημος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 19, this );return false"><img src="http://static.zino.gr/phoenix/moods/thirsty.jpg" alt="Διψασμένος" title="Διψασμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 17, this );return false"><img src="http://static.zino.gr/phoenix/moods/enraged.jpg" alt="Εκνευρισμένος" title="Εκνευρισμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 21, this );return false"><img src="http://static.zino.gr/phoenix/moods/festive.jpg" alt="Ενθουσιασμένος" title="Ενθουσιασμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 8, this );return false"><img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" title="Ερωτευμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 9, this );return false"><img src="http://static.zino.gr/phoenix/moods/jealous.jpg" alt="Ζηλιάρης" title="Ζηλιάρης" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 1, this );return false"><img src="http://static.zino.gr/phoenix/moods/angry.jpg" alt="Θυμωμένος" title="Θυμωμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 16, this );return false"><img src="http://static.zino.gr/phoenix/moods/horny.jpg" alt="Καυλωμένος" title="Καυλωμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 26, this );return false"><img src="http://static.zino.gr/phoenix/moods/hidden.jpg" alt="Κρυμμένος" title="Κρυμμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 11, this );return false"><img src="http://static.zino.gr/phoenix/moods/sad.jpg" alt="Λυπημένος" title="Λυπημένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 18, this );return false"><img src="http://static.zino.gr/phoenix/moods/fashionable.jpg" alt="Μοδάτος" title="Μοδάτος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 2, this );return false"><img src="http://static.zino.gr/phoenix/moods/confused.jpg" alt="Μπερδεμένος" title="Μπερδεμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 15, this );return false"><img src="http://static.zino.gr/phoenix/moods/shy.jpg" alt="Ντροπαλός" title="Ντροπαλός" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 14, this );return false"><img src="http://static.zino.gr/phoenix/moods/sleepy.jpg" alt="Νυσταγμένος" title="Νυσταγμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 23, this );return false"><img src="http://static.zino.gr/phoenix/moods/narcissistic.jpg" alt="Όμορφος" title="Όμορφος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 20, this );return false"><img src="http://static.zino.gr/phoenix/moods/hungry.jpg" alt="Πεινασμένος" title="Πεινασμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 24, this );return false"><img src="http://static.zino.gr/phoenix/moods/weird.jpg" alt="Περίεργος" title="Περίεργος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 25, this );return false"><img src="http://static.zino.gr/phoenix/moods/detached.jpg" alt="Στον κόσμο του" title="Στον κόσμο του" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 12, this );return false"><img src="http://static.zino.gr/phoenix/moods/scared.jpg" alt="Τρομαγμένος" title="Τρομαγμένος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 7, this );return false"><img src="http://static.zino.gr/phoenix/moods/happy.jpg" alt="Χαρούμενος" title="Χαρούμενος" /></a></li><li><a href="" onclick="MoodDropdown.Select( 'moodid', 30, this );return false"><img src="http://static.zino.gr/phoenix/moods/xmas.jpg" alt="Χριστουγεννιάτικος" title="Χριστουγεννιάτικος" /></a></li>                    </ul>
+                    <div class="eof"></div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
+                <div class="setting" id="sex"><select><option value="-">-</option><option value="straight" selected="selected">Straight</option><option value="gay">Gay</option><option value="bi">Bisexual</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="religion">Θρήσκευμα:</label>
+                <div class="setting" id="religion"><select><option value="-" selected="selected">-</option><option value="christian">Χριστιανός</option><option value="muslim">Ισλαμιστής</option><option value="atheist">Άθεος</option><option value="agnostic">Αγνωστικιστής</option><option value="nothing">Τίποτα</option>            </select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="politics">Πολιτικές πεποιθήσεις:</label>
+                <div class="setting" id="politics"><select><option value="-">-</option><option value="right">Δεξιός</option><option value="left">Αριστερός</option><option value="center">Κεντρώος</option><option value="radical right">Ακροδεξιός</option><option value="radical left">Ακροαριστερός</option><option value="center left">Κεντροαριστερός</option><option value="center right">Κεντροδεξιός</option><option value="nothing" selected="selected">Τίποτα</option>            </select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="slogan">Slogan:</label>
+                <div class="setting" id="slogan"><input type="text" value="&quot;Quoth the Raven Nevermore&quot;   --Edgar Allan Poe" /></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="aboutme">Λίγα λόγια για μένα:</label>
+                <div class="setting" id="aboutme"><textarea rows="" cols="">Kamibu Developer</textarea></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label for="favquote">Αγαπημένο ρητό:</label>
+                <div class="setting" id="favquote"><input type="text" value="Ο πεινασμένος καρβέλια ονειρεύεται" /></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div></form>
+                    <form id="characteristicsinfo" action="" style="display:none"><div class="option">
+                <label>Χρώμα μαλλιών</label>
+                <div class="setting" id="haircolor"><select><option value="-" selected="selected">-</option><option value="black">Μαύρo</option><option value="brown">Καστανό</option><option value="red">Κόκκινο</option><option value="blond">Ξανθό</option><option value="highlights">Ανταύγιες</option><option value="grey">Γκρι</option><option value="skinhead">Skinhead</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Χρώμα ματιών</label>
+                <div class="setting" id="eyecolor"><select><option value="-">-</option><option value="black">Μαύρο</option><option value="brown" selected="selected">Καφέ</option><option value="green">Πράσινο</option><option value="blue">Μπλε</option><option value="grey">Γκρι</option></select>
+            </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Ύψος</label>
+                <div class="setting" id="height"><select>
+                <option value="-3"></option>
+                <option value="-2">Κάτω από 1.20m</option><option value="120">1.20m</option><option value="121">1.21m</option><option value="122">1.22m</option><option value="123">1.23m</option><option value="124">1.24m</option><option value="125">1.25m</option><option value="126">1.26m</option><option value="127">1.27m</option><option value="128">1.28m</option><option value="129">1.29m</option><option value="130">1.30m</option><option value="131">1.31m</option><option value="132">1.32m</option><option value="133">1.33m</option><option value="134">1.34m</option><option value="135">1.35m</option><option value="136">1.36m</option><option value="137">1.37m</option><option value="138">1.38m</option><option value="139">1.39m</option><option value="140">1.40m</option><option value="141">1.41m</option><option value="142">1.42m</option><option value="143">1.43m</option><option value="144">1.44m</option><option value="145">1.45m</option><option value="146">1.46m</option><option value="147">1.47m</option><option value="148">1.48m</option><option value="149">1.49m</option><option value="150">1.50m</option><option value="151">1.51m</option><option value="152">1.52m</option><option value="153">1.53m</option><option value="154">1.54m</option><option value="155">1.55m</option><option value="156">1.56m</option><option value="157">1.57m</option><option value="158">1.58m</option><option value="159">1.59m</option><option value="160">1.60m</option><option value="161">1.61m</option><option value="162">1.62m</option><option value="163">1.63m</option><option value="164">1.64m</option><option value="165">1.65m</option><option value="166">1.66m</option><option value="167">1.67m</option><option value="168">1.68m</option><option value="169">1.69m</option><option value="170" selected="selected">1.70m</option><option value="171">1.71m</option><option value="172">1.72m</option><option value="173">1.73m</option><option value="174">1.74m</option><option value="175">1.75m</option><option value="176">1.76m</option><option value="177">1.77m</option><option value="178">1.78m</option><option value="179">1.79m</option><option value="180">1.80m</option><option value="181">1.81m</option><option value="182">1.82m</option><option value="183">1.83m</option><option value="184">1.84m</option><option value="185">1.85m</option><option value="186">1.86m</option><option value="187">1.87m</option><option value="188">1.88m</option><option value="189">1.89m</option><option value="190">1.90m</option><option value="191">1.91m</option><option value="192">1.92m</option><option value="193">1.93m</option><option value="194">1.94m</option><option value="195">1.95m</option><option value="196">1.96m</option><option value="197">1.97m</option><option value="198">1.98m</option><option value="199">1.99m</option><option value="200">2.00m</option><option value="201">2.01m</option><option value="202">2.02m</option><option value="203">2.03m</option><option value="204">2.04m</option><option value="205">2.05m</option><option value="206">2.06m</option><option value="207">2.07m</option><option value="208">2.08m</option><option value="209">2.09m</option><option value="210">2.10m</option><option value="211">2.11m</option><option value="212">2.12m</option><option value="213">2.13m</option><option value="214">2.14m</option><option value="215">2.15m</option><option value="216">2.16m</option><option value="217">2.17m</option><option value="218">2.18m</option><option value="219">2.19m</option><option value="220">2.20m</option><option value="-1">Πάνω από 2.20m</option>
+            </select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Βάρος</label>
+                <div class="setting" id="weight"><select>
+                <option value="-3"></option>
+                <option value="-2">Kάτω από 30kg</option><option value="30">30kg</option><option value="31">31kg</option><option value="32">32kg</option><option value="33">33kg</option><option value="34">34kg</option><option value="35">35kg</option><option value="36">36kg</option><option value="37">37kg</option><option value="38">38kg</option><option value="39">39kg</option><option value="40">40kg</option><option value="41">41kg</option><option value="42">42kg</option><option value="43">43kg</option><option value="44">44kg</option><option value="45">45kg</option><option value="46">46kg</option><option value="47">47kg</option><option value="48">48kg</option><option value="49">49kg</option><option value="50">50kg</option><option value="51">51kg</option><option value="52">52kg</option><option value="53">53kg</option><option value="54">54kg</option><option value="55">55kg</option><option value="56">56kg</option><option value="57">57kg</option><option value="58">58kg</option><option value="59">59kg</option><option value="60">60kg</option><option value="61">61kg</option><option value="62">62kg</option><option value="63">63kg</option><option value="64">64kg</option><option value="65">65kg</option><option value="66">66kg</option><option value="67">67kg</option><option value="68">68kg</option><option value="69">69kg</option><option value="70" selected="selected">70kg</option><option value="71">71kg</option><option value="72">72kg</option><option value="73">73kg</option><option value="74">74kg</option><option value="75">75kg</option><option value="76">76kg</option><option value="77">77kg</option><option value="78">78kg</option><option value="79">79kg</option><option value="80">80kg</option><option value="81">81kg</option><option value="82">82kg</option><option value="83">83kg</option><option value="84">84kg</option><option value="85">85kg</option><option value="86">86kg</option><option value="87">87kg</option><option value="88">88kg</option><option value="89">89kg</option><option value="90">90kg</option><option value="91">91kg</option><option value="92">92kg</option><option value="93">93kg</option><option value="94">94kg</option><option value="95">95kg</option><option value="96">96kg</option><option value="97">97kg</option><option value="98">98kg</option><option value="99">99kg</option><option value="100">100kg</option><option value="101">101kg</option><option value="102">102kg</option><option value="103">103kg</option><option value="104">104kg</option><option value="105">105kg</option><option value="106">106kg</option><option value="107">107kg</option><option value="108">108kg</option><option value="109">109kg</option><option value="110">110kg</option><option value="111">111kg</option><option value="112">112kg</option><option value="113">113kg</option><option value="114">114kg</option><option value="115">115kg</option><option value="116">116kg</option><option value="117">117kg</option><option value="118">118kg</option><option value="119">119kg</option><option value="120">120kg</option><option value="121">121kg</option><option value="122">122kg</option><option value="123">123kg</option><option value="124">124kg</option><option value="125">125kg</option><option value="126">126kg</option><option value="127">127kg</option><option value="128">128kg</option><option value="129">129kg</option><option value="130">130kg</option><option value="131">131kg</option><option value="132">132kg</option><option value="133">133kg</option><option value="134">134kg</option><option value="135">135kg</option><option value="136">136kg</option><option value="137">137kg</option><option value="138">138kg</option><option value="139">139kg</option><option value="140">140kg</option><option value="141">141kg</option><option value="142">142kg</option><option value="143">143kg</option><option value="144">144kg</option><option value="145">145kg</option><option value="146">146kg</option><option value="147">147kg</option><option value="148">148kg</option><option value="149">149kg</option><option value="150">150kg</option><option value="-1">Πάνω από 150kg</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Καπνίζεις;</label>
+                <div class="setting" id="smoker"><select><option value="-">-</option><option value="yes">Ναι</option><option value="no" selected="selected">Όχι</option><option value="socially">Με παρέα</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Πίνεις;</label>
+                <div class="setting" id="drinker"><select><option value="-">-</option><option value="yes">Ναι</option><option value="no">Όχι</option><option value="socially" selected="selected">Με παρέα</option></select></div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div></form>
+                    <form onsubmit="return false" id="interestsinfo" action="" style="display:none"><div class="option">
+                <label>Hobbies:</label>
+                <div class="setting">
+                    <ul class="interesttags hobbies"><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Algorithms</span>
+									<a href="" onclick="Settings.RemoveInterest( '164' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Programming</span>
+									<a href="" onclick="Settings.RemoveInterest( '165' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">C/C++</span>
+									<a href="" onclick="Settings.RemoveInterest( '166' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">JavaScript</span>
+									<a href="" onclick="Settings.RemoveInterest( '167' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">PHP</span>
+									<a href="" onclick="Settings.RemoveInterest( '168' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">MySQL</span>
+									<a href="" onclick="Settings.RemoveInterest( '169' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">XHTML</span>
+									<a href="" onclick="Settings.RemoveInterest( '170' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">CSS</span>
+									<a href="" onclick="Settings.RemoveInterest( '171' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Piano</span>
+									<a href="" onclick="Settings.RemoveInterest( '172' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Music</span>
+									<a href="" onclick="Settings.RemoveInterest( '173' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Books</span>
+									<a href="" onclick="Settings.RemoveInterest( '174' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Metal</span>
+									<a href="" onclick="Settings.RemoveInterest( '175' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Zino</span>
+									<a href="" onclick="Settings.RemoveInterest( '9206' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">girls</span>
+									<a href="" onclick="Settings.RemoveInterest( '177' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Happy</span>
+									<a href="" onclick="Settings.RemoveInterest( '178' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Linux</span>
+									<a href="" onclick="Settings.RemoveInterest( '179' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Ubuntu</span>
+									<a href="" onclick="Settings.RemoveInterest( '180' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">sex</span>
+									<a href="" onclick="Settings.RemoveInterest( '181' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Web Development</span>
+									<a href="" onclick="Settings.RemoveInterest( '184' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Kamibu</span>
+									<a href="" onclick="Settings.RemoveInterest( '791' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">food</span>
+									<a href="" onclick="Settings.RemoveInterest( '549' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">guitar</span>
+									<a href="" onclick="Settings.RemoveInterest( '550' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">makaronia</span>
+									<a href="" onclick="Settings.RemoveInterest( '551' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">soublaki</span>
+									<a href="" onclick="Settings.RemoveInterest( '552' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">friends</span>
+									<a href="" onclick="Settings.RemoveInterest( '553' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li></ul>
+                    <div class="add hobbies">
+                        <input type="text" onkeyup="Suggest.inputMove( event );" onblur="$( 'div.hobbies ul' ).css( 'display', 'none' );" onfocus="$( 'div.hobbies ul').css( 'display', 'block' );"/>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <ul>
+                            <li><b>ana</b>skoumpoma</li>
+                            <li><b>ana</b>sigkrotisi</li>
+                            <li><b>ana</b> maria</li>
+                            <li><b>ana</b> antouaneta</li>
+                            <li><b>ana</b>skopisi</li>
+                            <li><b>ana</b>aaaaaaaaaaaaaaaaaaaaaa...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένα τραγούδια:</label>
+                <div class="setting">
+                    <ul class="interesttags songs"><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">The Merry-Go-Round of Life</span>
+									<a href="" onclick="Settings.RemoveInterest( '5045' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">One Summer's Day</span>
+									<a href="" onclick="Settings.RemoveInterest( '5046' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Σαν Αστραπή</span>
+									<a href="" onclick="Settings.RemoveInterest( '5047' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Μαύρος Καβαλάρης</span>
+									<a href="" onclick="Settings.RemoveInterest( '5048' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">DragoBall Theme Greek</span>
+									<a href="" onclick="Settings.RemoveInterest( '9229' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li></ul>
+                    <div class="add songs">
+                        <input type="text"/>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένες ταινίες:</label>
+                <div class="setting">
+                    <ul class="interesttags movies"></ul>
+                    <div class="add movies">
+                        <input type="text"/>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένες σειρές:</label>
+                <div class="setting">
+                    <ul class="interesttags shows"></ul>
+                    <div class="add shows">
+                        <input type="text"/>
+						<a href="" onclick="return false" title="Προσθήκη"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένα βιβλία:</label>
+                <div class="setting">
+                    <ul class="interesttags books"><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">A Brief History of Time</span>
+									<a href="" onclick="Settings.RemoveInterest( '5066' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Introduction to Algorithms</span>
+									<a href="" onclick="Settings.RemoveInterest( '5050' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">The Trial - Franz Kafka</span>
+									<a href="" onclick="Settings.RemoveInterest( '5052' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Steppenwolf</span>
+									<a href="" onclick="Settings.RemoveInterest( '5063' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Crime and Punishment</span>
+									<a href="" onclick="Settings.RemoveInterest( '5060' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Brothers Karamazov</span>
+									<a href="" onclick="Settings.RemoveInterest( '5061' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Edgar Allan Poe</span>
+									<a href="" onclick="Settings.RemoveInterest( '5062' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li></ul>
+                    <div class="add books">
+                        <input type="text"/>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένοι καλλιτέχνες:</label>
+                <div class="setting">
+                    <ul class="interesttags artists"></ul>
+                    <div class="add artists">
+                        <input type="text"/>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Αγαπημένα παιχνίδια:</label>
+                <div class="setting">
+                    <ul class="interesttags games"><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">Syberia</span>
+									<a href="" onclick="Settings.RemoveInterest( '5068' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li><li>
+                                <div class="aplbubble">
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle">The Longest Journey</span>
+									<a href="" onclick="Settings.RemoveInterest( '5069' , this );return false" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
+                                </div>
+                            </li></ul>
+                    <div class="add games">
+                        <input type="text"/>
+						<a href="" onclick="return false" title="Προσθήκη"></a>		
+                    </div>
+                </div>
+            </div>
+            <div class="aplbubble creation">
+				<span class="aplbubbleleft">&nbsp;</span>
+				<span class="aplbubblemiddle"></span>
+				<a href="" class="delete">&nbsp;</a>
+				<span class="aplbubbleright">&nbsp;</span>
+            </div></form>
+                    <form id="contactinfo" action="" style="display:none"><div class="option">
+                <label>MSN:</label>
+                <div class="setting" id="msn">
+                    <input type="text" name="msn" class="small" value="kostis90gr@hotmail.com" />
+                    <span>
+                        <img src="http://static.zino.gr/phoenix/exclamation.png" alt="" /> Το MSN δεν είναι έγκυρο
+                    </span>
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Gtalk:</label>
+                <div class="setting" id="gtalk">
+                    <input type="text" name="gtalk" class="small" value="kostis90gr@gmail.com" />
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Skype:</label>
+                <div class="setting" id="skype">
+                    <input type="text" name="skype" class="small" value="kostis90gr" />
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Yahoo:</label>
+                <div class="setting" id="yahoo">
+                    <input type="text" name="yahoo" class="small" value="kostis90gr@hotmail.com" />
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
+                <label>Ιστοσελίδα:</label>
+                <div class="setting" id="web">
+                    <input type="text" name="yahoo" class="small" value="" />
+                </div>
+            </div>
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div></form>
+                    <form id="settingsinfo" action="" style="display:none"><div class="email">
+                <label>E-mail:</label>
+                <div id="email">
+                    <input type="text" name="email" class="small" value="kostis90gr@hotmail.com" />
+                    <span>
+                        <img src="http://static.zino.gr/phoenix/exclamation.png" alt="" /> Το email δεν είναι έγκυρο
+                    </span>
+                    <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
+                </div>
+            </div>
+            <div class="barfade emailbarfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+                <div class="changepwdl"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+            <div class="barfade pwdbarfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <span class="notifyme">Να λαμβάνω ειδοποιήσεις</span>
+            <div class="setting">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Μέσω e-mail</th>
+                            <th>Μέσα στο site</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Σχόλια στο προφίλ μου:</th>
+                            <td><input id="emailprofilecomment" type="checkbox" /></td>
+                            <td><input id="notifyprofilecomment" type="checkbox" checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Σχόλια στις εικόνες μου:</th>
+                            <td><input id="emailphotocomment" type="checkbox" /></td>
+                            <td><input id="notifyphotocomment" type="checkbox" checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Σχόλια στις δημοσκοπήσεις μου:</th>
+                            <td><input id="emailpollcomment" type="checkbox" /></td>
+                            <td><input id="notifypollcomment" type="checkbox" checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Σχόλια στα ημερολόγιά μου:</th>
+                            <td><input id="emailjournalcomment" type="checkbox" /></td>
+                            <td><input id="notifyjournalcomment" type="checkbox" checked="checked"/></td>                        
+                        </tr>
+                        <tr>
+                            <th>Απαντήσεις στα σχόλιά μου:</th>
+                            <td><input id="emailreply" type="checkbox" /></td>
+                            <td><input id="notifyreply" type="checkbox" checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Νέοι φίλοι:</th>
+                            <td><input id="emailfriendaddition" type="checkbox" /></td>
+                            <td><input id="notifyfriendaddition" type="checkbox" checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Νέες Σημάνσεις Φωτογραφιών:</th>
+                            <td><input id="emailtagcreation" type="checkbox" checked="checked"/></td>
+                            <td><input id="notifytagcreation" type="checkbox"  checked="checked"/></td>
+                        </tr>
+                        <tr>
+                            <th>Προσθήκες αγαπημένων:</th>
+                            <td><input id="emailfavourite" type="checkbox" checked="checked"/></td>
+                            <td><input id="notifyfavourite" type="checkbox"  checked="checked"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id ="pwdmodal">
+                <h3 class="modaltitle">Αλλαγή κωδικού πρόσβασης</h3>
+                <div class="oldpassword">
+                    <span>Κωδικός πρόσβασης:</span>
+                    <div>
+                        <input type="password" />
+                        <div class="wrongpwd">
+                        <span>
+                        <img src="http://static.zino.gr/phoenix/exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newpassword">
+                    <span>Νέος κωδικός πρόσβασης:</span>
+                    <div>
+                        <input type="password" />
+                        <div class="shortpwd">
+                        <span>
+                        <img src="http://static.zino.gr/phoenix/exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="renewpassword">
+                    <span>Επιβεβαίωση νέου κωδικού:</span>
+                    <div>
+                        <input type="password" />
+                        <div class="wrongrepwd">
+                        <span><img src="http://static.zino.gr/phoenix/exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="save">
+                    <a href="" class="button">Αποθήκευση</a>
+                </div>
+            </div></form>
+                </div>
+            </div>
+            <div class="eof"></div></div><div class="footer">
+                <ul>
+                    <li><a href="contact">Επικοινώνησε</a></li>
+                    <li><a href="tos">Όροι χρήσης</a></li>
+                    <li><a href="advertise">Διαφημίσου εδώ</a></li>
+                </ul>
+                <div class="copy">
+                    &copy; 2008 <a href="http://www.kamibu.com/">Kamibu</a>
+                </div>
+            </div><script type="text/javascript" src="http://www.google-analytics.com/urchin.js" charset="utf-8"></script><script type="text/javascript" src="http://static.zino.gr/js/global.js?48" charset="utf-8"></script><script type="text/javascript" src="http://beta.zino.gr/phoenix/etc/mockups/suggest/suggest.js" charset="utf-8"></script><script type="text/javascript">Settings.SettingsOnLoad();</script></body></html>
