@@ -43,7 +43,6 @@
             $master = ob_get_clean();
             ?><script type="text/javascript">
                 var renderingstart = new Date();
-                alert( renderingstart.getTime() );
             </script><?php 
             if ( $res === false ) { //If the page requested is not in the pages available
                 Element( 'banner' );
