@@ -48,7 +48,7 @@ var Suggest = {
 			return;
 		}
         var lis = ul.find( 'li.selected' );
-		var text = lis.text();
+		var text = $( 'div.hobbies input' ).val();
         if ( event.keyCode == 40 ) { // down
             if ( lis.length == 0 ) { // || ul.find( 'li:last' ).hasClass( 'selected' ) ) {
                 //lis.removeClass( 'selected' );
@@ -73,7 +73,7 @@ var Suggest = {
                 ul.css( 'display', 'none' );
                 return;
             }
-            $( 'div.hobbies input' ).attr( 'value', text );
+            $( 'div.hobbies input' ).attr( 'value', lis.text() );
             ul.hide();
         }
 		else {
