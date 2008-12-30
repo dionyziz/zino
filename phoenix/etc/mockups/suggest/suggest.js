@@ -102,6 +102,7 @@ var Suggest = {
 			$( 'div.' + type + ' ul li' ).remove();
 		}
 		
+		alert( 'trexo' );
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
 		for( var i=0;i<suggestions.length;++i ) {
