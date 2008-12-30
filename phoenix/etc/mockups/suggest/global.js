@@ -424,7 +424,7 @@ return false;},DaysInMonth:function(month,year){switch(month){case'01':case'03':
 return 28;}
 return 30;},ValidDate:function(day,month,year){var daysinmonth=Dates.DaysInMonth(month,year);if(day<0||day>daysinmonth){return false;}
 if(month<0||month>12){return false;}
-return true;}};var Coala={StoredObjects:[],ThreadedRequests:[],LazyCommit:null,BaseURL:'https://beta.zino.gr/phoenix/js/',Frozen:function(unitid,parameters,failurecallback){if(Coala.ThreadedRequests.length){Coala.Commit();}
+return true;}};var Coala={StoredObjects:[],ThreadedRequests:[],LazyCommit:null,BaseURL:'https://beta.zino.gr/phoenix/js',Frozen:function(unitid,parameters,failurecallback){if(Coala.ThreadedRequests.length){Coala.Commit();}
 this._AppendRequest(unitid,parameters,'frozen',failurecallback);Coala.Commit();},Cold:function(unitid,parameters,failurecallback){this._AppendRequest(unitid,parameters,'cold',failurecallback);clearTimeout(this.LazyCommit);this.LazyCommit=setTimeout(function(){Coala.Commit();},50);},Warm:function(unitid,parameters,failurecallback){this._AppendRequest(unitid,parameters,'warm',failurecallback);clearTimeout(this.LazyCommit);this.LazyCommit=setTimeout(function(){Coala.Commit();},50);},_AppendRequest:function(unitid,parameters,type,failurecallback){if(typeof unitid==='undefined'){alert('No coala call unitid specified; aborting call');return;}
 if(typeof parameters==='undefined'){alert('No coala call parameters specified; aborting call');return;}
 Coala.ThreadedRequests.push({'unitid':unitid,'parameters':parameters,'type':type,'failurecallback':failurecallback});},Commit:function(){if(Coala.ThreadedRequests.length===0){return;}
