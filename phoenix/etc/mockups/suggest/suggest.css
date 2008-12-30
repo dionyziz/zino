@@ -2,6 +2,8 @@ div.hobbies ul {
     border: 1px solid grey;
     border-top-width:0px;
     width:200px;
+	max-height:250px;
+	overflow:auto;
     position: absolute;
     z-index: 1;
     background-color: white;
