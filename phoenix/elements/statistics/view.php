@@ -23,42 +23,42 @@
             $graphType = "Shoutbox";
             }
         
-            ?> <h2>Daily statistics</h2> <?php
+            ?><h2>Daily statistics</h2><?php
 
-            ?> <ul> <?php                
+            ?><ul><?php                
                 foreach ( array( 30, 60, 90 ) as  $days ) {                    
-                    ?> <li> <?php
-                    ?> <a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
+                    ?><li><?php
+                    ?><a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
                     if ( $daysBefore == $days) {
-                    ?> <strong> <?php
+                    ?><strong><?php
                     }
                     echo $days;
                     ?> days before<?php 
                     if ( $daysBefore == $days ) {
-                    ?> </strong> <?php
+                    ?></strong><?php
                     }
-                    ?> </a></li> <?php            
+                    ?></a></li><?php            
                 }                
-            ?> </ul> <?php
+            ?></ul><?php
 
-                ?> <ul> <?php                
+                ?><ul><?php                
                 foreach ( array( 'Shoutbox', 'Users', 'Images', 'Polls', 'Comments', 'Journals', 'Albums', 'All' ) as $table) {
-                    ?> <li> <?php
+                    ?><li><?php
                     ?><a href="?p=statistics&amp;daysBefore=<?php echo $daysBefore; ?>&amp;graphType=<?php echo $table; ?>"> <?php
 
                     if (  $graphType == $table ) {
-                    ?> <strong> <?php
+                    ?><strong><?php
                     }
                     
                     echo $table;
                 
                     if (  $graphType == $table ) {
-                    ?> </strong> <?php
+                    ?></strong><?php
                     }
             
-                    ?> </a></li> <?php                    
+                    ?></a></li><?php                    
                 }
-            ?> </ul> <?php
+            ?></ul><?php
             
             
             foreach ( array( 'Shoutbox', 'Users', 'Images', 'Polls', 'Comments', 'Journals', 'Albums' ) as $table) {
