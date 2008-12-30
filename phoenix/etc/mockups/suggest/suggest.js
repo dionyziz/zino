@@ -94,6 +94,7 @@ var Suggest = {
 		}
     },
 	suggestCallback : function( type, suggestions, callbacked ) {
+		alert( "trexo" );
 		if ( suggestions.length === undefined || suggestions.length == 0 ) {
 			return;
 		}
@@ -101,8 +102,7 @@ var Suggest = {
 		if ( !callbacked ) {
 			$( 'div.' + type + ' ul li' ).remove();
 		}
-		
-		alert( 'trexo' );
+
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
 		for( var i=0;i<suggestions.length;++i ) {
