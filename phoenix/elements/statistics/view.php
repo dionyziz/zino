@@ -27,9 +27,9 @@
             $libs->Load( "adminpanel/statistics" );
             
             $frequency = GetCommentFrequency();
-            ?><h2>Daily statistics( comment frequency NOW = <?php
+            ?><h2>Daily statistics( current comment frequency <?php
             echo $frequency;
-            ?>)</h2><?php
+            ?> messaged per second )</h2><?php
 
             ?><ul><?php                
                 foreach ( array( 30, 60, 90 ) as  $days ) {                    
