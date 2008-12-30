@@ -48,6 +48,7 @@ var Suggest = {
 			return;
 		}
         var lis = ul.find( 'li.selected' );
+		var text = lis.text();
         if ( event.keyCode == 40 ) { // down
             if ( lis.length == 0 ) { // || ul.find( 'li:last' ).hasClass( 'selected' ) ) {
                 //lis.removeClass( 'selected' );
@@ -64,15 +65,81 @@ var Suggest = {
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' );
         }
+        else if ( event.keyCode == 27 ) { // escape
+            ul.hide();
+        }
         else if ( event.keyCode == 13 ) { // enter
             if ( lis.length == 0 ) {
                 ul.css( 'display', 'none' );
                 return;
             }
-            $( 'div.hobbies input' ).attr( 'value', lis.text() );
-            ul.css( 'display', 'none' );
+            $( 'div.hobbies input' ).attr( 'value', text );
+            ul.hide();
         }
-    }
+		else {
+			var suggestions = $.grep( Suggest.list[ 'hobbies' ], function( item, index ) {
+		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
+		               } );
+			Suggest.suggestCallback( 'hobbies', suggestions, false );
+			
+			if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ 'hobbies' ] ) !== -1 ) {
+				return;
+			}
+			
+			Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
+														'type' : 'hobbies',
+														'callback' : Suggest.suggestCallback
+		                                           } );
+			Suggest.requested[ 'hobbies' ].push( text );
+		}
+    },
+	suggestCallback : function( type, suggestions, callbacked ) {
+		if ( suggestions.length === undefined || suggestions.length == 0 ) {
+			return;
+		}
+		
+		if ( !callbacked ) {
+			$( 'div.' + type + ' ul li' ).remove();
+		}
+		
+		// Marks duplicate entries
+		var sugLength = suggestions.length;
+		for( var i=0;i<suggestions.length;++i ) {
+		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
+		        Suggest.list[ type ].push( suggestions[i] );
+		    }
+		    else if ( callbacked ) { // If callbacked is set to true, then the current suggestion always exists in the options. It was added the first time when callbacked was false
+		        suggestions[i] = '';
+		        --sugLength;
+		    }
+		}
+		
+		$( 'div.' + type + ' ul' ).show();
+		
+		var text = $( 'div.' + type + ' input' ).val();
+		for( var i in suggestions ) {
+		    if ( suggestions[i] !== '' ) {
+				var li = document.createElement( 'li' );
+				li.onmousedown = function( i ) {
+					return function() {
+						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
+						ul.css( 'display', 'none' );
+					}
+				}( i );
+				li.onmouseover = function() {
+					$( 'div.' + type + ' ul li.selected' ).removeClass( 'selected' );
+					this.className = "selected";
+				};
+
+				var b = document.createElement( 'b' );
+				b.appendChild( document.createTextNode( text ) );
+				li.appendChild( b );
+				li.appendChild( document.createTextNode( suggestions[ i ].substr( text.length ) ) );
+			
+				$( 'div.' + type + ' ul' ).append( li );
+			}
+		}
+	}
 };
 
 $( function() {
