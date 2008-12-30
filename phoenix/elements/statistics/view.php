@@ -29,7 +29,7 @@
             $frequency = GetCommentFrequency();
             ?><h2>Daily statistics( current comment frequency <?php
             echo $frequency;
-            ?> messaged per second )</h2><?php
+            ?> messages per second )</h2><?php
 
             ?><ul><?php                
                 foreach ( array( 30, 60, 90 ) as  $days ) {                    
