@@ -144,16 +144,5 @@ var Suggest = {
 
 $( function() {
     $( 'div.hobbies input' ).unbind(); // prevent onkeydown event from settings.js
-    var ul = $( 'div.hobbies ul' );
-    ul.find( 'li' ).mouseover(
-        function() {
-            ul.find( 'li.selected' ).removeClass( 'selected' );
-            $( this ).addClass( 'selected' );
-        }
-    ).mousedown(
-        function() {
-            $( 'div.hobbies input' ).attr( 'value', $( this ).text() );
-            ul.css( 'display', 'none' );
-        }
-    );
+    $( 'div.hobbies ul li' ).remove();
 } );
