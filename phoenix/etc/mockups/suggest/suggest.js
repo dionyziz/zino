@@ -85,7 +85,7 @@ var Suggest = {
 			if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ 'hobbies' ] ) !== -1 ) {
 				return;
 			}
-			alert( text );
+
 			Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
 														'type' : 'hobbies',
 														'callback' : Suggest.suggestCallback
