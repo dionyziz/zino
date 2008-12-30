@@ -5,6 +5,7 @@
         public function Render(tInteger $daysBefore,tText $graphType) {
             global $page;
             global $user;
+            global $libs;
 
             if ( !$user->HasPermission( PERMISSION_STATISTICS_VIEW ) ) {
             ?> Permission denied <?php
@@ -22,8 +23,13 @@
             if ( $graphType == "" ) {
             $graphType = "Shoutbox";
             }
-        
-            ?><h2>Daily statistics</h2><?php
+            
+            $libs->Load( "adminpanel/statistics" );
+            
+            $frequency = GetCommentFrequency();
+            ?><h2>Daily statistics( comment frequency NOW = <?php
+            echo $frequency;
+            ?>)</h2><?php
 
             ?><ul><?php                
                 foreach ( array( 30, 60, 90 ) as  $days ) {                    
