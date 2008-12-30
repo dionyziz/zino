@@ -5,6 +5,7 @@ div.hobbies ul {
     position: absolute;
     z-index: 1;
     background-color: white;
+	display: none;
 }
 div.hobbies ul li.selected {
     background-color: #3377EE;
