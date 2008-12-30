@@ -132,7 +132,7 @@ var Suggest = {
 				};
 
 				var b = document.createElement( 'b' );
-				b.appendChild( document.createTextNode( text ) );
+				b.appendChild( document.createTextNode( suggestions[ i ].substr( 0, text.length ) ) );
 				li.appendChild( b );
 				li.appendChild( document.createTextNode( suggestions[ i ].substr( text.length ) ) );
 			
