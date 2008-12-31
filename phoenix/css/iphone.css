@@ -26,7 +26,7 @@ textarea {
     color: #ccc;
     text-align: center;
 }
-textarea:active {
+textarea:focus {
     color: #black;
     text-align: left;
 }
