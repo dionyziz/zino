@@ -74,7 +74,7 @@ a img {
 span.who {
     display: block;
     float: left;
-    padding: 3px;
+    padding: 0 5px 3px 3px;
 }
 div.shoutbox a {
     text-decoration: none;
