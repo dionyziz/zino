@@ -1,0 +1,11 @@
+div.logo {
+    width: 100%;
+    height: 30px;
+    background-image: url( 'http://static.zino.gr/phoenix/iphone/bannerbg.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+    text-align: center;
+}
+div.logo img {
+    padding: 1px;
+}
