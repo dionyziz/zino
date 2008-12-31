@@ -62,6 +62,7 @@ a img {
 }
 div.who {
     float: left;
+    clear: both;
     width: 50px;
     padding: 3px;
 }
