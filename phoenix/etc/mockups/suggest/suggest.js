@@ -1,4 +1,5 @@
 var Suggest = {
+	allowHover : true, // Allow onmouseover to select a li
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     // Holds the suggestions that we have already received from the server
     list : {
@@ -56,7 +57,8 @@ var Suggest = {
                 return;
             }
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
-			Suggest.ekso( event );
+			Suggest.allowHover = false;
+			setTimeout( "Suggest.allowHover = true", 15 );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length == 0 ) { // || ul.find( 'li:first' ).hasClass( 'selected' ) ) {
@@ -65,7 +67,8 @@ var Suggest = {
                 return;
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
-			Suggest.ekso( event );
+			Suggest.allowHover = false;
+			setTimeout( "Suggest.allowHover = true", 15 );
         }
         else if ( event.keyCode == 27 ) { // escape
             ul.hide();
@@ -129,6 +132,9 @@ var Suggest = {
 					}
 				}( i );
 				li.onmouseover = function() {
+					if ( !Suggest.allowHover ) {
+						return;
+					}
 					$( 'div.' + type + ' ul li.selected' ).removeClass( 'selected' );
 					this.className = "selected";
 				};
@@ -141,7 +147,7 @@ var Suggest = {
 				$( 'div.' + type + ' ul' ).append( li );
 			}
 		}
-	},
+	}/*,
 	ekso : function( event ) {
 		if ( $.browser.msie ) {
             event.cancelBubble = true;
@@ -149,7 +155,7 @@ var Suggest = {
         else {
             event.stopPropagation();
         }
-	}
+	}*/
 };
 
 $( function() {
