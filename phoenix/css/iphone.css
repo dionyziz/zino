@@ -81,7 +81,8 @@ div.shoutbox a {
     color: #333;
 }
 div.shoutbox a strong {
-    font-size: 16px;
+    font-size: 18px;
+    padding-bottom: 3px;
     color: black;
 }
 div.shoutbox textarea {
