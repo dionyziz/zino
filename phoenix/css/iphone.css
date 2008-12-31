@@ -18,7 +18,7 @@ div.logo img {
 div.login form {
     padding: 10px 15px 15px 10px;
 }
-div.login form input {
+input[type="text"], input[type="password"] {
     width: 100%;
     font-size: 14px;
     font-weight: bold;
@@ -26,6 +26,9 @@ div.login form input {
 }
 input[type="submit"], input[type="button"] {
     font-weight: bold;
+    margin: 3px 0;
+    font-size: 14px;
+    width: 100%;
 }
 div.login form label {
     margin: 2px 0 2px 0;
