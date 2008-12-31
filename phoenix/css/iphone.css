@@ -19,14 +19,14 @@ div.login form {
     padding: 10px 15px 15px 10px;
 }
 input[type="text"], input[type="password"] {
-    width: 100%;
+    display: block;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 3px;
 }
 input[type="submit"], input[type="button"] {
     font-weight: bold;
-    margin: 0 0;
+    margin: 3px 0;
     font-size: 14px;
     width: 100%;
 }
