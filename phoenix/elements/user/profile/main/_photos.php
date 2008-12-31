@@ -1,11 +1,14 @@
 <?php
     
     class ElementUserProfileMainPhotos extends Element {
-        public function Render( $images , $egoalbum ) {
+        public function Render( $images , $egoalbum , $theuserid ) {
             global $water;
-            
-            ?><ul class="plist">
-                <li class="addphoto"><a href="" class="s_bigadd" title="Ανέβασε μια φωτογραφία"></a></li><?php
+            global $user;
+          
+            ?><ul class="plist"><?php
+                if ( $user->Id == $theuserid ) {
+                   ?><li class="addphoto"><a href="" class="s_bigadd" title="Ανέβασε μια φωτογραφία"></a></li><?php
+                }
                 foreach( $images as $image ) {
                     ?><li><a href="?p=photo&amp;id=<?php
                     echo $image->Id;
