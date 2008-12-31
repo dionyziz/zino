@@ -71,11 +71,12 @@ ul li {
 a img {
     border-style: none;
 }
-div.who {
+span.who {
+    display: block;
     float: left;
     padding: 3px;
 }
-div.who a {
+span.who a {
     text-decoration: none;
     font-weight: bold;
 }

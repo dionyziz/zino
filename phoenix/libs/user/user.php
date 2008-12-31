@@ -21,7 +21,7 @@
     
     
     function User_Valid( $username ) {
-        $reserved = Array( 'anonymous', 'www', 'beta', 'store', 'radio' );
+        $reserved = Array( 'anonymous', 'www', 'beta', 'store', 'radio', 'iphone' );
         return ( ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved ) );
     }
     function User_DeriveSubdomain( $username ) {
