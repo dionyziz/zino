@@ -45,3 +45,7 @@ form label {
 div.footer {
     padding: 0 10px;
 }
+div.footer form {
+    display: inline;
+}
+
