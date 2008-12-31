@@ -41,6 +41,7 @@
                 echo htmlspecialchars( $tweet->Message );
                 ?></div><?php
             }
+            ?><div class="eof"></div><?php
             $schoolexists = $theuser->Profile->School->Numstudents > 2;
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
             ?></div><?php
