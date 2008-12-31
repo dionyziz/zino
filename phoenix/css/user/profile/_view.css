@@ -262,6 +262,10 @@ div#easyphotoupload {
 	border: 1px solid #284659;
     height: 120px;
 }
+div#easyphotoupload div ul {
+    width : 300px;
+    overflow: scroll;
+}
 div#easyphotoupload div ul li {
     float: left;
 }
