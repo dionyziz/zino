@@ -1,6 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
+    font-family: Helvetica;
     -webkit-user-select: none;
     -webkit-text-size-adjust: none;
 }
