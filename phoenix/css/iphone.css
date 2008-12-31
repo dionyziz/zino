@@ -78,7 +78,8 @@ span.who {
 }
 div.shoutbox a {
     display: block;
-    -webkit-tap-highlight-color: #1030aa;
+    -webkit-tap-highlight-color: #105cb6;
+    min-height: 55px;
     text-decoration: none;
     color: #333;
 }
