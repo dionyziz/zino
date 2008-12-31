@@ -37,4 +37,6 @@ div.login form label {
     text-shadow: rgba(0, 0, 0, 0.6) 0 1px 0;
     display: block;
 }
-
+div.footer {
+    padding: 10px;
+}
