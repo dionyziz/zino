@@ -78,4 +78,10 @@ div.who {
 }
 div.shoutbox textarea {
     border-style: none;
+    clear: both;
 }
+div.shoutbox input[type="submit"] {
+    width: inherit;
+    float: right;
+}
+
