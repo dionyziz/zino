@@ -7,11 +7,11 @@
 
             ?><div class="login">
                 <form action="do/user/login" method="post">
-                    <div>
+                    <div class="input">
                         <label>Όνομα:</label>
                         <input type="text" name="username" />
                     </div>
-                    <div>
+                    <div class="input">
                         <label>Κωδικός:</label>
                         <input type="password" name="password" />
                     </div>

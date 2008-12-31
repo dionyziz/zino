@@ -15,8 +15,11 @@ div.logo {
 div.logo img {
     padding: 1px;
 }
-div.login form {
+form {
     padding: 10px 15px 15px 10px;
+}
+form div.input {
+    margin-right: 10px;
 }
 input[type="text"], input[type="password"] {
     width: 100%;
@@ -31,7 +34,7 @@ input[type="submit"], input[type="button"] {
     font-size: 14px;
     width: 100%;
 }
-div.login form label {
+form label {
     margin: 2px 0 2px 0;
     font-size: 14px;
     font-weight: bold;
