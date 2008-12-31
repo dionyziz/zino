@@ -19,21 +19,19 @@
             $res = Element::MasterElement();
             $master = ob_get_clean();
             if ( $res === false ) { //If the page requested is not in the pages available
-                Element( 'banner' );
                 ?><div class="content" id="content"><?php
                 Element( '404' );
                 ?></div><?php
-                Element( 'footer' );
             }
             else {
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'banner' );
+                    Element( 'iphone/banner' );
                 }
                 ?><div class="content" id="content"><?php    
                 echo $master;
                 ?></div><?php
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'footer' );
+                    Element( 'iphone/footer' );
                 }
             }
             if ( !$page->TitleFinal() ) {
