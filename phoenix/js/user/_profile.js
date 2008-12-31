@@ -120,6 +120,10 @@ var Profile = {
             trigger : 'div.tweetbox div.tweet div a',
             overlayClass : 'mdloverlay1'
         } );
+        $( '#easyphotoupload' ).jqm( {
+            trigger : 'div#profile div.main div.photos ul li.addphoto a',
+            overlayClass : 'mdloverlay1'
+        } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
             var win = $( '#tweetedit' )[ 0 ];
             var links = $( win ).find( 'a' );
