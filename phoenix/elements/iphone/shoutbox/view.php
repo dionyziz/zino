@@ -1,6 +1,7 @@
 <?php
     class ElementiPhoneShoutboxView extends Element {
         public function Render( $shout ) {
+            global $xc_settings;
             global $user;
             
             ?><div class="shout"><a href="<?php
