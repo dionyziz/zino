@@ -81,7 +81,7 @@
                     ?></ul>
                     <div class="add songs">
                         <input type="text" onclick="$( 'div.songs ul' ).show();" onkeyup="Suggest.inputMove( event, 'songs' );" onblur="$( 'div.songs ul' ).hide();" onfocus="$( 'div.songs ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
@@ -113,7 +113,7 @@
                     ?></ul>
                     <div class="add movies">
                         <input type="text" onclick="$( 'div.movies ul' ).show();" onkeyup="Suggest.inputMove( event, 'movies' );" onblur="$( 'div.movies ul' ).hide();" onfocus="$( 'div.movies ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
@@ -145,7 +145,7 @@
                     ?></ul>
                     <div class="add shows">
 						<input type="text" onclick="$( 'div.shows ul' ).show();" onkeyup="Suggest.inputMove( event, 'shows' );" onblur="$( 'div.shows ul' ).hide();" onfocus="$( 'div.shows ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
@@ -177,7 +177,7 @@
                     ?></ul>
                     <div class="add books">
 						<input type="text" onclick="$( 'div.books ul' ).show();" onkeyup="Suggest.inputMove( event, 'books' );" onblur="$( 'div.books ul' ).hide();" onfocus="$( 'div.books ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
@@ -209,7 +209,7 @@
                     ?></ul>
                     <div class="add artists">
                         <input type="text" onclick="$( 'div.artists ul' ).show();" onkeyup="Suggest.inputMove( event, 'artists' );" onblur="$( 'div.artists ul' ).hide();" onfocus="$( 'div.artists ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
@@ -241,7 +241,7 @@
                     ?></ul>
                     <div class="add games">
                         <input type="text" onclick="$( 'div.games ul' ).show();" onkeyup="Suggest.inputMove( event, 'games' );" onblur="$( 'div.games ul' ).hide();" onfocus="$( 'div.games ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
