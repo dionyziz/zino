@@ -174,6 +174,23 @@ form#interestsinfo div.option div.setting div.add a {
 form#interestsinfo div.option div.setting div.add input {
 	width: 200px;
 }
+form#interestsinfo div.option div.setting div.add ul {
+    border: 1px solid grey;
+    border-top-width:0px;
+    width:200px;
+	max-height:250px;
+	overflow:auto;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+	display: none;
+}
+form#interestsinfo div.option div.setting div.add ul li {
+    background-color: #3377EE;
+    color: white;
+    cursor: pointer;
+}
+/*
 form#interestsinfo div.option div.setting div.add form {
 	display: none;
 }
@@ -181,6 +198,7 @@ form#interestsinfo div.option div.setting div.add form select {
 	width: 200px;
 	border-top-width: 0px;
 }
+*/
 form#interestsinfo div.creation {
 	display: none;
 }
