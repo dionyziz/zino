@@ -260,7 +260,8 @@ div#easyphotoupload {
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
-    height: 400px;
+    width: 450px;
+    height: 300px;
 }
 div#easyphotoupload div ul {
     overflow : auto;
