@@ -130,7 +130,7 @@ dl dt:after {
 }
 dl dd {
     font-weight: normal;
-    padding: 0;
+    padding: 0 0 5px 0;
     margin: 0;
 }
 
