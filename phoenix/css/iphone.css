@@ -84,6 +84,7 @@ div.shoutbox a strong {
     font-size: 18px;
     padding-bottom: 3px;
     color: black;
+    font-weight: normal;
 }
 div.shoutbox textarea {
     border-style: none;
