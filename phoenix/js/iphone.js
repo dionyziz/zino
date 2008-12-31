@@ -21,6 +21,9 @@ var iPhone = {
                     this.value = 'Άγγιξε εδώ για να γράψεις...';
                 }
             } );
+            $( 'a' ).click( function() {
+                this.style.backgroundColor = '#009cff';
+            } );
             $( 'form' ).submit( function() {
                 var tx = $( 'textarea' );
                 if ( !iPhone.Frontpage.ShoutboxHasValue ) {
