@@ -139,7 +139,7 @@
                             echo $album->Name;
                             ?></li><?php
                             foreach ( $albums as $album ) {
-                                if ( $album->Id != $user->Egoalbum->Id ) {
+                                if ( $album->Id != $user->Egoalbumid ) {
                                     ?><li><?php
                                     echo $album->Name;
                                     ?></li><?php
