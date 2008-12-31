@@ -8,9 +8,9 @@
             global $rabbit_settings;
             global $xc_settings;
             
-            $page->AttachStylesheet( 'iphone.css?' . $xc_settings[ 'cssversion' ] );
+            $page->AttachStylesheet( 'css/iphone.css?' . $xc_settings[ 'cssversion' ] );
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
-            $page->AttachScript( 'iphone.js?' . $xc_settings[ 'jsversion' ] );
+            $page->AttachScript( 'js/iphone.js?' . $xc_settings[ 'jsversion' ] );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
             $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
