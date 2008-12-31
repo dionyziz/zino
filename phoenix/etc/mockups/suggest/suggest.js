@@ -149,6 +149,6 @@ var Suggest = {
 };
 
 $( function() {
-    $( 'div.hobbies input' ).unbind(); // prevent onkeydown event from settings.js
-    $( 'div.hobbies ul li' ).remove();
+    $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
+    $( 'div.add ul li' ).remove();
 } );

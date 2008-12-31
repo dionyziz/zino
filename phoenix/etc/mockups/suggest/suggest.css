@@ -1,4 +1,4 @@
-div.hobbies ul {
+div.add ul {
     border: 1px solid grey;
     border-top-width:0px;
     width:200px;
@@ -9,7 +9,7 @@ div.hobbies ul {
     background-color: white;
 	display: none;
 }
-div.hobbies ul li.selected {
+div.add ul li.selected {
     background-color: #3377EE;
     color: white;
     cursor: pointer;
