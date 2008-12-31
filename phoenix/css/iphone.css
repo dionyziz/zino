@@ -76,7 +76,7 @@ span.who {
     float: left;
     padding: 3px;
 }
-span.who a {
+div.shoutbox a {
     text-decoration: none;
     font-weight: bold;
     color: black;
