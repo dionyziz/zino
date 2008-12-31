@@ -20,8 +20,8 @@
 
     class PageExcaliburiPhone extends PageExcaliburHTML {
         public function __construct() {
-            $this->AddMeta( 'viewport', "initial-scale = 1.0; user-scalable = no" );
             parent::__construct();
+            $this->AddMeta( 'viewport', "initial-scale = 1.0; user-scalable = no" );
         }
     }
 

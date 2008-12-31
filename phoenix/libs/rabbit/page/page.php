@@ -118,20 +118,15 @@ final class PageEmpty extends Page {
 
 class PageHTML extends Page {
     protected $mSupportsXML;
-    protected $mStylesheets;
-    protected $mScripts;
-    protected $mScriptsInline;
+    protected $mStylesheets = array();
+    protected $mScripts = array();
+    protected $mScriptsInline = array();
     protected $mBase;
-    protected $mMeta;
-    protected $mFavIcon;
+    protected $mMeta = array();
+    protected $mFavIcon = false;
     
     public function __construct() {
         $this->mElements      = array();
-        $this->mScripts       = array();
-        $this->mScriptsInline = array();
-        $this->mStylesheets   = array();
-        $this->mMeta          = array();
-        $this->mFavIcon       = false;
         $this->CheckXML();
         parent::__construct();
     }
