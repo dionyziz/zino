@@ -49,7 +49,7 @@
                     ?></ul>
                     <div class="add hobbies">
                         <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="$( 'div.hobbies ul' ).hide();" onfocus="$( 'div.hobbies ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
                         </ul>
