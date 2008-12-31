@@ -120,7 +120,8 @@ dl {
     padding: 4px;
 }
 dl dt {
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: 14px;
     margin: 0;
     padding: 0;
 }
