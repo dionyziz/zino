@@ -7,14 +7,12 @@
         $libs->Load( 'shoutbox' );
         
         $text = $text->Get();
-        if ( !$user->Exists() || trim( $text ) == '' ) {
-            return Redirect();
+        if ( $user->Exists() && trim( $text ) != '' ) {
+            $shout = New Shout();
+            $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
+            $shout->Save();
         }
         
-        $shout = New Shout();
-        $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
-        $shout->Save();
-        
-        return Redirect();
+        return Redirect( $_SERVER[ 'HTTP_REFERER' ]  );
     }
 ?>
