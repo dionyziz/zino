@@ -8,6 +8,7 @@
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindLatest( 0, 7 );
 
+            Element( 'iphone/shoutbox/new' );
             ?><ul><?php
             foreach ( $shouts as $shout ) {
                 ?><li><?php
