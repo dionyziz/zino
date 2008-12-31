@@ -4,8 +4,7 @@
         public function Render( $images , $egoalbum ) {
             global $water;
             
-            ?><ul class="plist">
-                <li>Ανέβασε photo</li><?php
+            ?><ul class="plist"><?php
                 foreach( $images as $image ) {
                     ?><li><a href="?p=photo&amp;id=<?php
                     echo $image->Id;
