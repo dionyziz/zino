@@ -1,6 +1,8 @@
 <?php
     class ElementiPhoneUserProfileView extends Element {
         public function Render( tText $subdomain ) {
+            global $user;
+
             $subdomain = $subdomain->Get();
             $finder = New UserFinder();
             $theuser = $finder->FindBySubdomain( $subdomain );
