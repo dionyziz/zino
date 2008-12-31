@@ -263,8 +263,7 @@ div#easyphotoupload {
     height: 120px;
 }
 div#easyphotoupload div ul {
-    width : 300px;
-    height: 100px;
+    height: 70px;
     overflow: scroll;
 }
 div#easyphotoupload div ul li {
