@@ -1,9 +1,9 @@
 var iPhone = {
     Frontpage: {
         OnLoad: function () {
-            $( 'textarea' ).focus(
+            $( 'textarea' ).focus( function() {
                 alert( 'Test' );
-            );
+            } );
         }
     }
 };
