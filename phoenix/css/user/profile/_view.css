@@ -264,8 +264,6 @@ div#easyphotoupload {
 }
 div#easyphotoupload div div.albumlist ul {
     overflow : auto;
-    height: 70px;
-    width: 400px;
 }
 div#easyphotoupload div ul {
 }
