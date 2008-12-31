@@ -250,6 +250,9 @@ div#profile div.main div.photos ul li {
 	padding: 0 3px;
 	float: left;
 }
+div#profile div.main div.photos ul li.addphoto {
+    padding: 43px 10px 0 5px;
+}
 div#profile div.main div.friends h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
