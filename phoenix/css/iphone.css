@@ -12,3 +12,10 @@ div.logo {
 div.logo img {
     padding: 5px;
 }
+div.login form input {
+    width: 100%;
+}
+div.login form label {
+    display: block;
+}
+
