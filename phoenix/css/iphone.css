@@ -79,6 +79,7 @@ span.who {
 span.who a {
     text-decoration: none;
     font-weight: bold;
+    color: black;
 }
 div.shoutbox textarea {
     border-style: none;
