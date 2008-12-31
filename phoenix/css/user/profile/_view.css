@@ -262,6 +262,9 @@ div#easyphotoupload {
 	border: 1px solid #284659;
     height: 120px;
 }
+div#easyphotoupload div ul li {
+    float: left;
+}
 div#profile div.main div.friends h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
