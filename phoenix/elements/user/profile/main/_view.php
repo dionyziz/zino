@@ -133,11 +133,16 @@
                             Στο album:<?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user );
-                            ?><ul><?php
+                            ?><ul>
+                            <li><?php
+                            echo $user->Egoalbum->Name;
+                            ?></li><?php
                             foreach ( $albums as $album ) {
-                                ?><li><?php
-                                echo $album->Name;
-                                ?></li><?php
+                                if ( $album->Id != $user->Egoalbum->Id ) {
+                                    ?><li><?php
+                                    echo $album->Name;
+                                    ?></li><?php
+                                }
                             }
                             ?></ul>
                         </div>
