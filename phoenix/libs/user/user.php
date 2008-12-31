@@ -179,7 +179,7 @@
                 $users[] = $user;
             }
 
-            $total = array_shift( $this->mDb->Prepare(
+            $total = ( int )array_shift( $this->mDb->Prepare(
                 'SELECT FOUND_ROWS() AS foundrows;'
             )->Execute()->FetchArray() );
 
