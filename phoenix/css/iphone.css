@@ -73,8 +73,11 @@ a img {
 }
 div.who {
     float: left;
-    width: 50px;
     padding: 3px;
+}
+div.who a {
+    text-decoration: none;
+    font-weight: bold;
 }
 div.shoutbox textarea {
     border-style: none;
