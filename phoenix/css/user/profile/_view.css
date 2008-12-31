@@ -264,6 +264,7 @@ div#easyphotoupload {
 }
 div#easyphotoupload div ul {
     width : 300px;
+    height: 100px;
     overflow: scroll;
 }
 div#easyphotoupload div ul li {
