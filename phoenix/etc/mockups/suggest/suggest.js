@@ -56,6 +56,7 @@ var Suggest = {
                 return;
             }
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			Suggest.ekso( event );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length == 0 ) { // || ul.find( 'li:first' ).hasClass( 'selected' ) ) {
@@ -64,6 +65,7 @@ var Suggest = {
                 return;
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			Suggest.ekso( event );
         }
         else if ( event.keyCode == 27 ) { // escape
             ul.hide();
@@ -139,6 +141,14 @@ var Suggest = {
 				$( 'div.' + type + ' ul' ).append( li );
 			}
 		}
+	},
+	ekso : function( event ) {
+		if ( $.browser.msie ) {
+            event.cancelBubble = true;
+        }
+        else {
+            event.stopPropagation();
+        }
 	}
 };
 
