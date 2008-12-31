@@ -43,16 +43,15 @@ var Suggest = {
 				return -1;
 		}
 	},
-    inputMove : function( event ) {
-        var ul = $( 'div.hobbies ul' );
+    inputMove : function( event, type ) {
+        var ul = $( 'div.' + type + ' ul' );
         if ( ul.css( "display" ) == "none" ) {
 			return;
 		}
         var lis = ul.find( 'li.selected' );
-		var text = $( 'div.hobbies input' ).val();
+		var text = $( 'div.' + type + ' input' ).val();
         if ( event.keyCode == 40 ) { // down
-            if ( lis.length == 0 ) { // || ul.find( 'li:last' ).hasClass( 'selected' ) ) {
-                //lis.removeClass( 'selected' );
+            if ( lis.length == 0 ) {
                 ul.find( 'li:first' ).addClass( 'selected' );
                 return;
             }
@@ -61,8 +60,7 @@ var Suggest = {
 			setTimeout( "Suggest.allowHover = true", 15 );
         }
         else if ( event.keyCode == 38 ) { // up
-            if ( lis.length == 0 ) { // || ul.find( 'li:first' ).hasClass( 'selected' ) ) {
-                //lis.removeClass( 'selected' );
+            if ( lis.length == 0 ) {
                 ul.find( 'li:last' ).addClass( 'selected' );
                 return;
             }
@@ -78,24 +76,24 @@ var Suggest = {
                 ul.css( 'display', 'none' );
                 return;
             }
-            $( 'div.hobbies input' ).attr( 'value', lis.text() );
+            $( 'div.' + type + ' input' ).attr( 'value', lis.text() );
             ul.hide();
         }
 		else {
-			var suggestions = $.grep( Suggest.list[ 'hobbies' ], function( item, index ) {
+			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
 		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
-			Suggest.suggestCallback( 'hobbies', suggestions, false );
+			Suggest.suggestCallback( type, suggestions, false );
 			
-			if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ 'hobbies' ] ) !== -1 ) {
+			if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
 				return;
 			}
 
 			Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
-														'type' : 'hobbies',
+														'type' : type,
 														'callback' : Suggest.suggestCallback
 		                                           } );
-			Suggest.requested[ 'hobbies' ].push( text );
+			Suggest.requested[ type ].push( text );
 		}
     },
 	suggestCallback : function( type, suggestions, callbacked ) {
