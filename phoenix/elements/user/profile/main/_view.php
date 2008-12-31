@@ -135,12 +135,16 @@
                             $albums = $finder->FindByUser( $user );
                             ?><ul><?php
                             $album = New Album( $user->Egoalbumid );
-                            ?><li class="selected"><?php
+                            ?><li id="album_<?php
+                            echo $album->Id;
+                            ?>" class="selected"><?php
                             Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->User->Id , 100 , 100 , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 );
                             ?></li><?php
                             foreach ( $albums as $album ) {
                                 if ( $album->Id != $user->Egoalbumid ) {
-                                    ?><li><?php
+                                    ?><li id="<?php
+                                    echo $album->Id;
+                                    ?>"><?php
                                     Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->User->Id , 100 , 100 , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 ); ?></li><?php
                                 }
                             }
