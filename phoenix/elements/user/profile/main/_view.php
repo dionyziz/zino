@@ -129,6 +129,18 @@
                     </div>
                     <div id="easyphotoupload">
                         <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
+                        <div>
+                            Στο album:<?php
+                            $finder = New AlbumFinder();
+                            $albums = $finder->FindByUser( $user );
+                            ?><ul><?php
+                            foreach ( $albums as $album ) {
+                                ?><li><?php
+                                echo $album->Name;
+                                ?></li><?php
+                            }
+                            ?></ul>
+                        </div>
                         <div class="uploaddiv"><?php
                             if ( UserBrowser() == 'MSIE' ) {
                                 ?><iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
