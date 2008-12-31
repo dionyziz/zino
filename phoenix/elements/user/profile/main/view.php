@@ -126,6 +126,9 @@
                                 </ul>
                             </div>
                         </form>
+                    </div>
+                    <div id="easyphotoupload">
+                        <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
                     </div><?php
                 }
             }
