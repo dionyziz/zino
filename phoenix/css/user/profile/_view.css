@@ -276,11 +276,10 @@ div#easyphotoupload div ul li {
 }
 div#easyphotoupload div ul li.selected {
     border: 1px solid #4682b4;
-    background: #afeeee;
 
 }
-div#easyphotoupload div ul li.selected img {
-    border: 1px solid #add8e6;
+div#easyphotoupload div ul li img {
+    /*border: 1px solid #add8e6;*/
     padding: 1px; 
 }
 div#profile div.main div.friends h3 {
