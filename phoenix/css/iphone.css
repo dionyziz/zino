@@ -26,7 +26,7 @@ input[type="text"], input[type="password"] {
 }
 input[type="submit"], input[type="button"] {
     font-weight: bold;
-    margin: 3px 0;
+    margin: 0 0;
     font-size: 14px;
     width: 100%;
 }
