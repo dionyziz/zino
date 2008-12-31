@@ -274,11 +274,11 @@ div#easyphotoupload div ul li {
     float: left;
     background: #e0ffff;
 }
-div#easyphotoupload div ul li.selected span {
+div#easyphotoupload div ul li.selected span img {
     border: 1px solid #4682b4;
     padding: 1px;
 }
-div#easyphotoupload div ul li span {
+div#easyphotoupload div ul li span img {
     border: 1px solid #add8e6;
     padding: 1px; 
 }
