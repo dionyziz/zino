@@ -273,6 +273,10 @@ div#easyphotoupload div ul li {
     margin: 3px 5px; 
     float: left;
     background: #e0ffff;
+    opacity: 90%;
+}
+div#easyphotoupload div ul li.selected {
+    opacity: 100%;
 }
 div#easyphotoupload div ul li.selected span img {
     border: 1px solid #4682b4;
