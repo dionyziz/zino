@@ -147,15 +147,7 @@ var Suggest = {
 				$( 'div.' + type + ' ul' ).append( li );
 			}
 		}
-	}/*,
-	ekso : function( event ) {
-		if ( $.browser.msie ) {
-            event.cancelBubble = true;
-        }
-        else {
-            event.stopPropagation();
-        }
-	}*/
+	}
 };
 
 $( function() {
