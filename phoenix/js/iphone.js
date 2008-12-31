@@ -23,7 +23,7 @@ var iPhone = {
             } );
             $( 'form' ).submit( function() {
                 var tx = $( 'textarea' );
-                if ( tx.value === '' ) {
+                if ( !iPhone.Frontpage.ShoutboxHasValue ) {
                     alert( 'Πληκτρολόγησε ένα μήνυμα για να προστεθεί στη συζήτηση' );
                     tx.focus();
                     return false;
