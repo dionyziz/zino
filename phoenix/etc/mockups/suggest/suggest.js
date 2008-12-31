@@ -68,6 +68,10 @@ var Suggest = {
 			Suggest.allowHover = false;
 			setTimeout( "Suggest.allowHover = true", 15 );
         }
+		else if ( event.keyCode == 33 ) { // PageUp
+		}
+		else if ( event.keyCode == 34 ) { // PageDown
+		}
         else if ( event.keyCode == 27 ) { // escape
             ul.hide();
         }
