@@ -8,6 +8,9 @@
             if ( !$theuser->Exists() ) {
                 return;
             }
+            Element( 'user/avatar', $user->Avatar->Id, $user->Id,
+                     $user->Avatar->Width, $user->Avatar->Height,
+                     $user->Name, 100, 'avatar', '', true, 30, 30 );
             echo $theuser->Name;
         }
     }
