@@ -55,7 +55,7 @@ var Suggest = {
                 ul.find( 'li:first' ).addClass( 'selected' );
                 return;
             }
-            lis.removeClass( 'selected' ).next().addClass( 'selected' ).scrollIntoView( false );
+            lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length == 0 ) { // || ul.find( 'li:first' ).hasClass( 'selected' ) ) {
