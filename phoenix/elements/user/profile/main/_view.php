@@ -130,7 +130,7 @@
                     <div id="easyphotoupload">
                         <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
                         <div>
-                            Στο album:<?php
+                            Στο album <b>Εγώ</b><?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user );
                             ?><ul><?php
