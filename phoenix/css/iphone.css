@@ -27,7 +27,7 @@ textarea {
     text-align: center;
 }
 textarea:focus {
-    color: #black;
+    color: black;
     text-align: left;
 }
 input[type="text"], input[type="password"], textarea {
