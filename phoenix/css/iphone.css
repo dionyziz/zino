@@ -126,9 +126,11 @@ dl dt {
     float: left;
     clear: both;
 }
+dl dt:after {
+    content: ": ";
+}
 dl dd {
-    padding: 0;
+    padding: 5px 0;
     margin: 0;
-    border-top: 1px solid #ccc;
 }
 
