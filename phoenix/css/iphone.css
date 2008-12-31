@@ -55,8 +55,13 @@ ul {
     margin: 0;
 }
 ul li {
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #ccc;
 }
 a img {
     border-style: none;
+}
+div.who {
+    float: left;
+    width: 50px;
+    padding: 3px;
 }
