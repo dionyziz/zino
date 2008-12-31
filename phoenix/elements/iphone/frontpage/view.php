@@ -6,7 +6,7 @@
             if ( !$user->Exists() ) {
                 return Element( 'iphone/user/login' );
             }
-            ?>Hello, iPhone user!<?php
+            Element( 'iphone/shoutbox/list' );
         }
     }
 ?>
