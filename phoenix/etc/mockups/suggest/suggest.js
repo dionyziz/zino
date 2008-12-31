@@ -99,9 +99,9 @@ var Suggest = {
 		}
     },
 	suggestCallback : function( type, suggestions, callbacked ) {
-		if ( suggestions.length === undefined || suggestions.length == 0 ) {
+		/*if ( suggestions.length === undefined || suggestions.length == 0 ) {
 			return;
-		}
+		}*/
 		
 		if ( !callbacked ) {
 			$( 'div.' + type + ' ul li' ).remove();
