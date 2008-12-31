@@ -29,7 +29,7 @@ var iPhone = {
                     return false;
                 }
                 return true;
-            }
+            } );
         }
     }
 };
