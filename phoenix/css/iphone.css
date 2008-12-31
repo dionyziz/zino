@@ -77,6 +77,8 @@ span.who {
     padding: 0 5px 3px 3px;
 }
 div.shoutbox a {
+    display: block;
+    -webkit-tap-highlight-color: #1030aa;
     text-decoration: none;
     color: #333;
 }
