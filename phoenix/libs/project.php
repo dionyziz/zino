@@ -13,6 +13,16 @@
         public function TitleFinal() {
             return $this->mTitleFinal;
         }
+        public function __construct() {
+            parent::__construct();
+        }
+    }
+
+    class PageExcaliburiPhone extends PageExcaliburHTML {
+        public function __construct() {
+            $this->AddMeta( 'viewport', "initial-scale = 1.0; user-scalable = no" );
+            parent::__construct();
+        }
     }
 
     function Project_Construct( $mode ) {
@@ -125,7 +135,9 @@
             'dublicate'             => 'adminpanel/dublicate/view',
             'moderateschools'        => 'adminpanel/schools/moderate',
             'contactfinder'            => 'contacts/select',
-            'emailvalidate'         => 'user/settings/emailvalidate'
+            'emailvalidate'         => 'user/settings/emailvalidate',
+
+            'iphone/'           => 'iphone/frontpage/view'
         );
     }
 ?>
