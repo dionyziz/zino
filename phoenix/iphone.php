@@ -1,6 +1,8 @@
 <?php
     global $page;
 
+    define( 'WATER_ENABLE', false );
+
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'ExcaliburiPhone' );
