@@ -43,6 +43,7 @@ form label {
     display: block;
 }
 div.footer {
+    clear: both;
     padding: 0 10px;
 }
 div.footer form {
@@ -56,13 +57,13 @@ ul {
 }
 ul li {
     border-bottom: 1px solid #ccc;
+    clear: both;
 }
 a img {
     border-style: none;
 }
 div.who {
     float: left;
-    clear: both;
     width: 50px;
     padding: 3px;
 }
