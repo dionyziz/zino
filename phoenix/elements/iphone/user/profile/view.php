@@ -2,6 +2,10 @@
     class ElementiPhoneUserProfileView extends Element {
         public function Render( tText $subdomain ) {
             global $user;
+            global $user;
+            global $libs;
+
+            $libs->Load( 'user/statusbox' );
 
             $subdomain = $subdomain->Get();
             $finder = New UserFinder();
@@ -10,6 +14,10 @@
             if ( !$theuser->Exists() ) {
                 return;
             }
+
+            $finder = New StatusBoxFinder();
+            $tweet = $finder->FindLastByUserId( $theuser->Id );
+ 
             ?><div class="profile"><?php
             Element( 'user/avatar', $user->Avatar->Id, $user->Id,
                      $user->Avatar->Width, $user->Avatar->Height,
@@ -17,6 +25,23 @@
             ?><h2><?php
             echo $theuser->Name;
             ?></h2>
+            <span class="subtitle"><?php
+            echo htmlspecialchars( $theuser->Profile->Slogan );
+            ?></span><?php
+            if ( $tweet !== false ) {
+                ?><div class="tweet"><?php
+                if ( $theuser->Gender == 'f' ) {
+                    ?>Η <?php
+                }
+                else {
+                    ?>Ο <?php
+                }
+                echo htmlspecialchars( $theuser->Name );
+                ?> <?php
+                echo htmlspecialchars( $tweet->Message );
+                ?></div><?php
+            }
+            ?>
             </div><?php
         }
     }
