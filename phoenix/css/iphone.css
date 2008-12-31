@@ -76,4 +76,6 @@ div.who {
     width: 50px;
     padding: 3px;
 }
-
+div.shoutbox textarea {
+    border-style: none;
+}
