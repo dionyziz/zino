@@ -8,7 +8,7 @@
                 if ( $user->Exists() ) {
                     Element( 'user/avatar', $user->Avatar->Id, $user->Id,
                              $user->Avatar->Width, $user->Avatar->Height,
-                             $user->Name, 100, 'avatar', '', true, 30, 30 );
+                             $user->Name, 100, 'avatar', '', true, 32, 32 );
                 }
                 ?>
                 <img class="logo" src="<?php
