@@ -22,7 +22,6 @@ div.login form input {
     width: 100%;
     font-size: 14px;
     font-weight: bold;
-    margin: 3px 0;
     padding: 5px 3px;
 }
 input[type="submit"], input[type="button"] {
