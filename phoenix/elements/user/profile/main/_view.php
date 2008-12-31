@@ -135,7 +135,8 @@
                             $albums = $finder->FindByUser( $user );
                             ?><ul>
                             <li><?php
-                            echo $user->Egoalbum->Name;
+                            $album = New Album( $user->Egoalbumid );
+                            echo $album->Name;
                             ?></li><?php
                             foreach ( $albums as $album ) {
                                 if ( $album->Id != $user->Egoalbum->Id ) {
