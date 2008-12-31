@@ -19,9 +19,9 @@
             $tweet = $finder->FindLastByUserId( $theuser->Id );
  
             ?><div class="profile"><?php
-            Element( 'user/avatar', $user->Avatar->Id, $user->Id,
-                     $user->Avatar->Width, $user->Avatar->Height,
-                     $user->Name, 100, 'avatar', '', true, 50, 50 );
+            Element( 'user/avatar', $theuser->Avatar->Id, $theuser->Id,
+                     $theuser->Avatar->Width, $theuser->Avatar->Height,
+                     $theuser->Name, 100, 'avatar', '', true, 50, 50 );
             ?><h2><?php
             echo $theuser->Name;
             ?></h2>
