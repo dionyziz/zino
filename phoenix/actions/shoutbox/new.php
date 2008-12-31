@@ -1,5 +1,5 @@
 <?php
-    function ActionShoutboxNew( tText $shout ) {
+    function ActionShoutboxNew( tText $text ) {
         global $user;
         global $libs;
         

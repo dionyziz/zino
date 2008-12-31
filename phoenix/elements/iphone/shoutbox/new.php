@@ -4,7 +4,7 @@
             ?>
             <form action="do/shoutbox/new" method="post">
                 <input type="submit" value="Σχολίασε" />
-                <textarea>Άγγιξε εδώ για να γράψεις...</textarea>
+                <textarea name="text" onclick="this.innerText=''">Άγγιξε εδώ για να γράψεις...</textarea>
             </form>
             <?php
         }
