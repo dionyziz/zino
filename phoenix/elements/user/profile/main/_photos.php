@@ -5,7 +5,7 @@
             global $water;
             
             ?><ul class="plist">
-                <li>Ανέβασε φωτογραφία</li><?php
+                <li><a href="" class="s_bigadd"></a></li><?php
                 foreach( $images as $image ) {
                     ?><li><a href="?p=photo&amp;id=<?php
                     echo $image->Id;

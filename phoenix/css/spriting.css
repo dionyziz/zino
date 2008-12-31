@@ -42,3 +42,8 @@
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1401px;
 	padding: 0 0 0 21px;
 }
+.s_bigadd {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -132px;
+	vertical-align: -5px;
+	padding: 12px 0 0 30px;
+}
