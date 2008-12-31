@@ -141,7 +141,7 @@
                             foreach ( $albums as $album ) {
                                 if ( $album->Id != $user->Egoalbumid ) {
                                     ?><li><?php
-                                    echo $album->Name;
+                                    Element( 'image' , $album->Mainimage->Id , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 ); 
                                     ?></li><?php
                                 }
                             }
