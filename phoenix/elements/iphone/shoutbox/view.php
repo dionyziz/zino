@@ -6,7 +6,7 @@
             
             ?><div class="shout"><a href="<?php
                 echo $xc_settings[ 'iphoneurl' ];
-                ?>/profile/<?php
+                ?>profile/<?php
                 echo $shout->User->Subdomain;
                 ?>">
                 <span class="who"><?php
