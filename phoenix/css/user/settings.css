@@ -185,7 +185,7 @@ form#interestsinfo div.option div.setting div.add ul {
     background-color: white;
 	display: none;
 }
-form#interestsinfo div.option div.setting div.add ul li {
+form#interestsinfo div.option div.setting div.add ul li.selected {
     background-color: #3377EE;
     color: white;
     cursor: pointer;
