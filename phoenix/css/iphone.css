@@ -50,6 +50,9 @@ div.footer form {
     display: inline;
     padding: 0;
 }
+div.footer div.toolbar {
+    float: right;
+}
 ul {
     list-style: none;
     padding: 0;
@@ -69,3 +72,4 @@ div.who {
     width: 50px;
     padding: 3px;
 }
+
