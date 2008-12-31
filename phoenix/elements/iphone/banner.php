@@ -5,7 +5,7 @@
 
             ?><div class="logo"><img src="<?php
             echo $rabbit_settings[ 'imagesurl' ];
-            ?>iphone/zino.png" width="78" height="27" /></div><?php
+            ?>iphone/zino.png" width="50" height="17" /></div><?php
         }
     }
 ?>
