@@ -271,7 +271,7 @@ div#easyphotoupload div ul {
 }
 div#easyphotoupload div ul li {
     border: 1px solid #;
-    padding: 2px;
+    padding: 3px 5px; 
     float: left;
 }
 div#profile div.main div.friends h3 {
