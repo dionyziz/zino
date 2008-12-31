@@ -25,14 +25,14 @@ form div.input {
 input[type="text"], input[type="password"] {
     width: 100%;
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     padding: 5px 3px;
 }
 input[type="submit"], input[type="button"] {
     font-weight: bold;
     margin: 3px 0;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
 }
 form label {
