@@ -140,6 +140,57 @@ var Profile = {
             inp.focus();
             return false;
         } );
+        $( 'div.mood img' ).css( {
+            'cursor': 'pointer'
+        } ).click( function () {
+            var self = this;
+            window.document.body.style.cursor = 'wait';
+            self.style.cursor = 'wait';
+            Coala.Cold( 'user/settings/moodpicker', { 'func' : function ( html ) {
+                $( self ).replaceWith( html );
+                var f = MoodDropdown.Select;
+                MoodDropdown.Select = function ( id, moodid, who ) {
+                    f( id, moodid, who );
+                    Settings.Save( false );
+                };
+                $( 'div.mood div.moodpicker div.view a' ).css( {
+                    'padding': '19px 2px'
+                } );
+                $( 'div.mood div.moodpicker' ).css( {
+                    'margin-left': '160px',
+                    'z-index': '10'
+                } );
+                $( 'div.mood div.moodpicker div.view' ).css( {
+                    'position': 'relative'
+                } );
+                $( 'div.mood div.moodpicker div.view img.selected' ).css( {
+                    'position': 'relative',
+                    'top': '-53px'
+                } );
+                var g = MoodDropdown.Push;
+                MoodDropdown.Push = function ( who ) {
+                    $( 'div#profile div.sidebar' ).css( {
+                        'overflow': 'visible'
+                    } );
+                    $( 'div.mood div.moodpicker div.view' ).css( {
+                        'top': '-94px'
+                    } );
+                    g( who );
+                };
+                var h = MoodDropdown.Unpush;
+                MoodDropdown.Unpush = function () {
+                    h();
+                    $( 'div#profile div.sidebar' ).css( {
+                        'overflow': 'hidden'
+                    } );
+                    $( 'div.mood div.moodpicker div.view' ).css( {
+                        'top': '0'
+                    } );
+                };
+                window.document.body.style.cursor = 'default';
+                MoodDropdown.Push( $( 'div.moodpicker' )[ 0 ] );
+            } } );
+        } );
     }
 };
 
