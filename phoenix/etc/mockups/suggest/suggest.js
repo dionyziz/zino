@@ -52,18 +52,18 @@ var Suggest = {
         if ( event.keyCode == 40 ) { // down
             if ( lis.length == 0 ) { // || ul.find( 'li:last' ).hasClass( 'selected' ) ) {
                 //lis.removeClass( 'selected' );
-                ul.find( 'li:first' ).addClass( 'selected' );
+                ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView();
                 return;
             }
-            lis.removeClass( 'selected' ).next().addClass( 'selected' );
+            lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length == 0 ) { // || ul.find( 'li:first' ).hasClass( 'selected' ) ) {
                 //lis.removeClass( 'selected' );
-                ul.find( 'li:last' ).addClass( 'selected' );
+                ul.find( 'li:last' ).addClass( 'selected' ).get( 0 ).scrollIntoView();
                 return;
             }
-            ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' );
+            ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
         }
         else if ( event.keyCode == 27 ) { // escape
             ul.hide();
