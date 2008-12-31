@@ -49,3 +49,14 @@ div.footer form {
     display: inline;
     padding: 0;
 }
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    border-bottom: 1px solid #999;
+}
+a img {
+    border-style: none;
+}
