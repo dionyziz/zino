@@ -21,6 +21,15 @@ var iPhone = {
                     this.value = 'Άγγιξε εδώ για να γράψεις...';
                 }
             } );
+            $( 'form' ).submit( function() {
+                var tx = $( 'textarea' );
+                if ( tx.value === '' ) {
+                    alert( 'Πληκτρολόγησε ένα μήνυμα για να προστεθεί στη συζήτηση' );
+                    tx.focus();
+                    return false;
+                }
+                return true;
+            }
         }
     }
 };
