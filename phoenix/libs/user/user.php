@@ -183,10 +183,7 @@
                 'SELECT FOUND_ROWS() AS foundrows;'
             )->Execute()->FetchArray() );
 
-            return array(
-                $users,
-                $total
-            );
+            return New Collection( $users, $total );
         }
         public function FindBySchool( School $school, $offset = 0, $limit = 10000 ) {
             $profilefinder = New UserProfileFinder();

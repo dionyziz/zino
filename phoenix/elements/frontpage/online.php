@@ -9,10 +9,9 @@
         
             $finder = New UserFinder();
 		    $users = $finder->FindOnline( 0 , 70 );
-            $count = $users[ 1 ];
-            $users = $users[ 0 ];
+            $count = $users->TotalCount();
             
-            if( $user->Exists() ) {//sort online users using bennu
+            if ( $user->Exists() ) { //sort online users using bennu
                 $target = $finder->FindById( $user->Id );       
                 $users = Bennu_OnlineNow( $target, $users );
             }
