@@ -16,7 +16,7 @@ var iPhone = {
                 }
                 else {
                     iPhone.Frontpage.ShoutboxHasValue = false;
-                    this.style.color = '#ccc';
+                    this.style.color = '#999';
                     this.style.textAlign = 'center';
                     this.value = 'Άγγιξε εδώ για να γράψεις...';
                 }

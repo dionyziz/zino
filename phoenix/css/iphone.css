@@ -23,7 +23,7 @@ form div.input {
     margin-right: 10px;
 }
 textarea {
-    color: #ccc;
+    color: #999;
     text-align: center;
 }
 input[type="text"], input[type="password"], textarea {
