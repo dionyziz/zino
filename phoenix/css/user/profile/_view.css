@@ -262,8 +262,8 @@ div#easyphotoupload {
 	border: 1px solid #284659;
     height: 120px;
 }
-div#easyphotoupload div div.albumlist ul {
-    overflow : auto;
+div#easyphotoupload div div.albumlist {
+    overflow : scroll;
 }
 div#easyphotoupload div ul {
 }
