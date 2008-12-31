@@ -131,7 +131,7 @@ var Suggest = {
 						ul.css( 'display', 'none' );
 					}
 				}( i );
-				li.onmouseover = function() {
+				li.onmousemove = function() {
 					if ( !Suggest.allowHover ) {
 						return;
 					}
