@@ -17,20 +17,10 @@
             Element( 'user/subdomainmatch' );
 
             if ( $name != '' ) {
-                if ( strtolower( $name ) == strtolower( $user->Name ) ) {
-                    $theuser = $user;
-                }
-                else {
-                    $theuser = $finder->FindByName( $name );
-                }
+                $theuser = $finder->FindByName( $name );
             }
             else if ( $subdomain != '' ) {
-                if ( strtolower( $subdomain ) == strtolower( $user->Subdomain ) ) {
-                    $theuser = $user;
-                }
-                else {
-                    $theuser = $finder->FindBySubdomain( $subdomain );
-                }
+                $theuser = $finder->FindBySubdomain( $subdomain );
             }
             if ( !isset( $theuser ) || $theuser === false ) {
                 ?>Ο χρήστης δεν υπάρχει<?php

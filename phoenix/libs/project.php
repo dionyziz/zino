@@ -137,7 +137,8 @@
             'contactfinder'            => 'contacts/select',
             'emailvalidate'         => 'user/settings/emailvalidate',
 
-            'iphone/'           => 'iphone/frontpage/view'
+            'iphone/'           => 'iphone/frontpage/view',
+            'iphone/user'       => 'iphone/user/profile/view'
         );
     }
 ?>

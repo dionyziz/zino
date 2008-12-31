@@ -58,6 +58,11 @@
             return parent::FindAll( $offset, $limit, $order );
         }
         public function FindById( $userid ) {
+            global $user;
+
+            if ( $user->Id == $userid ) {
+                return $user;
+            }
             $prototype = New User();
             $prototype->Id = $userid;            
             return $this->FindByPrototype( $prototype );        
@@ -76,6 +81,11 @@
             return $this->FindByPrototype( $prototype );
         }
         public function FindByName( $name ) {
+            global $user;
+
+            if ( strtolower( $user->Name ) == strtolower( $name ) ) {
+                return $user;
+            }
             $prototype = New User();
             $prototype->Name = $name;
             return $this->FindByPrototype( $prototype );
@@ -139,6 +149,11 @@
             return $this->FindBySqlResource( $query->Execute() );
         }
         public function FindBySubdomain( $subdomain ) {
+            global $user;
+
+            if ( strtolower( $user->Subdomain ) == strtolower( $subdomain ) ) {
+                return $user;
+            }
             $prototype = New User();
             $prototype->Subdomain = $subdomain;
             return $this->FindByPrototype( $prototype );
