@@ -19,7 +19,7 @@ function IsAdmin( username ) {
 }
 $( function() {
 	if ( $.browser.mozilla ) {
-		$("div.comments img").lazyload( { 
+		$("img").lazyload( { 
 			threshold : 200
 		} );
 	}
