@@ -263,10 +263,15 @@ div#easyphotoupload {
     width: 450px;
     height: 300px;
 }
+div#easyphotoupload div {
+    padding: 5px 0 0 0;
+}
 div#easyphotoupload div ul {
     overflow : auto;
 }
 div#easyphotoupload div ul li {
+    border: 1px solid #;
+    padding: 2px;
     float: left;
 }
 div#profile div.main div.friends h3 {
