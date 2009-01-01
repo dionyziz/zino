@@ -13,6 +13,9 @@
             $( this ).addClass( 'selected' );
             previousselection = $( this )[ 0 ];
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
+            if ( albumname == GetUsername() ) {
+                albumname = 'Εγώ';
+            }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             var albumid = $( this ).attr( 'id' ).substr( 6 );
             var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
