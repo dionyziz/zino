@@ -160,7 +160,7 @@ div.profile div.details img {
     float: left;
     padding: 10px;
 }
-div.profile div.details ul {
+div.profile div.details div.look ul {
     clear: none;
     margin: 10px 0;
     padding: 10px 0;
