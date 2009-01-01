@@ -9,6 +9,7 @@ h3 {
 	font-size: 105%;
 	color: #666;
 	text-align: left;
+    margin: 0 5px;
 }
 div.eof {
     clear: both;
