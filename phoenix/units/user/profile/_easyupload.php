@@ -11,11 +11,10 @@
             if ( albumname == username ) {
                 albumname = "Ego";
             }
-            $( div#easyphotoupload div.modalcontent div b' ).empty().html( albumname );
-
+            $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             alert( $( this ).attr( 'id' ).substr( 6 ) );
         } );
-        
         <?php
     }
 ?>
+
