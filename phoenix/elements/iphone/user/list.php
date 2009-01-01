@@ -31,7 +31,7 @@
                             $info[] = $theuser->Profile->Age . ' ετών';
                         }
                         if ( $theuser->Profile->Placeid > 0 ) {
-                            $info[] = 'από ' . $theuser->Profile->Location->Name;
+                            $info[] = 'από ' . $theuser->Profile->Location->Nameaccusative;
                         }
                         echo htmlspecialchars( implode( ', ', $info ) );
                     ?></span>

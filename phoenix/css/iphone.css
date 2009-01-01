@@ -194,13 +194,12 @@ div.barfade div.rightbar {
 }
 ul.userlist li a {
     color: #666;
+    font-size: 12px;
+    text-decoration: none;
 }
 ul.userlist li strong {
     margin: 0;
     padding: 0;
     font-size: 16px;
     color: black;
-}
-ul.userlist li {
-    font-size: 14px;
 }
