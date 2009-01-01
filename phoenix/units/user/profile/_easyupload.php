@@ -14,10 +14,10 @@
             var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
             alert( newurl );
             if ( $.browser.msie ) {
-
+                $( 'div#easyphotoupload div.modalcontent div.uploaddiv iframe' ).attr( 'src' , newurl ); 
             }
             else {
-
+                $( 'div#easyphotoupload div.modalcontent div.uploaddiv object' ).attr( 'src' , newurl );
             }
         } );
         
