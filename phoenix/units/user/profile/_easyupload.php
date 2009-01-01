@@ -7,7 +7,7 @@
         ?> );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
 
-            $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( $( this ).find( 'span img' ).attr( 'alt' ) );
+            $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( 'test' ) );
             alert( $( this ).find( 'span img' ).attr( 'alt' ) );
             alert( $( this ).attr( 'id' ).substr( 6 ) );
         } );
