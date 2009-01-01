@@ -197,6 +197,7 @@ ul.userlist li a {
     font-size: 12px;
     text-decoration: none;
     display: block;
+    min-height: 55px;
 }
 ul.userlist li strong {
     margin: 0;
