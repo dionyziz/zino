@@ -3,13 +3,13 @@
         public function Render( Array $theusers ) {
             global $xc_settings;
 
-            ?><ul><?php
+            ?><ul class="userlist"><?php
             foreach ( $theusers as $theuser ) {
                 w_assert( $theuser instanceof User );
                 ?><li><div class="card"><a href="<?php
                     echo $xc_settings[ 'iphoneurl' ];
                     ?>?p=user&amp;subdomain=<?php
-                    echo $shout->User->Subdomain;
+                    echo $theuser->Subdomain;
                     ?>">
                     <span class="who"><?php
                     Element( 'user/avatar', $theuser->Avatar->Id, $theuser->Id,

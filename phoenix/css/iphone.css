@@ -189,3 +189,15 @@ div.barfade div.rightbar {
 	height: 1px;
 	width: 153px;
 }
+ul.userlist li a {
+    color: #666;
+}
+ul.userlist li h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: black;
+}
+ul.userlist li {
+    font-size: 14px;
+}
