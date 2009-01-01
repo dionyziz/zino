@@ -35,10 +35,18 @@ var iPhone = {
 };
 
 $( function() {
+    var preload = [ 'http://static.zino.gr/phoenix/iphone-ajax.gif' ];
+    var img = [];
+
+    for ( i = 0; i < preload.length; ++i ) {
+        img[ i ] = new Image();
+        img[ i ].src = preload[ i ];
+    }
+
     $( 'a.loadable' ).click( function() {
         this.style.backgroundColor = '#047fbb';
         var img = document.createElement( 'img' );
-        img.src = ' http://static.zino.gr/phoenix/iphone-ajax.gif';
+        img.src = 'http://static.zino.gr/phoenix/iphone-ajax.gif';
         img.alt = 'Loading...';
         img.style.padding = '20px';
         $( img ).addClass( 'loader' );
