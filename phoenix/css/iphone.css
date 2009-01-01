@@ -143,14 +143,14 @@ dl dd {
     padding: 0 0 10px 0;
     margin: 0;
 }
-div.profile ul {
+div.profile div.details ul {
     padding: 4px;
     clear: both;
 }
-div.profile ul li {
+div.profile div.details ul li {
     border: transparent;
 }
-div.profile ul li strong {
+div.profile div.details ul li strong {
     display: block;
     font-size: 14px;
     margin: 0;
