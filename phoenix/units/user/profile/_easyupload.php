@@ -7,9 +7,8 @@
         ?> );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
             if ( !previousselection ) {
-                var previousselection = $( div#easyphotoupload div.modalcontent div ul li:first' );
+                var previousselection = $( 'div#easyphotoupload div.modalcontent div ul li' );
             }
-            $( previousselection ).removeClass( 'selected' );
             $( this ).addClass( 'selected' );
             previousselection = $( this )[ 0 ];
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( 'test' ) );
