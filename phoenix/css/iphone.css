@@ -211,3 +211,6 @@ ul.userlist li strong {
     font-size: 16px;
     color: black;
 }
+a.loadable img.loader {
+    float: right;
+}

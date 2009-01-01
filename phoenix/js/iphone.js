@@ -40,6 +40,7 @@ $( function() {
         var img = document.createElement( 'img' );
         img.src = ' http://static.zino.gr/phoenix/ajax-loader.gif';
         img.alt = 'Loading...';
+        $( img ).addClass( 'loader' );
         this.insertBefore( img, this.firstChild );
     } );
 } );
