@@ -10,7 +10,7 @@
                     echo $xc_settings[ 'iphoneurl' ];
                     ?>?p=user&amp;subdomain=<?php
                     echo $theuser->Subdomain;
-                    ?>">
+                    ?>" class="loadable">
                     <span class="who"><?php
                     Element( 'user/avatar', $theuser->Avatar->Id, $theuser->Id,
                                  $theuser->Avatar->Width, $theuser->Avatar->Height,
