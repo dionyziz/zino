@@ -38,7 +38,7 @@ $( function() {
     $( 'a.loadable' ).click( function() {
         this.style.backgroundColor = '#047fbb';
         var img = document.createElement( 'img' );
-        img.src = ' http://static.zino.gr/phoenix/ajax-loader.gif';
+        img.src = ' http://static.zino.gr/phoenix/iphone-ajax.gif';
         img.alt = 'Loading...';
         $( img ).addClass( 'loader' );
         this.insertBefore( img, this.firstChild );
