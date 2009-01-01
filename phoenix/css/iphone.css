@@ -55,7 +55,7 @@ form label {
 }
 div.footer {
     clear: both;
-    padding: 10px 10px;
+    padding: 10px 10px 5px 10px;
     margin: 10px 0;
     background-image: url( 'http://static.zino.gr/phoenix/copybg.jpg' );
     background-repeat: repeat-x;
