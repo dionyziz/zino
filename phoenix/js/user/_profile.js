@@ -121,6 +121,9 @@ var Profile = {
             $( '#tweetedit' ).jqmHide();
         }
     },
+    Easyuploadadd : function ( imageid ) {
+        Coala.Cold( 'user/profile/easyuploadadd' , { imageid : imageid } );
+    },
     MyProfileOnLoad: function () {
         $( '#tweetedit' ).jqm( {
             trigger : 'div.tweetbox div.tweet div a',
