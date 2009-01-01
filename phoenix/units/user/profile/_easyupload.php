@@ -21,9 +21,11 @@
             var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
             if ( $.browser.msie ) {
                 $( 'div#easyphotoupload div.modalcontent div.uploaddiv iframe' ).attr( 'src' , newurl ); 
+                parent.easyuploadphoto.location.href = newurl;
             }
             else {
                 $( 'div#easyphotoupload div.modalcontent div.uploaddiv object' ).attr( 'src' , newurl );
+                parent.easyuploadphoto.location.href = newurl;
             }
         } );
         
