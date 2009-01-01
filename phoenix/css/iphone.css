@@ -153,8 +153,10 @@ div.profile div.details img {
 div.profile div.details ul {
     clear: none;
     margin: 10px 0;
-    padding: 10px 0;
-    border-top: 1px #ccc solid;
+    padding: 10px 40px;
+    background-image: url( 'http://static.zino.gr/phoenix/copybg.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
     border-bottom: 1px #ccc solid;
 }
 div.profile div.details li {
