@@ -6,7 +6,12 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
-            alert( $( this ).find( 'span img' ).attr( 'alt' ) );
+            var albumname = $( this ).find( 'span img' ).attr( 'alt' );
+            var username = GetUsername();
+            if ( albumname == username ) {
+                albumname = "Εγώ";
+            }
+            $( div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             alert( $( this ).attr( 'id' ).substr( 6 ) );
         } );
         
