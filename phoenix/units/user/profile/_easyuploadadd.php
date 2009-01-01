@@ -1,10 +1,13 @@
 <?php
-    function UnitUserProfileEasyuploadadd( tInteger $imageid ) {
+    function UnitUserProfileEasyuploadadd( tInteger $imageid , tInteger $albumid ) {
         global $libs;
         
         $libs->Load( 'image/image' );
         $imageid = $imageid->Get();
         $image = New Image( $imageid );
+        $albumid = $albumid->Get();
+        $image->Albumid = $albumid;
+        $image->Save();
         ?>
         var newli = document.createElement( 'li' );
         var newlink = document.createElement( 'a' );
