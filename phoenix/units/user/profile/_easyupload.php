@@ -12,6 +12,7 @@
                 albumname = "Ego";
             }
             $( div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
+
             alert( $( this ).attr( 'id' ).substr( 6 ) );
         } );
         
