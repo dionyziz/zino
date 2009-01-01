@@ -2,6 +2,7 @@
     class ElementiPhoneUserProfileView extends Element {
         public function Render( tText $subdomain ) {
             global $user;
+            global $xc_settings;
             global $user;
             global $libs;
 
