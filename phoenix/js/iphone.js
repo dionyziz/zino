@@ -40,7 +40,7 @@ $( function() {
         var img = document.createElement( 'img' );
         img.src = ' http://static.zino.gr/phoenix/iphone-ajax.gif';
         img.alt = 'Loading...';
-        img.style.padding = '40px';
+        img.style.padding = '20px';
         $( img ).addClass( 'loader' );
         this.insertBefore( img, this.firstChild );
     } );
