@@ -34,7 +34,7 @@
                     :offset, :limit
                 ;' );
 
-            $query->BindTable( 'relations', 'users', 'images' );
+            $query->BindTable( 'relations', 'users', 'images', 'userprofiles' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
