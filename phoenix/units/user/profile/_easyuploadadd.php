@@ -3,7 +3,6 @@
         global $libs;
         
         $libs->Load( 'image/image' );
-        $imageid = $imageid->Get();
         $image = New Image( $imageid->Get() );
         ?>var newli = document.createElement( 'li' );
         var newlink = document.createElement( 'a' );
