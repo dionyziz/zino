@@ -166,3 +166,19 @@ div.profile div.details li.dot {
     padding: 5px;
     color: #999;
 }
+div.barfade {
+	background: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
+	height: 1px;
+}
+div.barfade div.leftbar {
+	float: left;
+	background: url('http://static.zino.gr/phoenix/barfade-left.jpg') no-repeat;
+	height: 1px;
+	width: 153px;
+}
+div.barfade div.rightbar {
+	float: right;
+	background: url('http://static.zino.gr/phoenix/barfade-right.jpg') no-repeat;
+	height: 1px;
+	width: 153px;
+}
