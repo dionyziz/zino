@@ -6,10 +6,13 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
-
+            if ( !previousselection ) {
+                var previousselection = $( div#easyphotoupload div.modalcontent div ul li:first' );
+            }
+            $( previousselection ).removeClass( 'selected' );
+            $( this ).addClass( 'selected' );
+            previousselection = $( this )[ 0 ];
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( 'test' ) );
-            
-            alert( $( this ).attr( 'id' ).substr( 6 ) );
             var albumid = $( this ).attr( 'id' ).substr( 6 );
             var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
             alert( newurl );
