@@ -196,6 +196,7 @@ ul.userlist li a {
     color: #666;
     font-size: 12px;
     text-decoration: none;
+    display: block;
 }
 ul.userlist li strong {
     margin: 0;
