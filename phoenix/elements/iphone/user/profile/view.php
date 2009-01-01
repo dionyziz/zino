@@ -42,7 +42,7 @@
                 echo htmlspecialchars( $tweet->Message );
                 ?></div><?php
             }
-            ?><div class="eof"></div>
+            ?><div class="eof" style="padding-bottom:10px"></div>
             <div class="barfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
