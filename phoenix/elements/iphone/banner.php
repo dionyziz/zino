@@ -17,9 +17,11 @@
                              $user->Name, 100, 'avatar', '', true, 32, 32 );
                     ?></a><?php
                 }
-                ?><img class="logo" src="<?php
+                ?><a href="<?php
+                echo $xc_settings[ 'iphoneurl' ];
+                ?>"><img class="logo" src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-                ?>iphone/zino.png" width="70" height="25" />
+                ?>iphone/zino.png" width="70" height="25" /></a>
             </div><?php
         }
     }
