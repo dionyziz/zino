@@ -131,7 +131,7 @@ var Profile = {
             overlayClass : 'mdloverlay1'
         } );
         $( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
-            Coala.Cold( 'user/profile/easyupload' );
+            Coala.Cold( 'user/profile/easyupload' , {} );
         } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
             var win = $( '#tweetedit' )[ 0 ];
