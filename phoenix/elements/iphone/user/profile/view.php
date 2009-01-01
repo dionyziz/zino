@@ -42,11 +42,11 @@
                 echo htmlspecialchars( $tweet->Message );
                 ?></div><?php
             }
-            ?><div class="barfade">
+            ?><div class="eof"></div>
+            <div class="barfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div><?php
-            ?><div class="eof"></div><?php
             $schoolexists = $theuser->Profile->School->Numstudents > 2;
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
             ?><div class="details"><img src="<?php
