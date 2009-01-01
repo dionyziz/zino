@@ -119,7 +119,7 @@
                 ?> , true );<?php
             }
             else if ( $typeid == 4 ) {
-                ?>parent.Profile.Easyupload( <?php
+                ?>parent.Coala.Easyuploadadd( <?php
                 echo $image->Id;
                 ?> );<?php
             }
