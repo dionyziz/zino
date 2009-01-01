@@ -118,6 +118,11 @@
                 echo w_json_encode( $jsimage );
                 ?> , true );<?php
             }
+            else if ( $typeid == 4 ) {
+                ?>parent.Profile.Easyupload( <?php
+                echo $image->Id;
+                ?> );<?php
+            }
         } 
         ?>
         window.location.href = <?php

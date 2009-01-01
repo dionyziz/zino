@@ -15,7 +15,7 @@
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( 'test' ) );
             var albumid = $( this ).attr( 'id' ).substr( 6 );
             var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
-            alert( newurl );
+            //alert( newurl );
             if ( $.browser.msie ) {
                 $( 'div#easyphotoupload div.modalcontent div.uploaddiv iframe' ).attr( 'src' , newurl ); 
             }
