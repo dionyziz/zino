@@ -152,7 +152,10 @@ div.profile div.details img {
 }
 div.profile div.details ul {
     clear: none;
-    padding: 20px 0;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-top: 1px #666 solid;
+    border-bottom: 1px #666 solid;
 }
 div.profile div.details li {
     display: inline;
