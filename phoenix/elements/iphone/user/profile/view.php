@@ -5,6 +5,7 @@
             global $xc_settings;
             global $user;
             global $libs;
+            global $page;
 
             $libs->Load( 'user/statusbox' );
 
@@ -15,6 +16,8 @@
             if ( !$theuser->Exists() ) {
                 return;
             }
+
+            $page->SetTitle( $theuser->Name );
 
             $finder = New StatusBoxFinder();
             $tweet = $finder->FindLastByUserId( $theuser->Id );
