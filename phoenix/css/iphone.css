@@ -133,6 +133,9 @@ dl dd {
     padding: 0 0 10px 0;
     margin: 0;
 }
+div.profile ul {
+    padding: 4px;
+}
 div.profile ul li {
     border: transparent;
 }
