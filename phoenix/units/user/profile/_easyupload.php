@@ -14,7 +14,7 @@
             }
             */
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( 'test' ) );
-            alert( $( this ).attr( 'id' ).substr( 6 ) );
+           // alert( $( this ).attr( 'id' ).substr( 6 ) );
         } );
         <?php
     }
