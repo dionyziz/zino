@@ -148,10 +148,11 @@ div.profile ul li strong {
 }
 div.profile div.details img {
     float: left;
+    padding: 10px;
 }
 div.profile div.details ul {
     clear: none;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 div.profile div.details li {
     display: inline;
