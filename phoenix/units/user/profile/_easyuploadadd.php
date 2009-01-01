@@ -5,7 +5,8 @@
         $libs->Load( 'image/image' );
         $imageid = $imageid->Get();
         $image = New Image( $imageid );
-        ?>var newli = document.createElement( 'li' );
+        ?>
+        var newli = document.createElement( 'li' );
         var newlink = document.createElement( 'a' );
         $( newlink ).attr( 'href' , '?p=photo&id=<?php
         echo $imageid;

@@ -28,14 +28,14 @@
                 if ( UserBrowser() == 'MSIE' ) {
                     ?><iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;
-                    ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe" name="easyuploadphoto">
+                    ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe">
                     </iframe>
                     <?php
                 }
                 else {
                     ?><object style="height:50px" data="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;
-                    ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html" name="easyuploadphoto">
+                    ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html">
                     </object><?php
                 }
             ?></div><?php
