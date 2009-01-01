@@ -7,7 +7,7 @@
         ?> );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
             alert( $( this ).find( 'span img' ).attr( 'alt' ) );
-            alert( $( this ).id );
+            alert( $( this ).attr( 'id' ) );
         } );
         
         <?php
