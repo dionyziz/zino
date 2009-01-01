@@ -63,7 +63,11 @@
             $friends = $finder->FindByUser( $theuser , 0 , 12 );  
             if ( count( $friends ) ) {
                 ?><h3>Φίλοι</h3><?php
-                Element( 'iphone/user/list', $friends );
+                $users = array();
+                foreach ( $friends as $friend ) {
+                    $users[] = $friend->Friend;
+                }
+                Element( 'iphone/user/list', $users );
             }
             ?></div><?php
         }
