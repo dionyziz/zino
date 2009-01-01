@@ -9,7 +9,7 @@
                 if ( $user->Exists() ) {
                     ?><a href="<?php
                     echo $xc_settings[ 'iphoneurl' ];
-                    ?>?p=user&subdomain=<?php
+                    ?>?p=user&amp;subdomain=<?php
                     echo $user->Subdomain;
                     ?>"><?php
                     Element( 'user/avatar', $user->Avatar->Id, $user->Id,
