@@ -53,14 +53,18 @@
             </div><?php
             $schoolexists = $theuser->Profile->School->Numstudents > 2;
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
-            ?><div class="details">
-                
-            <div class="look">
-            <img src="<?php
-            echo $xc_settings[ 'staticimagesurl' ];
-            ?>body-male-slim-short.jpg" alt="" /><?php
-            Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight, $theuser->Gender );
-            ?></div><?php
+            ?><div class="details"><?php  
+            $showgender = $theuser->Gender != '-';
+            $showweight = $theuser->Profile->Weight > -3;
+            $showheight = $theuser->Profile->Height > -3;
+            if ( $showgender || $showweight || $showheight ) { 
+                ?><div class="look">
+                <img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>body-male-slim-short.jpg" alt="" /><?php
+                Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight, $theuser->Gender );
+                ?></div><?php
+            }
             Element( 'user/profile/sidebar/social/view', $theuser );
             ?></div><?php
             $finder = New FriendRelationFinder();
