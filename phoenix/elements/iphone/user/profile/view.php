@@ -44,7 +44,11 @@
             ?><div class="eof"></div><?php
             $schoolexists = $theuser->Profile->School->Numstudents > 2;
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
+            ?><div class="details"><img src="<?php
+            echo $xc_settings[ 'imagesurl' ];
+            ?>body-male-slim-short.jpg" alt="" /><?php
             Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight, $theuser->Gender );
+            ?></div><?php
             Element( 'user/profile/sidebar/social/view', $theuser );
             ?></div><?php
         }

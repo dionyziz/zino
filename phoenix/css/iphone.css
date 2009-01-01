@@ -135,6 +135,7 @@ dl dd {
 }
 div.profile ul {
     padding: 4px;
+    clear: both;
 }
 div.profile ul li {
     border: transparent;
@@ -145,3 +146,13 @@ div.profile ul li strong {
     margin: 0;
     padding: 10px 0 0 0;
 }
+div.profile div.details img {
+    float: left;
+}
+div.profile div.details ul {
+    clear: none;
+}
+div.profile div.details li {
+    display: inline;
+}
+
