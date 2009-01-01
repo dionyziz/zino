@@ -21,10 +21,10 @@
                         ?></strong><br />
                         <?php
                         $info = array();
-                        if ( $theuser->Profile->Gender == 'm' ) {
+                        if ( $theuser->Gender == 'm' ) {
                             $info[] = 'Αγόρι';
                         }
-                        elseif ( $theuser->Profile->Gender == 'f' ) {
+                        elseif ( $theuser->Gender == 'f' ) {
                             $info[] = 'Κοπέλα';
                         }
                         if ( $theuser->Profile->Age ) {
