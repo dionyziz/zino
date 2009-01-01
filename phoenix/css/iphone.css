@@ -108,6 +108,9 @@ div.shoutbox input[type="submit"] {
     width: inherit;
     float: right;
 }
+div.profile div.tweet {
+    padding: 0 0 0 10px;
+}
 div.profile img.avatar {
     float: left;
     padding: 5px;
