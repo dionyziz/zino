@@ -160,4 +160,7 @@ div.profile div.details ul {
 div.profile div.details li {
     display: inline;
 }
-
+div.profile div.details li.dot {
+    padding: 5px;
+    color: #999;
+}
