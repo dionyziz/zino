@@ -70,7 +70,23 @@
             $finder = New FriendRelationFinder();
             $friends = $finder->FindByUser( $theuser , 0 , 12 );  
             if ( count( $friends ) ) {
-                ?><h3>Φίλοι</h3><?php
+                ?><h3><?php
+                if ( $user->Id == $theuser->Id ) {
+                    ?>Οι φίλοι μου<?php
+                }
+                else {
+                    ?>Οι φίλοι τ<?php
+                    switch ( $theuser->Gender ) {
+                        case 'f':
+                            ?>ης<?php
+                            break;
+                        case 'm':
+                        default:
+                            ?>ου<?php
+                            break;
+                    }
+                }
+                ?></h3><?php
                 $users = array();
                 foreach ( $friends as $friend ) {
                     $users[] = $friend->Friend;
