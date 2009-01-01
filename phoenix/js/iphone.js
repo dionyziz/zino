@@ -36,7 +36,7 @@ var iPhone = {
 
 $( function() {
     $( 'a.loadable' ).click( function() {
-        this.style.backgroundColor = '#246887';
+        this.style.backgroundColor = '#047fbb';
         var img = document.createElement( 'img' );
         img.src = ' http://static.zino.gr/phoenix/ajax-loader.gif';
         img.alt = 'Loading...';
