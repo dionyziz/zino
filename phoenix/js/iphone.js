@@ -21,9 +21,6 @@ var iPhone = {
                     this.value = 'Άγγιξε εδώ για να γράψεις...';
                 }
             } );
-            $( 'a' ).click( function() {
-                this.style.backgroundColor = '#009cff';
-            } );
             $( 'form' ).submit( function() {
                 var tx = $( 'textarea' );
                 if ( !iPhone.Frontpage.ShoutboxHasValue ) {
@@ -36,4 +33,14 @@ var iPhone = {
         }
     }
 };
+
+$( function() {
+    $( 'a.loadable' ).click( function() {
+        this.style.backgroundColor = '#009cff';
+        var img = document.createElement( 'img' );
+        img.src = ' http://static.zino.gr/phoenix/ajax-loader.gif';
+        img.alt = 'Loading...';
+        this.insertBefore( img, this.firstChild );
+    } );
+} );
 
