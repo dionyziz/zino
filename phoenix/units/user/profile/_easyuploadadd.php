@@ -3,7 +3,8 @@
         global $libs;
         
         $libs->Load( 'image/image' );
-        $image = New Image( $imageid->Get() );
+        $imageid = $imageid->Get();
+        $image = New Image( $imageid );
         ?>var newli = document.createElement( 'li' );
         var newlink = document.createElement( 'a' );
         $( newlink ).attr( 'href' , '?p=photo&id=<?php
