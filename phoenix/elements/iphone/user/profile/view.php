@@ -8,6 +8,7 @@
             global $page;
 
             $libs->Load( 'user/statusbox' );
+            $libs->Load( 'relation/relation' );
 
             $subdomain = $subdomain->Get();
             $finder = New UserFinder();
@@ -58,6 +59,12 @@
             Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight, $theuser->Gender );
             ?></div><?php
             Element( 'user/profile/sidebar/social/view', $theuser );
+            $finder = New FriendRelationFinder();
+            $friends = $finder->FindByUser( $theuser , 0 , 12 );  
+            if ( count( $friends ) ) {
+                ?><h3>Φίλοι</h3><?php
+                Element( 'iphone/user/list', $friends );
+            }
             ?></div><?php
         }
     }

@@ -22,6 +22,8 @@
                     :relations
                     LEFT JOIN :users ON
                         `relation_friendid` = `user_id`
+                    LEFT JOIN :userprofiles ON
+                        `user_id` = `profile_userid`
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
@@ -42,6 +44,7 @@
             while ( $row = $res->FetchArray() ) {
                 $relation = New FriendRelation( $row );
                 $friend = New User( $row );
+                $friend->CopyProfileFrom( New UserProfile( $row ) );
                 $friend->CopyAvatarFrom( New Image( $row ) );
                 $relation->CopyFriendFrom( $friend );
                 $ret[] = $relation;
