@@ -9,7 +9,7 @@
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
             var username = GetUsername();
             if ( albumname == username ) {
-                albumname = "Εγώ";
+                albumname = "Ego";
             }
             $( div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             alert( $( this ).attr( 'id' ).substr( 6 ) );
