@@ -46,7 +46,7 @@
             $schoolexists = $theuser->Profile->School->Numstudents > 2;
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
             ?><div class="details"><img src="<?php
-            echo $xc_settings[ 'imagesurl' ];
+            echo $xc_settings[ 'staticimagesurl' ];
             ?>body-male-slim-short.jpg" alt="" /><?php
             Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight, $theuser->Gender );
             ?></div><?php
