@@ -95,10 +95,8 @@ var Profile = {
         var Now = new Date();
 
         var age = Now.getFullYear() - year;
-        if (       Now.getMonth() < month - 1
-             || (  Now.getMonth() == month - 1
-                && Now.getDate() < day ) ) {
-            alert( age );
+        if ( Now.getMonth() < month - 1 ) {
+            alert( 'Test' );
             --age;
         }
         $( '#birthday + dd' ).html( age ); // real age, based on user date settings, not on server date (to avoid server date differences and server-side HTML chunk caching)
