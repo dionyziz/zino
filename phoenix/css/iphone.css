@@ -154,8 +154,8 @@ div.profile div.details ul {
     clear: none;
     margin: 10px 0;
     padding: 10px 0;
-    border-top: 1px #999 solid;
-    border-bottom: 1px #999 solid;
+    border-top: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
 }
 div.profile div.details li {
     display: inline;
