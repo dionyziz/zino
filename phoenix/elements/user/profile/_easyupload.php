@@ -38,7 +38,10 @@
                     ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html">
                     </object><?php
                 }
-            ?></div><?php
+            ?></div>
+            <div class="uploadsuccess">
+                <span class="s_tick">&nbsp;</span> Η φωτογραφία προστέθηκε επιτυχώς 
+            </div><?php
         }
     }
 ?>

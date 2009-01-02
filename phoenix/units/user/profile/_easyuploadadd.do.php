@@ -19,6 +19,9 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( newli ).append( newlink );
-        $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );<?php
+        $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );
+        $( 'div#easyupload div.uploadsuccess' ).fadeIn( 400 , function() {
+            $( this ).fadeOut( 400 );
+        } );<?php
     }
 ?>

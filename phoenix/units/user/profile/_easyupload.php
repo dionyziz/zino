@@ -17,8 +17,6 @@
                 albumname = 'Εγώ';
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
-            var albumid = $( this ).attr( 'id' ).substr( 6 );
-            var newurl = '?p=upload&albumid=' + albumid + '&typeid=3&color=eef5f9';
         } );
         
         <?php
