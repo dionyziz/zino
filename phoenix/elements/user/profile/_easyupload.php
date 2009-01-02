@@ -7,7 +7,7 @@
                 Στο album <b>Εγώ</b><?php
                 $finder = New AlbumFinder();
                 $albums = $finder->FindByUser( $user );
-                ?><div><ul><?php
+                ?><div class="ulcontainer"><ul><?php
                 $album = New Album( $user->Egoalbumid );
                 ?><li id="album_<?php
                 echo $album->Id;

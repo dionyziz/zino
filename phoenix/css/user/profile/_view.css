@@ -266,8 +266,12 @@ div#easyphotoupload {
 div#easyphotoupload div {
     padding: 5px 0 0 0;
 }
+div#easyphotoupload div div.ulcontainer {
+    overflow: auto;
+    height: 80px;
+}
 div#easyphotoupload div ul {
-    overflow : auto;
+    width: 1000px;
 }
 div#easyphotoupload div ul li {
     margin: 3px 5px; 
