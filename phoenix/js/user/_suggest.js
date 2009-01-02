@@ -59,6 +59,7 @@ var Suggest = {
 		}
         var lis = ul.find( 'li.selected' );
 		var text = $( 'div.' + type + ' input' ).val();
+		alert( event.keyCode );
         if ( event.keyCode == 40 ) { // down
             if ( lis.length == 0 ) {
                 ul.find( 'li:first' ).addClass( 'selected' );
