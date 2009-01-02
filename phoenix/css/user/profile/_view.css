@@ -255,8 +255,8 @@ div#profile div.main div.photos ul li.addphoto {
 }
 div#easyphotoupload {
 	display: none;
-	top: 25%;
-	left: 40%;
+	top: 15%;
+	left: 37%;
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
