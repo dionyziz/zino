@@ -156,7 +156,10 @@ var Suggest = {
 		if ( !$.browser.mozilla && ul.css( 'display' ) != "none" && parseInt( ul.get( 0 ).clientWidth, 10 ) < 200 ) { // Not firefox and there is a scrollbar
 			var x = event.offsetX?(event.offsetX):event.pageX-ul.get( 0 ).offsetLeft;
             var y = event.offsetY?(event.offsetY):event.pageY-ul.get( 0 ).offsetTop;
-			alert( x + ' ' + y );
+			//alert( x + ' ' + y );
+			if ( $.browser.msie && x >= 185 && x <= 202 && y >= 19 && y <= 268 ) {
+				return false;
+			}
 		}
 		ul.hide();
 	}
