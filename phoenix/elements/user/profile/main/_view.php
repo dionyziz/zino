@@ -6,7 +6,8 @@
             global $water;
             global $xc_settings;
             global $page;
-
+            global $rabbit_settings;
+            
             $libs->Load( 'poll/poll' );
             $libs->Load( 'comment' );
             $libs->Load( 'notify' );
