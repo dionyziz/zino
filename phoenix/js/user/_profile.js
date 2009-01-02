@@ -138,6 +138,7 @@ var Profile = {
             if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
                 Coala.Cold( 'user/profile/easyupload' , {} );
             }
+            return false;
         } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
             var win = $( '#tweetedit' )[ 0 ];
