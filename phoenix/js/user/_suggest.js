@@ -157,3 +157,5 @@ $( function() {
     $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
     $( 'div.add ul li' ).remove();
 } );
+
+// To Scrollbar iparxi otan to clientWidth ine mikrotero apo 200px
