@@ -150,7 +150,6 @@ var Suggest = {
 			}
 		}
 		
-		alert( $( 'div.' + type + ' ul' ).get( 0 ).clientWidth + ' ' + $( 'div.' + type + ' ul' ).get( 0 ).offsetWidth );
 	}
 };
 
