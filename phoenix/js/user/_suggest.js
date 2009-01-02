@@ -173,6 +173,7 @@ var Suggest = {
 		}
 		if ( Suggest.over[ type ] ) {
 			setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
+			return false;
 		}
 		ul.hide();
 	}
