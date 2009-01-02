@@ -268,6 +268,7 @@ div#easyphotoupload div.modalcontent {
 }
 div#easyphotoupload div.modalcontent span.plswait {
     padding: 0 0 0 5px;
+    vertical-align: 3px;
 }
 div#easyphotoupload div {
     padding: 5px 0 0 0;
