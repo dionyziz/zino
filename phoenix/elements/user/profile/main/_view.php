@@ -130,6 +130,9 @@
                     <div id="easyphotoupload">
                         <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
                         <div class="modalcontent"> 
+                            <img src="<?php
+                            echo $rabbit_settings[ 'imagesurl' ];
+                            ?>ajax-loader.gif" alt="Αποθήκευση" /><span>Παρακαλώ περιμένετε...</span>
                         </div>
                     </div><?php
                 }
