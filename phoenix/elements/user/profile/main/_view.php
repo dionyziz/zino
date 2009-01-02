@@ -132,7 +132,7 @@
                         <div class="modalcontent"> 
                             <img src="<?php
                             echo $rabbit_settings[ 'imagesurl' ];
-                            ?>ajax-loader.gif" alt="Αποθήκευση" /><span>Παρακαλώ περιμένετε...</span>
+                            ?>ajax-loader.gif" /><span>Παρακαλώ περιμένετε...</span>
                         </div>
                     </div><?php
                 }
