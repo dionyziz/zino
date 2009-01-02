@@ -288,6 +288,7 @@ div#easyphotoupload div.uploadsuccess {
     height: 20px;
 }
 div#easyphotoupload div.uploadsuccess div {
+    font-weight: 700;
     display: none;
 }
 div#profile div.main div.friends h3 {
