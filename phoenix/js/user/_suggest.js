@@ -162,7 +162,7 @@ var Suggest = {
 				return false;
 			}
 		}
-		ul.hide();
+		//ul.hide();
 	}
 };
 
