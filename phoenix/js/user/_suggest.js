@@ -162,6 +162,7 @@ var Suggest = {
 	},
 	hideBlur : function( event, type ) {
 		var ul = $( 'div.' + type + ' ul' );
+		/*
 		if ( $.browser.msie && ul.css( 'display' ) != "none" && parseInt( ul.get( 0 ).clientWidth, 10 ) < 200 ) { // Not firefox and there is a scrollbar
 			var x = event.offsetX?(event.offsetX):event.pageX-ul.get( 0 ).offsetLeft;
             var y = event.offsetY?(event.offsetY):event.pageY-ul.get( 0 ).offsetTop;
@@ -170,7 +171,7 @@ var Suggest = {
 				setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 				return false;
 			}
-		}
+		}*/
 		if ( Suggest.over[ type ] ) {
 			setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 			return false;
