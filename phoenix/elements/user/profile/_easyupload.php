@@ -40,7 +40,7 @@
                 }
             ?></div>
             <div class="uploadsuccess">
-                <div><span class="s_tick">.</span> Η φωτογραφία προστέθηκε επιτυχώς</div> 
+                <div>Η φωτογραφία προστέθηκε επιτυχώς</div> 
             </div><?php
         }
     }
