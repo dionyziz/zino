@@ -266,6 +266,9 @@ div#easyphotoupload {
 div#easyphotoupload div.modalcontent {
     padding: 50% 50%;
 }
+div#easyphotoupload div.modalcontent span.plswait {
+    padding: 0 0 0 5px;
+}
 div#easyphotoupload div {
     padding: 5px 0 0 0;
 }
