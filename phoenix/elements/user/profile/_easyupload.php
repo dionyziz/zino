@@ -4,7 +4,7 @@
             global $user;
 
             ?><div>
-                Στο album <b>Εγώ</b><?php
+                <span class="inalb">Στο album <b>Εγώ</b></span><?php
                 $finder = New AlbumFinder();
                 $albums = $finder->FindByUser( $user );
                 ?><div class="ulcontainer"><ul style="width:<?php

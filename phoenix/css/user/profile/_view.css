@@ -261,16 +261,17 @@ div#easyphotoupload {
 	background: #eef5f9;
 	border: 1px solid #284659;
     width: 450px;
-    height: 330px;
+    height: 225px;
 }
 div#easyphotoupload div {
     padding: 5px 0 0 0;
 }
+div#easyphotoupload div span.inalb {
+    padding: 0 0 0 10px;
+}
 div#easyphotoupload div div.ulcontainer {
     overflow: auto;
     height: 80px;
-}
-div#easyphotoupload div ul {
 }
 div#easyphotoupload div ul li {
     margin: 3px 5px; 
@@ -287,7 +288,7 @@ div#easyphotoupload div ul li span img {
     padding: 1px; 
 }
 div#easyphotoupload div.uploadsuccess {
-    padding: 0 0 0 10px;
+    padding: 0 0 0 30px;
     height: 20px;
 }
 div#easyphotoupload div.uploadsuccess div {
