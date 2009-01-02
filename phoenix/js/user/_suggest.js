@@ -158,9 +158,9 @@ var Suggest = {
             var y = event.offsetY?(event.offsetY):event.pageY-ul.get( 0 ).offsetTop;
 			//alert( x + ' ' + y );
 			if ( $.browser.msie && x >= 185 && x <= 202 && y >= 19 && y <= 268 ) {
+				setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 				return false;
 			}
-			setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 		}
 		ul.hide();
 	}
