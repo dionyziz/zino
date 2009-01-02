@@ -160,6 +160,7 @@ var Suggest = {
 			if ( $.browser.msie && x >= 185 && x <= 202 && y >= 19 && y <= 268 ) {
 				return false;
 			}
+			ul.focus();
 		}
 		ul.hide();
 	}
