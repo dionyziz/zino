@@ -86,9 +86,10 @@ var Suggest = {
         }
         else if ( event.keyCode == 13 ) { // enter
             if ( lis.length == 0 ) {
-                ul.css( 'display', 'none' );
+                ul.hide();
                 return;
             }
+			Suggest.over[ type ] = false;
             $( 'div.' + type + ' input' ).attr( 'value', lis.text() );
             ul.hide();
         }
