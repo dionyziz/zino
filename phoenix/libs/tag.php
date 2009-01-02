@@ -107,13 +107,13 @@
                  "SELECT DISTINCT tag_text 
                  FROM :tags
                  WHERE 
-                     `tag_text` LIKE :TagText
+                     `tag_text` LIKE '%:TagText'
                  AND `tag_typeid` = :TagType
                  AND `tag_userid` <> :UserId
                  LIMIT 0, 50;"
             );
             $query->BindTable( 'tags' );
-            $query->Bind( "TagText", $text );
+            $query->BindLike( "TagText", $text );
             $query->Bind( "TagType", $type );
             $query->Bind( "UserId", $user->Id );
             $res = $query->Execute();
