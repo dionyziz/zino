@@ -22,9 +22,9 @@ var PhotoView = {
 		}
 		return false;
 	},
-	MainImage : function( photoid ) {
+	MainImage : function( photoid , node ) {
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
-		$( 'div#pview div.owner div.mainimage' ).fadeOut( 200 , function() {
+		$( node.parentNode ).fadeOut( 200 , function() {
 			$( this ).empty()
 			.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη' ) )
 			.fadeIn( 400 );
