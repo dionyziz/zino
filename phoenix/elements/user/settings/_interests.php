@@ -50,7 +50,7 @@
                     <div class="add hobbies">
                         <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="Suggest.hideBlur( event, 'hobbies' );" onfocus="$( 'div.hobbies ul').show();"/>
                         <a href="" onclick="return false" title="Προσθήκη"></a><br />
-                        <ul>
+                        <ul onfocus="alert( 'trexo' );">
                             <li></li>
                         </ul>
                     </div>
@@ -82,7 +82,7 @@
                     <div class="add songs">
                         <input type="text" onclick="$( 'div.songs ul' ).show();" onkeyup="Suggest.inputMove( event, 'songs' );" onblur="Suggest.hideBlur( event, 'songs' );" onfocus="$( 'div.songs ul').show();"/>
                         <a href="" onclick="return false" title="Προσθήκη"></a><br />
-                        <ul onfocus="alert( 'trexo' );">
+                        <ul>
                             <li></li>
                         </ul>
                     </div>
