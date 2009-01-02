@@ -4,7 +4,7 @@
         ob_start();
         Element( 'user/profile/easyupload' );
         echo w_json_encode( ob_get_clean() );
-        ?> ).css( 'padding-top' , '0' );
+        ?> ).css( 'padding' , '0' );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
             if ( !previousselection ) {
                 var previousselection = $( 'div#easyphotoupload div.modalcontent div ul li' );
