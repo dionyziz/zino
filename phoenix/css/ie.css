@@ -6,3 +6,7 @@ div#search div.ybubble form input.submit {
     position: relative;
     top: 35px;
 }
+/* this rule applies to the suggestion list in interests in setting */
+form#interestsinfo div.option div.setting div.add ul {
+	width: 205px;
+}
