@@ -10,7 +10,7 @@
             $albumid = $albumid->Get();
             $image->Albumid = $albumid;
             $image->Save();
-            if ( $user->Egoalbum->Id == $albumid ) {
+            if ( $user->Egoalbumid == $albumid ) {
                 ?>var newli = document.createElement( 'li' );
                 var newlink = document.createElement( 'a' );
                 $( newlink ).attr( 'href' , '?p=photo&id=<?php
