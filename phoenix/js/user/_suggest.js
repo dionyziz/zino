@@ -149,6 +149,8 @@ var Suggest = {
 				$( 'div.' + type + ' ul' ).append( li );
 			}
 		}
+		
+		alert( $( 'div.' + type + ' ul' ).get( 0 ).clientRight );
 	}
 };
 
