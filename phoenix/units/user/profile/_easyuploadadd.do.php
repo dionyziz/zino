@@ -20,8 +20,10 @@
         ?> );
         $( newli ).append( newlink );
         $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );
-        $( 'div#easyupload div.uploadsuccess' ).fadeIn( 400 , function() {
-            $( this ).fadeOut( 400 );
+        $( 'div#easyupload div.uploadsuccess div' ).show().css( 'opacity' , '0' ).fadeIn( 400 , function() {
+            $( this ).fadeOut( 800 , function() {
+                $( this ).css( 'opacity' , '1' ).hide();   
+            } );
         } );<?php
     }
 ?>

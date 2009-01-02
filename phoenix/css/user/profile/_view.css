@@ -284,6 +284,9 @@ div#easyphotoupload div ul li span img {
     padding: 1px; 
 }
 div#easyphotoupload div.uploadsuccess {
+    height: 30px;
+}
+div#easyphotoupload div.uploadsuccess div {
     display: none;
 }
 div#profile div.main div.friends h3 {
