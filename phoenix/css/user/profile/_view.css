@@ -264,7 +264,7 @@ div#easyphotoupload {
     height: 225px;
 }
 div#easyphotoupload div.modalcontent {
-    padding: 100px 0 0 0;
+    padding: auto;
 }
 div#easyphotoupload div {
     padding: 5px 0 0 0;
