@@ -102,12 +102,11 @@
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
             global $user;
 
-            $text .= "%";
             $query = $this->mDb->Prepare(
                  "SELECT DISTINCT tag_text 
                  FROM :tags
                  WHERE 
-                     `tag_text` LIKE '%:TagText'
+                     `tag_text` LIKE ':TagText%'
                  AND `tag_typeid` = :TagType
                  AND `tag_userid` <> :UserId
                  LIMIT 0, 50;"
