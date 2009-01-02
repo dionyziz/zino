@@ -8,5 +8,6 @@ div#search div.ybubble form input.submit {
 }
 /* this rule applies to the suggestion list in interests in setting */
 form#interestsinfo div.option div.setting div.add ul {
-	width: 203px;
+	width: 202px;
+	margin-top: -1px;
 }
