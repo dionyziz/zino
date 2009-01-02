@@ -138,6 +138,7 @@ var Suggest = {
 				var li = document.createElement( 'li' );
 				li.onmousedown = function( i ) {
 					return function() {
+						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						$( 'div.' + type + ' ul' ).css( 'display', 'none' );
 					}
