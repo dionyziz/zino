@@ -272,6 +272,7 @@ div#easyphotoupload div span.inalb {
 div#easyphotoupload div div.ulcontainer {
     overflow: auto;
     height: 80px;
+    padding: 0 0 0 5px;
 }
 div#easyphotoupload div ul li {
     margin: 3px 5px; 
