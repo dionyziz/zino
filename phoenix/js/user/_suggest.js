@@ -22,6 +22,15 @@ var Suggest = {
         'games' : new Array(0),
         'shows' : new Array(0)
     },
+	over : {
+		'hobbies' : false,
+		'movies' : false,
+		'books' : false,
+		'songs' : false,
+		'artists' : false,
+		'games' : false,
+		'shows' : false
+	},
     type2int : function( type ) {
 		switch( type ) {
 			// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
@@ -130,7 +139,7 @@ var Suggest = {
 				li.onmousedown = function( i ) {
 					return function() {
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
-						ul.css( 'display', 'none' );
+						$( 'div.' + type + ' ul' ).css( 'display', 'none' );
 					}
 				}( i );
 				li.onmousemove = function() {
@@ -161,6 +170,9 @@ var Suggest = {
 				setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 				return false;
 			}
+		}
+		if ( Suggest.over[ type ] ) {
+			setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
 		}
 		ul.hide();
 	}

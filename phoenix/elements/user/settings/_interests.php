@@ -50,7 +50,7 @@
                     <div class="add hobbies">
                         <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="Suggest.hideBlur( event, 'hobbies' );" onfocus="$( 'div.hobbies ul').show();"/>
                         <a href="" onclick="return false" title="Προσθήκη"></a><br />
-                        <ul onmouseover="alert( 'mesa' );" onmouseout="alert( 'ekso' );">
+                        <ul onmouseover="Suggest.over.hobbies = true;" onmouseout="Suggest.over.hobbies = false;">
                             <li></li>
                         </ul>
                     </div>
