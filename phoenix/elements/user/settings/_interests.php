@@ -48,7 +48,7 @@
                         }
                     ?></ul>
                     <div class="add hobbies">
-                        <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="$( 'div.hobbies ul' ).hide();alert( $( 'div.hobbies ul' ).get( 0 ).clientWidth + ' ' + $( 'div.' + type + ' ul' ).get( 0 ).offsetWidth );" onfocus="$( 'div.hobbies ul').show();"/>
+                        <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="alert( $( 'div.hobbies ul' ).get( 0 ).clientWidth + ' ' + $( 'div.' + type + ' ul' ).get( 0 ).offsetWidth );$( 'div.hobbies ul' ).hide();" onfocus="$( 'div.hobbies ul').show();"/>
                         <a href="" onclick="return false" title="Προσθήκη"></a><br />
                         <ul>
                             <li></li>
