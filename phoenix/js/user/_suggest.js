@@ -91,7 +91,6 @@ var Suggest = {
 			}
 			Settings.AddInterest( type, Suggest.type2int( type ) );
 			ul.find( 'li' ).remove();
-            ul.hide();
         }
 		else if ( $.trim( text ) != '' ) {
 			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
@@ -146,7 +145,6 @@ var Suggest = {
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
 						$( 'div.' + type + ' ul li' ).remove();
-						$( 'div.' + type + ' ul' ).hide();
 					};
 				}( i );
 				li.onmousemove = function() {
