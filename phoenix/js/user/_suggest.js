@@ -97,7 +97,7 @@ var Suggest = {
 				ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			}
 			else {
-				piso[ 4 ].addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+				$( piso[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			}
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
