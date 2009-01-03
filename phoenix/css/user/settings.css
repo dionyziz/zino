@@ -175,7 +175,7 @@ form#interestsinfo div.option div.setting div.add input {
 	width: 200px;
 }
 form#interestsinfo div.option div.setting div.add ul {
-    border: 1px solid grey;
+    border: 1px solid gray;
     border-top-width:0px;
     width:200px;
 	max-height:250px;
@@ -185,7 +185,7 @@ form#interestsinfo div.option div.setting div.add ul {
     background-color: white;
 	display: none;
 }
-form#interestsinfo div.option div.setting div.add ul li.selected {
+form#interestsinfo div.option div.setting div.add ul li.selected{
     background-color: #3377EE;
     color: white;
     cursor: pointer;
