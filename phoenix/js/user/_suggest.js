@@ -142,7 +142,8 @@ var Suggest = {
 					return function() {
 						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
-						$( 'div.' + type + ' ul' ).css( 'display', 'none' );
+						Settings.AddInterest( type, Suggest.type2int( type ) );
+						$( 'div.' + type + ' ul' ).hide();
 					}
 				}( i );
 				li.onmousemove = function() {
@@ -173,6 +174,6 @@ var Suggest = {
 };
 
 $( function() {
-   // $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
+    $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
     $( 'div.add ul li' ).remove();
 } );
