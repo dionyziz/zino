@@ -108,6 +108,9 @@ var Suggest = {
 		                                           } );
 			Suggest.requested[ type ].push( text );
 		}
+		else {
+			$( 'div.' + type + ' ul' ).hide();
+		}
     },
 	suggestCallback : function( type, suggestions, callbacked ) {
 		/*if ( suggestions.length === undefined || suggestions.length == 0 ) {
