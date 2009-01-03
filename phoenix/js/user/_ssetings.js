@@ -458,11 +458,6 @@ $( function() {
 		//interesttags
 		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 		
-		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'hobbies' , 1 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
 			Settings.AddInterest( 'hobbies' , 1 );
 			if ( Suggest.timeoutid.hobbies !== false ) {
@@ -471,11 +466,6 @@ $( function() {
 			return false;
 		} );
 		
-		$( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'movies' , 2 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
 			Settings.AddInterest( 'movies' , 2 );
 			if ( Suggest.timeoutid.movies !== false ) {
@@ -484,11 +474,6 @@ $( function() {
 			return false;
 		} );
 		
-		$( 'form#interestsinfo div.option div.setting div.books input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'books' , 3 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
 			Settings.AddInterest( 'books' , 3 );
 			if ( Suggest.timeoutid.books !== false ) {
@@ -497,11 +482,6 @@ $( function() {
 			return false;
 		} );
 
-		$( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'songs' , 4 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
 			Settings.AddInterest( 'songs' , 4 );
 			if ( Suggest.timeoutid.songs !== false ) {
@@ -510,11 +490,6 @@ $( function() {
 			return false;
 		} );
 		
-		$( 'form#interestsinfo div.option div.setting div.artists input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'artists' , 5 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
 			Settings.AddInterest( 'artists' , 5 );
 			if ( Suggest.timeoutid.artists !== false ) {
@@ -523,11 +498,6 @@ $( function() {
 			return false;
 		} );
 		
-		$( 'form#interestsinfo div.option div.setting div.games input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'games' , 6 );
-			}
-		} );
 		$( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
 			Settings.AddInterest( 'games' , 6 );
 			if ( Suggest.timeoutid.games !== false ) {
@@ -535,11 +505,7 @@ $( function() {
 			}
 			return false;
 		} );
-		$( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'shows' , 7 );
-			}
-		} );
+
 		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
 			Settings.AddInterest( 'shows' , 7);
 			if ( Suggest.timeoutid.shows !== false ) {

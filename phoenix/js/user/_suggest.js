@@ -174,6 +174,5 @@ var Suggest = {
 };
 
 $( function() {
-    //$( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
-    $( 'div.add ul li' ).remove();
+    $( 'form#interestsinfo div.option div.setting div.add ul li' ).remove();
 } );
