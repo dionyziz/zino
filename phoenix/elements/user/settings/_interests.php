@@ -28,7 +28,8 @@
             $artists = $bytype[ TAG_ARTIST ];
             $games = $bytype[ TAG_GAME ];
             $shows = $bytype[ TAG_SHOW ];
-            ?><div class="option">
+            ?><b>Πληκτρολόγησε κάθε ενδιαφέρον σου ξεχωριστά και πίεσε Enter</b>
+			<div class="option">
                 <label>Hobbies:</label>
                 <div class="setting">
                     <ul class="interesttags hobbies"><?php
