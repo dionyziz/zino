@@ -101,9 +101,7 @@ var Suggest = {
 			Suggest.over[ type ] = false;
 			if ( lis.length !== 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
-				Suggest.added[ type ].push( lis.text() );
 			}
-			Suggest.added[ type ].push( $( 'div.' + type + ' input' ).val() );
 			Settings.AddInterest( type, Suggest.type2int( type ) );
 			ul.find( 'li' ).remove();
         }
@@ -159,7 +157,6 @@ var Suggest = {
 						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
-						Suggest.added[ type ].push( suggestions[ i ] );
 						$( 'div.' + type + ' ul li' ).remove();
 					};
 				}( i );

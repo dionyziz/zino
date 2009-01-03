@@ -67,6 +67,7 @@ var Settings = {
 				var link = newspan.getElementsByTagName( 'a' )[ 0 ];
 				$( newli ).append( newspan );
 				$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
+				Suggest.added[ type ].push( intervalue );
 				Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			}
 			else {
