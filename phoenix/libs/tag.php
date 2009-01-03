@@ -10,6 +10,10 @@
     define( 'TAG_GAME', 6 );
     define( 'TAG_SHOW', 7 );
 
+    function Tag_ValidType( $type ) {
+        return is_int( $type ) && $type <= 7 && $type >= 1;
+    }
+
     function is_tag( $tag ) {
         return $tag instanceof Tag && $tag->Exists();
     }

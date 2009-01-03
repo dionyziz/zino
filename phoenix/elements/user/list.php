@@ -1,7 +1,7 @@
 <?php
 
     class ElementUserList extends Element {
-        public function Render( $relations ) {
+        public function Render( $relations ) { /* array of Relation instances or User instances */
             ?><div class="people">
                 <ul><?php
                     foreach ( $relations as $relation ) {
