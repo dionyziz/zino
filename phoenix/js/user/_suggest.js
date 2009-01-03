@@ -66,7 +66,8 @@ var Suggest = {
             }
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
-			setTimeout( "Suggest.allowHover = true", 15 );
+			//setTimeout( "Suggest.allowHover = true", 15 );
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length === 0 ) {
@@ -120,12 +121,12 @@ var Suggest = {
 
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
-		for( var i=0;i<suggestions.length;++i ) {
-		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
-		        Suggest.list[ type ].push( suggestions[i] );
+		for( var j=0;j<suggestions.length;++j ) {
+		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 ) {
+		        Suggest.list[ type ].push( suggestions[ j ] );
 		    }
 		    else if ( callbacked ) { // If callbacked is set to true, then the current suggestion always exists in the options. It was added the first time when callbacked was false
-		        suggestions[i] = '';
+		        suggestions[ j ] = '';
 		        --sugLength;
 		    }
 		}
