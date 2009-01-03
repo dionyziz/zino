@@ -122,6 +122,35 @@
             }
             return $arr;
         }
+        public function FindPopular( $type = TAG_HOBBIE, $limit = 20 ) {
+            w_assert( is_int( $limit ) );
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT( * ) AS popularity,
+                    `tag_text`
+                FROM
+                    :tags
+                WHERE
+                    `tag_typeid` = :type
+                GROUP BY
+                    `tag_text`
+                ORDER BY popularity DESC
+                LIMIT :limit;'
+            );
+
+            $query->BindTable( 'tags' );
+            $query->Bind( 'type', $type );
+            $query->Bind( 'limit', $limit );
+            $res = $query->Execute();
+            $rows = array();
+
+            while ( $row = $res->FetchArray() ) {
+                $row[ 'text' ] = $row[ 'tag_text' ];
+                $rows[] = $row;
+            }
+
+            return $rows;
+        }
     }
  
     class Tag extends Satori {

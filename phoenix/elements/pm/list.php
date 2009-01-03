@@ -1,5 +1,4 @@
 <?php
-
     class ElementPmList extends Element {
         public function Render() {
             global $page;
@@ -66,8 +65,7 @@
                     </form>
                 </div>
             </div>
-            </div>
-    <?php
+            </div><?php
         }
     }
 ?>

@@ -136,6 +136,7 @@
             'moderateschools'        => 'adminpanel/schools/moderate',
             'contactfinder'            => 'contacts/select',
             'emailvalidate'         => 'user/settings/emailvalidate',
+            'interests'         => 'tag/view',
 
             'iphone/'           => 'iphone/frontpage/view',
             'iphone/user'       => 'iphone/user/profile/view'
