@@ -406,62 +406,47 @@ var Settings = {
         
         //interesttags
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
-        
-        $( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
-            Settings.AddInterest( 'hobbies' , 1 );
-            if ( Suggest.timeoutid.hobbies !== false ) {
-				window.clearTimeout( Suggest.timeoutid.hobbies );
-			}
-            return false;
-        } );
-        
+        var interesttagtypes = new Array( 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' );
+		for( var i in interesttagtypes ) {
+			$( 'form#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
+				return function() {
+					Settings.AddInterest( interesttagtypes[ i ] , Suggest.type2int( interesttagtypes[ i ] ) );
+					$( 'div.' + interesttagtypes[ i ] + ' ul' ).hide();
+					return false;
+				} );
+			}( i );
+		}
+		
+        /*
         $( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
             Settings.AddInterest( 'movies' , 2 );
-            if ( Suggest.timeoutid.movies !== false ) {
-				window.clearTimeout( Suggest.timeoutid.movies );
-			}
             return false;
         } );
 
         $( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
             Settings.AddInterest( 'books' , 3 );
-            if ( Suggest.timeoutid.books !== false ) {
-				window.clearTimeout( Suggest.timeoutid.books );
-			}
             return false;
         } );
 
         $( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
             Settings.AddInterest( 'songs' , 4 );
-            if ( Suggest.timeoutid.songs !== false ) {
-				window.clearTimeout( Suggest.timeoutid.songs );
-			}
             return false;
         } );
 
         $( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
             Settings.AddInterest( 'artists' , 5 );
-            if ( Suggest.timeoutid.artists !== false ) {
-				window.clearTimeout( Suggest.timeoutid.artists );
-			}
             return false;
         } );
 
         $( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
             Settings.AddInterest( 'games' , 6 );
-            if ( Suggest.timeoutid.games !== false ) {
-				window.clearTimeout( Suggest.timeoutid.games );
-			}
             return false;
         } );
 
         $( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
             Settings.AddInterest( 'shows' , 7);
-            if ( Suggest.timeoutid.shows !== false ) {
-				window.clearTimeout( Suggest.timeoutid.shows );
-			}
             return false;
-        } );
+        } ); */
         //settingsinfo
         $( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
             var value = $( this )[ 0 ].checked;
