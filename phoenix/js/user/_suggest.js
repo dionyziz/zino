@@ -174,6 +174,6 @@ var Suggest = {
 };
 
 $( function() {
-    $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
+    //$( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
     $( 'div.add ul li' ).remove();
 } );
