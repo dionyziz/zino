@@ -61,7 +61,7 @@ var Suggest = {
 		var text = $( 'div.' + type + ' input' ).val();
         if ( event.keyCode == 40 ) { // down
             if ( lis.length === 0 ) {
-                ul.find( 'li:first' ).addClass( 'selected' );
+                ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
                 return;
             }
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
@@ -70,7 +70,7 @@ var Suggest = {
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length === 0 ) {
-                ul.find( 'li:last' ).addClass( 'selected' );
+                ul.find( 'li:last' ).addClass( 'selected' ).scrollIntoView( false );
                 return;
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
