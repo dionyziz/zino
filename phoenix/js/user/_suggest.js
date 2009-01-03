@@ -91,6 +91,15 @@ var Suggest = {
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
         }
 		else if ( event.keyCode == 33 ) { // PageUp
+			var piso = ul.find( 'li.selected' ).removeClass( 'selected' ).prevAll();
+			Suggest.allowHover = false;
+			if ( piso.length < 5 ) {
+				ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			else {
+				piso[ 4 ].addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
 		else if ( event.keyCode == 34 ) { // PageDown
 		}
