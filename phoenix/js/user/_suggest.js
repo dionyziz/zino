@@ -3,24 +3,24 @@ var Suggest = {
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     // Holds the suggestions that we have already received from the server
     list : {
-        'hobbies' : new Array(0),
-        'movies' : new Array(0),
-        'books' : new Array(0),
-        'songs' : new Array(0),
-        'artists' : new Array(0),
-        'games' : new Array(0),
-        'shows' : new Array(0)
+        'hobbies' : [],
+        'movies' : [],
+        'books' : [],
+        'songs' : [],
+        'artists' : [],
+        'games' : [],
+        'shows' : []
     },
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     // Holds all the requests we have done to the server
     requested : { 
-        'hobbies' : new Array(0),
-        'movies' : new Array(0),
-        'books' : new Array(0),
-        'songs' : new Array(0),
-        'artists' : new Array(0),
-        'games' : new Array(0),
-        'shows' : new Array(0)
+        'hobbies' : [],
+        'movies' : [],
+        'books' : [],
+        'songs' : [],
+        'artists' : [],
+        'games' : [],
+        'shows' : []
     },
 	over : {
 		'hobbies' : false,
@@ -60,7 +60,7 @@ var Suggest = {
         var lis = ul.find( 'li.selected' );
 		var text = $( 'div.' + type + ' input' ).val();
         if ( event.keyCode == 40 ) { // down
-            if ( lis.length == 0 ) {
+            if ( lis.length === 0 ) {
                 ul.find( 'li:first' ).addClass( 'selected' );
                 return;
             }
@@ -69,7 +69,7 @@ var Suggest = {
 			setTimeout( "Suggest.allowHover = true", 15 );
         }
         else if ( event.keyCode == 38 ) { // up
-            if ( lis.length == 0 ) {
+            if ( lis.length === 0 ) {
                 ul.find( 'li:last' ).addClass( 'selected' );
                 return;
             }
@@ -86,7 +86,7 @@ var Suggest = {
         }
         else if ( event.keyCode == 13 ) { // enter
 			Suggest.over[ type ] = false;
-			if ( lis.length != 0 ) {
+			if ( lis.length !== 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
 			}
 			Settings.AddInterest( type, Suggest.type2int( type ) );
@@ -142,7 +142,7 @@ var Suggest = {
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
 						$( 'div.' + type + ' ul' ).hide();
-					}
+					};
 				}( i );
 				li.onmousemove = function() {
 					if ( !Suggest.allowHover ) {
