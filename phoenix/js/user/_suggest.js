@@ -70,7 +70,7 @@ var Suggest = {
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length === 0 ) {
-                ul.find( 'li:last' ).addClass( 'selected' ).scrollIntoView( false );
+                ul.find( 'li:last' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
                 return;
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
