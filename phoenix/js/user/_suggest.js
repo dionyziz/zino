@@ -102,6 +102,15 @@ var Suggest = {
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
 		else if ( event.keyCode == 34 ) { // PageDown
+			var mprosta = ul.find( 'li.selected' ).removeClass( 'selected' ).nextAll();
+			Suggest.allowHover = false;
+			if ( mprosta.length < 5 ) {
+				ul.find( 'li:last' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			else {
+				$( mprosta[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
         else if ( event.keyCode == 27 ) { // escape
             ul.find( 'li' ).remove();
