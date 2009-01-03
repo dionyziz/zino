@@ -93,7 +93,6 @@ var Suggest = {
             ul.hide();
         }
 		else if ( $.trim( text ) != '' ) {
-			$( 'div.' + type + ' ul' ).show();
 			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
 		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
@@ -110,7 +109,7 @@ var Suggest = {
 			Suggest.requested[ type ].push( text );
 		}
 		else {
-			$( 'div.' + type + ' ul' ).hide();
+			$( 'div.' + type + ' ul li' ).remove();
 		}
     },
 	suggestCallback : function( type, suggestions, callbacked ) {
