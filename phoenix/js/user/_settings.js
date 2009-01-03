@@ -35,7 +35,6 @@ var Settings = {
 				$( li ).removeClass( 'selected' )
 				.removeClass( 'selected' + tabname )
 				.addClass( tabname );
-				;
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
@@ -406,7 +405,7 @@ var Settings = {
         
         //interesttags
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
-        var interesttagtypes = new Array( 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' );
+        var interesttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
 		for( var i in interesttagtypes ) {
 			$( 'form#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
 				return function() {
