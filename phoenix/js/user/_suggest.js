@@ -101,7 +101,9 @@ var Suggest = {
 			Suggest.over[ type ] = false;
 			if ( lis.length !== 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
+				Suggest.added[ type ].push( lis.text() );
 			}
+			Suggest.added[ type ].push( $( 'div.' + type + ' input' ).val() );
 			Settings.AddInterest( type, Suggest.type2int( type ) );
 			ul.find( 'li' ).remove();
         }
@@ -137,7 +139,7 @@ var Suggest = {
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
 		for( var j=0;j<suggestions.length;++j ) {
-		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 ) {
+		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 && $.inArray( suggestions[ j ], Suggest.added[ type ] ) {
 		        Suggest.list[ type ].push( suggestions[ j ] );
 		    }
 		    else if ( callbacked ) { // If callbacked is set to true, then the current suggestion always exists in the options. It was added the first time when callbacked was false
@@ -157,6 +159,7 @@ var Suggest = {
 						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
+						Suggest.added[ type ].push( suggestions[ i ] );
 						$( 'div.' + type + ' ul li' ).remove();
 					};
 				}( i );
@@ -196,7 +199,7 @@ $( function() {
 			continue;
 		}
 		$.each( spans, function() {
-				Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
-			} );
+			Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
+		} );
 	}
 } );
