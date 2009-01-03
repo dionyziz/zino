@@ -1,27 +1,50 @@
 var Suggest = {
+	allowHover : true, // Allow onmouseover to select a li
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     // Holds the suggestions that we have already received from the server
     list : {
-        'hobbies' : new Array(0),
-        'movies' : new Array(0),
-        'books' : new Array(0),
-        'songs' : new Array(0),
-        'artists' : new Array(0),
-        'games' : new Array(0),
-        'shows' : new Array(0)
+        'hobbies' : [],
+        'movies' : [],
+        'books' : [],
+        'songs' : [],
+        'artists' : [],
+        'games' : [],
+        'shows' : []
     },
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     // Holds all the requests we have done to the server
     requested : { 
-        'hobbies' : new Array(0),
-        'movies' : new Array(0),
-        'books' : new Array(0),
-        'songs' : new Array(0),
-        'artists' : new Array(0),
-        'games' : new Array(0),
-        'shows' : new Array(0)
+        'hobbies' : [],
+        'movies' : [],
+        'books' : [],
+        'songs' : [],
+        'artists' : [],
+        'games' : [],
+        'shows' : []
     },
-	type2int : function( type ) {
+	// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+	// Holds whether the mouse is over a suggestion list. Necessary for the scrolling bar to work
+	over : {
+		'hobbies' : false,
+		'movies' : false,
+		'books' : false,
+		'songs' : false,
+		'artists' : false,
+		'games' : false,
+		'shows' : false
+	},
+	// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+	// Contains all the already added interests
+	added : {
+		'hobbies' : [],
+		'movies' : [],
+		'books' : [],
+		'songs' : [],
+		'artists' : [],
+		'games' : [],
+		'shows' : []
+	},
+    type2int : function( type ) {
 		switch( type ) {
 			// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 			case 'hobbies':
@@ -42,149 +65,156 @@ var Suggest = {
 				return -1;
 		}
 	},
-	selectMove : function( event, type ) {
-		if ( $( 'div.' + type + ' form' ).css( "display" ) == "none" ) {
+    inputMove : function( event, type ) {
+        var ul = $( 'div.' + type + ' ul' );
+        if ( ul.css( "display" ) == "none" && event.keyCode != 13 ) {
 			return;
 		}
-		var sel = $( 'div.' + type + ' select' );
-		var selindex = sel.attr( "selectedIndex" );
-		if ( selindex === undefined ) {
-			selindex = 0;
+        var lis = ul.find( 'li.selected' );
+		var text = $( 'div.' + type + ' input' ).val();
+        if ( event.keyCode == 40 ) { // down
+            if ( lis.length === 0 ) {
+                ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+                return;
+            }
+            lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			Suggest.allowHover = false;
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
+        }
+        else if ( event.keyCode == 38 ) { // up
+            if ( lis.length === 0 ) {
+                ul.find( 'li:last' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+                return;
+            }
+            ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			Suggest.allowHover = false;
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
+        }
+		else if ( event.keyCode == 33 ) { // PageUp
+			var piso = ul.find( 'li.selected' ).removeClass( 'selected' ).prevAll();
+			Suggest.allowHover = false;
+			if ( piso.length < 5 ) {
+				ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			else {
+				$( piso[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
-		// If Up or Down is pressed
-		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
-			$( 'div.' + type + ' input' ).focus();
+		else if ( event.keyCode == 34 ) { // PageDown
+			var mprosta = ul.find( 'li.selected' ).removeClass( 'selected' ).nextAll();
+			Suggest.allowHover = false;
+			if ( mprosta.length < 5 ) {
+				ul.find( 'li:last' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			else {
+				$( mprosta[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
+			}
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
 		}
-		else if ( event.keyCode == 27 ) { // Escape
-		    $( 'div.' + type ).find( 'form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove().end()
-		    .find( 'input' ).focus();
-		    return;
-		}
-		else if ( event.keyCode == 13 ) {
-			var text = sel.get( 0 ).options[ selindex ].value;
-			$( 'div.' + type + ' input' ).val( text ).focus();
-			var typeid = Suggest.type2int( type );
-			if ( typeid === -1 ) {
+        else if ( event.keyCode == 27 ) { // escape
+            ul.find( 'li' ).remove();
+        }
+        else if ( event.keyCode == 13 ) { // enter
+			Suggest.over[ type ] = false;
+			if ( lis.length !== 0 ) {
+				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
+			}
+			Settings.AddInterest( type, Suggest.type2int( type ) );
+			ul.find( 'li' ).remove();
+        }
+		else if ( $.trim( text ) != '' ) {
+			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
+		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
+		               } );
+			Suggest.suggestCallback( type, suggestions, false );
+			
+			if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
 				return;
 			}
-			Settings.AddInterest( type, typeid );
-			sel.attr( 'size', 0 ).find( 'option' ).remove();
-			$( 'div.' + type + ' form' ).hide();
-		}
-	},
-	inputMove : function( event, type ) {
-		if ( $( 'div.' + type + ' form' ).css( "display" ) == "none" ) {
-			return;
-		}
-		var sel = $( 'div.' + type + ' select' );
-		if ( event.keyCode == 40 ) {
-			sel.attr( 'selectedIndex', 0 );
-			sel.focus();
-		}
-		else if ( event.keyCode == 38 ) {
-			sel.attr( 'selectedIndex', sel.get(0).options.length-1 );
-			sel.focus();
+
+			Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
+														'type' : type,
+														'callback' : Suggest.suggestCallback
+		                                           } );
+			Suggest.requested[ type ].push( text );
 		}
 		else {
-			$( 'div.' + type + ' form' ).hide();
-			sel.attr( 'size', 0 ).find( 'option' ).remove();
+			$( 'div.' + type + ' ul li' ).remove();
 		}
-	},
-	// Displays the suggestions
+    },
 	suggestCallback : function( type, suggestions, callbacked ) {
-		if ( suggestions.length === undefined || suggestions.length == 0 ) {
+		/*if ( suggestions.length === undefined || suggestions.length == 0 ) {
 			return;
-		}
+		}*/
 		
+		if ( !callbacked ) {
+			$( 'div.' + type + ' ul li' ).remove();
+		}
+
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
-		for( var i=0;i<suggestions.length;++i ) {
-		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
-		        Suggest.list[ type ].push( suggestions[i] );
+		for( var j=0;j<suggestions.length;++j ) {
+		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 && $.inArray( suggestions[ j ], Suggest.added[ type ] ) === -1 ) {
+		        Suggest.list[ type ].push( suggestions[ j ] );
 		    }
 		    else if ( callbacked ) { // If callbacked is set to true, then the current suggestion always exists in the options. It was added the first time when callbacked was false
-		        suggestions[i] = '';
+		        suggestions[ j ] = '';
 		        --sugLength;
 		    }
 		}
 		
-		$( 'div.' + type + ' form' ).show();
-		var sel = $( 'div.' + type + ' select' ).get( 0 );
+		$( 'div.' + type + ' ul' ).show();
 		
-		// Change the size of the selection if necessary and determine appropriate starting selection index for the suggestions
-		var counter;
-		if ( !callbacked || sel.size === undefined  ) {
-		    sel.size = ( sugLength >= 5 )?5:sugLength;
-		    counter = 0;
-		}
-		else {
-		    sel.size = ( sel.size + sugLength >= 5 )?5:( sel.size + sugLength );
-		    counter = sel.childNodes.length;
-		}
-		
-		// Display at last the suggestions
 		var text = $( 'div.' + type + ' input' ).val();
 		for( var i in suggestions ) {
 		    if ( suggestions[i] !== '' ) {
-			    var opt = document.createElement( 'option' );
-			    opt.value = suggestions[i];
-			    opt.onclick = function() {
-				    var typeid = Suggest.type2int( type );
-				    if ( typeid == -1 ) {
-					    return;
-				    }
-				    $( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
-				    Settings.AddInterest( type, typeid );
-				    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
-			    };
-			    opt.onmouseover = function( type, counter ) {
-				    return function() {
-				        $( 'div.' + type + ' select' ).focus().attr( 'selectedIndex', '' + counter );
-				    };
-			    }( type, counter );
-			    
-			    var divani = document.createElement( 'div' );
-			    divani.style.fontWeight = 'bold';
-			    divani.style.display = 'inline';
-			    
-			    divani.appendChild( document.createTextNode( text ) );
-			    opt.appendChild( divani );
-			    opt.appendChild( document.createTextNode( suggestions[i].substr( text.length ) ) );
-			    sel.appendChild( opt );
-			    ++counter;
+				var li = document.createElement( 'li' );
+				li.onmousedown = function( i ) {
+					return function() {
+						Suggest.over[ type ] = false;
+						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
+						Settings.AddInterest( type, Suggest.type2int( type ) );
+						$( 'div.' + type + ' ul li' ).remove();
+					};
+				}( i );
+				li.onmousemove = function() {
+					if ( !Suggest.allowHover ) {
+						return;
+					}
+					$( 'div.' + type + ' ul li.selected' ).removeClass( 'selected' );
+					this.className = "selected";
+				};
+
+				var b = document.createElement( 'b' );
+				b.appendChild( document.createTextNode( suggestions[ i ].substr( 0, text.length ) ) );
+				li.appendChild( b );
+				li.appendChild( document.createTextNode( suggestions[ i ].substr( text.length ) ) );
+			
+				$( 'div.' + type + ' ul' ).append( li );
 			}
 		}
+		
 	},
-	// Process each button the user presses
-	fire : function( event, type ) {
-		if ( event.keyCode == 38 || event.keyCode == 40 ) { // Up/Down key button
-			return;
+	hideBlur : function( type ) {
+		if ( Suggest.over[ type ] ) {
+			setTimeout( "$( 'div." + type + " input' ).focus()", 5 );
+			return false;
 		}
-		if ( event.keyCode == 27 ) { //Escape
-		    $( 'div.' + type ).find( 'form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove().end()
-            .find( 'input' ).focus();
-		    return;
-		}
-		var text = $( 'div.' + type + ' input' ).val();
-		if ( event.keyCode == 13 || $.trim( text ) === '' ) { // Leave keyCode==13 here. Otherwise suggestions will appear after the interest is added
-			return;
-		}
-		// Get some cached suggestions
-		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
-		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
-		               } );
-		Suggest.suggestCallback( type, suggestions, false );
-		// Do not request any new suggestions if our list is full or we already have all the suggestions for the current text
-		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
-		    return;
-		}
-		Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
-		                                            'type' : type,
-		                                            'callback' : Suggest.suggestCallback
-		                                           } );
-		Suggest.requested[ type ].push( text );
+		$( 'div.' + type + ' ul' ).hide();
 	}
 };
+
 $( function() {
-    $( 'div.add select option' ).remove();
-  } );
+    $( 'form#interestsinfo div.option div.setting div.add ul li' ).remove();
+	var inttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
+	for( var i=0;i<inttagtypes.length;++i ) {
+		var spans = $( 'form#interestsinfo div.option div.setting ul.' + inttagtypes[ i ] + ' li div.aplbubble span.aplbubblemiddle' );
+		if ( spans.length === 0 ) {
+			continue;
+		}
+		$.each( spans, function() {
+			Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
+		} );
+	}
+} );
