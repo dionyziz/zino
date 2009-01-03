@@ -66,7 +66,6 @@ var Suggest = {
             }
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
-			//setTimeout( "Suggest.allowHover = true", 15 );
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
         }
         else if ( event.keyCode == 38 ) { // up
@@ -76,7 +75,7 @@ var Suggest = {
             }
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
-			setTimeout( "Suggest.allowHover = true", 15 );
+			setTimeout( function() { Suggest.allowHover = true; }, 15 );
         }
 		else if ( event.keyCode == 33 ) { // PageUp
 		}
