@@ -145,7 +145,8 @@ var Suggest = {
 						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
-						$( 'div.' + type + ' ul' ).hide().find( 'li' ).remove();
+						$( 'div.' + type + ' ul li' ).remove();
+						$( 'div.' + type + ' ul' ).hide();
 					};
 				}( i );
 				li.onmousemove = function() {
