@@ -92,7 +92,7 @@ var Suggest = {
 			Settings.AddInterest( type, Suggest.type2int( type ) );
             ul.hide();
         }
-		else {
+		else if ( $.trim( text ) != '' ) {
 			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
 		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
