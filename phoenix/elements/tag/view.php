@@ -1,5 +1,5 @@
 <?php
-    class TagView extends Element {
+    class ElementTagView extends Element {
         public function Render( tText $tag, tInteger $type ) {
             ?><div id="interestlist">
                 <h2>άτομα με hobby: sex</h2>
