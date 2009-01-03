@@ -139,7 +139,7 @@ var Suggest = {
 		// Marks duplicate entries
 		var sugLength = suggestions.length;
 		for( var j=0;j<suggestions.length;++j ) {
-		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 && $.inArray( suggestions[ j ], Suggest.added[ type ] ) {
+		    if ( $.inArray( suggestions[ j ], Suggest.list[ type ] ) === -1 && $.inArray( suggestions[ j ], Suggest.added[ type ] ) ) {
 		        Suggest.list[ type ].push( suggestions[ j ] );
 		    }
 		    else if ( callbacked ) { // If callbacked is set to true, then the current suggestion always exists in the options. It was added the first time when callbacked was false
