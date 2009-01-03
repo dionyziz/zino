@@ -196,7 +196,7 @@ $( function() {
 			continue;
 		}
 		$.each( spans, function() {
-				Suggest.added[ inttagtypes[ i ] ].push( this.text() );
+				Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
 			} );
 	}
 } );
