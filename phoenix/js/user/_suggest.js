@@ -90,6 +90,7 @@ var Suggest = {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
 			}
 			Settings.AddInterest( type, Suggest.type2int( type ) );
+			ul.find( 'li' ).remove();
             ul.hide();
         }
 		else if ( $.trim( text ) != '' ) {
@@ -144,7 +145,7 @@ var Suggest = {
 						Suggest.over[ type ] = false;
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
-						$( 'div.' + type + ' ul' ).hide();
+						$( 'div.' + type + ' ul' ).hide().find( 'li' ).remove();
 					};
 				}( i );
 				li.onmousemove = function() {
