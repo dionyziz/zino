@@ -54,7 +54,7 @@ var Suggest = {
 	},
     inputMove : function( event, type ) {
         var ul = $( 'div.' + type + ' ul' );
-        if ( ul.css( "display" ) == "none" ) {
+        if ( ul.css( "display" ) == "none" && event.keyCode != 13 ) {
 			return;
 		}
         var lis = ul.find( 'li.selected' );

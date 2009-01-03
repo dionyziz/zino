@@ -417,36 +417,6 @@ var Settings = {
 			}( i ) );
 		}
 		
-        /*
-        $( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
-            Settings.AddInterest( 'movies' , 2 );
-            return false;
-        } );
-
-        $( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
-            Settings.AddInterest( 'books' , 3 );
-            return false;
-        } );
-
-        $( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
-            Settings.AddInterest( 'songs' , 4 );
-            return false;
-        } );
-
-        $( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
-            Settings.AddInterest( 'artists' , 5 );
-            return false;
-        } );
-
-        $( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
-            Settings.AddInterest( 'games' , 6 );
-            return false;
-        } );
-
-        $( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
-            Settings.AddInterest( 'shows' , 7);
-            return false;
-        } ); */
         //settingsinfo
         $( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
             var value = $( this )[ 0 ].checked;
