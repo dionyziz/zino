@@ -22,6 +22,8 @@ var Suggest = {
         'games' : [],
         'shows' : []
     },
+	// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+	// Holds whether the mouse is over a suggestion list. Necessary for the scrolling bar to work
 	over : {
 		'hobbies' : false,
 		'movies' : false,
@@ -30,6 +32,17 @@ var Suggest = {
 		'artists' : false,
 		'games' : false,
 		'shows' : false
+	},
+	// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+	// Contains all the already added interests
+	added : {
+		'hobbies' : [],
+		'movies' : [],
+		'books' : [],
+		'songs' : [],
+		'artists' : [],
+		'games' : [],
+		'shows' : []
 	},
     type2int : function( type ) {
 		switch( type ) {
@@ -82,7 +95,7 @@ var Suggest = {
 		else if ( event.keyCode == 34 ) { // PageDown
 		}
         else if ( event.keyCode == 27 ) { // escape
-            ul.hide();
+            ul.find( 'li' ).remove();
         }
         else if ( event.keyCode == 13 ) { // enter
 			Suggest.over[ type ] = false;
@@ -176,4 +189,14 @@ var Suggest = {
 
 $( function() {
     $( 'form#interestsinfo div.option div.setting div.add ul li' ).remove();
+	var inttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
+	for( var i=0;i<inttagtypes.length;++i ) {
+		var spans = $( 'form#interestsinfo div.option div.setting ul.' + inttagtypes[ i ] + ' li div.aplbubble span.aplbubblemiddle' );
+		if ( spans.length === 0 ) {
+			continue;
+		}
+		$.each( spans, function() {
+				Suggest.added[ inttagtypes[ i ] ].push( this.text() );
+			} );
+	}
 } );
