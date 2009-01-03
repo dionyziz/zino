@@ -413,8 +413,8 @@ var Settings = {
 					Settings.AddInterest( interesttagtypes[ i ] , Suggest.type2int( interesttagtypes[ i ] ) );
 					$( 'div.' + interesttagtypes[ i ] + ' ul' ).hide();
 					return false;
-				} );
-			}( i );
+				};
+			}( i ) );
 		}
 		
         /*
