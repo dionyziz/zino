@@ -90,7 +90,8 @@ var Suggest = {
                 return;
             }
 			Suggest.over[ type ] = false;
-            $( 'div.' + type + ' input' ).attr( 'value', lis.text() );
+			Settings.AddInterest( type, Suggest.type2int( type ) );
+            //$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
             ul.hide();
         }
 		else {
@@ -172,6 +173,6 @@ var Suggest = {
 };
 
 $( function() {
-    $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
+   // $( 'div.add input' ).unbind(); // prevent onkeydown event from settings.js
     $( 'div.add ul li' ).remove();
 } );
