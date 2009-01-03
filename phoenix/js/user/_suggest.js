@@ -93,6 +93,7 @@ var Suggest = {
             ul.hide();
         }
 		else if ( $.trim( text ) != '' ) {
+			$( 'div.' + type + ' ul' ).show();
 			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
 		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
