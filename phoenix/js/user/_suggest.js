@@ -86,6 +86,7 @@ var Suggest = {
         }
         else if ( event.keyCode == 13 ) { // enter
             if ( lis.length == 0 ) {
+				Settings.AddInterest( type, Suggest.type2int( type ) );
                 ul.hide();
                 return;
             }
