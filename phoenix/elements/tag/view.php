@@ -35,7 +35,7 @@
                         <ul><?php
                             $tagfinder = New TagFinder();
                             $populartags = $tagfinder->FindPopular();
-                            foreach ( $populartags as $populartag ) {
+                            foreach ( $populartags as $popularity => $text ) {
                                 ?><li><a href="" style="font-size: <?php
                                 echo round( $populartag[ 'popularity' ] * 100 + 100 );
                                 ?>%"><?php

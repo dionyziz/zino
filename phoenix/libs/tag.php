@@ -164,11 +164,13 @@
             if ( $max == $min ) { // avoid division by zero and make all popularities 0 
                 ++$max;
             }
+            $ret = array();
             foreach ( $rows as $i => $row ) {
-                $rows[ $i ][ 'popularity' ] = ( $row[ 'popularity' ] - $min ) / ( $max - $min );
+                $ret[ $row[ 'text' ] ] = ( $row[ 'popularity' ] - $min ) / ( $max - $min );
             }
+            ksort( $ret );
 
-            return $rows;
+            return $ret;
         }
     }
  
