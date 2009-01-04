@@ -10,7 +10,7 @@
                     Element( 'user/avatar', $user->Avatar->Id, $user->Id,
                              $user->Avatar->Width, $user->Avatar->Height,
                              $user->Name, 100, 'avatar', '', true, 50, 50 );
-                    ?>
+                    ?></a>
                 </div>
                 <div class="text">
                     <textarea id="shoutbox_text" rows="2" cols="50" onkeyup="$( '#shoutbox_submit' )[ 0 ].disabled = ( $.trim( this.value ).length == 0 )">Πρόσθεσε ένα σχόλιο στη συζήτηση...</textarea>
