@@ -131,7 +131,7 @@
             $query = $this->mDb->Prepare(
                 'SELECT
                     COUNT( * ) AS popularity,
-                    `tag_text`
+                    `tag_text` AS text
                 FROM
                     :tags
                 WHERE
@@ -148,9 +148,24 @@
             $res = $query->Execute();
             $rows = array();
 
+            $min = PHP_INT_MAX;
+            $max = 0;
             while ( $row = $res->FetchArray() ) {
-                $row[ 'text' ] = $row[ 'tag_text' ];
+                if ( $row[ 'popularity' ] > $max ) {
+                    $max = $row[ 'popularity' ];
+                }
+                if ( $row[ 'popularity' ] < $min ) {
+                    $min = $row[ 'popularity' ];
+                }
                 $rows[] = $row;
+            }
+
+            // normalize
+            if ( $max == $min ) { // avoid division by zero and make all popularities 0 
+                ++$max;
+            }
+            foreach ( $rows as $row ) {
+                $row[ 'popularity' ] = ( $row[ 'popularity' ] - $min ) / ( $max - $min );
             }
 
             return $rows;
