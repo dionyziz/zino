@@ -13,7 +13,8 @@
             $( this ).addClass( 'selected' );
             previousselection = $( this )[ 0 ];
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
-            if ( albumname == GetUsername() ) {
+            var username = GetUsername();
+            if ( albumname == username ) {
                 albumname = 'Εγώ';
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
