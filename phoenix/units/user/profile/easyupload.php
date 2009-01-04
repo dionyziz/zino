@@ -14,7 +14,7 @@
             previousselection = $( this )[ 0 ];
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
             var username = GetUsername();
-            if ( albumname == username ) {
+            if ( albumname.toLowerCase() == username.toLowerCase() ) {
                 albumname = 'Εγώ';
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
