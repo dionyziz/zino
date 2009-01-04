@@ -1,5 +1,5 @@
 <?php
-    class ElementtextView extends Element {
+    class ElementTagView extends Element {
         public function Render( tText $text, tInteger $type ) {
             global $page;
             global $libs;
