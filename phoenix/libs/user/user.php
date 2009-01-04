@@ -218,7 +218,7 @@
                         ON `tag_userid`=`user_id`
                 WHERE
                     `tag_text` = :text
-                    AND `tag_type` = :type
+                    AND `tag_typeid` = :type
                 LIMIT
                     :offset, :limit'
             );
