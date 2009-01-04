@@ -51,7 +51,7 @@
             }
             ?>" title="<?php
 			// Fix for doubly-escaped quotes.
-			echo htmlspecialchars( $alttitle );
+			echo $alttitle;
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
 			?>"></img><?php
