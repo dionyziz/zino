@@ -1,27 +1,29 @@
 <?php
-    class ElementTagView extends Element {
-        public function Render( tText $tag, tInteger $type ) {
+    class ElementtextView extends Element {
+        public function Render( tText $text, tInteger $type ) {
             global $page;
             global $libs;
 
-            $libs->Load( 'tag' );
+            $libs->Load( 'text' );
             $type = $type->Get();
-            $tag = trim( $tag->Get() );
-            if ( !Tag_ValidType( $type ) || empty( $tag ) ) {
+            $text = trim( $text->Get() );
+            if ( !Tag_ValidType( $type ) || empty( $text ) ) {
                 return Element( '404' );
             }
-            $page->SetTitle( $tag );
+            $tag = New Tag( $text );
+            $page->SetTitle( $text );
             ?><div id="interestlist">
                 <h2>άτομα με <?php
                 Element( 'tag/name', $type );
                 ?>: <?php
-                echo htmlspecialchars( $tag );
+                echo htmlspecialchars( $text );
                 ?></h2>
                 <div class="addhobby"><a href="" style="font-size: 105%">Προσθήκη <?php
                 Element( 'tag/name', $type, true );
                 ?> μου</a></div>
                 <div class="list">
                     <div class="people"><?php
+                            $people = $userfinder->FindByTag( $tag );
                             Element( 'user/list', $people );
                         ?><div class="eof"></div>
                     </div>

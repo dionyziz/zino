@@ -210,7 +210,26 @@
             return $this->FindByIds( $userids );
         }
         public function FindByTag( Tag $tag, $offset = 0, $limit = 20 ) {
-            
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :tags CROSS JOIN :users
+                        ON `tag_userid`=`user_id`
+                WHERE
+                    `tag_text` = :text
+                    AND `tag_type` = :type
+                LIMIT
+                    :offset, :limit'
+            );
+            $query->BindTable( 'tags', 'users' );
+            $query->Bind( 'text', $tag->Text );
+            $query->Bind( 'type', $tag->Typeid );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            $res = $query->Execute();
+
+            return $this->FindBySQLResource( $res );
         }
         public function Count() {
             $query = $this->mDb->Prepare(
