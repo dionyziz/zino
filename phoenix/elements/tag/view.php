@@ -4,7 +4,7 @@
             global $page;
             global $libs;
 
-            $libs->Load( 'text' );
+            $libs->Load( 'tag' );
             $type = $type->Get();
             $text = trim( $text->Get() );
             if ( !Tag_ValidType( $type ) || empty( $text ) ) {
