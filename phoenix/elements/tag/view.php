@@ -28,7 +28,7 @@
                             Element( 'user/list', $people );
                         ?><div class="eof"></div>
                     </div>
-                    <!-- <div class="popularhobbies">
+                    <div class="popularhobbies">
                         <h3>Άλλα hobbies</h3>
                         <ul>
                             <li><a href="" style="font-size: 105%">πλέξιμο</a></li>
@@ -68,7 +68,7 @@
                             <li><a href="" style="font-size: 180%">ταινίες</a></li>
                             <li><a href="" style="font-size: 155%">cinema</a></li>
                         </ul>
-                    <div> -->
+                    <div>
                 </div>
             </div><?php
         }
