@@ -29,7 +29,7 @@
 								?>anonymous100.jpg" alt="<?php
 								echo htmlspecialchars( $albumname );
 								?>" title="<?php
-								echo $albumname;
+								echo htmlspecialchars( $albumname );
 								?>" style="width:100px;height:100px" /><?php
                             }
                         ?></span>
