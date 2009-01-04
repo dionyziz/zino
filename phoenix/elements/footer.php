@@ -10,7 +10,9 @@
                     <li><a href="advertise">Διαφημίσου εδώ</a></li>
                 </ul>
                 <div class="copy">
-                    &copy; 2009 <a href="http://www.kamibu.com/">Kamibu</a>
+                    &copy; <?php
+                        echo date( 'Y'); ?> 
+                    <a href="http://www.kamibu.com/">Kamibu</a>
                 </div>
             </div><?php
         }
