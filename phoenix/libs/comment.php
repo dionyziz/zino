@@ -5,7 +5,6 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-    define( 'COMMENT_LIMIT', 10000 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -78,7 +77,7 @@
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
-        public function FindByPage( $entity, $page, $offset = 0 ) {
+        public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
             global $user;
 
             if ( $page <= 0 ) {
@@ -105,7 +104,7 @@
 
             return array( count( $paged ), $ret );
         }
-        public function FindNear( $entity, Comment $comment, $offset = 0 ) {
+        public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
             global $mc;
 
             $paged = Comment_GetMemcached( $entity );

@@ -191,13 +191,6 @@
                             ?><div class="pagifycomments"><?php
                                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
                                 Element( 'pagify' , $pageno , $link, $total_pages );
-                                /* if ( $pageno == $total_pages ) {
-                                    if ( $theuser->Profile->Numcomments > COMMENT_LIMIT ) {
-                                        ?><em>Ορισμένα σχόλια μπορεί να μην εμφανίζονται, επειδή περιορίζουμε τον αριθμό σχόλιων στα <?php
-                                        echo COMMENT_LIMIT;
-                                        ?>.</em><?php
-                                    }
-                                } */
                             ?></div><?php
                         // }
                     ?></div><?php
