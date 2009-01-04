@@ -17,7 +17,6 @@
                 albumname = 'Εγώ';
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
-        } );
-        <?php
+        } );<?php
     }
 ?>
