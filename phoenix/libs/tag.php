@@ -164,8 +164,8 @@
             if ( $max == $min ) { // avoid division by zero and make all popularities 0 
                 ++$max;
             }
-            foreach ( $rows as $row ) {
-                $row[ 'popularity' ] = ( $row[ 'popularity' ] - $min ) / ( $max - $min );
+            foreach ( $rows as $i => $row ) {
+                $rows[ $i ][ 'popularity' ] = ( $row[ 'popularity' ] - $min ) / ( $max - $min );
             }
 
             return $rows;

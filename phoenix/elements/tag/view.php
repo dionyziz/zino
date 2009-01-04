@@ -38,7 +38,7 @@
                             foreach ( $populartags as $populartag ) {
                                 ?><li><a href="" style="font-size: <?php
                                 echo round( $populartag[ 'popularity' ] * 100 + 100 );
-                                ?>"><?php
+                                ?>%"><?php
                                 echo htmlspecialchars( $populartag[ 'text' ] );
                                 ?></a></li><?php
                             }
