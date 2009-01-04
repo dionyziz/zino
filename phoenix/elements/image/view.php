@@ -50,7 +50,8 @@
                 echo htmlspecialchars( $style );
             }
             ?>" title="<?php
-			echo htmlspecialchars( $alttitle );
+			// Fix for doubly-escaped names in image titles, in previews.
+			echo $alttitle;
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
 			?>"></img><?php
