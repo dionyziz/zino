@@ -23,6 +23,7 @@
                 ?> μου</a></div>
                 <div class="list">
                     <div class="people"><?php
+                            $userfinder = New UserFinder();
                             $people = $userfinder->FindByTag( $tag );
                             Element( 'user/list', $people );
                         ?><div class="eof"></div>
