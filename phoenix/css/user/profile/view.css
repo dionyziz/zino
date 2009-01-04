@@ -250,6 +250,59 @@ div#profile div.main div.photos ul li {
 	padding: 0 3px;
 	float: left;
 }
+div#profile div.main div.photos ul li.addphoto {
+    padding: 43px 10px 0 5px;
+}
+div#easyphotoupload {
+	display: none;
+	top: 15%;
+	left: 37%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    width: 450px;
+    height: 225px;
+}
+div#easyphotoupload div.modalcontent {
+    padding: 80px 0 0 140px; 
+}
+div#easyphotoupload div.modalcontent span.plswait {
+    padding: 0 0 0 5px;
+    vertical-align: 3px;
+}
+div#easyphotoupload div {
+    padding: 5px 0 0 0;
+}
+div#easyphotoupload div span.inalb {
+    padding: 0 0 0 10px;
+}
+div#easyphotoupload div div.ulcontainer {
+    overflow: auto;
+    height: 80px;
+    padding: 0 0 0 5px;
+}
+div#easyphotoupload div ul li {
+    margin: 3px 5px; 
+    float: left;
+    cursor: pointer;
+    background: #e0ffff;
+}
+div#easyphotoupload div ul li.selected span img {
+    border: 1px solid #4682b4;
+    padding: 1px;
+}
+div#easyphotoupload div ul li span img {
+    border: 1px solid #add8e6;
+    padding: 1px; 
+}
+div#easyphotoupload div.uploadsuccess {
+    padding: 0 0 0 30px;
+    height: 20px;
+}
+div#easyphotoupload div.uploadsuccess div {
+    font-weight: 700;
+    display: none;
+}
 div#profile div.main div.friends h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;

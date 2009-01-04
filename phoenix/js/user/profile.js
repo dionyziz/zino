@@ -91,9 +91,9 @@ var Profile = {
         this.AddFriend( userid );
         return false;
     },
-    CheckBirthday: function ( year, month, day ) {
+    CheckBirthday : function ( year, month, day ) {
         var Now = new Date();
-
+        
         var age = Now.getFullYear() - year;
         if (       Now.getMonth() < month - 1
              || (  Now.getMonth() == month - 1
@@ -121,10 +121,24 @@ var Profile = {
             $( '#tweetedit' ).jqmHide();
         }
     },
+    Easyuploadadd : function ( imageid ) {
+        var uplalbid = $( 'div#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
+        Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
+    },
     MyProfileOnLoad: function () {
         $( '#tweetedit' ).jqm( {
             trigger : 'div.tweetbox div.tweet div a',
             overlayClass : 'mdloverlay1'
+        } );
+        $( '#easyphotoupload' ).jqm( {
+            trigger : 'div#profile div.main div.photos ul li.addphoto a',
+            overlayClass : 'mdloverlay1'
+        } );
+        $( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
+            if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
+                Coala.Cold( 'user/profile/easyupload' , {} );
+            }
+            return false;
         } );
         $( 'div.tweetactive div.tweet a' ).click( function () {
             var win = $( '#tweetedit' )[ 0 ];

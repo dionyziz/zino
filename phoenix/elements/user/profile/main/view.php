@@ -6,12 +6,15 @@
             global $water;
             global $xc_settings;
             global $page;
-
+            global $rabbit_settings;
+            
             $libs->Load( 'poll/poll' );
             $libs->Load( 'comment' );
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'user/statusbox' );
         
+            $water->Trace( 'Test A' );
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
                 $finder = New CommentFinder();
@@ -56,7 +59,85 @@
                 Element( 'user/profile/main/antisocial', $theuser );
             }
 
-            Element( 'user/profile/main/tweeter', $theuser->Id, $theuser->Name, $theuser->Gender );
+            $finder = New StatusBoxFinder();
+            $tweet = $finder->FindLastByUserId( $theuser->Id );
+            if ( $tweet !== false || $theuser->Id == $user->Id ) {
+                ?>
+                <div class="tweetbox<?php
+                    if ( $theuser->Id == $user->Id ) {
+                        ?> tweetactive<?php
+                        if ( $tweet === false ) {
+                            ?> tweetblind<?php
+                        }
+                    }
+                    ?>"<?php
+                    if ( $theuser->Id == $user->Id ) {
+                        ?> title="Άλλαξε το μήνυμα του &quot;τι κάνεις τώρα;&quot;"<?php
+                    }
+                    ?>>
+                    <i class="right corner">&nbsp;</i>
+                    <i class="left corner">&nbsp;</i>
+                    <div class="tweet">
+                        <div><?php
+                        if ( $theuser->Id == $user->Id ) {
+                            ?><a href=""><?php
+                        }
+                        if ( $theuser->Gender == 'f' ) {
+                            ?>Η <?php
+                        }
+                        else {
+                            ?>Ο <?php
+                        }
+                        echo htmlspecialchars( $theuser->Name );
+                        ?> <span><?php
+                        if ( $tweet !== false ) {
+                            echo htmlspecialchars( $tweet->Message );
+                        }
+                        else {
+                            ?><i>τι κάνεις τώρα;</i><?php
+                        }
+                        ?></span><?php
+                        if ( $theuser->Id == $user->Id ) {
+                            ?></a><?php
+                        }
+                        ?></div>
+                    </div>
+                </div><?php
+                if ( $theuser->Id == $user->Id ) {
+                    ?><div id="tweetedit">
+                        <h3 class="modaltitle">Τι κάνεις τώρα;</h3>
+                        <form>
+                            <div class="input"><?php
+                                if ( $theuser->Gender == 'f' ) {
+                                    ?>Η <?php
+                                }
+                                else {
+                                    ?>Ο <?php
+                                }
+                                echo htmlspecialchars( $theuser->Name );
+                                ?> <input type="text" value="<?php
+                                echo htmlspecialchars( $tweet->Message );
+                                ?>" />
+                                <input type="submit" style="display:none" />
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><a href="" class="button">Αποθήκευση</a></li>
+                                    <li><a href="" class="button">Διαγραφή</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="easyphotoupload">
+                        <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
+                        <div class="modalcontent"> 
+                            <img src="<?php
+                            echo $rabbit_settings[ 'imagesurl' ];
+                            ?>ajax-loader.gif" /><span class="plswait">Παρακαλώ περιμένετε...</span>
+                        </div>
+                    </div><?php
+                }
+            }
             ?>
             <div class="main"><?php
                 if ( $showuploadavatar ) {
@@ -94,7 +175,7 @@
                             echo $egoalbum->Id;
                             ?>" class="button" title="Περισσότερες φωτογραφίες μου">&raquo;</a></div><?php
                         }
-                        Element( 'user/profile/main/photos' , $images , $egoalbum );
+                        Element( 'user/profile/main/photos' , $images , $egoalbum , $theuser->Id );
                     }
                     else {
                         ?><ul></ul><?php
