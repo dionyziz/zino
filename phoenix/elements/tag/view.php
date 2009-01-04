@@ -68,7 +68,7 @@
                             <li><a href="" style="font-size: 180%">ταινίες</a></li>
                             <li><a href="" style="font-size: 155%">cinema</a></li>
                         </ul>-->
-                    <div>
+                    </div>
                 </div>
             </div><?php
         }
