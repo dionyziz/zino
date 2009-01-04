@@ -50,7 +50,8 @@
                 echo htmlspecialchars( $style );
             }
             ?>" title="<?php
-			echo htmlspecialchars( $alttitle );
+			// Fix for doubly-escaped quotes.
+			echo $alttitle;
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
 			?>"></img><?php
