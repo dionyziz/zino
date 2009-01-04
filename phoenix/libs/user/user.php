@@ -210,6 +210,8 @@
             return $this->FindByIds( $userids );
         }
         public function FindByTag( Tag $tag, $offset = 0, $limit = 20 ) {
+            w_assert( $tag instanceof Tag );
+
             $query = $this->mDb->Prepare(
                 'SELECT
                     *

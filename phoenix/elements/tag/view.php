@@ -10,7 +10,9 @@
             if ( !Tag_ValidType( $type ) || empty( $text ) ) {
                 return Element( '404' );
             }
-            $tag = New Tag( $text );
+            $tag = New Tag();
+            $tag->Text = $text;
+            $tag->Typeid = $type;
             $page->SetTitle( $text );
             ?><div id="interestlist">
                 <h2>άτομα με <?php
