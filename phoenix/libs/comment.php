@@ -339,7 +339,7 @@
                     `comment_itemid` = :itemid AND
                     `comment_delid` = :delid
                 ORDER BY
-                    `comment_id` ASC
+                    `comment_id` DESC
                 LIMIT
                     :offset, :limit;" );
 
