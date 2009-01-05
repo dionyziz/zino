@@ -121,7 +121,7 @@ http://$user->Name.zino.gr/
             
             $notzino_friends = array();
             foreach ( $members as $key=>$val ) {
-                if ( $zino_friends[ $val ] == true ) {
+                if ( $zino_friends[ $val ] == NULL ) {
                     $notzino_friends[ $key ] = $val;
                 }
             }
