@@ -12,6 +12,7 @@
             return false;
         }
         
+        return;
         $inviter = new OpenInviter();
         $inviter->getPlugins();
         $inviter->startPlugin( $provider );
