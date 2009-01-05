@@ -11,6 +11,6 @@
             return Redirect( '?p=banlist' );                
         }
         else {       
-            return Redirect( '?p=adminpanel' );    
+            return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );    
         }
     }
