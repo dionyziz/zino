@@ -67,7 +67,7 @@ class OpenInviter
 	 */
 	public function login($user,$pass)
 		{
-		//if (!$this->checkLoginCredentials($user)) return false;
+		if (!$this->checkLoginCredentials($user)) return false;
 		return $this->plugin->login($user,$pass);
 		}
 	
