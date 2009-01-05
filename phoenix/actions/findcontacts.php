@@ -6,7 +6,7 @@
         $email = $email->Get();
         $pass = $pass->Get();
 
-        $state = GetContacts( $email, $pass, "gmail" );
+        $state = GetContacts( $email, $pass, "GMail" );
         if( $state == false ) {
             return Redirect( '?p=banlist' );                
         }
