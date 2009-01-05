@@ -15,9 +15,8 @@
         $inviter = new OpenInviter();
         $inviter->getPlugins();
         $inviter->startPlugin( $provider );
-        return;
-        
         $state = $inviter->login( $username, $pass );
+        return;
         if( $state == false ) {
             return false;//Problem login in
         }
