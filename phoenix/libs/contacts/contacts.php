@@ -26,8 +26,6 @@
         $inviter->logout();
         $inviter->stopPlugin();
         
-        return;
-        
         $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
             $contact->AddContact( $key, $username );
