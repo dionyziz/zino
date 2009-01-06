@@ -31,10 +31,10 @@
                         else {
                             ?>false<?php
                         }
-                        ?>' );return false">&nbsp;</a><?php
+                        ?>' );return false"> </a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
-                        ?><span class="unreadpm">&nbsp;</span><?php
+                        ?><span class="unreadpm"> </span><?php
                     }
                     ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
                     if ( !$pm->IsSender( $user ) ) {
