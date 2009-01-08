@@ -30,13 +30,7 @@ var Frontpage = {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' );
                 var copytext = text;
-                
-                if ( $.browser.msie ) {
-                    $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) );
-                }
-                else {
-                    $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext.replace( /&nbsp;/g , ' ' ) ) );
-                }  
+                $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) ); 
 				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 			}
