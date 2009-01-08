@@ -87,7 +87,7 @@ var Comments = {
                 return false;
             }
         );
-		node.find( 'div.text' ).get( 0 ).ondblclick = function() {
+		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
 			Comments.Edit( id );
 			return false;
         }
