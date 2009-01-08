@@ -1,0 +1,140 @@
+div.header {
+	position: relative;
+	background: url('http://static.zino.gr/phoenix/roxasbg3.jpg') repeat-x;
+	height: 50px;
+	margin: 0 30px;
+}
+div.header a.novisual {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    display: block;
+}
+div.header a {
+	font-weight: bold;
+	color: #fff;
+}
+div.header a:hover {
+	color: #fff;
+}
+div.header h1 {
+	display: inline;
+	color: #fff;
+	font: 180% normal;
+	margin: 0;
+	padding: 0;
+    height: 50px;
+    width: 90px;
+	top: 0;
+    _top: 3px;
+	left: 0;
+	position: absolute;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1645px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
+	background-position: 0 0;
+	*/
+}
+div.header div.eof {
+	display: inline;
+    clear: none;
+	margin: 0;
+	padding: 0;
+	top: 0;
+    _top: 3px;
+	right: 0;
+    width: 71px;
+    height: 50px;
+	position: absolute;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1877px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
+	background-position: 0 0;
+	*/
+}
+div.header h1 img {
+	margin: 5px 0 0 5px;
+}
+div.header ul {
+	display: block;
+	padding: 10px;
+	margin: 2px 0 0 0;
+	height: 50px;
+	text-align: center;
+}
+div.header ul li {
+	padding: 1px;
+	display: inline;
+	color: #fff;
+}
+div.header ul li a.unread {
+    color: #ff0044;
+}
+div.header ul li a {
+	padding-left: 0;
+}
+div.header ul li a.messages span {
+	padding-left: 10px;
+	margin-right: 4px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -755px;
+}
+div.header ul li a.settings span {
+	padding: 0 0 3px 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -261px;
+}
+div.header ul li a.login span {
+	padding-left: 12px;
+	margin-right: 1px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -64px;
+	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
+}
+div.header ul li a.profile img {
+    vertical-align: bottom;
+    margin-right: 6px;
+    border: 1px solid #eee;
+}
+div.header ul li a.register span {
+	padding-left: 12px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -950px;
+	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
+	
+}
+/*
+div.header ul li a.icon {
+	background-repeat: no-repeat;
+	background-position: left;
+}
+*/
+div.header ul li a.self {
+	padding-left: 30px;
+}
+div.header ul li input {
+	border: 1px solid #999;
+}
+div.header ul li input.button {
+    background-color: #f0f0f0;
+}
+div.header a.logout {
+    z-index: 100;
+	position: absolute;
+	right: 8px;
+	top: 6px;
+}
+div.header a.logout span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -429px;
+	padding: 17px 0 0 15px;
+	margin-left: 2px;
+}
+div.header a.nohover:hover {
+	text-decoration: none;
+}
+div.header a:hover {
+	text-decoration: underline;
+}
+div.header a img {
+	vertical-align: text-top;
+}
+div.header a.search {
+    position: absolute;
+    top: 27px;
+    right: 10px;
+    z-index: 10;
+}
