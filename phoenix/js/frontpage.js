@@ -6,10 +6,9 @@ var Frontpage = {
 	},
 	DeleteShout : function( shoutid ) {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
-			/*$( 'div#s_' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
+			$( 'div#s_' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
 				$( this ).remove();
 			} );
-			*/
 			Coala.Warm( 'shoutbox/delete' , { shoutid : shoutid } );
 		    return false;
 		}
