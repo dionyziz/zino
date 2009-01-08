@@ -72,12 +72,12 @@ div.header ul li a {
 	padding-left: 0;
 }
 div.header ul li a.messages {
-	padding: 0 0 2px 18px;
+	padding: 0 0 8px 18px;
 	margin-right: 4px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -980px;
 }
 div.header ul li a.settings {
-	padding: 0 0 2px 19px;
+	padding: 0 0 8px 19px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -50px;
 }
 div.header ul li a.login {
