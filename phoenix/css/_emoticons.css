@@ -3,130 +3,100 @@ span[class^="emoticon"] {
 	vertical-align: 7px;
 	background-image: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' );
 	background-repeat: no-repeat;
+	padding: 0 5px 16px 18px;
 }
 .emoticon-teeth {
     background-position:  0 -30px;
-    padding: 0 5px 16px 18px;
 }
 .emoticon-sun {
     background-position: 0 -82px;      
-    padding: 0 5px 16px 18px;
 }
 .emoticon-airplane {
     background-position: 0 -134px;
-    padding: 0 5px 16px 18px;
 }
 .emoticon-sad {
     background-position: 0 -186px;
-    padding: 0 5px 16px 18px;
 }
 .emoticon-star {
     background-position: 0 -238px;
-    padding: 0 5px 16px 18px; 
 }
 .emoticon-soccer {
     background-position: 0 -290px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-umbrella {
-    background-position: 0 -342px;
-    padding: 0 5px 16px 18px;   
+    background-position: 0 -342px;   
 }
 .emoticon-storm {
-    background-position: 0 -394px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -394px;   
 }
 .emoticon-empty {
     background-position: 0 -446px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-boy {
-    background-position: 0 -498px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -498px; 
 }
 .emoticon-beer {
     background-position: 0 -550px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-shade {
-    background-position: 0 -602px;
-    padding: 0 5px 16px 18px;   
+    background-position: 0 -602px; 
 }
 .emoticon-email {
     background-position: 0 -654px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-car {
-    background-position: 0 -706px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -706px;  
 }
 .emoticon-phone {
-    background-position: 0 -758px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -758px;  
 }
 .emoticon-uptight {
     background-position: 0 -810px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-lol {
     background-position: 0 -862px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-ugly {
     background-position: 0 -914px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-smile {
     background-position: 0 -966px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-computer {
     background-position: 0 -1018px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-cry {
-    background-position: 0 -1070px;
-    padding: 0 5px 16px 18px;   
+    background-position: 0 -1070px; 
 }
 .emoticon-lightning {
-    background-position: 0 -1122px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -1122px; 
 }
 .emoticon-confused {
     background-position: 0 -1174px;
-    padding: 0 5px 16px 18px; 
 }
 .emoticon-dog {
     background-position: 0 -1226px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-devil {
     background-position: 0 -1278px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-cup {
     background-position: 0 -1330px;    padding: 0 0 5px 18px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-smile {
     background-position: 0 -1382px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-embarassed {
-    background-position: 0 -1434px; 
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -1434px;  
 }
 .emoticon-present {
     background-position: 0 -1486px; 
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-innocent {
     background-position: 0 -1538px; 
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-unlove {
-    background-position: 0 -1590px; 
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -1590px;    
 }
 .emoticon-note {
     background-position: 0 -1642px;
@@ -134,95 +104,74 @@ span[class^="emoticon"] {
 }
 .emoticon-thumbs-down {
     background-position: 0 -1694px;    
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-indifferent {
     background-position: 0 -1746px;    
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-cigarette {
-    background-position: 0 -1798px;
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -1798px; 
 }
 .emoticon-snail {
-    background-position: 0 -1850px; 
-    padding: 0 5px 16px 18px;   
+    background-position: 0 -1850px;  
 }
 .emoticon-ip {
-    background-position: 0 -1902px; 
-    padding: 0 5px 16px 18px;    
+    background-position: 0 -1902px;    
 }
 .emoticon-camera {
-    background-position: 0 -1954px; 
-    padding: 0 5px 16px 18px;   
+    background-position: 0 -1954px;  
 }
 .emoticon-mobile-phone {
-    background-position: -52px -30px;
-    padding: 0 5px 16px 18px;   
+    background-position: -52px -30px;  
 }
 .emoticon-wilted-rose {
     background-position: -52px -82px; 
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-cake {
     background-position: -52px -134px; 
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-teeth {
     background-position: -52px -186px; 
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-kiss {
     background-position: -52px -238px; 
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-thinking {
     background-position: -52px -290px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-cat {
-    background-position: -52px -342px; 
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -342px;    
 }
 .emoticon-bat {
     background-position: -52px -394px; 
     padding: 0 5px 16px 27px;   
 }
 .emoticon-angry {
-    background-position: -52px -446px; 
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -446px;  
 }
 .emoticon-confused {
     background-position: -52px -498px; 
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-omg {
     background-position: -52px -550px; 
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-love {
     background-position: -52px -602px; 
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-thumbs-up {
-    background-position: -52px -654px; 
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -654px;    
 }
 .emoticon-clock {
     background-position: -52px -706px; 
     padding: 0 5px 17px 18px;   
 }
 .emoticon-wink {
-    background-position: -52px -758px; 
-    padding: 0 5px 16px 18px;   
+    background-position: -52px -758px;  
 }
 .emoticon-cocktail {
-    background-position: -52px -810px; 
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -810px;   
 }
 .emoticon-turtle {
-    background-position: -52px -862px; 
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -862px;  
 }
 .emoticon-film {
     background-position: -52px -914px; 
@@ -233,18 +182,14 @@ span[class^="emoticon"] {
     padding: 0 5px 17px 18px;   
 }
 .emoticon-lightbulb {
-    background-position: -52px -1018px;
-    padding: 0 5px 16px 18px;    
+    background-position: -52px -1018px; 
 }
 .emoticon-sheep {
     background-position: -52px -1070px;
-    padding: 0 5px 16px 18px;   
 }
 .emoticon-girl {
     background-position: -52px -1122px;
-    padding: 0 5px 16px 18px;    
 }
 .emoticon-foot-in-mouth {
     background-position: -52px -1174px; 
-    padding: 0 5px 16px 18px;   
 }
