@@ -87,7 +87,12 @@ var Comments = {
                 return false;
             }
         );
+		node.find( 'div.text' ).get( 0 ).ondblclick = function() {
+			Comments.Edit( id );
+			return false;
+        }
         //IE problem with &nbsp; and innerHTML
+		/*
 		if ( !$.browser.msie ) {
             node.find( 'div.text' ).html( newtext.replace( /&nbsp;/g , ' ' ) ).get( 0 ).ondblclick = function() {
                 Comments.Edit( id );
@@ -100,7 +105,7 @@ var Comments = {
                 return false;
             }
         }
-        
+        */
 		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
             Comments.Delete( id );
             return false;
