@@ -26,15 +26,11 @@ var Settings = {
 	FocusSettingLink : function( li, focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-				$( li ).addClass( 'selected' )
-				.removeClass( tabname )
-				.addClass( 'selected' + tabname );
+				$( li ).addClass( 'selected' );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 			else {
 				$( li ).removeClass( 'selected' )
-				.removeClass( 'selected' + tabname )
-				.addClass( tabname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}

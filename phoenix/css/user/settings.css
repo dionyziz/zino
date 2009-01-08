@@ -69,6 +69,7 @@ div.sidebar ol li a span {
 	padding-left: 22px;
 	float: left;
 }
+/*
 div.sidebar ol li.selectedpersonal a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1002px;
 }
@@ -84,20 +85,25 @@ div.sidebar ol li.selectedcontact a span {
 div.sidebar ol li.selectedsettings a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1075px;
 }
+*/
 div.sidebar ol li.personal a span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -546px;
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-repeat: no-repeat;
+}
+div.sidebar ol li.personal a span {
+    background-position: 0 -1501px;;
 }	
 div.sidebar ol li.characteristics a span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -815px;
+    background-position: 0 -368px;
 }
 div.sidebar ol li.interests a span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -342px;
+    background-position: -739px -1607px;
 }
 div.sidebar ol li.contact a span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -618px;
+    background-position: 0 -916px;
 }
 div.sidebar ol li.settings a span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -72px;
+    background-position: -739px -842px;
 }
 div.settings div.tabs {
     margin-right: 350px;
