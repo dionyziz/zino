@@ -130,19 +130,9 @@ form#personalinfo div span.invaliddob {
 	font-size: 80%;
 }
 form#personalinfo div span.invaliddob span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -747px;
 	padding: 0 4px 0 12px;
 }
-
-/*
-div.settings div.tabs form#personalinfo div.option div.forstudents {
-	font-size: 80%;
-	background-image: url( 'http://static.zino.gr/phoenix/error.png' );
-	background-repeat: no-repeat;
-	padding: 1px 0 0 20px;
-	margin: 5px 0 0 0;
-}
-*/
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
     width: auto;
