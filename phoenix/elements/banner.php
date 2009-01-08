@@ -7,11 +7,6 @@
             global $rabbit_settings;
             
             ?><div class="header" id="banner">
-            <a class="nohover" <?php
-            /* href="http://oniz.zino.gr/journals/Xristougenniatiko_Zino_Meeting_sta_Iwannina" */
-            ?>style="display:block;position:absolute;right:105px;top:0;z-index:10;width:120px;height:74px;background-image:url('http://static.zino.gr/phoenix/xmas4.png');background-position:right;background-repeat: no-repeat;"<?php 
-            /* title="Χριστουγεννιάτικο Zino Meeting στα Ιωάννινα" */
-            ?>>&nbsp;</a>
             <h1><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
 ?>"><img src="<?php
