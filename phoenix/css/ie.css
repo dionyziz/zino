@@ -17,6 +17,3 @@ form#interestsinfo div.option div.setting div.add ul {
 span[class^="emoticon"] {
 	padding: 6px 5px 16px 18px;
 }
-div.header a.logout span {
-	vertical-align: -8px;
-}
