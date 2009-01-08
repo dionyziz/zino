@@ -17,3 +17,9 @@ form#interestsinfo div.option div.setting div.add ul {
 span[class^="emoticon"] {
 	padding: 6px 5px 16px 18px;
 }
+div.header ul li a.messages span {
+	background-position: -739px -982px;
+}
+div.header ul li a.settings span {
+	background-position: 0 -52px;
+}
