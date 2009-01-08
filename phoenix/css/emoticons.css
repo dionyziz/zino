@@ -1,305 +1,195 @@
+span[class^="emoticon"] {
+	color: transparent;
+	vertical-align: 7px;
+	background-image: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.png' );
+	background-repeat: no-repeat;
+	padding: 0 5px 16px 18px;
+}
 .emoticon-teeth {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -30px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position:  0 -30px;
 }
 .emoticon-sun {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -82px;      
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -82px;      
 }
 .emoticon-airplane {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -134px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -134px;
 }
 .emoticon-sad {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -186px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -186px;
 }
 .emoticon-star {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -238px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -238px;
 }
 .emoticon-soccer {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -290px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -290px;
 }
 .emoticon-umbrella {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -342px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -342px;   
 }
 .emoticon-storm {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -394px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -394px;   
 }
 .emoticon-empty {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -446px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -446px;
 }
 .emoticon-boy {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -498px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -498px; 
 }
 .emoticon-beer {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -550px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -550px;
 }
 .emoticon-shade {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -602px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -602px; 
 }
 .emoticon-email {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -654px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -654px;
 }
 .emoticon-car {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -706px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -706px;  
 }
 .emoticon-phone {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -758px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -758px;  
 }
 .emoticon-uptight {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -810px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -810px;
 }
 .emoticon-lol {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -862px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -862px;
 }
 .emoticon-ugly {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -914px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -914px;
 }
 .emoticon-smile {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -966px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -966px;
 }
 .emoticon-computer {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1018px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1018px;
 }
 .emoticon-cry {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1070px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1070px; 
 }
 .emoticon-lightning {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1122px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1122px; 
 }
 .emoticon-confused {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1174px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1174px;
 }
 .emoticon-dog {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1226px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1226px;
 }
 .emoticon-devil {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1278px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1278px;
 }
 .emoticon-cup {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1330px;    padding: 0 0 5px 18px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1330px;    padding: 0 0 5px 18px;
 }
 .emoticon-smile {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1382px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1382px;
 }
 .emoticon-embarassed {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1434px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1434px;  
 }
 .emoticon-present {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1486px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1486px; 
 }
 .emoticon-innocent {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1538px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1538px; 
 }
 .emoticon-unlove {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1590px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1590px;    
 }
 .emoticon-note {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1642px;
-    padding: 0 5px 6px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1642px;
+    padding: 0 5px 17px 18px;   
 }
 .emoticon-thumbs-down {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1694px;    
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1694px;    
 }
 .emoticon-indifferent {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1746px;    
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1746px;    
 }
 .emoticon-cigarette {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1798px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1798px; 
 }
 .emoticon-snail {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1850px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1850px;  
 }
 .emoticon-ip {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1902px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1902px;    
 }
 .emoticon-camera {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -1954px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: 0 -1954px;  
 }
 .emoticon-mobile-phone {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -30px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -30px;  
 }
 .emoticon-wilted-rose {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -82px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -82px; 
 }
 .emoticon-cake {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -134px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -134px; 
 }
 .emoticon-teeth {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -186px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -186px; 
 }
 .emoticon-kiss {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -238px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -238px; 
 }
 .emoticon-thinking {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -290px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -290px;
 }
 .emoticon-cat {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -342px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -342px;    
 }
 .emoticon-bat {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -394px; 
-    padding: 0 5px 5px 27px;
-    vertical-align: 7px;
+    background-position: -52px -394px; 
+    padding: 0 5px 16px 27px;   
 }
 .emoticon-angry {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -446px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -446px;  
 }
 .emoticon-confused {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -498px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -498px; 
 }
 .emoticon-omg {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -550px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -550px; 
 }
 .emoticon-love {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -602px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -602px; 
 }
 .emoticon-thumbs-up {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -654px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -654px;    
 }
 .emoticon-clock {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -706px; 
-    padding: 0 5px 6px 18px;
-    vertical-align: 7px;
+    background-position: -52px -706px; 
+    padding: 0 5px 17px 18px;   
 }
 .emoticon-wink {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -758px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -758px;  
 }
 .emoticon-cocktail {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -810px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -810px;   
 }
 .emoticon-turtle {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -862px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -862px;  
 }
 .emoticon-film {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -914px; 
-    padding: 0 5px 6px 18px;
-    vertical-align: 7px;
+    background-position: -52px -914px; 
+    padding: 0 5px 17px 18px;    
 }
 .emoticon-tongue {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -966px; 
-    padding: 0 5px 6px 18px;
-    vertical-align: 7px;
+    background-position: -52px -966px; 
+    padding: 0 5px 17px 18px;   
 }
 .emoticon-lightbulb {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -1018px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -1018px; 
 }
 .emoticon-sheep {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -1070px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -1070px;
 }
 .emoticon-girl {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -1122px;
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -1122px;
 }
 .emoticon-foot-in-mouth {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat -52px -1174px; 
-    padding: 0 5px 5px 18px;
-    vertical-align: 7px;
+    background-position: -52px -1174px; 
 }
