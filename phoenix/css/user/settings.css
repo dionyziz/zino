@@ -55,8 +55,10 @@ div.settings div.sidebar ol li.selected {
 	background: #047cbb url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1221px;
 }
 div.settings div.sidebar ol li a {
+	/*
     background-repeat: no-repeat;
     background-position: 5pt;
+	*/
     height: 25px;
     padding: 5px 35px 5px 35px;
     line-height: 22px;
