@@ -113,7 +113,7 @@ var Profile = {
         },
         Renew: function ( message ) {
             if ( message === '' ) {
-                return Tweet.Delete();
+                return Profile.Tweet.Delete();
             }
             $( 'div.tweetactive div.tweet a span' ).empty()[ 0 ].appendChild( document.createTextNode( message ) );
             $( '#tweetedit form input' )[ 0 ].value = message;
