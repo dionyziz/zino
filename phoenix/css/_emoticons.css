@@ -1,9 +1,10 @@
 span[class^="emoticon"] {
 	color: transparent;
 	vertical-align: 7px;
+	background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat;
 }
 .emoticon-teeth {
-    background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat 0 -30px;
+    background-position:  0 -30px;
     padding: 0 5px 16px 18px;
 }
 .emoticon-sun {
