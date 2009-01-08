@@ -207,7 +207,7 @@
             foreach ( $smileys as $i => $smiley ) {
                 $smileysprocessed[ $i ] = '<span class="emoticon-'
                                         . htmlspecialchars( $smiley ) 
-                                        . '">'.$i.'</span>';
+                                        . '" style="font-size:0">'.$i.'</span>';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
