@@ -131,7 +131,8 @@ form#personalinfo div span.invaliddob {
 }
 form#personalinfo div span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -747px;
-	padding: 0 4px 0 12px;
+	padding: 0 0 1px 12px;
+	vertical-align: 1px;
 }
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
