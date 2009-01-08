@@ -14,3 +14,6 @@ form#interestsinfo div.option div.setting div.add ul {
 	width: 202px;
 	margin-top: -1px;
 }
+span[class^="emoticon"] {
+	padding: 6px 5px 16px 18px;
+}
