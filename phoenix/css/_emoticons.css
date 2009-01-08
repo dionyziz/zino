@@ -1,7 +1,8 @@
 span[class^="emoticon"] {
 	color: transparent;
 	vertical-align: 7px;
-	background: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' ) no-repeat;
+	background-image: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.jpg' );
+	background-repeat: no-repeat;
 }
 .emoticon-teeth {
     background-position:  0 -30px;
