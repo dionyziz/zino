@@ -42,7 +42,7 @@
                     if ( $unreadCount > 0 ) {
                         ?> unread<?php
                     }
-                    ?>"><?php
+                    ?>"><span>&nbsp;</span><?php
                         if ( $unreadCount > 0 ) {
                             echo $unreadCount;
                             ?> νέ<?php
@@ -58,7 +58,7 @@
                         }
                     ?></a></li>
                     <li>·</li>
-                    <li><a href="settings" class="settings icon">Ρυθμίσεις</a></li>
+                    <li><a href="settings" class="settings icon"><span>&nbsp;</span>Ρυθμίσεις</a></li>
                     </ul><?php
                 }
             if ( $user->Exists() ) {

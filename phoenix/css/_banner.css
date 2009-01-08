@@ -71,12 +71,12 @@ div.header ul li a.unread {
 div.header ul li a {
 	padding-left: 0;
 }
-div.header ul li a.messages {
+div.header ul li a.messages span {
 	padding: 0 0 8px 19px;
 	margin-right: 4px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -982px;
 }
-div.header ul li a.settings {
+div.header ul li a.settings span {
 	padding: 0 0 8px 20px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -52px;
 }
