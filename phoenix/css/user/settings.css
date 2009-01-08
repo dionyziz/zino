@@ -88,7 +88,7 @@ div.sidebar ol li.selectedsettings a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1075px;
 }
 */
-div.sidebar ol li.personal a span {
+div.sidebar ol li a span {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
 }
