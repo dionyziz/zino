@@ -17,9 +17,9 @@
                 if ( !$user->Exists() ) {
                     ?><form action="do/user/login" method="post">
                         <ul>
-                        <li><a href="join" class="register icon"><span>&nbsp;</span>Δημιούργησε λογαριασμό</a></li>
+                        <li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>
                         <li>·</li>
-                        <li><a href="?#login" onclick="Banner.Login();return false" class="login icon"><span>&nbsp;</span>Είσοδος</a></li>
+                        <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
                         <li style="display:none">·</li>
                         <li style="display:none">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>
                         <li style="display:none"><input type="submit" value="Είσοδος" class="button" /></li>

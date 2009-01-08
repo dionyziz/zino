@@ -80,10 +80,10 @@ div.header ul li a.settings span {
 	padding: 0 0 3px 16px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -50px;
 }
-div.header ul li a.login span {
+div.header ul li a.login {
 	padding-left: 12px;
 	margin-right: 1px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -739px -644px;;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -644px;;
 	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
 }
 div.header ul li a.profile img {
@@ -91,16 +91,10 @@ div.header ul li a.profile img {
     margin-right: 6px;
     border: 1px solid #eee;
 }
-div.header ul li a.register span {
+div.header ul li a.register {
 	padding-left: 12px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1379px;	
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1379px;	
 }
-/*
-div.header ul li a.icon {
-	background-repeat: no-repeat;
-	background-position: left;
-}
-*/
 div.header ul li a.self {
 	padding-left: 30px;
 }
