@@ -112,7 +112,7 @@ div.header a.logout {
 }
 div.header a.logout span {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1633px;
-	padding: 0 3px 0 0;
+	padding: 3px 10px 0 0;
 	margin: 0 0 0 5px;
 	vertical-align: -4px;
 }
