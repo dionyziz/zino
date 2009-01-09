@@ -4,6 +4,15 @@ var Join = {
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
 	},
+    UserExists : function() {
+        if ( !Join.usernameexists ) {
+            Join.usernameexists = true;
+            $( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
+            Join.username.focus();
+            Join.username.select();
+            document.body.style.cursor = 'default';
+        }
+    },
     JoinOnLoad : function() {
         Join.timervar = 0;
         Join.hadcorrect = false;
