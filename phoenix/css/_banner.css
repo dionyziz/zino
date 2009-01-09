@@ -51,8 +51,8 @@ div.header div.eof {
 	*/
 }
 div.header h1 a {
-	margin: 5px 0 0 5px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1679px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1675px;
+	padding: 0 0 10px 85px;
 }
 div.header ul {
 	display: block;
