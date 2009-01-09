@@ -39,11 +39,11 @@ a[class^="s_"] {
 	padding: 0 0 0 14px;
 }
 .s_addfriend {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -130px;
+	background-position: -739px -182px;
 	padding: 0 0 0 16px;
 }
 .s_deletefriend {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -845px;
+	background-position: -203px -633px;
 	padding: 0 0 0 16px;
 }
 .s_clock {
