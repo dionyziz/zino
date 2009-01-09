@@ -1,11 +1,13 @@
-span[class=^="s_"] {
+[class=^="s_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
 }
+/*
 a[class^="s_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
 }
+*/
 .s_delete {
 	background-position: 1px -511px;
 	padding: 0 0 0 13px;
