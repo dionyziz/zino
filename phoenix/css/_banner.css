@@ -50,8 +50,9 @@ div.header div.eof {
 	background-position: 0 0;
 	*/
 }
-div.header h1 img {
+div.header h1 a {
 	margin: 5px 0 0 5px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1679px;
 }
 div.header ul {
 	display: block;

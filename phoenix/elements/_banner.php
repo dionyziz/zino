@@ -9,9 +9,7 @@
             ?><div class="header" id="banner">
             <h1><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
-?>"><img src="<?php
-            echo $rabbit_settings[ 'imagesurl' ];
-            ?>zino.png" alt="Zino" /></a></h1>
+?>">&nbsp;</a></h1>
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
             <?php   
                 if ( !$user->Exists() ) {
