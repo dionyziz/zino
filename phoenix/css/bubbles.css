@@ -127,7 +127,7 @@ div.aplbubble span.aplbubbleleft {
 	padding: 0 0 3px 10px;
 }
 div.aplbubble span.aplbubbleright {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1229px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -735px -1229px;
 	padding: 0 0 3px 19px;
 }
 div.aplbubble span.aplbubblemiddle {
@@ -135,7 +135,7 @@ div.aplbubble span.aplbubblemiddle {
 	vertical-align: -1px;
 }
 div.aplbubble a.del {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -512px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
 	padding: 0 0 3px 12px;
 	position: absolute;
 }
