@@ -11,6 +11,11 @@
                 return Redirect( $rabbit_settings[ 'webadresss' ] );
             }
             $username = $username->Get();
+            
+            $finder = New UserFinder();
+            if( $finder->IsTaken( $username ) ) {
+                $page->AttachInlineScript( 'Joined.UserExists();' );
+            }
             ?><div class="join">
                 <div class="bubble">
                     <i class="tl"></i><i class="tr"></i>
