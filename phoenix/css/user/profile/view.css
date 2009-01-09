@@ -92,7 +92,7 @@ div#profile div.sidebar div.look {
 	height: 30px;
 }
 div#profile div.sidebar div.look span.malebody {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -870px; 
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1915px; 
 	padding: 0 0 50px 16px;
 	position: relative;
 }
@@ -172,17 +172,21 @@ div#profile div.sidebar div.contacts dt {
 	height: 18px;
 	width: 18px;
 }
+div.contacts dl dt {
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-repeat: no-repeat;
+}
 div.contacts dl dt.skype {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1642px;
+	background-position: -739px -578px;
 }
 div.contacts dl dt.msn {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -820px;
+	background-position: -739px -1490px;
 }
 div.contacts dl dt.gtalk {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -143px;
+	background-position: -739px -248px;
 }
 div.contacts dl dt.yim {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -327px;
+	background-position: 0 -116px;
 }
 div#profile div.sidebar div.contacts dd {
 	height: 18px;
@@ -204,7 +208,7 @@ div#profile div#antisocial div {
     height: 20px;
 }
 div#profile div#antisocial div a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -969px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -182px;
 	padding: 0 0 0 16px;
 }
 div#profile div.main {
