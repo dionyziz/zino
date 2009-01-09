@@ -14,6 +14,7 @@ TODO:
         --Otan kano click sto box dn me kani redirect sto profil tou xristi
 */
 var Tag = {
+	virgin : true, // controls whether friends,genders has been set
     photoid : false, // set by view.php, contains the id of the current photo
     friends : [], // an array of all your mutual friends
 	genders : [], // an array of all your mutual friends' genders.  friends[ i ]  gender
@@ -21,13 +22,31 @@ var Tag = {
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
 	resized : false, // true when the tag is resized
     run : false, // when tagging action is enabled
+	prestart : function( kollitaria, keyword, aux ) {
+		var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
+        find( 'span' ).remove().end()
+		.get( 0 );
+		if ( Tag.virgin ) {
+			var loading = document.createElement( 'span' );
+			loading.appendChild( document.createTextNode( "Φόρτωση..." ) );
+			ul.appendChild( loading );
+			Coala.Cold( 'album/photo/tag/getstuff', { 'callmeback' : Tag.start } );
+		}
+		else {
+			Tag.start( kollitaria, keyword, aux );
+		}
+	}
     // updates the friendlist and enables tagging
     start : function( kollitaria, keyword, aux ) {
+		if ( Tag.virgin ) { // after Coala still Virgin
+			return;
+		}
+		var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
+        find( 'span' ).remove().end()
+		.get( 0 );
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
-        var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
-        .get( 0 );
         for( var i=0; i < kollitaria.length; ++i ) {
             if ( kollitaria[i] === '' ) { // flagged username. Do not display
                 continue;
