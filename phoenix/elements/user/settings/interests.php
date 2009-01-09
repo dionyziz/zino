@@ -72,9 +72,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -104,9 +104,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -136,9 +136,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -168,9 +168,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -200,9 +200,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -232,9 +232,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );return false" class="del">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
