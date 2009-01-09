@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
-    <database name="cclive" type="mysql">
+    <database name="zinophoenix" type="mysql">
         <table name="images">
             <field name="image_id" type="int" autoincrement="yes" />
             <field name="image_userid" type="int" ref="users.user_id" />
