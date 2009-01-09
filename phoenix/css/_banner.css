@@ -30,9 +30,7 @@ div.header h1 {
 	left: 0;
 	position: absolute;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1645px;
-	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
-	background-position: 0 0;
-	*/
+	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');*/
 }
 div.header div.eof {
 	display: inline;
@@ -46,9 +44,7 @@ div.header div.eof {
     height: 50px;
 	position: absolute;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1877px;
-	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
-	background-position: 0 0;
-	*/
+	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');*/
 }
 div.header h1 a {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -735px -1674px;
