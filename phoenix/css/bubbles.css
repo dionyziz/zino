@@ -100,11 +100,6 @@ div.ybubble i.bl {
 div.ybubble i.br {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1768px;
 	right: 0;
-	/*
-	position: relative;
-	left: 99%;
-	top: -10%;
-	*/
 }
 div.ybubble form {
     text-align: center;
@@ -128,19 +123,19 @@ div.aplbubble {
 	margin-right: 10px;
 }
 div.aplbubble span.aplbubbleleft {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -477px -1273px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -299px;
 	padding: 0 0 3px 10px;
 }
 div.aplbubble span.aplbubbleright {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -464px -1306px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1229px;
 	padding: 0 0 3px 19px;
 }
 div.aplbubble span.aplbubblemiddle {
 	margin: 0 0 0 -7px;
 	vertical-align: -1px;
 }
-div.aplbubble a.delete {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -473px -1337px;
+div.aplbubble a.del {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -914px;
 	padding: 0 0 3px 12px;
 	position: absolute;
 }

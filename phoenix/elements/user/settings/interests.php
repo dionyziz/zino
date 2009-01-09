@@ -40,9 +40,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
-									<a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php

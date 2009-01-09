@@ -83,6 +83,7 @@ var Settings = {
 		$( node ).remove();
 		$( parent ).hide( 'slow' );
 		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
+		return false;
 	},
 	SelectAvatar : function( imageid ) {
         $( '#avatarlist' ).jqmHide();

@@ -29,7 +29,7 @@ div.sidebar div.savesettings div.saving span {
     vertical-align: 3px;
 }
 div.sidebar div.savesettings div.saved span span {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1083px;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -440px;
     padding: 1px 20px 0 0;
 }
 div.sidebar a.disabled {
@@ -52,13 +52,9 @@ div.settings div.sidebar ol li {
 }
 div.settings div.sidebar ol li.selected {
 	font-weight: bold;
-	background: #047cbb url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1221px;
+	background: #047cbb url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -112px;
 }
 div.settings div.sidebar ol li a {
-	/*
-    background-repeat: no-repeat;
-    background-position: 5pt;
-	*/
     height: 25px;
     padding: 5px 35px 5px 35px;
     line-height: 22px;
@@ -71,23 +67,6 @@ div.sidebar ol li a span {
 	padding-left: 22px;
 	float: left;
 }
-/*
-div.sidebar ol li.selectedpersonal a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1002px;
-}
-div.sidebar ol li.selectedcharacteristics a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1184px;
-}
-div.sidebar ol li.selectedinterests a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1110px;
-}
-div.sidebar ol li.selectedcontact a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1145px;
-}
-div.sidebar ol li.selectedsettings a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -465px -1075px;
-}
-*/
 div.sidebar ol li a span {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
@@ -165,7 +144,7 @@ form#interestsinfo div.option div.setting div.add {
 	clear: left;
 }
 form#interestsinfo div.option div.setting div.add a {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -567px;
 	padding-left: 16px;
 	margin-left: 5px;
 	vertical-align: 1px;
@@ -189,15 +168,6 @@ form#interestsinfo div.option div.setting div.add ul li.selected{
     color: white;
     cursor: pointer;
 }
-/*
-form#interestsinfo div.option div.setting div.add form {
-	display: none;
-}
-form#interestsinfo div.option div.setting div.add form select {
-	width: 200px;
-	border-top-width: 0px;
-}
-*/
 form#interestsinfo div.creation {
 	display: none;
 }
