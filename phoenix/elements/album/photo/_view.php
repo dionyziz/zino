@@ -195,6 +195,7 @@
 	                        echo $image->Id;
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 						</li><?php
+						$relfinder = New FriendRelationFinder();
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
                             && $user->HasPermission( PERMISSION_TAG_CREATE )
 							&& ( $theuser->Id == $user->Id || 
