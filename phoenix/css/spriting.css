@@ -1,5 +1,8 @@
+[class^="s_"] {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat;
+}
 .s_delete {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1413px;
+	background-position: 0 -512px;
 	padding: 0 0 0 13px;
 }
 .s_edit {
