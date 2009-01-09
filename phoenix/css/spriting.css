@@ -1,4 +1,4 @@
-[class^="s_"] {
+span[class^="s_"], a[class^="s_"]  {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat;
 }
 .s_delete {
