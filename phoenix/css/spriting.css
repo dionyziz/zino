@@ -7,8 +7,8 @@ a[class^="s_"] {
 	background-repeat: no-repeat;
 }
 .s_delete {
-	background-position: 1px -511px;
-	padding: 0 0 0 13px;
+	background-position: 1px -512px;
+	padding: 1px 0 0 13px;
 }
 .s_edit {
 	background-position: -203px -258px;
