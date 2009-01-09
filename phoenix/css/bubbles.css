@@ -87,18 +87,21 @@ div.ybubble div.body {
 	background: #ffda74; 
 	height: 100%;
 }
+div.ybubble i {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat;
+}
 div.ybubble i.tl {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1829px;
+	background-position: -739px -1430px;
 }
 div.ybubble i.tr {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1889px;
+	background-position: -203px -847px;
 }
 div.ybubble i.bl {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1708px;
+	background-position: -739px -1109px;
 	left: 0;
 }
 div.ybubble i.br {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1768px;
+	background-position: -203px -198px;
 	right: 0;
 }
 div.ybubble form {
