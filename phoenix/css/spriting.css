@@ -23,19 +23,19 @@ a[class^="s_"] {
 	padding: 0 0 0 16px;
 }
 .s_addfav {
-	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -276px;
+	background-position: -739px -1298px;
 	padding: 0 0 0 16px;
 }
 .s_isaddedfav {
-	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -210px;
+	background-position: -739px -776px;
 	padding: 0 0 0 16px;
 }
 .s_mainimage {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -233px -1078px;
+	background-position: 0 -1745px;
 	padding: 0 0 0 16px;
 }
 .s_photonum {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -480px;
+	background: 0 -1313px;
 	padding: 0 0 0 14px;
 }
 .s_addfriend {
