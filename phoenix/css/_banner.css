@@ -54,6 +54,9 @@ div.header h1 a {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1675px;
 	padding: 0 0 10px 85px;
 }
+div.header h1 a:hover {
+	color: transparent;
+} 
 div.header ul {
 	display: block;
 	padding: 10px;
