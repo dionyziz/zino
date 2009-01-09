@@ -1,8 +1,9 @@
-a[class^="spr"]  {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat;
+a[class^="s_"]  {
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-repeat: no-repeat;
 }
-.spr-delete {
-	background-position: 1px -511px;
+.s_delete {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
 	padding: 0 0 0 13px;
 }
 .s_edit {
@@ -13,9 +14,8 @@ a[class^="spr"]  {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 	padding: 0 0 0 15px;
 }
-.spr-add {
-	background-position: -203px -567px;
-	padding: 0 0 0 16px;
+.s_add {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -567px;
 }
 .s_addfav {
 	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -276px;
