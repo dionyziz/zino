@@ -11,11 +11,11 @@ a[class^="s_"] {
 	padding: 0 0 0 13px;
 }
 .s_edit {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -887px;
+	background-position: -203px -258px;
 	padding: 0 0 0 16px;
 }
 .s_commnum {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
+	background-position: -739px -380px;
 	padding: 0 0 0 15px;
 }
 .s_add {
