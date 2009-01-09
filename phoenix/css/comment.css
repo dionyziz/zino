@@ -26,7 +26,7 @@ div.comment div.toolbox img {
 	vertical-align: text-bottom;
 }
 div.comment div.toolbox a {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
 	padding: 0 0 2px 12px;
 	margin-left: 5px;
 	/* A little hack for IE7 */
