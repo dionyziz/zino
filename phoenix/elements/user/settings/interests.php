@@ -35,15 +35,15 @@
                     <ul class="interesttags hobbies"><?php
                         foreach ( $hobbies as $hobbie ) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -67,15 +67,15 @@
                     <ul class="interesttags songs"><?php
                         foreach ( $songs as $song ) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $song->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -99,15 +99,15 @@
                     <ul class="interesttags movies"><?php
                         foreach ( $movies as $movie ) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -131,15 +131,15 @@
                     <ul class="interesttags shows"><?php
                         foreach ( $shows as $show) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $show->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -163,15 +163,15 @@
                     <ul class="interesttags books"><?php
                         foreach ( $books as $book ) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $book->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -195,15 +195,15 @@
                     <ul class="interesttags artists"><?php
                         foreach ( $artists as $artist ) {
 	                        ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -227,15 +227,15 @@
                     <ul class="interesttags games"><?php
                         foreach ( $games as $game ) {
                             ?><li>
-                                <div class="aplbubble">
-									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle"><?php
+                                <div class="bbbl">
+									<span class="bbblleft">&nbsp;</span>
+                                    <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $game->Id;
                                     ?>' , this );" class="del">&nbsp;</a>
-                                    <span class="aplbubbleright">&nbsp;</span>
+                                    <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -249,11 +249,11 @@
                     </div>
                 </div>
             </div>
-            <div class="aplbubble creation">
-				<span class="aplbubbleleft">&nbsp;</span>
-				<span class="aplbubblemiddle"></span>
+            <div class="bbbl creation">
+				<span class="bbblleft">&nbsp;</span>
+				<span class="bbblmiddle"></span>
 				<a href="" class="del">&nbsp;</a>
-				<span class="aplbubbleright">&nbsp;</span>
+				<span class="bbblright">&nbsp;</span>
             </div><?php
         }
     }
