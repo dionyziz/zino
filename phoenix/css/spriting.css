@@ -1,3 +1,7 @@
+span[class=^="s_"] {
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-repeat: no-repeat;
+}
 a[class^="s_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
