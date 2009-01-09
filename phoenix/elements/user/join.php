@@ -14,7 +14,7 @@
             
             $finder = New UserFinder();
             if( $finder->IsTaken( $username ) ) {
-                $page->AttachInlineScript( 'Joined.UserExists();' );
+                $page->AttachInlineScript( 'Join.UserExists();' );
             }
             ?><div class="join">
                 <div class="bubble">
