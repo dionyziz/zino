@@ -10,7 +10,7 @@
             global $water;
 
             $query = $this->mDb->Prepare( 
-                "SELECT SQL_CALC_FOUND_ROWS
+                "SELECT
                     *
                 FROM
                     :notify
@@ -26,24 +26,22 @@
             $query->BindTable( 'notify', 'events' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
-            $query->Bind( 'limit', $limit );
+            $query->Bind( 'limit', $limit + 6 );
         
             $res = $query->Execute();
 
             $ret = array();
+            $i = 0;
             while ( $row = $res->FetchArray() ) {
-                $notif = New Notification( $row );
-                $notif->CopyEventFrom( New Event( $row ) );
-                $ret[] = $notif;
+                if ( $i < $limit ) {
+                    $notif = New Notification( $row );
+                    $notif->CopyEventFrom( New Event( $row ) );
+                    $ret[] = $notif;
+                }
+                ++$i;
             }
 
-            $totalcount = ( int )array_shift(
-                $this->mDb->Prepare(
-                    'SELECT FOUND_ROWS();'
-                )->Execute()->FetchArray()
-            );
-
-            return New Collection( $ret, $totalcount );
+            return New Collection( $ret, $i );
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
             $query = $this->mDb->Prepare( "

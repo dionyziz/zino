@@ -5,7 +5,7 @@
         function FindLastByUserId( $userid ) {
             $prototype = new StatusBox();
             $prototype->Userid = $userid;
-            $res = $this->FindByPrototype( $prototype, 0, 1, array( 'Created', 'DESC' ) );
+            $res = $this->FindByPrototype( $prototype, 0, 1, array( 'Id', 'DESC' ) );
             if ( empty( $res ) || $res[ 0 ]->Message == "" ) {
                 return false;
             }

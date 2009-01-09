@@ -78,7 +78,14 @@
                 }
             }
             if ( $shownotifications ) {
-                $page->SetTitle( 'Zino (' . $notifs->TotalCount() . ')' );
+                if ( $notifs->TotalCount() > 10 ) {
+                    $count = '10+';
+                }
+                else {
+                    $count = $notifs->TotalCount();
+                }
+                
+                $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
