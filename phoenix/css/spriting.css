@@ -2,7 +2,7 @@
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat;
 }
 .s_delete {
-	background-position: 0 -512px;
+	background-position: 1 -511px;
 	padding: 0 0 0 13px;
 }
 .s_edit {
@@ -12,6 +12,9 @@
 .s_commnum {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 	padding: 0 0 0 15px;
+}
+.s_add {
+	background-position: -203px -567px;
 }
 .s_addfav {
 	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -276px;

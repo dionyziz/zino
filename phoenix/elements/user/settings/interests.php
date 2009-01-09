@@ -50,7 +50,7 @@
                     ?></ul>
                     <div class="add hobbies">
                         <input type="text" onclick="$( 'div.hobbies ul' ).show();" onkeyup="Suggest.inputMove( event, 'hobbies' );" onblur="Suggest.hideBlur( 'hobbies' );" onfocus="$( 'div.hobbies ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.hobbies = true;" onmouseout="Suggest.over.hobbies = false;">
                             <li></li>
                         </ul>
@@ -82,7 +82,7 @@
                     ?></ul>
                     <div class="add songs">
                         <input type="text" onclick="$( 'div.songs ul' ).show();" onkeyup="Suggest.inputMove( event, 'songs' );" onblur="Suggest.hideBlur( 'songs' );" onfocus="$( 'div.songs ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.songs = true;" onmouseout="Suggest.over.songs = false;">
                             <li></li>
                         </ul>
@@ -114,7 +114,7 @@
                     ?></ul>
                     <div class="add movies">
                         <input type="text" onclick="$( 'div.movies ul' ).show();" onkeyup="Suggest.inputMove( event, 'movies' );" onblur="Suggest.hideBlur( 'movies' );" onfocus="$( 'div.movies ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.movies = true;" onmouseout="Suggest.over.movies = false;">
                             <li></li>
                         </ul>
@@ -146,7 +146,7 @@
                     ?></ul>
                     <div class="add shows">
 						<input type="text" onclick="$( 'div.shows ul' ).show();" onkeyup="Suggest.inputMove( event, 'shows' );" onblur="Suggest.hideBlur( 'shows' );" onfocus="$( 'div.shows ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.shows = true;" onmouseout="Suggest.over.shows = false;">
                             <li></li>
                         </ul>
@@ -178,7 +178,7 @@
                     ?></ul>
                     <div class="add books">
 						<input type="text" onclick="$( 'div.books ul' ).show();" onkeyup="Suggest.inputMove( event, 'books' );" onblur="Suggest.hideBlur( 'books' );" onfocus="$( 'div.books ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.books = true;" onmouseout="Suggest.over.books = false;">
                             <li></li>
                         </ul>
@@ -210,7 +210,7 @@
                     ?></ul>
                     <div class="add artists">
                         <input type="text" onclick="$( 'div.artists ul' ).show();" onkeyup="Suggest.inputMove( 'artists' );" onblur="Suggest.hideBlur( event, 'artists' );" onfocus="$( 'div.artists ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.artists = true;" onmouseout="Suggest.over.artists = false;">
                             <li></li>
                         </ul>
@@ -242,7 +242,7 @@
                     ?></ul>
                     <div class="add games">
                         <input type="text" onclick="$( 'div.games ul' ).show();" onkeyup="Suggest.inputMove( event, 'games' );" onblur="Suggest.hideBlur( 'games' );" onfocus="$( 'div.games ul').show();"/>
-                        <a href="" onclick="return false" title="Προσθήκη"></a><br />
+                        <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.games = true;" onmouseout="Suggest.over.games = false;">
                             <li></li>
                         </ul>
