@@ -74,7 +74,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -106,7 +106,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -138,7 +138,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -170,7 +170,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -202,7 +202,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -234,7 +234,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );return false" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="del">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -252,7 +252,7 @@
             <div class="aplbubble creation">
 				<span class="aplbubbleleft">&nbsp;</span>
 				<span class="aplbubblemiddle"></span>
-				<a href="" class="delete">&nbsp;</a>
+				<a href="" class="del">&nbsp;</a>
 				<span class="aplbubbleright">&nbsp;</span>
             </div><?php
         }
