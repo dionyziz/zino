@@ -15,7 +15,7 @@
             ?> σε έχει προσθέσει στους φίλους, αλλά εσύ όχι.
             <div><a href="" onclick="Profile.AntisocialAddFriend( <?php
             echo $theuser->Id;
-            ?> ); return false"><span>&nbsp;</span>Πρόσθεσέ <?php
+            ?> ); return false"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ <?php
             if ( $theuser->Gender == 'f' ) {
                 ?>την<?php
             }
