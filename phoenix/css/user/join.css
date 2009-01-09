@@ -34,13 +34,13 @@ div.join div.bubble form.joinform div input {
 div.join div.bubble form.joinform div > span 	{
 	vertical-align: bottom;
 	display: none;
-	padding: 3px 0 0 0;
+	padding: 5px 0 0 0;
 }
 div.join div.bubble form.joinform div span span {
 	font-size: 80%;
 	font-weight: bold;
 	vertical-align: 3px;
-	padding: 0 0 0 3px;
+	padding: 5px 0 0 0;
 }
 div.join div.bubble form.joinform div div > span {
 	vertical-align: bottom;
@@ -53,7 +53,7 @@ div.join div.bubble form.joinform div div span span {
 	font-size: 80%;
 	font-weight: bold;
 	vertical-align: 3px;
-	padding: 3px 0 0 0;
+	padding: 5px 0 0 0;
 }
 div.join div.bubble form.joinform div p {
 	padding: 3px 0 0 0;
