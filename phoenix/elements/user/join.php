@@ -86,11 +86,11 @@
                 ?></div>
                 <a href="" class="button" onclick="Modals.Destroy();return false">Κλείσιμο</a>
             </div><?php
+            $page->AttachInlineScript( 'Join.JoinOnLoad();' );
             $finder = New UserFinder();
             if( $finder->IsTaken( $username ) ) {
                 $page->AttachInlineScript( 'Join.UserExists();' );
             }
-            $page->AttachInlineScript( 'Join.JoinOnLoad();' );
         }
     }
 ?>
