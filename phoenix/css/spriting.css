@@ -31,7 +31,7 @@ a[class^="s_"] {
 	padding: 0 0 0 16px;
 }
 .s_mainimage {
-	background-position: 0 -1745px;
+	background-position: 2px -1745px;
 	padding: 0 0 0 16px;
 }
 .s_photonum {
@@ -51,7 +51,7 @@ a[class^="s_"] {
 	padding-left: 16px;
 }
 .s_addtag {
-	background-position: -739px -512px;
+	background-position: -733px -512px;
 	padding: 0 0 0 21px;
 }
 .s_bigadd {
