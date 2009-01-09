@@ -55,7 +55,7 @@ div.header h1 a {
 	padding: 0 0 10px 85px;
 }
 div.header h1 a:hover {
-	color: transparent;
+	text-decoration: none;
 } 
 div.header ul {
 	display: block;
