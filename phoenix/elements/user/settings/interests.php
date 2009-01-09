@@ -42,7 +42,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -74,7 +74,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -106,7 +106,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -138,7 +138,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -170,7 +170,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -202,7 +202,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -234,7 +234,7 @@
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );" class="del">&nbsp;</a>
+                                    ?>' , this );" class="s_delete">&nbsp;</a>
                                     <span class="bbblright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -252,7 +252,7 @@
             <div class="bbbl creation">
 				<span class="bbblleft">&nbsp;</span>
 				<span class="bbblmiddle"></span>
-				<a href="" class="del">&nbsp;</a>
+				<a href="" class="s_delete">&nbsp;</a>
 				<span class="bbblright">&nbsp;</span>
             </div><?php
         }

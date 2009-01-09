@@ -136,8 +136,7 @@ div.bbbl span.bbblmiddle {
 	margin: 0 0 0 -7px;
 	vertical-align: -1px;
 }
-div.bbbl a.del {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
+div.bbbl a.s_delete {
 	padding: 0 0 3px 12px;
 	position: absolute;
 }
