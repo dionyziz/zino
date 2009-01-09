@@ -1,8 +1,8 @@
-span[class^="s"], a[class^="s"]  {
+span[class^="s_"], a[class^="s_"]  {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat;
 }
 .s_delete {
-	background-position: 1px -511px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
 	padding: 0 0 0 13px;
 }
 .s_edit {
@@ -14,7 +14,7 @@ span[class^="s"], a[class^="s"]  {
 	padding: 0 0 0 15px;
 }
 .s_add {
-	background-position: -203px -567px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -567px;
 }
 .s_addfav {
 	background: url('http://static.zino.gr/phoenix/icons.jpg') no-repeat -235px -276px;
