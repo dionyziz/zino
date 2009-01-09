@@ -88,7 +88,7 @@
             </div><?php
             $page->AttachInlineScript( 'Join.JoinOnLoad();' );
             $finder = New UserFinder();
-            if( $finder->IsTaken( $username ) && $username == '' ) {
+            if( $finder->IsTaken( $username ) && $username != '' ) {
                 $page->AttachInlineScript( 'Join.UserExists();' );
             }
         }
