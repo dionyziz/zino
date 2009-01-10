@@ -4,9 +4,7 @@ div.tweetbox {
     left: 150px;
 }
 div.tweet {
-    background-image: url( 'http://static.zino.gr/phoenix/tweet-mid.png' );
-    background-repeat: repeat-x;
-    background-position: top;
+    background-image: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;
     height: 55px;
     float: left;
     padding: 0;
@@ -20,12 +18,12 @@ div.tweetbox i.corner {
 }
 div.tweetbox i.left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/tweet-start.png' ) 0 1px;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -813px;
 }
 div.tweetbox i.right {
     float: right;
     width: 27px;
-    background: url( 'http://static.zino.gr/phoenix/tweet-end.png' ) 0 2px;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -644px;
 }
 div.tweet div {
     padding-top: 19px;

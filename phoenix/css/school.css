@@ -57,7 +57,7 @@ div#schview div.photos ul li a.s_bigadd {
 	display: block;
 	height: 40px; 
 	margin: 30px 0 0 15px;
-	padding-bottom: 20px;
+	padding-bottom: 20px;/*do not use padding: x x x x*/
 }
 div#schview div.photos div.plist#photolist ul {
     padding: 0;
