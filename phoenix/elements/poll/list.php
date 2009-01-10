@@ -54,7 +54,7 @@
                 <ul><?php
                     if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                         ?><li class="create">
-                            <a href="" class="new"><span>&nbsp;</span>Δημιουργία δημοσκόπησης</a>
+                            <a href=""><span class="s_bigadd">&nbsp;</span>Δημιουργία δημοσκόπησης</a>
                         </li><?php
                     }
                     if ( !empty( $polls ) ) {

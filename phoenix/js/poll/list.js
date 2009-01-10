@@ -79,7 +79,7 @@ var PollList = {
 			alt: "Δημιουργία δημοσκόπησης",
 			title: "Δημιουργία δημοσκόπησης"
 		} );
-		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
+		$( link ).attr( { href: "" } ).append( createimg ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
 			PollList.Create();
 			return false;
 		} );

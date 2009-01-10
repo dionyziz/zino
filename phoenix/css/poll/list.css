@@ -60,11 +60,13 @@ div.creationmockup div.newoption {
 div#polist div.creatingpoll {
 	display: none;
 }
+/*
 div#polist ul li.create a.new span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -132px;
 	vertical-align: -5px;
 	padding: 12px 0 0 30px;
 }
+*/
 div#polist ul li.create a {
 	font-weight: bold;
 }
