@@ -121,7 +121,7 @@
                                 ob_start();
                                 Element( 'url', $favourite->Item );
                                 echo htmlspecialchars( ob_get_clean() );
-                                ?>" class="<?php
+                                ?>"><span class="<?php
 								switch ( $favourite->Typeid ) {
                                     case TYPE_IMAGE:
                                         ?>s_photo<?php
@@ -130,7 +130,7 @@
                                         ?>s_book<?php
                                         break;
                                 }
-								?>"><?php
+								?>">&nbsp;</span><?php
                                 switch ( $favourite->Typeid ) {
                                     case TYPE_JOURNAL:
                                         echo htmlspecialchars( $favourite->Item->Title );
