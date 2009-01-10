@@ -18,12 +18,12 @@ div.tweetbox i.corner {
 }
 div.tweetbox i.left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -813px;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -812px;
 }
 div.tweetbox i.right {
     float: right;
     width: 27px;
-    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -644px;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) 0 -642px;
 }
 div.tweet div {
     padding-top: 19px;
