@@ -20,7 +20,7 @@
                     }
                     if ( $user->Profile->Schoolid == $schoolid && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                         ?><li>
-                            <a href="" class="uploadphoto">&nbsp;</a>
+                            <a href=""><span class="s_bigadd">&nbsp;</span></a>
                         </li><?php
                     }
                     ?>
