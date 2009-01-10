@@ -6,6 +6,7 @@
 		$libs->Load( 'relation/relation' );
 		
 		if ( !$user->Exists() || !$user->HasPermission( PERMISSION_TAG_CREATE ) ) {
+			?>alert( "Trexo 1" );<?php
 			return;
 		}
 		
