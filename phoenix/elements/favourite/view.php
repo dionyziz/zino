@@ -121,7 +121,16 @@
                                         ?>journal<?php
                                         break;
                                 }
-                                ?>"><div><a href="<?php
+                                ?>"><div class="<?php
+								switch ( $favourite->Typeid ) {
+                                    case TYPE_IMAGE:
+                                        ?>s_photo<?php
+                                        break;
+                                    case TYPE_JOURNAL
+                                        ?>s_book<?php
+                                        break;
+                                }
+								?>"><a href="<?php
                                 ob_start();
                                 Element( 'url', $favourite->Item );
                                 echo htmlspecialchars( ob_get_clean() );

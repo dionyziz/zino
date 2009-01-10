@@ -64,3 +64,11 @@ a[class^="s_"] {
 	padding: 0 0 2px 16px;
 	vertical-align: 1px;
 }
+.s_photo {
+	background-position: 0 -1745px;
+	padding: 0 0 0 16px;
+}
+.s_book {
+	background-position: 0 -233px;
+	padding: 0 0 0 16px;
+}

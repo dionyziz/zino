@@ -59,15 +59,19 @@ div#favourites ul.events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
+/*
 div#favourites ul.events li.photo div {
 	background: url( 'http://static.zino.gr/phoenix/photo.png' ) no-repeat;
 }
+*/
 div#favourites ul.events li.photo img {
 	padding: 3px 3px 3px 0px;
 }
+/*
 div#favourites ul.events li.journal div {
 	background: url( 'http://static.zino.gr/phoenix/book.png' ) no-repeat;
 }
+*/
 div#favourites div.pagify {
 	margin: 20px 0 0 0;
 	text-align: center;
