@@ -53,18 +53,14 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/journals"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>book.png" alt="Ημερολόγια" title="Ημερολόγια" /></a></li>
+                        ?>favourites/journals" class="s_book">&nbsp;</a></li>
                         <li<?php
                         if ( $type === TYPE_IMAGE ) {
                             ?> class="selected"<?php
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/photos"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>photo.png" alt="Εικόνες" title="Εικόνες" /></a></li>
+                        ?>favourites/photos" class="s_photo">&nbsp;</a></li>
                         <li<?php
                         if ( $type === false ) {
                             ?> class="selected"<?php
