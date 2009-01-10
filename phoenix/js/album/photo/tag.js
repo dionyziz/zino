@@ -32,7 +32,6 @@ var Tag = {
 	},
     // updates the friendlist and enables tagging
     start : function( kollitaria, keyword, aux ) {
-		alert( "Trexo2" );
 		if ( Tag.virgin ) { // after Coala still Virgin
 			return;
 		}
