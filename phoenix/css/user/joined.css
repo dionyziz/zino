@@ -44,9 +44,11 @@ div#joined div.profinfo form span.invaliddob {
 	margin-left: 5px;
 	vertical-align: 1px;
 }
+/*
 div#joined div.profinfo form span.invaliddob span {
 	display: inline;
 }
+*/
 div#joined div.profinfo p {
 	font-size: 105%;
 }
