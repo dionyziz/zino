@@ -52,7 +52,8 @@ div#polist div.tip2 {
 	margin-bottom: 25px;
 }
 div.creationmockup div.newoption {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -386px; 	padding-left: 10px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -379px; 	
+	padding-left: 10px;
 	margin: 2px 0;
 	overflow: hidden;
 }
