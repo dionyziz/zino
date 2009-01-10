@@ -35,7 +35,7 @@ var Tag = {
 		else {
 			Tag.start( kollitaria, keyword, aux );
 		}
-	}
+	},
     // updates the friendlist and enables tagging
     start : function( kollitaria, keyword, aux ) {
 		if ( Tag.virgin ) { // after Coala still Virgin
