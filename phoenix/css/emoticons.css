@@ -3,7 +3,7 @@ span[class^="emoticon"] {
 	vertical-align: 7px;
 	background-image: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.png' );
 	background-repeat: no-repeat;
-	padding: 0 5px 16px 18px;
+	padding: 0 5px 18px 18px;
 }
 .emoticon-teeth {
     background-position:  0 -30px;
@@ -81,7 +81,8 @@ span[class^="emoticon"] {
     background-position: 0 -1278px;
 }
 .emoticon-cup {
-    background-position: 0 -1330px;    padding: 0 0 5px 18px;
+    background-position: 0 -1330px;    
+	padding: 0 0 7px 18px;
 }
 .emoticon-smile {
     background-position: 0 -1382px;
@@ -100,7 +101,7 @@ span[class^="emoticon"] {
 }
 .emoticon-note {
     background-position: 0 -1642px;
-    padding: 0 5px 17px 18px;   
+    padding: 0 5px 19px 18px;   
 }
 .emoticon-thumbs-down {
     background-position: 0 -1694px;    
@@ -143,7 +144,7 @@ span[class^="emoticon"] {
 }
 .emoticon-bat {
     background-position: -52px -394px; 
-    padding: 0 5px 16px 27px;   
+    padding: 0 5px 18px 27px;   
 }
 .emoticon-angry {
     background-position: -52px -446px;  
@@ -162,7 +163,7 @@ span[class^="emoticon"] {
 }
 .emoticon-clock {
     background-position: -52px -706px; 
-    padding: 0 5px 17px 18px;   
+    padding: 0 5px 19px 18px;   
 }
 .emoticon-wink {
     background-position: -52px -758px;  
@@ -175,11 +176,11 @@ span[class^="emoticon"] {
 }
 .emoticon-film {
     background-position: -52px -914px; 
-    padding: 0 5px 17px 18px;    
+    padding: 0 5px 19px 18px;    
 }
 .emoticon-tongue {
     background-position: -52px -966px; 
-    padding: 0 5px 17px 18px;   
+    padding: 0 5px 19px 18px;   
 }
 .emoticon-lightbulb {
     background-position: -52px -1018px; 
