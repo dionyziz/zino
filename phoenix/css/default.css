@@ -32,13 +32,13 @@ div.barfade {
 }
 div.barfade div.leftbar {
 	float: left;
-	background: url('http://static.zino.gr/phoenix/barfade-left.jpg') no-repeat;
+	background: url('http://static.zino.gr/phoenix/icons.png') no-repeat -739px -1556px;
 	height: 1px;
 	width: 153px;
 }
 div.barfade div.rightbar {
 	float: right;
-	background: url('http://static.zino.gr/phoenix/barfade-right.jpg') no-repeat;
+	background: url('http://static.zino.gr/phoenix/icons.png') no-repeat 0 -182px;
 	height: 1px;
 	width: 153px;
 }
