@@ -12,3 +12,6 @@ span.imageview > span {
     border-left: 1px solid #ccccee;
     color: #000;
 }
+span.imageview span > span {
+	opacity: 0.9;
+}
