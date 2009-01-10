@@ -56,7 +56,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>"></img><?php
             if ( $numcom != 0 ) {
-                ?><span class="info"><span class="s_commnum">&nbsp;</span><?php
+                ?><span><span class="s_commnum">&nbsp;</span><?php
                 echo $numcom;
                 ?></span><?php
             }

@@ -1,7 +1,7 @@
 span.imageview {
     position: relative;
 }
-span.imageview span.info {
+span.imageview > span {
     background: #d8d8d8;
     font-weight: bold;
     opacity: 0.9;
