@@ -46,13 +46,13 @@ div.posmall div.results ul li dl dd div.option div.percentagebar {
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -952px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1046px;
 	height: 13px;
 	width: 9px;
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.rightrounded {
 	float: right;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1015px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -988px;
 	height: 13px;
 	width: 9px;
 }
@@ -70,10 +70,6 @@ div.posmall div.results dl.pollinfo2 {
 div.posmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
 	display: inline;
 	font-size: 80%;
-}
-div.posmall div.results a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
-	padding: 0 0 0 16px;
 }
 div.posmall div.voting {
 	display: none;

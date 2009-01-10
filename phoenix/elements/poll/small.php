@@ -28,7 +28,7 @@
                     ?>">
                         <dd><a href="<?php
                         echo $url;
-                        ?>"><span>&nbsp;</span><?php
+                        ?>"><span class="s_commnum">&nbsp;</span><?php
                         echo $poll->Numcomments;
                         ?> σχόλι<?php
                         if ( $poll->Numcomments == 1 ) {

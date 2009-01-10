@@ -110,7 +110,7 @@
                                 echo $notif->Event->Id;
                                 ?>' , '<?php
                                 echo $notif->FromUser->Id;
-                                ?>' )">Πρόσθεσέ τ<?php
+                                ?>' )" class="s_addfriend">Πρόσθεσέ τ<?php
                                 if ( $notif->FromUser->Gender == 'f' ) {
                                     ?>η<?php
                                 }

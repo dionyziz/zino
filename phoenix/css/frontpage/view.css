@@ -71,7 +71,7 @@ div.members {
 	z-index: 999;
 }
 div.members div.join {
-    background: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' ) no-repeat;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -907px;
     height: 133px;
     width: 486px;
     float: left;
@@ -100,7 +100,7 @@ div.members form label {
     margin-right: 5px;
 }
 div.members div.login {
-    background: url( 'http://static.zino.gr/phoenix/frontpagelogin.jpg' ) no-repeat;
+    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1150px;
     text-align: left;
     height: 129px;
     width: 293px;
@@ -132,8 +132,8 @@ div.frontpage div.notifications {
     z-index: 2;
 }
 div.frontpage div.notifications div.expand a {
-    background: #cfc9fd url( 'http://static.zino.gr/phoenix/arrow_up.png' ) no-repeat 4px 5px;
-    padding-left: 18px;
+    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1445px;
+    padding: 0 0 0 18px;
 }
 div.frontpage div.notifications h3 {
     margin: 0 0 10px 0;
@@ -171,16 +171,12 @@ div.fontpage div.notifications div.list div.event div.subject div.addfriend {
 div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
     font-size: 90%;
 }
-div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
-    background: url( 'http://static.zino.gr/phoenix/user_add.png' ) no-repeat 0 -1px;
-    padding-left: 18px;
-}
 div.onlinenow a {
-    margin-right: 10px;
+    margin: 0 10px 0 0;
 }
 div.onlinenow a img {
     border: 1px solid #666;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 div.frontpage div.inuser {
     float: none;
@@ -220,4 +216,3 @@ div.inuser div.right div.latest div.journals {
 div.inuser div.right div.latest div.polls {
     width: 100%;
 }
-
