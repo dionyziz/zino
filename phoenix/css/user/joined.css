@@ -37,7 +37,6 @@ div#joined div.profinfo form div > span {
 	display: block;
 }
 div#joined div.profinfo form span.invaliddob {
-	padding: 0;
 	font-weight: bold;
 	font-size: 90%;
 	display: none;
