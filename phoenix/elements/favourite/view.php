@@ -44,7 +44,7 @@
 
             Element( 'user/sections', 'favourites', $theuser );
 
-            ?><div id="favourites">
+            ?><div id="fav">
                 <div class="list">
                     <ul class="favcategories">
                         <li<?php
