@@ -4,7 +4,7 @@ span.imageview {
 span.imageview span.info {
     background: #d8d8d8;
     font-weight: bold;
-    opacity: 0.8;
+    opacity: 0.9;
     position: absolute;
     bottom: 4px;
     right: 1px;
@@ -12,7 +12,3 @@ span.imageview span.info {
     border-left: 1px solid #ccccee;
     color: #000;
 }
-span.imageview span.info span.commentsnumber {
-    padding-left: 12px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -472px -1367px;
-}   
