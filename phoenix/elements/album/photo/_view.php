@@ -202,7 +202,7 @@
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
-								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.prestart( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE && $user->Id == $theuser->Id ) {
