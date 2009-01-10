@@ -48,7 +48,9 @@ div.header div.eof {
 }
 div.header h1 a {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -735px -1674px;
-	padding: 0 0 10px 87px;
+	display: block;
+	height: 48px; 
+	width: 90px;
 }
 div.header h1 a:hover {
 	text-decoration: none;

@@ -119,11 +119,11 @@
                                 }
                                 ?>ν στους φίλους</a></div><?php
                             }
-                            ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+                            ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
                             Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
                             ?>' , '0' , '<?php
                             echo $notif->Event->Id;
-                            ?>' , '0' );return false">Προβολή προφίλ&raquo;</a></div><?php
+                            ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
                             break;
                         case EVENT_IMAGETAG_CREATED:
                             ?><p><?php

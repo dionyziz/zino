@@ -59,3 +59,8 @@ a[class^="s_"] {
 	vertical-align: -5px;
 	padding: 12px 0 2px 30px;
 }
+.s_invalid {
+	background-position: 0 -747px;
+	padding: 0 0 2px 16px;
+	vertical-align: 1px;
+}

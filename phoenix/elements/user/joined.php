@@ -33,7 +33,7 @@
                         <div>
                             <span>Ημερομηνία γέννησης:</span><?php
                             Element( 'user/settings/personal/dob' );
-                        ?><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
+                        ?><span class="invaliddob"><span class="s_invalid">&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
 						</div>
                         <div>
                             <span>Φύλο:</span><?php

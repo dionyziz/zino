@@ -87,7 +87,7 @@ div.sidebar ol li.settings a span {
     background-position: -739px -842px;
 }
 div.settings div.tabs {
-    margin-right: 350px;
+    margin: 0 350px 0 0;
 }
 div.settings div.tabs form div.option { /* denotes a specific setting */
     padding: 10px 0;
@@ -108,11 +108,13 @@ form#personalinfo div span.invaliddob {
 	padding-left: 10px;
 	font-size: 80%;
 }
+/*
 form#personalinfo div span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -747px;
 	padding: 0 0 2px 16px;
 	vertical-align: 1px;
 }
+*/
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
     width: auto;
@@ -197,7 +199,7 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
-div.settings div.tabs form#personalinfo div.option div.setting div#avatarlist {
+form#personalinfo div.option div.setting div#avatarlist {
 	display: none;
 	top: 10%;
 	left: 30%;

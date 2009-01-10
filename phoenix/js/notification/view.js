@@ -8,6 +8,7 @@ var Notification = {
 			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 			document.location.href = url;
 		}
+		return false;
 	},
 	Delete : function( eventid ) {
 		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {

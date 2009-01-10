@@ -21,7 +21,6 @@ var Frontpage = {
 			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( $.trim( text ) === '' ) {
-				
 				alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].focus();
