@@ -19,10 +19,11 @@
 			$jsarr2 .= "'" . $mutual_friend[ 'user_gender'] . "', ";
 		}
 		$jsarr .= "'" . $user->Name . "' ];";
-		$jsarr2 .= "'" . $user->Gender . "' ];Tag.virgin=false;";
+		$jsarr2 .= "'" . $user->Gender . "' ];";
 			
-		echo w_json_encode( $jsarr );
-		echo w_json_encode( $jsarr2 );
+		echo $jsarr;
+		echo $jsarr2;
+		?>Tag.virgin=false;<?php
 		echo $callmeback;
 		?>( false, '', true );<?php
 	}
