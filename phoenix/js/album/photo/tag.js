@@ -23,13 +23,7 @@ var Tag = {
 	resized : false, // true when the tag is resized
     run : false, // when tagging action is enabled
 	prestart : function( kollitaria, keyword, aux ) {
-		var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
-        find( 'span' ).remove().end()
-		.get( 0 );
 		if ( Tag.virgin ) {
-			var loading = document.createElement( 'span' );
-			loading.appendChild( document.createTextNode( "Φόρτωση..." ) );
-			ul.appendChild( loading );
 			Coala.Cold( 'album/photo/tag/getstuff', { 'callmeback' : Tag.start } );
 		}
 		else {
@@ -43,7 +37,6 @@ var Tag = {
 			return;
 		}
 		var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
-        find( 'span' ).remove().end()
 		.get( 0 );
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
