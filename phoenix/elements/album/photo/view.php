@@ -18,20 +18,9 @@
             $image = New Image( $id );
             $theuser = $image->User;
 			
-            $relfinder = New FriendRelationFinder();
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
-                $mutual = $relfinder->FindMutualByUser( $user );
-                $jsarr = "Tag.friends = [ ";
-				$jsarr2 = "Tag.genders = [ ";
-                foreach( $mutual as $mutual_friend ) {
-                    $jsarr .= "'" . $mutual_friend[ 'user_name' ] . "', ";
-					$jsarr2 .= "'" . $mutual_friend[ 'user_gender'] . "', ";
-                }
-                $jsarr .= "'" . $user->Name . "'";
-				$jsarr2 .= "'" . $user->Gender . "' ];";
-                $jsarr .= " ];Tag.photoid = " . $id . ";";
-                
-                $page->AttachInlineScript( $jsarr . $jsarr2 );
+                $jsarr = "Tag.photoid = " . $id . ";";
+                $page->AttachInlineScript( $jsarr );
 				
             }
             
@@ -148,13 +137,14 @@
 	                        }
 	                        ?></a>
 						</li><?php
+						$relfinder = New FriendRelationFinder();
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
                             && $user->HasPermission( PERMISSION_TAG_CREATE )
 							&& ( $theuser->Id == $user->Id || 
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
-								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.prestart( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
 					}
@@ -205,13 +195,14 @@
 	                        echo $image->Id;
 	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 						</li><?php
+						$relfinder = New FriendRelationFinder();
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
                             && $user->HasPermission( PERMISSION_TAG_CREATE )
 							&& ( $theuser->Id == $user->Id || 
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
-								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.prestart( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE && $user->Id == $theuser->Id ) {
