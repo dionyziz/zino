@@ -66,7 +66,7 @@ var Frontpage = {
 			$( 'div.notifications div.expand a' ).click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
 					$( 'div.notifications div.expand a' )
-					.css( "background-position" , "0 -1445px" )
+					.css( "background-position" , "4px -1440px" )
 					.attr( {
 						title : 'Απόκρυψη'
 					} );
@@ -74,7 +74,7 @@ var Frontpage = {
 				}
 				else {
 					$( 'div.notifications div.expand a' )
-					.css( "background-position" , "0 -1257px" )
+					.css( "background-position" , "4px -1252px" )
 					.attr( {
 						title : 'Εμφάνιση'
 					} );

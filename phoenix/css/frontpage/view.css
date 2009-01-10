@@ -132,7 +132,7 @@ div.frontpage div.notifications {
     z-index: 2;
 }
 div.frontpage div.notifications div.expand a {
-    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1445px;
+    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 4px -1440px;
     padding: 0 0 0 18px;
 }
 div.frontpage div.notifications h3 {
