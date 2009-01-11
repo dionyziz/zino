@@ -162,6 +162,7 @@ var pms = {
 		var span = document.createElement( 'span' );
 		$( span ).append( document.createTextNode( ' ' ) );
         $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( span ).append( document.createTextNode( name ) );
+		return false;
     }
     ,
 	NewMessage : function( touser , answertext ) {
@@ -211,6 +212,7 @@ var pms = {
             receiversinput.select();
         }
 		pms.writingnewpm = true;
+		return false;
 	}
 	,
 	SendPm : function() {
