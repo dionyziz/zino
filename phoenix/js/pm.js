@@ -54,6 +54,7 @@ var pms = {
 			Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
 			pms.UpdateUnreadPms( -1 );
 		}
+		return false;
 	}
 	,
 	NewFolder : function() {
@@ -70,11 +71,6 @@ var pms = {
 		$( newfolderdiv ).addClass( 'folder' )
 		.addClass( 'newfolderactive' )
 		.addClass( 'top' );
-		/*
-		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
-		var newfolderlink = newfolderdivlinks[ 0 ];
-		$( newfolderlink ).css( "color" , "#aaa8a8" ).css( "font-weight" , "bold" );
-		*/
 		if ( pms.activefolder === 0 ) {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
@@ -245,7 +241,7 @@ var pms = {
 			pms.WriteNoPms();
 			Coala.Warm( 'pm/delete' , { pmid : pmid, folderid : folderid } );
 		} );
-		
+		return false;
 	},
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one

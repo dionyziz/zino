@@ -20,7 +20,7 @@
                 }
                 ?>><?php
                     if ( !$pm->IsSender( $user ) ) {
-                        ?><a href="" class="deletelink" title="Διαγραφή" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
+                        ?><a href="" class="s_delete" title="Διαγραφή" onclick="return pms.DeletePm( this.parentNode.parentNode, '<?php
                         echo $pm->Pmid;
                         ?>', <?php
                         echo $folder->Id;
@@ -31,12 +31,12 @@
                         else {
                             ?>false<?php
                         }
-                        ?>' );return false"> </a><?php
+                        ?>' )"> </a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
                         ?><span class="unreadpm"> </span><?php
                     }
-                    ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
+                    ?><div class="infobar_info" onclick="return pms.ExpandPm( this, <?php
                     if ( !$pm->IsSender( $user ) ) {
                         if ( !$pm->IsRead() ) {
                             ?> true<?php
@@ -52,7 +52,7 @@
                     echo $pm->Pmid;
                     ?>, <?php
                     echo $folder->Id;
-                    ?> );return false"><?php
+                    ?> )"><?php
                     if ( $pm->IsSender( $user ) ) {
                         ?> προς τ<?php
                         $pmuser = $pm->Receivers;
@@ -66,8 +66,6 @@
                         ?>ους<?php
                     }
                     else if ( is_array( $pmuser ) ) { /* one receiver, no need for array */
-                        // w_assert( isset( $pmuser[ 0 ] ) );
-
                         w_assert( isset( $pmuser[ 0 ] ) );
                         $pmuser = $pmuser[ 0 ];
                         w_assert( is_object( $pmuser ) );
