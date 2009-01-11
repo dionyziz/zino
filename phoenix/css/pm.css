@@ -130,7 +130,7 @@ div.message div.lowerline {
 	position: relative;
 }
 div.message div.lowerline div.leftcorner {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -1144px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -1275px -122px;
 	height: 13px;
 	width: 10px;
 	float: left;
@@ -152,6 +152,7 @@ div.message div.toolbar {
 	right: 9px;
 	bottom: 3px;
 }
+/*
 div.message div.toolbar div.left {
 	display: inline;
 	background: #dedddb url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1282px;
@@ -170,6 +171,7 @@ div.message div.toolbar div.middle2 a {
 div.message div.toolbar div.middle2 a:hover {
 	color: #000;
 }
+
 div.message div.toolbar div.right{
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1348px;
 	float: left;
@@ -180,6 +182,7 @@ div.message div.toolbar ul li  a:hover {
 	text-decoration: none;
 	color: black;
 }
+*/
 a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:hover {
 	text-decoration: none;
 	padding-top: 5px;
