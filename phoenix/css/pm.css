@@ -191,11 +191,11 @@ div.hoverfolder {
 	background: #f4f5f7;
 }
 form#newfolderform a.acceptcreate {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -746px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -203px -1504px;
 	padding-left: 16px;
 }
 form#newfolderform a.cancelcreate {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -806px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -739px -1779px;
 	padding-left: 16px;
 	margin-left: 5px;
 }
