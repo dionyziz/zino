@@ -133,4 +133,7 @@ div.header a.search {
     right: 10px;
     z-index: 10;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1828px;
+	display: block;
+	width: 38px;
+	height: 37px;
 }
