@@ -47,8 +47,8 @@ a[class^="s_"] {
 	padding: 0 0 0 16px;
 }
 .s_clock {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -469px -1438px;
-	padding-left: 16px;
+	background-position: -739px -1957px;
+	padding: 0 0 0 16px;
 }
 .s_addtag {
 	background-position: -733px -512px;
