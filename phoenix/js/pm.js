@@ -80,8 +80,7 @@ var pms = {
 			pms.activefolder = pms.node;
 		}
 		pms.activefolder.className = '';
-		$( pms.activefolder ).addClass( 'folder' )
-		.addClass( 'noactivefolder' );
+		$( pms.activefolder ).addClass( 'folder' );
 		if ( pms.activefolder != pms.node ) {
 			$( pms.activefolder ).addClass( 'top' );
 		}

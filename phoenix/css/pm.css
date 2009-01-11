@@ -45,16 +45,18 @@ div.activefolder {
 	background: #d6e6f7;
 }
 div.newfolder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1863px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1051px;
 }
 div.newfolderactive {
 	font-weight: bold;
 	background: #d6e6f7;
 }
+/*
 div.newfolderactive span {
 	font-weight: bold;
 	background: #d6e6f7 url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -469px -674px;
 }
+*/
 div.leftbar a.newpm span {
 	margin-right: 2px;
 	padding: 2px 0 2px 14px;
