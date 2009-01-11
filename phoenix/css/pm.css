@@ -192,10 +192,11 @@ div.hoverfolder {
 }
 form#newfolderform a.acceptcreate {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1504px;
-	padding-left: 16px;
+	padding: 0 0 0 16px;
 }
 form#newfolderform a.cancelcreate {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1779px;
-	padding-left: 16px;
-	margin-left: 5px;
+	padding: 0 0 0 16px;
+	margin: 0 0 0 5px;
+	vertical-align: -1px;
 }
