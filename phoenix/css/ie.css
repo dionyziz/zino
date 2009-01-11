@@ -32,3 +32,6 @@ div.header h1 {
 div.header div.eof {
 	background: url('http://static.zino.gr/phoenix/banner-end2.jpg') no-repeat;
 }
+div.header a.search {
+	background: url('http://static.zino.gr/phoenix/glass.jpg') no-repeat;
+}
