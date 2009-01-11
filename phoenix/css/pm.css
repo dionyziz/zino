@@ -98,11 +98,7 @@ div.message div.infobar {
 }
 div.message div.infobar a.s_delete {
 	float: right;
-	/*
-	padding: 0 0 0 12px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
-	*/
-	margin-top: 1px;
+	margin: 1px 0 0 0;
 	color: transparent;
 }
 div.message div.infobar span.unreadpm {
@@ -135,7 +131,6 @@ div.message div.lowerline div.leftcorner {
 	width: 10px;
 	float: left;
 }
-
 div.message div.lowerline div.middle {
 	background: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
 	height: 13px;
