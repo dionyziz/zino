@@ -137,3 +137,6 @@ div.header a.search {
 	width: 38px;
 	height: 37px;
 }
+div.header a.search:hover {
+	text-decoration: none;
+}
