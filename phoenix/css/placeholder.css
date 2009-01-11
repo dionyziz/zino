@@ -1,0 +1,51 @@
+div.header {
+	width: 100%;
+	padding: 15px 0 20px 0;
+	background: #fff url('http://static.zino.gr/phoenix/copybg_rev.jpg') repeat-x 0 10px;
+	margin-top: 50px;
+}
+div.content {
+	margin-top: 50px;
+}
+div.content div.imag {
+	float: left;
+	margin: 10px;
+	margin-top: 0px;
+	margin-left: 100px;
+}
+div.content div.imag img {
+	border-width: 0;
+}
+div.content div.other {
+	margin-top: 10px;
+	margin-left: 270px;
+}
+div.content div.other a {
+	text-decoration: none;
+	color: #2060aa;
+}
+div.content div.other span {
+	text-decoration: underline;
+}
+div.footer {
+	width: 100%;
+	padding: 15px 0 20px 0;
+	background: #fff url('http://static.zino.gr/phoenix/copybg.jpg') repeat-x 0 10px;
+	margin-top: 50px;
+}
+
+div.footer div.copy {
+	width: 100%;
+	color: #aaa;
+	font-size: 80%;
+	text-align: center;
+	margin-top: 15px;
+}
+div.footer div.copy a {
+	color: #999;
+	text-decoration: none;
+}
+div.footer div.copy a:hover {
+	color: #666;
+	text-decoration: underline;
+}
