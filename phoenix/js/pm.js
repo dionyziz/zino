@@ -160,7 +160,7 @@ var pms = {
             'newname': name
         } );
 		var span = document.createElement( 'span' );
-		$( span ).append( document.createTextNode( '  ' ) );
+		$( span ).append( document.createTextNode( ' ' ) ).css( 'padding-left' , '16px' );
         $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( span ).append( document.createTextNode( name ) );
 		return false;
     }
