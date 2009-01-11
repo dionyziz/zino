@@ -132,4 +132,5 @@ div.header a.search {
     top: 27px;
     right: 10px;
     z-index: 10;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1828px;
 }
