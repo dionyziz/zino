@@ -11,16 +11,18 @@ var pms = {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
+		/*
 		pms.activefolder.className = '';
-		$( pms.activefolder ).addClass( 'folder' )
-		.addClass( 'noactivefolder' );
+		$( pms.activefolder ).addClass( 'folder' );
+		*/
 		if ( pms.activefolder != pms.node ) {
 			//pms.activefolder.className = 'folder top';
 			$( pms.activefolder ).addClass( 'top' );
 		}
+		/*
 		folder.className = '';
-		$( folder ).addClass( 'activefolder' )
-		.addClass( 'folder' );
+		$( folder ).addClass( 'folder' );
+		*/
 		if ( folder != pms.node ) {
 			//folder.className = 'activefolder top';
 			$( folder ).addClass( 'top' );

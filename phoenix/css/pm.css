@@ -38,16 +38,11 @@ div.folder {
 div.folder span {
 	padding-left: 12px;
 	margin: 0 2px;
-}
-div.noactivefolder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1797px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -744px -2034px;
 }
 div.activefolder {
 	font-weight: bold;
 	background: #d6e6f7;
-}
-div.activefolder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -605px;
 }
 div.newfolder span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1863px;
