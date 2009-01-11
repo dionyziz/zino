@@ -9,9 +9,7 @@
             ?><div class="header" id="banner">
             <h1><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
-?>"><img src="<?php
-            echo $rabbit_settings[ 'imagesurl' ];
-            ?>zino.png" alt="Zino" /></a></h1>
+?>">&nbsp;</a></h1>
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
             <?php   
                 if ( !$user->Exists() ) {
@@ -65,9 +63,7 @@
                 ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout">Έξοδος<span>&nbsp;</span></a></form><?php
             }
             ?>
-            <a class="search" href="?p=search"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-            ?>glass.jpg" alt="Αναζήτηση" title="Αναζήτησε Φίλους!" /></a>
+            <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
             <div class="eof"></div>
             </div><?php
         }

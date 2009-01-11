@@ -29,10 +29,8 @@ div.header h1 {
     _top: 3px;
 	left: 0;
 	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -512px;
-	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
-	background-position: 0 0;
-	*/
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1645px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');*/
 }
 div.header div.eof {
 	display: inline;
@@ -45,14 +43,18 @@ div.header div.eof {
     width: 71px;
     height: 50px;
 	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -613px;
-	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
-	background-position: 0 0;
-	*/
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1877px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');*/
 }
-div.header h1 img {
-	margin: 5px 0 0 5px;
+div.header h1 a {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -735px -1674px;
+	display: block;
+	height: 48px; 
+	width: 92px;
 }
+div.header h1 a:hover {
+	text-decoration: none;
+} 
 div.header ul {
 	display: block;
 	padding: 10px;
@@ -72,18 +74,18 @@ div.header ul li a {
 	padding-left: 0;
 }
 div.header ul li a.messages span {
-	padding-left: 10px;
+	padding: 0 0 8px 11px;
 	margin-right: 4px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -755px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -980px;
 }
 div.header ul li a.settings span {
-	padding: 0 0 3px 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -261px;
+	padding: 0 0 8px 15px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -50px;
 }
-div.header ul li a.login span {
-	padding-left: 12px;
+div.header ul li a.login {
+	padding-left: 17px;
 	margin-right: 1px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -64px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -644px;
 	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
 }
 div.header ul li a.profile img {
@@ -91,18 +93,10 @@ div.header ul li a.profile img {
     margin-right: 6px;
     border: 1px solid #eee;
 }
-div.header ul li a.register span {
-	padding-left: 12px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -950px;
-	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
-	
+div.header ul li a.register {
+	padding-left: 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1379px;	
 }
-/*
-div.header ul li a.icon {
-	background-repeat: no-repeat;
-	background-position: left;
-}
-*/
 div.header ul li a.self {
 	padding-left: 30px;
 }
@@ -119,9 +113,10 @@ div.header a.logout {
 	top: 6px;
 }
 div.header a.logout span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -429px;
-	padding: 17px 0 0 15px;
-	margin-left: 2px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1633px;
+	padding: 3px 10px 0 0;
+	margin: 0 0 0 5px;
+	vertical-align: -4px;
 }
 div.header a.nohover:hover {
 	text-decoration: none;
@@ -137,4 +132,11 @@ div.header a.search {
     top: 27px;
     right: 10px;
     z-index: 10;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1828px;
+	display: block;
+	width: 38px;
+	height: 37px;
+}
+div.header a.search:hover {
+	text-decoration: none;
 }
