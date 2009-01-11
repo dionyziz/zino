@@ -36,6 +36,7 @@ var pms = {
 		pms.writingnewpm = false;
 		pms.ShowAnimation( 'Παρακαλώ περιμένετε...' );
 		pms.ShowFolder( folder , folderid );
+		return false;
 	}
 	,
 	ExpandPm : function( pmdiv , notread , pmid, folderid ) {
@@ -158,7 +159,9 @@ var pms = {
             'folderid': folderid,
             'newname': name
         } );
-        $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
+		var span = document.createElement( 'span' );
+		$( span ).append( document.createTextNode( ' ' ) );
+        $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( span ).append( document.createTextNode( name ) );
     }
     ,
 	NewMessage : function( touser , answertext ) {
