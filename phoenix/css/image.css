@@ -5,6 +5,7 @@ span.imageview > span {
     background: #d8d8d8;
     font-weight: bold;
     opacity: 0.8;
+	filter: alpha(opacity=80);
     position: absolute;
     bottom: 4px;
     right: 1px;
