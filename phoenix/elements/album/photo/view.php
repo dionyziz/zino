@@ -5,6 +5,7 @@
             global $page;
             global $libs;
             global $water;
+            global $rabbit_settings;
             
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
