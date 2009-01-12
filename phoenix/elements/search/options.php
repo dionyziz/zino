@@ -6,7 +6,7 @@
         ) {
             global $page;
 ?>
-        <h2>Αναζήτηση ατόμων</h2>
+        <h2>Αναζήτησε άτομα</h2>
         <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
