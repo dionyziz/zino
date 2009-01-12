@@ -1,6 +1,6 @@
 All source code files in this repository, unless otherwise stated, are
 
-Copyright (c) 2005 - 2008, Kamibu.
+Copyright (c) 2005 - 2009, Kamibu.
 All rights are reserved.
 
 The copyright and property of the source code, ideas, and all other trade secrets found in this 
