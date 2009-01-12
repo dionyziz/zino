@@ -233,14 +233,18 @@
                             ?><div class="left arrow">
                                 <a href="?p=photo&amp;id=<?php
                                 echo $photos[ $pivot - 1 ]->Id;
-                                ?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
+                                ?>" class="nav"><img src="<?php
+                                echo $rabbit_settings[ 'imagesurl' ];
+                                ?>previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
                             </div><?php
                         }
                         if ( $pivot + 1 < count( $photos ) && count( $photos ) > 1 ) {
                             ?><div class="right arrow">
                                 <a href="?p=photo&amp;id=<?php
                                 echo $photos[ $pivot + 1 ]->Id;
-                                ?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
+                                ?>" class="nav"><img src="<?php
+                                echo $rabbit_settings[ 'imagesurl' ];
+                                ?>next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
                             </div><?php
                         }
                         ?><ul><?php    
