@@ -31,14 +31,15 @@ div#search div.findim {
 	text-align: center;
 }
 div#search div.findim ul li {
-	float: left;
 }
 div#search div.findim ul li a {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
+	/*
 	display: block;
 	width: 120px;
 	height: 120px;
+	*/
 }
 div.findim ul li a.msn {
 	background-position: -1276px -270px; 
