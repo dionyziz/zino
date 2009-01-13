@@ -1,6 +1,6 @@
 <?php    
 	class ElementSearchImCredentials extends Element {
-        public function Render( $im ) {
+        public function Render( tString $im ) {
 			global $rabbit_settings;
 			
 			$im = $im->Get();
