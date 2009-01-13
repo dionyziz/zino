@@ -7,10 +7,10 @@
         $pass = $pass->Get();
 
         $state = GetContacts( $email, $pass, "hotmail" );
-        if( $state == false ) {
-            return Redirect( '?p=banlist' );                
+        if( $state == true ) {
+            return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );                 
         }
         else {       
-            return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );    
+            return $state;
         }
     }
