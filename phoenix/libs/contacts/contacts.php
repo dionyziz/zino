@@ -9,7 +9,7 @@
         $providers[ "gmail" ] = true;
         $providers[ "yahoo" ] = true;
         if( $providers[ $provider ] == false ) {
-            return false;
+            return 'ERROR_PROVIDER';
         }
         
         $inviter = new OpenInviter();
@@ -17,14 +17,11 @@
         $inviter->startPlugin( $provider );
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
-            $internal=$inviter->getInternalError();
-		    /*$ers['login']=($internal?$internal:"Login failed. Please check the email and password you have provided and try again later");*/
-            return $internals;
             return 'ERROR_CREDENTIALS';
         }
         $contacts = $inviter->getMyContacts();
         if( $contacts === false  ) {
-            return "ERROR_CONTACTS";
+            return 'ERROR_CONTACTS';
         }
         $inviter->logout();
         $inviter->stopPlugin();
