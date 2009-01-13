@@ -142,9 +142,9 @@
 		<div class="findim">
 			<h2>ή αναζήτησε φίλους από</h2>
 			<ul>
-				<li><a href="" class="msn"></a></li>
-				<li><a href="" class="gmail"></a></li>
-				<li><a href="" class="yahoo"></a></li>
+				<li><a href="?p=find&amp;im=msn" class="msn"></a></li>
+				<li><a href="?p=find&amp;im=gmail" class="gmail"></a></li>
+				<li><a href="?p=find&amp;im=yahoo" class="yahoo"></a></li>
 			</ul>
 		</div>
 		<div class="eof"></div><?php
