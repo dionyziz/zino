@@ -30,16 +30,16 @@ div#search div.ybubble div.body {
 div#search div.findim {
 	text-align: center;
 }
+div#search div.findim ul {
+	height: 120px;
+}
 div#search div.findim ul li {
+	display: inline;
 }
 div#search div.findim ul li a {
 	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
 	background-repeat: no-repeat;
-	/*
-	display: block;
-	width: 120px;
-	height: 120px;
-	*/
+	padding: 120px 0pt 0pt 120px; 
 }
 div.findim ul li a.msn {
 	background-position: -1276px -270px; 
