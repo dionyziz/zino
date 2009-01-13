@@ -110,10 +110,8 @@
                         ?>
                     </select>
                 </div>
-
                 <div class="search">
                     <h3>Σεξουαλικές προτιμήσεις:</h3>
-                    
                     <select name="orientation"><?php
                         $orientations = array(
                             '' => 'Οτιδήποτε',
@@ -140,7 +138,15 @@
             </div>
             <i class="bl"></i>
             <i class="br"></i>
-        </div><?php
+        </div>
+		<div class="findim">
+			<h2>ή αναζήτησε φίλους από</h2>
+			<ul>
+				<li><a href="" class="msn"></a></li>
+				<li><a href="" class="gmail"></a></li>
+				<li><a href="" class="yahoo"></a></li>
+			</ul>
+		</div><?php
         }
     }
 ?>

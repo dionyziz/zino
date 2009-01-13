@@ -11,7 +11,7 @@ div#search div.ybubble form input.submit {
     width: 110px;
     height: 32px;
     padding: 0;
-    background: transparent url('http://static.zino.gr/phoenix/s_button.png') no-repeat top;
+    background: transparent url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -699px;
     position: relative;
     top: 15px;
 }
@@ -26,4 +26,23 @@ div#search div.ybubble form div.search {
 }
 div#search div.ybubble div.body {
     padding: 10px 0 0 0;
+}
+div#search div.findim {
+	text-align: center;
+}
+div#search div.findim ul li {
+	float: left;
+}
+div#search div.findim ul li a {
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-repeat: no-repeat;
+}
+div.findim ul li a.msn {
+	background-position: -1276px -186px;
+}
+div.findim ul li a.gmail {	
+	background-position: 
+}
+div.findim ul li a.yahoo {
+	background-position: 
 }
