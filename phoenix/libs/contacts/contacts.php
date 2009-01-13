@@ -15,19 +15,16 @@
         $inviter = new OpenInviter();
         $inviter->getPlugins();
         $inviter->startPlugin( $provider );
-        $internal=$inviter->getInternalError();
-        if( $internal ) {
-            return $internal;
-        }
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
             $internal=$inviter->getInternalError();
 		    /*$ers['login']=($internal?$internal:"Login failed. Please check the email and password you have provided and try again later");*/
-            return $internal;
+            return $internals;
+            return 'ERROR_CREDENTIALS';
         }
         $contacts = $inviter->getMyContacts();
         if( $contacts === false  ) {
-            return "nocontacts";
+            return "ERROR_CONTACTS";
         }
         $inviter->logout();
         $inviter->stopPlugin();
