@@ -146,7 +146,8 @@
 				<li><a href="" class="gmail"></a></li>
 				<li><a href="" class="yahoo"></a></li>
 			</ul>
-		</div><?php
+		</div>
+		<div class="eof"></div><?php
         }
     }
 ?>
