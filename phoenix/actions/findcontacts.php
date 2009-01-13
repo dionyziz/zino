@@ -7,7 +7,7 @@
         $pass = $pass->Get();
 
         $state = GetContacts( $email, $pass, "hotmail" );
-        if( $state == true ) {
+        if( $state === true ) {
             return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );                 
         }
         else {       
