@@ -4,12 +4,16 @@
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
         
-        $providers = array();//check if valid provider
+        /*$providers = array();//check if valid provider
         $providers[ "hotmail" ] = true;
         $providers[ "gmail" ] = true;
         $providers[ "yahoo" ] = true;
         if( $providers[ $provider ] == false ) {
             return 'ERROR_PROVIDER';
+        }*/
+        
+        if ( empty( $username ) || empty( $pass ) ) {//check if the password or the username are empty
+            return 'ERROR_CREDENTIALS';
         }
         
         $inviter = new OpenInviter();
@@ -86,7 +90,7 @@ http://$user->Name.zino.gr/
                     $not_members[] = $sample->Mail;
                 }
             }
-            return $not_members;
+            return $not_members;//<-RETURN array[] = email
         }
         
         public function FindAllZinoMembersByUseridAndMail( $userid, $email ) {
@@ -101,10 +105,10 @@ http://$user->Name.zino.gr/
             }
             $mailfinder = new UserProfileFinder();
             $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
-            return $members;
+            return $members;//<-RETURN array[ 'profile_email' ] = 'profile_userid'
         }
         
-        public function FindNotZinoFriendMembersByUseridAndMail( $userid, $email ) {
+        public function FindNotFriendsZinoMembersByUseridAndMail( $userid, $email ) {
             global $libs;
             global $user;
             
@@ -125,7 +129,7 @@ http://$user->Name.zino.gr/
                     $notzino_friends[ $key ] = $val;
                 }
             }
-            return $notzino_friends;
+            return $notzino_friends;//<-RETURN array[ 'profile_email' ] = 'profile_userid'
         }
     }
     

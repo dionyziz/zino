@@ -28,7 +28,7 @@
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
                 $findemall  = new ContactFinder();//<-TODO check if none
-                $NotZinoFriends = $findemall->FindNotZinoFriendMembersByUseridAndMail( $user->Id, $email );
+                $NotZinoFriends = $findemall->FindNotFriendsZinoMembersByUseridAndMail( $user->Id, $email );
                        
                 ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
                 ?><form method="post" action="do/contacts/addfriends"><?php

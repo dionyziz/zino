@@ -42,7 +42,7 @@
             while ( $row = $res->FetchArray() ) {
                 $users[ $row[ 'profile_email' ] ] = $row[ 'profile_userid' ];
             }
-            return $users;
+            return $users;//<-return array[ 'profile_email' ] = 'profile_userid'
         }
     }
 
