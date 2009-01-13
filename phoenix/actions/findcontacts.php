@@ -8,10 +8,9 @@
 
         $state = GetContacts( $email, $pass, "hotmail" );
         if( $state === true ) {
-            return Redirect( '?p=banlist' );                
+            return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );    
         }
         else {       
-            return $state;
-            return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );    
+            echo '<p>' .  $state . '</p>';
         }
     }
