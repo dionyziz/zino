@@ -95,6 +95,7 @@
                 $offset = 0;
                 $exists = false;
                 do {
+                    die( $this->Exists() );
                     $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
                     foreach ( $someOfTheRest as $a ) {
                         if ( strtolower( $a->Url ) == strtolower( $url ) ) {
