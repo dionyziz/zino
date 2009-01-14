@@ -5,7 +5,7 @@ var Im = {
 		
 		$( 'div#im div.cred div.next a' ).click( function() {
 			$( 'div#im div.cred div.wrong div.w' ).fadeIn( 400 );
-		
+			return false;
 		} );
 	}
 };
