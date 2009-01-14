@@ -32,6 +32,9 @@ div#im div.cred div.wrong {
 div#im div.cred div.wrong {
 	font-size: 90%;
 	font-weight: 700;
+	height: 18px;
+}
+div#im div.cred div.wrong > div {
 	display: none;
 }
 div#im div.cred div.next {

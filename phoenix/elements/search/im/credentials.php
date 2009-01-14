@@ -35,7 +35,9 @@
 						</div>
 					</div>
 					<div class="wrong">
-						<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
+						<div>
+							<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
+						</div>
 					</div>
 					<div class="next">
 						<a href="" class="button">Επόμενο &raquo;</a>
