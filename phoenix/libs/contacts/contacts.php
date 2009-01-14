@@ -21,8 +21,8 @@
             $inviter->getPlugins();
             $inviter->startPlugin( $provider );
         }
-        catch ( Exception $e ) {
-            throw New Exception( 'ERROR_INITIALLIZING' );
+        catch ( ErrorException $e ) {
+            throw New ErrorException( 'ERROR_INITIALLIZING' );
             return 'ERROR_INITIALLIZING';            
         }
         
