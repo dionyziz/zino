@@ -1,0 +1,9 @@
+div#id {
+	text-align: center;
+}
+div#id div.cred {
+	border: 1px solid #dad9d9;
+}
+div#id div.cred span.credin {
+	padding: 0 5px 0 0;
+}

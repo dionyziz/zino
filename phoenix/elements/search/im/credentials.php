@@ -9,10 +9,10 @@
 				<h2>Βρες τους φίλους σου στο <?php
 				echo $rabbit_settings[ 'applicationname' ];
 				?></h2>
-				<div class="">
+				<div class="cred">
 					<h3>Δώσε το email σου και τον κωδικό πρόσβασης</h3>
 					<div>
-						<span>Εmail</span><input type="text" />@
+						<span class="credin">Εmail</span><input type="text" />@
 						<select><?php
 						if ( $im == "msn" ) {
 							?><option value="hotmail.com" selected="selected">hotmail.com</option>
@@ -30,7 +30,10 @@
 						?></select>
 					</div>
 					<div>
-						<span>Κωδικός</span><input type="text" />
+						<span class="credin">Κωδικός</span><input type="text" />
+					</div>
+					<div class="wrong">
+						<span class="invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 					</div>
 					<div>
 						<a class="button">Επόμενο &raquo;</a>
