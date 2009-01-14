@@ -12,8 +12,8 @@
 				<div class="cred">
 					<h3>Δώσε το email σου και τον κωδικό πρόσβασης</h3>
 					<div class="empwd">	
-						<div>
-							<span class="credin">Εmail</span><input type="text" />@
+						<div class="mail">
+							<span class="credin1">Εmail</span><input type="text" />@
 							<select><?php
 							if ( $im == "msn" ) {
 								?><option value="hotmail.com" selected="selected">hotmail.com</option>
@@ -30,14 +30,14 @@
 							}
 							?></select>
 						</div>
-						<div>
-							<span class="credin">Κωδικός</span><input type="text" />
+						<div class="pwd">
+							<span class="credin2">Κωδικός</span><input type="text" />
 						</div>
 					</div>
 					<div class="wrong">
 						<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 					</div>
-					<div>
+					<div class="next">
 						<a href="" class="button">Επόμενο &raquo;</a>
 					</div>
 				</div>
