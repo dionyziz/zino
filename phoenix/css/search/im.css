@@ -32,6 +32,7 @@ div#im div.cred div.wrong {
 div#im div.cred div.wrong {
 	font-size: 90%;
 	font-weight: 700;
+	display: none;
 }
 div#im div.cred div.next {
 	margin: 20px 0 0 0;
