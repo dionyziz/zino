@@ -22,7 +22,7 @@
             $inviter->startPlugin( $provider );
         }
         catch ( Exception $e ) {
-            return 'ERROR_INITIALLIZING';
+            throw New Exception( 'ERROR_INITIALLIZING' );//return 'ERROR_INITIALLIZING';
         }
         
         $state = $inviter->login( $username, $pass );
