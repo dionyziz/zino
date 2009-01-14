@@ -302,41 +302,44 @@ div#pwdmodal div.save {
     margin: 0 0 20px 0;
 	text-align: center;
 }
-div.settings div.tabs form#settingsinfo label { 
+form#settingsinfo label { 
 	font-weight: bold;
 }
-div.settings div.tabs form#settingsinfo div.email label {
+orm#settingsinfo div.email label {
     font-weight: normal;
     float: none;
     margin: 2px 0;
 }
-div.settings form#settingsinfo div.changepwdl {
+div#email span span.s_invalid {
+	vertical-align: 3px;
+}
+form#settingsinfo div.changepwdl {
     display:block;
 }
-div.settings form#settingsinfo div.changepwdl label {
+form#settingsinfo div.changepwdl label {
     width: 400px;
     text-align: center;
 }
-div.settings div.tabs form#settingsinfo div.barfade {
+div.tabs form#settingsinfo div.barfade {
     width: 400px;
     clear: left;
 }
-div.settings div.tabs form#settingsinfo div.emailbarfade { 
+form#settingsinfo div.emailbarfade { 
     margin: 10px 0;
 }
-div.settings div.tabs form#settingsinfo div.pwdbarfade {
+form#settingsinfo div.pwdbarfade {
     margin: 35px 0 0 0;
 }
-div.settings div.tabs form#settingsinfo span.notifyme {
+form#settingsinfo span.notifyme {
 	font-weight: bold;
 	clear: left;
 	padding-top: 30px;
 	display: block;
 }
-div.settings div.tabs form#settingsinfo div.setting table thead tr th {
+form#settingsinfo div.setting table thead tr th {
 	font-weight: 400;
 }
-div.settings div.tabs form#settingsinfo div.setting table tbody tr th {
+form#settingsinfo div.setting table tbody tr th {
 	font-weight: 400;
 }
 div.settings div.explanation {
