@@ -1,6 +1,9 @@
 <?php
 
     global $libs;
+    global $constructed;
+
+    $constructed = 0;
     $libs->Load( 'image/image' );
 
     class AlbumFinder extends Finder {
@@ -63,6 +66,14 @@
                     break;
                 default:
                     parent::__set( $key, $value );
+            }
+        }
+        public function OnConstruct() {
+            global $constructed;
+
+            ++$constructed;
+            if ( $constructed == 1 ) {
+            	$this->mPrint = true;
             }
         }
         public function CopyMainImageFrom( $value ) {

@@ -58,7 +58,6 @@
             ++$constructed;
             if ( $constructed == 1 ) {
             	$this->mPrint = true;
-            	echo "this shouldn't be printed more than once\n";
             }
         }
         public function LoadDefaults() {
