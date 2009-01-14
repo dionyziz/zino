@@ -78,7 +78,6 @@
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-                    echo 'lololol';
                     $this->mRelationsCalled = true;
                     break;
                 case TYPE_SCHOOL:
@@ -90,11 +89,8 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
-            if ( $this->mRelationsCalled === true ) {
-                die( 'relations called' );
-            }
-            else {
-                die( 'relations not called' );
+            if ( !$this->mRelationsCalled ) {
+                $this->Relations();
             }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
