@@ -312,6 +312,7 @@ orm#settingsinfo div.email label {
 }
 div#email span span.s_invalid {
 	vertical-align: 3px;
+	padding: 5px 0 0 0;
 }
 form#settingsinfo div.changepwdl {
     display:block;
