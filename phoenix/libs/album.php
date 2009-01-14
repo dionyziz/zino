@@ -73,6 +73,7 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
+            die( 'relations' );
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
@@ -87,6 +88,7 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
+            die( 'onbeforecreate' );
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
