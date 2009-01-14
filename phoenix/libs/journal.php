@@ -80,9 +80,6 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
-// start debugging
-            die( 'User used first' );
-// end debugging
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -179,9 +176,6 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
-// start debugging
-            die( 'User defined first' );
-// end debugging
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
