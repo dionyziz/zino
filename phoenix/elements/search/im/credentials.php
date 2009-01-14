@@ -32,6 +32,9 @@
 					<div>
 						<span>Κωδικός</span><input type="text" />
 					</div>
+					<div>
+						<a class="button">Επόμενο &raquo;</a>
+					</div>
 				</div>
 			</div><?php
 		}
