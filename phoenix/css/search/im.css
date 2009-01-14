@@ -4,7 +4,7 @@ div#im div.cred {
 	border: 1px solid #dad9d9;
 	text-align: center;
 	width: 500px;
-	height: 170px;
+	height: 225px;
 	margin: 20px auto;
 }
 div#im div.cred h3 {
@@ -35,4 +35,12 @@ div#im div.cred div.wrong {
 }
 div#im div.cred div.next {
 	margin: 20px 0 0 0;
+}
+div#im div.cred div.barfade {
+	margin: 20px 0 0 0;
+}
+div#im div.cred > p {
+	padding: 5px; 
+	font-size: 80%; 
+	margin: 0;
 }
