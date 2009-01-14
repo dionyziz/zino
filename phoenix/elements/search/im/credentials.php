@@ -46,8 +46,11 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>ajax-loader.gif" /> Παρακαλώ περιμένετε...
 							</div>
-							<div id="nullcred">
-								<span class="s_invalid">&nbsp;</span>Πρέπει να συμπληρώσεις όλα τα παραπάνω στοιχεία
+							<div id="nullmail">
+								<span class="s_invalid">&nbsp;</span>Πρέπει να συμπληρώσεις το email σου
+							</div>
+							<div id="nullpwd">
+								<span class="s_invalid">&nbsp;</span>Πρέπει να συμπληρώσεις τον κωδικό πρόσβασής σου
 							</div>
 						</div>
 						<div class="next">
