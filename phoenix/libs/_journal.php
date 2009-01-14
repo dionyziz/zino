@@ -1,6 +1,7 @@
 <?php
     global $libs;
 
+	global $constructed;
     $constructed = 0;
 
     $libs->Load( 'bulk' );
