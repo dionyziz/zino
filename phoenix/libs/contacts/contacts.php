@@ -16,9 +16,15 @@
             return 'ERROR_CREDENTIALS';
         }
         
-        $inviter = new OpenInviter();
-        $inviter->getPlugins();
-        $inviter->startPlugin( $provider );
+        try {
+            $inviter = new OpenInviter();
+            $inviter->getPlugins();
+            $inviter->startPlugin( $provider );
+        }
+        catch ( Exception $e ) {
+            return 'ERROR_INITIALLIZING';
+        }
+        
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
             return 'ERROR_CREDENTIALS';
@@ -27,6 +33,7 @@
         if( $contacts === false  ) {
             return 'ERROR_CONTACTS';
         }
+        
         $inviter->logout();
         $inviter->stopPlugin();
         
