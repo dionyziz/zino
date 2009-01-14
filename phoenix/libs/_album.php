@@ -73,6 +73,7 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
+        echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
@@ -82,9 +83,40 @@
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
+            echo "At the end of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function IsDeleted() {
             return $this->Delid > 0;
+        }
+        public function OnBeforeCreate() {
+        echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
+            $url = URL_Format( $this->Name );
+            $length = strlen( $url );
+            $finder = New AlbumFinder();
+            $exists = true;
+            while ( $exists ) {
+                $offset = 0;
+                $exists = false;
+                do {
+                    $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
+                    foreach ( $someOfTheRest as $a ) {
+                        if ( strtolower( $a->Url ) == strtolower( $url ) ) {
+                            $exists = true;
+                            if ( $length < 255 ) {
+                                $url .= '_';
+                                ++$length;
+                            }
+                            else {
+                                $url[ rand( 0, $length - 1 ) ] = '_';
+                            }
+                            break;
+                        }
+                    }
+                    $offset += 100;
+                } while ( count( $someOfTheRest ) && !$exists );
+            }
+            $this->Url = $url;
+            echo "At the end of OnBeforeCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function OnBeforeDelete() {
             global $water;
@@ -202,6 +234,7 @@
             }
         }
         protected function OnCreate() {
+        echo "At the beginning of OnCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             global $libs;
             
             $libs->Load( 'event' );
@@ -218,14 +251,17 @@
             $event->Ownerid = $this->Ownerid;
             $event->Save();
             */
+            echo "At the end of OnCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function LoadDefaults() {
+        echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             global $user;
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
             $this->Userip = UserIp();
+            echo "At the end of LoadDefaults: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
     }
 

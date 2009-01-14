@@ -126,7 +126,7 @@
             }
             return $arr;
         }
-        public function FindPopular( $type = TAG_HOBBIE, $limit = 20 ) {
+        public function FindPopular( $type = TAG_HOBBIE, $limit = 30 ) {
             w_assert( is_int( $limit ) );
             $query = $this->mDb->Prepare(
                 'SELECT
