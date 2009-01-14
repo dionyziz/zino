@@ -61,12 +61,12 @@
             }
         }
         public function LoadDefaults() {
-            echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             global $user;
 
             $this->Userid = $user->Id;
             $this->Created = NowDate();
-            echo "At the end of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the end of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         public function __get( $key ) {
             switch ( $key ) {
@@ -93,7 +93,7 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
-            echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -123,7 +123,7 @@
 
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
-            echo "At the end of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the end of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         public function OnUpdate() {            
             $this->Bulk->Save();
@@ -137,7 +137,7 @@
             $this->Save();
         }
         protected function OnCreate() {
-            echo "At the beginning of OnCreate: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the beginning of OnCreate: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
             global $libs;
 
             $this->OnUpdate();
@@ -155,7 +155,7 @@
 
             Sequence_Increment( SEQUENCE_JOURNAL );
             
-            echo "At the end of OnCreate: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            if ( $this->mPrint === true ) echo "At the end of OnCreate: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         protected function OnBeforeDelete() {
             $this->Delid = 1;
@@ -193,10 +193,10 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
-            // echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            // if ( $this->mPrint === true ) echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
-            // echo "At the end of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && $this->mPrint === true && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            // if ( $this->mPrint === true ) echo "At the end of Relations: " . ( isset( $this->mRelations[ 'User' ] )  && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         public function IsDeleted() {
             return $this->Exists() === false;
