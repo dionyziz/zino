@@ -177,8 +177,8 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
-            die( 'relations' );
             $this->User = $this->HasOne( 'User', 'Userid' );
+            die( 'user defined' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function IsDeleted() {
