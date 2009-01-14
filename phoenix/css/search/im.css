@@ -1,4 +1,5 @@
-div#im {
+div#im  h2 {
+	text-align: center;
 }
 div#im div.cred {
 	border: 1px solid #dad9d9;
