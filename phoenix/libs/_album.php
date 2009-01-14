@@ -102,7 +102,7 @@
         }
         public function OnBeforeCreate() {
         echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
-            $url = URL_Format( $this->Name );
+            /*$url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
             $exists = true;
@@ -126,7 +126,7 @@
                     }
                     $offset += 100;
                 } while ( count( $someOfTheRest ) && !$exists );
-            }
+            }*/
             $this->Url = $url;
             echo "At the end of OnBeforeCreate: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
