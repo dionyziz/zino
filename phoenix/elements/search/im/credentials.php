@@ -40,6 +40,13 @@
 					<div class="next">
 						<a href="" class="button">Επόμενο &raquo;</a>
 					</div>
+					<div class="barfade">
+                        <div class="leftbar"></div>
+                        <div class="rightbar"></div>
+                    </div>
+					<p class="imtos">
+						Δεν αποθηκεύουμε το email και τον κωδικό πρόσβασης και δε γίνεται καμία ενέργεια χωρίς την έγκρισή σου
+					</p>
 				</div>
 			</div><?php
 		}
