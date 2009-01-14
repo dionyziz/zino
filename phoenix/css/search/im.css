@@ -11,10 +11,11 @@ div#im div.cred h3 {
 	font-size: 100%;
 	color: #4875c7;
 	text-align: center;
-	margin: 5px 0 0 0;
+	margin: 5px 0;
 }
 div#im div.cred div.empwd {
 	text-align: left;
+	padding: 0 0 0 100px;
 }
 div#im div.cred div.empwd div.mail span {
 	padding: 0 23px 0 0;
