@@ -33,7 +33,7 @@
 						<span class="credin">Κωδικός</span><input type="text" />
 					</div>
 					<div class="wrong">
-						<span class="invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
+						<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 					</div>
 					<div>
 						<a class="button">Επόμενο &raquo;</a>
