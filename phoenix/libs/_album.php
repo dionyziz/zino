@@ -77,8 +77,8 @@
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
-                    $this->Owner = $this->HasOne( 'User', 'Ownerid' );
                     $this->mRelationsCalled = true;
+                    $this->Owner = $this->HasOne( 'User', 'Ownerid' );
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
@@ -89,8 +89,11 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
-            if ( !$this->mRelationsCalled ) {
-                $this->Relations();
+            if ( $this->mRelationsCalled !== true ) {
+                die( 'not called' );
+            }
+            else {
+                die( 'called' );
             }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
