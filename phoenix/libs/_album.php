@@ -74,11 +74,11 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
-            $this->mRelationsCalled = true;
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+                    $this->mRelationsCalled = true;
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
