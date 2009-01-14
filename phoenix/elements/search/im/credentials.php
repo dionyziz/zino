@@ -11,32 +11,34 @@
 				?></h2>
 				<div class="cred">
 					<h3>Δώσε το email σου και τον κωδικό πρόσβασης</h3>
-					<div>
-						<span class="credin">Εmail</span><input type="text" />@
-						<select><?php
-						if ( $im == "msn" ) {
-							?><option value="hotmail.com" selected="selected">hotmail.com</option>
-							<option value="windowslive.com">windowslive.com</option>
-							<option value="msn.com">msn.com</option>
-							<option value="msn.com">live.com</option><?php
-						}
-						else if ( $im == "gmail" ) {
-							?><option value="gmail.com">gmail.com</option>
-							<option value="googlemail.com">googlemail.com</option><?php
-						}
-						else if ( $im == "yahoo" ) {
-							?><option value="yahoo.com">yahoo.com</option><?php
-						}
-						?></select>
-					</div>
-					<div>
-						<span class="credin">Κωδικός</span><input type="text" />
+					<div class="empwd">	
+						<div>
+							<span class="credin">Εmail</span><input type="text" />@
+							<select><?php
+							if ( $im == "msn" ) {
+								?><option value="hotmail.com" selected="selected">hotmail.com</option>
+								<option value="windowslive.com">windowslive.com</option>
+								<option value="msn.com">msn.com</option>
+								<option value="msn.com">live.com</option><?php
+							}
+							else if ( $im == "gmail" ) {
+								?><option value="gmail.com">gmail.com</option>
+								<option value="googlemail.com">googlemail.com</option><?php
+							}
+							else if ( $im == "yahoo" ) {
+								?><option value="yahoo.com">yahoo.com</option><?php
+							}
+							?></select>
+						</div>
+						<div>
+							<span class="credin">Κωδικός</span><input type="text" />
+						</div>
 					</div>
 					<div class="wrong">
 						<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 					</div>
 					<div>
-						<a class="button">Επόμενο &raquo;</a>
+						<a href="" class="button">Επόμενο &raquo;</a>
 					</div>
 				</div>
 			</div><?php

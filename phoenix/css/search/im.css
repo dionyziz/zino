@@ -1,15 +1,24 @@
 div#im {
-	text-align: center;
 }
 div#im div.cred {
 	border: 1px solid #dad9d9;
-	text-align: left;
+	text-align: center;
+	width: 500px;
+	height: 170px;
+	margin: 20px auto;
 }
 div#im div.cred h3 {
-	text-align: center;
 	font-size: 100%;
 	color: #4875c7;
 }
-div#im div.cred span.credin {
+div#im div.cred div.empwd {
+	text-align: left;
+}
+div#im div.cred div.empwd div span.credin {
 	padding: 0 5px 0 0;
+	font-weight: 700;
+}
+div#im div.cred div.wrong span {
+	font-size: 90%;
+	font-weight: 700;
 }
