@@ -21,14 +21,15 @@
 									?><option value="hotmail.com" selected="selected">hotmail.com</option>
 									<option value="windowslive.com">windowslive.com</option>
 									<option value="msn.com">msn.com</option>
-									<option value="msn.com">live.com</option><?php
+									<option value="live.com">live.com</option><?php
 								}
 								else if ( $im == "gmail" ) {
 									?><option value="gmail.com">gmail.com</option>
 									<option value="googlemail.com">googlemail.com</option><?php
 								}
 								else if ( $im == "yahoo" ) {
-									?><option value="yahoo.com">yahoo.com</option><?php
+									?><option value="yahoo.gr">yahoo.gr</option>
+									<option value="yahoo.com">yahoo.com</option><?php
 								}
 								?></select>
 							</div>
