@@ -80,6 +80,9 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
+// start debugging
+            die( 'User used first' );
+// end debugging
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -155,7 +158,7 @@
             $libs->Load( 'event' );
             $libs->Load( 'comment' );
             $libs->Load( 'adminpanel/adminaction' );
-                        
+
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_JOURNAL, $this->id );
@@ -176,6 +179,9 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
+// start debugging
+            die( 'User defined first' );
+// end debugging
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
