@@ -37,9 +37,10 @@
         return true;
     }    
     
-    function EmailFriend( $toemail ) {
-            global $user;
-            
+    function EmailFriend( $emails ) {
+        global $user;
+    
+        foreach ( $emails as $toemail ) {    
             $parts = array();
             $parts = explode( '@', $toemail );
             $toname = $parts[ 0 ];            
@@ -58,7 +59,8 @@ http://$user->Name.zino.gr/
             $fromname = 'Zino';//<-TODO
             $fromemail = 'noreply@zino.gr';            //<-TODO
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
-            return;
+        }
+        return;
     }
     
     class ContactFinder extends Finder {
