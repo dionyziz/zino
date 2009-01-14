@@ -49,6 +49,9 @@
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
 
+        public function OnConstruct() {
+            echo "constructed\n";
+        }
         public function LoadDefaults() {
             echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             global $user;
