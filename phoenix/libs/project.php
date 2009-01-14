@@ -67,11 +67,11 @@
             }
         }
         
-        //$banChecker = new Ban();<--Banning system to be reconsidered:TODO
+        $banChecker = new Ban();
         
-        if ( /*( $user->Exists() && $banChecker->isBannedUser( $user->Id ) ) 
+        if ( ( $user->Exists() && $banChecker->isBannedUser( $user->Id ) ) 
             || $banChecker->isBannedIp( UserIp() )  
-            ||*/  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
+            ||  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             exit();

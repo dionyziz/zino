@@ -18,10 +18,10 @@
             $loginattempt->Password = $password;
             $loginattempt->Save();
             
-            if ( LoginAttempt_checkBot( UserIp() ) ) {
+            /*if ( LoginAttempt_checkBot( UserIp() ) ) {
                 $ban = new Ban();
                 $ban->BanIp( UserIp(), 15*60 );
-            }
+            }*///TODO<--reconsider this
 
             return Redirect( '?p=a' );
         }
