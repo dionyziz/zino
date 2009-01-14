@@ -77,9 +77,9 @@
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-                    if ( is_object( $this->Owner ) ) {
+                    /*if ( is_object( $this->Owner ) ) {
                         die( 'owner is object' );
-                    }
+                    }*/
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
@@ -90,7 +90,9 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
-            die( 'onbeforecreate' );
+            if ( is_object( $this->Owner ) ) {
+                die( 'owner is still an object' );
+            }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
