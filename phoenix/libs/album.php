@@ -73,23 +73,23 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
+        echo "At the beginning of Relations: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-                    /*if ( is_object( $this->Owner ) ) {
-                        die( 'owner is object' );
-                    }*/
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
+            echo "At the end of Relations: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function IsDeleted() {
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
+        echo "At the beginning of OnBeforeCreate: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
@@ -116,6 +116,7 @@
                 } while ( count( $someOfTheRest ) && !$exists );
             }
             $this->Url = $url;
+            echo "At the end of OnBeforeCreate: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function OnBeforeDelete() {
             global $water;
@@ -233,6 +234,7 @@
             }
         }
         protected function OnCreate() {
+        echo "At the beginning of OnCreate: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             global $libs;
             
             $libs->Load( 'event' );
@@ -249,14 +251,17 @@
             $event->Ownerid = $this->Ownerid;
             $event->Save();
             */
+            echo "At the end of OnCreate: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function LoadDefaults() {
+        echo "At the beginning of LoadDefaults: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             global $user;
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
             $this->Userip = UserIp();
+            echo "At the end of LoadDefaults: " . ( is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
     }
 
