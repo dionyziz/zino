@@ -14,18 +14,11 @@
         
         if ( empty( $username ) || empty( $pass ) ) {//check if the password or the username are empty
             return 'ERROR_CREDENTIALS';
-        }
-        
-        try {
-            $inviter = new OpenInviter();
-            $inviter->getPlugins();
-            $inviter->startPlugin( $provider );
-        }
-        catch ( ErrorException $e ) {
-            throw New ErrorException( 'ERROR_INITIALLIZING' );
-            return 'ERROR_INITIALLIZING';            
-        }
-        
+        }        
+
+        $inviter = new OpenInviter();
+        $inviter->getPlugins();
+        $inviter->startPlugin( $provider );
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
             return 'ERROR_CREDENTIALS';
@@ -33,8 +26,7 @@
         $contacts = $inviter->getMyContacts();
         if( $contacts === false  ) {
             return 'ERROR_CONTACTS';
-        }
-        
+        }        
         $inviter->logout();
         $inviter->stopPlugin();
         
