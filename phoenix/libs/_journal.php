@@ -50,7 +50,7 @@
         protected $mDbTableAlias = 'journals';
 
         public function LoadDefaults() {
-        echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            echo "At the beginning of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             global $user;
 
             $this->Userid = $user->Id;
@@ -82,7 +82,7 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
-        echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            echo "At the beginning of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -126,7 +126,7 @@
             $this->Save();
         }
         protected function OnCreate() {
-        echo "At the beginning of OnCreate: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            echo "At the beginning of OnCreate: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             global $libs;
 
             $this->OnUpdate();
@@ -182,10 +182,10 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
-        echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            // echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
-            echo "At the end of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            // echo "At the end of Relations: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         public function IsDeleted() {
             return $this->Exists() === false;
