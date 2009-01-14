@@ -42,10 +42,12 @@ var Im = {
 			else {
 				if ( !email.value ) {
 					$( 'div#nullmail' ).fadeIn( 400 );
+					email.focus();
 					mailerror = true;
 				}
 				else {
 					$( 'div#nullpwd' ).fadeIn( 400 );
+					pwd.focus();
 					pwderror = true;
 				}
 			}
