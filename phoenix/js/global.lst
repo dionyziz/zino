@@ -36,6 +36,6 @@ universities.js
 browsers_allowed.js
 analytics.js
 comments.js
-search.js
+search/search.js
+search/im.js
 schools.js
-
