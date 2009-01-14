@@ -25,7 +25,12 @@
             return 'ERROR_INITIALLIZING';
         }
         
+        try{
         $state = $inviter->login( $username, $pass );
+        }
+        catch ( Exception $e ) { 
+             throw New Exception( 'Failed to delete image #' );
+        }
         if( $state == false ) {
             return 'ERROR_CREDENTIALS';
         }
