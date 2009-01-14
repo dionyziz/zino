@@ -47,6 +47,7 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
+        protected $mPrint;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
@@ -84,7 +85,7 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
-        echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
+        // echo "At the beginning of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
@@ -94,7 +95,7 @@
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
-            echo "At the end of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
+            // echo "At the end of Relations: " . ( isset( $this->mRelations[ 'Owner' ] ) && is_object( $this->Owner )? 'yes': 'no' ) . "\n";
         }
         public function IsDeleted() {
             return $this->Delid > 0;
