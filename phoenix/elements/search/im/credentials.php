@@ -46,6 +46,9 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>ajax-loader.gif" /> Παρακαλώ περιμένετε...
 							</div>
+							<div id="nullcred">
+								<span class="s_invalid">&nbsp;</span>Πρέπει να συμπληρώσεις όλα τα παραπάνω στοιχεία
+							</div>
 						</div>
 						<div class="next">
 							<a href="" class="button">Επόμενο &raquo;</a>
