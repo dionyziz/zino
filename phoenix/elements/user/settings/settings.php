@@ -11,9 +11,7 @@
                     echo htmlspecialchars( $user->Profile->Email );
                     ?>" />
                     <span>
-                        <img src="<?php
-                        echo $rabbit_settings[ "imagesurl" ];
-                        ?>exclamation.png" alt="" /> Το email δεν είναι έγκυρο
+                       <span class="s_invalid">&nbsp;</span>Το email δεν είναι έγκυρο
                     </span>
                     <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
                 </div>
