@@ -57,7 +57,7 @@ span[class^="s_"] , a[class^="s_"] {
 }
 .s_invalid {
 	background-position: 0 -747px;
-	padding-top: 5px;
+	padding: 0 0 2px 16px;
 	vertical-align: 1px;
 }
 .s_photo {
