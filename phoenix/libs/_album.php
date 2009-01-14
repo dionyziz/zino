@@ -78,6 +78,7 @@
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+                    die( 'lololol' );
                     $this->mRelationsCalled = true;
                     break;
                 case TYPE_SCHOOL:
