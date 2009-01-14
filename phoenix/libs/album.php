@@ -90,9 +90,6 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
-            if ( is_object( $this->Owner ) ) {
-                die( 'owner is still an object' );
-            }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
@@ -236,6 +233,9 @@
             }
         }
         protected function OnCreate() {
+        if ( is_object( $this->Owner ) ) {
+                        die( 'owner is object' );
+                    }
             global $libs;
             
             $libs->Load( 'event' );

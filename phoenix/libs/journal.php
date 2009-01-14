@@ -80,7 +80,6 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
-            die( 'onbeforecreate' );
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -123,6 +122,9 @@
             $this->Save();
         }
         protected function OnCreate() {
+        if ( is_object( $this->User ) ) {
+                        die( 'user is object' );
+                    }
             global $libs;
 
             $this->OnUpdate();
@@ -178,7 +180,6 @@
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            die( 'user defined' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function IsDeleted() {
