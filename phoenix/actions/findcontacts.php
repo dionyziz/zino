@@ -6,7 +6,7 @@
         $email = $email->Get();
         $pass = $pass->Get();
 
-        $state = GetContacts( $email, $pass, "hotmail" );
+        $state = GetContacts( $email, $pass, "googlemail" );
         if( $state === true ) {
             return Redirect( '?p=contactfinder&email=' . urlencode( $email ) . '&step=1' );    
         }
