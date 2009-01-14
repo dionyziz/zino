@@ -77,6 +77,9 @@
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+// start debugging
+                    die( 'Owner defined first' );
+// end debugging
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
@@ -87,6 +90,9 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
+// start debugging
+            die( 'Owner used first' );
+// end debugging
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
@@ -95,11 +101,6 @@
                 $offset = 0;
                 $exists = false;
                 do {
-// start debugging
-                    if ( $this->Exists() ) {
-                        die( 'lol' );
-                    }
-// end debugging
                     $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
                     foreach ( $someOfTheRest as $a ) {
                         if ( strtolower( $a->Url ) == strtolower( $url ) ) {
@@ -259,9 +260,6 @@
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
             $this->Userip = UserIp();
-        }
-        public function CopyOwnerFrom( $value ) {
-            $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
     }
 

@@ -88,14 +88,6 @@
                 $offset = 0;
                 $exists = false;
                 do {
-// start debugging
-                    if ( $this->Exists() ) {
-                    	die( 'it exists' );
-                    }
-                    else {
-                        die( 'it doesn\'t exist' );
-                    }
-// end debugging
                     $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
                     foreach ( $someOfTheRest as $j ) {
                         if ( strtolower( $j->Url ) == strtolower( $url ) ) {
