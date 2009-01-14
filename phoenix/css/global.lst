@@ -36,7 +36,8 @@ poll/small.css
 poll/view.css
 question/answer/view.css
 school.css
-search.css
+search/search.css
+search/im.css
 space/edit.css
 space/view.css
 spriting.css
