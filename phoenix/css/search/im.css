@@ -3,6 +3,12 @@ div#im {
 }
 div#im div.cred {
 	border: 1px solid #dad9d9;
+	text-align: left;
+}
+div#im div.cred h3 {
+	text-align: center;
+	font-size: 100%;
+	color: #4875c7;
 }
 div#im div.cred span.credin {
 	padding: 0 5px 0 0;
