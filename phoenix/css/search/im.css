@@ -1,9 +1,9 @@
-div#id {
+div#im {
 	text-align: center;
 }
-div#id div.cred {
+div#im div.cred {
 	border: 1px solid #dad9d9;
 }
-div#id div.cred span.credin {
+div#im div.cred span.credin {
 	padding: 0 5px 0 0;
 }
