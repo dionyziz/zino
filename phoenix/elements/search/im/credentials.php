@@ -39,6 +39,11 @@
 							<div>
 								<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 							</div>
+							<div>
+								<img src="<?php
+								echo $rabbit_settings[ 'imagesurl' ];
+								?>ajax-loader.gif" /> Παρακαλώ περιμένετε...
+							</div>
 						</div>
 						<div class="next">
 							<a href="" class="button">Επόμενο &raquo;</a>
@@ -54,7 +59,7 @@
 				</div><?php
 			}
 			else {
-				?>Για να χρησιμοποιήσεις αυτή τη δυνατότητα πρέπει να είσαι εγγεγραμμένος<?php
+				?>Για να χρησιμοποιήσεις αυτή τη δυνατότητα πρέπει να έχεις συνδεθεί στο zino<?php
 			}
 		}
 	}
