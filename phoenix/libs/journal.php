@@ -55,7 +55,7 @@
 
             $this->Userid = $user->Id;
             $this->Created = NowDate();
-            echo "At the end of OnBeforeCreate: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
+            echo "At the end of LoadDefaults: " . ( isset( $this->mRelations[ 'User' ] ) && is_object( $this->User )? 'yes': 'no' ) . "\n";
         }
         public function __get( $key ) {
             switch ( $key ) {
