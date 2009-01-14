@@ -80,6 +80,7 @@
             return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
         }
         public function OnBeforeCreate() {
+            die( 'look: ' . $this->relationsCount );
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();
@@ -122,9 +123,6 @@
             $this->Save();
         }
         protected function OnCreate() {
-        if ( is_object( $this->User ) ) {
-                        die( 'user is object' );
-                    }
             global $libs;
 
             $this->OnUpdate();
@@ -179,6 +177,9 @@
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         protected function Relations() {
+        	if ( !isset( $this->relationsCount ) ) {
+        	    $this->relationsCount = 0;
+        	}
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
