@@ -3,8 +3,9 @@
         public function Render( tString $im ) {
 			global $rabbit_settings;
 			global $user;
-			
+			global $page;
 			if ( $user->Exists() ) {
+				$page->SetTitle( 'Βρες τους φίλους σου στο ' . $rabbit_settings[ 'applicationname' ] );
 				$im = $im->Get();
 				?><div id="im">
 					<h2>Βρες τους φίλους σου στο <?php
@@ -57,6 +58,7 @@
 						</p>
 					</div>
 				</div><?php
+				$page->AttachInlineScript( 'Im.ImOnLoad();' );
 			}
 			else {
 				?>Για να χρησιμοποιήσεις αυτή τη δυνατότητα πρέπει να έχεις συνδεθεί στο zino<?php
