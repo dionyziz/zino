@@ -39,7 +39,7 @@
 							<div>
 								<span class="s_invalid">&nbsp;</span>Ο συνδυασμός email και κωδικού πρόσβασης είναι λανθασμένος
 							</div>
-							<div>
+							<div class="w">
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>ajax-loader.gif" /> Παρακαλώ περιμένετε...

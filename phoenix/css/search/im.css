@@ -37,6 +37,13 @@ div#im div.cred div.wrong {
 div#im div.cred div.wrong > div {
 	display: none;
 }
+div#im div.cred div.wrong > div.w {
+	font-weight: 400;
+}
+div#im div.cred div.wrong > div.w img {
+	vertical-align: -2px; 
+	padding: 0 1px 0 0;
+}
 div#im div.cred div.next {
 	margin: 15px 0 0 0;
 }
