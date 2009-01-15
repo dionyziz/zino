@@ -40,6 +40,15 @@
 
             return $ret;
         }
+        public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
+            $prototype = New Album();
+            $prototype->Ownertype = TYPE_USERPROFILE;
+            $prototype->Ownerid = $user->Id;
+            $prototype->Url = $url;
+            $prototype->Delid = 0;
+
+            return $this->FindByPrototype( $prototype );
+        }
     }
     
     class Album extends Satori {

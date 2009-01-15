@@ -1,4 +1,5 @@
 <?php
+
     global $libs;
 
     $libs->Load( 'school/institution' );
