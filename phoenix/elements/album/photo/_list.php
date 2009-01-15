@@ -19,7 +19,7 @@
                 $finder = New UserFinder();
                 $owner = $finder->FindBySubdomain( $subdomain );
                 $finder = New AlbumFinder();
-                $journal = $finder->FindByUserAndUrl( $owner, $url );
+                $album = $finder->FindByUserAndUrl( $owner, $url );
             }
             else {
                 $album = New Album( $id->Get() );
