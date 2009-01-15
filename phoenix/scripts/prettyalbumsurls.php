@@ -45,7 +45,7 @@
             $result[ $albumInfo[ 'id' ] ] = $candidate;
         }
     }
-
+    echo "moved more on\n";
     $i = 0;
     foreach ( $result as $id => $url ) {
         if ( $i >= $offset && $i <= $offset + $limit ) {
