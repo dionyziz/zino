@@ -1,5 +1,5 @@
 <?php
-    echo "start\n";
+
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];
@@ -11,7 +11,6 @@
 
     Rabbit_Construct();
 
-    echo "rabbit constructed\n";
     global $libs;
     global $db;
 
@@ -32,7 +31,7 @@
             'name' => $row[ 'album_name' ]
         );
     }
-    echo "moved on\n";
+
     $result = array();
     foreach ( $albums as $ownerId => $hisalbums ) {
         $urls = array();
@@ -45,9 +44,10 @@
             $result[ $albumInfo[ 'id' ] ] = $candidate;
         }
     }
-    echo "moved more on\n";
+
     $i = 0;
     foreach ( $result as $id => $url ) {
+        echo 'entered loop<br>';
         if ( $i >= $offset && $i <= $offset + $limit ) {
             $query = $db->Prepare(
                 'UPDATE
@@ -58,10 +58,12 @@
                     `album_id` = :album_id
                 LIMIT 1;'
             );
+            echo 'query prepared<br>';
             $query->BindTable( 'albums' );
             $query->Bind( 'album_url', $url );
             $query->Bind( 'album_id', $id );
             $query->Execute();
+            echo 'query executed<br><br>';
         }
         ++$i;
     }
