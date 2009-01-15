@@ -44,7 +44,6 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
-        public $mFoo = 1;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
@@ -74,8 +73,6 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
-            echo "Relations()\n";
-            echo '$this->mFoo = ' . $this->mFoo ."\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:

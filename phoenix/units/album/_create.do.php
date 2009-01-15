@@ -12,7 +12,7 @@
         if ( $albumname !== '' ) {
             $album = new Album();
             $album->Name = $albumname;
-            $album->mFoo = 2;
+            $album->Ownertype = TYPE_USERPROFILE;
             $album->Save();
             ?>window.location.href = '<?php
             echo $rabbit_settings[ 'webaddress' ];
