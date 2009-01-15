@@ -259,6 +259,7 @@
         public function LoadDefaults() {
             global $user;
             
+            echo 'LoadDefaults()';
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
