@@ -7,8 +7,8 @@ var PollList = {
 		if ( $( 'div#polist ul div.creationmockup input' )[ 0 ].value !== '' ) {
 			var heading = document.createElement( 'h4' );
             //var headinglink = document.createElement( 'a' );
-			/*$( headinglink ).attr( { 'href' : '' } ).*/append( document.createTextNode( $( 'div#polist ul div.creationmockup input' )[ 0 ].value ) );
-			$( heading ).append( headinglink ).css( 'margin-top', '0' );
+			$( heading ).append( document.createTextNode( $( 'div#polist ul div.creationmockup input' )[ 0 ].value ) );
+			$( heading ).append( heading ).css( 'margin-top', '0' );
 			PollList.QuestionText = $( 'div#polist ul div.creationmockup input' )[ 0 ].value;
 			$( 'div#polist ul div.creationmockup' ).empty().append( heading );
 			$( 'div#polist ul div.creationmockup' ).append( $( 'div#polist div.tip2' ).clone().css( 'display', 'block' ) );
