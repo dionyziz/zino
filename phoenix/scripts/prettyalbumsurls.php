@@ -64,7 +64,7 @@
         }
         ++$i;
     }
-    echo "before writing\n";
+
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
         ?><html><head><name>Processing...</name>

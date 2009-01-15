@@ -2,6 +2,7 @@
 
     global $libs;
     $libs->Load( 'image/image' );
+    $libs->Load( 'user/user' );
 
     class AlbumFinder extends Finder {
         protected $mModel = 'Album';
@@ -74,28 +75,22 @@
         }
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
-            /*switch ( $this->Ownertype ) {
+            switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
-
-            For some reason, instance attributes cannot be read within Relations(),
-            so we can't make that check that way. It doesn't matter for now, anyway,
-            but when we want albums for schools we have to find a workaround for
-            this.
-
-                                                                           --Indy
-            */
-            $this->Owner = $this->HasOne( 'User', 'Ownerid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
         public function IsDeleted() {
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
+            if ( $this->Ownertype == TYPE_USERPROFILE ) {
+                $owner = New User( $this->Ownerid );
+            }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
@@ -104,7 +99,7 @@
                 $offset = 0;
                 $exists = false;
                 do {
-                    $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
+                    $someOfTheRest = $finder->FindByUser( $owner, $offset, 100 );
                     foreach ( $someOfTheRest as $a ) {
                         if ( strtolower( $a->Url ) == strtolower( $url ) ) {
                             $exists = true;
