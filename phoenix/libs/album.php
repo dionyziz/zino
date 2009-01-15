@@ -80,7 +80,15 @@
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
-            }*/
+            }
+
+            For some reason, instance attributes cannot be read within Relations(),
+            so we can't make that check that way. It doesn't matter for now, anyway,
+            but when we want albums for schools we have to find a workaround for
+            this.
+
+                                                                           --Indy
+            */
             $this->Owner = $this->HasOne( 'User', 'Ownerid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
