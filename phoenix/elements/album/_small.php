@@ -1,7 +1,7 @@
 <?php
 
     class ElementAlbumSmall extends Element {
-        public function Render( $album , $creationmockup = false, tText $subdomain, tText $url ) {
+        public function Render( $album, tBoolean $creationmockup, tText $subdomain, tText $url ) {
             global $water;
             global $xc_settings;
             global $rabbit_settings;
@@ -18,7 +18,7 @@
                 $finder = New AlbumFinder();
                 $album = $finder->FindByUserAndUrl( $owner, $url );
             }
-            if ( !$creationmockup ) {
+            if ( !$creationmockup->Exists() ) {
                 $commentsnum = $album->Numcomments;
                 $photonum = $album->Numphotos;
                 if ( $album->Id == $album->Owner->Egoalbumid ) {
