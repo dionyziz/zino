@@ -12,7 +12,7 @@
         if ( $albumname !== '' ) {
             $album = new Album();
             $album->Name = $albumname;
-            $album->mFoo = true;
+            $album->mFoo = 2;
             $album->Save();
             ?>window.location.href = '<?php
             echo $rabbit_settings[ 'webaddress' ];

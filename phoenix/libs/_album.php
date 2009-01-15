@@ -44,7 +44,7 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
-        protected $mFoo = false;
+        public $mFoo = 1;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
