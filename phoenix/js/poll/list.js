@@ -1,4 +1,3 @@
-//petros masked for #486
 var PollList = {
 	numoptions : 0,
 	QuestionText: '',
@@ -6,7 +5,6 @@ var PollList = {
 	CreateQuestion : function() {
 		if ( $( 'div#polist ul div.creationmockup input' )[ 0 ].value !== '' ) {
 			var heading = document.createElement( 'h4' );
-            //var headinglink = document.createElement( 'a' );
 			$( heading ).append( document.createTextNode( $( 'div#polist ul div.creationmockup input' )[ 0 ].value ) );
 			$( heading ).css( 'margin-top', '0' );
 			PollList.QuestionText = $( 'div#polist ul div.creationmockup input' )[ 0 ].value;
