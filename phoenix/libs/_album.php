@@ -44,7 +44,6 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
-        protected $mLoadDefaultsMadeIt = false;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
@@ -74,13 +73,6 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
-            if ( $this->mLoadDefaultsMadeIt ) {
-            	echo "LoadDefaults made it\n";
-            }
-            else {
-            	echo "LoadDefaults didn't make it\n";
-            }
-            echo '$this->Ownertype = ' . $this->Ownertype . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
@@ -93,34 +85,6 @@
         }
         public function IsDeleted() {
             return $this->Delid > 0;
-        }
-        public function OnBeforeCreate() {
-            $url = URL_Format( $this->Name );
-            $length = strlen( $url );
-            $finder = New AlbumFinder();
-            $exists = true;
-            while ( $exists ) {
-                $offset = 0;
-                $exists = false;
-                do {
-                    $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
-                    foreach ( $someOfTheRest as $a ) {
-                        if ( strtolower( $a->Url ) == strtolower( $url ) ) {
-                            $exists = true;
-                            if ( $length < 255 ) {
-                                $url .= '_';
-                                ++$length;
-                            }
-                            else {
-                                $url[ rand( 0, $length - 1 ) ] = '_';
-                            }
-                            break;
-                        }
-                    }
-                    $offset += 100;
-                } while ( count( $someOfTheRest ) && !$exists );
-            }
-            $this->Url = $url;
         }
         public function OnBeforeDelete() {
             global $water;
@@ -260,9 +224,7 @@
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
-            $this->Ownertype = 34;
-            echo "LoadDefaults()\n";
-            $this->mLoadDefaultsMadeIt = true;
+            $this->Ownertype = TYPE_USERPROFILE;
             $this->Userip = UserIp();
         }
     }
