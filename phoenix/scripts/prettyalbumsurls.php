@@ -1,4 +1,5 @@
 <?php
+    echo "start\n";
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];
@@ -10,6 +11,7 @@
 
     Rabbit_Construct();
 
+    echo "rabbit constructed\n";
     global $libs;
     global $db;
 
@@ -30,7 +32,7 @@
             'name' => $row[ 'album_name' ]
         );
     }
-
+    echo "moved on\n";
     $result = array();
     foreach ( $albums as $ownerId => $hisalbums ) {
         $urls = array();
@@ -63,6 +65,7 @@
         }
         ++$i;
     }
+    echo "before writing\n";
     if ( $offset + $limit <= count( $result ) ) {
         $offset += $limit;
         ?><html><head><name>Processing...</name>
