@@ -74,17 +74,46 @@
         }
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
-            switch ( $this->Ownertype ) {
+            /*switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
-            }
+            }*/
+            $this->Owner = $this->HasOne( 'User', 'Ownerid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
         public function IsDeleted() {
             return $this->Delid > 0;
+        }
+        public function OnBeforeCreate() {
+            $url = URL_Format( $this->Name );
+            $length = strlen( $url );
+            $finder = New AlbumFinder();
+            $exists = true;
+            while ( $exists ) {
+                $offset = 0;
+                $exists = false;
+                do {
+                    $someOfTheRest = $finder->FindByUser( $this->Owner, $offset, 100 );
+                    foreach ( $someOfTheRest as $a ) {
+                        if ( strtolower( $a->Url ) == strtolower( $url ) ) {
+                            $exists = true;
+                            if ( $length < 255 ) {
+                                $url .= '_';
+                                ++$length;
+                            }
+                            else {
+                                $url[ rand( 0, $length - 1 ) ] = '_';
+                            }
+                            break;
+                        }
+                    }
+                    $offset += 100;
+                } while ( count( $someOfTheRest ) && !$exists );
+            }
+            $this->Url = $url;
         }
         public function OnBeforeDelete() {
             global $water;
