@@ -1,7 +1,7 @@
 <?php
 
     class ElementAlbumSmall extends Element {
-        public function Render( $album, tBoolean $creationmockup, tText $subdomain, tText $url ) {
+        public function Render( tText $album, tBoolean $creationmockup, tText $subdomain, tText $url ) {
             global $water;
             global $xc_settings;
             global $rabbit_settings;
