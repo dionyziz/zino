@@ -251,10 +251,10 @@
         public function LoadDefaults() {
             global $user;
             
-            echo "LoadDefaults()\n";
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
+            echo "LoadDefaults()\n";
             $this->Userip = UserIp();
         }
     }
