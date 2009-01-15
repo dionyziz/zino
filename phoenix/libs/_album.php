@@ -73,15 +73,15 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
-            echo $this->Name . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
-            switch ( $this->Ownertype ) {
+            /*switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
-            }
+            }*/
+            $this->Owner = $this->HasOne( 'User', 'Ownerid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
         public function IsDeleted() {
