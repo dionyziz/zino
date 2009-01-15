@@ -74,15 +74,14 @@
         }
         public function Relations() {
             echo "Relations()\n";
+            echo '$this->Ownertype = ' . $this->Ownertype ."\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-                    echo "TYPE_USERPROFILE\n";
                     break;
                 case TYPE_SCHOOL:
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
-                    echo "TYPE_SCHOOL\n";
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
