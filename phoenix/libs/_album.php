@@ -260,7 +260,7 @@
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
-            $this->Ownertype = 3;
+            $this->Ownertype = 34;
             echo "LoadDefaults()\n";
             $this->mLoadDefaultsMadeIt = true;
             $this->Userip = UserIp();
