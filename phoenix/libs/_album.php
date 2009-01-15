@@ -75,10 +75,10 @@
         }
         public function Relations() {
             if ( $this->mLoadDefaultsMadeIt ) {
-            	echo "LoadDefaults made it";
+            	echo "LoadDefaults made it\n";
             }
             else {
-            	echo "LoadDefaults didn't make it";
+            	echo "LoadDefaults didn't make it\n";
             }
             echo '$this->Ownertype = ' . $this->Ownertype . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
@@ -260,7 +260,7 @@
             
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
-            $this->Ownertype = TYPE_USERPROFILE;
+            $this->Ownertype = 3;
             echo "LoadDefaults()\n";
             $this->mLoadDefaultsMadeIt = true;
             $this->Userip = UserIp();
