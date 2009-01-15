@@ -44,7 +44,6 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
-        protected $mRelationsCalled = false;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
@@ -74,14 +73,13 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
+            echo '$this->Ownertype = ' . $this->Ownertype . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
                 case TYPE_USERPROFILE:
                     $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-                    $this->mRelationsCalled = true;
                     break;
                 case TYPE_SCHOOL:
-                    $this->mRelationsCalled = true;
                     $this->Owner = $this->HasOne( 'School', 'Ownerid' );
             }
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
@@ -90,12 +88,6 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
-            if ( $this->mRelationsCalled !== true ) {
-                die( 'not called' );
-            }
-            else {
-                die( 'called' );
-            }
             $url = URL_Format( $this->Name );
             $length = strlen( $url );
             $finder = New AlbumFinder();
@@ -259,7 +251,7 @@
         public function LoadDefaults() {
             global $user;
             
-            echo 'LoadDefaults()';
+            echo "LoadDefaults()\n";
             $this->Created = NowDate();
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
