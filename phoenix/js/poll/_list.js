@@ -6,6 +6,7 @@ var PollList = {
 	CreateQuestion : function() {
 		if ( $( 'div#polist ul div.creationmockup input' )[ 0 ].value !== '' ) {
 			var heading = document.createElement( 'h4' );
+            alert( 'petros' );
 			//var headinglink = document.createElement( 'a' );
 			//$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polist ul div.creationmockup input' )[ 0 ].value ) );
 			$( heading ).append( headinglink ).css( 'margin-top', '0' );
