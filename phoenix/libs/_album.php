@@ -44,6 +44,7 @@
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
+        protected $mLoadDefaultsMadeIt = false;
 
         public function __set( $key, $value ) {
             switch ( $key ) {
@@ -73,6 +74,12 @@
             $this->mRelations[ 'Owner' ]->CopyFrom( $value );
         }
         public function Relations() {
+            if ( $this->mLoadDefaultsMadeIt ) {
+            	echo "LoadDefaults made it";
+            }
+            else {
+            	echo "LoadDefaults didn't make it";
+            }
             echo '$this->Ownertype = ' . $this->Ownertype . "\n";
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             switch ( $this->Ownertype ) {
@@ -255,6 +262,7 @@
             $this->Ownerid = $user->Id;
             $this->Ownertype = TYPE_USERPROFILE;
             echo "LoadDefaults()\n";
+            $this->mLoadDefaultsMadeIt = true;
             $this->Userip = UserIp();
         }
     }
