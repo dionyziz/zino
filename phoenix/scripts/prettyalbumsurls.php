@@ -47,7 +47,6 @@
 
     $i = 0;
     foreach ( $result as $id => $url ) {
-        echo 'entered loop<br>';
         if ( $i >= $offset && $i <= $offset + $limit ) {
             $query = $db->Prepare(
                 'UPDATE
@@ -58,12 +57,10 @@
                     `album_id` = :album_id
                 LIMIT 1;'
             );
-            echo 'query prepared<br>';
             $query->BindTable( 'albums' );
             $query->Bind( 'album_url', $url );
             $query->Bind( 'album_id', $id );
             $query->Execute();
-            echo 'query executed<br><br>';
         }
         ++$i;
     }
