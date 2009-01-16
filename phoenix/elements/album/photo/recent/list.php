@@ -12,7 +12,7 @@
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 40 * ( $pageno - 1 ), 40 );
             if ( count( $images ) > 0 ) {
-                ?><div class="allphotos">
+                ?><div class="lstimages allphotos">
                         <h2>Φωτογραφίες</h2>
                         <ul><?php
                             foreach ( $images as $image ) {
@@ -30,4 +30,4 @@
             Element( 'pagify', $pageno, '?p=allphotos&pageno=', ceil( $images->TotalCount() / 40 ) );
         }
     }
-?>
+?> 
