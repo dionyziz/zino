@@ -1,0 +1,10 @@
+div.allphotos ul li {
+    margin: 8px;
+}
+.imageview img{
+    width: 100px;
+    height: 100px;
+}
+span.imageview > span {
+    right: 5px;
+}
