@@ -128,6 +128,7 @@
 			'favourites'		=> 'favourite/view',
             'allpolls'             => 'poll/recent/list',
             'alljournals'          => 'journal/recent/list',
+            'allphotos'            => 'album/photo/recent/list',
             'search2'               => 'search',
             'search'                => 'search/view',
             'adminlog'              => 'adminlog/view',
