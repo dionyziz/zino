@@ -30,4 +30,4 @@
             Element( 'pagify', $pageno, '?p=allphotos&pageno=', ceil( $images->TotalCount() / 40 ) );
         }
     }
-?> 
+?>
