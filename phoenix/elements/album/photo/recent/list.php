@@ -27,8 +27,7 @@
                     </div><?php
             }
             ?><div class="eof" /><?php
-            Element( 'pagify', $pageno, '?p=allphotos&pageno=', ceil( count( $images ) / 40 ) );
-            echo count( $images );
+        //    Element( 'pagify', $pageno, '?p=allphotos&pageno=', ceil( $images->TotalCount() / 40 ) );
         }
     }
 ?>
