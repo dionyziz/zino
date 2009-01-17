@@ -9,7 +9,7 @@
                 $pageno = 1;
             }
             
-            $finder = New FrontPage();
+            $finder = New FrontpageImageFinder();
             $images = $finder->FindAll( 40 * ( $pageno - 1 ), 40 );
             if ( count( $images ) > 0 ) {
                 ?><div class="lstimages" id="allphotos">
@@ -17,9 +17,9 @@
                         <ul><?php
                             foreach ( $images as $image ) {
                                 ?><li><a href="?p=photo&amp;id=<?php
-                                echo $image->Id;
+                                echo $image->Image->Id;
                                 ?>"><?php
-                                Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
+                                Element( 'image/view' , $image->Image->Id , $image->Image->User->Id , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , $image->Image->Numcomments );
                                 ?></a></li><?php
                             }
                             ?>
