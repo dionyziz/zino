@@ -51,7 +51,7 @@
                     return;
                 }
                 $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
+                $images = $finder->FindByAlbum( $album, ( $pageno - 1 ) * 20, 20 );
                 if ( $album->Ownertype == TYPE_USERPROFILE && $album->Id == $album->Owner->Egoalbumid ) {
                     if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
                         $page->SetTitle( $album->Owner->Name . " Φωτογραφίες" );
@@ -127,7 +127,7 @@
                 ?><ul><?php
                     foreach( $images as $image ) {
                         ?><li><?php
-                        Element( 'album/photo/small' , $image , false , true );
+                        Element( 'album/photo/small', $image, false, true );
                         ?></li><?php
                     }
                 ?></ul>
