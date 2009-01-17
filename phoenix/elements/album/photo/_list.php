@@ -20,7 +20,6 @@
                 $owner = $finder->FindBySubdomain( $subdomain );
                 $finder = New AlbumFinder();
                 $album = $finder->FindByUserAndUrl( $owner, $url );
-                var_dump( $album );
             }
             else {
                 $album = New Album( $id->Get() );
