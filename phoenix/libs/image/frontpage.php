@@ -2,10 +2,10 @@
     class FrontpageImageFinder extends Finder {
         protected $mModel = 'FrontpageImage';
 
-        public function FindLatest( $offset = 0, $limit = 15 ) {
+        public function FindLatest( $offset = 0, $limit = 15, $totalcount = false ) {
             $prototype = New FrontpageImage();
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ), $totalcount );
         }
     }
     
