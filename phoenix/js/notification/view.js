@@ -23,6 +23,10 @@ var Notification = {
 	},
     DecrementCount: function () {
         var count = document.title.split( '(' )[ 1 ].split( ')' )[ 0 ];
+        
+        if ( count == '10+' ) {
+            return;
+        }
         --count;
         if ( count == 0 ) {
             document.title = 'Zino';
