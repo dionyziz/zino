@@ -9,8 +9,8 @@
                 $pageno = 1;
             }
             
-            $finder = New FrontpageImageFinder();
-            $images = $finder->FindLatest( 40 * ( $pageno - 1 ), 40 );
+            $finder = New FrontPage();
+            $images = $finder->FindAll( 40 * ( $pageno - 1 ), 40 );
             if ( count( $images ) > 0 ) {
                 ?><div class="lstimages" id="allphotos">
                         <h2>Φωτογραφίες</h2>
