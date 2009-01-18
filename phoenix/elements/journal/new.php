@@ -31,7 +31,7 @@
                 ?> καταχώρησης</h2><?php
                 if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
                     ?><div class="edit">
-                        <form method="post" action="do/journal/new" onsubmit="$( '#publish' )[ 0 ].disabled = true; return JournalNew.Create( '<?php
+                        <form method="post" action="do/journal/new" onsubmit="return JournalNew.Create( '<?php
                                 echo $id;
                                 ?>' );">
                             <input type="hidden" name="id" value="<?php

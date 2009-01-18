@@ -11,6 +11,7 @@ var JournalNew = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενή καταχώρηση" );
 			return false;
 		}
+        $( '#publish' )[ 0 ].disabled = true;
 		return true;
 	}
 };
