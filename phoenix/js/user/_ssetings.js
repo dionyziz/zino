@@ -81,7 +81,7 @@ var Settings = {
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
 				var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
-				$( newspan ).removeClass( 'creation' ).find( 'span.aplbubblemiddle' ).append( document.createTextNode( intervalue ) );
+				$( newspan ).removeClass( 'creation' ).find( 'span.bbblmiddle' ).append( document.createTextNode( intervalue ) );
 				var link = newspan.getElementsByTagName( 'a' )[ 0 ];
 				$( newli ).append( newspan );
 				$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
