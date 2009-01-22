@@ -41,9 +41,9 @@ var Coala = {
         }
 		Coala.ThreadedRequests.push( 
 			{ 
-				'unitid'          : unitid , 
-				'parameters'      : parameters , 
-				'type'            : type ,
+				'unitid'          : unitid, 
+				'parameters'      : parameters, 
+				'type'            : type,
                 'failurecallback' : failurecallback
 			}
 		);
@@ -141,7 +141,7 @@ var Coala = {
 		}
 
 		try {
-			if ( typeof xh.status !== 'undefined' && xh.status !== 0){
+			if ( typeof xh.status !== 'undefined' && xh.status !== 0 ) {
 				httpStatus = xh.status;
 			}
 			else {
@@ -188,7 +188,7 @@ var Coala = {
 		// public class functions; callable from outside
 		
 		// main connect function, used to perform an XMLHTTP request
-		this.connect = function( sURL , sMethod , sVars , fnDone ) {
+		this.connect = function( sURL, sMethod, sVars, fnDone ) {
 			// if we don't have an xmlhttp object there's no point in requesting anything
 			if ( !xh ) {
 				// just return false
