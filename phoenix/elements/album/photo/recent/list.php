@@ -27,7 +27,7 @@
                     </div><?php
             }
             ?><div class="eof" /><?php
-            Element( 'pagify', $pageno, '?pageno=', ceil( $images->TotalCount() / 40 ) );
+            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
         }
     }
 ?>
