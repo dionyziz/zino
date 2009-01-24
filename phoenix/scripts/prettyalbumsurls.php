@@ -37,10 +37,10 @@
         $urls = array();
         foreach ( $hisalbums as $albumInfo ) {
             $candidate = URL_Format( $albumInfo[ 'name' ] );
-            while ( isset( $urls[ $candidate ] ) ) {
+            while ( isset( $urls[ strtolower( $candidate ) ] ) ) {
                 $candidate .= '_';
             }
-            $urls[ $candidate ] = true;
+            $urls[ strtolower( $candidate ) ] = true;
             $result[ $albumInfo[ 'id' ] ] = $candidate;
         }
     }
