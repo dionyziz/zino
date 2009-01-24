@@ -67,9 +67,30 @@ http://$user->Name.zino.gr/
         protected $mModel = 'Contact';
         
         public function FindByUseridAndMail( $userid, $email ) {
+            $query = $this->mDb->Prepare(
+                'SELECT DISTINCT *
+                FROM :contacts
+                WHERE `contact_usermail` = :email
+                AND `contact_userid` = :id ;
+            ');
+            $query->BindTable( 'contacts' );
+            $query->Bind( 'email', $email );
+            $query->Bind( 'id', $userid );
+            $res = $query->Execute();
+            
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $contact = new Contact( $row );
+                $ret []  = $contact;
+            }
+            
+            return $ret;
+        
             $prototype = new Contact();
             $prototype->Usermail = $email;
             $prototype->Userid = $userid;
+            
+
             return $this->FindByPrototype( $prototype, 0, 10000 );
         }
         
