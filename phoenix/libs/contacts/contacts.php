@@ -87,12 +87,12 @@ http://$user->Name.zino.gr/
             
             return $ret;
         
-            $prototype = new Contact();
+            /*$prototype = new Contact();//<---TESTING NEW
             $prototype->Usermail = $email;
             $prototype->Userid = $userid;
             
 
-            return $this->FindByPrototype( $prototype, 0, 10000 );
+            return $this->FindByPrototype( $prototype, 0, 10000 );*/
         }
         
         public function FindNotZinoMembersByUseridAndMail( $userid, $email ) {
