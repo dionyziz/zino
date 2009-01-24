@@ -68,10 +68,11 @@ http://$user->Name.zino.gr/
         
         public function FindByUseridAndMail( $userid, $email ) {
             $query = $this->mDb->Prepare(
-                'SELECT DISTINCT *
+                'SELECT *
                 FROM :contacts
                 WHERE `contact_usermail` = :email
-                AND `contact_userid` = :id ;
+                AND `contact_userid` = :id
+                GROUP BY `contact_mail` ;
             ');
             $query->BindTable( 'contacts' );
             $query->Bind( 'email', $email );
