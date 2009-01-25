@@ -6,7 +6,7 @@
             global $user;
             
             ?><div class="comment newcomment">
-                <div class="who" style="margin-top:-10px"><?php
+                <div class="who"><?php
                     Element( 'user/display' , $userid , $useravatarid , $user );
                     ?>πρόσθεσε ένα σχόλιο στη συζήτηση
                 </div>
