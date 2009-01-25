@@ -6,13 +6,13 @@
             global $user;
             
             ?><div class="comment newcomment">
-                <div class="who" style="margin-top:-10px"><a href=""><?php
+                <div class="who"><a href=""><?php
                     Element( 'user/avatar', $user->Avatar->Id, $user->Id,
                              $user->Avatar->Width, $user->Avatar->Height,
                              $user->Name, 100, 'avatar', '', true, 50, 50 );
                     ?></a>
                 </div>
-                <div class="text">
+                <div class="text" style="margin-top:-10px">
                     <textarea id="shoutbox_text" rows="2" cols="50" onkeyup="$( '#shoutbox_submit' )[ 0 ].disabled = ( $.trim( this.value ).length == 0 )">Πρόσθεσε ένα σχόλιο στη συζήτηση...</textarea>
                 </div>
                 <div class="bottom">
