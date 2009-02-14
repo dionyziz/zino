@@ -7,7 +7,7 @@
             global $rabbit_settings;
             
             ?><div class="header" id="banner">
-            <h1><a href="<?php
+            <h1 style="background: url( 'http://static.zino.gr/phoenix/zino-valentine.png' ) no-repeat 0 0"><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
 ?>">&nbsp;</a></h1>
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
