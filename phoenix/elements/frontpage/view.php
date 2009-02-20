@@ -101,7 +101,7 @@
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
             ?><div class="morealbums">
                 <div class="viewalbums">
-                    <a href="albums" class="button">Προβολή όλων&raquo;</a>
+                    <a href="photos" class="button">Προβολή όλων&raquo;</a>
                 </div>
             </div><?php
             if ( !$user->Exists() ) {
