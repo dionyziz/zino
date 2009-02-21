@@ -7,7 +7,7 @@
             if ( count( $images ) > 0 ) {
                 ?><div class="lstimages plist">
                     <div class="more">
-                        <a href="photos" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a>
+                        <a href="photos" class="button" title="Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞµΟ‚ Ο†Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚">&raquo;</a>
                     </div>
                 <ul><?php
                     foreach ( $images as $image ) {
