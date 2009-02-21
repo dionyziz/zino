@@ -97,15 +97,16 @@
                     </div>
                 </div><?php
             }
-
+            
+            ?><div class="more">
+                <a href="photos" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a>
+            </div><?php
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
             ?><!--<div class="morealbums">
                 <div class="viewalbums">
                     <a href="photos" class="button">Προβολή όλων&raquo;</a>
                 </div>
-            </div>--><div class="more">
-            <a href="photos" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a>
-            </div><?php
+            </div>--><?php
             if ( !$user->Exists() ) {
                 ?><div class="members">
                     <div class="join">
