@@ -1,4 +1,6 @@
+#allphotos {
+    height: auto;
+}
 #allphotos ul li {
     margin: 8px;
-    height: auto;
 }
