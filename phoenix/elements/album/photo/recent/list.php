@@ -23,12 +23,11 @@
                             Element( 'image/view' , $image->Image->Id , $image->Image->User->Id , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , $image->Image->Numcomments );
                             ?></a></li><?php
                         }
-                        ?></ul>
-                        <div class="eof" /><?php
-                        
-                        ?></div><div class="eof" /><?php
+                    ?></ul>
+                    <div class="eof" /><?php
+                    Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
+                ?></div><?php
             }
-            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
             ?><div class="eof" /><?php
         }
     }
