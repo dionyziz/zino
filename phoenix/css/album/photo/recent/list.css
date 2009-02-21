@@ -1,6 +1,16 @@
-#allphotos {
-    height: auto;
+div.allphotos {
+    margin: 0 4px 20px 4px;
 }
-#allphotos ul li {
+div.allphotos ul {
+    padding: 17px 0 14px 0;
+    height: 110px;
+}
+div.allphotos ul li {
+    float: left;
     margin: 8px;
+    height: 110px;
+    text-align: center;
+}
+div.allphotos ul li img {
+    border: 1px solid #cce;
 }
