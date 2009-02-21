@@ -67,6 +67,10 @@ div.lstimages ul li {
 div.lstimages ul li img {
     border: 1px solid #cce;
 }
+div.frontpage div.more {
+    float: right;
+    margin: 30px 0 0;
+}
 div.members {
 	z-index: 999;
 }
