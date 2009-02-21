@@ -3,11 +3,11 @@ div.allphotos {
 }
 div.allphotos ul {
     padding: 17px 0 14px 0;
-    height: 110px;
 }
 div.allphotos ul li {
     float: left;
     margin: 8px;
+    height: 110px;
     text-align: center;
 }
 div.allphotos ul li img {
