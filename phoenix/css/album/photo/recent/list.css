@@ -8,7 +8,6 @@ div.allphotos ul {
 div.allphotos ul li {
     float: left;
     margin: 8px;
-    height: 110px;
     text-align: center;
 }
 div.allphotos ul li img {
