@@ -15,16 +15,16 @@
                 ?>
                 <div class="lstimages" id="allphotos">
                     <h2>Φωτογραφίες</h2>
-                    <ul><?php
+                    <ul>
+                        <?php
                         foreach ( $images as $image ) {
-                            ?>
-                            <li>
+                            ?><li>
                             <a href="?p=photo&amp;id=<?php
                             echo $image->Image->Id;
                             ?>"><?php
                             Element( 'image/view' , $image->Image->Id , $image->Image->User->Id , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , $image->Image->Numcomments );
-                            ?></a>
-                            </li><?php
+                            ?></a></li>
+                            <?php
                         }
                         ?>
                     </ul>
