@@ -23,11 +23,12 @@
                                 ?></a></li><?php
                             }
                             ?>
-                        </ul>
+                        </ul><?php
+                            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );?>
                     </div><?php
             }
             ?><div class="eof" /><?php
-            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
+            
         }
     }
 ?>
