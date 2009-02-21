@@ -24,9 +24,10 @@
                             }
                             ?>
                         </ul>
-                        <div class="eof" />
+                        <div class="eof"></div>
                         <div class="pagifyimages"><?php
-                            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );?>
+                            Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
+                            ?>
                         </div><?php
             }
             ?><div class="eof" /><?php
