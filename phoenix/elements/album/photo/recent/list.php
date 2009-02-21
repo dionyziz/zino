@@ -28,7 +28,7 @@
                         <div class="pagifyimages"><?php
                         Element( 'pagify', $pageno, 'photos?pageno=', ceil( $images->TotalCount() / 40 ) );
             }
-            ?></div><div class="eof" /></div><?php
+            ?></div><div class="eof" /></div><div class="eof" /><?php
 
             
         }
