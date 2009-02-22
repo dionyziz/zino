@@ -3,7 +3,16 @@
         Developer:Pagio
     */
     
-    
+    class ReportUserFinder extends Finder {
+        protected $mModel = 'ReportUser';
+            
+        public function FindAll( $offset, $limit ) {
+            $prototype = new ReportUser();
+            $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            
+            return $found;
+        }        
+    }
     
     class ReportUser extends Satori {
         protected $mDbTableAlias = 'report'; 
