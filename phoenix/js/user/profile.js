@@ -126,6 +126,10 @@ var Profile = {
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
     MyProfileOnLoad: function () {
+        $( '#reportabusemodal' ).jqm( {
+            trigger : '#reportabuse a.report',
+            overlayClass : 'mdloverlay1'
+        } );
         $( '#tweetedit' ).jqm( {
             trigger : 'div.tweetbox div.tweet div a',
             overlayClass : 'mdloverlay1'
