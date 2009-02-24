@@ -6,9 +6,6 @@
             $images = $finder->FindFrontpageLatest( 0, 15 );
             if ( count( $images ) > 0 ) {
                 ?><div class="lstimages plist">
-                    <div class="more">
-                        <a href="photos" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a>
-                    </div>
                 <ul><?php
                     foreach ( $images as $image ) {
                         ?><li><a href="?p=photo&amp;id=<?php
