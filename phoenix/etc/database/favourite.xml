@@ -7,7 +7,7 @@
             <field name="favourite_userid" type="int" ref="users.user_id" />
             <field name="favourite_itemid" type="int" />
             <field name="favourite_typeid" type="int" />
-            <field name="favourite_date" type="datetime" default="0000-00-00 00:00:00" />
+            <field name="favourite_created" type="datetime" default="0000-00-00 00:00:00" />
             <index type="primary">
                 <indexfield>favourite_id</indexfield>
             </index>

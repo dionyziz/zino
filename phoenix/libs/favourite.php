@@ -44,6 +44,7 @@
             global $user;
 
             $this->Userid = $user->Id;
+            $this->Created = NowDate();
         }
         public function OnCreate() {
             global $libs;
