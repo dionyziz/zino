@@ -6,7 +6,7 @@
             $libs->Load( 'comment' );
             $libs->Load( 'image/image' );
             $libs->Load( 'favourite' );
-            $libs->Load( 'poll' );
+            $libs->Load( 'poll/poll' );
             $libs->Load( 'journal' );
             $libs->Load( 'album' );
             $libs->Load( 'relation/relation' );
