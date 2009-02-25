@@ -1,6 +1,6 @@
 <?php
     class ElementDeveloperDionyzizRecent extends Element {
-        public function Render() {
+        private function LoadLibs() {
             global $libs;
             
             $libs->Load( 'comment' );
@@ -11,7 +11,18 @@
             $libs->Load( 'album' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
-            
+        }
+        private function MergeEvents( /* ... */ ) {
+            $events = func_get_args();
+            $ret = array();
+            foreach ( $events as $array ) {
+                foreach ( $array as $item ) {
+                    $ret[] = $item;
+                }
+            }
+            return $ret;
+        }
+        private function LoadEvents() {
             // comments
             $commentfinder = New CommentFinder();
             $comments = $commentfinder->FindLatest();
@@ -43,6 +54,29 @@
             // tagged
             $imagetagfinder = New ImageTagFinder();
             $imagetags = $imagetagfinder->FindAll();
+            
+            return $this->MergeEvents( 
+                $comments, $images, $users, $favourites, 
+                $polls, $albums, $friends, $imagetags
+            );
+        }
+        private function CompareEvents( $a, $b ) {
+            if ( $a->Created < $b->Created ) {
+                return -1;
+            }
+            return 1;
+        }
+        private function SortEvents( $events ) {
+            usort( $events, array( $this, 'CompareEvents' ) );
+            
+            return $events;
+        }
+        public function Render() {
+            $this->LoadLibs();
+            $events = $this->SortEvents( $this->LoadEvents() );
+            foreach ( $events as $event ) {
+                echo $event->Created . '<br />';
+            }
         }
     }
 ?>
