@@ -11,6 +11,9 @@
     class FriendRelationFinder extends Finder {
         protected $mModel = 'FriendRelation';
 
+        public function FindAll( $offset = 0, $limit = 25 ) {
+            return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
             w_assert( $user instanceof User );
             w_assert( $user->Exists() );

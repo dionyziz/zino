@@ -45,7 +45,7 @@
                     </object><?php
                     break;
                 case AD_USERPROFILE:
-                    ?><a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a><?php
+                    /* ?><a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a><?php */
                     break;
                 case AD_PHOTO:
                     ?><a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" alt="MadRadio" /></a><?php

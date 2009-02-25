@@ -12,6 +12,9 @@
 
             return $this->FindByPrototype( $prototype, 0, 40, array( 'Id', 'DESC' ) );
         }
+        public function FindAll( $offset = 0, $limit = 25 ) {
+            return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function LoadDefaults() {
             global $user;
 

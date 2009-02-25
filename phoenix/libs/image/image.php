@@ -37,6 +37,11 @@
     class ImageFinder extends Finder {
         protected $mModel = 'Image';
         
+        public function FindAll( $offset = 0, $limit = 25 ) {
+            $image = New Image();
+            $image->Delid = 0;
+            return $this->FindByPrototype( $image, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function FindByIds( $imageids ) {
             w_assert( is_array( $imageids ), 'ImageFinder->FindByIds() expects an array' );
             foreach ( $imageids as $imageid ) {

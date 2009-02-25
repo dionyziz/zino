@@ -20,7 +20,7 @@
             $vote->Userid = $user->Id;
 
             return $this->FindByPrototype( $vote );
-        }    
+        }
     }
 
     class PollException extends Exception {
