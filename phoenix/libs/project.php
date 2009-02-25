@@ -140,7 +140,8 @@
             'interests'         => 'tag/view',
 			'find'				=> 'search/im/credentials',
             'iphone/'           => 'iphone/frontpage/view',
-            'iphone/user'       => 'iphone/user/profile/view'
+            'iphone/user'       => 'iphone/user/profile/view',
+            'recent'            => 'developer/dionyziz/recent'
         );
     }
 ?>

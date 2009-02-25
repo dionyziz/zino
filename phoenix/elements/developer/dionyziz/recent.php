@@ -1,6 +1,17 @@
 <?php
     class ElementDeveloperDionyzizRecent extends Element {
         public function Render() {
+            global $libs;
+            
+            $libs->Load( 'comment' );
+            $libs->Load( 'image/image' );
+            $libs->Load( 'favourite' );
+            $libs->Load( 'poll' );
+            $libs->Load( 'journal' );
+            $libs->Load( 'album' );
+            $libs->Load( 'relation/relation' );
+            $libs->Load( 'image/tag' );
+            
             // comments
             $commentfinder = New CommentFinder();
             $comments = $commentfinder->FindLatest();
