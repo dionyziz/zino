@@ -42,7 +42,7 @@
             global $user;
                         
             $this->AuthorId = $user->Id;
-            $this->Date = NowDate();
+            $this->Created = NowDate();
         }  
     }
 ?>
