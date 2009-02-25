@@ -49,6 +49,9 @@
 
             return $this->FindByPrototype( $prototype );
         }
+        public function FindAll( $offset = 0, $limit = 25 ) {
+            return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+        }
     }
     
     class Album extends Satori {
