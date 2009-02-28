@@ -1,15 +1,15 @@
-div.allphotos {
+div.latestphotos {
     margin: 0 4px 20px 4px;
 }
-div.allphotos ul {
+div.latestphotos ul {
     padding: 17px 0 14px 0;
 }
-div.allphotos ul li {
+div.latestphotos ul li {
     float: left;
     margin: 8px;
     height: 110px;
     text-align: center;
 }
-div.allphotos ul li img {
+div.latestphotos ul li img {
     border: 1px solid #cce;
 }
