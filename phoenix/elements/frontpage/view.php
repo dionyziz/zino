@@ -99,11 +99,13 @@
             }
             
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
-            /*<div class="morealbums">
+            ?>
+            <div class="morealbums">
                 <div class="viewalbums">
                     <a href="photos" class="button">Προβολή όλων&raquo;</a>
                 </div>
-            </div>*/
+            </div>
+            <?php
             if ( !$user->Exists() ) {
                 ?><div class="members">
                     <div class="join">
