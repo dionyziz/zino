@@ -36,6 +36,10 @@
             $event->Userid = $this->Ownerid;
             $event->Save();
         }
+        protected function Relations() {
+            $this->Owner = $this->HasOne( 'User', 'Ownerid' );
+            $this->Person = $this->HasOne( 'Person', 'Personid' );
+        }
         protected function OnDelete() {
             global $libs;
             $libs->Load( 'notify' );

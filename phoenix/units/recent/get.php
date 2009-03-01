@@ -91,6 +91,41 @@
                 'type' => get_class( $event ),
                 'created' => strtotime( $event->Created )
             );
+            switch ( $item[ $type ] ) {
+                case 'Comment':
+                    $item[ 'text' ] = $event->GetText( 100 );
+                    $owner = $item->User;
+                    break;
+                case 'Image':
+                    $owner = $item->User;
+                    break;
+                case 'Favourite':
+                    $owner = $item->User;
+                    break;
+                case 'User':
+                    $owner = $item;
+                    break;
+                case 'Poll':
+                    $owner = $item->User;
+                    break;
+                case 'Journal':
+                    $owner = $item->User;
+                    break;
+                case 'Album':
+                    $owner = $item->User;
+                    break;
+                case 'Relation':
+                    $owner = $item->User;
+                    break;
+                case 'ImageTag':
+                    $owner = $item->Owner;
+                    break;
+            }
+            $item[ 'who' ] = array(
+                'name' => $owner->Name,
+                'id' => $owner->Id,
+                'avatar' => $owner->Avatar->Id
+            );
             $out[] = $item;
         }
         echo $f;

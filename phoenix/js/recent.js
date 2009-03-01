@@ -41,7 +41,7 @@ var Recent = {
         var par = document.getElementById( 'recentevents' );
         var div = document.createElement( 'div' );
 
-        div.innerHTML += event.created;
+        div.innerHTML = event.who.name + ' aka #' + event.who.id + ' (at ' + event.created + ')';
         div.className = 'event';
         par.appendChild( div );
     },
