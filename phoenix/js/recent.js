@@ -52,7 +52,6 @@ var Recent = {
         var newArray = [];
         
         for ( i = 0; i < Recent.Events.length; ++i ) {
-            alert( 'Processing this' );
             var event = Recent.Events[ i ];
             if ( event.created < Recent.Now - Recent.Interval ) { // display events with a 20-second offset from the time they ~really~ happened
                 Recent.DisplayEvent( event );
