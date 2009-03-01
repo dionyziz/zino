@@ -41,7 +41,7 @@ var Recent = {
             return 'Η ' + who.name;
         }
         return 'Ο ' + who.name;
-    }
+    },
     DisplayEvent: function ( event ) {
         document.title = 'DisplayEvent';
         var par = document.getElementById( 'recentevents' );
@@ -49,28 +49,28 @@ var Recent = {
 
         switch ( event.type ) {
             case 'Comment':
-                div.innerHTML = event.who.name + ' είπε: ' + event.text;
+                div.innerHTML = Recent.GetName( event.who ) + ' είπε: ' + event.text;
                 break;
             case 'Favourite':
-                div.innerHTML = event.who.name + ' πρόσθεσε κάτι στα αγαπημένα';
+                div.innerHTML = Recent.GetName( event.who ) + ' πρόσθεσε κάτι στα αγαπημένα';
                 break;
             case 'FriendRelation':
-                div.innerHTML = event.who.name + ' πρόσθεσε ένα φίλο';
+                div.innerHTML = Recent.GetName( event.who ) + ' πρόσθεσε ένα φίλο';
                 break;
             case 'Image':
-                div.innerHTML = event.who.name + ' ανέβασε μία φωτογραφία';
+                div.innerHTML = Recent.GetName( event.who ) + ' ανέβασε μία φωτογραφία';
                 break;
             case 'User':
-                div.innerHTML = event.who.name + ' είναι καινούργιος στο Zino!';
+                div.innerHTML = Recent.GetName( event.who ) + ' είναι καινούργιος στο Zino!';
                 break;
             case 'Poll':
-                div.innerHTML = event.who.name + ' δημιούργησε μία δημοσκόπηση';
+                div.innerHTML = Recent.GetName( event.who ) + ' δημιούργησε μία δημοσκόπηση';
                 break;
             case 'Poll':
-                div.innerHTML = event.who.name + ' έγραψε ημερολόγιο';
+                div.innerHTML = Recent.GetName( event.who ) + ' έγραψε ημερολόγιο';
                 break;
             case 'ImageTag':
-                div.innerHTML = event.who.name + ' αναγνώρισε κάποιον σε μία φωτογραφία';
+                div.innerHTML = Recent.GetName( event.who ) + ' αναγνώρισε κάποιον σε μία φωτογραφία';
                 break;
         }
         div.className = 'event';
