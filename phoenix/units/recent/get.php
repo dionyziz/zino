@@ -112,7 +112,12 @@
                     $owner = $event->User;
                     break;
                 case 'Album':
-                    $owner = $event->User;
+                    if ( $event->Ownertype == TYPE_USERPROFILE ) {
+                        $owner = $event->Owner;
+                    }
+                    else { // school album?
+                        continue;
+                    }
                     break;
                 case 'Relation':
                     $owner = $event->User;
