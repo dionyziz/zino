@@ -94,31 +94,31 @@
             switch ( $item[ $type ] ) {
                 case 'Comment':
                     $item[ 'text' ] = $event->GetText( 100 );
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'Image':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'Favourite':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'User':
-                    $owner = $item;
+                    $owner = $event;
                     break;
                 case 'Poll':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'Journal':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'Album':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'Relation':
-                    $owner = $item->User;
+                    $owner = $event->User;
                     break;
                 case 'ImageTag':
-                    $owner = $item->Owner;
+                    $owner = $event->Owner;
                     break;
             }
             $item[ 'who' ] = array(
