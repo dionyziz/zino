@@ -32,7 +32,7 @@
                 $userbyid[ $user->Id ] = $user;
             }
             foreach ( $images as $image ) {
-                w_assert( $user instanceof Image );
+                w_assert( $image instanceof Image );
                 w_assert( $image->Id > 0 );
                 $imagebyid[ $image->Id ] = $image;
             }
