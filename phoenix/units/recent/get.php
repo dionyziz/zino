@@ -84,7 +84,7 @@
             usort( $merged, 'UnitRecentGet_Compare' );
         }
         foreach ( $merged as $event ) {
-            ?>$( '#content' )[ 0 ].innerHMTL += '<?php
+            ?>$( '#content' )[ 0 ].innerHTML += '<?php
             echo $event->Created . '<br />';
             ?>';<?php
         }
