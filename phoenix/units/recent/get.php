@@ -83,10 +83,16 @@
         /* SortEvents */ {
             usort( $merged, 'UnitRecentGet_Compare' );
         }
+        $out = array();
         foreach ( $merged as $event ) {
-            ?>$( '#content' )[ 0 ].innerHTML += '<?php
-            echo $event->Created . '<br />';
-            ?>';<?php
+            $str = w_json_encode( array(
+                'type' => get_class( $event ),
+                'created' => $event->Created
+            ) );
+            $out[] = $str;
         }
+        ?>$( '#content' )[ 0 ].innerHTML += '<?php
+        echo implode( '<br />', $str );
+        ?>';<?php
     }
 ?>
