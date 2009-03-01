@@ -132,7 +132,8 @@
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
-                'avatar' => $owner->Avatar->Id
+                'avatar' => $owner->Avatar->Id,
+                'gender' => $owner->Gender
             );
             $out[] = $item;
         }

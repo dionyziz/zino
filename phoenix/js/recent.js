@@ -36,12 +36,43 @@ var Recent = {
             Recent.Events.push( event );
         }
     },
+    GetName: function ( who ) {
+        if ( 'f' == who.gender ) {
+            return 'Η ' + who.name;
+        }
+        return 'Ο ' + who.name;
+    }
     DisplayEvent: function ( event ) {
         document.title = 'DisplayEvent';
         var par = document.getElementById( 'recentevents' );
         var div = document.createElement( 'div' );
 
-        div.innerHTML = event.who.name + ' aka #' + event.who.id + ' (at ' + event.created + ')';
+        switch ( event.type ) {
+            case 'Comment':
+                div.innerHTML = event.who.name + ' είπε: ' + event.text;
+                break;
+            case 'Favourite':
+                div.innerHTML = event.who.name + ' πρόσθεσε κάτι στα αγαπημένα';
+                break;
+            case 'FriendRelation':
+                div.innerHTML = event.who.name + ' πρόσθεσε ένα φίλο';
+                break;
+            case 'Image':
+                div.innerHTML = event.who.name + ' ανέβασε μία φωτογραφία';
+                break;
+            case 'User':
+                div.innerHTML = event.who.name + ' είναι καινούργιος στο Zino!';
+                break;
+            case 'Poll':
+                div.innerHTML = event.who.name + ' δημιούργησε μία δημοσκόπηση';
+                break;
+            case 'Poll':
+                div.innerHTML = event.who.name + ' έγραψε ημερολόγιο';
+                break;
+            case 'ImageTag':
+                div.innerHTML = event.who.name + ' αναγνώρισε κάποιον σε μία φωτογραφία';
+                break;
+        }
         div.className = 'event';
         par.appendChild( div );
     },
