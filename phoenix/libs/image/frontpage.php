@@ -24,9 +24,13 @@
             $userbyid = array();
             $imagebyid = array();
             foreach ( $users as $user ) {
+                w_assert( $user instanceof User );
+                w_assert( $user->Id > 0 );
                 $userbyid[ $user->Id ] = $user;
             }
             foreach ( $images as $image ) {
+                w_assert( $user instanceof Image );
+                w_assert( $image->Id > 0 );
                 $imagebyid[ $image->Id ] = $image;
             }
             
