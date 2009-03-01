@@ -97,7 +97,7 @@
         ?>( <?php
         echo w_json_encode( $out );
         ?>, <?php
-        echo w_json_encode( strtotime( NowDate() ) + $xc_settings[ 'php2mysqldate' ] );
+        echo w_json_encode( strtotime( NowDate() ) );
         ?> );<?php
     }
 ?>
