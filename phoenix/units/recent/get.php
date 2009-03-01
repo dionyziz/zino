@@ -126,7 +126,7 @@
                     $owner = $event->Owner;
                     break;
                 default:
-                    w_assert( false );
+                    w_assert( false, 'Unexpected object type: ' . $item[ 'type' ] );
             }
             w_assert( $owner instanceof User, 'Expected owner to be an instance of User, variable of type ' . gettype( $owner ) . ' given' );
             $item[ 'who' ] = array(
