@@ -12,7 +12,6 @@ var Recent = {
     },
     OnFirstDownload: function ( now ) {
         document.title = 'Πρόσφατα στο Zino';
-        document.title = 'OnFirstDownload';
         $( 'div#recentevents img.loader' ).remove();
         Recent.Now = now;
         setInterval( Recent.Process, Recent.Resolution * 1000 );
@@ -22,13 +21,12 @@ var Recent = {
         Coala.Cold( 'recent/get', { f: Recent.GotEvents } );
     },
     GotEvents: function ( events, now ) {
-        document.title = 'GotEvents: ' + events.length;
-        if ( events.length ) {
-            document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + now + ' )';
-        }
         if ( Recent.Loading ) {
             Recent.Loading = false;
             Recent.OnFirstDownload( now );
+        }
+        if ( events.length ) {
+            document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + Recent.Now + ' )';
         }
         for ( i = 0; i < events.length; ++i ) {
             if ( event.created < Recent.Now - Recent.Interval ) {
