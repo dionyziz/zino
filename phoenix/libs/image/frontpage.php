@@ -17,6 +17,8 @@
             
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
+            die( '.'.count( $users ) );
+            
             w_assert( is_array( $users ) );
             
             $imagefinder = New ImageFinder();
