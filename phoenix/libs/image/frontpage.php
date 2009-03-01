@@ -41,11 +41,12 @@
             foreach ( $latest as $i => $frontpageimage ) {
                 if ( isset( $userbyid[ $frontpageimage->Userid ] ) ) {
                     $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpageimage->Userid ] );
-                    $c++;
                 }
                 if ( isset( $imagebyid[ $frontpageimage->Imageid ] ) ) {
                     $latest[ $i ]->CopyImageFrom( $imagebyid[ $frontpageimage->Imageid ] );
-                    $c++;
+                    if ( isset( $userbyid[ $frontpageimage->Userid ] ) ) {
+                        $latest[ $i ]->Image->CopyUserFrom( $userbyid[ $frontpageimage->Userid ] );
+                    }
                 }
             }
             
