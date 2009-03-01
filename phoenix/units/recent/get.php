@@ -5,7 +5,7 @@
         }
         return -1;
     }
-    function UnitRecentGet() {
+    function UnitRecentGet( tCoalaCallback $f ) {
         /* LoadLibs */ {
             global $libs;
             
@@ -91,8 +91,9 @@
             ) );
             $out[] = $str;
         }
-        ?>$( '#content' )[ 0 ].innerHTML += '<?php
-        echo implode( '<br />', $str );
-        ?>';<?php
+        echo $f;
+        ?>( <?php
+        echo w_json_encode( $out );
+        ?> );<?php
     }
 ?>
