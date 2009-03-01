@@ -17,9 +17,11 @@
             
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
+            w_assert( is_array( $users ) );
             
             $imagefinder = New ImageFinder();
             $images = $imagefinder->FindByIds( $imageids );
+            w_assert( is_array( $images ) );
             
             $userbyid = array();
             $imagebyid = array();
