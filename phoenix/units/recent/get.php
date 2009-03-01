@@ -5,7 +5,7 @@
         }
         return -1;
     }
-    function UnitRecentGet( tCoalaCallback $f ) {
+    function UnitRecentGet( tCoalaPointer $f ) {
         /* LoadLibs */ {
             global $libs;
             
