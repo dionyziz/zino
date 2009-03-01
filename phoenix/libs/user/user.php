@@ -110,21 +110,7 @@
             $query->Bind( 'ids', $ids );
             $query->Bind( 'limit', count( $ids ) );
 
-            $objects = $this->FindBySqlResource( $query->Execute() );
-            $ret = array();
-            
-            $objectbyid = array();
-            foreach ( $objects as $object ) {
-                $objectbyid[ $object->Id ] = $object;
-            }
-            
-            foreach ( $ids as $id ) {
-                if ( isset( $objectbyid ) ) {
-                    $ret[] = $objectbyid[ $id ];
-                }
-            }
-            
-            return $ret;
+            return $this->FindBySqlResource( $query->Execute() );
         }
         public function FindByNames( $names ) {
             if ( !is_array( $names ) ) {
