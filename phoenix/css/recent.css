@@ -7,9 +7,15 @@ div#recentevents {
     left: 0;
     right: 0;
     z-index: 1000;
+    overflow: hidden;
 }
 div#recentevents div.event {
     border: 1px solid #ccc;
     background-color: white;
     color: black;
+    width: 200px;
+    margin: 10px;
+}
+div#recentevents img.loader {
+    margin: 100px auto 0 auto;
 }

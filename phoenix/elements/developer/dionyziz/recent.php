@@ -7,7 +7,9 @@
             $page->AttachScript( 'js/recent.js' );
             $page->AttachStylesheet( 'css/recent.css' );
             
-            ?><div id="recentevents"></div><?php
+            ?><div id="recentevents">
+            <img class="loader" src="http://static.zino.gr/phoenix/recent-loader.gif" alt="Loading..." />
+            </div><?php
         }
     }
 ?>
