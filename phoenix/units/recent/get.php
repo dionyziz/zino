@@ -6,6 +6,8 @@
         return -1;
     }
     function UnitRecentGet( tCoalaPointer $f ) {
+        global $xc_settings;
+        
         /* LoadLibs */ {
             global $libs;
             
@@ -95,7 +97,7 @@
         ?>( <?php
         echo w_json_encode( $out );
         ?>, <?php
-        echo w_json_encode( strtotime( NowDate() ) );
+        echo w_json_encode( strtotime( NowDate() ) + $xc_settings[ 'php2mysqldate' ] );
         ?> );<?php
     }
 ?>
