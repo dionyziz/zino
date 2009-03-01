@@ -119,7 +119,7 @@
                         continue;
                     }
                     break;
-                case 'Relation':
+                case 'FriendRelation':
                     $owner = $event->User;
                     break;
                 case 'ImageTag':
