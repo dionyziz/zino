@@ -121,7 +121,7 @@
                     $owner = $event->Owner;
                     break;
             }
-            w_assert( $owner instanceof User );
+            w_assert( $owner instanceof User, 'Expected owner to be an instance of User, variable of type ' . gettype( $owner ) . ' given' );
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
