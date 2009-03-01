@@ -31,7 +31,7 @@ var Recent = {
             if ( event.created < now - Recent.Interval ) {
                 continue;
             }
-            Events.push( event );
+            Recent.Events.push( event );
         }
     },
     DisplayEvent: function ( event ) {
