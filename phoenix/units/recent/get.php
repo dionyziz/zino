@@ -91,7 +91,7 @@
                 'type' => get_class( $event ),
                 'created' => strtotime( $event->Created )
             );
-            switch ( $item[ $type ] ) {
+            switch ( $item[ 'type' ] ) {
                 case 'Comment':
                     $item[ 'text' ] = $event->GetText( 100 );
                     $owner = $event->User;
