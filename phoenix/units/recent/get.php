@@ -85,11 +85,11 @@
         }
         $out = array();
         foreach ( $merged as $event ) {
-            $str = w_json_encode( array(
+            $item = array(
                 'type' => get_class( $event ),
                 'created' => $event->Created
-            ) );
-            $out[] = $str;
+            );
+            $out[] = $item;
         }
         echo $f;
         ?>( <?php
