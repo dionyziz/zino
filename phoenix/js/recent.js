@@ -46,6 +46,8 @@ var Recent = {
         par.appendChild( div );
     },
     Process: function () {
+        Recent.Now += Recent.Resolution;
+        
         // document.title = 'Process ' + Recent.Events.length;
         var newArray = [];
         
