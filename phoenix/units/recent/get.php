@@ -87,13 +87,15 @@
         foreach ( $merged as $event ) {
             $item = array(
                 'type' => get_class( $event ),
-                'created' => $event->Created
+                'created' => strtotime( $event->Created )
             );
             $out[] = $item;
         }
         echo $f;
         ?>( <?php
         echo w_json_encode( $out );
+        ?>, <?php
+        echo w_json_encode( strtotime( NowDate() ) );
         ?> );<?php
     }
 ?>
