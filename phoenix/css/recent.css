@@ -8,6 +8,7 @@ div#recentevents {
     right: 0;
     z-index: 1000;
     overflow: hidden;
+    text-align: center;
 }
 div#recentevents div.event {
     border: 1px solid #ccc;

@@ -42,7 +42,7 @@ var Recent = {
         div.innerHTML += event.created;
         div.className = 'event';
         par.appendChild( div );
-    }
+    },
     Process: function () {
         document.title = 'Process ' + Recent.Events.length;
         var newArray = [];
