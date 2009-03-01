@@ -17,7 +17,6 @@
             
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
-            die( '.'.count( $users ) );
             
             w_assert( is_array( $users ) );
             
@@ -39,6 +38,8 @@
             }
             
             foreach ( $latest as $i => $frontpageimage ) {
+                w_assert( isset( $imagebyid[ $frontpageimage->Imageid ] ) );
+                w_assert( isset( $userbyid[ $frontpageimage->Userid ] ) );
                 $latest[ $i ]->CopyImageFrom( $imagebyid[ $frontpageimage->Imageid ] );
                 $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpageimage->Userid ] );
             }
