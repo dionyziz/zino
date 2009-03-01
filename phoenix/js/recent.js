@@ -29,6 +29,7 @@ var Recent = {
             document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + Recent.Now + ' )';
         }
         for ( i = 0; i < events.length; ++i ) {
+            var event = events[ i ];
             if ( event.created < Recent.Now - Recent.Interval ) {
                 continue;
             }
