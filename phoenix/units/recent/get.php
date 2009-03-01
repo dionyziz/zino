@@ -121,6 +121,7 @@
                     $owner = $event->Owner;
                     break;
             }
+            w_assert( $owner instanceof User );
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
