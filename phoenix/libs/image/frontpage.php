@@ -37,12 +37,18 @@
                 $imagebyid[ $image->Id ] = $image;
             }
             
+            $c = 0;
             foreach ( $latest as $i => $frontpageimage ) {
-                w_assert( isset( $imagebyid[ $frontpageimage->Imageid ] ) );
-                w_assert( isset( $userbyid[ $frontpageimage->Userid ] ) );
-                $latest[ $i ]->CopyImageFrom( $imagebyid[ $frontpageimage->Imageid ] );
-                $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpageimage->Userid ] );
+                if ( isset( $userbyid[ $frontpageimage->Userid ] ) ) {
+                    $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpageimage->Userid ] );
+                    $c++;
+                }
+                if ( isset( $imagebyid[ $frontpageimage->Imageid ] ) ) {
+                    $latest[ $i ]->CopyImageFrom( $imagebyid[ $frontpageimage->Imageid ] );
+                    $c++;
+                }
             }
+            die( '.'.$c );
             
             return $latest;
         }
