@@ -38,7 +38,7 @@
         }
         protected function Relations() {
             $this->Owner = $this->HasOne( 'User', 'Ownerid' );
-            $this->Person = $this->HasOne( 'Person', 'Personid' );
+            $this->Person = $this->HasOne( 'User', 'Personid' );
         }
         protected function OnDelete() {
             global $libs;
