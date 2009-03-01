@@ -81,9 +81,9 @@
             }
         }
         /* SortEvents */ {
-            $events = usort( $merged, 'UnitRecentGet_Compare' );
+            usort( $merged, 'UnitRecentGet_Compare' );
         }
-        foreach ( $events as $event ) {
+        foreach ( $merged as $event ) {
             echo $event->Created . '<br />';
         }
     }
