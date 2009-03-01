@@ -23,12 +23,15 @@ var Recent = {
     },
     GotEvents: function ( events, now ) {
         document.title = 'GotEvents: ' + events.length;
+        if ( events.length ) {
+            document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + now + ' )';
+        }
         if ( Recent.Loading ) {
             Recent.Loading = false;
             Recent.OnFirstDownload( now );
         }
         for ( i = 0; i < events.length; ++i ) {
-            if ( event.created < now - Recent.Interval ) {
+            if ( event.created < Recent.Now - Recent.Interval ) {
                 continue;
             }
             Recent.Events.push( event );
@@ -44,10 +47,11 @@ var Recent = {
         par.appendChild( div );
     },
     Process: function () {
-        document.title = 'Process ' + Recent.Events.length;
+        // document.title = 'Process ' + Recent.Events.length;
         var newArray = [];
         
         for ( i = 0; i < Recent.Events.length; ++i ) {
+            alert( 'Processing this' );
             var event = Recent.Events[ i ];
             if ( event.created > Recent.Now - Recent.Interval ) {
                 Recent.DisplayEvent( event );
