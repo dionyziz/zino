@@ -48,7 +48,6 @@
                     $c++;
                 }
             }
-            die( '.'.$c );
             
             return $latest;
         }
