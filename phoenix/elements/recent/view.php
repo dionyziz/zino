@@ -1,6 +1,5 @@
 <?php
-    /* Content-type: text/js */
-    class ElementDeveloperDionyzizRecent extends Element {
+    class ElementRecentView extends Element {
         public function Render() {
             global $page;
             

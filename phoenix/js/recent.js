@@ -14,7 +14,7 @@ var Recent = {
         d.scrollIntoView();
     },
     OnLoad: function () {
-        document.title = 'Πρόσφατα στο Zino';
+        document.title = 'Zino Live';
         Recent.Status( 'Η εφαρμογή πρόσφατων γεγονότων έχει φορτωθεί' );
         setInterval( Recent.GetEvents, Recent.Interval * 1000 );
         setInterval( Recent.RemoveOldies, Recent.Interval * 2 * 1000 );
