@@ -16,7 +16,7 @@ div#recentevents div.event {
     border: 1px solid #ccc;
     background-color: white;
     color: black;
-    width: 200px;
+    width: 400px;
     margin: 10px;
     position: absolute;
 }
