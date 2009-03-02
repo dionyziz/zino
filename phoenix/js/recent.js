@@ -91,7 +91,7 @@ var Recent = {
             case 'Favourite':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who ) 
-                    + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></div>';
+                    + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></a></div>';
                 break;
             case 'FriendRelation':
                 div.innerHTML = 
