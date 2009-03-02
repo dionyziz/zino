@@ -9,6 +9,8 @@ div#recentevents {
     z-index: 1000;
     overflow: hidden;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 div#recentevents div.event {
     border: 1px solid #ccc;

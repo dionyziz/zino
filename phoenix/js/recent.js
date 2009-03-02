@@ -80,15 +80,16 @@ var Recent = {
     PutBubble: function ( div ) {
         var par = document.getElementById( 'recentevents' );
         div.className = 'event';
-        div.style.bottom = 0;
         par.appendChild( div );
-        Recent.Bubbles.push( {
+        var item = {
             'node': div,
-            'position': 0,
-        } );
+            'position': -div.scrollHeight
+        };
+        item.node.style.bottom = item.position + 'px';
+        Recent.Bubbles.push( item );
     },
     Animate: function () {
-        for ( i = 0; i < Recent.Bubbles; ++i ) {
+        for ( i = 0; i < Recent.Bubbles.length; ++i ) {
             Recent.Bubbles[ i ].position += Recent.Speed;
             Recent.Bubbles[ i ].node.style.bottom = Recent.Bubbles[ i ].position + 'px';
         }
