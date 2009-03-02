@@ -122,7 +122,7 @@ var Recent = {
                         var itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
-                                + event.target.id + '_210" />';
+                                + event.target.id + '_210.jpg" />';
                         break;
                     case 'Journal':
                         var itemHTML = event.target.title;
@@ -130,7 +130,7 @@ var Recent = {
                 }
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em><img src="http://static.zino.gr/phoenix/heart.png" alt="&lt;3" /> Αγαπημένο!<br /><br />' + itemHTML + '</em></a></div>';
+                    + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em><img src="http://static.zino.gr/phoenix/heart.png" alt="&lt;3" /><br /><br />' + itemHTML + '</em></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'FriendRelation':
