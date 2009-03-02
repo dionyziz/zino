@@ -22,13 +22,17 @@ div#recentevents div#debugstatus {
     width: 500px;
     height: 500px;
     background-color: #333;
-    color: #999;
+    color: #aaa;
     text-align: left;
     padding: 5px;
     border: 1px solid #aaa;
 }
 div#recentevents div#debugstatus a {
     display: block;
+    color: #aaa;
+}
+div#recentevents div#debugstatus a:hover {
+    color: #aaa;
 }
 div#recentevents div.event {
     color: black;
