@@ -86,7 +86,7 @@ var Recent = {
             'position': -div.scrollHeight
         };
         item.node.style.bottom = item.position + 'px';
-        item.node.style.left = Math.round( Math.random() * ( document.body.scrollWidth - item.scrollWidth ) ) + 'px';
+        item.node.style.left = Math.round( Math.random() * ( document.body.scrollWidth - div.scrollWidth ) ) + 'px';
         Recent.Bubbles.push( item );
     },
     Animate: function () {
