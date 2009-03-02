@@ -4,10 +4,14 @@ var Recent = {
     Now: 0,
     Interval: 20,
     Resolution: 1,
+    Smoothness: 0.05,
+    Speed: 10,
+    Bubbles: [],
     OnLoad: function () {
         document.title = 'Φόρτωση...';
         document.title = 'OnLoad';
         setInterval( Recent.GetEvents, Recent.Interval * 1000 );
+        setInterval( Recent.Animate, Recent.Smoothness * 1000 );
         Recent.GetEvents();
     },
     OnFirstDownload: function ( now ) {
@@ -43,8 +47,6 @@ var Recent = {
         return 'Ο ' + who.name;
     },
     DisplayEvent: function ( event ) {
-        document.title = 'DisplayEvent';
-        var par = document.getElementById( 'recentevents' );
         var div = document.createElement( 'div' );
 
         switch ( event.type ) {
@@ -74,12 +76,27 @@ var Recent = {
                 break;
         }
         div.className = 'event';
+        Recent.PutBubble( div );
+    },
+    PutBubble: function ( div ) {
+        var par = document.getElementById( 'recentevents' );
+        div.style.bottom = 0;
         par.appendChild( div );
+        Recent.Bubbles.push( {
+            'node': div,
+            'position': 0,
+        } );
+    },
+    Animate: function () {
+        for ( i = 0; i < Recent.Bubbles; ++i ) {
+            var bubble = Recent.Bubbles[ i ];
+            bubble.position += Recent.Speed;
+            bubble.node.style.bottom = bubble.position + 'px';
+        }
     },
     Process: function () {
         Recent.Now += Recent.Resolution;
         
-        // document.title = 'Process ' + Recent.Events.length;
         var newArray = [];
         
         for ( i = 0; i < Recent.Events.length; ++i ) {
