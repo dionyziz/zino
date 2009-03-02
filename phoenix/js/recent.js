@@ -4,8 +4,8 @@ var Recent = {
     Now: 0,
     Interval: 20,
     Resolution: 1,
-    Smoothness: 0.05,
-    Speed: 10,
+    Smoothness: 0.03,
+    Speed: 1,
     Bubbles: [],
     OnLoad: function () {
         document.title = 'Φόρτωση...';
