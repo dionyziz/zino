@@ -95,7 +95,7 @@ var Recent = {
     },
     DisplayEvent: function ( event ) {
         var div = document.createElement( 'div' );
-        var reverse = Math.floor( Math.random() * 2 );
+        var reverse = Math.floor( Math.random() * 2 ) == 1? true: false;
         
         switch ( event.type ) {
             case 'Comment':
