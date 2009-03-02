@@ -57,7 +57,7 @@ var Recent = {
             Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότ' + ( c == 1? 'ος': 'ων' ) + ' (' + d + ' παραλήφθηκ' + ( d == 1? 'ε': 'αν' ) + ')' );
         }
     },
-    DisplayAvatar: function ( who ) {
+    DisplayAvatar: function ( who, reverse ) {
         if ( who.avatar == 0 ) {
             var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
         }
@@ -67,7 +67,6 @@ var Recent = {
                           + '/' + who.avatar + '/' 
                           + who.avatar + '_100.jpg';
         }
-        var reverse = Math.floor( Math.random() * 2 );
         var classes = 'who';
         var speechurl = 'http://static.zino.gr/phoenix/speech.png';
         
@@ -96,11 +95,12 @@ var Recent = {
     },
     DisplayEvent: function ( event ) {
         var div = document.createElement( 'div' );
-
+        var reverse = Math.floor( Math.random() * 2 );
+        
         switch ( event.type ) {
             case 'Comment':
                 div.innerHTML = 
-                  Recent.DisplayAvatar( event.who )
+                  Recent.DisplayAvatar( event.who, reverse )
                   + '<div class="what"><a href="" target="_blank" title="Προβολή του σχόλιου">'
                   + event.text
                   + '</a></div>';
@@ -108,46 +108,49 @@ var Recent = {
                 break;
             case 'Favourite':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who ) 
+                    Recent.DisplayAvatar( event.who, reverse ) 
                     + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'FriendRelation':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who ) 
+                    Recent.DisplayAvatar( event.who, reverse ) 
                     + '<div class="what"><em>Πρόσθεσε ένα φίλο</em></div>';
                 break;
             case 'Image':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who )
+                    Recent.DisplayAvatar( event.who, reverse )
                     + '<div class="what"><em>Ανέβασε μία φωτογραφία</em></div>';
                 break;
             case 'User':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who ) 
+                    Recent.DisplayAvatar( event.who, reverse ) 
                     + '<div class="what"><em>Είναι καινούργιος στο Zino!</em></div>';
                 break;
             case 'Poll':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who )
+                    Recent.DisplayAvatar( event.who, reverse )
                     + '<div class="what"><em>Δημιούργησε μία δημοσκόπηση</em></div>';
                 break;
             case 'Poll':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who ) 
+                    Recent.DisplayAvatar( event.who, reverse ) 
                     + '<div class="what"><em>Έγραψε ημερολόγιο</em></div>';
                 break;
             case 'ImageTag':
                 div.innerHTML = 
-                    Recent.DisplayAvatar( event.who ) 
+                    Recent.DisplayAvatar( event.who, reverse ) 
                     + '<div class="what"><em>αναγνώρισε κάποιον σε μία φωτογραφία</em></div>';
                 break;
         }
-        Recent.PutBubble( div );
+        Recent.PutBubble( div, reverse );
     },
-    PutBubble: function ( div ) {
+    PutBubble: function ( div, reverse ) {
         var par = document.getElementById( 'recentevents' );
         div.className = 'event';
+        if ( reverse ) {
+            div.className = 'event eventrev';
+        }
         par.appendChild( div );
         var item = {
             'node': div,

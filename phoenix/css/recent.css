@@ -46,7 +46,7 @@ div#recentevents div.event div.who {
     width: 60px;
     color: white;
 }
-div#recentevents div.event div.whoreversed {
+div#recentevents div.eventrev div.who {
     float: right;
 }
 div#recentevents div.event div.who img.avatar {
@@ -64,10 +64,10 @@ div#recentevents div.event div.who img.speech {
     left: 55px;
     top: 10px;
 }
-div#recentevents div.event div.whoreversed img.speech {
+div#recentevents div.eventrev div.who img.speech {
     left: 0;
 }
-div#recentevents div.event div.whoreversed img.avatar {
+div#recentevents div.eventrev div.who img.avatar {
     left: 25px;
 }
 div#recentevents div.event div.what {
@@ -77,6 +77,12 @@ div#recentevents div.event div.what {
     margin-left: 71px;
     margin-top: 10px;
     padding: 7px;
+}
+div#recentevents div.eventrev div.what {
+    margin-left: 0;
+    margin-right: 60px;
+    border-right-style: none;
+    border-left-style: solid;
 }
 div#recentevents img.loader {
     margin: 100px auto 0 auto;
