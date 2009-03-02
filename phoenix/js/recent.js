@@ -59,13 +59,13 @@ var Recent = {
     },
     DisplayAvatar: function ( who ) {
         if ( who.avatar == 0 ) {
+            var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+        }
+        else {
             var avatar = 'http://images.zino.gr/media/' 
                           + who.id 
                           + '/' + who.avatar + '/' 
                           + who.avatar + '_100.jpg';
-        }
-        else {
-            var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
         }
         return '<div class="who">'
                     + '<a href="http://' 
