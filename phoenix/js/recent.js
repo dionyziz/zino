@@ -136,12 +136,12 @@ var Recent = {
             case 'FriendRelation':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><em>Πρόσθεσε ένα φίλο</em></div>';
+                    + '<div class="what"><em>Πρόσθεσα ένα φίλο</em></div>';
                 break;
             case 'Image':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true )
-                    + '<div class="what"><em>Ανέβασε μία φωτογραφία</em></div>';
+                    + '<div class="what"><em>Ανέβασα μία φωτογραφία</em></div>';
                 break;
             case 'User':
                 div.innerHTML = 
@@ -151,17 +151,17 @@ var Recent = {
             case 'Poll':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true )
-                    + '<div class="what"><em>Δημιούργησε μία δημοσκόπηση</em></div>';
+                    + '<div class="what"><em>Δημιούργησα μία δημοσκόπηση</em></div>';
                 break;
             case 'Poll':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><em>Έγραψε ημερολόγιο</em></div>';
+                    + '<div class="what"><em>Έγραψα ημερολόγιο</em></div>';
                 break;
             case 'ImageTag':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><em>αναγνώρισε κάποιον σε μία φωτογραφία</em></div>';
+                    + '<div class="what"><em>Αναγνώρισα κάποιον σε μία φωτογραφία</em></div>';
                 break;
         }
         Recent.PutBubble( div, reverse );
