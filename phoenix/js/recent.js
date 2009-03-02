@@ -8,7 +8,7 @@ var Recent = {
     Speed: 1,
     Bubbles: [],
     Status: function ( status ) {
-        var d = document.createElement( 'div' );
+        var d = document.createElement( 'a' );
         d.innerHTML = status;
         $( '#debugstatus' )[ 0 ].appendChild( d );
         d.focus();
@@ -35,6 +35,8 @@ var Recent = {
     },
     GotEvents: function ( events, now ) {
         var c = 0;
+        var d = 0;
+        
         Recent.Status( 'Λήψη δεδομένων ολοκληρώθηκε' );
         if ( Recent.Loading ) {
             Recent.Loading = false;
@@ -47,13 +49,14 @@ var Recent = {
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
-                ++c;
+                ++d;
                 continue;
             }
+            ++c;
             Recent.Events.push( event );
         }
-        if ( c ) {
-            Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότων' );
+        if ( c + d ) {
+            Recent.Status( 'Έγινε λήψη ' + d + ' γεγονότ' + ( d == 1? 'ος': 'ων' ) + ' (' + c + ' παραλήφθηκ' + ( c == 1? 'ε': 'αν' ) + ')' );
         }
     },
     DisplayAvatar: function ( who ) {
