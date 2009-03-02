@@ -47,13 +47,13 @@ var Recent = {
                         + '.zino.gr" target="_blank" title="Προβολή προφίλ '
                         + ( who.gender == 'f'? 'της ': 'του ' ) 
                         + who.name
-                        + '">'
+                        + '">' */
                         + '<img src="http://images.zino.gr/media/'
                         + who.id + '/' + who.avatar 
                         + '/' + who.avatar + '_100.jpg" alt="'
                         + who.name
                         + '" width="50" height"50" class="avatar" />'
-                        + '<span class="nick">'
+                        /* + '<span class="nick">'
                         + who.name
                         + '</span>'
                     + '</a>'
