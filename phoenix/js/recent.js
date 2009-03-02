@@ -52,7 +52,7 @@ var Recent = {
                         + who.id + '/' + who.avatar 
                         + '/' + who.avatar + '_100.jpg" alt="'
                         + who.name
-                        + '" width="50" height"50" class="avatar" />'
+                        + '" width="50" height="50" class="avatar" />'
                         /* + '<span class="nick">'
                         + who.name
                         + '</span>'
