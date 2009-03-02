@@ -72,7 +72,7 @@ var Recent = {
         
         if ( reverse ) {
             classes += ' whoreversed';
-            speechurl = 'http://static.zino.gr/phoenix/speech-rev.png';
+            speechurl = 'http://static.zino.gr/phoenix/thought-rev.png';
         }
         
         var html = '<div class="' + classes + '">'
