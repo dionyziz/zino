@@ -58,6 +58,12 @@
                     ?>commentid=<?php
                     echo $target->Id;
                     return;
+                case 'FriendRelation':
+                    ob_start();
+                    Element( 'url', $target->Person );
+                    $url = ob_get_clean();
+                    echo $url;
+                    return;
                 default:
                     throw New Exception( 'Unknown comment target item "' . get_class( $target ) . '"' );
             }
