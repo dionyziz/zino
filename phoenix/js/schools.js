@@ -1,5 +1,5 @@
 $( function() { 
-    $( 'div#schview div.photos div.plist ul li a.uploadphoto' ).click( function() {
+    $( 'div#schview div.photos div.plist ul li a.s_bigadd' ).click( function() {
         var modal = $( '#schooluploadmodal' )[ 0 ].cloneNode( true );
         $( modal ).show();
         $( modal ).find( 'a.close' ).click( function() {
