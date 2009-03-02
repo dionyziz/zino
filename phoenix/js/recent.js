@@ -1,3 +1,7 @@
+/*
+    Developer: Dionyziz
+    Questions? dionyziz@kamibu.com
+*/
 var Recent = {
     Events: [],
     Loading: true,
