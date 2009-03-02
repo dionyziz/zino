@@ -8,6 +8,7 @@
             $page->AttachStylesheet( 'css/recent.css' );
             
             ?><div id="recentevents">
+            <div id="debugstatus"></div>
             <img class="loader" src="http://static.zino.gr/phoenix/recent-loader.gif" alt="Loading..." />
             </div><?php
         }

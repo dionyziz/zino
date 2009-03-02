@@ -12,6 +12,17 @@ div#recentevents {
     margin: 0;
     padding: 0;
 }
+div#recentevents div#debugstatus {
+    position: absolute;
+    opacity: 0.8;
+    top: 10px;
+    right: 10px;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    background-color: #333;
+    color: #999;
+}
 div#recentevents div.event {
     color: black;
     margin: 10px;

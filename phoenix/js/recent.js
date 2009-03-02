@@ -7,37 +7,53 @@ var Recent = {
     Smoothness: 0.03,
     Speed: 1,
     Bubbles: [],
+    Status: function ( status ) {
+        var d = document.createElement( 'div' );
+        d.innerHTML = status;
+        $( '#debugstatus' ).appendChild( d );
+        d.focus();
+    },
     OnLoad: function () {
-        document.title = 'Φόρτωση...';
+        Recent.Status( 'Η εφαρμογή πρόσφατων γεγονότων έχει φορτωθεί' );
         document.title = 'OnLoad';
         setInterval( Recent.GetEvents, Recent.Interval * 1000 );
+        setInterval( Recent.RemoveOldies, Recent.Interval * 2 * 1000 );
         setInterval( Recent.Animate, Recent.Smoothness * 1000 );
         Recent.GetEvents();
     },
     OnFirstDownload: function ( now ) {
+        Recent.Status( 'Πρώτη λήψη δεδομένων ολοκληρώθηκε' );
         document.title = 'Πρόσφατα στο Zino';
         $( 'div#recentevents img.loader' ).remove();
         Recent.Now = now;
         setInterval( Recent.Process, Recent.Resolution * 1000 );
     },
     GetEvents: function () {
+        Recent.Status( 'Ενημέρωση με νέα δεδομένα...' );
         document.title = 'GetEvents';
         Coala.Cold( 'recent/get', { f: Recent.GotEvents } );
     },
     GotEvents: function ( events, now ) {
+        var c = 0;
+        Recent.Status( 'Λήψη δεδομένων ολοκληρώθηκε' );
         if ( Recent.Loading ) {
             Recent.Loading = false;
             Recent.OnFirstDownload( now );
         }
+        Recent.Status( 'Τελευταία γνωστή χρονική απόκλιση: ' + Math.abs( Recent.Now - now ) + ' δευτερόλεπτ' + ( Math.abs( Recent.Now - now ) == 1? 'o': 'α' ) );
         if ( events.length ) {
             document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + Recent.Now + ' )';
         }
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
+                ++c;
                 continue;
             }
             Recent.Events.push( event );
+        }
+        if ( c ) {
+            Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότων' );
         }
     },
     DisplayAvatar: function ( who ) {
@@ -130,13 +146,20 @@ var Recent = {
     },
     RemoveOldies: function () {
         var Keep = [];
+        var c = 0;
         
         for ( i = 0; i < Recent.Bubbles.length; ++i ) {
             if ( Recent.Bubbles[ i ].position <= body.scrollHeight + Recent.Bubbles[ i ].node.scrollHeight ) {
                 Keep.push( Recent.Bubbles[ i ] );
             }
+            else {
+                ++c;
+            }
         }
         Recent.Bubbles = Keep;
+        if ( c ) {
+            Recent.Status( c + ' γεγονότα παρήλθαν' );
+        }
     },
     Process: function () {
         Recent.Now += Recent.Resolution;
