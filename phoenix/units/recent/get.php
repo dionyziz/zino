@@ -132,7 +132,6 @@
             ob_start();
             Element( 'url', $event );
             $item[ 'url' ] = ob_get_clean();
-            $item[ 'url' ] = '';
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
