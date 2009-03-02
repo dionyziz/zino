@@ -58,6 +58,15 @@ var Recent = {
         }
     },
     DisplayAvatar: function ( who ) {
+        if ( who.avatar == 0 ) {
+            var avatar = 'http://images.zino.gr/media/' 
+                          + who.id 
+                          + '/' + who.avatar + '/' 
+                          + who.avatar + '_100.jpg';
+        }
+        else {
+            var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+        }
         return '<div class="who">'
                     + '<a href="http://' 
                         + who.subdomain 
@@ -65,9 +74,7 @@ var Recent = {
                         + ( who.gender == 'f'? 'της ': 'του ' ) 
                         + who.name
                         + '">'
-                        + '<img src="http://images.zino.gr/media/'
-                        + who.id + '/' + who.avatar 
-                        + '/' + who.avatar + '_100.jpg" alt="'
+                        + '<img src="' + avatar + '" alt="'
                         + who.name
                         + '" width="50" height="50" class="avatar" />'
                         + '<span class="nick">'
