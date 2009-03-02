@@ -11,7 +11,7 @@ var Recent = {
         var d = document.createElement( 'a' );
         d.innerHTML = status;
         $( '#debugstatus' )[ 0 ].appendChild( d );
-        d.focus();
+        d.scrollIntoView();
     },
     OnLoad: function () {
         document.title = 'Πρόσφατα στο Zino';
@@ -150,7 +150,7 @@ var Recent = {
         var c = 0;
         
         for ( i = 0; i < Recent.Bubbles.length; ++i ) {
-            if ( Recent.Bubbles[ i ].position <= body.scrollHeight + Recent.Bubbles[ i ].node.scrollHeight ) {
+            if ( Recent.Bubbles[ i ].position <= document.body.scrollHeight + Recent.Bubbles[ i ].node.scrollHeight ) {
                 Keep.push( Recent.Bubbles[ i ] );
             }
             else {
