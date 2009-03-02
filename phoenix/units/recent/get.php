@@ -136,6 +136,8 @@
                     $item[ 'target' ] = array(
                         'id' => $event->Friend->Id,
                         'avatar' => $event->Friend->Avatar->Id,
+                        'subdomain' => $event->Friend->Subdomain,
+                        'name' => $event->Friend->Name
                     );
                     $owner = $event->User;
                     break;

@@ -145,7 +145,14 @@ var Recent = {
                 }
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><em><img src="' + avatarurl + '" alt="" /><img src="http://static.zino.gr/phoenix/user_add.png" alt="+φίλος" class="icon" /></em></div>';
+                    + '<div class="what"><em><a href="http://' 
+                    + event.target.subdomain 
+                    + '.zino.gr/" title="' 
+                    + event.target.name 
+                    + '"><img src="' 
+                    + avatarurl 
+                    + '" alt="" /></a>'
+                    + '<img src="http://static.zino.gr/phoenix/user_add.png" alt="+φίλος" class="icon" /></em></div>';
                 break;
             case 'Image':
                 div.innerHTML =
