@@ -60,7 +60,7 @@
                     return;
                 case 'FriendRelation':
                     ob_start();
-                    Element( 'url', $target->Person );
+                    Element( 'url', $target->Friend );
                     $url = ob_get_clean();
                     echo $url;
                     return;
