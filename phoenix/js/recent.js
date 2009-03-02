@@ -42,7 +42,7 @@ var Recent = {
     },
     DisplayAvatar: function ( who ) {
         return '<div class="who">'
-                    + '<a href="http://' 
+                    /* + '<a href="http://' 
                         + who.subdomain 
                         + '.zino.gr" target="_blank" title="Προβολή προφίλ '
                         + ( who.gender == 'f'? 'της ': 'του ' ) 
@@ -57,7 +57,7 @@ var Recent = {
                         + who.name
                         + '</span>'
                     + '</a>'
-                    + '<img src="speech.png" class="speech" />'
+                    + '<img src="speech.png" class="speech" />' */
                 + '</div>';
     },
     DisplayEvent: function ( event ) {
