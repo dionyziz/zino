@@ -14,8 +14,8 @@ var Recent = {
         d.focus();
     },
     OnLoad: function () {
+        document.title = 'Πρόσφατα στο Zino';
         Recent.Status( 'Η εφαρμογή πρόσφατων γεγονότων έχει φορτωθεί' );
-        document.title = 'OnLoad';
         setInterval( Recent.GetEvents, Recent.Interval * 1000 );
         setInterval( Recent.RemoveOldies, Recent.Interval * 2 * 1000 );
         setInterval( Recent.Animate, Recent.Smoothness * 1000 );
@@ -23,14 +23,15 @@ var Recent = {
     },
     OnFirstDownload: function ( now ) {
         Recent.Status( 'Πρώτη λήψη δεδομένων ολοκληρώθηκε' );
-        document.title = 'Πρόσφατα στο Zino';
         $( 'div#recentevents img.loader' ).remove();
         Recent.Now = now;
         setInterval( Recent.Process, Recent.Resolution * 1000 );
+        setTimeout( function () {
+            $( '#debugstatus' ).fadeOut();
+        }, 3000 );
     },
     GetEvents: function () {
         Recent.Status( 'Ενημέρωση με νέα δεδομένα...' );
-        document.title = 'GetEvents';
         Coala.Cold( 'recent/get', { f: Recent.GotEvents } );
     },
     GotEvents: function ( events, now ) {
@@ -43,9 +44,6 @@ var Recent = {
             Recent.OnFirstDownload( now );
         }
         Recent.Status( 'Τελευταία γνωστή χρονική απόκλιση: ' + Math.abs( Recent.Now - now ) + ' δευτερόλεπτ' + ( Math.abs( Recent.Now - now ) == 1? 'o': 'α' ) );
-        if ( events.length ) {
-            document.title = 'GotEvents: ' + events.length + ' ( ' + events[ 0 ].created + ' / ' + Recent.Now + ' )';
-        }
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
@@ -56,7 +54,7 @@ var Recent = {
             Recent.Events.push( event );
         }
         if ( c + d ) {
-            Recent.Status( 'Έγινε λήψη ' + d + ' γεγονότ' + ( d == 1? 'ος': 'ων' ) + ' (' + c + ' παραλήφθηκ' + ( c == 1? 'ε': 'αν' ) + ')' );
+            Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότ' + ( c == 1? 'ος': 'ων' ) + ' (' + d + ' παραλήφθηκ' + ( c == 1? 'ε': 'αν' ) + ')' );
         }
     },
     DisplayAvatar: function ( who ) {
