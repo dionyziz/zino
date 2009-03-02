@@ -147,7 +147,7 @@ var Recent = {
                     Recent.DisplayAvatar( event.who, reverse, true ) 
                     + '<div class="what"><em><a href="http://' 
                     + event.target.subdomain 
-                    + '.zino.gr/" title="' 
+                    + '.zino.gr/" target="_blank" title="' 
                     + event.target.name 
                     + '"><img src="' 
                     + avatarurl 
@@ -157,7 +157,7 @@ var Recent = {
             case 'Image':
                 div.innerHTML =
                     Recent.DisplayAvatar( event.who, reverse, true )
-                    + '<div class="what"><a href="" title="Προβολή πλήρους μεγέθους"><img src="http://images.zino.gr/media/'
+                    + '<div class="what"><a href="" target="_blank" title="Προβολή πλήρους μεγέθους"><img src="http://images.zino.gr/media/'
                     + event.who.id + '/' + event.id + '/' + event.id + '_210.jpg" alt="" /></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
