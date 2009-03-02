@@ -100,6 +100,18 @@
                     $owner = $event->User;
                     break;
                 case 'Favourite':
+                    $item[ 'target' ] = array(
+                        'type' => get_class( $event->Item )
+                    );
+                    switch ( $item[ 'target' ] ) {
+                        case 'Journal':
+                            $item[ 'target' ][ 'title' ] = $event->Item->Title;
+                            break;
+                        case 'Image':
+                            $item[ 'target' ][ 'owner' ][ 'id' ] = $event->Item->User->Id;
+                            $item[ 'target' ][ 'id' ] = $event->Item->Id;
+                            break;
+                    }
                     $owner = $event->User;
                     break;
                 case 'User':
