@@ -57,7 +57,7 @@ var Recent = {
                         + who.name
                         + '</span>'
                     + '</a>'
-                    + '<img src="speech.png" class="speech" />' */
+                    + '<img src="http://static.zino.gr/phoenix/speech.png" class="speech" />'
                 + '</div>';
     },
     DisplayEvent: function ( event ) {
