@@ -61,6 +61,9 @@ div#recentevents div.event div.who span.nick {
     position: absolute;
     top: 60px;
 }
+div#recentevents div.eventrev div.who span.nick {
+    right: -19px;
+}
 div#recentevents div.event div.who img.speech {
     position: absolute;
     left: 55px;
