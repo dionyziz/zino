@@ -97,6 +97,7 @@
                     $owner = $event->User;
                     break;
                 case 'Image':
+                    $item[ 'id' ] = $event->Id;
                     $owner = $event->User;
                     break;
                 case 'Favourite':
@@ -132,6 +133,10 @@
                     }
                     break;
                 case 'FriendRelation':
+                    $item[ 'target' ] = array(
+                        'id' => $event->Friend->Id,
+                        'avatar' => $event->Friend->Avatar->Id,
+                    );
                     $owner = $event->User;
                     break;
                 case 'ImageTag':

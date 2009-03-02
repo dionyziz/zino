@@ -122,7 +122,7 @@ var Recent = {
                         var itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
-                                + event.target.id + '_210.jpg" />';
+                                + event.target.id + '_210.jpg" alt="&lt;3" />';
                         break;
                     case 'Journal':
                         var itemHTML = event.target.title;
@@ -130,18 +130,29 @@ var Recent = {
                 }
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em><img src="http://static.zino.gr/phoenix/heart.png" alt="&lt;3" /><br /><br />' + itemHTML + '</em></a></div>';
+                    + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em><img src="http://static.zino.gr/phoenix/heart.png" alt="&lt;3" class="icon" />' + itemHTML + '</em></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'FriendRelation':
+                if ( event.target.avatar == 0 ) {
+                    var avatarurl = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                }
+                else {
+                    var avatar = 'http://images.zino.gr/media/' 
+                                  + event.target.id 
+                                  + '/' + event.target.avatar + '/' 
+                                  + event.target.avatar + '_150.jpg';
+                }
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
-                    + '<div class="what"><em>Πρόσθεσα ένα φίλο</em></div>';
+                    + '<div class="what"><em><img src="' + avatarurl + '" alt="" /><img src="http://static.zino.gr/phoenix/user_add.png" alt="+φίλος" class="icon" /></em></div>';
                 break;
             case 'Image':
-                div.innerHTML = 
+                div.innerHTML =
                     Recent.DisplayAvatar( event.who, reverse, true )
-                    + '<div class="what"><em>Ανέβασα μία φωτογραφία</em></div>';
+                    + '<div class="what"><a href="" title="Προβολή πλήρους μεγέθους"><img src="http://images.zino.gr/media/'
+                    + event.who.id + '/' + event.id + '/' + event.id + '_210.jpg" alt="" /></a></div>';
+                $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'User':
                 div.innerHTML = 
@@ -153,7 +164,7 @@ var Recent = {
                     Recent.DisplayAvatar( event.who, reverse, true )
                     + '<div class="what"><em>Δημιούργησα μία δημοσκόπηση</em></div>';
                 break;
-            case 'Poll':
+            case 'Journal':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
                     + '<div class="what"><em>Έγραψα ημερολόγιο</em></div>';
@@ -162,6 +173,11 @@ var Recent = {
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who, reverse, true ) 
                     + '<div class="what"><em>Αναγνώρισα κάποιον σε μία φωτογραφία</em></div>';
+                break;
+            case 'Album':
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who, reverse, true ) 
+                    + '<div class="what"><em>Δημιούργησα ένα album</em></div>';
                 break;
         }
         Recent.PutBubble( div, reverse );

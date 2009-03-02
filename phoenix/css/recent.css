@@ -58,6 +58,8 @@ div#recentevents div.event div.who span.nick {
     text-align: center;
     width: 52px;
     color: #999;
+    position: absolute;
+    top: 60px;
 }
 div#recentevents div.event div.who img.speech {
     position: absolute;
@@ -77,6 +79,13 @@ div#recentevents div.event div.what {
     margin-left: 71px;
     margin-top: 10px;
     padding: 7px;
+    position: relative;
+}
+div#recentevents div.event div.what img.icon {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    z-index: 1001;
 }
 div#recentevents div.eventrev div.what {
     margin-left: 0;
