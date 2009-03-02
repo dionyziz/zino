@@ -54,7 +54,7 @@ var Recent = {
             Recent.Events.push( event );
         }
         if ( c + d ) {
-            Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότ' + ( c == 1? 'ος': 'ων' ) + ' (' + d + ' παραλήφθηκ' + ( c == 1? 'ε': 'αν' ) + ')' );
+            Recent.Status( 'Έγινε λήψη ' + c + ' γεγονότ' + ( c == 1? 'ος': 'ων' ) + ' (' + d + ' παραλήφθηκ' + ( d == 1? 'ε': 'αν' ) + ')' );
         }
     },
     DisplayAvatar: function ( who ) {
@@ -168,7 +168,7 @@ var Recent = {
         }
         Recent.Bubbles = Keep;
         if ( c ) {
-            Recent.Status( c + ' γεγονότα παρήλθαν' );
+            Recent.Status( c + ' γεγονότα παρήλθ' + ( c == 1? 'ε': 'αν' ) );
         }
     },
     Process: function () {
