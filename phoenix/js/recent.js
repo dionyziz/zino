@@ -67,7 +67,16 @@ var Recent = {
                           + '/' + who.avatar + '/' 
                           + who.avatar + '_100.jpg';
         }
-        return '<div class="who">'
+        var reverse = Math.floor( Math.random() * 2 );
+        var classes = 'who';
+        var speechurl = 'http://static.zino.gr/phoenix/speech.png';
+        
+        if ( reverse ) {
+            classes += ' whoreversed';
+            speechurl = 'http://static.zino.gr/phoenix/speech-rev.png';
+        }
+        
+        var html = '<div class="' + classes + '">'
                     + '<a href="http://' 
                         + who.subdomain 
                         + '.zino.gr" target="_blank" title="Προβολή προφίλ '
@@ -81,8 +90,9 @@ var Recent = {
                         + who.name
                         + '</span>'
                     + '</a>'
-                    + '<img src="http://static.zino.gr/phoenix/speech.png" class="speech" />'
+                    + '<img src="' + speechurl + '" class="speech" />'
                 + '</div>';
+        return html;
     },
     DisplayEvent: function ( event ) {
         var div = document.createElement( 'div' );

@@ -46,8 +46,12 @@ div#recentevents div.event div.who {
     width: 60px;
     color: white;
 }
+div#recentevents div.event div.whoreversed {
+    float: right;
+}
 div#recentevents div.event div.who img.avatar {
     border: 1px solid white;
+    position: absolute;
 }
 div#recentevents div.event div.who span.nick {
     display: block;
@@ -59,6 +63,12 @@ div#recentevents div.event div.who img.speech {
     position: absolute;
     left: 55px;
     top: 10px;
+}
+div#recentevents div.event div.whoreversed img.speech {
+    left: 0;
+}
+div#recentevents div.event div.whoreversed img.avatar {
+    left: 25px;
 }
 div#recentevents div.event div.what {
     background-color: white;
