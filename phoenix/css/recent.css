@@ -16,6 +16,7 @@ div#recentevents div.event {
     color: black;
     width: 200px;
     margin: 10px;
+    position: absolute;
 }
 div#recentevents img.loader {
     margin: 100px auto 0 auto;

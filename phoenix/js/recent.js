@@ -75,11 +75,11 @@ var Recent = {
                 div.innerHTML = Recent.GetName( event.who ) + ' αναγνώρισε κάποιον σε μία φωτογραφία';
                 break;
         }
-        div.className = 'event';
         Recent.PutBubble( div );
     },
     PutBubble: function ( div ) {
         var par = document.getElementById( 'recentevents' );
+        div.className = 'event';
         div.style.bottom = 0;
         par.appendChild( div );
         Recent.Bubbles.push( {
@@ -89,9 +89,8 @@ var Recent = {
     },
     Animate: function () {
         for ( i = 0; i < Recent.Bubbles; ++i ) {
-            var bubble = Recent.Bubbles[ i ];
-            bubble.position += Recent.Speed;
-            bubble.node.style.bottom = bubble.position + 'px';
+            Recent.Bubbles[ i ].position += Recent.Speed;
+            Recent.Bubbles[ i ].node.style.bottom = Recent.Bubbles[ i ].position + 'px';
         }
     },
     Process: function () {
