@@ -91,14 +91,16 @@ var Recent = {
             case 'Comment':
                 div.innerHTML = 
                   Recent.DisplayAvatar( event.who )
-                  + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του σχόλιου">'
+                  + '<div class="what"><a href="" target="_blank" title="Προβολή του σχόλιου">'
                   + event.text
                   + '</a></div>';
+                $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'Favourite':
                 div.innerHTML = 
                     Recent.DisplayAvatar( event.who ) 
-                    + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></a></div>';
+                    + '<div class="what"><a href="" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></a></div>';
+                $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'FriendRelation':
                 div.innerHTML = 
