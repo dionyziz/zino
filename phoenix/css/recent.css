@@ -14,7 +14,7 @@ div#recentevents {
 }
 div#recentevents div#debugstatus {
     position: absolute;
-    opacity: 0.8;
+    opacity: 0.7;
     top: 10px;
     right: 10px;
     overflow: hidden;

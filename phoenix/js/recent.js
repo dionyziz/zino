@@ -10,7 +10,7 @@ var Recent = {
     Status: function ( status ) {
         var d = document.createElement( 'div' );
         d.innerHTML = status;
-        $( '#debugstatus' ).appendChild( d );
+        $( '#debugstatus' )[ 0 ].appendChild( d );
         d.focus();
     },
     OnLoad: function () {
