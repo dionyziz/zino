@@ -13,12 +13,38 @@ div#recentevents {
     padding: 0;
 }
 div#recentevents div.event {
-    border: 1px solid #ccc;
-    background-color: white;
     color: black;
-    width: 400px;
     margin: 10px;
     position: absolute;
+    text-align: left;
+}
+div#recentevents div.event div.who {
+    float: left;
+    position: relative;
+    width: 60px;
+    color: white;
+}
+div#recentevents div.event div.who img.avatar {
+    border: 1px solid white;
+}
+div#recentevents div.event div.who span.nick {
+    display: block;
+    text-align: center;
+    width: 52px;
+    color: #999;
+}
+div#recentevents div.event div.who img.speech {
+    position: absolute;
+    left: 55px;
+    top: 10px;
+}
+div#recentevents div.event div.what {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-left-style: none;
+    margin-left: 71px;
+    margin-top: 10px;
+    padding: 7px;
 }
 div#recentevents img.loader {
     margin: 100px auto 0 auto;

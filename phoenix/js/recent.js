@@ -40,39 +40,72 @@ var Recent = {
             Recent.Events.push( event );
         }
     },
-    GetName: function ( who ) {
-        if ( 'f' == who.gender ) {
-            return 'Η ' + who.name;
-        }
-        return 'Ο ' + who.name;
+    DisplayAvatar: function ( who ) {
+        return 
+        '<div class="who">'
+            + '<a href="http://' 
+                + who.subdomain 
+                + '.zino.gr" target="_blank" title="Προβολή προφίλ '
+                + ( who.gender == 'f'? 'της ': 'του ' ) 
+                + who.name
+                + '">'
+                + '<img src="http://images.zino.gr/media/'
+                + who.id + '/' + who.avatar 
+                + '/' + who.avatar + '_100.jpg" alt="'
+                + who.name + 
+                '" width="50" height"50" class="avatar" />'
+                + '<span class="nick">'
+                + who.name
+                + '</span>'
+            + '</a>'
+            + '<img src="speech.png" class="speech" />'
+        + '</div>';
     },
     DisplayEvent: function ( event ) {
         var div = document.createElement( 'div' );
 
         switch ( event.type ) {
             case 'Comment':
-                div.innerHTML = Recent.GetName( event.who ) + ' είπε: ' + event.text;
+                div.innerHTML = 
+                  Recent.DisplayAvatar( event.who )
+                  + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του σχόλιου">'
+                  + event.text
+                  + '</a></div>';
                 break;
             case 'Favourite':
-                div.innerHTML = Recent.GetName( event.who ) + ' πρόσθεσε κάτι στα αγαπημένα';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who ) 
+                    + '<div class="what"><a href="' + event.url + '" target="_blank" title="Προβολή του στοιχείου"><em>Πρόσθεσε κάτι στα αγαπημένα</em></div>';
                 break;
             case 'FriendRelation':
-                div.innerHTML = Recent.GetName( event.who ) + ' πρόσθεσε ένα φίλο';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who ) 
+                    + '<div class="what"><em>Πρόσθεσε ένα φίλο</em></div>';
                 break;
             case 'Image':
-                div.innerHTML = Recent.GetName( event.who ) + ' ανέβασε μία φωτογραφία';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who )
+                    + '<div class="what"><em>Ανέβασε μία φωτογραφία</em></div>';
                 break;
             case 'User':
-                div.innerHTML = Recent.GetName( event.who ) + ' είναι καινούργιος στο Zino!';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who ) 
+                    + '<div class="what"><em>Είναι καινούργιος στο Zino!</em></div>';
                 break;
             case 'Poll':
-                div.innerHTML = Recent.GetName( event.who ) + ' δημιούργησε μία δημοσκόπηση';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who )
+                    + '<div class="what"><em>Δημιούργησε μία δημοσκόπηση</em></div>';
                 break;
             case 'Poll':
-                div.innerHTML = Recent.GetName( event.who ) + ' έγραψε ημερολόγιο';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who ) 
+                    + '<div class="what"><em>Έγραψε ημερολόγιο</em></div>';
                 break;
             case 'ImageTag':
-                div.innerHTML = Recent.GetName( event.who ) + ' αναγνώρισε κάποιον σε μία φωτογραφία';
+                div.innerHTML = 
+                    Recent.DisplayAvatar( event.who ) 
+                    + '<div class="what"><em>αναγνώρισε κάποιον σε μία φωτογραφία</em></div>';
                 break;
         }
         Recent.PutBubble( div );
@@ -83,7 +116,8 @@ var Recent = {
         par.appendChild( div );
         var item = {
             'node': div,
-            'position': -div.scrollHeight
+            'position': -div.scrollHeight,
+            'speed': 1 + Math.random()
         };
         item.node.style.bottom = item.position + 'px';
         item.node.style.left = Math.round( Math.random() * ( document.body.scrollWidth - div.scrollWidth ) ) + 'px';
@@ -91,9 +125,19 @@ var Recent = {
     },
     Animate: function () {
         for ( i = 0; i < Recent.Bubbles.length; ++i ) {
-            Recent.Bubbles[ i ].position += Recent.Speed;
+            Recent.Bubbles[ i ].position += Recent.Speed * Recent.Bubbles[ i ].speed;
             Recent.Bubbles[ i ].node.style.bottom = Recent.Bubbles[ i ].position + 'px';
         }
+    },
+    RemoveOldies: function () {
+        var Keep = [];
+        
+        for ( i = 0; i < Recent.Bubbles.length; ++i ) {
+            if ( Recent.Bubbles[ i ].position <= body.scrollHeight + Recent.Bubbles[ i ].node.scrollHeight ) {
+                Keep.push( Recent.Bubbles[ i ] );
+            }
+        }
+        Recent.Bubbles = Keep;
     },
     Process: function () {
         Recent.Now += Recent.Resolution;

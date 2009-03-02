@@ -129,11 +129,15 @@
                     w_assert( false, 'Unexpected object type: ' . $item[ 'type' ] );
             }
             w_assert( $owner instanceof User, 'Expected owner to be an instance of User, variable of type ' . gettype( $owner ) . ' given' );
+            ob_start();
+            Element( 'url', $event );
+            $item[ 'url' ] = ob_get_clean();
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
                 'avatar' => $owner->Avatar->Id,
-                'gender' => $owner->Gender
+                'gender' => $owner->Gender,
+                'subdomain' => $owner->Subdomain
             );
             $out[] = $item;
         }
