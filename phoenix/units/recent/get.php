@@ -103,7 +103,7 @@
                     $item[ 'target' ] = array(
                         'type' => get_class( $event->Item )
                     );
-                    switch ( $item[ 'target' ] ) {
+                    switch ( $item[ 'target' ][ 'type' ] ) {
                         case 'Journal':
                             $item[ 'target' ][ 'title' ] = $event->Item->Title;
                             break;
