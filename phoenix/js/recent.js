@@ -138,7 +138,7 @@ var Recent = {
                     var avatarurl = 'http://static.zino.gr/phoenix/anonymous100.jpg';
                 }
                 else {
-                    var avatar = 'http://images.zino.gr/media/' 
+                    var avatarurl = 'http://images.zino.gr/media/' 
                                   + event.target.id 
                                   + '/' + event.target.avatar + '/' 
                                   + event.target.avatar + '_150.jpg';
