@@ -98,8 +98,9 @@
                     break;
                 case 'Image':
                     $item[ 'id' ] = $event->Id;
-                    $item[ 'width' ] = $event->Width;
-                    $item[ 'height' ] = $event->Height;
+                    list( $width, $height ) = ProportionalSize( 210, 210, $event->Width, $event->Height );
+                    $item[ 'width' ] = $width;
+                    $item[ 'height' ] = $height;
                     $owner = $event->User;
                     break;
                 case 'Favourite':
@@ -111,8 +112,15 @@
                             $item[ 'target' ][ 'title' ] = $event->Item->Title;
                             break;
                         case 'Image':
-                            $item[ 'target' ][ 'owner' ][ 'id' ] = $event->Item->User->Id;
-                            $item[ 'target' ][ 'id' ] = $event->Item->Id;
+                            list( $width, $height ) = ProportionalSize( 210, 210, $event->Item->Width, $event->Item->Height );
+                            $item[ 'target' ] = array(
+                                'owner' => array(
+                                    'id' => $event->Item->User->Id
+                                ),
+                                'id' => $event->Item->Id,
+                                'width' => $width,
+                                'height' => $height
+                            );
                             break;
                     }
                     $owner = $event->User;
@@ -135,9 +143,12 @@
                     }
                     break;
                 case 'FriendRelation':
+                    list( $width, $height ) = ProportionalSize( 210, 210, $event->Friend->Avatar->Width, $event->Friend->Avatar->Height );
                     $item[ 'target' ] = array(
                         'id' => $event->Friend->Id,
                         'avatar' => $event->Friend->Avatar->Id,
+                        'width' => $width,
+                        'height' => $height,
                         'subdomain' => $event->Friend->Subdomain,
                         'name' => $event->Friend->Name
                     );

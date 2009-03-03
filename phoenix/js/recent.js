@@ -127,8 +127,8 @@ var Recent = {
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
                                 + event.target.id + '_210.jpg" alt="&lt;3" width="'
-                                + event.width + '" height="'
-                                + event.height + '" />';
+                                + event.target.width + '" height="'
+                                + event.target.height + '" />';
                         break;
                     case 'Journal':
                         var itemHTML = event.target.title;
@@ -157,7 +157,9 @@ var Recent = {
                     + event.target.name 
                     + '"><img src="' 
                     + avatarurl 
-                    + '" alt="" /></a>'
+                    + '" width="'
+                    + width + '" height="'
+                    + height + '" alt="" /></a>'
                     + '<img src="http://static.zino.gr/phoenix/user_add.png" alt="+φίλος" class="icon" /></em></div>';
                 break;
             case 'Image':
