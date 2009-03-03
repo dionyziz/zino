@@ -9,7 +9,7 @@
             if ( !previousselection ) {
                 var previousselection = $( 'div#easyphotoupload div.modalcontent div ul li' );
             }
-            alert( this.className );
+            alert( $( this )[ 0 ] );
             $( previousselection ).removeClass( 'selected' );
             $( this ).addClass( 'selected' );
             previousselection = $( this )[ 0 ];
