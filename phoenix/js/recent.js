@@ -126,7 +126,9 @@ var Recent = {
                         var itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
-                                + event.target.id + '_210.jpg" alt="&lt;3" />';
+                                + event.target.id + '_210.jpg" alt="&lt;3" width="'
+                                + event.width + '" height="'
+                                + event.height + '" />';
                         break;
                     case 'Journal':
                         var itemHTML = event.target.title;
@@ -199,13 +201,15 @@ var Recent = {
         if ( reverse ) {
             div.className = 'event eventrev';
         }
-        par.appendChild( div );
         var item = {
             'node': div,
-            'position': -div.scrollHeight,
+            'position': 0,
             'speed': 1 + Math.random()
         };
         item.node.style.bottom = item.position + 'px';
+        item.node.style.display = 'none';
+        par.appendChild( div );
+        $( item.node ).fadeIn();
         item.node.style.left = Math.round( Math.random() * ( document.body.scrollWidth - div.scrollWidth ) ) + 'px';
         Recent.Bubbles.push( item );
     },

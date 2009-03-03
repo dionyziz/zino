@@ -98,6 +98,8 @@
                     break;
                 case 'Image':
                     $item[ 'id' ] = $event->Id;
+                    $item[ 'width' ] = $event->Width;
+                    $item[ 'height' ] = $event->Height;
                     $owner = $event->User;
                     break;
                 case 'Favourite':
