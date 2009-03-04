@@ -18,12 +18,20 @@
                 albumname = 'Εγώ';
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
-            var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data" ).split( "&" );
+            var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
+            if ( UserBrowser() == 'MSIE' ) {
+                $attr = "src";
+            }
+            else {
+                $attr = "data";
+            }
+            echo $attr;
+            ?>" ).split( "&" );
             arguments[ 0 ] = "?p=upload";
             arguments[ 1 ] = "albumid=" + $( this ).attr( 'id' ).substr( 6 );
-            alert( arguments.join( "&" ) );
-            $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data", arguments.join( "&" ) );
-            
+            $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
+            echo $attr;
+            ?>", arguments.join( "&" ) );
         } );<?php
     }
 ?>
