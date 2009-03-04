@@ -9,17 +9,7 @@
             $page->AttachScript( 'js/recent.js' );
             $page->AttachStylesheet( 'css/recent.css' );
             
-            $favourite = New Favourite( 76 );
-            var_dump( $favourite->Item->Width );
-            die();
-            
             $image = New Image( 100416 );
-            
-            var_dump( 
-                ProportionalSize( 210, 210, $image->Width, $image->Height )
-            );
-            
-            die();
             
             ?><div id="recentevents">
             <div id="debugstatus"></div>
