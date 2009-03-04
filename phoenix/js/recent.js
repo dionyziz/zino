@@ -158,8 +158,8 @@ var Recent = {
                     + '"><img src="' 
                     + avatarurl 
                     + '" width="'
-                    + width + '" height="'
-                    + height + '" alt="" /></a>'
+                    + event.target.width + '" height="'
+                    + event.target.height + '" alt="" /></a>'
                     + '<img src="http://static.zino.gr/phoenix/user_add.png" alt="+φίλος" class="icon" /></em></div>';
                 break;
             case 'Image':
