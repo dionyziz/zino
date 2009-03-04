@@ -51,7 +51,12 @@ var Recent = {
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
             if ( event.type == 'Favourite' ) {
-                Recent.Status( 'Fav Width: ' + event.target.width );
+                if ( event.target.id == 100416 ) {
+                    // force no skip for this; for debugging
+                    ++c;
+                    Recent.Events.push( event );
+                    continue;
+                }
             }
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
                 ++d;
