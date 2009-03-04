@@ -19,7 +19,8 @@
             }
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data" ).split( "&" );
-            alert( arguments[ 1 ] );
+            arguments[ 1 ] = "albumid=" + $( this ).id.substr( 6 );
+            $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data", arguments.join( "&" ) );
             
         } );<?php
     }
