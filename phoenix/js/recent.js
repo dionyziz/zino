@@ -50,14 +50,6 @@ var Recent = {
         Recent.Status( 'Τελευταία γνωστή χρονική απόκλιση: ' + Math.abs( Recent.Now - now ) + ' δευτερόλεπτ' + ( Math.abs( Recent.Now - now ) == 1? 'o': 'α' ) );
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
-            if ( event.type == 'Favourite' ) {
-                if ( event.target.id == 100416 ) {
-                    // force no skip for this; for debugging
-                    ++c;
-                    Recent.Events.push( event );
-                    continue;
-                }
-            }
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
                 ++d;
                 continue;
