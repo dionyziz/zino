@@ -6,6 +6,10 @@
             $page->AttachScript( 'js/recent.js' );
             $page->AttachStylesheet( 'css/recent.css' );
             
+            $favourite = New Favourite( 76 );
+            var_dump( $favourite->Item->Id );
+            die();
+            
             $image = New Image( 100416 );
             
             var_dump( 
