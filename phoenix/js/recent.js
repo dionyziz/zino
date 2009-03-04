@@ -53,6 +53,9 @@ var Recent = {
             if ( event.type == 'Favourite' ) {
                 if ( event.target.id == 100416 ) {
                     // force no skip for this; for debugging
+                    alert( event.target.width );
+                    alert( event.target.height );
+                    alert( event.target.id );
                     ++c;
                     Recent.Events.push( event );
                     continue;
