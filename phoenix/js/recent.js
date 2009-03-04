@@ -53,9 +53,6 @@ var Recent = {
             if ( event.type == 'Favourite' ) {
                 if ( event.target.id == 100416 ) {
                     // force no skip for this; for debugging
-                    alert( event.target.width );
-                    alert( event.target.height );
-                    alert( event.target.id );
                     ++c;
                     Recent.Events.push( event );
                     continue;
@@ -134,6 +131,8 @@ var Recent = {
             case 'Favourite':
                 switch ( event.target.type ) {
                     case 'Image':
+                        alert( event.target.width );
+                        alert( event.target.height );
                         var itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
