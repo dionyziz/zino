@@ -23,6 +23,7 @@
                         echo $album->Id;
                         ?>"><?php
                         Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->User->Id , 100 , 100 , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 ); ?></li><?php
+                        echo $album->Name;
                     }
                 }
                 ?></ul></div>
