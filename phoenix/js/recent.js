@@ -213,7 +213,7 @@ var Recent = {
         item.node.style.display = 'none';
         par.appendChild( div );
         $( item.node ).fadeIn();
-        item.node.style.left = Math.round( Math.random() * ( document.body.scrollWidth - div.scrollWidth ) ) + 'px';
+        item.node.style.left = 50 + Math.round( Math.random() * ( document.body.scrollWidth - div.scrollWidth - 100 ) ) + 'px';
         Recent.Bubbles.push( item );
     },
     Animate: function () {
