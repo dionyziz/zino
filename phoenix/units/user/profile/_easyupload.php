@@ -20,6 +20,7 @@
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data" ).split( "&" );
             arguments[ 1 ] = "albumid=" + $( this ).id.substr( 6 );
+            alert( arguments.join( "&" ) );
             $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "data", arguments.join( "&" ) );
             
         } );<?php
