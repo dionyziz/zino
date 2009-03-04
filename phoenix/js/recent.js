@@ -50,6 +50,9 @@ var Recent = {
         Recent.Status( 'Τελευταία γνωστή χρονική απόκλιση: ' + Math.abs( Recent.Now - now ) + ' δευτερόλεπτ' + ( Math.abs( Recent.Now - now ) == 1? 'o': 'α' ) );
         for ( i = 0; i < events.length; ++i ) {
             var event = events[ i ];
+            if ( event.type == 'Favourite' ) {
+                Recent.Status( 'Fav Width: ' + event.target.width );
+            }
             if ( event.created < Recent.Now - Recent.Interval ) { // filter out too old events (older than 20 seconds ago) -- don't consider them at all
                 ++d;
                 continue;
@@ -166,7 +169,8 @@ var Recent = {
                 div.innerHTML =
                     Recent.DisplayAvatar( event.who, reverse, true )
                     + '<div class="what"><a href="" target="_blank" title="Προβολή πλήρους μεγέθους"><img src="http://images.zino.gr/media/'
-                    + event.who.id + '/' + event.id + '/' + event.id + '_210.jpg" alt="" /></a></div>';
+                    + event.who.id + '/' + event.id + '/' 
+                    + event.id + '_210.jpg" width="' + event.width + '" height="' + event.height + '" alt="" /></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'User':
@@ -224,12 +228,14 @@ var Recent = {
     RemoveOldies: function () {
         var Keep = [];
         var c = 0;
+        var par = document.getElementById( 'recentevents' );
         
         for ( i = 0; i < Recent.Bubbles.length; ++i ) {
             if ( Recent.Bubbles[ i ].position <= document.body.scrollHeight + Recent.Bubbles[ i ].node.scrollHeight ) {
                 Keep.push( Recent.Bubbles[ i ] );
             }
             else {
+                par.removeChild( Recent.Bubbles[ i ].node );
                 ++c;
             }
         }
