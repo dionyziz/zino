@@ -119,7 +119,6 @@ var Recent = {
         var div = document.createElement( 'div' );
         var reverse = Math.floor( Math.random() * 2 ) == 1? true: false;
         
-        alert( event.type );
         switch ( event.type ) {
             case 'Comment':
                 div.innerHTML = 
@@ -130,11 +129,8 @@ var Recent = {
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'Favourite':
-                alert( event.target.type );
                 switch ( event.target.type ) {
                     case 'Image':
-                        alert( event.target.width );
-                        alert( event.target.height );
                         var itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
