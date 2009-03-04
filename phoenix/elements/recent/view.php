@@ -6,8 +6,10 @@
             $page->AttachScript( 'js/recent.js' );
             $page->AttachStylesheet( 'css/recent.css' );
             
+            $image = New Image( 100416 );
+            
             var_dump( 
-                ProportionalSize( 210, 210, 400, 100 )
+                ProportionalSize( 210, 210, $image->Width, $image->Height )
             );
             
             die();
