@@ -10,7 +10,7 @@
             $page->AttachStylesheet( 'css/recent.css' );
             
             $favourite = New Favourite( 76 );
-            var_dump( $favourite->Item->Id );
+            var_dump( $favourite->Item->Width );
             die();
             
             $image = New Image( 100416 );
