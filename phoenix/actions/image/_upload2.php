@@ -119,8 +119,8 @@
                 ?> , true );<?php
             }
             else if ( $typeid == 4 ) {
-                alert("testttt");
-                ?>parent.Profile.Easyuploadadd( <?php
+                ?>alert("testttt");
+                parent.Profile.Easyuploadadd( <?php
                 echo $image->Id;
                 ?> );<?php
             }
