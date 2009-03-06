@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title></title>
-        <script type="text/javascript" src="http://universe.beta.zino.gr/meteor.js"></script>
+        <script type="text/javascript" src="http://beta.zino.gr/phoenix/js/meteor.js"></script>
     </head>
     <body>
         <script type="text/javascript">
