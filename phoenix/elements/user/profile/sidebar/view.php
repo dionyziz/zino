@@ -2,7 +2,7 @@
     class ElementUserProfileSidebarView extends Element {
         protected $mPersistent = array( 'theuserid' , 'updated', 'schoolexists' );
          
-        public function Render( $theuser , $theuserid , $updated, $schoolexists ) {            
+        public function Render( $theuser , $theuserid , $updated, $schoolexists ) { 
             ?><div class="sidebar">
                 <div class="basicinfo"><?php
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuserid , $updated, $schoolexists ); 

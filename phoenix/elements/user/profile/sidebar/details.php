@@ -2,7 +2,7 @@
     class ElementUserProfileSidebarDetails extends Element {
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
-        public function Render( $theuser , $theuserid ,  $lastupdated ) {
+        public function Render( $theuser , $theuserid ,  $lastupdated ) { 
             $profile = $theuser->Profile;
             ?><div class="look">
 				<span class="malebody">&nbsp;</span><?php
