@@ -3,7 +3,7 @@
         public function Render( $skype , $msn , $gtalk , $yim ) {
             global $rabbit_settings;
             
-            if ( $skype != '' or $msn != '' or $gtalk != '' or $yim != '' ) {
+            if ( $skype != '' || $msn != '' || $gtalk != '' || $yim != '' ) {
                 ?><dl><?php
                     if ( $skype != '' ) {
                         ?><dt class="skype"></dt>
