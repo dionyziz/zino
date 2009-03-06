@@ -3,7 +3,7 @@
         public function Render() {
             global $page;
             
-            $page->AttachScript( 'http://universe.zino.gr/meteor.js' );
+            $page->AttachScript( 'js/meteor.js' );
             $page->AttachScript( 'js/universe.js' );
         }
     }
