@@ -26,9 +26,13 @@ var PhotoList = {
 		return false;
 	},
 	UploadPhoto : function() {
+        alert("1");
 		$( 'form#uploadform' )[ 0 ].submit();
-		$( 'form#uploadform' ).hide();
-		$( 'div#uploadingwait' ).show();
+		alert("2");
+        $( 'form#uploadform' ).hide();
+		alert("3");
+        $( 'div#uploadingwait' ).show();
+        alert("4");
 	},
 	AddPhoto : function( imageinfo , x100 ) {
 		imageid = imageinfo.id;
