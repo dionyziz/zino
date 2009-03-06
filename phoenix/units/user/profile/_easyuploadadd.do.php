@@ -21,11 +21,11 @@
                 echo w_json_encode( ob_get_clean() );
                 ?> );
                 $( newli ).append( newlink );
-                alert( $( this ).html );
+                
                 $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );<?php
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
-                $( this ).fadeOut( 4000 );        
+                alert( $( this ).html );//$( this ).fadeOut( 4000 );        
             });<?php
         }
     }
