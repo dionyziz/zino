@@ -28,6 +28,7 @@
                     alert( data )
                 };
             }
+            Go();
         </script>
     </body>
 </html>
