@@ -20,22 +20,6 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
         }
-        /*
-        private function RenderUser( User $user ) {
-            return array(
-                'name' => $user->Name,
-                'avatar' => $user->Avatar,
-                'gender' => $user->Gender
-            );
-        } */
-        /*
-        private function RenderEvent( $event ) {
-            switch ( get_class( $event ) ) {
-                case 'Comment':
-                    return array(
-                        'who' => $this->Render( $event->User ),
-                    );
-        } */
         /* LoadEvents */ {
             // comments
             $commentfinder = New CommentFinder();

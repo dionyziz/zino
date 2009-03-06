@@ -141,7 +141,8 @@
 			'find'				=> 'search/im/credentials',
             'iphone/'           => 'iphone/frontpage/view',
             'iphone/user'       => 'iphone/user/profile/view',
-            'recent'            => 'recent/view'
+            'recent'            => 'recent/view',
+            'meteor'            => 'developer/dionyziz/meteor'
         );
     }
 ?>
