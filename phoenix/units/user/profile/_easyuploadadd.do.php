@@ -25,8 +25,11 @@
                 $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );<?php
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
-                alert( $( this ).html );//$( this ).fadeOut( 4000 );        
-            });<?php
+                //$( this ).fadeOut( 4000 );
+                $( 'div#easyphotoupload).fadeout( 4000, function() {
+                    $( 'div.mdloverlay1' ).hide();
+                } );
+            } );<?php
         }
     }
 ?>
