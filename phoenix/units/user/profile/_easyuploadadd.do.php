@@ -26,7 +26,7 @@
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
                 //$( this ).fadeOut( 4000 );
-                $( 'div#easyphotoupload' ).fadeout( 4000, function() {
+                $( 'div#easyphotoupload' ).fadeOut( 4000, function() {
                     $( 'div.mdloverlay1' ).hide();
                 } );
             } );<?php
