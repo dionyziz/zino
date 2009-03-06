@@ -164,23 +164,17 @@
                         <i class="br"></i>
                     </div><?php
                 }
-                ?><div class="photos"<?php
-                if ( $egoalbum->Numphotos == 0 ) {
-                    ?> style="display:none"<?php
-                }
-                ?>><?php
-                    if ( $egoalbum->Numphotos > 0 ) {
+                if ( $egoalbum->Numphotos > 0 ) {
+                    ?><div class="photos"><?php
                         if ( $egoalbum->Numphotos > 5 ) {
                             ?><div class="more"><a href="?p=album&amp;id=<?php
                             echo $egoalbum->Id;
                             ?>" class="button" title="Περισσότερες φωτογραφίες μου">&raquo;</a></div><?php
                         }
                         Element( 'user/profile/main/photos' , $images , $egoalbum , $theuser->Id );
-                    }
-                    else {
-                        ?><ul></ul><?php
-                    }
-                ?></div>
+                        ?></div><?php
+                }
+                ?>
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php
