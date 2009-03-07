@@ -1,11 +1,10 @@
 <?php
     // Emulate register_globals off
     function registerglobals_off() {
-        die( 'before ini_get' );
         if ( !ini_get( 'register_globals' ) ) {
+            die( 'after ini_get' );
             return;
         }
-        die( 'after ini_get' );
         
         $global = registerglobal_getglobalnames();
         
