@@ -88,6 +88,7 @@ var Frontpage = {
                     var copytext = text;
                     $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) ); 
                     Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
+                    Frontpage.Shoutbox.Changed = false;
                     textarea[ 0 ].value = '';
                     setTimeout( function () {
                         textarea[ 0 ].focus();
