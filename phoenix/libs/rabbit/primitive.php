@@ -157,10 +157,10 @@
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
-    die( 'boo' );
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
 
+    die( 'boo2' );
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
