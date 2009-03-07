@@ -6,8 +6,6 @@
         of Rabbit
     */
     
-    die( 'Bacacaca' );
-    
     global $rabbit_settings; // settings map
     // it is important that these singletons keeps their names, as they are used as-they-are in the code
     global $water;
@@ -154,6 +152,8 @@
     else {
         $water->Trace( 'No databases are specified in your settings file' );
     }
+    
+    die( 'asdjioasjio' );
     
     // load the elements system
     $libs->Load( 'rabbit/element' );
