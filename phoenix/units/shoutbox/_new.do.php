@@ -52,9 +52,7 @@
         }
         else {
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
-        }
-
-        alert( 'Your comet message will now be published' );<?php
+        }<?php
         
         Comet_Publish( 'shoutbox', $shout->Text );
     }
