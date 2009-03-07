@@ -1,18 +1,15 @@
 <?php
     // Emulate register_globals off
     function registerglobals_off() {
-        die( 'Begin registerglobals_off' );
         if ( !ini_get( 'register_globals' ) ) {
             return;
         }
         
         $global = registerglobal_getglobalnames();
         
-        die( 'Begin registerglobals_off loop' );
         foreach ( $vars as $global ) {
             registerglobal_clearglobal( $global );
         }
-        die( 'Leave registerglobals_off loop' );
     }
     
     function registerglobal_clearglobal( $name ) {

@@ -153,6 +153,8 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
+    die( 'Hahaha' );
+    
     // load the elements system
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
