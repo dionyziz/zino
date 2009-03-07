@@ -1,9 +1,9 @@
 <?php
     // Emulate register_globals off
     function registerglobals_off() {
-        die( 'Hahaho' );
-        
         if ( !ini_get( 'register_globals' ) ) {
+            die( 'aaasd' );
+            
             return;
         }
         
