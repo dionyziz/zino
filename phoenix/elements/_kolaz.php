@@ -19,9 +19,9 @@
                 ?> <?php
                 echo $tag->Height;
                 ?> <?php
-                Element( 'image/view', $tag->ImageId , $tag->PersonId , $tag->Width , $tag->Height );/*
-                public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 )*/
                 ?></p><?php
+                Element( 'image/view', $tag->ImageId , $tag->PersonId , $tag->Width , $tag->Height );/*
+                public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 )*/                
             }
         }
     }
