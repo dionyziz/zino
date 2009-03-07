@@ -160,11 +160,11 @@
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
 
-    die( 'boo2' );
+    // die( 'boo2' );
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
-    //     die( 'boo' );
+    die( 'boo' );
     session_start();
     // registerglobals_off(); // this needs to be performed again now that session_start has been fired
     die( 'aaasd!s' );
