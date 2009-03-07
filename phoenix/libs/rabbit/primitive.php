@@ -159,6 +159,8 @@
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
+    die( 'Testing 11' );
+
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
 
@@ -170,6 +172,4 @@
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();
     }
-
-    die( 'Testing 11' );
 ?>
