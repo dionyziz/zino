@@ -1,6 +1,9 @@
 div.shoutbox {
 	padding-left: 10px;
 }
+div.shoutbox div.newcomment textarea {
+    border: 1px solid #333;
+}
 div.shoutbox div.comments {
 	width: 100%;
 }
