@@ -28,8 +28,6 @@
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
     
-    die( 'Testing 6' );
-
     w_assert( isset( $rabbit_settings[ 'rootdir' ] ), "`rootdir' setting is not defined" );
     w_assert( isset( $rabbit_settings[ 'applicationname' ] ), "`applicationname' setting is not defined" );
     if ( !isset( $rabbit_settings[ 'production' ] ) ) {
@@ -51,6 +49,8 @@
 
     require_once 'libs/rabbit/mask.php';
     
+    die( 'Testing 7' );
+
     // load the libraries system -- it will be used to load everything else
     // the debugging module is NOT loaded using the libraries system, just
     // to make debugging the libraries system easier
