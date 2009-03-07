@@ -104,7 +104,7 @@
         $libs->Load( 'rabbit/memcache/mc' );
     }
 
-    die( 'Testing 9' );
+    // die( 'Testing 9' );
 
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
@@ -155,6 +155,8 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
+    die( 'Testing 10' );
+
     // load the elements system
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
