@@ -77,7 +77,7 @@ var Frontpage = {
             $( 'div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
                 var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
                 var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
-                if ( $.trim( text ) === '' ) {
+                if ( $.trim( text ) === '' || !Frontpage.Shoutbox.Changed ) {
                     alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].focus();
@@ -116,9 +116,11 @@ var Frontpage = {
                 } );
             }       
 
-            textarea.keyup( function () {
+            var q = function () {
                 $( '#shoutbox_submit' )[ 0 ].disabled = $.trim( textarea[ 0 ].value ).length == 0;
-            } ).focus( function() {
+            };
+            
+            textarea.keyup( q ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].style.color = 'black';
