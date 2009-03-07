@@ -11,6 +11,10 @@
     paste it in other files of the source code repository.
     */
 
+    global $TTTT;
+    
+    $TTTT = microtime( true );
+    
     global $page;
 
     define( 'WATER_ENABLE', false );

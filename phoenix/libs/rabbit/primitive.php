@@ -153,7 +153,11 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
-    die( 'Hahaha' );
+    global $TTTT;
+    
+    $TTTT = $TTTT - microtime( true );
+
+    die( 'Hahaha: ' . $TTTT );
     
     // load the elements system
     $libs->Load( 'rabbit/element' );
