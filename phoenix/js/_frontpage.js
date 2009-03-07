@@ -103,13 +103,29 @@ var Frontpage = {
                 }
             } );
         }
-        
-        var textarea = $( 'div.shoutbox div.comments div.newcomment div.text textarea' );
-        
-        textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
-        textarea[ 0 ].style.color = '#666';
-        textarea.focus( function() {
-            textarea[ 0 ].value = '';
-        } );
-	}
+	},
+    Shoutbox: {
+        Changed: false,
+        OnLoad: function () {
+            var textarea = $( 'div.shoutbox div.comments div.newcomment div.text textarea' );
+            
+            textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
+            textarea[ 0 ].style.color = '#666';
+            textarea.focus( function() {
+                if ( !Frontpage.Shoutbox.Changed ) {
+                    textarea[ 0 ].value = '';
+                    textarea[ 0 ].style.color = 'black';
+                }
+            } ).blur( function () {
+                if ( textarea[ 0 ].value != '' ) {
+                    textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
+                    textarea[ 0 ].style.color = '#666';
+                    Frontpage.Shoutbox.Changed = false;
+                }
+                else {
+                    Frontpage.Shoutbox.Changed = true;
+                }
+            } );
+        }
+    }
 };
