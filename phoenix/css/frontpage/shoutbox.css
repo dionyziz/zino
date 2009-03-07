@@ -6,10 +6,14 @@ div#shoutbox div.newcomment textarea {
     width: 99%;
 }
 div#shoutbox div.newcomment div.text {
-    margin: -15px 2px 0 60px;
+    margin: 5px 0 0 60px;
 }
 div#shoutbox div.newcomment div.bottom {
     text-align: right;
+}
+div#shoutbox div.newcomment div.who {
+    float: left;
+    width: 50px;
 }
 div#shoutbox div.comments {
 	width: 100%;
