@@ -8,8 +8,6 @@
     }
     
     function Comet_Publish( $channel, $message ) {
-        return;
-        
         w_assert( preg_match( '#[A-Za-z0-9_]+#', $channel ) );
         w_assert( preg_match( '#^[A-Za-z0-9_{}\\[\\]\\\\~.|"\',!@\\#:$%^&*()+= -]*$#', $message ) );
         
@@ -19,10 +17,12 @@
         }
         stream_set_timeout( $fh, COMET_PUBLISHING_TIMEOUT );
         fwrite( $fh, "ADDMESSAGE $channel $message\n" );
+        /*
         $response = '';
         while ( !feof( $fh ) ) {
             $response .= fread( $fh, 8192 );
         }
+        */
         fclose( $fh );
     }
 ?>
