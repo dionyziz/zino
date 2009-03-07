@@ -17,10 +17,10 @@
     
     require_once 'libs/rabbit/rabbit.php';
     
-    die( 'Testing 2' );
-    
     Rabbit_Construct( 'ExcaliburHTML' );
 
+    die( 'Testing 3' );
+    
     $req = $_GET;
 
     Rabbit_ClearPostGet();
