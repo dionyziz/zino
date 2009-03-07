@@ -1,6 +1,6 @@
 <?php    
-    class ElementAdminpanelView extends Element {
-        public function Render( tText $username, tText $pass ) {
+    class ElementKolaz extends Element {
+        public function Render() {
 	        global $page;
 	        global $user;
 	        
