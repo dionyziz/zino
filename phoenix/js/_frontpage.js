@@ -110,15 +110,15 @@ var Frontpage = {
         OnLoad: function () {
             var textarea = $( 'div.shoutbox div.comments div.newcomment div.text textarea' );
             
-            textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
-            textarea[ 0 ].style.color = '#666';
-            textarea.focus( function() {
+            textarea.keyup( function () {
+                $( '#shoutbox_submit' )[ 0 ].disabled = $.trim( textarea[ 0 ].value ).length == 0;
+            } ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].style.color = 'black';
                 }
             } ).blur( function () {
-                if ( textarea[ 0 ].value != '' ) {
+                if ( textarea[ 0 ].value == '' ) {
                     textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
                     textarea[ 0 ].style.color = '#666';
                     Frontpage.Shoutbox.Changed = false;
@@ -126,7 +126,7 @@ var Frontpage = {
                 else {
                     Frontpage.Shoutbox.Changed = true;
                 }
-            } );
+            } ).blur();
         }
     }
 };

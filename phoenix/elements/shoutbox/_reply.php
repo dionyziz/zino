@@ -13,7 +13,7 @@
                     ?></a>
                 </div>
                 <div class="text" style="margin-top:-10px">
-                    <textarea id="shoutbox_text" rows="2" cols="50" onkeyup="$( '#shoutbox_submit' )[ 0 ].disabled = ( $.trim( this.value ).length == 0 )"></textarea>
+                    <textarea id="shoutbox_text" rows="2" cols="50"></textarea>
                 </div>
                 <div class="bottom">
                     <input id="shoutbox_submit" type="submit" value="Σχολίασε!" disabled="disabled" />
