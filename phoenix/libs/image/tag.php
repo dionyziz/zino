@@ -5,7 +5,13 @@
 
     class ImageTagFinder extends Finder {
         protected $mModel = 'ImageTag';
+        
+        public function FindByPersonId( $personId ) {
+            $prototype = New ImageTag();
+            $prototype->Personid = $personId;
 
+            return $this->FindByPrototype( $prototype, 0, 100, array( 'Id', 'DESC' ) );            
+        }
         public function FindByImage( Image $image ) {
             $prototype = New ImageTag();
             $prototype->Imageid = $image->Id;
