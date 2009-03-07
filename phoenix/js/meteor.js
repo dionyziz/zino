@@ -47,11 +47,11 @@ var Meteor = {
 		Meteor.channels[channelname] = {backtrack:backtrack, lastmsgreceived:0};
 		Meteor.log("Joined channel "+channelname);
 		Meteor.channelcount++;
-		if (Meteor.status !== 0) Meteor.connect();
+		if (Meteor.status !== 0) { Meteor.connect(); }
 	},
 
 	leaveChannel: function(channelname) {
-		if (typeof(Meteor.channels[channelname]) == "undefined") throw { "Cannot leave channel "+channelname+": not subscribed"; }
+		if (typeof(Meteor.channels[channelname]) == "undefined") { throw "Cannot leave channel " + channelname + ": not subscribed"; }
 		delete Meteor.channels[channelname];
 		Meteor.log("Left channel "+channelname);
 		if (Meteor.status !== 0) Meteor.connect();
