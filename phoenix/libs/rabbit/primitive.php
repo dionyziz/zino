@@ -25,11 +25,11 @@
         define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
     }
     
-    die( 'Testing 5' );
-
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
     
+    die( 'Testing 6' );
+
     w_assert( isset( $rabbit_settings[ 'rootdir' ] ), "`rootdir' setting is not defined" );
     w_assert( isset( $rabbit_settings[ 'applicationname' ] ), "`applicationname' setting is not defined" );
     if ( !isset( $rabbit_settings[ 'production' ] ) ) {
