@@ -123,9 +123,11 @@ var Frontpage = {
             };
             
             textarea.keyup( function ( e ) {
-                q();
                 if ( e.keyCode == 13 ) { // enter
                     $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click();
+                }
+                else {
+                    q();
                 }
             } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
