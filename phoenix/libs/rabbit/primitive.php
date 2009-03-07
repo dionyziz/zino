@@ -6,6 +6,8 @@
         of Rabbit
     */
     
+    die( 'Bacacaca' );
+    
     global $rabbit_settings; // settings map
     // it is important that these singletons keeps their names, as they are used as-they-are in the code
     global $water;
