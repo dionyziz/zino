@@ -49,8 +49,6 @@
 
     require_once 'libs/rabbit/mask.php';
     
-    die( 'Testing 7' );
-
     // load the libraries system -- it will be used to load everything else
     // the debugging module is NOT loaded using the libraries system, just
     // to make debugging the libraries system easier
@@ -90,6 +88,8 @@
         }
     }
     
+    die( 'Testing 8' );
+
     // define timezone, as of PHP 5.1.0
     if ( function_exists( 'date_default_timezone_set' ) ) {
         date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
