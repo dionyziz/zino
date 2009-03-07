@@ -165,6 +165,7 @@
     }
     session_start(); 
     registerglobals_off(); // this needs to be performed again now that session_start has been fired
+    die( 'Hahaho' );
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();
     }

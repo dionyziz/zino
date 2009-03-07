@@ -2,7 +2,6 @@
     // Emulate register_globals off
     function registerglobals_off() {
         if ( !ini_get( 'register_globals' ) ) {
-            // die( 'after ini_get' );
             return;
         }
         
