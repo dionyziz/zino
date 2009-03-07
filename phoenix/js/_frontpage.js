@@ -90,6 +90,7 @@ var Frontpage = {
                     Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
                     Frontpage.Shoutbox.Changed = false;
                     textarea[ 0 ].value = '';
+                    q();
                     setTimeout( function () {
                         textarea[ 0 ].focus();
                     }, 100 );
