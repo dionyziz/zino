@@ -5,8 +5,6 @@
             return;
         }
         
-        die( 'In registerglobals_off' );
-        
         $global = registerglobal_getglobalnames();
         
         foreach ( $vars as $global ) {
