@@ -133,7 +133,7 @@
             } 
             ?><div class="inuser">
                 <div class="left">
-                    <div class="shoutbox"><?php
+                    <div id="shoutbox"><?php
                         Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
                     ?></div>
                     <div class="onlinenow"><?php

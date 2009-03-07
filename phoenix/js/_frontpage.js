@@ -72,10 +72,10 @@ var Frontpage = {
     Shoutbox: {
         Changed: false,
         OnLoad: function () {
-            var textarea = $( 'div.shoutbox div.comments div.newcomment div.text textarea' );
+            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
             
-            $( 'div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-                var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
+            $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
+                var list = $( 'div.frontpage div.inuser div#shoutbox div.comments' );
                 var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
                 if ( $.trim( text ) === '' || !Frontpage.Shoutbox.Changed ) {
                     alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
@@ -102,7 +102,7 @@ var Frontpage = {
             var username = GetUsername();
             
             if ( username ) {
-                $( "div.shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
+                $( "div#shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var shoutid = this.id.substr( 2 , this.id.length - 2 );
                         var toolbox = document.createElement( 'div' ); 

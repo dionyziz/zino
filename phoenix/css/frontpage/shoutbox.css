@@ -1,31 +1,30 @@
-div.shoutbox {
+div#shoutbox {
 	padding-left: 10px;
 }
-div.shoutbox div.newcomment textarea {
+div#shoutbox div.newcomment textarea {
     border: 1px solid #999;
     width: 99%;
 }
-div.shoutbox div.newcomment div.text {
+div#shoutbox div.newcomment div.text {
     margin: -15px 2px 60px 0;
 }
-div.shoutbox div.newcomment div.bottom {
+div#shoutbox div.newcomment div.bottom {
     text-align: right;
 }
-div.shoutbox div.comments {
+div#shoutbox div.comments {
 	width: 100%;
 }
-div.shoutbox div.comments div.comment {
-	/*width: 100%;*/
+div#shoutbox div.comments div.comment {
     max-height: 300px;
     overflow: hidden;
 }
-div.shoutbox h2 {	
+div#shoutbox h2 {	
 	margin-bottom: 10px;
 }
-div.shoutbox h2 span {
+div#shoutbox h2 span {
     font-size: 70%;
 }
-div.shoutbox div.more {
+div#shoutbox div.more {
 	margin: 10px 0;
 }
 div.outshoutbox {
