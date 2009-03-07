@@ -163,10 +163,10 @@
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
+    die( 'aaasd!s' );
     session_start();
     die( 'boo' );
     // registerglobals_off(); // this needs to be performed again now that session_start has been fired
-    die( 'aaasd!s' );
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();
     }
