@@ -164,7 +164,7 @@
         Project_OnBeforeSessionStart();
     }
     session_start();
-    // die( 'boo' );
+    die( 'boo' );
     // registerglobals_off(); // this needs to be performed again now that session_start has been fired
     die( 'aaasd!s' );
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
