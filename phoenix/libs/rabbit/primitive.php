@@ -104,8 +104,6 @@
         $libs->Load( 'rabbit/memcache/mc' );
     }
 
-    // die( 'Testing 9' );
-
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
          && is_array( $rabbit_settings[ 'databases' ] ) 
@@ -155,7 +153,7 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
-    die( 'Testing 10' );
+    // die( 'Testing 10' );
 
     // load the elements system
     $libs->Load( 'rabbit/element' );
@@ -172,4 +170,6 @@
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();
     }
+
+    die( 'Testing 11' );
 ?>
