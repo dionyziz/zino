@@ -157,14 +157,15 @@
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
+    die( 'boo' );
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
 
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
+    //     die( 'boo' );
     session_start();
-    die( 'boo' );
     // registerglobals_off(); // this needs to be performed again now that session_start has been fired
     die( 'aaasd!s' );
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
