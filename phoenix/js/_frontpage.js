@@ -138,6 +138,8 @@ var Frontpage = {
                     Frontpage.Shoutbox.Changed = true;
                 }
             } ).blur();
+            
+            textarea[ 0 ].disabled = false;
         }
     }
 };
