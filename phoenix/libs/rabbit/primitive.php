@@ -88,8 +88,6 @@
         }
     }
     
-    die( 'Testing 8' );
-
     // define timezone, as of PHP 5.1.0
     if ( function_exists( 'date_default_timezone_set' ) ) {
         date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
@@ -105,6 +103,8 @@
     if ( isset( $rabbit_settings[ 'memcache' ] ) ) {
         $libs->Load( 'rabbit/memcache/mc' );
     }
+
+    die( 'Testing 9' );
 
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
