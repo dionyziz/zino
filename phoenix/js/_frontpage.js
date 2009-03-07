@@ -102,7 +102,8 @@ var Frontpage = {
                     $( this ).prepend( toolbox );
                 }
             } );
-        }
+        }       
+        Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
         Changed: false,
