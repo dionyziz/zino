@@ -5,7 +5,7 @@ smartpoll
 simplepoll
 */
 
-Meteor = {
+var Meteor = {
 
 	callbacks: {
 		process: function() {},
@@ -43,33 +43,33 @@ Meteor = {
 	},
 
 	joinChannel: function(channelname, backtrack) {
-		if (typeof(Meteor.channels[channelname]) != "undefined") throw "Cannot join channel "+channelname+": already subscribed";
+		if (typeof(Meteor.channels[channelname]) != "undefined") { throw "Cannot join channel "+channelname+": already subscribed"; }
 		Meteor.channels[channelname] = {backtrack:backtrack, lastmsgreceived:0};
 		Meteor.log("Joined channel "+channelname);
 		Meteor.channelcount++;
-		if (Meteor.status != 0) Meteor.connect();
+		if (Meteor.status !== 0) Meteor.connect();
 	},
 
 	leaveChannel: function(channelname) {
-		if (typeof(Meteor.channels[channelname]) == "undefined") throw "Cannot leave channel "+channelname+": not subscribed";
+		if (typeof(Meteor.channels[channelname]) == "undefined") throw { "Cannot leave channel "+channelname+": not subscribed"; }
 		delete Meteor.channels[channelname];
 		Meteor.log("Left channel "+channelname);
-		if (Meteor.status != 0) Meteor.connect();
+		if (Meteor.status !== 0) Meteor.connect();
 		Meteor.channelcount--;
 	},
 
 	connect: function() {
 		Meteor.log("Connecting");
-		if (!Meteor.host) throw "Meteor host not specified";
-		if (isNaN(Meteor.port)) throw "Meteor port not specified";
-		if (!Meteor.channelcount) throw "No channels specified";
+		if (!Meteor.host) { throw "Meteor host not specified"; }
+		if (isNaN(Meteor.port)) { throw "Meteor port not specified"; }
+		if (!Meteor.channelcount) { throw "No channels specified"; }
 		if (Meteor.status) Meteor.disconnect();
 		Meteor.setstatus(1);
 		var now = new Date();
 		var t = now.getTime();
-		if (!Meteor.hostid) Meteor.hostid = t+""+Math.floor(Math.random()*1000000)
+		if (!Meteor.hostid) { Meteor.hostid = t+""+Math.floor(Math.random()*1000000); }
 		document.domain = Meteor.extract_xss_domain(document.domain);
-		if (Meteor.mode=="stream") Meteor.mode = Meteor.selectStreamTransport();
+		if (Meteor.mode=="stream") { Meteor.mode = Meteor.selectStreamTransport(); }
 		Meteor.log("Selected "+Meteor.mode+" transport");
 		if (Meteor.mode=="xhrinteractive" || Meteor.mode=="iframe" || Meteor.mode=="serversent") {
 			if (Meteor.mode == "iframe") {
@@ -84,8 +84,8 @@ Meteor = {
 			Meteor.loadFrame("http://"+Meteor.host+((Meteor.port==80)?"":":"+Meteor.port)+"/poll.html");
 			Meteor.recvtimes[0] = t;
 			if (Meteor.updatepollfreqtimer) clearTimeout(Meteor.updatepollfreqtimer);
-			if (Meteor.mode=='smartpoll') Meteor.updatepollfreqtimer = setInterval(Meteor.updatepollfreq, 2500);
-			if (Meteor.mode=='longpoll') Meteor.pollfreq = Meteor.minpollfreq;
+			if (Meteor.mode=='smartpoll') { Meteor.updatepollfreqtimer = setInterval(Meteor.updatepollfreq, 2500); }
+			if (Meteor.mode=='longpoll') { Meteor.pollfreq = Meteor.minpollfreq; }
 		}
 		Meteor.lastrequest = t;
 	},
@@ -106,7 +106,7 @@ Meteor = {
 			var test = ActiveXObject;
 			return "iframe";
 		} catch (e) {}
-		if ((typeof window.addEventStream) == "function") return "iframe";
+		if ((typeof window.addEventStream) == "function") { return "iframe"; }
 		return "xhrinteractive";
 	},
 
@@ -166,7 +166,7 @@ Meteor = {
 		Meteor.log("Ping timeout");
 		Meteor.mode="smartpoll";
 		clearTimeout(Meteor.pingtimer);
-		Meteor.callbacks["changemode"]("poll");
+		Meteor.callbacks.changemode("poll");
 		Meteor.lastpingtime = false;
 		Meteor.connect();
 	},
@@ -240,7 +240,7 @@ Meteor = {
 	registerEventCallback: function(evt, funcRef) {
 		Function.prototype.andThen=function(g) {
 			var f=this;
-			var a=Meteor.arguments
+			var a=Meteor.arguments;
 			return function(args) {
 				f(a);g(args);
 			}
@@ -276,7 +276,7 @@ Meteor = {
 
 		if (Meteor.status != newstatus) {
 			Meteor.status = newstatus;
-			Meteor.callbacks["statuschanged"](newstatus);
+			Meteor.callbacks.statuschanged(newstatus);
 		}
 	},
 
@@ -289,14 +289,14 @@ Meteor = {
 			}
 		}
 	}
-}
+};
 
 var oldonunload = window.onunload;
 if (typeof window.onunload != 'function') {
 	window.onunload = Meteor.disconnect;
 } else {
 	window.onunload = function() {
-		if (oldonunload) oldonunload();
+		if (oldonunload) { oldonunload(); }
 		Meteor.disconnect();
 	}
 }
