@@ -153,17 +153,17 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
-    // die( 'Testing 10' );
-
     // load the elements system
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
-    die( 'Testing 11' );
+    // die( 'Testing 10' );
 
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
 
+    die( 'Testing 11' );
+    
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
