@@ -11,13 +11,13 @@
     paste it in other files of the source code repository.
     */
 
-    die( 'Testing' );
-    
     global $page;
 
     define( 'WATER_ENABLE', false );
     
     require_once 'libs/rabbit/rabbit.php';
+    
+    die( 'Testing 2' );
     
     Rabbit_Construct( 'ExcaliburHTML' );
 
