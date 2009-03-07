@@ -6,6 +6,7 @@
     class CometException extends Exception {
     }
     
+    /*
     function Comet_Publish( $channel, $message ) {
         w_assert( preg_match( '#[A-Za-z0-9_]+#', $channel ) );
         w_assert( preg_match( '#^[A-Za-z0-9_{}\\[\\]\\\\~.|"\',!@\\#:$%^&*()+= -]*$#', $message ) );
@@ -21,5 +22,5 @@
         }
         fclose( $fh );
     }
-    
+    */
 ?>
