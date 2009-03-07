@@ -11,9 +11,7 @@
     paste it in other files of the source code repository.
     */
 
-    global $TTTT;
-    
-    $TTTT = microtime( true );
+    die( 'Haha' );
     
     global $page;
 
