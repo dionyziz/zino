@@ -122,7 +122,12 @@ var Frontpage = {
                 $( '#shoutbox_submit' )[ 0 ].disabled = $.trim( textarea[ 0 ].value ).length == 0;
             };
             
-            textarea.keyup( q ).change( q ).focus( function() {
+            textarea.keyup( function ( e ) {
+                q();
+                if ( e.keyCode == 13 ) { // enter
+                    $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click();
+                }
+            } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].style.color = 'black';
