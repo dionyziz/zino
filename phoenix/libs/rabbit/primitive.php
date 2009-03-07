@@ -155,7 +155,7 @@
     
     global $TTTT;
     
-    $TTTT = $TTTT - microtime( true );
+    $TTTT = microtime( true ) - $TTTT;
 
     die( 'Hahaha: ' . $TTTT );
     
