@@ -19,8 +19,6 @@
     
     Rabbit_Construct( 'ExcaliburHTML' );
 
-    die( 'Testing 3' );
-    
     $req = $_GET;
 
     Rabbit_ClearPostGet();
