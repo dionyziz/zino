@@ -19,7 +19,7 @@
                 // Call the test() function when data arrives
                 Meteor.registerEventCallback( "process", test );
                 // Join the demo channel and get last five events, then stream
-                Meteor.joinChannel( "demo", 5 );
+                Meteor.joinChannel( "shoutbox", 5 );
                 Meteor.mode = 'stream';
                 // Start streaming!
                 Meteor.connect();
