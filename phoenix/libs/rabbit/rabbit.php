@@ -13,8 +13,6 @@
         
         require_once 'libs/rabbit/primitive.php';
         
-        die( 'Testing 4' );
-        
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
             throw New Exception( 'Invalid Rabbit_Contrust pagetype used: ' . $mode );

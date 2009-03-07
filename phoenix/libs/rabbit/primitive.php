@@ -25,6 +25,8 @@
         define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
     }
     
+    die( 'Testing 5' );
+
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
     
