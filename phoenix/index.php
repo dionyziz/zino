@@ -11,8 +11,6 @@
     paste it in other files of the source code repository.
     */
 
-    die( 'boo' );
-    
     global $page;
 
     define( 'WATER_ENABLE', false );
