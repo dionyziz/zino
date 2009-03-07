@@ -153,12 +153,6 @@
         $water->Trace( 'No databases are specified in your settings file' );
     }
     
-    global $TTTT;
-    
-    $TTTT = microtime( true ) - $TTTT;
-
-    die( 'Hahaha: ' . $TTTT );
-    
     // load the elements system
     $libs->Load( 'rabbit/element' );
     Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
