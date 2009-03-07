@@ -6,7 +6,7 @@ div#shoutbox div.newcomment textarea {
     width: 99%;
 }
 div#shoutbox div.newcomment div.text {
-    margin: -15px 2px 60px 0;
+    margin: -15px 2px 0 60px;
 }
 div#shoutbox div.newcomment div.bottom {
     text-align: right;
