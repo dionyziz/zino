@@ -5,6 +5,7 @@
         
         $libs->Load( 'wysiwyg' );
         $libs->Load( 'shoutbox' );
+        $libs->Load( 'comet' );
         
         $text = $text->Get();
         if ( !$user->Exists() ) {
@@ -52,5 +53,9 @@
         else {
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
         }<?php
+        
+        if ( $user->Name == 'dionyziz' ) {
+            Comet_Publish( 'shoutbox', $shout->Text );
+        }
     }
 ?>

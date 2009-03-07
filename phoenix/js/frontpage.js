@@ -148,6 +148,9 @@ var Frontpage = {
             } ).blur();
             
             textarea[ 0 ].disabled = false;
+        },
+        OnMessageArrival: function ( message ) {
+            alert( 'New message! ' + message );
         }
     }
 };

@@ -8,6 +8,9 @@
             <div class="comments"><?php
                 if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
                     Element( 'shoutbox/reply' , $user->Id , $user->Avatar->Id , $user );
+                    if ( $user->Name == 'dionyziz' ) {
+                        Element( 'shoutbox/comet' );
+                    }
                 }
                 Element( 'frontpage/shoutbox/recent' , $shoutboxseq );
                 Element( 'shoutbox/view'  , false , true );
