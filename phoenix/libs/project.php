@@ -142,7 +142,8 @@
             'iphone/'           => 'iphone/frontpage/view',
             'iphone/user'       => 'iphone/user/profile/view',
             'recent'            => 'recent/view',
-            'meteor'            => 'developer/dionyziz/meteor'
+            'meteor'            => 'developer/dionyziz/meteor',
+            'kolaz'             => 'kolaz'
         );
     }
 ?>
