@@ -12,7 +12,7 @@
                              $user->Name, 100, 'avatar', '', true, 50, 50 );
                     ?></a>
                 </div>
-                <div class="text" style="margin-top:-10px">
+                <div class="text">
                     <textarea id="shoutbox_text" rows="2" cols="50" disabled="disabled"></textarea>
                 </div>
                 <div class="bottom">
