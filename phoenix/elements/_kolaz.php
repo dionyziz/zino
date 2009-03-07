@@ -21,7 +21,7 @@
                 ?> <?php
                 echo $tag->Personid;
                 ?> <?php
-                Element( 'image/view', $tag->Imageid , $tag->Personid , $tag->Width , $tag->Height );/*
+                Element( 'image/view', $tag->Imageid , $tag->Personid , $tag->Width , $tag->Height , IMAGE_FULLVIEW );/*
                 public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 )*/
                 ?></p><?php
             }
