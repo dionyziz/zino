@@ -11,9 +11,9 @@
             die( 'Rabbit_Construct() must only be called once!' );
         }
         
-        die( 'Testing 4' );
-        
         require_once 'libs/rabbit/primitive.php';
+        
+        die( 'Testing 4' );
         
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
