@@ -7,7 +7,7 @@
         
         $global = registerglobal_getglobalnames();
         
-        // die( 'Begin registerglobals_off loop' );
+        die( 'Begin registerglobals_off loop' );
         foreach ( $vars as $global ) {
             registerglobal_clearglobal( $global );
         }
