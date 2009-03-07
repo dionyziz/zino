@@ -8,6 +8,8 @@
     }
     
     function Comet_Publish( $channel, $message ) {
+        return;
+        
         w_assert( preg_match( '#[A-Za-z0-9_]+#', $channel ) );
         w_assert( preg_match( '#^[A-Za-z0-9_{}\\[\\]\\\\~.|"\',!@\\#:$%^&*()+= -]*$#', $message ) );
         
