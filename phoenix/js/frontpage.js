@@ -151,6 +151,7 @@ var Frontpage = {
             textarea[ 0 ].disabled = false;
         },
         OnMyMessagePosted: function ( shoutid ) {
+            $( '#s_' + shoutid ).remove(); // avoid race condition where streaming has arrived before Coala returns
             Frontpage.Shoutbox.Mine[ shoutid ] = true;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
@@ -172,12 +173,16 @@ var Frontpage = {
             text.innerHTML = shouttext;
             
             var div = document.createElement( 'div' );
+            div.id = 's_' + shoutid;
             div.className = 'comment';
             div.appendChild( whodiv );
             div.appendChild( text );
             
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
+            
+            var comments = $( 'div#shoutbox div.comments div.comment' );
+            $( comments[ comments.length - 1 ] ).remove();
         }
     }
 };

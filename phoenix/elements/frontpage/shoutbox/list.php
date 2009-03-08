@@ -16,6 +16,19 @@
                         case 'ted':
                         case 'kostis90gr':
                         case 'bowling':
+                        case 'parvati':
+                        case 'finlandos':
+                        case 'kardas-thrilikozzzz':
+                        case 'blink':
+                        case 'indy':
+                        case 'd3nnn1z':
+                        case 'chorvus':
+                        case 'dimo0koc':
+                        case 'teddy':
+                        case 'seraphim':
+                        case 'elsa':
+                        case 'funeral':
+                        case 'intzakosd':
                             Element( 'shoutbox/comet' );
                     }
                 }
