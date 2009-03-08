@@ -16,6 +16,7 @@ var Comet = {
     },
     Subscribe: function ( channel, callback ) {
         Comet.Connect();
+        Comet.SubcriptionCallbacks[ channel ] = callback;
         Meteor.joinChannel( channel, 0 );
     },
     Process: function ( json ) {
