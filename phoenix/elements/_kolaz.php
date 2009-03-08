@@ -8,6 +8,7 @@
 	        $page->setTitle( 'Κολάζ' );
 	        
 	        $libs->Load("image/tag");
+	        ?><div><img src="images/kolaz/kolaz.php?personid=4005" alt="img"/></div><?php
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
