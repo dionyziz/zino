@@ -184,9 +184,9 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
             setTimeout( function () {
-                $( comments[ comments.length - 1 ] ).remove();
+                $( comments[ comments.length - 2 ] ).remove();
             }, 1000 );
-            $( comments[ comments.length - 1 ] ).slideUp();
+            $( comments[ comments.length - 2 ] ).slideUp();
         }
     }
 };
