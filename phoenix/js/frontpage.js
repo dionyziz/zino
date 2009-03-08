@@ -180,8 +180,11 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
-            $( div ).slideUp( 1 );
-            $( div ).slideDown();
+            var targetHeight = div.offsetHeight;
+            div.style.height = '0';
+            $( div ).animate( {
+                height: targetHeight
+            }, 1500 );
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
             setTimeout( function () {
