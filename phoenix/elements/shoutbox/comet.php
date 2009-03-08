@@ -7,7 +7,7 @@
             ?>Meteor.hostid = '<?php
             echo $user->Id;
             ?>';
-            Meteor.host = "universe." + location.hostname;
+            Meteor.host = "universe.zino.gr";
             Meteor.registerEventCallback( "process", Frontpage.Shoutbox.OnMessageArrival );
             Meteor.joinChannel( "shoutbox", 0 );
             Meteor.mode = 'stream';
