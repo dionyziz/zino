@@ -192,7 +192,9 @@ var Frontpage = {
                     $( comments[ i ] ).animate( {
                         height: 0,
                         opacity: 0
-                    }, 400, 'linear' );
+                    }, 500, 'linear' );
+                    comments[ i ].style.marginTop = 0;
+                    comments[ i ].style.marginBottom = 0;
                     comments[ i ].beingRemoved = true;
                     break;
                 }
