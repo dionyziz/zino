@@ -181,19 +181,26 @@ var Frontpage = {
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
             var targetHeight = div.offsetHeight;
+            
+            var comments = $( 'div#shoutbox div.comments div.comment' );
+            
+            for ( var i = comments.length - 2; i >= 1; --i ) { // messages can be posted fast; multiple ones within 500ms :)
+                if ( typeof comments[ i ].beingRemoved == 'undefined' ) {
+                    setTimeout( function () {
+                        $( comments[ i ] ).remove();
+                    }, 1000 );
+                    $( comments[ i ] ).animate( {
+                        height: 0,
+                        opacity: 0
+                    }, 400, 'linear' );
+                    comments[ i ].beingRemoved = true;
+                    break;
+                }
+            }
             div.style.height = '0';
             $( div ).animate( {
                 height: targetHeight,
                 opacity: 1
-            }, 500, 'linear' );
-            
-            var comments = $( 'div#shoutbox div.comments div.comment' );
-            setTimeout( function () {
-                $( comments[ comments.length - 2 ] ).remove();
-            }, 1000 );
-            $( comments[ comments.length - 2 ] ).animate( {
-                height: 0,
-                opacity: 0
             }, 500, 'linear' );
         }
     }
