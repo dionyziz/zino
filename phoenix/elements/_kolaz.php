@@ -12,7 +12,7 @@
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
-	        var_dump( $tags );
+	        
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
