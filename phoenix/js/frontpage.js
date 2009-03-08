@@ -150,23 +150,25 @@ var Frontpage = {
             textarea[ 0 ].disabled = false;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
-            alert( 'OnMessageArrival' );
-            alert( shoutid );
-            alert( shouttext );
-            alert( who.id + ' ' + who.name + ' ' + who.subdomain + ' ' + who.avatar );
             var who = document.createElement( 'div' );
             var text = document.createElement( 'div' );
             
             who.className = 'who';
             who.innerHTML = '<a href="http://' + who.subdomain + '.zino.gr/">'
-            + '<img src="http://images.zino.gr/media/' 
-            + who.id + '/' + who.avatar + '/' + who.avatar 
-            + '_100.jpg" width="50" height="50" alt="' 
-            + who.name + '" class="avatar" />'
-            + who.name + '</a>' + 'είπε:';
-            
+                            + '<img src="http://images.zino.gr/media/' 
+                            + who.id + '/' + who.avatar + '/' + who.avatar 
+                            + '_100.jpg" width="50" height="50" alt="' 
+                            + who.name + '" class="avatar" />'
+                            + who.name + '</a>' + 'είπε:';
             text.className = 'text';
             text.appendChild( document.createTextNode( shouttext ) );
+            
+            var div = document.createElement( 'div' );
+            div.appendChild( who );
+            div.appendChild( text );
+            
+            var comments = $( 'div#shoutbox div.comments' );
+            comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
         }
     }
 };
