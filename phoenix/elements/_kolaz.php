@@ -1,6 +1,6 @@
 <?php    
     class ElementKolaz extends Element {
-        public function Render( $personid = 1 ) {
+        public function Render( $personid ) {
 	        global $page;
 	        global $user;
 	        global $libs;
