@@ -18,7 +18,7 @@
                         case 'bowling':
                         case 'parvati':
                         case 'finlandos':
-                        case 'kardas-thrilikozzzz':
+                        case 'kardas_thrilikozzzz':
                         case 'blink':
                         case 'indy':
                         case 'd3nnn1z':
