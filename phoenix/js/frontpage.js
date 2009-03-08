@@ -159,11 +159,18 @@ var Frontpage = {
             var whodiv = document.createElement( 'div' );
             var text = document.createElement( 'div' );
             
+            if ( who.avatar !== 0 ) {
+                var avatar = 'http://images.zino.gr/media/'
+                                + who.id + '/' + who.avatar + '/' + who.avatar 
+                                + '_100.jpg';
+            }
+            else {
+                var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+            }
+            
             whodiv.className = 'who';
             whodiv.innerHTML = '<a href="http://' + who.subdomain + '.zino.gr/">'
-                            + '<img src="http://images.zino.gr/media/' 
-                            + who.id + '/' + who.avatar + '/' + who.avatar 
-                            + '_100.jpg" width="50" height="50" alt="' 
+                            + '<img src="' + avatar + '" width="50" height="50" alt="' 
                             + who.name + '" class="avatar" />'
                             + who.name + '</a>' + ' είπε:';
             text.className = 'text';
