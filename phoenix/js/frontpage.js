@@ -85,7 +85,7 @@ var Frontpage = {
                 }
                 else {
                     var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
-                    $( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' );
+                    $( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).find( 'div.text' );
                     var copytext = text;
                     $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) ); 
                     Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
