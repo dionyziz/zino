@@ -43,7 +43,6 @@
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
         }
         
-        Frontpage.Shoutbox.ShowShout( node );
         Frontpage.Shoutbox.OnMyMessagePosted( <?php
         echo $shout->Id;
         ?> );<?php
