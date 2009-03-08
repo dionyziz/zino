@@ -8,7 +8,9 @@
             echo $user->Id;
             ?>';
             Meteor.host = "universe.www.zino.gr";
-            Meteor.registerEventCallback( "process", Frontpage.Shoutbox.OnMessageArrival );
+            Meteor.registerEventCallback( "process", function ( data ) {
+                Frontpage.Shoutbox.OnMessageArrival( data );
+            } );
             Meteor.joinChannel( "shoutbox", 0 );
             Meteor.mode = 'stream';
             Meteor.connect();

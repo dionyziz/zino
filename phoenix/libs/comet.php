@@ -8,14 +8,15 @@
     }
     
     function Comet_Publish( $channel, $message ) {
+        w_assert( is_string( $channel ) );
         w_assert( preg_match( '#[A-Za-z0-9_]+#', $channel ) );
-        w_assert( preg_match( '#^[A-Za-z0-9_{}\\[\\]\\\\~.|"\',!@\\#:$%^&*()+= -]*$#', $message ) );
         
         $fh = fsockopen( COMET_PUBLISHING_SERVER, COMET_PUBLISHING_PORT, $errno, $errstr, COMET_PUBLISHING_CONNECTION_TIMEOUT );
         if ( !$fh ) {
             throw New CometException( 'Could not initiate socket connection to publishing server: ' . $errstr . ' (' . $errno . ')' );
         }
         stream_set_timeout( $fh, COMET_PUBLISHING_TIMEOUT );
+        $message = w_json_encode( $message );
         fwrite( $fh, "ADDMESSAGE $channel $message\n" );
         /*
         $response = '';
