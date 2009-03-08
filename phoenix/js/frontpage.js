@@ -198,7 +198,7 @@ var Frontpage = {
                 }
             }
             
-            ( function() { // can't use jQuery here; want sum to be constant at any given point in time
+            ( function( start1, end2 ) { // can't use jQuery here; want sum to be constant at any given point in time
                 function Step() {
                     var h = comments[ i ].style.height;
                     h = h.substr( 0, h.length - 2 ) - Math.Round( start1 / 50 ) + 'px';
