@@ -27,7 +27,9 @@
                 else {
                     ?><ul>
                     <li title="Προβολή προφίλ"><a href="<?php
+                    ob_start();
                     Element( 'user/url', $user->Id , $user->Subdomain );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>" class="profile"><?php
                     if ( $user->Avatar->Id > 0 ) {
                         Element( 'image/view', $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height ,  IMAGE_CROPPED_100x100 , '' , $user->Name, '' , true , 16 , 16 , 0 );
