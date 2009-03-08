@@ -181,10 +181,12 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
-            var targetHeight = div.offsetHeight;
             
+            Frontpage.Shoutbox.ShowShout( div );
+        },
+        ShowShout: function( node ) {
+            var targetHeight = node.offsetHeight;
             var comments = $( 'div#shoutbox div.comments div.comment' );
-            
             var i = 0;
             
             for ( i = comments.length - 2; i >= 1; --i ) { // messages can be posted fast; multiple ones within 500ms :)
@@ -200,9 +202,9 @@ var Frontpage = {
                 height: 0,
                 opacity: 0
             }, 500, 'linear' );
-            div.style.height = '0';
-            $( div ).css( 'opacity', 0 );
-            $( div ).animate( {
+            node.style.height = '0';
+            $( node ).css( 'opacity', 0 );
+            $( node ).animate( {
                 height: targetHeight,
                 opacity: 1
             }, 500, 'linear', function () {
