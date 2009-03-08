@@ -23,11 +23,14 @@
                         case 'indy':
                         case 'd3nnn1z':
                         case 'chorvus':
+                        case 'peach':
+                        case 'kogi':
                         case 'dimo0koc':
                         case 'teddy':
                         case 'seraphim':
                         case 'elsa':
                         case 'funeral':
+                        case 'teh-ninja':
                         case 'intzakosd':
                             Element( 'shoutbox/comet' );
                     }
