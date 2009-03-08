@@ -183,14 +183,18 @@ var Frontpage = {
             var targetHeight = div.offsetHeight;
             div.style.height = '0';
             $( div ).animate( {
-                height: targetHeight
-            }, 1500 );
+                height: targetHeight,
+                opacity: 1
+            }, 500, 'linear' );
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
             setTimeout( function () {
                 $( comments[ comments.length - 2 ] ).remove();
             }, 1000 );
-            $( comments[ comments.length - 2 ] ).slideUp();
+            $( comments[ comments.length - 2 ] ).animate( {
+                height: 0,
+                opacity: 0
+            }, 500, 'linear' );
         }
     }
 };
