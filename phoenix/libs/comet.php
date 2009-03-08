@@ -15,9 +15,9 @@
         w_assert( is_string( $channel ) );
         w_assert( preg_match( '#[A-Za-z0-9_]+#', $channel ) );
         
-        $fh = fsockopen( COMET_PUBLISHING_SERVER, COMET_PUBLISHING_PORT, $errno, $errstr, COMET_PUBLISHING_CONNECTION_TIMEOUT );
+        $fh = @fsockopen( COMET_PUBLISHING_SERVER, COMET_PUBLISHING_PORT, $errno, $errstr, COMET_PUBLISHING_CONNECTION_TIMEOUT );
         if ( !$fh ) {
-            throw New CometException( 'Could not initiate socket connection to publishing server: ' . $errstr . ' (' . $errno . ')' );
+            return false;
         }
         stream_set_timeout( $fh, COMET_PUBLISHING_TIMEOUT );
         $message = w_json_encode( $message );
@@ -29,5 +29,7 @@
         }
         */
         fclose( $fh );
+        
+        return true;
     }
 ?>

@@ -70,7 +70,6 @@ var Frontpage = {
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
-        Mine: {},
         Animating: 0,
         Changed: false,
         OnLoad: function () {
@@ -152,12 +151,8 @@ var Frontpage = {
             
             textarea[ 0 ].disabled = false;
         },
-        OnMyMessagePosted: function ( shoutid ) {
-            $( '#s_' + shoutid ).remove(); // avoid race condition where streaming has arrived before Coala returns
-            Frontpage.Shoutbox.Mine[ shoutid ] = true;
-        },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
-            if ( typeof Frontpage.Shoutbox.Mine[ shoutid ] !== 'undefined' ) {
+            if ( who.name == GetUsername() ) {
                 return;
             }
             
