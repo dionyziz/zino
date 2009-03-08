@@ -180,9 +180,13 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
+            div.slideDown();
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
-            $( comments[ comments.length - 1 ] ).remove();
+            setTimeout( function () {
+                $( comments[ comments.length - 1 ] ).remove();
+            }, 1000 );
+            $( comments[ comments.length - 1 ] ).slideUp();
         }
     }
 };
