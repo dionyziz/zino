@@ -150,6 +150,10 @@ var Frontpage = {
             textarea[ 0 ].disabled = false;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
+            alert( 'OnMessageArrival' );
+            alert( shoutid );
+            alert( shouttext );
+            alert( who.id + ' ' + who.name + ' ' + who.subdomain + ' ' + who.avatar );
             var who = document.createElement( 'div' );
             var text = document.createElement( 'div' );
             
