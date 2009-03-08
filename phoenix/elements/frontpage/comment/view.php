@@ -5,7 +5,9 @@
             ?><div class="event">
                 <div class="who">
                     <a href="<?php
+                    ob_start();
                     Element( 'user/url' , $comment->User->Id , $comment->User->Subdomain );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                         Element( 'user/avatar' , $comment->User->Avatar->Id , $comment->User->Id , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;
