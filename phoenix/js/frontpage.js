@@ -71,6 +71,7 @@ var Frontpage = {
 	},
     Shoutbox: {
         Mine: {},
+        Animating: 0,
         Changed: false,
         OnLoad: function () {
             var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
@@ -184,13 +185,10 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
             
-            var i;
+            var i = 0;
             
             for ( i = comments.length - 2; i >= 1; --i ) { // messages can be posted fast; multiple ones within 500ms :)
                 if ( typeof comments[ i ].beingRemoved == 'undefined' ) {
-                    setTimeout( function () {
-                        $( comments[ i ] ).remove();
-                    }, 1000 );
                     comments[ i ].style.marginTop = 0;
                     comments[ i ].style.marginBottom = 0;
                     comments[ i ].beingRemoved = true;
@@ -198,25 +196,29 @@ var Frontpage = {
                 }
             }
             
-            ( function( start1, end2 ) { // can't use jQuery here; want sum to be constant at any given point in time
-                function Step() {
-                    var h = comments[ i ].style.height;
-                    h = h.substr( 0, h.length - 2 ) - Math.round( start1 / 50 ) + 'px';
-                    if ( h <= 0 ) {
-                        $( comments[ i ] ).remove();
-                        div.style.opacity = 1;
-                        div.style.height = end2;
-                        return;
-                    }
-                    comments[ i ].style.height = h;
-                    comments[ i ].style.opacity -= 0.02;
-                    h = div.style.height;
-                    div.style.height = h.substr( 0, h.length - 2 ) + Math.round( end2 / 50 ) + 'px';
-                    div.style.opacity += 0.02;
-                    setTimeout( Step, 10 );
-                }
-                Step();
-            } )( comments[ i ].offsetHeight, targetHeight );
+            $( comments[ i ] ).animate( {
+                height: 0,
+                opacity: 0
+            }, 500, 'linear' );
+            div.style.height = '0';
+            $( div ).css( 'opacity', 0 );
+            $( div ).animate( {
+                height: targetHeight,
+                opacity: 1
+            }, 500, 'linear', function () {
+                $( comments[ i ] ).remove();
+                --Frontpage.Shoutbox.Animating;
+                $( '#shoutbox' ).css( {
+                    height: '',
+                    overflow: 'visible'
+                } );
+            } );
+            
+            $( '#shoutbox' ).css( {
+                height: $( '#shoutbox' ).offsetHeight + 'px',
+                overflow: 'hidden'
+            } );
+            ++Frontpage.Shoutbox.Animating;
         }
     }
 };
