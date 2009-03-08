@@ -8,7 +8,7 @@
 	
 	$libs->Load("image/tag");
 	
-	//$personid = $_GET[ 'personid' ];
+	/*$personid = $_GET[ 'personid' ];*/
 	        
     $Tagfinder = new ImageTagFinder();
     $tags = $Tagfinder->FindByPersonId( 4005 );
@@ -20,8 +20,8 @@
 	
 
 	header( 'Content-type: image/png' );
-	imagepng($dest);
-	imagedestroy($dest);
+	imagepng($img);
+	imagedestroy($img);
 			
 	Rabbit_Destruct();
 ?>
