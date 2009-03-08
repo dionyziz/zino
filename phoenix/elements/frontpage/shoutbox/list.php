@@ -7,8 +7,15 @@
             <div class="comments"><?php
                 if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
                     Element( 'shoutbox/reply' , $user->Id , $user->Avatar->Id , $user );
-                    if ( $user->Name == 'dionyziz' ) {
-                        Element( 'shoutbox/comet' );
+                    switch ( strtolower( $user->Name ) ) {
+                        case 'dionyziz':
+                        case 'pagio91':
+                        case 'izual':
+                        case 'petrosagg18':
+                        case 'gatoni':
+                        case 'ted':
+                        case 'kostis90gr':
+                            Element( 'shoutbox/comet' );
                     }
                 }
                 Element( 'frontpage/shoutbox/recent' , $shoutboxseq );
