@@ -1,5 +1,4 @@
 <?php
-    
     class ElementFrontpageShoutboxList extends Element {
         public function Render( $shoutboxseq ) {
             global $user;
@@ -13,7 +12,7 @@
                     }
                 }
                 Element( 'frontpage/shoutbox/recent' , $shoutboxseq );
-                Element( 'shoutbox/view'  , false , true );
+                Element( 'shoutbox/view', false , true );
             ?></div>
             <div class="eof"></div><?php
         }
