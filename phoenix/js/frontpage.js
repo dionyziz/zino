@@ -180,7 +180,7 @@ var Frontpage = {
             
             var comments = $( 'div#shoutbox div.comments' );
             comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
-            div.slideDown();
+            $( div ).slideDown();
             
             var comments = $( 'div#shoutbox div.comments div.comment' );
             setTimeout( function () {
