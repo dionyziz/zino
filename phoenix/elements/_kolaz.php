@@ -8,11 +8,11 @@
 	        $page->setTitle( 'Κολάζ' );
 	        
 	        $libs->Load("image/tag");
-	        //?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
+	        /*?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php*/
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
-	        
+
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
