@@ -1,6 +1,6 @@
 <?php    
     class ElementKolaz extends Element {
-        public function Render( $personid ) {
+        public function Render() {
 	        global $page;
 	        global $user;
 	        global $libs;
@@ -10,7 +10,7 @@
 	        $libs->Load("image/tag");
 	        
 	        $Tagfinder = new ImageTagFinder();
-	        $tags = $Tagfinder->FindByPersonId( $personid );
+	        $tags = $Tagfinder->FindByPersonId( 4005 );
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
