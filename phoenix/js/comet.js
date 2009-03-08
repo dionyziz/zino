@@ -29,8 +29,8 @@ var Comet = {
             }, obj );
         }
     },
-    Init: function ( userid ) {
-        Meteor.hostid = userid;
+    Init: function ( uniq ) {
+        Meteor.hostid = uniq;
         Meteor.host = "universe." + location.hostname;
         Meteor.registerEventCallback( "process", Comet.Process );
         Meteor.registerEventCallback( 'pollmode', Comet.ChangeMode );

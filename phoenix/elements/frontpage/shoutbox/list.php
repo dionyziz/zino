@@ -15,6 +15,7 @@
                         case 'gatoni':
                         case 'ted':
                         case 'kostis90gr':
+                        case 'bowling':
                             Element( 'shoutbox/comet' );
                     }
                 }
