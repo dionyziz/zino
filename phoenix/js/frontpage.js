@@ -201,7 +201,7 @@ var Frontpage = {
             ( function( start1, end2 ) { // can't use jQuery here; want sum to be constant at any given point in time
                 function Step() {
                     var h = comments[ i ].style.height;
-                    h = h.substr( 0, h.length - 2 ) - Math.Round( start1 / 50 ) + 'px';
+                    h = h.substr( 0, h.length - 2 ) - Math.round( start1 / 50 ) + 'px';
                     if ( h <= 0 ) {
                         $( comments[ i ] ).remove();
                         div.style.opacity = 1;
@@ -211,7 +211,7 @@ var Frontpage = {
                     comments[ i ].style.height = h;
                     comments[ i ].style.opacity -= 0.02;
                     h = div.style.height;
-                    div.style.height = h.substr( 0, h.length - 2 ) + Math.Round( end2 / 50 ) + 'px';
+                    div.style.height = h.substr( 0, h.length - 2 ) + Math.round( end2 / 50 ) + 'px';
                     div.style.opacity += 0.02;
                     setTimeout( Step, 10 );
                 }
