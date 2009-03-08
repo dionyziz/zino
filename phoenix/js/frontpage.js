@@ -159,10 +159,7 @@ var Frontpage = {
             + who.id + '/' + who.avatar + '/' + who.avatar 
             + '_100.jpg" width="50" height="50" alt="' 
             + who.name + '" class="avatar" />'
-            + who.name + '</a>';
-
-            ?> είπε:
-            ';
+            + who.name + '</a>' + 'είπε:';
             
             text.className = 'text';
             text.appendChild( document.createTextNode( shouttext ) );
