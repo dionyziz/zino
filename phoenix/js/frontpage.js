@@ -200,6 +200,7 @@ var Frontpage = {
                 }
             }
             div.style.height = '0';
+            $( div ).css( 'opacity', 0 );
             $( div ).animate( {
                 height: targetHeight,
                 opacity: 1
