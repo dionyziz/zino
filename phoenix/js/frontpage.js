@@ -149,8 +149,23 @@ var Frontpage = {
             
             textarea[ 0 ].disabled = false;
         },
-        OnMessageArrival: function ( message ) {
-            alert( 'New message! ' + message );
+        OnMessageArrival: function ( shoutid, shouttext, who ) {
+            var who = document.createElement( 'div' );
+            var text = document.createElement( 'div' );
+            
+            who.className = 'who';
+            who.innerHTML = '<a href="http://' + who.subdomain + '.zino.gr/">'
+            + '<img src="http://images.zino.gr/media/' 
+            + who.id + '/' + who.avatar + '/' + who.avatar 
+            + '_100.jpg" width="50" height="50" alt="' 
+            + who.name + '" class="avatar" />'
+            + who.name + '</a>';
+
+            ?> είπε:
+            ';
+            
+            text.className = 'text';
+            text.appendChild( document.createTextNode( shouttext ) );
         }
     }
 };

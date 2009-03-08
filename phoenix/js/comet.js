@@ -20,13 +20,13 @@ var Comet = {
         Meteor.joinChannel( channel, 0 );
     },
     Process: function ( json ) {
-        alert( 'Got data: ' + json );
-        var obj = eval( '[' + json + ']' )[ 0 ];
-        var channel = obj[ 0 ];
-        var data = obj[ 1 ];
+        var obj = eval( json );
+        var channel = obj.shift();
         
         if ( typeof Comet.SubcriptionCallbacks[ channel ] == 'function' ) {
-            Comet.SubcriptionCallbacks[ channel ]( data );
+            Comet.SubcriptionCallbacks[ channel ].apply( {
+                'Channel': channel
+            }, obj );
         }
     },
     Init: function ( userid ) {
