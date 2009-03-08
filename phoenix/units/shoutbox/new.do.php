@@ -54,6 +54,8 @@
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
         }<?php
         
-        Comet_Publish( 'shoutbox', $shout->Text );
+        Comet_Publish( 'shoutbox', array(
+            $shout->Id, $shout->Text
+        ) );
     }
 ?>
