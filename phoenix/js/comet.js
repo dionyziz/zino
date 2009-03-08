@@ -19,6 +19,7 @@ var Comet = {
         Meteor.joinChannel( channel, 0 );
     },
     Process: function ( json ) {
+        alert( 'Got data: ' + json );
         var obj = eval( '[' + json + ']' )[ 0 ];
         var channel = obj[ 0 ];
         var data = obj[ 1 ];
