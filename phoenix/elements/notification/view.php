@@ -120,7 +120,9 @@
                                 ?>ν στους φίλους</a></div><?php
                             }
                             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
+                            ob_start();
                             Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                            echo htmlspecialchars( ob_get_clean() );
                             ?>' , '0' , '<?php
                             echo $notif->Event->Id;
                             ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
