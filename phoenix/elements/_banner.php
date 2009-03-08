@@ -60,7 +60,7 @@
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout"><span>Έξοδος&nbsp;</span></a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout"><span>Έξοδος</span><span>&nbsp;</span></a></form><?php
             }
             ?>
             <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
