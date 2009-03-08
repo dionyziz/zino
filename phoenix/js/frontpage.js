@@ -70,6 +70,7 @@ var Frontpage = {
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
+        Mine: {},
         Changed: false,
         OnLoad: function () {
             var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
@@ -149,7 +150,14 @@ var Frontpage = {
             
             textarea[ 0 ].disabled = false;
         },
+        OnMyMessagePosted: function ( shoutid ) {
+            Frontpage.Shoutbox.Mine[ shoutid ] = true;
+        },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
+            if ( typeof Frontpage.Shoutbox.Mine[ shoutid ] !== 'undefined' ) {
+                return;
+            }
+            
             var whodiv = document.createElement( 'div' );
             var text = document.createElement( 'div' );
             
@@ -161,7 +169,7 @@ var Frontpage = {
                             + who.name + '" class="avatar" />'
                             + who.name + '</a>' + ' είπε:';
             text.className = 'text';
-            text.appendChild( document.createTextNode( shouttext ) );
+            text.innerHTML = shouttext;
             
             var div = document.createElement( 'div' );
             div.className = 'comment';

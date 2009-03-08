@@ -52,7 +52,11 @@
         }
         else {
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
-        }<?php
+        }
+        
+        Frontpage.Shoutbox.OnMyMessagePosted( <?php
+        echo $shout->Id;
+        ?> );<?php
         
         Comet_Publish( 'shoutbox', $shout->Id, $shout->Text, array(
             'id' => $shout->User->Id, 
