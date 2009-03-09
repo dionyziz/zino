@@ -25,7 +25,7 @@
     $url = $url . $tags[0]->Imageid . '/' . $tags[0]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     /*echo $url;*/
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid, IMAGE_FULLVIEW );*/
-    $src = file_get_contents( $url );
+    $src = createimagefromstring(file_get_contents( $url ));
     $img = imagecreate(420,510);
     imagecopy( $img, $src,0,0,$tags[0]->left,$tags[0]->top,$tags[0]->Width,$tags[0]->Height );
     
