@@ -30,7 +30,7 @@
 	
 
 	header( 'Content-type: image/jpg' );
-	imagejpg($src);
+	echo $src;
 	imagedestroy($src);
 			
 	Rabbit_Destruct();
