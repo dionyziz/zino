@@ -33,7 +33,13 @@
     $url = $url . $tags[1]->Imageid . '/' . $tags[1]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     $src = imagecreatefromstring(file_get_contents( $url ));
     imagecopy( $img, $src,0,331,$tags[1]->left,$tags[1]->top,$tags[1]->Width,$tags[1]->Height );
-    
+    $url = $xc_settings[ 'imagesurl' ] . $tags[2]->Personid . '/';
+    if ( !$rabbit_settings[ 'production' ] ) {
+        $url = $url .  '_';
+    }
+    $url = $url . $tags[2]->Imageid . '/' . $tags[2]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
+    $src = imagecreatefromstring(file_get_contents( $url ));
+    imagecopy( $img, $src,363,0,$tags[2]->left,$tags[2]->top,$tags[2]->Width,$tags[2]->Height );
 	
 
 	header( 'Content-type: image/jpg' );
