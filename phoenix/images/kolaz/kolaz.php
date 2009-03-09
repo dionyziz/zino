@@ -23,15 +23,15 @@
         $url = $url .  '_';
     }
     $url = $url . $tags[0]->Imageid . '/' . $tags[0]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
-    echo $url;
+    /*echo $url;*/
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid, IMAGE_FULLVIEW );*/
-    /*$src = imagecreatefromstring( file_get_contents( Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid, IMAGE_FULLVIEW ) ) );*/
+    $src = imagecreatefromstring( file_get_contents( $url ) );
     
 	
 
-	/*header( 'Content-type: image/png' );
+	header( 'Content-type: image/png' );
 	echo $src;
-	imagedestroy($src);*/
+	imagedestroy($src);
 			
 	Rabbit_Destruct();
 ?>
