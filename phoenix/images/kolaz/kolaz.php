@@ -32,7 +32,7 @@
 	
 
 	header( 'Content-type: image/jpg' );
-	echo $img;
+	imagejpeg($img);
 	imagedestroy($src);
 	imagedestroy($img);
 			
