@@ -14,6 +14,7 @@
     $Tagfinder = new ImageTagFinder();
     $tags = $Tagfinder->FindByPersonId( 4005 );
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/
+    Element( 'image/url' , $tags[0]->Imageid , $tags[0]->Personid , IMAGE_FULLVIEW );
 
     $img = imagecreate(550,450);
     $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
