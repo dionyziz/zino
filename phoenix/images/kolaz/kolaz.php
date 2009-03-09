@@ -25,12 +25,12 @@
     $url = $url . $tags[0]->Imageid . '/' . $tags[0]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     /*echo $url;*/
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid, IMAGE_FULLVIEW );*/
-    $src = file_get_contents( $url );
+    $src = imagecreatefromstring( file_get_contents( $url ) );
     
 	
 
-	header( 'Content-type: image/png' );
-	echo $src;
+	header( 'Content-type: image/jpg' );
+	imagejpg($src);
 	imagedestroy($src);
 			
 	Rabbit_Destruct();
