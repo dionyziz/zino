@@ -30,7 +30,7 @@
     if ( !$rabbit_settings[ 'production' ] ) {
         $url = $url .  '_';
     }
-    $url = $url . $tags[0]->Imageid . '/' . $tags[1]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
+    $url = $url . $tags[1]->Imageid . '/' . $tags[1]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     $src = imagecreatefromstring(file_get_contents( $url ));
     imagecopy( $img, $src,0,331,$tags[1]->left,$tags[1]->top,$tags[1]->Width,$tags[1]->Height );
     
