@@ -26,7 +26,6 @@
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
                 $( this ).fadeOut( 4000 );
-                //$( 'div#easyphotoupload' ).fadeOut( 1000 );
                 $( '#easyphotoupload').jqmHide();
             } );<?php
         }
