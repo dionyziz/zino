@@ -25,7 +25,7 @@
                 $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );<?php
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
-                $( this ).fadeOut( 4000, function() {
+                $( this ).fadeOut( 1000, function() {
                     $( '#easyphotoupload').jqmHide();
                 } );
             } );<?php
