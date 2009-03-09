@@ -30,6 +30,7 @@
                         case 'seraphim':
                         case 'elsa':
                         case 'funeral':
+                        case 'cmad':
                         case 'teh-ninja':
                         case 'intzakosd':
                             Element( 'shoutbox/comet' );
