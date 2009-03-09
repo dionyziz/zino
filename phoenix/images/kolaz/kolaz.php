@@ -29,7 +29,7 @@
     
 	
 
-	header( 'Content-type: image/png' );
+	/*header( 'Content-type: image/png' );*/
 	echo $src;
 	imagedestroy($src);
 			
