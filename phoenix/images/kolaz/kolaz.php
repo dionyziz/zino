@@ -18,7 +18,7 @@
     imagecopy( $img, $src,0,0,$tags[0]->left,$tags[0]->top,$tags[0]->Width,$tags[0]->Height );*/
     /* createfromstring
     imagecreatefromstring*/
-    $img = imagecreate(420,510);
+    $img = imagecreate(450,550);
     $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
     if ( !$rabbit_settings[ 'production' ] ) {
         $url = $url .  '_';
