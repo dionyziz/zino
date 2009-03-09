@@ -15,7 +15,7 @@
     $tags = $Tagfinder->FindByPersonId( 4005 );
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/
 
-    $img = imagecreate(450,550);
+    $img = imagecreate(550,450);
     $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
     if ( !$rabbit_settings[ 'production' ] ) {
         $url = $url .  '_';
