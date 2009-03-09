@@ -25,7 +25,7 @@
     $url = $url . $tags[0]->Imageid . '/' . $tags[0]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     /*echo $url;*/
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid, IMAGE_FULLVIEW );*/
-    $src = imagecreatefromstring( file_get_contents( $url ) );
+    $src = file_get_contents( $url );
     
 	
 
