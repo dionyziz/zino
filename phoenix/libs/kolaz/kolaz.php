@@ -1,6 +1,6 @@
 <?php
     class KolazCreator {
-        private $mPositions = Array();
+        public $mPositions = Array();
         public $ambiguous = 0;
         private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/kolaz/a.out';  
         
