@@ -27,6 +27,7 @@
                         case 'kogi':
                         case 'dimo0koc':
                         case 'teddy':
+                        case 'agorf':
                         case 'seraphim':
                         case 'elsa':
                         case 'funeral':
