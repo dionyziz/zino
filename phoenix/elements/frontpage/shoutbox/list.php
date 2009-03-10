@@ -33,6 +33,7 @@
                         case 'cmad':
                         case 'teh-ninja':
                         case 'intzakosd':
+                        case 'kolstad':
                         case 'ronaldo7':
                             Element( 'shoutbox/comet' );
                     }
