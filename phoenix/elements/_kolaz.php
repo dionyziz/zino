@@ -8,7 +8,14 @@
 	        $page->setTitle( 'Κολάζ' );
 	        
 	        $libs->Load("image/tag");
+	        $libs->Load("kolaz/kolaz");
+	        
+	        $kolaz = new KolazCreator;
+	        $kolaz->RetrievePositions( array( array( 1,10,10 ) ) );
+	        echo $kolaz->mPositions;
+	        
 	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
+	        
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
