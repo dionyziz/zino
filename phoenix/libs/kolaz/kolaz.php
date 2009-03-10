@@ -1,0 +1,71 @@
+<?php
+    class KolazCreator {
+        private $mPositions = Array();
+        public $ambiguous = 0;
+        private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/kolaz/a.out';  
+        
+        public function Add( $id, $xpos, $ypos ) {
+            $mPositions[ $id ] = array( $id, $xpos, $ypos );
+            return;
+        }          
+
+        public function RetrievePositions( $images ) {
+            global $rabbit_settings;
+            $this->mPath = $rabbit_settings[ 'rootdir' ] . '/libs/kolaz/a.out';
+            /* Pipe */
+            $descriptorspec = array(
+               0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+               1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+               2 => array("pipe", "w") // stderr is a pipe that the child will write to
+            );
+            
+            $process = proc_open('./a.out' . $this->mPath, $descriptorspec, $pipes);
+            
+            if (!is_resource($process)) {
+                die ("Can't execute " . $this->mPath ."!");
+            }
+
+            $n = count( $images );
+            fwrite($pipes[0], "$n\n");
+            foreach ( $images as $img ) {
+                fwrite($pipes[0], "$img[0] $img[1] $img[2]\n");    
+            }
+            fclose($pipes[0]);        // 0 => stdin
+            
+            $allpositions = stream_get_contents($pipes[1]);
+            fclose($pipes[1]);        // 1 => stdout
+    
+            $errors = stream_get_contents($pipes[2]);
+            fclose($pipes[2]);        // 2 => stderr
+            
+            // It is important that you close any pipes before calling proc_close in order to avoid a deadlock
+            $return_value = proc_close($process);
+            
+            /* Exceptions */
+            //die ( "$return_value: $allcontacts \n$errors" );
+            if ( $return_value == 1 ) { // input failure
+                return false;
+            }
+            
+            if ( $return_value != 0 ) { // unknown error
+                //die ( "Error: $allcontacts \n$errors" );
+                return false;
+            }
+
+            /* Parsing */
+            
+            $pieces = explode("\n", $allpositions);
+            foreach ( $pieces as $piece ) {
+                $columns = explode("\t", $piece);
+                
+                $id = $columns[0];
+                $xpos = $columns[1];
+                $ypos = $columns[2];
+                
+                $this->Add( $id, $xpos, $ypos );
+            }
+
+            return true;
+        }
+    }
+?>
