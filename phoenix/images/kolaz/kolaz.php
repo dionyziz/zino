@@ -1,5 +1,5 @@
 <?php
-	set_include_path( '../../../:./' );
+	set_include_path( '../../:./' );
 	require_once 'libs/rabbit/rabbit.php';
 	Rabbit_Construct( 'plain' );
 
