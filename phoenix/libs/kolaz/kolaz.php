@@ -44,12 +44,12 @@
             /* Exceptions */
             //die ( "$return_value: $allcontacts \n$errors" );
             if ( $return_value == 1 ) { // input failure
-                return false;
+                return "problem#1";
             }
             
             if ( $return_value != 0 ) { // unknown error
                 //die ( "Error: $allcontacts \n$errors" );
-                return false;
+                return "problem#2";
             }
 
             /* Parsing */

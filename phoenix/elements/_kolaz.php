@@ -11,9 +11,8 @@
 	        $libs->Load("kolaz/kolaz");
 	        
 	        $kolaz = new KolazCreator;
-	        if( $kolaz->RetrievePositions( array( array( 1,10,10 ) ) ) == false ) {
-	            echo "<p>A problem was encoutered</p>";
-	        }
+	        echo $kolaz->RetrievePositions( array( array( 1,10,10 ) ) );
+	        
 	        echo '<p>->->' . $kolaz->mPositions[0] . ' ' . $kolaz->mPositions[1] . ' ' . $kolaz->mPositions[2] . '</p>' ;
 	        
 	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
