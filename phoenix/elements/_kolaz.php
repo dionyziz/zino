@@ -11,7 +11,7 @@
 	        $libs->Load("kolaz/kolaz");
 	        
 	        $kolaz = new KolazCreator;
-	        echo $kolaz->RetrievePositions( array( array( 1,10,10 ) ) );
+	        echo $kolaz->RetrievePositions( array( array( "id"=>1,"width"=>10,"height"=>10 ) ) );
 	        
 	        echo '<p>->->' . $kolaz->mPositions[0] . ' ' . $kolaz->mPositions[1] . ' ' . $kolaz->mPositions[2] . '</p>' ;
 	        
