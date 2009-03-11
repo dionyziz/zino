@@ -59,7 +59,7 @@
             echo "output : ";
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
-                echo "piece" . $columns;
+                echo "piece" . $piece;
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
