@@ -33,9 +33,9 @@
     }
     
     $imageFinder = new ImageFinder();
-    $images = $imageFinder->FindByIds( $ids );
+    $res = $imageFinder->FindByIds( $ids );
     $owners = array();
-    foreach ( $images as $image ) {
+    while ( $image = FetchArray( $res ) ) {
         $owners[ $image[ 'id' ] ] = $image[ 'userid' ];
         echo $image[ 'id' ] . " " . $image[ 'userid' ];
     }
