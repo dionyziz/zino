@@ -34,7 +34,6 @@
 	            ?><p>Kolaz ws fukced up</p><?php
 	        }
 	        
-            echo $tags[0]->Imageid;
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
