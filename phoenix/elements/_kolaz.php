@@ -10,7 +10,7 @@
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");
 	        
-	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php	        
+	        ?><div><img src="images/kolaz/kolaz.php?<?php echo $personid; ?>" alt="img"/></div><?php	        
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
