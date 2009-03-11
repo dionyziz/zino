@@ -32,6 +32,7 @@
 
     $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
     foreach ( $kolaz->mPositions as $key=>$val ) {
+        echo $key . " " . $data[ $key ][ 'personid' ];
         $url = $xc_settings[ 'imagesurl' ] . $data[ $key ][ 'personid' ] . '/';
         if ( !$rabbit_settings[ 'production' ] ) {
             $url = $url .  '_';
