@@ -36,8 +36,7 @@
     $images = $imageFinder->FindByIds( $ids );
     $owners = array();
     foreach ( $images as $image ) {
-        $owners[ $image[ 'id' ] ] = $image[ 'userid' ];
-        echo $image[ 'id' ] . " " . $image[ 'userid' ];
+        $owners[ $image->Id ] = $image->Userid;
     }
     
 
