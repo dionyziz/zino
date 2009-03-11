@@ -15,7 +15,7 @@
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid,  IMAGE_FULLVIEW );*/
     
     $Tagfinder = new ImageTagFinder();
-    $tags = $Tagfinder->FindByPersonId( 4005 );
+    $tags = $Tagfinder->FindByPersonId( 1 );
     
     $input = array();
     $data = array();
