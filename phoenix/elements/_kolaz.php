@@ -14,6 +14,9 @@
 	        $kolaz->RetrievePositions( array( array( "id"=>1,"width"=>10,"height"=>10 ) ) );
 	        
 	        echo '<p>->->' . $kolaz->mPositions[1][ "xpos" ] . ' ' . $kolaz->mPositions[1][ "ypos" ] . '</p>' ;
+	        foreach ( $kolaz->mPositions as $one ) {
+                echo $one[ 'xpos' ]  . $one[ 'ypos' ];
+	        }
 	        
 	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
 	        
