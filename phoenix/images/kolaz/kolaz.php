@@ -25,16 +25,7 @@
     }
     
     $kolaz = new KolazCreator;
-    ?><p>Program output</p><?php
-    if ( $kolaz->RetrievePositions( $input ) == true ) {
-        foreach ( $kolaz->mPositions as $key=>$val ) {
-            ?><p><?php
-            echo $key . " " . $val[ 'xpos' ]  . " " . $val[ 'ypos' ];
-            ?></p><?php
-        }
-        //echo "maxX " . $kolaz->maxX . " maxY " . $kolaz->maxY;
-    }
-    else {
+    if ( $kolaz->RetrievePositions( $input ) == false ) {
         die("kolaz was fucked up");
     }
     
