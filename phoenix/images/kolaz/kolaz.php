@@ -10,12 +10,12 @@
 	$libs->Load("image/tag");
 	$libs->Load("kolaz/kolaz");
 	
-	$userid = $_GET[ 'userid' ];	       
+	/*$userid = $_GET[ 'userid' ];	       */
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid,  IMAGE_FULLVIEW );*/
     
     $Tagfinder = new ImageTagFinder();
-    $tags = $Tagfinder->FindByPersonId( $userid );
+    $tags = $Tagfinder->FindByPersonId( 4005 );
     
     $input = array();
     $data = array();
