@@ -9,15 +9,48 @@
 	
 	$libs->Load("image/tag");
 	
-	/*$personid = $_GET[ 'personid' ];*/
-	        
+	/*$personid = $_GET[ 'personid' ];*/	       
+    /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
+    /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid,  IMAGE_FULLVIEW );*/
+    
     $Tagfinder = new ImageTagFinder();
     $tags = $Tagfinder->FindByPersonId( 4005 );
-    /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/
     
-    /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid,  IMAGE_FULLVIEW );*/
+    $input = array();
+    $data = array();
+    foreach ( $tags as $tag ) {
+        $input[] = array( 'id' => $tag->Imageid, 'width' => $tag->Width, 'height' => $tag->Height );
+        $data[ $tag->Imageid ] = array( 'width' => $tag->Width, 'height' => $tag->Height, 'personid' => $tag->Personid, 'left' => $tag->left, 'top' => $tag->top );
+    }
+    
+    $kolaz = new KolazCreator;
+    ?><p>Program output</p><?php
+    if ( $kolaz->RetrievePositions( $input ) == true ) {
+        foreach ( $kolaz->mPositions as $key=>$val ) {
+            ?><p><?php
+            echo $key . " " . $val[ 'xpos' ]  . " " . $val[ 'ypos' ];
+            ?></p><?php
+        }
+        //echo "maxX " . $kolaz->maxX . " maxY " . $kolaz->maxY;
+    }
+    else {
+        die("kolaz was fucked up");
+    }
+    
 
-    $img = imagecreatetruecolor(510,450);
+    $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
+    foreach ( $kolaz->mPositions as $key=>$val ) {
+        $url = $xc_settings[ 'imagesurl' ] . $data[ $key ][ 'personid' ] . '/';
+        if ( !$rabbit_settings[ 'production' ] ) {
+            $url = $url .  '_';
+        }
+        $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
+        
+        $src = imagecreatefromstring(file_get_contents( $url ));
+        imagecopy( $img, $src,$val[ 'xpos' ],$val[ 'ypos' ],$data[ $key ][ 'left' ],$data[ $key ][ 'top' ],$data[ $key ][ 'width' ],$data[ $key ][ 'height' ] );
+        imagedestroy($src);
+    }
+    /*
     $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
     if ( !$rabbit_settings[ 'production' ] ) {
         $url = $url .  '_';
@@ -39,11 +72,10 @@
     $url = $url . $tags[2]->Imageid . '/' . $tags[2]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
     $src = imagecreatefromstring(file_get_contents( $url ));
     imagecopy( $img, $src,363,0,$tags[2]->left,$tags[2]->top,$tags[2]->Width,$tags[2]->Height );
-	
+	*/
 
 	header( 'Content-type: image/jpg' );
 	imagejpeg($img);
-	imagedestroy($src);
 	imagedestroy($img);
 			
 	Rabbit_Destruct();
