@@ -25,7 +25,7 @@
 	        if ( $kolaz->RetrievePositions( $input ) == true ) {
     	        foreach ( $kolaz->mPositions as $key=>$val ) {
     	            ?><p><?php
-                    echo $id . " " . $one[ 'xpos' ]  . " " . $one[ 'ypos' ];
+                    echo $key . " " . $one[ 'xpos' ]  . " " . $one[ 'ypos' ];
                     ?></p><?php
     	        }
 	        }
