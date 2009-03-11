@@ -42,7 +42,7 @@
     $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
     foreach ( $kolaz->mPositions as $key=>$val ) {
         $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
-        if ( !$rabbit_settings[ 'production' ] ) {
+        if ( $rabbit_settings[ 'production' ] ) {
             $url = $url .  '_';
         }
         $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
@@ -51,30 +51,7 @@
         imagecopy( $img, $src,$val[ 'xpos' ],$val[ 'ypos' ],$data[ $key ][ 'left' ],$data[ $key ][ 'top' ],$data[ $key ][ 'width' ],$data[ $key ][ 'height' ] );
         imagedestroy($src);
     }
-    /*
-    $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
-    if ( !$rabbit_settings[ 'production' ] ) {
-        $url = $url .  '_';
-    }
-    $url = $url . $tags[0]->Imageid . '/' . $tags[0]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
-    $src = imagecreatefromstring(file_get_contents( $url ));
-    imagecopy( $img, $src,0,0,$tags[0]->left,$tags[0]->top,$tags[0]->Width,$tags[0]->Height );
-    $url = $xc_settings[ 'imagesurl' ] . $tags[1]->Personid . '/';
-    if ( !$rabbit_settings[ 'production' ] ) {
-        $url = $url .  '_';
-    }
-    $url = $url . $tags[1]->Imageid . '/' . $tags[1]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
-    $src = imagecreatefromstring(file_get_contents( $url ));
-    imagecopy( $img, $src,0,331,$tags[1]->left,$tags[1]->top,$tags[1]->Width,$tags[1]->Height );
-    $url = $xc_settings[ 'imagesurl' ] . $tags[2]->Personid . '/';
-    if ( !$rabbit_settings[ 'production' ] ) {
-        $url = $url .  '_';
-    }
-    $url = $url . $tags[2]->Imageid . '/' . $tags[2]->Imageid . '_' . IMAGE_FULLVIEW . '.jpg';
-    $src = imagecreatefromstring(file_get_contents( $url ));
-    imagecopy( $img, $src,363,0,$tags[2]->left,$tags[2]->top,$tags[2]->Width,$tags[2]->Height );
-	*/
-
+    
 	header( 'Content-type: image/jpg' );
 	imagejpeg($img);
 	imagedestroy($img);
