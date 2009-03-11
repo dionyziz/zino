@@ -51,7 +51,7 @@
             
             if ( $return_value != 0 ) { // unknown error
                 //die ( "Error: $allcontacts \n$errors" );
-                return "problem#2";
+                return " - > " . $errors;
             }
 
             /* Parsing */
