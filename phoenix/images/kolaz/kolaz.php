@@ -56,7 +56,6 @@
         imagedestroy($src);
     }
     
-    echo "hi";
 	header( 'Content-type: image/jpg' );
 	imagejpeg($img);
 	imagedestroy($img);
