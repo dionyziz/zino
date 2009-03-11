@@ -18,7 +18,6 @@
 	        $input = array();
 	        foreach ( $tags as $tag ) {
                 $input[] = array( 'id' => $tag->Imageid, 'width' => $tag->Width, 'height' => $tag->Height );
-                echo $tag->Imageid;
             }
 	        
 	        $kolaz = new KolazCreator;

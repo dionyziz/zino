@@ -30,7 +30,6 @@
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
                 fwrite($pipes[0], ($img["id"] . " " . $img["width"] . " " . $img["height"] . '\n' ));    
-                echo $img["id"];
             }
             fclose($pipes[0]);        // 0 => stdin
             
@@ -60,7 +59,7 @@
             echo "output : ";
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
-                echo "piece" . $piece;
+                echo "piece" . $columns;
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
