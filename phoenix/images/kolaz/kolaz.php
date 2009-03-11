@@ -37,6 +37,7 @@
     $owners = array();
     foreach ( $images as $image ) {
         $owners[ $image[ 'id' ] ] = $image[ 'userid' ];
+        echo $image[ 'id' ] . " " . $image[ 'userid' ];
     }
     
 
