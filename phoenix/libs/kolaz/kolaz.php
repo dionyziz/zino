@@ -26,6 +26,7 @@
             }
 
             $n = count( $images );
+            echo "n == " . $n;
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
                 fwrite($pipes[0], '$img["id"] $img["width"] $img["height"]\n');    
