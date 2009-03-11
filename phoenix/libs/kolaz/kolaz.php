@@ -6,7 +6,7 @@
         
         public function Add( $id, $xpos, $ypos ) {
             $this->mPositions[ $id ] = array( "xpos" => $xpos, "ypos" => $ypos );
-            echo "added " . $id . " " . $this->mPositions[ $id ][ 'xpos' ];
+            echo "added " . $id . " " . $this->mPositions[ $id ][ 'xpos' ] . " " . $this->mPositions[ $id ][ 'ypos' ];
             return;
         }          
 
