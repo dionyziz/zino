@@ -10,19 +10,28 @@
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");
 	        
-	        $kolaz = new KolazCreator;
-	        $kolaz->RetrievePositions( array( array( "id"=>1,"width"=>10,"height"=>10 ) ) );
-	        
-	        echo '<p>->->' . $kolaz->mPositions[1][ "xpos" ] . ' ' . $kolaz->mPositions[1][ "ypos" ] . '</p>' ;
-	        foreach ( $kolaz->mPositions as $one ) {
-                echo $one[ 'xpos' ]  . $one[ 'ypos' ];
-	        }
-	        
-	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
-	        
+	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php	        
 	        
 	        $Tagfinder = new ImageTagFinder();
 	        $tags = $Tagfinder->FindByPersonId( $personid );
+	        
+	        $input = array();
+	        foreach ( $tags as $tag ) {
+                $input[] = array( 'id' => $tag->Imageid, 'width' => $tag->Width, 'height' => $tag->Height );
+            }
+	        
+	        $kolaz = new KolazCreator;
+	        if ( $kolaz->RetrievePositions( $input ) == true ) {
+    	        foreach ( $kolaz->mPositions as $key=>$val ) {
+    	            ?><p><?php
+                    echo $id . " " . $one[ 'xpos' ]  . " " . $one[ 'ypos' ];
+                    ?></p><?php
+    	        }
+	        }
+	        else {
+	            ?><p>Kolaz ws fukced up</p><?php
+	        }
+	        
             echo $tags[0]->Imageid;
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
