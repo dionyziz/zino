@@ -28,6 +28,7 @@
                     echo $key . " " . $val[ 'xpos' ]  . " " . $val[ 'ypos' ];
                     ?></p><?php
     	        }
+    	        echo "maxX " . $kolaz->maxX . " maxY " . $kolaz->maxY;
 	        }
 	        else {
 	            ?><p>Kolaz ws fukced up</p><?php

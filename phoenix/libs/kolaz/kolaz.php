@@ -1,12 +1,13 @@
 <?php
     class KolazCreator {
         public $mPositions = Array();
+        public $maxX;
+        public $maxY;
         public $ambiguous = 0;
         private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/kolaz/a.out';  
         
         public function Add( $id, $xpos, $ypos ) {
             $this->mPositions[ $id ] = array( "xpos" => $xpos, "ypos" => $ypos );
-            echo "added " . $id . " " . $this->mPositions[ $id ][ 'xpos' ] . " " . $this->mPositions[ $id ][ 'ypos' ];
             return;
         }          
 
@@ -30,7 +31,6 @@
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
                 fwrite($pipes[0], ($img["id"] . " " . $img["width"] . " " . $img["height"] . "\n" ));    
-                echo ($img["id"] . " " . $img["width"] . " " . $img["height"] . "\n" );
             }
             fclose($pipes[0]);        // 0 => stdin
             
@@ -64,9 +64,14 @@
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
-
-                $this->Add( $id, $xpos, $ypos );
-
+                
+                if ( $id == "size" ) {
+                    $this->maxX = $xpos;
+                    $this->maxY = $ypos;
+                }
+                else {                
+                    $this->Add( $id, $xpos, $ypos );
+                }
             }
 
             return true;
