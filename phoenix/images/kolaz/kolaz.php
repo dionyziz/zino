@@ -9,6 +9,7 @@
 	
 	$libs->Load("image/tag");
 	$libs->Load("kolaz/kolaz");
+	$libs->Load("image/image.php");
 	
 	$userid = $_GET[ 'userid' ];
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
@@ -19,19 +20,29 @@
     
     $input = array();
     $data = array();
+    $ids = array();
     foreach ( $tags as $tag ) {
         $input[] = array( 'id' => $tag->Imageid, 'width' => $tag->Width, 'height' => $tag->Height );
         $data[ $tag->Imageid ] = array( 'width' => $tag->Width, 'height' => $tag->Height, 'personid' => $tag->Personid, 'left' => $tag->left, 'top' => $tag->top );
+        $ids[] = $tag->Imageid;
     }
     
     $kolaz = new KolazCreator;
     if ( $kolaz->RetrievePositions( $input ) == false ) {
         die("kolaz was fucked up");
     }
+    
+    $imageFinder = new ImageFinder();
+    $images = $imageFinder->FindByIds( $ids );
+    $owners = array();
+    foreach ( $images as $image ) {
+        $owners[ $image->Id ] = $image->Userid;
+    }
+    
 
     $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
     foreach ( $kolaz->mPositions as $key=>$val ) {
-        $url = $xc_settings[ 'imagesurl' ] . $data[ $key ][ 'personid' ] . '/';
+        $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
         if ( !$rabbit_settings[ 'production' ] ) {
             $url = $url .  '_';
         }
