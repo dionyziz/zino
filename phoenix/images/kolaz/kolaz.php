@@ -37,9 +37,11 @@
         }
         $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
         
-        $src = imagecreatefromstring(file_get_contents( $url ));
-        imagecopy( $img, $src,$val[ 'xpos' ],$val[ 'ypos' ],$data[ $key ][ 'left' ],$data[ $key ][ 'top' ],$data[ $key ][ 'width' ],$data[ $key ][ 'height' ] );
-        imagedestroy($src);
+        if ( file_get_contents( $url ) != NULL ) {
+            $src = imagecreatefromstring(file_get_contents( $url ));
+            imagecopy( $img, $src,$val[ 'xpos' ],$val[ 'ypos' ],$data[ $key ][ 'left' ],$data[ $key ][ 'top' ],$data[ $key ][ 'width' ],$data[ $key ][ 'height' ] );
+            imagedestroy($src);
+        }
     }
     /*
     $url = $xc_settings[ 'imagesurl' ] . $tags[0]->Personid . '/';
