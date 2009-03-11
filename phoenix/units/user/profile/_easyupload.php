@@ -13,21 +13,23 @@
             $( this ).addClass( 'selected' );
             previousSelection = $( this )[ 0 ];
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
-            var username = GetUsername();
+            var username = GetUsername();<?php
+            /* this job is allready done at elements/user/profile/easyupload
             if ( albumname.toLowerCase() == username.toLowerCase() ) {
                 albumname = 'Εγώ';
-            }
+            } */
+            ?>
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
             var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
             if ( UserBrowser() == 'MSIE' ) {
-                $attr = "src";
+                $attr = 'src';
             }
             else {
-                $attr = "data";
+                $attr = 'data';
             }
             echo $attr;
             ?>" ).split( "&" );
-            //arguments[ 0 ] = "?p=upload";
+            arguments[ 0 ] = "?p=upload";
             arguments[ 1 ] = "albumid=" + $( this ).attr( 'id' ).substr( 6 );
             $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
             echo $attr;
