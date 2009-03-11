@@ -57,14 +57,14 @@
                             </div>
                         </div>
                         <div>
-                            <label for="join_email">E-mail (προαιρετικά):</label>
+                            <label for="join_email">E-mail:</label>
                             <input type="text" value="" style="width:200px" id="join_email" />
                             <span><img src="<?php
                             echo $rabbit_settings[ 'imagesurl' ];
                             ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
                             <span>Το email που έχεις γράψει δεν είναι έγκυρο!</span>
                             </span>
-                            <p>Αν συμπληρώσεις το e-mail σου θα μπορείς να επαναφέρεις τον κωδικό σου σε περίπτωση που τον ξεχάσεις.</p>
+                            <p>Η διεύθυνση e-mail που θα δηλώσεις πρέπει να είναι έγκυρη για να μπορέσεις να επιβεβαιώσεις τον λογαριασμό σου.</p>
                         </div>
                         <p>Η δημιουργία λογαριασμού συνεπάγεται την ανεπιφύλακτη αποδοχή των <a href="tos">όρων χρήσης</a>.</p>
                         <div style="text-align:center">

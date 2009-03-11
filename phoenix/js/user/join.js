@@ -163,7 +163,7 @@ var Join = {
                 }
                 create = false;
             }
-            if ( Join.email.value !== '' && !/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
+            if ( Join.email.value !== /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
                 if ( !Join.emailerror ) {
                     Join.emailerror = true;
                     $( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
