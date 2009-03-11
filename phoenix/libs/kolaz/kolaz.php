@@ -11,7 +11,7 @@
 
         public function RetrievePositions( $images ) {
             global $rabbit_settings;
-            $this->mPath = $rabbit_settings[ 'rootdir' ] . '/libs/kolaz/a.out';
+            $this->mPath = $rabbit_settings[ 'rootdir' ] . '/libs/kolaz/';
             /* Pipe */
             $descriptorspec = array(
                0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
