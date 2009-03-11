@@ -29,8 +29,8 @@
             $n = count( $images );
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
-                fwrite($pipes[0], ($img["id"] . " " . $img["width"] . " " . $img["height"] . '\n' ));    
-                echo $img["id"] . $img["width"] . $img["height"];
+                fwrite($pipes[0], ($img["id"] . " " . $img["width"] . " " . $img["height"] . "\n" ));    
+                echo ($img["id"] . " " . $img["width"] . " " . $img["height"] . "\n" );
             }
             fclose($pipes[0]);        // 0 => stdin
             
