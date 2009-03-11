@@ -28,7 +28,7 @@
     if ( $kolaz->RetrievePositions( $input ) == false ) {
         die("kolaz was fucked up");
     }
-    
+    echo "hi";
 
     $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
     foreach ( $kolaz->mPositions as $key=>$val ) {
