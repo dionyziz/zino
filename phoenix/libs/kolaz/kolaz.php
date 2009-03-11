@@ -26,10 +26,8 @@
             }
 
             $n = count( $images );
-            echo "n == " . $n;
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
-                echo $img["id"] . " " . $img["width"] . " " . $img["height"];
                 fwrite($pipes[0], ($img["id"] . " " . $img["width"] . " " . $img["height"] . '\n' ));    
             }
             fclose($pipes[0]);        // 0 => stdin
@@ -46,20 +44,21 @@
             /* Exceptions */
             //die ( "$return_value: $allcontacts \n$errors" );
             if ( $return_value == 1 ) { // input failure
-                return "problem#1";
+                return "problem#1" . $errors;
             }
             
             if ( $return_value != 0 ) { // unknown error
                 //die ( "Error: $allcontacts \n$errors" );
-                return " - > " . $errors;
+                return "problem # 2" . $errors;
             }
 
             /* Parsing */
             
             $pieces = explode("\n", $allpositions);
+            echo $allpositions;
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
-                
+                echo $piece;
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
