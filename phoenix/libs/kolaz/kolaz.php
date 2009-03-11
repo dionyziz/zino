@@ -55,6 +55,7 @@
             /* Parsing */
             
             $pieces = explode("\n", $allpositions);
+            echo "output : ";
             echo $allpositions;
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
