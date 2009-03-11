@@ -7,7 +7,9 @@
         private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/kolaz/a.out';  
         
         public function Add( $id, $xpos, $ypos ) {
-            $this->mPositions[ $id ] = array( "xpos" => $xpos, "ypos" => $ypos );
+            if ( $id != NULL ) {
+                $this->mPositions[ $id ] = array( "xpos" => $xpos, "ypos" => $ypos );
+            }
             return;
         }          
 
