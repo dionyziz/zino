@@ -1,6 +1,6 @@
 <?php
     class TestRabbitWater extends Testcase {
-        protected $mAppliesTo = 'libs/rabbit/water';
+        protected $mAppliesTo = 'libs/rabbit/water/water';
         protected $mWater;
         
         public function TestVariablesExist() {
