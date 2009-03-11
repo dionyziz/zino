@@ -9,7 +9,7 @@
 	
 	$libs->Load("image/tag");
 	$libs->Load("kolaz/kolaz");
-	$libs->Load("image/image.php");
+	$libs->Load("image/image");
 	
 	$userid = $_GET[ 'userid' ];
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
