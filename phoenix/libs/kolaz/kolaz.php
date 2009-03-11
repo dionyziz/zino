@@ -56,14 +56,12 @@
             
             $pieces = explode("\n", $allpositions);
             echo "output : ";
-            echo $allpositions;
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
-                echo $piece;
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
-                
+                echo "id " . $id . " " . $xpos . " " . $ypos;
                 $this->Add( $id, $xpos, $ypos );
             }
 
