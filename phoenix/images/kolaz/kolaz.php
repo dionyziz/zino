@@ -7,6 +7,10 @@
 	global $user;
 	global $xc_settings, $rabbit_settings;
 	
+	if ( !$user->HasPermission( PERMISSION_STATISTICS_VIEW ) ) {
+	    return;
+	}
+	
 	$libs->Load("image/tag");
 	$libs->Load("kolaz/kolaz");
 	$libs->Load("image/image");
