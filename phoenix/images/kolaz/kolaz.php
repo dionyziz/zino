@@ -8,6 +8,7 @@
 	global $xc_settings, $rabbit_settings;
 	
 	$libs->Load("image/tag");
+	$libs->Load("kolaz/kolaz");
 	
 	/*$personid = $_GET[ 'personid' ];*/	       
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
