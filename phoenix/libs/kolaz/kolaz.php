@@ -29,6 +29,7 @@
             echo "n == " . $n;
             fwrite($pipes[0], "$n\n");
             foreach ( $images as $img ) {
+                echo $img["id"] . " " . $img["width"] . " " . $img["height"];
                 fwrite($pipes[0], '$img["id"] $img["width"] $img["height"]\n');    
             }
             fclose($pipes[0]);        // 0 => stdin
