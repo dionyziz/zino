@@ -42,9 +42,9 @@
     $img = imagecreatetruecolor( $kolaz->maxX, $kolaz->maxY );
     foreach ( $kolaz->mPositions as $key=>$val ) {
         $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
-        /*if ( !$rabbit_settings[ 'production' ] ) {
+        if ( !$rabbit_settings[ 'production' ] ) {
             $url = $url .  '_';
-        }*/
+        }
         $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
                
         $src = imagecreatefromstring(file_get_contents( $url ));
