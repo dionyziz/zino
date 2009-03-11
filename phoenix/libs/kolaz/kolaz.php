@@ -61,8 +61,10 @@
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];
-                echo "id " . $id . " " . $xpos . " " . $ypos;
-                $this->Add( $id, $xpos, $ypos );
+                
+                if ( is_int( $id ) ) {
+                    $this->Add( $id, $xpos, $ypos );
+                }
             }
 
             return true;
