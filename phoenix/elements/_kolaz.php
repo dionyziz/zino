@@ -13,7 +13,7 @@
 	        $kolaz = new KolazCreator;
 	        $kolaz->RetrievePositions( array( array( "id"=>1,"width"=>10,"height"=>10 ) ) );
 	        
-	        echo '<p>->->' . $kolaz->mPositions[0] . ' ' . $kolaz->mPositions[1] . ' ' . $kolaz->mPositions[2] . '</p>' ;
+	        echo '<p>->->' . $kolaz->mPositions[1][ "xpos" ] . ' ' . $kolaz->mPositions[1][ "ypos" ] . '</p>' ;
 	        
 	        ?><div><img src="images/kolaz/kolaz.php" alt="img"/></div><?php
 	        

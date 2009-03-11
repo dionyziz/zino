@@ -5,7 +5,7 @@
         private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/kolaz/a.out';  
         
         public function Add( $id, $xpos, $ypos ) {
-            $mPositions[ $id ] = array( $id, $xpos, $ypos );
+            $mPositions[ $id ] = array( "xpos" => $xpos, "ypos" => $ypos );
             return;
         }          
 
