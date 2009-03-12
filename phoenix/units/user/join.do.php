@@ -19,6 +19,10 @@
             ?>alert( "Ο κωδικός που επιλέξατε δεν είναι αρκετά μεγάλος" );<?php
             return;
         }
+        if ( !ValidEmail( $email )  ) {
+            ?>alert( "Η διεύθυνση e-mail που καταχωρήσατε δεν είναι έγκυρη" );<?php
+            return;
+        }
         $finder = New UserFinder(); 
         if ( $finder->IsTaken( $username ) ) {
             ?>if ( !Join.usernameexists ) {
