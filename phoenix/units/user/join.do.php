@@ -20,7 +20,7 @@
             return;
         }
         if ( !ValidEmail( $email )  ) {
-            ?>alert( "Η διεύθυνση e-mail που καταχωρήσατε δεν είναι έγκυρη" );<?php
+            ?> $( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );<?php
             return;
         }
         $finder = New UserFinder(); 
