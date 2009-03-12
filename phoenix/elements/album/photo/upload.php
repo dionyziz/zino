@@ -27,7 +27,11 @@
                         $canupload = false;
                 }
                 if ( $canupload ) {
-                    ?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
+                    ?><form method="post" enctype="multipart/form-data" action="<?php
+						if ( $typeid->Get() == 4 ) {
+							Element( 'user/url', $user->Id, $user->Subdomain );
+						}
+					?>do/image/upload2" id="uploadform">
                             <input type="hidden" name="albumid" value="<?php
                             echo $album->Id;
                             ?>" />
