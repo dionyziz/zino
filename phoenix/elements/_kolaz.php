@@ -44,8 +44,12 @@
 	        /*make view*/
 	        ?><div class="kolazimage" style="position: relative;"><?php
             foreach ( $kolaz->mPositions as $key=>$val ) {
-                $url = Element( 'image/url', $key, $owners[ $key ],  IMAGE_FULLVIEW );
-                echo "<p>url : $url</p>";
+                $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
+                if ( !$rabbit_settings[ 'production' ] ) {
+                    $url = $url .  '_';
+                }
+                $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
+                
                 ?><div style="overflow : hidden;width:<?php echo $data[ $key ][ 'width' ];?>px; height:<?php echo $data[ $key ][ 'height' ];?>px; position:absolute; left:<?php echo $val[ 'xpos' ];?>px; top:<?php echo $val[ 'ypos' ];?>px;">
                         <img style="position: absolute;left:-<?php echo $data[ $key ][ 'left' ]?>px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
                 </div><?php
