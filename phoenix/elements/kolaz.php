@@ -14,7 +14,7 @@
 	        $username = $username->Get();
 	        
 	        $userFinder = new UserFinder();
-	        $_user = $userFinder->FindByName( $name );	        
+	        $_user = $userFinder->FindByName( $username );	        
 	        echo "<p>" . $_user->Name . " " . $_user->Id . "</p>";	        
 	        if ( $res == NULL ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
