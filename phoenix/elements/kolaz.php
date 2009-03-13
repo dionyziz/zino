@@ -10,8 +10,6 @@
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");	        
 	        
-	        ?><h2>Κολάζ!</h2><?php
-	        
 	        $personid = $personid->Get();
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
