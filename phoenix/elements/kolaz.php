@@ -23,6 +23,8 @@
 	            $personid = $_user->Id;
 	        }
 	        
+	        echo $_user->Name . " " . $_user->Id;
+	        
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
             
