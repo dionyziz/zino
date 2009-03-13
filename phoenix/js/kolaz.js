@@ -1,5 +1,5 @@
 var z = 0;
-var maximg = 0;
+var maxi = 0;
 var imgs = {};
 var numloaded = 0;
 

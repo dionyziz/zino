@@ -11,6 +11,8 @@
 	        $libs->Load("kolaz/kolaz");	        
 	        $libs->Load("user/user");
 	        
+	        $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );
+	        
 	        $personname = $personname->Get();
 	        
 	        $userFinder = new UserFinder();
@@ -65,8 +67,7 @@
                         <img style="position: absolute;left:-<?php echo $data[ $key ][ 'left' ]?>px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
                 </div><?php
             }	        
-	        ?></div><?php
-	        $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );
+	        ?></div><?php	        
         }
     }
 ?>
