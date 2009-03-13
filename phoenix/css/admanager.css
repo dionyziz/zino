@@ -1,0 +1,74 @@
+div.buyad h2 {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 170%;
+    color: #105090;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+div.buyad h3 {
+    text-align: center;
+}
+div.buyad p {
+    text-align: center;
+    color: #666;
+}
+div.buyad ol li {
+    list-style: none;
+    padding: 5px;
+}
+div.buyad ol li div.beautiful {
+    width: 100%;
+}
+div.buyad ol li div.beautiful img {
+    border: 1px solid #999;
+    padding: 1px;
+    margin: auto;
+    display: block;
+}
+div.buyad ol li ul li {
+    list-style: square outside;
+    color: #345;
+}
+div.buyad ol li ul {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+div.buyad ol li h3 {
+    color: #333;
+}
+div.buyad ol li.l1 {
+    float: left;
+    width: 33%;
+}
+div.buyad ol li.l3 {
+    float: right;
+    width: 33%;
+}
+div.buyad ol li.l2 {
+    border: 1px solid transparent;
+    margin-left: 34%;
+    margin-right: 34%;
+}
+div.buyad ol.footnotes li {
+    font-size: 90%;
+}
+div.buyad ol li.creativecommons {
+    font-size: 80%;
+    color: #666;
+}
+div.buyad a.start {
+    margin: auto;
+    display: block;
+    width: 200px;
+    font-size: 110%;
+    color: white;
+    background-color: #70c0ff;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #68c;
+    outline-color: red;
+    background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
+    background-repeat: repeat-x;
+}
