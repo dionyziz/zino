@@ -5,10 +5,10 @@ var numloaded = 0;
 
 function loaded() {
     ++numloaded;
-    //document.getElementById( 'percentage' ).style.width = ( numloaded / maxi ) * 200 + 'px';
+    /*document.getElementById( 'percentage' ).style.width = ( numloaded / maxi ) * 200 + 'px';*/
     alert( "one more" );
     if ( numloaded == maxi ) {
-        //document.body.removeChild( document.getElementById( "loading" ) );
+        /*document.body.removeChild( document.getElementById( "loading" ) );*/
         return;
     }
 }
