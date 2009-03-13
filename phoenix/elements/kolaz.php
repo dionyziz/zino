@@ -66,6 +66,7 @@
                 </div><?php
             }	        
 	        ?></div><?php
+	        $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );
         }
     }
 ?>
