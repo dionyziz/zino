@@ -17,7 +17,7 @@
 	        echo "<p>Html image</p>";
 	        /*Find tags an positions*/
 	        $Tagfinder = new ImageTagFinder();
-            $tags = $Tagfinder->FindByPersonId( $userid );
+            $tags = $Tagfinder->FindByPersonId( $personid );
             
             $input = array();
             $data = array();
