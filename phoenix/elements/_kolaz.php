@@ -5,7 +5,7 @@
 	        global $user;
 	        global $libs;
 	        
-	        $page->setTitle( 'Κολάζ' );
+	        $page->setTitle( 'Κολάζ--' );
 	        
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");
