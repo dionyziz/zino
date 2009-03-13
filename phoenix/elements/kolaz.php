@@ -15,13 +15,14 @@
 	        
 	        $userFinder = new UserFinder();
 	        $_user = $userFinder->FindByName( $personname );	        	        
-	        if ( $_user == NULL ) {
+	        if ( $_user == NULL || $personname == "" ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
                 return;
 	        }
 	        else {	        
 	            $personid = $_user->Id;
 	        }
+
 	        
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
