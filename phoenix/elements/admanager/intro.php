@@ -56,6 +56,7 @@
                         <a href="http://www.flickr.com/people/nikonvscanon/">David Blaikie</a>, και
                         <a href="http://www.flickr.com/people/tallkev/">Kevin Utting</a>.
                     </li>
+                </div>
             </div><?php
         }
     }
