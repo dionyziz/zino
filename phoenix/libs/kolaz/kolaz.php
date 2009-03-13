@@ -56,13 +56,10 @@
                 return "problem # 2" . $errors;
             }
 
-            /* Parsing */
-            
+            /* Parsing */            
             $pieces = explode("\n", $allpositions);
-            //echo "output : ";
             foreach ( $pieces as $piece ) {
                 $columns = explode("\t", $piece);
-                //echo "piece" . $piece;
                 $id = $columns[0];
                 $xpos = $columns[1];
                 $ypos = $columns[2];

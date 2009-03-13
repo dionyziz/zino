@@ -17,7 +17,8 @@
             $tags = $Tagfinder->FindByPersonId( $personid );
             
             if ( count( $tags ) == 0 ) {
-                die( "Δεν έχεις κανένα tag:(" );
+                ?><p>Δεν έχεις κανένα tag.</p><?php
+                return;
             }
             
             $input = array();
@@ -31,10 +32,11 @@
             
             $kolaz = new KolazCreator;
             if ( $kolaz->RetrievePositions( $input ) == false ) {
-                die("kolaz was fucked up");
+                ?><p>Υπήρξε ένα πρόβλημα με αυτήν την σελίδα!</p><?php
+                return;
             }
             
-            $imageFinder = new ImageFinder();
+            $imageFinder = new ImageFinder();//Find image owners ids
             $images = $imageFinder->FindByIds( $ids );
             $owners = array();
             foreach ( $images as $image ) {
