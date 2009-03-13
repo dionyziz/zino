@@ -6,7 +6,7 @@
 	        global $libs;
 	        global $xc_settings, $rabbit_settings;
 	        
-	        $page->setTitle( 'Κολάζ--' );
+	        $page->setTitle( 'Κολάζ' );
 	        
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");
@@ -16,7 +16,6 @@
 	        
 	        
 	        echo "<p>Html image</p>";
-	        /*Find tags an positions*/
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
             
@@ -40,9 +39,8 @@
             foreach ( $images as $image ) {
                 $owners[ $image->Id ] = $image->Userid;
             }    
-	        /*end*/
-	        
-	        /*make view*/
+
+
 	        ?><div class="kolazimage" style="width:<?php echo $kolaz->maxX;?>px;height:<?php echo $kolaz->maxY;?>px;position: relative;"><?php
             foreach ( $kolaz->mPositions as $key=>$val ) {
                 $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
@@ -56,23 +54,6 @@
                 </div><?php
             }	        
 	        ?></div><?php
-	        /**/
-	        
-	        echo "<p>Further info</p>";
-	        foreach ( $tags as $tag ) {
-                ?><p><?php
-                echo $tag->Imageid;
-                ?> <?php
-                echo $tag->Width;                
-                ?> <?php
-                echo $tag->Height;                               
-                ?> <?php
-                echo $tag->Personid;
-                ?> <?php
-                Element( 'image/view', $tag->Imageid , $tag->Ownerid , $tag->Width , $tag->Height , IMAGE_FULLVIEW , "" , "" , "", false , 0 , 0, 0 );/*
-                public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 , $numcom = 0 )*/
-                ?></p><?php
-            }
         }
     }
 ?>
