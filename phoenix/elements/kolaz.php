@@ -12,6 +12,8 @@
 	        $libs->Load("kolaz/kolaz");	        
 	        
 	        ?><h2>Κολάζ!</h2><?php
+	        
+	        $personid = $personid->Get();
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
             
@@ -41,7 +43,7 @@
             }    
 
 
-	        ?><div class="kolazimage" style="background-color:black;width:<?php echo $kolaz->maxX;?>px;height:<?php echo $kolaz->maxY;?>px;position: relative;"><?php
+	        ?><div class="kolazimage" style="width:<?php echo $kolaz->maxX;?>px;height:<?php echo $kolaz->maxY;?>px;position: relative;"><?php
             foreach ( $kolaz->mPositions as $key=>$val ) {
                 $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
                 if ( !$rabbit_settings[ 'production' ] ) {
@@ -49,7 +51,7 @@
                 }
                 $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
                 
-                ?><div style="overflow : hidden;width:<?php echo $data[ $key ][ 'width' ];?>px; height:<?php echo $data[ $key ][ 'height' ];?>px; position:absolute; left:<?php echo $val[ 'xpos' ];?>px; top:<?php echo $val[ 'ypos' ];?>px;">
+                ?><div style="width:<?php echo $data[ $key ][ 'width' ];?>px; height:<?php echo $data[ $key ][ 'height' ];?>px; position:absolute; left:<?php echo $val[ 'xpos' ];?>px; top:<?php echo $val[ 'ypos' ];?>px;">
                         <img style="position: absolute;left:-<?php echo $data[ $key ][ 'left' ]?>px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
                 </div><?php
             }	        
