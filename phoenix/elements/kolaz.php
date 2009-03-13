@@ -13,13 +13,14 @@
 	        
 	        $username = $username->Get();
 	        $userFinder = new UserFinder();
-	        $_user = $userFinder->FindByName( $name );
+	        $res = $userFinder->FindByName( $name );
 	        
-	        if ( $_user == NULL ) {
+	        if ( $res == NULL ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
                 return;
 	        }
 	        else {
+	            $_user = new User( $res );
 	            $personid = $_user->Id;
 	        }
 	        
