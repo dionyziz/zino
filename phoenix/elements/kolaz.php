@@ -12,19 +12,17 @@
 	        $libs->Load("user/user");
 	        
 	        $username = $username->Get();
-	        $userFinder = new UserFinder();
-	        $res = $userFinder->FindByName( $name );
 	        
+	        $userFinder = new UserFinder();
+	        $_user = $userFinder->FindByName( $name );	        
+	        echo "<p>" . $_user->Name . " " . $_user->Id . " " , $_user[ 'id' ] . "</p>";	        
 	        if ( $res == NULL ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
                 return;
 	        }
-	        else {
-	            $_user = new User( $res );
+	        else {	        
 	            $personid = $_user->Id;
 	        }
-	        
-	        echo "<p>" . $_user->Name . " " . $_user->Id . "</p>";
 	        
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
