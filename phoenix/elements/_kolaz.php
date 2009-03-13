@@ -56,6 +56,8 @@
             }	        
 	        ?></div><?php
 	        /**/
+	        
+	        echo "<p>Further info</p>";
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
