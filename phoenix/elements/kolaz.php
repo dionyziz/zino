@@ -11,7 +11,7 @@
 	        $libs->Load("kolaz/kolaz");	        
 	        $libs->Load("user/user");
 	        
-	        $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );
+	        /*$page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );*/
 	        
 	        $personname = $personname->Get();
 	        
