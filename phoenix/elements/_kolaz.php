@@ -41,7 +41,7 @@
             }    
 
 
-	        ?><div class="kolazimage" style="width:<?php echo $kolaz->maxX;?>px;height:<?php echo $kolaz->maxY;?>px;position: relative;"><?php
+	        ?><div class="kolazimage" style="background-color:black;width:<?php echo $kolaz->maxX;?>px;height:<?php echo $kolaz->maxY;?>px;position: relative;"><?php
             foreach ( $kolaz->mPositions as $key=>$val ) {
                 $url = $xc_settings[ 'imagesurl' ] . $owners[ $key ] . '/';
                 if ( !$rabbit_settings[ 'production' ] ) {
