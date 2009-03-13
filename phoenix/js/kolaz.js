@@ -13,6 +13,7 @@ function loaded() {
     }
 }
 
+alert("inside");
 maxi = document.getElementsByTagName( 'img' ).length;
 for ( z = 0 ; z < maxi ; z += 1 ) { 
     document.getElementsByTagName( 'img' )[ z ].onload = function () { loaded(); };
