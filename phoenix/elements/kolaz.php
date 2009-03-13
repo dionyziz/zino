@@ -20,9 +20,8 @@
                 return;
 	        }
 	        else {
-	            $personid = $_user->Name;
+	            $personid = $_user->Id;
 	        }
-	        
 	        
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
