@@ -52,7 +52,7 @@
                 $url = $url . $key . '/' . $key . '_' . IMAGE_FULLVIEW . '.jpg';
                 
                 ?><div style="width:<?php echo $data[ $key ][ 'width' ];?>px; height:<?php echo $data[ $key ][ 'height' ];?>px; position:absolute; left:<?php echo $val[ 'xpos' ];?>px; top:<?php echo $val[ 'ypos' ];?>px;">
-                        <img style="position: absolute;left:-$data[ $key ][ 'left' ]px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
+                        <img style="position: absolute;left:-<?php echo $data[ $key ][ 'left' ]?>px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
                 </div><?php
             }	        
 	        ?></div><?php
