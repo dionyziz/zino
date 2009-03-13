@@ -12,28 +12,45 @@
 	        
 	        ?><div><img src="images/kolaz/kolaz.php?userid=<?php echo $personid; ?>" alt="img"/></div><?php	        
 	        
+	        
+	        /*Find tags an positions*/
 	        $Tagfinder = new ImageTagFinder();
-	        $tags = $Tagfinder->FindByPersonId( $personid );
-	        
-	        $input = array();
-	        foreach ( $tags as $tag ) {
+            $tags = $Tagfinder->FindByPersonId( $userid );
+            
+            $input = array();
+            $data = array();
+            $ids = array();
+            foreach ( $tags as $tag ) {
                 $input[] = array( 'id' => $tag->Imageid, 'width' => $tag->Width, 'height' => $tag->Height );
+                $data[ $tag->Imageid ] = array( 'width' => $tag->Width, 'height' => $tag->Height, 'personid' => $tag->Personid, 'left' => $tag->left, 'top' => $tag->top );
+                $ids[] = $tag->Imageid;
             }
+            
+            $kolaz = new KolazCreator;
+            if ( $kolaz->RetrievePositions( $input ) == false ) {
+                die("kolaz was fucked up");
+            }
+            
+            $imageFinder = new ImageFinder();
+            $images = $imageFinder->FindByIds( $ids );
+            $owners = array();
+            foreach ( $images as $image ) {
+                $owners[ $image->Id ] = $image->Userid;
+            }    
+	        /*end*/
 	        
-	        $kolaz = new KolazCreator;
-	        ?><p>Program output</p><?php
-	        if ( $kolaz->RetrievePositions( $input ) == true ) {
-    	        foreach ( $kolaz->mPositions as $key=>$val ) {
-    	            ?><p><?php
-                    echo $key . " " . $val[ 'xpos' ]  . " " . $val[ 'ypos' ];
-                    ?></p><?php
-    	        }
-    	        echo "maxX " . $kolaz->maxX . " maxY " . $kolaz->maxY;
-	        }
-	        else {
-	            ?><p>Kolaz ws fukced up</p><?php
-	        }
-	        
+	        /*make view*/
+	        ?><div class="kolazimage" style="position: relative;"><?php
+            foreach ( $kolaz->mPositions as $key=>$val ) {
+                $url = Element( 'image/url', $key, $owners[ $key ],  IMAGE_FULLVIEW );
+                ?>
+                    <div style="overflow : hidden;width:<?php echo $data[ $key ][ 'width' ];?>px; height:<?php echo $data[ $key ][ 'height' ];?>px; position:absolute; left:<?php echo $val[ 'xpos' ];?>px; top:<?php echo $val[ 'ypos' ];?>px;">
+                        <img style="position: absolute;left:-<?php echo $data[ $key ][ 'left' ]?>px;top:-<?php echo $data[ $key ][ 'top' ]?>px" src="<?php echo $url;?>" alt="img" />
+                    </div>
+                <?php
+            }	        
+	        ?></div><?php
+	        /**/
 	        foreach ( $tags as $tag ) {
                 ?><p><?php
                 echo $tag->Imageid;
