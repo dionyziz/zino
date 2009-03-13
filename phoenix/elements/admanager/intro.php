@@ -50,7 +50,7 @@
                 <div class="eof"></div>
                 <a href="" class="start">Δημιουργία διαφήμισης</a>
                 <ol class="footnotes">
-                    <li><sup>+</sup> Τουλάχιστον 40 προβολές ανά επίσκεψη και 80,000 προβολές ημερισίως <cite>[πηγή: <a href="http://www.google.com/analytics/">Google</a>, <a href="http://www.alexa.com">Alexa</a>]</cite></li>
+                    <li><sup>+</sup> Τουλάχιστον 40 προβολές ανά επίσκεψη και 80,000 προβολές ημερησίως <cite>[πηγή: <a href="http://www.google.com/analytics/">Google</a>, <a href="http://www.alexa.com">Alexa</a>]</cite></li>
                     <li class="creativecommons">Φωτογραφίες των καλλιτεχνών
                         <a href="http://goodmusicgoodpeople.deviantart.com/">Kim</a>,
                         <a href="http://www.flickr.com/people/nikonvscanon/">David Blaikie</a>, και

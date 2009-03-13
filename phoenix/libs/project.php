@@ -6,12 +6,22 @@
 
     class PageExcaliburHTML extends PageHTML {
         private $mTitleFinal = false;
+        private $mKeywords = array();
 
         public function FinalizeTitle() {
             $this->mTitleFinal = true;
         }
         public function TitleFinal() {
             return $this->mTitleFinal;
+        }
+        public function AddKeyword( $keyword ) {
+            if ( is_array( $keyword ) ) {
+                $this->mKeywords = array_merge( $this->mKeywords, $keyword );
+            }
+            else {
+                $this->mKeywords[] = $keyword;
+            }
+            parent::AddMeta( 'keywords', $this->mKeywrds );
         }
         public function __construct() {
             parent::__construct();

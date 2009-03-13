@@ -27,6 +27,7 @@
                 return;
             }
             $page->SetTitle( $theuser->Name );
+            $page->AddKeyword( $theuser->Name );
 
             if ( $user->Id != $theuser->Id && $user->Exists() ) {
                 $finder = New FriendRelationFinder();
