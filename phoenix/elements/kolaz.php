@@ -1,6 +1,6 @@
 <?php    
     class ElementKolaz extends Element {
-        public function Render( tText $username ) {
+        public function Render( tText $personname ) {
 	        global $page;
 	        global $user;
 	        global $libs;
@@ -11,12 +11,11 @@
 	        $libs->Load("kolaz/kolaz");	        
 	        $libs->Load("user/user");
 	        
-	        $username = $username->Get();
+	        $personname = $personname->Get();
 	        
 	        $userFinder = new UserFinder();
-	        $_user = $userFinder->FindByName( $username );	        
-	        echo "<p>" . $_user->Name . " " . $_user->Id . "</p>";	        
-	        if ( $res == NULL ) {
+	        $_user = $userFinder->FindByName( $personname );	        	        
+	        if ( $_user == NULL ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
                 return;
 	        }
