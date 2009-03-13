@@ -4,6 +4,7 @@
 	        global $page;
 	        global $user;
 	        global $libs;
+	        global $xc_settings, $rabbit_settings;
 	        
 	        $page->setTitle( 'Κολάζ--' );
 	        
