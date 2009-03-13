@@ -11,9 +11,13 @@
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");	        
 	        
-	        echo "<p>Html image</p>";
+	        ?><h2>Κολάζ!</h2><?php
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
+            
+            if ( count( $tags ) == 0 ) {
+                die( "Δεν έχεις κανένα tag:(" );
+            }
             
             $input = array();
             $data = array();
