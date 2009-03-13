@@ -1,6 +1,6 @@
 <?php    
     class ElementKolaz extends Element {
-        public function Render( tInteger $personid ) {
+        public function Render( tText $username ) {
 	        global $page;
 	        global $user;
 	        global $libs;
@@ -9,8 +9,21 @@
 	        
 	        $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");	        
+	        $libs->Load("user/user");
 	        
-	        $personid = $personid->Get();
+	        $username = $username->Get();
+	        $userFinder = new UserFinder();
+	        $_user = $userFinder->FindByName( $name );
+	        
+	        if ( $_user == NULL ) {
+	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
+                return;
+	        }
+	        else {
+	            $personid = $_user->Name;
+	        }
+	        
+	        
 	        $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
             
