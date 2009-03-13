@@ -9,11 +9,7 @@
 	        $page->setTitle( 'Κολάζ' );
 	        
 	        $libs->Load("image/tag");
-	        $libs->Load("kolaz/kolaz");
-	        
-	        echo "<p>Php image</p>";
-	        ?><div><img src="images/kolaz/kolaz.php?userid=<?php echo $personid; ?>" alt="img"/></div><?php	        
-	        
+	        $libs->Load("kolaz/kolaz");	        
 	        
 	        echo "<p>Html image</p>";
 	        $Tagfinder = new ImageTagFinder();
