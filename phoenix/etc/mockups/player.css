@@ -16,8 +16,8 @@ ZinoPlayer CSS
 	display:block;
 	float:left;
 	width:4px;
-	height:15px;
-	background:url('./playerArt/playingIndicator.jpg') no-repeat;
+	height:7px;
+	background:url('./playerArt/playing.gif') no-repeat;
 	margin-left:4px;
 }
 
