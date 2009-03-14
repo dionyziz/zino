@@ -2,7 +2,7 @@
     // Content-type: text/plain
 
     class ElementUserEmailWelcome extends Element {
-        public function Render( User $target ) {
+        public function Render( User $target, $link ) {
             global $rabbit_settings;
 
             ?>Γεια σου <?php
@@ -13,7 +13,6 @@
 
     Κάνε κλικ στον παρακάτω σύνδεσμο για να επιβεβαιώσεις το e-mail σου:
     <?php
-        $link = $target->Profile->ChangeEmail( '', $target->Name );
         echo $link;
     ?>
     (Αν δεν μπορείς να κάνεις κλικ στον σύνδεσμο, δοκίμασε να τον αντιγράψεις και να τον επικολλήσεις στην θέση διεύθυνσης.)
