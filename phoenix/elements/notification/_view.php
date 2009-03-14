@@ -173,7 +173,17 @@
                             ?></p><?php
                             break;
                         case EVENT_USER_BIRTHDAY:
-                            ?><p>έχει γενέθλεια</p><?php
+                            ?><p><?php
+                            $days = daysDiff( $notif->Event->Created );
+                            if ( $days == 0 ) {
+                                ?>έχει γενέθλια σήμερα! <?php
+                            }
+                            else {
+                                ?>είχε γενέθλια πριν <?php
+                                echo $days;
+                                ?> μέρες <?php
+                            }
+                            ?><span class="emoticon-cake">.</span></p><?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php
