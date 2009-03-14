@@ -15,7 +15,7 @@ ZinoPlayer CSS
 #zinoPlayer span.playing {
 	display:block;
 	float:left;
-	width:3px;
+	width:4px;
 	height:15px;
 	background:url('./playerArt/playingIndicator.jpg') no-repeat;
 	margin-left:4px;
