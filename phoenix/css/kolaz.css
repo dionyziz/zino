@@ -2,6 +2,8 @@
     width:500px;
     height:100px;
     background-color : white;
+    border : solid black 1px;
+    text-align:center;
 }
 #percentage {
     background-color : blue;
