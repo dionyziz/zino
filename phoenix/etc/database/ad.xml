@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
+<project name="Excalibur" version="Phoenix 7.0" spec="http://code.kamibu.com/wiki/Premium/Advertising">
+    <database name="zinophoenix" type="mysql">
+        <table name="ads">
+            <field name="ad_id" type="int" autoincrement="yes" />
+            <field name="ad_userid" type="int" />
+            <field name="ad_title" type="varchar" length="256" />
+            <field name="ad_body" type="text" />
+            <field name="ad_url" type="varchar" length="256" />
+            <field name="ad_imageid" type="int" ref="images.image_id" />
+            
+            <field name="ad_minage" type="int" /><!-- 0 = do not filter -->
+            <field name="ad_maxage" type="int" /><!-- 0 = do not filter -->
+            <field name="ad_sex" type="tinyint" signed="no" /><!-- 0 = do not filter; 1 = males only; 2 = females only -->
+            
+            <field name="ad_budget" type="int" /><!-- in euros -->
+            <field name="ad_dailypageviews" type="int" />
+            
+            <field name="ad_pageviewsremaining" type="int" />
+            <field name="ad_pageviewsremainingtoday" type="int" />
+            
+            <index type="primary">
+                <indexfield>ad_id</indexfield>
+            </index>
+            <index type="index" name="USER_ADS">
+                <indexfield>ad_userid</indexfield>
+            </index>
+            <!-- more indexes needed? -->
+        </table>
+        <table name="adplaces"><!-- demographical; no entries for a particular ad means do not filter by place-->
+            <field name="ad_id" />
+            <field name="ad_placeid" ref="places.place_id" />
+        </table>
+	</database>
+</project>

@@ -14,7 +14,7 @@
             <index type="USER_TAGS">
                 <indexfield>tag_userid</indexfield>
             </index>
-            <index type="TAG_SUGGESTIONS">
+            <index type="index" name="TAG_SUGGESTIONS">
                 <indexfield>tag_text</indexfield><!-- fulltext!! -->
                 <indexfield>tag_typeid</indexfield>
             </index>
