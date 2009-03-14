@@ -9,15 +9,6 @@
             return; // TODO: This user may be logged out!
         }
         
-        if ( $uploadimage->Exists() ) {
-            echo 'yes';
-        }
-        else {
-            echo 'no';
-        }
-        
-        return;
-
         $title = $title->Get();
         $body = $body->Get();
         $url = $url->Get();
@@ -32,6 +23,7 @@
         if ( $uploadimage->Exists() ) {
             $image = New Image();
             $image->Name = '';
+            $extension = File_GetExtension( $uploadimage->Name );
             switch ( strtolower( $extension ) ) {
                 case 'jpg':
                 case 'jpeg':
@@ -47,7 +39,6 @@
                     </script><?php
                 return;
             }
-            $extension = File_GetExtension( $uploadimage->Name );
             $setTempFile = $image->LoadFromFile( $uploadimage->Tempname );
             switch ( $setTempFile ) {
                 case -1: // Too big
