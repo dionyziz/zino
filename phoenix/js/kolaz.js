@@ -1,4 +1,4 @@
-var maxi = 0;
+var maxi = 21;
 var cur = 0;
 
 function loaded() {
