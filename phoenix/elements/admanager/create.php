@@ -8,7 +8,7 @@
             ?><div class="buyad">
                 <h2 class="ad smaller">Διαφήμιση στο Zino</h2>
                 <div class="create">
-                    <form action="do/admanager/new" method="post">
+                    <form action="do/admanager/new" method="post" enctype="multipart/form-data">
                         <h3>Σχεδιάστε τη διαφήμισή σας</h3>
                         <div class="left">
                             <div class="input">
