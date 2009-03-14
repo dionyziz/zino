@@ -371,8 +371,6 @@
                     ?></div><?php
                 }
                 
-                Element( 'ad/view', AD_PHOTO, $page->XMLStrict() );
-
                 ?>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {

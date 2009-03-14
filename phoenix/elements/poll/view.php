@@ -89,9 +89,8 @@
                     </div>
                 </div>
                 <div class="eof"></div>
-                <br /><?php
-                Element( 'ad/view', AD_POLL, $page->XMLStrict() );
-                ?><div class="comments"><?php
+                <br />
+                <div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                         if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
                             Element( 'comment/reply', $poll->Id, TYPE_POLL , $user->Id , $user->Avatar->Id );

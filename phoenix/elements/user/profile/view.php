@@ -67,9 +67,8 @@
                 if ( $e instanceof HTTPRedirection ) {
                     return $e;
                 }
-                ?><div class="eof"></div><?php
-                Element( 'ad/view', AD_USERPROFILE, $page->XMLStrict() );
-            ?></div><?php
+                ?><div class="eof"></div>
+            </div><?php
         }
     }
 ?>
