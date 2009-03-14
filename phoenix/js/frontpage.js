@@ -121,7 +121,17 @@ var Frontpage = {
             }       
 
             var q = function () {
-                $( '#shoutbox_submit' )[ 0 ].disabled = $.trim( textarea[ 0 ].value ).length == 0;
+                var submit = $( '#shoutbox_submit' )[ 0 ];
+                if ( $.trim( textarea[ 0 ].value ).length == 0 ) {
+                    if ( !submit.disabled ) {
+                        submit.disabled = true;
+                    }
+                }
+                else {
+                    if ( submit.disabled ) {
+                        submit.disabled = false;
+                    }
+                }
             };
             
             textarea.keyup( function ( e ) {

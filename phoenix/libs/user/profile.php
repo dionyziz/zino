@@ -12,7 +12,7 @@
     
         $_user = new User( $id );
         if( $_user->Exists() 
-            && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
+            && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated ) ) {
             $_user->Profile->emailvalidated = true;
             $_user->Save();
             return true;
