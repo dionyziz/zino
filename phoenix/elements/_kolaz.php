@@ -55,7 +55,7 @@
                 $owners[ $image->Id ] = $image->Userid;
             }  
             
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js' );  
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js', 'javascript', true );  
             $page->AttachInlineScript( 'maxi=' . count( $tags ) . ';' );
             
             ?><div id="progress">
