@@ -58,7 +58,7 @@
             37 => 'EVENT_USER_CREATED',
             38 => 'EVENT_IMAGETAG_CREATED',
             39 => 'EVENT_FAVOURITE_CREATED',
-            40 => 'EVENT_USER_BIRTHDAY'
+            40 => 'EVENT_USER_BIRTHDAY' // not connected with any class. Triggered by script
         );
     }
 
@@ -360,7 +360,7 @@
                     break;
                 case EVENT_USER_BIRTHDAY:
                     $notif = New Notification();
-                    $notif->Touserid = $this->Itemid;
+                    $notif->Touserid = $this->Item->Id;
                     break;
                 default:
                     return; // items that don't create any notifications don't need to be saved
