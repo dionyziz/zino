@@ -64,7 +64,7 @@ ZinoPlayer CSS
 }
 
 #zinoPlayer #playerControls #pauseButton {
-	margin:4px 0px 0px 4px;
+	margin:4px 0px 0px 12px;
 	display:block;
 	float:left;
 	width:25px;
@@ -84,7 +84,7 @@ ZinoPlayer CSS
 #zinoPlayer #playerControls #progressBar {
 	display:block;
 	float:left;
-	margin:12px 0px 0px 28px;
+	margin:12px 0px 0px 16px;
 	width:260px;
 	height:11px;
 	background:url('./playerArt/progressbar.jpg') no-repeat;
