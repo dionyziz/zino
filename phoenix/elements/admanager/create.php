@@ -8,7 +8,7 @@
             ?><div class="buyad">
                 <h2 class="ad">Διαφήμιση στο Zino</h2>
                 <div class="create">
-                    <form action="">
+                    <form action="do/admanager/new" method="post">
                         <h3>Σχεδιάστε τη διαφήμισή σας</h3>
                         <div class="left">
                             <div class="input">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
 
-                        <a href="" class="start">Αποθήκευση</a>
+                        <a href="" class="start" onclick="return false;">Αποθήκευση</a>
                         
                         <input type="submit" class="submit" value="Αποθήκευση" />
                     </form>

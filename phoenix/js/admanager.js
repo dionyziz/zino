@@ -1,7 +1,9 @@
 var AdManager = {
     Create: {
         OnLoad: function() {
-            alert( 'Loaded' );
+            $( 'div.buyad a.start' ).click(
+                $( 'div.buyad form' ).submit();
+            );
         }
     }
 };
