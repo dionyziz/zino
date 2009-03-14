@@ -10,3 +10,19 @@ ZinoPlayer CSS
 	background:url('./playerArt/background.jpg') no-repeat;
 	margin-bottom:5px;
 }
+
+#zinoPlayer #playerControls {
+	display:block;
+	float:left;
+	width:320px;
+	height:32px;
+	border:1px solid #00ff00;
+}
+
+#zinoPlayer #playList {
+	display:block;
+	float:left;
+	width:310px;
+	height:80px;
+	border:1px solid red;
+}
