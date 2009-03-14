@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Cropping</title>
+        <script type="text/javascript">
+            var i;
+            var maxi = 3;
+            var cur = 0;
+            
+            function loaded() {
+                cur++;
+                document.getElementById( "kolaz" ).style.visibility = "collapse";
+                document.getElementById( "percentage" ).style.width = (cur/maxi)*100 +  'px';
+                if( cur == maxi ) {
+                    /*document.getElementById( "kolaz" ).style.visibility = "visible";*/
+                }
+            }
+            
+            i = document.getElementsByTagName( "img" ).length;     
+        
+        </script>
+        <style type="text/css" >
+            body {
+	            background-color : #51c0cd;
+            }
+            div.kolazimage {                
+                position: relative;
+                width:510px;
+                height:450px;
+            }
+            div.kolazimage div {
+                overflow : hidden;
+            }
+            #progress {
+                width:100px;
+                height:20px;
+                background-color : white;
+            }
+            #percentage {
+                background-color : green;
+                width:50px;
+                height:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Kolaz!</h1>
+        <p>See your personal kolaz image</p>
+        <div id="progress">
+            <div id="percentage">                
+            </div>
+        </div>
+        
+        <div class="kolazimage" id="kolaz" onload="this.visibility=collapse;">
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
+                <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
+                    <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 267px;height: 243px;position: absolute;left:232px;top:0px;"">
+                <a href = "http://images.zino.gr/media/4005/101269/101269_full.jpg" > 
+                    <img style="position: absolute;left:-161px;top:-139px" src="http://images.zino.gr/media/4005/101269/101269_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+            <div style="width: 170px;height: 170px;position: absolute;left:0px;top:333px;"">
+                <a href = "http://images.zino.gr/media/791/16220/16220_full.jpg" > 
+                    <img style="position: absolute;left:-107px;top:-137px" src="http://images.zino.gr/media/791/16220/16220_full.jpg" alt="img" onload="loaded()" />
+                </a>
+            </div>
+        </div>
+        <p>aaaaaaaaaaaaaaaaaa</p>
+    </body>
+</html>
+
+
