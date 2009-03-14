@@ -4,7 +4,7 @@ var cur = 0;
 function loaded() {
     cur++;
     document.getElementById( "percentage" ).style.width = (cur/maxi)*250 +  'px';
-    maxi = document.getElementsByTagName( "img" ).length
+    maxi = document.getElementById( "kolaz" ).getElementsByTagName( "img" ).length
     alert( cur + " " + maxi );
     if( cur == maxi ) {
         document.getElementById( "kolaz" ).style.display = "block";
