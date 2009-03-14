@@ -19,10 +19,11 @@ ZinoPlayer CSS
 	border:1px solid #00ff00;
 }
 
-#zinoPlayer #playList {
+#zinoPlayer ul#playList {
 	display:block;
 	float:left;
 	width:310px;
 	height:80px;
 	border:1px solid red;
+	list-style:none;
 }
