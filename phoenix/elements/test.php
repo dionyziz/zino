@@ -12,8 +12,8 @@
             
             $event = New Event();
             $event->Typeid = EVENT_USER_BIRTHDAY;
-            $event->Itemid = 791;
-            $event->Userid = 3;
+            $event->Itemid = 814;
+            $event->Userid = 791;
             $event->Save();
             
             echo "REady!";
