@@ -64,7 +64,7 @@ ZinoPlayer CSS
 }
 
 #zinoPlayer #playerControls #pauseButton {
-	margin-left:4px;
+	margin:1px 0px 0px 4px;
 	display:block;
 	float:left;
 	width:30px;
