@@ -9,6 +9,7 @@ ZinoPlayer CSS
 	height:115px;
 	background:url('./playerArt/background.jpg') no-repeat;
 	margin-bottom:5px;
+	font-family:arial;
 }
 
 #zinoPlayer #playerControls {
@@ -39,12 +40,15 @@ ZinoPlayer CSS
 	height:15px;
 	width:310px;
 	overflow:hidden;
-	font-size:11px;
+	font-size:10px;
 	color:#4b6c7f;
+	text-indent:4px;
 }
 
 #zinoPlayer ul#playList li a.selected {
 	background:url('./playerArt/trackSelection.jpg') repeat-x;
 	color:#ffffff;
-	text-indent:4px;
+	text-indent:8px;
+	width:311px;
+	font-weight:bold;
 }
