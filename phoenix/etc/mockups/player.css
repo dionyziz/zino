@@ -1,0 +1,11 @@
+/*
+ZinoPlayer CSS
+*/
+
+#zinoPlayer {
+	display:block;
+	float:left;
+	width:320px;
+	height:115px;
+	background:url('./playerArt/background.jpg') no-repeat;
+}
