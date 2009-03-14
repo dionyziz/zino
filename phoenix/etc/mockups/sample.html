@@ -12,11 +12,9 @@
                 document.getElementById( "percentage" ).style.width = (cur/maxi)*100 +  'px';
                 if( cur == maxi ) {
                     document.getElementById( "kolaz" ).style.display = "block";
+                    document.body.removeChild( document.getElementById( "progress" ) );
                 }
-            }
-            
-            i = document.getElementsByTagName( "img" ).length;     
-        
+            }       
         </script>
         <style type="text/css" >
             body {

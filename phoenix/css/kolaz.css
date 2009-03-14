@@ -1,5 +1,16 @@
+#progress {
+    width:500px;
+    height:100px;
+    background-color : white;
+}
+#percentage {
+    background-color : blue;
+    width:0px;
+    height:100px;
+}
 div.kolazimage {
     background-color : black;
+    display:none;
 }
 div.kolazimage div {
     overflow : hidden;
