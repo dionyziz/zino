@@ -112,6 +112,7 @@ div.buyad label {
 div.buyad div.create h3 {
     margin: 10px;
     padding: 10px;
+    font-size: 120%;
 }
 div.buyad div.create div.url input {
     width: 300px;
