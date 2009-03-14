@@ -84,7 +84,7 @@ ZinoPlayer CSS
 #zinoPlayer #playerControls #progressBar {
 	display:block;
 	float:left;
-	margin-left:25px;
+	margin:12px 0px 0px 28px;
 	width:260px;
 	height:11px;
 	background:url('./playerArt/progressbar.jpg') no-repeat;
