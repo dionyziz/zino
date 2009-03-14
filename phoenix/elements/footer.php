@@ -7,7 +7,7 @@
                 <ul>
                     <li><a href="contact">Επικοινώνησε</a></li>
                     <li><a href="tos">Όροι χρήσης</a></li>
-                    <li><a href="advertise">Διαφημίσου εδώ</a></li>
+                    <!-- <li><a href="advertise">Διαφημίσου εδώ</a></li> -->
                 </ul>
                 <div class="copy">
                     &copy; <?php

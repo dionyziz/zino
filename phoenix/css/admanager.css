@@ -72,3 +72,47 @@ div.buyad a.start {
     background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
     background-repeat: repeat-x;
 }
+div.buyad div.create {
+    background-color: #f6f6f4;
+    border: 1px solid #ccc;
+    width: 800px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
+div.buyad div.create div.left {
+    width: 500px;
+    float: left;
+}
+div.buyad div.create div.right {
+    padding-left: 510px;
+}
+div.buyad div.create div.right p {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad input, div.buyad textarea {
+    border: 1px solid #b0b5c5;
+    width: 100%;
+}
+div.buyad label span {
+    font-weight: normal
+}
+div.buyad label {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    display: block;
+    font-size: 90%;
+    font-weight: bold;
+    color: #345;
+    padding: 10px 5px 3px 0;
+}
+div.buyad div.create h3 {
+    border-bottom: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+div.buyad div.create div.url input {
+    width: 300px;
+}
+div.buyad div.create a.start {
+    margin: 20px auto 10px auto;
+}
