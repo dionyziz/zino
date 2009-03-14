@@ -12,6 +12,15 @@ ZinoPlayer CSS
 	font-family:arial;
 }
 
+#zinoPlayer span.playing {
+	display:block;
+	float:left;
+	width:3px;
+	height:15px;
+	background:url('./playerArt/playingIndicator.jpg') no-repeat;
+	margin-left:4px;
+}
+
 #zinoPlayer #playerControls {
 	display:block;
 	float:left;
