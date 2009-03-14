@@ -62,3 +62,12 @@ ZinoPlayer CSS
 	width:311px;
 	font-weight:bold;
 }
+
+#zinoPlayer #playerControls #pauseButton {
+	display:block;
+	float:left;
+	width:30px;
+	height:31px;
+	background:url('./playerArt/pauseButton.png') scroll 0px 0px no-repeat;
+	border:1px solid red;
+}
