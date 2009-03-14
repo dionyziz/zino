@@ -6,8 +6,11 @@
         global $user;
         
         if ( !$user->ExistS() ) {
-            retrn; // TODO: This user may be logged out!
+            return; // TODO: This user may be logged out!
         }
+        
+        var_dump( $uploadimage->Exists() );
+        return;
 
         $title = $title->Get();
         $body = $body->Get();
