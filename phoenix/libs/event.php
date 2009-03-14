@@ -57,7 +57,8 @@
             36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
             37 => 'EVENT_USER_CREATED',
             38 => 'EVENT_IMAGETAG_CREATED',
-            39 => 'EVENT_FAVOURITE_CREATED'
+            39 => 'EVENT_FAVOURITE_CREATED',
+            40 => 'EVENT_USER_BIRTHDAY'
         );
     }
 

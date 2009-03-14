@@ -74,6 +74,7 @@
                         ?>', '0' );"<?php
                         break;
                     case EVENT_FRIENDRELATION_CREATED:
+                    case EVENT_USER_BIRTHDAY:
                         break;
                     case EVENT_FAVOURITE_CREATED:
                         ?> onclick="Notification.Visit( '<?php
@@ -162,6 +163,9 @@
                             }
                             Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                             ?></p><?php
+                            break;
+                        case EVENT_USER_BIRTHDAY:
+                            ?><p>Kapios exi genethlia<?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php
