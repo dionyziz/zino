@@ -56,7 +56,6 @@
             }  
             
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js', 'javascript', true );  
-            $page->AttachInlineScript( 'maxi=' . count( $tags ) . ';' );
             
             ?><div id="progress">
                 <div id="percentage"></div>
