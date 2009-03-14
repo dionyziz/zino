@@ -13,24 +13,24 @@
                         <div class="left">
                             <div class="input">
                                 <label>Τίτλος:</label>
-                                <input type="text" />
+                                <input type="text" name="title" />
                             </div>
                             
                             <div class="input">
                                 <label>Κείμενο:</label>
-                                <textarea></textarea>
+                                <textarea name="body"></textarea>
                             </div>
                             
                             <div class="input">
                                 <label>Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label>
-                                <input type="file" />
+                                <input type="file" name="uploadimage" />
                             </div>
 
                             <div class="input url">
                                 <label>Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
                                 
                                 <span>http://</span>
-                                <input type="text" class="url" />
+                                <input type="text" class="url" name="url" />
                             </div>
                         </div>
                         <div class="right">
