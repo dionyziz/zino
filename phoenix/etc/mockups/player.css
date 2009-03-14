@@ -28,3 +28,14 @@ ZinoPlayer CSS
 	list-style:none;
 	margin-left:4px;
 }
+
+#zinoPlayer ul#playList li {
+	display:block;
+	height:15px;
+	width:310px;
+	border-bottom:1px solid #cccccc;
+}
+
+#zinoPlayer ul#playList li a {
+	font-size:10px;
+}
