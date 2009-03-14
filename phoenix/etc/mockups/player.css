@@ -23,7 +23,8 @@ ZinoPlayer CSS
 	display:block;
 	float:left;
 	width:310px;
-	height:80px;
+	height:75px;
 	border:1px solid red;
 	list-style:none;
+	margin-left:4px;
 }
