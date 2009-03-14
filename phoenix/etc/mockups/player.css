@@ -37,7 +37,8 @@ ZinoPlayer CSS
 
 #zinoPlayer ul#playList li a {
 	display:block;
-	height:15px;
+	height:13px;
+	padding-top:2px;
 	width:310px;
 	overflow:hidden;
 	font-size:10px;
