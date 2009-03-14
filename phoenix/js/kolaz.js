@@ -5,6 +5,7 @@ function loaded() {
     cur++;
     document.getElementById( "percentage" ).style.width = (cur/maxi)*250 +  'px';
     if( cur == maxi ) {
+        alert("inside");
         document.getElementById( "kolaz" ).style.display = "block";
         document.body.removeChild( document.getElementById( "progress" ) );
     }
