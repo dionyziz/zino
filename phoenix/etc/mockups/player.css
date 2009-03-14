@@ -74,5 +74,5 @@ ZinoPlayer CSS
 }
 
 #zinoPlayer #playerControls #pauseButton:hover {
-	background:url('./playerArt/pause_button.png') scroll -31px 0px no-repeat;
+	background:url('./playerArt/pause_button.png') scroll -29px 0px no-repeat;
 }
