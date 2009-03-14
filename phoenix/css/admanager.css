@@ -119,6 +119,9 @@ div.buyad div.create a.start {
 div.buyad div.create h3.preview {
     margin-bottom: 0;
 }
+div.buyad div.create form input.submit {
+    display: none;
+}
 
 div.ads {
     font-size: 90%;

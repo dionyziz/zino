@@ -56,7 +56,7 @@
                     echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
                     ?>;
                 </script><?php
-                exit();
+                return;
             default:
                 break;
         }
