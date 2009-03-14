@@ -9,7 +9,13 @@
             return; // TODO: This user may be logged out!
         }
         
-        var_dump( $uploadimage->Exists() );
+        if ( $uploadimage->Exists() ) {
+            echo 'yes';
+        }
+        else {
+            echo 'no';
+        }
+        
         return;
 
         $title = $title->Get();
