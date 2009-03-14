@@ -64,20 +64,19 @@ ZinoPlayer CSS
 }
 
 #zinoPlayer #playerControls #pauseButton {
-	margin:1px 0px 0px 4px;
+	margin:5px 0px 0px 4px;
 	display:block;
 	float:left;
-	width:30px;
-	height:30px;
-	background:url('./playerArt/pause_button.png') scroll 0px 0px no-repeat;
+	width:25px;
+	height:25px;
+	background:url('./playerArt/pause_button.png') no-repeat;
 	text-indent:-4000px;
-	opacity:0.7;
-	filter:alpha(opacity=70);
+	opacity:0.65;
+	filter:alpha(opacity=65);
+	outline:none;
 }
 
 #zinoPlayer #playerControls #pauseButton:hover {
-	background:url('./playerArt/pause_button.png') scroll -30px 0px no-repeat;
-	opacity:0.85;
-	filter:alpha(opacity=85);
-
+	opacity:0.9;
+	filter:alpha(opacity=90);
 }
