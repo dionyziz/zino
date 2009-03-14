@@ -80,3 +80,12 @@ ZinoPlayer CSS
 	opacity:0.95;
 	filter:alpha(opacity=95);
 }
+
+#zinoPlayer #playerControls #progressBar {
+	display:block;
+	float:left;
+	margin-left:25px;
+	width:260px;
+	height:11px;
+	background:url('./playerArt/progressbar.jpg') no-repeat;
+}
