@@ -67,7 +67,7 @@ ZinoPlayer CSS
 	display:block;
 	float:left;
 	width:30px;
-	height:31px;
+	height:30px;
 	background:url('./playerArt/pause_button.png') scroll 0px 0px no-repeat;
 	text-indent:-4000px;
 }
