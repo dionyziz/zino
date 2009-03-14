@@ -65,10 +65,18 @@
                 <div class="subject"<?php
                 switch ( $notif->Event->Typeid ) {
                     case EVENT_IMAGETAG_CREATED:
-                    case EVENT_USER_BIRTHDAY:
                         ?> onclick="Notification.Visit( '<?php
                         ob_start();
                         Element( 'url', $notif->Item );
+                        echo htmlspecialchars( ob_get_clean() );
+                        ?>' , '0', '<?php
+                        echo $notif->Event->Id;
+                        ?>', '0' );"<?php
+                        break;
+                    case EVENT_USER_BIRTHDAY:
+                        ?> onclick="Notification.Visit( '<?php
+                        ob_start();
+                        Element( 'url', $notif->FromUser );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '0', '<?php
                         echo $notif->Event->Id;
