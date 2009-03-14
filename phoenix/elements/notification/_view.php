@@ -65,6 +65,7 @@
                 <div class="subject"<?php
                 switch ( $notif->Event->Typeid ) {
                     case EVENT_IMAGETAG_CREATED:
+                    case EVENT_USER_BIRTHDAY:
                         ?> onclick="Notification.Visit( '<?php
                         ob_start();
                         Element( 'url', $notif->Item );
@@ -74,7 +75,6 @@
                         ?>', '0' );"<?php
                         break;
                     case EVENT_FRIENDRELATION_CREATED:
-                    case EVENT_USER_BIRTHDAY:
                         break;
                     case EVENT_FAVOURITE_CREATED:
                         ?> onclick="Notification.Visit( '<?php
