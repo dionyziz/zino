@@ -165,7 +165,7 @@
                             ?></p><?php
                             break;
                         case EVENT_USER_BIRTHDAY:
-                            ?><p>Kapios exi genethlia</p><?php
+                            ?><p>έχει γενέθλεια</p><?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php

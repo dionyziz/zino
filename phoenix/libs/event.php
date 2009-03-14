@@ -358,6 +358,9 @@
                     $notif = New Notification();
                     $notif->Touserid = $this->Item->Item->Userid;
                     break;
+                case EVENT_USER_BIRTHDAY:
+                    $notif = New Notification();
+                    $notif->Touserid = $this->Itemid;
                 default:
                     return; // items that don't create any notifications don't need to be saved
                     // for the rest that "break"ed, save the notification
