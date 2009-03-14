@@ -63,7 +63,7 @@
         $ad = New Ad();
         $ad->Title = $title;
         $ad->Body = $body;
-        $ad->URL = $url;
+        $ad->Url = $url;
         $ad->Save();
         
         return Redirect( '?p=admanager/demographics&id=' . $ad->Id );

@@ -8,17 +8,17 @@
             <field name="ad_title" type="varchar" length="256" />
             <field name="ad_body" type="text" />
             <field name="ad_url" type="varchar" length="256" />
-            <field name="ad_imageid" type="int" ref="images.image_id" />
+            <field name="ad_imageid" type="int" signed="no" ref="images.image_id" />
             
-            <field name="ad_minage" type="int" /><!-- 0 = do not filter -->
-            <field name="ad_maxage" type="int" /><!-- 0 = do not filter -->
+            <field name="ad_minage" type="tinyint"  signed="no" /><!-- 0 = do not filter -->
+            <field name="ad_maxage" type="tinyint"  signed="no" /><!-- 0 = do not filter -->
             <field name="ad_sex" type="tinyint" signed="no" /><!-- 0 = do not filter; 1 = males only; 2 = females only -->
             
-            <field name="ad_budget" type="int" /><!-- in euros -->
-            <field name="ad_dailypageviews" type="int" />
+            <field name="ad_budget" type="int" signed="no" /><!-- in euros -->
+            <field name="ad_dailypageviews" type="int" signed="no" />
             
-            <field name="ad_pageviewsremaining" type="int" />
-            <field name="ad_pageviewsremainingtoday" type="int" />
+            <field name="ad_pageviewsremaining" type="int" signed="no" />
+            <field name="ad_pageviewsremainingtoday" type="int" signed="no" />
             
             <index type="primary">
                 <indexfield>ad_id</indexfield>
