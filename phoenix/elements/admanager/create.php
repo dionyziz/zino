@@ -1,6 +1,10 @@
 <?php
     class ElementAdManagerCreate extends Element {
         public function Render() {
+            global $page;
+            
+            $page->AttachInlineScript( 'AdManager.Create.OnLoad();' );
+            
             ?><div class="buyad">
                 <h2 class="ad">Διαφήμιση στο Zino</h2>
                 <div class="create">

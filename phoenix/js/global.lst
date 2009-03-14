@@ -8,6 +8,7 @@ modal.js
 trivial/dates.js
 coala.js
 places.js
+admanager.js
 album/list.js
 album/photo/list.js
 album/photo/view.js
