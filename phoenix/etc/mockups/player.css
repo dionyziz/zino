@@ -38,4 +38,6 @@ ZinoPlayer CSS
 
 #zinoPlayer ul#playList li a {
 	font-size:10px;
+	font-weight:bold;
+	margin-left:4px;
 }
