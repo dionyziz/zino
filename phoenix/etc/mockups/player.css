@@ -18,7 +18,7 @@ ZinoPlayer CSS
 	width:4px;
 	height:7px;
 	background:url('./playerArt/playing.gif') no-repeat;
-	margin-left:4px;
+	margin: 3px 2px 0px 4px;
 }
 
 #zinoPlayer #playerControls {
