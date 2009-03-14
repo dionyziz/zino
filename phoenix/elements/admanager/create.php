@@ -2,49 +2,49 @@
     class ElementAdManagerCreate extends Element {
         public function Render() {
             ?><div class="buyad">
-                <h2 class="ad">Διαφήμιση στο Zino</h2>
+                <h2 class="ad">Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· ΟƒΟ„ΞΏ Zino</h2>
                 <div class="create">
-                    <h3>Σχεδιάστε τη διαφήμισή σας</h3>
+                    <h3>Ξ£Ο‡ΞµΞ΄ΞΉΞ¬ΟƒΟ„Ξµ Ο„Ξ· Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ® ΟƒΞ±Ο‚</h3>
                     <div class="left">
                         <div class="input">
-                            <label>Τίτλος:</label>
+                            <label>Ξ¤Ξ―Ο„Ξ»ΞΏΟ‚:</label>
                             <input type="text" />
                         </div>
                         
                         <div class="input">
-                            <label>Κείμενο:</label>
+                            <label>ΞΞµΞ―ΞΌΞµΞ½ΞΏ:</label>
                             <textarea></textarea>
                         </div>
                         
                         <div class="input">
-                            <label>Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label>
+                            <label>Ξ•ΞΉΞΊΟΞ½Ξ±: <span>Ξ ΟΞΏΞ±ΞΉΟΞµΟ„ΞΉΞΊΞ¬. Ξ— ΞµΞΉΞΊΟΞ½Ξ± ΞΈΞ± ΞΌΞΉΞΊΟΟΞ½ΞµΞΉ ΟƒΟ„Ξ± 200x85 pixels.</span></label>
                             <input type="file" />
                         </div>
 
                         <div class="input url">
-                            <label>Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
+                            <label>Ξ”ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· ΟƒΞµΞ»Ξ―Ξ΄Ξ±Ο‚: <span>Ξ ΟΞΏΞ±ΞΉΟΞµΟ„ΞΉΞΊΞ¬. (Ο€.Ο‡. www.i-selida-sas.gr)</span></label>
                             
                             <span>http://</span>
                             <input type="text" class="url" />
                         </div>
                     </div>
                     <div class="right">
-                        <p>Οι διαφημίσεις ελέγχονται για να σιγουρευτούμε ότι 
-                        ικανοποιούν τις προϋποθέσεις μας. Σας συνιστούμε να 
-                        διαβάσετε τον <a href="">σύντομο οδηγό για διαφημιζόμενους</a>.</p>
+                        <p>ΞΞΉ Ξ΄ΞΉΞ±Ο†Ξ·ΞΌΞ―ΟƒΞµΞΉΟ‚ ΞµΞ»Ξ­Ξ³Ο‡ΞΏΞ½Ο„Ξ±ΞΉ Ξ³ΞΉΞ± Ξ½Ξ± ΟƒΞΉΞ³ΞΏΟ…ΟΞµΟ…Ο„ΞΏΟΞΌΞµ ΟΟ„ΞΉ 
+                        ΞΉΞΊΞ±Ξ½ΞΏΟ€ΞΏΞΉΞΏΟΞ½ Ο„ΞΉΟ‚ Ο€ΟΞΏΟ‹Ο€ΞΏΞΈΞ­ΟƒΞµΞΉΟ‚ ΞΌΞ±Ο‚. Ξ£Ξ±Ο‚ ΟƒΟ…Ξ½ΞΉΟƒΟ„ΞΏΟΞΌΞµ Ξ½Ξ± 
+                        Ξ΄ΞΉΞ±Ξ²Ξ¬ΟƒΞµΟ„Ξµ Ο„ΞΏΞ½ <a href="">ΟƒΟΞ½Ο„ΞΏΞΌΞΏ ΞΏΞ΄Ξ·Ξ³Ο Ξ³ΞΉΞ± Ξ΄ΞΉΞ±Ο†Ξ·ΞΌΞΉΞ¶ΟΞΌΞµΞ½ΞΏΟ…Ο‚</a>.</p>
                     </div>
                     <div class="eof"></div>
-                    <h3 style="margin-bottom:0">Προεπισκόπηση</h3>
+                    <h3 style="margin-bottom:0">Ξ ΟΞΏΞµΟ€ΞΉΟƒΞΊΟΟ€Ξ·ΟƒΞ·</h3>
                     <div class="ads" style="font-size: 90%;background-color:white;border-bottom:1px solid transparent;padding: 10px 0 10px 0;margin:0 10px 0 10px">
                         <div class="ad" style="width:200px;border:1px solid #ddd;padding: 5px;margin: auto;">
-                            <h4 style="margin: 5px 0 5px 0"><a href="" style="color: #357;">Φοιτητική ταυτότητα ISIC</a></h4>
+                            <h4 style="margin: 5px 0 5px 0"><a href="" style="color: #357;">Ξ¦ΞΏΞΉΟ„Ξ·Ο„ΞΉΞΊΞ® Ο„Ξ±Ο…Ο„ΟΟ„Ξ·Ο„Ξ± ISIC</a></h4>
                             <a href=""><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." style="display: block; margin: auto" /></a>
-                            <p><a href="" style="color: black">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
-                               Βγάλε ISIC με 9 ευρώ!</a></p>
+                            <p><a href="" style="color: black">Ξ”ΞΉΞµΞΈΞ½Ξ®Ο‚ Ξ¦ΞΏΞΉΟ„Ξ·Ο„ΞΉΞΊΞ® Ξ¤Ξ±Ο…Ο„ΟΟ„Ξ·Ο„Ξ±. ΞΞΏΞ½Ξ±Ξ΄ΞΉΞΊΞ¬ Ο€ΟΞΏΞ½ΟΞΌΞΉΞ± ΞΊΞ±ΞΉ ΞµΞΊΟ€Ο„ΟΟƒΞµΞΉΟ‚. Ξ¦Ξ­Ο„ΞΏΟ‚ Ξ· ISIC ΞΊΞ¬Ξ½ΞµΞΉ Ξ­ΞΊΟ€Ο„Ο‰ΟƒΞ· ΞΊΞ±ΞΉ ΟƒΟ„ΞΏΞ½ ΞµΞ±Ο…Ο„Ο Ο„Ξ·Ο‚!
+                               Ξ’Ξ³Ξ¬Ξ»Ξµ ISIC ΞΌΞµ 9 ΞµΟ…ΟΟ!</a></p>
                         </div>
                     </div>
 
-                    <a href="" class="start">Αποθήκευση</a>
+                    <a href="" class="start">Ξ‘Ο€ΞΏΞΈΞ®ΞΊΞµΟ…ΟƒΞ·</a>
                 </div>
             </div><?php
         }
