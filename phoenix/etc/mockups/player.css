@@ -47,5 +47,5 @@ ZinoPlayer CSS
 #zinoPlayer ul#playList li a.selected {
 	background:url('./playerArt/trackSelection.jpg') repeat-x;
 	color:#ffffff;
-	margin-left:8px;
+	text-indent:4px;
 }
