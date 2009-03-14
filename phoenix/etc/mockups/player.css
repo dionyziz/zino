@@ -8,4 +8,5 @@ ZinoPlayer CSS
 	width:320px;
 	height:115px;
 	background:url('./playerArt/background.jpg') no-repeat;
+	border:1px solid red;
 }
