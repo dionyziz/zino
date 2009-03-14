@@ -5,9 +5,9 @@
     border : solid black 1px;    
 }
 #percentage {
-    background-color : blue;
+    background-color : green;
     width:0px;
-    height:100px;
+    height:50px;
 }
 div.kolazimage {
     background-color : black;
