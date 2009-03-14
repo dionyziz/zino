@@ -15,6 +15,11 @@
         
         $libs->Load( 'admanager' );
         
+        $ad = New Ad();
+        $ad->Title = $title;
+        $ad->Body = $body;
+        $ad->Url = $url;
+        
         if ( $uploadimage->Exists() ) {
             $image = New Image();
             $image->Name = '';
@@ -59,11 +64,6 @@
             }
             $ad->Imageid = $image->Id;
         }
-        
-        $ad = New Ad();
-        $ad->Title = $title;
-        $ad->Body = $body;
-        $ad->Url = $url;
         $ad->Save();
         
         return Redirect( '?p=admanager/demographics&id=' . $ad->Id );

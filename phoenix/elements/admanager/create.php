@@ -6,7 +6,7 @@
             $page->AttachInlineScript( 'AdManager.Create.OnLoad();' );
             
             ?><div class="buyad">
-                <h2 class="ad">Διαφήμιση στο Zino</h2>
+                <h2 class="ad smaller">Διαφήμιση στο Zino</h2>
                 <div class="create">
                     <form action="do/admanager/new" method="post">
                         <h3>Σχεδιάστε τη διαφήμισή σας</h3>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="eof"></div>
                         <h3 class="preview">Προεπισκόπηση</h3>
-                        <div class="ads">
+                        <div class="ads adspreview">
                             <div class="ad">
                                 <h4><a href="" onclick="return false">Φοιτητική ταυτότητα ISIC</a></h4>
                                 <a href="" onclick="return false"><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /></a>

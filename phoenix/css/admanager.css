@@ -6,6 +6,10 @@ div.buyad h2 {
     text-align: center;
     margin-bottom: 0;
 }
+div.buyad h2.smaller {
+    font-size: 150%;
+    display: none;
+}
 div.buyad h3 {
     text-align: center;
 }
@@ -103,10 +107,9 @@ div.buyad label {
     font-size: 90%;
     font-weight: bold;
     color: #345;
-    padding: 10px 5px 3px 0;
+    padding: 15px 5px 3px 0;
 }
 div.buyad div.create h3 {
-    border-bottom: 1px solid #ccc;
     margin: 10px;
     padding: 10px;
 }
@@ -121,6 +124,10 @@ div.buyad div.create h3.preview {
 }
 div.buyad div.create form input.submit {
     display: none;
+}
+div.buyad div.ads {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 div.ads {
