@@ -355,7 +355,8 @@
             $event->Save();
 
             ob_start();
-            $subject = Element( 'user/email/welcome', $this );
+            $link = $this->Profile->ChangeEmail( '', $this->Name );
+            $subject = Element( 'user/email/welcome', $this, $link );
             $text = ob_get_clean();
             Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
         }
