@@ -6,6 +6,6 @@ function loaded() {
     document.getElementById( "percentage" ).style.width = (cur/maxi)*250 +  'px';
     if( cur == maxi ) {
         document.getElementById( "kolaz" ).style.display = "block";
-        document.body.getElementById( "content" ).removeChild( document.getElementById( "progress" ) );
+        document.getElementById( "content" ).removeChild( document.getElementById( "progress" ) );
     }
 }
