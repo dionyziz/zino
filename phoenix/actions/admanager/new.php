@@ -15,7 +15,7 @@
         
         $libs->Load( 'admanager' );
         
-        if ( $image->Exists() ){
+        if ( $uploadimage->Exists() ) {
             $image = New Image();
             $image->Name = '';
             switch ( strtolower( $extension ) ) {
