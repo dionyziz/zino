@@ -1,5 +1,5 @@
 <?php
     class Ad extends Satori {
-        private $mDbTableAlias = 'ads';
+        protected $mDbTableAlias = 'ads';
     }
 ?>
