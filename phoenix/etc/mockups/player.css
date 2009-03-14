@@ -24,7 +24,7 @@ ZinoPlayer CSS
 	width:310px;
 	height:75px;
 	list-style:none;
-	margin-left:4px;
+	margin:6px 0px 0px 4px;
 }
 
 #zinoPlayer ul#playList li {
@@ -35,7 +35,17 @@ ZinoPlayer CSS
 }
 
 #zinoPlayer ul#playList li a {
+	display:block;
+	height:15px;
+	width:310px;
+	overflow:hidden;
 	font-size:11px;
 	margin-left:4px;
 	color:#4b6c7f;
+}
+
+#zinoPlayer ul#playList li a.selected {
+	background:url('./playerArt/trackSelection.jpg') repeat-x;
+	color:#ffffff;
+	margin-left:8px;
 }
