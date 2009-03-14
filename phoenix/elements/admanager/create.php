@@ -34,12 +34,12 @@
                         διαβάσετε τον <a href="">σύντομο οδηγό για διαφημιζόμενους</a>.</p>
                     </div>
                     <div class="eof"></div>
-                    <h3 style="margin-bottom:0">Προεπισκόπηση</h3>
-                    <div class="ads" style="font-size: 90%;background-color:white;border-bottom:1px solid transparent;padding: 10px 0 10px 0;margin:0 10px 0 10px">
-                        <div class="ad" style="width:200px;border:1px solid #ddd;padding: 5px;margin: auto;">
-                            <h4 style="margin: 5px 0 5px 0"><a href="" style="color: #357;">Φοιτητική ταυτότητα ISIC</a></h4>
-                            <a href=""><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." style="display: block; margin: auto" /></a>
-                            <p><a href="" style="color: black">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
+                    <h3 class="preview">Προεπισκόπηση</h3>
+                    <div class="ads">
+                        <div class="ad">
+                            <h4><a href="">Φοιτητική ταυτότητα ISIC</a></h4>
+                            <a href=""><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /></a>
+                            <p><a href="">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
                                Βγάλε ISIC με 9 ευρώ!</a></p>
                         </div>
                     </div>

@@ -116,3 +116,33 @@ div.buyad div.create div.url input {
 div.buyad div.create a.start {
     margin: 20px auto 10px auto;
 }
+div.buyad div.create h3.preview {
+    margin-bottom: 0;
+}
+
+div.ads {
+    font-size: 90%;
+    background-color: white;
+    border-bottom: 1px solid transparent;
+    padding: 10px 0 10px 0;
+    margin: 0 10px 0 10px;
+}
+div.ads div.ad {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: auto;
+}
+div.ads div.ad h4 {
+    margin: 5px 0 5px 0;
+}
+div.ads div.ad h4 a {
+    color: #357;
+}
+div.ads div.ad img {
+    display: block;
+    margin: auto;
+}
+div.ads div.ad p a {
+    color: black;
+}
