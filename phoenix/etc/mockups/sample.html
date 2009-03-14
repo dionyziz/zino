@@ -9,10 +9,9 @@
             
             function loaded() {
                 cur++;
-                document.getElementById( "kolaz" ).style.visibility = "collapse";
                 document.getElementById( "percentage" ).style.width = (cur/maxi)*100 +  'px';
                 if( cur == maxi ) {
-                    /*document.getElementById( "kolaz" ).style.visibility = "visible";*/
+                    document.getElementById( "kolaz" ).style.display = "block";
                 }
             }
             
@@ -25,6 +24,7 @@
             }
             div.kolazimage {                
                 position: relative;
+                display:none;
                 width:510px;
                 height:450px;
             }
@@ -51,7 +51,7 @@
             </div>
         </div>
         
-        <div class="kolazimage" id="kolaz" onload="this.visibility=collapse;">
+        <div class="kolazimage" id="kolaz" >
             <div style="width: 232px;height: 333px;position: absolute;left:0px;top:0px;">
                 <a href = "http://images.zino.gr/media/4005/117149/117149_full.jpg" > 
                     <img style="position: absolute;left:-190px;top:-132px" src="http://images.zino.gr/media/4005/117149/117149_full.jpg" alt="img" onload="loaded()" />
