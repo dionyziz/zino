@@ -9,8 +9,6 @@
             return; // TODO: This user may be logged out!
         }
         
-        print $uploadimage->Tempname;
-        ?><br /><?php
         if ( $uploadimage->Exists() ) {
             echo 'yes';
         }
