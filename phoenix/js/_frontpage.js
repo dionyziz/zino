@@ -235,7 +235,7 @@ var Frontpage = {
             } );
             ++Frontpage.Shoutbox.Animating;
         }        
-    }
+    },
     
     Image : {
         OnImageArrival: function ( id ) {
