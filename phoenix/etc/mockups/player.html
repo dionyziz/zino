@@ -56,7 +56,6 @@
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
 						$("#progress").css("width","3px");
-						
 					}
 
 					function togglePlayback() {
@@ -77,7 +76,7 @@
 					function progressBarHandler(obj) {
 						cPosition = obj.position;
 						cDuration = obj.duration;
-						$("#progress").css("width", ( ( 250 * cPosition ) / cDuration ) + "px" );						
+						$("#progress").css("width", ( ( 250 * cPosition ) / cDuration ) + "px" );
 					}
 
 				</script>

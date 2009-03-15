@@ -102,7 +102,7 @@ ZinoPlayer CSS
 	display:block;
 	float:left;
 	height:9px;
-	min-width:0px;
+	min-width:3px;
 	max-width:253px;
 	background:url('./playerArt/progress.jpg') repeat-x;
 	margin:1px 0px 0px 3px;
