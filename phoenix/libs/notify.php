@@ -225,7 +225,7 @@
                 case EVENT_FAVOURITE_CREATED:
                     $target = 'notification/email/favourite';
                     break;
-                case EVENT_USER_BIRHDAY:
+                case EVENT_USER_BIRTHDAY:
                     $target = 'notification/email/birthday';
                     break;
                 default:
