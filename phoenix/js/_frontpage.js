@@ -234,13 +234,6 @@ var Frontpage = {
                 overflow: 'hidden'
             } );
             ++Frontpage.Shoutbox.Animating;
-        }
-        Image: {
-        Animating: 0,
-        Changed: false,
-        OnLoad: function () {
-        }
-        }
-
+        }        
     }
 };
