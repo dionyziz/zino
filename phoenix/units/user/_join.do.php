@@ -42,9 +42,8 @@
             $newuser->Password = $password;
             $newuser->Profile->Email = $email;
             $newuser->Save();
-			?>location.href = '<?php
-			echo $rabbit_settings[ 'webaddress' ];
-			?>/?p=notvalidated';<?php
+    		?>location.href = 'www.google.com'<?php
+//			echo $rabbit_settings[ 'webaddress' ];
         }
     }
 ?>
