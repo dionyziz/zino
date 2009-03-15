@@ -5,6 +5,8 @@
             global $xc_settings;
             
             $libs->Load( 'admanager' );
+            $libs->Load( 'image/image' );
+            
             $adfinder = New AdFinder();
             $ad = $adfinder->FindToShow();
             
