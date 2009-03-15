@@ -35,6 +35,7 @@
             <?php
         }
         else {
+            die( 'hahah' );
 			$libs->Load( 'rabbddit/helpers/validate' );
             $newuser = New User();
             $newuser->Name = $username;
@@ -42,8 +43,9 @@
             $newuser->Password = $password;
             $newuser->Profile->Email = $email;
             $newuser->Save();
-    		?>location.href = 'www.google.com'<?php
-//			echo $rabbit_settings[ 'webaddress' ];
+    		?>location.href = '<?php
+			echo $rabbit_settings[ 'webaddress' ];
+            ?>?p=notvalidated'<?php
         }
     }
 ?>
