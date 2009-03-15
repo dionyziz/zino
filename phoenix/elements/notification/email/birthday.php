@@ -4,8 +4,6 @@
         public function Render( Notification $notification ) {
             global $rabbit_settings;
         
-            $image = New Image( $notification->Item->Imageid );
-        
             $from = $notification->FromUser;
  
             w_assert( $from instanceof User );
