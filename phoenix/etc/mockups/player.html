@@ -27,7 +27,7 @@
 			
 			<div id="zinoPlayer">
 				<div id="playerControls">
-					<a href="javascript:;" id="pauseButton" onclick="togglePlayback();">Button</a>
+					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
 						<div id="progress" style="width:10px;"></div><div id="progressEnd"></div>
 					</div>
@@ -41,7 +41,7 @@
 					<li><a>God Is An Astronaut - All Is Violent, All Is Bright</a></li>
 					-->
 				</ul>		
-				
+				<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
 				<script type='text/javascript' src='swfobject.js'></script>
 				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
@@ -57,10 +57,14 @@
 						if (playing) {
 							player.sendEvent("PLAY","false");
 							playing = false;
+							$("#playButton.play").removeClass("play");
+							$("#playButton").addClass("pause");
 						}
 						else {
 							player.sendEvent("PLAY","true");
 							playing = true;
+							$("#playButton.pause").removeClass("pause");
+							$("#playButton").addClass("play");
 						}
 					}
 				</script>

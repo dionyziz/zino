@@ -63,7 +63,7 @@ ZinoPlayer CSS
 	font-weight:bold;
 }
 
-#zinoPlayer #playerControls #pauseButton {
+#zinoPlayer #playerControls #playButton {
 	margin:4px 0px 0px 12px;
 	display:block;
 	float:left;
@@ -76,7 +76,15 @@ ZinoPlayer CSS
 	outline:none;
 }
 
-#zinoPlayer #playerControls #pauseButton:hover {
+#zinoPlayer #playerControls #playButton.pause {
+	background:url('./playerArt/pause_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton.play {
+	background:url('./playerArt/play_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton:hover {
 	opacity:0.95;
 	filter:alpha(opacity=95);
 }
