@@ -32,7 +32,7 @@
                 case 'gatoni':
                 case 'ted':
                 case 'kostis90gr':
-                   Element( 'image/comet' );
+                   ;/*Element( 'image/comet' );*/
             }
         }
             
