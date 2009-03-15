@@ -11,12 +11,11 @@
                     *
                 FROM
                     :ads
-                WHERE
-                    
                 ORDER BY
                     RAND()
                 LIMIT 1;'
             );
+            $query->BindTable( 'ads' );
             $res = $query->Execute();
             if ( $res->Results() ) {
                 return New Ad( $res->FetchArray() );
