@@ -53,4 +53,8 @@
    
    //photo tagging permissions
    define( 'PERMISSION_TAG_CREATE', 30 );
+   
+   // ads permissions
+   define( 'PERMISSION_AD_CREATE', 50 );
+   
 ?>

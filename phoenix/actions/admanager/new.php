@@ -5,7 +5,10 @@
         global $libs;
         global $user;
         
-        // this user may be logged out
+        // this user may be logged out; TODO
+        if ( !$user->HasPermission( PERMISSION_AD_CREATE ) ) {
+            return;
+        }
         
         $title = $title->Get();
         $body = $body->Get();
