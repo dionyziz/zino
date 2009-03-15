@@ -125,6 +125,11 @@ var Profile = {
         var uplalbid = $( 'div#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
+    OnLoad: function () {
+        Coala.Cold( 'admanager/showad', { f: function () {
+            $( 'div.ads' )[ 0 ].innerHTML = html;
+        } } );
+    },
     MyProfileOnLoad: function () {
         $( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',

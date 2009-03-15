@@ -42,6 +42,7 @@
             if ( $user->Id == $theuser->Id ) {
                 $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
             }
+            $page->AttachInlineScript( '$( Profile.OnLoad );' );
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
                     $text = "αυτή τη στιγμή!";
