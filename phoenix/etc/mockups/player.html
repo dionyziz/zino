@@ -27,24 +27,41 @@
 			
 			<div id="zinoPlayer">
 				<div id="playerControls">
-					<a href="javascript:;" id="pauseButton">Button</a>
+					<a href="javascript:;" id="pauseButton" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
 						<div id="progress" style="width:10px;"></div><div id="progressEnd"></div>
 					</div>
 				</div>
 				<ul id="playList">
+					<li><a href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3')">pg.lost - Yes I Am.</a></li>
+					<!--
 					<li><a>Peace Burial At Sea - Smash TV</a></li>
 					<li><a class="selected"><span class="playing"></span>Explosions In The Sky - Six Days At The Bottom Of The Ocean</a></li>
 					<li><a>Mogwai - Cody</a></li>
 					<li><a>God Is An Astronaut - All Is Violent, All Is Bright</a></li>
+					-->
 				</ul>		
 				
 				<script type='text/javascript' src='swfobject.js'></script>
-				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="400" height="200" />
+				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
+					var playing = false;
 					var player = document.getElementById('playerObject');
-					player.sendEvent("LOAD","http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3");
-					player.sendEvent("PLAY","true");
+					function playSong( url ) {
+						player.sendEvent("LOAD", url );
+						player.sendEvent("PLAY","true");
+						playing = true;
+					}
+
+					function togglePlayback() {
+						if (playing)
+							player.sendEvent("PLAY","false");
+							playing = false;
+						else {
+							player.sendEvent("PLAY","true");
+							playing = true;
+						}
+					}
 				</script>
 			</div>
 
