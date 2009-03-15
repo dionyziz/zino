@@ -99,3 +99,13 @@ ZinoPlayer CSS
 	margin:1px 0px 0px 3px;
 	border:none;
 }
+
+#zinoPlayer #playerControls #progressBar #progressEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:4px;
+	background:url('./playerArt/progressEnd.png') repeat-x;
+	margin:1px 0px 0px 0px;
+	border:none;
+}
