@@ -125,16 +125,13 @@ div.buyad div.create h3.preview {
 div.buyad div.create form input.submit {
     display: none;
 }
-div.buyad div.ads {
-    border-bottom: 1px solid #ccc;
-}
 
 div.ads {
     font-size: 90%;
     background-color: white;
     border-bottom: 1px solid transparent;
     padding: 10px 0 10px 0;
-    margin: 0 10px 0 10px;
+    margin: 0 0 0 10px;
     border-top: 1px solid #ccc;
 }
 div.ads div.ad {
@@ -142,6 +139,10 @@ div.ads div.ad {
     border: 1px solid #ddd;
     padding: 5px;
     margin: 20px auto 0 0;
+}
+div.buyad div.ads {
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
 }
 div.buyad div.ads div.ad {
     margin: auto;
