@@ -51,20 +51,22 @@
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
 						playing = true;
+						$("#playButton.play").removeClass("play");
+						$("#playButton").addClass("pause");
 					}
 
 					function togglePlayback() {
 						if (playing) {
 							player.sendEvent("PLAY","false");
 							playing = false;
-							$("#playButton.play").removeClass("play");
-							$("#playButton").addClass("pause");
+							$("#playButton.pause").removeClass("pause");
+							$("#playButton").addClass("play");
 						}
 						else {
 							player.sendEvent("PLAY","true");
 							playing = true;
-							$("#playButton.pause").removeClass("pause");
-							$("#playButton").addClass("play");
+							$("#playButton.play").removeClass("play");
+							$("#playButton").addClass("pause");
 						}
 					}
 				</script>
