@@ -40,7 +40,12 @@
 				</ul>		
 				
 				<script type='text/javascript' src='swfobject.js'></script>
-				<embed id="playerObject" name="zinoPlayer" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="400" height="200" />
+				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="400" height="200" />
+				<script type="text/javascript">
+					var player = document.getElementById('playerObject');
+					player.sendEvent("LOAD","http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3");
+					player.sendEvent("PLAY","true");
+				</script>
 			</div>
 
 			<div class="info">
