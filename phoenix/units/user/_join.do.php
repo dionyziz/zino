@@ -35,7 +35,6 @@
             <?php
         }
         else {
-			$libs->Load( 'rabbddit/helpers/validate' );
             $newuser = New User();
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
