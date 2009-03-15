@@ -55,8 +55,9 @@
         
             /* TODO: use .data() instead of .attr() */
             $(self).attr("original", $(self).attr("src"))
-            .attr("originalalt",$(self).attr("alt"));
-            if ("scroll" != settings.event 
+            .attr("originalalt",$(self).attr("alt"))
+            .attr("originalstyle",$(self).attr("style"));
+	    if ("scroll" != settings.event 
                          || $.belowthefold(self, settings) 
                          || $.rightoffold(self, settings)) {
                 if (settings.placeholder) {
@@ -75,11 +76,13 @@
                     $("<img />")
                         .attr("src", $(self).attr("original"))
                         .attr("alt", $(self).attr("originalalt"))
-                        .bind("load", function() {
+                        .attr("style",$(self).attr("originalstyle"))
+			.bind("load", function() {
                             $(self)
                                 .hide()
                                 .attr("src", $(self).attr("original"))
                                 .attr("alt",$(self).attr("originalalt"))
+				.attr("style",$(self).attr("originalstyle"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    
