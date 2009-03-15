@@ -237,6 +237,7 @@
                     :offset, :limit"
             );
             $query->BindTable( 'userprofiles' );
+            $query->BindTable( 'relations' );
             $query->Bind( 'month', $month );
             $query->Bind( 'day', $day );
             $query->Bind( 'offset', $offset );
