@@ -12,7 +12,7 @@
                 return;
             }
 
-            ?><div class="event" id="<?php
+            ?><div class="event" id="event_<?php
             echo $notif->Event->Id;
             ?>">
                 <div class="toolbox">
@@ -23,7 +23,7 @@
                     echo $notif->Event->Id;
                     ?>' )" title="Διαγραφή"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
-                    ?>delete.png" /></a>
+                    ?>delete.png" alt="Detete" /></a>
                 </div>
                 <div class="who"<?php
                 if ( $notif->Event->Typeid == EVENT_COMMENT_CREATED ) {
@@ -68,6 +68,15 @@
                         ?> onclick="Notification.Visit( '<?php
                         ob_start();
                         Element( 'url', $notif->Item );
+                        echo htmlspecialchars( ob_get_clean() );
+                        ?>' , '0', '<?php
+                        echo $notif->Event->Id;
+                        ?>', '0' );"<?php
+                        break;
+                    case EVENT_USER_BIRTHDAY:
+                        ?> onclick="Notification.Visit( '<?php
+                        ob_start();
+                        Element( 'url', $notif->FromUser );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '0', '<?php
                         echo $notif->Event->Id;
@@ -120,9 +129,7 @@
                                 ?>ν στους φίλους</a></div><?php
                             }
                             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
-                            ob_start();
                             Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
-                            echo htmlspecialchars( ob_get_clean() );
                             ?>' , '0' , '<?php
                             echo $notif->Event->Id;
                             ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
@@ -164,6 +171,21 @@
                             }
                             Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                             ?></p><?php
+                            break;
+                        case EVENT_USER_BIRTHDAY:
+                            ?><p><?php
+                            $days = daysDiff( $notif->Event->Created );
+                            if ( $days == 0 ) {
+                                ?>έχει γενέθλια σήμερα!<?php
+                            }
+                            else {
+                                ?>είχε γενέθλια πριν <?php
+                                echo $days;
+                                ?> μέρες<?php
+                            }
+                            ?> Έγινε <?php
+                            echo $notif->FromUser->Profile->Age;
+                            ?> χρονών! <span class="emoticon-cake">.</span></p><?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php

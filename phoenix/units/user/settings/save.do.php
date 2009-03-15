@@ -20,7 +20,8 @@
          tText $emailreply, tText $notifyreply,
          tText $emailfriendaddition, tText $notifyfriendaddition,
          tText $emailtagcreation, tText $notifytagcreation,
-         tText $emailfavourite, tText $notifyfavourite ) {
+         tText $emailfavourite, tText $notifyfavourite,
+         tText $emailbirthday, tText $notifybirthday ) {
         global $user;
 
         if ( $user->Exists() ) {
@@ -68,6 +69,8 @@
             $notifytagcreation = $notifytagcreation->Get();
             $emailfavourite = $emailfavourite->Get();
             $notifyfavourite = $notifyfavourite->Get();
+            $emailbirthday = $emailbirthday->Get();
+            $notifybirthday = $notifybirthday->Get();
 
             if ( checkdate( $dobm , $dobd , $doby ) ) {
 				$user->Profile->BirthDay = $dobd;
@@ -273,6 +276,12 @@
             }
             if ( $notifyfavourite ) {
                 $user->Preferences->Notifyfavourite = $notifyfavourite;
+            }
+            if ( $emailbirthday ) {
+                $user->Preferences->Emailbirthday = $emailbirthday;
+            }
+            if ( $notifybirthday ) {
+                $user->Preferences->Notifybirthday = $notifybirthday;
             }
  
             $user->Save();

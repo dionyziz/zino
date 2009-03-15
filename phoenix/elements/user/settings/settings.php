@@ -140,6 +140,19 @@
                             }
                             ?>/></td>
                         </tr>
+                        <tr>
+                            <th>Γενέθλια Φίλων:</th>
+                            <td><input id="emailbirthday" type="checkbox" <?php
+                            if ( $user->Preferences->Emailbirthday == 'yes' ) {
+                                ?>checked="checked"<?php
+                            }
+                            ?>/></td>
+                            <td><input id="notifybirthday" type="checkbox" <?php
+                            if ( $user->Preferences->Notifybirthday == 'yes' ) {
+                                ?> checked="checked"<?php
+                            }
+                            ?>/></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

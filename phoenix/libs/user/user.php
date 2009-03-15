@@ -219,6 +219,37 @@
 
             return $this->FindBySQLResource( $res );
         }
+        public function FindByBirthday( $month = 3, $day = 17, $offset = 0, $limit = 20 ) {
+            if ( !is_int( $month ) || !is_int( $day ) || $month > 12 || $month < 1 || $day < 1 || $day > 31 ) {
+                return false;
+            }
+            
+            $query = $this->mDb->Prepare(
+                "SELECT
+                    `profile_userid`, `relation_userid`
+                FROM
+                    :userprofiles LEFT JOIN :relations
+                        ON `relation_friendid` = `profile_userid`
+                WHERE
+                    DATE_FORMAT( `profile_dob`, '%m' ) = :month
+                    AND DATE_FORMAT( `profile_dob`, '%d' ) = :day
+                LIMIT
+                    :offset, :limit"
+            );
+            $query->BindTable( 'userprofiles' );
+            $query->BindTable( 'relations' );
+            $query->Bind( 'month', $month );
+            $query->Bind( 'day', $day );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            $res = $query->Execute();
+            
+            $arr = array();
+            while( $row = $res->FetchArray() ) {
+                $arr[] = array( $row[ 'profile_userid' ], $row[ 'relation_userid' ] );
+            }
+            return $arr;
+        }
         public function Count() {
             $query = $this->mDb->Prepare(
                 'SELECT
@@ -354,17 +385,11 @@
             $event->Userid = $this->Id;
             $event->Save();
 
-            if ( !empty( $this->Profile->Email ) ) {
-                 // send registration e-mail
-                ob_start();
-                $subject = Element( 'user/email/welcome', $this );
-                $text = ob_get_clean();
-
-                Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
-                
-                //send validation e-mail
-                $this->Profile->ChangedEmail( "", $this->Name );
-            }
+            ob_start();
+            $link = $this->Profile->ChangedEmail( '', $this->Name );
+            $subject = Element( 'user/email/welcome', $this, $link );
+            $text = ob_get_clean();
+            Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
         }
         protected function OnUpdate() {
             $this->Profile->Save();
