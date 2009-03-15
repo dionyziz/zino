@@ -94,6 +94,7 @@ ZinoPlayer CSS
 	display:block;
 	float:left;
 	height:9px;
-	min-width:25px;
+	min-width:0px;
 	background:url('./playerArt/progress.jpg') repeat-x;
+	margin:1px 0px 0px 3px;
 }
