@@ -54,9 +54,10 @@
 					}
 
 					function togglePlayback() {
-						if (playing)
+						if (playing) {
 							player.sendEvent("PLAY","false");
 							playing = false;
+						}
 						else {
 							player.sendEvent("PLAY","true");
 							playing = true;
