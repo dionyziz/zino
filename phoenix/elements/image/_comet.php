@@ -4,9 +4,10 @@
             global $user, $page;
             
             ob_start();
-            ?>Comet.Init(<?php
+            /*?>Comet.Init(<?php
             echo $user->Id;
-            ?>);
+            ?>);*/
+            ?>
             Comet.Subscribe( 'frontpageimage', Frontpage.Image.OnImageArrival );
             <?php
             $page->AttachInlineScript( ob_get_clean() );
