@@ -237,9 +237,7 @@ var Frontpage = {
         }        
     },
     Image : {
-        OnImageArrival: function ( id ) {
-            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
-            alert( "new Image " + id );
+        OnImageArrival: function ( id ) {            alert( "new Image " + id );
         }
     }
 };
