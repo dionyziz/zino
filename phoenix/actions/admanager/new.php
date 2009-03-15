@@ -5,9 +5,7 @@
         global $libs;
         global $user;
         
-        if ( !$user->Exists() ) {
-            return; // TODO: This user may be logged out!
-        }
+        // this user may be logged out
         
         $title = $title->Get();
         $body = $body->Get();
