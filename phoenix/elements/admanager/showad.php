@@ -24,7 +24,7 @@
                     <a href="http://<?php
                     echo htmlspecialchars( $ad->Url );
                     ?>"><?php
-                    Element( 'image/view', $ad->Imageid, $ad->Image->Width, $ad->Image->Height, 
+                    Element( 'image/view', $ad->Imageid, $ad->Userid, $ad->Image->Width, $ad->Image->Height, 
                              IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
                     ?></a>
                     <p><a href="http://<?php
