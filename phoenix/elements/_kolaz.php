@@ -55,7 +55,7 @@
                 $owners[ $image->Id ] = $image->Userid;
             }  
             
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/kolaz.js', 'javascript', true );  
+            $page->AttachScript( 'http://static.zino.gr/js/kolaz.js', 'javascript', true );  
             
             ?><div id="progress">
                 <div id="percentage"></div>
