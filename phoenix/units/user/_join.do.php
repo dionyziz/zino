@@ -7,7 +7,6 @@
         $password = $password->Get();
         $email = $email->Get();
 
-        die( 'hahah' );
         if ( !User_Valid( $username ) ) {
             ?>alert( "Το όνομα χρήστη που επιλέξατε δεν είναι έγκυρο" );
             Join.username.focus();
