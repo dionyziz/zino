@@ -29,7 +29,7 @@
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
-						<div id="progress" style="width:10px;"></div><div id="progressEnd"></div>
+						<div id="progress" style="width:3px;"></div><div id="progressEnd"></div>
 					</div>
 				</div>
 				<ul id="playList">
@@ -50,9 +50,12 @@
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
+						player.addModelListener("TIME","progressBarHandler"); 
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
+						$("#progress").css("width","3px");
+						
 					}
 
 					function togglePlayback() {
@@ -69,6 +72,11 @@
 							$("#playButton").addClass("pause");
 						}
 					}
+
+					function progressBarHandler(duration, position) {
+						$("#progress").css("width", ( 250 * position ) / duration );						
+					}
+
 				</script>
 			</div>
 
