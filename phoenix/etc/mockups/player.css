@@ -105,7 +105,7 @@ ZinoPlayer CSS
 	float:left;
 	height:9px;
 	width:4px;
-	background:url('./playerArt/progressEnd.png') repeat-x;
+	background:url('./playerArt/progressEnd.jpg') repeat-x;
 	margin:1px 0px 0px 0px;
 	border:none;
 }
