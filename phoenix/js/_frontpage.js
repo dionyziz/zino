@@ -236,4 +236,11 @@ var Frontpage = {
             ++Frontpage.Shoutbox.Animating;
         }        
     }
+    
+    Image : {
+        OnImageArrival: function ( id ) {
+            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
+            alert( "new Image " + id );
+        }
+    }
 };

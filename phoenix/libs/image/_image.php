@@ -336,6 +336,7 @@
             global $libs;
 
             $libs->Load( 'event' );
+            $libs->Load( 'comet' );
 
             ++$this->User->Count->Images;
             $this->User->Count->Save();
@@ -355,7 +356,9 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Increment( SEQUENCE_IMAGE );
+            Sequence_Increment( SEQUENCE_IMAGE );            
+                        
+            Comet_Publish( 'frontpageimage', $this->Id );
         }
         protected function OnDelete() {
             global $libs;
