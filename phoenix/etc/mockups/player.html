@@ -38,24 +38,9 @@
 					<li><a>Mogwai - Cody</a></li>
 					<li><a>God Is An Astronaut - All Is Violent, All Is Bright</a></li>
 				</ul>		
-				<p id="playerObject"></p>
 				
 				<script type='text/javascript' src='swfobject.js'></script>
-				<script type='text/javascript'>
-					alert(1);
-					var s1 = new SWFObject('./player.swf','player','400','300','9');
-					s1.addParam('allowfullscreen','true');
-					s1.addParam('allowscriptaccess','always');
-					s1.addParam('flashvars','file=./yes_i_am.mp3');
-					s1.write('playerObject');
-					alert(2);
-					var player;
-					function playerReady(obj) {
-						alert('the videoplayer '+obj['id']+' has been instantiated');
-						player = document.getElementById(obj['id']);
-					};
-					alert(3);
-				</script>
+				<embed id="playerObject" name="zinoPlayer" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="400" height="200" />
 			</div>
 
 			<div class="info">
