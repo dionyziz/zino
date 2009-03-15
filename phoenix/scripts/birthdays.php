@@ -1,15 +1,12 @@
 <?php
     set_include_path( '../:./' );
     
-    global $water;
     global $libs;
     global $page;
     
     require '../libs/rabbit/rabbit.php';
     
     Rabbit_Construct();
-    
-    $water->Enable(); // on for all
     
     header( 'Content-Type: text/html; charset=utf-8' );
     
