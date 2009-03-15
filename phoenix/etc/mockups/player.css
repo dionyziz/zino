@@ -89,3 +89,11 @@ ZinoPlayer CSS
 	height:11px;
 	background:url('./playerArt/progressbar.jpg') no-repeat;
 }
+
+#zinoPlayer #playerControls #progressBar #progress {
+	display:block;
+	float:left;
+	height:9px;
+	min-width:25px;
+	background:url('./playerArt/progress.jpg') repeat-x;
+}
