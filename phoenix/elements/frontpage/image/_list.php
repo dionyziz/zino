@@ -2,6 +2,8 @@
     class ElementFrontpageImageList extends Element {
         protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
+            global $user;
+        
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
             if ( count( $images ) > 0 ) {
