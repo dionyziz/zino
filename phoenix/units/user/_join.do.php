@@ -7,6 +7,7 @@
         $password = $password->Get();
         $email = $email->Get();
 
+        die( 'hahah' );
         if ( !User_Valid( $username ) ) {
             ?>alert( "Το όνομα χρήστη που επιλέξατε δεν είναι έγκυρο" );
             Join.username.focus();
@@ -35,7 +36,6 @@
             <?php
         }
         else {
-            die( 'hahah' );
 			$libs->Load( 'rabbddit/helpers/validate' );
             $newuser = New User();
             $newuser->Name = $username;
