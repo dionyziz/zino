@@ -181,9 +181,9 @@
                             else {
                                 ?>είχε γενέθλια πριν<?php
                                 echo $days;
-                                ?> μέρες <?php
+                                ?> μέρες<?php
                             }
-                            ?>. Έγινε <?php
+                            ?> Έγινε <?php
                             echo $notif->FromUser->Profile->Age;
                             ?> χρονών! <span class="emoticon-cake">.</span></p><?php
                             break;
