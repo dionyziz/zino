@@ -2,9 +2,11 @@
     class ElementUserSettingsEmailValidate extends Element {
         public function Render( tInteger $userid, tString $hash ) {
             global $libs;
+            global $user;
             
             $libs->Load( 'user/profile' );
             
+
             $userid = $userid->Get();
             $hash = $hash->Get();
             
@@ -14,7 +16,7 @@
                 return;
             }
             
-            return Redirect( '?validated=y' );
+            return Redirect( '?p=joined' );
         }
     }
 ?>
