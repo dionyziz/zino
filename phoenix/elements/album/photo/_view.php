@@ -378,11 +378,11 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 2 ) {
+                        if ( count( $favourites ) < 3 ) {
                             $size = count( $favourites );
                         }
                         else {
-                            $size = 1;
+                            $size = 2;
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php

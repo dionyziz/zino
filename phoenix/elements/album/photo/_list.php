@@ -1,5 +1,4 @@
 <?php
-
     class ElementAlbumPhotoList extends Element {
         public function Render( tInteger $id , tInteger $pageno, tText $subdomain, tText $url ) {
             global $page;
