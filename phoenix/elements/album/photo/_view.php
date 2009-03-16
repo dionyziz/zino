@@ -378,7 +378,7 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 8 ) {
+                        if ( count( $favourites ) < 2 ) {
                             $size = count( $favourites );
                         }
                         else {
