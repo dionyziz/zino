@@ -378,25 +378,32 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 5 ) {
-                            foreach( $favourites as $favourite ) {
-                                ?><div><?php
-                                if ( $favourite->User->Gender == 'f' ) {
-                                    ?>η <?php
-                                }
-                                else {
-                                    ?>ο <?php
-                                }
-                                Element( 'user/name', $favourite->User->Id, $favourite->User->Name, $favourite->User->Subdomain, true );
-                                if ( $i == count( $favourites ) -2 ) {
-                                    ?> και <?php
-                                }
-                                else if( $i < count( $favourites ) -2 ) {
-                                    ?>, <?php
-                                }
-                                ?></div><?php
-                                ++$i;
+                        if ( count( $favourites ) < 8 ) {
+                            $size = count( $favourites );
+                        }
+                        else {
+                            $size = 5;
+                        }
+                        for( $i = 0; $i < $size; ++$i ) {
+                            ?><div><?php
+                            if ( $favourites[ $i ]->User->Gender == 'f' ) {
+                                ?>η <?php
                             }
+                            else {
+                                ?>ο <?php
+                            }
+                            Element( 'user/name', $favourite[ $i ]->User->Id, $favourite[ $i ]->User->Name, $favourite[ $i ]->User->Subdomain, true );
+                            if ( $i == $size -2 ) {
+                                ?> και <?php
+                            }
+                            else if( $i < $size -2 ) {
+                                ?>, <?php
+                            }
+                            ?></div><?php
+                        }
+                        if ( $size != count( $favourites ) ) {
+                            echo count( $favourites ) - $size;
+                            ?> άλλοι<?
                         }
                         if ( count( $favourites ) == 1 ) {
                             ?> έχει<?php
