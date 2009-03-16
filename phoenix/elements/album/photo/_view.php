@@ -398,10 +398,7 @@
                                 ?></div><?php
                             }
                         }
-                        ?> έχουν τη φωτογραφία στα αγαπημένα.</div><?php
-                Element( 'ad/view', AD_PHOTO, $page->XMLStrict() );
-
-                ?>
+                        ?> έχουν τη φωτογραφία στα αγαπημένα.</div>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
