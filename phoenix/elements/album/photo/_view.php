@@ -388,7 +388,6 @@
                                     ?>ο <?php
                                 }
                                 Element( 'user/name', $favourite->User->Id, $favourite->User->Name, $favourite->User->Subdomain, true );
-                                ++$i;
                                 if ( $i == count( $favourites ) ) {
                                     ?> και <?php
                                 }
@@ -396,6 +395,7 @@
                                     ?>, <?php
                                 }
                                 ?></div><?php
+                                ++$i;
                             }
                         }
                         ?> έχουν τη φωτογραφία στα αγαπημένα.</div>
