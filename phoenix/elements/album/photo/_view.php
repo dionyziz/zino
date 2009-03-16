@@ -378,7 +378,7 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 5 ) {
+                        if ( count( $favourites ) < 4 ) {
                             $size = count( $favourites );
                         }
                         else {
@@ -386,7 +386,7 @@
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php
-                            if ( ( count( $favourites ) >= 5 ) && ( $i == $size - 1 ) ) {
+                            if ( ( count( $favourites ) >= 4 ) && ( $i == $size - 1 ) ) {
                                 echo count( $favourites ) - $size;
                                 ?> άλλοι</div><?php
                                 break;
