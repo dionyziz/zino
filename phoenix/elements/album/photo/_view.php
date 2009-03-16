@@ -392,7 +392,7 @@
                             else {
                                 ?>ο <?php
                             }
-                            Element( 'user/name', $favourite[ $i ]->User->Id, $favourite[ $i ]->User->Name, $favourite[ $i ]->User->Subdomain, true );
+                            Element( 'user/name', $favourites[ $i ]->User->Id, $favourites[ $i ]->User->Name, $favourites[ $i ]->User->Subdomain, true );
                             if ( $i == $size -2 ) {
                                 ?> και <?php
                             }
