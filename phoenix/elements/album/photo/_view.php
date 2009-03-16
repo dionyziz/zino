@@ -370,7 +370,7 @@
                     }
                     ?></div><?php
                 }
-                ?><div class="image_tags" <?php
+                ?><div class="image_tags favourited" <?php
                     $favouritefinder = New FavouriteFinder();
                     $favourites = $favouritefinder->FindByEntity( $image );
                     if ( count( $favourites ) == 0 ) {
