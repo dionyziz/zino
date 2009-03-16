@@ -378,15 +378,15 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 3 ) {
+                        if ( count( $favourites ) < 5 ) {
                             $size = count( $favourites );
                         }
                         else {
-                            $size = 2;
+                            $size = 3;
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php
-                            if ( ( count( $favourites ) >= 3 ) && ( $i == $size - 1 ) ) {
+                            if ( ( count( $favourites ) >= 5 ) && ( $i == $size - 1 ) ) {
                                 echo count( $favourites ) - $size;
                                 ?> άλλοι</div><?php
                                 break;
