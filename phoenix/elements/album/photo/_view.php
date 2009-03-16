@@ -388,7 +388,7 @@
                                     ?>ο <?php
                                 }
                                 Element( 'user/name', $favourite->User->Id, $favourite->User->Name, $favourite->User->Subdomain, true );
-                                if ( $i == count( $favourites ) ) {
+                                if ( $i == count( $favourites ) - 1 ) {
                                     ?> και <?php
                                 }
                                 else if( $i < count( $favourites ) - 1 ) {
