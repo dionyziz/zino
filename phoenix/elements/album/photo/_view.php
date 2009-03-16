@@ -388,7 +388,7 @@
                             ?><div><?php
                             if ( ( count( $favourites ) >= 3 ) && ( $i == $size - 1 ) ) {
                                 echo count( $favourites ) - $size;
-                                ?> άλλοι<?php
+                                ?> άλλοι</div><?php
                                 break;
                             }
                             if ( $favourites[ $i ]->User->Gender == 'f' ) {
