@@ -83,6 +83,9 @@ div.image_tags {
     margin-top: 10px;
     text-align: center;
 }
+div.image_tags:first-letter {
+    text-transform: capitalize;
+}
 div.image_tags div {
     display: inline;
 }
