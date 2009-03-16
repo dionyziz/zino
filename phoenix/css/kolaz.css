@@ -8,7 +8,7 @@ div.content {
     border : solid black 1px;    
 }
 #percentage {
-    background-color : green;
+    background-color : #0177b7;
     width:0px;
     height:50px;
 }
