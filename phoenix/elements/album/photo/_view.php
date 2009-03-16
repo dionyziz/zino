@@ -391,7 +391,7 @@
                                 if ( $i == count( $favourites ) ) {
                                     ?> και <?php
                                 }
-                                else {
+                                else if( $i < count( $favourites ) - 1 ) {
                                     ?>, <?php
                                 }
                                 ?></div><?php
