@@ -372,7 +372,7 @@
                 }
                 ?><div class="image_tags" <?php
                     $favouritefinder = New FavouriteFinder();
-                    $favourites = $favouritefinder->FindByEnity( $image );
+                    $favourites = $favouritefinder->FindByEntity( $image );
                     if ( count( $favourites ) == 0 ) {
                         ?>style="display:none"<?php
                     }
