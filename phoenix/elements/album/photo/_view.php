@@ -382,7 +382,7 @@
                             $size = count( $favourites );
                         }
                         else {
-                            $size = 3;
+                            $size = 4;
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php
