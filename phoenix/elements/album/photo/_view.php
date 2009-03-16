@@ -398,7 +398,13 @@
                                 ++$i;
                             }
                         }
-                        ?> έχουν τη φωτογραφία στα αγαπημένα.</div>
+                        if ( count( $favourites ) == 1 ) {
+                            ?> έχει<?php
+                        }
+                        else {
+                            ?> έχουν<?php
+                        }
+                        ?> τη φωτογραφία στα αγαπημένα.</div>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
