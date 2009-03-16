@@ -118,6 +118,7 @@
             'tos'               => 'about/tos/view',
             'ads'               => 'admanager/intro',
             'admanager/create'  => 'admanager/create',
+            'admanager/list'    => 'admanager/list',
             'contact'           => 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'watertest'         => 'developer/dionyziz/water',

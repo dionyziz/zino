@@ -4,6 +4,7 @@
             global $page;
             
             $page->AttachInlineScript( 'AdManager.Create.OnLoad();' );
+            $page->SetTitle( 'Διαφήμιση' );
             
             ?><div class="buyad">
                 <h2 class="ad smaller">Διαφήμιση στο Zino</h2>

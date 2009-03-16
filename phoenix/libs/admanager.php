@@ -22,6 +22,12 @@
             }
             return false;
         }
+        public function FindByUser( User $owner ) {
+            $ad = New Ad();
+            $ad->Userid = $owner->Id;
+            
+            return $this->FindByPrototype( $ad );
+        }
     }
     
     class Ad extends Satori {
