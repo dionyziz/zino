@@ -378,14 +378,19 @@
                     }
                     ?>><?php
                         $i = 0;
-                        if ( count( $favourites ) < 3 ) {
+                        if ( count( $favourites ) < 8 ) {
                             $size = count( $favourites );
                         }
                         else {
-                            $size = 2;
+                            $size = 5;
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php
+                            if ( ( count( $favourites ) >= 8 ) && ( $i == $size - 1 ) ) {
+                                echo count( $favourites ) - $size;
+                                ?> άλλοι<?php
+                                break;
+                            }
                             if ( $favourites[ $i ]->User->Gender == 'f' ) {
                                 ?>η <?php
                             }
@@ -393,17 +398,13 @@
                                 ?>ο <?php
                             }
                             Element( 'user/name', $favourites[ $i ]->User->Id, $favourites[ $i ]->User->Name, $favourites[ $i ]->User->Subdomain, true );
-                            if ( $i == $size -2 ) {
+                            if ( $i == $size -1 ) {
                                 ?> και <?php
                             }
                             else if( $i < $size -2 ) {
                                 ?>, <?php
                             }
                             ?></div><?php
-                        }
-                        if ( $size != count( $favourites ) ) {
-                            echo count( $favourites ) - $size;
-                            ?> άλλοι<?
                         }
                         if ( count( $favourites ) == 1 ) {
                             ?> έχει<?php
