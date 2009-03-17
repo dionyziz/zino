@@ -370,6 +370,10 @@
                     }
                     ?></div><?php
                 }
+                
+                Element( 'album/favouritedby' );
+                
+                /*
                 ?><div class="image_tags" <?php
                     $favouritefinder = New FavouriteFinder();
                     $favourites = $favouritefinder->FindByEntity( $image );
@@ -412,7 +416,7 @@
                         else {
                             ?> έχουν<?php
                         }
-                        ?> τη φωτογραφία στα αγαπημένα.</div>
+                        ?> τη φωτογραφία στα αγαπημένα.</div><?php */ ?>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
