@@ -1,6 +1,6 @@
 <?php
     class ElementAlbumPhotoFavouritedby extends Element {
-        public function Render ( tInteger $size ) {
+        public function Render (tInteger $id, tInteger $size ) {
             global $user;
             global $libs;
             global $water;
