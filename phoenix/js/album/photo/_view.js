@@ -48,7 +48,7 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function() {
-        $( 'div#pview div.image_tags:last' ).remove( 'div:last' );
+        $( 'div#pview div.image_tags:last' ).children( 'div:last' ).remove();
         
         return false;
     },
