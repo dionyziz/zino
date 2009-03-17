@@ -370,9 +370,9 @@
                     }
                     ?></div><?php
                 }
-                
+                ?><div class="image_tags"><?php
                 Element( 'album/photo/favouritedby', $id, 8 );
-                
+                ?></div><?php
                 /*
                 ?><div class="image_tags" <?php
                     $favouritefinder = New FavouriteFinder();
