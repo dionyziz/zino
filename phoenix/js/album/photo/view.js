@@ -47,6 +47,10 @@ var PhotoView = {
 		}
 		return false;
 	},
+    completeFav : function( photoid ) {
+        Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
+        return false;
+    },
 	renameFunc : function( elem, photoid, photoname, albumname ) {
 		var name = elem.value;
 		if ( photoname != name ) {

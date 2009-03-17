@@ -370,8 +370,9 @@
                     }
                     ?></div><?php
                 }
-                
-                ?>
+                ?><div class="image_tags"><?php
+                Element( 'album/photo/favouritedby', $id, 8 );
+                ?></div>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
