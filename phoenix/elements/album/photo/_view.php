@@ -384,8 +384,9 @@
                             $size = 6; //prints total 6 entries, 5 users and the "% more"
                         }
                         for( $i = 0; $i < $size; ++$i ) {
-                            ?><div><a><?php
+                            ?><div><?php
                             if ( ( count( $favourites ) > 8 ) && ( $i == $size - 1 ) ) {
+                                ?><a><?php
                                 echo count( $favourites ) - $size;
                                 ?> άλλοι</a></div><?php
                                 break;
