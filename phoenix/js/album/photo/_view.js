@@ -48,7 +48,7 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function() {
-        alert( itemid.photoid );
+        alert( photo );
         $( 'div#pview div.image_tags:last' ).html( "Ο ted και ο pagio91 έχουν τη φωτογραφία στα αγαπημένα." );
         return false;
     },
