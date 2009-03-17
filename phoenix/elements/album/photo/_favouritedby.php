@@ -11,7 +11,7 @@
             
             $favouritefinder = New FavouriteFinder();
             $favourites = $favouritefinder->FindByEntity( $image );
-            if ( count( favourites ) == 0 ) {
+            if ( count( $favourites ) == 0 ) {
                 return;
             }
             if ( ( count( $favourites ) <= $size ) || ( $size == -1 ) ) {
