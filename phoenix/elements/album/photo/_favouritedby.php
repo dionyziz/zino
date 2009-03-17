@@ -1,7 +1,7 @@
 <?php
     class ElementAlbumPhotoFavouritedby extends Element {
         public function Render ( tInteger $size ) {
-            ?><div class="image_tags" <?php
+          /*  ?><div class="image_tags" <?php
             $favouritefinder = New FavouriteFinder();
             $favourites = $favouritefinder->FindByEntity( $image );
             if ( count( $favourites ) == 0 ) {
@@ -43,7 +43,7 @@
                 else {
                     ?> έχουν<?php
                 }
-                ?> τη φωτογραφία στα αγαπημένα.</div><?php
+                ?> τη φωτογραφία στα αγαπημένα.</div><?php*/
         }
     }
 ?>
