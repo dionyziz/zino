@@ -48,8 +48,8 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function( photoid ) {
-        alert( photoid );
-        $( 'div#pview div.image_tags:last' ).html( "Ο ted και ο pagio91 έχουν τη φωτογραφία στα αγαπημένα." );
+        var favs = Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
+        $( 'div#pview div.image_tags:last' ).html( favs );
         return false;
     },
 	renameFunc : function( elem, photoid, photoname, albumname ) {
