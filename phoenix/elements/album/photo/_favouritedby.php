@@ -21,7 +21,7 @@
                 else {
                     $size = $size - 2; //prints total $size - 2 entries, $size - 3 users and the "% more"
                 }
-                for( $i = 0; $i < $size; ++$i ) {
+        /*        for( $i = 0; $i < $size; ++$i ) {
                     ?><div><?php
                     if ( ( count( $favourites ) > $size ) && ( $i == $size - 1 ) ) {
                         ?><a href="" onclick="return PhotoView.completeFav()"><?php
@@ -50,7 +50,7 @@
                 else {
                     ?> έχουν<?php
                 }
-                ?> τη φωτογραφία στα αγαπημένα.<?php
+                ?> τη φωτογραφία στα αγαπημένα.<?php*/
         }
     }
 ?>
