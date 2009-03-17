@@ -48,9 +48,9 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function( photoid ) {
-        var favs = Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
-        alert ( favs );
-        $( 'div#pview div.image_tags:last' ).html( favs );
+        $( 'div#pview div.image_tags:last' ).html( 
+        Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
+        );
         return false;
     },
 	renameFunc : function( elem, photoid, photoname, albumname ) {
