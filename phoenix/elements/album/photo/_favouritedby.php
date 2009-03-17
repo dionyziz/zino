@@ -4,7 +4,8 @@
             global $user;
             global $water;
             global $rabbit_settings;
-            
+            global $libs;
+            $libs->Load( 'favourite' );
             $image = New Image( $id );
             $theuser = $image->User;
             
