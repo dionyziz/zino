@@ -23,7 +23,7 @@
                     ?><a href="" onclick="return PhotoView.completeFav( <?php 
                         echo $id;
                     ?> )"><?php
-                    echo count( $favourites ) - $size;
+                    echo count( $favourites ) - $size + 1;
                     ?> άλλοι</a></div><?php
                     break;
                 }
