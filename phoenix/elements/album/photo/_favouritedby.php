@@ -8,7 +8,6 @@
             
             $libs->Load( 'favourite' );
             
-            $id = $id->Get();
             $image = New Image( $id );
             $theuser = $image->User;
             
