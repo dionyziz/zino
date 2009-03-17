@@ -2,11 +2,8 @@
     class ElementAlbumPhotoFavouritedby extends Element {
         public function Render (tInteger $id, tInteger $size ) {
             global $user;
-            global $libs;
             global $water;
             global $rabbit_settings;
-            
-            //$libs->Load( 'favourite' );
             
             $image = New Image( $id );
             $theuser = $image->User;

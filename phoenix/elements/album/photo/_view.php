@@ -371,7 +371,7 @@
                     ?></div><?php
                 }
                 
-                Element( 'album/photo/favouritedby', $id, 8 );
+                Element( 'album/photo/favouritedby', $id, 6 );
                 
                 /*
                 ?><div class="image_tags" <?php
