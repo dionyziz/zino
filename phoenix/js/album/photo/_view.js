@@ -49,7 +49,7 @@ var PhotoView = {
 	},
     completeFav : function( photoid ) {
         $( 'div#pview div.image_tags:last' ).html( 
-        Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
+        Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } )
         );
         return false;
     },
