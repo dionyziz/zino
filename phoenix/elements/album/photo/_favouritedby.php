@@ -1,6 +1,17 @@
 <?php
     class ElementAlbumPhotoFavouritedby extends Element {
         public function Render ( tInteger $size ) {
+            global $user;
+            global $libs;
+            global $water;
+            global $rabbit_settings;
+            
+            $libs->Load( 'favourite' );
+            
+            $id = $id->Get();
+            $image = New Image( $id );
+            $theuser = $image->User;
+            
             ?><div class="image_tags" <?php
             $favouritefinder = New FavouriteFinder();
             $favourites = $favouritefinder->FindByEntity( $image );
