@@ -48,7 +48,7 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function() {
-        $( div#pview div.image_tags:last ).remove( div:last );
+        $( 'div#pview div.image_tags:last' ).remove( 'div:last' );
     },
 	renameFunc : function( elem, photoid, photoname, albumname ) {
 		var name = elem.value;
