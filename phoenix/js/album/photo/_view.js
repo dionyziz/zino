@@ -48,10 +48,7 @@ var PhotoView = {
 		return false;
 	},
     completeFav : function( photoid ) {
-        alert( Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } ) );
-        $( 'div#pview div.image_tags:last' ).html( 
-        "asdf"
-        );
+        Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
         return false;
     },
 	renameFunc : function( elem, photoid, photoname, albumname ) {
