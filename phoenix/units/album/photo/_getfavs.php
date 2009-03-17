@@ -1,7 +1,8 @@
 <?php
     function UnitAlbumPhotoGetfavs( tInteger $id ) {
-        echo "test1";
+        $id = $id->Get();
+        ?>$( 'div#pview div.image_tags:last' ).html( <?php
         Element( 'album/photo/favouritedby', $id, -1 );
-        echo "test";
+        ?> ); <?php
     };
 ?>
