@@ -419,7 +419,7 @@ var Tag = {
 };
 $( function() {
         // Already Tagged people
-        $( 'div.image_tags div' ).each( function( i ) {
+        $( 'div.image_tags:first div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
                 Tag.already_tagged.push( username );
                 var a = $( this ).find( 'a:first' ).get( 0 );
@@ -442,7 +442,7 @@ $( function() {
                         };
                     } )( username );
             } );
-        $( 'div.image_tags div a.tag_del' ).click( function() {
+        $( 'div.image_tags:first div a.tag_del' ).click( function() {
 				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
