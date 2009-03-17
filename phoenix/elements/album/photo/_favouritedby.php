@@ -24,7 +24,7 @@
                 for( $i = 0; $i < $size; ++$i ) {
                     ?><div><?php
                     if ( ( count( $favourites ) > $size ) && ( $i == $size - 1 ) ) {
-                        ?><a href="" onclick="PhotoView.completeFav();"><?php
+                        ?><a href="" onclick="return PhotoView.completeFav()"><?php
                         echo count( $favourites ) - $size;
                         ?> άλλοι</a></div><?php
                         break;
