@@ -377,12 +377,11 @@
                         ?>style="display:none"<?php
                     }
                     ?>><?php
-                        $i = 0;
                         if ( count( $favourites ) <= 8 ) {
                             $size = count( $favourites );
                         }
                         else {
-                            $size = 6;
+                            $size = 6; //prints total 6 entries, 5 users and the "% more"
                         }
                         for( $i = 0; $i < $size; ++$i ) {
                             ?><div><?php
