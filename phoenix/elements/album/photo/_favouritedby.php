@@ -17,7 +17,7 @@
             if ( count( $favourites ) == 0 ) {
                 ?>style="display:none"<?php
             }
-            ?>><?php/*
+            ?>><?php
                 if ( ( count( $favourites ) <= $size ) || ( $size == -1 ) ) {
                     $size = count( $favourites );
                 }
@@ -53,7 +53,7 @@
                 else {
                     ?> έχουν<?php
                 }
-               */ ?> τη φωτογραφία στα αγαπημένα.</div><?php
+                ?> τη φωτογραφία στα αγαπημένα.</div><?php
         }
     }
 ?>
