@@ -170,3 +170,76 @@ div.ads div.ad img {
 div.ads div.ad p a {
     color: black;
 }
+
+div.buyad table {
+    background-color: #f7f7f7;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #789;
+    margin: 0 0 50px 0;
+}
+div.buyad table thead {
+    background-image: url( 'file:///C:/blue.jpg' );
+    background-repeat: repeat-x;
+    background-color: #567;
+    color: white;
+}
+div.buyad table thead tr th {
+    border-right: 1px solid transparent;
+}
+div.buyad table td, div.buyad table thead tr th {
+    padding: 5px;
+    text-align: left;
+}
+div.buyad table td {
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #ccc;
+}
+div.buyad table td.last {
+    border-right-style: none;
+}
+div.buyad table div.ads {
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table div.ad {
+    border-color: transparent;
+    background-color: white;
+    text-align: left;
+}
+div.buyad table div.ad p {
+    text-align: left;
+}
+div.buyad table tr.create {
+    background-color: white;
+}
+div.buyad table tr.create div {
+    margin: auto;
+    width: 300px;
+    display: block;
+    text-align: center;
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table tr.create div a {
+    padding: 5px 5px 5px 25px;
+    font-size: 110%;
+    font-weight: bold;
+    background: url( 'http://static.zino.gr/phoenix/add.png' ) 0 5px no-repeat;
+}
+div.buyad table a.edit {
+    display: block;
+    font-weight: bold;
+    margin: auto;
+    width: 100px;
+    text-align: center;
+}
+div.buyad table a.renew {
+    font-weight: bold;
+}
+div.buyad table td.soon {
+    font-weight: bold;
+}
+div.buyad table td.soon a {
+    color: red;
+}

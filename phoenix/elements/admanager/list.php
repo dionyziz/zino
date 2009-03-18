@@ -16,53 +16,55 @@
                 return Redirect( '?p=admanager/create' );
             }
             
-            ?><table class="manager">
-                <thead>
-                    <tr>
-                        <th>Διαφήμιση</th>
-                        <th>Target group</th>
-                        <th>Budget</th>
-                        <th>Προβολές που απομένουν</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr class="create">
-                        <td colspan="4" class="last">
-                            <div>
-                                <a href="">Δημιουργία νέας καμπάνιας</a>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-                <tbody><?php
-                foreach ( $ads as $ad ) {
-                    ?><tr>
-                        <td><?php
-                            Element( 'admanager/view', $ad );
-                            ?><a class="edit" href="">Επεξεργασία</a>
-                        </td>
-                        <td><?php
-                            // Αγόρια 13 - 19 ετών από Αθήνα
-                            // Χωρίς προτιμήσεις
-                            // Τουλάχιστον 16 ετών από Αθήνα, Θεσσαλονίκη, και Πάτρα
-                            // Γυναίκες κάτω των 32 ετών από Καρδίτσα και Τρίκαλα
-                        ?> - <a class="renew" href="">Αλλαγή</a></td>
-                        <td>3,520€</td>
-                        <td class="last<?php
-                        if ( false ) {
-                            ?> soon<?php
-                        }
-                        ?>"><?php
-                        // 176,000
-                        // Έχει εξαντληθεί
-                        // Ανενεργή: Αναμένεται πληρωμή
-                        ?> - <a class="renew" href="">Ανανέωση συνδρομής</a></td>
-                    </tr>
-                    <?php
-                }
-                ?>
-                </tbody>
-            </table><?php
+            ?><div class="buyad">
+                <table class="manager">
+                    <thead>
+                        <tr>
+                            <th>Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·</th>
+                            <th>Target group</th>
+                            <th>Budget</th>
+                            <th>Ξ ΟΞΏΞ²ΞΏΞ»Ξ­Ο‚ Ο€ΞΏΟ… Ξ±Ο€ΞΏΞΌΞ­Ξ½ΞΏΟ…Ξ½</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr class="create">
+                            <td colspan="4" class="last">
+                                <div>
+                                    <a href="">Ξ”Ξ·ΞΌΞΉΞΏΟ…ΟΞ³Ξ―Ξ± Ξ½Ξ­Ξ±Ο‚ ΞΊΞ±ΞΌΟ€Ξ¬Ξ½ΞΉΞ±Ο‚</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tbody><?php
+                    foreach ( $ads as $ad ) {
+                        ?><tr>
+                            <td><?php
+                                Element( 'admanager/view', $ad );
+                                ?><a class="edit" href="">Ξ•Ο€ΞµΞΎΞµΟΞ³Ξ±ΟƒΞ―Ξ±</a>
+                            </td>
+                            <td><?php
+                                // Ξ‘Ξ³ΟΟΞΉΞ± 13 - 19 ΞµΟ„ΟΞ½ Ξ±Ο€Ο Ξ‘ΞΈΞ®Ξ½Ξ±
+                                // Ξ§Ο‰ΟΞ―Ο‚ Ο€ΟΞΏΟ„ΞΉΞΌΞ®ΟƒΞµΞΉΟ‚
+                                // Ξ¤ΞΏΟ…Ξ»Ξ¬Ο‡ΞΉΟƒΟ„ΞΏΞ½ 16 ΞµΟ„ΟΞ½ Ξ±Ο€Ο Ξ‘ΞΈΞ®Ξ½Ξ±, ΞΞµΟƒΟƒΞ±Ξ»ΞΏΞ½Ξ―ΞΊΞ·, ΞΊΞ±ΞΉ Ξ Ξ¬Ο„ΟΞ±
+                                // Ξ“Ο…Ξ½Ξ±Ξ―ΞΊΞµΟ‚ ΞΊΞ¬Ο„Ο‰ Ο„Ο‰Ξ½ 32 ΞµΟ„ΟΞ½ Ξ±Ο€Ο ΞΞ±ΟΞ΄Ξ―Ο„ΟƒΞ± ΞΊΞ±ΞΉ Ξ¤ΟΞ―ΞΊΞ±Ξ»Ξ±
+                            ?> - <a class="renew" href="">Ξ‘Ξ»Ξ»Ξ±Ξ³Ξ®</a></td>
+                            <td>3,520β‚¬</td>
+                            <td class="last<?php
+                            if ( false ) {
+                                ?> soon<?php
+                            }
+                            ?>"><?php
+                            // 176,000
+                            // ΞΟ‡ΞµΞΉ ΞµΞΎΞ±Ξ½Ο„Ξ»Ξ·ΞΈΞµΞ―
+                            // Ξ‘Ξ½ΞµΞ½ΞµΟΞ³Ξ®: Ξ‘Ξ½Ξ±ΞΌΞ­Ξ½ΞµΟ„Ξ±ΞΉ Ο€Ξ»Ξ·ΟΟ‰ΞΌΞ®
+                            ?> - <a class="renew" href="">Ξ‘Ξ½Ξ±Ξ½Ξ­Ο‰ΟƒΞ· ΟƒΟ…Ξ½Ξ΄ΟΞΏΞΌΞ®Ο‚</a></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div><?php
         }
     }
 ?>
