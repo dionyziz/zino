@@ -2,6 +2,7 @@
     
     function UnitFavouritesAdd( tInteger $itemid , tInteger $typeid ) {
         global $libs;
+        global $user;
         
         $libs->Load( 'favourite' );
         
@@ -10,7 +11,7 @@
         $favourite->Typeid = $typeid->Get();
         //$favourite->Save();
         ?>alert( '<?php
-            Element( 'user/name', $favourite->User->Id, $favourite->User->Name, $favourite->User->Subdomain, true );
+            Element( 'user/name', $user->Id, $user->Name, $user->Subdomain, true );
         ?>' );<?php
     }
 ?>
