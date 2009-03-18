@@ -43,7 +43,7 @@ var PhotoView = {
 				.empty()
 				.fadeIn( 800 );
 			} );
-            alert( '<a href="http://' + GetUsername() + 'zino.gr/>' + GetUsername() + '</a>' );
+            alert( '<a href="http://' + GetUsername() + 'zino.gr/">' + GetUsername() + '</a>' );
 			//Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
 		}
 		return false;
