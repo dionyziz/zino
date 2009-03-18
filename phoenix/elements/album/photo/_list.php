@@ -143,6 +143,7 @@
                     $text .= 'ες';
                 }
                 $text .= ' )';
+                echo $text;
                 Element( 'pagify', $pageno, $link, $total_pages, $text );
 
                 ?></div>
