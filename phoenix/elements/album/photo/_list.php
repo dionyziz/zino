@@ -119,7 +119,7 @@
                 $link = '?p=album&id=' . $album->Id . '&pageno=';
                 $total_pages = ceil( $album->Numphotos / 20 );
                 $text = '( ' . $album->Numphotos . ' Φωτογραφί' ;
-                if ( $album->Numphotos() == 1 ) {
+                if ( $album->Numphotos == 1 ) {
                     $text .= 'α';
                 }
                 else {
