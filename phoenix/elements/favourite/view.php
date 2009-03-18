@@ -198,7 +198,7 @@
                     $text .= 'α';
                 }
                 $text .= ' )';
-                Element( 'pagify', $pageno, $link, $totalpages );
+                Element( 'pagify', $pageno, $link, $totalpages, $text );
             ?></div><?php
         }
     }
