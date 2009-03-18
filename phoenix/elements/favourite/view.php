@@ -190,7 +190,15 @@
                 }
                 $link .= "?pageno=";
                 $totalpages = ceil( $favourites->TotalCount() / $limit );
-                Element( 'pagify', $pageno, $link, $totalpages );
+                $text = '( ' . $favourites->TotalCount() . 'Αγαπημέν' ;
+                if ( $favourites->TotalCount() == 1 ) {
+                    $text .= 'ο';
+                }
+                else {
+                    $text .= 'α';
+                }
+                $text .= ' )';
+                Element( 'pagify', $pageno, $link, $totalpages, $text );
             ?></div><?php
         }
     }
