@@ -121,8 +121,8 @@ var Tag = {
         
         div.appendChild( a );
         
-		if ( $( 'div.image_tags' ).children().length !== 0 ) {
-			var las = $( 'div.image_tags div:last' ).get( 0 );
+		if ( $( 'div.image_tags:first' ).children().length !== 0 ) {
+			var las = $( 'div.image_tags:first div:last' ).get( 0 );
 			las.appendChild( document.createTextNode( ' και ' ) );
 			if ( $( las ).prevAll().length !== 0 ) {
 				las = $( las ).prev().get( 0 );
@@ -131,7 +131,7 @@ var Tag = {
 			}
 		}
 		
-        $( 'div.image_tags' ).get( 0 ).appendChild( div );
+        $( 'div.image_tags:first' ).get( 0 ).appendChild( div );
         
         // Add a place on the image where the user appears
         var divani = document.createElement( 'div' );
@@ -147,7 +147,7 @@ var Tag = {
         $( 'div.tanga' ).get( 0 ).appendChild( divani );
         
         // Show all the actual image tags    
-        $( 'div.image_tags' ).show();
+        $( 'div.image_tags:first' ).show();
         
         Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
                                              'username' : username,
@@ -318,7 +318,7 @@ var Tag = {
         Tag.already_tagged[ index ] = '';
         --count;
         if ( count === 0 ) {
-            $( 'div.image_tags' ).hide();
+            $( 'div.image_tags:first' ).hide();
         }
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
@@ -337,7 +337,7 @@ var Tag = {
             } );
         
         a.appendChild( document.createTextNode( " " ) ); // Space needed for CSS Spriting
-        $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
+        $( 'div.image_tags:first div:last' ).get( 0 ).appendChild( a );
         $( 'div.thephoto div.tanga div.tag:last' ).click( function() { document.location.href = "http://" + subdomain + ".zino.gr"; } );
         return false;
     },
