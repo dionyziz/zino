@@ -1,12 +1,29 @@
 <?php
     class ElementAlbumPhotoList extends Element {
-        public function Render( tInteger $id , tInteger $pageno ) {
+        public function Render( tInteger $id , tInteger $pageno, tText $subdomain, tText $url ) {
             global $page;
             global $user;
             global $rabbit_settings; 
             global $water;
-            
-            $album = New Album( $id->Get() );
+            global $libs;
+
+            $libs->Load( 'user/user' );
+            $libs->Load( 'album' );
+
+            Element( 'user/subdomainmatch' );
+
+            if ( $subdomain->Exists() && $url->Exists() ) {
+                $subdomain = $subdomain->Get();
+                $url = $url->Get();
+                $finder = New UserFinder();
+                $owner = $finder->FindBySubdomain( $subdomain );
+                $finder = New AlbumFinder();
+                $album = $finder->FindByUserAndUrl( $owner, $url );
+            }
+            else {
+                $album = New Album( $id->Get() );
+            }
+
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {
                 $pageno = 1;
@@ -33,7 +50,7 @@
                     return;
                 }
                 $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
+                $images = $finder->FindByAlbum( $album, ( $pageno - 1 ) * 20, 20 );
                 if ( $album->Ownertype == TYPE_USERPROFILE && $album->Id == $album->Owner->Egoalbumid ) {
                     if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
                         $page->SetTitle( $album->Owner->Name . " Φωτογραφίες" );
@@ -109,7 +126,7 @@
                 ?><ul><?php
                     foreach( $images as $image ) {
                         ?><li><?php
-                        Element( 'album/photo/small' , $image , false , true );
+                        Element( 'album/photo/small', $image, false, true );
                         ?></li><?php
                     }
                 ?></ul>
@@ -118,17 +135,9 @@
 
                 $link = '?p=album&id=' . $album->Id . '&pageno=';
                 $total_pages = ceil( $album->Numphotos / 20 );
-                $text = '( ' . $album->Numphotos . ' Φωτογραφί' ;
-                if ( $album->Numphotos == 1 ) {
-                    $text .= 'α';
-                }
-                else {
-                    $text .= 'ες';
-                }
-                $text .= ' )';
-                Element( 'pagify', $pageno, $link, $total_pages, $text );
                 ?></div>
                 </div><div class="eof"></div><?php
         }
     }
+
 ?>
