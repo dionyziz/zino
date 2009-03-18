@@ -94,10 +94,10 @@
                 $total_pages = ceil( $theuser->Count->Polls / 5 );
                 $text = '( ' . $theuser->Count->Polls;
                 if ( $theuser->Count->Polls == 1) {
-                    $text .= 'Δημοσκόπηση )';
+                    $text .= ' Δημοσκόπηση )';
                 }
                 else {
-                    $text .= 'Δημοσκοπήσεις )';
+                    $text .= ' Δημοσκοπήσεις )';
                 }
                 Element( 'pagify', $pageno, $link, $total_pages, $text );
                 ?></div>
