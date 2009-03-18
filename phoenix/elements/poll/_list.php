@@ -92,7 +92,14 @@
 
                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'polls?pageno=';
                 $total_pages = ceil( $theuser->Count->Polls / 5 );
-                Element( 'pagify', $pageno, $link, $total_pages, '( ' . $theuser->Count->Polls . 'Δημοσκοπήσεις )' );
+                $text = '( ' . $theuser->Count->Polls;
+                if ( $theuser->Count->Polls == 1) {
+                    $text .= 'Δημοσκόπηση )';
+                }
+                else {
+                    $text .= 'Δημοσκοπήσεις )';
+                }
+                Element( 'pagify', $pageno, $link, $total_pages, $text );
                 ?></div>
                 <div class="eof"></div>
             </div><?php
