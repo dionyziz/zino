@@ -126,7 +126,6 @@
                     $text .= 'ες';
                 }
                 $text .= ' )';
-                echo "test";
                 Element( 'pagify', $pageno, $link, $total_pages, $text );
                 ?></div>
                 </div><div class="eof"></div><?php
