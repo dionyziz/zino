@@ -11,7 +11,7 @@
         $favourite->Typeid = $typeid->Get();
         $favourite->Save();
         ?>$( 'div#pview div.image_tags:last' ).html( '<?php
-        Element( 'album/photo/favouritedby', $id, -1 );
+        Element( 'album/photo/favouritedby', $itemid->Get(), -1 );
         ?> '); <?php
     }
 ?>
