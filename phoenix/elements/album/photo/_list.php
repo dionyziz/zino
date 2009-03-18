@@ -135,17 +135,6 @@
 
                 $link = '?p=album&id=' . $album->Id . '&pageno=';
                 $total_pages = ceil( $album->Numphotos / 20 );
-                $text = '( ' . $album->Numphotos . ' Φωτογραφί' ;
-                if ( $favourites->TotalCount() == 1 ) {
-                    $text .= 'α';
-                }
-                else {
-                    $text .= 'ες';
-                }
-                $text .= ' )';
-                echo "test";
-                Element( 'pagify', $pageno, $link, $total_pages, $text );
-
                 ?></div>
                 </div><div class="eof"></div><?php
         }
