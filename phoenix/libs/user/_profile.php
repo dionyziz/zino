@@ -259,9 +259,7 @@
                 $this->Emailvalidated = false;                
                 $this->Emailvalidationhash = GenerateRandomHash();
                 $this->Save();
-                
-                $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash;
-                
+                $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash . '&firsttime=true';
                 return $link;
             }
             if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false

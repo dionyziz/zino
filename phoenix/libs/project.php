@@ -157,6 +157,7 @@
             'meteor'            => 'developer/dionyziz/meteor',
             'kolaz'             => 'kolaz',
             'notvalidated'      => 'validation/page',
+			'revalidate'        => 'validation/resend',
             'test'              => 'test'
         );
     }
