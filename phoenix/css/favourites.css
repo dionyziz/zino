@@ -7,9 +7,10 @@ div#fav h2 {
 	margin: 0;
 	padding: 0;
 }
+/*
 div#fav div {
 	text-align: left;
-}
+}*/
 div#fav div.list {
 	width: 40%;
 	margin: 0 auto;
