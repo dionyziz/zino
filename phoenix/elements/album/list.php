@@ -89,7 +89,12 @@
             $link = ob_get_clean() . 'albums?pageno=';
             $total_albums = $theuser->Count->Albums;
             $total_pages = ceil( $total_albums / $limit );
-            Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_albums . " Albums )" );
+            $text = "( " . $total_albums . " Album";
+            if ( $total_albums > 1 ) {
+            $text .= "s";
+            }
+            $text .= " )";
+            Element( 'pagify', $pageno, $link, $total_pages, $text );
 
             ?></div><?php
         }
