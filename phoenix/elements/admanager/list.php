@@ -17,6 +17,7 @@
             }
             
             ?><div class="buyad">
+                <h2 class="ad">Έχετε 3 ενεργές διαφημιστικές καμπάνιες</h2>
                 <table class="manager">
                     <thead>
                         <tr>
