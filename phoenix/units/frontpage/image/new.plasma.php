@@ -11,10 +11,10 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( newli ).append( newlink ).hide();
-        $( 'div.plist ul' ).prepend( newli );
         var existnode = $( 'div.plist ul li a span img[alt="<?php
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
+        $( 'div.plist ul' ).prepend( newli );
         if ( existnode ) {
             //alert( 'removing same user photo' );
             $( existnode ).animate( {
