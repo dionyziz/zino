@@ -359,8 +359,8 @@
             Sequence_Increment( SEQUENCE_IMAGE );            
                         
             Comet_Publish( 'ImagesFrontpage', $this->Id, array(
-                'id' => $shout->User->Id, 
-                'name' => $shout->User->Name
+                'id' => $this->User->Id, 
+                'name' => $this->User->Name
             ) );
         }
         protected function OnDelete() {
