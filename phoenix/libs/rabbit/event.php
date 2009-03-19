@@ -54,6 +54,6 @@
         }
         $channel = implode( '', $channelparts );
         
-        Comet_Publish( $plain, $js );
+        Comet_Publish( $channel, $js );
     }
 ?>
