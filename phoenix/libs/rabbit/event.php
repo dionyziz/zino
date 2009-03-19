@@ -48,7 +48,13 @@
         call_user_func_array( $unitfunc, $args );
         $js = ob_get_clean();
 
-        die( 'About to send Javascript code through comet channel ' . $plain . ': ' . $js );
+        $channelparts = explode( '/', $which );
+        foreach ( $channelparts as $i => $value ) {
+            $channelparts[ $i ] = ucfirst( $value );
+        }
+        $channel = implode( '', $channelparts );
+        
+        die( 'About to send Javascript code through comet channel ' . $channel . ': ' . $js );
 
         Comet_Publish( $plain, $js );
     }
