@@ -164,7 +164,7 @@
     
     function Project_Events() {
         return array(
-            'ImageCreated' => 'album/photo/new'
+            'ImageCreated' => 'frontpage/image/new'
         );
     }
 ?>

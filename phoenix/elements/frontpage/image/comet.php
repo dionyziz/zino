@@ -4,7 +4,7 @@
             global $page;
             
             ob_start();
-            ?>Comet.Subscribe( 'ImagesFrontpage' , Frontpage.Image.OnImageUpload );<?php
+            ?>Comet.Subscribe( 'FrontpageImageNew' );<?php
             $page->AttachInlineScript( ob_get_clean() );
         }
     }
