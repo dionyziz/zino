@@ -20,11 +20,9 @@ var Comet = {
     Process: function ( json ) {
         var obj = eval( json );
         var channel = obj.shift();
+        var code = obj.shift();
         
-        alert( channel );
-        alert( obj[ 0 ] );
-        
-        // eval( obj[ 0 ] );
+        eval( code );
     },
     Init: function ( uniq ) {
         Meteor.hostid = uniq;
