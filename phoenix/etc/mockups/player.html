@@ -29,7 +29,7 @@
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
-						<div id="progress"></div><div id="progressEnd"></div>
+						<div id="progress" onclick="seek(pageX)" ></div><div id="progressEnd"></div>
 					</div>
 				</div>
 				<ul id="playList">
@@ -47,9 +47,10 @@
 				<script type="text/javascript">
 					var playing = false;
 					var player = document.getElementById('playerObject');
-					$("#progressBar").click( function(e) {
-							alert( "Position: " + e.pageX );
-					});
+
+					function seek(position) {
+						alert(position);
+					}
 
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
