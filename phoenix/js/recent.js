@@ -62,21 +62,24 @@ var Recent = {
         }
     },
     DisplayAvatar: function ( who, reverse, thought ) {
-        if ( who.avatar == 0 ) {
-            var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+        var avatar;
+        var speechurl;
+        
+        if ( who.avatar === 0 ) {
+            avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
         }
         else {
-            var avatar = 'http://images.zino.gr/media/' 
+            avatar = 'http://images.zino.gr/media/' 
                           + who.id 
                           + '/' + who.avatar + '/' 
                           + who.avatar + '_100.jpg';
         }
         var classes = 'who';
         if ( thought ) {
-            var speechurl = 'http://static.zino.gr/phoenix/thought.png';
+            speechurl = 'http://static.zino.gr/phoenix/thought.png';
         }
         else {
-            var speechurl = 'http://static.zino.gr/phoenix/speech.png';
+            speechurl = 'http://static.zino.gr/phoenix/speech.png';
         }
         
         if ( reverse ) {
@@ -110,6 +113,8 @@ var Recent = {
     DisplayEvent: function ( event ) {
         var div = document.createElement( 'div' );
         var reverse = Math.floor( Math.random() * 2 ) == 1? true: false;
+        var itemHTML;
+        var avatarurl;
         
         switch ( event.type ) {
             case 'Comment':
@@ -123,7 +128,7 @@ var Recent = {
             case 'Favourite':
                 switch ( event.target.type ) {
                     case 'Image':
-                        var itemHTML = 
+                        itemHTML = 
                             '<img src="http://images.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
                                 + event.target.id + '_210.jpg" alt="&lt;3" width="'
@@ -131,7 +136,7 @@ var Recent = {
                                 + event.target.height + '" />';
                         break;
                     case 'Journal':
-                        var itemHTML = event.target.title;
+                        itemHTML = event.target.title;
                         break;
                 }
                 div.innerHTML = 
@@ -140,11 +145,11 @@ var Recent = {
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
                 break;
             case 'FriendRelation':
-                if ( event.target.avatar == 0 ) {
-                    var avatarurl = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                if ( event.target.avatar === 0 ) {
+                    avatarurl = 'http://static.zino.gr/phoenix/anonymous100.jpg';
                 }
                 else {
-                    var avatarurl = 'http://images.zino.gr/media/' 
+                    avatarurl = 'http://images.zino.gr/media/' 
                                   + event.target.id 
                                   + '/' + event.target.avatar + '/' 
                                   + event.target.avatar + '_150.jpg';

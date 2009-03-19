@@ -11,7 +11,7 @@ var iPhone = {
                 }
             } );
             tx.blur( function () {
-                if ( this.value != '' ) {
+                if ( this.value !== '' ) {
                     iPhone.Frontpage.ShoutboxHasValue = true;
                 }
                 else {

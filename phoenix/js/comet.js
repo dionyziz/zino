@@ -37,10 +37,8 @@ var Comet = {
         Meteor.mode = 'stream';
     },
     ChangeMode: function ( mode ) {
-        switch ( mode ) {
-            case 'poll': // don't allow polling
-                Meteor.disconnect();
-                break;
+        if ( mode == 'poll' ) { // don't allow polling
+            Meteor.disconnect();
         }
     }
 };

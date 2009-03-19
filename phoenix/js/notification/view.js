@@ -28,7 +28,7 @@ var Notification = {
             return;
         }
         --count;
-        if ( count == 0 ) {
+        if ( count === 0 ) {
             document.title = 'Zino';
         }
         else {

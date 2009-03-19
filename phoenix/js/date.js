@@ -99,12 +99,12 @@ function dateDiff( dateTimeBegin, dateTimeEnd ) {
 }
 
 function greekDateDiff( diff ) {
-    years = diff[ 'years' ];
-    months = diff[ 'months' ];
-    weeks = diff[ 'weeks' ];
-    days = diff[ 'days' ];
-    hours = diff[ 'hours' ];
-    minutes = diff[ 'minutes' ];
+    years = diff.years;
+    months = diff.months;
+    weeks = diff.weeks;
+    days = diff.days;
+    hours = diff.hours;
+    minutes = diff.minutes;
 
     if ( years ) {
         if ( years == 1 ) {

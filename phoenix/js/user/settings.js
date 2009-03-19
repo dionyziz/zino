@@ -30,7 +30,7 @@ var Settings = {
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 			else {
-				$( li ).removeClass( 'selected' )
+				$( li ).removeClass( 'selected' );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}

@@ -355,10 +355,11 @@ var Tag = {
     },
 	// displays conjucates and punctuation correctly
 	parseDel : function( par ) {
+        var neighbor;
 		var deksia = par.nextAll().length;
 		if ( deksia === 0 ) { // deleting last tag
 			if ( par.prevAll().length !== 0 ) { // there is some tag left to it
-				var neighbor = $( par ).prev().get( 0 );
+				neighbor = $( par ).prev().get( 0 );
 				neighbor.removeChild( neighbor.lastChild ); // remove "and" text
 				if ( $( neighbor ).prevAll().length !== 0 ) { // if there is something even lefter, append the text there
 					neighbor = neighbor.previousSibling;
@@ -368,7 +369,7 @@ var Tag = {
 			}
 		}
 		else if ( deksia === 1 && par.prevAll().length !== 0 ) {
-			var neighbor = par.prev().get( 0 );
+			neighbor = par.prev().get( 0 );
 			neighbor.removeChild( neighbor.lastChild );
 			neighbor.appendChild( document.createTextNode( " και " ) );
 		}

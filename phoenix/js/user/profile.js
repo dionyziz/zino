@@ -86,7 +86,7 @@ var Profile = {
         }, 200, 'swing', function() {
             $( '#antisocial div' ).html( '<strong>Έγινε προσθήκη</strong>' ).animate( {
                 opacity: 1
-            }, 200 )
+            }, 200 );
         } );
         this.AddFriend( userid );
         return false;
