@@ -69,7 +69,7 @@
                             <td><div class="ads"><?php
                                 Element( 'admanager/view', $ad );
                                 ?></div>
-                                <a class="edit" href="?p=admanager/create&adid=<?php
+                                <a class="edit" href="?p=admanager/create&amp;adid=<?php
                                 echo $ad->Id;
                                 ?>">Επεξεργασία</a>
                             </td>
