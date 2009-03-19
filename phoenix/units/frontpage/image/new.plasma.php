@@ -10,7 +10,7 @@
         Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        $( newli ).append( newlink ).style( "width" , "0" ).hide();
+        $( newli ).append( newlink ).css( "width" , "0" ).hide();
         var existnode = $( 'div.plist ul li a span img[alt="<?php
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
