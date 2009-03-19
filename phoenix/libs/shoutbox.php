@@ -120,6 +120,13 @@
             $user->Count->Save();
 
             Sequence_Increment( SEQUENCE_SHOUT );
+            
+            Comet_Publish( 'shoutbox', $this->Id, $this->Text, array(
+                'id' => $this->User->Id, 
+                'name' => $this->User->Name,
+                'avatar' => $this->User->Avatarid,
+                'subdomain' => $this->User->Subdomain
+            ) );
         }
         
         public function OnDelete() {
