@@ -34,7 +34,7 @@
                                 Element( 'user/url', $onuser->Id , $onuser->Subdomain );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>"><?php
-                                Element( 'user/avatar' , $onuser->Avatar->Id , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , '' , '' , false , 0 , 0 );
+                                Element( 'user/avatar' , $onuser->Avatar->Id , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , 'nolazy' , '' , false , 0 , 0 );
                                 ?></a><?php
                             }    
                         ?></div><?php
