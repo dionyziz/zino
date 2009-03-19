@@ -359,7 +359,7 @@
                      
             $libs->Load( 'rabbit/event' );
             
-            FireEvent( 'ImagesFrontpage', $this );
+            FireEvent( 'ImageCreated', $this );
         }
         protected function OnDelete() {
             global $libs;
