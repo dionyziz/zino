@@ -82,6 +82,7 @@
 	
 					$(document).ready( function() {
 						$("#progressBar").click( function(e) {
+							alert(e.pageX);
 							player.sendEvent("SEEK", Math.floor( ( e.pageX * currentDuration ) / 350 ) );
 						});
 					});
