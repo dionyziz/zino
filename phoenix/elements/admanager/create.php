@@ -70,7 +70,7 @@
                                 <span>http://</span>
                                 <input type="text" class="url" name="url" value="<?php
                                 if ( $adid ) {
-                                    echo htmlspecialchars( $ad->URL );
+                                    echo htmlspecialchars( $ad->Url );
                                 }
                                 ?>" />
                             </div>
