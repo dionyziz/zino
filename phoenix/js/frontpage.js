@@ -236,21 +236,6 @@ var Frontpage = {
             } );
             ++Frontpage.Shoutbox.Animating;
         }        
-    },
-    Image : {
-        OnImageUpload: function ( imageid , userinfo ) {           
-            var existnode = $( 'div.plist ul li a span img[alt="' + userinfo.name + '"]' ).parent().parent().parent()[0];
-            if ( existnode ) {
-                alert( 'removing same user photo' );
-                $( existnode ).remove();
-            }
-            else {
-                alert( 'removing last image' );
-                $( 'div.plist ul li:last-child' ).remove();
-            }
-            alert( "new Image " + imageid + " username is " + userinfo.name + " user id is " + userinfo.id );
-
-        }
     }
 };
 

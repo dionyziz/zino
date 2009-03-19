@@ -15,28 +15,28 @@
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
         $( 'div.plist ul' ).prepend( newli );
-        if ( existnode ) {
-            //alert( 'removing same user photo' );
-            $( existnode ).animate( {
-                    width: "0"
-                } , 800 , function() {
-                    $( this ).remove();
-                    $( newli ).animate( { 
-                        width: "102px"
-                    } );
+        $( newli ).animate( {
+            width: "102px"
+        } , 800 , function() {
+            if ( existnode ) {
+                //alert( 'removing same user photo' );
+                $( existnode ).animate( {
+                        width: "0",
+                        opacity: "0"
+                    } , 800 , function() {
+                        $( this ).remove();
                 } );
-        }
-        else {
-            //alert( 'removing last image' );
-            $( 'div.plist ul li:last-child' ).animate( {
-                    width: "0"
-                } , 800 , function() {
-                    $( this ).remove();
-                    $( newli ).animate( {
-                        width: "102px"
-                    } );
+            }
+            else {
+                //alert( 'removing last image' );
+                $( 'div.plist ul li:last-child' ).animate( {
+                        width: "0",
+                        opacity: "0"
+                    } , 800 , function() {
+                        $( this ).remove();
                 } );
-        }
+            }
+        } );
         <?php
         /*        
         ?>alert( 'image id: <?php
