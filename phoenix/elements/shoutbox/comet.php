@@ -5,7 +5,7 @@
             
             ob_start();
             ?>Comet.Init(<?php
-            echo $user->Id;
+            echo w_json_encode( SID );
             ?>);
             Comet.Subscribe( 'shoutbox', Frontpage.Shoutbox.OnMessageArrival );
             <?php
