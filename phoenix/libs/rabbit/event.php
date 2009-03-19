@@ -3,12 +3,13 @@
         global $water;
         global $libs;
         
+        die( 'About to fire event ' . $event );
+        
         $libs->Load( 'comet' );
         
         $args = func_get_args();
         w_assert( count( $args ), 'No event arguments given' );
         $event = array_pop( $args );
-        die( 'About to fire event ' . $event );
         
         if ( !function_exists( 'Project_Events' ) ) {
             return;
