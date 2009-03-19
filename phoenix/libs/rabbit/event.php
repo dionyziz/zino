@@ -1,6 +1,9 @@
 <?php
     function FireEvent( /* $event, $arg1, $arg2, ... */ ) {
         global $water;
+        global $libs;
+        
+        $libs->Load( 'comet' );
         
         $args = func_get_args();
         w_assert( count( $args ), 'No event arguments given' );
