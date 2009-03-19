@@ -35,12 +35,14 @@
             <?php
         }
         else {
+			die( 'At the start of unit' );
             $newuser = New User();
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
             $newuser->Profile->Email = $email;
             $newuser->Save();
+			die( 'At the bottom of unit' );
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
             ?>?p=notvalidated';<?php
