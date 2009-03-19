@@ -357,11 +357,10 @@
             $event->Save();
 
             Sequence_Increment( SEQUENCE_IMAGE );            
-                        
-            Comet_Publish( 'ImagesFrontpage', $this->Id, array(
-                'id' => $this->User->Id, 
-                'name' => $this->User->Name
-            ) );
+                     
+            $libs->Load( 'rabbit/event' );
+            
+            FireEvent( 'ImagesFrontpage', $this );
         }
         protected function OnDelete() {
             global $libs;
