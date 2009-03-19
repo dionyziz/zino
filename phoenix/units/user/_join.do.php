@@ -35,7 +35,6 @@
             <?php
         }
         else {
-			die( 'At the start of unit' );
             $newuser = New User();
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
