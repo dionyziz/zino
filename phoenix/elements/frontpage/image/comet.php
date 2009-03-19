@@ -1,5 +1,5 @@
 <?php
-    class ElementFrontpageImageComet {
+    class ElementFrontpageImageComet extends Element {
         public function Render() {
             global $page;
 
