@@ -23,7 +23,7 @@
                 $( existnode ).animate( {
                         width: "0",
                         opacity: "0"
-                    } , 800 , function() {
+                    } , 500 , function() {
                         $( this ).remove();
                 } );
             }
@@ -32,7 +32,7 @@
                 $( 'div.plist ul li:last-child' ).animate( {
                         width: "0",
                         opacity: "0"
-                    } , 800 , function() {
+                    } , 500 , function() {
                         $( this ).remove();
                 } );
             }
