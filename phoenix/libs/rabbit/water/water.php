@@ -117,6 +117,7 @@
         public function AppendProfile( $description, $start, $end, $callstack );
         public function AppendQuery( $description, $start, $end, $callstack );
         public function Post();
+        public function FormatCallstack( $callstack );
     }
 
     class WaterDummy implements WaterBase {
@@ -135,6 +136,7 @@
         public function AppendProfile( $description, $start, $end, $callstack ) {}
         public function AppendQuery( $description, $start, $end, $callstack ) {}
         public function Post() {}
+        public function FormatCallstack( $callstack ) {}
     }
 
     class Water implements WaterBase {
