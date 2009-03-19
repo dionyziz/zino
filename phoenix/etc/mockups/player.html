@@ -47,11 +47,8 @@
 				<script type="text/javascript">
 					var playing = false;
 					var player = document.getElementById('playerObject');
-					$(document).ready( function() {
-						// Seek function
-						$("#progressBar").click( function(e) {
+					$("#progressBar").click( function(e) {
 							alert( "Position: " + e.pageX );
-						}
 					});
 
 					function playSong( url ) {
