@@ -2,6 +2,8 @@
     function UnitUserJoin( tText $username , tText $password , tText $email ) {
         global $rabbit_settings;
         global $libs;
+		global $water;
+		$water->ExitWithoutSubmission();
 		
         $username = $username->Get();
         $password = $password->Get();
@@ -39,8 +41,6 @@
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
-						die( 'At the bottom of unit' );
-
             $newuser->Profile->Email = $email;
             $newuser->Save();
     		?>location.href = '<?php
