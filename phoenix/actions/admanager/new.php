@@ -1,6 +1,6 @@
 <?php
     function ActionAdManagerNew(
-        tText $title, tText $body, tFile $uploadimage, tText $url
+        tText $title, tText $body, tFile $uploadimage, tText $url, tInteger $adid
     ) {
         global $libs;
         global $user;
@@ -13,10 +13,24 @@
         $title = $title->Get();
         $body = $body->Get();
         $url = $url->Get();
+        $adid = $adid->Get();
         
         $libs->Load( 'admanager' );
         
-        $ad = New Ad();
+        if ( $adid ) {
+            $ad = New Ad( $adid );
+            if ( !$ad->Exists() ) {
+                ?>Η διαφήμιση που προσπαθείτε να επεξεργαστείτε δεν υπάρχει.<?php
+                return;
+            }
+            if ( $ad->Userid != $user->Id ) {
+                ?>Δεν μπορείτε να επεξεργαστείτε μία διαφήμιση που δεν σας ανήκει.<?php
+                return;
+            }
+        }
+        else {
+            $ad = New Ad();
+        }
         $ad->Title = $title;
         $ad->Body = $body;
         $ad->Url = $url;

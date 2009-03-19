@@ -13,6 +13,11 @@
             if ( $adid ) {
                 $ad = New Ad( $adid );
                 if ( !$ad->Exists() ) {
+                    ?>Η διαφήμιση που προσπαθείτε να επεξεργαστείτε δεν υπάρχει.<?php
+                    return;
+                }
+                if ( $ad->Userid != $user->Id ) {
+                    ?>Δεν μπορείτε να επεξεργαστείτε μία διαφήμιση που δεν σας ανήκει.<?php
                     return;
                 }
                 $page->SetTitle( 'Επεξεργασία διαφήμισης' );
@@ -61,6 +66,13 @@
                             
                             <div class="input">
                                 <label>Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label>
+                                <?php
+                                if ( $adid ) {
+                                    Element( 'image/view', $ad->Imageid, $ad->Userid, $ad->Image->Width, $ad->Image->Height, 
+                                             IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
+                                    ?>Αλλαγή εικόνας: <?php
+                                }
+                                ?>
                                 <input type="file" name="uploadimage" />
                             </div>
 
