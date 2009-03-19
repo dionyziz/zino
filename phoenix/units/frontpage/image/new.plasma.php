@@ -27,25 +27,7 @@
                         $( this ).remove();
                 } );
             }
-            else {
-                //alert( 'removing last image' );
-                $( 'div.plist ul li:last-child' ).animate( {
-                        width: "0",
-                        opacity: "0"
-                    } , 500 , function() {
-                        $( this ).remove();
-                } );
-            }
         } );
         <?php
-        /*        
-        ?>alert( 'image id: <?php
-        echo $image->Id;
-        ?>, userid: <?php
-        echo $image->User->Id;
-        ?>: <?php
-        echo $image->User->Name;
-        ?>' );<?php
-        */
     }
 ?>
