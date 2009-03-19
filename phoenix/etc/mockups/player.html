@@ -74,7 +74,7 @@
 
 					function progressBarHandler(obj) {
 						var progress = ( 250 * obj.position ) / obj.duration;
-						$("#progress").css("width", progress + "px" );
+						$("#progress").css("width", Math.round(progress) + "px" );
 					}
 
 				</script>
