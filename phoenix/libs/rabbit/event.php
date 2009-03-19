@@ -8,13 +8,14 @@
         $args = func_get_args();
         w_assert( count( $args ), 'No event arguments given' );
         $event = array_shift( $args );
-        die( 'About to fire event ' . $event );
         
         if ( !function_exists( 'Project_Events' ) ) {
+            die( 'Project_Events not found' );
             return;
         }
         $projectevents = Project_Events();
         if ( !isset( $projectevents[ $event ] ) ) {
+            die( 'Requested event not bound' );
             return;
         }
         
@@ -23,6 +24,8 @@
         
         $file = 'units/' . $which . '.plasma';
         
+        die( 'About to load unit ' . $file );
+
         ob_start();
         Rabbit_Include( $file );
         $output = ob_get_clean();
