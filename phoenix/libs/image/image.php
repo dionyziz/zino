@@ -336,7 +336,7 @@
             global $libs;
 
             $libs->Load( 'event' );
-
+            
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -355,7 +355,11 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Increment( SEQUENCE_IMAGE );
+            Sequence_Increment( SEQUENCE_IMAGE );            
+                     
+            $libs->Load( 'rabbit/event' );
+            
+            FireEvent( 'ImageCreated', $this );
         }
         protected function OnDelete() {
             global $libs;
