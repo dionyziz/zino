@@ -7,7 +7,7 @@
 		
 		ob_start();
 		$link = $user->Profile->ChangedEmail( '', $user->Name );
-		$subject = Element( 'user/email/welcome', $user, $link );
+		$subject = Element( '/email/validate', $link );
 		$text = ob_get_clean();
 		Email( $user->Name, $user->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
 		

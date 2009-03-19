@@ -26,9 +26,11 @@
             return Redirect( '?p=a' );
         }
         $validate = $user->Profile->Emailvalidated;
-        /*if ( !$validate ) {
+		$timecreated = strtotime( $user->Created );
+		$datecheck = strtotime( '2009-02-19 00:00:00');
+        if ( !$validate && $timecreated > $datecheck ) {
             return Redirect( '?p=notvalidated&userid=' . $user->Id  );
-        }*/
+        }
         // don't store the password for security reasons
         $loginattempt->Success = 'yes';
         $loginattempt->Save();
