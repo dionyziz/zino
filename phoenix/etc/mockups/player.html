@@ -52,11 +52,11 @@
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
+						$("#progress").css("width","3px");
+						player.addModelListener("TIME","progressBarHandler"); 
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
-						$("#progress").css("width","3px");
-						player.addModelListener("TIME","progressBarHandler"); 
 					}
 
 					function togglePlayback() {
@@ -82,7 +82,7 @@
 	
 					$(document).ready( function() {
 						$("#progressBar").click( function(e) {
-							player.sendEvent("SEEK", Math.floor( ( e.pageX * currentDuration ) / 350 ) - 100 );
+							player.sendEvent("SEEK", Math.floor( ( ( e.pageX - 100 ) * currentDuration ) / 350 ) );
 						});
 					});
 				</script>
