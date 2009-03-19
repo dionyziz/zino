@@ -47,14 +47,21 @@
 				<script type="text/javascript">
 					var playing = false;
 					var player = document.getElementById('playerObject');
+					$(document).ready( function() {
+						// Seek function
+						$("#progressBar").click( function(e) {
+							alert( "Position: " + e.pageX );
+						}
+					});
+
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
-						player.addModelListener("TIME","progressBarHandler"); 
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
 						$("#progress").css("width","3px");
+						player.addModelListener("TIME","progressBarHandler"); 
 					}
 
 					function togglePlayback() {
