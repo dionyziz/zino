@@ -77,6 +77,12 @@
 						var progressTime = ( 250 * obj.position ) / obj.duration;
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
 					}
+	
+					$(document).ready( function() {
+						$("#progress").click( function(e) {
+							alert(e.pageX);
+						});
+					});
 				</script>
 			</div>
 
