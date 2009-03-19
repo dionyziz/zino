@@ -164,7 +164,8 @@
     
     function Project_Events() {
         return array(
-            'ImageCreated' => 'frontpage/image/new'
+            'ImageCreated' => 'frontpage/image/new',
+            'ShoutboxCreated' => 'frontpage/shoutbox/new'
         );
     }
 ?>

@@ -121,6 +121,8 @@
 
             Sequence_Increment( SEQUENCE_SHOUT );
             
+            FireEvent( 'ShoutCreated', $this );
+            
             Comet_Publish( 'shoutbox', $this->Id, $this->Text, array(
                 'id' => $this->User->Id, 
                 'name' => $this->User->Name,

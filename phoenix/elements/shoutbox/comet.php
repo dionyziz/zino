@@ -7,7 +7,7 @@
             ?>Comet.Init(<?php
             echo w_json_encode( session_id() );
             ?>);
-            Comet.Subscribe( 'shoutbox', Frontpage.Shoutbox.OnMessageArrival );
+            Comet.Subscribe( 'FrontpageShoutboxNew' );
             <?php
             $page->AttachInlineScript( ob_get_clean() );
         }
