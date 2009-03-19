@@ -2,7 +2,7 @@
     function UnitFrontpageImageNew( Image $image ) {
         ?>var newli = document.createElement( 'li' );
         var newlink = document.createElement( 'a' );
-        newlink.attr( "href" , "?p=photo&id=<?php
+        $( newlink ).attr( "href" , "?p=photo&id=<?php
         echo $image->Id;
         ?>" );
         $( newlink ).html( <?php
