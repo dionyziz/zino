@@ -2,7 +2,7 @@
     function UnitFrontpageImageNew( Image $image ) {
         ?>var existnode = $( 'div.plist ul li a span img[alt="<?php
         echo $image->User->Name;
-        ?>"] ).parent().parent().parent()[0];
+        ?>"]' ).parent().parent().parent()[0];
         if ( existnode ) {
             alert( 'removing same user photo' );
             $( existnode ).remove();
