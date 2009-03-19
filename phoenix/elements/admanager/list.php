@@ -58,7 +58,7 @@
                         <tr class="create">
                             <td colspan="4" class="last">
                                 <div>
-                                    <a href="">Δημιουργία νέας καμπάνιας</a>
+                                    <a href="?p=admanager/create">Δημιουργία νέας καμπάνιας</a>
                                 </div>
                             </td>
                         </tr>
@@ -69,7 +69,9 @@
                             <td><div class="ads"><?php
                                 Element( 'admanager/view', $ad );
                                 ?></div>
-                                <a class="edit" href="">Επεξεργασία</a>
+                                <a class="edit" href="?p=admanager/create&adid=<?php
+                                echo $ad->Id;
+                                ?>">Επεξεργασία</a>
                             </td>
                             <td><?php
                                 $age = '';

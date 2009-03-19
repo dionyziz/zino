@@ -1,25 +1,62 @@
 <?php
     class ElementAdManagerCreate extends Element {
-        public function Render() {
+        public function Render( tInteger $adid ) {
             global $page;
+            global $libs;
+            
+            $libs->Load( 'admanager' );
+
+            $adid = $adid->Get();
             
             $page->AttachInlineScript( 'AdManager.Create.OnLoad();' );
-            $page->SetTitle( 'Διαφήμιση' );
+            
+            if ( $adid ) {
+                $ad = New Ad( $adid );
+                if ( !$ad->Exists() ) {
+                    return;
+                }
+                $page->SetTitle( 'Επεξεργασία διαφήμισης' );
+            }
+            else {
+                $page->SetTitle( 'Δημιουργία διαφήμισης' );
+            }
             
             ?><div class="buyad">
-                <h2 class="ad smaller">Διαφήμιση στο Zino</h2>
+                <h2 class="ad smaller"><?php
+                if ( $adid ) {
+                    ?>Επεξεργασία διαφήμισης<?php
+                }
+                else {
+                    ?>Διαφήμιση στο Zino<?php
+                }
+                ?></h2>
                 <div class="create">
                     <form action="do/admanager/new" method="post" enctype="multipart/form-data">
-                        <h3>Σχεδιάστε τη διαφήμισή σας</h3>
+                        <h3><?php
+                        if ( $adid ) {
+                            ?>Επεξεργαστείτε<?php
+                        }
+                        else {
+                            ?>Σχεδιάστε<?php
+                        }
+                        ?> τη διαφήμισή σας</h3>
                         <div class="left">
                             <div class="input">
                                 <label>Τίτλος:</label>
-                                <input type="text" name="title" />
+                                <input type="text" name="title" value="<?php
+                                if ( $adid ) {
+                                    echo htmlspecialchars( $ad->Title );
+                                }
+                                ?>" />
                             </div>
                             
                             <div class="input">
                                 <label>Κείμενο:</label>
-                                <textarea name="body"></textarea>
+                                <textarea name="body"><?php
+                                if ( $adid ) {
+                                    echo htmlspecialchars( $ad->Body );
+                                }
+                                ?></textarea>
                             </div>
                             
                             <div class="input">
@@ -31,7 +68,9 @@
                                 <label>Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
                                 
                                 <span>http://</span>
-                                <input type="text" class="url" name="url" />
+                                <input type="text" class="url" name="url" value="<?php
+                                echo htmlspecialchars( $ad->URL );
+                                ?>" />
                             </div>
                         </div>
                         <div class="right">
@@ -43,15 +82,42 @@
                         <h3 class="preview">Προεπισκόπηση</h3>
                         <div class="ads adspreview">
                             <div class="ad">
-                                <h4><a href="" onclick="return false">Φοιτητική ταυτότητα ISIC</a></h4>
-                                <a href="" onclick="return false"><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /></a>
-                                <p><a href="" onclick="return false">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
-                                   Βγάλε ISIC με 9 ευρώ!</a></p>
+                                <h4><a href="" onclick="return false"><?php
+                                if ( $adid ) {
+                                    echo htmlspecialchars( $ad->Title );
+                                }
+                                else {
+                                    ?>Παράδειγμα διαφήμισης<?php
+                                }
+                                ?></a></h4>
+                                <a href="" onclick="return false"><?php
+                                if ( $adid ) {
+                                    Element( 'image/view', $ad->Imageid, $ad->Userid, $ad->Image->Width, $ad->Image->Height, 
+                                             IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
+                                }
+                                else {
+                                    ?><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /><?php
+                                }
+                                ?></a>
+                                <p><a href="" onclick="return false"><?php
+                                if ( $adid ) {
+                                    echo htmlspecialchars( $ad->Body );
+                                }
+                                else {
+                                    ?>Αυτό είναι ένα παράδειγμα διαφήμισης. Στη θέση αυτή θα εμφανίζετε το κείμενό σας.<?php
+                                }
+                                ?></a></p>
                             </div>
                         </div>
 
                         <a href="" class="start" onclick="return false;">Αποθήκευση</a>
-                        
+                        <?php
+                        if ( $adid ) {
+                            ?><input type="hidden" value="<?php
+                            echo $adid;
+                            ?>" name="adid" /><?php
+                        }
+                        ?>
                         <input type="submit" class="submit" value="Αποθήκευση" />
                     </form>
                 </div>
