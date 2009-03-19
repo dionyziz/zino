@@ -39,9 +39,10 @@
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
+						die( 'At the bottom of unit' );
+
             $newuser->Profile->Email = $email;
             $newuser->Save();
-			die( 'At the bottom of unit' );
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
             ?>?p=notvalidated';<?php
