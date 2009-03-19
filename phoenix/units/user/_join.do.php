@@ -45,7 +45,7 @@
             $newuser->Save();
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
-            ?>?p=notvalidated&amp;userid=<?php
+            ?>?p=notvalidated&userid=<?php
 			echo $newuser->Id;
 			?>';<?php
         }
