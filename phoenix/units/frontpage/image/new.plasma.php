@@ -16,20 +16,20 @@
         ?>"]' ).parent().parent().parent();
         if ( existnode ) {
             //alert( 'removing same user photo' );
-            $( existnode ).fadeOut( 400 , function() {
+            $( existnode ).fadeOut( 800 , function() {
                     $( this ).remove();
                 } );
         }
         else {
             //alert( 'removing last image' );
-            $( 'div.plist ul li:last-child' ).fadeOut( 400 , function() {
+            $( 'div.plist ul li:last-child' ).fadeOut( 800 , function() {
                     $( this ).remove();
                 } );
         }
         $( 'div.plist ul' ).prepend( newli );
         $( newli ).animate( {
                 width: "102px"
-        } , 400 );
+        } , 800 );
         <?php
         /*        
         ?>alert( 'image id: <?php
