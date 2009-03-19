@@ -161,4 +161,10 @@
             'test'              => 'test'
         );
     }
+    
+    function Project_Events() {
+        return array(
+            'ImageCreated' => 'album/photo/new'
+        );
+    }
 ?>

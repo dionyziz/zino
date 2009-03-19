@@ -1,5 +1,4 @@
 var Comet = {
-    SubcriptionCallbacks: {},
     Connected: false,
     ConnectionTimer: 0,
     Connect: function () {
@@ -14,7 +13,7 @@ var Comet = {
             Meteor.connect();
         }, 100 );
     },
-    Subscribe: function ( channel, callback ) {
+    Subscribe: function ( channel ) {
         Comet.Connect();
         Comet.SubcriptionCallbacks[ channel ] = callback;
         Meteor.joinChannel( channel, 0 );
@@ -24,9 +23,7 @@ var Comet = {
         var channel = obj.shift();
         
         if ( typeof Comet.SubcriptionCallbacks[ channel ] == 'function' ) {
-            Comet.SubcriptionCallbacks[ channel ].apply( {
-                'Channel': channel
-            }, obj );
+            eval( obj[ 0 ] );
         }
     },
     Init: function ( uniq ) {

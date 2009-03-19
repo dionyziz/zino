@@ -113,7 +113,7 @@ var Meteor = {
 	getSubsUrl: function() {
 		var surl = "http://" + Meteor.host + ((Meteor.port==80)?"":":"+Meteor.port) + "/push/" + Meteor.hostid + "/" + Meteor.mode;
 		for (var c in Meteor.channels) {
-			surl += "/"+c;
+			surl += "/"+encodeURIComponent(c);
 			if (Meteor.channels[c].lastmsgreceived > 0) {
 				surl += ".r"+(Meteor.channels[c].lastmsgreceived+1);
 			} else if (Meteor.channels[c].backtrack > 0) {
