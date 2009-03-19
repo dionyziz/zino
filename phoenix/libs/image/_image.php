@@ -358,7 +358,10 @@
 
             Sequence_Increment( SEQUENCE_IMAGE );            
                         
-            /*Comet_Publish( 'frontpageimage', $this->Id );*/
+            Comet_Publish( 'images/frontpage', $this->Id, array(
+                'id' => $shout->User->Id, 
+                'name' => $shout->User->Name
+            ) );
         }
         protected function OnDelete() {
             global $libs;
