@@ -134,7 +134,7 @@ div.ads {
     margin: 0 0 0 10px;
     border-top: 1px solid #ccc;
 }
-div.ads div.ad {
+div.ad {
     width: 200px;
     border: 1px solid #ddd;
     padding: 5px;
@@ -242,4 +242,8 @@ div.buyad table td.soon {
 }
 div.buyad table td.soon a {
     color: red;
+}
+div.buyad h2.ad {
+    font-size: 150%;
+    margin: 20px;
 }

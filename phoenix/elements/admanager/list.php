@@ -17,13 +17,36 @@
             }
             
             ?><div class="buyad">
-                <h2 class="ad">Έχετε 3 ενεργές διαφημιστικές καμπάνιες</h2>
+                <h2 class="ad">Έχετε <?php
+                echo count( $ads );
+                ?> ενεργ<?php
+                if ( count( $ads ) == 1 ) {
+                    ?>ή<?php
+                }
+                else {
+                    ?>ές<?php
+                }
+                ?> διαφημιστικ<?php
+                if ( count( $ads ) == 1 ) {
+                    ?>ή<?php
+                }
+                else {
+                    ?>ές<?php
+                }
+                ?> καμπάνι<?php
+                if ( count( $ads ) == 1 ) {
+                    ?>α<?php
+                }
+                else {
+                    ?>ες<?php
+                }
+                ?></h2>
                 <table class="manager">
                     <thead>
                         <tr>
                             <th>Διαφήμιση</th>
                             <th>Target group</th>
-                            <th>Budget</th>
+                            <!-- <th>Budget</th> -->
                             <th>Προβολές που απομένουν</th>
                         </tr>
                     </thead>
@@ -39,9 +62,10 @@
                     <tbody><?php
                     foreach ( $ads as $ad ) {
                         ?><tr>
-                            <td><?php
+                            <td><div class="ads"><?php
                                 Element( 'admanager/view', $ad );
-                                ?><a class="edit" href="">Επεξεργασία</a>
+                                ?></div>
+                                <a class="edit" href="">Επεξεργασία</a>
                             </td>
                             <td><?php
                                 // Αγόρια 13 - 19 ετών από Αθήνα
@@ -49,7 +73,7 @@
                                 // Τουλάχιστον 16 ετών από Αθήνα, Θεσσαλονίκη, και Πάτρα
                                 // Γυναίκες κάτω των 32 ετών από Καρδίτσα και Τρίκαλα
                             ?> - <a class="renew" href="">Αλλαγή</a></td>
-                            <td>3,520€</td>
+                            <!-- <td>3,520€</td> -->
                             <td class="last<?php
                             if ( false ) {
                                 ?> soon<?php
