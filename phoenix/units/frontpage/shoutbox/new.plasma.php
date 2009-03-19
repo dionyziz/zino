@@ -1,6 +1,5 @@
 <?php
     function UnitFrontpageShoutboxNew( Shout $shout ) {
-        die( 'In UnitFrontpageShoutboxNew' );
         ?>Frontpage.Shoutbox.OnMessageArrival( <?php
         echo $shout->Id;
         ?>, <?php
