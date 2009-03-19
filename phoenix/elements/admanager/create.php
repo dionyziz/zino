@@ -3,6 +3,7 @@
         public function Render( tInteger $adid ) {
             global $page;
             global $libs;
+            global $user;
             
             $libs->Load( 'admanager' );
 
