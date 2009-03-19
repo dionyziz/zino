@@ -34,7 +34,7 @@
         global $xc_settings;
 
         w_assert( is_int( $userid ) );
-        w_assert( strlen( $authtoken ) == 32 );
+        w_assert( strlen( $authtoken ) == 32, 'Authtoken is not 32 characters long: ' . $authtoken );
         w_assert( preg_match( '#^[A-Za-z0-9]*$#', $authtoken ) );
 
         $eofw = 2147483646;

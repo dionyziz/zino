@@ -395,6 +395,11 @@
             $this->Profile->Save();
             $this->Preferences->Save();
         }
+        public function RenewAuthtokenIfNeeded() {
+            if ( empty( $this->Authtoken ) ) { // this shouldn't normally happen
+                $this->RenewAuthtoken();
+            }
+        }
         public function RenewAuthtoken() {
             // generate authtoken
             // first generate 16 random bytes

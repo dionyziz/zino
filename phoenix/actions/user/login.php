@@ -30,6 +30,7 @@
         $loginattempt->Save();
         // else...
         $user->UpdateLastLogin();
+        $user->RenewAuthtokenIfNeeded();
         $user->Save();
         $_SESSION[ 's_userid' ] = $user->Id;
         $_SESSION[ 's_authtoken' ] = $user->Authtoken;
