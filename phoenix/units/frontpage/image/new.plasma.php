@@ -16,17 +16,13 @@
         ?>"]' ).parent().parent().parent();
         if ( existnode ) {
             //alert( 'removing same user photo' );
-            $( existnode ).animate( {
-                    width: "0"
-                } , 400 , function() {
+            $( existnode ).fadeOut( 400 , function() {
                     $( this ).remove();
                 } );
         }
         else {
             //alert( 'removing last image' );
-            $( 'div.plist ul li:last-child' ).animate( {
-                    width: "0"
-                } , 400 , function() {
+            $( 'div.plist ul li:last-child' ).fadeOut( 400 , function() {
                     $( this ).remove();
                 } );
         }
