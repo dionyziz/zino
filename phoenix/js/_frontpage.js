@@ -238,7 +238,7 @@ var Frontpage = {
         }        
     },
     Image : {
-        OnImageArrival: function ( imageid , userinfo ) {           
+        OnImageUpload: function ( imageid , userinfo ) {           
             alert( "new Image " + imageid + " username is " + userinfo.name + " user id is " + userinfo.id );
 
         }
