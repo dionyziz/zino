@@ -48,8 +48,8 @@
                         ?> τη διαφήμισή σας</h3>
                         <div class="left">
                             <div class="input">
-                                <label>Τίτλος:</label>
-                                <input type="text" name="title" value="<?php
+                                <label for="adtitle">Τίτλος:</label>
+                                <input type="text" name="title" id="adtitle" value="<?php
                                 if ( $adid ) {
                                     echo htmlspecialchars( $ad->Title );
                                 }
@@ -57,8 +57,8 @@
                             </div>
                             
                             <div class="input">
-                                <label>Κείμενο:</label>
-                                <textarea name="body"><?php
+                                <label for="adbody">Κείμενο:</label>
+                                <textarea name="body" id="adbody"><?php
                                 if ( $adid ) {
                                     echo htmlspecialchars( $ad->Body );
                                 }
@@ -66,22 +66,25 @@
                             </div>
                             
                             <div class="input">
-                                <label>Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label>
                                 <?php
                                 if ( $adid ) {
+                                    ?><label>Εικόνα: </label><?php
                                     Element( 'image/view', $ad->Imageid, $ad->Userid, $ad->Image->Width, $ad->Image->Height, 
                                              IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
-                                    ?>Αλλαγή εικόνας: <?php
+                                    ?><label for="aduploadimage">Αλλαγή εικόνας: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label><?php
+                                }
+                                else {
+                                    ?><label for="aduploadimage">Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label><?php
                                 }
                                 ?>
-                                <input type="file" name="uploadimage" />
+                                <input type="file" name="uploadimage" id="aduploadimage" />
                             </div>
 
                             <div class="input url">
-                                <label>Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
+                                <label for="adurl">Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
                                 
                                 <span>http://</span>
-                                <input type="text" class="url" name="url" value="<?php
+                                <input type="text" class="url" name="url" id="adurl" value="<?php
                                 if ( $adid ) {
                                     echo htmlspecialchars( $ad->Url );
                                 }
