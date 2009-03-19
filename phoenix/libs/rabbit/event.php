@@ -10,12 +10,10 @@
         $event = array_shift( $args );
         
         if ( !function_exists( 'Project_Events' ) ) {
-            die( 'Project_Events not found' );
             return;
         }
         $projectevents = Project_Events();
         if ( !isset( $projectevents[ $event ] ) ) {
-            die( 'Requested event not bound' );
             return;
         }
         
@@ -24,8 +22,6 @@
         
         $file = 'units/' . $which . '.plasma';
         
-        die( 'About to load unit ' . $file );
-
         ob_start();
         Rabbit_Include( $file );
         $output = ob_get_clean();
@@ -51,6 +47,9 @@
         ob_start();
         call_user_func_array( $unitfunc, $args );
         $js = ob_get_clean();
+
+        die( 'About to send Javascript code through comet channel ' . $plain . ': ' . $js );
+
         Comet_Publish( $plain, $js );
     }
 ?>
