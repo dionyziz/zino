@@ -313,6 +313,9 @@
                 }
             }
         }
+        public function ExitWithoutSubmission() {
+            $this->mDataSent = true;
+        }
         public function Post() {
             $this->mDataSent = true;
 
