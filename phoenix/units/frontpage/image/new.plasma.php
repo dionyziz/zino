@@ -11,10 +11,6 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( newli ).append( newlink ).hide();
-        $( 'div.plist ul' ).prepend( newli );
-        $( newli ).animate( {
-                width: "102px"
-        } , 400 );
         var existnode = $( 'div.plist ul li a span img[alt="<?php
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
@@ -34,6 +30,10 @@
                     $( this ).remove();
                 } );
         }
+        $( 'div.plist ul' ).prepend( newli );
+        $( newli ).animate( {
+                width: "102px"
+        } , 400 );
         <?php
         /*        
         ?>alert( 'image id: <?php
