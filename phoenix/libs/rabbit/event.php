@@ -54,8 +54,6 @@
         }
         $channel = implode( '', $channelparts );
         
-        die( 'About to send Javascript code through comet channel ' . $channel . ': ' . $js );
-
         Comet_Publish( $plain, $js );
     }
 ?>
