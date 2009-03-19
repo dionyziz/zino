@@ -21,9 +21,7 @@ var Comet = {
         var obj = eval( json );
         var channel = obj.shift();
         
-        if ( typeof Comet.SubcriptionCallbacks[ channel ] == 'function' ) {
-            eval( obj[ 0 ] );
-        }
+        eval( obj[ 0 ] );
     },
     Init: function ( uniq ) {
         Meteor.hostid = uniq;
