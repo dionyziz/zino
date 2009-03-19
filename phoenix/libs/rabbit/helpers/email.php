@@ -20,6 +20,7 @@
 
         w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ) );
         w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ) );
+		w_assert( !empty( $toemail ), 'Recipient e-mail cannot be left empty' );
 		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
 		w_assert( ValidEmail( $fromemail ) );
 
