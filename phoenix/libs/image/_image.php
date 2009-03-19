@@ -335,8 +335,8 @@
         public function OnCreate() {
             global $libs;
 
-            $libs->Load( 'rabbit/event' );
-
+            $libs->Load( 'event' );
+            
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
