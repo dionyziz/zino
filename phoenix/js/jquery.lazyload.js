@@ -79,7 +79,7 @@
                             $(self)
                                 .hide()
                                 .attr("src", $(self).attr("original"))
-                                .attr("alt",$(self).attr("originalalt"))
+                                .attr("alt",$(self).attr("originalalt"));
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    
