@@ -26,9 +26,9 @@
             return Redirect( '?p=a' );
         }
         $validate = $user->Profile->Emailvalidated;
-        if ( !$validate ) {
+        /*if ( !$validate ) {
             return Redirect( '?p=notvalidated&userid=' . $user->Id  );
-        }
+        }*/
         // don't store the password for security reasons
         $loginattempt->Success = 'yes';
         $loginattempt->Save();

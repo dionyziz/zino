@@ -1,7 +1,7 @@
 <?php
     class ElementValidationResend extends Element {
         public function Render() {
-			?><p>Το e-mail στάλθηκε με επιτυχία.</p><?php
+			?><p>Ξ¤ΞΏ e-mail ΟƒΟ„Ξ¬Ξ»ΞΈΞ·ΞΊΞµ ΞΌΞµ ΞµΟ€ΞΉΟ„Ο…Ο‡Ξ―Ξ±</p><?php
 		}
 	}
 ?>
