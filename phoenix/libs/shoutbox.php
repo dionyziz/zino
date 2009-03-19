@@ -115,20 +115,16 @@
 
         public function OnCreate() {
             global $user;
+            global $libs;
             
             ++$user->Count->Shouts;
             $user->Count->Save();
 
             Sequence_Increment( SEQUENCE_SHOUT );
             
-            FireEvent( 'ShoutCreated', $this );
+            $libs->Load( 'rabbit/event' );
             
-            Comet_Publish( 'shoutbox', $this->Id, $this->Text, array(
-                'id' => $this->User->Id, 
-                'name' => $this->User->Name,
-                'avatar' => $this->User->Avatarid,
-                'subdomain' => $this->User->Subdomain
-            ) );
+            FireEvent( 'ShoutCreated', $this );
         }
         
         public function OnDelete() {
