@@ -74,12 +74,12 @@
                 if (!this.loaded) {
                     $("<img />")
                         .attr("src", $(self).attr("original"))
-                        .attr("alt", $(self).attr("originalalt"));
-			.bind("load", function() {
+                        .attr("alt", $(self).attr("originalalt"))
+	            		.bind("load", function() {
                             $(self)
                                 .hide()
                                 .attr("src", $(self).attr("original"))
-                                .attr("alt",$(self).attr("originalalt"));
+                                .attr("alt",$(self).attr("originalalt"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
                         });                    
