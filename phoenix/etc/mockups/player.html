@@ -45,12 +45,6 @@
 				<script type='text/javascript' src='swfobject.js'></script>
 				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
-					$(document).ready(function(){
-					$("#progressBar").click(function(e){
-						alert(e.pageX +', '+ e.pageY);
-					}); 
-					})
-
 					var playing = false;
 					var player = document.getElementById('playerObject');
 
@@ -83,6 +77,11 @@
 						var progress = ( 250 * obj.position ) / obj.duration;
 						$("#progress").css("width", Math.floor(progress) + "px" );
 					}
+					(document).ready(function(){
+						$("#progressBar").click(function(e){
+							alert(e.pageX +', '+ e.pageY);
+						}); 
+					})
 
 				</script>
 			</div>
