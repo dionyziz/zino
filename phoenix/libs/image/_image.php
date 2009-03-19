@@ -358,7 +358,7 @@
 
             Sequence_Increment( SEQUENCE_IMAGE );            
                         
-            Comet_Publish( 'images/frontpage', $this->Id, array(
+            Comet_Publish( 'ImagesFrontpage', $this->Id, array(
                 'id' => $shout->User->Id, 
                 'name' => $shout->User->Name
             ) );
