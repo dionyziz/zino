@@ -19,6 +19,10 @@
             return $ret;
         }
         public function FindByIds( $ids ) {
+            if ( empty( $ids ) ) {
+                return array();
+            }
+            
             $query = $this->mDb->Prepare(
                 'SELECT
                     *
