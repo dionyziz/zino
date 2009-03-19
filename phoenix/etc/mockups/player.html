@@ -47,6 +47,7 @@
 				<script type="text/javascript">
 					var playing = false;
 					var player = document.getElementById('playerObject');
+					var currentDuration;
 
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
@@ -74,13 +75,14 @@
 					}
 
 					function progressBarHandler(obj) {
+						currentDuration = obj.duration;
 						var progressTime = ( 250 * obj.position ) / obj.duration;
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
 					}
 	
 					$(document).ready( function() {
 						$("#progressBar").click( function(e) {
-							alert(e.pageX);
+							player.sendEvent("SEEK", Math.floor( ( e.pageX * currentDuration ) / 250 ) );
 						});
 					});
 				</script>
