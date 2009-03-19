@@ -122,7 +122,7 @@ var Frontpage = {
 
             var q = function () {
                 var submit = $( '#shoutbox_submit' )[ 0 ];
-                if ( $.trim( textarea[ 0 ].value ).length == 0 ) {
+                if ( $.trim( textarea[ 0 ].value ).length === 0 ) {
                     if ( !submit.disabled ) {
                         submit.disabled = true;
                     }
@@ -149,7 +149,7 @@ var Frontpage = {
                 }
             } ).blur( function () {
                 q();
-                if ( textarea[ 0 ].value == '' ) {
+                if ( textarea[ 0 ].value === '' ) {
                     textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
                     textarea[ 0 ].style.color = '#666';
                     Frontpage.Shoutbox.Changed = false;
@@ -166,16 +166,17 @@ var Frontpage = {
                 return;
             }
             
+            var avatar;
             var whodiv = document.createElement( 'div' );
             var text = document.createElement( 'div' );
             
             if ( who.avatar !== 0 ) {
-                var avatar = 'http://images.zino.gr/media/'
+                avatar = 'http://images.zino.gr/media/'
                                 + who.id + '/' + who.avatar + '/' + who.avatar 
                                 + '_100.jpg';
             }
             else {
-                var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
             }
             
             whodiv.className = 'who';
