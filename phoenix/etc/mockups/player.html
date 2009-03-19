@@ -29,7 +29,7 @@
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
-						<div id="progress" onclick="seek(pageX)" ></div><div id="progressEnd"></div>
+						<div id="progress"></div><div id="progressEnd"></div>
 					</div>
 				</div>
 				<ul id="playList">
@@ -45,12 +45,14 @@
 				<script type='text/javascript' src='swfobject.js'></script>
 				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
+					jQuery(document).ready(function(){
+					$("#progressBar").click(function(e){
+						alert(e.pageX +', '+ e.pageY);
+					}); 
+					})
+
 					var playing = false;
 					var player = document.getElementById('playerObject');
-
-					function seek(position) {
-						alert(position);
-					}
 
 					function playSong( url ) {
 						player.sendEvent("LOAD", url );
