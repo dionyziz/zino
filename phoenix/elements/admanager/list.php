@@ -110,13 +110,14 @@
                                     $location = 'από ' . $location;
                                 }
                                 
-                                $demographics = implode( ' ', array( $sex, $age, $location ) );
-                                
-                                if ( empty( $demographics ) ) {
+                                if ( empty( $age ) && empty( $sex ) && empty( $location ) ) {
                                     $demographics = 'Χωρίς προτιμήσεις';
                                 }
+                                else {
+                                    $demographics = ucfirst( implode( ' ', array( $sex, $age, $location ) ) );
+                                }
                                 
-                                echo htmlspecialchars( ucfirst( $demographics ) );
+                                echo htmlspecialchars( $demographics );
                             ?> - <a class="renew" href="" onclick="return false;">Αλλαγή</a></td>
                             <!-- <td>3,520€</td> -->
                             <td class="last<?php
