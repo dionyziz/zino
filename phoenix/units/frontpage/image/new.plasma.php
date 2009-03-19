@@ -17,7 +17,7 @@
         } , 400 );
         var existnode = $( 'div.plist ul li a span img[alt="<?php
         echo $image->User->Name;
-        ?>"]' ).parent().parent().parent();
+        ?>"]:last-child' ).parent().parent().parent();
         if ( existnode ) {
             alert( 'removing same user photo' );
             $( existnode ).animate( {
@@ -35,6 +35,7 @@
                 } );
         }
         <?php
+        /*        
         ?>alert( 'image id: <?php
         echo $image->Id;
         ?>, userid: <?php
@@ -42,5 +43,6 @@
         ?>: <?php
         echo $image->User->Name;
         ?>' );<?php
+        */
     }
 ?>
