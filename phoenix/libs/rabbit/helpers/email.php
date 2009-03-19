@@ -20,8 +20,8 @@
 
         w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ) );
         w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ) );
-        w_assert( ValidEmail( $toemail ) );
-        w_assert( ValidEmail( $fromemail ) );
+		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
+		w_assert( ValidEmail( $fromemail ) );
 
         $headers = "To: \"$toname\" <$toemail>\r\n"
                  . "From: \"$fromname\" <$fromemail>\r\n"
