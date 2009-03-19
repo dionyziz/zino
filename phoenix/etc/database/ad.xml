@@ -29,16 +29,16 @@
             <!-- more indexes needed? -->
         </table>
         <table name="adplaces"><!-- demographical; no entries for a particular ad means do not filter by place-->
-            <field name="ad_id" type="int" ref="ads.ad_id" />
-            <field name="ad_placeid" ref="places.place_id" type="int" ref="places.place_id" />
+            <field name="ap_adid" type="int" ref="ads.ad_id" />
+            <field name="ap_placeid" ref="places.place_id" type="int" />
             
             <index type="primary">
-                <indexfield>ad_id</indexfield>
-                <indexfield>ad_placeid</indexfield>
+                <indexfield>ap_adid</indexfield>
+                <indexfield>ap_placeid</indexfield>
             </index>
             
             <index type="index" name="BYLOCATION">
-                <indexfield>ad_placeid</indexfield>
+                <indexfield>ap_placeid</indexfield>
             </index>
         </table>
 	</database>

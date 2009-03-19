@@ -8,6 +8,30 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Name', 'ASC' ) );
         }
+        public function FindByAd( Ad $ad, $offset = 0, $limit = 10000 ) {
+            $adplacesfinder = New AdPlacesFinder();
+            $adplaces = $adplacesfinder->FindByAd( $ad );
+            $ret = array();
+            
+            foreach ( $adplaces as $adplace ) {
+                $ret[] = $adplace->Place;
+            }
+            return $ret;
+        }
+        public function FindByIds( $ids ) {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :places
+                WHERE
+                    `place_id` IN :placeids;'
+            );
+            $query->BindTable( 'places' );
+            $query->Bind( 'placeids', $ids );
+            
+            return $this->FindBySQLResource( $query->Execute() );
+        }
     }
     
     class Place extends Satori {

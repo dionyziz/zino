@@ -1,5 +1,49 @@
 <?php
+    /*
+        Developer: Dionyziz
+    */
+    
     class AdException extends Exception {
+    }
+    
+    class AdPlacesFinder extends Finder {
+        protected $mModel = 'AdPlace';
+        
+        public function FindByAd( Ad $ad ) {
+            $prototype = New AdPlace();
+            $prototype->Adid = $ad->Id;
+            
+            $ret = $this->FindByPrototype( $prototype );
+            $placeids = array();
+            foreach ( $ret as $adplace ) {
+                $placeids[] = $adplace->Placeid;
+            }
+            
+            $placefinder = New PlaceFinder();
+            $places = $placefinder->FindByIds( $placeids );
+            $placebyid = array();
+            foreach ( $places as $place ) {
+                $placebyid[ $place->Id ] = $place;
+            }
+            
+            foreach ( $ret as $i => $adplace ) {
+                $ret[ $i ]->CopyPlaceFrom( $placebyid[ $adplace->Placeid ] );
+            }
+            
+            return $ret;
+        }
+    }
+    
+    class AdPlace extends Satori {
+        protected $mDbTableAlias = 'adplaces';
+        
+        public function Relations() {
+            $this->Place = $this->HasOne( 'Place', 'Placeid' );
+            $this->Ad = $this->HasOne( 'Ad', 'Adid' );
+        }
+        public function CopyPlaceFrom( Place $value ) {
+            $this->mRelations[ 'place' ]->CopyFrom( $value );
+        }
     }
     
     class AdFinder extends Finder {
@@ -40,6 +84,7 @@
         }
         public function Relations() {
             $this->Image = $this->HasOne( 'Image', 'Imageid' );
+            $this->Places = $this->HasMany( 'PlaceFinder', 'FindByAd', $this );
         }
         public function WasShown() {
             if ( $this->Pageviewsremaining ) {

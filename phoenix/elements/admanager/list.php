@@ -1,4 +1,8 @@
 <?php
+    /* 
+        Developer: Dionyziz
+    */
+    
     class ElementAdManagerList extends Element {
         public function Render() {
             global $user;
@@ -68,21 +72,67 @@
                                 <a class="edit" href="">Επεξεργασία</a>
                             </td>
                             <td><?php
-                                // Αγόρια 13 - 19 ετών από Αθήνα
-                                // Χωρίς προτιμήσεις
-                                // Τουλάχιστον 16 ετών από Αθήνα, Θεσσαλονίκη, και Πάτρα
-                                // Γυναίκες κάτω των 32 ετών από Καρδίτσα και Τρίκαλα
-                            ?> - <a class="renew" href="">Αλλαγή</a></td>
+                                $age = '';
+                                if ( $ad->Minage > 0 && $ad->Maxage == 0 ) {
+                                    $age = 'τουλάχιστον ' . $ad->Minage . ' ετών';
+                                }
+                                else if ( $ad->Minage == 0 && $ad->Maxage > 0 ) {
+                                    $age = 'το πολύ ' . $ad->Maxage . ' ετών';
+                                }
+                                else if ( $ad->Minage > 0 && $ad->Maxage > 0 ) {
+                                    $age = $ad->Minage . ' - ' . $ad->Maxage . ' ετών';
+                                }
+                                
+                                $sex = '';
+                                if ( $ad->Sex == 1 ) {
+                                    $sex = 'άντρες';
+                                }
+                                else if ( $ad->Sex == 2 ) {
+                                    $sex = 'γυναίκες';
+                                }
+                                
+                                $location = '';
+                                $places = $ad->Places;
+                                if ( count( $places ) ) {
+                                    $placenames = array();
+                                    foreach ( $places as $place ) {
+                                        $placenames[] = $place->Nameaccusative;
+                                    }
+                                    if ( count( $placenames ) > 1 ) {
+                                        $placenames[] = 'και ' . array_pop( $placenames );
+                                    }
+                                    if ( count( $placenames ) == 2 ) {
+                                        $location = implode( ' ', $placenames );
+                                    }
+                                    else {
+                                        $location = implode( ', ', $placenames );
+                                    }
+                                    $location = 'από ' . $location;
+                                }
+                                
+                                $demographics = implode( ' ', array( $sex, $age, $location ) );
+                                
+                                if ( empty( $demographics ) ) {
+                                    $demographics = 'Χωρίς προτιμήσεις';
+                                }
+                                
+                                echo htmlspecialchars( ucfirst( $demographics ) );
+                            ?> - <a class="renew" href="" onclick="return false;">Αλλαγή</a></td>
                             <!-- <td>3,520€</td> -->
                             <td class="last<?php
-                            if ( false ) {
+                            if ( !$ad->Pageviewsremaining
+                                 || ( $ad->Dailypageviews && $ad->Pageviewsremaining / $ad->Dailypageviews <= 5 ) ) {
                                 ?> soon<?php
                             }
                             ?>"><?php
-                            // 176,000
-                            // Έχει εξαντληθεί
+                            if ( $ad->Pageviewsremaining ) {
+                                echo $ad->Pageviewsremaining;
+                            }
+                            else {
+                                ?>Έχει εξαντληθεί<?php
+                            }
                             // Ανενεργή: Αναμένεται πληρωμή
-                            ?> - <a class="renew" href="">Ανανέωση συνδρομής</a></td>
+                            ?> - <a class="renew" href="" onclick="return false;">Ανανέωση συνδρομής</a></td>
                         </tr>
                         <?php
                     }
