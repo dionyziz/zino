@@ -11,7 +11,7 @@ var Notification = {
 		return false;
 	},
 	Delete : function( eventid ) {
-		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
+		$( 'div#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
 			$( this ).remove();
 			if ( $( 'div.notifications div.list div.event' ).length === 0 ) {
 				$( 'div.notifications' ).remove();
