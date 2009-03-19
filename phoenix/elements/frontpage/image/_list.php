@@ -23,19 +23,18 @@
                 </ul>
                 </div><?php
             }
-        if ( $user->Exists() ) {
-            switch ( strtolower( $user->Name ) ) {
-                case 'dionyziz':
-                case 'pagio91':
-                case 'izual':
-                case 'petrosagg18':
-                case 'gatoni':
-                case 'ted':
-                case 'kostis90gr':
-                   ;/*Element( 'image/comet' );*/
+            if ( $user->Exists() ) {
+                switch ( strtolower( $user->Name ) ) {
+                    case 'dionyziz':
+                    case 'pagio91':
+                    case 'izual':
+                    case 'petrosagg18':
+                    case 'gatoni':
+                    case 'ted':
+                    case 'kostis90gr':
+                       Element( 'frontpage/image/comet' );
+                }
             }
-        }
-            
         }
     }
 ?>

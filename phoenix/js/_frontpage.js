@@ -237,7 +237,10 @@ var Frontpage = {
         }        
     },
     Image : {
-        OnImageArrival: function ( id ) {            alert( "new Image " + id );
+        OnImageArrival: function ( imageid , userinfo ) {           
+            alert( "new Image " + imageid + " username is " + userinfo.name + " user id is " + userinfo.id );
+
         }
     }
 };
+
