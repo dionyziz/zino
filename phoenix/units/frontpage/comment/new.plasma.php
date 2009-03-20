@@ -7,8 +7,7 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
-        var targetheight = newdiv.offsetHeight;
-        //$( newdiv ).show( 1200 );
+        var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
         newdiv.style.height = '0';
         $( newdiv ).css( 'opacity' , '0' ).animate( {
             height: targetheight,
