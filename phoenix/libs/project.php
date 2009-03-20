@@ -166,7 +166,8 @@
         return array(
             'ImageCreated' => 'frontpage/image/new',
             'CommentCreated' => 'frontpage/comment/new',
-            'ShoutCreated' => 'frontpage/shoutbox/new'
+            'ShoutCreated' => 'frontpage/shoutbox/new',
+            'ShoutTyping' => 'frontpage/shoutbox/typing'
         );
     }
 ?>

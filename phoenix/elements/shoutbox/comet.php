@@ -8,6 +8,7 @@
             echo w_json_encode( session_id() );
             ?>);
             Comet.Subscribe( 'FrontpageShoutboxNew' );
+            Comet.Subscribe( 'FrontpageShoutboxTyping' );
             <?php
             $page->AttachInlineScript( ob_get_clean() );
         }
