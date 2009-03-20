@@ -8,6 +8,8 @@
         ?> );
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
         var targetheight = newdiv.offsetHeight;
+        $( newdiv ).show( 1200 );
+        /*
         $( newdiv ).hide().css( {
             'height': '0',
             'opacity': '0'
@@ -15,6 +17,7 @@
             height: targetheight,
             opacity: "1"
         } , 500 , 'linear' );
+        */
         $( 'div.latest div.comments div.list>div:last-child' ).animate( {
             height: "0",
             opacity: "0"
