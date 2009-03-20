@@ -18,7 +18,7 @@ ZinoPlayer CSS
 	width:4px;
 	height:7px;
 	background:url('./playerArt/playing.gif') no-repeat;
-	margin: 3px 2px 0px 4px;
+	margin: 3px 4px 0px 4px;
 }
 
 #zinoPlayer #playerControls {
@@ -53,6 +53,7 @@ ZinoPlayer CSS
 	font-size:10px;
 	color:#4b6c7f;
 	text-indent:4px;
+	outline:none;
 }
 
 #zinoPlayer ul#playList li a.selected {
