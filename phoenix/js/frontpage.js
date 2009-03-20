@@ -224,16 +224,8 @@ var Frontpage = {
             }, 500, 'linear', function () {
                 $( comments[ i ] ).remove();
                 --Frontpage.Shoutbox.Animating;
-                $( '#shoutbox' ).css( {
-                    height: '',
-                    overflow: 'visible'
-                } );
             } );
             
-            $( '#shoutbox' ).css( {
-                height: $( '#shoutbox' ).offsetHeight + 'px',
-                overflow: 'hidden'
-            } );
             ++Frontpage.Shoutbox.Animating;
         }        
     }
