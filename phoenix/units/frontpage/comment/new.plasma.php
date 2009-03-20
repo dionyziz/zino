@@ -12,11 +12,11 @@
         $( newdiv ).css( 'opacity' , '0' ).animate( {
             height: targetheight,
             opacity: "1"
-        } , 500 , 'linear' );
+        } , 200 , 'linear' );
         $( 'div.latest div.comments div.list>div:last-child' ).animate( {
             height: "0",
             opacity: "0"
-        } , 500 , 'linear' , function() {
+        } , 200 , 'linear' , function() {
             $( this ).remove();
         } );<?php
     }
