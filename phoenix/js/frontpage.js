@@ -150,7 +150,7 @@ var Frontpage = {
                     clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout );
                 }
                 if ( Frontpage.Shoutbox.TypingUpdated ) {
-                    break;
+                    return;
                 }
                 Frontpage.Shoutbox.TypingUpdated = true;
                 setTimeout( function () {
