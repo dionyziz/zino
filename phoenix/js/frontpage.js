@@ -222,8 +222,15 @@ var Frontpage = {
                 }
             }
             
-            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )
-            .css( 'opacity', 0 ).animate( { 'opacity': 1 } )[ 0 ].innerHTML = typetext;
+            var typingdiv = $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' );
+            
+            if ( typetext === '' ) {
+                typingdiv.css( 'opacity', 1 ).animate( { 'opacity': 0 } );
+            }
+            else {
+                typingdiv.css( 'opacity', 0 ).animate( { 'opacity': 1 } );
+            }
+            typingdiv[ 0 ].innerHTML = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
