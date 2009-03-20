@@ -27,13 +27,14 @@
         }
         
         foreach ( $plasma as $which ) {
-            $file = 'units/' . $which . '.plasma';
-            PropagateToPlasma( $file );
+            PropagateToPlasma( $which );
         }
     }
     
-    function PropagateToPlasma( $file, $args ) {
+    function PropagateToPlasma( $which, $args ) {
         global $water;
+        
+        $file = 'units/' . $which . '.plasma';
         
         ob_start();
         Rabbit_Include( $file );
