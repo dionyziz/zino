@@ -67,7 +67,8 @@ div.newcomment, div.comments div.newcomment div.who {
 }
 div.newcomment div.text textarea {
 	color: black;
-	width: 90%;
+	width: 99%;
+    border: 1px solid #999;
 }
 div.newcomment div.bottom input {
 	font-size: 90%;
