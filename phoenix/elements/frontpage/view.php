@@ -178,6 +178,7 @@
                 case 'ted':
                 case 'kostis90gr':
                    Element( 'frontpage/image/comet' );
+                   Element( 'frontpage/comment/comet' );
             }
         }
         $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
