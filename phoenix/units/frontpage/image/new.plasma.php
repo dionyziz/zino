@@ -17,17 +17,14 @@
         $( 'div.plist ul' ).prepend( newli );
         $( newli ).animate( {
             width: "102px"
-        } , 800 , function() {
-            if ( existnode ) {
-                //alert( 'removing same user photo' );
-                $( existnode ).animate( {
-                        width: "0",
-                        opacity: "0"
-                    } , 500 , function() {
-                        $( this ).remove();
-                } );
-            }
-        } );
-        <?php
+        } , 800 );
+        if ( existnode ) {
+            $( existnode ).animate( {
+                    width: "0",
+                    opacity: "0"
+                } , 500 , function() {
+                    $( this ).remove();
+            } );
+        }<?php
     }
 ?>
