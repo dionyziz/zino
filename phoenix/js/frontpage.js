@@ -223,7 +223,7 @@ var Frontpage = {
             }
             
             $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )
-            .css( 'opacity', 0 ).animate( { 'opacity': 1 } ) )[ 0 ].innerHTML = typetext;
+            .css( 'opacity', 0 ).animate( { 'opacity': 1 } )[ 0 ].innerHTML = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
