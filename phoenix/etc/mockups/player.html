@@ -53,12 +53,8 @@
 					var currentDuration;
 
 					function playSong( url, song_id ) {
-						$("#playlist li a.selected").each( function() {
-							$(this).removeClass('selected');
-						});
-						$("#playlist li a.selected span.playing").each( function() {
-							$(this).removeClass('playing');
-						});
+						$("#playList li a.selected").removeClass('selected');
+						$("#playList li a.selected span.playing").removeClass('playing');
 						$("#" + song_id).addClass('selected');
 						$("#" + song_id + " span" ).addClass('playing');
 						player.sendEvent("LOAD", url );
