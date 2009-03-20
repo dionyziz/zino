@@ -4,6 +4,7 @@ div#shoutbox {
 div#shoutbox div.newcomment div.text input {
     border: 1px solid #999;
     width: 99%;
+    height: 49px;
 }
 div#shoutbox div.newcomment div.text {
     margin: 5px 3px 0 60px;

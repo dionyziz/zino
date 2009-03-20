@@ -73,11 +73,11 @@ var Frontpage = {
         Animating: 0,
         Changed: false,
         OnLoad: function () {
-            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text textarea' );
+            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text input#shoutbox_text' );
             
             $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
                 var list = $( 'div.frontpage div.inuser div#shoutbox div.comments' );
-                var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
+                var text = $( list ).find( 'div.newcomment div.text input' )[ 0 ].value;
                 if ( $.trim( text ) === '' || !Frontpage.Shoutbox.Changed ) {
                     alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
                     textarea[ 0 ].value = '';
