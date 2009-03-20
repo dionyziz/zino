@@ -2,7 +2,7 @@
     class ElementShoutboxReply extends Element {
         protected $mPersistent = array( 'userid' , 'useravatarid' );
         
-        public function Render( $userid , $useravatarid , $user ) {
+        public function Render( $userid, $useravatarid, $user ) {
             global $user;
             
             ?><div class="comment newcomment">
