@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<ul id="playList">
-					<li><a href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3')">pg.lost - Yes I Am.</a></li>
+					<li><a id="song_1" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_1')"><span></span>pg.lost - Yes I Am.</a></li>
 					<!--
 					<li><a>Peace Burial At Sea - Smash TV</a></li>
 					<li><a class="selected"><span class="playing"></span>Explosions In The Sky - Six Days At The Bottom Of The Ocean</a></li>
@@ -49,7 +49,9 @@
 					var player = document.getElementById('playerObject');
 					var currentDuration;
 
-					function playSong( url ) {
+					function playSong( url, song_id ) {
+						$("#" + song_id).addClass('selected');
+						$("#" + song_id + " span" ).addClass('playing');
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
 						$("#progress").css("width","3px");
