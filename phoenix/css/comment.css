@@ -1,14 +1,13 @@
 div.comment {
 	float: left;
 	clear: both;
-	margin: 5px 0 5px 0;
-	padding: 0 3px 3px 3px;
+	margin: 5px 0 5px 3px;
+	padding: 0 3px 3px 0px;
 	background: #fff repeat-x top;
     border-color: #dee;
 	width: 100%;
 }
 div.comment div.who {
-
 	border-top: 1px solid #ccc !important;
 	padding: 2px 0 2px 4px;
 	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
@@ -26,7 +25,7 @@ div.comment div.toolbox img {
 	vertical-align: text-bottom;
 }
 div.comment div.toolbox a {
-	background-image: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 1px -511px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
 	padding: 0 0 2px 12px;
 	margin-left: 5px;
 	/* A little hack for IE7 */
@@ -68,8 +67,7 @@ div.newcomment, div.comments div.newcomment div.who {
 }
 div.newcomment div.text textarea {
 	color: black;
-	width: 99%;
-    border: 1px solid #999;
+	width: 90%;
 }
 div.newcomment div.bottom input {
 	font-size: 90%;
