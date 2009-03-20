@@ -27,7 +27,7 @@
         }
         
         foreach ( $plasma as $which ) {
-            PropagateToPlasma( $which );
+            PropagateToPlasma( $which, $args );
         }
     }
     
