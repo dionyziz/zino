@@ -1,6 +1,5 @@
 <?php
     function FireEvent( /* $event, $arg1, $arg2, ... */ ) {
-        global $water;
         global $libs;
         
         $libs->Load( 'comet' );
@@ -18,9 +17,23 @@
         }
         
         $which = $projectevents[ $event ];
-        w_assert( is_string( $which ), 'Event target must be the string path of the plasma unit' );
         
-        $file = 'units/' . $which . '.plasma';
+        if ( is_string( $which ) ) {
+            $plasma = array( $which );
+        }
+        else {
+            w_assert( is_array( $which ), 'Event target must be a string or an array of strings of plasma unit paths' );
+            $plasma = $which;
+        }
+        
+        foreach ( $plasma as $which ) {
+            $file = 'units/' . $which . '.plasma';
+            PropagateToPlasma( $file );
+        }
+    }
+    
+    function PropagateToPlasma( $file, $args ) {
+        global $water;
         
         ob_start();
         Rabbit_Include( $file );
@@ -55,7 +68,25 @@
         $channel = implode( '', $channelparts );
         
         if ( $ret !== false ) {
-            Comet_Publish( $channel, $js );
+            if ( is_int( $ret ) || is_string( $ret ) ) {
+                $channels = array(
+                    $channel . ( string )$ret
+                );
+            }
+            else if ( is_array( $ret ) ) {
+                $channels = array();
+                foreach ( $ret as $specificity ) {
+                    w_assert( is_int( $specificity ) || is_string( $specificity ), 'Plasma specificity must be an array of strings and integers' );
+                    $channels[] = $channel . ( string )$specificity;
+                }
+            }
+            else { // no specificity
+                $channels = array( $channel );
+            }
+            
+            foreach ( $channels as $channel ) {
+                Comet_Publish( $channel, $js );
+            }
         }
     }
 ?>
