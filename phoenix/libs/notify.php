@@ -273,6 +273,13 @@
             // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
             return true;
         }
+        public function OnCreate() {
+            global $libs;
+            
+            $libs->Load( 'rabbit/event' );
+            
+            FireEvent( 'NotificationCreate', $this );
+        }
         public function Relations() {
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
             $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
