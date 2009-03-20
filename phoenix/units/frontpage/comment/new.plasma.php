@@ -8,7 +8,7 @@
         ?> );
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
         var targetheight = newdiv.offsetHeight;
-        alert( targetheight );
+        alert( $( 'div.latest div.comment div.list:first-child' )[0].offsetHeight );
         //$( newdiv ).show( 1200 );
         newdiv.style.height = '0';
         $( newdiv ).css( 'opacity' , '0' ).animate( {
