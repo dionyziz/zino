@@ -183,9 +183,16 @@ var Frontpage = {
             for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
                 var typist = Frontpage.Shoutbox.Typing[ i ];
                 if ( typist.name == who.name ) {
+                    clearTimeout( typist.timeout );
+                    Frontpage.Shoutbox.Typing[ i ].timeout = setTimeout( function () {
+                        Frontpage.Shoutbox.OnStopTyping( who );
+                    }, 20000 );
                     return;
                 }
             }
+            who.timeout = setTimeout( function () {
+                Frontpage.Shoutbox.OnStopTyping( who );
+            }, 20000 );
             Frontpage.Shoutbox.Typing.push( who );
             Frontpage.Shoutbox.UpdateTyping();
         },
@@ -246,13 +253,15 @@ var Frontpage = {
             }
             else {
                 typingdiv.css( 'opacity', 0 ).animate( { 'opacity': 1 } );
+                typingdiv[ 0 ].innerHTML = typetext;
             }
-            typingdiv[ 0 ].innerHTML = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
                 return;
             }
+            
+            Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
             
             var avatar;
             var whodiv = document.createElement( 'div' );
