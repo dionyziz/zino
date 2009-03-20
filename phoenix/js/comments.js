@@ -257,9 +257,14 @@ $( function() {
 					$( this ).find( 'div.bottom' )
 					.empty();
 				}
+                var lmargin = Comments.FindLeftPadding( this );
+                
+                $( this ).find( 'div.text' )
+                .css( 'margin-right' , lmargin + 'px' );
+                
 				$( this ).find( "div.toolbox span.time" )
                 .empty()
-                .css( 'margin-right' , Comments.FindLeftPadding( this ) + 'px' )
+                .css( 'margin-right' , lmargin + 'px' )
                 .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) ) )
                 .removeClass( 'invisible' );
 				if ( username ) {
