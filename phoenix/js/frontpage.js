@@ -178,7 +178,7 @@ var Frontpage = {
             for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
                 var typist = Frontpage.Shoutbox.Typing[ i ];
                 if ( typist.name == who.name ) {
-                    Shoutbox.Typing.splice( i, 1 );
+                    Frontpage.Shoutbox.Typing.splice( i, 1 );
                     found = true;
                     break;
                 }
