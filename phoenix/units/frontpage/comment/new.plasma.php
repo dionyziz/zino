@@ -7,17 +7,19 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
-        var height = newdiv.offsetHeight;
+        var targetheight = newdiv.offsetHeight;
         $( newdiv ).hide().css( {
-            'height': "0",
-            'opacity': "0"
+            'height': '0',
+            'opacity': '0'
         } ).animate( {
-            height: height,
+            height: targetheight,
             opacity: "1"
         } , 500 , 'linear' );
         $( 'div.latest div.comments div.list:last-child' ).animate( {
             height: "0",
             opacity: "0"
-        } , 500 , 'linear' );<?php
+        } , 500 , 'linear' , function() {
+            $( this ).remove();
+        } );<?php
     }
 ?>
