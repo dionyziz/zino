@@ -222,7 +222,7 @@ var Frontpage = {
                 }
             }
             
-            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )[ 0 ].innerText = typetext;
+            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )[ 0 ].innerHTML = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
