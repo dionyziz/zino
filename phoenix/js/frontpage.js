@@ -73,6 +73,8 @@ var Frontpage = {
         Animating: 0,
         Changed: false,
         Typing: [],
+        TypingUpdated: false,
+        TypingCancelTimeout: 0,
         OnLoad: function () {
             var textarea = $( 'div#shoutbox div.comments div.newcomment div.text input#shoutbox_text' );
             
@@ -143,6 +145,21 @@ var Frontpage = {
                 else {
                     q();
                 }
+            } ).keydown( function ( e ) {
+                if ( Frontpage.Shoutbox.TypingCancelTimeout != 0 ) {
+                    clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout );
+                }
+                if ( Frontpage.Shoutbox.TypingUpdated ) {
+                    break;
+                }
+                Frontpage.Shoutbox.TypingUpdated = true;
+                setTimeout( function () {
+                    Frontpage.Shoutbox.TypingUpdated = false;
+                }, 10000 );
+                Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
+                    Coala.Warm( 'shoutbox/typing', { 'typing': false } );
+                }, 10000 );
+                Coala.Warm( 'shoutbox/typing', { 'typing': true } );
             } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
