@@ -54,7 +54,7 @@
 
 					function playSong( url, song_id ) {
 						$("#playList li a.selected").removeClass('selected');
-						$("#playList li a.selected span.playing").removeClass('playing');
+						$("#playList li a span.playing").removeClass('playing');
 						$("#" + song_id).addClass('selected');
 						$("#" + song_id + " span" ).addClass('playing');
 						player.sendEvent("LOAD", url );
