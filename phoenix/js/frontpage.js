@@ -190,6 +190,8 @@ var Frontpage = {
                     // in case the typing user gets disconnected and is unable to send us a 
                     // "stopped typing" comet request, time it out after 20,000 milliseconds
                     // of no "started typing" comet requests
+                    // (also in case we receive the asynchronous "I'm typing" and "I've stopped typing"
+                    // requests in the wrong order -- very improbable but possible)
                     Frontpage.Shoutbox.Typing[ i ].timeout = setTimeout( function () {
                         Frontpage.Shoutbox.OnStopTyping( who );
                     }, 20000 );
