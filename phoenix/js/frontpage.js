@@ -149,15 +149,15 @@ var Frontpage = {
                 if ( Frontpage.Shoutbox.TypingCancelTimeout != 0 ) {
                     clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout );
                 }
+                Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
+                    Coala.Warm( 'shoutbox/typing', { 'typing': false } );
+                }, 10000 );
                 if ( Frontpage.Shoutbox.TypingUpdated ) {
                     return;
                 }
                 Frontpage.Shoutbox.TypingUpdated = true;
                 setTimeout( function () {
                     Frontpage.Shoutbox.TypingUpdated = false;
-                }, 10000 );
-                Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
-                    Coala.Warm( 'shoutbox/typing', { 'typing': false } );
                 }, 10000 );
                 Coala.Warm( 'shoutbox/typing', { 'typing': true } );
             } ).change( q ).focus( function() {
