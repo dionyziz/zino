@@ -163,7 +163,7 @@ var Frontpage = {
             textarea[ 0 ].disabled = false;
         },
         OnStartTyping: function ( who ) {
-            for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+            for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
                 var typist = Frontpage.Shoutbox.Typing[ i ];
                 if ( typist.name == who.name ) {
                     return;
@@ -175,7 +175,7 @@ var Frontpage = {
         OnStopTyping: function ( who ) {
             var found = false;
             
-            for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+            for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
                 var typist = Frontpage.Shoutbox.Typing[ i ];
                 if ( typist.name == who.name ) {
                     Shoutbox.Typing.splice( i, 1 );
@@ -199,7 +199,7 @@ var Frontpage = {
             
             if ( Frontpage.Shoutbox.Typing.length ) {
                 var typists = [];
-                for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+                for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
                     var typist = Frontpage.Shoutbox.Typing[ i ];
                     var text;
                     
