@@ -8,12 +8,12 @@
         ?> );
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
         var targetheight = newdiv.offsetHeight;
+        alert( targetheight );
         //$( newdiv ).show( 1200 );
         newdiv.style.height = '0';
-        $( newdiv ).css( 'opacity' , '0' )
-        .animate( {
+        $( newdiv ).css( 'opacity' , '0' ).animate( {
             height: targetheight,
-            opacity: 1
+            opacity: "1"
         } , 500 , 'linear' );
         $( 'div.latest div.comments div.list>div:last-child' ).animate( {
             height: "0",
