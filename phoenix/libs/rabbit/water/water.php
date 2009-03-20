@@ -118,6 +118,7 @@
         public function AppendQuery( $description, $start, $end, $callstack );
         public function Post();
         public function FormatCallstack( $callstack );
+        public function ExitWithoutSubmission();
     }
 
     class WaterDummy implements WaterBase {
@@ -137,6 +138,7 @@
         public function AppendQuery( $description, $start, $end, $callstack ) {}
         public function Post() {}
         public function FormatCallstack( $callstack ) {}
+        public function ExitWithoutSubmission() {}
     }
 
     class Water implements WaterBase {
