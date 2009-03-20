@@ -199,8 +199,10 @@
                 case 'kolstad':
                 case 'ronaldo7':
                 case 'morvena':
-                   Element( 'frontpage/image/comet' );
-                   Element( 'frontpage/comment/comet' );
+                case 'deathcore_queen':
+                    Element( 'shoutbox/comet' );
+                    Element( 'frontpage/image/comet' );
+                    Element( 'frontpage/comment/comet' );
             }
         }
         $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
