@@ -34,6 +34,9 @@
 				</div>
 				<ul id="playList">
 					<li><a id="song_1" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_1')"><span></span>pg.lost - Yes I Am.</a></li>
+					<li><a id="song_2" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_2')"><span></span>pg.lost - Yes I Am (Same as above)</a></li>
+					<li><a id="song_3" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_3')"><span></span>pg.lost - Yes I Am (Same here)</a></li>
+
 					<!--
 					<li><a>Peace Burial At Sea - Smash TV</a></li>
 					<li><a class="selected"><span class="playing"></span>Explosions In The Sky - Six Days At The Bottom Of The Ocean</a></li>
@@ -50,6 +53,8 @@
 					var currentDuration;
 
 					function playSong( url, song_id ) {
+						$("#playlist li a.selected").removeClass('selected');
+						$("#playlist li a.selected span.playing").removeClass('playing');
 						$("#" + song_id).addClass('selected');
 						$("#" + song_id + " span" ).addClass('playing');
 						player.sendEvent("LOAD", url );
