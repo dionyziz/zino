@@ -6,7 +6,6 @@
         Element( 'frontpage/comment/view' , $comment );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        $( 'div.latest div.comments div.list' ).prepend( newdiv );
-        alert( 'comment created' );<?php
+        $( 'div.latest div.comments div.list' ).prepend( newdiv );<?php
     }
 ?>
