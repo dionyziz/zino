@@ -16,7 +16,7 @@
                     <input id="shoutbox_text" disabled="disabled" value="" />
                 </div>
                 <div class="bottom">
-                    <div style="border: 1px solid green"></div>
+                    <div class="typing"></div>
                     <input id="shoutbox_submit" type="submit" value="Σχολίασε!" disabled="disabled" />
                 </div>
             </div><?php

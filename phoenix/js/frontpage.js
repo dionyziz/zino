@@ -72,6 +72,7 @@ var Frontpage = {
     Shoutbox: {
         Animating: 0,
         Changed: false,
+        Typing: [],
         OnLoad: function () {
             var textarea = $( 'div#shoutbox div.comments div.newcomment div.text input#shoutbox_text' );
             
@@ -160,6 +161,68 @@ var Frontpage = {
             } ).blur();
             
             textarea[ 0 ].disabled = false;
+        },
+        OnStartTyping: function ( who ) {
+            for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+                var typist = Frontpage.Shoutbox.Typing[ i ];
+                if ( typist.name == who.name ) {
+                    return;
+                }
+            }
+            Frontpage.Shoutbox.Typing.push( who );
+            Frontpage.Shoutbox.UpdateTyping();
+        },
+        OnStopTyping: function ( who ) {
+            var found = false;
+            
+            for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+                var typist = Frontpage.Shoutbox.Typing[ i ];
+                if ( typist.name == who.name ) {
+                    Shoutbox.Typing.splice( i, 1 );
+                    found = true;
+                    break;
+                }
+            }
+            if ( !found ) {
+                return;
+            }
+            Frontpage.Shoutbox.UpdateTyping();
+        },
+        UpdateTyping: function () {
+            var typetext = '';
+            
+            function ucfirst( str ) {
+                str += '';
+                var f = str.charAt( 0 ).toUpperCase();
+                return f + str.substr( 1 );
+            }
+            
+            if ( Frontpage.Shoutbox.Typing.length ) {
+                var typists = [];
+                for ( int i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+                    var typist = Frontpage.Shoutbox.Typing[ i ];
+                    var text;
+                    
+                    if ( typist.gender == 'f' ) {
+                        text = 'η ';
+                    }
+                    else {
+                        text = 'ο ';
+                    }
+                    text += typist.name;
+                    typists.push( text );
+                }
+                
+                if ( typists.length == 1 ) {
+                    typetext = ucfirst( typists.pop() ) + ' πληκτρολογεί';
+                }
+                else {
+                    typists.push( 'και ' + typists.pop() );
+                    typetext = ucfirst( typists.join( ', ' ) ) + ' πληκτρολογούν';
+                }
+            }
+            
+            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )[ 0 ].innerText = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
