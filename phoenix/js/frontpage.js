@@ -214,15 +214,16 @@ var Frontpage = {
                 }
                 
                 if ( typists.length == 1 ) {
-                    typetext = ucfirst( typists.pop() ) + ' πληκτρολογεί';
+                    typetext = ucfirst( typists.pop() ) + ' πληκτρολογεί...';
                 }
                 else {
                     typists.push( 'και ' + typists.pop() );
-                    typetext = ucfirst( typists.join( ', ' ) ) + ' πληκτρολογούν';
+                    typetext = ucfirst( typists.join( ', ' ) ) + ' πληκτρολογούν...';
                 }
             }
             
-            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )[ 0 ].innerHTML = typetext;
+            $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' )
+            .css( 'opacity', 0 ).animate( { 'opacity': 1 } ) )[ 0 ].innerHTML = typetext;
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
