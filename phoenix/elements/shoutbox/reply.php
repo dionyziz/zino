@@ -13,7 +13,7 @@
                     ?></a>
                 </div>
                 <div class="text">
-                    <textarea id="shoutbox_text" rows="2" cols="50" disabled="disabled"></textarea>
+                    <input id="shoutbox_text" disabled="disabled" value="" />
                 </div>
                 <div class="bottom">
                     <input id="shoutbox_submit" type="submit" value="Σχολίασε!" disabled="disabled" />
