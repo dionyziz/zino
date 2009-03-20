@@ -1,7 +1,6 @@
 <?php
     function UnitFrontpageCommentNew( Comment $comment ) {
-        ?>
-        var newdiv = document.createElement( 'div' );
+        ?>var newdiv = document.createElement( 'div' );
         $( newdiv ).html( <?php
         ob_start();
         Element( 'frontpage/comment/view.php' , $comment );
