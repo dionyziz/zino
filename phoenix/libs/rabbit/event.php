@@ -45,7 +45,7 @@
         }
         
         ob_start();
-        call_user_func_array( $unitfunc, $args );
+        $ret = call_user_func_array( $unitfunc, $args );
         $js = ob_get_clean();
 
         $channelparts = explode( '/', $which );
@@ -54,6 +54,8 @@
         }
         $channel = implode( '', $channelparts );
         
-        Comet_Publish( $channel, $js );
+        if ( $ret !== false ) {
+            Comet_Publish( $channel, $js );
+        }
     }
 ?>

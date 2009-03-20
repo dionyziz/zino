@@ -524,6 +524,10 @@
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
 
             Sequence_Increment( SEQUENCE_COMMENT );
+            
+            $libs->Load( 'rabbit/event' );
+            
+            FireEvent( 'CommentCreated', $this );
         }
         public function OnUpdate() {
             /* 
