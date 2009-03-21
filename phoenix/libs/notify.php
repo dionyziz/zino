@@ -278,7 +278,7 @@
             
             $libs->Load( 'rabbit/event' );
             
-            FireEvent( 'NotificationCreate', $this );
+            FireEvent( 'NotificationCreated', $this );
         }
         public function Relations() {
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
