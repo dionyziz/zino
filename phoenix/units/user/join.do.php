@@ -2,6 +2,8 @@
     function UnitUserJoin( tText $username , tText $password , tText $email ) {
         global $rabbit_settings;
         global $libs;
+		global $water;
+		$water->ExitWithoutSubmission();
 		
         $username = $username->Get();
         $password = $password->Get();
@@ -35,21 +37,17 @@
             <?php
         }
         else {
-			$libs->Load( 'rabbit/helpers/validate' );
             $newuser = New User();
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
-            if ( ValidEmail( $email )  ) {
-                $newuser->Profile->Email = $email;
-            }
-            $_SESSION[ 's_userid' ] = $newuser->Id;
-            $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
+            $newuser->Profile->Email = $email;
             $newuser->Save();
-            User_SetCookie( $newuser->Id, $newuser->Authtoken );
-			?>location.href = '<?php
+    		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
-			?>/?p=joined';<?php
+            ?>?p=notvalidated&userid=<?php
+			echo $newuser->Id;
+			?>';<?php
         }
     }
 ?>
