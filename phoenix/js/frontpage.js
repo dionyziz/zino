@@ -339,7 +339,7 @@ var Frontpage = {
         Queue : new Array(),
         ShowComment : function( node ) {
             Frontpage.Comment.Animating = true;
-            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 2000 );
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
