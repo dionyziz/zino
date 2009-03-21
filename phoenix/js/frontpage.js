@@ -73,6 +73,7 @@ var Frontpage = {
         } );
         $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
             Frontpage.Comment.MouseOver = true;
+            alert( 'move' );
             var onmousestop = function() {
                 Frontpage.Comment.MouseOver = false;
                 Frontpage.Comment.NextComment();
