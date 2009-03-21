@@ -167,7 +167,8 @@
             'ImageCreated' => 'frontpage/image/new',
             'CommentCreated' => 'frontpage/comment/new',
             'ShoutCreated' => 'frontpage/shoutbox/new',
-            'ShoutTyping' => 'frontpage/shoutbox/typing'
+            'ShoutTyping' => 'frontpage/shoutbox/typing',
+            'NotificationCreated' => 'frontpage/notification/new'
         );
     }
 ?>
