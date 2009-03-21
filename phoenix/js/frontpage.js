@@ -70,7 +70,7 @@ var Frontpage = {
         $( 'div.right div.latest div.comments' ).mouseover( function() {
             Frontpage.Comment.MouseOver = true;
         } );
-        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = (function() {
+        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
             var onmousestop = function() {
                 Frontpage.Comment.MouseOver = false;
                 Frontpage.Comment.NextComment();
@@ -79,7 +79,7 @@ var Frontpage = {
                 clearTimeout( thread );
                 thread = setTimeout( onmousestop , 2000 );
             };
-        })();
+        } )();
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
