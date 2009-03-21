@@ -7,6 +7,6 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         Frontpage.Comment.Queue.unshift( newdiv );
-        Frontpage.Comment.Queue.NextComment();<?php
+        Frontpage.Comment.NextComment();<?php
     }
 ?>
