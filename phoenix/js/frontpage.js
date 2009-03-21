@@ -386,7 +386,7 @@ var Frontpage = {
                 Frontpage.Comment.Queue.slice( 10 , Frontpage.Comment.Queue.length );
             }
             if ( Frontpage.Comment.MouseOver ) {
-                 timerval = 10000;   
+                 timerval = 8000;   
             }
             else {
                 if ( Frontpage.Comment.Queue.length <= 7 ) {
