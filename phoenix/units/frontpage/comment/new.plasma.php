@@ -6,7 +6,11 @@
         Element( 'frontpage/comment/view' , $comment );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        Frontpage.Comment.Queue.unshift( newdiv );
-        Frontpage.Comment.NextComment();<?php
+        if ( Frontpage.Comment.Animating ) {
+            Frontpage.Comment.Queue.unshift( newdiv );
+        }
+        else {
+            Frontpage.Comment.ShowComment( newdiv );
+        }<?php
     }
 ?>
