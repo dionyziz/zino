@@ -67,9 +67,12 @@ var Frontpage = {
 				return false;
 			} );  
         }
-        $( 'div.right div.latest div.comments' ).mouseover( function() {
+        $( 'div.right div.latest div.comments' ).mousemove( function() {
             Frontpage.Comment.MouseOver = true;
-        } );
+        } ).mouseout( function() {
+            Frontpage.Comment.MouseOver = false;
+            Frontpage.Comment.NextComment();
+        } );;
         $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
             var onmousestop = function() {
                 Frontpage.Comment.MouseOver = false;
