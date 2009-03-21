@@ -363,7 +363,7 @@ var Frontpage = {
         MouseOver : false,
         ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
-            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 );
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
@@ -382,14 +382,24 @@ var Frontpage = {
             if ( Frontpage.Comment.Queue.length == 0 ) {
                 return;
             }
-            if ( !Frontpage.Comment.MouseOver ) {
-                /*if ( Frontpage.Comment.Queue.length > 20 ) {
-                    
-                }
-                */
-                Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() );
+            if ( Frontpage.Comment.Queue.length > 20 ) {
+                Frontpage.Comment.Queue.slice( 10 , Frontpage.Comment.Queue.length );
             }
-            
+            if ( Frontpage.Comment.MouseOver ) {
+                 timerval = 10000;   
+            }
+            else {
+                if ( Frontpage.Comment.Queue.length <= 7 ) {
+                    timerval = 5000;
+                }
+                else if ( Frontpage.Comment.Queue.length <= 15 ) {
+                    timerval = 3000;
+                }
+                else {
+                    timerval = 2000;
+                }
+            }
+            Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() , timerval );
         }
     }
 };
