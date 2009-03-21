@@ -69,6 +69,7 @@ var Frontpage = {
         }
         $( 'div.right div.latest div.comments' ).mousemove( function() {
             Frontpage.Comment.MouseOver = true;
+
         } );
         $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
             var onmousestop = function() {
