@@ -1,5 +1,25 @@
 div.error {
-	background-color:blue;
+	background-image: url(http://static.zino.gr/phoenix/error.jpg);
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
 	width: 650px;
 	height: 400px;
+}
+
+div.error h2 {
+	color: #670000;
+	position: absolute;
+	top: 60px;
+	right: 100px;
+	width: 380px;
+	height: 40px;
+}
+
+div.error p {
+	position: absolute;
+	right: 100px;
+	top: 100px;
+	width: 380px;
+	height: 200px;
 }
