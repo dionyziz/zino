@@ -23,4 +23,9 @@ div.error p {
 	top: 100px;
 	width: 380px;
 	height: 200px;
+	text-align: justify;
+}
+
+div.error form {
+	margin-top: 20px;
 }
