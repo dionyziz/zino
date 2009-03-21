@@ -335,7 +335,32 @@ var Frontpage = {
         }        
     },
     Comment : {
-        Animating : false
+        Animating : false,
+        Queue : new Array(),
+        ShowComment : function( node ) {
+            Frontpage.Comment.Animating = true;
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 2000 );
+            $( 'div.latest div.comments div.list' ).prepend( node );
+            var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
+            node.style.height = '0';
+            $( node ).css( 'opacity' , '0' ).animate( {
+                height: targetheight,
+                opacity: "1"
+            } , 250 , 'linear' );
+            $( 'div.latest div.comments div.list>div:last-child' ).animate( {
+                height: "0",
+                opacity: "0"
+            } , 250 , 'linear' , function() {
+                $( this ).remove();
+            } );
+        },
+        NextComment : function() {
+            if ( Frontpage.Comment.Queue.length == 0 ) {
+                return;
+            }
+            Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() );
+        }
     }
 };
+
 
