@@ -382,9 +382,11 @@ var Frontpage = {
             if ( Frontpage.Comment.Queue.length == 0 ) {
                 return;
             }
+            /*
             if ( Frontpage.Comment.Queue.length > 20 ) {
                 Frontpage.Comment.Queue.slice( 10 , Frontpage.Comment.Queue.length );
             }
+            */
             if ( Frontpage.Comment.MouseOver ) {
                  timerval = 10000;   
             }
