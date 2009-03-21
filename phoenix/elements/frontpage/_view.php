@@ -210,7 +210,7 @@
                 case 'gatoni':
                 case 'ted':
                 case 'kostis90gr':
-                    Element( 'frontpage/notification/new' );
+                    Element( 'frontpage/notification/comet' );
             }
         }
         $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
