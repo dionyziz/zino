@@ -75,16 +75,6 @@ var Frontpage = {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
-        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
-            var onmousestop = function() {
-                Frontpage.Comment.MouseOver = false;
-                Frontpage.Comment.NextComment();
-            }, thread;
-            return function() {
-                clearTimeout( thread );
-                thread = setTimeout( onmousestop , 2000 );
-            };
-        } )();
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
