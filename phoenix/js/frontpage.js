@@ -67,11 +67,16 @@ var Frontpage = {
 				return false;
 			} );  
         }
+        $( 'div.right div.latest div.comments' ).mouseenter( function() {
+            Frontpage.Comment.MouseOver = true;
+        } ).mouseleave( function() {
+            Frontpage.Comment.MouseOver = false;
+            Frontpage.Comment.NextComment();
+        } );
         /*$( 'div.right div.latest div.comments' ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
-        */
         $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
             Frontpage.Comment.MouseOver = true;
             alert( 'move' );
@@ -84,6 +89,7 @@ var Frontpage = {
                 thread = setTimeout( onmousestop , 2000 );
             };
         })();
+        */
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
