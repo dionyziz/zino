@@ -199,6 +199,7 @@
                 case 'kolstad':
                 case 'ronaldo7':
                 case 'morvena':
+                case 'maryway':
                 case 'deathcore_queen':
                     Element( 'shoutbox/comet' );
                     Element( 'frontpage/image/comet' );
