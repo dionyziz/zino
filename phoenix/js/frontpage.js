@@ -69,12 +69,17 @@ var Frontpage = {
         }
         $( 'div.right div.latest div.comments' ).mouseover( function() {
             Frontpage.Comment.MouseOver = true;
-
         } );
-        $( 'div.right div.latest div.comments' ).mouseout( function() {
-            Frontpage.Comment.MouseOver = false;
-            Frontpage.Comment.NextComment();
-        } );
+        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
+            var onmousestop = function() {
+                Frontpage.Comment.MouseOver = false;
+                Frontpage.Comment.NextComment();
+            }, thread;
+            return function() {
+                clearTimeout( thread );
+                thread = setTimeout( onmousestop , 2000 );
+            };
+        })();
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
