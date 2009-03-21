@@ -12,7 +12,7 @@
     
         $_user = new User( $id );
         if( $_user->Exists() 
-            && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated ) ) {
+            && ( $_user->Profile->emailvalidationhash == $hash || $_user->Profile->emailvalidated == true ) ) {
             $_user->Profile->emailvalidated = true;
             $_user->Save();
             return true;
@@ -254,7 +254,14 @@
             global $water;
                         
             $libs->Load( 'rabbit/helpers/helpers' );
-       
+            
+            if ( $previousEmail == '' ) {
+                $this->Emailvalidated = false;                
+                $this->Emailvalidationhash = GenerateRandomHash();
+                $this->Save();
+                $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash . '&firsttime=true';
+                return $link;
+            }
             if ( $previousEmail != $this->Email ) {// Sent validation email,set new mail,and set email-validation false
                 if ( $this->Email != "" ) {
                     //$this->Email = $email;
