@@ -333,6 +333,9 @@ var Frontpage = {
             
             ++Frontpage.Shoutbox.Animating;
         }        
+    },
+    Comment : {
+        Animating : false
     }
 };
 

@@ -6,6 +6,10 @@
         Element( 'frontpage/comment/view' , $comment );
         echo w_json_encode( ob_get_clean() );
         ?> );
+        while ( Frontpage.Comment.Animating ) {
+
+        }
+
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
         var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
         newdiv.style.height = '0';
@@ -18,6 +22,7 @@
             opacity: "0"
         } , 250 , 'linear' , function() {
             $( this ).remove();
+            Frontpage.Comment.Animating = true;
         } );<?php
     }
 ?>
