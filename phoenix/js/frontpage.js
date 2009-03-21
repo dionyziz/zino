@@ -65,8 +65,18 @@ var Frontpage = {
 					} );
 				}
 				return false;
-			} );   
+			} );  
         }
+        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = (function() {
+            var onmousestop = function() {
+                alert( 'stopped moving mouse' );
+            }, thread;
+            
+            return function() {
+                clearTimeout( thread );
+                thread = setTimeout( onmousestop , 2000 );
+            };
+        })();
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
@@ -337,9 +347,9 @@ var Frontpage = {
     Comment : {
         Animating : false,
         Queue : new Array(),
-        ShowComment : function( node ) {
+        ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
-            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 );
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
