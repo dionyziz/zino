@@ -322,6 +322,7 @@
         }
         public function Post() {
             $this->mDataSent = true;
+            return;
 
             $this->Finalize();
             $curl = curl_init();
