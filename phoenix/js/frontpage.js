@@ -67,11 +67,14 @@ var Frontpage = {
 				return false;
 			} );  
         }
+        $( 'div.right div.latest div.comments' ).mouseover( function() {
+            Frontpage.Comment.MouseOver = true;
+        } );
         $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = (function() {
             var onmousestop = function() {
-                alert( 'stopped moving mouse' );
+                Frontpage.Comment.MouseOver = false;
+                Frontpage.Comment.NextComment();
             }, thread;
-            
             return function() {
                 clearTimeout( thread );
                 thread = setTimeout( onmousestop , 2000 );
@@ -347,9 +350,10 @@ var Frontpage = {
     Comment : {
         Animating : false,
         Queue : new Array(),
+        MouseOver : false,
         ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
-            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
@@ -368,7 +372,14 @@ var Frontpage = {
             if ( Frontpage.Comment.Queue.length == 0 ) {
                 return;
             }
-            Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() );
+            if ( !Frontpage.Comment.MouseOver ) {
+                /*if ( Frontpage.Comment.Queue.length > 20 ) {
+                    
+                }
+                */
+                Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() );
+            }
+            
         }
     }
 };
