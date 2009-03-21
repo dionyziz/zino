@@ -370,11 +370,11 @@ var Frontpage = {
             $( node ).css( 'opacity' , '0' ).animate( {
                 height: targetheight,
                 opacity: "1"
-            } , 250 , 'linear' );
+            } , 300 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
-            } , 250 , 'linear' , function() {
+            } , 300 , 'linear' , function() {
                 $( this ).remove();
             } );
         },
