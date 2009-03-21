@@ -8,7 +8,8 @@ div.error {
 }
 
 div.error h2 {
-	color: #670000;
+	color: #052977;
+	size: 24pt;
 	position: absolute;
 	top: 60px;
 	right: 100px;
