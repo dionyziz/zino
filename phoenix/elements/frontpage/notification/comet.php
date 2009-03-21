@@ -4,7 +4,6 @@
             global $page;
             global $user;
             
-            die( 'comet' );
             ob_start();
             ?>Comet.Subscribe( 'FrontpageNotificationNew<?php
             echo $user->Id;
