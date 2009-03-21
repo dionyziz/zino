@@ -22,7 +22,7 @@
             opacity: "0"
         } , 250 , 'linear' , function() {
             $( this ).remove();
-            Frontpage.Comment.Animating = false;
-        } );<?php
+        } );
+        setTimeout( "Frontpage.Comment.Animating = false" , 2000 );<?php
     }
 ?>
