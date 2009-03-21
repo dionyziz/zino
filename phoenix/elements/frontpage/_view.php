@@ -199,6 +199,7 @@
                 case 'kolstad':
                 case 'ronaldo7':
                 case 'morvena':
+                   Element( 'shoutbox/comet' );
                    Element( 'frontpage/image/comet' );
                    Element( 'frontpage/comment/comet' );
             }
