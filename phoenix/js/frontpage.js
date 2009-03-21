@@ -67,7 +67,7 @@ var Frontpage = {
 				return false;
 			} );  
         }
-        $( 'div.right div.latest div.comments' ).mouseenter( function() {
+        $( 'div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
