@@ -363,7 +363,7 @@ var Frontpage = {
         MouseOver : false,
         ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
-            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , 5000 , timerint );
+            setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
