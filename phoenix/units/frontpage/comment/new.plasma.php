@@ -9,7 +9,7 @@
         while ( Frontpage.Comment.Animating ) {
 
         }
-
+        Frontpage.Comment.Animating = true;
         $( 'div.latest div.comments div.list' ).prepend( newdiv );
         var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
         newdiv.style.height = '0';
@@ -22,7 +22,7 @@
             opacity: "0"
         } , 250 , 'linear' , function() {
             $( this ).remove();
-            Frontpage.Comment.Animating = true;
+            Frontpage.Comment.Animating = false;
         } );<?php
     }
 ?>
