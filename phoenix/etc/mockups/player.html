@@ -24,7 +24,7 @@
                     <img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" title="Ερωτευμένος"/>
                 </div><div class="friendedit"><a href=""><span>&nbsp;</span></a></div>
 	
-			
+			<div><p id="time">time<p></div>
 			<div id="zinoPlayer">
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
@@ -92,9 +92,10 @@
 					}
 
 					function progressBarHandler(obj) {
-						currentDuration = obj.duration;
+						/*currentDuration = obj.duration;
 						var progressTime = ( 253 * obj.position ) / obj.duration;
-						$("#progress").css("width", Math.floor(progressTime) + "px" );
+						$("#progress").css("width", Math.floor(progressTime) + "px" );*/
+						$("#time").html("position: " + obj.position + " total: " + obj.total );
 					}
 	
 					$(document).ready( function() {
