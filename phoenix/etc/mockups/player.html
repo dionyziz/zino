@@ -70,6 +70,8 @@
 					}
 
 					function togglePlayback() {
+
+						alert(player.getConfig().duration);
 						if (playing) {
 							player.sendEvent("PLAY","false");
 							playing = false;
@@ -85,13 +87,13 @@
 					}
 
 					function bufferHandler(obj) {
-						var buffered = ( obj.loaded * 250 ) / obj.total;
+						var buffered = ( obj.loaded * 253 ) / obj.total;
 						$("#buffered").css("width", Math.floor(buffered) + "px" );
 					}
 
 					function progressBarHandler(obj) {
 						currentDuration = obj.duration;
-						var progressTime = ( 250 * obj.position ) / obj.duration;
+						var progressTime = ( 253 * obj.position ) / obj.duration;
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
 					}
 	
