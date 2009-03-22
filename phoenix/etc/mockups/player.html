@@ -49,6 +49,8 @@
 				<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
+					var playlist = new Array();
+					var totalSongs = 0; var nextSong = -1;
 					var playing = false;
 					var player = document.getElementById('playerObject');
 					var currentDuration;
@@ -102,7 +104,16 @@
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
 					}
 	
+					function makePlaylist(htmlContainer) {
+						$( "#" + htmlContainer + " li a" ).each( function() {
+							playlist[ $(this).attr('id') ] = $(this).attr('href');
+							totalSongs++;
+						});
+						alert("ok");
+					}
+
 					$(document).ready( function() {
+						makePlaylist("playList");
 						$("#progressBar").click( function(e) {
 							player.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
 						});
