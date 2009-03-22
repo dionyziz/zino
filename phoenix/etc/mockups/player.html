@@ -92,7 +92,14 @@
 
 					function progressBarHandler(obj) {
 						// A little hack to make progress bar move, without knowing the actual time.
-						obj.duration == 0 ? currentDuration = 360 : currentDuration = obj.duration, $("#progressBar").css("cursor", "pointer");
+						if ( obj.duration == 0 ) {
+							currentDuration = 360;	// Set to 6 minutes
+							$("#progressBar").css("cursor", "default");
+						}
+						else {
+							currentDuration = obj.duration; 
+							$("#progressBar").css("cursor", "pointer");
+						}
 						var progressTime = ( 253 * obj.position ) / currentDuration;
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
 					}
