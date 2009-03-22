@@ -36,7 +36,7 @@
 				</div>
 				<ul id="playList">
 					<li><a id="song_1" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_1')"><span></span>pg.lost - Yes I Am.</a></li>
-					<li><a id="song_2" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_2')"><span></span>pg.lost - Yes I Am (Same as above)</a></li>
+					<li><a id="song_2" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/infrared.mp3', 'song_2')"><span></span>Placebo - Infrared</a></li>
 					<li><a id="song_3" href="javascript:;" onclick="playSong('http://beta.zino.gr/phoenix/etc/mockups/yes_i_am.mp3', 'song_3')"><span></span>pg.lost - Yes I Am (Same here)</a></li>
 
 					<!--
@@ -91,10 +91,10 @@
 					}
 
 					function progressBarHandler(obj) {
-						obj.duration == 0 ? currentDuration = 360 : currentDuration = obj.duration;
+						// A little hack to make progress bar move, without knowing the actual time.
+						obj.duration == 0 ? currentDuration = 360 : currentDuration = obj.duration, $("#progressBar").css("cursor", "pointer");
 						var progressTime = ( 253 * obj.position ) / currentDuration;
 						$("#progress").css("width", Math.floor(progressTime) + "px" );
-						//$("#time").html("position: " + obj.position + " total: " + obj.duration );
 					}
 	
 					$(document).ready( function() {
