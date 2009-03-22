@@ -64,16 +64,10 @@
 						$("#progress").css("width","3px");
 						player.addModelListener("TIME","progressBarHandler"); 
 						player.addModelListener("LOADED", "bufferHandler" );
-						player.addModelListener("META", "yourMom" );
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
 						alert(player.getConfig().bitrate);						
-					}
-
-				
-					function yourMom(obj) {
-						alert(obj['bitrate']);
 					}
 	
 					function togglePlayback() {
@@ -97,10 +91,10 @@
 					}
 
 					function progressBarHandler(obj) {
-						/*currentDuration = obj.duration;
-						var progressTime = ( 253 * obj.position ) / obj.duration;
-						$("#progress").css("width", Math.floor(progressTime) + "px" );*/
-						$("#time").html("position: " + obj.position + " total: " + obj.duration );
+						obj.duration == 0 ? currentDuration = 360 : currentDuration = obj.duration;
+						var progressTime = ( 253 * obj.position ) / currentDuration;
+						$("#progress").css("width", Math.floor(progressTime) + "px" );
+						//$("#time").html("position: " + obj.position + " total: " + obj.duration );
 					}
 	
 					$(document).ready( function() {
