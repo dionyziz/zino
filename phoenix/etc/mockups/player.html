@@ -75,7 +75,7 @@
 					function togglePlayback() {
 						if (!trackStarted ) {
 							playlist[nextSong++]();
-							playing = true;
+							trackStarted = true;
 						}
 
 						if (playing) {
