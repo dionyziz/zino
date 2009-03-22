@@ -106,7 +106,7 @@
 	
 					function makePlaylist(htmlContainer) {
 						$( "#" + htmlContainer + " li a" ).each( function() {
-							playlist[ $(this).attr('id') ] = $(this).attr('href');
+							playlist[ $(this).attr('id') ] = $(this).attr('onclick');
 							totalSongs++;
 						});
 						alert("ok");
