@@ -108,7 +108,7 @@ ZinoPlayer CSS
 	width:3px;
 	max-width:253px;
 	background:url('./playerArt/progress.jpg') repeat-x;
-	margin:1px 0px 0px 3px;
+	margin:0px;
 	border:none;
 }
 
@@ -118,7 +118,7 @@ ZinoPlayer CSS
 	height:9px;
 	width:3px;
 	background:#cfcfcf url('./playerArt/progressEnd.gif') repeat-x;
-	margin:1px 0px 0px 0px;
+	margin:0px;
 	border:none;
 }
 
@@ -131,7 +131,6 @@ ZinoPlayer CSS
 	background:#CFCFCF repeat-x;
 	margin:1px 0px 0px 3px;
 	border:none;
-	clear:both;
 }
 
 #zinoPlayer #playerControls #progressBar #bufferedEnd {
