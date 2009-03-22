@@ -121,3 +121,24 @@ ZinoPlayer CSS
 	margin:1px 0px 0px 0px;
 	border:none;
 }
+
+#zinoPlayer #playerControls #progressBar #buffered {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	max-width:253px;
+	background:#CFCFCF repeat-x;
+	margin:1px 0px 0px 3px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #bufferedEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	background:url('./playerArt/progressEnd.gif') repeat-x;
+	margin:1px 0px 0px 0px;
+	border:none;
+}
