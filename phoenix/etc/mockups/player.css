@@ -131,6 +131,7 @@ ZinoPlayer CSS
 	background:#CFCFCF repeat-x;
 	margin:1px 0px 0px 3px;
 	border:none;
+	clear:both;
 }
 
 #zinoPlayer #playerControls #progressBar #bufferedEnd {
