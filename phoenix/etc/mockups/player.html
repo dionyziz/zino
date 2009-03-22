@@ -63,6 +63,7 @@
 						player.sendEvent("PLAY","true");
 						$("#progress").css("width","3px");
 						player.addModelListener("TIME","progressBarHandler"); 
+						player.addModelListener("LOADED", "bufferHandler" );
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
@@ -81,6 +82,11 @@
 							$("#playButton.play").removeClass("play");
 							$("#playButton").addClass("pause");
 						}
+					}
+
+					function bufferHandler(obj) {
+						var buffered = ( obj.loaded * 250 ) / obj.total;
+						$("#progress").css("width", Math.floor(buffered) + "px" );
 					}
 
 					function progressBarHandler(obj) {
