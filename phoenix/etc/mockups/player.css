@@ -117,7 +117,7 @@ ZinoPlayer CSS
 	float:left;
 	height:9px;
 	width:3px;
-	background:url('./playerArt/progressEnd.gif') repeat-x;
+	background:#cfcfcf url('./playerArt/progressEnd.gif') repeat-x;
 	margin:1px 0px 0px 0px;
 	border:none;
 }
@@ -138,7 +138,7 @@ ZinoPlayer CSS
 	float:left;
 	height:9px;
 	width:3px;
-	background:url('./playerArt/progressEnd.gif') repeat-x;
+	background:url('./playerArt/bufferedEnd.gif') repeat-x;
 	margin:1px 0px 0px 0px;
 	border:none;
 }
