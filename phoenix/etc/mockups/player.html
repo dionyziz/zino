@@ -64,10 +64,14 @@
 						$("#progress").css("width","3px");
 						player.addModelListener("TIME","progressBarHandler"); 
 						player.addModelListener("LOADED", "bufferHandler" );
+						player.addModelListener("META", "metaHandler" );
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
-						alert(player.getConfig().bitrate);						
+					}
+
+					function metaHandler(obj) {
+						alert( obj["bitrate"] );
 					}
 	
 					function togglePlayback() {
