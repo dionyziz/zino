@@ -67,14 +67,14 @@ var Frontpage = {
 				return false;
 			} );  
         }
-	$( 'div.right div.latest' ).mousemove( function() {
+	$( 'div.inuser div.right div.latest' ).mousemove( function() {
 		if ( typeof( timer ) != 'undefined'  && timer ) {
 			clearTimeout( timer );
 		}
 		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
 	
 	} );
-        $( 'div.right div.latest' ).mouseenter( function() {
+        $( 'div.inuser div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
