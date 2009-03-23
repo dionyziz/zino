@@ -22,7 +22,7 @@ coala.js
 #user/join.js
 #user/joined.js
 #user/settings.js
-#user/profile.js
+user/profile.js
 #user/suggest.js
 #banner.js
 #date.js
