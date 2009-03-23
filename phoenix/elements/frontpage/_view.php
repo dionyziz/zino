@@ -211,6 +211,7 @@
                 case 'gatoni':
                 case 'ted':
                 case 'kostis90gr':
+		case 'pacman':
                     Element( 'frontpage/notification/comet' );
             }
         }
