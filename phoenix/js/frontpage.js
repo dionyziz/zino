@@ -68,7 +68,7 @@ var Frontpage = {
 			} );  
         }
 	$( 'div.right div.latest' ).mousemove( function() {
-		if ( timer ) {
+		if ( typeof( timer ) != 'undefined'  && timer ) {
 			clearTimeout( timer );
 		}
 		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 2000 );
