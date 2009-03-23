@@ -378,7 +378,7 @@ var Frontpage = {
             }
             */
             if ( Frontpage.Comment.MouseOver ) {
-	    	return;
+	    	timerval = 7000;	
             }
             else {
                 if ( Frontpage.Comment.Queue.length <= 7 ) {
