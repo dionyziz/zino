@@ -17,64 +17,64 @@ var Frontpage = {
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();
         }
-		if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
-			$( '#selectplace select' ).change( function() {
-				var place = $( '#selectplace select' )[ 0 ].value;
-				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
-			} );
-			$( '#selecteducation select' ).change( function() {
-				var edu = $( '#selecteducation select' )[ 0 ].value;
-				$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
-			} );
-			$( '#selectuni select' ).change( function() {
-				var uni = $( '#selectuni select' )[ 0 ].value;
-                $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
-			} );
-		}
-		if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
-			var notiflist = $( 'div.notifications div.list' )[ 0 ];
-			var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
-			
-			$( 'div.notifications div.list div.event' ).mouseover( function() {
-				$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
-			} )
-			.mouseout( function() {
-				$( this ).css( "border" , "0" ).css( "padding" , "5px" );
-			} );
-            
-			$( 'div.notifications div.expand a' ).click( function() {
-				if ( $( notiflist ).css( 'display' ) == "none" ) {
-					$( 'div.notifications div.expand a' )
-					.css( "background-position" , "4px -1440px" )
-					.attr( {
-						title : 'Απόκρυψη'
-					} );
-					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
-				}
-				else {
-					$( 'div.notifications div.expand a' )
-					.css( "background-position" , "4px -1252px" )
-					.attr( {
-						title : 'Εμφάνιση'
-					} );
-					$( notiflist ).animate( { height : "0" } , 400 , function() {
-						$( notiflist ).hide();
-					} );
-				}
-				return false;
-			} );  
-        }
-	$( 'div.inuser div.right div.latest' ).mousemove( function() {
+	if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
+		$( '#selectplace select' ).change( function() {
+			var place = $( '#selectplace select' )[ 0 ].value;
+			$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+			Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
+		} );
+		$( '#selecteducation select' ).change( function() {
+			var edu = $( '#selecteducation select' )[ 0 ].value;
+			$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+			Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
+		} );
+		$( '#selectuni select' ).change( function() {
+			var uni = $( '#selectuni select' )[ 0 ].value;
+		$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+			Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
+		} );
+	}
+	if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
+		var notiflist = $( 'div.notifications div.list' )[ 0 ];
+		var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
+		
+		$( 'div.notifications div.list div.event' ).mouseover( function() {
+			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
+		} )
+		.mouseout( function() {
+			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
+		} );
+    
+		$( 'div.notifications div.expand a' ).click( function() {
+			if ( $( notiflist ).css( 'display' ) == "none" ) {
+				$( 'div.notifications div.expand a' )
+				.css( "background-position" , "4px -1440px" )
+				.attr( {
+					title : 'Απόκρυψη'
+				} );
+				$( notiflist ).show().animate( { height : notiflistheight } , 400 );
+			}
+			else {
+				$( 'div.notifications div.expand a' )
+				.css( "background-position" , "4px -1252px" )
+				.attr( {
+					title : 'Εμφάνιση'
+				} );
+				$( notiflist ).animate( { height : "0" } , 400 , function() {
+					$( notiflist ).hide();
+				} );
+			}
+			return false;
+		} );  
+	 }
+	$( 'div.right div.latest' ).mousemove( function() {
 		if ( typeof( timer ) != 'undefined'  && timer ) {
 			clearTimeout( timer );
 		}
 		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
 	
 	} );
-        $( 'div.inuser div.right div.latest' ).mouseenter( function() {
+        $( 'div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
