@@ -1,8 +1,12 @@
 <?php
     function UnitFrontpageNotificationNew( Notification $notif ) {
-        ?>alert( 'notification creation to user <?php
-        echo $notif->ToUser->Name;
-        ?>' );<?php
+	?>var notifcontent = document.createElement( 'div' );
+	$( notifcontent ).html( <?php
+	ob_start();
+	Element( 'notification/view' , $notif ); 
+	echo w_json_encode( ob_get_clean() );
+	?> );
+	Frontpage.Notif.Show( notifcontent );<?php
         return $notif->ToUser->Id; 
     }
 ?>

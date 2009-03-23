@@ -393,6 +393,14 @@ var Frontpage = {
             }
             Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() , timerval );
         }
+    },
+    Notif : {
+	Show : function( node ) {
+		if ( !$( 'div.frontpage div.notifications' )[ 0 ] ) {
+			
+		}
+		$( 'div.frontpage div.notifications div.list' ).prepend( node );
+	}
     }
 };
 
