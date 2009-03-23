@@ -6,7 +6,7 @@
 	Element( 'notification/view' , $notif ); 
 	echo w_json_encode( ob_get_clean() );
 	?> );
-	Frontpage.Notif.Show( notifcontent );<?php
+	Frontpage.Notif.AddNotif( notifcontent );<?php
         return $notif->ToUser->Id; 
     }
 ?>
