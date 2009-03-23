@@ -1,4 +1,4 @@
-var Profile = {
+/*var Profile = {
     AntisocialCalled : false,
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
@@ -93,9 +93,8 @@ var Profile = {
     },
     CheckBirthday : function ( year, month, day ) {
         var Now = new Date();
-        
         var age = Now.getFullYear() - year;
-        if (       Now.getMonth() < month - 1
+        if ( Now.getMonth() < month - 1
              || (  Now.getMonth() == month - 1
                 && Now.getDate() < day ) ) {
             --age;
@@ -170,7 +169,7 @@ var Profile = {
             inp.focus();
             return false;
         } );
-    */
+
     }
 };
-
+*/
