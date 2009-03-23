@@ -17,12 +17,12 @@
         $( 'div.plist ul' ).prepend( newli );
         $( newli ).animate( {
             width: "102px"
-        } , 800 );
+        } , 800 , 'linear' );
         if ( existnode ) {
             $( existnode ).animate( {
                     width: "0",
                     opacity: "0"
-                } , 500 , function() {
+                } , 500 , 'linear' , function() {
                     $( this ).remove();
             } );
         }<?php
