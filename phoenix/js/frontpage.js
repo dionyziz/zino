@@ -355,7 +355,7 @@ var Frontpage = {
             Frontpage.Comment.Animating = true;
             setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
-            var targetheight = $( 'div.latest div.comments div.list .event' )[ 0 ].offsetHeight;
+            var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
             $( node ).css( 'opacity' , '0' ).animate( {
                 height: targetheight,
@@ -399,7 +399,14 @@ var Frontpage = {
 		if ( !$( 'div.frontpage div.notifications' )[ 0 ] ) {
 			
 		}
+
 		$( 'div.frontpage div.notifications div.list' ).prepend( node );
+		var targetheight = $( 'div.frontpage div.notifications div.list div.event' )[ 0 ].offsetHeight;
+		node.style.height = '0';
+		$( node ).css( 'opacity' , '0' ).animate( {
+			height: targetheight,
+			opacity: "1"
+		} , 500 , 'linear' );
 	}
     }
 };
