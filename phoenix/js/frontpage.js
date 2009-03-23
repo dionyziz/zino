@@ -80,23 +80,6 @@ var Frontpage = {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
-        $( 'div.right div.latest div.comments' ).mouseleave( function() {
-            Frontpage.Comment.MouseOver = false;
-            Frontpage.Comment.NextComment();
-        } );
-        $( 'div.right div.latest div.comments' )[ 0 ].onmousemove = ( function() {
-            Frontpage.Comment.MouseOver = true;
-            alert( 'move' );
-            var onmousestop = function() {
-                Frontpage.Comment.MouseOver = false;
-                Frontpage.Comment.NextComment();
-            }, thread;
-            return function() {
-                clearTimeout( thread );
-                thread = setTimeout( onmousestop , 2000 );
-            };
-        })();
-        */
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
