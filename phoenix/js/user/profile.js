@@ -125,7 +125,8 @@ var Profile = {
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
     OnLoad: function () {
-        Coala.Cold( 'admanager/showad', { f: function ( html ) {
+        alert( 'loading' );
+	Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
     },
