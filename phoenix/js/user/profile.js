@@ -1,4 +1,5 @@
-/*var Profile = {
+var Profile = {
+    /*
     AntisocialCalled : false,
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
@@ -171,5 +172,5 @@
         } );
 
     }
+    */
 };
-*/
