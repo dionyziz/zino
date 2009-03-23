@@ -449,7 +449,7 @@ var Frontpage = {
 			height: targetheight,
 			opacity: "1"
 		} , 400 , 'linear' )
-		.mouseover( function() {
+		.find( "div.event" ).mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 		} )
 		.mouseout( function() {
