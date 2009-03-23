@@ -74,7 +74,7 @@ var Frontpage = {
 		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
 	
 	} );
-        $( 'div.right div.latest' ).mouseenter( function() {
+        $( 'div.right div.latest' ).mouseover( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
