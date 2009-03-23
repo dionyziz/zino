@@ -76,7 +76,7 @@ var Frontpage = {
 	} );
         $( 'div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
-        } );/*.mouseleave( function() {
+        } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
