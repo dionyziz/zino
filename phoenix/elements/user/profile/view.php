@@ -33,16 +33,16 @@
                 $finder = New FriendRelationFinder();
                 $res = $finder->FindFriendship( $user , $theuser );
                 if ( !$res ) {
-                    $page->AttachInlineScript( 'Profile.ShowFriendLinks( true , " ' .$theuser->Id . ' " );' );
+                    //$page->AttachInlineScript( 'Profile.ShowFriendLinks( true , " ' .$theuser->Id . ' " );' );
                 }
                 else {
-                    $page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
+                    //$page->AttachInlineScript( 'Profile.ShowFriendLinks( false , " ' . $res->Id . ' " );' );
                 }                    
             }
             if ( $user->Id == $theuser->Id ) {
-                $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
+                //$page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
             }
-            $page->AttachInlineScript( '$( Profile.OnLoad );' );
+            //$page->AttachInlineScript( '$( Profile.OnLoad );' );
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
                     $text = "αυτή τη στιγμή!";
@@ -52,14 +52,14 @@
                     Element( 'date/diff' , $theuser->LastActivity->Updated );
                     $text = ob_get_clean();
                 }
-                $page->AttachInlineScript( 'Profile.ShowOnlineSince( " ' . $text . ' " );' );
+                //$page->AttachInlineScript( 'Profile.ShowOnlineSince( " ' . $text . ' " );' );
             }
             else {
-                $page->AttachInlineScript( 'Profile.ShowOnlineSince( false );' );
+                //$page->AttachInlineScript( 'Profile.ShowOnlineSince( false );' );
             }
             $dob = explode( '-', $theuser->Profile->Dob );
             if ( count( $dob ) == 3 && $dob[ 0 ] != '0000' ) {
-                $page->AttachInlineScript( 'Profile.CheckBirthday( ' . $dob[ 0 ] . ', ' . $dob[ 1 ] . ', ' . $dob[ 2 ] . ' );' );
+               //$page->AttachInlineScript( 'Profile.CheckBirthday( ' . $dob[ 0 ] . ', ' . $dob[ 1 ] . ', ' . $dob[ 2 ] . ' );' );
             }
             ?><div id="profile"><?php
                 $schoolexists = $theuser->Profile->School->Numstudents > 2;
