@@ -6,7 +6,7 @@
         Element( 'frontpage/comment/view' , $comment );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        if ( Frontpage.Comment.Animating ) {
+        if ( Frontpage.Comment.Animating || Frontpage.Comment.MouseOver ) {
             Frontpage.Comment.Queue.unshift( newdiv );
         }
         else {
