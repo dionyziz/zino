@@ -360,11 +360,11 @@ var Frontpage = {
             $( node ).css( 'opacity' , '0' ).animate( {
                 height: targetheight,
                 opacity: "1"
-            } , 300 , 'linear' );
+            } , 350 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
-            } , 300 , 'linear' , function() {
+            } , 350 , 'linear' , function() {
                 $( this ).remove();
             } );
         },
