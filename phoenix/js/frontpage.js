@@ -395,18 +395,66 @@ var Frontpage = {
         }
     },
     Notif : {
-	Show : function( node ) {
-		if ( !$( 'div.frontpage div.notifications' )[ 0 ] ) {
+	VisibleNotifs : $( 'div.frontpage div.notifications div.list div.event' ).length,
+	AddNotif : function( node ) {
+		if ( Frontpage.Notif.VisibleNotifs == 0 ) {
+			Frontpage.Notif.VisibleNotifs++;
+			var notifscontainer = document.createElement( 'div' );
+			var list = document.createElement( 'div' );
+			var h3 = document.createElement( 'h3' );
+			var expand = document.createElement( 'div' );
+			var link = document.createElement( 'a' );
 			
+			$( link ).css( "background-position: 4px -1440px" ).attr( {
+				title : "Απόκρυψη",
+				href : ""
+			} );
+			$( expand ).addClass( "expand" ).append( link );
+			.click( function() {
+				if ( $( notiflist ).css( 'display' ) == "none" ) {
+					$( 'div.notifications div.expand a' )
+					.css( "background-position" , "4px -1440px" )
+					.attr( {
+						title : 'Απόκρυψη'
+					} );
+					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
+				}
+				else {
+					$( 'div.notifications div.expand a' )
+					.css( "background-position" , "4px -1252px" )
+					.attr( {
+						title : 'Εμφάνιση'
+					} );
+					$( notiflist ).animate( { height : "0" } , 400 , function() {
+						$( notiflist ).hide();
+					} );
+				}
+				return false;
+			} );  
+			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
+			$( list ).addClass( "list" );
+			$( notifscontainer ).addClass( "notifications" ).
+			append( h3 ).append( list ).append( expand );
 		}
-
+		else if ( Frontpage.Notif.VisibleNotifs < 5 ) {
+			Frontpage.Notif.VisibleNotifs++;
+		}
+		Frontpage.Notif.Show( node );
+	},
+	Show : function( node ) {
 		$( 'div.frontpage div.notifications div.list' ).prepend( node );
 		var targetheight = $( 'div.frontpage div.notifications div.list div.event' )[ 0 ].offsetHeight;
 		node.style.height = '0';
 		$( node ).css( 'opacity' , '0' ).animate( {
 			height: targetheight,
 			opacity: "1"
-		} , 500 , 'linear' );
+		} , 400 , 'linear' )
+		.mouseover( function() {
+			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
+		} )
+		.mouseout( function() {
+			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
+		} );
 	}
     }
 };
