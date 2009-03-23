@@ -1,5 +1,4 @@
 var Profile = {
-    /*
     AntisocialCalled : false,
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
@@ -131,7 +130,6 @@ var Profile = {
         } } );
     },
     MyProfileOnLoad: function () {
-        /*
 	$( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
@@ -172,5 +170,4 @@ var Profile = {
         } );
 
     }
-    */
 };
