@@ -435,6 +435,7 @@ var Frontpage = {
 			$( list ).addClass( "list" );
 			$( notifscontainer ).addClass( "notifications" )
 			.append( h3 ).append( list ).append( expand );
+			$( 'div.content div.frontpage' ).prepend( notifscontainer );
 		}
 		else if ( Frontpage.Notif.VisibleNotifs < 5 ) {
 			Frontpage.Notif.VisibleNotifs++;
