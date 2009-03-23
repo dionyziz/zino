@@ -411,7 +411,7 @@ var Frontpage = {
 			} )
 			.click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
-					$( 'div.notifications div.expand a' )
+					$( link  )
 					.css( "background-position" , "4px -1440px" )
 					.attr( {
 						title : 'Απόκρυψη'
@@ -419,7 +419,7 @@ var Frontpage = {
 					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
 				}
 				else {
-					$( 'div.notifications div.expand a' )
+					$( link )
 					.css( "background-position" , "4px -1252px" )
 					.attr( {
 						title : 'Εμφάνιση'
@@ -438,6 +438,14 @@ var Frontpage = {
 		}
 		else if ( Frontpage.Notif.VisibleNotifs < 5 ) {
 			Frontpage.Notif.VisibleNotifs++;
+		}
+		else {
+			$( 'div.frontpage div.notifications div.list>div:last-child' ).animate( {
+				opacity : "0",
+				height: "0"
+			} , 400 , function() {
+				$( this ).remove();
+			} );
 		}
 		Frontpage.Notif.Show( node );
 	},
