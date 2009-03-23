@@ -106,7 +106,7 @@ var Profile = {
         }
     },
     Tweet: {
-        Delete: function () {
+        Delete : function () {
             Coala.Warm( 'status/new', { message: '' } );
             $( 'div.tweetactive' ).remove();
             $( '#tweetedit' ).jqmHide();
@@ -131,7 +131,8 @@ var Profile = {
         } } );
     },
     MyProfileOnLoad: function () {
-        $( '#reportabusemodal' ).jqm( {
+        /*
+	$( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
         } );
@@ -169,6 +170,7 @@ var Profile = {
             inp.focus();
             return false;
         } );
+    */
     }
 };
 
