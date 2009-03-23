@@ -36,7 +36,6 @@ var Profile = {
 		return false;
 	},
     ShowFriendLinks : function( relationstatus , id ) {
-    	alert( 'showing friend links' );
 	var text;
         if ( relationstatus ) {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
@@ -126,7 +125,6 @@ var Profile = {
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
     OnLoad: function () {
-        alert( 'loading' );
 	Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );

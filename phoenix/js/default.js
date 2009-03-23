@@ -18,11 +18,11 @@ function IsAdmin( username ) {
 
 }
 $( function() {
-	if ( $.browser.mozilla ) {
+/*	if ( $.browser.mozilla ) {
 		$( "img:not(.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
-	}
+	}*/
     var loggedinuser = GetUsername();
     if ( loggedinuser == 'dionyziz' || loggedinuser == 'izual' || loggedinuser == 'kostis90gr' || loggedinuser == 'pagio' || loggedinuser == 'indy' || loggedinuser == 'd3nnn1z' ) { // should we change this now?  --Indy
 	var renderingend = new Date();
