@@ -67,13 +67,20 @@ var Frontpage = {
 				return false;
 			} );  
         }
+	$( 'div.right div.latest' ).mousemove( function() {
+		if ( timer !=== 0 ) {
+			clearTimeout( timer );
+		}
+		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 2000 );
+	
+	} );
         $( 'div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
-        } ).mouseleave( function() {
+        } );/*.mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
-        /*$( 'div.right div.latest div.comments' ).mouseleave( function() {
+        $( 'div.right div.latest div.comments' ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
@@ -388,7 +395,7 @@ var Frontpage = {
             }
             */
             if ( Frontpage.Comment.MouseOver ) {
-                 timerval = 10000;   
+	    	return;
             }
             else {
                 if ( Frontpage.Comment.Queue.length <= 7 ) {
