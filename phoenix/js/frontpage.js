@@ -67,6 +67,7 @@ var Frontpage = {
 			return false;
 		} );  
 	 }
+	/*
 	$( 'div.right div.latest' ).mousemove( function() {
 		if ( typeof( timer ) != 'undefined'  && timer ) {
 			clearTimeout( timer );
@@ -80,6 +81,7 @@ var Frontpage = {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
+	*/
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
