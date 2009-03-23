@@ -38,7 +38,7 @@ var Frontpage = {
 		var notiflist = $( 'div.notifications div.list' )[ 0 ];
 		var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
 		
-		$( 'div.notifications div.list div.event' ).mouseover( function() {
+		$( 'div.notifications div.list .event' ).mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 		} )
 		.mouseout( function() {
