@@ -38,7 +38,7 @@ var Frontpage = {
 		var notiflist = $( 'div.notifications div.list' )[ 0 ];
 		var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
 		
-		$( 'div.notifications div.list .event' ).mouseover( function() {
+		$( 'div.notifications div.list div.event' ).mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 		} )
 		.mouseout( function() {
@@ -408,8 +408,7 @@ var Frontpage = {
 			$( link ).css( "background-position: 4px -1440px" ).attr( {
 				title : "Απόκρυψη",
 				href : ""
-			} );
-			$( expand ).addClass( "expand" ).append( link );
+			} )
 			.click( function() {
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
 					$( 'div.notifications div.expand a' )
@@ -431,10 +430,11 @@ var Frontpage = {
 				}
 				return false;
 			} );  
+			$( expand ).addClass( "expand" ).append( link );
 			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
 			$( list ).addClass( "list" );
-			$( notifscontainer ).addClass( "notifications" ).
-			append( h3 ).append( list ).append( expand );
+			$( notifscontainer ).addClass( "notifications" )
+			.append( h3 ).append( list ).append( expand );
 		}
 		else if ( Frontpage.Notif.VisibleNotifs < 5 ) {
 			Frontpage.Notif.VisibleNotifs++;
