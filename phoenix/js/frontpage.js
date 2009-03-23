@@ -71,7 +71,7 @@ var Frontpage = {
 		if ( typeof( timer ) != 'undefined'  && timer ) {
 			clearTimeout( timer );
 		}
-		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 2000 );
+		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
 	
 	} );
         $( 'div.right div.latest' ).mouseenter( function() {
