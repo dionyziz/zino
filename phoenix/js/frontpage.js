@@ -470,5 +470,3 @@ var Frontpage = {
 	}
     }
 };
-
-
