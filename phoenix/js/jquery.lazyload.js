@@ -82,8 +82,8 @@
                                 .attr("alt",$(self).attr("originalalt"))
                                 [settings.effect](settings.effectspeed);
                             self.loaded = true;
-                        });                    
-                };
+                    });                    
+                }
             });
 
             /* When wanted event is triggered load original image */
