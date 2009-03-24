@@ -291,7 +291,7 @@ var pms = {
 		$( incominglink ).append( newtext );
 		$( unreadmsgbanner ).append( bannerspan );
 		$( unreadmsgbanner ).append( newtext2 );
-		if ( unreadpms == 0 ) {
+		if ( unreadpms === 0 ) {
 		    $( unreadmsgbanner ).removeClass( "unread" );
 		}
 	}
@@ -350,3 +350,4 @@ $( function() {
     	} );
     }
 } );
+
