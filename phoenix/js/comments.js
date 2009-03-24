@@ -246,8 +246,8 @@ $( function() {
                 return false;
             } );
 		} );
-		
-		if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
+		*/
+        if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
 			var username = GetUsername();
 			var commdate, leftpadd;
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
@@ -292,5 +292,4 @@ $( function() {
 				}
             } );
         }
-        */
 } );
