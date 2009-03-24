@@ -57,6 +57,7 @@ div.lstimages {
 div.lstimages ul {
     padding: 17px 0 14px 0;
     height: 110px;
+    position: relative;
 }
 div.lstimages ul li {
     float: left;
