@@ -23,7 +23,7 @@ user/joined.js
 user/settings.js
 user/profile.js
 user/suggest.js
-#banner.js
+banner.js
 #date.js
 #pm.js
 #frontpage.js

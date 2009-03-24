@@ -68,6 +68,7 @@
             <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
             <div class="eof"></div>
             </div><?php
+            $page->AttachInlineScript( 'Banner.OnLoad();' );
         }
     }
 ?>
