@@ -14,9 +14,9 @@
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
-            var isfirst = ( $( 'div.plist ul li:first img' ).attr( 'alt' ) == <?php
+            var isfirst = ( $( 'div.plist ul li:first img' ).attr( 'alt' ) == '<?php
             echo $image->User->Name;
-            ?> );
+            ?>' );
             $( 'div.plist ul li:first' ).addClass( isfirst );
         }
 
