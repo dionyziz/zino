@@ -83,6 +83,7 @@
             ?></ul></div>
             
             </div><?php
+            $page->AttachInlineScript( 'Questions.OnLoad();' );
         }
     }
 ?>

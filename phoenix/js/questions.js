@@ -178,12 +178,11 @@ var Questions = {
 		$( "div#answers ul.questions li" ).each( function( i ) {
 			$( this ).unbind( "mouseover" ).unbind( "mouseout" );
 		} );
-	}
+	},
+    OnLoad : function() {
+        if ( $( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ] ) {
+            $( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ].focus();
+        }
+        Questions.show();
+    }
 };
-
-$( function() {
-	if ( $( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ] ) {
-		$( 'div#answers div.questions div.newquestion p.answer form input' )[ 1 ].focus();
-	}
-	Questions.show();
-} );
