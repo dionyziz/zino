@@ -14,11 +14,10 @@
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
-            var isfirst = $( existnode ).find( ' ul li:first img' ).attr( 'alt' ) == $( 'div.plist ul li:first img' ).attr( 'alt' );
+            var isfirst = $( 'div.plist ul li:first img' ).attr( 'alt' );
         }
-        if ( isfirst ){
-            alert( "first" );
-        }
+        alert( "isfirst" );
+
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
 
         $( 'div.plist ul' ).prepend( newli );
