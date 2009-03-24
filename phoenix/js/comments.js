@@ -233,7 +233,17 @@ var Comments = {
     }
 };
 $( function() {
-		$( "div.comments div[class='comment']" ).each( function( i ) {
+		$( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+            var parent = $( this ).parent().parent();
+            var id = $( parent ).attr( 'id' ).substring( 8 );
+            var kimeno = $( parent ).find( "div.text" );
+			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
+			kimeno.css( "width", wid-indent*20+'px' );
+            Comment.ToggleReply( id , indent );
+            return false;
+        } );
+        /*
+        $( "div.comments div[class='comment']" ).each( function( i ) {
             var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			//---------------------
@@ -245,7 +255,7 @@ $( function() {
                 Comments.ToggleReply( id, indent );
                 return false;
             } );
-            */
+            
 		} );
         /*
          if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
