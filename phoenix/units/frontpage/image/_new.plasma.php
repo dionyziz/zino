@@ -14,7 +14,7 @@
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
-            var isfirst = $( existnode ) == $( 'div.plist ul li' );
+            var isfirst = $( existnode ) == $( 'div.plist ul li:first' );
         }
         if ( isfirst ){
             alert( "first" );
