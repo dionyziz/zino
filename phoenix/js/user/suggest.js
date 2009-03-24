@@ -202,19 +202,18 @@ var Suggest = {
 			return false;
 		}
 		$( 'div.' + type + ' ul' ).hide();
-	}
+	},
+    OnLoad : function() {
+        $( 'form#interestsinfo div.option div.setting div.add ul li' ).remove();
+        var inttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
+        for( var i=0;i<inttagtypes.length;++i ) {
+            var spans = $( 'form#interestsinfo div.option div.setting ul.' + inttagtypes[ i ] + ' li div.aplbubble span.aplbubblemiddle' );
+            if ( spans.length === 0 ) {
+                continue;
+            }
+            $.each( spans, function() {
+                Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
+            } );
+        }
+    }
 };
-
-$( function() {
-    $( 'form#interestsinfo div.option div.setting div.add ul li' ).remove();
-	var inttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
-	for( var i=0;i<inttagtypes.length;++i ) {
-		var spans = $( 'form#interestsinfo div.option div.setting ul.' + inttagtypes[ i ] + ' li div.aplbubble span.aplbubblemiddle' );
-		if ( spans.length === 0 ) {
-			continue;
-		}
-		$.each( spans, function() {
-			Suggest.added[ inttagtypes[ i ] ].push( $( this ).text() );
-		} );
-	}
-} );

@@ -416,9 +416,8 @@ var Tag = {
 			}
 			Tag.ekso( event );
 		}
-	}
-};
-$( function() {
+	},
+    OnLoad : function() {
         // Already Tagged people
         $( 'div.image_tags:first div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
@@ -461,4 +460,5 @@ $( function() {
         var y = ( image_height - tag_height - border_width )*0.25; // 1/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + tag_width ) + 'px', top : y + 'px' } );
-    } );
+    }
+};

@@ -48,11 +48,11 @@ var AlbumList = {
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
 		}
-	}
+	},
+    OnLoad : function() {
+        $( 'ul.albums li.create a.new' ).click( function() {
+            AlbumList.Create();
+            return false;
+        } );
+    }
 };
-$( function() {
-	$( 'ul.albums li.create a.new' ).click( function() {
-		AlbumList.Create();
-		return false;
-	} );
-} );
