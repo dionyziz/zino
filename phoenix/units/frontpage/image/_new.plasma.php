@@ -16,7 +16,7 @@
         if ( existnode ){
             var isfirst = $( 'div.plist ul li:first img' ).attr( 'alt' );
         }
-        alert( isfirst );
+       // alert( isfirst );
 
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
 
