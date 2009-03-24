@@ -16,6 +16,9 @@
 
     foreach ( $filelist as $file ) {
         $file = trim( $file );
+        if ( !strlen( $file ) || $file[ 0 ] == '#' ) { // skip commented-out lines
+            continue;
+        }
         $filename = basename( $file );
         $dirname = dirname( $file );
         if ( $sandbox ) {

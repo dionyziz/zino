@@ -247,3 +247,9 @@ div.buyad h2.ad {
     font-size: 150%;
     margin: 20px;
 }
+div.buyad a.manageads {
+    margin: auto;
+    display: block;
+    text-align: center; 
+    width: 210px;
+}

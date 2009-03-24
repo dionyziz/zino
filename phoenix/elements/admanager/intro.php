@@ -2,7 +2,8 @@
     class ElementAdManagerIntro extends Element {
         public function Render() {
             global $page;
-
+            global $user;
+            
             $page->SetTitle( 'Πρόγραμμα διαφημίσεων' );
 
             ?><div class="buyad">
@@ -49,8 +50,10 @@
                 </ol>
                 <div class="eof"></div>
                 <a href="?p=admanager/create" class="start">Δημιουργία διαφήμισης</a><?php
+                if ( !$user->Exists() || true ) {
+                    ?><a href="" class="manageads">ή διαχείρηση των διαφημίσεών μου</a><?php
+                }
                 ?>
-                <a href="">ή διαχείρηση των διαφημίσεών μου</a>
                 <ol class="footnotes">
                     <li><sup>+</sup> Τουλάχιστον 40 προβολές ανά επίσκεψη και 80,000 προβολές ημερησίως <cite>[πηγή: <a href="http://www.google.com/analytics/">Google</a>, <a href="http://www.alexa.com">Alexa</a>]</cite></li>
                     <li class="creativecommons">Φωτογραφίες των καλλιτεχνών
