@@ -235,6 +235,9 @@ var Comments = {
 $( function() {
 		$( "div.comments div[class='comment'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
+            
+            var id = $( parent ).attr( 'id' ).substring( 8 );
+			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
             var id = $( parent ).attr( 'id' ).substring( 8 );
             var kimeno = $( parent ).find( "div.text" );
 			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
