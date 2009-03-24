@@ -24,7 +24,7 @@ user/settings.js
 user/profile.js
 user/suggest.js
 banner.js
-#date.js
+date.js
 #pm.js
 #frontpage.js
 #moodpicker.js

@@ -325,10 +325,8 @@ var pms = {
 			$( pms.messagescontainer ).append( nopmsspan );
 			$( nopmsspan ).animate( { opacity : "1" } , 2000 );
 		}
-	}
-};
-$( function() {
-    if ( $( '#pms' )[ 0 ] ) {
+	},
+    OnLoad : function() {
     	$( 'div.message' ).draggable( { 
     		helper : 'original',
     		revert : 'true',
@@ -349,5 +347,4 @@ $( function() {
     		}
     	} );
     }
-} );
-
+};

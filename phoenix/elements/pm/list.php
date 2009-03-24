@@ -66,6 +66,7 @@
                 </div>
             </div>
             </div><?php
+            $page->AttachInlineScript( 'pms.OnLoad();' );
         }
     }
 ?>
