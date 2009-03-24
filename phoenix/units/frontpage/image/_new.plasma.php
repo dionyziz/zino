@@ -19,7 +19,7 @@
         if ( existnode && $( 'div.plist ul li a span img:first' ).attr('alt') == usernameact ){
             $( newli ).append( newlink ).css( "position" , "absolute" ).hide();
             $( 'div.plist ul' ).prepend( newli );
-            $( newli ).show().fadeIn( 800,function (){
+            $( newli ).fadeIn( 800,function (){
                 $( this ).css( "position", "relative" );
             } );
             $( existnode ).fadeOut( 800, function(){
