@@ -15,8 +15,8 @@
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
             var isfirst = $( 'div.plist ul li:first img' ).attr( 'alt' );
+            $( 'div.plist ul li:first' ).attr( 'title', isfirst );
         }
-       // alert( isfirst );
 
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
 
