@@ -234,7 +234,8 @@ var Comments = {
 };
 $( function() {
 		$( "div.comments div[class='comment']" ).each( function( i ) {
-			var id = $( this ).attr( 'id' ).substring( 8 );
+            /*
+            var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			//---------------------
 			var kimeno = $( this ).find( "div.text" );
@@ -245,6 +246,7 @@ $( function() {
                 Comments.ToggleReply( id, indent );
                 return false;
             } );
+            */
 		} );
         /*
          if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
