@@ -233,7 +233,7 @@ var Comments = {
     }
 };
 $( function() {
-		/*$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
+		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			//---------------------
@@ -246,8 +246,8 @@ $( function() {
                 return false;
             } );
 		} );
-		*/
-        if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
+        /*
+         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
 			var username = GetUsername();
 			var commdate, leftpadd;
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
@@ -292,4 +292,5 @@ $( function() {
 				}
             } );
         }
+        */
 } );
