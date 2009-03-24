@@ -159,7 +159,7 @@ var Frontpage = {
                     q();
                 }
             } ).keydown( function ( e ) { // send an "I'm typing" request
-                if ( Frontpage.Shoutbox.TypingCancelTimeout != 0 ) { // if we were about to send a "I've stopped typing" request...
+                if ( Frontpage.Shoutbox.TypingCancelTimeout !== 0 ) { // if we were about to send a "I've stopped typing" request...
                     clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout ); // delay it for a while
                 }
                 Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
@@ -349,7 +349,7 @@ var Frontpage = {
     },
     Comment : {
         Animating : false,
-        Queue : new Array(),
+        Queue : [],
         MouseOver : false,
         ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
@@ -369,7 +369,7 @@ var Frontpage = {
             } );
         },
         NextComment : function() {
-            if ( Frontpage.Comment.Queue.length == 0 ) {
+            if ( Frontpage.Comment.Queue.length === 0 ) {
                 return;
             }
             /*
@@ -397,7 +397,7 @@ var Frontpage = {
     Notif : {
 	VisibleNotifs : $( 'div.frontpage div.notifications div.list div.event' ).length,
 	AddNotif : function( node ) {
-		if ( Frontpage.Notif.VisibleNotifs == 0 ) {
+		if ( Frontpage.Notif.VisibleNotifs === 0 ) {
 			Frontpage.Notif.VisibleNotifs++;
 			var notifscontainer = document.createElement( 'div' );
 			var list = document.createElement( 'div' );
