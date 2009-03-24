@@ -107,6 +107,7 @@
 				</div>
 				<div class="eof"></div>
 			</div><?php
-		}
+            $page->AttachInlineScript( 'School.OnLoad();' );
+        }
 	}
 ?>
