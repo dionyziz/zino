@@ -16,9 +16,8 @@ album/photo/tag.js
 notification/view.js
 poll/list.js
 poll/view.js
-#journal/list.js
-#journal/view.js
-#journal/new.js
+journal/view.js
+journal/new.js
 user/join.js
 user/joined.js
 user/settings.js

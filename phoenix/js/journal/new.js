@@ -13,10 +13,8 @@ var JournalNew = {
 		}
         $( '#publish' )[ 0 ].disabled = true;
 		return true;
-	}
-};
-$( function() {
-    if ( $( '#journalnew' )[ 0 ] ) {
+	},
+    OnLoad : function() {
         window.title = 'Firing "Create"';
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
             {
@@ -46,4 +44,4 @@ $( function() {
             }
         ], 2 );
     }
-} );
+};
