@@ -15,7 +15,7 @@
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
             var isfirst = $( 'div.plist ul li:first img' ).attr( 'alt' );
-            $( 'div.plist ul li:first' ).attr( 'title', isfirst );
+            $( 'div.plist ul li:first' ).addClass( isfirst );
         }
 
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
