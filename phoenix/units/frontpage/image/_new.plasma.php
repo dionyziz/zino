@@ -14,12 +14,10 @@
         echo $image->User->Name;
         ?>"]' ).parent().parent().parent();
         if ( existnode ){
-            var isfirst = ( $( 'div.plist ul li:first img' ).attr( 'alt' ) == '<?php
-            echo $image->User->Name;
-            ?>' );
-            if ( isfirst ){
-                $( 'div.plist ul li:first' ).addClass( 'tt' );
-            }
+            var isfirst = ( $( 'div.plist ul li:first img' ).attr( 'alt' ) + '==' + $( existnode ).find( ul li:first img).attr( 'alt' ) );
+            
+                $( 'div.plist ul li:first' ).addClass( isfirst );
+            
         }
 
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
