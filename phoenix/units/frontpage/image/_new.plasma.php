@@ -17,7 +17,7 @@
             var isfirst = ( $( 'div.plist ul li:first img' ).attr( 'alt' ) == '<?php
             echo $image->User->Name;
             ?>' );
-            $( 'div.plist ul li:first' ).addClass( isfirst );
+            //$( 'div.plist ul li:first' ).addClass( isfirst );
         }
 
         $( newli ).append( newlink ).css( "width" , "0" ).hide();
