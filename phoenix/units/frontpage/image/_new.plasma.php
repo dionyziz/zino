@@ -13,9 +13,7 @@
         usernameact = "<?php
         echo $image->User->Name;
         ?>";
-        var existnode = $( 'div.plist ul li a span img[alt="<?php
-        echo $image->User->Name;
-        ?>"]' ).parent().parent().parent();
+        var existnode = $( 'div.plist ul li a span img[alt=' + usernameact + ']' ).parent().parent().parent();
         if ( existnode && $( 'div.plist ul li a span img:first' ).attr('alt') == usernameact ){
             $( newli ).append( newlink ).css( "position" , "absolute" ).hide();
             $( 'div.plist ul' ).prepend( newli );
