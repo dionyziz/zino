@@ -7,6 +7,7 @@
         public function Render() {
             global $user;
             global $libs;
+            global $page;
             
             if ( !$user->Exists() ) {
                 return Redirect( '?p=ads' );
@@ -19,6 +20,8 @@
             if ( empty( $ads ) ) {
                 return Redirect( '?p=admanager/create' );
             }
+            
+            $page->SetTitle( 'Διαχείριση διαφημίσεων' );
             
             ?><div class="buyad">
                 <h2 class="ad">Έχετε <?php

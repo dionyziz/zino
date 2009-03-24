@@ -128,19 +128,25 @@
                             </div>
                         </div>
                         
-                        <div class="buttons">
-                            <?php
-                            if ( $adid ) {
-                                ?>
-                                <a href="" class="start" onclick="return false;">Ακύρωση</a>
+                        <?php
+                        if ( $adid ) {
+                            ?>
+                            <div class="buttons">
+                                <a href="" class="start right" onclick="return false;">Ακύρωση</a>
                                 <input type="hidden" value="<?php
                                 echo $adid;
                                 ?>" name="adid" /><?php
-                            }
+                        }
+                        ?>
+                        <a href="" class="start left" onclick="return false;">Αποθήκευση</a>
+                        <div class="eof"></div>
+                        <?php
+                        if ( $adid ) {
                             ?>
-                            <a href="" class="start" onclick="return false;">Αποθήκευση</a>
-                            <div class="eof"></div>
-                        </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                         
                         <input type="submit" class="submit" value="Αποθήκευση" />
                     </form>

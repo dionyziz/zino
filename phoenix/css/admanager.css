@@ -252,4 +252,19 @@ div.buyad a.manageads {
     display: block;
     text-align: center; 
     width: 210px;
+    padding: 5px;
+    font-size: 90%;
+}
+div.buyad div.create div.buttons {
+    width: 500px;
+    margin: auto;
+}
+div.buyad  {
+    float: left;
+}
+div.buyad div.create div.buttons a.left {
+    float: left;
+}
+div.buyad div.create div.buttons a.right {
+    float: right;
 }

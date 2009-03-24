@@ -51,7 +51,7 @@
                 <div class="eof"></div>
                 <a href="?p=admanager/create" class="start">Δημιουργία διαφήμισης</a><?php
                 if ( !$user->Exists() || true ) {
-                    ?><a href="" class="manageads">ή διαχείρηση των διαφημίσεών μου</a><?php
+                    ?><a href="?p=admanager/list" class="manageads">ή διαχείρηση των διαφημίσεών μου</a><?php
                 }
                 ?>
                 <ol class="footnotes">
