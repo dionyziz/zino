@@ -10,7 +10,7 @@
         Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        var usernameact = "<?php
+        usernameact = "<?php
         echo $image->User->Name;
         ?>";
         var existnode = $( 'div.plist ul li a span img[alt="usernameact"]' ).parent().parent().parent();
