@@ -5,126 +5,7 @@
         <title>Πρόγραμμα διαφημίσεων | Zino</title>
         <link href="http://static.zino.gr/css/global.css?56" rel="stylesheet" type="text/css" />
         <style type="text/css">
-        div.buyad h2 {
-            font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
-            font-size: 170%;
-            color: #105090;
-            font-weight: normal;
-            text-align: center;
-            margin-bottom: 0;
-        }
-        div.buyad h3 {
-            text-align: center;
-        }
-        div.buyad p {
-            text-align: center;
-            color: #666;
-        }
-        div.buyad ol li {
-            list-style: none;
-            padding: 5px;
-        }
-        div.buyad ol li div.beautiful {
-            width: 100%;
-        }
-        div.buyad ol li div.beautiful img {
-            border: 1px solid #999;
-            padding: 1px;
-            margin: auto;
-            display: block;
-        }
-        div.buyad ol li ul li {
-            list-style: square outside;
-            color: #345;
-        }
-        div.buyad ol li ul {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        div.buyad ol li h3 {
-            color: #333;
-        }
-        div.buyad ol li.l1 {
-            float: left;
-            width: 33%;
-        }
-        div.buyad ol li.l3 {
-            float: right;
-            width: 33%;
-        }
-        div.buyad ol li.l2 {
-            border: 1px solid transparent;
-            margin-left: 34%;
-            margin-right: 34%;
-        }
-        div.buyad ol.footnotes li {
-            font-size: 90%;
-        }
-        div.buyad ol li.creativecommons {
-            font-size: 80%;
-            color: #666;
-        }
-        div.buyad a.start {
-            margin: auto;
-            display: block;
-            width: 200px;
-            font-size: 110%;
-            color: white;
-            background-color: #70c0ff;
-            text-align: center;
-            font-weight: bold;
-            padding: 5px;
-            border: 1px solid #68c;
-            outline-color: red;
-            background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
-            background-repeat: repeat-x;
-        }
-        
-        
-        div.buyad div.create {
-            background-color: #f6f6f4;
-            border: 1px solid #ccc;
-            width: 800px;
-            margin: 10px auto 10px auto;
-            padding: 10px;
-        }
-        div.buyad div.create div.left {
-            width: 500px;
-            float: left;
-        }
-        div.buyad div.create div.right {
-            padding-left: 510px;
-        }
-        div.buyad div.create div.right p {
-            font-size: 90%;
-            text-align: left;
-        }
-        div.buyad input, div.buyad textarea {
-            border: 1px solid #b0b5c5;
-            width: 100%;
-        }
-        div.buyad label span {
-            font-weight: normal
-        }
-        div.buyad label {
-            font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
-            display: block;
-            font-size: 90%;
-            font-weight: bold;
-            color: #345;
-            padding: 10px 5px 3px 0;
-        }
-        div.buyad div.create h3 {
-            border-bottom: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-        }
-        div.buyad div.create div.url input {
-            width: 300px;
-        }
-        div.buyad div.create a.start {
-            margin: 20px auto 10px auto;
-        }
+
         </style>
     </head>
     <body>
@@ -141,47 +22,69 @@
             <div class="eof"></div>
         </div>
         <div class="content" id="content"><div class="buyad">
+            <style type="text/css">
+            </style>
             <h2 class="ad">Διαφήμιση στο Zino</h2>
-            <div class="create">
-                <h3>Σχεδιάστε τη διαφήμισή σας</h3>
-                <div class="left">
-                    <div class="input">
-                        <label>Τίτλος:</label>
-                        <input type="text" />
+            <div class="create demographics">
+                <h3>Επιλέξτε target group</h3>
+                <div class="left" style="width:400px;padding-left:50px">
+                    <div class="input" style="float:left">
+                        <label>Φύλο:</label>
+                        <select>
+                            <option selected="selected">Αδιάφορο</option>
+                            <option>Άνδρες</option>
+                            <option>Γυναίκες</option>
+                        </select>
                     </div>
                     
-                    <div class="input">
-                        <label>Κείμενο:</label>
-                        <textarea></textarea>
+                    <div class="input" style="margin-left: 200px">
+                        <label>Περιοχή:</label>
+                        <select>
+                            <option selected="selected">Αδιάφορο</option>
+                            <option>Αθήνα</option>
+                            <option>Θεσσαλονίκη</option>
+                            <option>Πάτρα</option>
+                            <option>Ιωάννινα</option>
+                        </select>
                     </div>
                     
-                    <div class="input">
-                        <label>Εικόνα: <span>Προαιρετικά. Η εικόνα θα μικρύνει στα 200x85 pixels.</span></label>
-                        <input type="file" />
+                    <div class="input" style="float:left">
+                        <label>Μικρότερη ηλικία:</label>
+                        <select>
+                            <option selected="selected">Αδιάφορο</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                        </select>
                     </div>
-
-                    <div class="input url">
-                        <label>Διεύθυνση σελίδας: <span>Προαιρετικά. (π.χ. www.i-selida-sas.gr)</span></label>
-                        
-                        <span>http://</span>
-                        <input type="text" class="url" />
+                    
+                    <div class="input" style="margin-left: 200px">
+                        <label>Μεγαλύτερη ηλικία:</label>
+                        <select>
+                            <option selected="selected">Αδιάφορο</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                        </select>
                     </div>
                 </div>
                 <div class="right">
-                    <p>Οι διαφημίσεις ελέγχονται για να σιγουρευτούμε ότι 
-                    ικανοποιούν τις προϋποθέσεις μας. Σας συνιστούμε να 
-                    διαβάσετε τον <a href="">σύντομο οδηγό για διαφημιζόμενους</a>.</p>
-                </div>
-                <div class="eof"></div>
-                <h3 style="margin-bottom:0">Προεπισκόπηση</h3>
-                <div class="ads" style="font-size: 90%;background-color:white;border-bottom:1px solid transparent;padding: 10px 0 10px 0;margin:0 10px 0 10px">
-                    <div class="ad" style="width:200px;border:1px solid #ddd;padding: 5px;margin: auto;">
-                        <h4 style="margin: 5px 0 5px 0"><a href="" style="color: #357;">Φοιτητική ταυτότητα ISIC</a></h4>
-                        <a href=""><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." style="display: block; margin: auto" /></a>
-                        <p><a href="" style="color: black">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
-                           Βγάλε ISIC με 9 ευρώ!</a></p>
+                    <div class="ads">
+                        <div class="ad">
+                            <h4><a href="" style="color: #357;">Φοιτητική ταυτότητα ISIC</a></h4>
+                            <a href=""><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /></a>
+                            <p><a href="">Διεθνής Φοιτητική Ταυτότητα. Μοναδικά προνόμια και εκπτώσεις. Φέτος η ISIC κάνει έκπτωση και στον εαυτό της!
+                               Βγάλε ISIC με 9 ευρώ!</a></p>
+                        </div>
                     </div>
                 </div>
+                <div class="eof"></div>
 
                 <a href="" class="start">Αποθήκευση</a>
             </div>
