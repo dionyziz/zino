@@ -1,19 +1,21 @@
 <?php
     class ElementAdManagerDemographics extends Element {
-        public function Render( tInteger $adid ) {
+        public function Render( tInteger $id ) {
             global $libs;
             global $user;
             
             $libs->Load( 'admanager' );
             $libs->Load( 'place' );
             
-            $adid = $adid->Get();
-            $ad = New Ad( $adid );
+            $id = $id->Get();
+            $ad = New Ad( $id );
             
             if ( !$ad->Exists() ) {
+                ?>Η διαφήμιση αυτή δεν υπάρχει.<?php
                 return;
             }
             if ( !$user->Exists() || $user->Id != $ad->Userid ) {
+                ?>Η διαφήμιση αυτή δεν φαίνεται να σας ανήκει.<?php
                 return;
             }
             
