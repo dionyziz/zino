@@ -259,9 +259,6 @@ div.buyad div.create div.buttons {
     width: 500px;
     margin: auto;
 }
-div.buyad  {
-    float: left;
-}
 div.buyad div.create div.buttons a.left {
     float: left;
 }
