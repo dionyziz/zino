@@ -53,7 +53,7 @@
 
                         <div class="input" style="margin-left: 230px">
                             <label>Ηλικία:</label>
-                            Από: <select>
+                            <div>Από: <select>
                                 <option<?php
                                 if ( $ad->Minage == 0 ) {
                                     ?> selected="selected"<?php
@@ -71,8 +71,8 @@
                                         ?></option><?php
                                     }
                                 ?>
-                            </select> - Έως:
-                            <select>
+                            </select></div>
+                            <div>Έως: <select>
                                 <option<?php
                                 if ( $ad->Maxage == 0 ) {
                                     ?> selected="selected"<?php
@@ -90,7 +90,7 @@
                                         ?></option><?php
                                     }
                                 ?>
-                            </select>
+                            </select></div>
                         </div>
                         
                         <div class="input">
