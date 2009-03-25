@@ -120,6 +120,7 @@
             'admanager/create'  => 'admanager/create',
             'admanager/list'    => 'admanager/list',
             'admanager/tips'    => 'admanager/tips',
+            'admanager/demographics' => 'admanager/demographics',
             'contact'           => 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'watertest'         => 'developer/dionyziz/water',
