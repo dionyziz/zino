@@ -37,14 +37,14 @@
                                     ?><option value="<?php
                                     echo $value;
                                     ?>"<?php
-                                    if ( $ad->Gender == $value ) {
+                                    if ( $ad->Sex == $value ) {
                                         ?> selected="selected"<?php
                                     }
                                     ?>><?php
                                     echo $gender;
                                     ?></option><?php
                                 }
-                            ?>
+                                ?>
                                 <option selected="selected">Αδιάφορο</option>
                                 <option>’νδρες</option>
                                 <option>Γυναίκες</option>
