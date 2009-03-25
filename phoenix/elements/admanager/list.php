@@ -125,7 +125,7 @@
                                 echo htmlspecialchars( $demographics );
                             ?> - <a class="renew" href="?p=admanager/demographics&amp;id=<?php
                             echo $ad->Id;
-                            ?>" onclick="return false;">Αλλαγή</a></td>
+                            ?>">Αλλαγή</a></td>
                             <!-- <td>3,520€</td> -->
                             <td class="last<?php
                             if ( !$ad->Pageviewsremaining
