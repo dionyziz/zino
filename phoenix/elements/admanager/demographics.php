@@ -11,26 +11,26 @@
             $ad = New Ad( $id );
             
             if ( !$ad->Exists() ) {
-                ?>Η διαφήμιση αυτή δεν υπάρχει.<?php
+                ?>Ξ— Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ξ±Ο…Ο„Ξ® Ξ΄ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ.<?php
                 return;
             }
             if ( !$user->Exists() || $user->Id != $ad->Userid ) {
-                ?>Η διαφήμιση αυτή δεν φαίνεται να σας ανήκει.<?php
+                ?>Ξ— Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ξ±Ο…Ο„Ξ® Ξ΄ΞµΞ½ Ο†Ξ±Ξ―Ξ½ΞµΟ„Ξ±ΞΉ Ξ½Ξ± ΟƒΞ±Ο‚ Ξ±Ξ½Ξ®ΞΊΞµΞΉ.<?php
                 return;
             }
             
             ?><div class="buyad">
-                <h2 class="ad">Διαφήμιση στο Zino</h2>
+                <h2 class="ad">Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· ΟƒΟ„ΞΏ Zino</h2>
                 <div class="create demographics">
-                    <h3>Επιλέξτε target group</h3>
+                    <h3>Ξ•Ο€ΞΉΞ»Ξ­ΞΎΟ„Ξµ target group</h3>
                     <div class="left" style="width:400px;padding-left:50px">
                         <div class="input" style="float:left">
-                            <label>Φύλο:</label>
+                            <label>Ξ¦ΟΞ»ΞΏ:</label>
                             <select><?php
                                 $genders = array(
-                                    0 => 'Αδιάφορο',
-                                    1 => 'Άνδρες',
-                                    2 => 'Γυναίκες'
+                                    0 => 'Ξ‘Ξ΄ΞΉΞ¬Ο†ΞΏΟΞΏ',
+                                    1 => 'Ξ†Ξ½Ξ΄ΟΞµΟ‚',
+                                    2 => 'Ξ“Ο…Ξ½Ξ±Ξ―ΞΊΞµΟ‚'
                                 );
                                 
                                 foreach ( $genders as $value => $gender ) {
@@ -45,20 +45,20 @@
                                     ?></option><?php
                                 }
                                 ?>
-                                <option selected="selected">Αδιάφορο</option>
-                                <option>Άνδρες</option>
-                                <option>Γυναίκες</option>
+                                <option selected="selected">Ξ‘Ξ΄ΞΉΞ¬Ο†ΞΏΟΞΏ</option>
+                                <option>Ξ†Ξ½Ξ΄ΟΞµΟ‚</option>
+                                <option>Ξ“Ο…Ξ½Ξ±Ξ―ΞΊΞµΟ‚</option>
                             </select>
                         </div>
 
                         <div class="input" style="margin-left: 230px">
-                            <label>Ηλικία:</label>
-                            Από: <select>
+                            <label>Ξ—Ξ»ΞΉΞΊΞ―Ξ±:</label>
+                            Ξ‘Ο€Ο: <select>
                                 <option<?php
                                 if ( $ad->Minage == 0 ) {
                                     ?> selected="selected"<?php
                                 }
-                                ?>>Αδιάφορο</option><?php
+                                ?>>Ξ‘Ξ΄ΞΉΞ¬Ο†ΞΏΟΞΏ</option><?php
                                     for ( $i = 13; $i <= 64; ++$i ) {
                                         ?><option value="<?php
                                         echo $i;
@@ -71,13 +71,13 @@
                                         ?></option><?php
                                     }
                                 ?>
-                            </select> - Έως:
+                            </select> - ΞΟ‰Ο‚:
                             <select>
                                 <option<?php
                                 if ( $ad->Maxage == 0 ) {
                                     ?> selected="selected"<?php
                                 }
-                                ?>>Αδιάφορο</option><?php
+                                ?>>Ξ‘Ξ΄ΞΉΞ¬Ο†ΞΏΟΞΏ</option><?php
                                     for ( $i = 14; $i <= 65; ++$i ) {
                                         ?><option value="<?php
                                         echo $i;
@@ -94,9 +94,9 @@
                         </div>
                         
                         <div class="input">
-                            <label>Περιοχή:</label>
+                            <label>Ξ ΞµΟΞΉΞΏΟ‡Ξ®:</label>
                             <select name="place">
-                                <option value="0" selected="selected">Αδιάφορο</option>
+                                <option value="0" selected="selected">Ξ‘Ξ΄ΞΉΞ¬Ο†ΞΏΟΞΏ</option>
                                 <?php
                                     $placefinder = New PlaceFinder();
                                     $places = $placefinder->FindAll();
@@ -111,8 +111,8 @@
                             </select>
                         </div>
                         
-                        <a href="" onclick="return false;" class="start" style="margin-top:50px">Αποθήκευση</a>
-                        <a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">ή παραλείψτε αυτό το βήμα</a>
+                        <a href="" onclick="return false;" class="start" style="margin-top:50px">Ξ‘Ο€ΞΏΞΈΞ®ΞΊΞµΟ…ΟƒΞ·</a>
+                        <a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">Ξ® Ο€Ξ±ΟΞ±Ξ»ΞµΞ―ΟΟ„Ξµ Ξ±Ο…Ο„Ο Ο„ΞΏ Ξ²Ξ®ΞΌΞ±</a>
                     </div>
                     <div class="right">
                         <div class="ads"><?php
