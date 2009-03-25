@@ -201,6 +201,7 @@
                 case 'morvena':
                 case 'maryway':
                 case 'deathcore_queen':
+                case 'micah':
                     Element( 'shoutbox/comet' );
                     Element( 'frontpage/image/comet' );
                     Element( 'frontpage/comment/comet' );
