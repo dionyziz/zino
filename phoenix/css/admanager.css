@@ -169,6 +169,9 @@ div.ads div.ad img {
 }
 div.ads div.ad p a {
     color: black;
+	display: block;
+	width: 100%;
+	overflow: hidden;
 }
 
 div.buyad table {
