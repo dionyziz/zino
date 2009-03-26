@@ -5,7 +5,7 @@ var AdManager = {
                 $( 'div.buyad form' ).submit();
             } );
             $( "#adtitle" ).keydown( function () {
-                alert( 'test' );
+                $( "div.adspreview div.ad h4 a" )[ 0 ].
             });
         }
     }
