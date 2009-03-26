@@ -6,11 +6,18 @@ var AdManager = {
             } );
             $( "#adtitle" ).keyup( function () {
                 var a = $( "div.adspreview div.ad h4 a" )[ 0 ];
-				var list = a.childNodes;
-				for ( var i = 0; i < list.length; ++i ) {
-					a.removeChild( list[ i ] );
+				while ( a.firstChild ) {
+					a.removeChild( a.firstChild );
 				}
 				var text = document.createTextNode( $( "#adtitle" )[ 0 ].value );
+				a.appendChild( text );
+            } );
+			$( "#adbody" ).keyup( function () {
+                var a = $( "div.adspreview div.ad p a" )[ 0 ];
+				while ( a.firstChild ) {
+					a.removeChild( a.firstChild );
+				}
+				var text = document.createTextNode( $( "#adbody" )[ 0 ].value );
 				a.appendChild( text );
             } );
         }
