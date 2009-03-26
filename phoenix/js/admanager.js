@@ -4,6 +4,7 @@ var AdManager = {
             $( $( 'div.buyad a.start' )[ 0 ] ).click( function () {
                 $( 'div.buyad form' ).submit();
             } );
+            alert( 'test' );
         }
     }
 };
