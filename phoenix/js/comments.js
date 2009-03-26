@@ -233,10 +233,33 @@ var Comments = {
     }
 };
 $( function() {
+        if ( $.browser.msie ) {
+            $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+                var parent = $( this ).parent().parent();
+                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                var id = $( parent ).attr( 'id' ).substring( 8 );
+                var kimeno = $( parent ).find( "div.text" );
+                var wid = kimeno.get( 0 ).offsetWidth-20;
+                kimeno.css( "width", wid-indent*20+'px' );
+                Comments.ToggleReply( id , indent );
+                return false;
+            } );
+        }
+        else {
+            $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+                var parent = $( this ).parent().parent();
+                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                var id = $( parent ).attr( 'id' ).substring( 8 );
+                var kimeno = $( parent ).find( "div.text" );
+                var wid = parseInt( kimeno.css( "width" ), 10 );
+                kimeno.css( "width", wid-indent*20+'px' );
+                Comments.ToggleReply( id , indent );
+                return false;
+            } );
+        }
+/*
 		$( "div.comments div[class='comment'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
-            
-            var id = $( parent ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
             var id = $( parent ).attr( 'id' ).substring( 8 );
             var kimeno = $( parent ).find( "div.text" );
