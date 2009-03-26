@@ -10,7 +10,7 @@ var AdManager = {
 				for ( var i = 0; i < list.length; ++i ) {
 					a.removeChild( list[ i ] );
 				}
-				var text = document.createTextNode( 'test' );
+				var text = document.createTextNode( $( "#adtitle" )[ 0 ].value );
 				a.appendChild( text );
             } );
         }
