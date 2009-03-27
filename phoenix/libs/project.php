@@ -129,6 +129,7 @@
             'a'                 => 'user/invalid',
             'b'                 => 'mail/sent',
             'pms'               => 'pm/list',
+            'mostpopular'       => 'adminpanel/mostpopular/view',
             'shoutbox'          => 'shoutbox/list',
 			'school'			=> 'school/view',
 			'schoolmembers'		=> 'school/members/list',
