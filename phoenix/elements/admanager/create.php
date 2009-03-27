@@ -94,7 +94,7 @@
                         <div class="right">
                             <p>Οι διαφημίσεις ελέγχονται για να σιγουρευτούμε ότι 
                             ικανοποιούν τις προϋποθέσεις μας. Σας συνιστούμε να 
-                            διαβάσετε τον <a href="?p=admanager/tips" target="_blank">σύντομο οδηγό για διαφημιζόμενους</a>.</p>
+                            διαβάσετε τον <a href="?p=admanager/tips" onclick="window.open('?p=admanager/tips');return false;" target="_blank">σύντομο οδηγό για διαφημιζόμενους</a>.</p>
                         </div>
                         <div class="eof"></div>
                         <h3 class="preview">Προεπισκόπηση</h3>
@@ -142,7 +142,7 @@
                         <?php
                         if ( $adid ) {
                             ?>
-                            <a href="" class="start right" onclick="return false;">Ακύρωση</a>
+                            <a href="?p=admanager/list" class="start right">Ακύρωση</a>
                             </div>
                             <?php
                         }

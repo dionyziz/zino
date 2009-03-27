@@ -124,6 +124,7 @@
                     </div>
                     <div class="eof"></div>
                 </div>
+                </form>
             </div><?php
         }
     }
