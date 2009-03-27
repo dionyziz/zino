@@ -89,7 +89,7 @@ var Frontpage = {
         TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
         TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
         OnLoad: function () {
-            var textarea = $( 'div#shoutbox div.comments div.newcomment div.text input#shoutbox_text' );
+            var textarea = $( '#shoutbox_text' );
             
             $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
                 var list = $( 'div.frontpage div.inuser div#shoutbox div.comments' );
@@ -120,7 +120,7 @@ var Frontpage = {
             var username = GetUsername();
             
             if ( username ) {
-                $( "div#shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
+                $( "#shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
                         var shoutid = this.id.substr( 2 , this.id.length - 2 );
                         var toolbox = document.createElement( 'div' ); 
@@ -153,7 +153,7 @@ var Frontpage = {
             textarea.keyup( function ( e ) {
                 if ( e.keyCode == 13 ) { // enter
                     textarea.blur();
-                    $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click();
+                    $( '#shoutbox div.comments div.newcomment div.bottom input' ).click();
                 }
                 else {
                     q();
