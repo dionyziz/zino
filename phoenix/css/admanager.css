@@ -259,10 +259,10 @@ div.buyad div.create div.buttons {
     width: 500px;
     margin: auto;
 }
-div.buyad div.create div.buttons a.left {
+div.buyad div.create div.buttons a.left, div.buyad div.create div.buttons input.left {
     float: left;
 }
-div.buyad div.create div.buttons a.right {
+div.buyad div.create div.buttons a.right, div.buyad div.create div.buttons input.right {
     float: right;
 }
 div.buyad a.skip {
