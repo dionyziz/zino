@@ -28,6 +28,8 @@ div.buyad ol li div.beautiful img {
     padding: 1px;
     margin: auto;
     display: block;
+    width: 140px;
+    height: 150px;
 }
 div.buyad ol li ul li {
     list-style: square outside;
