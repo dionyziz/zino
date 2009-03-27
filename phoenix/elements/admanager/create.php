@@ -138,7 +138,7 @@
                                 <?php
                         }
                         ?>
-                        <a href="" class="start left" onclick="return false;">Αποθήκευση</a>
+                        <input type="submit" class="submit start left" value="Αποθήκευση" />
                         <?php
                         if ( $adid ) {
                             ?>
@@ -148,7 +148,6 @@
                         }
                         ?>
                         <div class="eof"></div>
-                        <input type="submit" class="submit" value="Αποθήκευση" />
                     </form>
                 </div>
             </div><?php

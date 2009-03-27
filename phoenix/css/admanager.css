@@ -62,7 +62,7 @@ div.buyad ol li.creativecommons {
     font-size: 80%;
     color: #666;
 }
-div.buyad a.start {
+div.buyad a.start, div.buyad input.submit {
     margin: auto;
     display: block;
     width: 200px;
@@ -267,4 +267,12 @@ div.buyad div.create div.buttons a.left {
 }
 div.buyad div.create div.buttons a.right {
     float: right;
+}
+div.buyad a.skip {
+    width: 250px;
+    display: block;
+    padding-top: 5px;
+    margin: auto;
+    text-align: center;
+    font-size: 90%;
 }
