@@ -234,7 +234,7 @@ var Comments = {
 };
 $( function() {
         if ( $.browser.msie ) {
-            $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+            $( "div.comments div.comment:not( .newcomment ):not( .empty ) div.bottom a" ).click( function() {
                 var parent = $( this ).parent().parent();
                 var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
                 var id = $( parent ).attr( 'id' ).substring( 8 );
@@ -247,7 +247,7 @@ $( function() {
             } );
         }
         else {
-            $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+            $( "div.comments div.comment:not( .newcomment ):not( .empty ) div.bottom a" ).click( function() {
                 var parent = $( this ).parent().parent();
                 var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
                 var id = $( parent ).attr( 'id' ).substring( 8 );
