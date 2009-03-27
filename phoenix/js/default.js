@@ -18,11 +18,12 @@ function IsAdmin( username ) {
 
 }
 $( function() {
-    if ( $.browser.mozilla ) {
+    /*if ( $.browser.mozilla ) {
 		$( "img:not(img.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
 	}
+    */
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
