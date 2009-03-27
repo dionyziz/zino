@@ -91,8 +91,8 @@ var Frontpage = {
         OnLoad: function () {
             var textarea = $( '#shoutbox_text' );
             
-            $( 'div#shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-                var list = $( 'div.frontpage div.inuser div#shoutbox div.comments' );
+            $( 'div#shoutbox div.newcomment div.bottom input' ).click( function() {
+                var list = $( 'div#shoutbox div.comments' );
                 var text = $( list ).find( 'div.newcomment div.text input' )[ 0 ].value;
                 if ( $.trim( text ) === '' || !Frontpage.Shoutbox.Changed ) {
                     alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
@@ -153,7 +153,7 @@ var Frontpage = {
             textarea.keyup( function ( e ) {
                 if ( e.keyCode == 13 ) { // enter
                     textarea.blur();
-                    $( '#shoutbox div.comments div.newcomment div.bottom input' ).click();
+                    $( '#shoutbox div.newcomment div.bottom input' ).click();
                 }
                 else {
                     q();
@@ -267,7 +267,7 @@ var Frontpage = {
                 }
             }
             
-            var typingdiv = $( 'div#shoutbox div.comments div.newcomment div.bottom div.typing' );
+            var typingdiv = $( 'div#shoutbox div.newcomment div.typing' );
             
             if ( typetext === '' ) {
                 typingdiv.css( 'opacity', 1 ).animate( { 'opacity': 0 } );
