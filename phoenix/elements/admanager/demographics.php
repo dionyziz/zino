@@ -45,9 +45,6 @@
                                     ?></option><?php
                                 }
                                 ?>
-                                <option selected="selected">Αδιάφορο</option>
-                                <option>Άνδρες</option>
-                                <option>Γυναίκες</option>
                             </select>
                         </div>
 

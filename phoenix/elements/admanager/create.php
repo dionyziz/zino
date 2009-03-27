@@ -131,23 +131,23 @@
                         <?php
                         if ( $adid ) {
                             ?>
+                            <input type="hidden" value="<?php
+                            echo $adid;
+                            ?>" name="adid" />
                             <div class="buttons">
-                                <a href="" class="start right" onclick="return false;">Ακύρωση</a>
-                                <input type="hidden" value="<?php
-                                echo $adid;
-                                ?>" name="adid" /><?php
+                                <?php
                         }
                         ?>
                         <a href="" class="start left" onclick="return false;">Αποθήκευση</a>
-                        <div class="eof"></div>
                         <?php
                         if ( $adid ) {
                             ?>
+                            <a href="" class="start right" onclick="return false;">Ακύρωση</a>
                             </div>
                             <?php
                         }
                         ?>
-                        
+                        <div class="eof"></div>
                         <input type="submit" class="submit" value="Αποθήκευση" />
                     </form>
                 </div>
