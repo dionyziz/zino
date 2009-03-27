@@ -70,7 +70,7 @@
                     foreach ( $ads as $ad ) {
                         ?><tr>
                             <td><div class="ads"><?php
-                                Element( 'admanager/view', $ad );
+                                Element( 'admanager/view', $ad, false );
                                 ?></div>
                                 <a class="edit" href="?p=admanager/create&amp;adid=<?php
                                 echo $ad->Id;

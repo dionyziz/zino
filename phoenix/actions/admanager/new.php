@@ -80,12 +80,13 @@
             $ad->Imageid = $image->Id;
         }
         if ( $ad->Exists() ) {
+            $ad->Save(); // save changes
             $ret = Redirect( '?p=admanager/list' );
         }
         else {
+            $ad->Save(); // create ad
             $ret = Redirect( '?p=admanager/demographics&id=' . $ad->Id );
         }
-        $ad->Save();
         
         return $ret;
     }
