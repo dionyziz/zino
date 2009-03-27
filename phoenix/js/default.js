@@ -19,7 +19,7 @@ function IsAdmin( username ) {
 }
 $( function() {
     if ( $.browser.mozilla ) {
-		$( "img:not(.nolazy)" ).lazyload( { 
+		$( "img:not(img.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
 	}
