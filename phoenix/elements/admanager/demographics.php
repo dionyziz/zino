@@ -1,6 +1,6 @@
 <?php
     class ElementAdManagerDemographics extends Element {
-        public function Render( tInteger $id ) {
+        public function Render( tInteger $id, tBoolean $canskip ) {
             global $libs;
             global $user;
             
@@ -8,6 +8,8 @@
             $libs->Load( 'place' );
             
             $id = $id->Get();
+            $canskip = $canskip->Get();
+            
             $ad = New Ad( $id );
             
             if ( !$ad->Exists() ) {
@@ -113,8 +115,11 @@
                         </div>
                         
                         <a href="" onclick="return false;" class="start" style="margin-top:50px">Αποθήκευση</a>
-                        <a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">ή παραλείψτε αυτό το βήμα</a>
-                        
+                        <?php
+                        if ( $canskip ) {
+                            ?><a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">ή παραλείψτε αυτό το βήμα</a><?php
+                        }
+                        ?>
                         <input type="submit" class="submit" value="Αποθήκευση" />
                     </div>
                     <div class="right">

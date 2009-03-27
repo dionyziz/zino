@@ -85,7 +85,7 @@
         }
         else {
             $ad->Save(); // create ad
-            $ret = Redirect( '?p=admanager/demographics&id=' . $ad->Id );
+            $ret = Redirect( '?p=admanager/demographics&id=' . $ad->Id . '&canskip=true' );
         }
         
         return $ret;
