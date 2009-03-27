@@ -116,13 +116,12 @@
                             </select>
                         </div>
                         
-                        <a href="" onclick="return false;" class="start" style="margin-top:50px">Αποθήκευση</a>
+                        <input type="submit" class="submit" value="Αποθήκευση" style="margin-top:50px" />
                         <?php
                         if ( $canskip ) {
                             ?><a href="" class="skip" onclick="return false;">ή παραλείψτε αυτό το βήμα</a><?php
                         }
                         ?>
-                        <input type="submit" class="submit" value="Αποθήκευση" />
                     </div>
                     <div class="right">
                         <div class="ads"><?php
