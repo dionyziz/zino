@@ -124,7 +124,7 @@
                     </div>
                     <div class="right">
                         <div class="ads"><?php
-                            Element( 'admanager/view', $ad );
+                            Element( 'admanager/view', $ad, false );
                         ?></div>
                     </div>
                     <div class="eof"></div>
@@ -134,3 +134,4 @@
         }
     }
 ?>
+fr
