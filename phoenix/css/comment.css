@@ -1,3 +1,6 @@
+div.comments {
+    position: relative;
+}
 div.comment {
 	float: left;
 	clear: both;
@@ -6,6 +9,8 @@ div.comment {
 	background: #fff repeat-x top;
     border-color: #dee;
 	width: 100%;
+    position: absolute;
+    right: 0;
 }
 div.comment div.who {
 	border-top: 1px solid #ccc !important;
