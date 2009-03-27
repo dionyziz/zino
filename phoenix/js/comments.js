@@ -233,7 +233,6 @@ var Comments = {
     }
 };
 $( function() {
-/*
         if ( $.browser.msie ) {
             $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
                 var parent = $( this ).parent().parent();
