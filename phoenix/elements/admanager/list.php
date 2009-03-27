@@ -91,9 +91,15 @@
                                 $sex = '';
                                 if ( $ad->Sex == 1 ) {
                                     $sex = 'άντρες';
+                                    if ( $ad->Maxage != 0 && $ad->Maxage < 25 ) {
+                                        $sex = 'αγόρια';
+                                    }
                                 }
                                 else if ( $ad->Sex == 2 ) {
                                     $sex = 'γυναίκες';
+                                    if ( $ad->Maxage != 0 && $ad->Maxage < 25 ) {
+                                        $sex = 'κορίτσια';
+                                    }
                                 }
                                 
                                 $location = '';

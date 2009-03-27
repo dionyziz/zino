@@ -32,7 +32,7 @@
                     <div class="left" style="width:400px;padding-left:50px">
                         <div class="input" style="float:left">
                             <label>Φύλο:</label>
-                            <select><?php
+                            <select name="sex"><?php
                                 $genders = array(
                                     0 => 'Αδιάφορο',
                                     1 => 'Άνδρες',
@@ -56,8 +56,8 @@
 
                         <div class="input" style="margin-left: 230px">
                             <label>Ηλικία:</label>
-                            <div>Από: <select>
-                                <option<?php
+                            <div>Από: <select name="minage">
+                                <option value="0"<?php
                                 if ( $ad->Minage == 0 ) {
                                     ?> selected="selected"<?php
                                 }
@@ -75,8 +75,8 @@
                                     }
                                 ?>
                             </select></div>
-                            <div>Έως: <select>
-                                <option<?php
+                            <div>Έως: <select name="maxage">
+                                <option value="0"<?php
                                 if ( $ad->Maxage == 0 ) {
                                     ?> selected="selected"<?php
                                 }
@@ -96,13 +96,15 @@
                             </select></div>
                         </div>
                         
+                        <?php
+                        $placefinder = New PlaceFinder();
+                        $places = $placefinder->FindAll();
+                        ?>
                         <div class="input">
                             <label>Περιοχή:</label>
                             <select name="place">
                                 <option value="0" selected="selected">Αδιάφορο</option>
                                 <?php
-                                    $placefinder = New PlaceFinder();
-                                    $places = $placefinder->FindAll();
                                     foreach ( $places as $place ) {
                                         ?><option value="<?php
                                         echo $place->Id;
@@ -117,7 +119,7 @@
                         <a href="" onclick="return false;" class="start" style="margin-top:50px">Αποθήκευση</a>
                         <?php
                         if ( $canskip ) {
-                            ?><a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">ή παραλείψτε αυτό το βήμα</a><?php
+                            ?><a href="" class="skip" onclick="return false;">ή παραλείψτε αυτό το βήμα</a><?php
                         }
                         ?>
                         <input type="submit" class="submit" value="Αποθήκευση" />
@@ -134,4 +136,3 @@
         }
     }
 ?>
-fr
