@@ -79,8 +79,14 @@
             }
             $ad->Imageid = $image->Id;
         }
+        if ( $ad->Exists() ) {
+            $ret = Redirect( '?p=admanager/list' );
+        }
+        else {
+            $ret = Redirect( '?p=admanager/demographics&id=' . $ad->Id );
+        }
         $ad->Save();
         
-        return Redirect( '?p=admanager/demographics&id=' . $ad->Id );
+        return $ret;
     }
 ?>

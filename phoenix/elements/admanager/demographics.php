@@ -21,6 +21,10 @@
             
             ?><div class="buyad">
                 <h2 class="ad">Διαφήμιση στο Zino</h2>
+                <form action="do/admanager/demographics" method="post">
+                <input type="hidden" value="<?php
+                echo $id;
+                ?>" name="adid" />
                 <div class="create demographics">
                     <h3>Επιλέξτε target group</h3>
                     <div class="left" style="width:400px;padding-left:50px">
@@ -110,6 +114,8 @@
                         
                         <a href="" onclick="return false;" class="start" style="margin-top:50px">Αποθήκευση</a>
                         <a href="" onclick="return false;" style="width: 250px;display:block;padding-top:5px;margin:auto;text-align: center;font-size:90%">ή παραλείψτε αυτό το βήμα</a>
+                        
+                        <input type="submit" class="submit" value="Αποθήκευση" />
                     </div>
                     <div class="right">
                         <div class="ads"><?php
