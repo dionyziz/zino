@@ -5,11 +5,6 @@
         global $libs;
         global $user;
         
-        // this user may be logged out; TODO
-        if ( !$user->HasPermission( PERMISSION_AD_CREATE ) ) {
-            return;
-        }
-        
         $title = $title->Get();
         $body = $body->Get();
         $url = $url->Get();
@@ -18,6 +13,10 @@
         $libs->Load( 'admanager' );
         
         if ( $adid ) {
+            // this user may be logged out; TODO
+            if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
+                return;
+            }
             $ad = New Ad( $adid );
             if ( !$ad->Exists() ) {
                 ?>Η διαφήμιση που προσπαθείτε να επεξεργαστείτε δεν υπάρχει.<?php
@@ -29,6 +28,10 @@
             }
         }
         else {
+            // this user may be logged out; TODO
+            if ( !$user->HasPermission( PERMISSION_AD_CREATE ) ) {
+                return;
+            }
             $ad = New Ad();
         }
         $ad->Title = $title;

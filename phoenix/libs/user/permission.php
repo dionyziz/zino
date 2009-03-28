@@ -56,5 +56,5 @@
    
    // ads permissions
    define( 'PERMISSION_AD_CREATE', 50 );
-   
+   define( 'PERMISSION_AD_EDIT', 50 );
 ?>

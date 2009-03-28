@@ -63,7 +63,7 @@ div.buyad ol li.creativecommons {
     color: #666;
 }
 div.buyad a.start, div.buyad input.submit {
-    margin: auto;
+    margin: 20px auto 10px auto;
     display: block;
     width: 200px;
     font-size: 110%;
@@ -117,9 +117,6 @@ div.buyad div.create h3 {
 }
 div.buyad div.create div.url input {
     width: 300px;
-}
-div.buyad div.create a.start {
-    margin: 20px auto 10px auto;
 }
 div.buyad div.create h3.preview {
     margin-bottom: 0;
