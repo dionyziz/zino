@@ -125,7 +125,9 @@
                                     $demographics = 'Χωρίς προτιμήσεις';
                                 }
                                 else {
-                                    $demographics = ucfirst( implode( ' ', array( $sex, $age, $location ) ) );
+                                    $demographics = implode( ' ', array( $sex, $age, $location ) );
+                                    $demographics = mb_strtoupper( mb_substr( $demographics, 0, 1 ) ) 
+                                                    . mb_substr( $demographics, 1 );
                                 }
                                 
                                 echo htmlspecialchars( $demographics );
