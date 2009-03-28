@@ -26,8 +26,18 @@ var AdManager = {
 				while ( a.firstChild ) {
 					a.removeChild( a.firstChild );
 				}
-				var text = document.createTextNode( $( "#sex" )[ 0 ].value );
-				a.appendChild( text );
+				var option = document.createTextNode( $( "#sex" )[ 0 ].value );
+				switch( option ) {
+					case 1:
+						var sex = "άνδρες";
+						break;    
+					case 2:
+						var sex = "γυναίκες";
+						break;
+					default:
+						var sex = "άτομα";
+				}
+				a.appendChild( "Στοχεύετε σε" + sex + "από οπουδήποτε" );
 			} );
 		}
 	}
