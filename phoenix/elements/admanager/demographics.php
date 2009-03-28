@@ -110,10 +110,7 @@
                                 <?php
 									$i = 0;
                                     foreach ( $places as $place ) {
-                                        ?><option index="<?php
-										echo $i;
-										++$i
-										?>" value="<?php
+                                        ?><option value="<?php
                                         echo $place->Id;
                                         ?>"><?php
                                         echo htmlspecialchars( $place->Name );
