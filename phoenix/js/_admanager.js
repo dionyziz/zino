@@ -29,4 +29,6 @@ var AdManager = {
 				var text = document.createTextNode( $( "#sex" )[ 0 ].value );
 				a.appendChild( text );
 			} );
+		}
+	}
 };
