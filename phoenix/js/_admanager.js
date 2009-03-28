@@ -16,6 +16,7 @@ var AdManager = {
 				}
 				var text = document.createTextNode( $( "#adbody" )[ 0 ].value );
 				a.appendChild( text );
+				
             } );
         }
     }

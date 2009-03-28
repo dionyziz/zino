@@ -115,8 +115,8 @@
                                 ?>
                             </select>
                         </div>
-                        <p id="target">Στοχεύετε σε όλο το εύρος ατόμων</p>
-                        <input type="submit" class="submit" value="Αποθήκευση" style="margin-top:50px" />
+                        <p id="target" style="margin-top:30px">Στοχεύετε σε όλο το εύρος ατόμων</p>
+                        <input type="submit" class="submit" value="Αποθήκευση" style="margin-top:10px" />
                         <?php
                         if ( $canskip ) {
                             ?><a href="" class="skip" onclick="return false;">ή παραλείψτε αυτό το βήμα</a><?php

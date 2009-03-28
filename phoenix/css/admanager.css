@@ -63,7 +63,7 @@ div.buyad ol li.creativecommons {
     color: #666;
 }
 div.buyad a.start, div.buyad input.submit {
-    margin: 20px 10px 10px auto;
+    margin: 20px auto 10px auto;
     display: block;
     width: 200px;
     font-size: 110%;
