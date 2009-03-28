@@ -7,6 +7,8 @@
             $libs->Load( 'admanager' );
             $libs->Load( 'place' );
             
+            $page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
+			
             $id = $id->Get();
             $canskip = $canskip->Get();
             
@@ -32,7 +34,7 @@
                     <div class="left" style="width:400px;padding-left:50px">
                         <div class="input" style="float:left">
                             <label>Φύλο:</label>
-                            <select name="sex"><?php
+                            <select name="sex" id="sex"><?php
                                 $genders = array(
                                     0 => 'Αδιάφορο',
                                     1 => 'Άνδρες',

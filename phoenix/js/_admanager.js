@@ -15,9 +15,18 @@ var AdManager = {
 					a.removeChild( a.firstChild );
 				}
 				var text = document.createTextNode( $( "#adbody" )[ 0 ].value );
-				a.appendChild( text );
-				
+				a.appendChild( text );		
             } );
         }
-    }
+    },
+	Demographics: {
+		OnLoad: function() {
+			$( "#sex" ).change( function() {
+				var a = $( "#target" )[ 0 ];
+				while ( a.firstChild ) {
+					a.removeChild( a.firstChild );
+				}
+				var text = document.createTextNode( $( "#sex" )[ 0 ].value );
+				a.appendChild( text );
+			} );
 };
