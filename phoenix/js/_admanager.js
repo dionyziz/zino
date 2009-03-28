@@ -45,15 +45,15 @@ var AdManager = {
 				while ( a.firstChild ) {
 					a.removeChild( a.firstChild );
 				}
-				var option = $( "#place" )[ 0 ].value;
+				var option = $( "#place" )[ 0 ].index;
 				alert( option );
-				/*var placelist = $( "#place" )[ 0 ].childNodes;
+				var placelist = $( "#place" )[ 0 ].childNodes;
 				var place = placelist[ option ].text;
 				if ( option == 0 ) {
 					place = "οπουδήποτε";
 				}
 				text = document.createTextNode( "Στοχεύετε σε " + sex + " από " + place );
-				a.appendChild( text );*/
+				a.appendChild( text );
 			} );
 		}
 	}
