@@ -125,12 +125,12 @@ var Profile = {
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
     OnLoad: function () {
-	Coala.Cold( 'admanager/showad', { f: function ( html ) {
+        Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
     },
     MyProfileOnLoad: function () {
-	$( '#reportabusemodal' ).jqm( {
+        $( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
         } );
@@ -168,6 +168,5 @@ var Profile = {
             inp.focus();
             return false;
         } );
-
     }
 };

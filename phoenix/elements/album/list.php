@@ -97,7 +97,7 @@
             Element( 'pagify', $pageno, $link, $total_pages, $text );
             ?></div><?php
             if ( $user->Id == $theuser->Id ) {
-                $page->AttachInlineScript( 'AlbumsList.OnLoad();' );
+                $page->AttachInlineScript( 'AlbumList.OnLoad();' );
             }
         }
     }
