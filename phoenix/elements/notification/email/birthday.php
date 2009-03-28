@@ -31,8 +31,15 @@
             else {
                 ?>του<?php
             }
-            ?> ένα χρόνια πολλά στο Zino προφίλ:
-<?php
+            ?> ένα χρόνια πολλά στο προφίλ <?php
+            if ( $from->Gender == 'f' ) {
+                ?>της<?php
+            }
+            else {
+                ?>του<?php
+            }
+            ?> στο Zino:
+            <?php
             echo $from->Subdomain . '.' . $rabbit_settings[ 'webaddress' ];
             
             Element( 'email/footer' );
