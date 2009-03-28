@@ -26,7 +26,7 @@ var AdManager = {
 				while ( a.firstChild ) {
 					a.removeChild( a.firstChild );
 				}
-				var option = document.createTextNode( $( "#sex" )[ 0 ].value );
+				var option = $( "#sex" )[ 0 ].value;
 				switch( option ) {
 					case 1:
 						var sex = "άνδρες";
@@ -37,7 +37,8 @@ var AdManager = {
 					default:
 						var sex = "άτομα";
 				}
-				a.appendChild( "Στοχεύετε σε" + sex + "από οπουδήποτε" );
+				text = document.createTextNode( "Στοχεύετε σε" + sex + "από οπουδήποτε" );
+				a.appendChild( text );
 			} );
 		}
 	}
