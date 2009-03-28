@@ -228,7 +228,7 @@
                 "SELECT
                     `profile_userid`, `relation_userid`
                 FROM
-                    :userprofiles LEFT JOIN :relations
+                    :userprofiles CROSS JOIN :relations
                         ON `relation_friendid` = `profile_userid`
                 WHERE
                     DATE_FORMAT( `profile_dob`, '%m' ) = :month
@@ -246,7 +246,7 @@
             
             $arr = array();
             while( $row = $res->FetchArray() ) {
-                $arr[] = array( $row[ 'profile_userid' ], $row[ 'relation_userid' ] );
+                $arr[] = array( ( int )$row[ 'profile_userid' ], ( int )$row[ 'relation_userid' ] );
             }
             return $arr;
         }

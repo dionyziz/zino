@@ -8,6 +8,9 @@
         $libs->Load( 'admanager' );
         
         $adid = $adid->Get();
+        $minage = $minage->Get();
+        $maxage = $maxage->Get();
+        $sex = $sex->Get();
         
         // this user may be logged out; TODO
         if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
@@ -23,7 +26,9 @@
             return;
         }
         
-        $ad->
+        $ad->Minage = $minage;
+        $ad->Maxage = $maxage;
+        $ad->Sex = $sex;
         
         $ad->Save();
         

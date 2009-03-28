@@ -76,6 +76,7 @@ div.buyad a.start, div.buyad input.submit {
     outline-color: red;
     background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
     background-repeat: repeat-x;
+    cursor: pointer;
 }
 div.buyad div.create {
     background-color: #f6f6f4;
