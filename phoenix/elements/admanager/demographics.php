@@ -108,8 +108,12 @@
                             <select name="place" id="place">
                                 <option value="0" selected="selected">Αδιάφορο</option>
                                 <?php
+									$i = 0;
                                     foreach ( $places as $place ) {
-                                        ?><option value="<?php
+                                        ?><option index="<?php
+										echo $i;
+										++$i
+										?>" value="<?php
                                         echo $place->Id;
                                         ?>"><?php
                                         echo htmlspecialchars( $place->Name );
