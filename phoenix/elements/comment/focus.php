@@ -17,7 +17,7 @@
                 else {
                     ?>0<?php
                 }
-                ?>)<?php
+                ?>);<?php
                 $page->AttachInlineScript( ob_get_clean() );
             }
         }
