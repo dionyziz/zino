@@ -67,7 +67,7 @@
                             
                             <div class="input">
                                 <?php
-                                if ( $adid ) {
+                                if ( $adid && $ad->Imageid ) {
                                     ?><label>Εικόνα: </label><?php
                                     Element( 'image/view', $ad->Imageid, $ad->Userid, $ad->Image->Width, $ad->Image->Height, 
                                              IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
