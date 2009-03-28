@@ -46,8 +46,8 @@ var AdManager = {
 					a.removeChild( a.firstChild );
 				}
 				var option = $( "#place" )[ 0 ].value;
-				alert( option );
 				var placelist = $( "#place" )[ 0 ].childNodes;
+				alert( placelist );
 				/*var place = placelist[ option ].text;
 				if ( option == 0 ) {
 					place = "οπουδήποτε";
