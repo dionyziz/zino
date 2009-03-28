@@ -47,7 +47,12 @@ var AdManager = {
 				}
 				var option = $( "#place" )[ 0 ].value;
 				var placelist = $( "#place" )[ 0 ].childNodes;
-				alert( placelist );
+				for ( var i = 0; i < children.length; i++) {
+					if ( placelist[ i ].value == option ) {
+						break;
+					}
+				};
+				alert( i );
 				/*var place = placelist[ option ].text;
 				if ( option == 0 ) {
 					place = "οπουδήποτε";
