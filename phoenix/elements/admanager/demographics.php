@@ -2,6 +2,7 @@
     class ElementAdManagerDemographics extends Element {
         public function Render( tInteger $id, tBoolean $canskip ) {
             global $libs;
+			global $page;
             global $user;
             
             $libs->Load( 'admanager' );
