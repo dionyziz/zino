@@ -47,7 +47,7 @@ var AdManager = {
 				}
 				var option = $( "#place" )[ 0 ].value;
 				var placelist = $( "#place" )[ 0 ].childNodes;
-				for ( var i = 0; i < children.length; i++) {
+				for ( var i = 0; i < placelist.length; i++ ) {
 					if ( placelist[ i ].value == option ) {
 						break;
 					}
