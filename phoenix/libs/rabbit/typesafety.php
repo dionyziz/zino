@@ -22,6 +22,24 @@
             $this->mValue = ( integer )$value;
             parent::__construct( $value );
         }
+        public function Get( $domain = false ) {
+            if ( $domain !== false ) {
+                w_assert( is_array( $domain ) );
+                if ( isset( $domain[ 'min' ] ) ) {
+                    w_assert( is_int( $domain[ 'min' ] ) );
+                    if ( $this->mValue < $domain[ 'min' ] ) {
+                        $this->mValue = $domain[ 'min' ];
+                    }
+                }
+                if ( isset( $domain[ 'max' ] ) ) {
+                    w_assert( is_int( $domain[ 'max' ] ) );
+                    if ( $this->mValue > $domain[ 'max' ] ) {
+                        $this->mValue = $domain[ 'max' ];
+                    }
+                }
+            }
+            return parent::Get();
+        }
     }
     
     class tFloat extends tBaseType {
@@ -51,6 +69,19 @@
             $this->mValue = ( string )$value;
             parent::__construct( $value );
         }
+        public function Get( $domain = false ) {
+            if ( $domain !== false ) {
+                w_assert( is_array( $domain ) );
+                if ( isset( $domain[ 'maxlength' ] ) ) {
+                    w_assert( is_int( $domain[ 'maxlength' ] ) );
+                    if ( mb_strlen( $this->mValue ) > $domain[ 'maxlength' ] ) {
+                        // crop it
+                        $this->mValue = mb_substr( $this->mValue, 0, $domain[ 'maxlength' ] );
+                    }
+                }
+            }
+            return parent::Get();
+        }
     }
     
     class tText extends tString {
@@ -58,6 +89,7 @@
             parent::__construct( $value );
             $this->mValue = iconv( 'UTF-8', 'UTF-8', $this->mValue ); // ensure UTF-8 is well-formed; if not, filter out illegal characters
         }
+        
     }
 
     abstract class tArray extends tBaseType implements Iterator {
