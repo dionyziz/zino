@@ -29,15 +29,15 @@ var AdManager = {
 				var option = $( "#sex" )[ 0 ].value;
 				switch( option ) {
 					case 1:
-						var sex = "άνδρες";
+						var sex = "Ξ¬Ξ½Ξ΄ΟΞµΟ‚";
 						break;    
 					case 2:
-						var sex = "γυναίκες";
+						var sex = "Ξ³Ο…Ξ½Ξ±Ξ―ΞΊΞµΟ‚";
 						break;
 					default:
-						var sex = "άτομα";
+						var sex = "Ξ¬Ο„ΞΏΞΌΞ±";
 				}
-				text = document.createTextNode( "Στοχεύετε σε" + sex + "από οπουδήποτε" );
+				text = document.createTextNode( "Ξ£Ο„ΞΏΟ‡ΞµΟΞµΟ„Ξµ ΟƒΞµ" + sex + "Ξ±Ο€Ο ΞΏΟ€ΞΏΟ…Ξ΄Ξ®Ο€ΞΏΟ„Ξµ" );
 				a.appendChild( text );
 			} );
 		}
