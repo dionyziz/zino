@@ -37,7 +37,21 @@ var AdManager = {
 					default:
 						var sex = "άτομα";
 				}
-				text = document.createTextNode( "Στοχεύετε σε" + sex + "από οπουδήποτε" );
+				text = document.createTextNode( "Στοχεύετε σε " + sex + " από οπουδήποτε" );
+				a.appendChild( text );
+			} );
+			$( "#place" ).change( function() {
+				var a = $( "#target" )[ 0 ];
+				while ( a.firstChild ) {
+					a.removeChild( a.firstChild );
+				}
+				var option = $( "#place" )[ 0 ].value;
+				var placelist = $( "#place" )[ 0 ].childNodes;
+				var place = placelist[ option ].text;
+				if ( option == 0 ) {
+					place = "οπουδήποτε";
+				}
+				text = document.createTextNode( "Στοχεύετε σε " + sex + " από " + place );
 				a.appendChild( text );
 			} );
 		}

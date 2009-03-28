@@ -105,7 +105,7 @@
                         ?>
                         <div class="input">
                             <label>Περιοχή:</label>
-                            <select name="place">
+                            <select name="place" id="place">
                                 <option value="0" selected="selected">Αδιάφορο</option>
                                 <?php
                                     foreach ( $places as $place ) {
