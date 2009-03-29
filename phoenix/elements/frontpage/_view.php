@@ -215,7 +215,7 @@
                     Element( 'frontpage/notification/comet' );
             }
         }
-        //$page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
+        $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
         }
     }
 ?>
