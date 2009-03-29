@@ -18,6 +18,7 @@ function IsAdmin( username ) {
 
 }
 $( function() {
+    /*
     if ( $.browser.mozilla ) {
         $( "img" ).each( function() {
             if ( !$( this ).hasClass( "nolazy" ) ) {
@@ -29,9 +30,8 @@ $( function() {
 	    /*	$( "img:not(img.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
-        */
 	}
-    
+    */ 
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
