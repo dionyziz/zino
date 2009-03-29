@@ -9,7 +9,7 @@
                     ?><dl class="online"><dt><strong>Online</strong></dt><dd></dd></dl><?php
                 ?></div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuserid , $updated );
-				Element( 'user/profile/sidebar/player', $theuser );
+				Element( 'user/profile/sidebar/player', $theuser, $theuserid );
             ?>
             <div class="ads"></div>
             </div><?php
