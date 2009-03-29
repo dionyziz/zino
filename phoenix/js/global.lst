@@ -34,8 +34,8 @@ types.js
 questions.js
 analytics.js
 #comments.js
-#search/search.js
-#search/im.js
+search/search.js
+search/im.js
 #schools.js
 #meteor.js
 #comet.js
