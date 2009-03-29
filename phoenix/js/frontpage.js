@@ -17,63 +17,63 @@ var Frontpage = {
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();
         }
-	if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
-		$( '#selectplace select' ).change( function() {
-			var place = $( '#selectplace select' )[ 0 ].value;
-			$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-			Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
-		} );
-		$( '#selecteducation select' ).change( function() {
-			var edu = $( '#selecteducation select' )[ 0 ].value;
-			$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-			Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
-		} );
-		$( '#selectuni select' ).change( function() {
-			var uni = $( '#selectuni select' )[ 0 ].value;
-		$( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-			Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
-		} );
-	}
-	if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
-		var notiflist = $( 'div.notifications div.list' )[ 0 ];
-		var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
-		
-		$( 'div.notifications div.list div.event' ).mouseover( function() {
-			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
-		} )
-		.mouseout( function() {
-			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
-		} );
-    
-		$( 'div.notifications div.expand a' ).click( function() {
-			if ( $( notiflist ).css( 'display' ) == "none" ) {
-				$( 'div.notifications div.expand a' )
-				.css( "background-position" , "4px -1440px" )
-				.attr( {
-					title : 'Απόκρυψη'
-				} );
-				$( notiflist ).show().animate( { height : notiflistheight } , 400 );
-			}
-			else {
-				$( 'div.notifications div.expand a' )
-				.css( "background-position" , "4px -1252px" )
-				.attr( {
-					title : 'Εμφάνιση'
-				} );
-				$( notiflist ).animate( { height : "0" } , 400 , function() {
-					$( notiflist ).hide();
-				} );
-			}
-			return false;
-		} );  
-	 }
-	$( 'div.right div.latest' ).mousemove( function() {
-		if ( typeof( timer ) != 'undefined'  && timer ) {
-			clearTimeout( timer );
-		}
-		timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
-	
-	} );
+        if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
+            $( '#selectplace select' ).change( function() {
+                var place = $( '#selectplace select' )[ 0 ].value;
+                $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+                Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
+            } );
+            $( '#selecteducation select' ).change( function() {
+                var edu = $( '#selecteducation select' )[ 0 ].value;
+                $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+                Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
+            } );
+            $( '#selectuni select' ).change( function() {
+                var uni = $( '#selectuni select' )[ 0 ].value;
+            $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+                Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
+            } );
+        }
+        if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
+            var notiflist = $( 'div.notifications div.list' )[ 0 ];
+            var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
+            
+            $( 'div.notifications div.list div.event' ).mouseover( function() {
+                $( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
+            } )
+            .mouseout( function() {
+                $( this ).css( "border" , "0" ).css( "padding" , "5px" );
+            } );
+        
+            $( 'div.notifications div.expand a' ).click( function() {
+                if ( $( notiflist ).css( 'display' ) == "none" ) {
+                    $( 'div.notifications div.expand a' )
+                    .css( "background-position" , "4px -1440px" )
+                    .attr( {
+                        title : 'Απόκρυψη'
+                    } );
+                    $( notiflist ).show().animate( { height : notiflistheight } , 400 );
+                }
+                else {
+                    $( 'div.notifications div.expand a' )
+                    .css( "background-position" , "4px -1252px" )
+                    .attr( {
+                        title : 'Εμφάνιση'
+                    } );
+                    $( notiflist ).animate( { height : "0" } , 400 , function() {
+                        $( notiflist ).hide();
+                    } );
+                }
+                return false;
+            } );  
+         }
+        $( 'div.right div.latest' ).mousemove( function() {
+            if ( typeof( timer ) != 'undefined'  && timer ) {
+                clearTimeout( timer );
+            }
+            timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
+        
+        } );
         $( 'div.right div.latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
@@ -89,6 +89,7 @@ var Frontpage = {
         TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
         TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
         OnLoad: function () {
+            var olddate = new Date().getTime();
             var textarea = $( '#shoutbox_text' );
             
             $( 'div#shoutbox div.newcomment div.bottom input' ).click( function() {
@@ -119,7 +120,6 @@ var Frontpage = {
             // check if user is logged in
             var username = GetUsername();
             
-            var olddate = new Date().getTime();
             if ( username ) {
                 $( "#shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
@@ -136,8 +136,6 @@ var Frontpage = {
                     }
                 } );
             }       
-            var newdate = new Date().getTime();
-            alert( (newdate-olddate)/1000);
             var q = function () {
                 var submit = $( '#shoutbox_submit' )[ 0 ];
                 if ( $.trim( textarea[ 0 ].value ).length === 0 ) {
@@ -193,6 +191,8 @@ var Frontpage = {
             } ).blur();
             
             textarea[ 0 ].disabled = false;
+            var newdate = new Date().getTime();
+            alert( (newdate-olddate)/1000);
         },
         OnStartTyping: function ( who ) { // received when someone starts typing
             if ( who.name == GetUsername() ) { // don't show it when you're typing
@@ -320,7 +320,7 @@ var Frontpage = {
         },
         ShowShout: function( node ) {
             var targetHeight = node.offsetHeight;
-            var comments = $( 'div#shoutbox div.comments div.comment' );
+            var comments = $( '#shoutbox div.comments div.comment' );
             var i = 0;
             
             for ( i = comments.length - 2; i >= 1; --i ) { // messages can be posted fast; multiple ones within 500ms :)
@@ -395,7 +395,5 @@ var Frontpage = {
             }
             Frontpage.Comment.ShowComment( Frontpage.Comment.Queue.pop() , timerval );
         }
-    },
-    Notif : {
     }
 };
