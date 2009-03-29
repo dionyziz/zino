@@ -271,3 +271,37 @@ div.buyad a.skip {
     text-align: center;
     font-size: 90%;
 }
+div.buyad ul li {
+    padding-top: 5px;
+    height: 60px;
+}
+div.buyad ul li.small {
+    height: 35px;
+}
+div.buyad ul.credit li {
+    display: inline;
+}
+div.buyad ul.credit li img {
+    padding: 5px 5px 0 5px;
+}
+div.buyad table tbody tr td input.radio, div.buyad ul li input.radio {
+    width: 20px;
+    float: left;
+}
+div.buyad table tr td label, div.buyad ul li label {
+    padding: 1px 0 0 0;
+    margin: 0 0 0 20px;
+}
+div.buyad p.more {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad table.adpackages {
+    margin: 10px 0 10px 0;
+}
+div.buyad form.paypal {
+    text-align: center;
+}
+div.buyad p.confirm {
+    font-size: 80%;
+}
