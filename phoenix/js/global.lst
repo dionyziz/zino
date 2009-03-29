@@ -28,8 +28,8 @@ date.js
 pm.js
 frontpage.js
 moodpicker.js
-#settings.js
-#default.js
+settings.js
+default.js
 types.js
 questions.js
 analytics.js
