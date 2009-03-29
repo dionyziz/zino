@@ -48,15 +48,15 @@ var PollList = {
 		} );
 		$( 'div#polist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polist ul div.creationmockup input' ).keydown( function( event ) {
-$( function() {
-	if ( $( 'div#pollview' )[ 0 ] ){
-		var delete1 = new Image();
-		delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';
-		var delete2 = new Image();
-		delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
-	}
-	
-} );
+            $( function() {
+                if ( $( 'div#pollview' )[ 0 ] ){
+                    var delete1 = new Image();
+                    delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';
+                    var delete2 = new Image();
+                    delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
+                }
+                
+            } );
 			if ( event.keyCode == 13 ) {
 				PollList.CreateQuestion();
 			}		
