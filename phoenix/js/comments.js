@@ -283,7 +283,6 @@ $( function() {
             } );
             
 		} );
-        */
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
 			var username = GetUsername();
 			var commdate, leftpadd;
@@ -329,4 +328,5 @@ $( function() {
 				}
             } );
         }
+        */
 } );
