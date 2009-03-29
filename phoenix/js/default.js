@@ -31,6 +31,7 @@ $( function() {
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
+    */
     var loggedinuser = GetUsername();
     if ( loggedinuser == 'dionyziz' || loggedinuser == 'izual' || loggedinuser == 'kostis90gr' || loggedinuser == 'pagio' || loggedinuser == 'indy' || loggedinuser == 'd3nnn1z' ) { // should we change this now?  --Indy
 	var renderingend = new Date();
