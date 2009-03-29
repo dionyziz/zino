@@ -232,7 +232,6 @@ var Comments = {
         }
     },
     OnLoad : function() {
-        var old = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
@@ -290,7 +289,5 @@ var Comments = {
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
-        var nowtime = new Date().getTime();
-        alert( (nowtime-old)/1000);
     }
 };

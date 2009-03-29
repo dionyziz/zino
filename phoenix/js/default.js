@@ -15,24 +15,15 @@ function GetUsername() {
 	return username;
 }
 $( function() {
+    var old = new Date().getTime();    
     if ( $.browser.mozilla ) {
 	    $( "img" ).not( ".nolazy" ).lazyload( { 
 			threshold : 200
 		} );
 	}
+    var new = new Date().getTime();
+    alert( (new-old)/1000) ;
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
-    var loggedinuser = GetUsername();
-    if ( loggedinuser == 'dionyziz' || loggedinuser == 'izual' || loggedinuser == 'kostis90gr' || loggedinuser == 'pagio' || loggedinuser == 'indy' || loggedinuser == 'd3nnn1z' ) { // should we change this now?  --Indy
-	var renderingend = new Date();
-	var renderspan = document.createElement( 'div' );
-	renderspan.appendChild( document.createTextNode( 'Rendering time: ' + ( renderingend.getTime() - renderingstart.getTime() ) / 1000 + ' seconds' ) ); 
-	$( renderspan ).css( {
-	    'color' : 'red', 
-	    'font-size' : '90%',
-	    'text-align' : 'center'
-	} );
-	$( 'div.footer' ).append( renderspan );
-    }
 } );
