@@ -233,6 +233,7 @@ var Comments = {
     }
 };
 $( function() {
+        var old = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div[class='comment']" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
@@ -303,4 +304,6 @@ $( function() {
 				}
             } );
         }
+        var nowtime = new Date().getTime();
+        alert( (nowtime-oldtime)/1000);
 } );
