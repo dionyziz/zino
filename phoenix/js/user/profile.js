@@ -121,7 +121,7 @@ var Profile = {
         }
     },
     Easyuploadadd : function ( imageid ) {
-        var uplalbid = $( 'div#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
+        var uplalbid = $( '#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
     OnLoad: function () {

@@ -119,6 +119,7 @@ var Frontpage = {
             // check if user is logged in
             var username = GetUsername();
             
+            var olddate = new Date().getTime();
             if ( username ) {
                 $( "#shoutbox div.comment[id^='s_']" ).each( function() { // match shouts that have an id (exclude the reply)
                     if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
@@ -135,7 +136,8 @@ var Frontpage = {
                     }
                 } );
             }       
-
+            var newdate = new Date().getTime();
+            alert( (newdate-olddate)/1000);
             var q = function () {
                 var submit = $( '#shoutbox_submit' )[ 0 ];
                 if ( $.trim( textarea[ 0 ].value ).length === 0 ) {
