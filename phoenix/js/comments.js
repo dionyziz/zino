@@ -288,7 +288,7 @@ $( function() {
                 } );
                 $( "div.comments div.comment[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     var parent = $( this ).parent().parent().parent();
-                    var id = parent.id.substr( 8 , parent.id.length - 8 );
+                    var id = $( parent ).attr( "id" ).substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
                     $( parent ).find( "div.text" )
                     .dblclick( function() {
