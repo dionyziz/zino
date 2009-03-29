@@ -288,7 +288,7 @@ var Comments = {
                     var id = $( parent ).attr( "id" );
                     alert( id );
                     id =  id.substr( 8 , id.length - 8 );
-                    var leftpadd = Comments.LeftPadding( parent );
+                    var leftpadd = Comments.FindLeftPadding( parent );
                     $( parent ).find( "div.text" )
                     .dblclick( function() {
                         return Comments.Edit( id );
