@@ -291,6 +291,7 @@ var Comments = {
                     .dblclick( function() {
                         return Comments.Edit( id );
                     } );
+                    /*
                     leftpadd += 20;
                     var nextleftpadd = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
                     if ( leftpadd != nextleftpadd ) {
@@ -301,6 +302,7 @@ var Comments = {
                             return Comments.Delete( id );
                         } );
                     }
+                    */
                 } );
             }
         }
