@@ -18,7 +18,7 @@ poll/list.js
 poll/view.js
 journal/view.js
 journal/new.js
-ser/join.js
+user/join.js
 user/joined.js
 user/settings.js
 user/profile.js
