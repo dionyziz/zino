@@ -261,6 +261,7 @@ $( function() {
         } );
         var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
+            var username = GetUsername();
             $( "div.comments div.comment[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var lmargin = Comments.FindLeftPadding( $( this ).parent().parent() );
@@ -270,24 +271,23 @@ $( function() {
                 .removeClass( 'invisible' );
 
             } );
-            var username = GetUsername();
+            if ( !username ) {
+                $( "div.comments div.comment[id^='comment_'] div.bottom" ).empty();
+            }
+            else {
+                $( "div.comments div.comment[id^='comment_'] div.bottom" ).each( function() {
+                    var leftpadd = Comment.FindLeftPadding( $( this ).parent() );
+                    if ( leftpadd > 1000 ) {
+                        $( this ).empty();
+                    }
+                } );
+            }
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
-                var commdate = $( this ).find( "div.toolbox span.time" ).text();
-				var leftpadd = Comments.FindLeftPadding( this );
+				/*var leftpadd = Comments.FindLeftPadding( this );
 				if ( leftpadd > 1000 ) {
 					$( this ).find( 'div.bottom' )
 					.empty();
 				}
-                var lmargin = Comments.FindLeftPadding( this );
-                /* 
-                $( this ).find( 'div.text' )
-                .css( 'margin-right' , lmargin + 'px' );
-                
-				$( this ).find( "div.toolbox span.time" )
-                .empty()
-                .css( 'margin-right' , lmargin + 'px' )
-                .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) ) )
-                .removeClass( 'invisible' );
                 */
 				if ( username ) {
 					if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
@@ -307,10 +307,6 @@ $( function() {
 							} );
 						}
 					}
-				}
-				else {
-				    $( this ).find( 'div.bottom' )
-	                .empty();
 				}
             } );
         }
