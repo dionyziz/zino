@@ -262,22 +262,16 @@ $( function() {
         var old1 = new Date().getTime();
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            alert( '1' );
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
-                var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
-                if ( lmargin != nextlmargin ) {
-                    lmargin = 0;
-                }
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .removeClass( 'invisible' );
 
             } );
-            alert( '2' );
             if ( !username ) {
                 $( "div.comments div.comment[id^='comment_'] div.bottom" ).empty();
             }
@@ -321,8 +315,8 @@ $( function() {
 						leftpadd += 20;
 						var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
 						if ( leftpadd != nextleftpadd ) {
-							$( this )/*.find( "span.time" ).css( 'margin-right' , '0px' ).end()
-							*/.find( 'div.toolbox a' )
+							$( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
+							.find( 'div.toolbox a' )
 							.removeClass( 'invisible' )
 							.click( function() {
 								return Comments.Delete( id );
