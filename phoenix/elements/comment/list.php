@@ -26,7 +26,7 @@
                 $children = isset( $children_nums[ $comment->Id ] ) ? $children_nums[ $comment->Id ] : 0;
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
             }
-
+            $page->AttachInlineScript( "Comments.OnLoad();" );
             return $indent;
         }   
     }

@@ -230,9 +230,8 @@ var Comments = {
         if ( loggedin ) {
             Comments.ToggleReply( id, indent - 1 );
         }
-    }
-};
-$( function() {
+    },
+    OnLoad : function() {
         var old = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div[id^='comment_']" ).each( function( i ) {
@@ -309,4 +308,7 @@ $( function() {
         var nowtime = new Date().getTime();
         alert( (old1-old)/1000);
         alert( (nowtime-old1)/1000);
+    }
+};
+$( function() {
 } );
