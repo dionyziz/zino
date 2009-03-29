@@ -277,7 +277,7 @@ $( function() {
             else {
                 $( "div.comments div.comment[id^='comment_'] div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
-                    if ( leftpadd > 1000 ) {
+                    if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
