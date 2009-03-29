@@ -233,6 +233,7 @@ var Comments = {
     }
 };
 $( function() {
+        /*
         if ( $.browser.msie ) {
             $( "div.comments div.comment:not( .newcomment ):not( .empty ) div.bottom a" ).click( function() {
                 var parent = $( this ).parent().parent();
@@ -241,7 +242,6 @@ $( function() {
                 /*var kimeno = $( parent ).find( "div.text" );
                 var wid = kimeno.get( 0 ).offsetWidth-20;
                 kimeno.css( "width", wid-indent*20+'px' );
-                */
                 Comments.ToggleReply( id , indent );
                 return false;
             } );
@@ -255,12 +255,10 @@ $( function() {
                 var kimeno = $( parent ).find( "div.text" );
                 var wid = parseInt( kimeno.css( "width" ), 10 );
                 kimeno.css( "width", wid-indent*20+'px' );
-                */
                 Comments.ToggleReply( id , indent );
                 return false;
             } );
         }
-/*
 		$( "div.comments div[class='comment'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
@@ -271,7 +269,6 @@ $( function() {
             Comments.ToggleReply( id , indent );
             return false;
         } );
-        /*
         $( "div.comments div[class='comment']" ).each( function( i ) {
             var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
