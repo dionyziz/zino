@@ -28,7 +28,6 @@ $( function() {
 			threshold : 200
 		} );
 	}
-    */ 
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
