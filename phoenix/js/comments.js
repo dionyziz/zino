@@ -279,12 +279,12 @@ $( function() {
 			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
-            /*
+            
             $( this ).find( "div.bottom a" ).click( function() {
                 Comments.ToggleReply( id, indent );
                 return false;
             } );
-            */
+           
 		} );
         var thendate = new Date().getTime();
         alert( (thendate - nowdate)/1000 );
