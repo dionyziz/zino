@@ -23,10 +23,10 @@ user/joined.js
 user/settings.js
 user/profile.js
 user/suggest.js
-#banner.js
+banner.js
 #date.js
-#pm.js
-#frontpage.js
+pm.js
+frontpage.js
 #moodpicker.js
 #settings.js
 #default.js
