@@ -282,9 +282,9 @@ $( function() {
                         $( this ).empty();
                     }
                 } );
-                /*$( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                $( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     var parent = $( this ).parent().parent().parent();
-                    var id = $( parent ).id.substr( 8 , parent.id.length - 8 );
+                    var id =  parent.id.substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
                     $( parent ).find( "div.text" )
                     .dblclick( function() {
@@ -301,14 +301,14 @@ $( function() {
                         } );
                     }
                 } );
-                */
             }
+            /*
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
 				var leftpadd = Comments.FindLeftPadding( this );
 				if ( username ) {
 					if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
 						var id = this.id.substr( 8 , this.id.length - 8 );
-						$( this ).find( "div.text" )
+						/*$( this ).find( "div.text" )
 						.dblclick( function() {
 							return Comments.Edit( id );
 						} );
@@ -325,6 +325,7 @@ $( function() {
 					}
 				}
             } );
+            */
         }
         var nowtime = new Date().getTime();
         alert( (old1-old)/1000);
