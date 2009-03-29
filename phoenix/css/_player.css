@@ -1,0 +1,143 @@
+/*
+ZinoPlayer CSS
+*/
+
+#zinoPlayer {
+	display:block;
+	float:left;
+	width:320px;
+	height:115px;
+	background:url('http://static.zino.gr/phoenix/art/player/background.jpg') no-repeat;
+	margin-bottom:5px;
+	font-family:arial;
+}
+
+#zinoPlayer span.playing {
+	display:block;
+	float:left;
+	width:4px;
+	height:7px;
+	background:url('http://static.zino.gr/phoenix/art/player/playing.gif') no-repeat;
+	margin: 3px 4px 0px 4px;
+}
+
+
+#zinoPlayer #playerControls {
+	display:block;
+	float:left;
+	width:320px;
+	height:32px;
+}
+
+#zinoPlayer ul#playList {
+	display:block;
+	float:left;
+	width:310px;
+	height:75px;
+	list-style:none;
+	margin:6px 0px 0px 4px;
+}
+
+#zinoPlayer ul#playList li {
+	display:block;
+	height:15px;
+	width:310px;
+	border-bottom:1px solid #cccccc;
+}
+
+#zinoPlayer ul#playList li a {
+	display:block;
+	height:13px;
+	padding-top:2px;
+	width:310px;
+	overflow:hidden;
+	font-size:10px;
+	color:#4b6c7f;
+	text-indent:4px;
+	outline:none;
+}
+
+#zinoPlayer ul#playList li a.selected {
+	background:url('http://static.zino.gr/phoenix/art/player/trackSelection.jpg') repeat-x;
+	color:#ffffff;
+	text-indent:8px;
+	width:311px;
+	font-weight:bold;
+}
+
+#zinoPlayer #playerControls #playButton {
+	margin:4px 0px 0px 12px;
+	display:block;
+	float:left;
+	width:25px;
+	height:25px;
+	background:url('http://static.zino.gr/phoenix/art/player/pause_button.png') no-repeat;
+	text-indent:-4000px;
+	opacity:0.55;
+	filter:alpha(opacity=55);
+	outline:none;
+}
+
+#zinoPlayer #playerControls #playButton.pause {
+	background:url('http://static.zino.gr/phoenix/art/player/pause_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton.play {
+	background:url('http://static.zino.gr/phoenix/art/player/play_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton:hover {
+	opacity:0.95;
+	filter:alpha(opacity=95);
+}
+
+#zinoPlayer #playerControls #progressBar {
+	display:block;
+	float:left;
+	margin:12px 0px 0px 20px;
+	width:260px;
+	height:11px;
+	background:url('http://static.zino.gr/phoenix/art/player/progressbar.jpg') no-repeat;
+}
+
+#zinoPlayer #playerControls #progressBar #progress {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	max-width:253px;
+	background:url('http://static.zino.gr/phoenix/art/player/progress.jpg') repeat-x;
+	margin:0px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #progressEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	background:#cfcfcf url('http://static.zino.gr/phoenix/art/player/progressEnd.gif') repeat-x;
+	margin:0px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #buffered {
+	display:block;
+	float:left;
+	height:9px;
+	width:7px;
+	max-width:253px;
+	background:#CFCFCF repeat-x;
+	margin:1px 0px 0px 3px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #bufferedEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	background:url('http://static.zino.gr/phoenix/art/player/bufferedEnd.gif') repeat-x;
+	margin:1px 0px 0px 0px;
+	border:none;
+}
