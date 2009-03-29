@@ -305,5 +305,5 @@ $( function() {
             } );
         }
         var nowtime = new Date().getTime();
-        alert( (nowtime-oldtime)/1000);
+        alert( (nowtime-old)/1000);
 } );
