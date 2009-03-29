@@ -32,8 +32,8 @@ settings.js
 default.js
 types.js
 questions.js
-analytics.js
-comments.js
+#analytics.js
+#comments.js
 search/search.js
 search/im.js
 schools.js
