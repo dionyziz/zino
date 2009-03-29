@@ -262,7 +262,7 @@ $( function() {
         var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div.comment[id^='comment_'] div.toolbox span.time" ).each( function() {
+            $( "div.comments div.comment:not(.newcomment):not(.empty) div.toolbox span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
@@ -277,10 +277,10 @@ $( function() {
 
             } );
             if ( !username ) {
-                $( "div.comments div.comment[id^='comment_'] div.bottom" ).empty();
+                $( "div.comments div.comment:not(.newcomment):not(.empty) div.bottom" ).empty();
             }
             else {
-                $( "div.comments div.comment[id^='comment_'] div.bottom" ).each( function() {
+                $( "div.comments div.comment:not(.newcomment):not(.empty) div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
