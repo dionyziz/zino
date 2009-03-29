@@ -22,7 +22,7 @@ $( function() {
 		} );
 	}
     var new = new Date().getTime();
-    alert( (new-old)/1000) ;
+    alert( (new-old)/1000) );
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
