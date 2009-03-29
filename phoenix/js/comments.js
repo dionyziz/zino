@@ -290,7 +290,7 @@ var Comments = {
                     .dblclick( function() {
                         return Comments.Edit( id );
                     } );
-                    alert( $( parent ).find( "div.who" ) );
+                    $( parent ).find( "div.who" ).css( "border" , "1px solid red" );
                     $( parent ).find( "div.who" ).css( "border-top" , "3px solid #b3d589" );
                     /*
                     leftpadd += 20;
