@@ -15,13 +15,13 @@ function GetUsername() {
 	return username;
 }
 $( function() {
-    var newnewdate = new Date.getTime();
+    var newnewdate = new Date().getTime();
     if ( $.browser.mozilla ) {
 	    $( "img" ).lazyload( { 
 			threshold : 200
 		} );
 	}
-    var olddate = new Date.getTime();
+    var olddate = new Date().getTime();
     alert( (olddate-newnewdate)/1000);
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
