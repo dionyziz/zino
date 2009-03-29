@@ -260,8 +260,9 @@ $( function() {
             return false;
         } );
         var old1 = new Date().getTime();
-        if ( $( "div[id^='comment_']" )[ 0 ] ) {
+        if ( $( "div.commments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
+            alert( '1' );
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 //var parent = $( this ).parent().parent();
@@ -277,6 +278,7 @@ $( function() {
                 .removeClass( 'invisible' );
 
             } );
+            alert( '2' );
             if ( !username ) {
                 $( "div.comments div.comment[id^='comment_'] div.bottom" ).empty();
             }
