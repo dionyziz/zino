@@ -309,7 +309,7 @@ var Comments = {
                     var id = $( this ).parent().attr( "id" );
                     return Comments.Edit( id.substr( 8 , id.length - 8 ) );
                 } );
-                $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
+                $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589 !important" );
             }
         }
         var nowtime = new Date().getTime();
