@@ -262,9 +262,14 @@ $( function() {
         var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div.comment[id^='comment_'] span.time" ).each( function() {
+            $( "div.comments div.comment[id^='comment_'] div.toolbox span.time" ).each( function() {
                 var commdate = $( this ).text();
-                var lmargin = Comments.FindLeftPadding( $( this ).parent().parent() );
+                var parent = $( this ).parent().parent();
+                var lmargin = Comments.FindLeftPadding( parent );
+                var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
+                if ( lmargin != nextlmargin ) {
+                    lmargin = 0;
+                }
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
@@ -281,15 +286,28 @@ $( function() {
                         $( this ).empty();
                     }
                 } );
+                $( "div.comments div.comment[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                    var parent = $( this ).parent().parent().parent();
+                    var id = parent.id.substr( 8 , parent.id.length - 8 );
+                    var leftpadd = Comments.LeftPadding( parent );
+                    $( parent ).find( "div.text" )
+                    .dblclick( function() {
+                        return Comments.Edit( id );
+                    } );
+                    leftpadd += 20;
+                    var nextleftpadd = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
+                    if ( leftpadd != nextleftpadd ) {
+                        $( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
+                        .find( 'div.toolbox a' )
+                        .removeClass( 'invisible' )
+                        .click( function() {
+                            return Comments.Delete( id );
+                        } );
+                    }
+                } );
             }
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
 				var leftpadd = Comments.FindLeftPadding( this );
-				/*
-                if ( leftpadd > 1000 ) {
-					$( this ).find( 'div.bottom' )
-					.empty();
-				}
-                */
 				if ( username ) {
 					if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
 						var id = this.id.substr( 8 , this.id.length - 8 );
@@ -300,8 +318,8 @@ $( function() {
 						leftpadd += 20;
 						var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
 						if ( leftpadd != nextleftpadd ) {
-							$( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
-							.find( 'div.toolbox a' )
+							$( this )/*.find( "span.time" ).css( 'margin-right' , '0px' ).end()
+							*/.find( 'div.toolbox a' )
 							.removeClass( 'invisible' )
 							.click( function() {
 								return Comments.Delete( id );
