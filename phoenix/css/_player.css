@@ -12,6 +12,12 @@ ZinoPlayer CSS
 	font-family:arial;
 }
 
+#playerObject {
+	position:absolute;
+	left:-100px;
+	top:-100px;
+}
+
 #zinoPlayer span.playing {
 	display:block;
 	float:left;
