@@ -265,7 +265,7 @@ $( function() {
             alert( '1' );
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
-                //var parent = $( this ).parent().parent();
+                var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
                 /*var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
                 if ( lmargin != nextlmargin ) {
