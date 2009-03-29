@@ -234,7 +234,7 @@ var Comments = {
     OnLoad : function() {
         var old = new Date().getTime();
         if ( $.browser.msie ) {
-            $( "div.comments div[id^='comment_']" ).each( function( i ) {
+            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
@@ -243,7 +243,7 @@ var Comments = {
             } );
         }
         else {
-            $( "div.comments div[id^='comment_']" ).each( function( i ) {
+            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
