@@ -262,7 +262,7 @@ $( function() {
         var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div.comment[id^='comment_'] span.time" ).each( function() {
+            $( "div.comments div[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 //var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
