@@ -9,31 +9,31 @@
             $id = $id->Get();
             
             if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
-                ?>Δεν μπορείτε να επεξεργαστείτε διαφημίσεις.<?php
+                ?>Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΞµΞ―Ο„Ξµ Ξ½Ξ± ΞµΟ€ΞµΞΎΞµΟΞ³Ξ±ΟƒΟ„ΞµΞ―Ο„Ξµ Ξ΄ΞΉΞ±Ο†Ξ·ΞΌΞ―ΟƒΞµΞΉΟ‚.<?php
                 return;
             }
             
             $ad = New Ad( $id );
             if ( !$ad->Exists() ) {
-                ?>Η διαφήμιση αυτή δεν υπάρχει.<?php
+                ?>Ξ— Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ξ±Ο…Ο„Ξ® Ξ΄ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ.<?php
                 return;
             }
             
             if ( $ad->Userid != $user->Id ) {
-                ?>Η διαφήμιση αυτή δε φαίνεται να σας ανήκει.<?php
+                ?>Ξ— Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ξ±Ο…Ο„Ξ® Ξ΄Ξµ Ο†Ξ±Ξ―Ξ½ΞµΟ„Ξ±ΞΉ Ξ½Ξ± ΟƒΞ±Ο‚ Ξ±Ξ½Ξ®ΞΊΞµΞΉ.<?php
                 return;
             }
             
             ?><div class="create payment">
                 <div class="left" style="width:400px;padding-left:50px">
                     <div class="input">
-                        <label>Πόσες προβολές θα θέλατε να αγοράσετε;</label>
+                        <label>Ξ ΟΟƒΞµΟ‚ Ο€ΟΞΏΞ²ΞΏΞ»Ξ­Ο‚ ΞΈΞ± ΞΈΞ­Ξ»Ξ±Ο„Ξµ Ξ½Ξ± Ξ±Ξ³ΞΏΟΞ¬ΟƒΞµΟ„Ξµ;</label>
                         <table class="adpackages">
                             <thead>
                                 <tr>
-                                    <td>Αριθμός προβολών</td>
-                                    <td>Κόστος ανά 1000 προβολές</td>
-                                    <td>Κόστος</td>
+                                    <td>Ξ‘ΟΞΉΞΈΞΌΟΟ‚ Ο€ΟΞΏΞ²ΞΏΞ»ΟΞ½</td>
+                                    <td>ΞΟΟƒΟ„ΞΏΟ‚ Ξ±Ξ½Ξ¬ 1000 Ο€ΟΞΏΞ²ΞΏΞ»Ξ­Ο‚</td>
+                                    <td>ΞΟΟƒΟ„ΞΏΟ‚</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,74 +42,74 @@
                                         <input type="radio" name="numviews" class="radio" id="numviews1" />
                                         <label for="numviews1">1,000</label>
                                     </td>
-                                    <td>25€</td>
-                                    <td><strong>25€</strong></td>
+                                    <td>25β‚¬</td>
+                                    <td><strong>25β‚¬</strong></td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="radio" name="numviews" class="radio" id="numviews5" />
                                         <label for="numviews5">5,000</label>
                                     </td>
-                                    <td>22€</td>
-                                    <td><strong>110€</strong></td>
+                                    <td>22β‚¬</td>
+                                    <td><strong>110β‚¬</strong></td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="radio" name="numviews" class="radio" id="numviews10" />
                                         <label for="numviews10">10,000</label>
                                     </td>
-                                    <td>20€</td>
-                                    <td><strong>200€</strong></td>
+                                    <td>20β‚¬</td>
+                                    <td><strong>200β‚¬</strong></td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="radio" name="numviews" class="radio" id="numviews50" />
                                         <label for="numviews50">50,000</label>
                                     </td>
-                                    <td>18€</td>
-                                    <td><strong>900€</strong></td>
+                                    <td>18β‚¬</td>
+                                    <td><strong>900β‚¬</strong></td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="radio" name="numviews" class="radio" id="numviews100" />
                                         <label for="numviews100">100,000</label>
                                     </td>
-                                    <td>17€</td>
-                                    <td><strong>1,700€</strong></td>
+                                    <td>17β‚¬</td>
+                                    <td><strong>1,700β‚¬</strong></td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="radio" name="numviews" class="radio" id="numviews500" />
                                         <label for="numviews500">500,000</label>
                                     </td>
-                                    <td>15€</td>
-                                    <td><strong>7,500€</strong></td>
+                                    <td>15β‚¬</td>
+                                    <td><strong>7,500β‚¬</strong></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p class="more">Αν ενδιαφέρεστε για συμφωνίες μεγαλύτερες των 500,000 προβολών, επικοινωνήστε
-                        μαζί μας στο <a href="mailto:ads@zino.gr">ads@zino.gr</a> για να συζητήσουμε
-                        τις λεπτομέρειες τις καμπάνιας σας.</p>
+                        <p class="more">Ξ‘Ξ½ ΞµΞ½Ξ΄ΞΉΞ±Ο†Ξ­ΟΞµΟƒΟ„Ξµ Ξ³ΞΉΞ± ΟƒΟ…ΞΌΟ†Ο‰Ξ½Ξ―ΞµΟ‚ ΞΌΞµΞ³Ξ±Ξ»ΟΟ„ΞµΟΞµΟ‚ Ο„Ο‰Ξ½ 500,000 Ο€ΟΞΏΞ²ΞΏΞ»ΟΞ½, ΞµΟ€ΞΉΞΊΞΏΞΉΞ½Ο‰Ξ½Ξ®ΟƒΟ„Ξµ
+                        ΞΌΞ±Ξ¶Ξ― ΞΌΞ±Ο‚ ΟƒΟ„ΞΏ <a href="mailto:ads@zino.gr">ads@zino.gr</a> Ξ³ΞΉΞ± Ξ½Ξ± ΟƒΟ…Ξ¶Ξ·Ο„Ξ®ΟƒΞΏΟ…ΞΌΞµ
+                        Ο„ΞΉΟ‚ Ξ»ΞµΟ€Ο„ΞΏΞΌΞ­ΟΞµΞΉΞµΟ‚ Ο„ΞΉΟ‚ ΞΊΞ±ΞΌΟ€Ξ¬Ξ½ΞΉΞ±Ο‚ ΟƒΞ±Ο‚.</p>
                     </div>
                     
                     <div class="input">
-                        <label>Όνομα και επώνυμο:</label>
+                        <label>ΞΞ½ΞΏΞΌΞ± ΞΊΞ±ΞΉ ΞµΟ€ΟΞ½Ο…ΞΌΞΏ:</label>
                         <input type="text" name="fullname" value="" />
                     </div>
                     
                     <div class="input">
-                        <label>Διεύθυνση e-mail:</label>
+                        <label>Ξ”ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· e-mail:</label>
                         <input type="text" name="email" value="<?php
-                        echo htmlspecialchars( $user->Email );
+                        echo htmlspecialchars( $user->Profile->Email );
                         ?>" />
                     </div>
 
                     <div class="input">
-                        <label>Τρόπος πληρωμής:</label>
+                        <label>Ξ¤ΟΟΟ€ΞΏΟ‚ Ο€Ξ»Ξ·ΟΟ‰ΞΌΞ®Ο‚:</label>
                         <ul>
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paycredit" value="credit" /> 
-                                <label for="paycredit">Με πιστωτική κάρτα</label>
+                                <label for="paycredit">ΞΞµ Ο€ΞΉΟƒΟ„Ο‰Ο„ΞΉΞΊΞ® ΞΊΞ¬ΟΟ„Ξ±</label>
                                 <ul class="credit">
                                     <li>
                                         <img src="http://static.zino.gr/phoenix/logo_visa.gif" alt="VISA" title="VISA" />
@@ -124,11 +124,11 @@
                             </li>
                             <li class="small">
                                 <input type="radio" name="payment" class="radio" id="paypaypal" value="paypal" /> 
-                                <label for="paypaypal">Μέσω PayPal</label>
+                                <label for="paypaypal">ΞΞ­ΟƒΟ‰ PayPal</label>
                             </li>
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paybank" value="bank" />
-                                <label for="paybank">Με κατάθεση σε τραπεζικό λογαριασμό</label>
+                                <label for="paybank">ΞΞµ ΞΊΞ±Ο„Ξ¬ΞΈΞµΟƒΞ· ΟƒΞµ Ο„ΟΞ±Ο€ΞµΞ¶ΞΉΞΊΟ Ξ»ΞΏΞ³Ξ±ΟΞΉΞ±ΟƒΞΌΟ</label>
                             </li>
                         </ul>
                     </div>
@@ -139,15 +139,15 @@
                         <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="PayPal - The safer, easier way to pay online." class="paypal" style="width: 121px; height: 26px;" />
                         <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                     </form>
-                    <p class="confirm">Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
+                    <p class="confirm">ΞΞ± Ξ­Ο‡ΞµΟ„Ξµ Ο„Ξ·Ξ½ Ξ΄Ο…Ξ½Ξ±Ο„ΟΟ„Ξ·Ο„Ξ± Ξ½Ξ± ΞµΟ€ΞΉΞ²ΞµΞ²Ξ±ΞΉΟΟƒΞµΟ„Ξµ Ο„Ξ·Ξ½ ΞµΟ€ΞΉΞ»ΞΏΞ³Ξ® ΟƒΞ±Ο‚ Ο€ΟΞΉΞ½ Ο€Ξ»Ξ·ΟΟΟƒΞµΟ„Ξµ.</p>
                 </div>
                 <div class="right">
                     <div class="ads"><?php
                         Element( 'ad/view', $ad, false );
                     ?></div>
                     <p>
-                    Οι online πληρωμές σας γίνονται με ασφάλεια με την χρήση PayPal.
-                    <a href="https://www.paypal.com/helpcenter/main.jsp?cmd=_help&amp;t=solutionTab&amp;solutionId=12261" target="_blank">Μάθετε περισσότερα</a>
+                    ΞΞΉ online Ο€Ξ»Ξ·ΟΟ‰ΞΌΞ­Ο‚ ΟƒΞ±Ο‚ Ξ³Ξ―Ξ½ΞΏΞ½Ο„Ξ±ΞΉ ΞΌΞµ Ξ±ΟƒΟ†Ξ¬Ξ»ΞµΞΉΞ± ΞΌΞµ Ο„Ξ·Ξ½ Ο‡ΟΞ®ΟƒΞ· PayPal.
+                    <a href="https://www.paypal.com/helpcenter/main.jsp?cmd=_help&amp;t=solutionTab&amp;solutionId=12261" target="_blank">ΞΞ¬ΞΈΞµΟ„Ξµ Ο€ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞ±</a>
                     </p>
                 </div>
                 <div class="eof"></div>
