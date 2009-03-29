@@ -284,7 +284,6 @@ var Comments = {
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).css( "border" , "1px solid green" );
                     var parent = $( this ).parent().parent().parent().parent();
-                    $( parent ).css( "border" , "1px solid red" );
                     var id = $( parent ).attr( "id" );
                     id =  id.substr( 8 , id.length - 8 );
                     var leftpadd = Comments.FindLeftPadding( parent );
@@ -306,7 +305,6 @@ var Comments = {
             }
         }
         var nowtime = new Date().getTime();
-        alert( (old1-old)/1000);
         alert( (nowtime-old1)/1000);
     }
 };
