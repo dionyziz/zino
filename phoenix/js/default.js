@@ -16,7 +16,7 @@ function GetUsername() {
 }
 $( function() {
     if ( $.browser.mozilla ) {
-	    $( "img:not(img.nolazy)" ).lazyload( { 
+	    $( "img" ).lazyload( { 
 			threshold : 200
 		} );
 	}
