@@ -271,21 +271,24 @@ $( function() {
         } );
         */
         var nowdate = new Date().getTime();
-        $( "div.comments div[class='comment']" ).each( function( i ) {
-            var id = $( this ).attr( 'id' ).substring( 8 );
-			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-			//---------------------
-			var kimeno = $( this ).find( "div.text" );
-			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
-			kimeno.css( "width", wid-indent*20+'px' );
-			//----------------------
-            /*
-            $( this ).find( "div.bottom a" ).click( function() {
-                Comments.ToggleReply( id, indent );
-                return false;
+        if ( $.browser.msie ) {
+            $( "div.comments div[class='comment']" ).each( function( i ) {
+                var id = $( this ).attr( 'id' ).substring( 8 );
+                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
+                var kimeno = $( this ).find( "div.text" );
+                var wid = kimeno.get( 0 ).offsetWidth-20;
+                kimeno.css( "width", wid-indent*20+'px' );
             } );
-            */
-		} );
+        }
+        else {
+            $( "div.comments div[class='comment']" ).each( function( i ) {
+                var id = $( this ).attr( 'id' ).substring( 8 );
+                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
+                var kimeno = $( this ).find( "div.text" );
+                var wid = parseInt( kimeno.css( "width" ), 10 );
+                kimeno.css( "width", wid-indent*20+'px' );
+            } );
+        }
         $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
