@@ -267,11 +267,10 @@ $( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
-                /*var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
+                var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
                 if ( lmargin != nextlmargin ) {
                     lmargin = 0;
                 }
-                */
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
@@ -322,8 +321,8 @@ $( function() {
 						leftpadd += 20;
 						var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
 						if ( leftpadd != nextleftpadd ) {
-							$( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
-							.find( 'div.toolbox a' )
+							$( this )/*.find( "span.time" ).css( 'margin-right' , '0px' ).end()
+							*/.find( 'div.toolbox a' )
 							.removeClass( 'invisible' )
 							.click( function() {
 								return Comments.Delete( id );
