@@ -23,6 +23,7 @@ $( function() {
                     threshold : 200
                 } );
             }
+        } );
 	}
     var olddate = new Date().getTime();
     alert( (olddate-newnewdate)/1000);
