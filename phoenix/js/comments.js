@@ -264,12 +264,13 @@ $( function() {
             var username = GetUsername();
             $( "div.comments div.comment[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
-                var parent = $( this ).parent().parent();
+                //var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
-                var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
+                /*var nextlmargin = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
                 if ( lmargin != nextlmargin ) {
                     lmargin = 0;
                 }
+                */
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
