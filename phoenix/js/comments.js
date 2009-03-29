@@ -270,6 +270,7 @@ $( function() {
                 .removeClass( 'invisible' );
 
             } );
+            var username = GetUsername();
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
                 var commdate = $( this ).find( "div.toolbox span.time" ).text();
 				var leftpadd = Comments.FindLeftPadding( this );
