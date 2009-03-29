@@ -282,8 +282,8 @@ var Comments = {
                     }
                 } );
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
-                    var parent = $( this ).parent().parent().parent().parent();
-                    var id = $( parent ).attr( "id" );
+                    $( this ).parent().parent().parent().parent().addClass( "minecomment" );
+                   /* var id = $( parent ).attr( "id" );
                     id =  id.substr( 8 , id.length - 8 );
                     var leftpadd = Comments.FindLeftPadding( parent );
                     $( parent ).find( "div.text" )
@@ -291,7 +291,7 @@ var Comments = {
                         return Comments.Edit( id );
                     } );
                     $( parent ).find( "div.who" ).css( "border" , "1px solid red" );
-                    $( parent ).find( "div.who" ).css( "border-top" , "3px solid #b3d589" );
+                    $( parent ).find( "div.who" ).css( "borderop" , "3px solid #b3d589" );
                     /*
                     leftpadd += 20;
                     var nextleftpadd = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
@@ -305,6 +305,10 @@ var Comments = {
                     }
                     */
                 } );
+                $( "div.comments div.minecomment div.text" ).dblclick( function() {
+                    return Comments.Edit( $( this ).parent().attr( "id" ).substr( 8 , id.length - 8 );
+                } );
+                $( "div.comments div.minecomment div.who" ).css( "border" , "1px solid #b3d589" );
             }
         }
         var nowtime = new Date().getTime();
