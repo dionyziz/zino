@@ -279,20 +279,20 @@ $( function() {
 			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
-            Testing( this , id , indent );
-           /* 
+            /*
             $( this ).find( "div.bottom a" ).click( function() {
-                /*Comments.ToggleReply( id, indent );
+                Comments.ToggleReply( id, indent );
                 return false;
             } );
             */
-           
 		} );
-        function Testing( node , id , indent ) {
-            $( node ).find( "div.bottom a" ).click( function() {
-                     Comments.ToggleReply( id , indent );
-            } );
-        }
+        $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+            var parent = $( this ).parent().parent();
+            var id = $( parent ).attr( 'id' ).substring( 8 );
+			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+            Comments.ToggleReply( id , indent );
+            return false;
+        } );
         var thendate = new Date().getTime();
         alert( (thendate - nowdate)/1000 );
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
