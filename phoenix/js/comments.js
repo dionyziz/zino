@@ -264,6 +264,7 @@ var Comments = {
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
+                var lmargin = Comments.FindLeftPadding( parent );
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
