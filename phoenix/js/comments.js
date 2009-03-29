@@ -272,7 +272,7 @@ $( function() {
         */
         var nowdate = new Date().getTime();
         $( "div.comments div[class='comment']" ).each( function( i ) {
-            var id = $( this ).attr( 'id' ).substring( 8 );
+            /*var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			//---------------------
 			var kimeno = $( this ).find( "div.text" );
@@ -283,7 +283,7 @@ $( function() {
                 Comments.ToggleReply( id, indent );
                 return false;
             } );
-            
+            */
 		} );
         var thendate = new Date().getTime();
         alert( (thendate - nowdate)/1000 );
