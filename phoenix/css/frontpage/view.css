@@ -68,7 +68,7 @@ div.lstimages ul li {
 div.lstimages ul li img {
     border: 1px solid #cce;
 }
-div.frontpage ul {
+div.frontpage div.lstimages ul {
 	margin-right: 25px;
 }
 div.frontpage div.more {
