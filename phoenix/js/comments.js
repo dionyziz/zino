@@ -292,7 +292,7 @@ var Comments = {
                         return Comments.Edit( id );
                     } );
                     leftpadd += 20;
-                    var nextleftpadd = Comments.FindLeftPadding( $( parent ).next()[ 0 ] );
+                    var nextleftpadd = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
                     if ( leftpadd != nextleftpadd ) {
                         $( parent ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
                         .find( 'div.toolbox a' )
