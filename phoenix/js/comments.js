@@ -265,6 +265,10 @@ var Comments = {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
+                var nextlmargin = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
+                if ( lmargin != nextlmargin ) {
+                    lmargin = 0;
+                }
                 $( this ).empty()
                 .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
@@ -286,7 +290,6 @@ var Comments = {
                     var parent = $( this ).parent().parent().parent().parent();
                     $( parent ).css( "border" , "1px solid red" );
                     var id = $( parent ).attr( "id" );
-                    alert( id );
                     id =  id.substr( 8 , id.length - 8 );
                     var leftpadd = Comments.FindLeftPadding( parent );
                     $( parent ).find( "div.text" )
