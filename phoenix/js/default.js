@@ -15,11 +15,12 @@ function GetUsername() {
 	return username;
 }
 $( function() {
-    if ( $.browser.mozilla ) {
+    /*if ( $.browser.mozilla ) {
 	    $( "img" ).not( ".nolazy" ).lazyload( { 
 			threshold : 200
 		} );
 	}
+    */
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
