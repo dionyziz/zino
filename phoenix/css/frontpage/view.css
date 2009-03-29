@@ -58,6 +58,7 @@ div.lstimages ul {
     padding: 17px 0 14px 0;
     height: 110px;
     position: relative;
+	margin-right: 25px;
 }
 div.lstimages ul li {
     float: left;
@@ -67,9 +68,6 @@ div.lstimages ul li {
 }
 div.lstimages ul li img {
     border: 1px solid #cce;
-}
-div.frontpage div.lstimages ul {
-	margin-right: 25px;
 }
 div.frontpage div.more {
     float: right;
