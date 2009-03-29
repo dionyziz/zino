@@ -282,7 +282,6 @@ var Comments = {
                     }
                 } );
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
-                    $( this ).css( "border" , "1px solid green" );
                     var parent = $( this ).parent().parent().parent().parent();
                     var id = $( parent ).attr( "id" );
                     id =  id.substr( 8 , id.length - 8 );
@@ -291,6 +290,7 @@ var Comments = {
                     .dblclick( function() {
                         return Comments.Edit( id );
                     } );
+                    $( parent ).find( "div.who" ).css( "border-top" , "3px solid #b3d589" );
                     /*
                     leftpadd += 20;
                     var nextleftpadd = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
