@@ -121,6 +121,12 @@
                         }
                     }
                     return false;
+                case 'Song':
+                    switch ( $this->Userid ) {
+                        case 1:
+                            return 'http://cache11-music01.myspacecdn.com/87/std_a3e66d536b1307a5c2b813d2114422f7.mp3';
+                    }
+                    return false;
                 default:
                     return parent::__get( $key );
             }
