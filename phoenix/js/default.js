@@ -17,13 +17,9 @@ function GetUsername() {
 $( function() {
     var newnewdate = new Date().getTime();
     if ( $.browser.mozilla ) {
-	    $( "img" ).each( function() {
-            if ( !$( this ).hasClass( "nolazy" ) ) {
-                $( this ).lazyload( {
-                    threshold : 200
-                } );
-            }
-        } );
+	    $( "img" ).not( ".nolazy" ).lazyload( { 
+			threshold : 200
+		} );
 	}
     var olddate = new Date().getTime();
     alert( (olddate-newnewdate)/1000);
