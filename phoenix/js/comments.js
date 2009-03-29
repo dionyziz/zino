@@ -290,11 +290,8 @@ $( function() {
 		} );
         function Testing( node , id , indent ) {
             $( node ).find( "div.bottom a" ).click( function() {
-                $( this ).click( function() {
-                    Comments.ToggleReply( id , indent );
-                } );
-            }
-
+                     Comments.ToggleReply( id , indent );
+            } );
         }
         var thendate = new Date().getTime();
         alert( (thendate - nowdate)/1000 );
