@@ -302,30 +302,6 @@ $( function() {
                     }
                 } );
             }
-            /*
-            $( "div.comments div.comment[id^='comment_']" ).each( function() { 
-				var leftpadd = Comments.FindLeftPadding( this );
-				if ( username ) {
-					if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
-						var id = this.id.substr( 8 , this.id.length - 8 );
-						/*$( this ).find( "div.text" )
-						.dblclick( function() {
-							return Comments.Edit( id );
-						} );
-						leftpadd += 20;
-						var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
-						if ( leftpadd != nextleftpadd ) {
-							$( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
-							.find( 'div.toolbox a' )
-							.removeClass( 'invisible' )
-							.click( function() {
-								return Comments.Delete( id );
-							} );
-						}
-					}
-				}
-            } );
-            */
         }
         var nowtime = new Date().getTime();
         alert( (old1-old)/1000);
