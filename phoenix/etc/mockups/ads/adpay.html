@@ -32,6 +32,12 @@
                         padding-top: 5px;
                         height: 50px;
                     }
+                    div.buyad ul.credit li {
+                        display: inline;
+                    }
+                    div.buyad ul.credit li img {
+                        padding: 0 5px 0 5px;
+                    }
                     div.buyad table tbody tr td input.radio, div.buyad ul li input.radio {
                         width: 20px;
                         float: left;
@@ -120,19 +126,25 @@
                     
                     <div class="input">
                         <label>Τρόπος πληρωμής:</label>
-                        <ul>
+                        <ul class="credit">
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paycredit" value="credit" /> 
                                 <label for="paycredit">Με πιστωτική κάρτα</label>
-                                <img src="http://static.zino.gr/phoenix/logo_visa.gif" alt="VISA" />
-                                <img src="http://static.zino.gr/phoenix/logo_mastercard.gif" alt="MasterCard" />
-                                <img src="http://static.zino.gr/phoenix/logo_americanexpress.gif" alt="American Express" />
-                                <img src="http://static.zino.gr/phoenix/logo_discover.gif" alt="Discover" />
+                                <ul>
+                                    <li>
+                                        <img src="http://static.zino.gr/phoenix/logo_visa.gif" alt="VISA" />
+                                    </li><li>
+                                        <img src="http://static.zino.gr/phoenix/logo_mastercard.gif" alt="MasterCard" />
+                                    </li><li>
+                                        <img src="http://static.zino.gr/phoenix/logo_americanexpress.gif" alt="American Express" />
+                                    </li><li>
+                                        <img src="http://static.zino.gr/phoenix/logo_discover.gif" alt="Discover" />
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paypaypal" value="paypal" /> 
                                 <label for="paypaypal">Μέσω PayPal</label>
-                                <img src="http://static.zino.gr/phoenix/logo_paypal.gif" alt="PayPal" />
                             </li>
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paybank" value="bank" />
@@ -147,6 +159,7 @@
                         <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="PayPal - The safer, easier way to pay online." class="paypal" style="width: 121px; height: 26px;" />
                         <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                     </form>
+                    <p>Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
                 </div>
                 <div class="right">
                     <div class="ads">
