@@ -41,9 +41,6 @@
             ob_start();
             $res = Element::MasterElement();
             $master = ob_get_clean();
-            ?><script type="text/javascript">
-                var renderingstart = new Date();
-            </script><?php 
             if ( $res === false ) { //If the page requested is not in the pages available
                 Element( 'banner' );
                 ?><div class="content" id="content"><?php

@@ -89,7 +89,6 @@ var Frontpage = {
         TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
         TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
         OnLoad: function () {
-            var olddate = new Date().getTime();
             var textarea = $( '#shoutbox_text' );
             
             $( 'div#shoutbox div.newcomment div.bottom input' ).click( function() {
@@ -191,8 +190,6 @@ var Frontpage = {
             } ).blur();
             
             textarea[ 0 ].disabled = false;
-            var newdate = new Date().getTime();
-            alert( (newdate-olddate)/1000);
         },
         OnStartTyping: function ( who ) { // received when someone starts typing
             if ( who.name == GetUsername() ) { // don't show it when you're typing
