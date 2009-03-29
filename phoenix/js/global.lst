@@ -32,7 +32,7 @@ settings.js
 default.js
 types.js
 questions.js
-analytics.js
+#analytics.js
 #comments.js
 search/search.js
 search/im.js
