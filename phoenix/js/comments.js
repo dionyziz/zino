@@ -273,16 +273,16 @@ $( function() {
 
             } );
             if ( !username ) {
-                $( "div.comments div.comment[id^='comment_'] div.bottom" ).empty();
+                $( "div.comments div[id^='comment_'] div.bottom" ).empty();
             }
             else {
-                $( "div.comments div.comment[id^='comment_'] div.bottom" ).each( function() {
+                $( "div.comments div[id^='comment_'] div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
-                $( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     var parent = $( this ).parent().parent().parent().parent();
                     $( parent ).css( "border" , "1px solid red" );
                     var id =  parent.id.substr( 8 , parent.id.length - 8 );
