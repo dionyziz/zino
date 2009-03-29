@@ -285,7 +285,7 @@ $( function() {
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).css( "border" , "1px solid green" );
                     var parent = $( this ).parent().parent().parent().parent();
-                    alert( parent.id );
+                    alert( $( parent ).attr( "id" ) );
                     $( parent ).css( "border" , "1px solid red" );
                     var id =  parent.id.substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
