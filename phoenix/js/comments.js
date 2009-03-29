@@ -310,5 +310,3 @@ var Comments = {
         alert( (nowtime-old1)/1000);
     }
 };
-$( function() {
-} );
