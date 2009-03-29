@@ -265,7 +265,7 @@ $( function() {
                 var commdate = $( this ).text();
                 var lmargin = Comments.FindLeftPadding( $( this ).parent() );
                 $( this ).empty()
-                .css( 'marginRight' , lmargin + 'px' )
+                .css( 'margin-right' , lmargin + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .removeClass( 'invisible' );
 
