@@ -16,17 +16,9 @@ function GetUsername() {
 }
 $( function() {
     if ( $.browser.mozilla ) {
-        $( "img" ).each( function() {
-            if ( !$( this ).hasClass( "nolazy" ) ) {
-                $( this ).lazyload( {
-                    threshold : 200
-                } );
-            }
-        } );
-	    /*	$( "img:not(img.nolazy)" ).lazyload( { 
+	    $( "img:not(img.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
-        */
 	}
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
