@@ -283,8 +283,9 @@ $( function() {
                 } );
             }
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
-				/*var leftpadd = Comments.FindLeftPadding( this );
-				if ( leftpadd > 1000 ) {
+				var leftpadd = Comments.FindLeftPadding( this );
+				/*
+                if ( leftpadd > 1000 ) {
 					$( this ).find( 'div.bottom' )
 					.empty();
 				}
