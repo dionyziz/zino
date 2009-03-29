@@ -286,7 +286,7 @@ $( function() {
                         $( this ).empty();
                     }
                 } );
-                $( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                /*$( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     var parent = $( this ).parent().parent().parent();
                     var id = $( parent ).id.substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
@@ -305,6 +305,7 @@ $( function() {
                         } );
                     }
                 } );
+                */
             }
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
 				var leftpadd = Comments.FindLeftPadding( this );
@@ -318,8 +319,8 @@ $( function() {
 						leftpadd += 20;
 						var nextleftpadd = Comments.FindLeftPadding( $( this ).next()[ 0 ] );
 						if ( leftpadd != nextleftpadd ) {
-							$( this )/*.find( "span.time" ).css( 'margin-right' , '0px' ).end()
-							*/.find( 'div.toolbox a' )
+							$( this ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
+							.find( 'div.toolbox a' )
 							.removeClass( 'invisible' )
 							.click( function() {
 								return Comments.Delete( id );
