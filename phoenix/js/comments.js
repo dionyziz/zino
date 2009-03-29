@@ -260,7 +260,7 @@ $( function() {
             return false;
         } );
         var old1 = new Date().getTime();
-        if ( $( "div.commments div[id^='comment_']" )[ 0 ] ) {
+        if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             alert( '1' );
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
