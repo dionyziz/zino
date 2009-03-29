@@ -306,7 +306,7 @@ var Comments = {
                     */
                 } );
                 $( "div.comments div.minecomment div.text" ).dblclick( function() {
-                    return Comments.Edit( $( this ).parent().attr( "id" ).substr( 8 , id.length - 8 );
+                    return Comments.Edit( $( this ).parent().attr( "id" ).substr( 8 , id.length - 8 ) );
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border" , "1px solid #b3d589" );
             }
