@@ -306,6 +306,6 @@ $( function() {
             } );
         }
         var nowtime = new Date().getTime();
+        alert( (old1-old)/1000);
         alert( (nowtime-old1)/1000);
-        alert( (nowtime-old)/1000);
 } );
