@@ -4,7 +4,7 @@ ui.draggable.js
 ui.droppable.js
 #jquery.lazyload.js
 #jquery.modal.js
-#modal.js
+modal.js
 trivial/dates.js
 coala.js
 places.js
