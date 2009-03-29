@@ -281,8 +281,9 @@ $( function() {
 			//----------------------
             
             $( this ).find( "div.bottom a" ).click( function() {
-                Comments.ToggleReply( id, indent );
+                /*Comments.ToggleReply( id, indent );
                 return false;
+                */
             } );
            
 		} );
