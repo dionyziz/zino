@@ -17,7 +17,7 @@ function GetUsername() {
 $( function() {
     var newnewdate = new Date().getTime();
     if ( $.browser.mozilla ) {
-	    $( "img" ).lazyload( { 
+	    $( "img" ).not( "nolazy" ).lazyload( { 
 			threshold : 200
 		} );
 	}
