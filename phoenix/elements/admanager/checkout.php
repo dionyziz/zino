@@ -143,7 +143,7 @@
                 </div>
                 <div class="right">
                     <div class="ads"><?php
-                        Element( 'ad/view', $ad, false );
+                        Element( 'admanager/view', $ad, false );
                     ?></div>
                     <p>
                     Οι online πληρωμές σας γίνονται με ασφάλεια με την χρήση PayPal.
