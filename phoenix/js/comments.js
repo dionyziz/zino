@@ -270,6 +270,7 @@ $( function() {
             return false;
         } );
         */
+        var nowdate = new Date().getTime();
         $( "div.comments div[class='comment']" ).each( function( i ) {
             var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
@@ -284,6 +285,8 @@ $( function() {
             } );
             
 		} );
+        var thendate = new Date().getTime();
+        alert( (thendate - nowdate)/1000 );
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
 			var username = GetUsername();
 			var commdate, leftpadd;
