@@ -24,7 +24,9 @@
                 return;
             }
             
-            ?><div class="buyad payment">
+            ?><div class="buyad">
+            <h2 class="ad">Διαφήμιση στο Zino</h2>
+            <div class="create checkout">
                 <div class="left" style="width:400px;padding-left:50px">
                     <div class="input">
                         <label>Πόσες προβολές θα θέλατε να αγοράσετε;</label>
@@ -151,6 +153,7 @@
                     </p>
                 </div>
                 <div class="eof"></div>
+            </div>
             </div><?php
         }
     }
