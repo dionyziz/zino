@@ -258,7 +258,6 @@ var Comments = {
             Comments.ToggleReply( id , indent );
             return false;
         } );
-        var old1 = new Date().getTime();
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
@@ -283,27 +282,6 @@ var Comments = {
                 } );
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
-                   /* var id = $( parent ).attr( "id" );
-                    id =  id.substr( 8 , id.length - 8 );
-                    var leftpadd = Comments.FindLeftPadding( parent );
-                    $( parent ).find( "div.text" )
-                    .dblclick( function() {
-                        return Comments.Edit( id );
-                    } );
-                    $( parent ).find( "div.who" ).css( "border" , "1px solid red" );
-                    $( parent ).find( "div.who" ).css( "borderop" , "3px solid #b3d589" );
-                    /*
-                    leftpadd += 20;
-                    var nextleftpadd = Comments.FindLeftPadding( $( parent ).next( "div[id^='comment_']" )[ 0 ] );
-                    if ( leftpadd != nextleftpadd ) {
-                        $( parent ).find( "span.time" ).css( 'margin-right' , '0px' ).end()
-                        .find( 'div.toolbox a' )
-                        .removeClass( 'invisible' )
-                        .click( function() {
-                            return Comments.Delete( id );
-                        } );
-                    }
-                    */
                 } );
                 $( "div.comments div.minecomment div.text" ).dblclick( function() {
                     var id = $( this ).parent().attr( "id" );
@@ -313,6 +291,6 @@ var Comments = {
             }
         }
         var nowtime = new Date().getTime();
-        alert( (nowtime-old1)/1000);
+        alert( (nowtime-old)/1000);
     }
 };
