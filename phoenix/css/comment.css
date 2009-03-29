@@ -8,7 +8,7 @@ div.comment {
 	width: 100%;
 }
 div.comment div.who {
-	border-top: 1px solid #ccc !important;
+	border-top: 1px solid #ccc;
 	padding: 2px 0 2px 4px;
 	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
 	color: #666;
