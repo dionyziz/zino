@@ -100,7 +100,7 @@ var Comments = {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
-		$( temp ).css( "border-top" , "3px solid #b3d589" );
+		$( temp ).find( "div.who" ).css( "border-top" , "3px solid #b3d589" );
         temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					$( "#comment_reply_" + nodeid ).css( { marginLeft : 0, paddingLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );
