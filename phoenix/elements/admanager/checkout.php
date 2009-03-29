@@ -24,7 +24,7 @@
                 return;
             }
             
-            ?><div class="create payment">
+            ?><div class="buyad payment">
                 <div class="left" style="width:400px;padding-left:50px">
                     <div class="input">
                         <label>Πόσες προβολές θα θέλατε να αγοράσετε;</label>
