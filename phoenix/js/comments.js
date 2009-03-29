@@ -283,7 +283,7 @@ $( function() {
                     }
                 } );
                 $( "div.comments div.comment[class='comment'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
-                    var parent = $( this ).parent().parent().parent();
+                    var parent = $( this ).parent().parent().parent().parent();
                     var id =  parent.id.substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
                     $( parent ).find( "div.text" )
