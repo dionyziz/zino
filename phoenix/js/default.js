@@ -14,9 +14,6 @@ function GetUsername() {
 	}
 	return username;
 }
-function IsAdmin( username ) {
-
-}
 $( function() {
     /*
     if ( $.browser.mozilla ) {
