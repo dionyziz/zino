@@ -259,6 +259,7 @@ $( function() {
             Comments.ToggleReply( id , indent );
             return false;
         } );
+        var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
 			var username = GetUsername();
 			var commdate, leftpadd;
@@ -305,5 +306,6 @@ $( function() {
             } );
         }
         var nowtime = new Date().getTime();
+        alert( (nowtime-old1)/1000);
         alert( (nowtime-old)/1000);
 } );
