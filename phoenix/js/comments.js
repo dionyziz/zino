@@ -289,5 +289,6 @@ var Comments = {
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
+        alert( 'eocomments' );
     }
 };
