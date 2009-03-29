@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>PayPal Test</title>
+</head>
+<body>
+    <form method="post" action="https://api-3t.sandbox.paypal.com/nvp"><!-- Sandbox credentials -->
+        <input type="hidden" name="USER" value="dionyz_1238332329_biz_api1.kamibu.com" />
+        <input type="hidden" name="PWD" value="1238332335" />
+        <input type="hidden" name="SIGNATURE" value="An5ns1Kso7MWUdW4ErQKJJJ4qi4-AbVmegtai8HI2fHEzaU4hIaTLyEr" />
+        <input type="hidden" name="VERSION" value="52.0" />
+        <input type="hidden" name="PAYMENTACTION" value="Sale" />
+        <input name="AMT" value="19.95" />
+        <input type="hidden" name="RETURNURL"
+        value="http://www.zino.gr/?p=admanager/success" />
+        <input type="hidden" name="CANCELURL"
+        value="http://www.zino.gr/?p=admanager/failure" />
+        <input type="submit" name="METHOD" value="SetExpressCheckout" />
+    </form>
+</body>
+</html>
