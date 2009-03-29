@@ -261,17 +261,24 @@ $( function() {
         } );
         var old1 = new Date().getTime();
         if ( $( "div.comment[id^='comment_']" )[ 0 ] ) {
-			var username = GetUsername();
-			var commdate, leftpadd;
+            $( "div.comments div.comment[id^='comment_'] span.time" ).each( function() {
+                var commdate = $( this ).text();
+                var lmargin = Comments.FindLeftPadding( $( this ).parent() );
+                $( this ).empty()
+                .css( 'marginRight' , lmargin + 'px' )
+                .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
+                .removeClass( 'invisible' );
+
+            } );
             $( "div.comments div.comment[id^='comment_']" ).each( function() { 
-                commdate = $( this ).find( "div.toolbox span.time" ).text();
-				leftpadd = Comments.FindLeftPadding( this );
+                var commdate = $( this ).find( "div.toolbox span.time" ).text();
+				var leftpadd = Comments.FindLeftPadding( this );
 				if ( leftpadd > 1000 ) {
 					$( this ).find( 'div.bottom' )
 					.empty();
 				}
                 var lmargin = Comments.FindLeftPadding( this );
-                
+                /* 
                 $( this ).find( 'div.text' )
                 .css( 'margin-right' , lmargin + 'px' );
                 
@@ -280,6 +287,7 @@ $( function() {
                 .css( 'margin-right' , lmargin + 'px' )
                 .append( document.createTextNode( greekDateDiff( dateDiff( commdate , nowdate ) ) ) )
                 .removeClass( 'invisible' );
+                */
 				if ( username ) {
 					if ( username == $( this ).find( 'div.who a img.avatar' ).attr( 'alt' ) ) {
 						var id = this.id.substr( 8 , this.id.length - 8 );
