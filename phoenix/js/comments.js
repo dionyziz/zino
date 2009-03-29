@@ -292,7 +292,7 @@ $( function() {
             $( node ).find( "div.bottom a" ).click( function() {
                 $( this ).click( function() {
                     Comments.ToggleReply( id , indent );
-                }
+                } );
             }
 
         }
