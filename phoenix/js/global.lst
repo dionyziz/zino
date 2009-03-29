@@ -8,7 +8,7 @@ jquery.js
 trivial/dates.js
 coala.js
 places.js
-#admanager.js
+admanager.js
 album/list.js
 album/photo/list.js
 album/photo/view.js
@@ -36,6 +36,6 @@ analytics.js
 #comments.js
 search/search.js
 search/im.js
-#schools.js
+schools.js
 #meteor.js
 #comet.js
