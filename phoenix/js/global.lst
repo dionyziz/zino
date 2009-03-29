@@ -33,7 +33,7 @@ moodpicker.js
 types.js
 questions.js
 analytics.js
-comments.js
+#comments.js
 search/search.js
 search/im.js
 schools.js
