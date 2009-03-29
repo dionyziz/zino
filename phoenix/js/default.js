@@ -19,9 +19,17 @@ function IsAdmin( username ) {
 }
 $( function() {
     if ( $.browser.mozilla ) {
-		$( "img:not(img.nolazy)" ).lazyload( { 
+        $( "img" ).each( function() {
+            if ( !$( this ).hasClass( "nolazy" ) ) {
+                $( this ).lazyload( {
+                    threshold : 200
+                } );
+            }
+        } );
+	    /*	$( "img:not(img.nolazy)" ).lazyload( { 
 			threshold : 200
 		} );
+        */
 	}
     
 	if ( $.browser.msie && $.browser.version < 7 ) {
