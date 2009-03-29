@@ -124,9 +124,14 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="small">
+                            <li>
                                 <input type="radio" name="payment" class="radio" id="paypaypal" value="paypal" /> 
                                 <label for="paypaypal">Μέσω PayPal</label>
+                                <ul class="credit">
+                                    <li>
+                                        <img src="https://www.paypal.com/en_GB/GB/i/logo/PayPal_mark_37x23.gif" alt="PayPal" title="PayPal" />
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paybank" value="bank" />
