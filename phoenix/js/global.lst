@@ -4,10 +4,10 @@ ui.draggable.js
 ui.droppable.js
 jquery.lazyload.js
 jquery.modal.js
-#modal.js
-#trivial/dates.js
-#coala.js
-#places.js
+modal.js
+trivial/dates.js
+coala.js
+places.js
 #admanager.js
 #album/list.js
 #album/photo/list.js
