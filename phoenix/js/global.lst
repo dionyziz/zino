@@ -24,10 +24,10 @@ user/settings.js
 user/profile.js
 user/suggest.js
 banner.js
-#date.js
+date.js
 pm.js
 frontpage.js
-#moodpicker.js
+moodpicker.js
 #settings.js
 #default.js
 #types.js
