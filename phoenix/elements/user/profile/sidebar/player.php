@@ -14,7 +14,7 @@
 			<ul id="playList"><?php
 				$songs = explode( ";", $theuser->Profile->Song );
 				$num = 0;
-				foreach( $s as $songs ) {
+				foreach( $songs as $s ) {
 					?><li><a id="song_<?php echo ++$num; ?>" href="javascript:;" onclick="playSong( <?php echo $s ?> )"><span></span>Song <?php echo $num ?></a></li><?php
 				}?>
 			</ul>		
