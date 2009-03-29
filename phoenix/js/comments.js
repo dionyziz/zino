@@ -286,6 +286,7 @@ var Comments = {
                     var parent = $( this ).parent().parent().parent().parent();
                     $( parent ).css( "border" , "1px solid red" );
                     var id = $( parent ).attr( "id" );
+                    alert( id );
                     id =  id.substr( 8 , parent.id.length - 8 );
                     var leftpadd = Comments.LeftPadding( parent );
                     $( parent ).find( "div.text" )
