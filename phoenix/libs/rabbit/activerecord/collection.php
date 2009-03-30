@@ -5,6 +5,13 @@
         public function TotalCount() {
             return $this->mTotalCount;
         }
+        public function ToArray() {
+            $data = array();
+            foreach ( $this as $item ) {
+                $data[] = $item;
+            }
+            return $data;
+        }
         public function __construct( $data, $totalcount = false ) {
             w_assert( is_array( $data ) );
             if ( $totalcount === false ) {
