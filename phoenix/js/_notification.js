@@ -41,7 +41,7 @@ var Notification = {
             var id = lastnodeid.substr( 6 );
             Coala.Warm( "notification/find" , {
                 notifid : id,
-                limit : 3
+                limit : "3"
             } );
 
         }
