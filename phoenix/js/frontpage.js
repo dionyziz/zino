@@ -34,11 +34,11 @@ var Frontpage = {
                 Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
             } );
         }
-        if ( $( 'div.frontpage div.notifications div.list' )[ 0 ] ) {
+        if ( $( 'div.notifications div.list' )[ 0 ] ) {
             var notiflist = $( 'div.notifications div.list' )[ 0 ];
             var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
             
-            $( 'div.notifications div.list div.event' ).mouseover( function() {
+            $( 'div.notifications div.event' ).mouseover( function() {
                 $( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
             } )
             .mouseout( function() {
@@ -91,8 +91,8 @@ var Frontpage = {
         OnLoad: function () {
             var textarea = $( '#shoutbox_text' );
             
-            $( 'div#shoutbox div.newcomment div.bottom input' ).click( function() {
-                var list = $( 'div#shoutbox div.comments' );
+            $( '#shoutbox div.newcomment div.bottom input' ).click( function() {
+                var list = $( '#shoutbox div.comments' );
                 var text = $( list ).find( 'div.newcomment div.text input' )[ 0 ].value;
                 if ( $.trim( text ) === '' || !Frontpage.Shoutbox.Changed ) {
                     alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );

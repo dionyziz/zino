@@ -11,13 +11,21 @@ var Notification = {
 		return false;
 	},
 	Delete : function( eventid ) {
-		$( 'div#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
+		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
 			$( this ).remove();
-			if ( $( 'div.notifications div.list div.event' ).length === 0 ) {
+			if ( Notification.VNotifs === 0 ) {
 				$( 'div.notifications' ).remove();
 			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+        
+        if ( Notification.INotifs > 0 ) {
+            var newnotif = $( 'div.notifications div.inotifs div.event:first-child' )[ 0 ];
+            var clonenew = $( newnotif ).clone( true );
+            $( "div.notifications div.list" ).append( clonenew );
+            $( newnotif ).remove();
+            --Notification.INotifs;
+        }
         Notification.DecrementCount(); 
 		return false;
 	},
