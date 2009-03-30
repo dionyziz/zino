@@ -25,7 +25,6 @@ var Notification = {
             $( "div.notifications div.list" ).append( clonenew );
             clonenew = $( "div.notifications div.list div.event:last-child" )[ 0 ];
             var targetheight = clonenew.offsetHeight;
-            alert( targetheight );
             $( clonenew ).css( {
                 "height" : "0",
                 "opacity" : "0"
