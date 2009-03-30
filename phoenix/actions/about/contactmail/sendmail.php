@@ -7,14 +7,15 @@
 		$libs->Load( 'rabbit/helpers/email' );
         
         // Get parameters
-        $fromname = $from = $from->Get();
+        $from = $from->Get();
         $text = $text->Get();
-
+		
 		// Hardcoded stuff
         $to = "oniz@kamibu.com";
         $subject = "Zino: Επικοινωνία - " . $from;
         $oniz = "oniz@kamibu.com";
 		$toname = "oniz";
+		$fromname = "";
         // Check if e-mail is valid
         if ( !ValidEmail( $from ) ) {
             return Redirect( "/?p=b&mailsent=no" );

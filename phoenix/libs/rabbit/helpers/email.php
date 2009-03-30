@@ -18,11 +18,11 @@
 
         $libs->Load( 'rabbit/helpers/validate' );
 
-        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ) );
-        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ) );
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ), '$toname contains invalid characters: ' . $toname );
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ), '$fromname contains invalid characters: ' . $fromname );
 		w_assert( !empty( $toemail ), 'Recipient e-mail cannot be left empty' );
 		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
-		w_assert( ValidEmail( $fromemail ) );
+		w_assert( ValidEmail( $fromemail ), 'Invalid sender e-mail: ' . $fromemail );
 
         $headers = "To: \"$toname\" <$toemail>\r\n"
                  . "From: \"$fromname\" <$fromemail>\r\n"
