@@ -10,7 +10,7 @@
             $newuser = $newuser->Get();
             $validated = $validated->Get();
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user, 0, 5 );
+            $notifs = $finder->FindByUser( $user, 0, 8 );
             $shownotifications = $notifs->TotalCount() > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
@@ -87,10 +87,22 @@
                 
                 $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
+                if ( count( $notifs ) > 5 ) {
+                    $vnotifs = array_slice( $notifs , 0 , 5 );
+                    $inotifs = array_slice( $notifs , 5 );
+                }
+                else {
+                    $vnotifs = $notifs;
+                }
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
-                        Element( 'notification/list', $notifs );
+                        Element( 'notification/list', $vnotifs );
+                    ?></div>
+                    <div id="inotifs" class="invisible"><?php
+                        if ( isset( $inotifs ) ) {
+                            Element( 'notification/list' , $inotifs );
+                        }
                     ?></div>
                     <div class="expand">
                         <a href="" title="Απόκρυψη">&nbsp;</a>
