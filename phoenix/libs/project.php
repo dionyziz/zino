@@ -122,6 +122,8 @@
             'admanager/tips'    => 'admanager/tips',
             'admanager/demographics' => 'admanager/demographics',
             'admanager/checkout' => 'admanager/checkout',
+            'admanager/success' => 'admanager/success',
+            'admanager/failure' => 'admanager/failure',
             'contact'           => 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'watertest'         => 'developer/dionyziz/water',

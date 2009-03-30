@@ -16,12 +16,10 @@
             $ad = New Ad( $id );
             
             if ( !$ad->Exists() ) {
-                ?>Η διαφήμιση αυτή δεν υπάρχει.<?php
-                return;
+                return Redirect( '?p=ads&error=notexist' );
             }
             if ( !$user->Exists() || $user->Id != $ad->Userid ) {
-                ?>Η διαφήμιση αυτή δεν φαίνεται να σας ανήκει.<?php
-                return;
+                return Redirect( '?p=ads&error=notowner' );
             }
             
             ?><div class="buyad">

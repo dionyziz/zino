@@ -10,7 +10,7 @@
             global $page;
             
             if ( !$user->Exists() ) {
-                return Redirect( '?p=ads' );
+                return Redirect( '?p=admanager/create&error=notloggedin' );
             }
             
             $libs->Load( 'admanager' );
@@ -18,7 +18,7 @@
             $adfinder = New AdFinder();
             $ads = $adfinder->FindByUser( $user );
             if ( empty( $ads ) ) {
-                return Redirect( '?p=admanager/create' );
+                return Redirect( '?p=admanager/create&error=noads' );
             }
             
             $page->SetTitle( 'Διαχείριση διαφημίσεων' );

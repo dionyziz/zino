@@ -14,12 +14,10 @@
             if ( $adid ) {
                 $ad = New Ad( $adid );
                 if ( !$ad->Exists() ) {
-                    ?>Η διαφήμιση που προσπαθείτε να επεξεργαστείτε δεν υπάρχει.<?php
-                    return;
+                    return Redirect( '?p=ads&error=notexist' );
                 }
-                if ( $ad->Userid != $user->Id ) {
-                    ?>Δεν μπορείτε να επεξεργαστείτε μία διαφήμιση που δεν σας ανήκει.<?php
-                    return;
+                if ( !$user->Exists() || $ad->Userid != $user->Id ) {
+                    return Redirect( '?p=ads&error=notowner' );
                 }
                 $page->SetTitle( 'Επεξεργασία διαφήμισης' );
             }
