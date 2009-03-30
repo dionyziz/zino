@@ -92,8 +92,6 @@
                     <div class="list"><?php
                         Element( 'notification/list', $notifs );
                     ?></div>
-                    <div id="invisiblenotifs" class="invisible">
-                    </div>
                     <div class="expand">
                         <a href="" title="Απόκρυψη">&nbsp;</a>
                     </div>
