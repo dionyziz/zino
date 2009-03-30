@@ -40,7 +40,10 @@ var Notification = {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
             var id = lastnodeid.substr( 6 );
             alert( id );
-            
+            Coala.Warm( "notification/find" , {
+                notifid : id,
+                limit : 3
+            } );
 
         }
         
