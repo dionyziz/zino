@@ -23,7 +23,7 @@ var Notification = {
             var newnotif = $( '#inotifs div.event:first-child' );
             var clonenew = $( newnotif ).clone( true );
             $( "div.notifications div.list" ).append( clonenew );
-            clonenew = $( "div.notifications div.list:last-child" );
+            clonenew = $( "div.notifications div.list div.event:last-child" );
             var targetheight = clonenew.offsetHeight;
             alert( targetheight );
             $( clonenew ).css( {
