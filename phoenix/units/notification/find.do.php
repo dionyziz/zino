@@ -5,7 +5,7 @@
         global $libs;
 
         $libs->Load( 'notify' );
-
+?>        alert( 'test' );<?php
         $limit = $limit->Get();
         $finder = New NotificationFinder();
         $notifs = $finder->FindByUserAfterId( $user , $notifid->Get() , $limit );
