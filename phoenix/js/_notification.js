@@ -24,11 +24,12 @@ var Notification = {
             var clonenew = $( newnotif ).clone( true );
             $( "div.notifications div.list" ).append( clonenew );
             var targetheight = clonenew.offsetHeight;
+            alert( targetheight );
             $( clonenew ).css( {
                 "height" : "0",
                 "opacity" : "0"
-            } );
-            $( clonenew ).animate( {
+            } )
+            .animate( {
                 "height" : targetheight,
                 "opacity" : "1"
             } , 400 , "linear" );
