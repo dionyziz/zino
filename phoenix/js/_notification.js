@@ -11,7 +11,7 @@ var Notification = {
 		return false;
 	},
 	Delete : function( eventid ) {
-		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
+		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
 			$( this ).remove();
 			if ( Notification.VNotifs === 0 ) {
 				$( 'div.notifications' ).remove();
@@ -23,6 +23,15 @@ var Notification = {
             var newnotif = $( '#inotifs div.event:first-child' );
             var clonenew = $( newnotif ).clone( true );
             $( "div.notifications div.list" ).append( clonenew );
+            var targetheight = clonenew.offsetHeight;
+            $( clonenew ).css( {
+                "height" : "0",
+                "opacity" : "0"
+            } );
+            $( clonewnew ).animate( {
+                "height" : targetheight,
+                "opacity" : "1"
+            } , 400 , "linear" );
             $( newnotif ).remove();
             --Notification.INotifs
         }
@@ -44,7 +53,7 @@ var Notification = {
         }
     },
 	AddFriend : function( eventid , theuserid ) {
-		$( 'div#addfriend_' + theuserid  + ' a' )
+		$( '#addfriend_' + theuserid  + ' a' )
 		.fadeOut( 400 , function() {
 			$( this )
 			.parent()
@@ -98,7 +107,6 @@ var Notification = {
 				}
 				return false;
 			} );
-
 		}
 		else if ( Notification.VNotifs < 5 ) {
 			Notification.VNotifs++;
@@ -107,7 +115,7 @@ var Notification = {
 			$( 'div.frontpage div.notifications div.list>div:last-child' ).animate( {
 				opacity : "0",
 				height: "0"
-			} , 400 , function() {
+			} , 400 , "linear" , function() {
 				$( this ).remove();
 			} );
 		}
