@@ -36,7 +36,7 @@ var Notification = {
             $( newnotif ).remove();
             --Notification.INotifs
         }
-        if ( Notifications.INotifs < 3 ) {
+        if ( Notification.INotifs < 3 ) {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
             var id = lastnodeid.substr( 6 );
             alert( id );
