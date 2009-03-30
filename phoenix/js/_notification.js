@@ -24,7 +24,6 @@ var Notification = {
             var clonenew = $( newnotif ).clone( true );
             $( "div.notifications div.list" ).append( clonenew );
             alert( clonenew );
-            $( newnotif ).remove();
             --Notification.INotifs;
         }
         Notification.DecrementCount(); 
