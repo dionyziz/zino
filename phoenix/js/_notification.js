@@ -28,7 +28,7 @@ var Notification = {
                 "height" : "0",
                 "opacity" : "0"
             } );
-            $( clonewnew ).animate( {
+            $( clonenew ).animate( {
                 "height" : targetheight,
                 "opacity" : "1"
             } , 400 , "linear" );
