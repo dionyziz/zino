@@ -84,16 +84,17 @@
                 else {
                     $count = $notifs->TotalCount();
                 }
-                
                 $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
                 if ( count( $notifs ) > 5 ) {
                     $notifs = $notifs->ToArray();
                     $vnotifs = array_slice( $notifs , 0 , 5 );
                     $inotifs = array_slice( $notifs , 5 );
+                    $page->AttachInlineScript( "Notification.VNotifs = 5;Notification.INotifs = " . count( $inotifs ) .";" );
                 }
                 else {
                     $vnotifs = $notifs;
+                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $vnotifs ) . ";Notification.INotifs = 0;" );
                 }
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>

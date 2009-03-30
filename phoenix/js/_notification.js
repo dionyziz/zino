@@ -1,5 +1,4 @@
 var Notification = {
-	VisibleNotifs : $( 'div.frontpage div.notifications div.list div.event' ).length,
 	Visit : function( url , typeid , eventid , commentid ) {
         Notification.DecrementCount();
 		if ( typeid == 3 ) {
@@ -50,8 +49,8 @@ var Notification = {
 		return false;
 	},
 	AddNotif : function( node ) {
-		if ( Frontpage.Notif.VisibleNotifs === 0 ) {
-			Frontpage.Notif.VisibleNotifs++;
+		if ( Notification.VNotifs === 0 ) {
+			Notification.VNotifs++;
 			var notifscontainer = document.createElement( 'div' );
 			var list = document.createElement( 'div' );
 			var h3 = document.createElement( 'h3' );
@@ -93,8 +92,8 @@ var Notification = {
 			} );
 
 		}
-		else if ( Frontpage.Notif.VisibleNotifs < 5 ) {
-			Frontpage.Notif.VisibleNotifs++;
+		else if ( Notification.VNotifs < 5 ) {
+			Notification.VNotifs++;
 		}
 		else {
 			$( 'div.frontpage div.notifications div.list>div:last-child' ).animate( {
@@ -104,7 +103,7 @@ var Notification = {
 				$( this ).remove();
 			} );
 		}
-		Frontpage.Notif.Show( node );
+		Notification.Show( node );
 	},
 	Show : function( node ) {
 		$( 'div.frontpage div.notifications div.list' ).prepend( node );
