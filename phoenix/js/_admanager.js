@@ -21,45 +21,50 @@ var AdManager = {
     },
 	Demographics: {
 		OnLoad: function() {
-			$( "#sex" ).change( function() {
-				var a = $( "#target" )[ 0 ];
-				while ( a.firstChild ) {
-					a.removeChild( a.firstChild );
-				}
-				var option = $( "#sex" )[ 0 ].value;
-				switch( option ) {
-					case 1:
-						var sex = "άνδρες";
-						break;    
-					case 2:
-						var sex = "γυναίκες";
-						break;
-					default:
-						var sex = "άτομα";
-				}
-				text = document.createTextNode( "Στοχεύετε σε " + sex + " από οπουδήποτε" );
-				a.appendChild( text );
-			} );
-			$( "#place" ).change( function() {
-				var a = $( "#target" )[ 0 ];
-				while ( a.firstChild ) {
-					a.removeChild( a.firstChild );
-				}
-				var option = $( "#place" )[ 0 ].value;
-				var placelist = $( "#place" )[ 0 ].childNodes;
-				for ( var i = 0; i < placelist.length; i++ ) {
-					if ( placelist[ i ].value == option ) {
-						break;
+		},
+		TargetGroup: function( minage, maxage, sex, places ) {
+			var age = '';
+			if ( minage > 0 && maxage == 0 ) {
+				age = ' τουλάχιστον ' + minage + ' ετών';
+			}
+			else if ( minage == 0 && maxage > 0 ) {
+				age = ' το πολύ ' + maxage + ' ετών ';
+			}
+			else if ( minage > 0 && maxage > 0 ) {
+				age = ' ' + minage + ' - ' + maxage + ' ετών';
+			}
+			
+			switch ( sex ) {
+				case 1:
+					sex = ' άντρες';
+					if ( maxage != 0 && maxage < 18 ) {
+						sex = ' αγόρια ';
 					}
-				};
-				alert( i );
-				/*var place = placelist[ option ].text;
-				if ( option == 0 ) {
-					place = "οπουδήποτε";
+					break;
+				case 2:
+					sex = ' γυναίκες';
+					if ( maxage != 0 && maxage < 18 ) {
+						sex = ' κορίτσια';
+					}
+					break;
+				default:
+					sex = ' άτομα';
+					break;
+			}
+		
+			var location = ' από οπουδήποτε';
+			if ( places.length > 1 ) {
+				location = '';
+				for ( var i = 1; i < places.length - 1; ++i ) {
+					location += ', ' + places[ i ];
 				}
-				text = document.createTextNode( "Στοχεύετε σε " + sex + " από " + place );
-				a.appendChild( text );*/
-			} );
+				location = ' από ' + places[ 0 ] + location + ' και ' + places[ places.length - 1 ];
+			}
+			else if ( places.length == 1 ) {
+				location = ' από ' + places[ 0 ];
+			}
+			
+			return 'Στοχεύετε σε'  age + sex + location;
 		}
 	}
 };
