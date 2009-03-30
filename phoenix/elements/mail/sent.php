@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     class ElementMailSent extends Element {
         public function Render( tBoolean $mailsent ) {
             // Get Parameter
