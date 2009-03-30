@@ -6,6 +6,44 @@
     class NotificationFinder extends Finder {
         protected $mModel = 'Notification';
 
+        public function FindByUserAfterId( User $user, $id = 0, $offset = 0, $limit = 20 ) {
+            w_assert( is_int( $id ) );
+
+            $query = $this->mDb->Prepare(
+                "SELECT
+                    *
+                FROM
+                    :notify
+                    RIGHT JOIN :events ON
+                        `notify_eventid` = `event_id`
+                WHERE
+                    `notify_touserid` = :userid
+                    AND `notify_id` >= :id
+                ORDER BY
+                    `notify_eventid` DESC
+                LIMIT
+                    :offset, :limit;" );
+            $query->BindTable( 'notify', 'events' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'id', $id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit + 6 );
+        
+            $res = $query->Execute();
+
+            $ret = array();
+            $i = 0;
+            while ( $row = $res->FetchArray() ) {
+                if ( $i < $limit ) {
+                    $notif = New Notification( $row );
+                    $notif->CopyEventFrom( New Event( $row ) );
+                    $ret[] = $notif;
+                }
+                ++$i;
+            }
+
+            return New Collection( $ret, $i );
+        }
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
             global $water;
 
