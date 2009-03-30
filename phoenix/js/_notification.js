@@ -20,9 +20,10 @@ var Notification = {
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
-            var newnotif = $( 'div.notifications div.inotifs div.event:first-child' )[ 0 ];
+            var newnotif = $( 'div.notifications div.inotifs div.event' )[ 0 ];
             var clonenew = $( newnotif ).clone( true );
             $( "div.notifications div.list" ).append( clonenew );
+            alert( clonenew );
             $( newnotif ).remove();
             --Notification.INotifs;
         }
