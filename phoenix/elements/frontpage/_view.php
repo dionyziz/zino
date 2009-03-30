@@ -10,7 +10,7 @@
             $newuser = $newuser->Get();
             $validated = $validated->Get();
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user, 0, 8 )->ToArray();
+            $notifs = $finder->FindByUser( $user, 0, 8 );
             $shownotifications = $notifs->TotalCount() > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
@@ -88,6 +88,7 @@
                 $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
                 if ( count( $notifs ) > 5 ) {
+                    $notifs = $notifs->ToArray();
                     $vnotifs = array_slice( $notifs , 0 , 5 );
                     $inotifs = array_slice( $notifs , 5 );
                 }
