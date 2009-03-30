@@ -6,7 +6,14 @@
     class NotificationFinder extends Finder {
         protected $mModel = 'Notification';
 
-        public function FindByUserAfterId( User $user, $id = 0, $offset = 0, $limit = 20 ) {
+        public function FindByUserAfterId( $user, $id = 0, $offset = 0, $limit = 20 ) {
+            if ( $user instanceof User ) {
+                $userid = $user->Id;
+            }
+            else {
+                w_assert( is_int( $user ) );
+                $userid = $user;
+            }
             w_assert( is_int( $id ) );
 
             $query = $this->mDb->Prepare(
@@ -24,7 +31,7 @@
                 LIMIT
                     :offset, :limit;" );
             $query->BindTable( 'notify', 'events' );
-            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'userid', $userid );
             $query->Bind( 'id', $id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit + 6 );
