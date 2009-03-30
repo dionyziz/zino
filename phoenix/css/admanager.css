@@ -271,7 +271,7 @@ div.buyad a.skip {
     text-align: center;
     font-size: 90%;
 }
-div.buyad ul li {
+div.buyad ul.distinguished li {
     padding-top: 5px;
     height: 60px;
 }

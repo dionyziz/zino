@@ -108,7 +108,7 @@
 
                     <div class="input">
                         <label>Τρόπος πληρωμής:</label>
-                        <ul>
+                        <ul class="distinguished">
                             <li>
                                 <input type="radio" name="payment" class="radio" id="paycredit" value="credit" /> 
                                 <label for="paycredit">Με πιστωτική κάρτα</label>
