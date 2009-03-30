@@ -64,7 +64,7 @@ var AdManager = {
 				location = ' από ' + places[ 0 ];
 			}
 			
-			return 'Στοχεύετε σε'  age + sex + location;
+			return 'Στοχεύετε σε' + age + sex + location;
 		}
 	}
 };
