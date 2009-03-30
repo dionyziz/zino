@@ -20,7 +20,7 @@ var Notification = {
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
-            var newnotif = $( 'div.notifications div.inotifs div.event' )[ 0 ];
+            var newnotif = $( 'div.notifications div.inotifs div.event:first-child' ).remove();
             //var clonenew =  newnotif.cloneNode( true );
             //$( "div.notifications div.list" ).append( clonenew );
             //alert( clonenew );
@@ -45,7 +45,7 @@ var Notification = {
         }
     },
 	AddFriend : function( eventid , theuserid ) {
-		$( 'div#addfriend_' + theuserid  + ' a' )
+		$( '#addfriend_' + theuserid  + ' a' )
 		.fadeOut( 400 , function() {
 			$( this )
 			.parent()
