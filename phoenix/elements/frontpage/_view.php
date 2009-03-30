@@ -10,7 +10,7 @@
             $newuser = $newuser->Get();
             $validated = $validated->Get();
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user, 0, 8 );
+            $notifs = $finder->FindByUser( $user, 0, 8 )->ToArray();
             $shownotifications = $notifs->TotalCount() > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
