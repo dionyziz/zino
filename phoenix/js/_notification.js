@@ -17,7 +17,7 @@ var Notification = {
 				$( 'div.notifications' ).remove();
 			}
 		} );
-		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		//Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );
@@ -36,7 +36,16 @@ var Notification = {
             $( newnotif ).remove();
             --Notification.INotifs
         }
+        if ( Notifications.INotifs < 3 ) {
+            var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
+            var id = lastnodeid.substr( 6 );
+            alert( id );
+            
+
+        }
+        
         Notification.DecrementCount(); 
+
 		return false;
 	},
     DecrementCount: function () {
