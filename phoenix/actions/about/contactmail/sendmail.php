@@ -1,18 +1,20 @@
 <?php
     function ActionAboutContactmailSendmail( tText $from, tText $text ) {
         global $libs;
+		global $user;
         
         $libs->Load( 'rabbit/helpers/validate' );
+		$libs->Load( 'rabbit/helpers/email' );
         
-        // Hardcoded stuff
-        $to = "oniz@kamibu.com";
-        $subject = "Zino: Επικοινωνία";
-        $header = "From: oniz@kamibu.com";
-
         // Get parameters
-        $from = $from->Get();
+        $fromname = $from = $from->Get();
         $text = $text->Get();
 
+		// Hardcoded stuff
+        $to = "oniz@kamibu.com";
+        $subject = "Zino: Επικοινωνία - " . $from;
+        $oniz = "oniz@kamibu.com";
+		$toname = "oniz";
         // Check if e-mail is valid
         if ( !ValidEmail( $from ) ) {
             return Redirect( "/?p=b&mailsent=no" );
@@ -23,7 +25,7 @@
         
         $mailsent = "";
         // Send message
-        if ( mail( $to, $subject, $text, $header ) ) {
+        if ( Email( $toname, $to, $subject, $text, $fromname, $oniz ) ) {
             $mailsent = "yes";
         }
         else {

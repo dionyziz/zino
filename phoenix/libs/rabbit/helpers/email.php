@@ -30,6 +30,6 @@
                  . "Content-type: text/plain; charset=utf-8";
         
         $subject = Email_FormatSubject( $subject );
-        mail( $toemail, $subject, $message, $headers );
+        return mail( $toemail, $subject, $message, $headers );
     }
 ?>
