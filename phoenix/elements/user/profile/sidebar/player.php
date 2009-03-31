@@ -94,7 +94,7 @@
 						});
 					});
 				</script>
-			</div>><?php
+			</div><?php
         }
     }
 ?>
