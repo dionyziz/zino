@@ -23,7 +23,6 @@
         echo $limit;
         ?> ) {
             Notification.TraversedAll = true;
-
         }
         $( notifnode ).mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
