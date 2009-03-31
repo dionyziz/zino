@@ -85,9 +85,12 @@
                 $channels = array( $channel );
             }
             
+            $i = 0;
             foreach ( $channels as $channel ) {
+                ++$i;
                 Comet_Publish( $channel, $js );
             }
+            die( 'Published ' . $i . ' times' );
         }
     }
 ?>
