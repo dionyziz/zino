@@ -10,13 +10,10 @@
         $limit = $limit->Get();
         $finder = New NotificationFinder();
         $notifs = $finder->FindByUserAfterId( $user , $notifid , 0, $limit );
-        
-        /*
-        alert( $( <?php
+        ?>alert( $( <?php
         ob_start();
         Element( "notification/list" , $notifs );
         echo w_json_encode( ob_get_clean() );
         ?> ) );<?php
-        */
     }
 ?>
