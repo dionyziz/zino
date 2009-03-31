@@ -6,8 +6,8 @@
             global $user;
             global $rabbit_settings;
             
-            ?><div class="header" id="banner">
-            <h1><a href="<?php
+            ?><div class="header" id="banner" style="background: url('http://static.zino.gr/phoenix/bannerpinkmid.jpg') repeat-x;">
+            <h1 style="background: url( 'http://static.zino.gr/phoenix/bannerpinkleft.jpg' ) no-repeat 0 0"><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
 ?>">&nbsp;</a></h1>
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
@@ -66,7 +66,7 @@
             }
             ?>
             <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
-            <div class="eof"></div>
+            <div class="eof" style="background: url( 'http://static.zino.gr/phoenix/bannerpinkright.jpg' ) no-repeat 0 0;"></div>
             </div><?php
             $page->AttachInlineScript( 'Banner.OnLoad();' );
         }
