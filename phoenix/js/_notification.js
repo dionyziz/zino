@@ -47,7 +47,7 @@ var Notification = {
 
         }
         
-        Notification.DecrementCount(); 
+        //Notification.DecrementCount(); 
 
 		return false;
 	},

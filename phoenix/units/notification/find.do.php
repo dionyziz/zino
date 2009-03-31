@@ -31,6 +31,7 @@
 			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 		} );
         $( "#inotifs" ).append( notifnode );<?php
+        /*
         if ( $notifs->TotalCount() > 10 ) {
             $count = '10+';
         }
@@ -40,5 +41,6 @@
         ?>document.title = 'Zino (<?php
         echo $count;
         ?>)';<?php
+        */
     }
 ?>

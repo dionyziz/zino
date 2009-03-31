@@ -78,7 +78,7 @@
                 }
             }
             if ( $shownotifications ) {
-                if ( $notifs->TotalCount() > 10 ) {
+                /*if ( $notifs->TotalCount() > 10 ) {
                     $count = '10+';
                 }
                 else {
@@ -86,6 +86,7 @@
                 }
                 $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
+                */
                 if ( count( $notifs ) > 5 ) {
                     $notifs = $notifs->ToArray();
                     $vnotifs = array_slice( $notifs , 0 , 5 );
