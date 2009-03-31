@@ -15,6 +15,9 @@
         Element( "notification/list" , $notifs );
         echo w_json_encode( ob_get_clean() );
         ?> );
+        Notification.INotifs += <?php
+        echo count( $notifs );
+        ?>;
         $( "#inotifs" ).append( notifnode );<?php
     }
 ?>
