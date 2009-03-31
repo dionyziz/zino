@@ -139,7 +139,7 @@ var Notification = {
 	},
 	Show : function( node ) {
 		$( 'div.frontpage div.notifications div.list' ).prepend( node );
-		var targetheight = $( 'div.frontpage div.notifications div.list div div.event' )[ 0 ].offsetHeight;
+		var targetheight = $( 'div.frontpage div.notifications div.list div.event' )[ 0 ].offsetHeight;
 		node.style.height = '0';
 		$( node ).css( 'opacity' , '0' ).animate( {
 			height: targetheight,
