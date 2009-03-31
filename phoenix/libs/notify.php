@@ -25,7 +25,7 @@
                         `notify_eventid` = `event_id`
                 WHERE
                     `notify_touserid` = :userid
-                    AND `notify_eventid` >= :id
+                    AND `notify_eventid` < :id
                 ORDER BY
                     `notify_eventid` DESC
                 LIMIT
