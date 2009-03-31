@@ -147,7 +147,7 @@ var Notification = {
 			height: targetheight,
 			opacity: "1"
 		} , 400 , 'linear' )
-		.find( "div.event" ).mouseover( function() {
+		.mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 		} )
 		.mouseout( function() {
