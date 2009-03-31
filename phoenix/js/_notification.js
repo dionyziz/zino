@@ -1,4 +1,5 @@
 var Notification = {
+    TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
         Notification.DecrementCount();
 		if ( typeid == 3 ) {
@@ -36,7 +37,7 @@ var Notification = {
             $( newnotif ).remove();
             --Notification.INotifs
         }
-        if ( Notification.INotifs < 3 ) {
+        if ( Notification.INotifs < 3 && !Notification.TraversedAll ) {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
             var id = lastnodeid.substr( 6 );
             Coala.Warm( "notification/find" , {

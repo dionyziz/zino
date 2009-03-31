@@ -15,9 +15,16 @@
         Element( "notification/list" , $notifs );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        Notification.INotifs += <?php
+        var counted = <?php
         echo count( $notifs );
         ?>;
+        Notification.INotifs += counted;
+        if ( counted < <?php
+        echo $limit;
+        ?> ) {
+            Notification.TraversedAll = true;
+
+        }
         $( "#inotifs" ).append( notifnode );<?php
     }
 ?>
