@@ -36,12 +36,12 @@ var Notification = {
             $( newnotif ).remove();
             --Notification.INotifs
         }
-        if ( Notification.INotifs < 2 ) {
+        if ( Notification.INotifs < 3 ) {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
             var id = lastnodeid.substr( 6 );
             Coala.Warm( "notification/find" , {
                 notifid : id,
-                limit : "3"
+                limit : "4"
             } );
 
         }
