@@ -9,6 +9,7 @@
             $libs->Load( 'place' );
             
             $page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
+			$page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
 			
             $id = $id->Get();
             $canskip = $canskip->Get();
@@ -57,7 +58,7 @@
 
                         <div class="input" style="margin-left: 230px">
                             <label>Ηλικία:</label>
-                            <div>Από: <select name="minage">
+                            <div>Από: <select name="minage" id="minage">
                                 <option value="0"<?php
                                 if ( $ad->Minage == 0 ) {
                                     ?> selected="selected"<?php
@@ -76,7 +77,7 @@
                                     }
                                 ?>
                             </select></div>
-                            <div>Έως: <select name="maxage">
+                            <div>Έως: <select name="maxage" id="maxage">
                                 <option value="0"<?php
                                 if ( $ad->Maxage == 0 ) {
                                     ?> selected="selected"<?php

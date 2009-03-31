@@ -26,6 +26,14 @@ var AdManager = {
 				alert( AdManager.Demographics.TargetGroup( 0, 0, sex.selectindex, [] ) );
 			};
 		},
+		GetParametrs: function() {
+			var sex = document.getElementById( 'sex' ).value;
+			var place = document.getElementById( 'place' );
+			var minage = document.getElementById( 'minage' ).value;
+			var maxage = document.getElementById( 'maxage' ).value;
+			var place = place.getElementByTagName( 'option' )[ place.value ];
+			var parametrs = [ minage, maxage, sex, place ];
+		},
 		TargetGroup: function( minage, maxage, sex, places ) {
 			var age = '';
 			if ( minage > 0 && maxage == 0 ) {
