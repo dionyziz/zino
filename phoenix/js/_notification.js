@@ -138,6 +138,7 @@ var Notification = {
 		Notification.Show( node );
 	},
 	Show : function( node ) {
+        alert( node );       
         alert( $( node ).attr( "id" ) );
 		$( 'div.notifications div.list' ).prepend( node );
 		var targetheight = $( 'div.frontpage div.notifications div.list div.event' )[ 0 ].offsetHeight;
