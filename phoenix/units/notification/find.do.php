@@ -6,16 +6,10 @@
 
         $libs->Load( 'notify' );
 
-        ?>alert( 'test' );<?php
         $notifid = $notifid->Get();
         $limit = $limit->Get();
-        ?>alert( "id is <?php
-        echo $notifid;
-        ?> and limit is <?php
-        echo $limit;
-        ?>" );<?php
         $finder = New NotificationFinder();
-        //$notifs = $finder->FindByUserAfterId( $user , $notifid , $limit );
+        $notifs = $finder->FindByUserAfterId( $user , $notifid , $limit );
         
         /*
         alert( $( <?php
