@@ -23,16 +23,30 @@ var AdManager = {
 		OnLoad: function() {
 			var sex = document.getElementById( 'sex' );
 			sex.onchange = function() {
-				alert( AdManager.Demographics.TargetGroup( 0, 0, sex.selectindex, [] ) );
+				AdManager.Demographics.MakeTarget();
+			};
+			var minage = document.getElementById( 'minage' );
+			minage.onchange = function() {
+				AdManager.Demographics.MakeTarget();
+			};
+			var maxage = document.getElementById( 'maxage' );
+			maxage.onchange = function() {
+				AdManager.Demographics.MakeTarget();
+			};
+			var place = document.getElementById( 'place' );
+			place.onchange = function() {
+				AdManager.Demographics.MakeTarget();
 			};
 		},
-		GetParametrs: function() {
+		MakeTarget: function() {
 			var sex = document.getElementById( 'sex' ).value;
 			var place = document.getElementById( 'place' );
 			var minage = document.getElementById( 'minage' ).value;
 			var maxage = document.getElementById( 'maxage' ).value;
-			var place = place.getElementByTagName( 'option' )[ place.value ];
-			var parametrs = [ minage, maxage, sex, place ];
+			var place = place.getElementsByTagName( 'option' )[ place.selectedIndex ].text;
+			place = [ place ];
+			var target = document.getElementById( 'target' ); 
+			target.textContent = AdManager.Demographics.TargetGroup [ minage, maxage, sex, place ];
 		},
 		TargetGroup: function( minage, maxage, sex, places ) {
 			var age = '';
