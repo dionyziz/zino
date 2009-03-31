@@ -21,6 +21,8 @@ var AdManager = {
     },
 	Demographics: {
 		OnLoad: function() {
+			AdManager.Demographics.MakeTarget();
+		
 			var sex = document.getElementById( 'sex' );
 			sex.onchange = function() {
 				AdManager.Demographics.MakeTarget();
