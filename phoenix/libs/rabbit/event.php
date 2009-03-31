@@ -86,7 +86,6 @@
             }
             
             foreach ( $channels as $channel ) {
-                die( 'Publishing on channel: ' . $channel . "\n\n" . $js );
                 Comet_Publish( $channel, $js );
             }
         }
