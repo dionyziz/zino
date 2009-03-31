@@ -142,8 +142,10 @@ var Notification = {
         alert( $( node ).attr( "id" ) );
 		$( 'div.notifications div.list' ).prepend( node );
 		var targetheight = $( 'div.frontpage div.notifications div.list div.event' )[ 0 ].offsetHeight;
-		node.style.height = '0';
-		$( node ).css( 'opacity' , '0' ).animate( {
+		$( node ).css( {
+            'opacity' : '0',
+            'height' : '0'
+        }).animate( {
 			height: targetheight,
 			opacity: "1"
 		} , 400 , 'linear' )
