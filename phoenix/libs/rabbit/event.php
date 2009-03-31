@@ -85,12 +85,10 @@
                 $channels = array( $channel );
             }
             
-            $i = 0;
             foreach ( $channels as $channel ) {
-                ++$i;
+                die( 'Publishing on channel: ' . $channel . "\n\n" . $js );
                 Comet_Publish( $channel, $js );
             }
-            die( 'Published ' . $i . ' times' );
         }
     }
 ?>
