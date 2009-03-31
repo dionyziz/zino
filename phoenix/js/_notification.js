@@ -129,8 +129,11 @@ var Notification = {
 				opacity : "0",
 				height: "0"
 			} , 400 , "linear" , function() {
-				$( this ).remove();
+				var cloneit = $( this ).clone( true );
+                $( "#inotifs" ).prepend( cloneit );
+                $( this ).remove();
 			} );
+            Notification.INotif++;
 		}
 		Notification.Show( node );
 	},
