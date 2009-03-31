@@ -22,9 +22,9 @@ var AdManager = {
 	Demographics: {
 		OnLoad: function() {
 			var sex = document.getElementById( 'sex' );
-			sex.onchange( function() {
+			sex.onchange = function() {
 				alert( TargetGroup( 0, 0, sex.selectindex, [] ) );
-			} );
+			};
 		},
 		TargetGroup: function( minage, maxage, sex, places ) {
 			var age = '';
