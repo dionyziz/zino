@@ -96,6 +96,9 @@ div.buyad div.create div.right p {
     font-size: 90%;
     text-align: left;
 }
+div.buyad div.create div.right h3 {
+	width: 606px;
+}
 div.buyad div.status div.left {
     width: 100px;
     float: left;
