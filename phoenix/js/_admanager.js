@@ -23,7 +23,7 @@ var AdManager = {
 		OnLoad: function() {
 			var sex = document.getElementById( 'sex' );
 			sex.onchange = function() {
-				alert( Demographics::TargetGroup( 0, 0, sex.selectindex, [] ) );
+				alert( AdManager.Demographics.TargetGroup( 0, 0, sex.selectindex, [] ) );
 			};
 		},
 		TargetGroup: function( minage, maxage, sex, places ) {
