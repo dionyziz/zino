@@ -6,7 +6,7 @@
         echo w_json_encode( ob_get_clean() );
         ?> );
         Notification.AddNotif( notifcontent );<?php
-        
+ 
         return $notif->ToUser->Id; 
     }
 ?>
