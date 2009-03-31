@@ -9,7 +9,7 @@
         $notifid = $notifid->Get();
         $limit = $limit->Get();
         $finder = New NotificationFinder();
-        $notifs = $finder->FindByUserAfterId( $user , $notifid , $limit );
+        $notifs = $finder->FindByUserAfterId( $user->Id , $notifid , $limit );
         
         /*
         alert( $( <?php
