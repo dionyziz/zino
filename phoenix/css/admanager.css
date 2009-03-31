@@ -20,10 +20,10 @@ div.buyad ol li {
     list-style: none;
     padding: 5px;
 }
-div.buyad ol li div.beautiful {
+div.buyad div.beautiful {
     width: 100%;
 }
-div.buyad ol li div.beautiful img {
+div.buyad div.beautiful img {
     border: 1px solid #999;
     padding: 1px;
     margin: auto;
@@ -95,6 +95,13 @@ div.buyad div.create div.right {
 div.buyad div.create div.right p {
     font-size: 90%;
     text-align: left;
+}
+div.buyad div.status div.left {
+    width: 100px;
+    float: left;
+}
+div.buyad div.status div.right {
+    padding-left: 110px;
 }
 div.buyad input, div.buyad textarea {
     border: 1px solid #b0b5c5;
