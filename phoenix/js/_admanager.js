@@ -48,7 +48,7 @@ var AdManager = {
 			}
 			else {
 				var place = place.getElementsByTagName( 'option' )[ place.selectedIndex ].text;
-				place = [ place.toLowerCase() ];
+				place = [ place ];
 			}
 			sex = Number( sex );
 			var target = document.getElementById( 'target' ); 
