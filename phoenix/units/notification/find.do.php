@@ -25,6 +25,12 @@
             Notification.TraversedAll = true;
 
         }
+        $( notifnode ).mouseover( function() {
+			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
+		} )
+		.mouseout( function() {
+			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
+		} );
         $( "#inotifs" ).append( notifnode );<?php
     }
 ?>
