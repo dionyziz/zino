@@ -79,11 +79,6 @@
 					}
 
 					function stateHandler(obj) {
-						/*if( obj.newstate == "COMPLETED" && obj.oldstate == "PAUSED" ) {
-							if (nextSong = totalSongs - 1)
-								nextSong = 0;
-							playlist[nextSong++]();
-						}*/
 					}
 	
 					function makePlaylist(htmlContainer) {
