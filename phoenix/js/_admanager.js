@@ -43,8 +43,13 @@ var AdManager = {
 			var place = document.getElementById( 'place' );
 			var minage = document.getElementById( 'minage' ).value;
 			var maxage = document.getElementById( 'maxage' ).value;
-			var place = place.getElementsByTagName( 'option' )[ place.selectedIndex ].text;
-			place = [ place.toLowerCase() ];
+			if ( place.selectedIndex == 0 ) {
+				place = [];
+			}
+			else {
+				var place = place.getElementsByTagName( 'option' )[ place.selectedIndex ].text;
+				place = [ place.toLowerCase() ];
+			}
 			sex = Number( sex );
 			var target = document.getElementById( 'target' ); 
 			target.textContent = AdManager.Demographics.TargetGroup( minage, maxage, sex, place );
