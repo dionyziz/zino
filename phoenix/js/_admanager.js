@@ -46,7 +46,7 @@ var AdManager = {
 			var place = place.getElementsByTagName( 'option' )[ place.selectedIndex ].text;
 			place = [ place ];
 			var target = document.getElementById( 'target' ); 
-			target.textContent = AdManager.Demographics.TargetGroup [ minage, maxage, sex, place ];
+			target.textContent = AdManager.Demographics.TargetGroup( minage, maxage, sex, place );
 		},
 		TargetGroup: function( minage, maxage, sex, places ) {
 			var age = '';
