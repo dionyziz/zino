@@ -145,7 +145,7 @@ var Notification = {
 		$( node ).css( {
             'opacity' : '0',
             'height' : '0'
-        }).animate( {
+        } ).animate( {
 			height: targetheight,
 			opacity: "1"
 		} , 400 , 'linear' )
