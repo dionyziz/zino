@@ -66,7 +66,23 @@ var Frontpage = {
                     } );
                 }
                 */
-                $( 'div.notifications div.list' ).slideToggle( "slow" );
+                $( 'div.notifications div.list' ).slideToggle( "slow" , function() {
+                    if ( !Notification.Expanded ) {
+                        $( 'div.notifications div.expand a' ).css( "background-position" , "4px -1440px" )
+                        .attr( {
+                            title : 'Απόκρυψη'
+                        } );
+                        Notification.Expanded = true;
+                    }
+                    else {  
+                        $( 'div.notifications div.expand a' ).css( "background-position" , "4px -1252px" )
+                        .attr( {
+                            title : 'Εμφάνιση:'
+                        } );
+                        Notification.Expanded = false;
+                    }
+
+                } );
 
                 return false;
             } );  

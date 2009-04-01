@@ -1,4 +1,5 @@
 var Notification = {
+    Expanded : true,
     TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
         //Notification.DecrementCount();
