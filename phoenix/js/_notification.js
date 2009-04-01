@@ -18,7 +18,7 @@ var Notification = {
 				$( 'div.notifications' ).remove();
 			}
 		} );
-		//Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );
@@ -37,7 +37,7 @@ var Notification = {
             $( newnotif ).remove();
             --Notification.INotifs
         }
-        if ( Notification.INotifs < 3 && !Notification.TraversedAll ) {
+        if ( Notification.INotifs > 0 && Notification.INotifs < 3 && !Notification.TraversedAll ) {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
             var id = lastnodeid.substr( 6 );
             Coala.Warm( "notification/find" , {
