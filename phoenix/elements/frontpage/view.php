@@ -95,7 +95,7 @@
                 }
                 else {
                     $vnotifs = $notifs;
-                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $vnotifs ) . ";Notification.INotifs = 0;" );
+                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $notifs ) . ";Notification.INotifs = 0;" );
                 }
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
@@ -112,7 +112,9 @@
                     </div>
                 </div><?php
             }
-            
+            else {
+                $page->AttachInlineScript( "Notification.VNotifs = 0;Notification.INotifs= 0;" );
+            }
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             if ( !$user->Exists() ) {
@@ -213,7 +215,6 @@
                 case 'intzakosd':
                 case 'kolstad':
                 case 'ronaldo7':
-                case 'crazy_sheep':
                 case 'morvena':
                    Element( 'shoutbox/comet' );
                    Element( 'frontpage/image/comet' );
@@ -227,7 +228,7 @@
                 case 'gatoni':
                 case 'ted':
                 case 'kostis90gr':
-		        case 'pacman':
+		case 'pacman':
                     Element( 'frontpage/notification/comet' );
             }
         }
