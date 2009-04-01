@@ -43,7 +43,7 @@ var Notification = {
             } );
 
         }
-        if ( Notifications.INotifs === 0 && Notification.VNotifs <= 5 ) {
+        if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {
             --Notification.VNotifs;
         }
         //Notification.DecrementCount(); 
