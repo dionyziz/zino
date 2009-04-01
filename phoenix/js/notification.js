@@ -1,7 +1,7 @@
 var Notification = {
     TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
-        Notification.DecrementCount();
+        //Notification.DecrementCount();
 		if ( typeid == 3 ) {
 			document.location.href = url;
 		} 
