@@ -124,7 +124,7 @@ var Notification = {
 					} );
 				}
                 */
-                $( notiflist ).slideToggle( 400 );
+                $( "div.notifications div.list" ).slideToggle( 400 );
 			
                 return false;
 			} );
