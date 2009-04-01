@@ -12,8 +12,14 @@ var Notification = {
 		return false;
 	},
 	Delete : function( eventid ) {
+        if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {
+            --Notification.VNotifs;
+        }
 		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
 			$( this ).remove();
+            if ( Notification.VNotifs === 0 ) {
+                $( "div.notifications" ).remove();
+            }
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
@@ -42,9 +48,6 @@ var Notification = {
                 limit : "3"
             } );
 
-        }
-        if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {
-            --Notification.VNotifs;
         }
         //Notification.DecrementCount(); 
 
