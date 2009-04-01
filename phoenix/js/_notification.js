@@ -14,9 +14,6 @@ var Notification = {
 	Delete : function( eventid ) {
 		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
 			$( this ).remove();
-			if ( Notification.VNotifs === 0 ) {
-				$( 'div.notifications' ).remove();
-			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
         
@@ -35,7 +32,7 @@ var Notification = {
                 "opacity" : "1"
             } , 400 , "linear" );
             $( newnotif ).remove();
-            --Notification.INotifs
+            --Notification.INotifs;
         }
         if ( Notification.INotifs > 0 && Notification.INotifs < 3 && !Notification.TraversedAll ) {
             var lastnodeid = $( '#inotifs div.event:last-child' ).attr( "id" );
@@ -46,7 +43,9 @@ var Notification = {
             } );
 
         }
-        
+        if ( Notifications.INotifs === 0 && Notification.VNotifs <= 5 ) {
+            --Notification.VNotifs;
+        }
         //Notification.DecrementCount(); 
 
 		return false;
