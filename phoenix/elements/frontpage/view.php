@@ -10,7 +10,7 @@
             $newuser = $newuser->Get();
             $validated = $validated->Get();
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user, 0, 5 );
+            $notifs = $finder->FindByUser( $user, 0, 8 );
             $shownotifications = $notifs->TotalCount() > 0;
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
@@ -78,19 +78,34 @@
                 }
             }
             if ( $shownotifications ) {
-                if ( $notifs->TotalCount() > 10 ) {
+                /*if ( $notifs->TotalCount() > 10 ) {
                     $count = '10+';
                 }
                 else {
                     $count = $notifs->TotalCount();
                 }
-                
                 $page->SetTitle( 'Zino (' . $count . ')' );
                 $page->FinalizeTitle();
+                */
+                if ( count( $notifs ) > 5 ) {
+                    $notifs = $notifs->ToArray();
+                    $vnotifs = array_slice( $notifs , 0 , 5 );
+                    $inotifs = array_slice( $notifs , 5 );
+                    $page->AttachInlineScript( "Notification.VNotifs = 5;Notification.INotifs = " . count( $inotifs ) .";" );
+                }
+                else {
+                    $vnotifs = $notifs;
+                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $vnotifs ) . ";Notification.INotifs = 0;" );
+                }
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
-                        Element( 'notification/list', $notifs );
+                        Element( 'notification/list', $vnotifs );
+                    ?></div>
+                    <div id="inotifs" class="invisible"><?php
+                        if ( isset( $inotifs ) ) {
+                            Element( 'notification/list' , $inotifs );
+                        }
                     ?></div>
                     <div class="expand">
                         <a href="" title="Απόκρυψη">&nbsp;</a>
@@ -198,13 +213,22 @@
                 case 'intzakosd':
                 case 'kolstad':
                 case 'ronaldo7':
+                case 'crazy_sheep':
                 case 'morvena':
-                case 'maryway':
-                case 'deathcore_queen':
-                case 'micah':
-                    Element( 'shoutbox/comet' );
-                    Element( 'frontpage/image/comet' );
-                    Element( 'frontpage/comment/comet' );
+                   Element( 'shoutbox/comet' );
+                   Element( 'frontpage/image/comet' );
+                   Element( 'frontpage/comment/comet' );
+            }
+            switch ( strtolower( $user->Name ) ) {
+                case 'dionyziz':
+                case 'pagio91':
+                case 'izual':
+                case 'petrosagg18':
+                case 'gatoni':
+                case 'ted':
+                case 'kostis90gr':
+		        case 'pacman':
+                    Element( 'frontpage/notification/comet' );
             }
         }
         $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
