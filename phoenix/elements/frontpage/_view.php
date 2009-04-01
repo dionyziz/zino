@@ -95,7 +95,7 @@
                 }
                 else {
                     $vnotifs = $notifs;
-                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $vnotifs ) . ";Notification.INotifs = 0;" );
+                    $page->AttachInlineScript( "Notification.VNotifs = " . count( $notifs ) . ";Notification.INotifs = 0;" );
                 }
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
