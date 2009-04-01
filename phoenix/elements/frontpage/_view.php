@@ -112,7 +112,9 @@
                     </div>
                 </div><?php
             }
-            
+            else {
+                $page->AttachInlineScript( "Notification.VNotifs = 0;Notification.INotifs= 0;" );
+            }
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             if ( !$user->Exists() ) {
