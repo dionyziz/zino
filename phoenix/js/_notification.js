@@ -138,7 +138,7 @@ var Notification = {
                 $( "#inotifs" ).prepend( cloneit );
                 $( this ).remove();
 			} );
-            Notification.INotif++;
+            Notification.INotifs++;
 		}
 		Notification.Show( node );
 	},
