@@ -99,7 +99,7 @@ var Notification = {
 			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
 			$( 'div.content div.frontpage' ).prepend( notifscontainer );
 			//var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
-			$( link ).css( "background-position: 4px -1440px" ).attr( {
+			$( link ).css( "background-position" , "4px -1440px" ).attr( {
 				title : "Απόκρυψη",
 				href : ""
 			} )
