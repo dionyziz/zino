@@ -66,7 +66,7 @@
             }
             ?>
             <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
-            <div class="eof" style="background: url( 'http://static.zino.gr/phoenix/bannerpinkright.jpg' ) no-repeat 0 0;"></div>
+            <div class="eof"></div>
             </div><?php
             $page->AttachInlineScript( 'Banner.OnLoad();' );
         }
