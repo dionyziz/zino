@@ -88,19 +88,22 @@ var Notification = {
 			var h3 = document.createElement( 'h3' );
 			var expand = document.createElement( 'div' );
 			var link = document.createElement( 'a' );
+            var inotifsdiv = document.createElement( 'div' );
 
+            $( inotifsdiv ).attr( "id" , "inotifs" ).addClass( "invisible" );
 			$( expand ).addClass( "expand" ).append( link );
 			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
 			$( list ).addClass( "list" );
 			$( notifscontainer ).addClass( "notifications" )
-			.append( h3 ).append( list ).append( expand );
+			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
 			$( 'div.content div.frontpage' ).prepend( notifscontainer );
-			var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
+			//var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
 			$( link ).css( "background-position: 4px -1440px" ).attr( {
 				title : "Απόκρυψη",
 				href : ""
 			} )
 			.click( function() {
+                /*
 				var notiflist = $( 'div.notifications div.list' )[ 0 ];
 				if ( $( notiflist ).css( 'display' ) == "none" ) {
 					$( link  )
@@ -120,7 +123,10 @@ var Notification = {
 						$( notiflist ).hide();
 					} );
 				}
-				return false;
+                */
+                $( notiflist ).slideToggle( 400 );
+			
+                return false;
 			} );
 		}
 		else if ( Notification.VNotifs < 5 ) {
