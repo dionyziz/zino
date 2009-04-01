@@ -105,7 +105,7 @@ var Notification = {
             } ).attr( {
 				title : "Απόκρυψη",
 				href : ""
-			} )
+			} ).append( document.createTextNode( ' ' ) )
 			.click( function() {
                 if ( !Notification.Expanded ) {
                     $( this ).css( "background-position" , "4px -1440px" )
