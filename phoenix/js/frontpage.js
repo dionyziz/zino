@@ -66,7 +66,7 @@ var Frontpage = {
                     } );
                 }
                 */
-                $( 'div.notification div.list' ).slideToggle( "slow" );
+                $( 'div.notifications div.list' ).slideToggle( "slow" );
 
                 return false;
             } );  
