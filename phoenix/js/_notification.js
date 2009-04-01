@@ -1,7 +1,7 @@
 var Notification = {
     TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
-        Notification.DecrementCount();
+        //Notification.DecrementCount();
 		if ( typeid == 3 ) {
 			document.location.href = url;
 		} 
@@ -74,7 +74,7 @@ var Notification = {
 		} );
 		Coala.Warm( 'notification/addfriend' , { userid : theuserid } );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
-        Notification.DecrementCount();
+        //Notification.DecrementCount();
 		return false;
 	},
 	AddNotif : function( node ) {
