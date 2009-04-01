@@ -46,26 +46,6 @@ var Frontpage = {
             } );
         
             $( 'div.notifications div.expand a' ).click( function() {
-                /*
-                if ( $( notiflist ).css( 'display' ) == "none" ) {
-                    $( 'div.notifications div.expand a' )
-                    .css( "background-position" , "4px -1440px" )
-                    .attr( {
-                        title : 'Απόκρυψη'
-                    } );
-                    $( notiflist ).show().animate( { height : notiflistheight } , 400 );
-                }
-                else {
-                    $( 'div.notifications div.expand a' )
-                    .css( "background-position" , "4px -1252px" )
-                    .attr( {
-                        title : 'Εμφάνιση'
-                    } );
-                    $( notiflist ).animate( { height : "0" } , 400 , function() {
-                        $( notiflist ).hide();
-                    } );
-                }
-                */
                 if ( !Notification.Expanded ) {
                     $( this ).css( "background-position" , "4px -1440px" )
                     .attr( {

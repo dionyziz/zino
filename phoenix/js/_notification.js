@@ -104,28 +104,21 @@ var Notification = {
 				href : ""
 			} )
 			.click( function() {
-                /*
-				var notiflist = $( 'div.notifications div.list' )[ 0 ];
-				if ( $( notiflist ).css( 'display' ) == "none" ) {
-					$( link  )
-					.css( "background-position" , "4px -1440px" )
-					.attr( {
-						title : 'Απόκρυψη'
-					} );
-					$( notiflist ).show().animate( { height : notiflistheight } , 400 );
-				}
-				else {
-					$( link )
-					.css( "background-position" , "4px -1252px" )
-					.attr( {
-						title : 'Εμφάνιση'
-					} );
-					$( notiflist ).animate( { height : "0" } , 400 , function() {
-						$( notiflist ).hide();
-					} );
-				}
-                */
-                $( "div.notifications div.list" ).slideToggle( 400 );
+                if ( !Notification.Expanded ) {
+                    $( this ).css( "background-position" , "4px -1440px" )
+                    .attr( {
+                        title : 'Απόκρυψη'
+                    } );
+                    Notification.Expanded = true;
+                }
+                else {  
+                    $( this ).css( "background-position" , "4px -1252px" )
+                    .attr( {
+                        title : 'Εμφάνιση:'
+                    } );
+                    Notification.Expanded = false;
+                }
+                $( 'div.notifications div.list' ).slideToggle( "slow" );
 			
                 return false;
 			} );
