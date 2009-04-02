@@ -6,21 +6,21 @@
             if ( $gender == 'm' || $gender == '-' ) {
                 $statuses = array( 
                     '-' => '-',
-                    'single' => 'Ελεύθερος',
-                    'relationship' => 'Σε σχέση',
-                    'casual' => 'Ελεύθερη σχέση',
-                    'engaged' => 'Δεσμευμένος',
-                    'married' => 'Παντρεμένος'
+                    'single' => 'Ξ•Ξ»ΞµΟΞΈΞµΟΞΏΟ‚',
+                    'relationship' => 'Ξ£Ξµ ΟƒΟ‡Ξ­ΟƒΞ·',
+                    'casual' => 'Ξ•Ξ»ΞµΟΞΈΞµΟΞ· ΟƒΟ‡Ξ­ΟƒΞ·',
+                    'engaged' => 'Ξ”ΞµΟƒΞΌΞµΟ…ΞΌΞ­Ξ½ΞΏΟ‚',
+                    'married' => 'Ξ Ξ±Ξ½Ο„ΟΞµΞΌΞ­Ξ½ΞΏΟ‚'
                 );
             }
             else {
                 $statuses = array( 
                     '-' => '-',
-                    'single' => 'Ελεύθερη',
-                    'relationship' => 'Σε σχέση',
-                    'casual' => 'Ελεύθερη σχέση',
-                    'engaged' => 'Δεσμευμένη',
-                    'married' => 'Παντρεμένη'
+                    'single' => 'Ξ•Ξ»ΞµΟΞΈΞµΟΞ·',
+                    'relationship' => 'Ξ£Ξµ ΟƒΟ‡Ξ­ΟƒΞ·',
+                    'casual' => 'Ξ•Ξ»ΞµΟΞΈΞµΟΞ· ΟƒΟ‡Ξ­ΟƒΞ·',
+                    'engaged' => 'Ξ”ΞµΟƒΞΌΞµΟ…ΞΌΞ­Ξ½Ξ·',
+                    'married' => 'Ξ Ξ±Ξ½Ο„ΟΞµΞΌΞ­Ξ½Ξ·'
                 );
             }
             echo htmlspecialchars( $statuses[ $status ] );
