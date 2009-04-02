@@ -216,6 +216,7 @@
                 case 'kolstad':
                 case 'ronaldo7':
                 case 'morvena':
+                case 'crazy_sheep':
                    Element( 'shoutbox/comet' );
                    Element( 'frontpage/image/comet' );
                    Element( 'frontpage/comment/comet' );
@@ -228,7 +229,11 @@
                 case 'gatoni':
                 case 'ted':
                 case 'kostis90gr':
-		case 'pacman':
+                case 'bowling':
+                case 'finlandos':
+                case 'teh-ninja':
+                case 'intzakosd':
+                case 'crazy_sheep':
                     Element( 'frontpage/notification/comet' );
             }
         }
