@@ -149,9 +149,11 @@ var Settings = {
             var sexselected = $( '#sex select' )[ 0 ].value;
             var relselected = $( '#religion select' )[ 0 ].value;
             var polselected = $( '#politics select' )[ 0 ].value;
+            var relationshipselected = $( '#relationship select' )[ 0 ].value;
             Coala.Cold( 'user/settings/genderupdate' , { 
                 gender : this.value,
                 sex : sexselected,
+                relationship: relationshipselected,
                 religion : relselected,
                 politics : polselected
             } );
@@ -198,6 +200,9 @@ var Settings = {
         });
         $( '#sex select' ).change( function() {
             Settings.Enqueue( 'sex' , this.value );
+        });
+        $( '#relationship select' ).change( function() {
+            Settings.Enqueue( 'relationship' , this.value );
         });
         $( '#religion select' ).change( function() {
             Settings.Enqueue( 'religion' , this.value );

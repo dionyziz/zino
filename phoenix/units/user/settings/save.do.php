@@ -3,7 +3,7 @@
          tInteger $doby, tText $gender,
          tInteger $place, tInteger $education,
          tInteger $school, tInteger $mood,
-         tText $sex, tText $religion,
+         tText $sex, tText $relationship, tText $religion,
          tText $politics, tText $slogan,
          tText $aboutme, tText $favquote,
          tText $haircolor, tText $eyecolor,
@@ -34,6 +34,7 @@
             $school = $school->Get();
             $mood = $mood->Get();
             $sex = $sex->Get();
+            $relationship = $relationship->Get();
             $religion = $religion->Get();
             $politics = $politics->Get();
             $slogan = $slogan->Get();
@@ -103,6 +104,9 @@
             }
             if ( $sex ) {    
                 $user->Profile->Sexualorientation = $sex;
+            }
+            if ( $relationship ) {
+                $user->Profile->Relationship = $relationship;
             }
             if ( $religion ) {
                 $user->Profile->Religion =  $religion;
