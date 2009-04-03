@@ -47,8 +47,6 @@
                 }
             ?></ul><?php
             
-            ?></div><?php
-            
             ?><div class="eof"></div>
             <div class="pagifyimages"><?php
 
