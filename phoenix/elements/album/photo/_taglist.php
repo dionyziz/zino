@@ -24,7 +24,7 @@
             
             Element( 'user/sections', 'album' , $newuser );
             
-            ?><div id="photolist"<?php
+            ?><div id="photolist"><?php
             
             $Tagfinder = new ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $newuser->Id ); 
