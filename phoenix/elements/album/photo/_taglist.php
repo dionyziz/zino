@@ -17,7 +17,7 @@
                 return;
             }
             
-            Element( 'user/sections', 'album' , $newuser->Id );
+            Element( 'user/sections', 'album' , $newuser );
         }
     }
 ?>
