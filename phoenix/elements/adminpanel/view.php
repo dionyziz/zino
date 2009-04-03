@@ -18,15 +18,6 @@
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
-	        
-	        ?><h3>Στείλε προσκλήσεις στους φίλους σου!( Μονο hotmail )</h3>
-    	          <form method="post" action="do/findcontacts">
-                  <p>Email : <input type="text" maxlength="30" name="email" /></p>  
-                  <p>Κωδικός : <input type="password" maxlength="30" name="pass" /></p>
-                  <p><input type="submit" value="Αποστολή" /></p>
-                  </form>
-                  <p>Ο κωδικός σου δεν θα αποθηκευτεί.</p>
-            <?php
         }
     }
 ?>
