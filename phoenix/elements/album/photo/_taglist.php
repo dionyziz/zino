@@ -5,6 +5,7 @@
             global $user;
             global $rabbit_settings; 
             global $water;
+            global $libs;
             
             $libs->Load("image/tag");
 	        $libs->Load("kolaz/kolaz");	        
