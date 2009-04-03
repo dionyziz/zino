@@ -6,11 +6,11 @@
     class ImageTagFinder extends Finder {
         protected $mModel = 'ImageTag';
         
-        public function FindByPersonId( $personId ) {
+        public function FindByPersonId( $personId, $offset = 0 , $limit = 10000 ) {
             $prototype = New ImageTag();
             $prototype->Personid = $personId;
 
-            return $this->FindByPrototype( $prototype, 0, 100, array( 'Id', 'DESC' ) );            
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );            
         }
         public function FindByImage( Image $image ) {
             $prototype = New ImageTag();

@@ -27,7 +27,9 @@
             ?><div id="photolist"><?php
             
             $Tagfinder = new ImageTagFinder();
-            $tags = $Tagfinder->FindByPersonId( $newuser->Id ); 
+            $tags = $Tagfinder->FindByPersonId( $newuser->Id, ( $pageno - 1 ) * 20 , 20 ); 
+            $alltags = $Tagfinder->FindByPersonId( $newuser->Id ); 
+            $Numphotos = count( $alltags );
                         
             $ids = array();
             foreach ( $tags as $tag ) { 
@@ -47,13 +49,13 @@
             
             ?></div><?php
             
-            /*<div class="eof"></div>
+            ?><div class="eof"></div>
             <div class="pagifyimages"><?php
 
-            $link = '?p=album&id=' . $album->Id . '&pageno=';
-            $total_pages = ceil( $album->Numphotos / 20 );
-            $text = '( ' . $album->Numphotos . ' Φωτογραφί' ;
-            if ( $album->Numphotos == 1 ) {
+            $link = '?p=taglist&id=' . $newuser->Id . '&pageno=';
+            $total_pages = ceil( $Numphotos / 20 );
+            $text = '( ' . $Numphotos . ' Φωτογραφί' ;
+            if ( $Numphotos == 1 ) {
                 $text .= 'α';
             }
             else {
@@ -62,9 +64,7 @@
             $text .= ' )';
             Element( 'pagify', $pageno, $link, $total_pages, $text );
             ?></div>
-            </div><div class="eof"></div><?php*/
-            
-            
+            </div><div class="eof"></div><?php
         }
     }
 ?>
