@@ -164,7 +164,8 @@
             'kolaz'             => 'kolaz',
             'notvalidated'      => 'validation/page',
 			'revalidate'        => 'validation/resend',
-            'test'              => 'test'
+            'test'              => 'test',
+            'taglist'           => 'album/photo/taglist'
         );
     }
     
