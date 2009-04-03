@@ -7,10 +7,7 @@ div.content {
     height:50px;
     background-color : white;
     border : solid black 1px;   
-    margin-top : 30px; 
-    margin-bottom : 30px;
-    margin-left : auto;
-    margin-right : auto;
+    margin : 30px auto; 
 }
 #percentage {
     background-color : #0177b7;
