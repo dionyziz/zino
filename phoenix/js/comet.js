@@ -15,11 +15,17 @@ var Comet = {
     },
     Subscribe: function ( channel ) {
         Comet.Connect();
+        if ( ExcaliburSettings.Production ) {
+            channel = 'P' + channel;
+        }
+        else {
+            channel = 'S' + channel;
+        }
         Meteor.joinChannel( channel, 0 );
     },
     Process: function ( json ) {
         var obj = eval( json );
-        var channel = obj.shift();
+        var channel = obj.shift(); // unused
         var code = obj.shift();
         
         eval( code );

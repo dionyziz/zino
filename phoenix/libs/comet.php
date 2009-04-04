@@ -8,8 +8,16 @@
     }
     
     function Comet_Publish( /* $channel, $param1, $param2, ..., $paramN */ ) {
+        global $rabbit_settings;
+        
         $args = func_get_args();
-        $channel = $args[ 0 ];
+        if ( $rabbit_settings[ 'production' ] ) {
+            $channel = 'P'; // Production
+        }
+        else {
+            $channel = 'S'; // Sandbox
+        }
+        $channel .= $args[ 0 ]; // append actual channel name
         $message = $args; // keep channel in message
         
         w_assert( is_string( $channel ) );
