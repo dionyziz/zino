@@ -16,7 +16,7 @@
                     ?>
                 </div>
                 <div class="text">
-                    <textarea rows="" cols="" value=""></textarea>
+                    <textarea rows="" cols="" value="Πρόσθεσε ένα σχόλιο στη συζήτηση..."></textarea>
                 </div>
                 <div class="bottom">
                     <form onsubmit="return false" action=""><input type="submit" value="Σχολίασε!" onclick="Comments.Create(0);" /></form>
