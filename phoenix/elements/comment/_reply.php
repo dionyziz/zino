@@ -9,7 +9,9 @@
             ?><div class="comment newcomment">
                 <div class="toolbox">
                 </div>
-                <div class="who">
+                <div class="who"><?php
+                    Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
+                    ?>
                 </div>
                 <div class="text">
                     <textarea rows="" cols=""></textarea>
