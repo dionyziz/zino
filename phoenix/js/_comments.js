@@ -51,18 +51,20 @@ var Comments = {
 		//----------------------
 
 		var useros = temp.find( "div.who" ).get( 0 );
-		useros.removeChild( useros.lastChild );
-		useros.appendChild( document.createTextNode( " είπε:" ) );
+		//useros.removeChild( useros.lastChild );
+		//useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
-			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
+			/*
+            var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
 				deletes.fadeOut( 400 );
 				deletes.parent().find( "span" ).css( "marginRight", indent*20 + 'px' );
 			}
+            */
 		}
 		
 		var type = temp.find( "#type:first" ).text();
