@@ -66,6 +66,7 @@ var Comments = {
         //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
         Comments[ "Changed" + parentid ] = false;
+        alert( 'made false' );
         $( daddy ).find( "div.text textarea" ).focus( function() {
             if ( !Comments[ "Changed" + parentid ] ) {
                 this.value = "";
