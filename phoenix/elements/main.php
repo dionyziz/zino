@@ -31,6 +31,7 @@
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
             else {
+                $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
             // $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'jquery.lazyload.js' );
