@@ -2,8 +2,9 @@
     class ElementUserProfileSidebarPlayer extends Element {
 
         public function Render( $theuser ) {?>
+			<script type="text/javascript" src="http://beta.zino.gr/phoenix/etc/mockups/jquery-1.3.2.min.js"></script>
+			<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 			<div id="zinoPlayer">
-				<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
