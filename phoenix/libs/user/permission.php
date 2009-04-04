@@ -9,7 +9,8 @@
     define( 'PERMISSION_COMMENT_DELETE_ALL', 50 );
 
     // image permissions
-    define( 'PERMISSION_IMAGE_CREATE', 999 ); // migration to gaia.kamibu.com
+    // define( 'PERMISSION_IMAGE_CREATE', 999 ); // migration to gaia.kamibu.com
+    define( 'PERMISSION_IMAGE_CREATE', 30 );
     define( 'PERMISSION_IMAGE_DELETE', 30 );
     define( 'PERMISSION_IMAGE_DELETE_ALL' , 50 );
 
