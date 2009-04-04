@@ -26,6 +26,7 @@
 				var totalSongs = 0; var nextSong = 0;
 				var playing = false;
 				var zplayer = document.getElementById('playerObject');
+				alert(zplayer);
 				var currentDuration;
 				var trackStarted = false; 
 
