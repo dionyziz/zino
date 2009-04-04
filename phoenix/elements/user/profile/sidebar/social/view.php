@@ -3,6 +3,7 @@
         public function Render( $theuser ) {
             ?><ul><?php
             Element( 'user/profile/sidebar/social/sex' , $theuser->Profile->Sexualorientation, $theuser->Gender );
+			Element( 'user/profile/sidebar/social/relationship' , $theuser->Profile->Relationship, $theuser->Gender );
             Element( 'user/profile/sidebar/social/smoker' , $theuser->Profile->Smoker );
             Element( 'user/profile/sidebar/social/drinker' , $theuser->Profile->Drinker );
             Element( 'user/profile/sidebar/social/education' , $theuser->Profile->Education );
