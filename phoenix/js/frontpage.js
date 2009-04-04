@@ -173,7 +173,7 @@ var Frontpage = {
             } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
-                    textarea[ 0 ].style.color = 'black';
+                    textarea[ 0 ].style.color = '#000';
                 }
             } ).blur( function () {
                 q();

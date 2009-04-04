@@ -65,6 +65,22 @@ var Comments = {
 	    $( daddy ).find( "div.who" ).empty().append( link );	
         //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
+        $( daddy ).find( "div.text textarea" ).focus( function() {
+            if ( !Comments[ "Changed" + parentid ] ) {
+                $( this ).attr( "value" , "" ).css( "color" , "#000" );
+            }
+        
+        } ) 
+        .blur( function() {
+            if ( $( this ).attr( "value" ) === '' ) {
+                $( this ).attr( "value" , "Πρόσθεσε ένα σχόλιο..." )
+                .css( "color" , "#666" );
+                Comments[ "Changed" + parentid ] = false;
+            }
+            else {
+                Comments[ "Changed" + parentid ] = true;
+            }
+        } );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
@@ -102,10 +118,12 @@ var Comments = {
                 return false;
             }
         );
+        /*
 		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
 			Comments.Edit( id );
 			return false;
         };
+        */
 		/*node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
             Comments.Delete( id );
             return false;
@@ -131,6 +149,7 @@ var Comments = {
 		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
 		//-----------------------------
 	},
+    /*
 	Edit : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
 		var text = node.find( "div.text" ).text();
@@ -201,6 +220,7 @@ var Comments = {
 		} );
         return false;
 	},
+    */
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
@@ -299,10 +319,12 @@ var Comments = {
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
                 } );
+                /*
                 $( "div.comments div.minecomment div.text" ).dblclick( function() {
                     var id = $( this ).parent().attr( "id" );
                     return Comments.Edit( id.substr( 8 , id.length - 8 ) );
                 } );
+                */
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
