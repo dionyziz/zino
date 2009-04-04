@@ -10,8 +10,8 @@
                 <div class="toolbox">
                 </div>
                 <div class="who"><?php
-                    Element( 'user/avatar' , $avatarid , $userid , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 100 , 'avatar' , '' , true , '50' , '50' );
-                    //Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
+                    //Element( 'user/avatar' , $avatarid , $userid , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 100 , 'avatar' , '' , true , '50' , '50' );
+                    Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                     ?>
                 </div>
                 <div class="text">
