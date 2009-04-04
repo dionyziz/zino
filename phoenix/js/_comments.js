@@ -50,9 +50,19 @@ var Comments = {
 			kimeno.css( "width", wid-indent * 20 + 'px' );
 		}
 		//----------------------
-
-		temp.find( "div.who a" ).append( document.createTextNode( GetUsername() ) );
-		
+        var link = document.createElement( 'a' );
+        var username = GetUsername();
+        if ( ExcaliburSettings.Production ) {
+            var hrefs = "http://" + username + ".zino.gr/";
+        }
+        else {
+            var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
+        }
+        var avatarview = $( daddy ).find( "div.who span.imageview" );
+        var avatar = $( avatarview ).clone( true );
+        $( link ).attr( "href" , hrefs )
+        .append( avatar ).append( document.createTextNode( username ) );
+	    $( daddy ).find( "div.who" ).empty().append( link );	
         //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid === 0 ) {
@@ -96,10 +106,11 @@ var Comments = {
 			Comments.Edit( id );
 			return false;
         };
-		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
+		/*node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
             Comments.Delete( id );
             return false;
         };
+        */
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
