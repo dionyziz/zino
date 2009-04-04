@@ -65,16 +65,18 @@ var Comments = {
 	    $( daddy ).find( "div.who" ).empty().append( link );	
         //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
+        Comments[ "Changed" + parentid ] = false;
         $( daddy ).find( "div.text textarea" ).focus( function() {
             if ( !Comments[ "Changed" + parentid ] ) {
-                $( this ).attr( "value" , "" ).css( "color" , "#000" );
+                this.value = "";
+                $( this ).css( "color" , "#000" );
             }
         
         } ) 
         .blur( function() {
             if ( $( this ).attr( "value" ) === '' ) {
-                $( this ).attr( "value" , "Πρόσθεσε ένα σχόλιο..." )
-                .css( "color" , "#666" );
+                this.value = "Πρόσθεσε ένα σχόλιο..."; 
+                $( this ).css( "color" , "#666" );
                 Comments[ "Changed" + parentid ] = false;
             }
             else {
