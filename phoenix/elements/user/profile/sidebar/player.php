@@ -24,7 +24,7 @@
 					var playlist = new Array();
 					var totalSongs = 0; var nextSong = 0;
 					var playing = false;
-					var player = document.getElementById('playerObject');
+					var zplayer = document.getElementById('playerObject');
 					var currentDuration;
 					var trackStarted = false; 
 
@@ -33,14 +33,14 @@
 						$("#playList li a span.playing").removeClass('playing');
 						$("#" + song_id).addClass('selected');
 						$("#" + song_id + " span" ).addClass('playing');
-						if ( !player )
+						if ( !zplayer )
 							alert('not initialized');
-						player.sendEvent("LOAD", url );
-						player.sendEvent("PLAY","true");
+						zplayer.sendEvent("LOAD", url );
+						zplayer.sendEvent("PLAY","true");
 						$("#progress").css("width","3px");
-						player.addModelListener("TIME","progressBarHandler"); 
-						player.addModelListener("LOADED", "bufferHandler" );
-						player.addModelListener("STATE", "stateHandler" );
+						zplayer.addModelListener("TIME","progressBarHandler"); 
+						zplayer.addModelListener("LOADED", "bufferHandler" );
+						zplayer.addModelListener("STATE", "stateHandler" );
 						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");
@@ -48,13 +48,13 @@
 	
 					function togglePlayback() {
 						if (playing) {
-							player.sendEvent("PLAY","false");
+							zplayer.sendEvent("PLAY","false");
 							playing = false;
 							$("#playButton.pause").removeClass("pause");
 							$("#playButton").addClass("play");
 						}
 						else {
-							player.sendEvent("PLAY","true");
+							zplayer.sendEvent("PLAY","true");
 							playing = true;
 							$("#playButton.play").removeClass("play");
 							$("#playButton").addClass("pause");
@@ -92,7 +92,7 @@
 					$(document).ready( function() {
 						makePlaylist("playList");
 						$("#progressBar").click( function(e) {
-							player.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
+							zplayer.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
 						});
 					});
 				</script>
