@@ -27,6 +27,7 @@
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
+                $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
             else {

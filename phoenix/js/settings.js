@@ -1,4 +1,5 @@
 var ExcaliburSettings = {
+    //Production for sandbox/live
 	applicationname : 'Zino',
 	imagesurl : 'http://static.zino.gr/phoenix/',
 	webaddress : 'https://beta.zino.gr/phoenix',
