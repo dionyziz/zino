@@ -33,6 +33,8 @@
 						$("#playList li a span.playing").removeClass('playing');
 						$("#" + song_id).addClass('selected');
 						$("#" + song_id + " span" ).addClass('playing');
+						if ( !player )
+							alert('not initialized');
 						player.sendEvent("LOAD", url );
 						player.sendEvent("PLAY","true");
 						$("#progress").css("width","3px");
