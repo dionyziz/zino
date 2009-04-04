@@ -51,8 +51,9 @@ var Comments = {
 		}
 		//----------------------
 
-		var useros = temp.find( "div.who" ).get( 0 );
-		//useros.removeChild( useros.lastChild );
+		temp.find( "div.who a" ).append( document.createTextNode( GetUsername() ) );
+		
+        //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
