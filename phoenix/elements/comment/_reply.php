@@ -8,6 +8,7 @@
             
             ?><div class="comment newcomment">
                 <div class="toolbox">
+                    <span class="time"></span>
                 </div>
                 <div class="who"><?php
                     Element( 'user/avatar' , $avatarid , $userid , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 100 , 'avatar' , '' , true , '50' , '50' );
