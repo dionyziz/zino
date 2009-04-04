@@ -3,6 +3,7 @@
 
         public function Render( $theuser ) {?>
 			<div id="zinoPlayer">
+				<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
@@ -17,8 +18,6 @@
 					?>
 					<li><a id="song_1" href="javascript:;" onclick="playSong('<?php echo $song[1]?>', 'song_1')"><span></span><?php echo $song[0] ?></a></li>
 				</ul>		
-				<script type="text/javascript" src="http://beta.zino.gr/phoenix/etc/mockups/jquery-1.3.2.min.js"></script>
-				<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 				<embed id="playerObject" name="playerObject" src="http://beta.zino.gr/phoenix/etc/mockups/player.swf" width="0" height="0" />
 				<script type="text/javascript">
 					var playlist = new Array();
