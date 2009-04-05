@@ -65,25 +65,6 @@ var Comments = {
 	    $( daddy ).find( "div.who" ).empty().append( link );	
         //useros.removeChild( useros.lastChild );
 		//useros.appendChild( document.createTextNode( " είπε:" ) );
-        Comments[ "Changed" + parentid ] = false;
-        alert( 'made false' );
-        $( daddy ).find( "div.text textarea" ).focus( function() {
-            if ( !Comments[ "Changed" + parentid ] ) {
-                this.value = "";
-                $( this ).css( "color" , "#000" );
-            }
-        
-        } ) 
-        .blur( function() {
-            if ( $( this ).attr( "value" ) === '' ) {
-                this.value = "Πρόσθεσε ένα σχόλιο..."; 
-                $( this ).css( "color" , "#666" );
-                Comments[ "Changed" + parentid ] = false;
-            }
-            else {
-                Comments[ "Changed" + parentid ] = true;
-            }
-        } );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
@@ -145,8 +126,25 @@ var Comments = {
 				} ;
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-        temp.find( "div.bottom input" ).get( 0 ).focus();
-		temp.find( "div.text textarea" ).get( 0 ).focus();
+        //temp.find( "div.bottom input" ).get( 0 ).focus();
+        Comments[ "Changed" + nodeid ] = false;
+        $( temp ).find( "div.text textarea" ).focus( function() {
+            if ( !Comments[ "Changed" + nodeid ] ) {
+                this.value = "";
+                $( this ).css( "color" , "#000" );
+            }
+        
+        } ) 
+        .blur( function() {
+            if ( $( this ).attr( "value" ) === '' ) {
+                this.value = "Πρόσθεσε ένα σχόλιο..."; 
+                $( this ).css( "color" , "#666" );
+                Comments[ "Changed" + nodeid ] = false;
+            }
+            else {
+                Comments[ "Changed" + nodeid ] = true;
+            }
+        } ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
 		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
