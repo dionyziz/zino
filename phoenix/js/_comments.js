@@ -264,8 +264,10 @@ var Comments = {
         Comments.Reply( id, indent );
     },
     Focus: function ( id, indent, loggedin ) {
-        $( "#comment_" + id + " div.text" ).css( "font-weight" , "700" );
-        $( "#comment_" + id )[ 0 ].scrollIntoView( false );
+        var cmd = $( '#comment_' + id )[ 0 ];
+        $( cmd ).find( "div.text" ).css( "font-weight" , "700" );
+        cmd.scrollIntoView( false );
+        window.scrollBy( 0 , 50 );
         if ( loggedin ) {
             Comments.ToggleReply( id, indent - 1 );
         }
