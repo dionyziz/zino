@@ -253,7 +253,10 @@ var Comments = {
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
-            $( '#comment_reply_' + id ).hide( 300, function() {
+            $( '#comment_reply_' + id ).animate( {
+                height : "0",
+                opacity : "0"
+            } , 300 , function() {
                 $( this ).remove();
             } );
             Comments.ToggledReplies[ id ] = 0;
@@ -268,7 +271,6 @@ var Comments = {
         $( cmd ).find( "div.text" ).css( "font-weight" , "700" );
         cmd.scrollIntoView( false );
         window.scrollBy( 0 , 200 );
-        //alert( "scrolled" );
         if ( loggedin ) {
             Comments.ToggleReply( id, indent - 1 );
         }
