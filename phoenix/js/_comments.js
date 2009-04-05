@@ -256,7 +256,7 @@ var Comments = {
             $( '#comment_reply_' + id ).animate( {
                 height : "0",
                 opacity : "0"
-            } , 300 , function() {
+            } , 400 , function() {
                 $( this ).remove();
             } );
             Comments.ToggledReplies[ id ] = 0;
