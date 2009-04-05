@@ -136,6 +136,7 @@ var Comments = {
         
         } ) 
         .blur( function() {
+            alert( 'blured ' + nodeid );
             if ( $( this ).attr( "value" ) === '' ) {
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
                 $( this ).css( "color" , "#666" );
