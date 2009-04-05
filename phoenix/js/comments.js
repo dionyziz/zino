@@ -22,16 +22,6 @@ var Comments = {
         } );
 		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
-		/*var del = document.createElement( 'a' );
-        $( del ).attr( {
-            title : "Διαγραφή",
-            href : ""
-        } )
-        .append( document.createTextNode( ' ' ) )
-        .click( function() {
-            return false;
-        } );
-        */
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
         var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", marginright ).text( "πριν λίγο" ).end()
@@ -63,20 +53,11 @@ var Comments = {
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
-        //useros.removeChild( useros.lastChild );
-		//useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
-			/*
-            var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
-			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
-				deletes.fadeOut( 400 );
-				deletes.parent().find( "span" ).css( "marginRight", indent*20 + 'px' );
-			}
-            */
 		}
 		
 		var type = temp.find( "#type:first" ).text();
@@ -102,17 +83,6 @@ var Comments = {
                 return false;
             }
         );
-        /*
-		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
-			Comments.Edit( id );
-			return false;
-        };
-        */
-		/*node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
-            Comments.Delete( id );
-            return false;
-        };
-        */
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
@@ -152,78 +122,6 @@ var Comments = {
 		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
 		//-----------------------------
 	},
-    /*
-	Edit : function( nodeid ) {
-		var node = $( "#comment_" + nodeid );
-		var text = node.find( "div.text" ).text();
-		
-		var textarea = document.createElement( 'textarea' );
-		textarea.value = text;
-		
-		var div = document.createElement( 'div' );
-		div.className = "bottom";
-		
-		var form = document.createElement( 'form' );
-		form.onsubmit = function() {
-					return false;
-		};
-				
-		var input = document.createElement( 'input' );
-		$( input )
-        .attr( { 
-                type : "submit",
-                value : "Επεξεργασία"
-        } )
-        .click( function() {
-            var daddy = $( this ).parents().eq(2); // get big div
-            var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
-            texter = $.trim( texter );
-            if ( texter === '' ) {
-                alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
-                return;
-            }
-            daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
-            .find( "div.bottom:last" ).remove().end()
-            .find( "div.bottom" ).css( 'display', 'block' );
-            Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
-                                            text : texter
-                                        } );
-        } );
-			
-		var input2 = document.createElement( 'input' );
-        $( input2 )
-        .attr( {
-                type : "reset",
-                value : "Ακύρωση"
-        } )
-        .click( function() {
-            var daddy = $( this ).parents().eq(2); // get big div
-            daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
-            .find( "div.bottom:last" ).remove().end()
-            .find( "div.bottom" ).css( 'display', 'block' );
-        } );
-		$( form )
-        .append( input )
-        .append( document.createTextNode( ' ' ) )
-        .append( input2 );
-		$( div ).append( form );
-		
-		node.find( "div.text" ).empty().append( textarea ).end()
-		.find( "div.bottom" ).css( 'display', 'none' ).end()
-		.append( div );
-		node.find( "div.text textarea" ).get( 0 ).focus();
-	}, 
-	Delete : function( nodeid ) {
-		var node = $( "#comment_" + nodeid );
-		node.fadeOut( 450, function() { 
-            $( this ).remove(); 
-        } );
-		Coala.Warm( 'comments/delete', { 
-            commentid : nodeid
-		} );
-        return false;
-	},
-    */
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
@@ -322,12 +220,6 @@ var Comments = {
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
                 } );
-                /*
-                $( "div.comments div.minecomment div.text" ).dblclick( function() {
-                    var id = $( this ).parent().attr( "id" );
-                    return Comments.Edit( id.substr( 8 , id.length - 8 ) );
-                } );
-                */
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }

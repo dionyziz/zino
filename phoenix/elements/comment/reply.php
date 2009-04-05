@@ -1,7 +1,6 @@
 <?php
     
     class ElementCommentReply extends Element {
-        //protected $mPersistent = array( 'itemid' , 'typeid' , 'userid' , 'avatarid' );
         public function Render( $itemid, $typeid , $userid , $avatarid ) {
             global $user;
             global $page;
@@ -12,7 +11,6 @@
                 </div>
                 <div class="who"><?php
                     Element( 'user/avatar' , $avatarid , $userid , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 100 , 'avatar' , '' , true , '50' , '50' );
-                    //Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                     ?>
                 </div>
                 <div class="text">

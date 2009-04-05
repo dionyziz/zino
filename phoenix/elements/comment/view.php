@@ -6,7 +6,6 @@
             global $water;
 
             $libs->Load( 'comment' );
-            // $deletable = ( $user->Id == $comment->Userid || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
             
             ?><div id="comment_<?php
             echo $comment->Id;
