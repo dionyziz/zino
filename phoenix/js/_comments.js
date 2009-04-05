@@ -331,7 +331,7 @@ var Comments = {
         }
 
         Comments[ "Changed0" ] = false;
-        $( "div.newcomment:first" ).find( "div.text textarea" ).focus( function() {
+        $( "div.newcomment:first" ).find( "div.text textarea" ).css( "color" , "#666" ).focus( function() {
             if ( !Comments[ "Changed0" ] ) {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
