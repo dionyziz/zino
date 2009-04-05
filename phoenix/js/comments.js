@@ -242,6 +242,6 @@ var Comments = {
             else {
                 Comments[ "Changed0"] = true;
             }
-        } ).get( 0 ).focus();
+        } );
     }
 };
