@@ -253,10 +253,8 @@ var Comments = {
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
-            $( '#comment_reply_' + id ).animate( {
-                height : "0",
-                opacity : "0"
-            } , 400 , "linear" ,  function() {
+            $( '#comment_reply_' + id ).slideUp( 
+            "slow" ,  function() {
                 $( this ).remove();
             } );
             Comments.ToggledReplies[ id ] = 0;
