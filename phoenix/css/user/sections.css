@@ -25,7 +25,8 @@ div.usersections ul li {
 	display: inline;
 }
 div.usersections ul li.selected a {
-	font-weight: bold;
+	font-weight: 700;
+    color: #4a7aab;
 }
 div.usersections div {
 	clear: both;
