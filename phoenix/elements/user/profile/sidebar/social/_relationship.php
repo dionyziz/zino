@@ -5,7 +5,7 @@
         public function Render( $relationship, $gender ) {
             if ( $relationship != '-' ) {
                 ?><li><strong>Κατάσταση</strong> <?php
-                Element( 'user/trivial/relationship' , $religion , $gender );
+                Element( 'user/trivial/relationship' , $relationship , $gender );
                 ?></li><?php
             }
         }
