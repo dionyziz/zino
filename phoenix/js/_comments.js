@@ -136,9 +136,7 @@ var Comments = {
         
         } ) 
         .blur( function() {
-            alert( 'blured ' + nodeid );
             if ( this.value  === '' ) {
-                alert( "changing da value" );
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
                 $( this ).css( "color" , "#666" );
                 Comments[ "Changed" + nodeid ] = false;
@@ -331,5 +329,24 @@ var Comments = {
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
+
+        Comments[ "Changed0" ] = false;
+        $( "div.newcomment:first" ).find( "div.text textarea" ).focus( function() {
+            if ( !Comments[ "Changed" + nodeid ] ) {
+                this.value = "";
+                $( this ).css( "color" , "#000" );
+            }
+        
+        } ) 
+        .blur( function() {
+            if ( this.value  === '' ) {
+                this.value = "Πρόσθεσε ένα σχόλιο..."; 
+                $( this ).css( "color" , "#666" );
+                Comments[ "Changed0"] = false;
+            }
+            else {
+                Comments[ "Changed0"] = true;
+            }
+        } ).get( 0 ).focus();
     }
 };
