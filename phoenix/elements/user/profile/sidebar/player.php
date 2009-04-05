@@ -26,7 +26,6 @@
 				var totalSongs = 0; var nextSong = 0;
 				var playing = false;
 				var zplayer = document.getElementById('playerObject');
-				alert(zplayer);
 				var currentDuration;
 				var trackStarted = false; 
 
@@ -35,8 +34,6 @@
 					$("#playList li a span.playing").removeClass('playing');
 					$("#" + song_id).addClass('selected');
 					$("#" + song_id + " span" ).addClass('playing');
-					if ( !zplayer )
-						alert('not initialized');
 					zplayer.sendEvent("LOAD", url );
 					zplayer.sendEvent("PLAY","true");
 					$("#progress").css("width","3px");
