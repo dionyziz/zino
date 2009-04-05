@@ -6,7 +6,7 @@
             global $water;
 
             $libs->Load( 'comment' );
-            $deletable = ( $user->Id == $comment->Userid || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
+            // $deletable = ( $user->Id == $comment->Userid || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
             
             ?><div id="comment_<?php
             echo $comment->Id;
@@ -20,12 +20,9 @@
                     <span class="time invisible"><?php
                         echo $comment->Created;
                     ?></span>
-                    <a href="" class="invisible" style="margin-right:<?php
-                        echo $indent * 20;
-                    ?>px;" title="Διαγραφή">&nbsp;</a><?php
-                ?></div><div class="who"><?php
+                </div><div class="who"><?php
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
-                    ?> είπε:
+                    ?>
                 </div><div class="text"><?php
                     echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
                 ?></div>

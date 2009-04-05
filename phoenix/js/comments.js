@@ -21,8 +21,8 @@ var Comments = {
             return false;
         } );
 		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
-		var del = document.createElement( 'a' );
-        del.style.marginRight = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
+        var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
+		/*var del = document.createElement( 'a' );
         $( del ).attr( {
             title : "Διαγραφή",
             href : ""
@@ -31,11 +31,12 @@ var Comments = {
         .click( function() {
             return false;
         } );
+        */
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
+        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", marginright ).text( "πριν λίγο" ).end()
         .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
-		.find( "div.toolbox" ).append( del ).end()
+		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
@@ -49,20 +50,33 @@ var Comments = {
 			kimeno.css( "width", wid-indent * 20 + 'px' );
 		}
 		//----------------------
-
-		var useros = temp.find( "div.who" ).get( 0 );
-		useros.removeChild( useros.lastChild );
-		useros.appendChild( document.createTextNode( " είπε:" ) );
+        var link = document.createElement( 'a' );
+        var username = GetUsername();
+        if ( ExcaliburSettings.Production ) {
+            var hrefs = "http://" + username + ".zino.gr/";
+        }
+        else {
+            var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
+        }
+        var avatarview = $( daddy ).find( "div.who span.imageview" );
+        var avatar = $( avatarview ).clone( true );
+        $( link ).attr( "href" , hrefs )
+        .append( avatar ).append( document.createTextNode( username ) );
+	    $( daddy ).find( "div.who" ).empty().append( link );	
+        //useros.removeChild( useros.lastChild );
+		//useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
-			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
+			/*
+            var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
 				deletes.fadeOut( 400 );
 				deletes.parent().find( "span" ).css( "marginRight", indent*20 + 'px' );
 			}
+            */
 		}
 		
 		var type = temp.find( "#type:first" ).text();
@@ -88,34 +102,57 @@ var Comments = {
                 return false;
             }
         );
+        /*
 		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
 			Comments.Edit( id );
 			return false;
         };
-		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
+        */
+		/*node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
             Comments.Delete( id );
             return false;
         };
+        */
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
-		$( temp ).find( "div.who" ).css( "border-top" , "3px solid #b3d589" );
-        temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+		$( temp ).find( "div.toolbox" ).show().end()
+        .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
+        .find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					$( "#comment_reply_" + nodeid ).css( { marginLeft : 0, paddingLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );
 					return false;
 				} ;
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-        temp.find( "div.bottom input" ).get( 0 ).focus();
-		temp.find( "div.text textarea" ).get( 0 ).focus();
+        //temp.find( "div.bottom input" ).get( 0 ).focus();
+        Comments[ "Changed" + nodeid ] = false;
+        $( temp ).find( "div.text textarea" ).focus( function() {
+            if ( !Comments[ "Changed" + nodeid ] ) {
+                this.value = "";
+                $( this ).css( "color" , "#000" );
+            }
+        
+        } ) 
+        .blur( function() {
+            $( "#comment_" + nodeid + " div.text" ).css( "font-weight" , "400" );
+            if ( this.value  === '' ) {
+                this.value = "Πρόσθεσε ένα σχόλιο..."; 
+                $( this ).css( "color" , "#666" );
+                Comments[ "Changed" + nodeid ] = false;
+            }
+            else {
+                Comments[ "Changed" + nodeid ] = true;
+            }
+        } ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
 		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
 		//-----------------------------
 	},
+    /*
 	Edit : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
 		var text = node.find( "div.text" ).text();
@@ -186,6 +223,7 @@ var Comments = {
 		} );
         return false;
 	},
+    */
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
@@ -215,10 +253,9 @@ var Comments = {
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
-            $( '#comment_reply_' + id ).hide( 300, function() {
-                $( this ).remove();
-            } );
+            $( '#comment_reply_' + id ).remove(); 
             Comments.ToggledReplies[ id ] = 0;
+
             return;
         }
         // else...
@@ -227,8 +264,9 @@ var Comments = {
     },
     Focus: function ( id, indent, loggedin ) {
         var cmd = $( '#comment_' + id )[ 0 ];
-
+        $( cmd ).find( "div.text" ).css( "font-weight" , "700" );
         cmd.scrollIntoView( false );
+        window.scrollBy( 0 , 200 );
         if ( loggedin ) {
             Comments.ToggleReply( id, indent - 1 );
         }
@@ -284,12 +322,34 @@ var Comments = {
                 $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
                 } );
+                /*
                 $( "div.comments div.minecomment div.text" ).dblclick( function() {
                     var id = $( this ).parent().attr( "id" );
                     return Comments.Edit( id.substr( 8 , id.length - 8 ) );
                 } );
+                */
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
+
+        Comments[ "Changed0" ] = false;
+        $( "div.newcomment:first" ).find( "div.toolbox" ).hide().end()
+        .find( "div.text textarea" ).css( "color" , "#666" ).focus( function() {
+            if ( !Comments[ "Changed0" ] ) {
+                this.value = "";
+                $( this ).css( "color" , "#000" );
+            }
+        
+        } ) 
+        .blur( function() {
+            if ( this.value  === '' ) {
+                this.value = "Πρόσθεσε ένα σχόλιο..."; 
+                $( this ).css( "color" , "#666" );
+                Comments[ "Changed0"] = false;
+            }
+            else {
+                Comments[ "Changed0"] = true;
+            }
+        } ).get( 0 ).focus();
     }
 };
