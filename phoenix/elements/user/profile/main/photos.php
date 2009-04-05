@@ -6,7 +6,7 @@
             global $user;
           
             ?><ul class="plist"><?php
-                if ( $user->Id == $theuserid ) {
+                if ( $user->Id == $theuserid && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                    ?><li class="addphoto"><a href="" class="s_bigadd" title="Ανέβασε μια φωτογραφία"></a></li><?php
                 }
                 foreach( $images as $image ) {
