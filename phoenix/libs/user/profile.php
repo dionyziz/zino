@@ -190,6 +190,7 @@
         protected function LoadDefaults() {
             $this->Education = 0;
             $this->Sexualorientation = '-';
+            $this->Relationship = '-';
             $this->Religion = '-';
             $this->Politics = '-';    
             $this->Eyecolor = '-';

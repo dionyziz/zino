@@ -1,6 +1,6 @@
 <?php    
     class ElementUserProfileSidebarSocialRelationship extends Element {
-        protected $mPersistent = array( 'relationship', 'gender' );
+        protected $mPersistent = array( 'relationship' , 'gender' );
 
         public function Render( $relationship, $gender ) {
             if ( $relationship != '-' ) {
