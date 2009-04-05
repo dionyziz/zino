@@ -137,7 +137,8 @@ var Comments = {
         } ) 
         .blur( function() {
             alert( 'blured ' + nodeid );
-            if ( $( this ).attr( "value" ) === '' ) {
+            if ( this.value  === '' ) {
+                alert( "changing da value" );
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
                 $( this ).css( "color" , "#666" );
                 Comments[ "Changed" + nodeid ] = false;
