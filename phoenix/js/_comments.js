@@ -267,8 +267,8 @@ var Comments = {
         var cmd = $( '#comment_' + id )[ 0 ];
         $( cmd ).find( "div.text" ).css( "font-weight" , "700" );
         cmd.scrollIntoView( false );
-        window.scrollBy( 0 , 150 );
-        alert( "scrolled" );
+        window.scrollBy( 0 , 200 );
+        //alert( "scrolled" );
         if ( loggedin ) {
             Comments.ToggleReply( id, indent - 1 );
         }
