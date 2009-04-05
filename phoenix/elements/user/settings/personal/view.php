@@ -105,6 +105,17 @@
                 <div class="rightbar"></div>
             </div>
             <div class="option">
+                <label for="relationship">Σχέση:</label>
+                <div class="setting" id="relationship"><?php
+                    Element( 'user/settings/personal/relationship' , $user->Profile->Relationship , $user->Gender );
+                ?></div>
+            </div>
+            
+            <div class="barfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+            <div class="option">
                 <label for="religion">Θρήσκευμα:</label>
                 <div class="setting" id="religion"><?php
                     Element( 'user/settings/personal/religion' , $user->Profile->Religion , $user->Gender );
