@@ -1,7 +1,7 @@
 div.header {
 	position: relative;
-	background: url('http://static.zino.gr/phoenix/roxasbg3.jpg') repeat-x;
-	height: 50px;
+	background: url('http://static.zino.gr/phoenix/bannerfade.png') repeat-x;
+	height: 51px;
 	margin: 0 30px;
 }
 div.header a.novisual {
@@ -23,7 +23,7 @@ div.header h1 {
 	font: 180% normal;
 	margin: 0;
 	padding: 0;
-    height: 50px;
+    height: 51px;
     width: 90px;
 	top: 0;
     _top: 3px;
@@ -41,7 +41,7 @@ div.header div.eof {
     _top: 3px;
 	right: 0;
     width: 71px;
-    height: 50px;
+    height: 51px;
 	position: absolute;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1877px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');*/
@@ -132,10 +132,10 @@ div.header a.search {
     top: 27px;
     right: 10px;
     z-index: 10;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1828px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1827px;
 	display: block;
 	width: 38px;
-	height: 37px;
+	height: 38px;
 }
 div.header a.search:hover {
 	text-decoration: none;
