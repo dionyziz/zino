@@ -8,6 +8,6 @@
                 Element( 'user/trivial/relationship' , $relationship , $gender );
                 ?></li><?php
             }
-        }
+        } 
     }
 ?>

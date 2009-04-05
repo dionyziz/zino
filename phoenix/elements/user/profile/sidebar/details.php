@@ -20,6 +20,6 @@
             <div class="contacts"><?php
                 Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim );
             ?></div><?php
-        }
+        } 
     }
 ?>

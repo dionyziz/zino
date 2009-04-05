@@ -10,6 +10,6 @@
             Element( 'user/profile/sidebar/social/religion' , $theuser->Profile->Religion, $theuser->Gender );
             Element( 'user/profile/sidebar/social/politics' , $theuser->Profile->Politics, $theuser->Gender );
             ?></ul><?php
-        }
+        } 
     }
 ?>

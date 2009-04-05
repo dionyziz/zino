@@ -13,5 +13,5 @@
            <div class="ads"></div>
             </div><?php
        }
-    }
+    } 
 ?>
