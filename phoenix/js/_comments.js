@@ -116,7 +116,6 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
-        $( "#comment_" + nodeid + " div.text" ).css( "font-weight" , "400" );
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
@@ -138,6 +137,7 @@ var Comments = {
         
         } ) 
         .blur( function() {
+            $( "#comment_" + nodeid + " div.text" ).css( "font-weight" , "400" );
             if ( this.value  === '' ) {
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
                 $( this ).css( "color" , "#666" );
