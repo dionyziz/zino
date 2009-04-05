@@ -332,7 +332,7 @@ var Comments = {
 
         Comments[ "Changed0" ] = false;
         $( "div.newcomment:first" ).find( "div.text textarea" ).focus( function() {
-            if ( !Comments[ "Changed" + nodeid ] ) {
+            if ( !Comments[ "Changed0" ] ) {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
             }
