@@ -1,9 +1,9 @@
 div.pagify a.next {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1907px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1907px;
 	padding: 0 0 0 16px;
 }
 div.pagify a.previous {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -116px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -116px;
 	padding: 0 0 0 16px;
 }
 div.pagify a.nextbacklinks, div.pagify strong {

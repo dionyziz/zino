@@ -48,13 +48,13 @@ div.posmall div.results ul li dl dd div.option div.percentagebar {
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1046px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1046px;
 	height: 13px;
 	width: 9px;
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.rightrounded {
 	float: right;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -988px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -988px;
 	height: 13px;
 	width: 9px;
 }

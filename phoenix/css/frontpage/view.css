@@ -77,7 +77,7 @@ div.members {
 	z-index: 999;
 }
 div.members div.join {
-    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -907px;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -907px;
     height: 133px;
     width: 486px;
     float: left;
@@ -106,7 +106,7 @@ div.members form label {
     margin-right: 5px;
 }
 div.members div.login {
-    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1150px;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1150px;
     text-align: left;
     height: 129px;
     width: 293px;
@@ -138,7 +138,7 @@ div.frontpage div.notifications {
     z-index: 2;
 }
 div.frontpage div.notifications div.expand a {
-    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 4px -1440px;
+    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 4px -1440px;
     padding: 0 0 0 18px;
 }
 div.frontpage div.notifications h3 {

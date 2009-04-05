@@ -38,14 +38,14 @@ div.folder {
 div.folder span {
 	padding-left: 12px;
 	margin: 0 2px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -744px -2034px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -744px -2034px;
 }
 div.activefolder {
 	font-weight: bold;
 	background: #d6e6f7;
 }
 div.newfolder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1051px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1051px;
 }
 div.newfolderactive {
 	font-weight: bold;
@@ -60,17 +60,17 @@ div.newfolderactive span {
 div.leftbar a.newpm span {
 	margin-right: 2px;
 	padding: 2px 0 2px 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -578px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -578px;
 }
 div.leftbar a.deletefolder span {
 	margin-right: 2px;
 	padding: 2px 0 2px 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -914px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -914px;
 }
 div.leftbar a.renamefolder span {
 	margin-right: 2px;
 	padding: 2px 0 2px 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1762px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1762px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
@@ -126,7 +126,7 @@ div.message div.lowerline {
 	position: relative;
 }
 div.message div.lowerline div.leftcorner {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -1275px -122px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1275px -122px;
 	height: 13px;
 	width: 10px;
 	float: left;
@@ -137,7 +137,7 @@ div.message div.lowerline div.middle {
 }
 
 div.message div.lowerline div.rightcorner {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -1276px -186px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1276px -186px;
 	height: 13px;
 	width: 10px;
 	float: right;
@@ -186,11 +186,11 @@ div.hoverfolder {
 	background: #f4f5f7;
 }
 form#newfolderform a.acceptcreate {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1504px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1504px;
 	padding: 0 0 0 16px;
 }
 form#newfolderform a.cancelcreate {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -739px -1779px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1779px;
 	padding: 0 0 0 16px;
 	margin: 0 0 0 5px;
 	vertical-align: -1px;

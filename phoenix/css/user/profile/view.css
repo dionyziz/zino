@@ -92,7 +92,7 @@ div#profile div.sidebar div.look {
 	height: 30px;
 }
 div#profile div.sidebar div.look span.malebody {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -1900px; 
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1900px; 
 	padding: 0 0 50px 16px;
 	position: relative;
 }
@@ -173,7 +173,7 @@ div#profile div.sidebar div.contacts dt {
 	width: 18px;
 }
 div.contacts dl dt {
-	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
 	background-repeat: no-repeat;
 }
 div.contacts dl dt.skype {

@@ -29,7 +29,7 @@ div.sidebar div.savesettings div.saving span {
     vertical-align: 3px;
 }
 div.sidebar div.savesettings div.saved span span {
-    background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -440px;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -440px;
     padding: 1px 20px 0 0;
 }
 div.sidebar a.disabled {
@@ -52,7 +52,7 @@ div.settings div.sidebar ol li {
 }
 div.settings div.sidebar ol li.selected {
 	font-weight: bold;
-	background: #047cbb url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -203px -112px;
+	background: #047cbb url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -112px;
 }
 div.settings div.sidebar ol li a {
     height: 25px;
@@ -68,7 +68,7 @@ div.sidebar ol li a span {
 	float: left;
 }
 div.sidebar ol li a span {
-	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
 	background-repeat: no-repeat;
 }
 div.sidebar ol li.personal a span {
@@ -110,7 +110,7 @@ form#personalinfo div span.invaliddob {
 }
 /*
 form#personalinfo div span.invaliddob span {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -747px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -747px;
 	padding: 0 0 2px 16px;
 	vertical-align: 1px;
 }
