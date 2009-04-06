@@ -173,7 +173,7 @@ var Comments = {
         var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                var id = $( this ).attr( 'id' ).substring( 8 );
+                //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
                 var wid = kimeno.get( 0 ).offsetWidth-20;
@@ -182,7 +182,7 @@ var Comments = {
         }
         else {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                var id = $( this ).attr( 'id' ).substring( 8 );
+                //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
                 var wid = parseInt( kimeno.css( "width" ), 10 );
