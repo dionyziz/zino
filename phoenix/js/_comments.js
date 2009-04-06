@@ -210,7 +210,7 @@ var Comments = {
                 var id = $( parent ).attr( "id" ).substr( 8 );
                 Comments.ids[ i ] = id;
                 var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
-                Commments.indents[ i ] = indent;
+                Comments.indents[ i ] = indent;
                 var wid = parseInt( kimeno.css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
