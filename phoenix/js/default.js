@@ -1,5 +1,4 @@
 function GetUsername() {
-	var oldtime = new Date().getTime();
     var username = false;
 	if ( $( '#banner a.profile' )[ 0 ] ) {
         username = $( 'a.profile' ).text();
@@ -8,8 +7,7 @@ function GetUsername() {
 		username = false;
 	}
     var newtime = new Date().getTime();
-    alert( newtime - oldtime );
-	alert( username );
+
     return username;
 }
 $( function() {
