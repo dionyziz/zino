@@ -170,7 +170,6 @@ var Comments = {
         }
     },
     OnLoad : function() {
-        var $list = $( "[id^='comment_']" );
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
@@ -205,11 +204,13 @@ var Comments = {
             } );
         }
         var oldtime = new Date().getTime();
-        $list.find( " div.bottom a" ).click( function() {
+        $( "[id^='comment_'] div.bottom a" ).each( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
-            Comments.ToggleReply( id , indent );
+            $( this ).click( function() {
+                Comments.ToggleReply( id , indent );
+            } );
             return false;
         } );
         var newtime = new Date().getTime();
