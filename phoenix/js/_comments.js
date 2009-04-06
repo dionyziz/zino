@@ -174,6 +174,7 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
+        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
@@ -228,6 +229,8 @@ var Comments = {
         }
 
 
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
         $( "[id^='comment_'] > div.bottom > a" ).each( function( i ) {
             $( this ).click( function() {
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
@@ -246,7 +249,6 @@ var Comments = {
                 .show();
             } );
 
-            var oldtime = new Date().getTime();
             if ( !username ) {
                 $( "[id^='com'] > div.bottom" ).empty();
             }
@@ -262,8 +264,6 @@ var Comments = {
                 } );
                 $( "div.comments > div.minecomment > div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
-            var newtime = new Date().getTime();
-            alert( newtime - oldtime );
         }
 
         Comments[ "Changed0" ] = false;
