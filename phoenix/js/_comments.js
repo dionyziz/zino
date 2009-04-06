@@ -244,7 +244,7 @@ var Comments = {
                 */
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
-                .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
+                //.text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
 
             } );
