@@ -227,7 +227,6 @@ var Comments = {
             } );
         }
 
-        var oldtime = new Date().getTime();
 
         $( "[id^='comment_'] > div.bottom > a" ).each( function( i ) {
             $( this ).click( function() {
@@ -237,9 +236,8 @@ var Comments = {
             } );
         } );
         
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+            var oldtime = new Date().getTime();
             var username = GetUsername();
             $( "[id^='com'] span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
@@ -248,6 +246,8 @@ var Comments = {
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
+            var newtime = new Date().getTime();
+            alert( newtime - oldtime );
 
             if ( !username ) {
                 $( "[id^='com'] div.bottom" ).empty();
