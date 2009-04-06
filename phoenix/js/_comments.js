@@ -204,7 +204,7 @@ var Comments = {
             } );
         }
         var oldtime = new Date().getTime();
-        $( "[class='comment'] div.bottom a" ).click( function() {
+        $( "[id^='comment_'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
