@@ -174,7 +174,6 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
-        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
@@ -265,7 +264,5 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
         } );
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
     }
 };
