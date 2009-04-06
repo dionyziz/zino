@@ -172,6 +172,7 @@ var Comments = {
     parents : [],
     indents : [],
     ids     : [],
+    lpadd   : [],
     OnLoad : function() {
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
@@ -185,10 +186,15 @@ var Comments = {
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
+                
                 var id = $( parent ).attr( "id" ).substr( 8 );
                 Comments.ids[ i ] = id;
-                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
+
+                var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
+                
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
@@ -207,19 +213,22 @@ var Comments = {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
+                
                 var id = $( parent ).attr( "id" ).substr( 8 );
                 Comments.ids[ i ] = id;
-                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
+
+                var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-                var wid = parseInt( $( this ).css( "width" ), 10 );
+                
+                var wid = parseInt( kimeno.css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
         var oldtime = new Date().getTime();
         $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
             $( this ).click( function() {
-                alert( Comments.ids[ i ] );
-                alert( Comments.indents[ i ] );
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
                 
                 return false;
