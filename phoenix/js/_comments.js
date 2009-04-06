@@ -249,7 +249,7 @@ var Comments = {
                 $( "[id^='com'] div.bottom" ).empty();
             }
             else {
-                $( "[id^='com'] div.bottom" ).each( function() {
+                $( "[id^='com'] div.bottom" ).each( function( i ) {
                     var leftpadd = Comments.lpadd[ i ];
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
