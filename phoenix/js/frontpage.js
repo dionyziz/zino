@@ -367,7 +367,7 @@ var Frontpage = {
                 padding-bottom: "3",
                 height: targetheight,
                 opacity: "1"
-            } , 600 , 'linear' );
+            } , 500 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
