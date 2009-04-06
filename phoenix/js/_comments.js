@@ -181,6 +181,7 @@ var Comments = {
             */
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
+                alert( i );
                 var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
@@ -198,6 +199,7 @@ var Comments = {
             */
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
+                alert( i );
                 var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
                 var wid = parseInt( $( this ).css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
