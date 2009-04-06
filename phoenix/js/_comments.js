@@ -169,6 +169,9 @@ var Comments = {
             Comments.ToggleReply( id, indent - 1 );
         }
     },
+    parents : [],
+    indents : [],
+    ids     : [],
     OnLoad : function() {
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
@@ -179,9 +182,6 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            var Comments.indents = [];
-            var Comments.ids = [];
-            var Comments.parents = [];
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
