@@ -172,21 +172,36 @@ var Comments = {
     OnLoad : function() {
         var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
+            /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
                 var wid = kimeno.get( 0 ).offsetWidth-20;
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
+            */
+            $( "div.comments div[id^='comment_'] div.text" ).each( function( i ) {
+                //var id = $( this ).attr( 'id' ).substring( 8 );
+                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
+                var wid = this.offsetWidth-20;
+                $( this ).css( "width", wid-indent*20+'px' );
+            } );
         }
         else {
+            /*
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
                 var wid = parseInt( kimeno.css( "width" ), 10 );
                 kimeno.css( "width", wid-indent*20+'px' );
+            } );
+            */
+            $( "div.comments div[id^='comment_'] div.text" ).each( function( i ) {
+                //var id = $( this ).attr( 'id' ).substring( 8 );
+                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
+                var wid = parseInt( $( this ).css( "width" ), 10 );
+                $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
         var newtime = new Date().getTime();
