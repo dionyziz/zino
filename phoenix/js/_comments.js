@@ -176,14 +176,6 @@ var Comments = {
     OnLoad : function() {
         var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
-            /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                //var id = $( this ).attr( 'id' ).substring( 8 );
-                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-                var kimeno = $( this ).find( "div.text" );
-                var wid = kimeno.get( 0 ).offsetWidth-20;
-                kimeno.css( "width", wid-indent*20+'px' );
-            } );
-            */
             $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
@@ -201,17 +193,7 @@ var Comments = {
             } );
         }
         else {
-            /*
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                //var id = $( this ).attr( 'id' ).substring( 8 );
-                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-                var kimeno = $( this ).find( "div.text" );
-                var wid = parseInt( kimeno.css( "width" ), 10 );
-                kimeno.css( "width", wid-indent*20+'px' );
-            } );
-            */
             $( "[id^='comment_'] > div.text" ).each( function( i ) {
-                //var id = $( this ).attr( 'id' ).substring( 8 );
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
                 
@@ -229,8 +211,6 @@ var Comments = {
         }
 
 
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
         $( "[id^='comment_'] > div.bottom > a" ).each( function( i ) {
             $( this ).click( function() {
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
@@ -285,5 +265,7 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
         } );
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
     }
 };
