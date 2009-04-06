@@ -228,7 +228,7 @@ var Comments = {
         }
 
         var oldtime = new Date().getTime();
-        $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
+        $( "[id^='comment_'] div[class='bottom'] a" ).each( function( i ) {
             $( this ).click( function() {
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
                 
@@ -236,9 +236,9 @@ var Comments = {
             } );
         } );
         
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
-            var newtime = new Date().getTime();
-            alert( newtime - oldtime );
             var username = GetUsername();
             $( "[id^='com'] span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
