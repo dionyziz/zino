@@ -170,6 +170,7 @@ var Comments = {
         }
     },
     OnLoad : function() {
+        alert( "test" );
         var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
