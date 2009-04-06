@@ -209,7 +209,7 @@ var Comments = {
 
             } );
             if ( !username ) {
-                $( "div.comments div.comment div.bottom" ).empty();
+                $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).find( "div.bottom" ).empty();
             }
             else {
                 $( "div.comments div.comment div.bottom" ).each( function() {
