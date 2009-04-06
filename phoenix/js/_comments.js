@@ -218,6 +218,8 @@ var Comments = {
         var oldtime = new Date().getTime();
         $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
             $( this ).click( function() {
+                alert( Comments.ids[ i ] );
+                alert( Comments.indents[ i ] );
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
             } );
             return false;
