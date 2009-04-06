@@ -237,7 +237,7 @@ var Comments = {
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var oldtime = new Date().getTime();
             var username = GetUsername();
-            $( "[id^='co'] span.time" ).each( function( i ) {
+            $( "[id^='com'] span.time" ).each( function( i ) {
                 $( this ).show().css( "border" , "1px solid red" );
                 var commdate = $( this ).text();
                 $( this ).empty()
