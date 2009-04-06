@@ -221,8 +221,9 @@ var Comments = {
                 alert( Comments.ids[ i ] );
                 alert( Comments.indents[ i ] );
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
+                
+                return false;
             } );
-            return false;
         } );
         var newtime = new Date().getTime();
         alert( newtime - oldtime );
