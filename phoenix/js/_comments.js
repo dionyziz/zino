@@ -170,7 +170,6 @@ var Comments = {
         }
     },
     OnLoad : function() {
-        $( "div.comments div[id^='comment_']" ).addClass( "impo" );
         var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
@@ -181,7 +180,7 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            $( "div.comments div.impo div.text" ).each( function( i ) {
+            $( "div[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
                 var wid = this.offsetWidth-20;
@@ -198,7 +197,7 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            $( "div.comments div.impo div.text" ).each( function( i ) {
+            $( "div[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
                 var wid = parseInt( $( this ).css( "width" ), 10 );
