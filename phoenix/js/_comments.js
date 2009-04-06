@@ -250,7 +250,7 @@ var Comments = {
             }
             else {
                 $( "[id^='com'] div.bottom" ).each( function() {
-                    var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
+                    var leftpadd = Comments.lpadd[ i ];
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
