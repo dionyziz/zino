@@ -238,7 +238,6 @@ var Comments = {
         
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            var oldtime = new Date().getTime();
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
@@ -246,9 +245,8 @@ var Comments = {
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
-            var newtime = new Date().getTime();
-            alert( newtime - oldtime );
 
+            var oldtime = new Date().getTime();
             if ( !username ) {
                 $( "[id^='com'] div.bottom" ).empty();
             }
@@ -264,6 +262,8 @@ var Comments = {
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
+            var newtime = new Date().getTime();
+            alert( newtime - oldtime );
         }
 
         Comments[ "Changed0" ] = false;
