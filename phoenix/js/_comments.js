@@ -204,18 +204,16 @@ var Comments = {
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
-        $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+        $( "[id^='comment_'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
             Comments.ToggleReply( id , indent );
             return false;
         } );
-        if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+        if ( $( "[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div[id^='comment_'] span.time" ).each( function() {
+            $( "[id^='comment_'] span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
@@ -226,16 +224,16 @@ var Comments = {
 
             } );
             if ( !username ) {
-                $( "div.comments div[id^='comment_'] div.bottom" ).empty();
+                $( "[id^='comment_'] div.bottom" ).empty();
             }
             else {
-                $( "div.comments div[id^='comment_'] div.bottom" ).each( function() {
+                $( "[id^='comment_'] div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
-                $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                $( "[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
@@ -261,5 +259,7 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
         } );
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
     }
 };
