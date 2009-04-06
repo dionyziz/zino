@@ -222,7 +222,7 @@ var Comments = {
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
                 
-                var wid = parseInt( kimeno.css( "width" ), 10 );
+                var wid = parseInt( $( this ).css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
