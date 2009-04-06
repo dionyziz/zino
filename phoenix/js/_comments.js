@@ -239,6 +239,7 @@ var Comments = {
             var username = GetUsername();
             $( "[id^='c'] span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
+                alert( i );
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
