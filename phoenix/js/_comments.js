@@ -256,7 +256,7 @@ var Comments = {
                     }
                 } );
                 $( "[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
-                    $( this ).parent().parent().parent().parent().addClass( "minecomment" );
+                    $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
