@@ -355,6 +355,8 @@ var Frontpage = {
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
             $( node ).css( 'opacity' , '0' ).animate( {
+                padding-top: "3px",
+                padding-bottom: "3px",
                 height: targetheight,
                 opacity: "1"
             } , 350 , 'linear' );
