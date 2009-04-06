@@ -184,7 +184,7 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            $( "[id^='comment_'] div.text" ).each( function( i ) {
+            $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
                 
@@ -210,7 +210,7 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            $( "[id^='comment_'] div.text" ).each( function( i ) {
+            $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var parent = $( this ).parent();
                 Comments.parents[ i ] = parent;
