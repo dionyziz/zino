@@ -179,10 +179,16 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
+            var indents = [];
+            var ids = [];
+            var parents = [];
             $( "[id^='comment_'] div.text" ).each( function( i ) {
-                //var id = $( this ).attr( 'id' ).substring( 8 );
-                alert( i );
-                var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
+                var parent = $( this ).parent();
+                parents[ i ] = parent;
+                var id = $( parent ).attr( "id" ).substr( 8 );
+                ids[ i ] = id;
+                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                indentd[ i ] = indent;
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
@@ -199,19 +205,20 @@ var Comments = {
             */
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
-                alert( i );
-                var indent = parseInt( $( this ).parent().css( 'paddingLeft' ), 10 )/20;
-                var wid = parseInt( $( this ).css( "width" ), 10 );
+                var parent = $( this ).parent();
+                parents[ i ] = parent;
+                var id = $( parent ).attr( "id" ).substr( 8 );
+                ids[ i ] = id;
+                var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+                indentd[ i ] = indent;
+                var wid = parseInt( kimeno.css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
         var oldtime = new Date().getTime();
-        $( "[id^='comment_'] div.bottom a" ).each( function() {
-            var parent = $( this ).parent().parent();
-            var id = $( parent ).attr( 'id' ).substring( 8 );
-			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
+        $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
             $( this ).click( function() {
-                Comments.ToggleReply( id , indent );
+                Comments.ToggleReply( ids[ i ] , indents[ i ] );
             } );
             return false;
         } );
