@@ -182,7 +182,7 @@ var Comments = {
             } );
         }
         else {
-            $( "div.comments div.affectthis ).each( function( i ) {
+            $( "div.comments div.affectthis" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
