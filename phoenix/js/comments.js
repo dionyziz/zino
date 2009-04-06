@@ -170,6 +170,7 @@ var Comments = {
         }
     },
     OnLoad : function() {
+        alert( "comments onload" );
         if ( $.browser.msie ) {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
