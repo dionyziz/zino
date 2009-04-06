@@ -354,7 +354,13 @@ var Frontpage = {
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
-            $( node ).css( 'opacity' , '0' ).animate( {
+            $( node ).css( {
+                'opacity' : '0', 
+                'margin-top' : '0',    
+                'margin-bottom' : '0',
+                'padding-top' : '0',
+                'padding-bottom' : '0'
+            } ).animate( {
                 margin-top : "5",
                 margin-botom: "5",
                 padding-top: "3",
