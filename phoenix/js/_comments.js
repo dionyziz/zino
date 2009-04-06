@@ -197,7 +197,7 @@ var Comments = {
             Comments.ToggleReply( id , indent );
             return false;
         } );
-        if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+        if ( $( "div.comments div.affectthis" )[ 0 ] ) {
             var username = GetUsername();
             $( "div.comments div.affectthis span.time" ).each( function() {
                 var commdate = $( this ).text();
