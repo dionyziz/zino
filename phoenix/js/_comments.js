@@ -174,7 +174,6 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
-        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
@@ -246,6 +245,7 @@ var Comments = {
             }
         }
 
+        var oldtime = new Date().getTime();
         Comments[ "Changed0" ] = false;
         $( "div.newcomment:first" ).find( "div.toolbox" ).hide().end()
         .find( "div.text textarea" ).css( "color" , "#666" ).focus( function() {
