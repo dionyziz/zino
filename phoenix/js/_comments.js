@@ -171,8 +171,9 @@ var Comments = {
     },
     OnLoad : function() {
         var oldtime = new Date().getTime();
+        var list = $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" );
         if ( $.browser.msie ) {
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
+            $( list ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
@@ -181,7 +182,7 @@ var Comments = {
             } );
         }
         else {
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
+            $( list ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
                 var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
                 var kimeno = $( this ).find( "div.text" );
@@ -189,7 +190,7 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
         }
-        $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
+        $( list ).find( "div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
@@ -198,7 +199,7 @@ var Comments = {
         } );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div[id^='comment_'] span.time" ).each( function() {
+            $( list ).find( "span.time" ).each( function() {
                 var commdate = $( this ).text();
                 var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
@@ -209,16 +210,16 @@ var Comments = {
 
             } );
             if ( !username ) {
-                $( "div.comments div[id^='comment_'] div.bottom" ).empty();
+                $( list ).find( "div.bottom" ).empty();
             }
             else {
-                $( "div.comments div[id^='comment_'] div.bottom" ).each( function() {
+                $( list ).find( "div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
-                $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                $( list ).find( "div.who a img.avatar[alt='" + username + "']" ).each( function() {
                     $( this ).parent().parent().parent().parent().addClass( "minecomment" );
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
