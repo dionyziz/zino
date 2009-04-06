@@ -255,7 +255,7 @@ var Comments = {
                         $( this ).empty();
                     }
                 } );
-                $( "[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
+                $( "[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
