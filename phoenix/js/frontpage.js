@@ -361,13 +361,20 @@ var Frontpage = {
                 'padding-top' : '0',
                 'padding-bottom' : '0'
             } ).animate( {
+                /*margin-top : "5",
+                margin-botom: "5",
+                padding-top: "3",
+                padding-bottom: "3",
+                */
+                height: targetheight,
+                opacity: "1"
+            } , 500 , 'linear' )
+            .animate( {
                 margin-top : "5",
                 margin-botom: "5",
                 padding-top: "3",
                 padding-bottom: "3",
-                height: targetheight,
-                opacity: "1"
-            } , 500 , 'linear' );
+            } , 300 );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
