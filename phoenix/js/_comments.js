@@ -174,7 +174,7 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
-        var oldtime = new Date().getTime():
+        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "[id^='comment_'] > div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
