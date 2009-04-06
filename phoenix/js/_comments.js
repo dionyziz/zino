@@ -238,15 +238,12 @@ var Comments = {
             var oldtime = new Date().getTime();
             var username = GetUsername();
             $( "[id^='comment_'] span.time" ).each( function( i ) {
-                var commdate = $( this ).text();
-                /*var parent = $( this ).parent().parent();
-                var lmargin = Comments.FindLeftPadding( parent );
-                */
+                /*var commdate = $( this ).text();
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 //.text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
-
+                */
             } );
             var newtime = new Date().getTime();
             alert( newtime - oldtime );
