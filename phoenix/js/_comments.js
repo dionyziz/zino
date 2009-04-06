@@ -245,7 +245,6 @@ var Comments = {
             }
         }
 
-        var oldtime = new Date().getTime();
         Comments[ "Changed0" ] = false;
         $( "div.newcomment:first" ).find( "div.toolbox" ).hide().end()
         .find( "div.text textarea" ).css( "color" , "#666" ).focus( function() {
@@ -265,7 +264,5 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
         } );
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
     }
 };
