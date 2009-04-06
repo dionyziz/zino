@@ -248,19 +248,19 @@ var Comments = {
 
             var oldtime = new Date().getTime();
             if ( !username ) {
-                $( "[id^='com'] div.bottom" ).empty();
+                $( "[id^='com'] > div.bottom" ).empty();
             }
             else {
-                $( "[id^='com'] div.bottom" ).each( function( i ) {
+                $( "[id^='com'] > div.bottom" ).each( function( i ) {
                     var leftpadd = Comments.lpadd[ i ];
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
-                $( "[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function( i ) {
+                $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
+                $( "div.comments > div.minecomment > div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
             var newtime = new Date().getTime();
             alert( newtime - oldtime );
