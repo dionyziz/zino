@@ -237,14 +237,15 @@ var Comments = {
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var oldtime = new Date().getTime();
             var username = GetUsername();
-            $( "[id^='comment_'] span.time" ).each( function() {
+            $( "[id^='comment_'] span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
-                var parent = $( this ).parent().parent();
+                /*var parent = $( this ).parent().parent();
                 var lmargin = Comments.FindLeftPadding( parent );
+                */
                 $( this ).empty()
-                .css( 'margin-right' , lmargin + 'px' )
+                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
-                .removeClass( 'invisible' );
+                .show();
 
             } );
             var newtime = new Date().getTime();
