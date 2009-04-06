@@ -9,7 +9,7 @@
             
             ?><div id="comment_<?php
             echo $comment->Id;
-            ?>" class="comment" style="<?php
+            ?>" class="comment oc" style="<?php
             if ( $indent > 0 ) {
                 ?>padding-left:<?php
                 echo $indent * 20;
