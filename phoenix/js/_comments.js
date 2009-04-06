@@ -235,19 +235,16 @@ var Comments = {
         } );
         
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
-            var oldtime = new Date().getTime();
             var username = GetUsername();
             $( "[id^='com'] span.time" ).each( function( i ) {
-                $( this ).show().css( "border" , "1px solid red" );
                 var commdate = $( this ).text();
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
-            var newtime = new Date().getTime();
-            alert( newtime - oldtime );
 
+            var oldtime = new Date().getTime();
             if ( !username ) {
                 $( "div.comments div[id^='comment_'] div.bottom" ).empty();
             }
@@ -263,6 +260,8 @@ var Comments = {
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
+            var newtime = new Date().getTime();
+            alert( newtime - oldtime );
         }
 
         Comments[ "Changed0" ] = false;
