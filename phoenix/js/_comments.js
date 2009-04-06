@@ -237,13 +237,12 @@ var Comments = {
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var oldtime = new Date().getTime();
             var username = GetUsername();
-            $( "div.comments div[id] span.time" ).each( function( i ) {
-                /*var commdate = $( this ).text();
+            $( "div[id] span.time" ).each( function( i ) {
+                var commdate = $( this ).text();
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
-                //.text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
+                .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
-                */
             } );
             var newtime = new Date().getTime();
             alert( newtime - oldtime );
