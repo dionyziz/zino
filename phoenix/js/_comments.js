@@ -236,11 +236,11 @@ var Comments = {
             } );
         } );
         
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+            var newtime = new Date().getTime();
+            alert( newtime - oldtime );
             var username = GetUsername();
-            $( "[id^='com'] span.time" ).each( function( i ) {
+            $( "[id^='com'] span[class='time']" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
