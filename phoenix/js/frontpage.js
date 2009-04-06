@@ -354,23 +354,10 @@ var Frontpage = {
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
-            $( node ).css( {
-                'margin-bottom' : '0',
-            } ).animate( {
-                /*margin-top : "5",
-                margin-botom: "5",
-                padding-top: "3",
-                padding-bottom: "3",
-                */
-                margin-bottom : "20",
+            $( node ).animate( {
                 height: targetheight,
                 opacity: "1"
             } , 500 , 'linear' );
-            /*
-            .animate( {
-                margin-botom: "20",
-            } , 300 , "linear" );
-            */
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
