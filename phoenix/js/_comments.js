@@ -179,16 +179,16 @@ var Comments = {
                 kimeno.css( "width", wid-indent*20+'px' );
             } );
             */
-            var indents = [];
-            var ids = [];
-            var parents = [];
+            var Comments.indents = [];
+            var Comments.ids = [];
+            var Comments.parents = [];
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 var parent = $( this ).parent();
-                parents[ i ] = parent;
+                Comments.parents[ i ] = parent;
                 var id = $( parent ).attr( "id" ).substr( 8 );
-                ids[ i ] = id;
+                Comments.ids[ i ] = id;
                 var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
-                indentd[ i ] = indent;
+                Comments.indents[ i ] = indent;
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
@@ -206,11 +206,11 @@ var Comments = {
             $( "[id^='comment_'] div.text" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
                 var parent = $( this ).parent();
-                parents[ i ] = parent;
+                Comments.parents[ i ] = parent;
                 var id = $( parent ).attr( "id" ).substr( 8 );
-                ids[ i ] = id;
+                Comments.ids[ i ] = id;
                 var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
-                indentd[ i ] = indent;
+                Commments.indents[ i ] = indent;
                 var wid = parseInt( kimeno.css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
@@ -218,7 +218,7 @@ var Comments = {
         var oldtime = new Date().getTime();
         $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
             $( this ).click( function() {
-                Comments.ToggleReply( ids[ i ] , indents[ i ] );
+                Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
             } );
             return false;
         } );
