@@ -170,6 +170,7 @@ var Comments = {
         }
     },
     OnLoad : function() {
+        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 var id = $( this ).attr( 'id' ).substring( 8 );
@@ -243,5 +244,7 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
         } );
+        var nowtime = new Date().getTime();
+        alert( nowtime - oldtime );
     }
 };
