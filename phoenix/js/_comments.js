@@ -226,6 +226,8 @@ var Comments = {
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
+
+        var oldtime = new Date().getTime();
         $( "[id^='comment_'] div.bottom a" ).each( function( i ) {
             $( this ).click( function() {
                 Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
@@ -234,6 +236,8 @@ var Comments = {
             } );
         } );
         
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             $( "[id^='com'] span.time" ).each( function( i ) {
@@ -244,7 +248,6 @@ var Comments = {
                 .show();
             } );
 
-            var oldtime = new Date().getTime();
             if ( !username ) {
                 $( "[id^='com'] div.bottom" ).empty();
             }
@@ -260,8 +263,6 @@ var Comments = {
                 } );
                 $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
-            var newtime = new Date().getTime();
-            alert( newtime - oldtime );
         }
 
         Comments[ "Changed0" ] = false;
