@@ -355,11 +355,13 @@ var Frontpage = {
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             node.style.height = '0';
             $( node ).css( 'opacity' , '0' ).animate( {
-                padding-top: "3px",
-                padding-bottom: "3px",
+                margin-top : "5",
+                margin-botom: "5",
+                padding-top: "3",
+                padding-bottom: "3",
                 height: targetheight,
                 opacity: "1"
-            } , 350 , 'linear' );
+            } , 600 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
