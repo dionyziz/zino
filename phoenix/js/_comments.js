@@ -238,6 +238,7 @@ var Comments = {
             var oldtime = new Date().getTime();
             var username = GetUsername();
             $( "[id^='co'] span.time" ).each( function( i ) {
+                alert( Comments.ids[ i ] );
                 var commdate = $( this ).text();
                 $( this ).empty()
                 .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
