@@ -170,7 +170,6 @@ var Comments = {
         }
     },
     OnLoad : function() {
-        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             /*$( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
                 //var id = $( this ).attr( 'id' ).substring( 8 );
@@ -204,8 +203,7 @@ var Comments = {
                 $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime );
+        var oldtime = new Date().getTime();
         $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
             var parent = $( this ).parent().parent();
             var id = $( parent ).attr( 'id' ).substring( 8 );
@@ -213,6 +211,8 @@ var Comments = {
             Comments.ToggleReply( id , indent );
             return false;
         } );
+        var newtime = new Date().getTime();
+        alert( newtime - oldtime );
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             $( "div.comments div[id^='comment_'] span.time" ).each( function() {
