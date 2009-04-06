@@ -246,10 +246,10 @@ var Comments = {
 
             var oldtime = new Date().getTime();
             if ( !username ) {
-                $( "div.comments div[id^='comment_'] div.bottom" ).empty();
+                $( "[id^='com'] div.bottom" ).empty();
             }
             else {
-                $( "div.comments div[id^='comment_'] div.bottom" ).each( function() {
+                $( "[id^='com'] div.bottom" ).each( function() {
                     var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
