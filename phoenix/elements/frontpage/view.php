@@ -217,9 +217,9 @@
                 case 'ronaldo7':
                 case 'morvena':
                 case 'crazy_sheep':
-                   Element( 'shoutbox/comet' );
-                   Element( 'frontpage/image/comet' );
-                   Element( 'frontpage/comment/comet' );
+                   //Element( 'shoutbox/comet' );
+                   //Element( 'frontpage/image/comet' );
+                   //Element( 'frontpage/comment/comet' );
             }
             switch ( strtolower( $user->Name ) ) {
                 case 'dionyziz':
@@ -234,7 +234,7 @@
                 case 'teh-ninja':
                 case 'intzakosd':
                 case 'crazy_sheep':
-                    Element( 'frontpage/notification/comet' );
+                    //Element( 'frontpage/notification/comet' );
             }
         }
         $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
