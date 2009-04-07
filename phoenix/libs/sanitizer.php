@@ -125,7 +125,8 @@
             $source = $this->mSource;
             
             $source = $this->RemoveComments( $source );
-
+            die( '$'.$source );
+            
             $descriptors = array(
                 0 => array( "pipe", "r" ),
                 1 => array( "pipe", "w" ),

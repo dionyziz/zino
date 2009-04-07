@@ -63,7 +63,6 @@
             }
             $sanitizer->AllowTag( $goodtag );
         }
-        die( '*'.$html );
         $sanitizer->SetSource( $html );
         $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
         $html = $sanitizer->GetXHTML();
