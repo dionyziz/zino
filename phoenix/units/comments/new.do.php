@@ -40,8 +40,8 @@
         
         $comment = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
-        die( '~'.$text );
         $text = WYSIWYG_PostProcess( $text );
+        die( '~'.$text );
         $comment->Text = $text;
         $comment->Userid = $user->Id;
         $comment->Parentid = $parent;
