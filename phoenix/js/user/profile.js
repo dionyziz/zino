@@ -130,7 +130,6 @@ var Profile = {
         } } );
     },
     MyProfileOnLoad: function () {
-        var oldtimer = new Date().getTime();
         $( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
@@ -169,7 +168,5 @@ var Profile = {
             inp.focus();
             return false;
         } );
-        var newtimer = new Date().getTime();
-        alert( newtimer - oldtimer );
     }
 };
