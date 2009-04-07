@@ -42,7 +42,6 @@
         $text = nl2br( htmlspecialchars( $text ) );
         $text = WYSIWYG_PostProcess( $text );
         $comment->Text = $text;
-        die( '.'.$comment->Text );
         $comment->Userid = $user->Id;
         $comment->Parentid = $parent;
         $comment->Typeid = $type;
