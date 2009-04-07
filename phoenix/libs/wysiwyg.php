@@ -66,6 +66,7 @@
         $sanitizer->SetSource( $html );
         $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
         $html = $sanitizer->GetXHTML();
+        die( '--' . $html );
         
         return $html;
     }
