@@ -67,10 +67,10 @@ var Profile = {
         var oldtimer = new Date().getTime();
         if ( lastonline ) {
             text = document.createTextNode( lastonline );
-            $( 'div.sidebar div.basicinfo dl.online dd' ).append( text ); 
+            $( 'div.sidebar > div.basicinfo > dl.online > dd' ).append( text ); 
         }
         else {
-            $( 'div.sidebar div.basicinfo dl.online' ).hide();
+            $( 'div.sidebar > div.basicinfo > dl.online' ).hide();
         }
         var newtimer = new Date().getTime();
         alert( newtimer - oldtimer );
