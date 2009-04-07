@@ -64,6 +64,7 @@ var Profile = {
         //if relationstatus is anything else don't do something, user views his own profile
     },
     ShowOnlineSince : function( lastonline ) {
+        var oldtimer = new Date().getTime();
         if ( lastonline ) {
             text = document.createTextNode( lastonline );
             $( 'div.sidebar div.basicinfo dl.online dd' ).append( text ); 
@@ -71,6 +72,8 @@ var Profile = {
         else {
             $( 'div.sidebar div.basicinfo dl.online' ).hide();
         }
+        var newtimer = new Date().getTime();
+        alert( newtimer - oldtimer );
     },
     AntisocialAddFriend : function ( userid ) {
         this.AntisocialCalled = true;
