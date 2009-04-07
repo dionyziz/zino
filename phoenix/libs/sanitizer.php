@@ -135,8 +135,7 @@
             $process = proc_open( $rabbit_settings[ 'rootdir' ] . '/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
             
             if ( !is_resource( $process ) ) {
-                $water->Notice( 'Failed to start the sanitizer' );
-                return '';
+                throw New Exception( 'Failed to start the XHTML sanitizer' );
             }
             
             fwrite( $pipes[ 0 ], $source );

@@ -74,7 +74,6 @@
         global $rabbit_settings;
         
         $html = WYSIWYG_MakeValid( $html );
-        die( '!'.$html );
         
         // YouTube support
         $html = preg_replace(
