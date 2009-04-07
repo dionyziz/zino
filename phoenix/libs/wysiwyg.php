@@ -73,8 +73,8 @@
     function WYSIWYG_PostProcess( $html ) {
         global $rabbit_settings;
         
-        die( '!'.$html );
         $html = WYSIWYG_MakeValid( $html );
+        die( '!'.$html );
         
         // YouTube support
         $html = preg_replace(
