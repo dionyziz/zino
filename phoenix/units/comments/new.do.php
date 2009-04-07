@@ -9,6 +9,8 @@
         $text = $text->Get();
         $text = trim( $text );
         
+        die( '.'.$text );
+        
         if ( $text == 'Was George Orwell right about 1984?' ) {
             ?>var easterEggImg = document.createElement( 'img' );
             easterEggImg.src = 'http://images.zino.gr/media/58/72787/72787_full.jpg';
