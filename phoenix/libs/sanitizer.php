@@ -125,7 +125,6 @@
             $source = $this->mSource;
             
             $source = $this->RemoveComments( $source );
-            die( '$'.$source );
             
             $descriptors = array(
                 0 => array( "pipe", "r" ),
@@ -136,8 +135,10 @@
             $process = proc_open( $rabbit_settings[ 'rootdir' ] . '/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
             
             if ( !is_resource( $process ) ) {
+                die( 'No resource!' );
                 throw New Exception( 'Failed to start the XHTML sanitizer' );
             }
+            die( 'Yes resource!' );
             
             fwrite( $pipes[ 0 ], $source );
             fclose( $pipes[ 0 ] );
