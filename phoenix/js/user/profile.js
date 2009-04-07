@@ -36,7 +36,7 @@ var Profile = {
 		return false;
 	},
     ShowFriendLinks : function( relationstatus , id ) {
-	var text;
+    	var text;
         if ( relationstatus ) {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
@@ -64,7 +64,6 @@ var Profile = {
         //if relationstatus is anything else don't do something, user views his own profile
     },
     ShowOnlineSince : function( lastonline ) {
-        var oldtimer = new Date().getTime();
         if ( lastonline ) {
             text = document.createTextNode( lastonline );
             $( 'div.sidebar > div.basicinfo > dl.online > dd' ).append( text ); 
@@ -72,8 +71,6 @@ var Profile = {
         else {
             $( 'div.sidebar > div.basicinfo > dl.online' ).hide();
         }
-        var newtimer = new Date().getTime();
-        alert( newtimer - oldtimer );
     },
     AntisocialAddFriend : function ( userid ) {
         this.AntisocialCalled = true;
@@ -133,6 +130,7 @@ var Profile = {
         } } );
     },
     MyProfileOnLoad: function () {
+        var oldtimer = new Date().getTime();
         $( '#reportabusemodal' ).jqm( {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
@@ -171,5 +169,7 @@ var Profile = {
             inp.focus();
             return false;
         } );
+        var newtimer = new Date().getTime();
+        alert( newtimer - oldtimer );
     }
 };
