@@ -40,6 +40,7 @@
         
         $comment = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
+        die( '~'.$text );
         $text = WYSIWYG_PostProcess( $text );
         $comment->Text = $text;
         $comment->Userid = $user->Id;
