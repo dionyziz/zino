@@ -19,7 +19,7 @@ int main( int argc, char **argv ) {
     tidyOptSetValue( tdoc, TidyCharEncoding, "utf8" );
     tidyOptSetBool( tdoc, TidyXhtmlOut, yes );
     tidyOptSetBool( tdoc, TidyHideComments, yes );
-    tidyOptSetBool( tdoc, TidyBodyOnly, yes );
+    tidyOptSetInt( tdoc, TidyBodyOnly, yes );
     tidyOptSetBool( tdoc, TidyMakeClean, yes );
     tidyOptSetBool( tdoc, TidyLogicalEmphasis, yes );
     tidyOptSetBool( tdoc, TidyDropPropAttrs, yes );
