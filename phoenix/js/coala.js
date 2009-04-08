@@ -2,6 +2,8 @@
     Developer: dionyziz
 */
 
+alert( "Hello, world!" );
+
 var Coala = {
 	StoredObjects: [],
 	ThreadedRequests: [],
