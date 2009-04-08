@@ -5,6 +5,7 @@ html, body {
 body {
 	font: 83% Helvetica, Arial, sans-serif;
 	margin: 0;
+	background-color: green;
 }
 ul {
 	list-style: none;

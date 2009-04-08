@@ -14,7 +14,6 @@ var Frontpage = {
 		}
 	},
     FrontpageOnLoad : function() {
-		alert( 'test' );
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();
         }
