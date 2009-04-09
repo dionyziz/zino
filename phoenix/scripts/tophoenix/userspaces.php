@@ -1,4 +1,6 @@
 <?php
+    return;
+    
     set_include_path( '../../:./' );
     require_once 'libs/rabbit/rabbit.php';
 

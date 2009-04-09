@@ -1,6 +1,6 @@
 <?php
-
-   
+    return;
+    
     function ToPhoenix_Ip() {
         global $db;
 

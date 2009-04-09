@@ -1,4 +1,6 @@
 <?php
+    return;
+    
     $sql = array(
         // comments
         "ALTER TABLE 

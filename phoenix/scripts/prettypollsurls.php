@@ -1,5 +1,6 @@
 <?php
-
+    return;
+        
     global $water;
 
     $offset = ( integer )$_GET[ 'offset' ];

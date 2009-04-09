@@ -1,5 +1,6 @@
 <?php
-
+    return;
+    
     foreach ( $_GET as $key => $value ) {
         if ( $value == '' ) {
             $function = $key;
