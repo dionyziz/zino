@@ -21,9 +21,7 @@
                     ?></span>
                     <a href="" onclick="return Notification.Delete( '<?php
                     echo $notif->Event->Id;
-                    ?>' )" title="Διαγραφή"><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>delete.png" alt="Detete" /></a>
+                    ?>' )" title="Διαγραφή" class="s_delete">&nbsp;</a>
                 </div>
                 <div class="who"<?php
                 if ( $notif->Event->Typeid == EVENT_COMMENT_CREATED ) {
