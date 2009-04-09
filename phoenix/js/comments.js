@@ -169,58 +169,79 @@ var Comments = {
             Comments.ToggleReply( id, indent - 1 );
         }
     },
+    parents : [],
+    indents : [],
+    ids     : [],
+    lpadd   : [],
     OnLoad : function() {
         if ( $.browser.msie ) {
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                var id = $( this ).attr( 'id' ).substring( 8 );
-                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-                var kimeno = $( this ).find( "div.text" );
-                var wid = kimeno.get( 0 ).offsetWidth-20;
-                kimeno.css( "width", wid-indent*20+'px' );
+            $( "[id^='comment_'] > div.text" ).each( function( i ) {
+                var parent = $( this ).parent();
+                Comments.parents[ i ] = parent;
+                
+                var id = $( parent ).attr( "id" ).substr( 8 );
+                Comments.ids[ i ] = id;
+                
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
+
+                var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
+                Comments.indents[ i ] = indent;
+                
+                var wid = this.offsetWidth-20;
+                $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
         else {
-            $( "div.comments div.comment" ).not( ".empty" ).not( ".newcomment" ).each( function( i ) {
-                var id = $( this ).attr( 'id' ).substring( 8 );
-                var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-                var kimeno = $( this ).find( "div.text" );
-                var wid = parseInt( kimeno.css( "width" ), 10 );
-                kimeno.css( "width", wid-indent*20+'px' );
+            $( "[id^='comment_'] > div.text" ).each( function( i ) {
+                var parent = $( this ).parent();
+                Comments.parents[ i ] = parent;
+                
+                var id = $( parent ).attr( "id" ).substr( 8 );
+                Comments.ids[ i ] = id;
+                
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
+
+                var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
+                Comments.indents[ i ] = indent;
+                
+                var wid = parseInt( $( this ).css( "width" ), 10 );
+                $( this ).css( "width", wid-indent*20+'px' );
             } );
         }
-        $( "div.comments div[class='comment'] div.bottom a" ).click( function() {
-            var parent = $( this ).parent().parent();
-            var id = $( parent ).attr( 'id' ).substring( 8 );
-			var indent = parseInt( $( parent ).css( 'paddingLeft' ), 10 )/20;
-            Comments.ToggleReply( id , indent );
-            return false;
+
+
+        $( "[id^='comment_'] > div.bottom > a" ).each( function( i ) {
+            $( this ).click( function() {
+                Comments.ToggleReply( Comments.ids[ i ] , Comments.indents[ i ] );
+                
+                return false;
+            } );
         } );
+        
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
-            $( "div.comments div[id^='comment_'] span.time" ).each( function() {
+            $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
-                var parent = $( this ).parent().parent();
-                var lmargin = Comments.FindLeftPadding( parent );
                 $( this ).empty()
-                .css( 'margin-right' , lmargin + 'px' )
+                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
-                .removeClass( 'invisible' );
-
+                .show();
             } );
+
             if ( !username ) {
-                $( "div.comments div[id^='comment_'] div.bottom" ).empty();
+                $( "[id^='com'] > div.bottom" ).empty();
             }
             else {
-                $( "div.comments div[id^='comment_'] div.bottom" ).each( function() {
-                    var leftpadd = Comments.FindLeftPadding( $( this ).parent() );
+                $( "[id^='com'] > div.bottom" ).each( function( i ) {
+                    var leftpadd = Comments.lpadd[ i ];
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
-                $( "div.comments div[id^='comment_'] div.who a img.avatar[alt='" + username + "']" ).each( function() {
-                    $( this ).parent().parent().parent().parent().addClass( "minecomment" );
+                $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
+                    $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                $( "div.comments div.minecomment div.who" ).css( "border-top" , "3px solid #b3d589" );
+                $( "div.comments > div.minecomment > div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
 
