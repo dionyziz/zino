@@ -24,7 +24,7 @@ var Comments = {
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", marginright ).text( "πριν λίγο" ).end()
+        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" )/*.find( "span.time" ).css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
         .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
 		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
@@ -89,7 +89,7 @@ var Comments = {
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
+		/*temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );*/
 		$( temp ).find( "div.toolbox" ).show().end()
         .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
         .find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
@@ -228,7 +228,7 @@ var Comments = {
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
-                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
+                //.css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
