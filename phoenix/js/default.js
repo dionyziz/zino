@@ -10,7 +10,7 @@ function GetUsername() {
 
     return username;
 }
-function JSExec() {
+function JSExec( oldtime ) {
     var newtimer = new Date().getTime();
     alert( newtimer - oldtime );
 }
