@@ -11,9 +11,8 @@ function GetUsername() {
     return username;
 }
 function JSExec() {
-    var Timer.End = new Date().getTime();
-    var dif = Timer.End - Timer.Start;
-    alert( dif );
+    var end = new Date().getTime();
+    alert( end - start );
 }
 $( function() {
     /*if ( $.browser.mozilla ) {
