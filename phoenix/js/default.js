@@ -12,7 +12,7 @@ function GetUsername() {
 }
 function JSExec() {
     var newtimer = new Date().getTime();
-    alert( newtimer - Timer.oldtime );
+    alert( newtimer - oldtime );
 }
 $( function() {
     /*if ( $.browser.mozilla ) {
