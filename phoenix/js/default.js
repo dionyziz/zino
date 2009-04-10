@@ -10,10 +10,6 @@ function GetUsername() {
 
     return username;
 }
-function JSExec( oldtime ) {
-    var newtimer = new Date().getTime();
-    alert( newtimer - oldtime );
-}
 $( function() {
     /*if ( $.browser.mozilla ) {
 	    $( "img" ).not( ".nolazy" ).lazyload( { 
