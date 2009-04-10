@@ -12,7 +12,6 @@ function GetUsername() {
 }
 function JSExec() {
     var newtimer = new Date().getTime();
-    var dif = imer.End - Timer.Start;
     alert( newtimer - oldtimer );
 }
 $( function() {
