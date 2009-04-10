@@ -10,6 +10,11 @@ function GetUsername() {
 
     return username;
 }
+function JSExec() {
+    var Timer.End = new Date().getTime();
+    var dif = Timer.End - Timer.Start;
+    alert( dif );
+}
 $( function() {
     /*if ( $.browser.mozilla ) {
 	    $( "img" ).not( ".nolazy" ).lazyload( { 
