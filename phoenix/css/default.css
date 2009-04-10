@@ -3,7 +3,8 @@ html, body {
     background-color: white;
 }
 body {
-	font: 83% helvetica, arial, sans-serif;
+	font-size: 83%;
+    font-family: helvetica, arial, sans-serif;
 	margin: 0;
 }
 ul {
