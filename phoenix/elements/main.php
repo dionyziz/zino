@@ -51,7 +51,7 @@
             }
             else {
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    $page->AttachInlineScript( "body.onload = function() { JSExec();};Timer.Start = new Date().getTime();" );
+                    $page->AttachInlineScript( "body.onload = function() { JSExec();};var oldtimer = new Date().getTime();" );
                     Element( 'banner' );
                 }
                 ?><div class="content" id="content"><?php    
