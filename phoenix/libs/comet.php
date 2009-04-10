@@ -1,5 +1,5 @@
 <?php
-    define( 'COMET_PUBLISHING_SERVER', '147.102.133.127' ); // 'universe.zino.gr' );
+    define( 'COMET_PUBLISHING_SERVER', '88.198.246.220' ); // 'universe.zino.gr' );
     define( 'COMET_PUBLISHING_PORT', 4671 );
     define( 'COMET_PUBLISHING_CONNECTION_TIMEOUT', 5 );
     define( 'COMET_PUBLISHING_TIMEOUT', 2 );
@@ -9,8 +9,6 @@
     
     function Comet_Publish( /* $channel, $param1, $param2, ..., $paramN */ ) {
         global $rabbit_settings;
-        
-        return;
         
         $args = func_get_args();
         if ( $rabbit_settings[ 'production' ] ) {
