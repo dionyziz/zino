@@ -228,7 +228,7 @@ var Comments = {
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
-                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
+                //.css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
