@@ -62,7 +62,7 @@ div.newcomment, div.comments div.newcomment div.who {
 	background: #e7f3d9;
 }
 div.comment div.text {
-	margin: 4px 30px 0 60px;
+	margin: 4px 15px 0 60px;
 	padding: 0;
 }
 div.newcomment div.text textarea {
