@@ -1,11 +1,9 @@
 div.comment {
-	float: left;
 	clear: both;
 	margin: 5px 0 5px 3px;
 	padding: 0 3px 3px 0px;
 	background: #fff repeat-x top;
     border-color: #dee;
-	width: 100%;
 }
 div.comment div.who {
 	border-top: 1px solid #ccc;
@@ -14,7 +12,7 @@ div.comment div.who {
 	color: #666;
 }
 div.comment div.toolbox {
-	float: right; 
+	float: right;
 	padding: 2px 6px 2px 2px;
 }
 div.comment div.toolbox span.time {
@@ -44,10 +42,6 @@ div.comment div.bottom {
 	color: #999;
 	margin: 4px 4px 4px 60px;
 }
-div.comment div.text {
-	margin: 4px 0 0 60px;
-	padding: 0;
-}
 div.newcomment {
 	margin: 6px 0 6px 3px;
 	padding: 0; /* a fix for the newcomment box */
@@ -65,10 +59,14 @@ div.newcomment div.toolbox span.time {
 div.newcomment, div.comments div.newcomment div.who {
 	background: #e7f3d9;
 }
+div.comment div.text {
+	margin: 4px 15px 0 60px;
+	padding: 0;
+}
 div.newcomment div.text textarea {
 	color: black;
-	width: 99%;
-    border: 1px solid #999;
+	border: 1px solid #999;
+	width: 100%;
 }
 div.newcomment div.bottom input {
 	font-size: 90%;
