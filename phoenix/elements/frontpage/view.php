@@ -185,10 +185,10 @@
             </div>
             </div>
             <div class="eof"></div><?php
-            /*
             if ( $user->Exists() ) {
                 switch ( strtolower( $user->Name ) ) {
-                    case 'dionyziz':
+                    case 'izual':
+                    /*case 'dionyziz':
                     case 'pagio91':
                     case 'izual':
                     case 'petrosagg18':
@@ -218,11 +218,14 @@
                     case 'ronaldo7':
                     case 'morvena':
                     case 'crazy_sheep':
+                    */
                        Element( 'shoutbox/comet' );
                        Element( 'frontpage/image/comet' );
                        Element( 'frontpage/comment/comet' );
                 }
                 switch ( strtolower( $user->Name ) ) {
+                    case 'izual':
+                    /*
                     case 'dionyziz':
                     case 'pagio91':
                     case 'izual':
@@ -235,10 +238,10 @@
                     case 'teh-ninja':
                     case 'intzakosd':
                     case 'crazy_sheep':
+                    */
                         Element( 'frontpage/notification/comet' );
                 }
             }
-            */
             $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
         }
     }
