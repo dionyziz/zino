@@ -8,6 +8,7 @@ div.comment {
 div.comment div.who img {
 	float: left;
 	margin-right: 5px;
+	border: 1px solid black;
 }
 div.comment div.who {
 	border: 0px solid #ccc;
