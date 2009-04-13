@@ -20,7 +20,7 @@ var Comments = {
         .click( function() {
             return false;
         } );
-		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 ) / 20;
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
@@ -78,7 +78,7 @@ var Comments = {
 			++Comments.numchildren[ parentid ];
 		}
 		Comments.numchildren[ id ] = 0;	
-		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
+		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
@@ -143,7 +143,7 @@ var Comments = {
 		}
 	},
     FindLeftPadding : function( node ) {
-        var leftpadd = $( node ).css( 'padding-left' );
+        var leftpadd = $( node ).css( 'margin-left' );
         if ( leftpadd ) {
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
