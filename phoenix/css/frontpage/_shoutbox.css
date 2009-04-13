@@ -14,7 +14,7 @@ div#shoutbox div.newcomment div.bottom {
     text-align: right;
 }
 div#shoutbox div.newcomment div.bottom input#shoutbox_submit {
-    margin-right: 3px;
+    margin-right: 5px 3px 0;
 }
 div#shoutbox div.newcomment div.bottom div.typing {
     float: left;
