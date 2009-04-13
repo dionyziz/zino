@@ -1,16 +1,13 @@
 div.comment {
-	float: left;
-	clear: both;
 	margin: 5px 0 5px 3px;
 	padding: 0 3px 3px 0px;
-	background: #fff repeat-x top;
-    border-color: #dee;
-	width: 100%;
+	border-top: 1px solid #ccc;
+	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
+	position: relative;
 }
 div.comment div.who {
-	border-top: 1px solid #ccc;
+	border: 0px solid #ccc;
 	padding: 2px 0 2px 4px;
-	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
 	color: #666;
 }
 div.comment div.toolbox {
@@ -31,12 +28,6 @@ div.comment div.toolbox a {
 	/* A little hack for IE7 */
 	color: #f4f4f4;
 }
-div.comment div.who img.avatar {
-	width: 50px;
-	height: 50px;
-	border: 1px solid #666;
-	margin: 0 4px 0 0;
-}
 div.comment div.bottom {
 	clear: both;
 	font-size: 80%;
@@ -44,17 +35,16 @@ div.comment div.bottom {
 	margin: 4px 4px 4px 60px;
 }
 div.comment div.text {
-	margin: 4px 0 0 60px;
-	padding: 0;
-	width: 50
+	top: 5px;
+	left: 20px;
+	right: 5px;
+	overflow: hidden;
 }
 div.newcomment {
 	margin: 6px 0 6px 3px;
 	padding: 0; /* a fix for the newcomment box */
 }
 div.newcomment div.who {
-	padding: 4px 0 0 4px;
-	float: left;
 	height: 50px;
 	width:50px;
 	/*padding-left: 4px;  made 4px from 2px */
@@ -68,11 +58,28 @@ div.newcomment div.toolbox span.time {
 div.newcomment, div.comments div.newcomment div.who {
 	background: #e7f3d9;
 }
+div.newcomment div.text {
+	height: 55px;
+	position: absolute;
+	border: 1px solid #999;
+	top: 5px;
+	left: 60px;
+	right: 5px;
+}
 div.newcomment div.text textarea {
 	color: black;
 	width: 100%;
-    border: 1px solid #999;
+	height: 100%;
+	position:absolute;
+	border: 0;
+	padding:0;
+	margin:0;
+}
+div.newcomment div.bottom  form{
+	margin:15px 0 5px;
+	padding:0;
 }
 div.newcomment div.bottom input {
+	margin-bottom: 5px;
 	font-size: 90%;
 }
