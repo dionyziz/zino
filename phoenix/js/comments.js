@@ -140,7 +140,7 @@ var Comments = {
 		}
 	},
     FindLeftPadding : function( node ) {
-        var leftpadd = $( node ).css( 'padding-left' );
+        var leftpadd = $( node ).css( 'margin-left' );
         if ( leftpadd ) {
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
