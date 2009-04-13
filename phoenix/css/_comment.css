@@ -5,6 +5,9 @@ div.comment {
 	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
 	position: relative;
 }
+div.comment div.who img {
+	float: left;
+}
 div.comment div.who {
 	border: 0px solid #ccc;
 	padding: 2px 0 2px 4px;
