@@ -139,8 +139,8 @@ var Comments = {
 			$( "div dl" ).prepend( dd );
 		}
 	},
-    FindLeftMargin : function( node ) {
-        var leftpadd = $( node ).css( 'margin-left' );
+    FindLeftPadding : function( node ) {
+        var leftpadd = $( node ).css( 'padding-left' );
         if ( leftpadd ) {
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
@@ -182,7 +182,7 @@ var Comments = {
                 var id = $( parent ).attr( "id" ).substr( 8 );
                 Comments.ids[ i ] = id;
                 
-                Comments.lpadd[ i ] = Comments.FindLeftMargin( parent );
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
@@ -199,7 +199,7 @@ var Comments = {
                 var id = $( parent ).attr( "id" ).substr( 8 );
                 Comments.ids[ i ] = id;
                 
-                Comments.lpadd[ i ] = Comments.FindLeftMargin( parent );
+                Comments.lpadd[ i ] = Comments.FindLeftPadding( parent );
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
@@ -223,7 +223,7 @@ var Comments = {
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
-                //.css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
+                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
