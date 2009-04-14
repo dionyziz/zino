@@ -56,10 +56,10 @@ var Comments = {
         .append( avatar ).append( document.createTextNode( username ) );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
 		if ( parentid === 0 ) {
-			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
+			temp.insertAfter( "div.newcomment:first" ).fadeTo( "normal" , 1 );
 		}
 		else {
-			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
+			temp.insertAfter( "#comment_" + parentid ).fadeTo( "normal" , 1 );
 		}
 		
 		var type = temp.find( "#type:first" ).text();
