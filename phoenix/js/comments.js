@@ -24,8 +24,7 @@ var Comments = {
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", marginright ).text( "πριν λίγο" ).end()
-        .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
+        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" )/*.find( "span.time" ).css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
 		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
