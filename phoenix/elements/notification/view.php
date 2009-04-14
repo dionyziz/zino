@@ -21,7 +21,7 @@
                     ?></span>
                     <a href="" onclick="return Notification.Delete( '<?php
                     echo $notif->Event->Id;
-                    ?>' )" title="Διαγραφή" class="s_delete">&nbsp;</a>
+                    ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
                 <div class="who"<?php
                 if ( $notif->Event->Typeid == EVENT_COMMENT_CREATED ) {
