@@ -118,8 +118,9 @@ var Comments = {
             }
         } ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
-		var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
+		/*var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
 		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
+        */
 		//-----------------------------
 	},
 	FixCommentsNumber : function( type, inc ) {
@@ -186,9 +187,10 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-                
+               /* 
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
+                */
             } );
         }
         else {
@@ -203,9 +205,10 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-                
+               /* 
                 var wid = parseInt( $( this ).css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
+                */
             } );
         }
 
@@ -223,7 +226,7 @@ var Comments = {
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
-                .css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
+                //.css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
@@ -241,7 +244,7 @@ var Comments = {
                 $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                $( "div.comments > div.minecomment > div.who" ).css( "border-top" , "3px solid #b3d589" );
+                $( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
 
