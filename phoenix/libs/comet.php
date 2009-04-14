@@ -29,9 +29,6 @@
         }
         stream_set_timeout( $fh, COMET_PUBLISHING_TIMEOUT );
         $message = w_json_encode( $message );
-        if ( $channel != 'SFrontpageCommentNew' ) {
-            die( "Publishing on channel $channel: $message" );
-        }
         fwrite( $fh, "ADDMESSAGE $channel $message\n" );
         /*
         $response = '';
