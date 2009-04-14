@@ -172,7 +172,7 @@
     function Project_Events() {
         return array(
             'ImageCreated' => 'frontpage/image/new',
-            'CommentCreated' => 'frontpage/comment/new',
+            'CommentCreated' => array( 'frontpage/comment/new', 'comments/page/new' ),
             'ShoutCreated' => 'frontpage/shoutbox/new',
             'ShoutTyping' => 'frontpage/shoutbox/typing',
             'NotificationCreated' => 'frontpage/notification/new'

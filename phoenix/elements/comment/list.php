@@ -27,6 +27,7 @@
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
             }
             $page->AttachInlineScript( "Comments.OnLoad();" );
+            Element( 'comment/comet' , $typeid , $itemid );
             return $indent;
         }   
     }
