@@ -20,11 +20,12 @@ var Comments = {
         .click( function() {
             return false;
         } );
-		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 ) / 20;
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" )/*.find( "span.time" ).css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
+        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
+        .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
 		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
@@ -33,11 +34,13 @@ var Comments = {
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
 		
 		//---------------------
+        /*
 		if ( parentid !== 0 ) {
 			var kimeno = temp.find( "div.text" );
 			var wid = ( $.browser.msie ) ? ( kimeno.get( 0 ).offsetWidth-20 ) : parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent * 20 + 'px' );
 		}
+        */
 		//----------------------
         var link = document.createElement( 'a' );
         var username = GetUsername();
@@ -75,7 +78,7 @@ var Comments = {
 			++Comments.numchildren[ parentid ];
 		}
 		Comments.numchildren[ id ] = 0;	
-		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
+		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
@@ -87,16 +90,15 @@ var Comments = {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
-		$( temp ).css( "border-top" , "3px solid #b3d589" ).end()
-        .find( "div.toolbox" ).show().end()
-
-		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-        
-        $( temp ).find( "div.bottom form input" )[ 0 ].onclick = function() { // Only with DOM JS the onclick event is overwritten
-					$( "#comment_reply_" + nodeid ).css( { marginLeft : (indent+1)*20 + 'px' } );
+		$( temp ).find( "div.toolbox" ).show().end()
+        .find( "div.who" ).css( "border-top" , "3px solid #b3d589" ).end()
+        .find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+					$( "#comment_reply_" + nodeid ).css( { marginLeft : 0, marginLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );
 					return false;
 				} ;
+
+		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
         //temp.find( "div.bottom input" ).get( 0 ).focus();
         Comments[ "Changed" + nodeid ] = false;
         $( temp ).find( "div.text textarea" ).focus( function() {
@@ -176,8 +178,8 @@ var Comments = {
     lpadd   : [],
     OnLoad : function() {
         if ( $.browser.msie ) {
-            $( "[id^='comment_'] > div.text" ).each( function( i ) {
-                var parent = $( this ).parent();
+            $( "[id^='comment_']" ).each( function( i ) {
+                var parent =  this;
                 Comments.parents[ i ] = parent;
                 
                 var id = $( parent ).attr( "id" ).substr( 8 );
@@ -187,7 +189,7 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-               /* 
+                /* 
                 var wid = this.offsetWidth-20;
                 $( this ).css( "width", wid-indent*20+'px' );
                 */
@@ -205,7 +207,7 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-               /* 
+                /* 
                 var wid = parseInt( $( this ).css( "width" ), 10 );
                 $( this ).css( "width", wid-indent*20+'px' );
                 */
@@ -244,7 +246,7 @@ var Comments = {
                 $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                $( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
+                $( "div.comments > div.minecomment > div.who" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
 
