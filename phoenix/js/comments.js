@@ -244,10 +244,10 @@ var Comments = {
                     }
                 } );
                 $( "[id^='comment_'] > div.who > a > span.imageview > img.avatar[alt='" + username + "']" ).each( function( i ) {
-                    $( this ).parent().addClass( "minecomment" );
+                    $( this ).parent().css( "border" , "1px solid yellow" );
                     //$( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                $( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
+                //$( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
 
