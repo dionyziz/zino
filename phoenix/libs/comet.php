@@ -29,6 +29,7 @@
         }
         stream_set_timeout( $fh, COMET_PUBLISHING_TIMEOUT );
         $message = w_json_encode( $message );
+        die( "Publishing on channel $channel: $message" );
         fwrite( $fh, "ADDMESSAGE $channel $message\n" );
         /*
         $response = '';
