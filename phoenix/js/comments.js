@@ -245,7 +245,6 @@ var Comments = {
                 } );
                 $( "[id^='comment_'] > div.who > a > span.imageview > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( this ).css( "border" , "1px solid yellow" );
-                    $( this ).parent().append( text( "i is " + i ) );
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
                 //$( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
