@@ -188,7 +188,8 @@
             if ( $user->Exists() ) {
                 switch ( strtolower( $user->Name ) ) {
                     case 'izual':
-                    /*case 'dionyziz':
+                    case 'dionyziz':
+                    /*
                     case 'pagio91':
                     case 'izual':
                     case 'petrosagg18':
@@ -225,8 +226,8 @@
                 }
                 switch ( strtolower( $user->Name ) ) {
                     case 'izual':
-                    /*
                     case 'dionyziz':
+                    /*
                     case 'pagio91':
                     case 'izual':
                     case 'petrosagg18':
