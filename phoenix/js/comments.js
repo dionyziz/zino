@@ -90,7 +90,7 @@ var Comments = {
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).css( "border-top" , "3px solid #b3d589" ).end()
         .find( "div.toolbox" ).show().end()
-        .find( "div.bottom form input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+        .find( "div.bottom form input" )[ 0 ].onclick = function() { // Only with DOM JS the onclick event is overwritten
 					$( "#comment_reply_" + nodeid ).css( { marginLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );
 					return false;
