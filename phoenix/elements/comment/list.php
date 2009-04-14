@@ -30,6 +30,7 @@
             
             switch ( strtolower( $user->Name ) ) { 
                 case 'izual':
+                case 'dionyziz':
                     Element( 'comment/comet' , $typeid , $itemid );
             }
             return $indent;
