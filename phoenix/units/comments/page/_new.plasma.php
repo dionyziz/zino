@@ -4,10 +4,6 @@
         echo $comment->Id;
         ?>" );<?php
 
-
-
-        return $comment->Typeid
-        ?>c<?php
-        $comment->Itemid;
+        return $comment->Typeid.'c'.$comment->Itemid;
     }
 ?>
