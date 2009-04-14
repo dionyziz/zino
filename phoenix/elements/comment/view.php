@@ -11,7 +11,7 @@
             echo $comment->Id;
             ?>" class="comment oc" style="<?php
             if ( $indent > 0 ) {
-                ?>padding-left:<?php
+                ?>margin-left:<?php
                 echo $indent * 20;
                 ?>px;<?php
             }
