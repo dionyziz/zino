@@ -196,8 +196,8 @@ var Comments = {
             } );
         }
         else {
-            $( "[id^='comment_'] > div.text" ).each( function( i ) {
-                var parent = $( this ).parent();
+            $( "[id^='comment_']" ).each( function( i ) {
+                var parent = this;
                 Comments.parents[ i ] = parent;
                 
                 var id = $( parent ).attr( "id" ).substr( 8 );
