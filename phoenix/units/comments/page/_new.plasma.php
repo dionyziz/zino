@@ -6,6 +6,8 @@
 
 
 
-        
+        return $comment->Typeid
+        ?>c<?php
+        $comment->Itemid;
     }
 ?>
