@@ -243,7 +243,7 @@ var Comments = {
                         $( this ).empty();
                     }
                 } );
-                $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
+                $( "[id^='comment_'] > div.who > a > span.imageview > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( this ).css( "border" , "1px solid black" );
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
