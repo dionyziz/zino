@@ -234,16 +234,17 @@ var Comments = {
             } );
 
             if ( !username ) {
-                $( "[id^='com'] > div.bottom" ).empty();
+                $( "[id^='comment_'] > div.bottom" ).empty();
             }
             else {
-                $( "[id^='com'] > div.bottom" ).each( function( i ) {
+                $( "[id^='comment_'] > div.bottom" ).each( function( i ) {
                     var leftpadd = Comments.lpadd[ i ];
                     if ( leftpadd > 500 ) {
                         $( this ).empty();
                     }
                 } );
                 $( "[id^='comment_'] > div.who > a > img.avatar[alt='" + username + "']" ).each( function( i ) {
+                    $( this ).css( "border" , "1px solid black" );
                     $( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
                 $( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
