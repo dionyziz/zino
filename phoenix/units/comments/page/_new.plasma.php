@@ -12,6 +12,9 @@
             ?>',
             name : '<?php
             echo $comment->User->Name;
+            ?>',
+            type : '<?php
+            echo $comment->Typeid;
             ?>'
         };
         if ( Comments.typing ) {

@@ -308,7 +308,7 @@ var Comments = {
             else {
                 var parent = $( "#comment_" + qnode.parentid );
                 var parentleftmargin = Comments.FindLeftPadding( parent );
-                var parentident = parseInt( parentleftmargin , 10 ) / 20;
+                var parentident = Math.floor( parseInt( parentleftmargin , 10 ) / 20 );
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
                 
@@ -325,6 +325,7 @@ var Comments = {
                     } );
                 }
             }
+            Comments.FixCommentsNumber( qnode.type , true );
             $( qnode.node ).fadeTo( 400 , 1 );
         }
     }
