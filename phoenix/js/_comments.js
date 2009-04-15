@@ -318,7 +318,7 @@ var Comments = {
                     $( "#comment_" + id + " > div.bottom" ).empty();
                 }
                 else {
-                    $( "#comment_" + id " > div.bottom > a" ).click( function() {
+                    $( "#comment_" + id + " > div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
