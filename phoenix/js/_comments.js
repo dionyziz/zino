@@ -283,8 +283,8 @@ var Comments = {
     Page : {
         Queue : [],
         NextComment : function() {
-            alert( "NextComment called" );
             if ( Comments.Page.Queue.length == 0 ) {
+                alert( "NextComment going nowhere" );
                 return;
             }
             if ( !Comments.typing ) {
