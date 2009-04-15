@@ -300,7 +300,7 @@ var Comments = {
             alert( id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                $( "#comment_" + id + " > div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -315,10 +315,10 @@ var Comments = {
                 $( qnode.node ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( qnode.node ).find( "div.bottom" ).empty();
+                    $( "#comment_" + id + " > div.bottom" ).empty();
                 }
                 else {
-                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                    $( "#comment_" + id " > div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
