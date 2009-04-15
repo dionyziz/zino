@@ -299,13 +299,20 @@ var Comments = {
             var leftmargin = Comments.FindLeftPadding( node );
             var ident = parseInt( leftmargin , 10 )/20;
             if ( parentid == 0 ) {
-                $( node ).insertBefore( "[id^='comment_']:first" ); 
-                $( node ).find( "div.bottom > a" ).click( function() {
+                $( node ).insertBefore( "[id^='comment_']:first" ) 
+                .find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
+
+                    return false;
                 } );
             }
             else {
-
+                var parent = $( "#comment_" + parentid );
+                var parentleftmargin = Comments.FindLeftPadding( parent );
+                var parentident = parseInt( parentleftmargin , 10 ) / 20;
+                var ident = parentident + 1;
+                var leftmargin = ident * 20;
+                alert( 'left margin is ' + parentleftmargin );
             }
         }
     }
