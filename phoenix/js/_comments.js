@@ -293,7 +293,7 @@ var Comments = {
         */
         ShowComment : function( node , parentid ) {
             alert( parentid );
-            if ( parentid === 0 ) {
+            if ( parentid == 0 ) {
                 alert( 'prepending' );
                 $( 'div.comments' ).prepend( node ); 
             }
