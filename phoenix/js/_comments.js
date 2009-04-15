@@ -301,7 +301,7 @@ var Comments = {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( qnode.node ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
-
+                    alert( id );
                     return false;
                 } );
             }
@@ -320,7 +320,7 @@ var Comments = {
                 else {
                     $( qnode.node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
-
+                        alert( id );
                         return false;
                     } );
                 }
