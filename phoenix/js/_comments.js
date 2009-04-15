@@ -294,7 +294,7 @@ var Comments = {
             if ( qnode.name == GetUsername() ) {
                 return;
             }
-            //setTimeout( "Comments.Page.NextComment();" , timervalue );
+            setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
             if ( qnode.parentid == 0 ) {
@@ -326,7 +326,7 @@ var Comments = {
                 }
             }
             Comments.FixCommentsNumber( qnode.type , true );
-            $( qnode.node ).fadeTo( 400 , 1 );
+            $( qnode.node ).fadeTo( 400 , 1 ).css( "border" , "1px solid black" );
         }
     }
 };
