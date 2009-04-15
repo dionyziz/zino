@@ -157,7 +157,6 @@ var Comments = {
     },
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
-        alert( "id is " + id );
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
             $( '#comment_reply_' + id ).remove(); 
             Comments.ToggledReplies[ id ] = 0;
@@ -284,6 +283,7 @@ var Comments = {
     Page : {
         Queue : [],
         NextComment : function() {
+            alert( "NextComment called" );
             if ( Comments.Page.Queue.length == 0 ) {
                 return;
             }
@@ -298,10 +298,10 @@ var Comments = {
             setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
-            alert( "commentid is: " + id );
+            alert( id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( "#comment_" + id + " > div.bottom > a" ).click( function() {
+                $( qnode.node ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -316,10 +316,10 @@ var Comments = {
                 $( qnode.node ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( "#comment_" + id + " > div.bottom" ).empty();
+                    $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( "#comment_" + id + " > div.bottom > a" ).click( function() {
+                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
