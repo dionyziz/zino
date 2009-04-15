@@ -292,9 +292,15 @@ var Comments = {
         },
         */
         ShowComment : function( node , parentid ) {
-            alert( parentid );
+            //alert( parentid );
+            $( node ).find( "div.toolbox span.time" ).empty().text( 'prin ligo').show();
+            id = $( node ).attr( "id" ).substr( 8 );
+            alert( id );
+            var leftmargin = Comments.FindLeftPadding( node );
+            var ident = parseInt( leftmargin , 10 )/20;
+            alert( 'margin is ' + leftmargin );
+            alert( 'ident is ' + ident );
             if ( parentid == 0 ) {
-                alert( 'prepending' );
                 $( node ).insertBefore( "[id^='comment_']:first" ); 
             }
             else {
