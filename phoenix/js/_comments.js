@@ -157,6 +157,7 @@ var Comments = {
     },
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
+        alert( "id is " + id );
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
             $( '#comment_reply_' + id ).remove(); 
             Comments.ToggledReplies[ id ] = 0;
@@ -300,7 +301,7 @@ var Comments = {
             alert( "commentid is: " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( "#comment_" + id + " > div.bottom > a" ).css( 'border' , '1px solid yellow' ).click( function() {
+                $( "#comment_" + id + " > div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -318,7 +319,7 @@ var Comments = {
                     $( "#comment_" + id + " > div.bottom" ).empty();
                 }
                 else {
-                    $( "#comment_" + id + " > div.bottom > a" ).css( 'border' , '1px solid yellow' ).click( function() {
+                    $( "#comment_" + id + " > div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
