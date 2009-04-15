@@ -318,7 +318,7 @@ var Comments = {
                     $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( node ).find( "div.bottom > a" ).click( function() {
+                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
 
                         return false;
