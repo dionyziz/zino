@@ -152,7 +152,7 @@ var Comments = {
             return leftpadd.substr( 0 , leftpadd.length - 2 ) - 0;
         }
         else {
-            return false;
+            return 0;
         }
     },
     ToggledReplies: {},
