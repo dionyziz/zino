@@ -298,10 +298,11 @@ var Comments = {
             alert( id );
             var leftmargin = Comments.FindLeftPadding( node );
             var ident = parseInt( leftmargin , 10 )/20;
-            alert( 'margin is ' + leftmargin );
-            alert( 'ident is ' + ident );
             if ( parentid == 0 ) {
                 $( node ).insertBefore( "[id^='comment_']:first" ); 
+                $( node ).find( "div.bottom > a" ).click( function() {
+                    Comments.ToggleReply( id , 0 );
+                } );
             }
             else {
 
