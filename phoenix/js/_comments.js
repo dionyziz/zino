@@ -298,8 +298,8 @@ var Comments = {
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
             if ( qnode.parentid == 0 ) {
-                $( qnode.node ).insertBefore( "[id^='comment_']:first" ) 
-                .find( "div.bottom > a" ).click( function() {
+                $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
+                $( qnode.node ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( qnode.id , 0 );
 
                     return false;
