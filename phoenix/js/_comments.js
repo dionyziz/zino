@@ -284,7 +284,6 @@ var Comments = {
         Queue : [],
         NextComment : function() {
             if ( Comments.Page.Queue.length == 0 ) {
-                alert( "NextComment going nowhere" );
                 return;
             }
             if ( !Comments.typing ) {
