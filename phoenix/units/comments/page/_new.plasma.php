@@ -2,7 +2,7 @@
     function UnitCommentsPageNew( Comment $comment ) {
         ?>var node = $( <?php
         ob_start();
-        Element( 'comment/view' , $comment );
+        Element( 'comment/view' , $comment , 0 , 0 );
         echo w_json_encode( ob_get_clean() );
         ?> );
         Comments.Page.ShowComment( node , '<?php
