@@ -283,15 +283,19 @@ var Comments = {
     Page : {
         NodeQueue : [],
         ParentidQueue : [],
+        NameQueue : [],
         NextComment : function() {
             if ( Comments.Page.NodeQueue.length == 0 ) {
                 return;
             }
             if ( !Comments.typing ) {
-                Comments.Page.ShowComment( Comments.Page.NodeQueue.pop() , Comments.Page.ParentidQueue.pop() );
+                Comments.Page.ShowComment( Comments.Page.NodeQueue.pop() , Comments.Page.ParentidQueue.pop() , Comments.Page.NameQueue.pop() , 1000  );
             }
         },
-        ShowComment : function( node , parentid , timervalue ) {
+        ShowComment : function( node , parentid , name , timervalue ) {
+            if ( name == GetUsername() ) {
+                return;
+            }
             setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( node ).attr( "id" ).substr( 8 );
