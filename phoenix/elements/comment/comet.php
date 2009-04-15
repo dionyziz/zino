@@ -8,7 +8,7 @@
             ?>Comet.Init( <?php
             echo w_json_encode( session_id() );
             ?> );
-            Comet.Subscribe( 'CommentsPage<?php
+            Comet.Subscribe( 'CommentsPageNew<?php
             echo $typeid;
             ?>c<?php
             echo $itemid;
