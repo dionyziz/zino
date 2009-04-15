@@ -9,7 +9,7 @@
             Frontpage.Comment.Queue.unshift( newdiv );
         }
         else {
-            Frontpage.Comment.ShowComment( newdiv );
+            Frontpage.Comment.ShowComment( newdiv , 1000 );
         }<?php
     }
 ?>

@@ -366,7 +366,7 @@ var Frontpage = {
             } );
         },
         NextComment : function() {
-            if ( Frontpage.Comment.Queue.length === 0 ) {
+            if ( Frontpage.Comment.Queue.length == 0 ) {
                 return;
             }
             /*

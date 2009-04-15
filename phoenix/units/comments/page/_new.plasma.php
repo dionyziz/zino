@@ -5,9 +5,17 @@
         Element( 'comment/view' , $comment , 0 , 0 );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        Comments.Page.ShowComment( node , '<?php
-        echo $comment->Parentid;
-        ?>' );<?php
+        if ( Comments.typing ) {
+            Comments.Page.NodeQueue.unshift( node );
+            Comments.Page.ParentidQueue.unshift( '<?php
+            echo $comment->Parentid;
+            ?>' );
+        }
+        else {
+            Comments.Page.ShowComment( node , '<?php
+            echo $comment->Parentid;
+            ?>' , 1000 );
+        }<?php
 
         return $comment->Typeid.'c'.$comment->Itemid;
     }

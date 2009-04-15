@@ -121,6 +121,7 @@ var Comments = {
                 Comments[ "Changed" + nodeid ] = true;
             }
             Comments.typing = false;
+            Comments.Page.NextComment();
         } ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		/*var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
@@ -262,7 +263,7 @@ var Comments = {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
             }
-        
+            Comments.typing = true; 
         } ) 
         .blur( function() {
             if ( this.value  === '' ) {
@@ -273,26 +274,25 @@ var Comments = {
             else {
                 Comments[ "Changed0"] = true;
             }
+            Comments.typing = false;
+            Comments.Page.NextComment();
         } );
         var newtime = new Date().getTime();
         alert( newtime - oldtime + " miliseconds" );
     },
     Page : {
-        Queue : [],
-        /*        OnCommentArrival : function( node , who ) {
-            if ( who == GetUsername() ) {
+        NodeQueue : [],
+        ParentidQueue : [],
+        NextComment : function() {
+            if ( Comments.Page.NodeQueue.length == 0 ) {
                 return;
             }
-            if ( Comments.typing ) {
-                Comments.Page.ShowComment();
-            }
-            else {
-                Comments.
+            if ( !Comments.typing ) {
+                Comments.Page.ShowComment( Comments.Page.NodeQueue.pop() , Comments.Page.ParentidQueue.pop() );
             }
         },
-        */
-        ShowComment : function( node , parentid ) {
-            //alert( parentid );
+        ShowComment : function( node , parentid , timervalue ) {
+            setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( node ).attr( "id" ).substr( 8 );
             if ( parentid == 0 ) {
