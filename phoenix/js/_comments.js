@@ -294,6 +294,7 @@ var Comments = {
             if ( qnode.name == GetUsername() ) {
                 return;
             }
+            alert( qnode.node.length );
             setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
