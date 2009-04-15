@@ -291,6 +291,10 @@ var Comments = {
             }
         },
         ShowComment : function( qnode , timervalue ) {
+            alert( qnode.node );
+            alert( qnode.name );
+            alert( qnode.parentid );
+            alert( qnode.type );
             if ( qnode.name == GetUsername() ) {
                 return;
             }
