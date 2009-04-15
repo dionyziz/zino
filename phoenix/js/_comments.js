@@ -312,7 +312,17 @@ var Comments = {
                 var parentident = parseInt( parentleftmargin , 10 ) / 20;
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
-                alert( 'left margin is ' + parentleftmargin );
+                
+                $( node ).insertAfter( parent )
+                .css( 'margin-left' , leftmargin + "px" );
+                if ( leftmargin > 500 ) {
+                    $( node ).find( "div.bottom" ).empty();
+                }
+                else {
+                    $( node ).find( "div.bottom > a" ).click( function() {
+                        Comments.ToggleReply( id , ident );
+                    } );
+                }
             }
         }
     }
