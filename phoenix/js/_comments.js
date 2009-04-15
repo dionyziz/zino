@@ -281,43 +281,41 @@ var Comments = {
         alert( newtime - oldtime + " miliseconds" );
     },
     Page : {
-        NodeQueue : [],
-        ParentidQueue : [],
-        NameQueue : [],
+        Queue : [],
         NextComment : function() {
-            if ( Comments.Page.NodeQueue.length == 0 ) {
+            if ( Comments.Page.Queue.length == 0 ) {
                 return;
             }
             if ( !Comments.typing ) {
-                Comments.Page.ShowComment( Comments.Page.NodeQueue.pop() , Comments.Page.ParentidQueue.pop() , Comments.Page.NameQueue.pop() , 1000  );
+                Comments.Page.ShowComment( Comments.Page.Queue.pop() , 1000 );
             }
         },
-        ShowComment : function( node , parentid , name , timervalue ) {
-            if ( name == GetUsername() ) {
+        ShowComment : function( qnode , timervalue ) {
+            if ( qnode.name == GetUsername() ) {
                 return;
             }
             setTimeout( "Comments.Page.NextComment();" , timervalue );
-            $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
-            id = $( node ).attr( "id" ).substr( 8 );
-            if ( parentid == 0 ) {
-                $( node ).insertBefore( "[id^='comment_']:first" ) 
+            $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
+            id = $( qnode.node ).attr( "id" ).substr( 8 );
+            if ( qnode.parentid == 0 ) {
+                $( qnode.node ).insertBefore( "[id^='comment_']:first" ) 
                 .find( "div.bottom > a" ).click( function() {
-                    Comments.ToggleReply( id , 0 );
+                    Comments.ToggleReply( qnode.id , 0 );
 
                     return false;
                 } );
             }
             else {
-                var parent = $( "#comment_" + parentid );
+                var parent = $( "#comment_" + qnode.parentid );
                 var parentleftmargin = Comments.FindLeftPadding( parent );
                 var parentident = parseInt( parentleftmargin , 10 ) / 20;
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
                 
-                $( node ).insertAfter( parent )
+                $( qnode.node ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( node ).find( "div.bottom" ).empty();
+                    $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
                     $( node ).find( "div.bottom > a" ).click( function() {
@@ -327,7 +325,7 @@ var Comments = {
                     } );
                 }
             }
-            $( node ).fadeTo( 400 , 1 );
+            $( qnode.node ).fadeTo( 400 , 1 );
         }
     }
 };

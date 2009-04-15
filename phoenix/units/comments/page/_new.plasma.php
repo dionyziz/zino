@@ -1,25 +1,24 @@
 <?php
     function UnitCommentsPageNew( Comment $comment ) {
-        ?>var node = $( <?php
+        ?>var comnode = $( <?php
         ob_start();
         Element( 'comment/view' , $comment , 0 , 0 );
         echo w_json_encode( ob_get_clean() );
         ?> );
-        if ( Comments.typing ) {
-            Comments.Page.NodeQueue.unshift( node );
-            Comments.Page.ParentidQueue.unshift( '<?php
+        var comobj = {
+            node : comnode,
+            parentid : '<?php
             echo $comment->Parentid;
-            ?>' );
-            Comments.Page.NameQueue.unshift( '<?php
+            ?>',
+            name : '<?php
             echo $comment->User->Name;
-            ?>' );
+            ?>'
+        };
+        if ( Comments.typing ) {
+            Comments.Page.Queue.unshift( comobj );
         }
         else {
-            Comments.Page.ShowComment( node , '<?php
-            echo $comment->Parentid;
-            ?>' , '<?php
-            echo $comment->User->Name;
-            ?>' , 1000 );
+            Comments.Page.ShowComment( node  , 1000 );
         }<?php
 
         return $comment->Typeid.'c'.$comment->Itemid;

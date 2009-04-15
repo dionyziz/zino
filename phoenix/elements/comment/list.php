@@ -7,6 +7,12 @@
             global $page;
             global $user;
 
+            switch ( strtolower( $user->Name ) ) { 
+                case 'izual':
+                case 'dionyziz':
+                    Element( 'comment/comet' , $typeid , $itemid );
+            }
+
             if ( empty( $comments ) ) {
                 return; // why did you call me?
             }
@@ -28,11 +34,6 @@
             }
             $page->AttachInlineScript( "Comments.OnLoad();" );
             
-            switch ( strtolower( $user->Name ) ) { 
-                case 'izual':
-                case 'dionyziz':
-                    Element( 'comment/comet' , $typeid , $itemid );
-            }
             return $indent;
         }   
     }
