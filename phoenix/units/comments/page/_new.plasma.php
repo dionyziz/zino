@@ -18,7 +18,7 @@
             Comments.Page.Queue.unshift( comobj );
         }
         else {
-            Comments.Page.ShowComment( node  , 1000 );
+            Comments.Page.ShowComment( comobj  , 1000 );
         }<?php
 
         return $comment->Typeid.'c'.$comment->Itemid;
