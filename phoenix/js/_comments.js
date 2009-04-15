@@ -279,7 +279,7 @@ var Comments = {
     },
     Page : {
         Queue : [],
-        OnCommentArrival : function( node , who ) {
+        /*        OnCommentArrival : function( node , who ) {
             if ( who == GetUsername() ) {
                 return;
             }
@@ -290,6 +290,7 @@ var Comments = {
                 Comments.
             }
         },
+        */
         ShowComment : function( node , parentid ) {
             alert( node );
             alert( parentid );
