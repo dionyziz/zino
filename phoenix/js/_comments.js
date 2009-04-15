@@ -295,7 +295,7 @@ var Comments = {
             alert( parentid );
             if ( parentid == 0 ) {
                 alert( 'prepending' );
-                $( 'div.comments' ).prepend( node ); 
+                $( node ).insertBefore( "[id^='comment_']:first" ); 
             }
             else {
 
