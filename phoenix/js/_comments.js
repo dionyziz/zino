@@ -293,11 +293,8 @@ var Comments = {
         */
         ShowComment : function( node , parentid ) {
             //alert( parentid );
-            $( node ).find( "div.toolbox span.time" ).empty().text( 'prin ligo').show();
+            $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( node ).attr( "id" ).substr( 8 );
-            alert( id );
-            var leftmargin = Comments.FindLeftPadding( node );
-            var ident = parseInt( leftmargin , 10 )/20;
             if ( parentid == 0 ) {
                 $( node ).insertBefore( "[id^='comment_']:first" ) 
                 .find( "div.bottom > a" ).click( function() {
@@ -326,6 +323,7 @@ var Comments = {
                     } );
                 }
             }
+            $( node ).fadeTo( 400 , 1 );
         }
     }
 };
