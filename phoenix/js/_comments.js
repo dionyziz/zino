@@ -300,7 +300,7 @@ var Comments = {
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( qnode.node ).find( "div.bottom > a" ).click( function() {
-                    Comments.ToggleReply( qnode.id , 0 );
+                    Comments.ToggleReply( id , 0 );
 
                     return false;
                 } );
