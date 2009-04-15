@@ -297,7 +297,7 @@ var Comments = {
             setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
-            alert( id );
+            alert( "commentid is: " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( "#comment_" + id + " > div.bottom > a" ).click( function() {
