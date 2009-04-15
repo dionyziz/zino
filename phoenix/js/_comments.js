@@ -121,7 +121,7 @@ var Comments = {
                 Comments[ "Changed" + nodeid ] = true;
             }
             Comments.typing = false;
-            Comments.Page.NextComment();
+            //Comments.Page.NextComment();
         } ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		/*var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
@@ -275,7 +275,7 @@ var Comments = {
                 Comments[ "Changed0"] = true;
             }
             Comments.typing = false;
-            Comments.Page.NextComment();
+            //Comments.Page.NextComment();
         } );
         var newtime = new Date().getTime();
         alert( newtime - oldtime + " miliseconds" );
@@ -300,7 +300,6 @@ var Comments = {
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( qnode.node ).find( "div.bottom > a" ).click( function() {
-                    alert( id );
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -319,14 +318,13 @@ var Comments = {
                 }
                 else {
                     $( qnode.node ).find( "div.bottom > a" ).click( function() {
-                        alert( id );
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
                 }
             }
             Comments.FixCommentsNumber( qnode.type , true );
-            $( qnode.node ).fadeTo( 400 , 1 ).css( "border" , "1px solid black" );
+            $( qnode.node ).fadeTo( 400 , 1 );
         }
     }
 };
