@@ -321,6 +321,8 @@ var Comments = {
                 else {
                     $( node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
+
+                        return false;
                     } );
                 }
             }
