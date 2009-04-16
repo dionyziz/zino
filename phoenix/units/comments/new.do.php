@@ -48,7 +48,7 @@
         $comment->Itemid = $compage;
         $comment->Save();
 
-        Element::ClearFromCache( 'comment/list', $type, $compage );
+        //Element::ClearFromCache( 'comment/list', $type, $compage );
         
         echo $callback;
         ?>( <?php
