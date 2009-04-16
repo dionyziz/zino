@@ -120,15 +120,18 @@ var Comments = {
 			return;
 		}
 		var node = $( "dl dd.commentsnum" );
+        var icon = document.createElement( "span" );
+        $( icon ).addClass( 'commentsnum' ).append( document.createTextNode( ' ' ) );
 		if ( node.length !== 0 ) {
 			var commentsnum = parseInt( node.text(), 10 );
 			commentsnum = (inc)?commentsnum+1:commentsnum-1;
-			node.text( commentsnum + " σχόλια" );
+			$( node ).empty().append( icon ).append( document.createTextNode( commentsnum + " σχόλια" ) );
 		}
 		else {
 			var dd = document.createElement( 'dd' );
-			dd.className = "commentsnum";
-			dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
+			$( dd ).addClass( "commentsnum" )
+            .append( icon )
+			.append( document.createTextNode( "1 σχόλιο" ) );
 			$( "div dl" ).prepend( dd );
 		}
 	},
