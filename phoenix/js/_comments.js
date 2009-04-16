@@ -121,7 +121,7 @@ var Comments = {
 		}
 		var node = $( "dl dd.commentsnum" );
         var icon = document.createElement( "span" );
-        $( icon ).addClass( 's_commnum' ).append( document.createTextNode( ' ' ) );
+        $( icon ).addClass( 's_commnum' ).css( 'padding-left' , '19px' ).append( document.createTextNode( ' ' ) );
 		if ( node.length !== 0 ) {
 			var commentsnum = parseInt( node.text(), 10 );
 			commentsnum = (inc)?commentsnum+1:commentsnum-1;
