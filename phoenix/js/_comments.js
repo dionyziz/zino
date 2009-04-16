@@ -329,8 +329,8 @@ var Comments = {
                         return false;
                     } );
                 }
-                alert( qnode.node.id );
             }
+                alert( qnode.node.id );
             Comments.FixCommentsNumber( qnode.type , true );
             $( qnode.node ).fadeTo( 400 , 1 );
         }
