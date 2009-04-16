@@ -291,48 +291,48 @@ var Comments = {
                 Comments.Page.ShowComment( Comments.Page.Queue.pop() , 1000 );
             }
         },
-        ShowComment : function( node , parentid , name , type  , timervalue ) {
+        ShowComment : function( qnode , timervalue ) {
             /*alert( qnode.node );
             alert( qnode.name );
             alert( qnode.parentid );
             alert( qnode.type );
             */
-            if ( name == GetUsername() ) {
+            if ( qnode.name == GetUsername() ) {
                 return;
             }
             //setTimeout( "Comments.Page.NextComment();" , timervalue );
-            $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
-            id = $( node ).attr( "id" ).substr( 8 );
+            $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
+            id = $( qnode.node ).attr( "id" ).substr( 8 );
             alert( "ShowComment id is " + id );
-            if ( parentid == 0 ) {
-                $( node ).insertBefore( "[id^='comment_']:first" ); 
-                $( node ).find( "div.bottom > a" ).click( function() {
+            if ( qnode.parentid == 0 ) {
+                $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
+                $( qnode.node ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
             }
             else {
-                var parent = $( "#comment_" + parentid );
+                var parent = $( "#comment_" + qnode.parentid );
                 var parentleftmargin = Comments.FindLeftPadding( parent );
                 var parentident = Math.floor( parseInt( parentleftmargin , 10 ) / 20 );
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
                 
-                $( node ).insertAfter( parent )
+                $( qnode.node ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( node ).find( "div.bottom" ).empty();
+                    $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( node ).find( "div.bottom > a" ).click( function() {
+                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
                 }
             }
-                alert( node.id );
-            Comments.FixCommentsNumber( type , true );
-            $( node ).fadeTo( 400 , 1 );
+            alert( $( qnode.node ).find( "div.bottom > a" ).length );
+            Comments.FixCommentsNumber( qnode.type , true );
+            $( qnode.node ).fadeTo( 400 , 1 );
         }
     }
 };
