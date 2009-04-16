@@ -330,7 +330,7 @@ var Comments = {
                     } );
                 }
             }
-                alert( qnode.node[0] );
+                alert( qnode.node[0].id );
             Comments.FixCommentsNumber( qnode.type , true );
             $( qnode.node[0] ).fadeTo( 400 , 1 );
         }
