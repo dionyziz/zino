@@ -306,11 +306,11 @@ var Comments = {
             alert( "ShowComment id is " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                $( qnode.node ).find( "div.bottom > a" )[0].onclick = function() {
                     alert( "id is " + id );
                     //Comments.ToggleReply( id , 0 );
                     return false;
-                } );
+                };
             }
             else {
                 var parent = $( "#comment_" + qnode.parentid );
@@ -325,11 +325,11 @@ var Comments = {
                     $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                    $( qnode.node ).find( "div.bottom > a" )[0].onclick = function() {
                         alert( "id is " + id );
                         //Comments.ToggleReply( id , ident );
                         return false;
-                    } );
+                    };
                 }
             }
             alert( $( qnode.node ).find( "div.bottom > a" ).length );
