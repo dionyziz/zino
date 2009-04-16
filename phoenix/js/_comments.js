@@ -74,6 +74,7 @@ var Comments = {
         Comments.ToggledReplies[ parentid ] = 0;
 	},
     NewCommentCallback : function( node , id , parentid , newtext ) {
+        alert( "callback called" );
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
