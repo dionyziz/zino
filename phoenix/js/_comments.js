@@ -292,15 +292,10 @@ var Comments = {
             }
         },
         ShowComment : function( qnode , timervalue ) {
-            /*alert( qnode.node );
-            alert( qnode.name );
-            alert( qnode.parentid );
-            alert( qnode.type );
-            */
             if ( qnode.name == GetUsername() ) {
                 return;
             }
-            //setTimeout( "Comments.Page.NextComment();" , timervalue );
+            setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
@@ -330,7 +325,6 @@ var Comments = {
                     } );
                 }
             }
-            alert( $( qnode.node ).find( "div.bottom > a" ).length );
             Comments.FixCommentsNumber( qnode.type , true );
             $( qnode.node ).fadeTo( 400 , 1 );
         }
