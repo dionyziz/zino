@@ -301,12 +301,12 @@ var Comments = {
                 return;
             }
             //setTimeout( "Comments.Page.NextComment();" , timervalue );
-            $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
+            $( qnode.node[0] ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
             alert( "ShowComment id is " + id );
             if ( qnode.parentid == 0 ) {
-                $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                $( qnode.node[0] ).insertBefore( "[id^='comment_']:first" ); 
+                $( qnode.node[0] ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -318,22 +318,21 @@ var Comments = {
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
                 
-                $( qnode.node ).insertAfter( parent )
+                $( qnode.node[0] ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( qnode.node ).find( "div.bottom" ).empty();
+                    $( qnode.node[0] ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                    $( qnode.node[0] ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
                 }
             }
                 alert( qnode.node[0] );
-                alert( qnode.node[1] );
             Comments.FixCommentsNumber( qnode.type , true );
-            $( qnode.node ).fadeTo( 400 , 1 );
+            $( qnode.node[0] ).fadeTo( 400 , 1 );
         }
     }
 };
