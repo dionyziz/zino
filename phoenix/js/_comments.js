@@ -69,8 +69,8 @@ var Comments = {
 		}
 		Comments.numchildren[ id ] = 0;	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
-        node.attr( 'id', 'comment_' + id );
-		node.find( "div.text" ).html( newtext ).end()
+        node.attr( 'id', 'comment_' + id )
+		.find( "div.text" ).html( newtext ).end()
         .find( 'div.bottom' ).css( "visibility" , "visible" ).find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
                 return false;
