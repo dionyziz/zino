@@ -109,8 +109,10 @@ var Comments = {
             else {
                 Comments[ "Changed" + nodeid ] = true;
             }
-            Comments.typing = false;
-            Comments.Page.NextComment();
+            setTimeout( function() {
+                Comments.typing = false;
+                Comments.Page.NextComment();
+            } , 2000 );
         } ).get( 0 ).focus();
 	},
 	FixCommentsNumber : function( type, inc ) {
@@ -245,8 +247,10 @@ var Comments = {
             else {
                 Comments[ "Changed0"] = true;
             }
-            Comments.typing = false;
-            Comments.Page.NextComment();
+            setTimeout( function() {
+                Comments.typing = false;
+                Comments.Page.NextComment();
+            } , 2000 );
         } );
         var newtime = new Date().getTime();
         alert( newtime - oldtime + " miliseconds" );
