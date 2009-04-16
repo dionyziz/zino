@@ -110,7 +110,7 @@ var Comments = {
                 Comments[ "Changed" + nodeid ] = true;
             }
             Comments.typing = false;
-            //Comments.Page.NextComment();
+            Comments.Page.NextComment();
         } ).get( 0 ).focus();
 	},
 	FixCommentsNumber : function( type, inc ) {
@@ -147,7 +147,6 @@ var Comments = {
 
             return;
         }
-        // else...
         Comments.ToggledReplies[ id ] = 1;
         Comments.Reply( id, indent );
     },
@@ -208,7 +207,6 @@ var Comments = {
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
                 $( this ).empty()
-                //.css( 'margin-right' , Comments.lpadd[ i ] + 'px' )
                 .text( greekDateDiff( dateDiff( commdate , nowdate ) ) )
                 .show();
             } );
