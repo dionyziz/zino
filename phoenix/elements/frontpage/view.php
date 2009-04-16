@@ -216,6 +216,7 @@
                     case 'kolstad':
                     case 'ronaldo7':
                     case 'morvena':
+                    case 'maryway':
                     case 'crazy_sheep':
                        Element( 'shoutbox/comet' );
                        Element( 'frontpage/image/comet' );
@@ -235,6 +236,7 @@
                     case 'teh-ninja':
                     case 'intzakosd':
                     case 'crazy_sheep':
+                    case 'maryway':
                         Element( 'frontpage/notification/comet' );
                 }
             }
