@@ -89,6 +89,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
+        alert( "nodeid in Reply " + nodeid );
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
@@ -157,6 +158,7 @@ var Comments = {
     },
     ToggledReplies: {},
     ToggleReply: function ( id, indent ) {
+        alert( "id in ToggleReply is " + id );
         if ( typeof Comments.ToggledReplies[ id ] != 'undefined' && Comments.ToggledReplies[ id ] === 1 ) {
             $( '#comment_reply_' + id ).remove(); 
             Comments.ToggledReplies[ id ] = 0;
@@ -291,16 +293,18 @@ var Comments = {
             }
         },
         ShowComment : function( qnode , timervalue ) {
-            alert( qnode.node );
+            /*alert( qnode.node );
             alert( qnode.name );
             alert( qnode.parentid );
             alert( qnode.type );
+            */
             if ( qnode.name == GetUsername() ) {
                 return;
             }
             setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
+            alert( "ShowComment id is " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( qnode.node ).find( "div.bottom > a" ).click( function() {
