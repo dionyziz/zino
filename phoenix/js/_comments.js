@@ -78,9 +78,9 @@ var Comments = {
 			++Comments.numchildren[ parentid ];
 		}
 		Comments.numchildren[ id ] = 0;	
-        alert( "callback called" );
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
+        alert( "callback called" );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
                 return false;
