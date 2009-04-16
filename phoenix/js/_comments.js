@@ -74,11 +74,11 @@ var Comments = {
         Comments.ToggledReplies[ parentid ] = 0;
 	},
     NewCommentCallback : function( node , id , parentid , newtext ) {
-        alert( "callback called" );
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
 		Comments.numchildren[ id ] = 0;	
+        alert( "callback called" );
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
