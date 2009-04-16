@@ -178,10 +178,6 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-                /* 
-                var wid = this.offsetWidth-20;
-                $( this ).css( "width", wid-indent*20+'px' );
-                */
             } );
         }
         else {
@@ -196,13 +192,8 @@ var Comments = {
 
                 var indent = parseInt( Comments.lpadd[ i ], 10 )/20;
                 Comments.indents[ i ] = indent;
-                /* 
-                var wid = parseInt( $( this ).css( "width" ), 10 );
-                $( this ).css( "width", wid-indent*20+'px' );
-                */
             } );
         }
-
 
         $( "[id^='comment_'] > div.bottom > a" ).each( function( i ) {
             $( this ).click( function() {
@@ -234,9 +225,7 @@ var Comments = {
                 } );
                 $( "[id^='comment_'] > div.who > a > span.imageview > img.avatar[alt='" + username + "']" ).each( function( i ) {
                     $( this ).parent().parent().parent().parent().css( "border-top" , "3px solid #b3d589" );
-                    //$( Comments.parents[ i ] ).addClass( "minecomment" );
                 } );
-                //$( "div.comments > div.minecomment" ).css( "border-top" , "3px solid #b3d589" );
             }
         }
 
@@ -262,7 +251,7 @@ var Comments = {
             Comments.Page.NextComment();
         } );
         var newtime = new Date().getTime();
-        //alert( newtime - oldtime + " miliseconds" );
+        alert( newtime - oldtime + " miliseconds" );
     },
     Page : {
         Queue : [],
