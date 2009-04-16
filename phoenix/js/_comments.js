@@ -169,7 +169,6 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
-        var oldtime = new Date().getTime();
         if ( $.browser.msie ) {
             $( "[id^='comment_']" ).each( function( i ) {
                 var parent =  this;
@@ -255,8 +254,6 @@ var Comments = {
                 Comments.Page.NextComment();
             } , 2000 );
         } );
-        var newtime = new Date().getTime();
-        alert( newtime - oldtime + " miliseconds" );
     },
     Page : {
         Queue : [],
@@ -265,7 +262,7 @@ var Comments = {
                 return;
             }
             if ( !Comments.typing ) {
-                Comments.Page.ShowComment( Comments.Page.Queue.pop() , 1000 );
+                Comments.Page.ShowComment( Comments.Page.Queue.pop() , 2000 );
             }
         },
         ShowComment : function( qnode , timervalue ) {
