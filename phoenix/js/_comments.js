@@ -302,15 +302,13 @@ var Comments = {
             }
             //setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
-            id = $( qnode.node ).attr( "id" ).substr( 8 );
-            alert( "ShowComment id is " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node ).find( "div.bottom > a" )[0].onclick = function() {
-                    alert( $( this ).parent().parent().attr( "id" ) );
-                    //Comments.ToggleReply( id , 0 );
+                $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                    var id = $( this ).parent().parent().attr( "id" ).substr( 8 );
+                    Comments.ToggleReply( id , 0 );
                     return false;
-                };
+                } );
             }
             else {
                 var parent = $( "#comment_" + qnode.parentid );
@@ -325,11 +323,11 @@ var Comments = {
                     $( qnode.node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( qnode.node ).find( "div.bottom > a" )[0].onclick = function( id ) {
-                    alert( $( this ).parent().parent().attr( "id" ) );
-                        //Comments.ToggleReply( id , ident );
+                    $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                        var id = $( this ).parent().parent().attr( "id" ).substr( 8 );
+                        Comments.ToggleReply( id , ident );
                         return false;
-                    };
+                    } );
                 }
             }
             alert( $( qnode.node ).find( "div.bottom > a" ).length );
