@@ -22,10 +22,10 @@ var Comments = {
             return false;
         } );
 		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 ) / 20;
-        //var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
+        var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
+        var temp = daddy/*.css( "opacity", 0 )*/.removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
         .css( "border-top" , "3px solid #b3d589" )
 		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
@@ -62,7 +62,6 @@ var Comments = {
 		else {
 			temp.insertAfter( "#comment_" + parentid )/*.fadeTo( 400, 1 )*/;
 		}
-		
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
 		Coala.Warm( 'comments/new', { 	text : texter, 
@@ -89,7 +88,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
-		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px'/*, opacity : 0*/ } ).attr( 'id', 'comment_reply_' + nodeid );
+		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
         .css( "border-top" , "3px solid #b3d589" )
