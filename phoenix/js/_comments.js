@@ -306,8 +306,8 @@ var Comments = {
             alert( "ShowComment id is " + id );
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node ).find( "div.bottom > a" )[0].onclick = function( id ) {
-                    alert( "id is " + id );
+                $( qnode.node ).find( "div.bottom > a" )[0].onclick = function() {
+                    alert( $( this ).parent().parent().attr( "id" ) );
                     //Comments.ToggleReply( id , 0 );
                     return false;
                 };
@@ -326,7 +326,7 @@ var Comments = {
                 }
                 else {
                     $( qnode.node ).find( "div.bottom > a" )[0].onclick = function( id ) {
-                        alert( "id is " + id );
+                    alert( $( this ).parent().parent().attr( "id" ) );
                         //Comments.ToggleReply( id , ident );
                         return false;
                     };
