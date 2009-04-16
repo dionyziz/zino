@@ -29,7 +29,7 @@ var Comments = {
         .css( "border-top" , "3px solid #b3d589" )
 		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
-		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
+		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var valu = temp.find( "div.text" ).html();
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
@@ -80,7 +80,7 @@ var Comments = {
 		Comments.numchildren[ id ] = 0;	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id );
-		node.find( 'div.bottom' ).css( "visibility" , "visible" ).find( 'a' ).click( function() {
+		node.find( 'div.bottom' ).show().find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
                 return false;
             }
