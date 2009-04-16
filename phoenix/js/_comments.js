@@ -25,24 +25,14 @@ var Comments = {
         var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-        var temp = daddy/*.css( "opacity", 0 )*/.removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
+        var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
         .css( "border-top" , "3px solid #b3d589" )
-		//.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var valu = temp.find( "div.text" ).html();
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
 		
-		//---------------------
-        /*
-		if ( parentid !== 0 ) {
-			var kimeno = temp.find( "div.text" );
-			var wid = ( $.browser.msie ) ? ( kimeno.get( 0 ).offsetWidth-20 ) : parseInt( kimeno.css( "width" ), 10 );
-			kimeno.css( "width", wid-indent * 20 + 'px' );
-		}
-        */
-		//----------------------
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
@@ -57,10 +47,10 @@ var Comments = {
         .append( avatar ).append( document.createTextNode( username ) );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
 		if ( parentid === 0 ) {
-			temp.insertAfter( "div.newcomment:first" )/*.fadeTo( 400, 1 )*/;
+			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
-			temp.insertAfter( "#comment_" + parentid )/*.fadeTo( 400, 1 )*/;
+			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 		}
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
@@ -89,7 +79,6 @@ var Comments = {
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
         .css( "border-top" , "3px solid #b3d589" )
         .find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
@@ -99,7 +88,6 @@ var Comments = {
 				} ;
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-        //temp.find( "div.bottom input" ).get( 0 ).focus();
         Comments[ "Changed" + nodeid ] = false;
         $( temp ).find( "div.text textarea" ).focus( function() {
             if ( !Comments[ "Changed" + nodeid ] ) {
@@ -122,11 +110,6 @@ var Comments = {
             Comments.typing = false;
             //Comments.Page.NextComment();
         } ).get( 0 ).focus();
-		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
-		/*var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
-		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
-        */
-		//-----------------------------
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
