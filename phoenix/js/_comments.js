@@ -307,6 +307,7 @@ var Comments = {
             if ( qnode.parentid == 0 ) {
                 $( qnode.node ).insertBefore( "[id^='comment_']:first" ); 
                 $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                    alert( "id is " + id );
                     //Comments.ToggleReply( id , 0 );
                     return false;
                 } );
@@ -325,6 +326,7 @@ var Comments = {
                 }
                 else {
                     $( qnode.node ).find( "div.bottom > a" ).click( function() {
+                        alert( "id is " + id );
                         //Comments.ToggleReply( id , ident );
                         return false;
                     } );
