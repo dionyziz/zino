@@ -89,7 +89,6 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
-        alert( "nodeid in Reply " + nodeid );
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
@@ -301,7 +300,7 @@ var Comments = {
             if ( qnode.name == GetUsername() ) {
                 return;
             }
-            setTimeout( "Comments.Page.NextComment();" , timervalue );
+            //setTimeout( "Comments.Page.NextComment();" , timervalue );
             $( qnode.node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
             id = $( qnode.node ).attr( "id" ).substr( 8 );
             alert( "ShowComment id is " + id );
@@ -330,6 +329,7 @@ var Comments = {
                         return false;
                     } );
                 }
+                alert( qnode.node.id );
             }
             Comments.FixCommentsNumber( qnode.type , true );
             $( qnode.node ).fadeTo( 400 , 1 );
