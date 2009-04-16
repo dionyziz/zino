@@ -291,48 +291,48 @@ var Comments = {
                 Comments.Page.ShowComment( Comments.Page.Queue.pop() , 1000 );
             }
         },
-        ShowComment : function( qnode , timervalue ) {
+        ShowComment : function( node , parentid , name , type  , timervalue ) {
             /*alert( qnode.node );
             alert( qnode.name );
             alert( qnode.parentid );
             alert( qnode.type );
             */
-            if ( qnode.name == GetUsername() ) {
+            if ( name == GetUsername() ) {
                 return;
             }
             //setTimeout( "Comments.Page.NextComment();" , timervalue );
-            $( qnode.node[0] ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
-            id = $( qnode.node ).attr( "id" ).substr( 8 );
+            $( node ).css( "opacity" , "0" ).find( "div.toolbox span.time" ).empty().text( "πριν λίγο" ).show();
+            id = $( node ).attr( "id" ).substr( 8 );
             alert( "ShowComment id is " + id );
-            if ( qnode.parentid == 0 ) {
-                $( qnode.node[0] ).insertBefore( "[id^='comment_']:first" ); 
-                $( qnode.node[0] ).find( "div.bottom > a" ).click( function() {
+            if ( parentid == 0 ) {
+                $( node ).insertBefore( "[id^='comment_']:first" ); 
+                $( node ).find( "div.bottom > a" ).click( function() {
                     Comments.ToggleReply( id , 0 );
                     return false;
                 } );
             }
             else {
-                var parent = $( "#comment_" + qnode.parentid );
+                var parent = $( "#comment_" + parentid );
                 var parentleftmargin = Comments.FindLeftPadding( parent );
                 var parentident = Math.floor( parseInt( parentleftmargin , 10 ) / 20 );
                 var ident = parentident + 1;
                 var leftmargin = ident * 20;
                 
-                $( qnode.node[0] ).insertAfter( parent )
+                $( node ).insertAfter( parent )
                 .css( 'margin-left' , leftmargin + "px" );
                 if ( leftmargin > 500 ) {
-                    $( qnode.node[0] ).find( "div.bottom" ).empty();
+                    $( node ).find( "div.bottom" ).empty();
                 }
                 else {
-                    $( qnode.node[0] ).find( "div.bottom > a" ).click( function() {
+                    $( node ).find( "div.bottom > a" ).click( function() {
                         Comments.ToggleReply( id , ident );
                         return false;
                     } );
                 }
             }
-                alert( qnode.node[0].id );
-            Comments.FixCommentsNumber( qnode.type , true );
-            $( qnode.node[0] ).fadeTo( 400 , 1 );
+                alert( node.id );
+            Comments.FixCommentsNumber( type , true );
+            $( node ).fadeTo( 400 , 1 );
         }
     }
 };
