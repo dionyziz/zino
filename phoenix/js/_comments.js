@@ -4,11 +4,11 @@ var Comments = {
 	Create : function( parentid ) {
 		var texter;
 		if ( parentid === 0 ) { // Clear new comment message
-			texter = $( "div.newcomment div.text textarea" ).get( 0 ).value;
-			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
+			texter = $( "div.newcomment > div.text > textarea" ).get( 0 ).value;
+			$( "div.newcomment > div.text > textarea" ).get( 0 ).value = '';
 		}
 		else {
-			texter = $( "#comment_reply_" + parentid + " div.text textarea" ).get( 0 ).value;
+			texter = $( "#comment_reply_" + parentid + " > div.text > textarea" ).get( 0 ).value;
 		}
 		texter = $.trim( texter );
 		if ( texter === "" ) {
@@ -22,7 +22,7 @@ var Comments = {
             return false;
         } );
 		var indent = ( parentid === 0 )? -1: parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 ) / 20;
-        var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
+        //var marginright = ( parentid === 0 ) ? 0 : ( indent + 1 ) * 20 + 'px';
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
         var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" )/*.css( "marginRight", marginright )*/.text( "πριν λίγο" ).end()
@@ -89,7 +89,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
-		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
+		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px'/*, opacity : 0*/ } ).attr( 'id', 'comment_reply_' + nodeid );
 		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		$( temp ).find( "div.toolbox" ).show().end()
         .css( "border-top" , "3px solid #b3d589" )
