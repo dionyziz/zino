@@ -50,10 +50,8 @@
 
 				function togglePlayback() {
 					if ( !listPlayback ) {
-						if (!playing) {
-							listPlayback = true;
-							eval( playlist[nextSong++] );
-						}
+						listPlayback = true;
+						eval( playlist[nextSong++] );
 					}
 
 					if (playing) {
