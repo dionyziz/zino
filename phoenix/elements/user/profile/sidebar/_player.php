@@ -33,18 +33,18 @@
 
 
 				function playSong( url, song_id ) {
+					zplayer.sendEvent("LOAD", url );
+					zplayer.sendEvent("PLAY","true");
+					zplayer.addModelListener("TIME","progressBarHandler"); 
+					zplayer.addModelListener("LOADED", "bufferHandler" );
+					$("#progress").css("width","3px");
 					$("#playButton.play").removeClass("play");
 					$("#playButton").addClass("pause");
 					$("#playList li a.selected").removeClass('selected');
 					$("#playList li a span.playing").removeClass('playing');
 					$("#" + song_id).addClass('selected');
 					$("#" + song_id + " span" ).addClass('playing');
-					zplayer.sendEvent("LOAD", url );
-					zplayer.sendEvent("PLAY","true");
-					$("#progress").css("width","3px");
-					zplayer.addModelListener("TIME","progressBarHandler"); 
-					zplayer.addModelListener("LOADED", "bufferHandler" );
-					zplayer.addModelListener("STATE", "stateHandler" );
+					//zplayer.addModelListener("STATE", "stateHandler" );
 					playing = true;
 				}
 
@@ -55,7 +55,6 @@
 						eval( playlist[nextSong++] );
 						listPlayback = true;
 						//playing = true;
-
 					}
 
 					if (playing) {
