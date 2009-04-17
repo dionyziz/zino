@@ -49,8 +49,11 @@
 				}
 
 				function togglePlayback() {
-					if ( !listPlayback && !playing ) {
-						playlist[nextSong++]();
+					if ( !listPlayback ) {
+						if (!playing) {
+							listPlayback = true;
+							playlist[nextSong++]();
+						}
 					}
 
 					if (playing) {
