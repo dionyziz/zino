@@ -29,6 +29,8 @@
 				var zplayer = document.getElementById('playerObject');
 				var currentDuration;
 				var trackStarted = false; 
+				var listPlayback = false;
+
 
 				function playSong( url, song_id ) {
 					$("#playList li a.selected").removeClass('selected');
@@ -47,6 +49,11 @@
 				}
 
 				function togglePlayback() {
+					if ( !listPlayback && !playing ) {
+						playlist[nextSong++]();
+						listPlayback = true;
+					}
+
 					if (playing) {
 						zplayer.sendEvent("PLAY","false");
 						playing = false;
