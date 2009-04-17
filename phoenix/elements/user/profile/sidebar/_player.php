@@ -33,6 +33,8 @@
 
 
 				function playSong( url, song_id ) {
+					$("#playButton.play").removeClass("play");
+					$("#playButton").addClass("pause");
 					$("#playList li a.selected").removeClass('selected');
 					$("#playList li a span.playing").removeClass('playing');
 					$("#" + song_id).addClass('selected');
@@ -44,17 +46,16 @@
 					zplayer.addModelListener("LOADED", "bufferHandler" );
 					zplayer.addModelListener("STATE", "stateHandler" );
 					playing = true;
-					$("#playButton.play").removeClass("play");
-					$("#playButton").addClass("pause");
 				}
 
 				function togglePlayback() {
 					if ( !listPlayback ) {
-						$("#playButton.play").removeClass("play");
-						$("#playButton").addClass("pause");				
-						listPlayback = true;
-						playing = true;
+						//$("#playButton.play").removeClass("play");
+						//$("#playButton").addClass("pause");				
 						eval( playlist[nextSong++] );
+						listPlayback = true;
+						//playing = true;
+
 					}
 
 					if (playing) {
