@@ -54,6 +54,7 @@
 						//$("#playButton").addClass("pause");				
 						eval( playlist[nextSong++] );
 						listPlayback = true;
+						return;
 						//playing = true;
 					}
 
