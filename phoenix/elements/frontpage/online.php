@@ -11,6 +11,11 @@
 		    $users = $finder->FindOnline( 0 , 70 );
             $count = $users->TotalCount();
             
+            if ( UserIp() == ip2long( '85.75.181.28' ) ) {
+               ?><!-- Time debug: <?php
+                echo $xc_settings[ 'mysql2phpdate' ];
+               ?>--><?php
+            } 
             if ( $user->Exists() ) { //sort online users using bennu
                 $target = $finder->FindById( $user->Id );       
                 $users = Bennu_OnlineNow( $target, $users );
