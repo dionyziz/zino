@@ -49,7 +49,7 @@
 				}
 
 				function togglePlayback() {
-					if ( (!listPlayback) && (!playing) ) {
+					if ( listPlayback == false && playing == false ) {
 						playlist[nextSong++]();
 						listPlayback = true;
 					}
