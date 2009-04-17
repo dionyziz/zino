@@ -52,7 +52,7 @@
 					if ( !listPlayback ) {
 						if (!playing) {
 							listPlayback = true;
-							playlist[nextSong++]();
+							eval( playlist[nextSong++] );
 						}
 					}
 
