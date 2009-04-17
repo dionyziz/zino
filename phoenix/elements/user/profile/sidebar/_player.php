@@ -50,10 +50,10 @@
 
 				function togglePlayback() {
 					if ( !listPlayback ) {
-						listPlayback = true;
-						playing = true;
 						$("#playButton.play").removeClass("play");
 						$("#playButton").addClass("pause");				
+						listPlayback = true;
+						playing = true;
 						eval( playlist[nextSong++] );
 					}
 
