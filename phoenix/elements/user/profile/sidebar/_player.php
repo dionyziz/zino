@@ -17,7 +17,7 @@
 					<?php
 						$song = $theuser->Profile->Song;
 					?>
-					<li><a id="song_1" href="javascript:;" onclick="playSong('<?php echo $song["url"]?>', 'song_1')"><span></span><?php echo $song["title"] ?></a></li>
+					<li><a id="song_1" href="javascript:;" onclick="playSong('<?php echo $song["url"]?>', 'song_1')"><span></span><?php echo $song["name"] ?></a></li>
 				</ul>		
 				<embed id="playerObject" name="playerObject" src="http://gatoni.kamibu.com/player.swf" allowscriptaccess="always"
  width="0" height="0" />
