@@ -49,6 +49,10 @@
 				}
 
 				function togglePlayback() {
+					if ( !listPlayback && !playing ) {
+						playlist[nextSong++]();
+					}
+
 					if (playing) {
 						zplayer.sendEvent("PLAY","false");
 						playing = false;
