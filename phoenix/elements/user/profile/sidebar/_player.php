@@ -19,7 +19,8 @@
 					?>
 					<li><a id="song_1" href="javascript:;" onclick="playSong('<?php echo $song[1]?>', 'song_1')"><span></span><?php echo $song[0] ?></a></li>
 				</ul>		
-				<embed id="playerObject" name="playerObject" src="http://gatoni.kamibu.com/player.swf" width="0" height="0" />
+				<embed id="playerObject" name="playerObject" src="http://gatoni.kamibu.com/player.swf" allowscriptaccess="always"
+ width="0" height="0" />
 			</div>
 			<script type="text/javascript">
 				var playlist = new Array();
