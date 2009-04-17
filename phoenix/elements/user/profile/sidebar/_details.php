@@ -11,7 +11,9 @@
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
             ?></div>
-			Element( 'user/profile/sidebar/player', $theuser );
+			<?php
+				Element( 'user/profile/sidebar/player', $theuser );
+			?>
             <div class="aboutme"><?php
                 Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
