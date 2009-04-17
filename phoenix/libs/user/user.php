@@ -150,6 +150,9 @@
         public function FindOnline( $offset = 0, $limit = 100 ) {
             global $xc_settings;
             
+            if ( UserIp() == ip2long( '85.75.181.28' ) ) {
+                die( "Time debug: " . $xc_settings[ 'mysql2phpdate' ] );
+            } 
             $query = $this->mDb->Prepare(
                 'SELECT
                     SQL_CALC_FOUND_ROWS
