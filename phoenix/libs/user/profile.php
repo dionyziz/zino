@@ -128,7 +128,7 @@
 						case 58:
 							return array( "name" => "Blank & Jones ft Elles -  Mind of the wonderful" , "url" => "http://izual.kamibu.com/song.mp3" );
 						case 872:
-							return array( "name" => "pg.lost - Yes I Am" , "url" => "http://static.zino.gr/phoenix/art/player/yes_i_am.mp3" );
+							return array( "name" => "Peace Burial At Sea - 52 Faces" , "url" => "http://static.zino.gr/phoenix/art/player/52_faces.mp3" );
 						default:
 							return false;
                     }
