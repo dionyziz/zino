@@ -7,8 +7,8 @@
         // called to trim an HTML string ($html) to a given length ($length) in order for it to be 
         // used as a preview for a comment/journal/etc., but reserve XHTML strict validy
         
-        w_assert( is_string( $html ) );
-        w_assert( is_int( $length ) );
+        w_assert( is_string( $html ), "WYSIWYG HTML to be presented must be a string" );
+        w_assert( is_int( $length ), "WYSIWYG length limitation must be an integer" );
         
         $sanitizer = New XHTMLSanitizer();
         $sanitizer->SetMaxLength( $length );
