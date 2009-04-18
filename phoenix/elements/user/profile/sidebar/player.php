@@ -6,7 +6,7 @@
 			<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 			<div id="zinoPlayer">
 				<div id="playerControls">
-					<a href="" id="playButton" class="play" onclick="togglePlayback();return false;">Button</a>
+					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();return false;">Button</a>
 					<div id="progressBar">
 						<div id="buffered">
 							<div id="progress"></div><div id="progressEnd"></div>
@@ -15,7 +15,7 @@
 				</div>
 				<ul id="playList"><?php
 						$song = $theuser->Profile->Song;
-				?><li><a id="song_1" href="" onclick="playSong('<?php
+				?><li><a id="song_1" href="javascript:;" onclick="playSong('<?php
 						echo $song["url"];
 				?>', 'song_1');return false;"><span></span><?php
 					echo $song["name"];
