@@ -3,6 +3,7 @@
 
         public function Render( $theuser ) {?>
 			<?php
+				global $page;
 			 	$page->AttachScript( 'js/swfobject.js' );
 			?><div id="zinoPlayer">
 				<div id="playerControls">
