@@ -415,7 +415,7 @@
                 case 'Text':
                     if ( $this->mText === false ) {
                         $this->mText = Bulk::FindById( $this->Bulkid );
-                        }
+                    }
                     return $this->mText;
                 default:
                     return parent::__get( $key );
@@ -435,7 +435,7 @@
             
             $libs->Load( 'wysiwyg' );
             
-            return WYSIWYG_PresentAndSubstr( $this->mText, $length );
+            return WYSIWYG_PresentAndSubstr( $this->Text, $length );
         }
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
