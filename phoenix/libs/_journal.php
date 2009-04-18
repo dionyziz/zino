@@ -130,7 +130,7 @@
             $this->Bulkid = Bulk::Store( $this->mText );
         }
         public function OnUpdate() {            
-            Bulk::Store( $this->mText, $this->BulkId );
+            Bulk::Store( $this->mText, $this->Bulkid );
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
