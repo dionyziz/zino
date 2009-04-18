@@ -408,11 +408,14 @@
 
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
-        private $mText;
+        private $mText = false;
 
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                        }
                     return $this->mText;
                 default:
                     return parent::__get( $key );
