@@ -556,7 +556,7 @@
             if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }
-            $this->mBulkId = Bulk::Store( $this->mText );
+            $this->Bulkid = Bulk::Store( $this->mText );
         }
         public function Relations() {
             if ( $this->Exists() ) {
