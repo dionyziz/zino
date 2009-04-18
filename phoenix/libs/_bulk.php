@@ -24,7 +24,8 @@
             $keyids = array_flip( $ids );
             $already = array_intersect_key( $keyids, self::$mFetched );
             foreach ( $already as $id ) {
-                die( "Found $id in cache" );
+                echo( "Found $id in cache" );
+                die( var_dump( self::$mFetched ) );
                 $ret[ $id ] = self::$mFetched[ $id ];
                 unset( $ids[ $keyids[ $id ] ] );
             }
