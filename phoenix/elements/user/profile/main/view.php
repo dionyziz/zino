@@ -85,6 +85,9 @@
                         if ( $theuser->Gender == 'f' ) {
                             ?>Η <?php
                         }
+						elseif ( $theuser->Id == 872 ) {
+							?>Το <?php
+						}
                         else {
                             ?>Ο <?php
                         }
