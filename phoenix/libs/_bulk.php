@@ -107,6 +107,7 @@
             $query = $db->Prepare( "DELETE FROM :bulk WHERE `bulk_id` IN :Ids;" );
             $query->BindTable( 'bulk' );
             $query->Bind( 'Ids', $ids );
+            $query->Execute();
             foreach ( $ids as $id ) {
                 unset( self::$mFetched[ $id ] );
             }
