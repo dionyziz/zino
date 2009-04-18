@@ -79,7 +79,7 @@
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
-                        $this->mText = Bulk::FindById( $this->mBulkid );
+                        $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
                 default:
