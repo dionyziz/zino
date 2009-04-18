@@ -60,7 +60,7 @@
 
             $comment2 = New Comment( $comment->Id );
             $this->AssertEquals( '<h2>Lorem</h2> ipsum dolor sit amet', $comment2->Text, 'Wrong comment text on new instance' );
-            $this->AssertEquals( 'Lorem', $comment2->GetText( 5 ), 'Wrong comment text substring on new instance' );
+            $this->AssertEquals( 'Lorem ...', $comment2->GetText( 5 ), 'Wrong comment text substring on new instance' );
             $comment2->Delete();
         }
         public function TestEdit() {
