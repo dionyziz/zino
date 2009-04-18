@@ -88,7 +88,6 @@
             }
             $query->BindTable( 'bulk' );
             $query->Bind( 'text', $text );
-            die( $query->Apply() );
             $result = $query->Execute();
             if ( $id == 0 ) {
                 $id = $result->InsertId();
