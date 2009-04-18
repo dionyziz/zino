@@ -24,15 +24,13 @@
 
             $keyids = array_flip( $ids );
             $already = array_intersect_key( $keyids, self::$mFetched );
-            die( var_dump( $already ) );
             foreach ( $already as $id ) {
                 $ret[ $id ] = self::$mFetched[ $id ];
                 unset( $ids[ $keyids[ $id ] ] );
             }
 
-            die( 'Found by ID in cache: ' . count( $ret ) );
-
             if ( count( $ids ) ) {
+                die( "About to fetch some stuff" );
                 $ret += self::Fetch( $ids );
             }
 
