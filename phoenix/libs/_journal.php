@@ -67,7 +67,7 @@
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
-        private $mText;
+        private $mText = false;
 
         public function LoadDefaults() {
             global $user;
@@ -78,6 +78,9 @@
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->mBulkid );
+                    }
                     return $this->mText;
                 default:
                     return parent::__get( $key );
