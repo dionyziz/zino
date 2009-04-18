@@ -100,7 +100,7 @@
             
             $libs->Load( 'wysiwyg' );
             
-            return WYSIWYG_PresentAndSubstr( $this->mText, $length );
+            return WYSIWYG_PresentAndSubstr( $this->Text, $length );
         }
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Title );
