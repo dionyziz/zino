@@ -27,11 +27,11 @@
             $journal = New Journal();
             $journal->Text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras rhoncus. Nam aliquam. Donec augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pulvinar mollis nisi. Vivamus euismod vehicula turpis. Morbi turpis sapien, vestibulum sit amet, luctus ac, tincidunt imperdiet, lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec scelerisque est fermentum ante. In nec enim sit amet dui consectetuer auctor. Quisque sagittis nunc vel lorem. Curabitur id leo.";
             $journal->Userid = $this->mUser->Id;
-            $this->AssertEquals( "Lorem ipsum dolor sit amet", $journal->GetText( 26 ) );
+            $this->AssertEquals( "Lorem ipsum dolor sit amet,...", $journal->GetText( 26 ) );
             $journal->Save();
 
             $journal2 = New Journal( $journal->Id );
-            $this->AssertEquals( "Lorem ipsum dolor sit amet", $journal2->GetText( 26 ) );
+            $this->AssertEquals( "Lorem ipsum dolor sit amet,...", $journal2->GetText( 26 ) );
 
             $journal2->Delete();
         }
