@@ -52,6 +52,7 @@
 					$("#" + song_id + " span" ).addClass('playing');
 					//zplayer.addModelListener("STATE", "stateHandler" );
 					playing = true;
+					listPlayback = true;
 				}
 
 				function togglePlayback() {

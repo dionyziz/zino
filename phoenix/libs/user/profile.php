@@ -129,6 +129,8 @@
 							return array( "name" => "Blank & Jones ft Elles -  Mind of the wonderful" , "url" => "http://izual.kamibu.com/song.mp3" );
 						case 872:
 							return array( "name" => "Peace Burial At Sea - 52 Faces" , "url" => "http://static.zino.gr/phoenix/art/player/52_faces.mp3" );
+						case 3890:
+							return array( "name" => "Muse - Time is running out", "url" => "http://static.zino.gr/phoenix/art/player/timerunning.mp3" );
 						default:
 							return false;
                     }
