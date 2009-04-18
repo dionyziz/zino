@@ -408,6 +408,375 @@
                 }
             ?></div><?php
         }
+        private function get_all_functions() {
+            static $memo;
+            
+            if ( !isset( $memo ) ) {
+                $memo = get_defined_functions();
+            }
+            return $memo;
+        }
+        private function get_php_functions() {
+            static $memo;
+    
+            if ( !isset( $memo ) ) {
+                $allfunctions = $this->get_all_functions();
+                $phpfunctions = $allfunctions['internal'];
+                $phpfunctions[] = 'include';
+                $phpfunctions[] = 'include_once';
+                $phpfunctions[] = 'require';
+                $phpfunctions[] = 'require_once';
+
+                foreach ($phpfunctions as $function) {
+                    $map[ $function ] = true;
+                }
+                $memo = $map;
+            }
+            
+            return $memo;
+        }
+        private function callstack_plaintext( $callstack ) {
+            $functions = $this->get_php_functions();
+            
+            $calltrace_depth = 0;
+            $out = array();
+            $maxfunction = 0;
+            $maxsource   = 0;
+            $maxline     = 0;
+            for ( $i = count( $callstack ) - 1 ; $i >= 0 ; --$i ) {
+                if ( isset( $callstack[ $i ] ) ) {
+                    $info = $callstack[ $i ];
+                    $file = $info[ 'file' ]; // should already have been chopped for us
+                    if ( $file == '<water>' ) {
+                        // avoid tracing water calls
+                        continue;
+                    }
+                    ++$calltrace_depth;
+                    $me[ 'function' ] = '';
+                    echo "\n";
+                    if ( isset( $info[ 'depth' ] ) ) {
+                        $me[ 'function' ] .= str_repeat( ' ' , $info[ 'depth' ] * 2 );
+                    }
+                    if ( !empty( $info[ 'class' ] ) ) {
+                        $me[ 'function' ] .= $info[ 'class' ];
+                        if ( !isset( $call[ 'type' ] ) ) {
+                            $call[ 'type' ] = '->';
+                        }
+                        switch ( $call[ 'type' ] ) {
+                            case '::':
+                                $me[ 'function' ] .= '::';
+                                break;
+                            case '->':
+                            default:
+                                $me[ 'function' ] .= '->';
+                                break;
+                        }
+                    }
+                    if ( isset( $info[ 'function' ] ) ) {
+                        $phpfunction = isset( $functions[ $info[ 'function' ] ] );
+                        if ( $phpfunction ) {
+                            $me[ 'function' ] .= '*';
+                        }
+                        $me[ 'function' ] .= $info[ 'function' ];
+                        if ( $phpfunction ) {
+                            $me[ 'function' ] .= '*';
+                        }
+                    }
+                    $me[ 'function' ] .= '(';
+                    if ( isset( $info[ 'args' ] ) ) {
+                        $j = 0;
+                        $numargs = count( $info[ 'args' ] );
+                        foreach ( $info[ 'args' ] as $arg ) {
+                            $me[ 'function' ] .= ' ';
+                            if ( is_object( $arg ) ) {
+                                $me[ 'function' ] .= '[object]';
+                            }
+                            else if ( is_null( $arg ) ) {
+                                $me[ 'function' ] .= '[null]';
+                            }
+                            else if ( is_resource( $arg ) ) {
+                                $me[ 'function' ] .= '[resource: ' . get_resource_type( $arg ) . ']';
+                            }
+                            else if ( is_array( $arg ) ) {
+                                $me[ 'function' ] .= '[array]';
+                            }
+                            else if ( is_scalar( $arg ) ) {
+                                if ( is_bool( $arg ) ) {
+                                    if ( $arg ) {
+                                        $me[ 'function' ] .= '[true]';
+                                    }
+                                    else {
+                                        $me[ 'function' ] .= '[false]';
+                                    }
+                                }
+                                switch ( $info[ 'function' ] ) {
+                                    case 'include':
+                                    case 'include_once':
+                                    case 'require':
+                                    case 'require_once':
+                                        $me[ 'function' ] .= $this->chopfile( $arg );
+                                        break;
+                                    default:
+                                        if ( is_string( $arg ) ) {
+                                            $me[ 'function' ] .= '"';
+                                        }
+                                        $argshow = str_replace( array( "\n", "\r" ), ' ', substr( $arg , 0 , 30 ) );
+                                        $me[ 'function' ] .= $argshow;
+                                        if ( strlen( $arg ) > strlen( $argshow ) ) {
+                                            $me[ 'function' ] .= '...';
+                                        }
+                                        if ( is_string( $arg ) ) {
+                                            $me[ 'function' ] .= '"';
+                                        }
+                                }
+                            }
+                            $me[ 'function' ] .= ' ';
+                            ++$j;
+                            if ( $j != $numargs ) {
+                                $me[ 'function' ] .= ',';
+                            }
+                        }
+                    }
+                    $me[ 'function' ] .= ')';
+                    $me[ 'source' ] = '';
+                    if ( isset( $file ) ) {
+                        if ( $calltrace_depth == 1 ) {
+                            $me[ 'source' ] .= '*';
+                        }
+                        $me[ 'source' ] .= $file;
+                        if ( $calltrace_depth == 1 ) {
+                            $me[ 'source' ] .= '*';
+                        }
+                    }
+                    if ( isset( $info[ 'line' ] ) ) {
+                        $me[ 'line' ] = $info[ 'line' ];
+                    }
+                    else {
+                        $me[ 'line' ] = '-';
+                    }
+                    if ( $maxsource < strlen( $me[ 'source' ] ) ) {
+                        $maxsource = strlen( $me[ 'source' ] );
+                    }
+                    if ( $maxfunction < strlen( $me[ 'function' ] ) ) {
+                        $maxfunction = strlen( $me[ 'function' ] );
+                    }
+                    if ( $maxline < strlen( $me[ 'line' ] ) ) {
+                        $maxline = strlen( $me[ 'line' ] );
+                    }
+                    $out[] = $me;
+                }
+            }
+            
+            ?>function<?php
+            echo str_repeat( ' ', $maxfunction - strlen( 'function' ) + 2 );
+            ?>source<?php
+            echo str_repeat( ' ', $maxsource - strlen( 'source' ) + 2 );
+            ?>line<?php
+            
+            echo "\n";
+            echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
+            echo "\n";
+            foreach ( $out as $me ) {
+                echo $me[ 'function' ];
+                echo str_repeat( ' ', $maxfunction - strlen( $me[ 'function' ] ) + 2 );
+                echo $me[ 'source' ];
+                echo str_repeat( ' ', $maxsource - strlen( $me[ 'source' ] ) + 2 );
+                echo $me[ 'line' ];
+                echo "\n";
+            }
+            echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
+        }
+        private function chopfile( $filename ) {
+            if ( $filename === __FILE__ ) {
+                return '<water>';
+            }
+            
+            $beginpath = $this->mSettings[ 'server_root' ];
+            
+            if ( strtolower( substr( $filename, 0, strlen( $beginpath ) ) ) == $beginpath ) {
+                $ret = substr( $filename, strlen( $beginpath ) );
+            }
+            else {
+                $ret = $filename;
+            }
+            
+            if ( strtolower( substr( $ret, -4 ) ) == '.php' ) {
+                $ret = substr( $ret, 0, strlen( $ret ) - 4 );
+            }
+            
+            return $ret;
+        }
+        public function callstack_html( $callstack ) {
+            $functions = $this->get_php_functions();
+    
+            ?><div class="watertrace"><table class="callstack"><tr class="title">
+            <td class="title">function</td><td class="title">source</td><td class="title">line</td></tr><?php
+            $calltrace_depth = 0;
+            for ( $i = count( $callstack ) - 1 ; $i >= 0 ; --$i ) {
+                if ( isset( $callstack[ $i ] ) ) {
+                    $info = $callstack[ $i ];
+                    $file = $info[ 'file' ]; // should already have been chopped for us
+                    if ( $file == '<water>' ) {
+                        // avoid tracing water calls
+                        continue;
+                    }
+                    ++$calltrace_depth;
+                    ?><tr><?php
+                    ?><td class="function"><?php
+                    if ( isset( $info[ 'depth' ] ) ) {
+                        echo str_repeat( '&nbsp;' , $info[ 'depth' ] * 2 );
+                    }
+                    if ( !empty( $info[ 'class' ] ) ) {
+                        echo $info[ 'class' ];
+                        if ( !isset( $call[ 'type' ] ) ) {
+                            $call[ 'type' ] = '->';
+                        }
+                        switch ( $call[ 'type' ] ) {
+                            case '::':
+                                ?>::<?php
+                                break;
+                            case '->':
+                            default:
+                                ?>-&gt;<?php
+                                break;
+                        }
+                    }
+                    if ( isset( $info[ 'function' ] ) ) {
+                        $phpfunction = isset( $functions[ $info[ 'function' ] ] );
+                        if ( $phpfunction ) {
+                            ?><a href="http://www.php.net/<?php
+                            echo $info[ 'function' ];
+                            ?>"><?php
+                        }
+                        echo $info[ 'function' ];
+                        if ( $phpfunction ) {
+                            ?></a><?php
+                        }
+                    }
+                    ?>(<?php
+                    if ( isset( $info[ 'args' ] ) ) {
+                        $j = 0;
+                        $numargs = count( $info[ 'args' ] );
+                        foreach ( $info[ 'args' ] as $arg ) {
+                            ?> <?php
+                            if ( is_object( $arg ) ) {
+                                ?>[<?php
+                                echo get_class( $arg );
+                                ?> object]<?php
+                            }
+                            else if ( is_null( $arg ) ) {
+                                ?>[null]<?php
+                            }
+                            else if ( is_resource( $arg ) ) {
+                                ?>[resource: <?php
+                                echo get_resource_type( $arg );
+                                ?>]<?php
+                            }
+                            else if ( is_array( $arg ) ) {
+                                ?>[array]<?php
+                            }
+                            else if ( is_scalar( $arg ) ) {
+                                if ( is_bool( $arg ) ) {
+                                    if ( $arg ) {
+                                        ?>[true]<?php
+                                    }
+                                    else {
+                                        ?>[false]<?php
+                                    }
+                                }
+                                switch ( $info[ 'function' ] ) {
+                                    case 'include':
+                                    case 'include_once':
+                                    case 'require':
+                                    case 'require_once':
+                                        echo htmlspecialchars( $this->chopfile( $arg ) );
+                                        break;
+                                    default:
+                                        if ( is_string( $arg ) ) {
+                                            ?>"<?php
+                                        }
+                                        $argshow = substr( $arg , 0 , 30 );
+                                        echo htmlspecialchars( $argshow );
+                                        if ( strlen( $arg ) > strlen( $argshow ) ) {
+                                            ?>...<?php
+                                        }
+                                        if ( is_string( $arg ) ) {
+                                            ?>"<?php
+                                        }
+                                }
+                            }
+                            ?> <?php
+                            ++$j;
+                            if ( $j != $numargs ) {
+                                ?>,<?php
+                            }
+                        }
+                    }
+                    ?>)</td><td class="file"><?php
+                    if ( isset( $file ) ) {
+                        if ( $calltrace_depth == 1 ) {
+                            ?><b><?php
+                        }
+                        echo $file;
+                        if ( $calltrace_depth == 1 ) {
+                            ?></b><?php
+                        }
+                    }
+                    ?></td><td class="line"><?php
+                    if ( isset( $info[ 'line' ] ) ) {
+                        echo $info[ 'line' ];
+                    }
+                    else {
+                        ?>-<?php
+                    }
+                    ?></td></tr><?php
+                }
+            }
+            ?></table></div><?php
+        }
+        public function callstack_lastword( $backtrace = false ) {
+            if ( $backtrace === false ) {
+                $backtrace = debug_backtrace();
+            }
+            
+            $i = count( $backtrace ) - 1;
+            foreach ( $backtrace as $call ) {
+                if ( !isset( $call[ 'file' ] ) ) {
+                    $call[ 'file' ] = '';
+                }
+                if ( strlen( $call[ 'file' ] ) < strlen( $this->mSettings[ 'server_root' ] ) ) {
+                    $lastword[ $i ][ 'revision' ] = phpversion();
+                    $lastword[ $i ][ 'file' ] = '(unknown)';
+                    $lastword[ $i ][ 'line' ] = '-';
+                }
+                else {
+                    $lastword[ $i ][ 'file' ] = $this->chopfile( $call[ 'file' ] );
+                    $lastword[ $i ][ 'line' ] = $call[ 'line' ];
+                }
+                if ( isset( $call[ 'class' ] ) ) {
+                    $lastword[ $i ][ 'class' ] = $call[ 'class' ];
+                }
+                $lastword[ $i ][ 'function' ] = $call[ 'function' ];
+                $lastword[ $i ][ 'depth' ] = 0;
+                if( isset($call[ 'args' ]) ) {
+                    $lastword[ $i ][ 'args' ] = $call[ 'args' ];
+                }
+                if ( isset( $call[ 'type' ] ) ) {
+                    $lastword[ $i ][ 'calltype' ] = $call[ 'type' ];
+                }
+                --$i;
+            }
+            
+            return $lastword;
+        }
+        public function callstack( $callstack ) {
+            global $page;
+            
+            if ( $page instanceof PageHTML ) {
+                return $this->callstack_html( $callstack );
+            }
+            return $this->callstack_plaintext( $callstack );
+        }
     }
 
     global $water;
