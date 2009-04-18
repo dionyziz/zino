@@ -8,8 +8,6 @@
         private static $mFetched = array(); // array for caching bulk data in current request
         
         static public function FindById( $ids ) {
-            die( 'Finding by id: ' . $ids );
-
             $ret = array();
             if ( !is_array( $ids ) ) {
                 $ids = array( $ids );
@@ -30,6 +28,8 @@
                 $ret[ $id ] = self::$mFetched[ $id ];
                 unset( $ids[ $keyids[ $id ] ] );
             }
+
+            die( 'Found by ID in cache: ' . count( $ret ) );
 
             if ( count( $ids ) ) {
                 $ret += self::Fetch( $ids );
