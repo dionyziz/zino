@@ -18,12 +18,13 @@
             }
 
             foreach ( $ids as $id ) {
-                w_assert( is_numeric( $id ) );
+                w_assert( is_int( $id ) );
             }
 
             $keyids = array_flip( $ids );
             $already = array_intersect_key( $keyids, self::$mFetched );
             foreach ( $already as $id ) {
+                die( "Found $id in cache" );
                 $ret[ $id ] = self::$mFetched[ $id ];
                 unset( $ids[ $keyids[ $id ] ] );
             }
@@ -107,6 +108,9 @@
             $query = $db->Prepare( "DELETE FROM :bulk WHERE `bulk_id` IN :Ids;" );
             $query->BindTable( 'bulk' );
             $query->Bind( 'Ids', $ids );
+            foreach ( $ids as $id ) {
+                unset( self::$mFetched[ $id ] );
+            }
         }
     }
 ?>
