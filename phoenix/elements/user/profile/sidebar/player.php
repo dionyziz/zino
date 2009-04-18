@@ -22,7 +22,7 @@
 					echo $song["name"];
 				?></a></li>
 				</ul>		
-				<embed id="playerObject" name="playerObject" src="http://gatoni.kamibu.com/player.swf" allowscriptaccess="always"
+				<embed id="playerObject" name="playerObject" src="http://static.zino.gr/phoenix/player.swf" allowscriptaccess="always"
  width="0" height="0" />
 			</div>
 			<script type="text/javascript">
