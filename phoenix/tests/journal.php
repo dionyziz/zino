@@ -18,7 +18,7 @@
             $user = New User();
             $user->Name = 'testjournals';
             $user->Subdomain = 'testjournals';
-            $user->Email = 'bitbucket@kamibu.com';
+            $user->Profile->Email = 'bitbucket@kamibu.com';
             $user->Save();
 
             $this->mUser = $user;
