@@ -53,7 +53,7 @@
             }
 
             $userfinder = New UserFinder();
-            $users = $finder->FindByIds( $userids );
+            $users = $userfinder->FindByIds( $userids );
             $bulks = Bulk::FindById( $bulkids );
 
             foreach ( $journals as $i => $journal ) {
