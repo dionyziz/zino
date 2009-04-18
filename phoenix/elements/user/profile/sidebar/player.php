@@ -16,7 +16,7 @@
 				?><li><a id="song_1" href="javascript:;" onclick="playSong('<?php
 						echo $song["url"];
 				?>', 'song_1');"><span></span><?php
-					echo $song["name"];
+					 echo htmlspecialchars($song["name"] );
 				?></a></li>
 				</ul>		
 				<embed id="playerObject" name="playerObject" src="http://static.zino.gr/phoenix/player.swf" allowscriptaccess="always"
