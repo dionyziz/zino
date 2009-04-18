@@ -9,9 +9,10 @@
     </head>
 	<body>
 		<script type="text/javascript">
+		document.domain = "beta.zino.gr";
  $.ajax({
    type: "GET",
-   url: "http://ch-world.beta.zino.gr/phoenix/test.html",
+   url: "http://beta.zino.gr/phoenix/test.html",
    success: function(msg){
      alert( "Data Saved: " + msg );
    },
