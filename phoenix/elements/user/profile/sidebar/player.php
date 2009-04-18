@@ -31,6 +31,12 @@
 				var trackStarted = false; 
 				var listPlayback = false;
 
+				function startup() {
+					makePlaylist("playList");
+					$("#progressBar").click( function(e) {
+						zplayer.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
+					});
+				}
 
 				function playSong( url, song_id ) {
 					zplayer.sendEvent("LOAD", url );
@@ -50,12 +56,10 @@
 
 				function togglePlayback() {
 					if ( !listPlayback ) {
-						//$("#playButton.play").removeClass("play");
-						//$("#playButton").addClass("pause");				
+						startup();
 						eval( playlist[nextSong++] );
 						listPlayback = true;
 						return;
-						//playing = true;
 					}
 
 					if (playing) {
@@ -99,13 +103,6 @@
 						playlist[ totalSongs++ ] = $(this).attr('onclick');
 					});
 				}
-
-				$(document).ready( function() {
-					makePlaylist("playList");
-					$("#progressBar").click( function(e) {
-						zplayer.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
-					});
-				});
 			</script><?php
         }
     }
