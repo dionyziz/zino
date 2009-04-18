@@ -32,7 +32,7 @@
                         if ( $gender == 'f' ) {
                             ?>Η <?php
                         }
-						else if ( $userid == 872 ) {
+						elseif ( $userid == 872 ) {
 							?>Το <?php
 						}
                         else {
