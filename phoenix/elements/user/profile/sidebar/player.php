@@ -2,10 +2,7 @@
     class ElementUserProfileSidebarPlayer extends Element {
 
         public function Render( $theuser ) {?>
-			<?php
-				global $page;
-			 	$page->AttachScript( 'js/swfobject.js' );
-			?><div id="zinoPlayer">
+			<div id="zinoPlayer">
 				<div id="playerControls">
 					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
 					<div id="progressBar">
