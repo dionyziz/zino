@@ -19,7 +19,6 @@
 
             foreach ( $ids as $id ) {
                 w_assert( is_numeric( $id ) );
-                $ret[ $id ] = false; // assume not found
             }
 
             $keyids = array_flip( $ids );
@@ -31,7 +30,12 @@
 
             if ( count( $ids ) ) {
                 $ret += self::Fetch( $ids );
-                die( var_dump( $ret ) );
+            }
+
+            foreach ( $ids as $id ) {
+                if ( !isset( $ret[ $id ] ) ) {
+                    $ret[ $id ] = false; // always return what we were asked for
+                }
             }
 
             if ( $was_array ) {
