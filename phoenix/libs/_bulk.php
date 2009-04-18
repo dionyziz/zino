@@ -31,6 +31,7 @@
 
             if ( count( $ids ) ) {
                 $ret += self::Fetch( $ids );
+                die( var_dump( $ret ) );
             }
 
             if ( $was_array ) {
@@ -63,8 +64,6 @@
                 $ret[ $row[ "bulk_id" ] ] = $row[ 'bulk_text' ];
                 self::$mFetched[ $row[ "bulk_id" ] ] = $row[ 'bulk_text' ]; // add data to cache
             }
-            var_dump( $ret );
-            die();
 
             return $ret;
         }
