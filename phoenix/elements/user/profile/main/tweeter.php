@@ -32,6 +32,9 @@
                         if ( $gender == 'f' ) {
                             ?>Η <?php
                         }
+						else if ( $userid == 872 ) {
+							?>Το <?php
+						}
                         else {
                             ?>Ο <?php
                         }
@@ -58,9 +61,6 @@
                                 if ( $gender == 'f' ) {
                                     ?>Η <?php
                                 }
-								else if ( $userid == 872) {
-									?>Το <?php
-								}
                                 else {
                                     ?>Ο <?php
                                 }
