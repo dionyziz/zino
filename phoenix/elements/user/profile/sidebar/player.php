@@ -6,18 +6,20 @@
 			<script type='text/javascript' src='http://beta.zino.gr/phoenix/etc/mockups/swfobject.js'></script>
 			<div id="zinoPlayer">
 				<div id="playerControls">
-					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
+					<a href="" id="playButton" class="play" onclick="togglePlayback();return false;">Button</a>
 					<div id="progressBar">
 						<div id="buffered">
 							<div id="progress"></div><div id="progressEnd"></div>
 						</div><div id="bufferedEnd"></div>
 					</div>
 				</div>
-				<ul id="playList">
-					<?php
+				<ul id="playList"><?php
 						$song = $theuser->Profile->Song;
-					?>
-					<li><a id="song_1" href="javascript:;" onclick="playSong('<?php echo $song["url"]?>', 'song_1')"><span></span><?php echo $song["name"] ?></a></li>
+				?><li><a id="song_1" href="" onclick="playSong('<?php
+						echo $song["url"];
+				?>', 'song_1');return false;"><span></span><?php
+					echo $song["name"];
+				?></a></li>
 				</ul>		
 				<embed id="playerObject" name="playerObject" src="http://gatoni.kamibu.com/player.swf" allowscriptaccess="always"
  width="0" height="0" />
