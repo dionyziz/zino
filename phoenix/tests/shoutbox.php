@@ -18,6 +18,7 @@
             $user->Name = 'testshoutbox';
             $user->Subdomain = 'testshoutbox';
             $user->Rights = PERMISSION_SHOUTBOX_EDIT_ALL;
+            $user->Profile->Email = 'bitbucket@kamibu.com';
             $user->Save();
 
             $this->mUsers[] = $user;
