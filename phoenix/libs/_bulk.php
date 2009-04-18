@@ -1,7 +1,10 @@
 <?php 
-
     /*
         Developers: abresas, dionyziz
+
+        MASKED
+        By: dionyziz
+        Reason: Rewriting bulk library (optimized, more straightforward, less OOP)
     */
 
     class Bulk { // namespace
