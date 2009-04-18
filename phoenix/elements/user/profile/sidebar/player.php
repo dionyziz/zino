@@ -53,6 +53,7 @@
 					//zplayer.addModelListener("STATE", "stateHandler" );
 					playing = true;
 					listPlayback = true;
+
 				}
 
 				function togglePlayback() {
