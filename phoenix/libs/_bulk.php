@@ -23,6 +23,7 @@
             }
 
             $keyids = array_flip( $ids );
+            die( var_dump( self::$mFetched ) );
             $already = array_intersect_key( $keyids, self::$mFetched );
             foreach ( $already as $id ) {
                 $ret[ $id ] = self::$mFetched[ $id ];
