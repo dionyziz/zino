@@ -8,6 +8,8 @@
         private static $mFetched = array(); // array for caching bulk data in current request
         
         static public function FindById( $ids ) {
+            die( 'Finding by id: ' . $ids );
+
             $ret = array();
             if ( !is_array( $ids ) ) {
                 $ids = array( $ids );
