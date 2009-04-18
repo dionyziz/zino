@@ -164,11 +164,13 @@ var Meteor = {
 
 	pollmode: function() {
 		Meteor.log("Ping timeout");
+        /*
 		Meteor.mode="smartpoll";
 		clearTimeout(Meteor.pingtimer);
 		Meteor.callbacks.changemode("poll");
 		Meteor.lastpingtime = false;
 		Meteor.connect();
+        */
 	},
 
 	process: function(id, channel, data) {
