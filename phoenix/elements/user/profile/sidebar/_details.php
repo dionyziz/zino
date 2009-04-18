@@ -2,7 +2,7 @@
     class ElementUserProfileSidebarDetails extends Element {
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
-        public function Render( $theuser , $theuserid ,  $lastupdated ) {
+        public function Render( $theuser, $theuserid, $lastupdated ) {
             $profile = $theuser->Profile;
             ?><div class="look">
 				<span class="malebody">&nbsp;</span><?php
@@ -10,12 +10,10 @@
             ?></div>
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
-            ?></div>
-			<?php
+            ?></div><?php
 				if ( $theuserid == 872 )
 					Element( 'user/profile/sidebar/player', $theuser );
-			?>
-            <div class="aboutme"><?php
+			?><div class="aboutme"><?php
                 Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
             <div class="interests"><?php
