@@ -55,7 +55,6 @@
 					listPlayback = true;
 				}
 
-
 				function togglePlayback() {
 					if ( !listPlayback ) {
 						startup();
