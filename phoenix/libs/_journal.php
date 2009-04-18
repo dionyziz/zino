@@ -57,7 +57,9 @@
             $bulks = Bulk::FindById( $bulkids );
 
             foreach ( $journals as $i => $journal ) {
-                $journals[ $i ]->CopyUserFrom( $users[ $journal->Userid ] );
+                if ( isset( $users[ $journal->Userid ] ) ) {
+                    $journals[ $i ]->CopyUserFrom( $users[ $journal->Userid ] );
+                }
                 $journals[ $i ]->Text = $bulks[ $journal->Bulkid ];
             }
 
