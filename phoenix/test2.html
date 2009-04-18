@@ -9,9 +9,20 @@
     </head>
 	<body>
 		<script type="text/javascript">
-$.get("http://ch-world.beta.zino.gr/phoenix/test.html", function(data){
-  alert("Data Loaded: " + data);
-});
+ $.ajax({
+   type: "GET",
+   url: "test.html",
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   },
+   error: function (XMLHttpRequest, textStatus, errorThrown) {
+  // typically only one of textStatus or errorThrown 
+  // will have info
+  alert( textStatus ); // the options for this ajax request
+}
+
+ });
+
 		</script>
     </body>
 </html>
