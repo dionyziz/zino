@@ -20,12 +20,12 @@
         public function TestCreation() {
             $id = Bulk::Store( "foobarblah" );
 
-            $this->Assert( $id, 'Bulk Id should be numeric after saving' );
+            $this->Assert( is_int( $id ), 'Bulk Id should be an integer after saving' );
 
             $this->mTestId = $id;
             $text = Bulk::FindById( $this->mTestId );
 
-            $this->AssertEquals( "foobarblah", $text, 'Bulk text not the one saved after creating a new instance' );
+            $this->AssertEquals( "foobarblah", $text, 'Bulk text not the one saved after creating a new instance (with id ' . $id . ')' );
         }
         public function TestFindOne() {
             $text = Bulk::FindById( $this->mTestId );
