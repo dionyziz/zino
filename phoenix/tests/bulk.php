@@ -29,7 +29,7 @@
         }
         public function TestFindOne() {
             $text = Bulk::FindById( $this->mTestId );
-            $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
+            $this->AssertEquals( "foobarblah", $text, 'Bulk text not the one saved after creating a new instance' );
         }
         public function TestDelete() {
             Bulk::Delete( $this->mTestId );

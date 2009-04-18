@@ -42,9 +42,7 @@
                 return $ret;
             }
 
-            if ( count( $ret ) ) {
-                return array_shift( $ret );
-            }
+            return array_shift( $ret );
         }
 
         static private function Fetch( $ids ) {
