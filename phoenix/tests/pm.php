@@ -22,13 +22,13 @@
 
             $this->mUser = New User();
             $this->mUser->Name = 'testpms';
-            $this->mUser->Email = 'bitbucket@kamibu.com';
+            $this->mUser->Profile->Email = 'bitbucket@kamibu.com';
             $this->mUser->Subdomain = 'testpms';
             $this->mUser->Save();
 
             $this->mUser2 = New User();
             $this->mUser2->Name = 'testpms2';
-            $this->mUser->Email = 'bitbucket@kamibu.com';
+            $this->mUser->Profile->Email = 'bitbucket@kamibu.com';
             $this->mUser2->Subdomain = 'testpms2';
             $this->mUser2->Save();
         }
