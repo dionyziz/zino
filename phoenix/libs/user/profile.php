@@ -131,6 +131,8 @@
 							return array( "name" => "Peace Burial At Sea - 52 Faces" , "url" => "http://static.zino.gr/phoenix/art/player/52_faces.mp3" );
 						case 3890:
 							return array( "name" => "Muse - Time is running out", "url" => "http://static.zino.gr/phoenix/art/player/timerunning.mp3" );
+						case 4005:
+							return array( "name" => "Los Lobos - Cancion del Mariachi", "url" => "http://pagio.kamibu.com/01%20Cancion%20del%20Mariachi.mp3");
 						default:
 							return false;
                     }
