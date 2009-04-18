@@ -22,6 +22,7 @@
             $user = New User();
             $user->Name = 'testcomments';
             $user->Subdomain = 'testcomments';
+            $user->Email = 'bitbucket@kamibu.com';
             $user->Save();
 
             $this->mUser = $user;
@@ -42,6 +43,7 @@
             $this->mUser2 = New User();
             $this->mUser2->Name = 'testcomments2';
             $this->mUser2->Subdomain = 'testcomments2';
+            $this->mUser2->Email = 'bitbucket@kamibu.com';
             $this->mUser2->Save();
         }
         public function TestCreation() {
