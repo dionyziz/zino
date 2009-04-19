@@ -4,7 +4,6 @@
             global $libs;
             
             $libs->Load( 'contacts/fetcher' );
-            $page->SetTitle( "Επιλογή Επαφών" );
             
             $email = $email->Get();
             $password = $password->Get();
