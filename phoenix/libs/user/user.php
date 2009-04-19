@@ -21,8 +21,19 @@
     
     
     function User_Valid( $username ) {
-        $reserved = Array( 'anonymous', 'www', 'beta', 'store', 'radio', 'iphone', 'universe' );
-        return ( ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved ) );
+        static $reserved = array(
+            'anonymous',
+            'www',
+            'beta',
+            'store',
+            'radio',
+            'iphone',
+            'universe',
+            'images',
+            'images2',
+            'static'
+        );
+        return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved );
     }
     function User_DeriveSubdomain( $username ) {
         /* RFC 1034 - They must start with a letter, 
