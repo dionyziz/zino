@@ -72,7 +72,7 @@
 
     class Shout extends Satori {
         protected $mDbTableAlias = 'shoutbox';
-        private $mText;
+        private $mText = false;
         
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
