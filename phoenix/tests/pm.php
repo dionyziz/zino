@@ -105,7 +105,7 @@
             $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ]->Id, 'Wrong userid on second userpm receiver' );
 
             $receiverinbox = $folderfinder->FindByUserAndType( $this->mUser2, PMFOLDER_INBOX );
-            $receiverpms = $receiverinbox->UserPMs;
+            $receiverpms = $receiverinbox->PMs;
             $this->AssertEquals( 1, count( $receiverpms ), 'Wrong number of pms in receiver inbox' );
 
             $pm = $receiverpms[ 0 ];
