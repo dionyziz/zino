@@ -8,7 +8,6 @@
             $email = $email->Get();
             $password = $password->Get();
 
-            echo $email.$password;
             $gmail = New ContactsFetcher();
             if ( $gmail->Login( 'ted', '998877' ) ) {
                 $contacts = $gmail->Retrieve();
