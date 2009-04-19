@@ -5,7 +5,7 @@
             global $user;
             global $libs;
             
-            $libs->Load( 'contacts/contacts' );
+            $libs->Load( 'contacts/fetcher' );
             $libs->Load( 'user/profile' );
             $libs->Load( 'relation/relation' );
             
