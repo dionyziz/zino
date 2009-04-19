@@ -144,9 +144,7 @@
             if(  $user->HasPermission( PERMISSION_SHOUTBOX_EDIT_ALL ) || ( $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) && $this->Userid == $user->Id ) ) {
                 return true;
             }
-            else {
-                throw new Exception( "No permissions to edit shout" );
-            }
+            throw new Exception( "No permissions to edit shout" );
         }
         
     }

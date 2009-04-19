@@ -31,6 +31,7 @@
 
             $s = New Shout( $shout->Id );
             $this->AssertEquals( $this->mUsers[ 0 ]->Id, $s->Userid, 'Wrong userid' );
+            die( var_dump( $s->Text ) );
             $this->AssertEquals( "foo bar blah", $s->Text, 'Wrong text' );
 
             $shout->Delete();
