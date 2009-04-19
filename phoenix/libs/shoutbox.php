@@ -4,6 +4,7 @@
         protected $mModel = 'Shout';
                 
         // We use this as it is here or global function? --d3nnn1z
+        // This function is public -- can be used from anywhere --dionyziz
         public function Count() {
             $query = $this->mDb->Prepare(
             'SELECT
@@ -53,8 +54,7 @@
                 $bulkids[] = $shout->Bulkid;
             }
 
-            $finder = New BulkFinder();
-            $bulks = $finder->FindById( $bulkids );
+            $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
             while ( $shout = array_shift( $shouts ) ) {
@@ -68,16 +68,16 @@
 
     class Shout extends Satori {
         protected $mDbTableAlias = 'shoutbox';
+        private $mText = false;
         
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         public function CopyBulkFrom( $value ) {
-            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
+            $this->mText = $value;
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         
         public function LoadDefaults() {
@@ -88,16 +88,16 @@
         }
         
         public function OnBeforeCreate() {
-            global $user;
-
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
+            $this->Bulkid = Bulk::Store( $this->mText );
         }
 
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
-                    return $this->Bulk->Text;
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
+                    return $this->mText;
                 default:
                     return parent::__get( $key );
             }
@@ -106,7 +106,7 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    $this->Bulk->Text = $value;
+                    $this->mText = $value;
                     return;
                 default:
                     return parent::__set( $key, $value );
