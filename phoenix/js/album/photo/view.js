@@ -72,5 +72,25 @@ var PhotoView = {
 		}
 		$( 'div#pview h2' ).empty().append( document.createTextNode( name ) );
 		PhotoView.renaming = false;
-	}
+	},
+    scroll : function( direction ){
+        if ( direction == "left" ){
+            window.location = $( "div.plist > ul > li.selected" ).prev().find( "a" ).attr( "href" );
+        }
+        else if ( direction == "right" ){
+            window.location = $( "div.plist > ul > li.selected" ).next().find( "a" ).attr( "href" );
+        }
+    },
+    scrollInit : function(){
+        $( document ).keypress( function( e ) {
+            if ( e.witch == 37 ){
+                PhotoView.scroll( "left" );
+                return;
+            }
+            if ( e.witch == 39 ){
+                PhotoView.scroll( "right" );
+                return;
+            }
+        }
+    }
 };
