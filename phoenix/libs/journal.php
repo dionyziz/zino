@@ -50,13 +50,16 @@
             $userfinder = New UserFinder();
             $userids = array_flip( array_flip( $userids ) );
             $bulkids = array_flip( array_flip( $bulkids ) );
-            die( var_dump( $userids ) );
             $users = $userfinder->FindByIds( $userids );
+            $userbyid = array();
+            foreach ( $users as $user ) {
+                $userbyid[ $user->Id ] = $user;
+            }
             $bulks = Bulk::FindById( $bulkids );
 
             foreach ( $journals as $i => $journal ) {
-                if ( isset( $users[ $journal->Userid ] ) ) {
-                    $journals[ $i ]->CopyUserFrom( $users[ $journal->Userid ] );
+                if ( isset( $userbyid[ $journal->Userid ] ) ) {
+                    $journals[ $i ]->CopyUserFrom( $userbyid[ $journal->Userid ] );
                 }
                 $journals[ $i ]->Text = $bulks[ $journal->Bulkid ];
             }
