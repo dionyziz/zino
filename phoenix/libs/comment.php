@@ -1,5 +1,7 @@
 <?php
-    
+    /*
+        Developer: abresas
+    */
     global $libs;
 
     $libs->Load( 'poll/poll' );
@@ -254,14 +256,13 @@
                 $bulkids[] = $comment->Bulkid;
             }
 
-            $finder = New BulkFinder();
-            $bulks = $finder->FindById( $bulkids );
+            $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
             foreach ( $bytype as $type => $comments ) {
                 $comments = $this->FindItemsByType( $type, $comments );
                 foreach ( $comments as $comment ) {
-                    $comment->CopyBulkFrom( $bulks[ $comment->Bulkid ] );
+                    $comment->Text = $bulks[ $comment->Bulkid ];
                     $ret[ $comment->Id ] = $comment;
                 }
             }
@@ -391,12 +392,11 @@
                 $bulkids[] = $comment->Bulkid;
             }
 
-            $finder = New BulkFinder();
-            $bulks = $finder->FindById( $bulkids );
+            $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
             while ( $comment = array_shift( $comments ) ) {
-                $comment->CopyBulkFrom( $bulks[ $comment->Bulkid ] );
+                $comment->Text = $bulks[ $comment->Bulkid ];
                 $ret[ $comment->Id ] = $comment;
             }
 
@@ -406,11 +406,15 @@
 
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
+        private $mText = false;
 
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
-                    return $this->Bulk->Text;
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
+                    return $this->mText;
                 default:
                     return parent::__get( $key );
             }
@@ -418,7 +422,7 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    $this->Bulk->Text = $value;
+                    $this->mText = $value;
                     return;
                 default:
                     return parent::__set( $key, $value );
@@ -429,16 +433,13 @@
             
             $libs->Load( 'wysiwyg' );
             
-            return WYSIWYG_PresentAndSubstr( $this->Bulk->Text, $length );
+            return WYSIWYG_PresentAndSubstr( $this->Text, $length );
         }
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
-        }
-        public function CopyBulkFrom( $value ) {
-            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
         }
         public function IsEditableBy( $user ) {
             return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
@@ -550,14 +551,13 @@
                 $adminaction->saveAdminAction( $user->id , UserIp() , OPERATION_EDIT, TYPE_COMMENT, $this->id );
             }
             
-            $this->Bulk->Save();
+            Bulk::Store( $this->mText, $this->Bulkid );
         }
         public function OnBeforeCreate() {
             if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
+            $this->Bulkid = Bulk::Store( $this->mText );
         }
         public function Relations() {
             if ( $this->Exists() ) {
@@ -565,7 +565,6 @@
             }
             $this->Parent = $this->HasOne( 'Comment', 'Parentid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function LoadDefaults() {
             global $user;

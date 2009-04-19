@@ -1,5 +1,4 @@
 <?php
-
     class ShoutboxFinder extends Finder {
         protected $mModel = 'Shout';
                 
@@ -53,12 +52,11 @@
                 $bulkids[] = $shout->Bulkid;
             }
 
-            $finder = New BulkFinder();
-            $bulks = $finder->FindById( $bulkids );
+            $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
             while ( $shout = array_shift( $shouts ) ) {
-                $shout->CopyBulkFrom( $bulks[ $shout->Bulkid ] );
+                $shout->Text = $bulks[ $shout->Bulkid ];
                 $ret[] = $shout;
             }
 
@@ -68,16 +66,13 @@
 
     class Shout extends Satori {
         protected $mDbTableAlias = 'shoutbox';
+        private $mText = false;
         
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
-        public function CopyBulkFrom( $value ) {
-            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
-        }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         
         public function LoadDefaults() {
@@ -87,17 +82,21 @@
             $this->Created = NowDate();
         }
         
-        public function OnBeforeCreate() {
-            global $user;
+        protected function OnBeforeCreate() {
+            $this->Bulkid = Bulk::Store( $this->mText );
+        }
 
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
+        protected function OnBeforeUpdate() {
+            Bulk::Store( $this->mText, $this->mBulkId );
         }
 
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
-                    return $this->Bulk->Text;
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
+                    return $this->mText;
                 default:
                     return parent::__get( $key );
             }
@@ -106,7 +105,7 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    $this->Bulk->Text = $value;
+                    $this->mText = $value;
                     return;
                 default:
                     return parent::__set( $key, $value );

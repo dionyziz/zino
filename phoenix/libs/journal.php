@@ -39,15 +39,32 @@
 
             $journals = $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
 
-            for ( $i = 0; $i < count( $journals ); ++$i ) {
-                $journals[ $i ]->CopyUserFrom( New User( $journals[ $i ]->Userid ) );
+            $userids = array();
+            $bulkids = array();
+
+            foreach ( $journals as $journal ) {
+                $userids[] = $journal->Userid;
+                $bulkids[] = $journal->Bulkid;
             }
+
+            $userfinder = New UserFinder();
+            $users = $userfinder->FindByIds( $userids );
+            $bulks = Bulk::FindById( $bulkids );
+
+            foreach ( $journals as $i => $journal ) {
+                if ( isset( $users[ $journal->Userid ] ) ) {
+                    $journals[ $i ]->CopyUserFrom( $users[ $journal->Userid ] );
+                }
+                $journals[ $i ]->Text = $bulks[ $journal->Bulkid ];
+            }
+
             return $journals;
         }
     }
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
+        private $mText = false;
 
         public function LoadDefaults() {
             global $user;
@@ -58,7 +75,10 @@
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
-                    return $this->Bulk->Text;
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
+                    return $this->mText;
                 default:
                     return parent::__get( $key );
             }
@@ -66,7 +86,7 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    $this->Bulk->Text = $value;
+                    $this->mText = $value;
                     break;
                 default:
                     return parent::__set( $key, $value );
@@ -77,7 +97,7 @@
             
             $libs->Load( 'wysiwyg' );
             
-            return WYSIWYG_PresentAndSubstr( $this->mText, $length );
+            return WYSIWYG_PresentAndSubstr( $this->Text, $length );
         }
         public function OnBeforeCreate() {
             $url = URL_Format( $this->Title );
@@ -107,11 +127,10 @@
             }
             $this->Url = $url;
 
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
+            $this->Bulkid = Bulk::Store( $this->mText );
         }
         public function OnUpdate() {            
-            $this->Bulk->Save();
+            Bulk::Store( $this->mText, $this->Bulkid );
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
@@ -177,7 +196,6 @@
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function IsDeleted() {
             return $this->Exists() === false;

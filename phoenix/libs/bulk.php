@@ -1,14 +1,12 @@
 <?php 
-
     /*
-        Developer: abresas
+        Developers: abresas, dionyziz
     */
 
-    class BulkFinder extends Finder {
-        protected $mModel = 'Bulk';
+    class Bulk { // namespace
         private static $mFetched = array(); // array for caching bulk data in current request
         
-        public function FindById( $ids ) {
+        static public function FindById( $ids ) {
             $ret = array();
             if ( !is_array( $ids ) ) {
                 $ids = array( $ids );
@@ -19,18 +17,24 @@
             }
 
             foreach ( $ids as $id ) {
-                w_assert( is_numeric( $id ) );
+                w_assert( is_int( $id ) );
             }
 
             $keyids = array_flip( $ids );
-            $already = array_intersect_key( $keyids, self::$mFetched );
+            $already = array_intersect( $ids, array_keys( self::$mFetched ) );
             foreach ( $already as $id ) {
-                $ret[ $id ] = New Bulk( self::$mFetched[ $id ] );
+                $ret[ $id ] = self::$mFetched[ $id ];
                 unset( $ids[ $keyids[ $id ] ] );
             }
 
             if ( count( $ids ) ) {
-                $ret += $this->Fetch( $ids );
+                $ret += self::Fetch( $ids );
+            }
+
+            foreach ( $ids as $id ) {
+                if ( !isset( $ret[ $id ] ) ) {
+                    $ret[ $id ] = false; // always return what we were asked for
+                }
             }
 
             if ( $was_array ) {
@@ -40,15 +44,17 @@
             return array_shift( $ret );
         }
 
-        private function Fetch( $ids ) {
-            $query = $this->mDb->Prepare( "
-                SELECT
+        static private function Fetch( $ids ) {
+            global $db;
+
+            $query = $db->Prepare( 
+                "SELECT
                     `bulk_id`, `bulk_text`
                 FROM
                     :bulk
                 WHERE
-                    `bulk_id` IN :Ids;
-            " );
+                    `bulk_id` IN :Ids;"
+            );
 
             $query->BindTable( 'bulk' );
             $query->Bind( 'Ids', $ids );
@@ -56,32 +62,54 @@
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $ret[ $row[ "bulk_id" ] ] = New Bulk( $row );
-                self::$mFetched[ $row[ "bulk_id" ] ] = $row; // add data to cache
+                $ret[ $row[ "bulk_id" ] ] = $row[ 'bulk_text' ];
+                self::$mFetched[ $row[ "bulk_id" ] ] = $row[ 'bulk_text' ]; // add data to cache
             }
 
             return $ret;
         }
-    }
+        static public function Store( $text, $id = 0 ) {
+            global $db;
 
-    final class Bulk extends Satori {
-        protected $mDbTableAlias = 'bulk';
-
-        public function __set( $key, $value ) {
-            switch ( $key ) {
-                case 'Text':
-                    $text = $value;
-                    if ( strlen( $text ) > pow( 2, 20 ) ) { // strlen is significant; do not change to mb_strlen, as we want to count actual bytes
-                        // if text is more than 1MB
-                        // drop it
-                        return;
-                    }
-                    $this->mCurrentValues[ 'Text' ] = $text;
-                    break;
-                default:
-                    parent::__set( $key, $value );
+            if ( strlen( $text ) > pow( 2, 20 ) ) { // strlen is significant; do not change to mb_strlen, as we want to count actual bytes
+                // if text is more than 1MB
+                // drop it
+                $text = substr( $text, 0, pow( 2, 20 ) );
+            }
+            if ( $id == 0 ) {
+                $query = $db->Prepare(
+                    "INSERT INTO :bulk ( `bulk_text` ) VALUES
+                                       ( :text );"
+                );
+            }
+            else {
+                $query = $db->Prepare(
+                    "UPDATE :bulk SET `bulk_text`=:text WHERE `bulk_id`=:id LIMIT 1;"
+                );
+                $query->Bind( 'id', $id );
+            }
+            $query->BindTable( 'bulk' );
+            $query->Bind( 'text', $text );
+            $result = $query->Execute();
+            if ( $id == 0 ) {
+                $id = $result->InsertId();
+            }
+            return $id;
+        }
+        static public function Delete( $ids ) {
+            global $db;
+            
+            if ( !is_array( $ids ) ) {
+                w_assert( is_int( $ids ) );
+                $ids = array( $ids );
+            }
+            $query = $db->Prepare( "DELETE FROM :bulk WHERE `bulk_id` IN :Ids;" );
+            $query->BindTable( 'bulk' );
+            $query->Bind( 'Ids', $ids );
+            $query->Execute();
+            foreach ( $ids as $id ) {
+                unset( self::$mFetched[ $id ] );
             }
         }
     }
-
 ?>
