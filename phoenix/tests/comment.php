@@ -119,11 +119,13 @@
             $texts = array( 'xaxaxa', 'lol', 'first' );
 
             $this->AssertEquals( 3, count( $latest ), 'wrong number of latest comments' );
-            foreach ( $latest as $i => $comment ) {
+            $i = 0;
+            foreach ( $latest as $comment ) {
                 $this->AssertEquals( $userids[ $i ], $comment->Userid, "Wrong userid No $i" );
                 $this->AssertEquals( $typeid, $comment->Typeid, "Wrong typeid No $i" );
                 $this->AssertEquals( $itemid, $comment->Itemid, "Wrong itemid No $i" );
                 $this->AssertEquals( $texts[ $i ], $comment->Text, "Wrong text No $i" );
+                ++$i;
             }
 
             $comment->Delete();
