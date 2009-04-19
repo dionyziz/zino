@@ -4,7 +4,6 @@
         protected $mModel = 'Shout';
                 
         // We use this as it is here or global function? --d3nnn1z
-        // This function is public -- can be used from anywhere --dionyziz
         public function Count() {
             $query = $this->mDb->Prepare(
             'SELECT
@@ -54,7 +53,8 @@
                 $bulkids[] = $shout->Bulkid;
             }
 
-            $bulks = Bulk::FindById( $bulkids );
+            $finder = New BulkFinder();
+            $bulks = $finder->FindById( $bulkids );
 
             $ret = array();
             while ( $shout = array_shift( $shouts ) ) {
@@ -68,16 +68,16 @@
 
     class Shout extends Satori {
         protected $mDbTableAlias = 'shoutbox';
-        private $mText = false;
         
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         public function CopyBulkFrom( $value ) {
-            $this->mText = $value;
+            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         
         public function LoadDefaults() {
@@ -88,17 +88,16 @@
         }
         
         public function OnBeforeCreate() {
-            $this->Bulkid = Bulk::Store( $this->mText );
+            global $user;
+
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
         }
 
         public function __get( $key ) {
-            die( var_dump( array( $key, $this->mText, $this->Bulkid ) ) );
             switch ( $key ) {
                 case 'Text':
-                    if ( $this->mText === false ) {
-                        $this->mText = Bulk::FindById( $this->Bulkid );
-                    }
-                    return $this->mText;
+                    return $this->Bulk->Text;
                 default:
                     return parent::__get( $key );
             }
@@ -107,7 +106,7 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    $this->mText = $value;
+                    $this->Bulk->Text = $value;
                     return;
                 default:
                     return parent::__set( $key, $value );
@@ -145,7 +144,9 @@
             if(  $user->HasPermission( PERMISSION_SHOUTBOX_EDIT_ALL ) || ( $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) && $this->Userid == $user->Id ) ) {
                 return true;
             }
-            throw new Exception( "No permissions to edit shout" );
+            else {
+                throw new Exception( "No permissions to edit shout" );
+            }
         }
         
     }
