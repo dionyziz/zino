@@ -12,7 +12,7 @@
     class PM extends Satori {
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
-        private $mText;
+        private $mText = false;
 
         public function __get( $key ) {
             switch ( $key ) {
@@ -24,6 +24,9 @@
 
                     return $this->mReceivers;
                 case 'Text':
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
                     return $this->mText;
                 default:
                     return parent::__get( $key );
