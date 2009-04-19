@@ -14,7 +14,7 @@
             $email = $email->Get();
             $email = urldecode( $email );
             $password = $password->Get();         
-            
+            echo $email.$password;
             $gmail = New ContactsFetcher();
             if ( $gmail->Login( $email, $password ) ) {
                 $contacts = $gmail->Retrieve();
