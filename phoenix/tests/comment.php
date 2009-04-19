@@ -130,6 +130,14 @@
             $comment2->Delete();
             $comment3->Delete();
         }
+        public function TearDown() {
+            if ( $this->mUser->Exists() ) {
+                $this->mUser->Delete();
+            }
+            if ( $this->mUser2->Exists() ) {
+                $this->mUser2->Delete();
+            }
+        }
     }
 
     return New TestComment();
