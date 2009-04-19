@@ -83,7 +83,6 @@ var PhotoView = {
     },
     scrollInit : function(){
         $( document ).keydown( function( e ) {
-            alert( e.which );
             if ( e.which == 37 ){
                 PhotoView.scroll( "left" );
                 return;
