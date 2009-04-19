@@ -92,12 +92,12 @@
         }
 
         public function __get( $key ) {
+            die( var_dump( array( $key, $this->mText, $this->Bulkid ) ) );
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
-                    die( var_dump( array( $this->mText, $this->Bulkid ) ) );
                     return $this->mText;
                 default:
                     return parent::__get( $key );
