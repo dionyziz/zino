@@ -91,6 +91,6 @@ var PhotoView = {
                 PhotoView.scroll( "right" );
                 return;
             }
-        }
+        });
     }
 };
