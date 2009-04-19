@@ -91,7 +91,7 @@
             $folderfinder = New PMFolderFinder();
             $senderoutbox = $folderfinder->FindByUserAndType( $this->mUser, PMFOLDER_OUTBOX );
 
-            $senderpms = $senderoutbox->UserPMs;
+            $senderpms = $senderoutbox->PMs;
             $this->AssertEquals( 1, count( $senderpms ), 'Wrong number of pms in sender outbox' );
 
             $pm = $senderpms[ 0 ];
