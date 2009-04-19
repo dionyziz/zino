@@ -7,6 +7,7 @@
     class PM extends Satori {
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
+        private $mText = false;
 
         public function __get( $key ) {
             switch ( $key ) {
@@ -18,7 +19,10 @@
 
                     return $this->mReceivers;
                 case 'Text':
-                    return $this->Bulk->Text;
+                    if ( $this->mText === false ) {
+                        $this->mText = Bulk::FindById( $this->Bulkid );
+                    }
+                    return $this->mText;
                 default:
                     return parent::__get( $key );
             }
@@ -29,7 +33,7 @@
                     $this->mReceivers = $value;
                     break;
                 case 'Text':
-                    $this->Bulk->Text = $value;
+                    $this->mText = $value;
                     break;
                 default:
                     parent::__set( $key, $value );
@@ -44,8 +48,7 @@
             $this->mReceivers[] = $receiver;
         }
         protected function OnBeforeCreate() {
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
+            $this->Bulkid = Bulk::Store( $this->mText );
         }
         protected function OnCreate() {
             global $water;
@@ -76,11 +79,10 @@
             $upm->Save();
         }
         protected function OnBeforeUpdate() {
-            $this->Bulk->Save();
+            Bulk::Store( $this->mText, $this->Bulkid );
         }
         protected function Relations() {
             $this->Sender = $this->HasOne( 'User', 'Senderid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
             $this->UserPMs = $this->HasMany( 'PMFinder', 'FindByPM', $this );
         }
         protected function OnConstruct() {
