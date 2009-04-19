@@ -48,6 +48,9 @@
             }
 
             $userfinder = New UserFinder();
+            $userids = array_flip( array_flip( $userids ) );
+            $bulkids = array_flip( array_flip( $bulkids ) );
+            die( var_dump( $userids ) );
             $users = $userfinder->FindByIds( $userids );
             $bulks = Bulk::FindById( $bulkids );
 
