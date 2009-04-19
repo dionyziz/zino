@@ -15,7 +15,7 @@
             $this->mUser->Name = 'testpolls';
             $this->mUser->Subdomain = 'testpolls';
             $this->mUser->Password = 'foobar';
-            $this->mUser->Email = 'bitbucket@kamibu.com';
+            $this->mUser->Profile->Email = 'bitbucket@kamibu.com';
             $this->mUser->Save();
         }
         public function TestClassesExist() {
