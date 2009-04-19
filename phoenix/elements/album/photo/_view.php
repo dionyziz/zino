@@ -411,6 +411,7 @@
                 ?></div>
             </div><div class="eof"></div><?php
             $page->AttachInlineScript( 'Tag.OnLoad();' );
+            $page->AttachInlineScript( 'PhotoView.scrollInit();' );
         }
     }
 ?>
