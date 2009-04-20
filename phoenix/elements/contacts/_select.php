@@ -9,9 +9,19 @@
             $pass = $pass->Get();
             $provider = $provider->Get();
             
-            $contacts = GetContacts( $username, $pass, $provider );
-            echo $contacts;
-            echo $contacts[ 0 ];
+            $finder = New ContactFinder();
+            $ret = $finder->FindByUseridAndMail( $user->Id, $username );
+            if ( count( $ret ) == 0 ){
+                GetContacts( $username, $pass, $provider );
+                $ret = $finder->FindByUseridAndMail( $user->Id, $username );
+            }
+            
+            foreach ( $ret as $contact ) {
+                echo $contact->Mail;
+                ?><br/><?php
+                echo $contact->Usermail;
+                ?><br/><br/><?php
+            }
             return;
         }
     }
