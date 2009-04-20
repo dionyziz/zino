@@ -11,11 +11,12 @@
             
             $finder = New ContactFinder();
             $ret = $finder->FindByUseridAndMail( $user->Id, $username );
+            echo count( $ret )."STEP 1";
             if ( count( $ret ) == 0 ){
                 GetContacts( $username, $pass, $provider );
                 $ret = $finder->FindByUseridAndMail( $user->Id, $username );
             }
-            
+            echo count( $ret )."STEP 2";
             foreach ( $ret as $contact ) {
                 echo $contact->Mail;
                 ?><br/><?php
