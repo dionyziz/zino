@@ -85,7 +85,7 @@ var PhotoView = {
         }
     },
     scrollInit : function(){
-        $( ".comments textarea" ).keydown( function( e ){
+        /*$( ".comments textarea" ).keydown( function( e ){
             if (e.which == 37 || e.which == 39 ){
                 e.stopImmediatePropagation();
             }
@@ -99,6 +99,6 @@ var PhotoView = {
                 PhotoView.scroll( "right" );
                 return;
             }
-        });
+        });*/
     }
 };
