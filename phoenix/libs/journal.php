@@ -133,10 +133,10 @@
             }
             $this->Url = $url;
 
-            $this->Bulkid = Bulk::Store( $this->mText );
+            $this->Bulkid = Bulk::Store( $this->Text );
         }
         public function OnUpdate() {            
-            Bulk::Store( $this->mText, $this->Bulkid );
+            Bulk::Store( $this->Text, $this->Bulkid );
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
