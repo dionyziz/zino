@@ -16,12 +16,10 @@
                 GetContacts( $username, $pass, $provider );
                 $ret = $finder->FindByUseridAndMail( $user->Id, $username );
             }
-
+            echo $ret;
             foreach ( $ret as $contact ) {
                 echo $contact->Mail;
                 ?><br/><?php
-                echo $contact->Usermail;
-                ?><br/><br/><?php
             }
             return;
         }
