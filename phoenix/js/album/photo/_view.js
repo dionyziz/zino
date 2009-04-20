@@ -80,6 +80,7 @@ var PhotoView = {
         else if ( direction == "right" ){
             var target = $( "div.plist > ul > li.selected" ).next().find( "a" ).attr( "href" );
         }
+        alert( target );
         if ( target != "undefined" ){
             window.location = target;
         }
