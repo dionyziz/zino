@@ -2,6 +2,7 @@
     class ElementContactsSelect extends Element {
         public function Render( tText $username, tText $pass, tText $provider ) {
             global $libs;
+            global $user;
             
             $libs->Load( 'contacts/contacts' );
             
