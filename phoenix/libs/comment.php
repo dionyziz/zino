@@ -422,6 +422,9 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
+                    if ( strlen( $value ) > 1024 * 64 ) { // more than 64k; crop it
+                        $value = substr( $value, 0, 1024 * 64 );
+                    }
                     $this->mText = $value;
                     return;
                 default:
