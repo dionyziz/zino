@@ -16,8 +16,9 @@
                 GetContacts( $username, $pass, $provider );
                 $ret = $finder->FindByUseridAndMail( $user->Id, $username );
             }
-            echo $ret;
+            echo count( $ret );
             foreach ( $ret as $contact ) {
+                echo $contact."<br/>";
                 echo $contact->Mail;
                 ?><br/><?php
             }
