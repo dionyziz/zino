@@ -81,7 +81,7 @@ var PhotoView = {
             var target = $( "div.plist > ul > li.selected" ).next().find( "a" ).attr( "href" );
         }
         alert( target );
-        if ( target != "undefined" ){
+        if ( target != undefined ){
             window.location = target;
         }
     },
