@@ -75,10 +75,10 @@ var PhotoView = {
 	},
     scroll : function( direction ){
         if ( direction == "left" ){
-            window.location = $( "div.plist > ul > li.selected" ).prev().find( "a" ).attr( "href" );
+            //window.location = $( "div.plist > ul > li.selected" ).prev().find( "a" ).attr( "href" );
         }
         else if ( direction == "right" ){
-            window.location = $( "div.plist > ul > li.selected" ).next().find( "a" ).attr( "href" );
+            //window.location = $( "div.plist > ul > li.selected" ).next().find( "a" ).attr( "href" );
         }
     },
     scrollInit : function(){
