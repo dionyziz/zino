@@ -243,7 +243,7 @@
                                         ?>σου<?php
                                     }
                                     else {
-                                        if ( $notif->FromUser->Gender == 'f' ) {
+                                        if ( $notif->Item->Gender == 'f' ) {
                                             ?>της <?php
                                         }
                                         else {
