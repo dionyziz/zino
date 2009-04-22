@@ -25,6 +25,14 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
+            <div id="live" style="position: relative;margin: 20px 0;">
+                <span>Άμεση ενημέρωση σελίδων</span>
+                <input style="position: absolute;left: 222px;" name="live" type="checkbox" <?php
+                //if ( $user->Preferences->Live == "yes" ){
+                    ?>checked="checked"<?php
+                //}
+                ?>/>
+            </div>
             <span class="notifyme">Να λαμβάνω ειδοποιήσεις</span>
             <div class="setting">
                 <table>
@@ -155,14 +163,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div id="live" style="position: relative;margin-top: 30px">
-                <span>Άμεση ενημέρωση σελίδων</span>
-                <input style="position: absolute;left: 222px;" name="live" type="checkbox" <?php
-                //if ( $user->Preferences->Live == "yes" ){
-                    ?>checked="checked"<?php
-                //}
-                ?>/>
             </div>
             <div id ="pwdmodal">
                 <h3 class="modaltitle">Αλλαγή κωδικού πρόσβασης</h3>
