@@ -25,7 +25,7 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
-            <div id="live" style="position: relative;margin: 20px 0;">
+            <div id="live" style="position: relative;margin-top: 20px;">
                 <span>Άμεση ενημέρωση σελίδων</span>
                 <input style="position: absolute;left: 222px;" name="live" type="checkbox" <?php
                 //if ( $user->Preferences->Live == "yes" ){
