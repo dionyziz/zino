@@ -53,11 +53,11 @@
                     echo htmlspecialchars( $poll->Question );
                 ?></h2>
                 <dl><?php
-                    if ( $image->Numcomments > 0 ) {
+                    if ( $poll->Numcomments > 0 ) {
                         ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
-                        echo $image->Numcomments;
+                        echo $poll->Numcomments;
                         ?> σχόλι<?php
-                        if ( $image->Numcomments == 1 ) {
+                        if ( $poll->Numcomments == 1 ) {
                             ?>ο<?php
                         }
                         else {
