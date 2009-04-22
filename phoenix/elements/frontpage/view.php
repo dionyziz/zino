@@ -186,59 +186,10 @@
             </div>
             <div class="eof"></div><?php
             if ( $user->Exists() ) {
-                switch ( strtolower( $user->Name ) ) {
-                    case 'dionyziz':
-                    case 'pagio91':
-                    case 'izual':
-                    case 'petrosagg18':
-                    case 'gatoni':
-                    case 'ted':
-                    case 'kostis90gr':
-                    case 'bowling':
-                    case 'parvati':
-                    case 'finlandos':
-                    case 'kardas_thrilikozzzz':
-                    case 'blink':
-                    case 'indy':
-                    case 'd3nnn1z':
-                    case 'chorvus':
-                    case 'peach':
-                    case 'kogi':
-                    case 'dimo0koc':
-                    case 'teddy':
-                    case 'agorf':
-                    case 'seraphim':
-                    case 'elsa':
-                    case 'funeral':
-                    case 'cmad':
-                    case 'teh-ninja':
-                    case 'intzakosd':
-                    case 'kolstad':
-                    case 'ronaldo7':
-                    case 'morvena':
-                    case 'maryway':
-                    case 'crazy_sheep':
-                       Element( 'shoutbox/comet' );
-                       Element( 'frontpage/image/comet' );
-                       Element( 'frontpage/comment/comet' );
-                }
-                switch ( strtolower( $user->Name ) ) {
-                    case 'izual':
-                    case 'dionyziz':
-                    case 'pagio91':
-                    case 'izual':
-                    case 'petrosagg18':
-                    case 'gatoni':
-                    case 'ted':
-                    case 'kostis90gr':
-                    case 'bowling':
-                    case 'finlandos':
-                    case 'teh-ninja':
-                    case 'intzakosd':
-                    case 'crazy_sheep':
-                    case 'maryway':
-                        Element( 'frontpage/notification/comet' );
-                }
+               Element( 'shoutbox/comet' );
+               Element( 'frontpage/image/comet' );
+               Element( 'frontpage/comment/comet' );
+               Element( 'frontpage/notification/comet' );
             }
             $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
         }
