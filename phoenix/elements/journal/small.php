@@ -23,7 +23,9 @@
                         <dl><?php
                         if ( $journal->Numcomments > 0 ) {
                             ?><dt class="commentsnum"><a href="<?php
-                            echo $url;
+                            ob_start();
+                            Element( 'url', $journal );
+                            echo htmlspecialchars( ob_get_clean() );
                             ?>"><span class="s_commnum">&nbsp;</span><?php
                             echo $journal->Numcomments;
                             ?> σχόλι<?php
