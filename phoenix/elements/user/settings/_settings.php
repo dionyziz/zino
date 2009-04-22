@@ -158,7 +158,7 @@
             </div>
             <div id="live" style="position: relative;">
                 <span>Άμεση ενημέρωση σελίδων</span>
-                <input style="position: absolute;left: 300px;" name="live" type="checkbox" <?php
+                <input style="position: absolute;left: 222px;" name="live" type="checkbox" <?php
                 //if ( $user->Preferences->Live == "yes" ){
                     ?>checked="checked"<?php
                 //}
