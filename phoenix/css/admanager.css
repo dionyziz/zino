@@ -322,3 +322,7 @@ div.buyad form.paypal {
 div.buyad p.confirm {
     font-size: 80%;
 }
+div.buyad label.disabled {
+    color: #999;
+}
+

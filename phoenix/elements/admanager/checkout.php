@@ -110,8 +110,8 @@
                         <label>Τρόπος πληρωμής:</label>
                         <ul class="distinguished">
                             <li>
-                                <input type="radio" name="payment" class="radio" id="paycredit" value="credit" /> 
-                                <label for="paycredit">Με πιστωτική κάρτα</label>
+                                <input type="radio" name="payment" class="radio" id="paycredit" value="credit" disabled="disabled" /> 
+                                <label for="paycredit" class="disabled">Με πιστωτική κάρτα</label>
                                 <ul class="credit">
                                     <li>
                                         <img src="http://static.zino.gr/phoenix/logo_visa.gif" alt="VISA" title="VISA" />
@@ -125,8 +125,8 @@
                                 </ul>
                             </li>
                             <li>
-                                <input type="radio" name="payment" class="radio" id="paypaypal" value="paypal" /> 
-                                <label for="paypaypal">Μέσω PayPal</label>
+                                <input type="radio" name="payment" class="radio" id="paypaypal" value="paypal" disabled="disabled" /> 
+                                <label for="paypaypal" class="disabled">Μέσω PayPal</label>
                                 <ul class="credit">
                                     <li>
                                         <img src="https://www.paypal.com/en_GB/GB/i/logo/PayPal_mark_37x23.gif" alt="PayPal" title="PayPal" />
@@ -134,7 +134,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <input type="radio" name="payment" class="radio" id="paybank" value="bank" />
+                                <input type="radio" name="payment" class="radio" id="paybank" value="bank" selected="selected" />
                                 <label for="paybank">Με κατάθεση σε τραπεζικό λογαριασμό</label>
                             </li>
                         </ul>
