@@ -19,10 +19,16 @@
                 if ( !$user->Exists() || $ad->Userid != $user->Id ) {
                     return Redirect( '?p=ads&error=notowner' );
                 }
+                if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
+                    return Redirect( '?p=ads&error=nopermission' );
+                }
                 $page->SetTitle( 'Επεξεργασία διαφήμισης' );
             }
             else {
                 $page->SetTitle( 'Δημιουργία διαφήμισης' );
+                if ( !$user->HasPermission( PERMISSION_AD_CREATE ) ) {
+                    return Redirect( 'join&returnto=' . urlencode( '?p=admanager' ) );
+                }
             }
             
             ?><div class="buyad">
