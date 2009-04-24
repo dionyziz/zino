@@ -19,11 +19,11 @@
             }
             $ad = New Ad( $adid );
             if ( !$ad->Exists() ) {
-                ?>Η διαφήμιση που προσπαθείτε να επεξεργαστείτε δεν υπάρχει.<?php
+                ?>Ξ— Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ο€ΞΏΟ… Ο€ΟΞΏΟƒΟ€Ξ±ΞΈΞµΞ―Ο„Ξµ Ξ½Ξ± ΞµΟ€ΞµΞΎΞµΟΞ³Ξ±ΟƒΟ„ΞµΞ―Ο„Ξµ Ξ΄ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ.<?php
                 return;
             }
             if ( $ad->Userid != $user->Id ) {
-                ?>Δεν μπορείτε να επεξεργαστείτε μία διαφήμιση που δεν σας ανήκει.<?php
+                ?>Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΞµΞ―Ο„Ξµ Ξ½Ξ± ΞµΟ€ΞµΞΎΞµΟΞ³Ξ±ΟƒΟ„ΞµΞ―Ο„Ξµ ΞΌΞ―Ξ± Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ο€ΞΏΟ… Ξ΄ΞµΞ½ ΟƒΞ±Ο‚ Ξ±Ξ½Ξ®ΞΊΞµΞΉ.<?php
                 return;
             }
         }
@@ -50,7 +50,7 @@
                     break;
                 default:
                     ?><script type="text/javascript">
-                        alert( 'H εικόνα της διαφήμισής σας δεν υποστηρίζεται. Παρακαλούμε χρησιμοποιήστε μία εικόνα jpg ή png.' );
+                        alert( 'H ΞµΞΉΞΊΟΞ½Ξ± Ο„Ξ·Ο‚ Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ®Ο‚ ΟƒΞ±Ο‚ Ξ΄ΞµΞ½ Ο…Ο€ΞΏΟƒΟ„Ξ·ΟΞ―Ξ¶ΞµΟ„Ξ±ΞΉ. Ξ Ξ±ΟΞ±ΞΊΞ±Ξ»ΞΏΟΞΌΞµ Ο‡ΟΞ·ΟƒΞΉΞΌΞΏΟ€ΞΏΞΉΞ®ΟƒΟ„Ξµ ΞΌΞ―Ξ± ΞµΞΉΞΊΟΞ½Ξ± jpg Ξ® png.' );
                         window.location.href = <?php
                         echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=admanager/create' );
                         ?>;
@@ -62,7 +62,7 @@
             switch ( $setTempFile ) {
                 case -1: // Too big
                     ?><script type="text/javascript">
-                        alert( 'H εικόνα της διαφήμισής σας δεν μπορεί να ξεπερνάει το 1MB' );
+                        alert( 'H ΞµΞΉΞΊΟΞ½Ξ± Ο„Ξ·Ο‚ Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ®Ο‚ ΟƒΞ±Ο‚ Ξ΄ΞµΞ½ ΞΌΟ€ΞΏΟΞµΞ― Ξ½Ξ± ΞΎΞµΟ€ΞµΟΞ½Ξ¬ΞµΞΉ Ο„ΞΏ 1MB' );
                         window.location.href = <?php
                         echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=admanager/create' );
                         ?>;
@@ -74,7 +74,7 @@
             }
             catch ( ImageException $e ) {
                 ?><script type="text/javascript">
-                    alert( 'Υπήρξε ένα πρόβλημα με την αποθήκευση της εικόνας σας' );
+                    alert( 'Ξ¥Ο€Ξ®ΟΞΎΞµ Ξ­Ξ½Ξ± Ο€ΟΟΞ²Ξ»Ξ·ΞΌΞ± ΞΌΞµ Ο„Ξ·Ξ½ Ξ±Ο€ΞΏΞΈΞ®ΞΊΞµΟ…ΟƒΞ· Ο„Ξ·Ο‚ ΞµΞΉΞΊΟΞ½Ξ±Ο‚ ΟƒΞ±Ο‚' );
                     window.location.href = <?php
                     echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=admanager/create' );
                     ?>;
