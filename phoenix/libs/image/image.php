@@ -180,7 +180,7 @@
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
-        private $mResizeto = false;
+        private $mResizeTo = false;
         
         public function __get( $key ) {
             global $rabbit_settings;
