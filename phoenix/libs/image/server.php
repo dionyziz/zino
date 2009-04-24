@@ -18,7 +18,7 @@
         );
 
         if ( $resizeto !== false ) {
-            w_assert( preg_match( '#^[0-9]{1,4}x[0-9]{1,4}$', $resizeto ) );
+            w_assert( preg_match( '#^[0-9]{1,4}x[0-9]{1,4}$#', $resizeto ) );
             $data[ 'size' ] = $resizeto;
         }
 
