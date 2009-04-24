@@ -134,7 +134,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <input type="radio" name="payment" class="radio" id="paybank" value="bank" selected="selected" />
+                                <input type="radio" name="payment" class="radio" id="paybank" value="bank" checked="checked" />
                                 <label for="paybank">Με κατάθεση σε τραπεζικό λογαριασμό</label>
                             </li>
                         </ul>
