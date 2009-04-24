@@ -1,19 +1,19 @@
 <?php
     class ElementAdManagerCheckout extends Element {
-        function Render( tInteger $id ) {
+        function Render( tInteger $adid ) {
             global $user;
             global $libs;
             
             $libs->Load( 'admanager' );
             
-            $id = $id->Get();
+            $adid = $adid->Get();
             
             if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
                 ?>Δεν μπορείτε να επεξεργαστείτε διαφημίσεις.<?php
                 return;
             }
             
-            $ad = New Ad( $id );
+            $ad = New Ad( $adid );
             if ( !$ad->Exists() ) {
                 ?>Η διαφήμιση αυτή δεν υπάρχει.<?php
                 return;
