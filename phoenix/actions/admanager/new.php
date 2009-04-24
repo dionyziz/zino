@@ -58,6 +58,7 @@
                 return;
             }
             $setTempFile = $image->LoadFromFile( $uploadimage->Tempname );
+            $image->SetMaxSize( 200, 85 );
             switch ( $setTempFile ) {
                 case -1: // Too big
                     ?><script type="text/javascript">

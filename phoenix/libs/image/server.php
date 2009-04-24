@@ -1,5 +1,5 @@
 <?php
-    function Image_Upload( $userid, $imageid, $tempfile ) {
+    function Image_Upload( $userid, $imageid, $tempfile, $resizeto = false /* 700x600 */ ) {
         global $xc_settings;
         global $rabbit_settings;
         global $user;              
@@ -16,6 +16,11 @@
             'mime' => 'image/jpeg',
             'uploadimage' => "@$tempfile"
         );
+
+        if ( $resizeto !== false ) {
+            w_assert( preg_match( '#^[0-9]{1,4}x[0-9]{1,4}$', $resizeto ) );
+            $data[ 'size' ] = $resizeto;
+        }
 
         if ( !$rabbit_settings[ 'production' ] ) {
             $data[ 'sandbox' ] = 'yes';

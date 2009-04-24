@@ -180,6 +180,7 @@
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
+        private $mResizeto = false;
         
         public function __get( $key ) {
             global $rabbit_settings;
@@ -200,6 +201,11 @@
             }
 
             parent::__set( $key, $value );
+        }
+        public function SetMaxSize( $w, $h ) {
+            w_assert( is_int( $w ) );
+            w_assert( is_int( $h ) );
+            $this->mResizeTo = $w . 'x' . $h;
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
@@ -311,7 +317,7 @@
             w_assert( !empty( $this->mTemporaryFile ), 'Please call LoadFromFile() before calling Upload(); mTemporaryFile is empty' );
 
             // throws ImageException
-            $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile );
+            $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile, $this->mResizeTo );
 
             // else success
             w_assert( is_array( $data ), 'Image_Upload did not return an array' );
