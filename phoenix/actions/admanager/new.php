@@ -74,7 +74,9 @@
             }
             catch ( ImageException $e ) {
                 ?><script type="text/javascript">
-                    alert( 'Υπήρξε ένα πρόβλημα με την αποθήκευση της εικόνας σας' );
+                    alert( 'Υπήρξε ένα πρόβλημα με την αποθήκευση της εικόνας σας: ' + <?php
+                    echo w_json_encode( $e->getMessage() );
+                    ?> );
                     window.location.href = <?php
                     echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=admanager/create' );
                     ?>;
