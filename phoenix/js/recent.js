@@ -69,7 +69,7 @@ var Recent = {
             avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
         }
         else {
-            avatar = 'http://images.zino.gr/media/' 
+            avatar = 'http://images2.zino.gr/media/' 
                           + who.id 
                           + '/' + who.avatar + '/' 
                           + who.avatar + '_100.jpg';
@@ -129,7 +129,7 @@ var Recent = {
                 switch ( event.target.type ) {
                     case 'Image':
                         itemHTML = 
-                            '<img src="http://images.zino.gr/media/' 
+                            '<img src="http://images2.zino.gr/media/' 
                                 + event.target.owner.id + '/' + event.target.id + '/'
                                 + event.target.id + '_210.jpg" alt="&lt;3" width="'
                                 + event.target.width + '" height="'
@@ -149,7 +149,7 @@ var Recent = {
                     avatarurl = 'http://static.zino.gr/phoenix/anonymous100.jpg';
                 }
                 else {
-                    avatarurl = 'http://images.zino.gr/media/' 
+                    avatarurl = 'http://images2.zino.gr/media/' 
                                   + event.target.id 
                                   + '/' + event.target.avatar + '/' 
                                   + event.target.avatar + '_150.jpg';
@@ -170,7 +170,7 @@ var Recent = {
             case 'Image':
                 div.innerHTML =
                     Recent.DisplayAvatar( event.who, reverse, true )
-                    + '<div class="what"><a href="" target="_blank" title="Προβολή πλήρους μεγέθους"><img src="http://images.zino.gr/media/'
+                    + '<div class="what"><a href="" target="_blank" title="Προβολή πλήρους μεγέθους"><img src="http://images2.zino.gr/media/'
                     + event.who.id + '/' + event.id + '/' 
                     + event.id + '_210.jpg" width="' + event.width + '" height="' + event.height + '" alt="" /></a></div>';
                 $( div ).find( 'div.what a' )[ 0 ].href = event.url;
