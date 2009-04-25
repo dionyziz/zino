@@ -325,4 +325,8 @@ div.buyad p.confirm {
 div.buyad label.disabled {
     color: #999;
 }
-
+div.buyad span.vital {
+    font-size: 110%;
+    padding: 10px;
+    font-weight: bold;
+}
