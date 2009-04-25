@@ -10,7 +10,7 @@
         global $user;
         global $libs;
         
-        $libs->Load( 'ads' );
+        $libs->Load( 'admanager' );
         
         $numviews = $numviews->Get();
         $firstname = $firstname->Get();
