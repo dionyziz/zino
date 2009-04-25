@@ -57,7 +57,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews10" value="10000" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews10" value="10000" checked="checked" />
                                         <label for="numviews10">10,000</label>
                                     </td>
                                     <td>20€</td>
@@ -145,7 +145,7 @@
                         </ul>
                     </div>
                     
-                    <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" class="paypal" style="width: 121px; height: 26px;" />
+                    <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="Αγορά" class="paypal" style="width: 121px; height: 26px;" />
                     <p class="confirm">Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
                 </div>
                 <div class="right">
