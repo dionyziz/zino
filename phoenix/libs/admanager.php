@@ -86,6 +86,9 @@
             $this->Userid = $user->Id;
             $this->Active = 'no';
         }
+        public function IsActive() {
+            return $this->Active == 'yes';
+        }
         public function Relations() {
             $this->Image = $this->HasOne( 'Image', 'Imageid' );
             $this->Places = $this->HasMany( 'PlaceFinder', 'FindByAd', $this );

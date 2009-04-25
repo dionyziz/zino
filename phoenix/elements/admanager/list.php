@@ -137,11 +137,15 @@
                             <!-- <td>3,520€</td> -->
                             <td class="last<?php
                             if ( !$ad->Pageviewsremaining
-                                 || ( $ad->Dailypageviews && $ad->Pageviewsremaining / $ad->Dailypageviews <= 5 ) ) {
+                                 || ( $ad->Dailypageviews && $ad->Pageviewsremaining / $ad->Dailypageviews <= 5 )
+                                 || !$ad->IsActive() ) {
                                 ?> soon<?php
                             }
                             ?>"><?php
-                            if ( $ad->Pageviewsremaining ) {
+                            if ( !$ad->IsActive() ) {
+                                ?>Αναμένεται ενεργοποίηση<?php
+                            }
+                            else if ( $ad->Pageviewsremaining ) {
                                 echo $ad->Pageviewsremaining;
                             }
                             else {
