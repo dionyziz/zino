@@ -1,6 +1,6 @@
 <?php
     class ElementAdManagerDemographics extends Element {
-        public function Render( tInteger $id, tBoolean $canskip ) {
+        public function Render( tInteger $adid, tBoolean $canskip ) {
             global $libs;
 			global $page;
             global $user;
@@ -11,10 +11,10 @@
             $page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
 			$page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
 			
-            $id = $id->Get();
+            $adid = $adid->Get();
             $canskip = $canskip->Get();
             
-            $ad = New Ad( $id );
+            $ad = New Ad( $adid );
             
             if ( !$ad->Exists() ) {
                 return Redirect( '?p=ads&error=notexist' );
@@ -27,7 +27,7 @@
                 <h2 class="ad">Διαφήμιση στο Zino</h2>
                 <form action="do/admanager/demographics" method="post">
                 <input type="hidden" value="<?php
-                echo $id;
+                echo $adid;
                 ?>" name="adid" />
                 <div class="create demographics">
                     <h3>Επιλέξτε target group</h3>
@@ -119,10 +119,20 @@
                             </select>
                         </div>
                         <p id="target" style="margin-top:30px">Στοχεύετε σε όλο το εύρος ατόμων</p>
+                        <input type="hidden" name="adcreationphase" value="<?php
+                        if ( $canskip ) {
+                            ?>yes<?php
+                        }
+                        else {
+                            ?>no<?php
+                        }
+                        ?>" />
                         <input type="submit" class="submit" value="Αποθήκευση" style="margin-top:10px" />
                         <?php
                         if ( $canskip ) {
-                            ?><a href="" class="skip" onclick="return false;">ή παραλείψτε αυτό το βήμα</a><?php
+                            ?><a href="?p=admanager/checkout&amp;adid=<?php
+                            echo $adid;
+                            ?>" class="skip" onclick="return false;">ή παραλείψτε αυτό το βήμα</a><?php
                         }
                         ?>
                     </div>

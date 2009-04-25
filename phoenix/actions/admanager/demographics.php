@@ -1,6 +1,11 @@
 <?php
     function ActionAdManagerDemographics(
-        tInteger $adid, tInteger $minage, tInteger $maxage, tInteger $sex, tIntegerArray $places
+        tInteger $adid,
+        tInteger $minage,
+        tInteger $maxage,
+        tInteger $sex,
+        tIntegerArray $places,
+        tBoolean $adcreationphase
     ) {
         global $libs;
         global $user;
@@ -11,6 +16,7 @@
         $minage = $minage->Get();
         $maxage = $maxage->Get();
         $sex = $sex->Get();
+        $adcreationphase = $adcreationphase->Get();
         
         // this user may be logged out; TODO
         if ( !$user->HasPermission( PERMISSION_AD_EDIT ) ) {
@@ -29,9 +35,13 @@
         $ad->Minage = $minage;
         $ad->Maxage = $maxage;
         $ad->Sex = $sex;
+        // TODO: place
         
         $ad->Save();
         
+        if ( $adcreationphase ) {
+            return Redirect( '?p=admanager/checkout&adid=' . $adid );
+        }
         return Redirect( '?p=admanager/list' );
     }
 ?>

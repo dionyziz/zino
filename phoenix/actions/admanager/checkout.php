@@ -20,5 +20,7 @@
             $user->Profile->Email = $email;                        
         }
         $user->Profile->Save();
+        
+        return Redirect( '?p=admanager/bank' );
     }
 ?>
