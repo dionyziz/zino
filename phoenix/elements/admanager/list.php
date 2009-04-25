@@ -153,9 +153,9 @@
                             }
                             // Ανενεργή: Αναμένεται πληρωμή
                             if ( $ad->IsActive() ) {
-                                ?> - <a class="renew" href="" onclick="return false;">Ανανέωση συνδρομής</a></td><?php
+                                ?> - <a class="renew" href="" onclick="return false;">Ανανέωση συνδρομής</a><?php
                             }
-                            ?>
+                            ?></td>
                         </tr>
                         <?php
                     }
