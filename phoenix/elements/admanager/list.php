@@ -131,7 +131,7 @@
                                 }
                                 
                                 echo htmlspecialchars( $demographics );
-                            ?> - <a class="renew" href="?p=admanager/demographics&amp;id=<?php
+                            ?> - <a class="renew" href="?p=admanager/demographics&amp;adid=<?php
                             echo $ad->Id;
                             ?>">Αλλαγή</a></td>
                             <!-- <td>3,520€</td> -->
