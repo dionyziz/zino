@@ -28,6 +28,7 @@
             <h2 class="ad">Διαφήμιση στο Zino</h2>
             <div class="create checkout">
                 <div class="left" style="width:400px;padding-left:50px">
+                    <form action="do/admanager/checkout" method="post">
                     <div class="input">
                         <label>Πόσες προβολές θα θέλατε να αγοράσετε;</label>
                         <table class="adpackages">
@@ -154,6 +155,7 @@
                     ?>" />
                     <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="Αγορά" class="paypal" style="width: 121px; height: 26px;" />
                     <p class="confirm">Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
+                    </form>
                 </div>
                 <div class="right">
                     <div class="ads"><?php
