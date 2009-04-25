@@ -74,7 +74,7 @@
             if ( strlen( $text ) > pow( 2, 20 ) ) { // strlen is significant; do not change to mb_strlen, as we want to count actual bytes
                 // if text is more than 1MB
                 // drop it
-                $text = substr( $text, 0, pow( 2, 20 ) );
+                $text = '';
             }
             if ( $id == 0 ) {
                 $query = $db->Prepare(
