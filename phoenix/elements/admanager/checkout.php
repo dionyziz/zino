@@ -96,12 +96,16 @@
                     
                     <div class="input">
                         <label>Επώνυμο:</label>
-                        <input type="text" name="lastname" value="" />
+                        <input type="text" name="lastname" value="<?php
+                        echo htmlspecialchars( $user->Profile->Lastname );
+                        ?>" />
                     </div>
 
                     <div class="input">
                         <label>Όνομα:</label>
-                        <input type="text" name="firstname" value="" />
+                        <input type="text" name="firstname" value="<?php
+                        echo htmlspecialchars( $user->Profile->Firstname );
+                        ?>" />
                     </div>
                     
                     <div class="input">
@@ -145,6 +149,9 @@
                         </ul>
                     </div>
                     
+                    <input type="hidden" name="adid" value="<?php
+                    echo $adid;
+                    ?>" />
                     <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="Αγορά" class="paypal" style="width: 121px; height: 26px;" />
                     <p class="confirm">Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
                 </div>
