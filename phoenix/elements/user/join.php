@@ -19,7 +19,7 @@
                         <div>
                             <label for="join_name">Όνομα χρήστη:</label>
                             <input type="text" value="<?php
-                            echo $username;
+                            echo htmlspecialchars( $username );
                             ?>" id="join_name" />
                             <span><img src="<?php
                             echo $rabbit_settings[ 'imagesurl' ];
