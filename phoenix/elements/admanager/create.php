@@ -27,7 +27,7 @@
             else {
                 $page->SetTitle( 'Δημιουργία διαφήμισης' );
                 if ( !$user->HasPermission( PERMISSION_AD_CREATE ) ) {
-                    return Redirect( 'join&returnto=' . urlencode( '?p=admanager' ) );
+                    return Redirect( '?p=join&returnto=' . urlencode( '?p=admanager' ) );
                 }
             }
             
