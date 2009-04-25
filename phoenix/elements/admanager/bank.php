@@ -8,20 +8,21 @@
                     <img src="http://static.zino.gr/phoenix/alert-note.png" alt="Όλα καλά!" title="Όλα καλά!" />
                 </div>
                 <div class="right">
-                    <h3>Σας ευχαριστούμε!</h3>
+                    <h3>Απομένει μία απλή κατάθεση!</h3>
                     <p><strong>Για να ολοκληρωθεί η συναλλαγή σας, παρακαλούμε πραγματοποιήστε την 
                     τραπεζική κατάθεση:</strong></p>
                     <ul class="bankaccount">
-                        <li><label>Τράπεζα:</label> Ταχυδρομικό ταμιευτήριο</li>
-                        <li><label>Αριθμός λογαριασμού:</label> 00088766033-9 01</li>
-                        <li><label>Αιτιολογία:</label> <?php
+                        <li><label>Τράπεζα:</label> <span class="vital">Ταχυδρομικό ταμιευτήριο</span></li>
+                        <li><label>Αριθμός λογαριασμού:</label> <span class="vital">00088766033-9 01</span></li>
+                        <li><label>Αιτιολογία:</label> <span class="vital"><?php
                         echo htmlspecialchars( $user->Profile->Lastname );
                         ?> <?php
                         echo htmlspecialchars( $user->Profile->Firstname );
-                        ?></li>
+                        ?></span></li>
                     </ul>
                     <p><strong>Αποστείλτε μας την απόδειξη κατάθεσης μέσω e-mail στο 
-                    <a href="mailto:ads@zino.gr">ads@zino.gr</a>. Αν επιθυμείτε έκδοση τιμολογίου,
+                    <a href="mailto:ads@zino.gr">ads@zino.gr</a>.<br />
+                    Αν επιθυμείτε έκδοση τιμολογίου,
                     συμπεριλάβετε την επωνυμία της εταιρίας σας καθώς και το ΑΦΜ σας.</strong></p>
                     <p>Ελπίζουμε η συνεργασία μαζί μας να είναι άριστη.<br />Σε περίπτωση οποιουδήποτε 
                     προβλήματος ή ερώτησης, μην διστάσετε να επικοινωνήσετε μαζί μας στο 
