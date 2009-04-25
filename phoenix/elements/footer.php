@@ -1,7 +1,7 @@
 <?php
-    
     class ElementFooter extends Element {
         protected $mPersistent = array();
+        
         public function Render() {
             ?><div class="footer">
                 <ul>
