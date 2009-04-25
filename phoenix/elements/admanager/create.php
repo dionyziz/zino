@@ -118,7 +118,9 @@
                                              IMAGE_FULLVIEW, '', $ad->Title, '', false, 0, 0, 0 );
                                 }
                                 else {
-                                    ?><img src="http://static.zino.gr/phoenix/mockups/college-students-health.jpg" alt="..." /><?php
+                                    ?><img src="<?php
+                                    echo $xc_settings[ 'staticimagesurl' ];
+                                    ?>your-ad.jpg" alt="Η εικόνα σας" /><?php
                                 }
                                 ?></a>
                                 <p><a href="" onclick="return false"><?php
