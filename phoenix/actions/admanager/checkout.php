@@ -28,6 +28,16 @@
             ?>Η συγκεκριμένη διάφημιση δεν υπάρχει.<?php
             return;
         }
+        if ( $ad->IsActive() ) {
+            ?>Η συγκεκριμένη διάφημιση έχει ήδη ενεργοποιηθεί.<?php
+            return;
+        }
+        if ( $ad->Userid != $user->Id ) {
+            ?>Η συγκεκριμένη διάφημιση δεν σας ανήκει.<?php
+            return;
+        }
+        $ad->Pageviewsremaining = $numviews;
+        $ad->Save();
         
         $user->Profile->Firstname = $firstname;
         $user->Profile->Lastname = $lastname;
@@ -35,8 +45,6 @@
             $user->Profile->Email = $email;                        
         }
         $user->Profile->Save();
-        
-        $ad = New Ad( $adid );
         
         return Redirect( '?p=admanager/bank' );
     }

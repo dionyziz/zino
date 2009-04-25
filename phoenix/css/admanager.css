@@ -326,7 +326,8 @@ div.buyad label.disabled {
     color: #999;
 }
 div.buyad span.vital {
-    font-size: 110%;
-    padding: 10px;
-    font-weight: bold;
+    display:block;
+    font-size:110%;
+    font-weight:bold;
+    margin:10px 0 10px 40px;
 }

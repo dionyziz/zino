@@ -1,6 +1,8 @@
 <?php
     class ElementAdManagerBank {
-        public function Render() { 
+        public function Render() {
+            global $user;
+            
             ?><div class="buyad">
             <h2 class="ad">Διαφήμιση στο Zino</h2>
             <div class="create status">
