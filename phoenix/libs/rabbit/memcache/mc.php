@@ -3,7 +3,7 @@
         Developer: Dionyziz
     */
 
-    interface MemCache {
+    interface MemCacheOperations {
         public function get( $key );
         public function get_multi( $keys );
         public function add( $key, $value, $expires = 0 );
