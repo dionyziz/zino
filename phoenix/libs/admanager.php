@@ -81,6 +81,7 @@
             global $user;
             
             $this->Userid = $user->Id;
+            $this->Active = 'no';
         }
         public function Relations() {
             $this->Image = $this->HasOne( 'Image', 'Imageid' );

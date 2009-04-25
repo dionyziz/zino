@@ -41,7 +41,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews1" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews1" value="1000" />
                                         <label for="numviews1">1,000</label>
                                     </td>
                                     <td>25€</td>
@@ -49,7 +49,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews5" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews5" value="5000" />
                                         <label for="numviews5">5,000</label>
                                     </td>
                                     <td>22€</td>
@@ -57,7 +57,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews10" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews10" value="10000" />
                                         <label for="numviews10">10,000</label>
                                     </td>
                                     <td>20€</td>
@@ -65,7 +65,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews50" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews50" value="50000" />
                                         <label for="numviews50">50,000</label>
                                     </td>
                                     <td>18€</td>
@@ -73,7 +73,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews100" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews100" value="100000" />
                                         <label for="numviews100">100,000</label>
                                     </td>
                                     <td>17€</td>
@@ -81,7 +81,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="numviews" class="radio" id="numviews500" />
+                                        <input type="radio" name="numviews" class="radio" id="numviews500" value="500000" />
                                         <label for="numviews500">500,000</label>
                                     </td>
                                     <td>15€</td>
@@ -95,8 +95,13 @@
                     </div>
                     
                     <div class="input">
-                        <label>Όνομα και επώνυμο:</label>
-                        <input type="text" name="fullname" value="" />
+                        <label>Επώνυμο:</label>
+                        <input type="text" name="lastname" value="" />
+                    </div>
+
+                    <div class="input">
+                        <label>Όνομα:</label>
+                        <input type="text" name="firstname" value="" />
                     </div>
                     
                     <div class="input">
@@ -140,12 +145,7 @@
                         </ul>
                     </div>
                     
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="paypal">
-                        <input type="hidden" name="cmd" value="_s-xclick" />
-                        <input type="hidden" name="hosted_button_id" value="4309716" />
-                        <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" alt="PayPal - The safer, easier way to pay online." class="paypal" style="width: 121px; height: 26px;" />
-                        <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                    </form>
+                    <input type="image" src="http://static.zino.gr/phoenix/buy.gif" name="submit" class="paypal" style="width: 121px; height: 26px;" />
                     <p class="confirm">Θα έχετε την δυνατότητα να επιβεβαιώσετε την επιλογή σας πριν πληρώσετε.</p>
                 </div>
                 <div class="right">
