@@ -4,6 +4,7 @@
             global $page;
             global $libs;
             global $user;
+            global $xc_settings;
             
             $libs->Load( 'admanager' );
 
