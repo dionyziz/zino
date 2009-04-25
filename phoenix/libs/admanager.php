@@ -55,11 +55,14 @@
                     *
                 FROM
                     :ads
+                WHERE
+                    `ad_active`=:yes
                 ORDER BY
                     RAND()
                 LIMIT 1;'
             );
             $query->BindTable( 'ads' );
+            $query->Bind( 'yes', 'yes' );
             $res = $query->Execute();
             if ( $res->Results() ) {
                 return New Ad( $res->FetchArray() );
