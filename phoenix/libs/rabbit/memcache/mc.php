@@ -12,7 +12,7 @@
         public function replace( $key, $value );
     }
     
-    final class MemCacheDummy implements MemCache {
+    final class MemCacheDummy implements MemCacheOperations {
         public function MemCacheDummy() {
         }
         public function get( $key ) {
@@ -33,7 +33,7 @@
         }
     }
     
-    final class MemCacheSQL implements MemCache {
+    final class MemCacheSQL implements MemCacheOperations {
         private $mRequestCaches;
         private $mDbTableAlias;
         private $mDb;
