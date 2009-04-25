@@ -17,7 +17,7 @@
             Element( 'admanager/view', $ad );
             
             ?>
-            <!-- <h3><a href="?p=ads">Διαφημιστείτε στο Zino</a></h3>-->
+            <h3><a href="?p=ads">Διαφημιστείτε στο Zino</a></h3>
             <?php
             
             $ad->WasShown();
