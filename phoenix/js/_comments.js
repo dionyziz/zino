@@ -232,7 +232,15 @@ var Comments = {
         }
 
         //Comments[ "Changed0" ] = false;
-        $( "div.newcomment:first" ).find( "div.toolbox" ).hide().end()
+        $( "div.newcomment:first div.toolbox" ).hide();
+        $( "div.newcomment:first div.text textarea" ).css( "color" , "#666" ).focus( function() {
+            if ( !Comments[ "Changed0" ] ) {
+                this.value = "";
+                $( this ).css( "color" , "#000" );
+            }
+            Comments.typing = true; 
+        } )
+        /*
         .find( "div.text textarea" ).each( function() {
             $( this ).css( "color" , "#666" );
             Comments[ "Changed0"] = false;
@@ -242,7 +250,8 @@ var Comments = {
                 $( this ).css( "color" , "#000" );
             }
             Comments.typing = true; 
-        } ) 
+        } )
+        */
         .blur( function() {
             if ( this.value  === '' ) {
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
