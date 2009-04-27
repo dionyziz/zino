@@ -882,7 +882,7 @@ class memcached implements MemCacheOperations
 
          } else 
          {
-            print("Error parsing memcached response\n");
+            //print("Error parsing memcached response\n");
             return 0;
          }
       }
