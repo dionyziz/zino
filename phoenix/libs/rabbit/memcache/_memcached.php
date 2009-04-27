@@ -880,6 +880,10 @@ class memcached implements MemCacheOperations
             if ($flags & MEMCACHE_SERIALIZED)
                $ret[$rkey] = unserialize($ret[$rkey]);
 
+         } else 
+         {
+            print("Error parsing memcached response\n");
+            return 0;
          }
       }
    }
