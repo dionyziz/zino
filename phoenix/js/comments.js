@@ -215,7 +215,7 @@ var Comments = {
                 .show();
             } );
 
-            if ( !username ) {
+            if ( !username || ( typeof ExcaliburSettings.CommentsDisabled != 'undefined' && ExcaliburSettings.CommentsDisabled ) ) {
                 $( "[id^='comment_'] > div.bottom" ).empty();
             }
             else {
@@ -230,16 +230,15 @@ var Comments = {
                 } );
             }
         }
-
         Comments[ "Changed0" ] = false;
-        $( "div.newcomment:first" ).find( "div.toolbox" ).hide().end()
-        .find( "div.text textarea" ).css( "color" , "#666" ).focus( function() {
+        $( "div.newcomment:first div.toolbox" ).hide();
+        $( "div.newcomment:first div.text textarea" ).css( "color" , "#666" ).focus( function() {
             if ( !Comments[ "Changed0" ] ) {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
             }
             Comments.typing = true; 
-        } ) 
+        } )
         .blur( function() {
             if ( this.value  === '' ) {
                 this.value = "Πρόσθεσε ένα σχόλιο..."; 
