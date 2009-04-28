@@ -1,5 +1,4 @@
 function dateDiff( dateTimeBegin, dateTimeEnd ) {
-    alert( dateTimeEnd );
     var endval = new Date();
     var beginval = new Date();
 
