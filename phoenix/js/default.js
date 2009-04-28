@@ -17,6 +17,9 @@ $( function() {
 		} );
 	}
     */
+    if ( ExcaliburSettings.AllowIE6 ) {
+        return;
+    }
 	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "ie.html";
 	}
