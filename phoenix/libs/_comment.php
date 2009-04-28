@@ -14,7 +14,7 @@
 
         $water->Profile( "Memcache generation" );
 
-        //$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
         $children = $finder->FindByEntity( $entity );
@@ -79,7 +79,7 @@
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
-        public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
+        public function FindByPage( $entity, $page ) {
             global $user;
 
             if ( $page <= 0 ) {
