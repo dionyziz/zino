@@ -303,3 +303,8 @@ var Comments = {
         }
     }
 };
+$( document ).ready( function() {
+    if ( $( "[id^='comment_']" )[ 0 ] )  {
+        Comments.OnLoad();
+    }
+} );
