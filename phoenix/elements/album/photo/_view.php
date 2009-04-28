@@ -409,9 +409,6 @@
                         ?></div><?php
                     }
                 }
-                else {
-                        $page->AttachInlineScript( "Comments.OnLoad();" );
-                }
                 ?></div>
             </div><div class="eof"></div><?php
             $page->AttachInlineScript( 'Tag.OnLoad();' );

@@ -4,7 +4,8 @@
         public function Render( $itemid, $typeid , $userid , $avatarid ) {
             global $user;
             global $page;
-            
+           
+            $page->AttachInlineScript( "Comments.NewCommentOnLoad();" );
             ?><div id="newcom" class="comment newcomment">
                 <div class="toolbox">
                     <span class="time"></span>

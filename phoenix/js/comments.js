@@ -230,6 +230,8 @@ var Comments = {
                 } );
             }
         }
+    },
+    NewCommentOnLoad : function() {
         Comments[ "Changed0" ] = false;
         $( "#newcom div.toolbox" ).hide();
         $( "#newcom div.text textarea" ).css( "color" , "#666" ).focus( function() {
