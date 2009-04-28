@@ -5,7 +5,6 @@
             global $user;
             global $page;
             
-            $page->AttachInlineScript( "Comments.OnLoad();" );
             ?><div class="comment newcomment">
                 <div class="toolbox">
                     <span class="time"></span>

@@ -14,6 +14,7 @@
             }
 
             if ( empty( $comments ) ) {
+                $page->AttachInlineScript( "Comments.OnLoad();" );
                 return; // why did you call me?
             }
 
@@ -36,6 +37,7 @@
                 $page->AttachInlineScript( 'ExcaliburSettings.CommentsDisabled = true;' );
             }
             
+            $page->AttachInlineScript( "Comments.OnLoad();" );
             return $indent;
         }   
     }
