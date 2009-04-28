@@ -9,6 +9,7 @@
 			
 			$findnear = $finder->FindNear( $entity, $speccomment );
 			echo $findnear;
+			var_dump( $findnear );
         }
     }
 ?>
