@@ -14,6 +14,7 @@
             }
 
             if ( empty( $comments ) ) {
+                die( 'test' );
                 $page->AttachInlineScript( "Comments.OnLoad();" );
                 return; // why did you call me?
             }
