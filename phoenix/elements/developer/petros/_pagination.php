@@ -3,8 +3,8 @@
         public function Render() {
 			global $libs;
 			$libs->Load( 'comment' );
-			die( 'test' );
 			$finder = New CommentFinder();
+			die( 'test' );
 			$speccomment = New Comment( 1149616 );
 			$entity = New Image( 100589 );
 			$findnear = $finder->FindNear( $entity, $speccomment );
