@@ -10,7 +10,7 @@
                 ?></div>
 				<div><?php
 				$page->AttachScript("js/pm.js");
-				?><a href="" onclick="return pms.NewMessage( '<?php echo $theuser->Name ?>' , '' )">Αποστολή προσωπικού μηνύματος στον χρήστη</a>
+				?><a href="" onclick="return pms.NewMessage( '<?php echo $theuser->Name ?>' , '' )">Αποστολή προσωπικού μηνύματος</a>
 				</div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuserid , $updated );
             ?>
