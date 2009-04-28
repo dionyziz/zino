@@ -4,6 +4,7 @@
          
         public function Render( $theuser , $theuserid , $updated, $schoolexists ) { 
             ?><div class="sidebar">
+				<div>Send Message</div>
                 <div class="basicinfo"><?php
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuserid , $updated, $schoolexists ); 
                     ?><dl class="online"><dt><strong>Online</strong></dt><dd></dd></dl><?php
