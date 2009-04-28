@@ -6,8 +6,9 @@
 			$finder = New CommentFinder();
 			$speccomment = New Comment( 1149616 );
 			$entity = New Image( 100589 );
-			die( 'test' );
+			
 			$findnear = $finder->FindNear( $entity, $speccomment );
+			die( 'test' );
 			var_dump( $findnear );
         }
     }
