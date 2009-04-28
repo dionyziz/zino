@@ -166,7 +166,8 @@
             'notvalidated'      => 'validation/page',
 			'revalidate'        => 'validation/resend',
             'test'              => 'test',
-            'taglist'           => 'album/photo/taglist'
+            'taglist'           => 'album/photo/taglist',
+			'paginationtest'	=> 'developer/petros/pagination'
         );
     }
     
