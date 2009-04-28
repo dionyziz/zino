@@ -397,7 +397,6 @@
                             $finder = New NotificationFinder();
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
-                        $page->AttachInlineScript( 'var Comments.nowdate = "' . NowDate() . '";' );
                         $indentation = Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
                         $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                         $page->AttachInlineScript( "Comments.OnLoad();" );
