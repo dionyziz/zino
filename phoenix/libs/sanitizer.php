@@ -132,7 +132,7 @@
                 2 => array( "pipe", "r" )
             );
             
-            $process = proc_open( $rabbit_settings[ 'rootdir' ] . '/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
+            $process = proc_open( '/home/dionyziz/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
             
             if ( !is_resource( $process ) ) {
                 throw New Exception( 'Failed to start the XHTML sanitizer' );
