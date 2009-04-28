@@ -9,7 +9,7 @@
 			
 			$findnear = $finder->FindNear( $entity, $speccomment );
 			$comments = $findnear[ 2 ];
-			var_dump( getclass( $comments[ 0 ] ) ) ;
+			var_dump( get_class( $comments[ 0 ] ) ) ;
         }
     }
 ?>
