@@ -215,7 +215,7 @@ var Comments = {
                 .show();
             } );
 
-            if ( !username ) {
+            if ( !username || ( typeof ExcaliburSettings.CommentsDisabled != 'undefined' && ExcaliburSettings.CommentsDisabled ) ) {
                 $( "[id^='comment_'] > div.bottom" ).empty();
             }
             else {
