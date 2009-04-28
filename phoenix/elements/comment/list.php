@@ -32,6 +32,9 @@
                 $children = isset( $children_nums[ $comment->Id ] ) ? $children_nums[ $comment->Id ] : 0;
                 Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
             }
+            if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+                $page->AttachInlineScript( 'ExcaliburSettings.CommentsDisabled = true;' );
+            }
             $page->AttachInlineScript( "Comments.OnLoad();" );
             
             return $indent;
