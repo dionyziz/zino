@@ -37,7 +37,7 @@
             }
             if ( UserIP() == ip2long( '85.72.166.252' ) ) {
                 // Petros testing IE
-                $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = " . w_json_encode( UserIp() ) );
+                $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
