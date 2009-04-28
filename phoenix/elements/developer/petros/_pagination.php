@@ -8,9 +8,7 @@
 			$entity = New Image( 100589 );
 			
 			$findnear = $finder->FindNear( $entity, $speccomment );
-			
-			var_dump( $findnear );
-			die( 'test' );
+			echo $findnear;
         }
     }
 ?>
