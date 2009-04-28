@@ -398,11 +398,11 @@
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
                         $indentation = Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
-                        $page->AttachInlineScript( "Comments.OnLoad();" );
                         if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                             Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                         }
                         $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
+                        $page->AttachInlineScript( "Comments.OnLoad();" );
                         ?><div class="pagifycomments"><?php
                             $link = '?p=photo&id=' . $image->Id . '&pageno=';
                             Element( 'pagify', $pageno, $link, $total_pages );
