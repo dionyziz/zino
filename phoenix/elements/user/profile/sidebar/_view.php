@@ -8,8 +8,9 @@
                     Element( 'user/profile/sidebar/basicinfo' , $theuser , $theuserid , $updated, $schoolexists ); 
                     ?><dl class="online"><dt><strong>Online</strong></dt><dd></dd></dl><?php
                 ?></div>
-				<div>
-				<a href="" onclick="return pms.NewMessage( '<?php echo $theuser->Name ?>' , '' )"><span>&nbsp;</span>Νέο μήνυμα</a>
+				<div><?php
+				$page->AttachScript("js/pm.js");
+				?><a href="" onclick="return pms.NewMessage( '<?php echo $theuser->Name ?>' , '' )">Αποστολή προσωπικού μηνύματος στον χρήστη</a>
 				</div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuserid , $updated );
             ?>
