@@ -12,7 +12,7 @@
                 case 'dionyziz':
                     Element( 'comment/comet' , $typeid , $itemid );
             }
-
+            die( "comments " . count( $comments ) );
             if ( empty( $comments ) ) {
                 die( 'test' );
                 $page->AttachInlineScript( "Comments.OnLoad();" );
