@@ -13,6 +13,7 @@
                     Element( 'comment/comet' , $typeid , $itemid );
             }
 
+            $page->AttachInlineScript( "Comments.OnLoad();" );
             if ( empty( $comments ) ) {
                 return; // why did you call me?
             }
@@ -35,7 +36,6 @@
             if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
                 $page->AttachInlineScript( 'ExcaliburSettings.CommentsDisabled = true;' );
             }
-            $page->AttachInlineScript( "Comments.OnLoad();" );
             
             return $indent;
         }   
