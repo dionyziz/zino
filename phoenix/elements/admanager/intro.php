@@ -48,6 +48,7 @@
                         </ul>
                     </li>
                 </ol>
+                <strong style="font-size: 100%;">Για περισσότερες πληροφορίες, επικοινωνήστε μαζί μας στο <a href="mailto:ads@zino.gr">ads@zino.gr</a></strong>
                 <div class="eof"></div>
                 <a href="?p=admanager/create" class="start">Δημιουργία διαφήμισης</a><?php
                 if ( !$user->Exists() || true ) {
