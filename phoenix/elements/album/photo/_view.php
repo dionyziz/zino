@@ -402,7 +402,7 @@
                         if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                             Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                         }
-                        $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";alert( Comments.nowdate );' );
+                        $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                         ?><div class="pagifycomments"><?php
                             $link = '?p=photo&id=' . $image->Id . '&pageno=';
                             Element( 'pagify', $pageno, $link, $total_pages );
