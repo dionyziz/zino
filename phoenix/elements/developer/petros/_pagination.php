@@ -8,7 +8,8 @@
 			$entity = New Image( 100589 );
 			
 			$findnear = $finder->FindNear( $entity, $speccomment );
-			var_export( $findnear );
+			$comments = $findnear[ 2 ];
+			var_dump( $comments[ 0 ] ) ;
         }
     }
 ?>
