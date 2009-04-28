@@ -5,7 +5,7 @@
             global $user;
             global $page;
             
-            ?><div class="comment newcomment">
+            ?><div id="newcom" class="comment newcomment">
                 <div class="toolbox">
                     <span class="time"></span>
                 </div>
