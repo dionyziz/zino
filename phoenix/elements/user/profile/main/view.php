@@ -261,8 +261,9 @@
                                 Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE , $user->Id , $user->Avatar->Id );
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
-                            $page->AttachInlineScript( 'var Comments.nowdate = "' . NowDate() . '";' );
                             $indentation = Element( 'comment/list' , $comments , TYPE_USERPROFILE , $theuser->Id );
+                            $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
+                            $page->AttachInlineScript( "Comments.OnLoad();" );
                             if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                                 Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                             }

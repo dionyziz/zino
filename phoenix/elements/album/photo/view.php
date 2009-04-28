@@ -399,6 +399,8 @@
                         }
                         $page->AttachInlineScript( 'var Comments.nowdate = "' . NowDate() . '";' );
                         $indentation = Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
+                        $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
+                        $page->AttachInlineScript( "Comments.OnLoad();" );
                         if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                             Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
                         }
