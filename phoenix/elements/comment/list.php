@@ -13,7 +13,6 @@
                     Element( 'comment/comet' , $typeid , $itemid );
             }
 
-            $page->AttachInlineScript( "Comments.OnLoad();" );
             if ( empty( $comments ) ) {
                 return; // why did you call me?
             }
