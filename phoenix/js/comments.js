@@ -305,9 +305,3 @@ var Comments = {
         }
     }
 };
-/*$( document ).ready( function() {
-    if ( $( "#newcom" )[ 0 ] )  {
-        Comments.OnLoad();
-    }
-} );
-*/
