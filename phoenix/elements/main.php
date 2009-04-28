@@ -28,14 +28,16 @@
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
                 $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
-                // Petros testing IE
-                $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = " . w_json_encode( UserIp() ) );
                 $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
             else {
                 $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
+            }
+            if ( UserIP() == ip2long( '85.72.166.252' ) ) {
+                // Petros testing IE
+                $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = " . w_json_encode( UserIp() ) );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
