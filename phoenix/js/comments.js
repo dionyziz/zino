@@ -307,7 +307,6 @@ var Comments = {
 $( document ).ready( function() {
     alert( 'loaded' );
     if ( $( "#newcom" )[ 0 ] )  {
-        alert( 'exists' );
         Comments.OnLoad();
     }
 } );
