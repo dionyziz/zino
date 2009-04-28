@@ -10,7 +10,7 @@
 			$findnear = $finder->FindNear( $entity, $speccomment );
 			$comments = $findnear[ 2 ];
 			foreach( $comments as $comment ) {
-				echo( $comments[ 0 ]->Id . "\n" ) ;
+				echo( $comment->Id . "\n" ) ;
 			}
         }
     }
