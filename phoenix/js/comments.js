@@ -210,7 +210,6 @@ var Comments = {
             var username = GetUsername();
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
-                alert( commdate );
                 $( this ).empty()
                 .text( greekDateDiff( dateDiff( commdate , Comments.nowdate ) ) )
                 .show();
@@ -304,8 +303,9 @@ var Comments = {
         }
     }
 };
-$( document ).ready( function() {
+/*$( document ).ready( function() {
     if ( $( "#newcom" )[ 0 ] )  {
         Comments.OnLoad();
     }
 } );
+*/
