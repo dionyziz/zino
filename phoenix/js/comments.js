@@ -231,8 +231,8 @@ var Comments = {
             }
         }
         Comments[ "Changed0" ] = false;
-        $( "div.newcomment:first div.toolbox" ).hide();
-        $( "div.newcomment:first div.text textarea" ).css( "color" , "#666" ).focus( function() {
+        $( "#newcom div.toolbox" ).hide();
+        $( "#newcom div.text textarea" ).css( "color" , "#666" ).focus( function() {
             if ( !Comments[ "Changed0" ] ) {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
