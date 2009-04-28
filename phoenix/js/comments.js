@@ -207,10 +207,10 @@ var Comments = {
         } );
         
         if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+                alert( Comments.nowdate );
             var username = GetUsername();
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
-                alert( Comments.nowdate );
                 $( this ).empty()
                 .text( greekDateDiff( dateDiff( commdate , Comments.nowdate ) ) )
                 .show();
