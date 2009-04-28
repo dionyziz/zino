@@ -92,7 +92,7 @@
 					if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatar->Id );
 					}
-                    $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
+                    $page->AttachInlineScript( 'var Comments.nowdate = "' . NowDate() . '";' );
                     $indentation = Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
                     if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                         Element( 'comment/focus', $commentid, $indentation[ $commentid ] );

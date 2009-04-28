@@ -158,7 +158,7 @@
                                 $finder = New NotificationFinder();
                                 $finder->DeleteByCommentAndUser( $speccomment, $user );
                             }       
-                            $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
+                            $page->AttachInlineScript( 'var Comments.nowdate = "' . NowDate() . '";' );
                             $indentation = Element( 'comment/list', $comments, TYPE_JOURNAL, $journal->Id );
                             if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
                                 Element( 'comment/focus', $commentid, $indentation[ $commentid ] );
