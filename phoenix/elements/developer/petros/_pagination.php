@@ -4,9 +4,9 @@
 			global $libs;
 			$libs->Load( 'comment' );
 			$finder = New CommentFinder();
-			die( 'test' );
 			$speccomment = New Comment( 1149616 );
 			$entity = New Image( 100589 );
+			die( 'test' );
 			$findnear = $finder->FindNear( $entity, $speccomment );
 			var_dump( $findnear );
         }
