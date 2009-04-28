@@ -111,7 +111,6 @@
                                 $finder = New NotificationFinder();
                                 $finder->DeleteByCommentAndUser( $speccomment, $user );
                             }
-                            $page->AttachInlineScript( 'var nowdate = "' . NowDate() . '";' );
                             $indentation = Element( 'comment/list' , $comments , TYPE_POLL , $poll->Id );
                             $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                             $page->AttachInlineScript( "Comments.OnLoad();" );
