@@ -99,12 +99,8 @@
             $commentids = $paged[ $page ];
             $comments = $this->FindData( $commentids );
     
-            $ret = array();
-            foreach ( $commentids as $key => $id ) {
-                $ret[ $key ] = $comments[ $id ];
-            }
 
-            return array( count( $paged ), $ret );
+            return array( count( $paged ), $comments );
         }
         public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
             global $mc;
@@ -133,12 +129,7 @@
             $commentids = $paged[ $cur_page ];
             $comments = $this->FindData( $commentids );
 
-            $ret = array(); //makes sure the order is preserved according to what will be displayed
-            foreach ( $commentids as $key => $id ) {
-                $ret[ $key ] = $comments[ $id ];
-            }
-
-            return array( count( $paged ), $cur_page + 1, $ret ); 
+            return array( count( $paged ), $cur_page + 1, $comments ); 
         }
         public function Count() {
             $query = $this->mDb->Prepare(
@@ -401,7 +392,7 @@
 				if ( isset( $comments[ $commentid ] ) ) {
 					$comment = $comments[ $commentid ];
 					$comment->Text = $bulks[ $comment->Bulkid ];
-					$ret[ $commentid ] = $comment;
+					$ret[] = $comment;
 				}
             }
 
