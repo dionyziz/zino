@@ -641,7 +641,8 @@
 		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
-		var_dump( $paged );
+		var_dump( $paged[ $page ] );
+		var_dump( $firsthalf );
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
