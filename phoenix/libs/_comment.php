@@ -13,8 +13,8 @@
         global $water;
 
         $water->Profile( "Memcache generation" );
-
-        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+		
+        //$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
         $children = $finder->FindByEntity( $entity );
@@ -111,10 +111,12 @@
 
             $paged = Comment_GetMemcached( $entity );
             $cur_page = -1;
+			
+			$id = $comment->Id;
 
             foreach ( $paged as $page => $commentids ) { /* slow? at least not if the comment is on the first pages */
                 foreach ( $commentids as $commentid ) {
-                    if ( $commentid == $comment->Id ) {
+                    if ( $commentid == $id ) {
                         $cur_page = $page;
                         break;
                     }
@@ -131,7 +133,7 @@
             $commentids = $paged[ $cur_page ];
             $comments = $this->FindData( $commentids );
 
-            $ret = array();
+            $ret = array(); //makes sure the order is preserved according to what will be displayed
             foreach ( $commentids as $key => $id ) {
                 $ret[ $key ] = $comments[ $id ];
             }
@@ -358,7 +360,7 @@
 
             return $children;
         }
-        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
+        public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
             if ( empty( $comments ) ) {
                 return array();
             }
@@ -376,7 +378,7 @@
                     :offset, :limit;" );
 
             $query->BindTable( 'comments', 'users', 'images' );
-            $query->Bind( 'commentids', $comments );
+            $query->Bind( 'commentids', $commentids );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
@@ -388,16 +390,19 @@
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
                 $comment->CopyUserFrom( $user );
-                $comments[] = $comment;
+                $comments[ $comment->Id ] = $comment;
                 $bulkids[] = $comment->Bulkid;
             }
-
+			
             $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
-            while ( $comment = array_shift( $comments ) ) {
-                $comment->Text = $bulks[ $comment->Bulkid ];
-                $ret[ $comment->Id ] = $comment;
+            foreach ( $commentids as $commentid ) {
+				if ( isset( $comments[ $commentid ] ) ) {
+					$comment = $comments[ $commentid ];
+					$comment->Text = $bulks[ $comment->Bulkid ];
+					$ret[ $commentid ] = $comment;
+				}
             }
 
             return $ret;
@@ -577,5 +582,69 @@
             $this->Userid = $user->Id;
         }
     }
+	
+	function Mitosis( $commentid, $parentid ) {
+		$paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        if ( $paged === false ) {
+            $paged = Comment_RegenerateMemcache( $entity );
+			return;
+        }
+        $finder = New CommentFinder();
+		if ( $parentid == 0 ) {
+			$page = 0;
+			$comments = $finder->FindData( $paged[ $page ] );
+		}
+		else {
+			$speccomment = New Comment( $parentid );
+			$info = $finder->FindNear( $entity, $speccomment );
+			$page = $info[ 1 ];
+			$comments = $info[ 2 ];
+		}
+		
+		
+		
+		$parented = array();
+		$rootcomments = array();
+		foreach ( $comments as $comment ) {
+			$parented[ $comment->Parentid ][] = $comment;
+			if ( $comment->Parentid == 0 ) {
+				$rootcomments[] = $comment->Id;
+			}
+		}
+		/* will be gone soon
+		$queue = array();
+		$rootid = 0;
+		$threads = array();
+		while ( !empty( $queue ) || !empty( $rootcomments ) ) {
+			if ( empty( $queue ) ) {
+				$rootid = array_pop( $rootcomments );
+				array_push( $queue, $rootid );
+				$threads[ $rootid ] = 1;
+			}
+			$id = array_pop( $queue );
+			if ( isset( $parented[ $id ] ) ) {
+				$threads[ $rootid ] += count( $parented[ $id ] );
+				foreach ( $parented[ $id ] as $id => $child ) {
+					array_push( $queue, $child->Id );
+				}
+			}
+		}
+		
+		
+		$TotalComments = count( $paged[ $page ] );
+		$CrrentComments = 0;
+		$MinDiaf=20;
+		for( $i = 0; $i < $n; $i++ ) {
+			$CurrentComments += A[i];
+			$diaf = abs( $TotalComments/2 - $CurrentComments );
+			if( $diaf < $MinDiaf ) {
+				$MinDiaf = $diaf;
+				$index = $i;
+			}
+			else {
+				break;
+			}
+		}*/
+	}
 
 ?>
