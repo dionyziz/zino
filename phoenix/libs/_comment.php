@@ -617,8 +617,8 @@
 		for ( $i = 0; $i < $n; ++$i ) {
 			$CurrentComments += $threads[ $i ];
 			$diaf = abs( $totalcomments / 2 - $CurrentComments );
-			if ( $diaf < $MinDiaf ) {
-				$MinDiaf = $diaf;
+			if ( $diaf < $mindiaf ) {
+				$mindiaf = $diaf;
 				$index = $i;
 				$mincurrentcomments = $CurrentComments;
 			}
