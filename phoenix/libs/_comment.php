@@ -632,7 +632,22 @@
 			return;
 		}
 		
-		die( "Tha ginei mitosi sto $index" );
+		
+		$firsthalf = array();
+		$secondhalf = array();
+		for ( $i = 0; $i <= $mincurrentcomments; ++$i ) {
+			$firsthalf[] = $paged[ $page ][ $i ];
+		}
+		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
+			$secondhalf[] = $paged[ $page ][ $i ];
+		}
+		
+		array_splice( $paged, $page, 1, array(
+			$page => $firsthalf,
+			$page + 1 => $secondhalf,
+		) );
+		
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 	}
 
 ?>
