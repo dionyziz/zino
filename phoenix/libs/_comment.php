@@ -397,7 +397,8 @@
             $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
-            foreach ( $comments as $comment ) {
+            foreach ( $commentids as $commentid ) {
+				$comment = $comments[ $commentid ];
                 $comment->Text = $bulks[ $comment->Bulkid ];
                 $ret[ $comment->Id ] = $comment;
             }
