@@ -579,6 +579,7 @@
 		
 		$paged = Comment_GetMemcached( $entity );
         $finder = New CommentFinder();
+		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
 		if ( $parentid == 0 ) {
 			$page = 0;
 			$comments = $finder->FindData( $paged[ $page ] );
@@ -601,42 +602,21 @@
 				++$threads[ $i ];
 			}
 		}
-		
-		var_dump( $threads );
-		/* will be gone soon
-		$queue = array();
-		$rootid = 0;
-		$threads = array();
-		while ( !empty( $queue ) || !empty( $rootcomments ) ) {
-			if ( empty( $queue ) ) {
-				$rootid = array_pop( $rootcomments );
-				array_push( $queue, $rootid );
-				$threads[ $rootid ] = 1;
-			}
-			$id = array_pop( $queue );
-			if ( isset( $parented[ $id ] ) ) {
-				$threads[ $rootid ] += count( $parented[ $id ] );
-				foreach ( $parented[ $id ] as $id => $child ) {
-					array_push( $queue, $child->Id );
-				}
-			}
-		}
 
 		$totalcomments = count( $paged[ $page ] );
 		$CurrentComments = 0;
-		$MinDiaf=20;
+		$MinDiaf = 20;
 		$n = count( $threads );
-		for( $i = 0; $i < $n; $i++ ) {
+		$index = false;
+		for ( $i = 0; $i < $n; ++$i ) {
 			$CurrentComments += $threads[ $i ];
-			$diaf = abs( $TotalComments/2 - $CurrentComments );
-			if( $diaf < $MinDiaf ) {
+			$diaf = abs( $totalcomments / 2 - $CurrentComments );
+			if ( $diaf < $MinDiaf ) {
 				$MinDiaf = $diaf;
 				$index = $i;
 			}
-			else {
-				break;
-			}
-		}*/
+		}
+		var_dump(  $index );
 	}
 
 ?>
