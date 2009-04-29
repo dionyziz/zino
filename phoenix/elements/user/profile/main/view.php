@@ -19,7 +19,7 @@
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
-                    $comments = $finder->FindByPage( $theuser, $pageno , true );
+                    $comments = $finder->FindByPage( $theuser, $pageno );
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
                 }

@@ -591,13 +591,14 @@
 		}
 		
 		$i = -1;
+		$threads = array();
 		foreach ( $comments as $comment ) {
-			if ( $comment->Id == 0 ) {
+			if ( $comment->Parentid == 0 ) {
 				++$i;
 				$threads[ $i ] = 1;
 			}
 			else {
-				$threads[ $i ] += 1;
+				++$threads[ $i ];
 			}
 		}
 		
