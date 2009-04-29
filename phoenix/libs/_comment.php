@@ -606,6 +606,7 @@
 
 		$totalcomments = count( $paged[ $page ] );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
+			die( 'here1' );
 			return;
 		}
 		
@@ -626,6 +627,7 @@
 			}
 		}
 		if ( $mincurrentcomments <= COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments <= COMMENT_MITOSIS_MIN ) {
+			die( 'here2' );
 			return;
 		}
 		
