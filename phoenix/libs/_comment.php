@@ -637,7 +637,7 @@
 		for ( $i = 0; $i < $mincurrentcomments; ++$i ) {
 			$firsthalf[] = $paged[ $page ][ $i ];
 		}
-		for ( $i = $mincurrentcomments + 1; $i < $totalcomments; ++$i ) {
+		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
 		
