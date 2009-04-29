@@ -4,7 +4,7 @@
 			global $libs;
 			$libs->Load( 'comment' );
 			
-			Mitosis( 1149171, New User( 1 ) );
+			Mitosis( 1109889, New User( 1 ) );
         }
     }
 ?>
