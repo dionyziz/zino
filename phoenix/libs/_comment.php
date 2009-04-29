@@ -398,13 +398,12 @@
 
             $ret = array();
             foreach ( $commentids as $commentid ) {
-				$comment = $comments[ $commentid ];
-                $comment->Text = $bulks[ $comment->Bulkid ];
-                $ret[ $commentid ] = $comment;
+				if ( isset( $comments[ $commentid ] ) ) {
+					$comment = $comments[ $commentid ];
+					$comment->Text = $bulks[ $comment->Bulkid ];
+					$ret[ $commentid ] = $comment;
+				}
             }
-			foreach ( $ret as $commentid => $value ) {
-				echo "key= $commentid and value= $value->Id \n";
-			}
 
             return $ret;
         }
