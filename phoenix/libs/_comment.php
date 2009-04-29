@@ -605,7 +605,7 @@
 
 		$totalcomments = count( $paged[ $page ] );
 		$CurrentComments = 0;
-		$MinDiaf = 20;
+		$MinDiaf = 25;
 		$n = count( $threads );
 		$index = false;
 		for ( $i = 0; $i < $n; ++$i ) {
