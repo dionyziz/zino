@@ -400,8 +400,11 @@
             foreach ( $commentids as $commentid ) {
 				$comment = $comments[ $commentid ];
                 $comment->Text = $bulks[ $comment->Bulkid ];
-                $ret[ $comment->Id ] = $comment;
+                $ret[ $commentid ] = $comment;
             }
+			foreach ( $ret as $commentid => $value ) {
+				echo "key= $commentid and value= $value->Id \n";
+			}
 
             return $ret;
         }
