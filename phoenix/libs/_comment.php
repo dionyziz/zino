@@ -7,7 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-	define( 'COMMENT_MITOSIS_MIN', COMMENT_PAGE_LIMIT / 2 );
+	define( 'COMMENT_MITOSIS_MIN', 20 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
