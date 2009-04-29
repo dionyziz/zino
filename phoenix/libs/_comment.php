@@ -360,8 +360,8 @@
 
             return $children;
         }
-        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
-            if ( empty( $comments ) ) {
+        public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
+            if ( empty( $commentids ) ) {
                 return array();
             }
 
@@ -378,7 +378,7 @@
                     :offset, :limit;" );
 
             $query->BindTable( 'comments', 'users', 'images' );
-            $query->Bind( 'commentids', $comments );
+            $query->Bind( 'commentids', $commentids );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
