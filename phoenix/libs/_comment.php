@@ -646,8 +646,8 @@
 			$page + 1 => $secondhalf,
 		) );
 		var_dump( $paged );
-		//$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        //$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+		$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
 	}
 
