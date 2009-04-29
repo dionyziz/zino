@@ -574,14 +574,10 @@
         }
     }
 	
-	function Mitosis( $commentid, $parentid ) {
+	function Mitosis( $parentid, $entity ) {
 		global $mc;
 		
-		$paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        if ( $paged === false ) {
-            $paged = Comment_RegenerateMemcache( $entity );
-			return;
-        }
+		$paged = Comment_GetMemcached( $entity );
         $finder = New CommentFinder();
 		if ( $parentid == 0 ) {
 			$page = 0;
