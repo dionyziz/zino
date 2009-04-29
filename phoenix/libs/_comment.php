@@ -642,6 +642,7 @@
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
 		var_dump( $firsthalf );
+		var_dump( $paged[ $page ] );
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
