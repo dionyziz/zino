@@ -627,6 +627,7 @@
 			}
 		}
 		if ( $mincurrentcomments <= COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments <= COMMENT_MITOSIS_MIN ) {
+			echo $mincurrentcomments . '  ' . $totalcomments;
 			die( 'here2' );
 			return;
 		}
