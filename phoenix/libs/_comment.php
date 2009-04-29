@@ -390,14 +390,14 @@
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
                 $comment->CopyUserFrom( $user );
-                $comments[] = $comment;
+                $comments[ $comment->Id ] = $comment;
                 $bulkids[] = $comment->Bulkid;
             }
 
             $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
-            while ( $comment = array_shift( $comments ) ) {
+            foreach ( $comments as $comment ) {
                 $comment->Text = $bulks[ $comment->Bulkid ];
                 $ret[ $comment->Id ] = $comment;
             }
