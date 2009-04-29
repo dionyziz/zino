@@ -60,7 +60,6 @@
         }
 
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-		die( var_dump( $paged ) );
         $water->ProfileEnd();
 
         return $paged;
