@@ -7,7 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-	define( 'COMMENT_MITOSIS_MIN', 20 );
+	define( 'COMMENT_MITOSIS_MIN', 25 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -626,7 +626,7 @@
 				break;
 			}
 		}
-		if ( $mincurrentcomments <= COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments <= COMMENT_MITOSIS_MIN ) {
+		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			echo $mincurrentcomments . '  ' . $totalcomments;
 			die( 'here2' );
 			return;
