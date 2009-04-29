@@ -641,11 +641,14 @@
 		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
-		
+		var_dump( $paged );
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
+		
+		var_dump( $paged );
+		
 		
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 	}
