@@ -360,7 +360,7 @@
 
             return $children;
         }
-        public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
+        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
             if ( empty( $comments ) ) {
                 return array();
             }
@@ -378,7 +378,7 @@
                     :offset, :limit;" );
 
             $query->BindTable( 'comments', 'users', 'images' );
-            $query->Bind( 'commentids', $commentids );
+            $query->Bind( 'commentids', $comments );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
@@ -390,19 +390,16 @@
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
                 $comment->CopyUserFrom( $user );
-                $comments[ $comment->Id ] = $comment;
+                $comments[] = $comment;
                 $bulkids[] = $comment->Bulkid;
             }
-			
+
             $bulks = Bulk::FindById( $bulkids );
 
             $ret = array();
-            foreach ( $commentids as $commentid ) {
-				if ( isset( $comments[ $commentid ] ) ) {
-					$comment = $comments[ $commentid ];
-					$comment->Text = $bulks[ $comment->Bulkid ];
-					$ret[ $commentid ] = $comment;
-				}
+            while ( $comment = array_shift( $comments ) ) {
+                $comment->Text = $bulks[ $comment->Bulkid ];
+                $ret[ $comment->Id ] = $comment;
             }
 
             return $ret;
