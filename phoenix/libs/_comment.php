@@ -640,18 +640,15 @@
 		for ( $i = $mincurrentcomments + 1; $i < $totalcomments; ++$i ) {
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
-		var_dump( $paged[ $page ] );
+		
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
 		
-		var_dump( $paged[ $page ] );
-		var_dump( $paged[ $page + 1 ] );
-		
 		//$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        //$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-		echo 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity );
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+		
 	}
 
 ?>
