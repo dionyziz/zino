@@ -587,7 +587,7 @@
 		else {
 			$speccomment = New Comment( $parentid );
 			$info = $finder->FindNear( $entity, $speccomment );
-			$page = $info[ 1 ];
+			$page = $info[ 1 ] - 1;
 			$comments = $info[ 2 ];
 		}
 		
