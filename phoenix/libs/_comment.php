@@ -575,6 +575,8 @@
     }
 	
 	function Mitosis( $commentid, $parentid ) {
+		global $mc;
+		
 		$paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         if ( $paged === false ) {
             $paged = Comment_RegenerateMemcache( $entity );
