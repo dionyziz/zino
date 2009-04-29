@@ -7,6 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
+	define( 'COMMENT_MITOSIS_MIN', COMMENT_PAGE_LIMIT / 2 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -604,9 +605,13 @@
 		}
 
 		$totalcomments = count( $paged[ $page ] );
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
+			return;
+		}
+		
 		$CurrentComments = 0;
-		$MinDiaf = 25;
 		$n = count( $threads );
+		$mindiaf = $totalcomments / 2; // infinity
 		$index = false;
 		for ( $i = 0; $i < $n; ++$i ) {
 			$CurrentComments += $threads[ $i ];
@@ -614,9 +619,17 @@
 			if ( $diaf < $MinDiaf ) {
 				$MinDiaf = $diaf;
 				$index = $i;
+				$mincurrentcomments = $CurrentComments;
+			}
+			else {
+				break;
 			}
 		}
-		var_dump(  $index );
+		if ( $mincurrentcomments <= COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments <= COMMENT_MITOSIS_MIN ) {
+			return;
+		}
+		
+		die( "Tha ginei mitosi sto $index" );
 	}
 
 ?>
