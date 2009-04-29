@@ -635,10 +635,10 @@
 		
 		$firsthalf = array();
 		$secondhalf = array();
-		for ( $i = 0; $i <= $mincurrentcomments; ++$i ) {
+		for ( $i = 0; $i < $mincurrentcomments; ++$i ) {
 			$firsthalf[] = $paged[ $page ][ $i ];
 		}
-		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
+		for ( $i = $mincurrentcomments + 1; $i < $totalcomments; ++$i ) {
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
 		var_dump( $paged[ $page ] );
