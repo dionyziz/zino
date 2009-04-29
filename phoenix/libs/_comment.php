@@ -643,6 +643,7 @@
 		}
 		var_dump( $mincurrentcomments );
 		var_dump( $page );
+		var_dump( $paged[ $page ][ 0 ] );
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
