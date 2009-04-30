@@ -518,7 +518,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Mitosis( $this->Id, $this->Item );
+            Mitosis( $this->Parentid, $this->Item );
 
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
