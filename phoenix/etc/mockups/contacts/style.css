@@ -19,6 +19,7 @@
 	border-bottom-width: 0;
 	border-right-width: 0;
 	background: #eee;
+    cursor: pointer;
 }
 .invite_contacts #top_tabs li:last-child{
 	border-right-width: 1px;
@@ -43,6 +44,7 @@
 	border: 1px solid #ccc;
 	border-right-width: 0;
 	border-bottom-width: 0;
+    cursor: pointer;
 }
 .invite_contacts #left_tabs li:last-child{
 	border-bottom-width: 1px;
