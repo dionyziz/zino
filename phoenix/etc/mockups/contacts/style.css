@@ -1,0 +1,89 @@
+.invite_contacts {
+    border: 0px solid black;
+    margin: 30px auto;
+    padding: 30px;
+    display: block;
+}
+
+.invite_contacts .next {
+    margin: 20px auto;
+    padding: 5px;
+    display: block;
+}
+
+.invite_contacts #step1 {
+    display: block;
+    width: 300px;
+    margin: auto;
+}
+.invite_contacts #step1 label {
+    width: 100px;
+    float: left;
+    display: block;
+}
+.invite_contacts #step1 > div {
+    margin: 10px;
+}
+
+.invite_contacts #load1 {
+    display: none;
+    width: 500px;
+    margin: auto;
+}
+.invite_contacts #load1 img {
+    display: block;
+    margin: 100px auto;
+}
+
+.invite_contacts #step2 {
+    display: none;
+    width: 500px;
+    margin: auto;
+}
+.invite_contacts .contacts {
+    border: 1px solid #ccc;
+}
+.invite_contacts .contacts > span {
+    background-color: #eee;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+.invite_contacts #step2 .contacts > div {
+    overflow: auto;
+    max-height: 400px;
+}
+.invite_contacts #step2 .contacts .contact{
+    position: relative;
+    height: 60px;
+    margin-top: 10px;
+    border-bottom: 1px solid #eee;
+}
+.invite_contacts #step2 .contacts .contact:last-child{
+    border: none;
+}
+.invite_contacts #step2 .contacts .contact input {
+    position: absolute;
+    top: 23px;
+}
+.invite_contacts #step2 .contacts .contact img {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+}
+.invite_contacts #step2 .contacts .contact div {
+    position: relative;
+    margin-left: 80px;
+    top: 14px;
+}
+
+.invite_contacts #step3 {
+    display: none;
+    width: 350px;
+    margin: auto;
+}
+.invite_contacts #step3 .contacts > span {
+    margin-bottom: 20px;
+}
+.invite_contacts #step3 .contacts > div > div {
+    margin: 0 0 10px 10px;
+}
