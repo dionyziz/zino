@@ -608,6 +608,7 @@
 		$totalcomments = count( $paged[ $page ] ) + 1;
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+			die( "Not enough comments" );
 			return;
 		}
 		
@@ -629,6 +630,7 @@
 		}
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+			die( "Division below standards" );
 			return;
 		}
 		
