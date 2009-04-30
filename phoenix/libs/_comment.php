@@ -662,7 +662,7 @@
 		
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		$totaltime = microtime( true ) - $start;
-		$splising = $splising - $pagedivision;
+		$splicing = $splising - $pagedivision;
 		$pagedivision = $pagedivision - $bestdivision;
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
