@@ -518,7 +518,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Comment_RegenerateMemcache( $this->Item );
+            Mitosis( $this->Id, $this->Item );
 
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
