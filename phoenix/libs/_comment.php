@@ -597,8 +597,8 @@
 		
 		$paged = Comment_GetMemcached( $entity );
 		if ( $parentid == 0 ) {
-			$page = 0;
-            array_unshift( $paged[ $page ], $commentid );
+			$page = $paged[ 0 ];
+            array_unshift( $page, $commentid );
 		}
 		else {
 			foreach( $paged as $page ) {
@@ -612,7 +612,7 @@
 		}
         
         $finder = New CommentFinder();
-		$parentids = $finder->FindParentIds( $paged[ $page ] );
+		$parentids = $finder->FindParentIds( $page );
         die( var_dump( $parentids ) );
 		
 		$commentretrieve = microtime( true );
