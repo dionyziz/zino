@@ -46,7 +46,7 @@
                     <h3>Ηλικία:</h3>
                     από: 
                     <select name="minage"><?php
-                        $ages = range( 10, 80 );
+                        $ages = range( 13, 80 );
                         ?><option value="any"<?php
                         if ( $minage == 0 ) {
                             ?> selected="selected"<?php
@@ -67,7 +67,7 @@
                     
                     έως: 
                     <select name="maxage"><?php
-                        $ages = range( 10, 80 );
+                        $ages = range( 13, 80 );
                         ?><option value="any"<?php
                         if ( $maxage == 0 ) {
                             ?> selected="selected"<?php
