@@ -667,7 +667,6 @@
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
-		die( 'test' );
 		die( "Comment Retrive = $commentretrive \n
 		Thread Creation = $treadcreation \n
 		Best Division = $bestdivision \n
