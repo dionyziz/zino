@@ -602,8 +602,8 @@
 		}
 		else {
 			foreach( $paged as $page ) {
-                die( "before here" );
                 $key = array_search( $parentid, $paged[ $page ] );
+                die( "before here" );
                 if ( $key !== false ) {
                     array_splice( $paged[ $page ], $key + 1, 0, $commentid );
                     break;
