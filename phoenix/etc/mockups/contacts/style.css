@@ -39,7 +39,7 @@
 	display: block;
 	width: 60px;
 	padding: 10px 10px 10px 30px;
-	background-color: #f5f5f5;
+	background: #f5f5f5 no-repeat 7px 10px;
 	border: 1px solid #ccc;
 	border-right-width: 0;
 	border-bottom-width: 0;
@@ -48,11 +48,24 @@
 	border-bottom-width: 1px;
 }
 .invite_contacts #left_tabs li.selected {
-	background: white;
+	background-color: white;
 	position: relative;
 	width: 61px;
 	z-index: 100;
 }
+.invite_contacts #left_tabs #msn{
+    background-image: url("msn-icon.gif");
+}
+.invite_contacts #left_tabs #yahoo{
+    background-image: url("yahoo-icon.gif");
+}
+.invite_contacts #left_tabs #gmail{
+    background-image: url("gmail-icon.gif");
+}
+.invite_contacts #left_tabs #hi5{
+    background-image: url("hi5-icon.ico");
+}
+
 .invite_contacts #body {
 	padding: 40px;
 	border: 1px solid #ccc;
