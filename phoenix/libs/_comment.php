@@ -7,7 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-	define( 'COMMENT_MITOSIS_MIN', 35 );
+	define( 'COMMENT_MITOSIS_MIN', 30 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -606,7 +606,7 @@
 		}
 		
 		$totalcomments = count( $paged[ $page ] ) + 1;
-		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			die( "Not enough comments. They are $totalcomments" );
 			return;
