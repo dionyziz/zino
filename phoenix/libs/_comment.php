@@ -644,7 +644,7 @@
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
-		echo "It's alive! It just performed mitosis";
+		die( "It's alive! It just performed mitosis" );
 		$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
