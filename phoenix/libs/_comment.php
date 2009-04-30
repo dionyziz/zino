@@ -593,7 +593,7 @@
 			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
 		}
 		
-		$commentretrive = microtime( true );
+		$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
@@ -657,7 +657,7 @@
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
-		$splising = microtime( true );
+		$splicing = microtime( true );
 		
 		
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
@@ -667,7 +667,7 @@
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
-		die( "Comment Retrive = $commentretrive \n
+		die( "Comment Retrive = $commentretrieve \n
 		Thread Creation = $threadcreation \n
 		Best Division = $bestdivision \n
 		Page Division = $pagedivision \n
