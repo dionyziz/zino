@@ -15,6 +15,8 @@
             $channel = 'P'; // Production
         }
         else {
+			return;
+			
             $channel = 'S'; // Sandbox
         }
         $channel .= $args[ 0 ]; // append actual channel name

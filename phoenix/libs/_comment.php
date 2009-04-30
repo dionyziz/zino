@@ -526,7 +526,7 @@
             Sequence_Increment( SEQUENCE_COMMENT );
             
             $libs->Load( 'rabbit/event' );
-            //FireEvent( 'CommentCreated', $this );
+            FireEvent( 'CommentCreated', $this );
         }
         public function OnUpdate() {
             /* 
