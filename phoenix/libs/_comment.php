@@ -607,7 +607,7 @@
 			}
 		}
 		
-		$treadcreation = microtime( true );
+		$threadcreation = microtime( true );
 		
 		$totalcomments = count( $paged[ $page ] ) + 1;
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
@@ -668,7 +668,7 @@
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
 		die( "Comment Retrive = $commentretrive \n
-		Thread Creation = $treadcreation \n
+		Thread Creation = $threadcreation \n
 		Best Division = $bestdivision \n
 		Page Division = $pagedivision \n
 		Splicing = $splicing \n
