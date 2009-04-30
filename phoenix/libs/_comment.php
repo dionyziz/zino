@@ -400,7 +400,7 @@
             if ( empty( $commentids ) ) {
                 return array();
             }
-
+            die( "before queries" );
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_parentid`
