@@ -46,8 +46,9 @@
         $comment->Parentid = $parent;
         $comment->Typeid = $type;
         $comment->Itemid = $compage;
-		die( 'before comment-save' );
+		
         $comment->Save();
+		die( 'before comment-save' );
 
         //Element::ClearFromCache( 'comment/list', $type, $compage );
         
