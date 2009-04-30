@@ -602,9 +602,9 @@
 		}
 		else {
 			foreach( $paged as $page ) {
+                die( "before here" );
                 $key = array_search( $parentid, $paged[ $page ] );
                 if ( $key !== false ) {
-                    die( "before here" );
                     array_splice( $paged[ $page ], $key + 1, 0, $commentid );
                     break;
                 }
