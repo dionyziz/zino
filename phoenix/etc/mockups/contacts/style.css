@@ -1,89 +1,119 @@
 .invite_contacts {
-    border: 0px solid black;
+    border: 1px solid black;
     margin: 30px auto;
     padding: 30px;
     display: block;
+	width: 700px;
 }
 
-.invite_contacts .next {
-    margin: 20px auto;
-    padding: 5px;
-    display: block;
+.invite_contacts #top_tabs {
+	margin-left: 130px;
+	position: relative;
+	top: 1px;
+}
+.invite_contacts #top_tabs li {
+	float: left;
+	display: block;
+	padding: 3px 10px;
+	border: 1px #ccc solid;
+	border-bottom-width: 0;
+	border-right-width: 0;
+	background: #eee;
+}
+.invite_contacts #top_tabs li:last-child{
+	border-right-width: 1px;
+}
+.invite_contacts #top_tabs li.selected {
+	background: white;
+	position: relative;
+	height: 17px;
+	z-index: 100;
 }
 
-.invite_contacts #step1 {
-    display: block;
-    width: 300px;
-    margin: auto;
+.invite_contacts #left_tabs {
+	float: left;
+	position: relative;
+	left: -1px;
 }
-.invite_contacts #step1 label {
-    width: 100px;
-    float: left;
-    display: block;
+.invite_contacts #left_tabs li {
+	display: block;
+	width: 60px;
+	padding: 10px 10px 10px 30px;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-right-width: 0;
+	border-bottom-width: 0;
 }
-.invite_contacts #step1 > div {
-    margin: 10px;
+.invite_contacts #left_tabs li:last-child{
+	border-bottom-width: 1px;
+}
+.invite_contacts #left_tabs li.selected {
+	background: white;
+	position: relative;
+	width: 61px;
+	z-index: 100;
+}
+.invite_contacts #body {
+	padding: 40px;
+	border: 1px solid #ccc;
+	margin-left: 100px;
+	font-size: 17px;
+	position: relative;
+}
+.invite_contacts #body > div {
+	height: 40px;
+	margin: 15px 0;
+}
+.invite_contacts #body div div {
+	float: left;
+	display: block;
+	width: 120px;
+	text-align: right;
+	padding-right:20px;
+	padding-top: 10px;
+	height: 30px;
+	color: #777;
+}
+.invite_contacts #body div input{
+	display: block;
+	height: 30px;
+	padding: 5px;
+	width: 200px;
+	font-size: 20px;
+	border: 0;
+	background: url('input.png') no-repeat;
+}
+.invite_contacts #body div input:hover{
+	background-position: 0 -40px;
+}
+.invite_contacts #body div input:focus{
+	background-position: 0 -80px;
+}
+.invite_contacts #body #security {
+	position: absolute;
+	left: 400px;
+	top: 40px;
+	width: 150px;
+	font-size: 12px;
 }
 
-.invite_contacts #load1 {
-    display: none;
-    width: 500px;
-    margin: auto;
-}
-.invite_contacts #load1 img {
-    display: block;
-    margin: 100px auto;
-}
 
-.invite_contacts #step2 {
-    display: none;
-    width: 500px;
-    margin: auto;
-}
-.invite_contacts .contacts {
-    border: 1px solid #ccc;
-}
-.invite_contacts .contacts > span {
-    background-color: #eee;
-    display: block;
-    border-bottom: 1px solid #ccc;
-}
-.invite_contacts #step2 .contacts > div {
-    overflow: auto;
-    max-height: 400px;
-}
-.invite_contacts #step2 .contacts .contact{
-    position: relative;
-    height: 60px;
-    margin-top: 10px;
-    border-bottom: 1px solid #eee;
-}
-.invite_contacts #step2 .contacts .contact:last-child{
-    border: none;
-}
-.invite_contacts #step2 .contacts .contact input {
-    position: absolute;
-    top: 23px;
-}
-.invite_contacts #step2 .contacts .contact img {
-    position: absolute;
-    top: 5px;
-    left: 25px;
-}
-.invite_contacts #step2 .contacts .contact div {
-    position: relative;
-    margin-left: 80px;
-    top: 14px;
-}
 
-.invite_contacts #step3 {
-    display: none;
-    width: 350px;
-    margin: auto;
-}
-.invite_contacts #step3 .contacts > span {
-    margin-bottom: 20px;
-}
-.invite_contacts #step3 .contacts > div > div {
-    margin: 0 0 10px 10px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

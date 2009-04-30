@@ -7,224 +7,45 @@
 <meta name="author" content="Kamibu Development Team" />
 <meta name="keywords" content="" />
 <meta name="description" content="Το Zino είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;" />
-</head>
-<body>
-    <div class="header" id="banner">
-        <h1><a href="http://www.zino.gr">&nbsp;</a></h1>
-        <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
-        <form action="do/user/login" method="post">
-            <ul>
-                <li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>
-                <li>·</li>
-                <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
-                <li style="display:none">·</li>
-                <li style="display:none">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>
-                <li style="display:none"><input type="submit" value="Είσοδος" class="button" /></li>
+</head><body>    <div class="header" id="banner">        <h1><a href="http://www.zino.gr">&nbsp;</a></h1>        <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>        <form action="do/user/login" method="post">            <ul>                <li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>                <li>·</li>                <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>                <li style="display:none">·</li>                <li style="display:none">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>                <li style="display:none"><input type="submit" value="Είσοδος" class="button" /></li>            </ul>        </form>        <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>        <div class="eof"></div>    </div>    
+    
+    <div class="content" id="content">
+        <div class="invite_contacts">
+            <h2>Κάλεσε τους φίλους σου στο ζίνο</h2>
+            <ul id="top_tabs">
+                <li>Αναζήτηση στο Zino</li>
+                <li class="selected">Αναζήτηση σε άλλα δίκτυα</li>
+                <li>Πρόσκληση με e-mail</li>
             </ul>
-        </form>
-        <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
+            <div class="eof"></div>
+            <ul id="left_tabs">
+                <li>MSN</li>
+                <li>Hi5</li>
+                <li>yahoo</li>
+                <li class="selected">gmail</li>
+            </ul>
+            <div id="body">
+                <div id="mail">
+                    <div><label>Το e-mail σου</label></div>
+                    <input type="text"></input>
+                </div>
+                <div id="password">
+                    <div><label>κωδικός</label></div>
+                    <input type="password"></input>
+                </div>
+                <div id="security">
+                    <b>Προστασία δεδομένων</b>
+                    <p>Δεν θα αποθηκεύσουμε το username ή τον κωδικό σας, και δεν θα στείλουμε e-mail χωρίς την άδειά σας.</p>
+                </div>
+            </div>
+        </div>
         <div class="eof"></div>
     </div>
     
-    
-    
-    
-    
-    
-    
-    <div class="content" id="content">
-        <ul>
-            <li id="1">1</li>
-            <li id="2">2</li>
-            <li id="3">3</li>
-            <li id="4">4</li>
-        </ul>
-        <div class="invite_contacts" style="">
-            <div id="step1">
-                <h2>Κάλεσε τους φίλους σου στο ζίνο</h2>
-                <div>
-                    <label>Το e-mail σου:</label>
-                    <input type="text" ></input><br/>
-                </div>
-                <div>
-                    <label>Κωδικός:</label>
-                    <input type="password"></input>
-                </div>
-                <button class="next" id="goto2">επόμενο βήμα</button>
-            </div>
-            <div id="load1">
-                <h2>Παρακαλώ περιμένετε, όσο εντοπίζουμε τις επαφές σας...</h2>
-                <img src="http://static.zino.gr/phoenix/ajax-loader.gif" alt="" style="width: 50px" />
-            </div>
-            <div id="step2">
-                <h2>οι παρακάτω επαφές σου έχουν ZINO!</h2>
-                <span>πρόσθεσέ τους στους φίλους σου...</span>
-                <div class="contacts">
-                    <span>
-                        <input type="checkbox" />
-                        <span>Επιλογή όλων</span>
-                    </span>
-                    <div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <img src="http://images2.zino.gr/media/6083/174140/174140_100.jpg" class="avatar" style="width: 50px; height: 50px;" title="Black_Jack" alt="Black_Jack"/>
-                            <div>
-                                <span class="name">ted</span><br/>
-                                <span class="mail">thsourg@hotmail.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="next" id="goto2">επόμενο βήμα</button>
-                
-            </div>
-            <div id="step3">
-                <h2>οι παρακάτω επαφές σου δεν έχουν ZINO!</h2>
-                <span>προσκάλεσέ τους τώρα!</span>
-                <div class="contacts">
-                    <span>
-                        <input type="checkbox" />
-                        <span>Επιλογή όλων</span>
-                    </span>
-                    <div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                        <div class="contact">
-                            <input type="checkbox"></input>
-                            <span class="mail">thsourg@hotmail.com</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="next" id="goto2">επόμενο βήμα</button>
-                
-            </div>
-            
-        </div>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="footer">
-                <ul>
-                    <li><a href="contact">Επικοινώνησε</a></li>
-                    <li><a href="tos">Όροι χρήσης</a></li>
-                    <li><a href="?p=ads">Διαφήμιση</a></li>
+    <div class="footer">       <ul>                    <li><a href="contact">Επικοινώνησε</a></li>                    <li><a href="tos">Όροι χρήσης</a></li>                    <li><a href="?p=ads">Διαφήμιση</a></li>                </ul>                <div class="copy">                    &copy; 2009                     <a href="http://www.kamibu.com/">Kamibu</a>                </div>            </div>                        
+ <script type="text/javascript" src="http://static.zino.gr/js/global.js?100" charset="utf-8"></script><script type="text/javascript">ExcaliburSettings.Production = true;ExcaliburSettings.Production = true;Banner.OnLoad();</script>
 
-                </ul>
-                <div class="copy">
-                    &copy; 2009 
-                    <a href="http://www.kamibu.com/">Kamibu</a>
-                </div>
-            </div>
-            
-            
-            <script type="text/javascript" src="http://static.zino.gr/js/global.js?100" charset="utf-8"></script><script type="text/javascript">ExcaliburSettings.Production = true;ExcaliburSettings.Production = true;Banner.OnLoad();</script>
-            
-            
             <script type="text/javascript">
-                $("#content > ul li").css({
-                    "float": "left",
-                    "display": "inline",
-                    "margin": "10px",
-                    "padding": "10px",
-                    "cursor": "pointer"
-                    });
-                $("#content > ul #1").click(function(){
-                        $(".invite_contacts > div").hide();
-                        $("#step1").show();
-                    });
-                $("#content > ul #2").click(function(){
-                        $(".invite_contacts > div").hide();
-                        $("#load1").show();
-                    });
-                $("#content > ul #3").click(function(){
-                        $(".invite_contacts > div").hide();
-                        $("#step2").show();
-                    });
-                $("#content > ul #4").click(function(){
-                        $(".invite_contacts > div").hide();
-                        $("#step3").show();
-                    });
-                
+
             </script>
-            
-            
-            
-            
-            
             </body></html>
