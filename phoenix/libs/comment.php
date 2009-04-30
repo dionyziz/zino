@@ -7,6 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
+	define( 'COMMENT_MITOSIS_MIN', 30 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -14,7 +15,7 @@
 
         $water->Profile( "Memcache generation" );
 		
-        //$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
         $children = $finder->FindByEntity( $entity );
@@ -59,7 +60,6 @@
         }
 
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-
         $water->ProfileEnd();
 
         return $paged;
@@ -518,7 +518,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Comment_RegenerateMemcache( $this->Item );
+            Mitosis( $this->Id, $this->Parentid, $this->Item );
 
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
@@ -526,7 +526,6 @@
             Sequence_Increment( SEQUENCE_COMMENT );
             
             $libs->Load( 'rabbit/event' );
-            
             FireEvent( 'CommentCreated', $this );
         }
         public function OnUpdate() {
@@ -574,68 +573,83 @@
         }
     }
 	
-	function Mitosis( $commentid, $parentid ) {
-		$paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        if ( $paged === false ) {
-            $paged = Comment_RegenerateMemcache( $entity );
-			return;
-        }
+	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted. If it cannot it just edits the memcache
+		global $mc;
+		
+		$paged = Comment_GetMemcached( $entity );
         $finder = New CommentFinder();
+		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
 		if ( $parentid == 0 ) {
 			$page = 0;
+			array_unshift( $paged[ $page ], $commentid );
 			$comments = $finder->FindData( $paged[ $page ] );
 		}
 		else {
 			$speccomment = New Comment( $parentid );
 			$info = $finder->FindNear( $entity, $speccomment );
-			$page = $info[ 1 ];
+			$page = $info[ 1 ] - 1;
 			$comments = $info[ 2 ];
+			$key = array_search( $parentid, $paged[ $page ] );
+			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
 		}
 		
-		
-		
-		$parented = array();
-		$rootcomments = array();
-		foreach ( $comments as $comment ) {
-			$parented[ $comment->Parentid ][] = $comment;
-			if ( $comment->Parentid == 0 ) {
-				$rootcomments[] = $comment->Id;
-			}
-		}
-		/* will be gone soon
-		$queue = array();
-		$rootid = 0;
+		$i = -1;
 		$threads = array();
-		while ( !empty( $queue ) || !empty( $rootcomments ) ) {
-			if ( empty( $queue ) ) {
-				$rootid = array_pop( $rootcomments );
-				array_push( $queue, $rootid );
-				$threads[ $rootid ] = 1;
+		foreach ( $comments as $comment ) {
+			if ( $comment->Parentid == 0 ) {
+				++$i;
+				$threads[ $i ] = 1;
 			}
-			$id = array_pop( $queue );
-			if ( isset( $parented[ $id ] ) ) {
-				$threads[ $rootid ] += count( $parented[ $id ] );
-				foreach ( $parented[ $id ] as $id => $child ) {
-					array_push( $queue, $child->Id );
-				}
+			else {
+				++$threads[ $i ];
 			}
 		}
 		
+		$totalcomments = count( $paged[ $page ] ) + 1;
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+			//Not enough comments
+			return;
+		}
 		
-		$TotalComments = count( $paged[ $page ] );
-		$CrrentComments = 0;
-		$MinDiaf=20;
-		for( $i = 0; $i < $n; $i++ ) {
-			$CurrentComments += A[i];
-			$diaf = abs( $TotalComments/2 - $CurrentComments );
-			if( $diaf < $MinDiaf ) {
-				$MinDiaf = $diaf;
+		$CurrentComments = 0;
+		$n = count( $threads );
+		$mindiaf = $totalcomments / 2; // infinity
+		$index = false;
+		for ( $i = 0; $i < $n; ++$i ) {
+			$CurrentComments += $threads[ $i ];
+			$diaf = abs( $totalcomments / 2 - $CurrentComments );
+			if ( $diaf < $mindiaf ) {
+				$mindiaf = $diaf;
 				$index = $i;
+				$mincurrentcomments = $CurrentComments;
 			}
 			else {
 				break;
 			}
-		}*/
+		}
+		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+			//Division below standards
+			return;
+		}
+		
+		
+		$firsthalf = array();
+		$secondhalf = array();
+		for ( $i = 0; $i < $mincurrentcomments; ++$i ) {
+			$firsthalf[] = $paged[ $page ][ $i ];
+		}
+		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
+			$secondhalf[] = $paged[ $page ][ $i ];
+		}
+		
+		array_splice( $paged, $page, 1, array(
+			$page => $firsthalf,
+			$page + 1 => $secondhalf,
+		) );
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+		
 	}
 
 ?>
