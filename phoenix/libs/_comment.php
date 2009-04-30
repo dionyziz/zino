@@ -396,6 +396,26 @@
 
             return $ret;
         }
+        public function FindParentIds ( $commentids ) {
+            if ( empty( $commentids ) ) {
+                return array();
+            }
+
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    `comment_parentid`
+                FROM
+                    :comments 
+                WHERE
+                    `comment_id` IN :commentids " );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'commentids', $commentids );
+
+            $res = $query->Execute();
+            $res = $res->MakeArray();
+            return $res;
+        }
     }
 
     class Comment extends Satori {
@@ -577,28 +597,30 @@
 		$start = microtime( true );
 		
 		$paged = Comment_GetMemcached( $entity );
-        $finder = New CommentFinder();
-		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
 		if ( $parentid == 0 ) {
 			$page = 0;
-			array_unshift( $paged[ $page ], $commentid );
-			$comments = $finder->FindData( $paged[ $page ] );
+            array_unshift( $paged[ $page ], $commentid );
 		}
 		else {
-			$speccomment = New Comment( $parentid );
-			$info = $finder->FindNear( $entity, $speccomment );
-			$page = $info[ 1 ] - 1;
-			$comments = $info[ 2 ];
-			$key = array_search( $parentid, $paged[ $page ] );
-			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
+			foreach( $paged as $page ) {
+                $key = array_search( $parentid, $paged[ $page ] );
+                if ( $key !== false ) {
+                    array_splice( $paged[ $page ], $key + 1, 0, $commentid );
+                    break;
+                }
+            }
 		}
+        
+        $finder = New CommentFinder();
+		$parentids = $finder->FindParentIds( $paged[ $page ] );
+        die( var_dump( $parentids ) );
 		
 		$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
-		foreach ( $comments as $comment ) {
-			if ( $comment->Parentid == 0 ) {
+		foreach ( $parentids as $parentid ) {
+			if ( $parentid == 0 ) {
 				++$i;
 				$threads[ $i ] = 1;
 			}
@@ -609,7 +631,7 @@
 		
 		$threadcreation = microtime( true );
 		
-		$totalcomments = count( $paged[ $page ] ) + 1;
+		$totalcomments = count( $paged[ $page ] );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Not enough comments
