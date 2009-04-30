@@ -602,11 +602,10 @@
 		}
 		else {
 			foreach( $paged as $page ) {
-                die( "before here. Page = $page" );
-                $key = array_search( $parentid, $paged[ $page ] );
+                $key = array_search( $parentid, $page );
                 
                 if ( $key !== false ) {
-                    array_splice( $paged[ $page ], $key + 1, 0, $commentid );
+                    array_splice( $page, $key + 1, 0, $commentid );
                     break;
                 }
             }
