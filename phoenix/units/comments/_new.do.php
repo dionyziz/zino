@@ -48,7 +48,7 @@
         $comment->Itemid = $compage;
 		
         $comment->Save();
-		die( 'before comment-save' );
+		
 
         //Element::ClearFromCache( 'comment/list', $type, $compage );
         
@@ -62,5 +62,6 @@
         ?>, <?php
         echo w_json_encode( nl2br( $comment->Text ) );
         ?> );<?php
+		die( 'end' );
     }
 ?>
