@@ -518,7 +518,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Mitosis( $this->Parentid, $this->Item );
+            Mitosis( $this->Id, $this->Parentid, $this->Item );
 
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
@@ -574,7 +574,7 @@
         }
     }
 	
-	function Mitosis( $parentid, $entity ) {
+	function Mitosis( $commentid, $parentid, $entity ) {
 		global $mc;
 		
 		$paged = Comment_GetMemcached( $entity );
@@ -582,6 +582,7 @@
 		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
 		if ( $parentid == 0 ) {
 			$page = 0;
+			array_unshift( $paged[ $page ], $commentid );
 			$comments = $finder->FindData( $paged[ $page ] );
 		}
 		else {
@@ -589,6 +590,8 @@
 			$info = $finder->FindNear( $entity, $speccomment );
 			$page = $info[ 1 ] - 1;
 			$comments = $info[ 2 ];
+			$key = array_search( $paged[ $page ], $parentid );
+			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
 		}
 		
 		$i = -1;
