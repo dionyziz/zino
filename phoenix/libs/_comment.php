@@ -574,6 +574,8 @@
 	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted. If it cannot it just edits the memcache
 		global $mc;
 		
+		$start = microtime( true );
+		
 		$paged = Comment_GetMemcached( $entity );
         $finder = New CommentFinder();
 		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
@@ -591,6 +593,8 @@
 			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
 		}
 		
+		$commentretrive = microtime( true );
+		
 		$i = -1;
 		$threads = array();
 		foreach ( $comments as $comment ) {
@@ -602,6 +606,8 @@
 				++$threads[ $i ];
 			}
 		}
+		
+		$treadcreation = microtime( true );
 		
 		$totalcomments = count( $paged[ $page ] ) + 1;
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
@@ -626,6 +632,9 @@
 				break;
 			}
 		}
+		
+		$bestdivision = microtime( true );
+		
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Division below standards
@@ -642,11 +651,28 @@
 			$secondhalf[] = $paged[ $page ][ $i ];
 		}
 		
+		$pagedivision = microtime( true );
+		
 		array_splice( $paged, $page, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
+		$splising = microtime( true );
+		
+		
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+		$totaltime = microtime( true ) - $start;
+		$splising = $splising - $pagedivision;
+		$pagedivision = $pagedivision - $bestdivision;
+		$bestdivision = $bestdivision - $threadcreation;
+		$threadcreation = $threadcreation - $commentretrieve;
+		$commentretrieve = $commentretrieve - $start;
+		die( "Comment Retrive = $commentretrive \n
+		Thread Creation = $treadcreation \n
+		Best Division = $bestdivision \n
+		Page Division = $pagedivision \n
+		Splicing = $splicing \n
+		Totaltime = $totaltime");
 		
 	}
 
