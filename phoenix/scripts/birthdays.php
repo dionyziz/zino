@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
     set_include_path( '../:./' );
     
