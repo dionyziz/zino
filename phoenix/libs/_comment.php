@@ -7,7 +7,7 @@
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-	define( 'COMMENT_MITOSIS_MIN', 20 );
+	define( 'COMMENT_MITOSIS_MIN', 40 );
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
@@ -606,8 +606,8 @@
 		}
 		
 		$totalcomments = count( $paged[ $page ] ) + 1;
-		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 - 10) {
-			die	( 'Not enough comments to divide' );
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			return;
 		}
 		
@@ -628,7 +628,7 @@
 			}
 		}
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
-			die( "Best division below standards" );
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			return;
 		}
 		
@@ -646,7 +646,6 @@
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
-		//$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
 	}
