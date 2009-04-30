@@ -590,7 +590,7 @@
 			$info = $finder->FindNear( $entity, $speccomment );
 			$page = $info[ 1 ] - 1;
 			$comments = $info[ 2 ];
-			$key = array_search( $paged[ $page ], $parentid );
+			$key = array_search( $parentid, $paged[ $page ] );
 			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
 		}
 		
