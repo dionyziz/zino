@@ -605,7 +605,7 @@
 
 		$totalcomments = count( $paged[ $page ] );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
-			die( 'here1' );
+			echo( 'Not enough comments to divide' );
 			return;
 		}
 		
@@ -626,8 +626,7 @@
 			}
 		}
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
-			echo $mincurrentcomments . '  ' . $totalcomments;
-			die( 'here2' );
+			echo( "Best division below standards" );
 			return;
 		}
 		
@@ -645,7 +644,7 @@
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
-		var_dump( $paged );
+		echo "It's alive! It just performed mitosis";
 		$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
