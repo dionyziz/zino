@@ -605,7 +605,7 @@
 
 		$totalcomments = count( $paged[ $page ] );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
-			echo( 'Not enough comments to divide' );
+			die( 'Not enough comments to divide' );
 			return;
 		}
 		
@@ -626,7 +626,7 @@
 			}
 		}
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
-			echo( "Best division below standards" );
+			die( "Best division below standards" );
 			return;
 		}
 		
