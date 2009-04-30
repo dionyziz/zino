@@ -400,7 +400,6 @@
             if ( empty( $commentids ) ) {
                 return array();
             }
-            die( "before queries" );
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_parentid`
@@ -605,6 +604,7 @@
 			foreach( $paged as $page ) {
                 $key = array_search( $parentid, $paged[ $page ] );
                 if ( $key !== false ) {
+                    die( "before here" );
                     array_splice( $paged[ $page ], $key + 1, 0, $commentid );
                     break;
                 }
