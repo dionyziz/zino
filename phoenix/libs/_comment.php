@@ -602,10 +602,10 @@
 				++$threads[ $i ];
 			}
 		}
-
-		$totalcomments = count( $paged[ $page ] );
-		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) {
-			die( 'Not enough comments to divide' );
+		
+		$totalcomments = count( $paged[ $page ] ) + 1;
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 - 10) {
+			die	( 'Not enough comments to divide' );
 			return;
 		}
 		
