@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el"><head><title>izual | Zino</title><base href="http://www.zino.gr/" /><link href="http://static.zino.gr/css/global.css?81" rel="stylesheet" type="text/css" /><meta name="author" content="Kamibu Development Team" /><meta name="keywords" content="" /><meta name="description" content="Το Zino είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;" /></head><body>            <!--
+                    Σε ενδιαφέρει ο κώδικάς μας; Τότε ίσως θα ήθελες να δουλέψεις μαζί μας. Τσέκαρε στο http://www.kamibu.com/join
+                    και μην διστάσεις να επικοινωνήσεις μαζί μας.
+                -->
+            <div class="header" id="banner">
+            <h1><a href="http://www.zino.gr">&nbsp;</a></h1>
+            <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
+            <ul>
+                    <li title="Προβολή προφίλ"><a href="http://izual.zino.gr/" class="profile"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" style="width:16px;height:16px;" title="izual" alt="izual"></img></span>izual</a></li>
+
+                    <li>·</li>
+                    <li><a id="unreadmessages" href="messages" class="messages icon"><span>&nbsp;</span>Μηνύματα</a></li>
+                    <li>·</li>
+                    <li><a href="settings" class="settings icon"><span>&nbsp;</span>Ρυθμίσεις</a></li>
+                    </ul><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false" class="logout">Έξοδος<span>&nbsp;</span></a></form>            <a class="search" href="?p=search" title="Αναζήτησε φίλους!">&nbsp;</a>
+            <div class="eof"></div>
+
+            </div><div class="content" id="content"><div id="profile"><div class="sidebar">
+                <div class="basicinfo"><h2><a href="?p=photo&amp;id=141855"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_150.jpg" style="width:150px;height:150px;margin-bottom:5px" title="izual" alt="izual"></img></span></a><span class="name">izual</span>
+            </h2><span class="subtitle">Μαζί σου ακροβατώ τον κόσμο μου παγιδεύω, σε όνειρα και ζωή εσύ μ' οδηγείς...</span><div class="mood">
+                    <strong>Διάθεση</strong> 
+                    <img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" title="Ερωτευμένος"/>
+                </div><div class="friendedit"><a href=""><span>&nbsp;</span></a></div><div class="info">
+                <dl><dt id="birthday"><strong>Ηλικία</strong></dt>
+
+                        <dd>20</dd><dt><strong>Περιοχή</strong></dt>
+                        <dd>Αθήνα</dd><dt><strong>Πανεπιστήμιο</strong></dt><dd><a href="?p=school&amp;id=155">Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</a></dd><dt><strong>Χρώμα μαλλιών</strong></dt>
+                        <dd>Ξανθό</dd><dt><strong>Χρώμα ματιών</strong></dt>
+                        <dd>Καφέ</dd></dl>
+
+            </div><dl class="online"><dt><strong>Online</strong></dt><dd></dd></dl></div><div class="look">
+				<span class="malebody">&nbsp;</span><ul><li>Άνδρας</li><li class="dot">·</li><li>1.86m</li><li class="dot">·</li><li>70kg</li></ul></div>
+            <div class="social"><ul><li><strong>Σεξουαλικές προτιμήσεις</strong>
+                Straight</li><li><strong>Κατάσταση</strong> Δεσμευμένος</li><li><strong>Καπνίζεις;</strong>
+
+                Όχι</li><li><strong>Πίνεις;</strong>
+                Με παρέα</li><li><strong>Μόρφωση</strong>
+                Πανεπιστήμιο</li><li><strong>Θρήσκευμα</strong> Αγνωστικιστής</li><li><strong>Πολιτική ιδεολογία</strong>Δεξιός</li></ul></div>			<div id="zinoPlayer">
+
+				<div id="playerControls">
+					<a href="javascript:;" id="playButton" class="play" onclick="togglePlayback();">Button</a>
+					<div id="progressBar">
+						<div id="buffered">
+							<div id="progress"></div><div id="progressEnd"></div>
+						</div><div id="bufferedEnd"></div>
+					</div>
+				</div>
+
+				<ul id="playList"><li><a id="song_1" href="javascript:;" onclick="playSong('http://izual.kamibu.com/song.mp3', 'song_1');"><span></span>Blank &amp; Jones ft Elles -  Mind of the wonderful</a></li>
+				</ul>		
+				<embed id="playerObject" name="playerObject" src="http://static.zino.gr/phoenix/player.swf" allowscriptaccess="always"
+ width="0" height="0" />
+			</div>
+			<script type="text/javascript">
+				var playlist = new Array();
+				var totalSongs = 0; var nextSong = 0;
+				var playing = false;
+				var zplayer = document.getElementById('playerObject');
+				var currentDuration;
+				var trackStarted = false; 
+				var listPlayback = false;
+
+				function startup() {
+					makePlaylist("playList");
+					$("#progressBar").click( function(e) {
+						zplayer.sendEvent("SEEK", Math.floor( ( ( e.pageX - 95 ) * currentDuration ) / 250 ) );
+					});
+				}
+
+				function playSong( url, song_id ) {
+					zplayer.sendEvent("LOAD", url );
+					zplayer.sendEvent("PLAY","true");
+					zplayer.addModelListener("TIME","progressBarHandler"); 
+					zplayer.addModelListener("LOADED", "bufferHandler" );
+					$("#progress").css("width","3px");
+					$("#playButton.play").removeClass("play");
+					$("#playButton").addClass("pause");
+					$("#playList li a.selected").removeClass('selected');
+					$("#playList li a span.playing").removeClass('playing');
+					$("#" + song_id).addClass('selected');
+					$("#" + song_id + " span" ).addClass('playing');
+					//zplayer.addModelListener("STATE", "stateHandler" );
+					playing = true;
+					listPlayback = true;
+				}
+
+				function togglePlayback() {
+					if ( !listPlayback ) {
+						startup();
+						eval( playlist[nextSong++] );
+						listPlayback = true;
+						return;
+					}
+
+					if (playing) {
+						zplayer.sendEvent("PLAY","false");
+						playing = false;
+						$("#playButton.pause").removeClass("pause");
+						$("#playButton").addClass("play");
+					}
+					else {
+						zplayer.sendEvent("PLAY","true");
+						playing = true;
+						$("#playButton.play").removeClass("play");
+						$("#playButton").addClass("pause");
+					}
+				}
+
+				function bufferHandler(obj) {
+					var buffered = ( obj.loaded * 253 ) / obj.total;
+					$("#buffered").css("width", Math.floor(buffered) + "px" );
+				}
+
+				function progressBarHandler(obj) {
+					// A little hack to make progress bar move, without knowing the actual time.
+					if ( obj.duration == 0 ) {
+						currentDuration = 360;	// Set to 6 minutes
+						$("#progressBar").css("cursor", "default");
+					}
+					else {
+						currentDuration = obj.duration; 
+						$("#progressBar").css("cursor", "pointer");
+					}
+					var progressTime = ( 253 * obj.position ) / currentDuration;
+					$("#progress").css("width", Math.floor(progressTime) + "px" );
+				}
+
+				function stateHandler(obj) {
+				}
+
+				function makePlaylist(htmlContainer) {
+					$( "#" + htmlContainer + " li a" ).each( function() {
+						playlist[ totalSongs++ ] = $(this).attr('onclick');
+					});
+				}
+			</script><div class="aboutme"><dl><dt><strong>Λίγα λόγια για μένα</strong></dt>
+                <dd>Well, είμαι μέλος της Kamibu και προπτυχιακός φοιτητής Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών. Ασχολούμαι με τον προγραμματισμό και μου αρέσει η ταχύτητα</dd></dl></div>
+
+            <div class="interests"><dl><dt><strong>Hobbies</strong></dt>
+                        <dd>PHP, HTML, Javascript, programming, physics, maths, sex, πλέξιμο, Μπαλέτο, cars, football, music, Web Development, travelling, zino, Κατοιχητικό, Διακονήματα</dd><dt><strong>Αγαπημένα τραγούδια</strong></dt>
+                        <dd>Life for rent, Numb, In the end, Where'd you go</dd><dt><strong>Αγαπημένες ταινίες</strong></dt>
+                        <dd>Lord of the rings, Butterfly effect, Requiem for a dream</dd><dt><strong>Αγαπημένες σειρές</strong></dt>
+                        <dd>Friends, Smallville</dd><dt><strong>Αγαπημένα βιβλία</strong></dt>
+
+                        <dd>The art of deception</dd><dt><strong>Αγαπημένοι καλλιτέχνες</strong></dt>
+                        <dd>Jim Carrey, Linkin Park, Sanjuro</dd><dt><strong>Αγαπημένα παιχνίδια</strong></dt>
+                        <dd>Chess, Flight Simulator, Need For Speed</dd><dt><strong>Αγαπημένα ρητό</strong></dt>
+                        <dd>Knowledge is power</dd></dl></div>
+            <div class="contacts"></div>           <div class="ads"></div>
+
+            </div>                <div class="tweetbox tweetactive" title="Άλλαξε το μήνυμα του &quot;τι κάνεις τώρα;&quot;">
+                    <i class="right corner">&nbsp;</i>
+                    <i class="left corner">&nbsp;</i>
+                    <div class="tweet">
+                        <div><a href="">Ο izual <span>είναι στο softlab με τον dionyziz</span></a></div>
+                    </div>
+                </div><div id="tweetedit">
+
+                        <h3 class="modaltitle">Τι κάνεις τώρα;</h3>
+                        <form>
+                            <div class="input">Ο izual <input type="text" value="είναι στο softlab με τον dionyziz" />
+                                <input type="submit" style="display:none" />
+                            </div>
+                            <div>
+                                <ul>
+                                    <li><a href="" class="button">Αποθήκευση</a></li>
+
+                                    <li><a href="" class="button">Διαγραφή</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="easyphotoupload">
+                        <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
+                        <div class="modalcontent"> 
+                            <img src="http://static.zino.gr/phoenix/ajax-loader.gif" /><span class="plswait">Παρακαλώ περιμένετε...</span>
+
+                        </div>
+                    </div>            <div class="main"><div class="photos"><div class="more"><a href="?p=album&amp;id=18" class="button" title="Περισσότερες φωτογραφίες μου">&raquo;</a></div><ul class="plist"><li class="addphoto"><a href="" class="s_bigadd" title="Ανέβασε μια φωτογραφία"></a></li><li><a href="?p=photo&amp;id=170672"><span class="imageview"><img src="http://images2.zino.gr/media/58/170672/170672_100.jpg" style="width:100px;height:100px;" title="Το ανηψάκι μου " alt="Το ανηψάκι μου "></img><span><span class="s_commnum">&nbsp;</span>15</span></span></a></li><li><a href="?p=photo&amp;id=169508"><span class="imageview"><img src="http://images2.zino.gr/media/58/169508/169508_100.jpg" style="width:100px;height:100px;" title="με τις πατερίτσες της αδερφής μου" alt="με τις πατερίτσες της αδερφής μου"></img><span><span class="s_commnum">&nbsp;</span>32</span></span></a></li><li><a href="?p=photo&amp;id=164235"><span class="imageview"><img src="http://images2.zino.gr/media/58/164235/164235_100.jpg" style="width:100px;height:100px;" title="Κουρεμένος" alt="Κουρεμένος"></img><span><span class="s_commnum">&nbsp;</span>79</span></span></a></li><li><a href="?p=photo&amp;id=152402"><span class="imageview"><img src="http://images2.zino.gr/media/58/152402/152402_100.jpg" style="width:100px;height:100px;" title="Εγώ σε εργαστήριο βιομηχανικής ηλεκτρονικής" alt="Εγώ σε εργαστήριο βιομηχανικής ηλεκτρονικής"></img><span><span class="s_commnum">&nbsp;</span>73</span></span></a></li><li><a href="?p=photo&amp;id=149650"><span class="imageview"><img src="http://images2.zino.gr/media/58/149650/149650_100.jpg" style="width:100px;height:100px;" title="Είμαι και πολύ άγριος..." alt="Είμαι και πολύ άγριος..."></img><span><span class="s_commnum">&nbsp;</span>56</span></span></a></li><li><a href="?p=photo&amp;id=147561"><span class="imageview"><img src="http://images2.zino.gr/media/58/147561/147561_100.jpg" style="width:100px;height:100px;" title="Photoshoped, προσπάθησα να την κάνω πιο τρομακτική" alt="Photoshoped, προσπάθησα να την κάνω πιο τρομακτική"></img><span><span class="s_commnum">&nbsp;</span>89</span></span></a></li><li><a href="?p=photo&amp;id=147131"><span class="imageview"><img src="http://images2.zino.gr/media/58/147131/147131_100.jpg" style="width:100px;height:100px;" title="" alt=""></img><span><span class="s_commnum">&nbsp;</span>144</span></span></a></li><li><a href="?p=photo&amp;id=142638"><span class="imageview"><img src="http://images2.zino.gr/media/58/142638/142638_100.jpg" style="width:100px;height:100px;" title="σκατααααα" alt="σκατααααα"></img><span><span class="s_commnum">&nbsp;</span>165</span></span></a></li><li><a href="?p=photo&amp;id=141855"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" style="width:100px;height:100px;" title="" alt=""></img><span><span class="s_commnum">&nbsp;</span>95</span></span></a></li><li><a href="?p=photo&amp;id=140766"><span class="imageview"><img src="http://images2.zino.gr/media/58/140766/140766_100.jpg" style="width:100px;height:100px;" title="μπουρδέεεεεελο" alt="μπουρδέεεεεελο"></img><span><span class="s_commnum">&nbsp;</span>74</span></span></a></li></ul></div>                <div class="morealbums"><div class="viewalbums"><a href="http://izual.zino.gr/albums" class="button">Προβολή albums&raquo;</a></div></div><div class="friends"><h3>Οι φίλοι μου <span>(<a href="http://izual.zino.gr/friends">προβολή όλων</a>)</span></h3><div class="people">
+
+                <ul><li><a href="http://manarakia-xd.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5052/173070/173070_100.jpg" style="width:100px;height:100px;" title="manarakia_xD" alt="manarakia_xD"></img></span></a></li><li><a href="http://destiny.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8134/173430/173430_100.jpg" style="width:100px;height:100px;" title="Destiny" alt="Destiny"></img></span></a></li><li><a href="http://mar1no0bi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7295/171158/171158_100.jpg" style="width:100px;height:100px;" title="mar1no0bi" alt="mar1no0bi"></img></span></a></li><li><a href="http://x-------vasia.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7936/171335/171335_100.jpg" style="width:100px;height:100px;" title="x_______vAsIa_______" alt="x_______vAsIa_______"></img></span></a></li><li><a href="http://dimis-8.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8205/172306/172306_100.jpg" style="width:100px;height:100px;" title="dimis_8" alt="dimis_8"></img></span></a></li><li><a href="http://psych.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="psych" title="psych" style="width:100px;height:100px;" /></a></li><li><a href="http://momos.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/6452/160559/160559_100.jpg" style="width:100px;height:100px;" title="momos" alt="momos"></img></span></a></li><li><a href="http://kill-jason.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/3285/174157/174157_100.jpg" style="width:100px;height:100px;" title="kill_jason" alt="kill_jason"></img></span></a></li><li><a href="http://georgia-bill.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/2794/174059/174059_100.jpg" style="width:100px;height:100px;" title="georgia_bill" alt="georgia_bill"></img></span></a></li><li><a href="http://ezoer.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="ezoer" title="ezoer" style="width:100px;height:100px;" /></a></li><li><a href="http://marmaidla.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8734/172713/172713_100.jpg" style="width:100px;height:100px;" title="marmaidla" alt="marmaidla"></img></span></a></li><li><a href="http://kwstantis.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8683/172667/172667_100.jpg" style="width:100px;height:100px;" title="kwstantis" alt="kwstantis"></img></span></a></li></ul>
+                <div class="eof"></div>
+            </div></div><div class="barfade">
+                        <div class="leftbar"></div>
+                        <div class="rightbar"></div>
+                    </div><div class="lastpoll">
+                        <h3>Δημοσκοπήσεις <span>(<a href="http://izual.zino.gr/polls">προβολή όλων</a>)</span></h3><div class="container"><div class="posmall">
+
+                <h4><a href="http://izual.zino.gr/polls/Sas_boleuoun_ta_bold_pou_uparxoun_otan_patate_gia_apantisi_se_sxolio">Σας βολεύουν τα bold που υπάρχουν όταν πατάτε για απάντηση σε σχόλιο?</a></h4>
+                <div class="results"><ul><li><dl>
+                                <dd><div class="option">
+                                    <div class="percentagebar" style="width:159px;">
+                                        <div class="leftrounded"></div>
+                                        <div class="rightrounded"></div>
+                                        <div class="middlerounded"></div>
+                                    </div>
+
+                                </div>69%</dd>
+                            </dl>
+                            <span class="resultterm">Ναι, είναι χρήσιμο</span></li><li><dl>
+                                <dd><div class="option">
+                                    <div class="percentagebar" style="width:85px;">
+                                        <div class="leftrounded"></div>
+                                        <div class="rightrounded"></div>
+                                        <div class="middlerounded"></div>
+
+                                    </div>
+                                </div>31%</dd>
+                            </dl>
+                            <span class="resultterm">Όχι, προτιμώ χωρίς (όπως ήταν παλιά)</span></li></ul><dl class="pollinfo">
+                        <dd><a href="http://izual.zino.gr/polls/Sas_boleuoun_ta_bold_pou_uparxoun_otan_patate_gia_apantisi_se_sxolio"><span class="s_commnum">&nbsp;</span>53 σχόλια</a></dd>
+                    </dl><div class="voting"><img src="http://static.zino.gr/phoenix/ajax-loader.gif" alt="Παρακαλώ περιμένετε..." title="Παρακαλώ περιμένετε..." /> Παρακαλώ περιμένετε...
+            </div></div>
+
+            </div></div></div>                <div class="questions">
+                    <h3>Ερωτήσεις <span>(<a href="http://izual.zino.gr/questions">προβολή όλων</a>)</span>
+                    </h3>
+                    <ul><li>
+                <p class="question">Έχεις κυκλοφορήσει ποτέ γυμνός σε δημόσιο χώρο;</p>
+                <p class="answer">Ναι, αλλά μετά ξύπνησα, ευτυχώς</p></li><li>
+
+                <p class="question">Είσαι σε καλή φυσική κατάσταση; Αν ναι, πόσο καλή; Αν όχι, γιατί δεν προσπαθείς (περισσότερο);</p>
+                <p class="answer">Αρκετά καλή αλλά καμία σχέση με το καλοκαίρι...ε μωρέ προτιμώ να λιώνω στο PC</p></li><li>
+                <p class="question">Πόσες ξανθιές αλλάζουν μία λάμπα;</p>
+                <p class="answer">Ξέρω γω...</p></li><li>
+                <p class="question">Ποιό είναι το πιο εκνευριστικό πράγμα που σου έχει συμβεί;</p>
+                <p class="answer">Να κανονίζω για μπάλλα και να πιάνει βροχή...αγκρρρ</p></li><li>
+
+                <p class="question">Σκαλίζεις τη μύτη σου; Έχεις δοκιμάσει ποτέ τα ευρήματα των ανασκαφών;</p>
+                <p class="answer">Δε τη σκαλίζω...</p></li><li>
+                <p class="question">Πιστεύεις στη μελλοντολογία;</p>
+                <p class="answer">Τσου</p></li><li>
+                <p class="question">Ποιά είναι η αγαπημένη σου ελληνική ταινία;</p>
+                <p class="answer">Δε μου ρχεται καμία</p></li></ul>
+
+                </div><div class="barfade" style="margin-top:20px;clear:right">
+                        <div class="leftbar"></div>
+                        <div class="rightbar"></div>
+                    </div><div style="clear:right"></div><div class="lastjournal">
+                <h3>Ημερολόγιο <span>(<a href="http://izual.zino.gr/journals">προβολή όλων</a>)</span></h3><div class="jsmall">
+                <h4><a href="http://izual.zino.gr/journals/Oi_Blink_epistrefoun">Οι Blink επιστρέφουν...</a></h4>
+
+                <p>Αφορμή για τα παρακάτω βιντεα είναι η επιστροφή των Blink, που θα βγάλουνε καινούργιο CD το καλοκαίρι του 2009... Πολλοί μπορεί να το ξέρουνε εδώ και καιρό (πάει λίγος καιρός που το ανακοινώσανε), αλλά επειδή πορώθηκα ξανά ορίστε μερικά που μου αρέσουνε.......</p>
+                <ul>
+                    <li>
+                        <dl><dt class="commentsnum"><a href="http://izual.zino.gr/journals/Oi_Blink_epistrefoun"><span class="s_commnum">&nbsp;</span>24 σχόλια</a></dt></dl>
+                    </li>
+                </ul>
+            </div></div>
+            <div class="barfade">
+
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div><div class="comments">
+                        <h3>Σχόλια στο προφίλ του izual</h3><div id="newcom" class="comment newcomment">
+                <div class="toolbox">
+                    <span class="time"></span>
+                </div>
+                <div class="who"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>                </div>
+
+                <div class="text">
+                    <textarea rows="" cols="">Πρόσθεσε ένα σχόλιο...</textarea>
+                </div>
+                <div class="bottom">
+                    <form onsubmit="return false" action=""><input type="submit" value="Σχολίασε!" onclick="Comments.Create(0);" /></form>
+                </div>
+                <div style="display:none" id="item">58</div>
+                <div style="display:none" id="type">3</div>
+
+            </div><div id="comment_2688426" class="comment oc" style="background-image:url('http://static.zino.gr/phoenix/orangecommgradient.png');"><div class="toolbox">
+                    <span class="time invisible">2009-04-30 14:51:19</span>
+                </div><div class="who"><a href="http://karamelaki.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/3857/174455/174455_100.jpg" class="avatar" style="width:50px;height:50px;" title="karamelaki" alt="karamelaki"></img></span>karamelaki</a>                </div><div class="text">re sy hi eimai sto msn kai otan kapoios m apantaei erxetai mnm sto msn</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2688825" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-30 16:16:06</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">επειδή σου έρχεται mail στο hotmail από το zino</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2688429" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-30 14:52:01</span>
+
+                </div><div class="who"><a href="http://karamelaki.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/3857/174455/174455_100.jpg" class="avatar" style="width:50px;height:50px;" title="karamelaki" alt="karamelaki"></img></span>karamelaki</a>                </div><div class="text">(otan kapoios m milaei zino)</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685079" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:45:49</span>
+                </div><div class="who"><a href="http://lagos21.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" class="avatar" alt="lagos21" title="lagos21" style="width:50px;height:50px;" />lagos21</a>                </div><div class="text">trava gamisou re flore...</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685313" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:17:54</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">άντε ρε βλάκα μπαίνεις και βρίζεις όποιον να ναι...σκούφε ε σκούφε</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685318" class="comment oc" style="margin-left:40px;background-image:url('http://static.zino.gr/phoenix/orangecommgradient.png');"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:18:35</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">autos psaxni gwmaina</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685341" class="comment oc" style="margin-left:60px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 22:21:07</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">asta na panai</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685350" class="comment oc" style="margin-left:80px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:22:08</span>
+
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text"><span class="emoticon-lol">.</span><br/> t kanis aisei?<span class="emoticon-lol">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685358" class="comment oc" style="margin-left:100px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:23:14</span>
+
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">skatta...aisi pos yse?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685369" class="comment oc" style="margin-left:120px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:23:57</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">giatei?<br/> kla diabazo g aixaitashs</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685399" class="comment oc" style="margin-left:140px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:27:32</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">dhafwra...<br/> ty palleuis mai ths aiskaitasis??<br/> (έκανα πόση ώρα να διαβάζω το σχολιό σου ρε και άλλη πόση να σου γράψω έτσι <span class="emoticon-lol">.</span>)</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685402" class="comment oc" style="margin-left:160px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:27:51</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">-x-ax-a<br/> k go asta na pane<br/> em dino tn paraskeui :/</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685408" class="comment oc" style="margin-left:180px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:28:23</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">για τί πράγμα;;</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685417" class="comment oc" style="margin-left:200px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:29:15</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">g kt xartia t paliou school<span class="emoticon-tongue">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685425" class="comment oc" style="margin-left:220px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 22:30:12</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">lool...<br/> και πότε θα τελειώσεις;;;μόνο παρασκευή δίνεις;;; πρωτομαγιά;;; <span class="emoticon-confused">.</span> <span class="emoticon-confused">.</span> <span class="emoticon-confused">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685439" class="comment oc" style="margin-left:240px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:31:40</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">oxi edosa sabato dino protomagia<br/> meta 13 maiou<br/> meta 25 nomizo<br/> k teleiono telos maiou<br/> xD<br/> ec pos paei t school?</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685455" class="comment oc" style="margin-left:260px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:32:50</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">το school πάει με τα πόδια <span class="emoticon-tongue">.</span><br/> μας ξεσκίζουν λίγο γιατί αρχίζουμε εξετάσεις :-/<br/> αλλά κατά τ'άλλα παλεύεται(προς το παρόν<span class="emoticon-tongue">.</span>)<br/> πάντως, θέλει κουράγιo <span class="emoticon-tongue">.</span> <span class="emoticon-tongue">.</span> <span class="emoticon-tongue">.</span></div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685458" class="comment oc" style="margin-left:280px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:33:04</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">panelinies?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685473" class="comment oc" style="margin-left:300px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:35:12</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text">nope, ενδοσχολικές T_T<br/> ακόμη δευτέρα λυκείου είμαι ρε συ <span class="emoticon-tongue">.</span><br/> αλλά και πάλι, δεν νιώθουν xD</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685502" class="comment oc" style="margin-left:320px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:38:52</span>
+                </div><div class="who"><a href="http://deathcore-queen.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7138/174433/174433_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeathCore_Queen" alt="DeathCore_Queen"></img></span>DeathCore_Queen</a>                </div><div class="text">lol</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685508" class="comment oc" style="margin-left:340px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 22:39:21</span>
+                </div><div class="who"><a href="http://lifo.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5339/170144/170144_100.jpg" class="avatar" style="width:50px;height:50px;" title="lifo" alt="lifo"></img></span>lifo</a>                </div><div class="text"><span class="emoticon-tongue">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685147" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:53:43</span>
+
+                </div><div class="who"><a href="http://guardian-angel.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1396/173688/173688_100.jpg" class="avatar" style="width:50px;height:50px;" title="Guardian_AngeL" alt="Guardian_AngeL"></img></span>Guardian_AngeL</a>                </div><div class="text">autos tha gamisei esi omos pali me malakia tha tin bgaleis geo mpageo</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685137" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:53:35</span>
+                </div><div class="who"><a href="http://intzakosd.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/6433/173967/173967_100.jpg" class="avatar" style="width:50px;height:50px;" title="IntzakosD" alt="IntzakosD"></img></span>IntzakosD</a>                </div><div class="text">φιλαράκο αυτου νου του κλάνεις τα @@ απλα</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685398" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:26:40</span>
+                </div><div class="who"><a href="http://guardian-angel.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1396/173688/173688_100.jpg" class="avatar" style="width:50px;height:50px;" title="Guardian_AngeL" alt="Guardian_AngeL"></img></span>Guardian_AngeL</a>                </div><div class="text">isxuei !!</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685404" class="comment oc" style="margin-left:60px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 22:28:00</span>
+                </div><div class="who"><a href="http://intzakosd.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/6433/173967/173967_100.jpg" class="avatar" style="width:50px;height:50px;" title="IntzakosD" alt="IntzakosD"></img></span>IntzakosD</a>                </div><div class="text"><span class="emoticon-smile">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685409" class="comment oc" style="margin-left:80px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 22:27:39</span>
+                </div><div class="who"><a href="http://guardian-angel.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1396/173688/173688_100.jpg" class="avatar" style="width:50px;height:50px;" title="Guardian_AngeL" alt="Guardian_AngeL"></img></span>Guardian_AngeL</a>                </div><div class="text"><span class="emoticon-wink">.</span>kollise k to msn</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685148" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:53:43</span>
+
+                </div><div class="who"><a href="http://nikol-aka-ang.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/4187/174275/174275_100.jpg" class="avatar" style="width:50px;height:50px;" title="nikol_aka_ang" alt="nikol_aka_ang"></img></span>nikol_aka_ang</a>                </div><div class="text"><span class="emoticon-thumbs-up">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685120" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:52:30</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">τι κάθεσαι και την πέφτεις στην κάθε κοπελίτσα? τράβα βάρα καμία μαλακία να ισιώσεις</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2685142" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:53:27</span>
+                </div><div class="who"><a href="http://nikol-aka-ang.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/4187/174275/174275_100.jpg" class="avatar" style="width:50px;height:50px;" title="nikol_aka_ang" alt="nikol_aka_ang"></img></span>nikol_aka_ang</a>                </div><div class="text">xwse rr...mpas k niosoun!</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2685075" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:45:28</span>
+                </div><div class="who"><a href="http://lagos21.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" class="avatar" alt="lagos21" title="lagos21" style="width:50px;height:50px;" />lagos21</a>                </div><div class="text">Πρόσθεσε ένα σχόλιο...</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2684962" class="comment oc" style=""><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 21:27:56</span>
+                </div><div class="who"><a href="http://nenoozz.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/2440/174170/174170_100.jpg" class="avatar" style="width:50px;height:50px;" title="NeNoOZz" alt="NeNoOZz"></img></span>NeNoOZz</a>                </div><div class="text">re izual e3w t live kolaei san putana kaneis den vlepei ti grafw xoris refresh k gw genikotera prepei n pataw refresh g n vlepw t misa</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2684674" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 20:52:12</span>
+
+                </div><div class="who"><a href="http://destiny.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8134/173430/173430_100.jpg" class="avatar" style="width:50px;height:50px;" title="Destiny" alt="Destiny"></img></span>Destiny</a>                </div><div class="text">kalispera man<br/> mia erotisi asxeti..<br/> epaizes pote Diablo II?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2684710" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 20:54:45</span>
+
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">yup, από το nickname ε? <span class="emoticon-tongue">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2684734" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 20:56:24</span>
+                </div><div class="who"><a href="http://destiny.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/8134/173430/173430_100.jpg" class="avatar" style="width:50px;height:50px;" title="Destiny" alt="Destiny"></img></span>Destiny</a>                </div><div class="text">yy eida to izual kai frikara <span class="emoticon-omg">.</span><br/> kalo quest +2 skill an 9ymasai..<br/> epaizes bnet?</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2684758" class="comment oc" style="margin-left:60px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-29 21:00:37</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">δεν έπαιζα όχι</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2680659" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 14:52:52</span>
+                </div><div class="who"><a href="http://mar1no0bi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/7295/171158/171158_100.jpg" class="avatar" style="width:50px;height:50px;" title="mar1no0bi" alt="mar1no0bi"></img></span>mar1no0bi</a>                </div><div class="text">hi...*__*</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2680321" class="comment oc" style=""><div class="toolbox">
+
+                    <span class="time invisible">2009-04-29 14:20:56</span>
+                </div><div class="who"><a href="http://gel-bernadotte.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/4939/174415/174415_100.jpg" class="avatar" style="width:50px;height:50px;" title="Gel_Bernadotte" alt="Gel_Bernadotte"></img></span>Gel_Bernadotte</a>                </div><div class="text">emeis pote tha exoume music player sto profile?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2680265" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 14:15:54</span>
+
+                </div><div class="who"><a href="http://gatoni.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/872/166820/166820_100.jpg" class="avatar" style="width:50px;height:50px;" title="Gatoni" alt="Gatoni"></img></span>Gatoni</a>                </div><div class="text">PM.</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2679511" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-29 12:50:32</span>
+                </div><div class="who"><a href="http://karamelaki.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/3857/174455/174455_100.jpg" class="avatar" style="width:50px;height:50px;" title="karamelaki" alt="karamelaki"></img></span>karamelaki</a>                </div><div class="text">mpravo paidia!!!!!!!!etsi epityxies panta kai na mas kanete perhfanoys toys zinwtes edw<span class="emoticon-tongue">.</span><span class="emoticon-tongue">.</span><span class="emoticon-tongue">.</span><br/> kai eis anwtera</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2672239" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-28 17:06:11</span>
+                </div><div class="who"><a href="http://teh-ninja.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5176/136169/136169_100.jpg" class="avatar" style="width:50px;height:50px;" title="Teh-Ninja" alt="Teh-Ninja"></img></span>Teh-Ninja</a>                </div><div class="text">bghke to live?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2671740" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-28 16:06:38</span>
+                </div><div class="who"><a href="http://deusunknown.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/24/174074/174074_100.jpg" class="avatar" style="width:50px;height:50px;" title="DeusUnknown" alt="DeusUnknown"></img></span>DeusUnknown</a>                </div><div class="text">χρειαζεται και ενα αφιερωμα απο το νεανικο δελτιο του star!Με Πετρουλα!</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2671558" class="comment oc" style=""><div class="toolbox">
+
+                    <span class="time invisible">2009-04-28 15:52:25</span>
+                </div><div class="who"><a href="http://larie.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/5791/167252/167252_100.jpg" class="avatar" style="width:50px;height:50px;" title="Larie" alt="Larie"></img></span>Larie</a>                </div><div class="text">pos eisai etsi gamo ton xristo s <span class="emoticon-lol">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670548" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:21:37</span>
+
+                </div><div class="who"><a href="http://ezoer.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" class="avatar" alt="ezoer" title="ezoer" style="width:50px;height:50px;" />ezoer</a>                </div><div class="text">eisai o administrator?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670562" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:23:30</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">είμαι ένας από αυτούς</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670594" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:25:55</span>
+                </div><div class="who"><a href="http://ezoer.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" class="avatar" alt="ezoer" title="ezoer" style="width:50px;height:50px;" />ezoer</a>                </div><div class="text">pws mporw na s steilw ena proswpiko mnm?</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2670638" class="comment oc" style="margin-left:60px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:30:40</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">πάνω που λέει μηνύματα, κάνε click και γράψε το username μου και από κάτω αυτό που θες να μου στείλεις</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670817" class="comment oc" style="margin-left:80px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-28 14:45:10</span>
+                </div><div class="who"><a href="http://ezoer.zino.gr/"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" class="avatar" alt="ezoer" title="ezoer" style="width:50px;height:50px;" />ezoer</a>                </div><div class="text">st etseila</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670500" class="comment oc" style=""><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:18:48</span>
+
+                </div><div class="who"><a href="http://gatoni.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/872/166820/166820_100.jpg" class="avatar" style="width:50px;height:50px;" title="Gatoni" alt="Gatoni"></img></span>Gatoni</a>                </div><div class="text">Κάπου αναφέρθηκε για Alter. Ισχύει;</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670512" class="comment oc" style="margin-left:20px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:18:40</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">Ναι σήμερα στις 18:45</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670573" class="comment oc" style="margin-left:40px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:24:24</span>
+                </div><div class="who"><a href="http://kogi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1133/174462/174462_100.jpg" class="avatar" style="width:50px;height:50px;" title="kogi" alt="kogi"></img></span>kogi</a>                </div><div class="text">Live ή ρεπορτάζ πάλι;</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2670577" class="comment oc" style="margin-left:60px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:24:00</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">τι εννοείς Live? Ρεπορταζ είναι</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670597" class="comment oc" style="margin-left:80px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-28 14:27:03</span>
+                </div><div class="who"><a href="http://kogi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1133/174462/174462_100.jpg" class="avatar" style="width:50px;height:50px;" title="kogi" alt="kogi"></img></span>kogi</a>                </div><div class="text">Είπατε ότι είναι ακατάλληλο για άνω των 25;</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670614" class="comment oc" style="margin-left:100px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:28:49</span>
+
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">εγώ δεν το είπα γιατί δε μας ρώτησαν <span class="emoticon-tongue">.</span><br/> αλλά νομίζω φαίνεται κάπως ότι αυτοί που μένουν στο site είναι τα άτομα κοντά στην ηλικίας μας</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670622" class="comment oc" style="margin-left:120px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:29:00</span>
+
+                </div><div class="who"><a href="http://kogi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1133/174462/174462_100.jpg" class="avatar" style="width:50px;height:50px;" title="kogi" alt="kogi"></img></span>kogi</a>                </div><div class="text">Έκλεισε το μάτι ο dio;<br/> Για να ξέρω τι θα γίνει, δηλαδή, όχι τίποτα άλλο.. <span class="emoticon-tongue">.</span><br/> <br/> (Ποιά άλλα κανάλια ζήλεψαν;)</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670651" class="comment oc" style="margin-left:140px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-28 14:31:40</span>
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">Δεν ξέρω τι έκανε, γιατί δεν ήμουν όταν μίλαγε <span class="emoticon-tongue">.</span><br/> Δεν ξέρω κάτι προς το παρόν <span class="emoticon-tongue">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+
+            </div><div id="comment_2670698" class="comment oc" style="margin-left:160px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:37:03</span>
+                </div><div class="who"><a href="http://kogi.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/1133/174462/174462_100.jpg" class="avatar" style="width:50px;height:50px;" title="kogi" alt="kogi"></img></span>kogi</a>                </div><div class="text">Ok.. <span class="emoticon-tongue">.</span></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670588" class="comment oc" style="margin-left:80px;"><div class="toolbox">
+
+                    <span class="time invisible">2009-04-28 14:25:42</span>
+                </div><div class="who"><a href="http://teddy.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/2172/172129/172129_100.jpg" class="avatar" style="width:50px;height:50px;" title="Teddy" alt="Teddy"></img></span>Teddy</a>                </div><div class="text">αν θα βγείτε απευθείας..</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670590" class="comment oc" style="margin-left:100px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:25:10</span>
+
+                </div><div class="who"><a href="http://izual.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" class="avatar" style="width:50px;height:50px;" title="izual" alt="izual"></img></span>izual</a>                </div><div class="text">όχι, έχει γυριστεί ήδη</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div id="comment_2670595" class="comment oc" style="margin-left:120px;"><div class="toolbox">
+                    <span class="time invisible">2009-04-28 14:26:43</span>
+                </div><div class="who"><a href="http://teddy.zino.gr/"><span class="imageview"><img src="http://images2.zino.gr/media/2172/172129/172129_100.jpg" class="avatar" style="width:50px;height:50px;" title="Teddy" alt="Teddy"></img></span>Teddy</a>                </div><div class="text">ΟΚ</div>
+
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+            </div><div class="pagifycomments"><div class="pagify"><span><strong>1</strong> <a href="http://izual.zino.gr/?pageno=2" class="nextbacklinks">2</a> <a href="http://izual.zino.gr/?pageno=3" class="nextbacklinks">3</a> <a href="http://izual.zino.gr/?pageno=4" class="nextbacklinks">4</a> <a href="http://izual.zino.gr/?pageno=5" class="nextbacklinks">5</a> ...</span><span class="rightpage"><a href="http://izual.zino.gr/?pageno=2" class="next" title="Επόμενη">&nbsp;</a></span></div></div></div></div><div class="eof"></div>
+
+            </div></div><div class="footer">
+                <ul>
+                    <li><a href="contact">Επικοινώνησε</a></li>
+                    <li><a href="tos">Όροι χρήσης</a></li>
+                    <li><a href="?p=ads">Διαφήμιση</a></li>
+                </ul>
+                <div class="copy">
+
+                    &copy; 2009 
+                    <a href="http://www.kamibu.com/">Kamibu</a>
+                </div>
+            </div><script type="text/javascript" src="http://www.google-analytics.com/urchin.js" charset="utf-8"></script><script type="text/javascript" src="http://static.zino.gr/js/global.js?100" charset="utf-8"></script><script type="text/javascript">ExcaliburSettings.Production = true;ExcaliburSettings.Production = true;Coala.BaseURL = &quot;http://izual.zino.gr/&quot;;$( Profile.MyProfileOnLoad );$( Profile.OnLoad );Profile.ShowOnlineSince( &quot; αυτή τη στιγμή! &quot; );Profile.CheckBirthday( 1989, 02, 03 );Comments.NewCommentOnLoad();Comet.Init( &quot;dee30f78b0d7ab70a44d4c06b88b0bba&quot; );
+            Comet.Subscribe( 'CommentsPageNew3c58' );Comments.nowdate = &quot;2009-04-30 17:26:47&quot;;Comments.OnLoad();Banner.OnLoad();</script></body></html>
