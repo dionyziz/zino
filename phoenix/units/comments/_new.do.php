@@ -62,6 +62,5 @@
         ?>, <?php
         echo w_json_encode( nl2br( $comment->Text ) );
         ?> );<?php
-		die( 'end' );
     }
 ?>
