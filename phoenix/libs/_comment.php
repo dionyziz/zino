@@ -526,7 +526,6 @@
             Sequence_Increment( SEQUENCE_COMMENT );
             
             $libs->Load( 'rabbit/event' );
-            die( 'here');
             //FireEvent( 'CommentCreated', $this );
         }
         public function OnUpdate() {
@@ -647,7 +646,6 @@
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
-		die( "It's alive! It just performed mitosis" );
 		$mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
