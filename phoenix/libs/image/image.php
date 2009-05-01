@@ -1,6 +1,8 @@
 <?php
     /*
-    Images media structure for images 
+        MASKED
+        By: Dionyziz
+        Reason: Optimize notifications system by eliminating events
     */
     
     global $libs;
@@ -341,8 +343,6 @@
         public function OnCreate() {
             global $libs;
 
-            $libs->Load( 'event' );
-            
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -355,12 +355,6 @@
                 $this->Album->ImageAdded( $this );
             }
 
-            $event = New Event();
-            $event->Typeid = EVENT_IMAGE_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
-
             Sequence_Increment( SEQUENCE_IMAGE );            
                      
             $libs->Load( 'rabbit/event' );
@@ -371,8 +365,6 @@
             global $libs;
             
             $libs->Load( 'comment' );
-            $libs->Load( 'event' );
-
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -381,9 +373,6 @@
             }
 
             $finder = New CommentFinder();
-            $finder->DeleteByEntity( $this );
-
-            $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
             Sequence_Increment( SEQUENCE_IMAGE );

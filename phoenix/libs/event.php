@@ -1,8 +1,11 @@
 <?php
-
     /*
-    Developer: abresas
+        Developer: abresas
+        MASKED
+        By: Dionyziz
+        Reason: Optimize notifications system by eliminating events
     */
+    
 
     /*
     new comment
@@ -19,43 +22,8 @@
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
         return array(
-            1 => 'EVENT_ALBUM_CREATED',
-            2 => 'EVENT_ALBUM_UPDATED', // not in use
-            3 => 'EVENT_ALBUM_DELETED', // not in use
             4 => 'EVENT_COMMENT_CREATED',
-            5 => 'EVENT_COMMENT_UPDATED', // not in use
-            6 => 'EVENT_COMMENT_DELETED', // not in use
-            7 => 'EVENT_IMAGE_CREATED',
-            8 => 'EVENT_IMAGE_UPDATED', // not in use
-            9 => 'EVENT_IMAGE_DELETED', // not in use
-            10 => 'EVENT_JOURNAL_CREATED',
-            11 => 'EVENT_JOURNAL_UPDATED',
-            12 => 'EVENT_JOURNAL_DELETED', // not in use
-            13 => 'EVENT_POLL_CREATED',
-            14 => 'EVENT_POLL_UPDATED', // not in use
-            15 => 'EVENT_POLL_DELETED', // not in use
-            16 => 'EVENT_POLLVOTE_CREATED', // not in use
-            17 => 'EVENT_POLLOPTION_CREATED', // not in use
-            18 => 'EVENT_POLLOPTION_DELETED', // not in use
             19 => 'EVENT_FRIENDRELATION_CREATED',
-            20 => 'EVENT_FRIENDRELATION_UPDATED',
-            // 21 => 'EVENT_USERSPACE_UPDATED', // removed but reserved
-            22 => 'EVENT_USERPROFILE_UPDATED', // not in use
-            23 => 'EVENT_USERPROFILE_VISITED', // not in use
-            24 => 'EVENT_USERPROFILE_EDUCATION_UPDATED',
-            25 => 'EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED',
-            26 => 'EVENT_USERPROFILE_RELIGION_UPDATED',
-            27 => 'EVENT_USERPROFILE_POLITICS_UPDATED',
-            28 => 'EVENT_USERPROFILE_SMOKER_UPDATED',
-            29 => 'EVENT_USERPROFILE_DRINKER_UPDATED',
-            30 => 'EVENT_USERPROFILE_ABOUTME_UPDATED',
-            31 => 'EVENT_USERPROFILE_MOOD_UPDATED',
-            32 => 'EVENT_USERPROFILE_LOCATION_UPDATED',
-            33 => 'EVENT_USERPROFILE_HEIGHT_UPDATED',
-            34 => 'EVENT_USERPROFILE_WEIGHT_UPDATED',
-            35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
-            36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
-            37 => 'EVENT_USER_CREATED',
             38 => 'EVENT_IMAGETAG_CREATED',
             39 => 'EVENT_FAVOURITE_CREATED',
             40 => 'EVENT_USER_BIRTHDAY' // not connected with any class. Triggered by script

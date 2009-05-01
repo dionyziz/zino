@@ -1,6 +1,12 @@
 <?php
-
+    /*
+        MASKED
+        By: Dionyziz
+        Reason: Optimize notifications system by eliminating events
+    */
+    
     global $libs;
+    
     $libs->Load( 'image/image' );
     $libs->Load( 'user/user' );
 
@@ -134,8 +140,6 @@
             global $water;
             global $libs;
 
-            $libs->Load( 'event' );
-            
             if ( $this->IsDeleted() ) {
                 $water->Notice( 'Album already deleted; skipping' );
                 return;
@@ -171,9 +175,6 @@
             $query->Bind( 'ImageDelId', 1 );
             $query->Bind( 'AlbumId', $this->Id );
             $query->Execute();
-
-            $finder = New EventFinder();
-            $finder->DeleteByEntity( $this );
 
             return false;
         }
@@ -246,22 +247,10 @@
             }
         }
         protected function OnCreate() {
-            global $libs;
-            
-            $libs->Load( 'event' );
-
             if ( $this->Ownertype == TYPE_USERPROFILE ) {
                 ++$this->Owner->Count->Albums;
                 $this->Owner->Count->Save();
             }
-            
-            /*
-            $event = New Event();
-            $event->Typeid = EVENT_ALBUM_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Ownerid = $this->Ownerid;
-            $event->Save();
-            */
         }
         public function LoadDefaults() {
             global $user;

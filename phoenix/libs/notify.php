@@ -1,5 +1,10 @@
 <?php
-
+    /*
+        MASKED
+        By: Dionyziz
+        Reason: Optimize notifications system by eliminating events
+    */
+    
     global $libs;
     $libs->Load( 'event' );
 
@@ -244,6 +249,13 @@
                     w_assert( $this->Event->Exists(), 'Event does not exist' );
 
                     return $this->Event->Item;
+                /* event stuff */
+                case 'Id':
+                    return $this->Event->Id;
+                case 'Typeid':
+                    return $this->Event->Typeid;
+                case 'Userid': // from user id
+                    return $this->Fromuserid;
                 default:
                     return parent::__get( $key );
             }

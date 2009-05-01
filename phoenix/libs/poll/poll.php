@@ -1,4 +1,10 @@
 <?php
+    /*
+        MASKED
+        By: Dionyziz
+        Reason: Optimize notifications system by eliminating events
+    */
+    
     global $libs;
 
     $libs->Load( 'poll/option' );
@@ -132,18 +138,9 @@
             return false;
         }
         protected function OnCreate() {
-            global $libs;
-            $libs->Load( 'event' );
-
             ++$this->User->Count->Polls;
             $this->User->Count->Save();
-
-            $event = New Event();
-            $event->Typeid = EVENT_POLL_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
-
+            
             Sequence_Increment( SEQUENCE_POLL );
         }
         protected function OnDelete() {
@@ -153,12 +150,8 @@
             $this->User->Count->Save();
 
             $libs->Load( 'comment' );
-            $libs->Load( 'event' );
 
             $finder = New CommentFinder();
-            $finder->DeleteByEntity( $this );
-
-            $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
             Sequence_Increment( SEQUENCE_POLL );

@@ -147,23 +147,12 @@
             $this->Save();
         }
         protected function OnCreate() {
-            global $libs;
-
             $this->OnUpdate();
-
-            $libs->Load( 'event' );
 
             ++$this->User->Count->Journals;
             $this->User->Count->Save();
 
-            $event = New Event();
-            $event->Typeid = EVENT_JOURNAL_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
-
             Sequence_Increment( SEQUENCE_JOURNAL );
-            
         }
         protected function OnBeforeDelete() {
             $this->Delid = 1;
@@ -177,7 +166,6 @@
             global $user;
             global $libs;
 
-            $libs->Load( 'event' );
             $libs->Load( 'comment' );
             $libs->Load( 'adminpanel/adminaction' );
                         
@@ -188,9 +176,6 @@
 
             --$this->User->Count->Journals;
             $this->User->Count->Save();
-
-            $finder = New EventFinder();
-            $finder->DeleteByEntity( $this );
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
