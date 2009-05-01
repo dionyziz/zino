@@ -528,9 +528,6 @@
             //Comment_RegenerateMemcache( $this->Item );        Old method
             Mitosis( $this->Id, $this->Parentid, $this->Item );
 
-            $finder = New NotificationFinder();
-            $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
-
             Sequence_Increment( SEQUENCE_COMMENT );
             
             $libs->Load( 'rabbit/event' );

@@ -3,6 +3,7 @@
         global $libs;
         
         $libs->Load( 'event' );
+        $libs->Load( 'notify' );
         
         $event = New Event();
         $event->Typeid = EVENT_COMMENT_CREATED;
@@ -11,6 +12,9 @@
         $event->Userid = $comment->Userid;
         $event->Save();
         
+        $finder = New NotificationFinder();
+        $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
+
         return false;
     }
 ?>
