@@ -69,15 +69,15 @@
 }
 
 .invite_contacts #body {
-	padding: 40px;
+	padding: 40px 0 0 0;
 	border: 1px solid #ccc;
 	margin-left: 100px;
 	font-size: 17px;
 	position: relative;
 }
-.invite_contacts #body > div {
+.invite_contacts #body #mail, #password {
 	height: 40px;
-	margin: 15px 0;
+	margin: 15px 40px;
 }
 .invite_contacts #body div div {
 	float: left;
@@ -89,7 +89,7 @@
 	height: 30px;
 	color: #777;
 }
-.invite_contacts #body div input{
+.invite_contacts #body div input.text{
 	display: block;
 	height: 30px;
 	padding: 5px;
@@ -98,11 +98,27 @@
 	border: 0;
 	background: url('input.png') no-repeat;
 }
-.invite_contacts #body div input:hover{
+.invite_contacts #body div input.text:hover{
 	background-position: 0 -40px;
 }
-.invite_contacts #body div input:focus{
+.invite_contacts #body div input.text:focus{
 	background-position: 0 -80px;
+}
+.invite_contacts #body #foot {
+	background: #eee;
+	padding: 20px 0;
+}
+.invite_contacts #body #foot input {
+	width: 120px;
+	height: 40px;
+	display: block;
+	margin: auto;
+	border: 0;
+	background: transparent url('search.png') no-repeat;
+	cursor: pointer;
+}
+.invite_contacts #body #foot input:active{
+	background-position: 0 -40px;
 }
 .invite_contacts #body #security {
 	position: absolute;
@@ -111,20 +127,6 @@
 	width: 150px;
 	font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
