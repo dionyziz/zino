@@ -1,12 +1,15 @@
 <?php
     
-    function UnitNotificationDelete( tInteger $eventid , tBoolean $relationnotif ) {
+    function UnitNotificationDelete( tInteger $notificationid , tBoolean $relationnotif ) {
         global $user;
         global $libs;
         
-        $libs->Load( 'notify' );
-        $notif = New Notification( $eventid->Get() );
+        $notificationid = $notificationid->Get();
         $relationnotif = $relationnotif->Get();
+
+        $libs->Load( 'notify' );
+        
+        $notif = New Notification( $notificationid );
         if ( $notif->Exists() ) {
             if ( $notif->ToUser->Id == $user->Id ) {
                 $theuser = $notif->FromUser;
