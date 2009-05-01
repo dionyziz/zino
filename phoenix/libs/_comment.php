@@ -12,7 +12,7 @@
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
         global $water;
-
+        $start = microtime( true );
         $water->Profile( "Memcache generation" );
 		
         $finder = New CommentFinder();
@@ -59,7 +59,8 @@
 
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
         $water->ProfileEnd();
-
+        $totaltime = microtime( true ) - $start;
+        die( $totaltime );
         return $paged;
     }
 
