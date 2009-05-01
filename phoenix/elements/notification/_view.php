@@ -13,14 +13,14 @@
             }
 
             ?><div class="event" id="event_<?php
-            echo $notif->Id;
+            echo $notif->Event->Id;
             ?>">
                 <div class="toolbox">
                     <span class="time"><?php
-                    Element( 'date/diff', $notif->Created );
+                    Element( 'date/diff', $notif->Event->Created );
                     ?></span>
                     <a href="" onclick="return Notification.Delete( '<?php
-                    echo $notif->Id;
+                    echo $notif->Event->Id;
                     ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
                 <div class="who"<?php
@@ -30,11 +30,11 @@
                     Element( 'url' , $notif->Item );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>' , '<?php
-                    echo $notif->Item->Typeid;
+                    echo $notif->Event->Item->Typeid;
                     ?>' , '<?php
-                    echo $notif->Id;
+                    echo $notif->Event->Id;
                     ?>' , '<?php
-                    echo $notif->Item->Id;
+                    echo $notif->Event->Item->Id;
                     ?>' );"<?php
                 }
                 ?>><?php
