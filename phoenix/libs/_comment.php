@@ -409,11 +409,14 @@
                     `comment_id` IN :commentids " );
 
             $query->BindTable( 'comments' );
-            $query->Bind( 'commentids', $commentids );
 
+            $query->Bind( 'commentids', $commentids );
             $res = $query->Execute();
             $res = $res->MakeArray();
-            return $res;
+            foreach ( $res as $comment ) { 
+                $ret[ $comment[ "comment_id" ] ] = $comment[ "comment_parentid" ];
+            }
+            return $ret;
         }
     }
 
