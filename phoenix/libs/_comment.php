@@ -15,9 +15,7 @@
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
         global $water;
-        global $user;
         
-        $start = microtime( true );
         $water->Profile( "Memcache generation" );
 		
         $finder = New CommentFinder();
@@ -64,10 +62,6 @@
 
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
         $water->ProfileEnd();
-        $totaltime = microtime( true ) - $start;
-        if ( $user->Name == 'petrosagg18' ) {
-            die( $totaltime );
-        }
         return $paged;
     }
 
@@ -692,20 +686,16 @@
 		) );
 		//$splicing = microtime( true );
 		
-		$memcache = microtime( true );
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-        $memcache = microtime( true ) - $memcache;
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );        
         
-		$totaltime = microtime( true ) - $start;
-		/*$splicing = $splicing - $pagedivision;
-		$pagedivision = $pagedivision - $bestdivision;
-		$bestdivision = $bestdivision - $threadcreation;
-		$threadcreation = $threadcreation - $commentretrieve;
-		$commentretrieve = $commentretrieve - $start;
-        $totaltime2 = $splicing + $pagedivision + $bestdivision + $threadcreation + $commentretrieve;*/
+        $mitosis = microtime( true ) - $start;
+        
+        $regeneration = microtime( true );
+		Comment_Comment_RegenerateMemcache( $entity );
+        $regeneration = microtime( true ) - $regeneration;
 		if ( $user->Name == 'petrosagg18' ) {
-            die( "Totaltime = $totaltime\n Memcahce = $memcache" );
+            die( "Mitosis = $mitosis\nRegeneration = $regeneration" );
         }
 	}
 
