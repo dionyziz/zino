@@ -626,7 +626,7 @@
         
         $finder = New CommentFinder();
 		$parentids = $finder->FindParentIds( $page );       //Retrieve parentids of commentids in the current page
-		$commentretrieve = microtime( true );
+		//$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
@@ -640,7 +640,7 @@
 			}
 		}
 		
-		$threadcreation = microtime( true );
+		//$threadcreation = microtime( true );
 		
 		$totalcomments = count( $page );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
@@ -666,7 +666,7 @@
 			}
 		}
 		
-		$bestdivision = microtime( true );
+		//$bestdivision = microtime( true );
 		
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
@@ -684,31 +684,25 @@
 			$secondhalf[] = $page[ $i ];
 		}
 		
-		$pagedivision = microtime( true );
+		//$pagedivision = microtime( true );
 		
 		array_splice( $paged, $pagenum, 1, array(
 			$pagenum => $firsthalf,
 			$pagenum + 1 => $secondhalf,
 		) );
-		$splicing = microtime( true );
+		//$splicing = microtime( true );
 		
 		
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		$totaltime = microtime( true ) - $start;
-		$splicing = $splicing - $pagedivision;
+		/*$splicing = $splicing - $pagedivision;
 		$pagedivision = $pagedivision - $bestdivision;
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
-        $totaltime2 = $splicing + $pagedivision + $bestdivision + $threadcreation + $commentretrieve;
+        $totaltime2 = $splicing + $pagedivision + $bestdivision + $threadcreation + $commentretrieve;*/
 		if ( $user->Name == 'petrosagg18' ) {
-            die( "Comment Retrive = $commentretrieve \n
-            Thread Creation = $threadcreation \n
-            Best Division = $bestdivision \n
-            Page Division = $pagedivision \n
-            Splicing = $splicing \n
-            Totaltime = $totaltime
-            Totaltime2 = $totaltime2");
+            die( "Totaltime = $totaltime" );
         }
 	}
 
