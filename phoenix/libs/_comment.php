@@ -605,8 +605,7 @@
 		}
 		else {
 			foreach( $paged as $page ) {
-                $key = array_search( $parentid, $page );
-                
+                $key = array_search( $parentid, $page );             
                 if ( $key !== false ) {
                     array_splice( $page, $key + 1, 0, $commentid );
                     break;
@@ -616,14 +615,13 @@
         
         $finder = New CommentFinder();
 		$parentids = $finder->FindParentIds( $page );
-        die( var_dump( $parentids ) );
 		
 		$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
-		foreach ( $parentids as $parentid ) {
-			if ( $parentid == 0 ) {
+		foreach ( $page as $comment ) {
+			if ( $parentids[ $comment ] == 0 ) {
 				++$i;
 				$threads[ $i ] = 1;
 			}
