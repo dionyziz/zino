@@ -15,6 +15,8 @@
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
         global $water;
+        global $user;
+        
         $start = microtime( true );
         $water->Profile( "Memcache generation" );
 		
@@ -63,7 +65,9 @@
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
         $water->ProfileEnd();
         $totaltime = microtime( true ) - $start;
-        die( $totaltime );
+        if ( $user->Name == 'petrosagg18' ) {
+            die( $totaltime );
+        }
         return $paged;
     }
 
@@ -599,7 +603,8 @@
 	
 	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
 		global $mc;                                      //If it cannot it just edits the memcache.
-		
+		global $user;
+        
 		$start = microtime( true );
 		
 		$paged = Comment_GetMemcached( $entity );   //Load current pagination from memcache
@@ -695,13 +700,14 @@
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
-		die( "Comment Retrive = $commentretrieve \n
-		Thread Creation = $threadcreation \n
-		Best Division = $bestdivision \n
-		Page Division = $pagedivision \n
-		Splicing = $splicing \n
-		Totaltime = $totaltime");
-		
+		if ( $user->Name == 'petrosagg18' ) {
+            die( "Comment Retrive = $commentretrieve \n
+            Thread Creation = $threadcreation \n
+            Best Division = $bestdivision \n
+            Page Division = $pagedivision \n
+            Splicing = $splicing \n
+            Totaltime = $totaltime");
+        }
 	}
 
 ?>
