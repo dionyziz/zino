@@ -622,7 +622,10 @@
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
             $nomitosis = microtime( true ) - $start;
-            die( "No mitosis = $nomitosis" );
+            $regeneration = microtime( true );
+            Comment_RegenerateMemcache( $entity );
+            $regeneration = microtime( true ) - $regeneration;
+            die( "No mitosis = $nomitosis\nRegeneration = $regeneration" );
 			//Not enough comments
 			return;
 		}
