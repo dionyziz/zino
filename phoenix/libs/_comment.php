@@ -396,7 +396,7 @@
 
             return $ret;
         }
-        public function FindParentIds ( $commentids ) {
+        public function FindParentIds ( $commentids ) { //Returns an array in the following format [ commentid ] => parentid
             if ( empty( $commentids ) ) {
                 return array();
             }
@@ -593,35 +593,36 @@
         }
     }
 	
-	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted. If it cannot it just edits the memcache
-		global $mc;
+	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
+		global $mc;                                      //If it cannot it just edits the memcache.
 		
 		$start = microtime( true );
 		
-		$paged = Comment_GetMemcached( $entity );
-		if ( $parentid == 0 ) {
+		$paged = Comment_GetMemcached( $entity );   //Load current pagination from memcache
+		if ( $parentid == 0 ) {                     //If parentid = 0 then the comment is for sure at the first page
 			$page = $paged[ 0 ];
-            array_unshift( $page, $commentid );
+            array_unshift( $paged[ 0 ], $commentid ); //Insert new comment in current pagination
 		}
 		else {
-			foreach( $paged as $page ) {
-                $key = array_search( $parentid, $page );             
-                if ( $key !== false ) {
-                    array_splice( $page, $key + 1, 0, $commentid );
-                    break;
+            $pagenum = -1;                        //page counter
+			foreach( $paged as $page ) {    //If parentid != 0 a page search must be done
+                ++$pagenum;
+                $found = array_search( $parentid, $page );             
+                if ( $key !== false ) {                                    //If comment is found then
+                    array_splice( $paged[ $pagenum ], $key + 1, 0, $commentid ); //insert new comment in current pagination and break
+                    break;             //After breaking $page contains an array of commentids in the page we are interested in
                 }
             }
 		}
         
         $finder = New CommentFinder();
-		$parentids = $finder->FindParentIds( $page );
-		die( 'here' );
+		$parentids = $finder->FindParentIds( $page );       //Retrieve parentids of commentids in the current page
 		$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
-		foreach ( $page as $comment ) {
-			if ( $parentids[ $comment ] == 0 ) {
+		foreach ( $page as $commentid ) {
+			if ( $parentids[ $commentid ] == 0 ) {
 				++$i;
 				$threads[ $i ] = 1;
 			}
@@ -632,7 +633,7 @@
 		
 		$threadcreation = microtime( true );
 		
-		$totalcomments = count( $paged[ $page ] );
+		$totalcomments = count( $page );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Not enough comments
@@ -668,15 +669,15 @@
 		$firsthalf = array();
 		$secondhalf = array();
 		for ( $i = 0; $i < $mincurrentcomments; ++$i ) {
-			$firsthalf[] = $paged[ $page ][ $i ];
+			$firsthalf[] = $page[ $i ];
 		}
 		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
-			$secondhalf[] = $paged[ $page ][ $i ];
+			$secondhalf[] = $page[ $i ];
 		}
 		
 		$pagedivision = microtime( true );
 		
-		array_splice( $paged, $page, 1, array(
+		array_splice( $paged, $pagenum, 1, array(
 			$page => $firsthalf,
 			$page + 1 => $secondhalf,
 		) );
