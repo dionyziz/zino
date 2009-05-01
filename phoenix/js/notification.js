@@ -7,7 +7,7 @@ var Notification = {
 			document.location.href = url;
 		} 
 		else {
-			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+			Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
 			document.location.href = url;
 		}
 		return false;
@@ -22,7 +22,7 @@ var Notification = {
                 $( "div.notifications" ).remove();
             }
 		} );
-		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );
@@ -77,7 +77,7 @@ var Notification = {
 			.append( document.createTextNode( 'Έγινε προσθήκη' ) );
 		} );
 		Coala.Warm( 'notification/addfriend' , { userid : theuserid } );
-		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+		Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
         //Notification.DecrementCount();
 		return false;
 	},
