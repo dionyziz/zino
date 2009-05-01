@@ -1,9 +1,6 @@
 <?php
     /*
-        Developer: abresas
-        MASKED
-        By: Petros
-        Reason: Implementing the mitosis pagination system
+        Developer: abresas, petros
     */
     global $libs;
 
