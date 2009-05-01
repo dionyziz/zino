@@ -615,7 +615,7 @@
         
         $finder = New CommentFinder();
 		$parentids = $finder->FindParentIds( $page );
-		
+		die( 'here' );
 		$commentretrieve = microtime( true );
 		
 		$i = -1;
