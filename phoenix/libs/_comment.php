@@ -607,7 +607,7 @@
             $pagenum = -1;                        //page counter
 			foreach( $paged as $page ) {    //If parentid != 0 a page search must be done
                 ++$pagenum;
-                $found = array_search( $parentid, $page );             
+                $key = array_search( $parentid, $page );             
                 if ( $key !== false ) {                                    //If comment is found then
                     array_splice( $paged[ $pagenum ], $key + 1, 0, $commentid ); //insert new comment in current pagination and break
                     break;             //After breaking $page contains an array of commentids in the page we are interested in
