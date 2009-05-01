@@ -597,9 +597,6 @@
 	
 	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
 		global $mc;                                      //If it cannot it just edits the memcache.
-		global $user;
-        
-		$start = microtime( true );
 		
 		$paged = Comment_GetMemcached( $entity );   //Load current pagination from memcache
 		if ( $parentid == 0 ) {                     //If parentid = 0 then the comment is for sure at the first page
@@ -621,18 +618,12 @@
         $totalcomments = count( $page );
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-            $nomitosis = microtime( true ) - $start;
-            $regeneration = microtime( true );
-            Comment_RegenerateMemcache( $entity );
-            $regeneration = microtime( true ) - $regeneration;
-            die( "No mitosis = $nomitosis\nRegeneration = $regeneration" );
 			//Not enough comments
 			return;
 		}
         
         $finder = New CommentFinder();
 		$parentids = $finder->FindParentIds( $page );       //Retrieve parentids of commentids in the current page
-		//$commentretrieve = microtime( true );
 		
 		$i = -1;
 		$threads = array();
@@ -646,10 +637,6 @@
 			}
 		}
 		
-		//$threadcreation = microtime( true );
-		
-		
-		$midle = microtime( true );
 		$CurrentComments = 0;
 		$n = count( $threads );
 		$mindiaf = $totalcomments / 2; // infinity
@@ -667,8 +654,6 @@
 			}
 		}
 		
-		//$bestdivision = microtime( true );
-		
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Division below standards
@@ -685,25 +670,13 @@
 			$secondhalf[] = $page[ $i ];
 		}
 		
-		//$pagedivision = microtime( true );
-		
 		array_splice( $paged, $pagenum, 1, array(
 			$pagenum => $firsthalf,
 			$pagenum + 1 => $secondhalf,
 		) );
-		//$splicing = microtime( true );
 		
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );        
-        
-        $mitosis = microtime( true ) - $start;
-        
-        $regeneration = microtime( true );
-		Comment_RegenerateMemcache( $entity );
-        $regeneration = microtime( true ) - $regeneration;
-		if ( $user->Name == 'petrosagg18' ) {
-            die( "Mitosis = $mitosis\nRegeneration = $regeneration" );
-        }
 	}
 
 ?>
