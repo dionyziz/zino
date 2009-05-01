@@ -5,7 +5,7 @@
         $libs->Load( 'event' );
         
         $finder = New EventFinder();
-        $finder->DeleteByEntity( $this );
+        $finder->DeleteByEntity( $comment );
         
         return false;
     }

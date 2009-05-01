@@ -13,7 +13,7 @@
         $event->Save();
         
         $finder = New NotificationFinder();
-        $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
+        $finder->DeleteByCommentAndUser( $comment->Parent, $comment->User );
 
         return false;
     }
