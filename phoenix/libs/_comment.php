@@ -402,7 +402,7 @@
             }
             $query = $this->mDb->Prepare( "
                 SELECT
-                    `comment_parentid`
+                    `comment_id`, `comment_parentid`
                 FROM
                     :comments 
                 WHERE
