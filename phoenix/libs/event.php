@@ -1,11 +1,7 @@
 <?php
     /*
         Developer: abresas
-        MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
     */
-    
 
     /*
     new comment
