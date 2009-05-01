@@ -598,7 +598,14 @@
 	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
 		global $mc;                                      //If it cannot it just edits the memcache.
 		
-		$paged = Comment_GetMemcached( $entity );   //Load current pagination from memcache
+		
+        $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );    //Load current pagination from memcache
+        if ( $paged === false ) {
+            Comment_RegenerateMemcache( $entity );
+            return;
+        }
+        
+        
 		if ( $parentid == 0 ) {                     //If parentid = 0 then the comment is for sure at the first page
 			$page = $paged[ 0 ];
             array_unshift( $paged[ 0 ], $commentid ); //Insert new comment in current pagination
