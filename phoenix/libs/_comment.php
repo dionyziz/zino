@@ -414,7 +414,7 @@
             $res = $query->Execute();
             $res = $res->MakeArray();
             foreach ( $res as $comment ) { 
-                $ret[ $comment[ "comment_id" ] ] = $comment[ "comment_parentid" ];
+                $ret[ $comment[ "comment_id" ] ] = ( int )$comment[ "comment_parentid" ];
             }
             return $ret;
         }
