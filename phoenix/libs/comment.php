@@ -1,6 +1,9 @@
 <?php
     /*
         Developer: abresas
+        MASKED
+        By: Petros
+        Reason: Implementing the mitosis pagination system
     */
     global $libs;
 
@@ -12,7 +15,7 @@
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
         global $water;
-
+        
         $water->Profile( "Memcache generation" );
 		
         $finder = New CommentFinder();
@@ -59,7 +62,6 @@
 
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
         $water->ProfileEnd();
-
         return $paged;
     }
 
@@ -396,6 +398,28 @@
 
             return $ret;
         }
+        public function FindParentIds ( $commentids ) { //Returns an array in the following format [ commentid ] => parentid
+            if ( empty( $commentids ) ) {
+                return array();
+            }
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    `comment_id`, `comment_parentid`
+                FROM
+                    :comments 
+                WHERE
+                    `comment_id` IN :commentids " );
+
+            $query->BindTable( 'comments' );
+
+            $query->Bind( 'commentids', $commentids );
+            $res = $query->Execute();
+            $res = $res->MakeArray();
+            foreach ( $res as $comment ) { 
+                $ret[ $comment[ "comment_id" ] ] = ( int )$comment[ "comment_parentid" ];
+            }
+            return $ret;
+        }
     }
 
     class Comment extends Satori {
@@ -572,43 +596,53 @@
         }
     }
 	
-	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted. If it cannot it just edits the memcache
-		global $mc;
+	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
+		global $mc;                                      //If it cannot it just edits the memcache.
 		
-		$paged = Comment_GetMemcached( $entity );
-        $finder = New CommentFinder();
-		// TODO: Optimize: FindData() only needs to retrieve CommentID and ParentID here 
-		if ( $parentid == 0 ) {
-			$page = 0;
-			array_unshift( $paged[ $page ], $commentid );
-			$comments = $finder->FindData( $paged[ $page ] );
+		
+        $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );    //Load current pagination from memcache
+        if ( $paged === false ) {
+            Comment_RegenerateMemcache( $entity );
+            return;
+        }
+        
+        
+		if ( $parentid == 0 ) {                     //If parentid = 0 then the comment is for sure at the first page
+			$page = $paged[ 0 ];
+            array_unshift( $paged[ 0 ], $commentid ); //Insert new comment in current pagination
 		}
 		else {
-			$speccomment = New Comment( $parentid );
-			$info = $finder->FindNear( $entity, $speccomment );
-			$page = $info[ 1 ] - 1;
-			$comments = $info[ 2 ];
-			$key = array_search( $parentid, $paged[ $page ] );
-			array_splice( $paged[ $page ], $key + 1, 0, $commentid );
+            $pagenum = -1;                        //page counter
+			foreach( $paged as $page ) {    //If parentid != 0 a page search must be done
+                ++$pagenum;
+                $key = array_search( $parentid, $page );             
+                if ( $key !== false ) {                                    //If comment is found then
+                    array_splice( $paged[ $pagenum ], $key + 1, 0, $commentid ); //insert new comment in current pagination and break
+                    break;             //After breaking $page contains an array of commentids in the page we are interested in
+                }
+            }
 		}
+        
+        $totalcomments = count( $page );
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+			//Not enough comments
+			return;
+		}
+        
+        $finder = New CommentFinder();
+		$parentids = $finder->FindParentIds( $page );       //Retrieve parentids of commentids in the current page
 		
 		$i = -1;
 		$threads = array();
-		foreach ( $comments as $comment ) {
-			if ( $comment->Parentid == 0 ) {
+		foreach ( $page as $commentid ) {
+			if ( $parentids[ $commentid ] == 0 ) {
 				++$i;
 				$threads[ $i ] = 1;
 			}
 			else {
 				++$threads[ $i ];
 			}
-		}
-		
-		$totalcomments = count( $paged[ $page ] ) + 1;
-		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
-			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-			//Not enough comments
-			return;
 		}
 		
 		$CurrentComments = 0;
@@ -627,6 +661,7 @@
 				break;
 			}
 		}
+		
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Division below standards
@@ -637,18 +672,19 @@
 		$firsthalf = array();
 		$secondhalf = array();
 		for ( $i = 0; $i < $mincurrentcomments; ++$i ) {
-			$firsthalf[] = $paged[ $page ][ $i ];
+			$firsthalf[] = $page[ $i ];
 		}
 		for ( $i = $mincurrentcomments + 1; $i <= $totalcomments; ++$i ) {
-			$secondhalf[] = $paged[ $page ][ $i ];
+			$secondhalf[] = $page[ $i ];
 		}
 		
-		array_splice( $paged, $page, 1, array(
-			$page => $firsthalf,
-			$page + 1 => $secondhalf,
+		array_splice( $paged, $pagenum, 1, array(
+			$pagenum => $firsthalf,
+			$pagenum + 1 => $secondhalf,
 		) );
-        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 		
+        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );        
 	}
 
 ?>
