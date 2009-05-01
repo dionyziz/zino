@@ -59,7 +59,7 @@
 				$('#foot input ').click( function(){
 					$( '#left_tabs li').attr( 'id', '').html( '' );
 					$( '#left_tabs li.selected').css('position', 'absolute');
-					$( '#left_tabs li.selected').animate({
+					$( '#left_tabs li.selected').css('borderBottomWidth', 1).animate({
 							'height': '144',
 							'top': '0'
 						}, 1000, function(){
