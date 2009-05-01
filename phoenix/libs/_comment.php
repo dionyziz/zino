@@ -618,6 +618,15 @@
             }
 		}
         
+        $totalcomments = count( $page );
+		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
+			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+            $nomitosis = microtime( true ) - $start;
+            die( "No mitosis = $nomitosis" );
+			//Not enough comments
+			return;
+		}
+        
         $finder = New CommentFinder();
 		$parentids = $finder->FindParentIds( $page );       //Retrieve parentids of commentids in the current page
 		//$commentretrieve = microtime( true );
@@ -636,12 +645,7 @@
 		
 		//$threadcreation = microtime( true );
 		
-		$totalcomments = count( $page );
-		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
-			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-			//Not enough comments
-			return;
-		}
+		
 		$midle = microtime( true );
 		$CurrentComments = 0;
 		$n = count( $threads );
