@@ -55,5 +55,26 @@
 					$('#left_tabs li').removeClass();
 					$( this ).addClass( 'selected' );
 				});
+
+				$('#foot input ').click( function(){
+					$( '#left_tabs li').attr( 'id', '').html( '' );
+					$( '#left_tabs li.selected').css('position', 'absolute');
+					$( '#left_tabs li.selected').animate({
+							'height': '144',
+							'top': '0'
+						}, 1000, function(){
+								$( '#left_tabs li:not(.selected)').hide();
+								$( '#left_tabs li.selected' ).animate({
+										'width': '0',
+										'paddingLeft': '0',
+										'paddingRight': '0',
+										'left': '1'
+									}, 1000);
+								$( '#body' ).animate({
+										'width': '+=100',
+										'marginLeft': '0'
+										}, 960 );
+							});
+				});
             </script>
             </body></html>
