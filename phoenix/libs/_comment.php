@@ -692,7 +692,7 @@
         $mitosis = microtime( true ) - $start;
         
         $regeneration = microtime( true );
-		Comment_Comment_RegenerateMemcache( $entity );
+		Comment_RegenerateMemcache( $entity );
         $regeneration = microtime( true ) - $regeneration;
 		if ( $user->Name == 'petrosagg18' ) {
             die( "Mitosis = $mitosis\nRegeneration = $regeneration" );
