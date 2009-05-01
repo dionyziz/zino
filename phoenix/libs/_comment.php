@@ -648,7 +648,7 @@
 			//Not enough comments
 			return;
 		}
-		
+		$midle = microtime( true );
 		$CurrentComments = 0;
 		$n = count( $threads );
 		$mindiaf = $totalcomments / 2; // infinity
@@ -692,8 +692,10 @@
 		) );
 		//$splicing = microtime( true );
 		
-		
+		$memcahce = microtime( true );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+        $memcache = microtime( true ) - $memcache;
+        
 		$totaltime = microtime( true ) - $start;
 		/*$splicing = $splicing - $pagedivision;
 		$pagedivision = $pagedivision - $bestdivision;
@@ -702,7 +704,7 @@
 		$commentretrieve = $commentretrieve - $start;
         $totaltime2 = $splicing + $pagedivision + $bestdivision + $threadcreation + $commentretrieve;*/
 		if ( $user->Name == 'petrosagg18' ) {
-            die( "Totaltime = $totaltime" );
+            die( "Totaltime = $totaltime\n Memcahce = $memcache" );
         }
 	}
 
