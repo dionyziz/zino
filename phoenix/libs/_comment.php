@@ -700,13 +700,15 @@
 		$bestdivision = $bestdivision - $threadcreation;
 		$threadcreation = $threadcreation - $commentretrieve;
 		$commentretrieve = $commentretrieve - $start;
+        $totaltime2 = $splicing + $pagedivision + $bestdivision + $threadcreation + $commentretrieve;
 		if ( $user->Name == 'petrosagg18' ) {
             die( "Comment Retrive = $commentretrieve \n
             Thread Creation = $threadcreation \n
             Best Division = $bestdivision \n
             Page Division = $pagedivision \n
             Splicing = $splicing \n
-            Totaltime = $totaltime");
+            Totaltime = $totaltime
+            Totaltime2 = $totaltime2");
         }
 	}
 
