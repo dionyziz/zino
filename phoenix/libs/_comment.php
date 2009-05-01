@@ -678,8 +678,8 @@
 		$pagedivision = microtime( true );
 		
 		array_splice( $paged, $pagenum, 1, array(
-			$page => $firsthalf,
-			$page + 1 => $secondhalf,
+			$pagenum => $firsthalf,
+			$pagenum + 1 => $secondhalf,
 		) );
 		$splicing = microtime( true );
 		
