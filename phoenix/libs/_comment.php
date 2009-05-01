@@ -693,7 +693,7 @@
 		//$splicing = microtime( true );
 		
 		$memcache = microtime( true );
-        $mc->delele( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
         $memcache = microtime( true ) - $memcache;
         
