@@ -22,28 +22,8 @@
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
         return array(
-            1 => 'EVENT_ALBUM_CREATED',
             4 => 'EVENT_COMMENT_CREATED',
-            7 => 'EVENT_IMAGE_CREATED',
-            10 => 'EVENT_JOURNAL_CREATED',
-            11 => 'EVENT_JOURNAL_UPDATED',
-            13 => 'EVENT_POLL_CREATED',
             19 => 'EVENT_FRIENDRELATION_CREATED',
-            20 => 'EVENT_FRIENDRELATION_UPDATED',
-            24 => 'EVENT_USERPROFILE_EDUCATION_UPDATED',
-            25 => 'EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED',
-            26 => 'EVENT_USERPROFILE_RELIGION_UPDATED',
-            27 => 'EVENT_USERPROFILE_POLITICS_UPDATED',
-            28 => 'EVENT_USERPROFILE_SMOKER_UPDATED',
-            29 => 'EVENT_USERPROFILE_DRINKER_UPDATED',
-            30 => 'EVENT_USERPROFILE_ABOUTME_UPDATED',
-            31 => 'EVENT_USERPROFILE_MOOD_UPDATED',
-            32 => 'EVENT_USERPROFILE_LOCATION_UPDATED',
-            33 => 'EVENT_USERPROFILE_HEIGHT_UPDATED',
-            34 => 'EVENT_USERPROFILE_WEIGHT_UPDATED',
-            35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
-            36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
-            37 => 'EVENT_USER_CREATED',
             38 => 'EVENT_IMAGETAG_CREATED',
             39 => 'EVENT_FAVOURITE_CREATED',
             40 => 'EVENT_USER_BIRTHDAY' // not connected with any class. Triggered by script
