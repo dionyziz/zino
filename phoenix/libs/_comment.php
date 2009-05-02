@@ -589,7 +589,7 @@
             $lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );
         }
         $lock = $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock', 1 );    //Set memcache lock
-        die( $lock );
+        if( $lock == 1) { die( $lock ); }
         
         sleep( 6 );
         
