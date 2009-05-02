@@ -34,7 +34,7 @@
         foreach ( $contacts as $key=>$val ) {
             $contact->AddContact( $key, $username );
         }        
-        return $contact;
+        return $contacts;
     }    
     
     function EmailFriend( $emails ) {
