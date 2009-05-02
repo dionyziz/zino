@@ -37,6 +37,11 @@
 						Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
 					</p>
 				</div>
+				<center id="loading">
+					<h1>Φορτώνουμε τις επαφές σου...</h1>
+					<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />
+					<h2>Αυτό μπορεί να πάρει ένα ή δύο λεπτάκια</h2>
+				</center>
 				<div id="contactsInZino">
 					<h3>7 επαφές σου έχουν Zino! πρόσθεσέ τις στους φίλους σου...</h3>
 					<div class="contacts">
@@ -130,19 +135,17 @@
 							$( '#body' )
 								.animate({
 									'width': 698,
-									'height': 437,
+									'height': 466,
 									'marginLeft': 0
 								}, 960 );
 					});
 					setTimeout( function(){
-						$( "#contactsInZino" ).fadeIn();
+						$( "#loading" ).fadeIn();
 					}, 2000 );
-					//$( '#login' ).fadeOut( function(){
-					//	$( '#body' ).animate({ 'height': 437 });
-					//});
-					//$( '#contactsInZino' ).fadeIn();
-					
-					
+					setTimeout( function(){
+						$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
+						$( "#contactsInZino, #foot" ).fadeIn();
+					}, 6000 );
 				});
 				
 				

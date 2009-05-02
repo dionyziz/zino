@@ -136,6 +136,20 @@
 	font-size: 12px;
 }
 
+.invite_contacts #body #loading {
+	display: none;
+	position: absolute;
+	width: 100%;
+}
+.invite_contacts #body #loading h1, #loading h2 {
+	margin: 60px 0;
+	text-align: center;
+}
+.invite_contacts #body #loading img {
+	display: block;
+	margin: auto;
+	width: 30px;
+}
 .invite_contacts #body #contactsInZino {
 	display: none;
 }
@@ -155,7 +169,7 @@
 	overflow: auto;
 	overflow-y:scroll;
 	overflow-x:hidden;
-	height: 254px;
+	height: 283px;
 }
 .invite_contacts #body #contactsInZino .contact{
 	border-bottom: 1px solid #ccc;
