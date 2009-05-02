@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Terra',
-	'version'=>'1.0.0',
+	'version'=>'1.0.5',
 	'description'=>"Get the contacts from an Terra account",
-	'base_version'=>'1.6.3',
+	'base_version'=>'1.6.7',
 	'type'=>'email',
 	'check_url'=>'http://correo.terra.com/'
 	);
@@ -15,17 +15,19 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.0
  */
-class terra extends OpenInviter_base
+class terra extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=true;
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
-	public $debug_array=array('initial_get'=>'pop3host',
-			  				  'post_login'=>'location.href',
-			  				  'file_contacts'=>'Email'
+	public $debug_array=array('initial_get'=>'username',
+			  				  'post_login'=>'frm',
+			  				  'url_post_redirect'=>'location.href',
+			  				  'file_contacts'=>'Users["'
 							 );
 
 	/**
@@ -58,7 +60,7 @@ class terra extends OpenInviter_base
 			}
 		
 		$form_action="http://correo.terra.com/atmail.php";
-		$post_elements=array('pop3host'=>'terra.com','username'=>$user,'password'=>$pass,'LoginType'=>'xp');
+		$post_elements=array('username'=>$user,'password'=>$pass);
 		$res=$this->post($form_action,$post_elements,true);
 		if ($this->checkResponse('post_login',$res))
 			$this->updateDebugBuffer('post_login',"{$form_action}",'POST',true,$post_elements);
@@ -69,9 +71,21 @@ class terra extends OpenInviter_base
 			$this->stopPlugin();
 			return false;	
 			}
-		
-		$url_file_contacts="http://correo.terra.com/abook.php?func=export&abookview=personal";
+		 $domain=str_replace("atmail.php","",$this->getElementString($res,'action="','"'));
+		$form_action='http://correo.terra.com'.$domain."atmail.php";
+		$res=$this->post($form_action,$post_elements,true);
+		if ($this->checkResponse('url_post_redirect',$res))
+			$this->updateDebugBuffer('url_post_redirect',"{$form_action}",'POST',true,$post_elements);
+		else 
+			{
+			$this->updateDebugBuffer('url_post_redirect',"{$form_action}",'POST',false,$post_elements);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
+			}
+		$url_file_contacts="http://correo.terra.com{$domain}abook.php?func=composebook&emailto=&emailcc=&emailbcc=";	
 		$this->login_ok=$url_file_contacts;
+		file_put_contents($this->getLogoutPath(),$domain);
 		return true;
 		} 
 
@@ -92,7 +106,7 @@ class terra extends OpenInviter_base
 			return false;
 			}
 		else $url=$this->login_ok;
-		$res=$this->get($url);
+		$res=$this->get($url,true);
 		if ($this->checkResponse('file_contacts',$res))
 			$this->updateDebugBuffer('file_contacts',$url,'GET');
 		else 
@@ -102,14 +116,14 @@ class terra extends OpenInviter_base
 			$this->stopPlugin();
 			return false;	
 			}
-			
-		$temp=$this->parseCSV($res);
 		$contacts=array();
-		foreach ($temp as $values)
+		while(strpos($res,'Users["')!==false)
 			{
-			$name=$values[6].(empty($values[17])?'':(empty($values[6])?'':'-')."{$values[17]}").(empty($values[18])?'':" \"{$values[18]}\"").(empty($values[19])?'':' '.$values[19]);
-			if (!empty($values[1]))
-				$contacts[$values[1]]=(empty($name)?$values[1]:$name);
+			$contact_bulk='Users["'.$this->getElementString($res,'Users["','&gt;').'&gt;';
+			$contact_name=$this->getElementString($contact_bulk,"= '",' &lt;');
+			$contact_email=$this->getElementString($contact_bulk,"&lt;",'&gt;');
+			if (!empty($contact_email)) $contacts[$contact_email]=!empty($contact_name)?$contact_name:false;
+			$res=str_replace($contact_bulk,"",$res);
 			}
 		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);	
 		return $contacts;
@@ -127,7 +141,8 @@ class terra extends OpenInviter_base
 	public function logout()
 		{
 		if (!$this->checkSession()) return false;
-		$res=$this->get("http://correo.terra.com/util.php?func=logout",true);
+		if (file_exists($this->getLogoutPath()))
+			{ $domain=file_get_contents($this->getLogoutPath());$res=$this->get("http://correo.terra.com{$domain}/index.php?func=logout",true); }
 		$this->debugRequest();
 		$this->resetDebugger();
 		$this->stopPlugin();

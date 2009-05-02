@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Gawab',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from a Gawab account",
 	'base_version'=>'1.6.5',
 	'type'=>'email',
@@ -22,6 +22,7 @@ class gawab extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'service',

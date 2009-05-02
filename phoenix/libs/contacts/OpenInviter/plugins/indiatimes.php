@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'IndiaTimes',
-	'version'=>'1.0.2',
+	'version'=>'1.0.3',
 	'description'=>"Get the contacts from an IndiaTimes account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -15,7 +15,7 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.0
  */
-class indiatimes extends OpenInviter_base
+class indiatimes extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=true;

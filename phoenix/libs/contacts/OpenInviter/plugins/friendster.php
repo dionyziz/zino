@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Friendster',
-	'version'=>'1.0.4',
+	'version'=>'1.0.5',
 	'description'=>"Get the contacts from a Friendster account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -17,7 +17,7 @@ $_pluginInfo=array(
  * using Friendster's internal messaging system
  * 
  * @author OpenInviter
- * @version 1.0.4
+ * @version 1.0.5
  */
 class friendster extends OpenInviter_Base
 	{
@@ -26,9 +26,10 @@ class friendster extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
-				'initial_get'=>'tzoffset',
+				'initial_get'=>'_submitted',
 				'login_post'=>'dict:snWhosViewedMe',
 				'contacts'=>'thumbnaildelete',
 				'message_compose'=>'msg_type',
@@ -130,7 +131,6 @@ class friendster extends OpenInviter_Base
 			$xpath=new DOMXPath($doc);$query="//span[@class='strong']";$data=$xpath->query($query);
 			foreach ($data as $node)
 				$contacts[str_replace("http://profiles.friendster.com/","",(string)$node->firstChild->getAttribute('href'))]=(string)$node->firstChild->nodeValue;
-			if ($page_next>=10) {echo "stop error";break;}
 			$url_next="{$url}?page={$page_next}";
 			$res=$this->get($url_next,true);		 
 			}

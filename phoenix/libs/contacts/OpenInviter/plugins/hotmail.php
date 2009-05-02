@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Live/Hotmail',
-	'version'=>'1.4.5',
+	'version'=>'1.5.2',
 	'description'=>"Get the contacts from a Windows Live/Hotmail account",
-	'base_version'=>'1.6.3',
+	'base_version'=>'1.6.7',
 	'type'=>'email',
 	'check_url'=>'http://mail.live.com'
 	);
@@ -21,13 +21,15 @@ class hotmail extends OpenInviter_Base
 	public $showContacts=true;
 	public $requirement='email';
 	public $internalError=false;
+	protected $timeout=30;
 	public $allowed_domains=array('hotmail','live','msn','chaishop');
 	
 	public $debug_array=array(
 				'initial_get'=>'srf_uPost=',
 				'post_login'=>'function OnBack()',
-				'url_print'=>'ContactsPrintPane',
-				'get_contacts'=>'Title'
+				'url_home'=>'TodayLight',
+				'url_send_message'=>'000000000001;',
+				'get_contacts'=>'contacts'
 				);
 	
 	/**
@@ -89,11 +91,19 @@ class hotmail extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;	
 			}
-		
 		$res=$this->get("http://mail.live.com/",false,true,false);
-		$url_redirect=$this->getElementString($res,'Location: ','/TodayLight');
-		$this->login_ok=$this->login_ok=$url_redirect;
-		file_put_contents($this->getLogoutPath(),$url_redirect);
+		if ($this->checkResponse('url_home',$res))
+			$this->updateDebugBuffer('url_home',"http://www.mail.live.com",'GET');
+		else 
+			{
+			$this->updateDebugBuffer('url_home',"http://www.mail.live.com",'GET',false);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
+			}
+
+		$url_mobile_compose='http://mobile.live.com/hm/c.aspx?rru=folder.aspx%3ffolder%3d00000000-0000-0000-0000-000000000001';
+		$this->login_ok=$url_mobile_compose;
 		return true;
 		}
 
@@ -113,80 +123,44 @@ class hotmail extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
-		else
-			$base_url=$this->login_ok;
-		$contacts=array();
-		$url_contacts=$base_url."/GetContacts.aspx?n=";		
-		$res=$this->get($url_contacts,true);
-		if (strpos($res,'MessageAtLoginForm')!==false)
+		else $url=$this->login_ok;
+		$res=$this->get($url,true);
+		if ($this->checkResponse('url_send_message',$res))
+			$this->updateDebugBuffer('url_send_message',$url,'GET');
+		else 
 			{
-			$form_action=$base_url."/".$this->getElementString($res,'MessageAtLoginForm" method="post" action="','"');
-			$post_elements=array('__VIEWSTATE'=>$this->getElementString($res,'id="__VIEWSTATE" value="','"'),
-								'__EVENTVALIDATION'=>$this->getElementString($res,'id="__EVENTVALIDATION" value="','"'),
-								'TakeMeToInbox'=>'Continue',
-								);
-			$res=$this->post($form_action,$post_elements,true);
-			$res=$this->get($url_contacts,true);
+			$this->updateDebugBuffer('url_send_message',$url,'GET',false);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
 			}
-		if (strpos($res,'default.aspx?rru=contacts'))
-			$res=$this->get("{$base_url}/default.aspx?rru=contacts",true);
-		
-		if ((empty($res)) OR ((strpos($res,'mt')!==false))) 
-			{ 
-			$res=$this->get("http://mail.live.com/default.aspx?wa=wsignin1.0",true);
-			$url_print=$base_url."/PrintShell.aspx?type=contact&groupId=00000000-0000-0000-0000-000000000000";
-			$res=$this->get($url_print,true);
-			if ($this->checkResponse("url_print",$res))
-				$this->updateDebugBuffer('url_print',$url_print,'GET');
-			else
-				{ 
-				$this->updateDebugBuffer('url_print',$url_print,'GET',false);
+			
+		$id=$this->getElementString($res,'000000000001;','"');
+		$page=0;$contacts_per_page=40;$contacts_found=true;$contacts=array();
+		while ($contacts_found)
+			{
+			$contacts_showed=$page*$contacts_per_page;$page++;$contacts_found=false;
+			$url_contacts="http://mobile.live.com/hm/contacts.aspx?bf=0&ts=1&c=to&cf=0%3bfolder.aspx%3ffolder%3d00000000-0000-0000-0000-000000000001;{$id}&i={$contacts_showed}";
+			$res=$this->get($url_contacts,true);
+			if ($this->checkResponse('get_contacts',$res))
+				$this->updateDebugBuffer('get_contacts',$url,'GET');
+			else 
+				{
+				$this->updateDebugBuffer('get_contacts',$url,'GET',false);
 				$this->debugRequest();
 				$this->stopPlugin();
-				return false;
-				}
+				return false;	
+				}				
 			$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-			$xpath=new DOMXPath($doc);$query="//div[@class='ContactsPrintPane cPrintContact BorderTop']";$data=$xpath->query($query);
+			$xpath=new DOMXPath($doc);$query="//img[@src='/content/images/hm/Contact.aimg']";$data=$xpath->query($query);
 			foreach($data as $node)
 				{
-				$temp=$node->childNodes->item( 4 );
-				if (!empty($temp))
-					{
-					$nodes_name=$node->childNodes->item( 2 );$name=trim(preg_replace('/[^(\x20-\x7F)]*/','',(string)$nodes_name->nodeValue));
-					$nodes_email=$temp;$brut_email=(string)$nodes_email->nodeValue;
-					$array_email=explode(":",$brut_email);
-					if (!empty($array_email[count($array_email)-1]))
-						if (strpos($array_email[count($array_email)-1],'@')) $contacts[trim(preg_replace('/[^(\x20-\x7F)]*/','',$array_email[count($array_email)-1]))]=$name;
-					}
-				}  				
-			}		
-		elseif ((!empty($res) AND (strpos($res,'mt')===false)))
-				{
-				if ($this->checkResponse("get_contacts",$res))
-					{
-					$temp=explode(PHP_EOL,$res);
-					unset($temp[0]);	
-					$contacts=array();
-					foreach ($temp as $temp_contact)
-						{
-						$contact_array=explode(',',str_replace(';',',',str_replace('"','',$temp_contact)));
-						$name=(!empty($contact_array[1])?$contact_array[1]:'').(!empty($contact_array[2])?' '.$contact_array[2]:'').(!empty($contact_array[3])?' '.$contact_array[3]:'');
-						if (!empty($contact_array[46]))
-							$contacts[$contact_array[46]]=(empty($name)?$contact_array[46]:$name);
-						if (!empty($contact_array[49]))
-							$contacts[$contact_array[49]]=(empty($name)?$contact_array[49]:$name);
-						if (!empty($contact_array[52]))
-							$contacts[$contact_array[52]]=(empty($name)?$contact_array[52]:$name);
-						}
-					$this->updateDebugBuffer('get_contacts',$url_contacts,'GET');
-					}
-				else
-					{ 
-					$this->updateDebugBuffer('get_contacts',$url_contacts,'GET',false);
-					$this->debugRequest();
-					$this->stopPlugin();
-					return false;
-					}
+				$name=trim(utf8_decode((string)$node->nextSibling->nodeValue));			
+				$email=trim(str_replace('(','',str_replace(')','',(string)$node->nextSibling->nextSibling->nextSibling->nodeValue)));
+				if (isset($email)) $contacts[$email]=(isset($name)?$name:$email);
+				$contacts_found=true;
+				}
+			
 			}
 		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);
 		return $contacts;
@@ -204,12 +178,7 @@ class hotmail extends OpenInviter_Base
 	public function logout()
 		{
 		if (!$this->checkSession()) return false;
-		if (file_exists($this->getLogoutPath()))
-			{
-			$url=file_get_contents($this->getLogoutPath());
-			$url_logout=$url."/logout.aspx";
-			$res=$this->get($url_logout,true);
-			}
+		$res=$this->get('http://mobile.live.com/wml/signout.aspx',true);
 		$this->debugRequest();
 		$this->resetDebugger();
 		$this->stopPlugin();

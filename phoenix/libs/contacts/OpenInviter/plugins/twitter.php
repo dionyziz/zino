@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Twitter',
-	'version'=>'1.0.3',
+	'version'=>'1.0.6',
 	'description'=>"Get the contacts from a Twitter account",
-	'base_version'=>'1.6.3',
+	'base_version'=>'1.6.7',
 	'type'=>'social',
 	'check_url'=>'http://twitter.com'
 	);
@@ -19,18 +19,16 @@ $_pluginInfo=array(
 class twitter extends OpenInviter_Base
 	{
 	private $login_ok=false;
-	public $showContacts=false;
-	private $session;
+	public $showContacts=true;
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
 	
 	public $debug_array=array(
-				'initial_get'=>'session[password]',
-				'login'=>'Following',
-				'openinviter'=>'openinviter',
-				'get_contacts'=>'You follow',
-				'message'=>'actions'
+				'responce_ok'=>'screen_name',
+				'responce_ok_followers'=>'screen_name',
+				'responce_ok_status'=>'status',
+				'url_direct_message'=>'direct_message'
 				);
 	
 	/**
@@ -48,55 +46,19 @@ class twitter extends OpenInviter_Base
 		$this->resetDebugger();
 		$this->service='twitter';
 		$this->service_user=$user;
-		$this->service_password=$pass;
+		$this->service_pass=$pass;
 		if (!$this->init()) return false;
-			
-		$res=$this->get("http://twitter.com/");
-		if ($this->checkResponse("initial_get",$res))
-			$this->updateDebugBuffer('initial_get',"http://twitter.com/",'GET');
-		else
+		$res=$this->get("http://{$user}:{$pass}@twitter.com/account/verify_credentials.xml",true);
+		if ($this->checkResponse('responce_ok',$res))
+			$this->updateDebugBuffer('responce_ok',"http://user:pass@twitter.com/account/verify_credentials.xml",'GET');
+		else 
 			{
-			$this->updateDebugBuffer('initial_get',"http://twitter.com/",'GET',false);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;
-			}
-		$post_elements=array(
-							'session[username_or_email]'=>$user,
-							'session[password]'=>$pass,
-							'remember_me'=>1
-							);
-		$res=$this->post("https://twitter.com/sessions",$post_elements,true);
-		
-		if ($this->checkResponse("login",$res))
-			$this->updateDebugBuffer('login',"https://twitter.com/sessions",'POST',true,$post_elements);
-		else
-			{
-			$this->updateDebugBuffer('login',"http://twitter.com/",'POST',false,$post_elements);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;
-			}	
-		$res=$this->get("https://twitter.com/openinviter",true);
-		if ($this->checkResponse("openinviter",$res))
-			$this->updateDebugBuffer('opeinviter',"https://twitter.com/openinviter",'GET');
-		else
-			{
-			$this->updateDebugBuffer('openinviter',"https://twitter.com/openinviter",'GET',false);
+			$this->updateDebugBuffer('responce_ok',"http://user:pass@twitter.com/account/verify_credentials.xml",'GET',false);
 			$this->debugRequest();
 			$this->stopPlugin();
 			return false;	
 			}
-		if (strpos($res,'med-btn opened')===false)
-			{
-			$id=$this->getElementString($res,'timeline/','.');
-			$url_follow="https://twitter.com/friendships/create/{$id}";
-			$post_elements=array("authenticity_token"=>$this->getElementString($res,'authenticity_token" value="','"'),
-								 "twttr"=>true,
-								 );	
-			$res=$this->post($url_follow,$post_elements,true);
-			}
-		$this->login_ok=$is->login_ok="https://twitter.com/sessions";
+		file_put_contents($this->getLogoutPath(),"{$user}/{$pass}");
 		return true;
 		}
 
@@ -110,32 +72,20 @@ class twitter extends OpenInviter_Base
 	 */	
 	public function getMyContacts()
 		{
-		$page=0;$contacts=array();$message_list=array();
-		do
+		if (file_exists($this->getLogoutPath())) 
+			{$auth=explode("/",file_get_contents($this->getLogoutPath()));$user=$auth[0];$pass=$auth[1];}
+		else return false;
+		$res=$this->get("http://{$user}:{$pass}@twitter.com/statuses/followers.xml",true);
+		if ($this->checkResponse('responce_ok_followers',$res))
+			$this->updateDebugBuffer('responce_ok_followers',"http://user:pass@twitter.com/statuses/followers.xml",'GET');
+		else 
 			{
-			$returned=0;$page++;$page_contacts="https://twitter.com/{$this->service_user}/friends?page={$page}";
-			$res=$this->get($page_contacts,true);
-			if ($this->checkResponse("get_contacts",$res))
-				$this->updateDebugBuffer('get_contacts',$page_contacts,'GET');
-			else
-				{
-				$this->updateDebugBuffer('get_contacts',$page_contacts,'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;	
-				}
-			$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-			$xpath=new DOMXPath($doc);$query="//a[@class='url uid']";$data=$xpath->query($query);
-			foreach ($data as $node)
-				{
-				$id=str_replace("actions","",(string)$node->parentNode->nextSibling->nextSibling->getAttribute('id'));
-				if (strpos($res,"/direct_messages/create/{$id}")!==false)  $message_list[$id]=$id;
-				$contacts[strip_tags($node->nodeValue)]=strip_tags($node->nodeValue);
-				$returned++;
-				}
+			$this->updateDebugBuffer('responce_ok_followers',"http://user:pass@twitter.com/statuses/followers.xml",'GET',false);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
 			}
-		while($returned>0);
-		
+		$contacts=$this->getElementDOM($res,'//screen_name');
 		return $contacts;	
 		}
 
@@ -152,13 +102,34 @@ class twitter extends OpenInviter_Base
 	 */
 	public function sendMessage($session_id,$message,$contacts)
 		{
-		$res=$this->get("http://twitter.com/home",true);
-		$form_action="http://twitter.com/status/update";
-		$post_elements=array(
-							'authenticity_token'=>$this->getElementString($res,'name="authenticity_token" value="','"'),
-							'status'=>$message['body']
-							);
-		$res=$this->post($form_action,$post_elements,true);
+		if (file_exists($this->getLogoutPath())) 
+			{$auth=explode("/",file_get_contents($this->getLogoutPath()));$user=$auth[0];$pass=$auth[1];}
+		else return false;
+		$post_elements=array('status'=>$message['body']);
+		$res=$this->post("http://{$user}:{$pass}@twitter.com/statuses/update.xml",$post_elements,true);
+		if ($this->checkResponse('responce_ok_status',$res))
+			$this->updateDebugBuffer('responce_ok_status',"http://user:pass@twitter.com/statuses/update.xml",'POST',true,$post_elements);
+		else 
+			{
+			$this->updateDebugBuffer('responce_ok_status',"http://user:pass@twitter.com/statuses/update.xml",'POST',false,$post_elements);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
+			}
+		foreach($contacts as $key=>$screen_name)
+			{
+			$post_elements=array('user'=>$screen_name,'text'=>$message['body']);
+			$res=$this->post("http://{$user}:{$pass}@twitter.com/direct_messages/new.xml",$post_elements);
+			if ($this->checkResponse('url_direct_message',$res))
+				$this->updateDebugBuffer('url_direct_message',"http://user:pass@twitter.com/direct_messages/new.xml",'POST',true,$post_elements);
+			else 
+				{
+				$this->updateDebugBuffer('url_direct_message',"http://user:pass@twitter.com/direct_messages/new.xml",'POST',false,$post_elements);
+				$this->debugRequest();
+				$this->stopPlugin();
+				return false;	
+				}	
+			}
 		}
 
 	/**
@@ -169,14 +140,11 @@ class twitter extends OpenInviter_Base
 	 * debudder.
 	 * 
 	 * @return bool TRUE if the session was terminated successfully, FALSE otherwise.
+	 * 
 	 */	
 	public function logout()
 		{
 		if (!$this->checkSession()) return false;
-		$res=$this->get("https://twitter.com/home",true); 
-		$url_logout="http://twitter.com/sessions/destroy";
-		$post_elements=array('authenticity_token'=>$this->getElementString($res,'name="authenticity_token" type="hidden" value="','"'));
-		$res=$this->post($url_logout,$post_elements,true);
 		$this->debugRequest();
 		$this->resetDebugger();
 		$this->stopPlugin();

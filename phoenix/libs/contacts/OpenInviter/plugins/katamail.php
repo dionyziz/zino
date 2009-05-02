@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'KataMail',
-	'version'=>'1.0.5',
+	'version'=>'1.0.6',
 	'description'=>"Get the contacts from a KataMail account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -15,13 +15,14 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.5
  */
-class katamail extends OpenInviter_base
+class katamail extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=false;
 	public $requirement=false;
 	public $allowed_domains=array('katamail');
 	private $server,$id = "";
+	protected $timeout=30;
 	public $debug_array=array(
 			  'main_redirect'=>'location.href'
 	);

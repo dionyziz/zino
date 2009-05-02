@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'FastMail',
-	'version'=>'1.0.1',
+	'version'=>'1.0.4',
 	'description'=>"Get the contacts from a FastMail account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -22,11 +22,13 @@ class fastmail extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	public $allowed_domains=array('fastmail.fm');
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'FLN-LoginMode',
-				'post_login'=>'.location.protocol',
-				'inbox'=>'HdrScrLnk',
+				'post_login'=>'redirected',
+				'url_webinterface'=>'kbshortcut',
+				'url_get_webinterface'=>'kbshortcut',
 				'contacts_page'=>'MSignal_UA-Download*',
 				'contacts_file'=>'Title',
 				);
@@ -67,13 +69,13 @@ class fastmail extends OpenInviter_Base
 							 'FLN-UserName'=>$user,
 							 'FLN-Password'=>$pass,
 							 'MSignal_LN-AU*'=>'Login',
-							 'FLN-Security'=>1,
+							 'FLN-Security'=>0,
 							 'FLN-ScreenSize'=>3,
 							 'FLN-SessionTime'=>1800,
 							 'FLN-NoCache'=>'on' 
 							 
 							);
-		$res=$this->post($form_action,$post_elements);
+		$res=$this->post($form_action,$post_elements,TRUE);
 		if ($this->checkResponse('post_login',$res))
 			$this->updateDebugBuffer('post_login',"{$form_action}",'POST',true,$post_elements);
 		else 
@@ -83,21 +85,40 @@ class fastmail extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;	
 			}
+			
 		
-		$url_redirect=$this->getElementString($res,'href="','"');
-		$res=$this->get($url_redirect);
-		if ($this->checkResponse('inbox',$res))
-			$this->updateDebugBuffer('inbox',$url_redirect,'GET');
-		else 
+		if (strpos($res,'ChooseWeb-*')!==false)
 			{
-			$this->updateDebugBuffer('inbox',$url_redirect,'GET',false);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;	
+			$form_action=$this->getElementString($res,'post" action="','"');
+			$post_elements=$this->getHiddenElements($res);$post_elements['FChooseWeb-WebInterface']=2;
+			$res=$this->post($form_action,$post_elements,true);
+			if ($this->checkResponse('url_webinterface',$res))
+				$this->updateDebugBuffer('url_webinterface',"{$form_action}",'POST',true,$post_elements);
+			else 
+				{
+				$this->updateDebugBuffer('url_webinterface',"{$form_action}",'POST',false,$post_elements);
+				$this->debugRequest();
+				$this->stopPlugin();
+				return false;	
+				}
+			}
+		else
+			{
+			$url_redirect=$this->getElementString($res,'href="','"');
+			$res=$this->get($url_redirect,true);
+			if ($this->checkResponse('url_get_webinterface',$res))
+					$this->updateDebugBuffer('url_get_webinterface',"{$url_redirect}","GET",'GET');
+				else 
+					{
+					$this->updateDebugBuffer('url_get_webinterface',"{$url_redirect}","GET",'GET',false);
+					$this->debugRequest();
+					$this->stopPlugin();
+					return false;	
+					}
 			}
 
-		$url_adress_book=$this->getElementDOM($res,"//a[@class='HdrScrLnk']",'href');
-		$url_adress="http://www.fastmail.fm".$url_adress_book[1];
+		$url_adress_book=$this->getElementDOM($res,"//a[@kbshortcut='b']",'href');
+		$url_adress="http://www.fastmail.fm".$url_adress_book[0];
 		file_put_contents($this->getLogoutPath(),$url_adress);		
 		$this->login_ok=$url_adress;
 		return true;

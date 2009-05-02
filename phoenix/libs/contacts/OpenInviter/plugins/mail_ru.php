@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Mail.ru',
-	'version'=>'1.0.9',
+	'version'=>'1.1.0',
 	'description'=>"Get the contacts from a Mail.ru account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -21,6 +21,7 @@ class mail_ru extends OpenInviter_Base
 	public $showContacts=true;
 	public $requirement='email';
 	public $internalError=false;
+	protected $timeout=30;
 	public $allowed_domains=array('list.ru','inbox.ru','bk.ru','mail.ru');
 	
 	public $debug_array=array(

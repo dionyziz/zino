@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Bigstring',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from an Bigstring account",
 	'base_version'=>'1.6.5',
 	'type'=>'email',
@@ -15,7 +15,7 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.0
  */
-class bigstring extends OpenInviter_base
+class bigstring extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=true;

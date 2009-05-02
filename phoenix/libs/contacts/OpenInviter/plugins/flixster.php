@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Flixster',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from a Flixster account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -26,6 +26,7 @@ class flixster extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'userauthAction',
@@ -126,7 +127,7 @@ class flixster extends OpenInviter_Base
 			{
 			$name=str_replace("...","",$node->nodeValue);
 			$id=$node->getAttribute('href');
-			if (!empty($name)) $contacts[$id]=$name;
+			if (!empty($name)) $contacts[$id]=!empty($name)?$name:false;
 			} 
 		return $contacts;
 		}

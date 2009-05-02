@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Xing',
-	'version'=>'1.0.2',
+	'version'=>'1.0.3',
 	'description'=>"Get the contacts from a Xing account",
 	'base_version'=>'1.6.5',
 	'type'=>'social',
@@ -116,7 +116,7 @@ class xing extends OpenInviter_Base
 		$contacts_href=$this->getElementDOM($res,"//a[@class='normal_link']",'href');
 		$contacts_name=$this->getElementDOM($res,"//a[@class='normal_link']");
 		foreach ($contacts_name as $key=>$value)
-			if (!empty($contacts_href[$key])) $contacts[$contacts_href[$key]]=$value;	
+			if (!empty($contacts_href[$key])) $contacts[$contacts_href[$key]]=!empty($value)?$value:false;	
 		return $contacts;
 		}
 
@@ -162,7 +162,8 @@ class xing extends OpenInviter_Base
 						return false;
 						}
 					$form_action="https://mobile.xing.com/".$this->getElementString($res,'form action="/','"');
-					$post_elements=$this->getHiddenElements($res);$post_elements['subject']=$message['subject'];$post_elements['body']=$message['body'];$post_elements['sv-set-op-to-private_message.send']='Send';
+					$post_elements=$this->getHiddenElements($res);$post_elements['subject']=$message['subject'];
+					$post_elements['body']=$message['body'];$post_elements['sv-set-op-to-private_message.send']='Send';
 					$res=$this->post($form_action,$post_elements,true);
 					if ($this->checkResponse("post_login",$res))
 						$this->updateDebugBuffer('send_message',$form_action,'POST',true,$post_elements);

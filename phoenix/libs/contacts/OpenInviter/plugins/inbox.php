@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Inbox.com',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from an Inbox.com account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -22,6 +22,7 @@ class inbox extends OpenInviter_Base
 	public $internalError=false;
 	public $requirement='email';
 	public $allowed_domains=array('inbox');
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'ACT',

@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Lycos',
-	'version'=>'1.1.0',
+	'version'=>'1.1.1',
 	'description'=>"Get the contacts from a Lycos account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -46,6 +46,7 @@ class lycos extends OpenInviter_Base
 		$this->service='lycos';
 		$this->service_user=$user;
 		$this->service_password=$pass;
+		$this->timeout=30;
 		if (!$this->init()) return false;
 		
 		$res=$this->get("http://lycos.com/",true);
@@ -71,7 +72,6 @@ class lycos extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
-		$res=$this->get("http://mail.lycos.com/?utm_source=Home%2BPage&amp;utm_medium=Menu&amp;utm_campaign=mail",false,true);		
 		$url_export="http://mail.lycos.com/lycos/addrbook/ExportAddr.lycos?ptype=act&fileType=OUTLOOK";
 		
 		$this->login_ok=$url_export;
@@ -95,7 +95,8 @@ class lycos extends OpenInviter_Base
 			return false;
 			}
 		else $url=$this->login_ok;
-		$res=$this->get($url);
+		$post_elements=array('ftype'=>'OUTLOOK');
+		$res=$this->post($url,$post_elements);
 		if ($this->checkResponse("file_contacts",$res))
 			{
 			$temp=$this->parseCSV($res);		

@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Hi5',
-	'version'=>'1.0.5',
+	'version'=>'1.0.9',
 	'description'=>"Get the contacts from a Hi5 account",
-	'base_version'=>'1.6.3',
+	'base_version'=>'1.6.7',
 	'type'=>'social',
 	'check_url'=>'http://www.hi5.com'
 	);
@@ -23,11 +23,12 @@ class hi5 extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
-				'initial_get'=>'var _hbEC',
+				'initial_get'=>'getAge',
 				'login_post'=>'friends',
-				'url_friends'=>'alreadyInTopFriends',
+				'url_friends'=>'friend-name',
 				'url_message'=>'toIds',
 				'send_message'=>'reqs'
 				);
@@ -107,18 +108,23 @@ class hi5 extends OpenInviter_Base
 			$this->debugRequest();
 			$this->stopPlugin();
 			return false;
-			}
+			}	
+		$nr_of_friends=(int)$this->getElementString($res,'id="pagination-number">','<');$page=20;
 		do
 			{
 			$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-			$xpath=new DOMXPath($doc);$query="//a[@name='&lid=FriendBrowser_NameLink']";$data=$xpath->query($query);
+			$xpath=new DOMXPath($doc);$query="//div[@class='friend-name']";$data=$xpath->query($query);$id=false;
 			foreach ($data as $node)
-				$contacts[str_replace('/friend/profile/displayProfile.do?userid=','',$node->getAttribute('href'))]=(string)$node->getAttribute('title');
-			$url_next=$this->getElementString($res,'text_pagination_previous"> <a href="','"');
-			if ($url_next) $res=$this->get("http://hi5.com{$url_next}",true);
+				{
+				$name=$node->childNodes->item(1)->nodeValue;$href=$node->childNodes->item(1)->getAttribute('href');$id=$this->getElementString($href,'p','-');
+				if (!empty($id)) $contacts[$id]=!empty($name)?$name:false;
+				}
+			$url_next_array=$this->getElementDOM($res,"//a[@class='link_pagination_arrow']",'href');
+			if (!empty($url_next_array[0])) 
+				{$url_next=$this->getElementString($url_next_array[0],'/','offset=')."offset={$page}";$page+=20;$res=$this->get("http://hi5.com/{$url_next}",true);}
+			else $id=false;		
 			}
-		while($url_next);
-		
+		while($id);
 		return $contacts;
 		}
 

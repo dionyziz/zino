@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'GMX.net',
-	'version'=>'1.0.5',
+	'version'=>'1.0.6',
 	'description'=>"Get the contacts from a GMX.net account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -24,6 +24,7 @@ class gmx_net extends OpenInviter_Base
 	public $showContacts=true;
 	public $internalError=false;
 	public $requirement='email';
+	protected $timeout=30;
 	public $allowed_domains=array('gmx.de','gmx.at','gmx.ch','gmx.net');
 	
 	public $debug_array=array(

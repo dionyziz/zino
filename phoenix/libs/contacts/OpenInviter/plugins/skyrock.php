@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Skyrock',
-	'version'=>'1.0.0',
+	'version'=>'1.0.2',
 	'description'=>"Get the contacts from a Skyrock account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -27,12 +27,13 @@ class skyrock extends OpenInviter_Base
 	public $internalError=false;
 	public $allowed_domains=false;
 	
+	
 	public $debug_array=array(
 				'initial_get'=>'need_login_form_login',
 				'login_post'=>'logout',
 				'url_friends'=>'class="ecrire"',
 				'url_send_message'=>'id_dest',
-				'send_message'=>'been sent'
+				'send_message'=>'confirmation'
 				);
 	
 	/**
@@ -115,7 +116,7 @@ class skyrock extends OpenInviter_Base
 			}
 		
 		$contacts=array();
-		$names_array=$this->getElementDOM($res,"//a[@class='boy']");
+		$names_array=$this->getElementDOM($res,"//ul[@class='friends_list']/li",'title');
 		$message_array=$this->getElementDOM($res,"//a[@class='ecrire']",'href');
 		foreach($names_array as $key=>$value) $contacts[$message_array[$key]]=$value;
  		return $contacts;

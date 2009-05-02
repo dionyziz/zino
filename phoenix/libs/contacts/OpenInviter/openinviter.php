@@ -6,13 +6,13 @@
  * the OpenInivter plugins
  * 
  * @author OpenInviter
- * @version 1.6.3
+ * @version 1.6.7
  */
 class OpenInviter
 	{
 	public $pluginTypes=array('email'=>'Email Providers','social'=>'Social Networks');
 	private $ignoredFiles=array('default.php'=>'','index.php'=>'');
-	private $version='1.6.5';
+	private $version='1.6.7';
 	public function __construct()
 		{
 		include(dirname(__FILE__)."/config.php");
@@ -38,6 +38,7 @@ class OpenInviter
 			if (!class_exists($plugin_name)) include_once(dirname(__FILE__)."/plugins/{$plugin_name}.php");
 			$this->plugin=new $plugin_name();
     		$this->plugin->settings=$this->settings;
+    		$this->plugin->base_version=$this->version;
     		$this->plugin->base_path=dirname(__FILE__);
 			}
 		else

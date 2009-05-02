@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'GMail',
-	'version'=>'1.4.1',
+	'version'=>'1.4.3',
 	'description'=>"Get the contacts from a GMail account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -28,7 +28,7 @@ class gmail extends OpenInviter_Base
 	
 	public $debug_array=array(
 	  'login_post'=>'Auth=',
-	  'contact_xml'=>'entry'
+	  'contact_xml'=>'xml'
 	);
 	
 	/**
@@ -49,7 +49,7 @@ class gmail extends OpenInviter_Base
 		$this->service_password=$pass;
 		if (!$this->init()) return false;
 			
-		$post_elements=array('accountType'=>'GOOGLE','Email'=>$user,'Passwd'=>$pass,'service'=>'cp','source'=>'OpenInviter-OpenInviter-1.5.1');
+		$post_elements=array('accountType'=>'GOOGLE','Email'=>$user,'Passwd'=>$pass,'service'=>'cp','source'=>'OpenInviter-OpenInviter-'.$this->base_version);
 	    $res=$this->post("https://www.google.com/accounts/ClientLogin",$post_elements,true);
 	    if ($this->checkResponse("login_post",$res))
 			$this->updateDebugBuffer('login_post',"https://www.google.com/accounts/ClientLogin",'POST',true,$post_elements);

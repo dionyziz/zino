@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Cyworld',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from a Cyworld account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -28,7 +28,7 @@ class cyworld extends OpenInviter_Base
 	public $allowed_domains=false;
 	
 	public $debug_array=array(
-				'initial_get'=>'txtEmail',
+				'initial_get'=>'Cyworld',
 				'login_post'=>'MyHompy_GSP',
 				'url_home'=>'selected nobg',
 				'get_friends'=>'imgbox',
@@ -54,7 +54,7 @@ class cyworld extends OpenInviter_Base
 		$this->service_password=$pass;
 		if (!$this->init()) return false;
 
-		$res=$this->get("http://us.cyworld.com/");
+		$res=$this->get("http://us.cyworld.com/",true);
 		if ($this->checkResponse("initial_get",$res))
 			$this->updateDebugBuffer('initial_get',"http://us.cyworld.com/",'GET');
 		else
@@ -65,14 +65,16 @@ class cyworld extends OpenInviter_Base
 			return false;
 			}
 			
-		$form_action="http://us.cyworld.com/common/include/login_check_proc.php ";
+		$form_action="http://us.cyworld.com/common/include/login_check_proc.php";
 		$post_elements=array("txtEmail"=>$user,
 							"txtPassword"=>$pass,
-							"hidReturnURL"=>'http://us.cyworld.com/',
-							"c.x"=>rand(10,20),
-							"c.y"=>rand(10,20),
+							"hidReturnURL"=>'/',
+							"c.x"=>rand(1,20),
+							"c.y"=>rand(1,20),
 							);
-		$res=$this->post($form_action,$post_elements);
+		print_r($post_elements);
+		$res=$this->post($form_action,$post_elements,true);
+		echo htmlentities($res);exit;
 		if ($this->checkResponse("login_post",$res))
 			$this->updateDebugBuffer('login_post',"{$form_action}",'POST',true,$post_elements);
 		else
@@ -83,7 +85,7 @@ class cyworld extends OpenInviter_Base
 			return false;
 			}
 			
-		$res=$this->get('http://us.cyworld.com/');
+		echo $res=$this->get('http://us.cyworld.com/');
 		if ($this->checkResponse("url_home",$res))
 			$this->updateDebugBuffer('url_home',"http://us.cyworld.com/",'GET');
 		else
@@ -137,7 +139,7 @@ class cyworld extends OpenInviter_Base
 			{
 			$name_array=explode("/",$node->childNodes->item(1)->getAttribute('href'));
 			$href=$node->childNodes->item(1)->getAttribute('href');
-			if (!empty($name_array[3])) $contacts[$href]=$name_array[3];
+			if (!empty($name_array[3])) $contacts[$href]=!empty($name_array[3])?$name_array[3]:false;
 			} 
 		return $contacts;
 		}

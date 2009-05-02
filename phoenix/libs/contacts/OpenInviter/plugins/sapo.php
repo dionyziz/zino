@@ -4,9 +4,9 @@
  */
 $_pluginInfo=array(
 	'name'=>'Sapo.pt',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from a Sapo.pt account",
-	'base_version'=>'1.6.5',
+	'base_version'=>'1.6.7',
 	'type'=>'email',
 	'check_url'=>'http://services.mail.sapo.pt/codebits/'
 	);
@@ -25,6 +25,7 @@ class sapo extends OpenInviter_Base
 	public $internalError=false;
 	public $requirement='email';
 	public $allowed_domains=array('sapo.pt');
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'username',

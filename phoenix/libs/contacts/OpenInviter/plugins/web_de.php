@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Web.de',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from an web.de account",
-	'base_version'=>'1.6.3',
+	'base_version'=>'1.6.7',
 	'type'=>'email',
 	'check_url'=>'http://m.web.de'
 	);
@@ -19,11 +19,11 @@ class web_de extends OpenInviter_Base
 	{
 	private $login_ok=false;
 	public $showContacts=true;
-	public $requirement='user';
+	public $requirement='email';
 	public $allowed_domains=false;
 		
 	public $debug_array=array(
-			 'initial_check'=>'weiter',
+			 'initial_check'=>'[5]',
 	    	);
 	
 	/**
@@ -47,10 +47,11 @@ class web_de extends OpenInviter_Base
 		$res=$this->get("http://m.web.de/");
 		$postElem = $this->getHiddenElements($res);
 		$postAction = $this->getElementString($res,'action="','"');
+		if ($postAction[0]=='/') $postAction='https://m.web.de'.$postAction;
 		$postElem['user']=$user;
 		$postElem['passw']=$pass;
 		$postElem['sv-remove-name']='Login';
-		$res = $this->post("http://m.web.de".$postAction, $postElem, true);
+		$res = $this->post($postAction, $postElem, true);
 		if ($this->checkResponse("initial_check",$res))
 			$this->updateDebugBuffer('initial_check',"http://m.web.de".$postAction,'POST');		
 		else
@@ -60,15 +61,8 @@ class web_de extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
-		$redirectUrl = "http://m.web.de";
-		$redirectUrl.=$this->getElementString($res,'href="','">weiter');
-		$res=$this->get($redirectUrl,true);
-		$logout_url = $this->getElementString($res,'Navigation</a>','Logout');
-		$logout_url = "http://m.web.de".$this->getElementString($res,'<a href="','">');
-		file_put_contents($this->getLogoutPath(),$logout_url);
-		$L5 = $this->getElementString($res,'[5] <a href="','"');
-		$L5 = "http://m.web.de".$L5;
-		$this->login_ok = $L5;
+		$url_email='https://m.web.de'.$this->getElementString($res,'[5] <a href="','"');
+		$this->login_ok =$url_email; 
 		return true;
 		}
 	
@@ -94,20 +88,12 @@ class web_de extends OpenInviter_Base
 		$contacts = array();
 		$res=$this->get($url,true);
 		$res = $this->getElementString($res, '<div class="separator"><div><b>','<input type="hidden"');
-		$i = 0;
-		while (stripos($res, '<a href') !== false)
-		{
-			$i++;
-			$res.="||exit||";
-			$res=$this->getElementString($res,'a href="','||exit||');
-			if ($i % 2 != 0)	$c_name = $this->getElementString($res, '">','</a>');
-			else
-				{ 
-				$c_mail = trim($this->getElementString($res, '">','</a>'));
-				$contacts[$c_mail] = $c_name;
-				}
-			
-		}
+		$contacts_array=$this->getElementDOM($res,'//a');
+		foreach($contacts_array as $key=>$val)
+			{
+			if ($key%2==0) $name=$val;
+			elseif($key%2!=0) $contacts[trim($val)]=isset($name)?$name:false;
+			}
 		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);
 		return $contacts;
 		}

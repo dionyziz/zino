@@ -1,9 +1,9 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Evite',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from an Evite account",
-	'base_version'=>'1.6.5',
+	'base_version'=>'1.6.7',
 	'type'=>'email',
 	'check_url'=>'http://www.evite.com/'
 	); 
@@ -13,7 +13,7 @@ $_pluginInfo=array(
  * Imports user's contacts from Evite's AddressBook
  * 
  * @author OpenInviter
- * @version 1.0.0
+ * @version 1.0.1
  */	
 class evite extends OpenInviter_Base
 {
@@ -102,14 +102,11 @@ class evite extends OpenInviter_Base
 			
 		$contacts=array();
 		$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-		$xpath=new DOMXPath($doc);$query="//a";$data=$xpath->query($query);
+		$xpath=new DOMXPath($doc);$query="//td[@class='abCheck']";$data=$xpath->query($query);$name="";
 		foreach ($data as $node)
 			{
-			$name="";
-			if (strpos($node->getAttribute('href'),'javascript:editContact')!==false) $name=str_replace('...','',$node->nodeValue);
-			if (strpos($node->getAttribute('href'),'mailto:')!==false) $email=$node->nodeValue;
-			if (!empty($email))
-				{if (!empty($name)) $contacts[$email]=$name; else $contacts[$email]=$email;}			
+			if ($node->getAttribute('style')=='padding-left:0px;width:149px;') $name.=" ".trim($node->nodeValue);
+			if ($node->getAttribute('style')=='width:219px;') {$email=trim((string)$node->nodeValue);$contacts[$email]=$name;$name="";}
 			}
 		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);
 		return $contacts;

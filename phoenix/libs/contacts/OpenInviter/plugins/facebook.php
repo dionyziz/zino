@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Facebook',
-	'version'=>'1.0.8',
+	'version'=>'1.0.9',
 	'description'=>"Get the contacts from a Facebook account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -121,7 +121,7 @@ class facebook extends OpenInviter_Base
 			$total=0;$contacts_array=array();
 			while(strpos($res,'return Friends.remove_click(')!==false)
 				{
-				$contacts_bulk=str_replace('&quot;',"",$this->getElementString($res,'return Friends.remove_click(',"&quot;,"));
+				$contacts_bulk=str_replace('&quot;',"",$this->getElementString($res,'return Friends.remove_click(',"&quot;, 0)"));
 				if (!empty($contacts_bulk))
 					{
 					$contacts_array=explode(", ",$contacts_bulk);

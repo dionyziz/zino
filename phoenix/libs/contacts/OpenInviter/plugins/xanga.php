@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Xanga',
-	'version'=>'1.0.0',
+	'version'=>'1.0.3',
 	'description'=>"Get the contacts from a Xanga account",
 	'base_version'=>'1.6.5',
 	'type'=>'social',
@@ -23,6 +23,7 @@ class xanga extends OpenInviter_Base
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'txtSigninPassword',
@@ -110,14 +111,12 @@ class xanga extends OpenInviter_Base
 		$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
 		$xpath=new DOMXPath($doc);$query="//a[@class='thumbnail']";$data=$xpath->query($query);
 		foreach($data as $node)
-			{
 			if (strpos($node->getAttribute('title'),'Visit')!==false)
 				{
-				$name_array=explode('/',$node->getAttribute('href'));
-				$href=$node->getAttribute('href');	
-				if (!empty($name_array[3])) $contacts[$href]=$name_array[3];
+				$href=$node->getAttribute('href');
+				if (!empty($href)) $name=$this->getElementString($href,'//','.');
+				if (!empty($name)) $contacts[$href]=!empty($name)?$name:false;
 				}
-			}
 		return $contacts;
 		}
 

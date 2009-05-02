@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'OperaMail',
-	'version'=>'1.0.4',
+	'version'=>'1.0.5',
 	'description'=>"Get the contacts from an OperaMail account",
 	'base_version'=>'1.6.0',
 	'type'=>'email',
@@ -21,6 +21,7 @@ class operamail extends OpenInviter_Base
 	public $showContacts=true;
 	public $requirement='email';
 	public $internalError=false;
+	protected $timeout=30;
 	public $allowed_domains=array('operamail');
 	
 	public $debug_array=array(

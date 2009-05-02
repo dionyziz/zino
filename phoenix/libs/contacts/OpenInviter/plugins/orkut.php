@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Orkut',
-	'version'=>'1.0.7',
+	'version'=>'1.0.8',
 	'description'=>"Get the contacts from an Orkut account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -12,7 +12,8 @@ class orkut extends OpenInviter_Base
 	private $login_ok=false;
 	public $showContacts=true;
 	public $requirement='email';
-	public $allowed_domains=false;	
+	public $allowed_domains=false;
+	protected $timeout=30;	
 	public $debug_array=array(
 				'secondary_get'=>'Email:',
 				'the_redirect2'=>'&lt;TITLE&gt;Moved Temporarily&lt;/TITLE&gt;',

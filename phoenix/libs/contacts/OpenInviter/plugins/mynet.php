@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Mynet.com',
-	'version'=>'1.0.0',
+	'version'=>'1.0.2',
 	'description'=>"Get the contacts from an Mynet account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -15,13 +15,14 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.0
  */
-class mynet extends OpenInviter_base
+class mynet extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=true;
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array('initial_get'=>'faultyUser',
 			  				  'post_login'=>'mymail',

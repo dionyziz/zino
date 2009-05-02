@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Bebo',
-	'version'=>'1.0.0',
+	'version'=>'1.0.1',
 	'description'=>"Get the contacts from a Bebo account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
@@ -26,6 +26,7 @@ class bebo extends OpenInviter_Base
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'EmailUsername',

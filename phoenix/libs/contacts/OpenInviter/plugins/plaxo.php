@@ -1,16 +1,16 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Plaxo',
-	'version'=>'1.0.0',
+	'version'=>'1.0.2',
 	'description'=>"Get the contacts from a plaxo account",
 	'base_version'=>'1.6.3',
 	'type'=>'social',
 	'check_url'=>'http://m.plaxo.com'
 	);
 /**
- * web.de Plugin
+ * plaxo.com Plugin
  * 
- * Imports user's contacts from web.de's AddressBook
+ * Imports user's contacts from plaxo.com's AddressBook
  * 
  * @author OpenInviter
  * @version 1.4.7
@@ -78,26 +78,41 @@ class plaxo extends OpenInviter_Base
 		else
 		$url=$this->login_ok;
 		$contacts = array();
-		$res=$this->get($url,true);
-		$res = $this->getElementString($res, "</p>", "</div>");
-		$res.="//exit//";
-		while(stripos($res,'<a href="') !== false)
-			{
-			$res = $this->getElementString($res, '<a href="','//exit//');
-			$mail = $this->getElementString($res, '&amp;id=','">');
-			$contacts[$mail] = $this->getElementString($res,'">','</a>');
-			$res.="//exit//";
-			}
-		foreach ($contacts as $id=>$name)
-			{
-			$res = $this->get("http://m.plaxo.com/?page=contact&id=".$id,true);
-			$mail = $this->getElementString($res,'mailto:','"');
-			unset($contacts[$id]);
-			$contacts[$mail] = $name;
-			}
-		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);
-		return $contacts;
-		}
+//Thanks to ROBOV99 for the pagination code
+        $boolContinue = true; 
+        $inti =1;
+        while($boolContinue)
+        {
+		    $res=$this->get($url,true);
+		    $res = $this->getElementString($res, "</p>", "</div>");
+		    $res.="//exit//";
+            $iCntThisPage =0;
+		    while(stripos($res,'<a href="') !== false)
+			    {
+			    $res = $this->getElementString($res, '<a href="','//exit//');
+			    $mail = $this->getElementString($res, '&amp;id=','">');
+			    $contactstemp[$mail] = $this->getElementString($res,'">','</a>');
+                if (strlen($mail) >2) $iCntThisPage++;
+			    $res.="//exit//";
+			    }
+        if (0== $iCntThisPage) break;
+        $strBegin = "http://m.plaxo.com/?page=contacts&pageNum=";
+        $inti = $inti + 1;
+        $url = $strBegin.$inti;
+    }
+    
+    foreach ($contactstemp as $id=>$name)
+    {
+        $res = $this->get("http://m.plaxo.com/?page=contact&id=".$id,true);
+        $mail = $this->getElementString($res,'mailto:','"');
+        unset($contacts[$id]);
+        $contacts[$mail] = !empty($name)?$name:false;
+    }
+    foreach ($contacts as $email=>$name) 
+    { if (!$this->isEmail($email)) unset($contacts[$email]); }
+
+	return $contacts;
+}
 	
 	/**
 	 * Terminate session

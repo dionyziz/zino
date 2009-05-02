@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 				if (empty($_POST['message_box'])) $ers['message_body']='Message missing';
 				else $_POST['message_box']=strip_tags($_POST['message_box']);
 				$selected_contacts=array();$contacts=array();
-				$message=array('subject'=>$inviter->settings['message_subject'],'body'=>$inviter->settings['message_body'],'attachment'=>"\n\rAttached message: \n\nr".$_POST['message_box']);
+				$message=array('subject'=>$inviter->settings['message_subject'],'body'=>$inviter->settings['message_body'],'attachment'=>"\n\rAttached message: \n\r".$_POST['message_box']);
 				if ($inviter->showContacts())
 					{
 					foreach ($_POST as $key=>$val)

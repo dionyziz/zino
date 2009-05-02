@@ -6,7 +6,7 @@
  * the OpenInivter plugins
  * 
  * @author OpenInviter
- * @version 1.6.3
+ * @version 1.6.4
  */
 abstract class OpenInviter_Base
 	{
@@ -184,7 +184,7 @@ abstract class OpenInviter_Base
 		if ($session_id)
 			{
 			$path=$this->getCookiePath($session_id);
-			if ($path!=realpath($path))
+			if (!file_exists($path))
 				{
 				$this->internalError="Invalid session ID";
 				return false;
@@ -296,6 +296,7 @@ abstract class OpenInviter_Base
 			{
 			curl_setopt($this->curl, CURLOPT_URL, $url);
 			curl_setopt($this->curl, CURLOPT_POST,false);
+			curl_setopt($this->curl, CURLOPT_HTTPGET ,true);
 			if ($headers)
 				{
 				$curl_headers=array();

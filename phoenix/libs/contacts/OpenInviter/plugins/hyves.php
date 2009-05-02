@@ -4,7 +4,7 @@
  */
 $_pluginInfo=array(
 	'name'=>'Hyves',
-	'version'=>'1.0.0',
+	'version'=>'1.0.7',
 	'description'=>"Get the contacts from a Hyves account",
 	'base_version'=>'1.6.5',
 	'type'=>'social',
@@ -26,14 +26,14 @@ class hyves extends OpenInviter_Base
 	public $requirement='user';
 	public $internalError=false;
 	public $allowed_domains=false;
+	protected $timeout=30;
 	
 	public $debug_array=array(
 				'initial_get'=>'accesskey="1"',
 				'url_login'=>'auth_username',
 				'login_post'=>'hyver',
 				'url_profile'=>'listitem',
-				'get_friends'=>'memberlistname',
-				'url_friend_message'=>'accesskey="2"',
+				'get_friends'=>'option',
 				'url_send_message'=>'postman',
 				'send_message'=>'message has been sent'
 				);
@@ -93,21 +93,7 @@ class hyves extends OpenInviter_Base
 			}
 			
 		$url_logout='http://www.hyves.nl/?module=authentication&action=logoutMobile'.html_entity_decode($this->getElementString($res,"?module=authentication&amp;action=logoutMobile",'"'));
-		
-		$url_profile="http://www.hyves.nl/mobile/hyver/{$user}/";
-		$res=$this->get($url_profile);
-		if ($this->checkResponse("url_profile",$res))
-			$this->updateDebugBuffer('url_profile',$url_profile,'GET');
-		else
-			{
-			$this->updateDebugBuffer('url_profile',$url_profile,'GET',false);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;
-			}
-		
-		$url_friends_array=$this->getElementDOM($res,"//a[@class='listitem']",'href');
-		$url_friends='http://www.hyves.nl'.$url_friends_array[4]; 
+		$url_friends="http://www.hyves.nl/?l1=mo&l2=mb&l3=hm&l4=sendi";
 		$this->login_ok=$url_friends;
 		file_put_contents($this->getLogoutPath(),$url_logout);
 		return true;
@@ -140,16 +126,11 @@ class hyves extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
-		
 		$contacts=array();
 		$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-		$xpath=new DOMXPath($doc);$query="//a[@class='memberlistname']";$data=$xpath->query($query);
-		foreach($data as $node)
-			{
-			$name=trim(substr($node->nodeValue,0,strpos($node->nodeValue,'(')));
-			$href=$node->getAttribute('href');
-			if (!empty($name)) $contacts[$href]=$name;
-			} 
+		$xpath=new DOMXPath($doc);$query="//option";$data=$xpath->query($query);
+		foreach($data as $node) 
+			{$name=$node->getAttribute('label');$value=$node->getAttribute('value');if (!empty($value)) $contacts[$value]=!empty($name)?$name:false;}
 		return $contacts;
 		}
 
@@ -166,43 +147,30 @@ class hyves extends OpenInviter_Base
 	 */
 	public function sendMessage($session_id,$message,$contacts)
 		{
-		foreach($contacts as $href=>$name)
+		$res=$this->get("http://www.hyves.nl/?l1=mo&l2=mb&l3=hm&l4=sendi");
+		$form_action="http://www.hyves.nl/?l1=mo&l2=mb&l3=hm&l4=sendi";
+		if ($this->checkResponse("url_send_message",$res))
+			$this->updateDebugBuffer('url_send_message',$form_action,'GET');
+		else
 			{
-			$res=$this->get($href);
-			if ($this->checkResponse("url_friend_message",$res))
-				$this->updateDebugBuffer('url_friend_message',$href,'GET');
-			else
-				{
-				$this->updateDebugBuffer('url_friend_message',$href,'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;
-				}
-				
-			$url_send_message_array=$this->getElementDOM($res,"//a[@accesskey='2']",'href');
-			$url_send_message="http://www.hyves.nl{$url_send_message_array[0]}";
-			$res=$this->get($url_send_message);
-			if ($this->checkResponse("url_send_message",$res))
-				$this->updateDebugBuffer('url_send_message',$url_send_message,'GET');
-			else
-				{
-				$this->updateDebugBuffer('url_send_message',$href,'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;
-				}
-			
-			$form_action=$this->getElementString($res,'action="','"');
-			$post_elements=array(
-								'postman'=>'Message/send',
-								'postman_secret'=>$this->getElementString($res,'postman_secret" value="','"'),
-								'sitepositionurl'=>$this->getElementString($res,'name="sitepositionurl" value="','"'),
-								'sendmessage_to'=>$this->getElementString($res,'sendmessage_to" value="','"'),
-								'sendmessage_subject'=>$message['subject'],
-								'sendmessage_body'=>$message['body'],
-								'sendmessage_type'=>2,
-								'bsend'=>'send'
-								);
+			$this->updateDebugBuffer('url_send_message',$form_action,'GET',false);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;
+			}
+		$post_elements=array(
+							'postman'=>'Message/send',
+							'postman_secret'=>$this->getElementString($res,'postman_secret" value="','"'),
+							'sitepositionurl'=>$this->getElementString($res,'name="sitepositionurl" value="','"'),
+							'sendmessage_to'=>$this->getElementString($res,'sendmessage_to" value="','"'),
+							'sendmessage_subject'=>$message['subject'],
+							'sendmessage_body'=>$message['body'],
+							'sendmessage_type'=>2,
+							'bsend'=>'send'
+							);
+		foreach($contacts as $value=>$name) 
+			{
+			$post_elements["sendmessage_to[]"]=$value;
 			$res=$this->post($form_action,$post_elements,true);
 			if ($this->checkResponse("send_message",$res))
 				$this->updateDebugBuffer('send_message',"{$form_action}",'POST',true,$post_elements);
@@ -214,7 +182,6 @@ class hyves extends OpenInviter_Base
 				return false;
 				}
 			}
-	
 		}
 
 	/**

@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Yandex',
-	'version'=>'1.0.6',
+	'version'=>'1.0.7',
 	'description'=>"Get the contacts from a Yandex account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -16,7 +16,7 @@ $_pluginInfo=array(
  * @author OpenInviter
  * @version 1.0.5
  */
-class yandex extends OpenInviter_base
+class yandex extends OpenInviter_Base
 {
 	private $login_ok=false;
 	public $showContacts=true;

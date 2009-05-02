@@ -1,7 +1,7 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'AOL',
-	'version'=>'1.4.7',
+	'version'=>'1.4.8',
 	'description'=>"Get the contacts from an AOL account",
 	'base_version'=>'1.6.3',
 	'type'=>'email',
@@ -24,10 +24,7 @@ class aol extends OpenInviter_Base
 		
 	public $debug_array=array(
 			 'initial_get'=>'logintabs',
-	    	 'login_post'=>'loginForm',
-	    	 'alternate_redirect_1'=>'loginForm',
-	    	 'alternate_redirect_2'=>'gSuccessPath',
-	    	 'standard_redirect'=>'gSuccessPath',
+	    	 'login_post'=>'gSuccessPath',
 	    	 'inbox'=>'aol.wsl.afExternalRunAtLoad = []',
 	    	 'print_contacts'=>'window\x27s'
 	    	);
@@ -51,7 +48,6 @@ class aol extends OpenInviter_Base
 		if (!$this->init()) return false;
 	
 		$res=$this->get("http://webmail.aol.com",true);
-		
 		if ($this->checkResponse('initial_get',$res))
 			$this->updateDebugBuffer('initial_get',"http://webmail.aol.com",'GET');
 		else 
@@ -61,10 +57,9 @@ class aol extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}  
+			
 		$post_elements=$this->getHiddenElements($res);$post_elements['loginId']=$user;$post_elements['password']=$pass;
 		$res=$this->post("https://my.screenname.aol.com/_cqr/login/login.psp",$post_elements,true);
-		
-		 
 		if ($this->checkResponse('login_post',$res))	
 			$this->updateDebugBuffer('login_post',"https://my.screenname.aol.com/_cqr/login/login.psp",'POST',true,$post_elements);
 		else
@@ -74,64 +69,10 @@ class aol extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
-		
-		
-		$url_redirect=$this->getElementString($res,"('loginForm', 'false', '","')");
-		if (!$url_redirect)
-			{
-			$this->updateDebugBuffer('login_post->standard_redirect',"https://my.screenname.aol.com/_cqr/login/login.psp",'GET',false);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;
-			}
 			
+		$url_redirect="http://webmail.aol.com".htmlspecialchars_decode($this->getElementString($res,'var gSuccessPath = "','"',$res));
+		$url_redirect=str_replace("Suite.aspx","Lite/Today.aspx",$url_redirect);
 		$res=$this->get($url_redirect,true);
-		
-		
-		if (strpos($res,"loginForm")!==false)
-			{
-			if ($this->checkResponse('alternate_redirect_1',$res))
-				$this->updateDebugBuffer('alternate_redirect_1',"{$url_redirect}",'GET');
-			else 
-				{
-				$this->updateDebugBuffer('alternate_redirect_1',"{$url_redirect}",'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;	
-				}
-			$url_redirect=html_entity_decode($this->getElementString($res,"('loginForm', 'false', '","')"));
-			$res=$this->get($url_redirect,true,true);
-			
-			 
-			if ($this->checkResponse('alternate_redirect_2',$res)) 
-				$this->updateDebugBuffer('alternate_redirect_2',"{$url_redirect}",'GET');
-			else 
-				{
-				$this->updateDebugBuffer('alternate_redirect_2',"{$url_redirect}",'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;	
-				}
-			$url_redirect="http://webmail.aol.com".htmlspecialchars_decode($this->getElementString($res,"var gSuccessPath = &quot;","&quot;",$url_redirect));
-			$url_redirect=str_replace("Suite.aspx","Lite/Today.aspx",$url_redirect);
-			$res=$this->get($url_redirect,true);
-			}
-		else
-			{
-			if ($this->checkResponse('standard_redirect',$res)) 	
-				$this->updateDebugBuffer('standard_redirect',"{$url_redirect}",'GET');		
-			else
-				{ 
-				$this->updateDebugBuffer('standard_redirect',"{$url_redirect}",'GET',false);
-				$this->debugRequest();
-				$this->stopPlugin();
-				return false;	
-				}
-  
-			$url_redirect="http://webmail.aol.com".htmlspecialchars_decode($this->getElementString($res,'var gSuccessPath = "','"',$url_redirect));
-			$url_redirect=str_replace("Suite.aspx","Lite/Today.aspx",$url_redirect);
-			$res=$this->get($url_redirect,true);
-			}
 		if ($this->checkResponse('inbox',$res))
 			$this->updateDebugBuffer('inbox',"{$url_redirect}",'GET');
 		else 
@@ -141,6 +82,7 @@ class aol extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;
 			}
+			
 		$url_contact=$this->getElementDOM($res,"//a[@id='contactsLnk']",'href');
 		$this->login_ok=$this->login_ok=$url_contact[0];
 		file_put_contents($this->getLogoutPath(),$url_contact[0]);
