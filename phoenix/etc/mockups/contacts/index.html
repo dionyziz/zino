@@ -40,10 +40,10 @@
 				<center id="loading">
 					<h1>Φορτώνουμε τις επαφές σου...</h1>
 					<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />
-					<h2>Αυτό μπορεί να πάρει ένα ή δύο λεπτάκια</h2>
+					<h2>Αυτό μπορεί να πάρει δύο λεπτά</h2>
 				</center>
-				<div id="contactsInZino">
-					<h3>7 επαφές σου έχουν Zino! πρόσθεσέ τις στους φίλους σου...</h3>
+				<div class="step" id="contactsInZino">
+					<h3>7 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
 					<div class="contacts">
 						<div class="contact">
 							<input type="checkbox"></input>
@@ -89,7 +89,44 @@
 						</div>
 					</div>
 					<div class="selectAll">
-						<span class="all">Επιλογή όλων</span>, 
+						<span class="all">Επιλογή όλων</span> 
+						<span class="none">Αποεπιλογή όλων</span>
+					</div>
+				</div>
+				<div class="step" id="contactsNotZino">
+					<h3>7 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
+					<div class="contacts">
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+						<div class="contact">
+							<input type="checkbox"></input>
+							<div class="contactMail">thsourg@gmail.com</div>
+						</div>
+					</div>
+					<div class="selectAll">
+						<span class="all">Επιλογή όλων</span> 
 						<span class="none">Αποεπιλογή όλων</span>
 					</div>
 				</div>
@@ -114,7 +151,7 @@
 					$( this ).addClass( 'selected' );
 				});
 
-				$('#foot input ').click( function(){
+				$('#foot input ').one( 'click', function(){
 					$( '#foot, #login' ).fadeOut( 2000 );
 					
 					$( '#left_tabs li').attr( 'id', '').html( '' );
@@ -131,7 +168,7 @@
 									'paddingLeft': 0,
 									'paddingRight': 0,
 									'left': 1
-								}, 1000);
+								}, 1000, function(){$( this).hide();} );
 							$( '#body' )
 								.animate({
 									'width': 698,
@@ -145,16 +182,36 @@
 					setTimeout( function(){
 						$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 						$( "#contactsInZino, #foot" ).fadeIn();
+						$( "#foot input" ).one( 'click', function(){
+							$( "#contactsInZino" ).fadeOut();
+							$( "#body" ).animate({ 
+								"height": 420,
+								"marginLeft": 100,
+								"width": 550
+								}, 1000, function(){
+									$( "#contactsNotZino" ).fadeIn();
+									
+									
+								});
+							
+						});
 					}, 6000 );
 				});
 				
 				
-				$( "#contactsInZino .contact input" ).attr( "checked", "checked" );
+				$( ".step .contact input" ).attr( "checked", "checked" );
 				$( "#contactsInZino .selectAll .all" ).click( function(){
 					$( "#contactsInZino .contact input" ).attr( "checked", "checked" );
 				});
 				$( "#contactsInZino .selectAll .none" ).click( function(){
 					$( "#contactsInZino .contact input" ).attr( "checked", "" );
 				});
+				$( "#contactsNotZino .selectAll .all" ).click( function(){
+					$( "#contactsNotZino .contact input" ).attr( "checked", "checked" );
+				});
+				$( "#contactsNotZino .selectAll .none" ).click( function(){
+					$( "#contactsNotZino .contact input" ).attr( "checked", "" );
+				});
+				
             </script>
             </body></html>
