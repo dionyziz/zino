@@ -1,9 +1,4 @@
 <?php
-    define( 'AD_JOURNAL', 1 );
-    define( 'AD_PHOTO', 2 );
-    define( 'AD_USERPROFILE', 3 );
-    define( 'AD_POLL', 4 );
-
     class PageExcaliburHTML extends PageHTML {
         private $mTitleFinal = false;
         private $mKeywords = array();
