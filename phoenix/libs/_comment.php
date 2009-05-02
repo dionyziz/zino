@@ -588,7 +588,7 @@
             $lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );
         }
         $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock', 1 );    //Set memcache lock
-        sleep( 2 );
+        sleep( 6 );
         
         
         $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );    //Load current pagination from memcache
