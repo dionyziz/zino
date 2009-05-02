@@ -31,7 +31,7 @@
                 echo "<p>".$contacts."</p>";
             }
             else {
-                foreach ( $contacts as $key->$val ) {
+                foreach ( $contacts as $key=>$val ) {
                 ?><p><?php
                 echo $key . " " . $val;
                 ?></p><?php
