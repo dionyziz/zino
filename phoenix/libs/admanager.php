@@ -57,6 +57,7 @@
                     :ads
                 WHERE
                     `ad_active`=:yes
+                    AND `ad_pageviewsremaining`>0
                 ORDER BY
                     RAND()
                 LIMIT 1;'

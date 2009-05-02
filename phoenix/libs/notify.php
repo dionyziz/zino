@@ -118,7 +118,8 @@
         public function FindByComment( Comment $comment ) {
             global $water; 
 
-            $query = $this->mDb->Prepare( "SELECT 
+            $query = $this->mDb->Prepare( 
+                    "SELECT 
                         *
                     FROM
                         :notify RIGHT JOIN :events
