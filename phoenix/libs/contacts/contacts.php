@@ -3,6 +3,7 @@
         global $libs;
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
+        die("shit");
         
         $providers = array();//check if valid provider
         $providers[ "hotmail" ] = true;
