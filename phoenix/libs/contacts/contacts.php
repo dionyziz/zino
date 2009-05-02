@@ -4,13 +4,13 @@
         
         $libs->Load( 'contacts/OpenInviter/openinviter' );  
         
-        /*$providers = array();//check if valid provider
+        $providers = array();//check if valid provider
         $providers[ "hotmail" ] = true;
         $providers[ "gmail" ] = true;
         $providers[ "yahoo" ] = true;
         if( $providers[ $provider ] == false ) {
             return 'ERROR_PROVIDER';
-        }*/
+        }
         
         if ( empty( $username ) || empty( $pass ) ) {//check if the password or the username are empty
             return 'ERROR_CREDENTIALS';
