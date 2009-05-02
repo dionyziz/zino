@@ -110,29 +110,33 @@
 				});
 
 				$('#foot input ').click( function(){
-					$( '#login, #foot' ).fadeOut( 'slow', function(){
-						$( '#left_tabs li').attr( 'id', '').html( '' );
-						$( '#left_tabs li.selected').css('position', 'absolute');
-						$( '#left_tabs li.selected').css('borderBottomWidth', 1)
-							.animate({
-								'height': '144',
-								'top': '0'
-							}, 1000, function(){
-								$( '#left_tabs li:not(.selected)').hide();
-								$( '#left_tabs li.selected' )
-									.animate({
-										'width': '0',
-										'paddingLeft': '0',
-										'paddingRight': '0',
-										'left': '1'
-									}, 1000);
-								$( '#body' )
-									.animate({
-										'width': '698',
-										'marginLeft': '0'
-									}, 960 );
-						});
+					$( '#foot, #login' ).fadeOut( 2000 );
+					
+					$( '#left_tabs li').attr( 'id', '').html( '' );
+					$( '#left_tabs li.selected').css('position', 'absolute');
+					$( '#left_tabs li.selected').css('borderBottomWidth', 1)
+						.animate({
+							'height': 144,
+							'top': '0'
+						}, 1000, function(){
+							$( '#left_tabs li:not(.selected)').hide();
+							$( '#left_tabs li.selected' )
+								.animate({
+									'width': 0,
+									'paddingLeft': 0,
+									'paddingRight': 0,
+									'left': 1
+								}, 1000);
+							$( '#body' )
+								.animate({
+									'width': 698,
+									'height': 437,
+									'marginLeft': 0
+								}, 960 );
 					});
+					setTimeout( function(){
+						$( "#contactsInZino" ).fadeIn();
+					}, 2000 );
 					//$( '#login' ).fadeOut( function(){
 					//	$( '#body' ).animate({ 'height': 437 });
 					//});
