@@ -594,6 +594,7 @@
         $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );    //Load current pagination from memcache
         if ( $paged === false ) {
             Comment_RegenerateMemcache( $entity );
+            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
             return;
         }
         
@@ -618,6 +619,7 @@
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Not enough comments
+            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
 			return;
 		}
         
@@ -656,6 +658,7 @@
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Division below standards
+            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
 			return;
 		}
 		
