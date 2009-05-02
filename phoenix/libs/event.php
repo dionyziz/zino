@@ -69,186 +69,22 @@
         protected $mModel = 'Event';
 
         public function DeleteByEntity( $entity ) {
-            $query = $this->mDb->Prepare( '
-                DELETE 
-                FROM 
+            $query = $this->mDb->Prepare( 
+                'DELETE 
+                FROM
+                    :events, :notify
+                USING
                     :events 
+                    LEFT JOIN :notify ON
+                        `notify_eventid` = `event_id`
                 WHERE 
                     `event_itemid` = :itemid AND 
                     `event_typeid` IN :typeids;'
             );
 
-            $query->BindTable( 'events' );
+            $query->BindTable( 'events', 'notify' );
             $query->Bind( 'itemid', $entity->Id );
             $query->Bind( 'typeids', Event_TypesByModel( strtoupper( get_class( $entity ) ) ) );
-
-            return $query->Execute()->Impact();
-        }
-        public function FindLatest( $offset = 0, $limit = 20 ) {
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    *
-                FROM
-                    :events 
-                    LEFT JOIN :users ON 
-                        `event_userid` = `user_id`
-                    LEFT JOIN :images ON
-                        `user_avatarid` = `image_id`
-                WHERE
-                    `event_typeid` != :commentevent AND
-                    `event_typeid` != :relationevent
-                ORDER BY
-                    `event_id` DESC
-                LIMIT
-                    :offset, :limit;'
-            );
-
-            $query->BindTable( 'events', 'users', 'images' );
-            $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
-            $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
-            $query->Bind( 'offset', $offset );
-            $query->Bind( 'limit', $limit );
-
-            $res = $query->Execute();
-            $bymodel = array();
-            while ( $row = $res->FetchArray() ) {
-                $event = New Event( $row );
-                $user = New User( $row );
-                $user->CopyAvatarFrom( New Image( $row ) );
-                $event->CopyUserFrom( $user );
-                $bymodel[ Event_ModelByType( $event->Typeid ) ][] = $event;
-            }
-
-            $ret = array(); // sorted by eventid, ASC
-            foreach ( $bymodel as $model => $events ) {
-                $events = $this->FindItemsByModel( $model, $events );
-                foreach ( $events as $event ) {
-                    $ret[ $event->Id ] = $event;
-                }
-            }
-
-            krsort( $ret );
-
-            return $ret;
-        }
-        public function FindItemsByModel( $model, $events ) {
-            global $libs;
-            $libs->Load( 'school/school' );
-            $libs->Load( 'place' );
-            $libs->Load( 'mood' );
-
-            $eventsByItemid = array();
-            while ( $event = array_shift( $events ) ) {
-                $eventsByItemid[ $event->Itemid ][] = $event;
-            }
-
-            $obj = New $model();
-            $table = $obj->DbTable->Alias;
-            $field = $obj->PrimaryKeyFields[ 0 ];
-
-            if ( strtolower( $model ) != 'userprofile' ) {
-                $query = $this->mDb->Prepare( '
-                    SELECT
-                        *
-                    FROM
-                        :' . $table . '
-                    WHERE
-                        `' . $field . '` IN :itemids
-                    ' );
-
-                $query->BindTable( $table );
-            }
-            else {
-                $query = $this->mDb->Prepare( '
-                    SELECT
-                        *
-                    FROM
-                        :userprofiles
-                        LEFT JOIN :schools ON 
-                            `profile_schoolid` = `school_id`
-                        LEFT JOIN :places ON
-                            `profile_placeid` = `place_id`
-                        LEFT JOIN :moods ON
-                            `profile_moodid` = `mood_id`
-                    WHERE
-                        `profile_userid` IN :itemids
-                ' );
-
-                $query->BindTable( 'userprofiles', 'schools', 'places', 'moods' );
-            }
-            
-            $query->Bind( 'itemids', array_keys( $eventsByItemid ) );
-
-            $res = $query->Execute();
-            $ret = array();
-            while ( $row = $res->FetchArray() ) {
-                $events = $eventsByItemid[ $row[ $field ] ];
-                foreach ( $events as $event ) {
-                    if ( strtolower( $model ) != 'userprofile' ) {
-                        $obj = New $model( $row );
-                    }
-                    else {
-                        $obj = New UserProfile( $row );
-                        $obj->CopySchoolFrom( New School( $row ) );
-                        $obj->CopyLocationFrom( New Place( $row ) );
-                        $obj->CopyMoodFrom( New Mood( $row ) );
-                    }
-                    $event->CopyItemFrom( $obj );
-                    $ret[] = $event;
-                }
-            }
-
-            return $ret;
-        }
-        public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
-            $prototype = New Event();
-            $prototype->Userid = $user->Id;
-            return $this->FindByPrototype( $prototype, $offset, $limit, $order );
-        }
-        public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = 'DESC' ) {
-            if ( !is_array( $typeids ) ) {
-                $typeids = array( $typeids );
-            }
-
-            w_assert( $order == 'DESC' || $order == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
-
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    *
-                FROM
-                    :events
-                WHERE
-                    `event_typeid` IN :types
-                ORDER BY
-                    `event_id` ' . $order . '
-                LIMIT 
-                    :offset, :limit;'
-            );
-            $query->BindTable( 'events' );
-            $query->Bind( 'types', $typeids );
-            $query->Bind( 'offset', $offset );
-            $query->Bind( 'limit', $limit );
-
-            return $this->FindBySQLResource( $query->Execute() );
-        }
-        public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
-            $prototype = New Event();
-            $prototype->Userid = $user->Id;
-            $prototype->Typeid = $typeids;
-            return $this->FindByPrototype( $prototype, $offset, $limit, $order );
-        }
-        public function DeleteByUserAndType( $user, $typeid ) {
-            $query = $this->mDb->Prepare( '
-                DELETE FROM
-                    :events
-                WHERE
-                    `event_userid` = :userid AND
-                    `event_typeid` = :typeid
-                ;' );
-
-            $query->BindTable( 'events' );
-            $query->Bind( 'userid', $user->Id );
-            $query->Bind( 'typeid', $typeid );
 
             return $query->Execute()->Impact();
         }
@@ -333,11 +169,6 @@
             $notif->Eventid = $this->Id;
             $notif->Fromuserid = $this->Userid;
             $notif->Save();
-        }
-        protected function OnBeforeUpdate() {
-            throw New Exception( 'Events cannot be updated' );
-
-            return false;
         }
         public function LoadDefaults() {
             $this->Created = NowDate();

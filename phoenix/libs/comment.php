@@ -491,12 +491,10 @@
         }
         protected function OnDelete() {
             global $libs;
-            global $mc;
-            $libs->Load( 'event' );
             
-            $finder = New EventFinder();
-            $finder->DeleteByEntity( $this );
-
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'CommentDeleted', $this );
+            
             Comment_RegenerateMemcache( $this->Item );
         }
         public function UndoDelete( $user ) {
@@ -516,9 +514,7 @@
         public function OnCreate() {
             global $mc;
             global $libs;
-
-            $libs->Load( 'event' );
-
+            
             w_assert( is_object( $this->User ), 'Comment->User not an object' );
             $this->User->OnCommentCreate();
 
@@ -530,18 +526,8 @@
                 $this->Item->OnCommentCreate();
             }
 
-            $event = New Event();
-            $event->Typeid = EVENT_COMMENT_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Created = $this->Created;
-            $event->Userid = $this->Userid;
-            $event->Save();
-            
             //Comment_RegenerateMemcache( $this->Item );        Old method
             Mitosis( $this->Id, $this->Parentid, $this->Item );
-
-            $finder = New NotificationFinder();
-            $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
 
             Sequence_Increment( SEQUENCE_COMMENT );
             
