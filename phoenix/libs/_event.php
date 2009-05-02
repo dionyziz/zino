@@ -75,7 +75,9 @@
         public function DeleteByEntity( $entity ) {
             $query = $this->mDb->Prepare( 
                 'DELETE 
-                FROM 
+                FROM
+                    :events, :notify
+                USING
                     :events 
                     LEFT JOIN :notify ON
                         `notify_eventid` = `event_id`
