@@ -5,10 +5,10 @@
         $libs->Load( 'notify' );
         
         $finder = New NotificationFinder();
-        $notif = $finder->FindByImageTags( $this );
+        $notif = $finder->FindByImageTags( $tag );
 
         if ( !is_object( $notif ) ) {
-            return;
+            return false;
         }
         
         $notif->Delete();

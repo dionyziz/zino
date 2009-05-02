@@ -73,16 +73,18 @@
         protected $mModel = 'Event';
 
         public function DeleteByEntity( $entity ) {
-            $query = $this->mDb->Prepare( '
-                DELETE 
+            $query = $this->mDb->Prepare( 
+                'DELETE 
                 FROM 
                     :events 
+                    LEFT JOIN :notifications ON
+                        `notify_eventid` = `event_id`
                 WHERE 
                     `event_itemid` = :itemid AND 
                     `event_typeid` IN :typeids;'
             );
 
-            $query->BindTable( 'events' );
+            $query->BindTable( 'events', 'notifications' );
             $query->Bind( 'itemid', $entity->Id );
             $query->Bind( 'typeids', Event_TypesByModel( strtoupper( get_class( $entity ) ) ) );
 
