@@ -1,8 +1,9 @@
 <?php    
     class ElementAdminpanelView extends Element {
-        public function Render( tText $username, tText $pass ) {
+        public function Render( tText $username, tText $pass, tText $provider ) {
 	        global $page;
 	        global $user;
+	        global $libs;
 	        
 	        if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
 	            ?> Permission Denied <?php
@@ -18,6 +19,25 @@
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
+    
+            $libs->Load( "contacts/contacts" );
+            
+            $username = $username->Get();
+            $pass = $pass->Get();
+            $provider = $provider->Get();
+            $contacts = GetContacts( $username, $pass, $provider );
+            
+            if ( !is_array( $contacts ) ) {
+                echo "<p>".$contacts."</p>";
+            }
+            else {
+                foreach ( $contacts as $key->$val ) {
+                ?><p><?php
+                echo $key . " " . $val;
+                ?></p><?php
+                }
+            }
+	        
         }
     }
 ?>
