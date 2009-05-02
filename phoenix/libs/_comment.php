@@ -583,7 +583,7 @@
 		global $mc;                                      //If it cannot it just edits the memcache.
 		
 		$lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Check for memcache lock
-        while( $lock == 1 ) {
+        while( $lock == '1' ) {
             die( 'Memcache is locked!' );
             usleep( 100000 );
             $lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );
