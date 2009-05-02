@@ -24,19 +24,21 @@
                 <li id="gmail" class="selected">Gmail</li>
             </ul>
             <div id="body">
-                <div class="inputs" id="mail">
-                    <div><label>Το e-mail σου</label></div>
-                    <input class="text" type="text"></input>
-                </div>
-                <div class="inputs" id="password">
-                    <div><label>Κωδικός</label></div>
-                    <input class="text" type="password"></input>
-                </div>
-                <p id="security">
-                    Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
-                </p>
+				<div id="login">
+					<div class="inputs" id="mail">
+						<div><label>Το e-mail σου</label></div>
+						<input class="text" type="text"></input>
+					</div>
+					<div class="inputs" id="password">
+						<div><label>Κωδικός</label></div>
+						<input class="text" type="password"></input>
+					</div>
+					<p id="security">
+						Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
+					</p>
+				</div>
 				<div id="contactsInZino">
-					<h3>7 επαφές σου έχουν ZINO! πρόσθεσέ τις στους φίλους σου...</h3>
+					<h3>7 επαφές σου έχουν Zino! πρόσθεσέ τις στους φίλους σου...</h3>
 					<div class="contacts">
 						<div class="contact">
 							<input type="checkbox"></input>
@@ -82,11 +84,10 @@
 						</div>
 					</div>
 					<div class="selectAll">
-						<input type="checkbox"></input>
-						<span>Select All</span>
+						<span class="all">Επιλογή όλων</span>, 
+						<span class="none">Αποεπιλογή όλων</span>
 					</div>
 				</div>
-				<div class="eof"></div>
 				<div id="foot">
 					<input onfocus="this.blur()" type="submit" value=""></input>
 				</div>
@@ -108,25 +109,45 @@
 					$( this ).addClass( 'selected' );
 				});
 
-				//$('#foot input ').click( function(){
-					$( '#left_tabs li').attr( 'id', '').html( '' );
-					$( '#left_tabs li.selected').css('position', 'absolute');
-					$( '#left_tabs li.selected').css('borderBottomWidth', 1).animate({
-							'height': '144',
-							'top': '0'
-						}, 1000, function(){
+				$('#foot input ').click( function(){
+					$( '#login, #foot' ).fadeOut( 'slow', function(){
+						$( '#left_tabs li').attr( 'id', '').html( '' );
+						$( '#left_tabs li.selected').css('position', 'absolute');
+						$( '#left_tabs li.selected').css('borderBottomWidth', 1)
+							.animate({
+								'height': '144',
+								'top': '0'
+							}, 1000, function(){
 								$( '#left_tabs li:not(.selected)').hide();
-								$( '#left_tabs li.selected' ).animate({
+								$( '#left_tabs li.selected' )
+									.animate({
 										'width': '0',
 										'paddingLeft': '0',
 										'paddingRight': '0',
 										'left': '1'
 									}, 1000);
-								$( '#body' ).animate({
-										'width': '+=100',
+								$( '#body' )
+									.animate({
+										'width': '698',
 										'marginLeft': '0'
-										}, 960 );
-							});
-				//});
+									}, 960 );
+						});
+					});
+					//$( '#login' ).fadeOut( function(){
+					//	$( '#body' ).animate({ 'height': 437 });
+					//});
+					//$( '#contactsInZino' ).fadeIn();
+					
+					
+				});
+				
+				
+				$( "#contactsInZino .contact input" ).attr( "checked", "checked" );
+				$( "#contactsInZino .selectAll .all" ).click( function(){
+					$( "#contactsInZino .contact input" ).attr( "checked", "checked" );
+				});
+				$( "#contactsInZino .selectAll .none" ).click( function(){
+					$( "#contactsInZino .contact input" ).attr( "checked", "" );
+				});
             </script>
             </body></html>
