@@ -72,11 +72,9 @@
             $query = $this->mDb->Prepare( 
                 'DELETE 
                 FROM
-                    :events, :notify
+                    :events
                 USING
                     :events 
-                    LEFT JOIN :notify ON
-                        `notify_eventid` = `event_id`
                 WHERE 
                     `event_itemid` = :itemid AND 
                     `event_typeid` IN :typeids;'
