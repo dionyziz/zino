@@ -182,7 +182,12 @@
             'CommentDeleted' => 'backend/notification/comment/deleted',
             'ShoutCreated' => 'frontpage/shoutbox/new',
             'ShoutTyping' => 'frontpage/shoutbox/typing',
-            'NotificationCreated' => 'frontpage/notification/new'
+            'NotificationCreated' => 'frontpage/notification/new',
+            'FavouriteCreated' => 'backend/notification/favourite/created',
+            'FriendRelationCreated' => 'backend/notification/friend/created',
+            'FriendRelationDeleted' => 'backend/notification/friend/deleted',
+            'ImageTagCreated' => 'backend/notification/image/tag/created', 
+            'ImageTagDeleted' => 'backend/notification/image/tag/deleted'
         );
     }
 ?>

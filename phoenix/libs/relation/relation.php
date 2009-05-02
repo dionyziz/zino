@@ -143,50 +143,20 @@
         protected function OnCreate() {
             global $libs;
 
-            $libs->Load( 'event' );
-
-            $event = New Event();
-            $event->Typeid = EVENT_FRIENDRELATION_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
-
             ++$this->User->Count->Relations;
             $this->User->Count->Save();
-        }
-        /*
-        protected function OnUpdate() {
-            global $libs;
             
-            $libs->Load( 'event' );
-
-            $event = New Event();
-            $event->Typeid = EVENT_FRIENDRELATION_UPDATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'FriendRelationCreated', $this );
         }
-        */
         protected function OnDelete() {
             global $libs;
-            $libs->Load( 'event' );
             
             --$this->User->Count->Relations;
             $this->User->Count->Save();
 
-            /*
-            $finder = New NotificationFinder();
-            $notif = $finder->FindByRelation( $this );
-
-            if ( !is_object( $notif ) ) {
-                return;
-            }
-            
-            $notif->Delete();
-            */
-
-            $finder = New EventFinder();
-            $finder->DeleteByEntity( $this );
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'FriendRelationDeleted', $this );
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

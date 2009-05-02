@@ -48,14 +48,9 @@
         }
         public function OnCreate() {
             global $libs;
-
-            $libs->Load( 'event' );
-
-            $event = New Event();
-            $event->Typeid = EVENT_FAVOURITE_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
+            
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'FavouriteCreated', $this );
         }
     }
 ?>

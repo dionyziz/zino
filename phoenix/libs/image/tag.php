@@ -34,13 +34,9 @@
        
         protected function OnCreate() {
             global $libs;
-            $libs->Load( 'event' );
-
-            $event = New Event();
-            $event->Typeid = EVENT_IMAGETAG_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Ownerid;
-            $event->Save();
+            
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'ImageTagCreated', $this );
         }
         protected function Relations() {
             $this->Owner = $this->HasOne( 'User', 'Ownerid' );
@@ -48,16 +44,9 @@
         }
         protected function OnDelete() {
             global $libs;
-            $libs->Load( 'notify' );
             
-            $finder = New NotificationFinder();
-            $notif = $finder->FindByImageTags( $this );
-
-            if ( !is_object( $notif ) ) {
-                return;
-            }
-            
-            $notif->Delete();
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'ImageTagDeleted', $this );
         }
     }
 ?>
