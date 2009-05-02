@@ -77,14 +77,14 @@
                 'DELETE 
                 FROM 
                     :events 
-                    LEFT JOIN :notifications ON
+                    LEFT JOIN :notify ON
                         `notify_eventid` = `event_id`
                 WHERE 
                     `event_itemid` = :itemid AND 
                     `event_typeid` IN :typeids;'
             );
 
-            $query->BindTable( 'events', 'notifications' );
+            $query->BindTable( 'events', 'notify' );
             $query->Bind( 'itemid', $entity->Id );
             $query->Bind( 'typeids', Event_TypesByModel( strtoupper( get_class( $entity ) ) ) );
 
