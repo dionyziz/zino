@@ -526,8 +526,8 @@
                 $this->Item->OnCommentCreate();
             }
 
-            //Comment_RegenerateMemcache( $this->Item );        Old method
-            Mitosis( $this->Id, $this->Parentid, $this->Item );
+            Comment_RegenerateMemcache( $this->Item );        //Old method
+            //Mitosis( $this->Id, $this->Parentid, $this->Item );
 
             Sequence_Increment( SEQUENCE_COMMENT );
             
