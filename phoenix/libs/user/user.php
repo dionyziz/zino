@@ -379,7 +379,6 @@
 
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
-            $libs->Load( 'event' );
 
             $this->EgoAlbum->Ownerid = $this->Id;
             $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
@@ -389,12 +388,6 @@
             PMFolder_PrepareUser( $this );
 
             $this->Save(); // save again
-
-            $event = New Event();
-            $event->Typeid = EVENT_USER_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Id;
-            $event->Save();
 
             ob_start();
             $link = $this->Profile->ChangedEmail( '', $this->Name );
