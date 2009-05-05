@@ -19,12 +19,12 @@
 
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByEntity( $entity ) {
+        public function FindByEntity( $entity, $limit = 25 ) {
             $prototype = New Favourite();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
-            return $this->FindByPrototype( $prototype );
+            return $this->FindByPrototype( $prototype, 0, $limit );
         }
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );

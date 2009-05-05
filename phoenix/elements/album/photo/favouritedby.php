@@ -10,7 +10,7 @@
             $theuser = $image->User;
             
             $favouritefinder = New FavouriteFinder();
-            $favourites = $favouritefinder->FindByEntity( $image );
+            $favourites = $favouritefinder->FindByEntity( $image, 100 );
             if ( count( $favourites ) == 0 ) {
                 return;
             }
