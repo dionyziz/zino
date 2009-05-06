@@ -22,7 +22,7 @@
             if ( $members[ $mail ] != "" ){
                 $theuser = new User( $members[ $mail ] );
                 ?>contacts.addContactInZino( '<?php
-                Element( 'user/display', $theuser->Avatar->Id, $theuser );
+                Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
                 echo $mail;
                 ?>' );
