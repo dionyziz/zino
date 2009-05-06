@@ -18,10 +18,10 @@
 
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
-            ?>$( '#contactsInZino .contacts .contact:first' ).clone()
-                .children( ".contactMail" ).html("<?php
+            ?>$( '#contactsInZino .contacts .contact:first' ).clone().children( ".contactMail" ).html("<?php
             echo $contactMail;
-                ?>").end().appendTo( " #contactsInZino .contacts" );<?php
+            ?>").end().appendTo( " #contactsInZino .contacts" );
+            <?php
             $contactsInZino++;
         }
         ?>$( "#contactsInZino > h3" ).html( "<?php
