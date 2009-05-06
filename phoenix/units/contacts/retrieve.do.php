@@ -13,7 +13,9 @@
         if( !is_array( $ret ) ){
             return;
         }
-        echo "alert(4)";
+        echo "alert( 'provider = ' + $provider )";
+        echo "alert( 'username = ' + $username )";
+        echo "alert( 'password = ' + $password )";
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
             ?>$( '#contactsInZino .contacts .contact:first' ).clone()
