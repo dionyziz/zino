@@ -59,7 +59,7 @@ var contacts = {
     addContactInZino: function( avatarUrl, userName, Mail ){
         div = document.createElement( "div" );
         var text = "<input type='checkbox' checked='checked' />";
-        text += "<img src='" + avatUrl + "' />";
+        text += "<img src='" + avatarUrl + "' />";
         text += "<div class='contactUsername'>" + userName + "</div>";
         text += "<div class='contactMail'>" + Mail + "</div>";
         $( div ).addClass( "contact" ).text( text );
