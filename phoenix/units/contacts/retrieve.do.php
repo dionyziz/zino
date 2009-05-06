@@ -9,7 +9,7 @@
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
         ?>alert( '<?php
-            echo htmlspecialchars( "arwe'gfd\agfds/fgdsv'trfsd\"aszdf" );
+            echo addslashes( "arwe'gfd\agfds/fgdsv'trfsd\"aszdf" );
         ?>' );<?php
         if( !is_array( $ret ) ){
             ?>
@@ -37,14 +37,14 @@
                 ?>contacts.addContactInZino( '<?php
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
-                echo htmlspecialchars( $mail );
+                echo addslashes( $mail );
                 ?>' );
                 <?php
                 $contactsInZino++;
             }
             else {
                 ?>contacts.addContactNotZino( '<?php
-                echo htmlspecialchars ( $mail );
+                echo addslashes( $mail );
                 ?>' );<?php
                 $contactsNotZino++;
             }
