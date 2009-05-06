@@ -38,7 +38,7 @@
 							<span onclick="contacts.previwContactsInZino()">next</span>
 						</center>
 						<div class="step" id="contactsInZino">
-							<h3>7 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
+							<h3>0 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
 							<div class="contacts">
 								<div class="contact">
 									<input type="checkbox"></input>

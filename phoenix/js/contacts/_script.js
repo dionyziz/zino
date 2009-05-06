@@ -1,8 +1,21 @@
 var contacts = {
 	provider: "",
-	mail: "",
+	username: "",
 	password: "",
-	retrieve: function(){
+    retrieve: function(){
+        if ( true ){//TODO: check validity of inputs
+            Coala.Warm( , {
+                provider: this.provider,
+                username: this.username,
+                password: this.password
+            });
+            this.loading();
+        }
+        else{
+            //TODO: invalid inputs bold
+        }
+    },
+	loading: function(){
 		$( '#foot, #login' ).fadeOut( 2000 );
 		$( '#left_tabs li span')
 			.fadeTo( 'normal', 0 ).parent()
