@@ -3,7 +3,7 @@ var contacts = {
 	username: "",
 	password: "",
     retrieve: function(){
-        contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' ) + ".com";
+        contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
         contacts.username = $( "#mail input" ).val();
         contacts.password = $( "#password input" ).val();
         if ( true ){//TODO: check validity of inputs
