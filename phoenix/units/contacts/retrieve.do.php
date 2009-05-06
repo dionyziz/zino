@@ -13,6 +13,7 @@
         $ret = GetContacts( $username, $password, $provider );
         
         if( !is_array( $ret ) ){
+            ?>contacts.backToLogin();<?php
             return;
         }
 
@@ -27,11 +28,12 @@
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
             if ( $contactsInZino == 1 ){
-                echo " εοαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου...";
+                ?>ΞµΞΏΞ±Ο†Ξ® ΟƒΞΏΟ… Ξ­Ο‡ΞµΞΉ Zino. Ξ ΟΟΟƒΞΈΞµΟƒΞ­ Ο„Ξ·Ξ½ ΟƒΟ„ΞΏΟ…Ο‚ Ο†Ξ―Ξ»ΞΏΟ…Ο‚ ΟƒΞΏΟ…..."<?php
             }
             else{
-                echo " επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...";
+                ?>ΞµΟ€Ξ±Ο†Ξ­Ο‚ ΟƒΞΏΟ… Ξ­Ο‡ΞΏΟ…Ξ½ Zino. Ξ ΟΟΟƒΞΈΞµΟƒΞ­ Ο„ΞΉΟ‚ ΟƒΟ„ΞΏΟ…Ο‚ Ο†Ξ―Ξ»ΞΏΟ…Ο‚ ΟƒΞΏΟ…..."<?
             }
-        ?>" );<?php
+        ?>" );
+        contacts.previwContactsInZino();<?php
     }
 ?>
