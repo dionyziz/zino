@@ -22,6 +22,7 @@ var contacts = {
         }
     },
 	loading: function(){
+        document.title = "Φόρτωση επαφών...";
 		$( '#foot, #login' ).fadeOut( 2000 );
 		$( '#left_tabs li span')
 			.fadeTo( 'normal', 0 ).parent()
@@ -55,6 +56,7 @@ var contacts = {
 		}, 2000 );
 	},
 	backToLogin: function(){
+        document.title = "Λάθος στοιχεία! | Zino";
 		$( '#foot, #login, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
 		$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
@@ -67,6 +69,7 @@ var contacts = {
         $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
     previwContactsInZino: function(){
+        document.title = "Προσθήκη φίλων | Zino";
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();

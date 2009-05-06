@@ -8,7 +8,9 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
-        
+        ?>alert( '<?php
+            echo htmlspecialchars( "arwe'gfd\agfds/fgdsv'trfsd\"aszdf" );
+        ?>' )<?php
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
@@ -35,14 +37,14 @@
                 ?>contacts.addContactInZino( '<?php
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
-                echo $mail;
+                echo htmlspecialchars( $mail );
                 ?>' );
                 <?php
                 $contactsInZino++;
             }
             else {
                 ?>contacts.addContactNotZino( '<?php
-                echo $mail;
+                echo htmlspecialchars ( $mail );
                 ?>' );<?php
                 $contactsNotZino++;
             }
