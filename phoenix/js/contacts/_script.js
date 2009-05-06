@@ -78,4 +78,4 @@ var contacts = {
 };
 $( function(){
     contacts.init();
-}
+});
