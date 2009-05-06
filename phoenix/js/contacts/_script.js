@@ -41,14 +41,14 @@ var contacts = {
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
 	previwContactsInZino: function(){
-		$( "#foot input" ).css( 'backgroundImage', "url('add.png')");
+		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();
 		
 		$( "#foot input" ).one( 'click', contacts.previwContactsNotInZino );
 	},
 	previwContactsNotInZino: function(){
-		$( "#foot input" ).css( 'backgroundImage', "url('invite.png')");
+		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/invite.png')");
 		$( "#contactsInZino" ).fadeOut();
 		$( "#body" ).animate({
 			"height": 420,

@@ -168,10 +168,10 @@
 	padding: 0 0 5px 0;
 	font-size: 13px;
 	color: #114779;
-	cursor: pointer;
 }
 .invite_contacts #body .step .selectAll span{
 	padding-left: 16px;
+	cursor: pointer;
 }
 .invite_contacts #body .step .contacts{
 	padding: 0;
