@@ -33,6 +33,8 @@
                 ?>επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?
             }
         ?>" );
-        contacts.previwContactsInZino();<?php
+        setTimeout( function(){
+                contacts.previwContactsInZino();
+            }, 3000 );<?php
     }
 ?>
