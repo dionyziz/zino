@@ -8,9 +8,6 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
-        ?>alert( '<?php
-            echo addslashes( "arwe'gfd\agfds/fgdsv'trfsd\"aszdf" );
-        ?>' );<?php
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
