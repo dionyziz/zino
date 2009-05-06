@@ -17,7 +17,7 @@
                     ?>$( "#security" ).css({
                         'background': '#ff3 url(http://static.zino.gr/phoenix/error.png) no-repeat 2px center',
                         'font-weight': 'bold',
-                        'paddingLeft': '25px'
+                        'padding': '5px 5px 5px 25px'
                     }).html( 'Τα στοιχεία που έδωσες δεν επιβεβαιώθηκαν. Ξαναδοκίμασε με τα σωστά στοιχεία.' );<?php
                 }
             ?>
