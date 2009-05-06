@@ -61,16 +61,16 @@
 	background: no-repeat 7px 0;
 }
 .invite_contacts #left_tabs #msn{
-    background-image: url("msn-icon.gif");
+    background-image: url("http://static.zino.gr/phoenix/contacts/msn-icon.gif");
 }
 .invite_contacts #left_tabs #yahoo{
-    background-image: url("yahoo-icon.gif");
+    background-image: url("http://static.zino.gr/phoenix/contacts/yahoo-icon.gif");
 }
 .invite_contacts #left_tabs #gmail{
-    background-image: url("gmail-icon.gif");
+    background-image: url("http://static.zino.gr/phoenix/contacts/gmail-icon.gif");
 }
 .invite_contacts #left_tabs #hi5{
-    background-image: url("hi5-icon.ico");
+    background-image: url("http://static.zino.gr/phoenix/contacts/hi5-icon.png");
 }
 
 .invite_contacts #body {
@@ -93,7 +93,7 @@
 	display: block;
 	margin: auto;
 	border: 0;
-	background: transparent url('search.png') no-repeat;
+	background: transparent url('http://static.zino.gr/phoenix/contacts/search.png') no-repeat;
 	cursor: pointer;
 }
 .invite_contacts #body #foot input:active{
@@ -124,7 +124,7 @@
 	width: 200px;
 	font-size: 20px;
 	border: 0;
-	background: url('input.png') no-repeat;
+	background: url('http://static.zino.gr/phoenix/contacts/input.png') no-repeat;
 }
 .invite_contacts #body .inputs input.text:hover{
 	background-position: 0 -40px;
