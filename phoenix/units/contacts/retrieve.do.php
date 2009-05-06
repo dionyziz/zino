@@ -18,18 +18,20 @@
         $contactsInZino = 0;
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $ret );
-        foreach( $members as $member ){
-            echo "alert('".$member->profile_userid."');";
-            $contact = new User( $member->profile_userid );
-            ?>contacts.addContactInZino( '<?php
-            echo $contact->Avatar->Id;
-            ?>', '<?php
-            echo $contact->Name;
-            ?>', '<?php
-            echo $member->profile_email;
-            ?>' );
-            <?php
-            $contactsInZino++;
+        foreach( $ret as $mail ){
+            if ( $members[ $mail ] != "" ){
+                echo "alert('".$mail." ".$members[ $mail ]."');";
+                $contact = new User( $members[ $mail ] );
+                ?>contacts.addContactInZino( '<?php
+                echo $contact->Avatar->Id;
+                ?>', '<?php
+                echo $contact->Name;
+                ?>', '<?php
+                echo $mail;
+                ?>' );
+                <?php
+                $contactsInZino++;
+            }
         }
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
