@@ -121,7 +121,7 @@
 	display: block;
 	height: 30px;
 	padding: 5px;
-	width: 200px;
+	width: 190px;
 	font-size: 20px;
 	border: 0;
 	background: url('http://static.zino.gr/phoenix/contacts/input.png') no-repeat;
@@ -145,7 +145,12 @@
 	position: absolute;
 	width: 100%;
 }
-.invite_contacts #body #loading h1, #loading h2 {
+.invite_contacts #body #loading h1{
+	margin: 60px 0;
+	text-align: center;
+    font-size: 25px;
+}
+.invite_contacts #body #loading h2 {
 	margin: 60px 0;
 	text-align: center;
 }

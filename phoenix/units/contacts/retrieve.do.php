@@ -15,10 +15,10 @@
             <?php
                 if ( $ret == "ERROR_CREDENTIALS" ){
                     ?>$( "#security" ).css({
-                        'background': '#ff3 url(http://static.zino.gr/phoenix/error.png) no-repeat 2px center',
+                        'background': '#FEF4B7 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
                         'font-weight': 'bold',
-                        'padding': '5px 5px 5px 25px'
-                    }).html( 'Τα στοιχεία που έδωσες δεν επιβεβαιώθηκαν. Ξαναδοκίμασε με τα σωστά στοιχεία.' );<?php
+                        'padding': '10px 10px 10px 30px'
+                    }).html( 'Το e-mail ή ο κωδικός που έγραψες δεν είναι σωστά.' );<?php
                 }
             ?>
                 contacts.backToLogin();

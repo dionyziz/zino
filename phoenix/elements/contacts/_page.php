@@ -31,9 +31,9 @@
 							</p>
 						</div>
 						<center id="loading">
-							<h1>Φορτώνουμε τις επαφές σου...</h1>
-							<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />
-							<h2>Αυτό μπορεί να πάρει δύο λεπτά</h2>
+							<h1>Φορτώνουμε τις επαφές σου</h1>
+							<img src="http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/5-0.gif" />
+							<h2>Αυτό μπορεί να πάρει δύο λεπτά...</h2>
 						</center>
 						<div class="step" id="contactsInZino">
 							<h3></h3>
