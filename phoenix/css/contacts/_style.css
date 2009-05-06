@@ -203,6 +203,10 @@
     position: relative;
     top: 10px;
 }
+.invite_contacts #body #contactsInZino .contact a img {
+    float: left;
+    margin-right: 10px;
+}
 .invite_contacts #body #contactsInZino .contact div{
     position: relative;
     top: 10px;
