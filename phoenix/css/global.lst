@@ -54,5 +54,6 @@ user/sections.css
 user/settings.css
 validation/page.css
 validation/resend.css
+validation/style.css
 wysiwyg.css
 player.css

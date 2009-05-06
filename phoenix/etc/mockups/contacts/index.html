@@ -18,10 +18,10 @@
             </ul>
             <div class="eof"></div>
             <ul id="left_tabs">
-                <li id="msn">MSN</li>
-            <!--    <li id="hi5">Hi5</li> -->
-                <li id="yahoo">Yahoo</li>
-                <li id="gmail" class="selected">Gmail</li>
+                <li><span id="msn">MSN</span></li>
+            <!--    <li><span id="hi5">Hi5</span></li> -->
+                <li><span id="yahoo">Yahoo</span></li>
+                <li class="selected"><span id="gmail">Gmail</span></li>
             </ul>
             <div id="body">
 				<div id="login">
@@ -41,6 +41,8 @@
 					<h1>Φορτώνουμε τις επαφές σου...</h1>
 					<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />
 					<h2>Αυτό μπορεί να πάρει δύο λεπτά</h2>
+					<span onclick="contacts.backToLogin()">back </span>
+					<span onclick="contacts.previwContactsInZino()">next</span>
 				</center>
 				<div class="step" id="contactsInZino">
 					<h3>7 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
@@ -139,79 +141,10 @@
     </div>
     
     <div class="footer">       <ul>                    <li><a href="contact">Επικοινώνησε</a></li>                    <li><a href="tos">Όροι χρήσης</a></li>                    <li><a href="?p=ads">Διαφήμιση</a></li>                </ul>                <div class="copy">                    &copy; 2009                     <a href="http://www.kamibu.com/">Kamibu</a>                </div>            </div>                        
- <script type="text/javascript" src="http://static.zino.gr/js/global.js?100" charset="utf-8"></script><script type="text/javascript">ExcaliburSettings.Production = true;ExcaliburSettings.Production = true;Banner.OnLoad();</script>
-
- 
- 
- 
- 
-            <script type="text/javascript">
-				$('#left_tabs li').click( function(){
-					$('#left_tabs li').removeClass();
-					$( this ).addClass( 'selected' );
-				});
-
-				$('#foot input ').one( 'click', function(){
-					$( '#foot, #login' ).fadeOut( 2000 );
-					
-					$( '#left_tabs li').attr( 'id', '').html( '' );
-					$( '#left_tabs li.selected').css('position', 'absolute');
-					$( '#left_tabs li.selected').css('borderBottomWidth', 1)
-						.animate({
-							'height': 144,
-							'top': '0'
-						}, 1000, function(){
-							$( '#left_tabs li:not(.selected)').hide();
-							$( '#left_tabs li.selected' )
-								.animate({
-									'width': 0,
-									'paddingLeft': 0,
-									'paddingRight': 0,
-									'left': 1
-								}, 1000, function(){$( this).hide();} );
-							$( '#body' )
-								.animate({
-									'width': 698,
-									'height': 466,
-									'marginLeft': 0
-								}, 960 );
-					});
-					setTimeout( function(){
-						$( "#loading" ).fadeIn();
-					}, 2000 );
-					setTimeout( function(){
-						$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
-						$( "#contactsInZino, #foot" ).fadeIn();
-						$( "#foot input" ).one( 'click', function(){
-							$( "#contactsInZino" ).fadeOut();
-							$( "#body" ).animate({ 
-								"height": 420,
-								"marginLeft": 80,
-								"width": 570
-								}, 1000, function(){
-									$( "#contactsNotZino" ).fadeIn();
-									
-									
-								});
-							
-						});
-					}, 6000 );
-				});
-				
-				
-				$( ".step .contact input" ).attr( "checked", "checked" );
-				$( "#contactsInZino .selectAll .all" ).click( function(){
-					$( "#contactsInZino .contact input" ).attr( "checked", "checked" );
-				});
-				$( "#contactsInZino .selectAll .none" ).click( function(){
-					$( "#contactsInZino .contact input" ).attr( "checked", "" );
-				});
-				$( "#contactsNotZino .selectAll .all" ).click( function(){
-					$( "#contactsNotZino .contact input" ).attr( "checked", "checked" );
-				});
-				$( "#contactsNotZino .selectAll .none" ).click( function(){
-					$( "#contactsNotZino .contact input" ).attr( "checked", "" );
-				});
-				
-            </script>
+ <script type="text/javascript" src="http://static.zino.gr/js/global.js?100" charset="utf-8"></script>
+ <script type="text/javascript" src="script.js" charset="utf-8"></script>
+ <script type="text/javascript">ExcaliburSettings.Production = true;ExcaliburSettings.Production = true;Banner.OnLoad();</script>
             </body></html>
+			
+			
+			
