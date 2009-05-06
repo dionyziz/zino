@@ -40,12 +40,6 @@
 						<div class="step" id="contactsInZino">
 							<h3>0 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
 							<div class="contacts">
-								<div class="contact">
-									<input type="checkbox"></input>
-									<img src="http://images2.zino.gr/media/3890/140401/140401_100.jpg" />
-									<div class="contactUsername">Ted</div>
-									<div class="contactMail">thsourg@gmail.com</div>
-								</div>
 							</div>
 							<div class="selectAll">
 								<span class="all">Επιλογή όλων</span> 

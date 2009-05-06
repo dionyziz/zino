@@ -56,7 +56,15 @@ var contacts = {
 		$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
-	previwContactsInZino: function(){
+    addContactInZino: function( avatarUrl, userName, Mail ){
+        div = document.createElement( "div" );
+        var text = "<input type='checkbox' checked='checked' />";
+        text += "<img src='" + avatUrl + "' />";
+        text += "<div class='contactUsername'>" + userName + "</div>";
+        text += "<div class='contactMail'>" + Mail + "</div>";
+        $( div ).addClass( "contact" ).text( text );
+    },
+    previwContactsInZino: function(){
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();

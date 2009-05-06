@@ -15,22 +15,26 @@
             }, 3000 );<?php
             return;
         }
-
         $contactsInZino = 1;
+        $mailfinder = new UserProfileFinder();
         foreach( $ret as $contactMail ){
-            ?>$( '#contactsInZino .contacts .contact:first' ).clone().children( ".contactMail" ).html("<?php
+            ?>contacts.addContactInZino( '<?php
+            echo "http://images2.zino.gr/media/3890/140401/140401_100.jpg";
+            ?>', '<?php
+            echo "ted";
+            ?>', '<?php
             echo $contactMail;
-            ?>").end().appendTo( " #contactsInZino .contacts" );
+            ?>' );
             <?php
             $contactsInZino++;
         }
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
             if ( $contactsInZino == 1 ){
-                ?>εοαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου...<?php
+                ?> επαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου...<?php
             }
             else{
-                ?>επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?
+                ?> επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?
             }
         ?>" );
         setTimeout( function(){
