@@ -38,7 +38,7 @@
 							<span onclick="contacts.previwContactsInZino()">next</span>
 						</center>
 						<div class="step" id="contactsInZino">
-							<h3>0 επαφές σου έχουν Zino! Πρόσθεσέ τις στους φίλους σου...</h3>
+							<h3></h3>
 							<div class="contacts">
 							</div>
 							<div class="selectAll">
@@ -47,12 +47,8 @@
 							</div>
 						</div>
 						<div class="step" id="contactsNotZino">
-							<h3>7 επαφές σου δεν έχουν Zino ακόμα! Προσκάλεσέ τους τώρα!</h3>
+							<h3></h3>
 							<div class="contacts">
-								<div class="contact">
-									<input type="checkbox"></input>
-									<div class="contactMail">thsourg@gmail.com</div>
-								</div>
 							</div>
 							<div class="selectAll">
 								<span class="all">Επιλογή όλων</span> 
