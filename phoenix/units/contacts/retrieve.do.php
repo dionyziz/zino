@@ -18,9 +18,6 @@
                 }).html( 'Τα στοιχεία που έδωσες δεν επιβεβαιώθηκαν. Ξαναδοκίμασε με τα σωστά στοιχεία.' );<?php
             }
             ?>
-            alert( '<?php
-            echo $ret;
-            ?>' );
             setTimeout( function(){
                 contacts.backToLogin();
             }, 3000 );<?php
