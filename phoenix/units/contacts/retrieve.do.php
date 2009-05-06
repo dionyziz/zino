@@ -15,15 +15,17 @@
             }, 3000 );<?php
             return;
         }
-        $contactsInZino = 1;
+        $contactsInZino = 0;
         $mailfinder = new UserProfileFinder();
-        foreach( $ret as $contactMail ){
+        $members = $mailfinder->FindAllUsersByEmails( $ret );
+        foreach( $members as $member ){
+            $contact = new User( $member->profile_userid );
             ?>contacts.addContactInZino( '<?php
-            echo "http://images2.zino.gr/media/3890/140401/140401_100.jpg";
+            echo $contact->Avatar->Avatarid;
             ?>', '<?php
-            echo "ted";
+            echo $contact->Name;
             ?>', '<?php
-            echo $contactMail;
+            echo $contact->Mail;
             ?>' );
             <?php
             $contactsInZino++;
