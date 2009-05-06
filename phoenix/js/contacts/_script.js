@@ -8,6 +8,7 @@ var contacts = {
         if ( contacts.provider == "hotmail" ){
             contacts.username += "@hotmail.com";
         }
+        alert( contacts.username );
         contacts.password = $( "#password input" ).val();
         if ( true ){//TODO: check validity of inputs
             Coala.Warm( 'contacts/retrieve', {
