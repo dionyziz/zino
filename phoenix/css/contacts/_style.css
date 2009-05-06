@@ -203,6 +203,7 @@
 .invite_contacts #body #contactsInZino .contact .contactUsername {
 	margin-top: 10px;
 	font-weight: bold;
+    height: 15px;
 }
 .invite_contacts #body #contactsNotZino .contacts{
 	height: 240px;

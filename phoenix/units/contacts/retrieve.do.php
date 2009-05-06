@@ -20,12 +20,9 @@
         $members = $mailfinder->FindAllUsersByEmails( $ret );
         foreach( $ret as $mail ){
             if ( $members[ $mail ] != "" ){
-                echo "alert('".$mail." ".$members[ $mail ]."');";
-                $contact = new User( $members[ $mail ] );
+                $theuser = new User( $members[ $mail ] );
                 ?>contacts.addContactInZino( '<?php
-                echo $contact->Avatar->Id;
-                ?>', '<?php
-                echo $contact->Name;
+                Element( 'user/display', $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
                 echo $mail;
                 ?>' );
