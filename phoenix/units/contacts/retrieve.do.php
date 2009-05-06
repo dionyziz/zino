@@ -21,7 +21,7 @@
         foreach( $members as $member ){
             $contact = new User( $member->profile_userid );
             ?>contacts.addContactInZino( '<?php
-            echo $contact->Avatar->Avatarid;
+            echo $contact->Avatar->Id;
             ?>', '<?php
             echo $contact->Name;
             ?>', '<?php
