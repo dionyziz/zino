@@ -347,7 +347,7 @@
             throw New Exception( 'Notifications cannot be edited!' );
         }
         protected function LoadDefaults() {
-            $notif->Created = NowDate();
+            $this->Created = NowDate();
         }
     }
 
