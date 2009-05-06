@@ -11,7 +11,9 @@
         
         if( !is_array( $ret ) ){
             ?>
-            alert( $ret );
+            alert( '<?php
+            echo $ret;
+            ?>' );
             setTimeout( function(){
                 contacts.backToLogin();
             }, 3000 );<?php
