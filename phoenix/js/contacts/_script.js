@@ -62,7 +62,7 @@ var contacts = {
         text += "<img src='" + avatarUrl + "' />";
         text += "<div class='contactUsername'>" + userName + "</div>";
         text += "<div class='contactMail'>" + Mail + "</div>";
-        $( div ).addClass( "contact" ).text( text ).appendTo( '#contacts' );
+        $( div ).addClass( "contact" ).text( text ).appendTo( '.contacts' );
     },
     previwContactsInZino: function(){
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
