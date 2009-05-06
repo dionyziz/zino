@@ -20,6 +20,7 @@
             return;
         }
         $contactsInZino = 0;
+        $contactsNotZino = 0;
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $ret );
         foreach( $ret as $mail ){
@@ -32,6 +33,12 @@
                 ?>' );
                 <?php
                 $contactsInZino++;
+            }
+            else {
+                ?>contacts.addContactNotZino( '<?php
+                echo $mail;
+                ?>' );<?php
+                $contactsNotZino++;
             }
         }
         ?>$( "#contactsInZino > h3" ).html( "<?php

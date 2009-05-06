@@ -56,11 +56,11 @@ var contacts = {
 		$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
-    addContactInZino: function( display, Mail ){
+    addContactInZino: function( display, mail ){
         div = document.createElement( "div" );
         var text = "<input type='checkbox' checked='checked' />";
         text += display;
-        text += "<div class='contactMail'>" + Mail + "</div>";
+        text += "<div class='contactMail'>" + mail + "</div>";
         $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
     previwContactsInZino: function(){
@@ -70,7 +70,13 @@ var contacts = {
 		
 		$( "#foot input" ).one( 'click', contacts.previwContactsNotInZino );
 	},
-	previwContactsNotInZino: function(){
+    addContactNotZino: function( mail ){
+        div = document.createElement( "div" );
+        var text = "<input type='checkbox' checked='checked' />";
+        text += "<div class='contactMail'>" + mail + "</div>";
+        $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
+    },
+    previwContactsNotInZino: function(){
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/invite.png')");
 		$( "#contactsInZino" ).fadeOut();
 		$( "#body" ).animate({
