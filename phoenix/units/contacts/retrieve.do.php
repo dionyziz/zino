@@ -3,6 +3,8 @@
         global $libs;
         global $user;
         
+        echo "alert(5)";
+        /*
         $libs->Load( 'contacts/contacts' );
         $finder = New ContactFinder();
         $ret = $finder->FindByUseridAndMail( $user->Id, $username );
@@ -27,5 +29,5 @@
                 echo " επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...";
             }
         ?>" );<?php
-    }
+    */}
 ?>
