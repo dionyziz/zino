@@ -10,7 +10,9 @@
         $ret = GetContacts( $username, $password, $provider );
         
         if( !is_array( $ret ) ){
-            ?>contacts.backToLogin();<?php
+            ?>setTimeout( function(){
+                contacts.backToLogin();
+            }, 3000 );<?php
             return;
         }
 
