@@ -12,7 +12,7 @@
         if( !is_array( $ret ) ){
             if ( $ret == "ERROR_CREDENTIALS" ){
                 ?>$( "#security" ).css({
-                    'background': '#ff3 url('http://static.zino.gr/phoenix/error.png') no-repeat 2px center',
+                    'background': '#ff3 url(http://static.zino.gr/phoenix/error.png) no-repeat 2px center',
                     'font-weight': 'bold',
                     'paddingLeft': '20px'
                 }).html( 'Τα στοιχεία που έδωσες δεν επιβεβαιώθηκαν. Ξαναδοκίμασε με τα σωστά στοιχεία.' );<?php
