@@ -3,16 +3,16 @@ var contacts = {
 	username: "",
 	password: "",
     retrieve: function(){
-        this.provider = $( "left_tabs li.selected span" ).attr( 'id' ) + ".com";
-        this.username = $( "#mail input" ).value;
-        this.username = $( "#password input" ).value;
+        contacts.provider = $( "left_tabs li.selected span" ).attr( 'id' ) + ".com";
+        contacts.username = $( "#mail input" ).value;
+        contacts.username = $( "#password input" ).value;
         if ( true ){//TODO: check validity of inputs
             Coala.Warm( 'contacts/retrieve', {
-                provider: this.provider,
-                username: this.username,
-                password: this.password
+                provider: contacts.provider,
+                username: contacts.username,
+                password: contacts.password
             });
-            this.loading();
+            contacts.loading();
         }
         else{
             //TODO: invalid inputs bold
