@@ -3,8 +3,6 @@
         global $libs;
         global $user;
         
-        echo "alert(5)";
-        /*
         $libs->Load( 'contacts/contacts' );
         $finder = New ContactFinder();
         $ret = $finder->FindByUseridAndMail( $user->Id, $username );
@@ -12,6 +10,8 @@
             GetContacts( $username, $password, $provider );
             $ret = $finder->FindByUseridAndMail( $user->Id, $username );
         }
+        echo "alert(5)";
+        /*
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
             ?>$( '#contactsInZino .contacts .contact:first' ).clone()
