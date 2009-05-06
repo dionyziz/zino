@@ -27,10 +27,10 @@
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
             if ( $contactsInZino == 1 ){
-                ?>εοαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου..."<?php
+                ?>εοαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου...<?php
             }
             else{
-                ?>επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου..."<?
+                ?>επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?
             }
         ?>" );
         contacts.previwContactsInZino();<?php
