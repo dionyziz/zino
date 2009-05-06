@@ -9,7 +9,10 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
-
+        
+        if( !is_array( $ret ) ){
+            return;
+        }
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
             ?>$( '#contactsInZino .contacts .contact:first' ).clone()
