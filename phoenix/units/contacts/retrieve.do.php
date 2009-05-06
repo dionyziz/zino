@@ -5,7 +5,9 @@
         $provider = $provider->Get();
         $username = $username->Get();
         $password = $password->Get();
-        
+        echo "alert( 'provider = ' + $provider )";
+        echo "alert( 'username = ' + $username )";
+        echo "alert( 'password = ' + $password )";        
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
@@ -13,9 +15,7 @@
         if( !is_array( $ret ) ){
             return;
         }
-        echo "alert( 'provider = ' + $provider )";
-        echo "alert( 'username = ' + $username )";
-        echo "alert( 'password = ' + $password )";
+
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
             ?>$( '#contactsInZino .contacts .contact:first' ).clone()
