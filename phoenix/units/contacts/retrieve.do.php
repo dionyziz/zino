@@ -4,14 +4,9 @@
         global $user;
         
         $libs->Load( 'contacts/contacts' );
-        $finder = New ContactFinder();
-        $ret = $finder->FindByUseridAndMail( $user->Id, $username );
-        if ( count( $ret ) == 0 ){
-            GetContacts( $username, $password, $provider );
+        $ret = GetContacts( $username, $password, $provider );
         echo "alert(5)";
-        }/*
-            $ret = $finder->FindByUseridAndMail( $user->Id, $username );
-        }
+        /*
 
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
