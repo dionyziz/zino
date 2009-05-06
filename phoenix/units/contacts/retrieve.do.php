@@ -6,9 +6,9 @@
         $libs->Load( 'contacts/contacts' );
         $finder = New ContactFinder();
         $ret = $finder->FindByUseridAndMail( $user->Id, $username );
-        echo "alert(5)";
-        /*
         if ( count( $ret ) == 0 ){
+        echo "alert(5)";
+        }/*
             GetContacts( $username, $password, $provider );
             $ret = $finder->FindByUseridAndMail( $user->Id, $username );
         }
