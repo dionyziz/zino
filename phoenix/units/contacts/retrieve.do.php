@@ -50,6 +50,15 @@
                 ?> επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?
             }
         ?>" );
+        $( "#contactsNotZino > h3" ).html( "<?php
+            echo $contactsNotZino;
+            if ( $contactsNotZino == 1 ){
+                ?> επαφή σου δεν έχει Zino ακόμα! Προσκάλεσέ την τώρα!<?php
+            }
+            else{
+                ?> επαφές σου δεν έχουν Zino ακόμα! Προσκάλεσέ τους τώρα!<?
+            }
+        ?>" );
         setTimeout( function(){
                 contacts.previwContactsInZino();
             }, 3000 );<?php
