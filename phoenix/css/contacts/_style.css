@@ -185,7 +185,7 @@
 .invite_contacts #body .step .contact{
 	border-bottom: 1px solid #ccc;
 	height: 50px;
-	padding: 10px 0;
+	padding: 10px 20px;
 	font-size: 12px;
 }
 .invite_contacts #body .step .contact:last-child{
@@ -195,16 +195,19 @@
 	float: left;
 	margin: 20px;
 }
-.invite_contacts #body #contactsInZino .contact img{
-	width: 50px;
-	float: left;
-	margin-right: 20px;
-}
-.invite_contacts #body #contactsInZino .contact .contactUsername {
+
+.invite_contacts #body #contactsInZino .contact a {
 	margin-top: 10px;
 	font-weight: bold;
     height: 15px;
+    position: relative;
+    top: 10px;
 }
+.invite_contacts #body #contactsInZino .contact div{
+    position: relative;
+    top: 10px;
+}
+
 .invite_contacts #body #contactsNotZino .contacts{
 	height: 240px;
 }
