@@ -61,7 +61,7 @@ var contacts = {
         var text = "<input type='checkbox' checked='checked' />";
         text += display;
         text += "<div class='contactMail'>" + Mail + "</div>";
-        $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino.contacts' );
+        $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
     previwContactsInZino: function(){
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
