@@ -69,10 +69,14 @@ var contacts = {
 		$( ".step .contact input" ).attr( "checked", "checked" );
 		
 		$( ".step .selectAll .all" ).click( function(){
-			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "checked" );
+			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "checked" ).each(function(){
+                this.checked=true;
+            });
 		});
 		$( ".step .selectAll .none" ).click( function(){
-			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "" );
+			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "" ).each(function(){
+                this.checked=false;
+            });
 		});
 	}
 };
