@@ -19,6 +19,7 @@
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $ret );
         foreach( $members as $member ){
+            echo "alert('".$member->profile_userid."');";
             $contact = new User( $member->profile_userid );
             ?>contacts.addContactInZino( '<?php
             echo $contact->Avatar->Id;
