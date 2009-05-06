@@ -5,9 +5,9 @@
         $provider = $provider->Get();
         $username = $username->Get();
         $password = $password->Get();
-        echo "alert( 'provider = ' + $provider )";
-        echo "alert( 'username = ' + $username )";
-        echo "alert( 'password = ' + $password )";        
+        echo "alert( 'provider = ' + $provider );";
+        echo "alert( 'username = ' + $username );";
+        echo "alert( 'password = ' + $password );";        
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
