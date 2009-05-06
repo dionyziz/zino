@@ -9,8 +9,6 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
-        echo "alert(5)";
-        /*
 
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
@@ -29,5 +27,5 @@
                 echo " επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...";
             }
         ?>" );<?php
-    */}
+    }
 ?>
