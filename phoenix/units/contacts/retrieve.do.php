@@ -10,7 +10,7 @@
         $ret = GetContacts( $username, $password, $provider );
         ?>alert( '<?php
             echo htmlspecialchars( "arwe'gfd\agfds/fgdsv'trfsd\"aszdf" );
-        ?>' )<?php
+        ?>' );<?php
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
