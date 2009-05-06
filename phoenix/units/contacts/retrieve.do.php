@@ -13,6 +13,7 @@
         if( !is_array( $ret ) ){
             return;
         }
+        echo "alert(4)";
         $contactsInZino = 1;
         foreach( $ret as $contactMail ){
             ?>$( '#contactsInZino .contacts .contact:first' ).clone()
