@@ -11,7 +11,7 @@
 					</ul>
 					<div class="eof"></div>
 					<ul id="left_tabs">
-						<li><span id="msn">MSN</span></li>
+						<li><span id="hotmail">MSN</span></li>
 					<!--    <li><span id="hi5">Hi5</span></li> -->
 						<li><span id="yahoo">Yahoo</span></li>
 						<li class="selected"><span id="gmail">Gmail</span></li>
@@ -34,8 +34,6 @@
 							<h1>Φορτώνουμε τις επαφές σου...</h1>
 							<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />
 							<h2>Αυτό μπορεί να πάρει δύο λεπτά</h2>
-							<span onclick="contacts.backToLogin()">back </span>
-							<span onclick="contacts.previwContactsInZino()">next</span>
 						</center>
 						<div class="step" id="contactsInZino">
 							<h3></h3>
