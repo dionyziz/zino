@@ -4,8 +4,8 @@ var contacts = {
 	password: "",
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' ) + ".com";
-        contacts.username = $( "#mail input" ).text;
-        contacts.username = $( "#password input" ).text;
+        contacts.username = $( "#mail input" ).val();
+        contacts.username = $( "#password input" ).val();
         if ( true ){//TODO: check validity of inputs
             Coala.Warm( 'contacts/retrieve', {
                 provider: contacts.provider,
