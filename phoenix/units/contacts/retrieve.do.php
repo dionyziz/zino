@@ -25,7 +25,7 @@
             ?>', '<?php
             echo $contact->Name;
             ?>', '<?php
-            echo $contact->Mail;
+            echo $member->profile_email;
             ?>' );
             <?php
             $contactsInZino++;
