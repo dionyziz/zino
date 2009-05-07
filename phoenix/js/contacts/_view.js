@@ -9,17 +9,12 @@ var contacts = {
             contacts.username += "@hotmail.com";
         }
         contacts.password = $( "#password input" ).val();
-        if ( true ){//TODO: check validity of inputs
-            Coala.Warm( 'contacts/retrieve', {
-                provider: contacts.provider,
-                username: contacts.username,
-                password: contacts.password
-            });
-            contacts.loading();
-        }
-        else{
-            //TODO: invalid inputs bold
-        }
+        Coala.Warm( 'contacts/retrieve', {
+            provider: contacts.provider,
+            username: contacts.username,
+            password: contacts.password
+        });
+        contacts.loading();
     },
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
@@ -84,7 +79,7 @@ var contacts = {
     },
     previwContactsNotInZino: function(){
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/invite.png')");
-		$( "#contactsInZino" ).fadeOut();
+		$( "#contactsInZino, #loading" ).fadeOut();
 		$( "#body" ).animate({
 			"height": 420,
 			"marginLeft": 80,

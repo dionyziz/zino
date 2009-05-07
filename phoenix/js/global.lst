@@ -31,7 +31,7 @@ types.js
 questions.js
 analytics.js
 comments.js
-contacts/script.js
+contacts/view.js
 search/search.js
 search/im.js
 schools.js
