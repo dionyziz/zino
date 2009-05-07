@@ -57,6 +57,7 @@ var contacts = {
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location ){
+    alert( location );
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
         text += "<input type='checkbox' checked='checked' />";
