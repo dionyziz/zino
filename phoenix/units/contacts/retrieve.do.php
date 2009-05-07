@@ -65,7 +65,11 @@
             }
         ?>" );
         setTimeout( function(){
-                contacts.previwContactsInZino();
+                contacts.previwContacts<?php
+                if ( !$contactsNotZino ){
+                echo "Not";
+                }
+                ?>InZino();
             }, 3000 );<?php
     }
 ?>
