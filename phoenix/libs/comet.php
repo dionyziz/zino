@@ -10,8 +10,6 @@
     function Comet_Publish( /* $channel, $param1, $param2, ..., $paramN */ ) {
         global $rabbit_settings;
         
-        return;
-        
         $args = func_get_args();
         if ( $rabbit_settings[ 'production' ] ) {
             $channel = 'P'; // Production
