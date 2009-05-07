@@ -196,6 +196,10 @@
 .invite_contacts #body .step .contact:last-child{
 	border: 0;
 }
+.invite_contacts #body #contactsInZino .contact .contactName {
+    float: left;
+    width: 70%;
+}
 .invite_contacts #body #contactsInZino .contact input{
 	float: left;
 	margin: 20px;

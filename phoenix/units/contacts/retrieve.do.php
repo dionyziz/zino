@@ -42,6 +42,8 @@
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
                 echo addslashes( $mail );
+                ?>', '<?php
+                echo $theuser->Profile->Location->Name;
                 ?>' );
                 <?php
                 $contactsInZino++;

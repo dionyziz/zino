@@ -56,11 +56,17 @@ var contacts = {
 		$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
-    addContactInZino: function( display, mail ){
+    addContactInZino: function( display, mail, location ){
         div = document.createElement( "div" );
-        var text = "<input type='checkbox' checked='checked' />";
+        var text = "<div class='contactName'>";
+        text += "<input type='checkbox' checked='checked' />";
         text += display;
         text += "<div class='contactMail'>" + mail + "</div>";
+        text += "</div>";
+        text += "<div class='location'>";
+        text += location;
+        text += "</div></div>";
+        
         $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
     previwContactsInZino: function(){
