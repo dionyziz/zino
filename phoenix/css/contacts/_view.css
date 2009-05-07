@@ -12,6 +12,7 @@
 	top: 1px;
     display: block;
     height: 24px;
+    z-index: 500;
 }
 .invite_contacts #top_tabs li {
 	float: left;
