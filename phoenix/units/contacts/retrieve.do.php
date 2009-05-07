@@ -8,9 +8,13 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
+        
         echo "alert( '";
-        print_r( $ret );
+        foreach ( $ret as $name => $content ){
+            echo $name . " => " . $contact . "<br />\n";
+        }
         echo "' );";
+        
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
