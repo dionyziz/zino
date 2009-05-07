@@ -216,7 +216,7 @@
     float: left;
     margin-right: 20px;
 }
-.invite_contacts #body #contactsInZino .contact div{
+.invite_contacts #body #contactsInZino .contact div div{
     position: relative;
     top: 10px;
 }
