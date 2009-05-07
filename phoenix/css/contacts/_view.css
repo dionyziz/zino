@@ -198,7 +198,12 @@
 }
 .invite_contacts #body #contactsInZino .contact .contactName {
     float: left;
-    width: 70%;
+    width: 80%;
+}
+.invite_contacts #body #contactsInZino .contact .contactLocation {
+    float: left;
+    width: 20%;
+    padding-top: 20px;
 }
 .invite_contacts #body #contactsInZino .contact input{
 	float: left;
@@ -218,6 +223,7 @@
 }
 .invite_contacts #body #contactsInZino .contact div div{
     position: relative;
+    float: left;
     top: 10px;
 }
 
