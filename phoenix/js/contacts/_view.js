@@ -71,10 +71,16 @@ var contacts = {
 		
 		$( "#foot input" ).one( 'click', contacts.previwContactsNotInZino );
 	},
-    addContactNotZino: function( mail ){
+    addContactNotZino: function( mail, nickname ){
         div = document.createElement( "div" );
         var text = "<input type='checkbox' checked='checked' />";
-        text += "<div class='contactMail'>" + mail + "</div>";
+        if ( mail != nickname ){
+            text += "<div class='contactNickname'>" + nickname + "</div>";
+            text += "<div class='contactMail'>" + mail + "</div>";
+        }
+        else{
+            text += "<div style='margin-top: 8px' class='contactMail'>" + mail + "</div>";
+        }
         $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
     previwContactsNotInZino: function(){

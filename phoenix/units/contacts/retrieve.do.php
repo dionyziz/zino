@@ -8,13 +8,6 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
-        
-        echo "alert( '";
-        foreach ( $ret as $name => $content ){
-            echo $name . " => " . $content . "|";
-        }
-        echo "' );";
-        
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
@@ -42,7 +35,7 @@
         $contactsNotZino = 0;
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $ret );
-        foreach( $ret as $mail ){
+        foreach( $ret as $mail => $nickname ){
             if ( $members[ $mail ] != "" ){
                 $theuser = new User( $members[ $mail ] );
                 ?>contacts.addContactInZino( '<?php
@@ -56,6 +49,8 @@
             else {
                 ?>contacts.addContactNotZino( '<?php
                 echo addslashes( $mail );
+                ?>', '<?php
+                echo addslashes( $nickname );
                 ?>' );<?php
                 $contactsNotZino++;
             }
