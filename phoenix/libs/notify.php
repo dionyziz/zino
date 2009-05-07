@@ -1,10 +1,4 @@
 <?php
-    /*
-        MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
-    */
-    
     global $libs;
     $libs->Load( 'event' );
 
@@ -331,20 +325,23 @@
             // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
             return true;
         }
-        public function OnCreate() {
+        protected function OnCreate() {
             global $libs;
             
             $libs->Load( 'rabbit/event' );
             
             FireEvent( 'NotificationCreated', $this );
         }
-        public function Relations() {
+        protected function Relations() {
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
             $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
             $this->Event = $this->HasOne( 'Event', 'Eventid' );
         }
-        public function OnBeforeUpdate() {
+        protected function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );
+        }
+        protected function LoadDefaults() {
+            $this->Created = NowDate();
         }
     }
 

@@ -166,9 +166,11 @@
             }
             $notif->Eventid = $this->Id;
             $notif->Fromuserid = $this->Userid;
+            $notif->Typeid = $this->Typeid;
+            $notif->Itemid = $this->Itemid;
             $notif->Save();
         }
-        public function LoadDefaults() {
+        protected function LoadDefaults() {
             $this->Created = NowDate();
         }
     }
