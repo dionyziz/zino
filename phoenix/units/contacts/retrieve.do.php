@@ -66,7 +66,7 @@
         ?>" );
         setTimeout( function(){
                 contacts.previwContacts<?php
-                if ( !$contactsNotZino ){
+                if ( !$contactsInZino ){
                 echo "Not";
                 }
                 ?>InZino();
