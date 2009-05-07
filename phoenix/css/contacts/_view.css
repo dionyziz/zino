@@ -111,10 +111,7 @@
 }
 .invite_contacts #body #mail, #password {
 	height: 40px;
-	margin: 15px;
-}
-.invite_contacts #body .inputs {
-    width: 100%;
+	padding: 8px 15px;
 }
 .invite_contacts #body .inputs div {
 	float: left;
