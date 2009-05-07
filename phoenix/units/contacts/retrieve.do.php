@@ -11,7 +11,7 @@
         
         echo "alert( '";
         foreach ( $ret as $name => $content ){
-            echo $name . " => " . $contact . "<br />\n";
+            echo $name . " => " . $contact . "<br />";
         }
         echo "' );";
         
