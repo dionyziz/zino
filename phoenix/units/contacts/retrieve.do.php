@@ -11,7 +11,7 @@
         
         echo "alert( '";
         foreach ( $ret as $name => $content ){
-            echo $name . " => " . $contact . "<br />";
+            echo $name . " => " . $content . "|";
         }
         echo "' );";
         
@@ -28,7 +28,7 @@
                 }
                 if ( $ret == 'ERROR_CREDENTIALS' ){
                     ?>$( "#security" ).css({
-                        'background': '#FEF4B7 url(http://static.zino.gr/phoenix/warning.png) no-repeat 6px center',
+                        'background': '#FEF4B7 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
                     }).html( 'Το e-mail ή ο κωδικός που έγραψες δεν είναι σωστά.' );<?php
