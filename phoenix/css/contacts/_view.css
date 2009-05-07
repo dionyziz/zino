@@ -37,7 +37,7 @@
 .invite_contacts #left_tabs {
 	float: left;
 	position: relative;
-	left: -1px;
+	left: 0;
 }
 .invite_contacts #left_tabs li {
 	display: block;
