@@ -43,7 +43,7 @@
                 ?>', '<?php
                 echo addslashes( $mail );
                 ?>', '<?php
-                echo $theuser->Profile->Location->Name;
+                echo addslashes( $theuser->Profile->Location->Name );
                 ?>' );
                 <?php
                 $contactsInZino++;
