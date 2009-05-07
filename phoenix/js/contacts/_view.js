@@ -78,6 +78,7 @@ var contacts = {
         $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
     previwContactsNotInZino: function(){
+        document.title = "Πρόσκληση φίλων | Zino";
 		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/invite.png')");
 		$( "#contactsInZino, #loading" ).fadeOut();
 		$( "#body" ).animate({
