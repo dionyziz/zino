@@ -37,7 +37,10 @@
 .invite_contacts #left_tabs {
 	float: left;
 	position: relative;
-	left: 0;
+	left: -1px;
+    display: block;
+    width: 102px;
+    z-index: 500;
 }
 .invite_contacts #left_tabs li {
 	display: block;
