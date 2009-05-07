@@ -19,7 +19,7 @@
 					<div id="body">
 						<div id="login">
 							<div class="inputs" id="mail">
-								<div><label>Το e-mail σου</label></div>
+								<div><label>Το username σου</label></div>
 								<input class="text" type="text"></input>
 							</div>
 							<div class="inputs" id="password">
@@ -32,7 +32,7 @@
 						</div>
 						<center id="loading">
 							<h1>Φορτώνουμε τις επαφές σου</h1>
-							<img src="http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/5-0.gif" />
+							<img src="http://static.zino.gr/phoenix/contacts/loader.gif" />
 							<h2>Αυτό μπορεί να πάρει δύο λεπτά...</h2>
 						</center>
 						<div class="step" id="contactsInZino">

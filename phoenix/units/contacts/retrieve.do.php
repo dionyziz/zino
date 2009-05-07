@@ -8,13 +8,23 @@
         
         $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
+        echo "alert( '";
+        print_r( $ret );
+        echo "' );";
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
             <?php
-                if ( $ret == "ERROR_CREDENTIALS" ){
+                if ( $ret == 'ERROR_PROVIDER' ){
                     ?>$( "#security" ).css({
-                        'background': '#FEF4B7 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
+                        'background': '#FF9090 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
+                        'font-weight': 'bold',
+                        'padding': '10px 10px 10px 30px'
+                    }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκιμάστε αργότερα.' );<?php
+                }
+                if ( $ret == 'ERROR_CREDENTIALS' ){
+                    ?>$( "#security" ).css({
+                        'background': '#FEF4B7 url(http://static.zino.gr/phoenix/warning.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
                     }).html( 'Το e-mail ή ο κωδικός που έγραψες δεν είναι σωστά.' );<?php
