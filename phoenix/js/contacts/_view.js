@@ -85,7 +85,7 @@ var contacts = {
 			"marginLeft": 80,
 			"width": 570
 			}, 1000, function(){
-				$( "#contactsNotZino" ).fadeIn();
+				$( "#contactsNotZino, #foot" ).fadeIn();
 		});
 	},
 	init: function(){
