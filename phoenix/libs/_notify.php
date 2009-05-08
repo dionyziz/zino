@@ -307,10 +307,10 @@
         }
         public function OnBeforeCreate() {
             global $water;
+            global $boobies;
             
+            $boobies = true;
             $this->DefineRelations();
-            
-            die( 'Typeof item ' . $this->Typeid . ' ... ' . Event_ModelByType( $this->Typeid ) );
             
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
@@ -401,6 +401,10 @@
             if ( $this->Typeid ) {
                 $model = Event_ModelByType( $this->Typeid );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
+                die( 'Model: ' . $model . ', Item: ' . get_class( $this->Item ) );
+            }
+            else if ( $boobies ) {
+                die( 'No items created (missing typeid)' );
             }
             
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
