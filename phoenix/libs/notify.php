@@ -338,7 +338,6 @@
             }
             
             if ( $this->Touserid == $this->Fromuserid ) {
-                die( 'Same origin' );
                 return false;
             }
 

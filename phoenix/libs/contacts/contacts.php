@@ -45,19 +45,33 @@
             $parts = explode( '@', $toemail );
             $toname = $parts[ 0 ];            
             
-            $subject = 'Πρόσκληση απο τον ' . $user->Name . ' στο Zino';
-            //<>TODO
-            $message = "Γεια σου $toname,
+            $subject = 'Πρόσκληση απο ';
+            if ( $user->Gender == 'f' ) {
+                $subject .= 'την';
+            }
+            else {
+                $subject .= 'τον';
+            }
+            $subject .= ' ' . $user->Name . ' στο Zino';
+            // TODO: move message/subject to element
+            $message = "Γεια σου " . $toname . ",
 
-Ο/Η $user->Name σε πρόσθεσε στους φίλους του στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες  και τα νέα σου.
+Σε έχω προσθέσει στους φίλους μου στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες και τα νέα σου.
 
-Για να δεις το προφίλ του/της $user->Name στο Zino, πήγαινε στο:
-http://$user->Name.zino.gr/
+Για να δεις το προφίλ ";
+            if ( $user->Gender == 'f' ) {
+                $subject .= 'της';
+            }
+            else {
+                $subject .= 'του';
+            }
+            $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
+http://" . $user->Subdomain . ".zino.gr/
 
-Ευχαριστούμε,
-Η Ομάδα του Zino";
-            $fromname = 'Zino';//<-TODO
-            $fromemail = 'noreply@zino.gr';            //<-TODO
+Ευχαριστώ,
+" . $user->Name; // TODO: Add unsubscribe footer
+            $fromname = $user->Name;
+            $fromemail = 'invite@zino.gr';
             Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
         }
         return;
