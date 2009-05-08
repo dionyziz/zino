@@ -8,39 +8,39 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
 
-            if ( !$notif->Event->Exists() ) {
+            if ( !$notif->Exists() ) {
                 return;
             }
 
             ?><div class="event" id="event_<?php
-            echo $notif->Event->Id;
+            echo $notif->Id;
             ?>">
                 <div class="toolbox">
                     <span class="time"><?php
-                    Element( 'date/diff', $notif->Event->Created );
+                    Element( 'date/diff', $notif->Created );
                     ?></span>
                     <a href="" onclick="return Notification.Delete( '<?php
-                    echo $notif->Event->Id;
+                    echo $notif->Id;
                     ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
                 <div class="who"<?php
-                if ( $notif->Event->Typeid == EVENT_COMMENT_CREATED ) {
+                if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
                     Element( 'url' , $notif->Item );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>' , '<?php
-                    echo $notif->Event->Item->Typeid;
+                    echo $notif->Item->Typeid;
                     ?>' , '<?php
-                    echo $notif->Event->Id;
+                    echo $notif->Id;
                     ?>' , '<?php
-                    echo $notif->Event->Item->Id;
+                    echo $notif->Item->Id;
                     ?>' );"<?php
                 }
                 ?>><?php
                     Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                     Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
-                    switch ( $notif->Event->Typeid ) {
+                    switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
                             ?> σε πρόσθεσε στους φίλους:<?php
                             break;
@@ -61,14 +61,14 @@
                     }
                 ?></div>
                 <div class="subject"<?php
-                switch ( $notif->Event->Typeid ) {
+                switch ( $notif->Typeid ) {
                     case EVENT_IMAGETAG_CREATED:
                         ?> onclick="Notification.Visit( '<?php
                         ob_start();
                         Element( 'url', $notif->Item );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '0', '<?php
-                        echo $notif->Event->Id;
+                        echo $notif->Id;
                         ?>', '0' );"<?php
                         break;
                     case EVENT_USER_BIRTHDAY:
@@ -77,7 +77,7 @@
                         Element( 'url', $notif->FromUser );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '0', '<?php
-                        echo $notif->Event->Id;
+                        echo $notif->Id;
                         ?>', '0' );"<?php
                         break;
                     case EVENT_FRIENDRELATION_CREATED:
@@ -88,7 +88,7 @@
                         Element( 'url', $notif->Item );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '0', '<?php
-                        echo $notif->Event->Id;
+                        echo $notif->Id;
                         ?>', '0' );"<?php
                         break;
                     case EVENT_COMMENT_CREATED:
@@ -97,16 +97,16 @@
                         Element( 'url' , $notif->Item );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>' , '<?php
-                        echo $notif->Event->Item->Typeid;
+                        echo $notif->Item->Typeid;
                         ?>' , '<?php
-                        echo $notif->Event->Id;
+                        echo $notif->Id;
                         ?>' , '<?php
-                        echo $notif->Event->Item->Id;
+                        echo $notif->Item->Id;
                         ?>' );"<?php
                         break;
                 }
                 ?>><?php
-                    switch ( $notif->Event->Typeid ) {
+                    switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
                             $finder = New FriendRelationFinder();
                             $res = $finder->FindFriendship( $user , $notif->FromUser );
@@ -114,7 +114,7 @@
                                 ?><div class="addfriend" id="addfriend_<?php
                                 echo $notif->Fromuserid;
                                 ?>"><a href="" onclick="return Notification.AddFriend( '<?php
-                                echo $notif->Event->Id;
+                                echo $notif->Id;
                                 ?>' , '<?php
                                 echo $notif->FromUser->Id;
                                 ?>' )"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ τ<?php
@@ -129,7 +129,7 @@
                             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
                             Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
                             ?>' , '0' , '<?php
-                            echo $notif->Event->Id;
+                            echo $notif->Id;
                             ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
                             break;
                         case EVENT_IMAGETAG_CREATED:
@@ -172,7 +172,7 @@
                             break;
                         case EVENT_USER_BIRTHDAY:
                             ?><p><?php
-                            $days = daysDiff( $notif->Event->Created );
+                            $days = daysDiff( $notif->Created );
                             if ( $days == 0 ) {
                                 ?>έχει γενέθλια σήμερα!<?php
                             }
