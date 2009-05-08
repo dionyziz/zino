@@ -218,20 +218,15 @@
 
 .invite_contacts #body #contactsInZino .contact a {
     display: block;
-	margin-top: 10px;
 	font-weight: bold;
     height: 15px;
-    position: relative;
-    top: -10px;
 }
 .invite_contacts #body #contactsInZino .contact a img {
     float: left;
     margin-right: 20px;
 }
 .invite_contacts #body #contactsInZino .contact div div{
-    position: relative;
     display: inline;
-    top: -10px;
 }
 
 .invite_contacts #body #contactsNotZino .contacts{
