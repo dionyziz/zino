@@ -1,10 +1,4 @@
 <?php
-    /*
-        MASKED
-        By: Dionyziz
-        Reason: Events optimizations
-    */
-    
     global $libs;
     
     $libs->Load( 'event' );
