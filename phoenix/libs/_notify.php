@@ -391,7 +391,8 @@
         }
         protected function Relations() {
             global $libs;
-
+            global $boobies;
+            
             $libs->Load( 'comment' );
             $libs->Load( 'image/tag' );
             $libs->Load( 'relation/relation' );
@@ -401,7 +402,9 @@
             if ( $this->Typeid ) {
                 $model = Event_ModelByType( $this->Typeid );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                die( 'Model: ' . $model . ', Item: ' . get_class( $this->Item ) );
+                if ( $boobies ) {
+                    die( 'Model: ' . $model . ', Item: ' . get_class( $this->Item ) );
+                }
             }
             else if ( $boobies ) {
                 die( 'No items created (missing typeid)' );
