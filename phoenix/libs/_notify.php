@@ -352,7 +352,6 @@
             $field = Notification_GetField( $this );
 
             if ( $field === false ) {
-                die( 'No field' );
                 return;
             }
             
@@ -362,9 +361,8 @@
             }
             
             $attribute = 'Notify' . $field;
-            // $trace .= "Notify attribute", $attribute );
+            die( $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
-                $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
                 if ( !is_object( $this->ToUser ) ) {
                     die( "this->ToUser not an object" );
                 }
