@@ -71,8 +71,13 @@
             return New Collection( $ret, $i );
         }
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
-            global $water;
-
+            /*
+            $prototype = New Notification();
+            $prototype->Touserid = $user->Id;
+            
+            return $this->FindByPrototype( $prototype, $offset, $limit + 6 );
+            */
+            
             $query = $this->mDb->Prepare( 
                 "SELECT
                     *
@@ -302,7 +307,44 @@
         }
         public function OnBeforeCreate() {
             global $water;
+            
+            die( 'Typeof item ' . get_class( $this->Item ) );
+            
+            switch ( $this->Typeid ) {
+                case EVENT_COMMENT_CREATED:
+                    $comment = $this->Item;
+                    $entity = $comment->Item;
 
+                    if ( $comment->Parentid > 0 ) {
+                        $this->Touserid = $comment->Parent->Userid;
+                    }
+                    else {
+                        switch ( get_class( $entity ) ) {
+                            case 'User':
+                                $this->Touserid = $entity->Id;
+                                break;
+                            case 'Image':
+                            case 'Journal':
+                            case 'Poll':
+                                $this->Touserid = $entity->Userid;
+                                break;
+                        }
+                    }
+                    break;
+                case EVENT_FRIENDRELATION_CREATED:
+                    $this->Touserid = $this->Item->Friendid;
+                    break;
+	        	case EVENT_IMAGETAG_CREATED:
+                    $this->Touserid = $this->Item->Personid;
+                    break;
+                case EVENT_FAVOURITE_CREATED:
+                    $this->Touserid = $this->Item->Item->Userid;
+                    break;
+                case EVENT_USER_BIRTHDAY:
+                    $this->Touserid = $this->Itemid;
+                    break;
+            }
+            
             if ( $this->Touserid == $this->Fromuserid ) {
                 die( 'Same origin' );
                 return false;
@@ -340,44 +382,7 @@
             global $libs;
             global $user;
             
-            $libs->Load( 'notify' );
             $libs->Load( 'image/tag' );
-
-            switch ( $this->Typeid ) {
-                case EVENT_COMMENT_CREATED:
-                    $comment = $this->Item;
-                    $entity = $comment->Item;
-
-                    if ( $comment->Parentid > 0 ) {
-                        $this->Touserid = $comment->Parent->Userid;
-                    }
-                    else {
-                        switch ( get_class( $entity ) ) {
-                            case 'User':
-                                $this->Touserid = $entity->Id;
-                                break;
-                            case 'Image':
-                            case 'Journal':
-                            case 'Poll':
-                                $this->Touserid = $entity->Userid;
-                                break;
-                        }
-                    }
-                    break;
-                case EVENT_FRIENDRELATION_CREATED:
-                    $this->Touserid = $this->Item->Friendid;
-                    break;
-	        	case EVENT_IMAGETAG_CREATED:
-                    $this->Touserid = $this->Item->Personid;
-                    break;
-                case EVENT_FAVOURITE_CREATED:
-                    $this->Touserid = $this->Item->Item->Userid;
-                    break;
-                case EVENT_USER_BIRTHDAY:
-                    $this->Touserid = $this->Itemid;
-                    break;
-            }
-            
             $libs->Load( 'rabbit/event' );
             
             FireEvent( 'NotificationCreated', $this );
@@ -390,11 +395,9 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'favourite' );
             
-            if ( $this->Exists() ) {
-                $model = Event_ModelByType( $this->Typeid );
-            }
             $this->User = $this->HasOne( 'User', 'Userid' );
-            if ( $this->Exists() ) {
+            if ( $this->Typeid ) {
+                $model = Event_ModelByType( $this->Typeid );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
             }
             
