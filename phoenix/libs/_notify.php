@@ -218,30 +218,29 @@
     function Notification_GetField( $notification ) {
         w_assert( $notification->Typeid != 0 );
 
-        if ( $notification->Typeid == EVENT_COMMENT_CREATED ) {
-            $comment = $notification->Item;
-            if ( $comment->Parentid == 0 ) {
-                return 'reply';
-            }
-            switch ( Type_FromObject( $comment->Item ) ) {
-                case TYPE_JOURNAL:
-                    return 'journalcomment';
-                case TYPE_IMAGE:
-                    return 'photocomment';
-                case TYPE_POLL:
-                    return 'pollcomment';
-                case TYPE_USERPROFILE:
-                    return 'profilecomment';
-            }
-        }
-        else if ( $notification->Typeid == EVENT_FRIENDRELATION_CREATED ) {
-            return 'friendaddition';
-        }
-        else if ( $notification->Typeid == EVENT_IMAGETAG_CREATED ) {
-            return 'phototag';
-        }
-        else if ( $notification->Typeid == EVENT_FAVOURITE_CREATED ) {
-            return 'favourite';
+        switch ( $notification->Typeid ) {
+            case EVENT_COMMENT_CREATED:
+                $comment = $notification->Item;
+                if ( $comment->Parentid == 0 ) {
+                    return 'reply';
+                }
+                switch ( Type_FromObject( $comment->Item ) ) {
+                    case TYPE_JOURNAL:
+                        return 'journalcomment';
+                    case TYPE_IMAGE:
+                        return 'photocomment';
+                    case TYPE_POLL:
+                        return 'pollcomment';
+                    case TYPE_USERPROFILE:
+                        return 'profilecomment';
+                }
+                break;
+            case EVENT_FRIENDRELATION_CREATED:
+                return 'friendaddition';
+            case EVENT_IMAGETAG_CREATED:
+                return 'phototag';
+            case EVENT_FAVOURITE_CREATED:
+                return 'favourite';
         }
         
         return false;
@@ -305,6 +304,7 @@
             global $water;
 
             if ( $this->Touserid == $this->Fromuserid ) {
+                die( 'Same origin' );
                 return false;
             }
 
@@ -312,6 +312,7 @@
             $field = Notification_GetField( $this );
 
             if ( $field === false ) {
+                die( 'No field' );
                 return;
             }
             
@@ -330,19 +331,14 @@
                 if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
+                die( 'No notifications' );
                 return false;
             }
-            // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
             return true;
         }
         protected function OnCreate() {
             global $libs;
-            
-            $libs->Load( 'notify' );
-            $libs->Load( 'image/tag' );
-
             global $user;
-            global $libs;
             
             $libs->Load( 'notify' );
             $libs->Load( 'image/tag' );
