@@ -226,7 +226,7 @@
         switch ( $notification->Typeid ) {
             case EVENT_COMMENT_CREATED:
                 $comment = $notification->Item;
-                if ( $comment->Parentid == 0 ) {
+                if ( $comment->Parentid != 0 ) {
                     return 'reply';
                 }
                 switch ( Type_FromObject( $comment->Item ) ) {
