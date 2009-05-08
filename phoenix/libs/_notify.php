@@ -368,7 +368,6 @@
                 if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
-                die( 'No notifications' );
                 return false;
             }
             return true;
