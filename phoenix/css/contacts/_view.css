@@ -172,9 +172,10 @@
 
 .invite_contacts #body .step {
 	display: none;
+    margin-top: 17px;
 }
 .invite_contacts #body .step h3 {
-	padding-left: 20px;
+	margin-left: 20px;
 }
 .invite_contacts #body .step .selectAll{
 	padding: 0 0 5px 0;
