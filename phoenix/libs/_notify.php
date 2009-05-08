@@ -309,6 +309,7 @@
             global $water;
             
             $this->DefineRelations();
+            die( '.'.isset( $this->mRelations[ 'Item' ] ).','.gettype( $this->mRelations[ 'Item' ] ).','.get_class( $this->mRelations[ 'Item' ] ) );
             die( '.'.gettype( $this->Item ).','.get_class( $this->Item ) );
             
             switch ( $this->Typeid ) {
