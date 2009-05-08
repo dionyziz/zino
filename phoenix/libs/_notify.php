@@ -310,7 +310,7 @@
             
             $this->DefineRelations();
             
-            die( 'Typeof item ' . get_class( $this->Item ) );
+            die( 'Typeof item ' . $this->Typeid . ' ... ' . Event_ModelByType( $this->Typeid ) );
             
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
