@@ -308,6 +308,8 @@
         public function OnBeforeCreate() {
             global $water;
             
+            $this->DefineRelations();
+            
             die( 'Typeof item ' . get_class( $this->Item ) );
             
             switch ( $this->Typeid ) {
