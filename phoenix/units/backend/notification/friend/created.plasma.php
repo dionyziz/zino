@@ -7,7 +7,7 @@
         $notification = New Notification();
         $notification->Typeid = EVENT_FRIENDRELATION_CREATED;
         $notification->Itemid = $relation->Id;
-        $notification->Userid = $relation->Userid;
+        $notification->Fromuserid = $relation->Userid;
         $notification->Save();
         
         return false;

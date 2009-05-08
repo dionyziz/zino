@@ -8,7 +8,7 @@
         $notification->Typeid = EVENT_COMMENT_CREATED;
         $notification->Itemid = $comment->Id;
         $notification->Created = $comment->Created;
-        $notification->Userid = $comment->Userid;
+        $notification->Fromuserid = $comment->Userid;
         $notification->Save();
         
         $finder = New NotificationFinder();
