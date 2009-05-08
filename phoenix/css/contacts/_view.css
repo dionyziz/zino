@@ -227,6 +227,7 @@
 }
 .invite_contacts #body #contactsInZino .contact div div{
     display: inline;
+    float: left;
 }
 
 .invite_contacts #body #contactsNotZino .contacts{
