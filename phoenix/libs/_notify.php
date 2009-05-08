@@ -309,7 +309,7 @@
             global $water;
             
             $this->DefineRelations();
-            die( '.'.$this->Item->Created );
+            die( '.'.$this->Itemid );
             
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
