@@ -361,7 +361,6 @@
             }
             
             $attribute = 'Notify' . $field;
-            die( $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
                 if ( !is_object( $this->ToUser ) ) {
                     die( "this->ToUser not an object" );
