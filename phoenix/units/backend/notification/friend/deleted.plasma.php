@@ -2,9 +2,9 @@
     function UnitBackendNotificationFriendDeleted( FriendRelation $relation ) {
         global $libs;
         
-        $libs->Load( 'event' );
+        $libs->Load( 'notify' );
         
-        $finder = New EventFinder();
+        $finder = New NotificationFinder();
         $finder->DeleteByEntity( $relation );
         
         return false;

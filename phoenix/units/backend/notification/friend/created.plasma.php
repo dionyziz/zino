@@ -2,13 +2,13 @@
     function UnitBackendNotificationFriendCreated( FriendRelation $relation ) {
         global $libs;
 
-        $libs->Load( 'event' );
+        $libs->Load( 'notify' );
 
-        $event = New Event();
-        $event->Typeid = EVENT_FRIENDRELATION_CREATED;
-        $event->Itemid = $relation->Id;
-        $event->Userid = $relation->Userid;
-        $event->Save();
+        $notification = New Notification();
+        $notification->Typeid = EVENT_FRIENDRELATION_CREATED;
+        $notification->Itemid = $relation->Id;
+        $notification->Userid = $relation->Userid;
+        $notification->Save();
         
         return false;
     }

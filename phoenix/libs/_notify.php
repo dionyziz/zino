@@ -1,10 +1,33 @@
 <?php
+    /*
+        MASKED
+        By: Dionyziz
+        Reason: Events optimizations
+    */
+    
     global $libs;
+    
     $libs->Load( 'event' );
 
     class NotificationFinder extends Finder {
         protected $mModel = 'Notification';
 
+        public function DeleteByEntity( $entity ) {
+            $query = $this->mDb->Prepare( 
+                'DELETE 
+                FROM
+                    :notify
+                WHERE 
+                    `notify_itemid` = :itemid AND 
+                    `notify_typeid` IN :typeids;'
+            );
+
+            $query->BindTable( 'notify' );
+            $query->Bind( 'itemid', $entity->Id );
+            $query->Bind( 'typeids', Event_TypesByModel( strtoupper( get_class( $entity ) ) ) );
+
+            return $query->Execute()->Impact();
+        }
         public function FindByUserAfterId( $user, $id = 0, $offset = 0, $limit = 20 ) {
             if ( $user instanceof User ) {
                 $userid = $user->Id;
@@ -20,8 +43,6 @@
                     *
                 FROM
                     :notify
-                    RIGHT JOIN :events ON
-                        `notify_eventid` = `event_id`
                 WHERE
                     `notify_touserid` = :userid
                     AND `notify_eventid` < :id
@@ -29,7 +50,7 @@
                     `notify_eventid` DESC
                 LIMIT
                     :offset, :limit;" );
-            $query->BindTable( 'notify', 'events' );
+            $query->BindTable( 'notify' );
             $query->Bind( 'userid', $userid );
             $query->Bind( 'id', $id );
             $query->Bind( 'offset', $offset );
@@ -42,7 +63,6 @@
             while ( $row = $res->FetchArray() ) {
                 if ( $i < $limit ) {
                     $notif = New Notification( $row );
-                    $notif->CopyEventFrom( New Event( $row ) );
                     $ret[] = $notif;
                 }
                 ++$i;
@@ -58,8 +78,6 @@
                     *
                 FROM
                     :notify
-                    RIGHT JOIN :events ON
-                        `notify_eventid` = `event_id`
                 WHERE
                     `notify_touserid` = :userid
                 ORDER BY
@@ -67,7 +85,7 @@
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'notify', 'events' );
+            $query->BindTable( 'notify' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit + 6 );
@@ -79,7 +97,6 @@
             while ( $row = $res->FetchArray() ) {
                 if ( $i < $limit ) {
                     $notif = New Notification( $row );
-                    $notif->CopyEventFrom( New Event( $row ) );
                     $ret[] = $notif;
                 }
                 ++$i;
@@ -88,21 +105,19 @@
             return New Collection( $ret, $i );
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
-            $query = $this->mDb->Prepare( "
-                DELETE
+            $query = $this->mDb->Prepare(
+                "DELETE
                 FROM
                     :notify
                 USING
                     :notify 
-                    RIGHT JOIN :events ON
-                        `notify_eventid` = `event_id`
                 WHERE
-                    `event_typeid` = :typeid AND
-                    `event_itemid` = :commentid AND
-                    `notify_touserid` = :userid
-                ;" );
+                    `notify_typeid` = :typeid AND
+                    `notify_itemid` = :commentid AND
+                    `notify_touserid` = :userid;"
+            );
 
-            $query->BindTable( 'notify', 'events' );
+            $query->BindTable( 'notify' );
             $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
             $query->Bind( 'commentid', $comment->Id );
             $query->Bind( 'userid', $user->Id );
@@ -113,19 +128,17 @@
             global $water; 
 
             $query = $this->mDb->Prepare( 
-                    "SELECT 
-                        *
-                    FROM
-                        :notify RIGHT JOIN :events
-                            ON notify_eventid = event_id
-                    WHERE
-                        `event_typeid` = :typeid AND
-                        `event_itemid` = :commentid
-                    LIMIT 
-                        1;" );
-            
+                "SELECT 
+                    *
+                FROM
+                    :notify
+                WHERE
+                    `notify_typeid` = :typeid AND
+                    `notify_itemid` = :commentid
+                LIMIT 1;"
+            );
+        
             $query->BindTable( 'notify' );
-            $query->BindTable( 'events' );
             $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
             $query->Bind( 'commentid', $comment->Id );
             
@@ -133,7 +146,6 @@
             if ( $res->Results() ) {
                 $row = $res->FetchArray();
                 $notif = New Notification( $row );
-                $notif->CopyEventFrom( New Event( $row ) );
 
                 return $notif;
             }
@@ -146,19 +158,19 @@
         public function FindByRelation( FriendRelation $relation ) {
             global $water; 
 
-            $query = $this->mDb->Prepare( "SELECT
-                        *
-                    FROM
-                        :notify RIGHT JOIN :events
-                            ON notify_eventid = event_id
-                    WHERE
-                        `event_typeid` = :typeid AND
-                        `event_itemid` = :relationid
-                    LIMIT
-                        1;" );
+            $query = $this->mDb->Prepare(
+                "SELECT
+                    *
+                FROM
+                    :notify
+                WHERE
+                    `notify_typeid` = :typeid AND
+                    `notify_itemid` = :relationid
+                LIMIT
+                    1;"
+            );
 
             $query->BindTable( 'notify' );
-            $query->BindTable( 'events' );
             $query->Bind( 'typeid', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'relationid', $relation->Id );
 
@@ -175,19 +187,19 @@
         public function FindByImageTags( ImageTag $tag ) {
             global $water;
         
-            $query = $this->mDb->Prepare( "SELECT
-                        *
-                    FROM
-                        :notify RIGHT JOIN :events
-                            ON notify_eventid = event_id
-                    WHERE
-                        `event_typeid` = :typeid AND
-                        `event_itemid` = :tagid
-                    LIMIT
-                        1;" );
+            $query = $this->mDb->Prepare(
+                "SELECT
+                    *
+                FROM
+                    :notify
+                WHERE
+                    `notify_typeid` = :typeid AND
+                    `notify_itemid` = :tagid
+                LIMIT
+                    1;"
+            );
              
             $query->BindTable( 'notify' );
-            $query->BindTable( 'events' );
             $query->Bind( 'typeid', EVENT_IMAGETAG_CREATED );
             $query->Bind( 'tagid', $tag->Id );
             
@@ -203,11 +215,11 @@
         }
     }
 
-    function Notification_FieldByEvent( $event ) {
-        w_assert( $event->Typeid != 0 );
+    function Notification_GetField( $notification ) {
+        w_assert( $notification->Typeid != 0 );
 
-        if ( $event->Typeid == EVENT_COMMENT_CREATED ) {
-            $comment = $event->Item;
+        if ( $notification->Typeid == EVENT_COMMENT_CREATED ) {
+            $comment = $notification->Item;
             if ( $comment->Parentid == 0 ) {
                 return 'reply';
             }
@@ -222,13 +234,13 @@
                     return 'profilecomment';
             }
         }
-        else if ( $event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
+        else if ( $notification->Typeid == EVENT_FRIENDRELATION_CREATED ) {
             return 'friendaddition';
         }
-        else if ( $event->Typeid == EVENT_IMAGETAG_CREATED ) {
+        else if ( $notification->Typeid == EVENT_IMAGETAG_CREATED ) {
             return 'phototag';
         }
-        else if ( $event->Typeid == EVENT_FAVOURITE_CREATED ) {
+        else if ( $notification->Typeid == EVENT_FAVOURITE_CREATED ) {
             return 'favourite';
         }
         
@@ -238,25 +250,23 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
+        public function CopyItemFrom( $value ) {
+            $this->mRelations[ 'Item' ]->CopyFrom( $value );
+        }
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Item':
-                    w_assert( $this->Event->Exists(), 'Event does not exist' );
-
-                    return $this->Event->Item;
-                /* event stuff */
+                    return $this->Item;
                 case 'Id':
-                    return $this->Event->Id;
-                case 'Typeid':
-                    return $this->Event->Typeid;
+                    return $this->Eventid;
                 case 'Userid': // from user id
                     return $this->Fromuserid;
                 default:
                     return parent::__get( $key );
             }
-        }
-        public function CopyEventFrom( $value ) {
-            $this->mRelations[ 'Event' ]->CopyFrom( $value );
         }
         public function Email() {
             global $rabbit_settings;
@@ -264,7 +274,7 @@
 
             $libs->Load( 'rabbit/helpers/email' );
             
-            switch ( $this->Event->Typeid ) {
+            switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $target = 'notification/email/comment';
                     break;
@@ -299,7 +309,7 @@
             }
 
             $this->mRelations[ 'ToUser' ]->Rebuild();
-            $field = Notification_FieldByEvent( $this->Event );
+            $field = Notification_GetField( $this );
 
             if ( $field === false ) {
                 return;
@@ -328,14 +338,72 @@
         protected function OnCreate() {
             global $libs;
             
+            $libs->Load( 'notify' );
+            $libs->Load( 'image/tag' );
+
+            global $user;
+            global $libs;
+            
+            $libs->Load( 'notify' );
+            $libs->Load( 'image/tag' );
+
+            switch ( $this->Typeid ) {
+                case EVENT_COMMENT_CREATED:
+                    $comment = $this->Item;
+                    $entity = $comment->Item;
+
+                    if ( $comment->Parentid > 0 ) {
+                        $this->Touserid = $comment->Parent->Userid;
+                    }
+                    else {
+                        switch ( get_class( $entity ) ) {
+                            case 'User':
+                                $this->Touserid = $entity->Id;
+                                break;
+                            case 'Image':
+                            case 'Journal':
+                            case 'Poll':
+                                $this->Touserid = $entity->Userid;
+                                break;
+                        }
+                    }
+                    break;
+                case EVENT_FRIENDRELATION_CREATED:
+                    $this->Touserid = $this->Item->Friendid;
+                    break;
+	        	case EVENT_IMAGETAG_CREATED:
+                    $this->Touserid = $this->Item->Personid;
+                    break;
+                case EVENT_FAVOURITE_CREATED:
+                    $this->Touserid = $this->Item->Item->Userid;
+                    break;
+                case EVENT_USER_BIRTHDAY:
+                    $this->Touserid = $this->Itemid;
+                    break;
+            }
+            
             $libs->Load( 'rabbit/event' );
             
             FireEvent( 'NotificationCreated', $this );
         }
         protected function Relations() {
+            global $libs;
+
+            $libs->Load( 'comment' );
+            $libs->Load( 'image/tag' );
+            $libs->Load( 'relation/relation' );
+            $libs->Load( 'favourite' );
+            
+            if ( $this->Exists() ) {
+                $model = Event_ModelByType( $this->Typeid );
+            }
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            if ( $this->Exists() ) {
+                $this->Item = $this->HasOne( $model, 'Itemid' );
+            }
+            
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
             $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
-            $this->Event = $this->HasOne( 'Event', 'Eventid' );
         }
         protected function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );
@@ -344,5 +412,4 @@
             $this->Created = NowDate();
         }
     }
-
 ?>

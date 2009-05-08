@@ -2,9 +2,9 @@
     function UnitBackendNotificationCommentCreated( Comment $comment ) {
         global $libs;
         
-        $libs->Load( 'event' );
+        $libs->Load( 'notify' );
         
-        $finder = New EventFinder();
+        $finder = New NotificationFinder();
         $finder->DeleteByEntity( $comment );
         
         return false;
