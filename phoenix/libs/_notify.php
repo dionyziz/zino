@@ -262,8 +262,6 @@
         }
         public function __get( $key ) {
             switch ( $key ) {
-                case 'Item':
-                    return $this->Item;
                 case 'Id':
                     return $this->Eventid;
                 case 'Userid': // from user id
@@ -311,7 +309,8 @@
             $this->DefineRelations();
             // die( '.'.isset( $this->mRelations[ 'Item' ] ).','.gettype( $this->mRelations[ 'Item' ] ).','.get_class( $this->mRelations[ 'Item' ] ) );
             $com = $this->mRelations[ 'Item' ]->Retrieve();
-            die( '.'.gettype( $com ).','.get_class( $com ) );
+            $bob = $this->Item;
+            die( '.'.gettype( $bob ).','.get_class( $bob ) );
             
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
