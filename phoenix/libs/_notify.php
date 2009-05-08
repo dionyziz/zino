@@ -309,8 +309,9 @@
             global $water;
             
             $this->DefineRelations();
-            die( '.'.isset( $this->mRelations[ 'Item' ] ).','.gettype( $this->mRelations[ 'Item' ] ).','.get_class( $this->mRelations[ 'Item' ] ) );
-            die( '.'.gettype( $this->Item ).','.get_class( $this->Item ) );
+            // die( '.'.isset( $this->mRelations[ 'Item' ] ).','.gettype( $this->mRelations[ 'Item' ] ).','.get_class( $this->mRelations[ 'Item' ] ) );
+            $com = $this->mRelations[ 'Item' ]->Retrieve();
+            die( '.'.gettype( $com ).','.get_class( $com ) );
             
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
