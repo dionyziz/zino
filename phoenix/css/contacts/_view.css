@@ -217,11 +217,12 @@
 }
 
 .invite_contacts #body #contactsInZino .contact a {
+    display: block;
 	margin-top: 10px;
 	font-weight: bold;
     height: 15px;
     position: relative;
-    top: 10px;
+    top: -10px;
 }
 .invite_contacts #body #contactsInZino .contact a img {
     float: left;
@@ -229,8 +230,8 @@
 }
 .invite_contacts #body #contactsInZino .contact div div{
     position: relative;
-    float: left;
-    top: 10px;
+    display: inline;
+    top: -10px;
 }
 
 .invite_contacts #body #contactsNotZino .contacts{
