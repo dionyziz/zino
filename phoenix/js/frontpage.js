@@ -357,11 +357,11 @@ var Frontpage = {
             .animate( {
                 height: targetheight,
                 opacity: "1"
-            } , 500 , 'linear' );
+            } , 200 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
-            } , 350 , 'linear' , function() {
+            } , 150 , 'linear' , function() {
                 $( this ).remove();
             } );
         },
