@@ -52,15 +52,15 @@ var contacts = {
         $( "#foot, #login, #left_tabs" ).fadeOut( 'normal' );
         $( "#body" ).animate({
             'width': 700,
-            'height': 465,
-            'marginLeft': 0
+            'height': 465
+            //'marginLeft': 0
         }, 'normal', function(){
             $( "#loading" ).fadeIn();
         });
 	},
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
-		$( '#foot, #login, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
+		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
 		$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
