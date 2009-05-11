@@ -6,10 +6,7 @@
         
         $mails = $mails->Get();
         $emails = explode( " ", $mails );
-        ?>alert('<?php
-        echo sizeof( $emails );
-        ?>');<?php
-        if ( sizeof( $emails ) != 0 ){
+        if ( sizeof( $mails ) != 0 ){
             EmailFriend( $emails );
         }
         ?>
