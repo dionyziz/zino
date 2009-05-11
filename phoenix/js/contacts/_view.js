@@ -49,14 +49,15 @@ var contacts = {
 		setTimeout( function(){
 			$( "#loading" ).fadeIn();
 		}, 2000 );*/
-        $( "#foot, #login, #left_tabs" ).fadeOut( 'normal' );
-        $( "#body" ).animate({
-            'width': 700,
-            'height': 465
-            //'marginLeft': 0
-        }, 'normal', function(){
-            $( "#loading" ).fadeIn();
-        });
+$( "#foot, #login, #left_tabs li" ).fadeOut( 5000, function(){
+    $( "#body" ).animate({
+        'width': 700,
+        'height': 350,
+        'marginLeft': 0
+    }, 5000, function(){
+        $( "#loading" ).fadeIn();
+    });
+});
 	},
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
