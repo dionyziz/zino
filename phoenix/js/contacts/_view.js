@@ -52,7 +52,7 @@ var contacts = {
 $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
     $( "#body" ).animate({
         'width': 700,
-        'height': 350,
+        'height': 466,
         'marginLeft': 0
     }, 'normal', function(){
         $( "#loading" ).fadeIn();
