@@ -18,7 +18,7 @@ var contacts = {
     },
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
-/*		$( '#foot, #login' ).fadeOut( 2000 );
+/*		$( '#foot, #login' ).fadeOut( 2000 ); too heavy...
 		$( '#left_tabs li span')
 			.fadeTo( 'normal', 0 ).parent()
 			.filter( 'li.selected' )
@@ -49,15 +49,15 @@ var contacts = {
 		setTimeout( function(){
 			$( "#loading" ).fadeIn();
 		}, 2000 );*/
-$( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
-    $( "#body" ).animate({
-        'width': 700,
-        'height': 466,
-        'marginLeft': 0
-    }, 'normal', function(){
-        $( "#loading" ).fadeIn();
-    });
-});
+        $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
+            $( "#body" ).animate({
+                'width': 700,
+                'height': 466,
+                'marginLeft': 0
+            }, 'normal', function(){
+                $( "#loading" ).fadeIn();
+            });
+        });
 	},
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
@@ -69,6 +69,7 @@ $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
         text += "<input type='checkbox' checked='checked' />";
+        text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
         text += display;
         text += "<div class='contactMail'>" + mail + "</div>";
         text += "</div>";
