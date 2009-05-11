@@ -49,7 +49,7 @@ var contacts = {
 		setTimeout( function(){
 			$( "#loading" ).fadeIn();
 		}, 2000 );*/
-        $( "#foot, #login, #left_tabs" ).fadeout( 'normal' );
+        $( "#foot, #login, #left_tabs" ).fadeOut( 'normal' );
         $( "#body" ).animate({
             'width': 700,
             'height': 465,
