@@ -18,13 +18,13 @@ var contacts = {
     },
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
-		$( '#foot, #login' ).fadeOut( 2000 );
+/*		$( '#foot, #login' ).fadeOut( 2000 );
 		$( '#left_tabs li span')
 			.fadeTo( 'normal', 0 ).parent()
 			.filter( 'li.selected' )
 			.css({
 				'position': 'absolute',
-				'borderBottomWidth': 1
+				'borderTopWidth': 1
 				})
 			.animate({
 				'height': 144,
@@ -48,7 +48,15 @@ var contacts = {
 		});
 		setTimeout( function(){
 			$( "#loading" ).fadeIn();
-		}, 2000 );
+		}, 2000 );*/
+        $( "#foot, #login, #left_tabs" ).fadeout( 'normal' );
+        $( "#body" ).animate({
+            'width': 700,
+            'height': 465,
+            'marginLeft': 0
+        }, 'normal', function(){
+            $( "#loading" ).fadeIn();
+        });
 	},
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
