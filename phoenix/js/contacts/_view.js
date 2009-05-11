@@ -62,14 +62,14 @@ var contacts = {
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
 		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
-		$( '#password div label' ).css( 'fontWeight', 'bold' );
+		//$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
         text += "<input type='checkbox' checked='checked' />";
-        text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
+        //text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
         text += display;
         text += "<div class='contactMail'>" + mail + "</div>";
         text += "</div>";
@@ -110,7 +110,23 @@ var contacts = {
 			}, 1000, function(){
 				$( "#contactsNotZino, #foot" ).fadeIn();
 		});
+        $( "#foot input" ).one( 'click', contacts.inviteContacts );
 	},
+    addFriends: function(){
+        //TODO: add friends coala request
+    },
+    inviteContacts: function(){
+    var mails = "";
+        $( "#contactsNotZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
+            mails += $( this ).html() + " ";
+        });
+        if ( !confirm( "Invitations will be send to:\n" + mails.replace(" ", "\n" ) ) ){
+            return 0;
+        }
+        Coala.Warm( "contacts/invite", {
+            "mails": mails
+        });
+    },
 	init: function(){
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 		//left tabs clickable
