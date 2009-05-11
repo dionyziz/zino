@@ -1,5 +1,5 @@
 <?php
-    function UnitContactsInvite( tText $ids ) {
+    function UnitContactsAddfriends( tText $ids ) {
         global $libs;
         global $user;
         global $settings;
