@@ -85,7 +85,7 @@ var contacts = {
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();
 		
-		$( "#foot input" ).one( 'click', contacts.previwContactsNotInZino );
+		$( "#foot input" ).one( 'click', contacts.addFriends );
 	},
     addContactNotZino: function( mail, nickname ){
         div = document.createElement( "div" );
@@ -113,7 +113,17 @@ var contacts = {
         $( "#foot input" ).one( 'click', contacts.invite );
 	},
     addFriends: function(){
-        //TODO: add friends coala request
+    var ids = new Array;
+        $( "#contactsInZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
+            ids.push( $( this ).html() );
+        });
+        idsString = ids.join( " " );
+        if ( !confirm( "The following users will be added as friends\n" + idsString ) ){
+            return 0;
+        }
+        Coala.Warm( "contacts/addfriends", {
+            "ids": idsString
+        });
     },
     invite: function(){
     var mails = new Array;
@@ -121,7 +131,7 @@ var contacts = {
             mails.push( $( this ).html() );
         });
         mailsString = mails.join( " " );
-        if ( !confirm( "Invitations will be send to:\n" + mailsString.replace(" ", "\n" ) ) ){
+        if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
             return 0;
         }
         Coala.Warm( "contacts/invite", {

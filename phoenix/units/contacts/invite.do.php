@@ -6,5 +6,8 @@
         $emails = explode( " ", $mails );
         $libs->Load( 'contacts/contacts' );
         EmailFriend( $emails );
+        ?>
+        contacts.previwContactsNotInZino();
+        <?php
     }
 ?>
