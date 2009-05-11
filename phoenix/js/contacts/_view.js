@@ -114,7 +114,7 @@ var contacts = {
 	},
     addFriends: function(){
     var ids = new Array;
-        $( "#contactsInZino .contact input:checked" ).parent().each( function( i ){
+        $( "#contactsInZino .contact input:checked" ).parent().parent().each( function( i ){
             ids.push( $( this ).attr( "id" ) );
         });
         idsString = ids.join( " " );
