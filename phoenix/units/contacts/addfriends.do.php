@@ -21,8 +21,7 @@
             }
         }
         ?>
-        window.location = <?php
-        echo $settings[ 'webaddress' ];
-        ?>;<?php
+        contacts.previwContactsNotInZino();
+        <?php
     }
 ?>

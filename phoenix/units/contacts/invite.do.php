@@ -13,7 +13,8 @@
             EmailFriend( $emails );
         }
         ?>
-        contacts.previwContactsNotInZino();
-        <?php
+        window.location = <?php
+        echo $settings[ 'webaddress' ];
+        ?>;<?php
     }
 ?>
