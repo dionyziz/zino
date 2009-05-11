@@ -44,8 +44,9 @@
                 echo addslashes( $mail );
                 ?>', '<?php
                 echo addslashes( $theuser->Profile->Location->Name );
-                ?>' );
-                <?php
+                ?>', '<?php
+                echo $theuser->Id;
+                ?>' );<?php
                 $contactsInZino++;
             }
             else {

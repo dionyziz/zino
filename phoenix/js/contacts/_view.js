@@ -65,9 +65,9 @@ var contacts = {
 		//$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
-    addContactInZino: function( display, mail, location ){
+    addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
-        var text = "<div class='contactName'>";
+        var text = "<div class='contactName' id='" + id + "'>";
         text += "<input type='checkbox' checked='checked' />";
         //text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
         text += display;
@@ -114,8 +114,8 @@ var contacts = {
 	},
     addFriends: function(){
     var ids = new Array;
-        $( "#contactsInZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
-            ids.push( $( this ).html() );
+        $( "#contactsInZino .contact input:checked" ).parent().each( function( i ){
+            ids.push( $( this ).attr( "id" ) );
         });
         idsString = ids.join( " " );
         if ( !confirm( "The following users will be added as friends\n" + idsString ) ){
