@@ -110,21 +110,22 @@ var contacts = {
 			}, 1000, function(){
 				$( "#contactsNotZino, #foot" ).fadeIn();
 		});
-        $( "#foot input" ).one( 'click', contacts.inviteContacts );
+        $( "#foot input" ).one( 'click', contacts.invite );
 	},
     addFriends: function(){
         //TODO: add friends coala request
     },
-    inviteContacts: function(){
-    var mails = "";
+    invite: function(){
+    var mails = new Array;
         $( "#contactsNotZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
-            mails += $( this ).html() + " ";
+            mails.push( $( this ).html() );
         });
-        if ( !confirm( "Invitations will be send to:\n" + mails.replace(" ", "\n" ) ) ){
+        mailsString = mails.join( " " );
+        if ( !confirm( "Invitations will be send to:\n" + mailsString.replace(" ", "\n" ) ) ){
             return 0;
         }
         Coala.Warm( "contacts/invite", {
-            "mails": mails
+            "mails": mailsString
         });
     },
 	init: function(){
