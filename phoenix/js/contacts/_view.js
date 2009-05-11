@@ -67,7 +67,7 @@ var contacts = {
 	},
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
-        var text = "<div class='contactName' id='" + id + "'>";
+        var text = "<div class='contactName'>";
         text += "<input type='checkbox' checked='checked' />";
         //text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
         text += display;
@@ -77,7 +77,7 @@ var contacts = {
         text += location;
         text += "</div>";
         
-        $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsInZino .contacts' );
+        $( div ).addClass( "contact" ).attr( 'id', id ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
     previwContactsInZino: function(){
         document.title = "Προσθήκη φίλων | Zino";
