@@ -6,11 +6,11 @@
         $ids = $ids->Get();
         $userids = explode( " ", $ids );
         ?>alert('<?php
-        echo sizeof( $ids );
+        echo sizeof( $userids );
         ?>');<?php 
         if ( $user->Exists() && sizeof( $ids ) != 0 ) {
             foreach( $userids as $userid ){
-                $theuser = New User( $userid->Get() );
+                $theuser = New User( $userid );
                 if ( $theuser->Exists() ) {
                     $relation = New FriendRelation();
                     $relation->Userid = $user->Id;
