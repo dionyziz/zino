@@ -3,6 +3,8 @@
         global $libs;
         global $user;
         global $settings;
+        $libs->Load( 'relation/relation' );
+        
         $ids = $ids->Get();
         $userids = explode( " ", $ids );
         ?>alert('<?php
