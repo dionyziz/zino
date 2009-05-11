@@ -60,10 +60,10 @@
 
 Για να δεις το προφίλ ";
             if ( $user->Gender == 'f' ) {
-                $subject .= 'της';
+                $message .= 'της';
             }
             else {
-                $subject .= 'του';
+                $message .= 'του';
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
 http://" . $user->Subdomain . ".zino.gr/
