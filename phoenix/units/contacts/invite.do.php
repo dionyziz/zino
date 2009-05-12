@@ -2,7 +2,7 @@
     function UnitContactsInvite( tText $mails ) {
         global $libs;
         global $user;
-        global $settings;
+        global $rabbit_settings;
         $libs->Load( 'contacts/contacts' );
         
         $mails = $mails->Get();
