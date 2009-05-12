@@ -11,8 +11,8 @@
             EmailFriend( $emails );
         }
         ?>
-        window.location = <?php
+        window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
-        ?>;<?php
+        ?>';<?php
     }
 ?>
