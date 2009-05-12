@@ -2,11 +2,13 @@
     function UnitContactsRetrieve( tText $provider , tText $username, tText $password ) {
         global $libs;
         global $user;
+        $libs->Load( 'relation/relation' );
+        $libs->Load( 'contacts/contacts' );
+        
         $provider = $provider->Get();
         $username = $username->Get();
         $password = $password->Get();
         
-        $libs->Load( 'contacts/contacts' );
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) ){
             ?>
@@ -38,6 +40,10 @@
         foreach( $ret as $mail => $nickname ){
             if ( $members[ $mail ] != "" ){
                 $theuser = new User( $members[ $mail ] );
+                $finder = New FriendRelationFinder();
+                if ( $finder->IsFriend( $theuser, $user ) ){
+                    continue;
+                }
                 ?>contacts.addContactInZino( '<?php
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
