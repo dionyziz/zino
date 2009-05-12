@@ -12,7 +12,7 @@
         }
         ?>
         window.location = <?php
-        echo $settings[ 'webaddress' ];
+        echo $rabbit_settings[ 'webaddress' ];
         ?>;<?php
     }
 ?>
