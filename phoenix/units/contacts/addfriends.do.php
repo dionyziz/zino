@@ -2,7 +2,6 @@
     function UnitContactsAddfriends( tText $ids ) {
         global $libs;
         global $user;
-        global $settings;
         $libs->Load( 'relation/relation' );
         
         $ids = $ids->Get();
