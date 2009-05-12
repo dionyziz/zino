@@ -118,9 +118,9 @@ var contacts = {
             ids.push( $( this ).attr( "id" ) );
         });
         idsString = ids.join( " " );
-        if ( !confirm( "The following users will be added as friends\n" + idsString ) ){
+        /*if ( !confirm( "The following users will be added as friends\n" + idsString ) ){
             return 0;
-        }
+        }*/
         Coala.Warm( "contacts/addfriends", {
             "ids": idsString
         });
