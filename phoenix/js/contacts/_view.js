@@ -131,9 +131,9 @@ var contacts = {
             mails.push( $( this ).html() );
         });
         mailsString = mails.join( " " );
-        if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
+        /*if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
             return 0;
-        }
+        }*/
         Coala.Warm( "contacts/invite", {
             "mails": mailsString
         });
