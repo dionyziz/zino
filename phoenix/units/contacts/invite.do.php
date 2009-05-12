@@ -6,7 +6,7 @@
         
         $mails = $mails->Get();
         $emails = explode( " ", $mails );
-        if ( strpos( "@", $mails ) ){
+        if ( strpos( $mails, "@"  ) ){
             EmailFriend( $emails );
         }
         ?>
