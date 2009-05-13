@@ -99,13 +99,30 @@
 	display: block;
 	margin: auto;
 	border: 0;
-	background: transparent url('http://static.zino.gr/phoenix/contacts/search.png') no-repeat;
+	background: transparent url('http://static.zino.gr/phoenix/buttons.png') no-repeat;
 	cursor: pointer;
 }
 .invite_contacts #body #foot input:active{
+	background-position: -120px 0;
+}
+.invite_contacts #body #foot input.add{
 	background-position: 0 -40px;
 }
-
+.invite_contacts #body #foot input.add:active{
+	background-position: -120px -40px;
+}
+.invite_contacts #body #foot input.invite{
+	background-position: 0 -80px;
+}
+.invite_contacts #body #foot input.invite:active{
+	background-position: -120px -80px;
+}
+.invite_contacts #body #foot input.finish{
+	background-position: 0 -120px;
+}
+.invite_contacts #body #foot input.finish:active{
+	background-position: -120px -120px;
+}
 .invite_contacts #body #login {
 	padding-top: 40px;
 }
