@@ -13,7 +13,10 @@ var Banner = {
 		}
 
         $( '#bannerPasswd' ).keydown( function( event ) {
-            alert( event.keyCode );
+            switch( event.keyCode ) {
+				case 13:
+					$('#loginSubmit').submit();
+			}
          });
             
 		Banner.isanimating = true;
