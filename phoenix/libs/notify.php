@@ -240,6 +240,8 @@
                 return 'phototag';
             case EVENT_FAVOURITE_CREATED:
                 return 'favourite';
+            case EVENT_USER_BIRTHDAY:
+                return 'birthday';
         }
         
         return false;
