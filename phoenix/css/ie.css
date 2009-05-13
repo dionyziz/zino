@@ -26,6 +26,14 @@ div.header ul li a.settings span {
 div.header a.logout span {
 	background-position: -203px -1629px;
 }
+div#shoutbox div.newcomment div.text input {
+    border: 0;
+    width: 100%;
+    height: 46px;
+}
+div#shoutbox div.newcomment div.who a span img {
+    position: absolute;
+}
 /*div.header h1 {
 	background: url('http://static.zino.gr/phoenix/banner-begin2.jpg') no-repeat;
 }
