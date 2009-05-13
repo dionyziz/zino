@@ -431,6 +431,7 @@
                     }
                     return $this->mText;
                 default:
+		    echo "$key\n";
                     return parent::__get( $key );
             }
         }
