@@ -15,8 +15,7 @@ var Banner = {
         $( '#bannerPasswd' ).keydown( function( event ) {
             switch( event.keyCode ) {
 				case 13:
-					$('#loginSubmit').submit();
-					alert("Logging in...");
+					$('#loginForm')[ 0 ].submit();
 					break;
 			}
          });

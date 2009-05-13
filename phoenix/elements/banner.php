@@ -13,14 +13,14 @@
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
             <?php   
                 if ( !$user->Exists() ) {
-                    ?><form action="do/user/login" method="post">
+                    ?><form action="do/user/login" id="loginForm" method="post">
                         <ul>
                         <li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>
                         <li>·</li>
                         <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
                         <li style="display:none">·</li>
                         <li style="display:none">Όνομα: <input type="text" name="username" /> Κωδικός: <input id="bannerPasswd" type="password" name="password" /></li>
-                        <li style="display:none"><input id="loginSubmit" type="submit" value="Είσοδος" class="button" /></li>
+                        <li style="display:none"><input type="submit" value="Είσοδος" class="button" /></li>
                         </ul>
                     </form><?php
                 }
