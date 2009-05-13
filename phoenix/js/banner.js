@@ -11,7 +11,8 @@ var Banner = {
 		if ( Banner.isanimating ) {
 			return;
 		}
-        $( 'div#banner ul input' )[ 1 ].keydown( function( event ) {
+
+        $( '#bannerPasswd' ).keydown( function( event ) {
             alert( event.keyCode );
          });
             
