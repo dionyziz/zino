@@ -183,10 +183,6 @@ var contacts = {
             });
             contacts.calcCheckboxes( contacts.step );
 		});
-        $( ".contacts input" ).click( function(){
-            contacts.calcCheckboxes( contacts.step );
-        });
-        
 	}
 };
 $( function(){

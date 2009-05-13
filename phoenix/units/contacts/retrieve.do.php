@@ -82,6 +82,9 @@
                 ?> επαφές σου δεν έχουν Zino ακόμα! Προσκάλεσέ τους τώρα!<?
             }
         ?>" );
+        $( ".contacts input" ).click( function(){
+            contacts.calcCheckboxes( contacts.step );
+        });
         setTimeout( function(){
                 contacts.previwContacts<?php
                 if ( !$contactsInZino ){
