@@ -1,0 +1,4508 @@
+div.buyad h2 {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 170%;
+    color: #105090;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+div.buyad h2.smaller {
+    font-size: 150%;
+}
+div.buyad h3 {
+    text-align: center;
+}
+div.buyad p {
+    text-align: center;
+    color: #666;
+}
+div.buyad ol li {
+    list-style: none;
+    padding: 5px;
+}
+div.buyad div.beautiful {
+    width: 100%;
+}
+div.buyad div.beautiful img {
+    border: 1px solid #999;
+    padding: 1px;
+    margin: auto;
+    display: block;
+    width: 140px;
+    height: 150px;
+}
+div.buyad ol li ul li {
+    list-style: square outside;
+    color: #345;
+}
+div.buyad ol li ul {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+div.buyad ol li h3 {
+    color: #333;
+}
+div.buyad ol li.l1 {
+    float: left;
+    width: 33%;
+}
+div.buyad ol li.l3 {
+    float: right;
+    width: 33%;
+}
+div.buyad ol li.l2 {
+    border: 1px solid transparent;
+    margin-left: 34%;
+    margin-right: 34%;
+}
+div.buyad ol.footnotes li {
+    font-size: 90%;
+}
+div.buyad ol li.creativecommons {
+    font-size: 80%;
+    color: #666;
+}
+div.buyad a.start, div.buyad input.submit {
+    margin: 20px auto 10px auto;
+    display: block;
+    width: 200px;
+    font-size: 110%;
+    color: white;
+    background-color: #70c0ff;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #68c;
+    outline-color: red;
+    background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
+    background-repeat: repeat-x;
+    cursor: pointer;
+}
+div.buyad div.create {
+    background-color: #f6f6f4;
+    border: 1px solid #ccc;
+    width: 800px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
+div.buyad div.create div.left {
+    width: 500px;
+    float: left;
+}
+div.buyad div.create div.right {
+    padding-left: 510px;
+}
+div.buyad div.create div.right p {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad div.status div.right h3 {
+	width: 585px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+div.buyad div.status div.left {
+    width: 100px;
+    float: left;
+}
+div.buyad div.status div.right {
+    padding-left: 110px;
+}
+div.buyad div.status div.left img {
+    padding: 10px;
+}
+div.buyad input, div.buyad textarea {
+    border: 1px solid #b0b5c5;
+    width: 100%;
+}
+div.buyad label span {
+    font-weight: normal
+}
+div.buyad label {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    display: block;
+    font-size: 90%;
+    font-weight: bold;
+    color: #345;
+    padding: 15px 5px 3px 0;
+}
+div.buyad div.create h3 {
+    margin: 10px;
+    padding: 10px;
+    font-size: 120%;
+}
+div.buyad div.create div.url input {
+    width: 300px;
+}
+div.buyad div.create h3.preview {
+    margin-bottom: 0;
+}
+
+div.ads {
+    font-size: 90%;
+    background-color: white;
+    border-bottom: 1px solid transparent;
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 10px;
+    border-top: 1px solid #ccc;
+}
+div.ad {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 20px auto 0 0;
+	overflow: hidden;
+}
+div.buyad div.ads {
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+}
+div.buyad div.ads div.ad {
+    margin: auto;
+}
+div.ads div.ad h3 {
+    width: 200px;
+    text-align: left;
+    margin: 5px auto 5px 0;
+    font-weight: bold;
+}
+div.ads div.ad h3 a {
+    color: #357;
+    font-size: 90%;
+}
+div.ads div.ad h4 {
+    margin: 5px 0 5px 0;
+}
+div.ads div.ad h4 a {
+    color: #357;
+}
+div.ads div.ad img {
+    display: block;
+    margin: auto;
+}
+div.ads div.ad p a {
+    color: black;
+}
+
+div.buyad table {
+    background-color: #f7f7f7;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #789;
+    margin: 0 0 50px 0;
+}
+div.buyad table thead {
+    background-image: url( 'file:///C:/blue.jpg' );
+    background-repeat: repeat-x;
+    background-color: #567;
+    color: white;
+}
+div.buyad table thead tr th {
+    border-right: 1px solid transparent;
+}
+div.buyad table td, div.buyad table thead tr th {
+    padding: 5px;
+    text-align: left;
+}
+div.buyad table td {
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #ccc;
+}
+div.buyad table td.last {
+    border-right-style: none;
+}
+div.buyad table div.ads {
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table div.ad {
+    border-color: transparent;
+    background-color: white;
+    text-align: left;
+}
+div.buyad table div.ad p {
+    text-align: left;
+}
+div.buyad table tr.create {
+    background-color: white;
+}
+div.buyad table tr.create div {
+    margin: auto;
+    width: 300px;
+    display: block;
+    text-align: center;
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table tr.create div a {
+    padding: 5px 5px 5px 25px;
+    font-size: 110%;
+    font-weight: bold;
+    background: url( 'http://static.zino.gr/phoenix/add.png' ) 0 5px no-repeat;
+}
+div.buyad table a.edit {
+    display: block;
+    font-weight: bold;
+    margin: auto;
+    width: 100px;
+    text-align: center;
+}
+div.buyad table a.renew {
+    font-weight: bold;
+}
+div.buyad table td.soon {
+    font-weight: bold;
+}
+div.buyad table td.soon a {
+    color: red;
+}
+div.buyad h2.ad {
+    font-size: 150%;
+    margin: 20px;
+}
+div.buyad a.manageads {
+    margin: auto;
+    display: block;
+    text-align: center; 
+    width: 210px;
+    padding: 5px;
+    font-size: 90%;
+}
+div.buyad div.create div.buttons {
+    width: 500px;
+    margin: auto;
+}
+div.buyad div.create div.buttons a.left, div.buyad div.create div.buttons input.left {
+    float: left;
+}
+div.buyad div.create div.buttons a.right, div.buyad div.create div.buttons input.right {
+    float: right;
+}
+div.buyad a.skip {
+    width: 250px;
+    display: block;
+    padding-top: 5px;
+    margin: auto;
+    text-align: center;
+    font-size: 90%;
+}
+div.buyad ul.distinguished li {
+    padding-top: 5px;
+    height: 60px;
+}
+div.buyad ul li.small {
+    height: 35px;
+}
+div.buyad ul.credit li {
+    display: inline;
+}
+div.buyad ul.credit li img {
+    padding: 5px 5px 0 5px;
+}
+div.buyad table tbody tr td input.radio, div.buyad ul li input.radio {
+    width: 20px;
+    float: left;
+}
+div.buyad table tr td label, div.buyad ul li label {
+    padding: 1px 0 0 0;
+    margin: 0 0 0 20px;
+}
+div.buyad p.more {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad table.adpackages {
+    margin: 10px 0 10px 0;
+}
+div.buyad form.paypal {
+    text-align: center;
+}
+div.buyad p.confirm {
+    font-size: 80%;
+}
+div.buyad label.disabled {
+    color: #999;
+}
+div.buyad span.vital {
+    display:block;
+    font-size:110%;
+    font-weight:bold;
+    margin:10px 0 10px 40px;
+}
+table.stats {
+    margin: 0 0 5px 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+table.stats tr th {
+    text-align: left;
+    background-color: #e5e5e5;
+    padding: 3px;
+}
+table.stats tr td {
+    padding: 3px;
+}
+table.stats tr th.numeric, table.stats tr td.numeric {
+    text-align: right;
+}
+table.stats tr {
+    border-bottom: 1px solid #aaa;
+}
+table.stats tr.l {
+    background-color: #f9f9f9;
+}
+table.stats tr.deleted {
+    background-color: #ffe9e9;
+}
+table.stats tr.edited {
+    background-color: #e9e9ff;
+}
+
+ul.albums {
+    margin: 0 20px 0 200px;
+}
+ul.albums li {
+    float: left;
+    width: 180px;
+    padding: 10px;
+    margin: 0 15px;
+	height: 220px;
+}
+ul.albums li a {
+    font-weight: bold;
+}
+/*ul.albums li a span {*/
+span.desc {
+    display: block;
+    width: 176px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+}
+/*
+ul.albums li a div {*/
+span.albummain {
+    background: url( 'images/album.png' ) no-repeat top left;
+    width: 185px;
+    height: 185px;
+    line-height: 175px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+span.albummain a img {
+    margin: 0 10px 4px 0;
+    vertical-align: middle;
+    border: 2px solid #7ea3c2;
+}
+ul.albums li.create {
+	padding: 85px 0 0 0;
+	text-align: center;
+	height: 160px;
+	margin-bottom: 0;
+}
+ul.albums li.create a {
+	font-weight: bold;
+}
+ul.albums li.create a img {
+	vertical-align: -10px;
+	margin: 0 5px 0 0;
+}
+ul.albums li a:hover span img {
+    border: 2px solid white;
+    cursor: pointer;
+}
+ul.albums li dl {
+    display: block;
+    margin: auto;
+    width: 100px;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: visible;
+    text-align: center;
+}
+ul.albums li dl dt {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+}
+ul.albums li dl dd {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    font-size: 80%;
+}
+div.creationmakeup , div.creating {
+	display: none;
+}
+div.createalbum span.desc {
+	display: block;
+}
+div.pagifyalbums {
+	text-align: center;
+	margin-bottom: 20px;
+}div#photolist {
+	margin-bottom: 20px;
+}
+div#photolist h2 {
+	margin: -7px 0 0 0;
+	padding: 0;
+}
+div#photolist div.owner {
+	margin: 4px 0;
+}
+div#photolist div.owner div.edit {
+	display: inline;
+}
+div#photolist div.owner div.delete {
+	margin: 0 0 0 5px;
+	display: inline;
+}
+div#photolist dl dt.photonum {
+	display: inline;
+	font-size: 90%;
+}
+div#photolist dl dt.commentsnum {
+	margin: 0 5px 2px 3px;
+	font-size: 85%;
+	display: inline;
+}
+div#photolist ul {
+	padding: 10px 0 0 0;
+	width: 100%;
+	clear: both;
+}
+div#photolist ul li {
+	padding: 5px 10px;
+	float: left;
+	width: 210px;
+	height: 270px;
+	text-align: center;
+}
+div#photolist  div.uploaddiv {
+	padding-top: 15px;
+	border: 1px dotted #ccc;
+	height: 60px;
+	width: 300px;
+	position: absolute;
+	top: 175px;
+	right: 30px;
+	margin-top: -40px;
+    overflow: hidden;
+}
+div#photolist div.uploaddiv object.uploadframe {
+	height: 60px;
+}
+div#photolist div.uploaddiv iframe.uploadframe { /* IE */
+    height: 60px;
+    position: relative;
+    left: -5px;
+}
+div#photolist div.rename, div#photolist div.delete{
+	margin: 5px 0;	
+}
+div#photolist div.rename a, div#photolist div.delete a {
+	font-size: 95%;
+}
+div#photolist div.pagifyimages {
+	text-align: center;
+}div.photo {
+	font-size: 100%;
+	font-weight: normal;
+	text-align: center;
+	display: inline;
+}
+div.photo div {
+	padding: 3px 0 0 0;
+	margin: 0;
+}div.thephoto div {
+    display: none;
+}
+div.thephoto div.frienders {
+    position: absolute;
+    left: 170px;
+    top: 0px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    width: 250px;
+    margin-left: 20px;
+    opacity: 0.95;
+}
+div.thephoto div.frienders div.closer {
+    text-align: center;
+    margin-bottom: 15px;
+}
+div.thephoto div.frienders div {
+    display: block;
+    margin-top: 10px;
+}
+div.thephoto div.frienders form {
+    margin-top: 5px;
+}
+div.thephoto div.frienders form input {
+    width: 130px;
+    color: #777777;
+}
+div.thephoto div.tagme {
+    width: 170px;
+    height: 170px;
+    /* If you change border width, change js/album/photo/tag.js */
+    border: 3px dotted #FFFFBB;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+div.thephoto div.tagme div.resizer {
+	background-image: url( 'http://static.zino.gr/images/resize.png' );
+	display: inline;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+/*
+div.thephoto div.tagme div.resizer {
+	width: 0px;
+	height: 0px;
+	border-top-width: 20px;
+	border-top-style: solid;
+	border-top-color: transparent;
+	border-right-width: 20px;
+	border-right-style: solid;
+	border-right-color: #f00;
+	position: absolute;
+	right: 0px;
+	bottom: 0px
+}*/
+div.thephoto div.tagme div:hover {
+	cursor: nw-resize;
+}
+div.thephoto div.frienders ul {
+    list-style-type: none;
+    margin-right: 20px;
+    text-align: left;
+    overflow: auto;
+    max-height: 270px;
+}
+div.thephoto div.frienders ul li div {
+    display: inline;
+    color: #105CB6;
+}
+div.thephoto div.frienders ul li div:hover {
+    text-decoration: underline;
+}
+div.thephoto div.frienders ul li div span {
+    font-weight: bold;
+}
+div.image_tags {
+    margin-top: 10px;
+    text-align: center;
+}
+div.image_tags:first-letter {
+    text-transform: capitalize;
+}
+div.image_tags div {
+    display: inline;
+}
+div.image_tags div a.tag_del {
+    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
+    width: 15px;
+    height: 20px;
+    padding-left: 15px;
+    margin-left: 5px;
+}
+div.thephoto div.tanga {
+    display: block;
+}
+div.thephoto div.tanga div.tag {
+    position: absolute;
+    display: block;
+    border: 0 solid #FFFFBB;
+    width: 170px;
+    height: 170px;
+    text-align: center;
+    cursor: pointer;
+}
+div.thephoto div.tanga div.tag div {
+    position: absolute;
+    background-color: #FFFFBB;
+    color: #3366FF;
+    border: 1px solid black;
+    display: none;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+}
+form#uploadform div.colorlink{
+	font-weight: bold;
+	font-size: 110%;
+}
+div#uploadingwait {
+	display: none;
+	font-size: 110%;
+	padding-top: 10px;
+}div#pview h2 {
+	margin: 0 2px 0 0;
+	padding: 0;
+	display: inline;
+}
+div#pview dl {
+	margin: 2px 0 0 0;
+}
+div#pview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}
+div#pview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+div#pview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+div#pview ul.edit {
+	margin: 25px 0 0 0;
+}
+div#pview ul.edit li {
+	display: inline;
+	margin: 0 0 0 2px;
+}
+div#pview ul.edit li:first {
+	margin: 0;
+}
+/* all this trouble to make it resizable :-) */
+div#pview div.pthumbs {
+    height: 110px;
+	margin: 50px 0 20px 0;
+    text-align: center;
+    width: 96%;
+}
+div#pview div.pthumbs div.arrow {
+    height: 150px;
+    line-height: 150px;
+    width: 50px;
+}
+div#pview div.pthumbs div.arrow a img {
+	border: none;
+	margin-bottom: 30px;
+    vertical-align: middle;
+}
+div#pview div.pthumbs div.arrow a {
+    vertical-align: middle;
+}
+div#pview div.pthumbs div.left {
+    float: left;
+}
+div#pview div.pthumbs div.right {
+    float: right;
+}
+div#pview div.pthumbs ul {
+	height: 110px;
+	text-align: center;
+}
+div#pview div.pthumbs ul li {
+    margin: 25px 2px 0 2px;
+	display: inline;
+}
+div#pview div.pthumbs ul li.selected img {
+	border: 4px solid #82a4b6;
+	padding: 1px;
+}
+div#pview div.pthumbs ul li a img {
+	border: 1px solid #ccc;
+	padding: 1px;	
+}
+div#pview div.thephoto {
+	text-align:center;
+	padding-top: 0;
+	position: relative;
+	margin: auto;
+}
+div#pview div.banner {
+	margin: 20px auto;
+}
+div#pview div.comments {
+	margin: 20px 0 0 0;
+}
+div#pview div.comments div.pagifycomments {
+	text-align: center;
+}
+div.latestphotos {
+    margin: 0 4px 20px 4px;
+}
+div.latestphotos ul {
+    padding: 17px 0 14px 0;
+}
+div.latestphotos ul li {
+    float: left;
+    margin: 8px;
+    height: 110px;
+    text-align: center;
+}
+div.latestphotos ul li img {
+    border: 1px solid #cce;
+}
+div.album a {
+    font-weight: bold;
+}
+div.album a span.desc {
+    display: block;
+    width: 176px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+	overflow: hidden;
+}
+div.album a span.albummain {
+    background: url( 'http://static.zino.gr/phoenix/album.png' ) no-repeat top left;
+    width: 185px;
+    height: 185px;
+    line-height: 175px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+div.album a span.albummain img {
+    margin: 0 10px 4px 0;
+    vertical-align: middle;
+    border: 2px solid #7ea3c2;
+}
+div.album a:hover span img {
+    border: 2px solid white;
+}
+div.album dl {
+    display: block;
+    margin: auto;
+    width: 100px;
+    padding: 5px 0 0 0;
+    white-space: nowrap;
+    overflow: visible;
+    text-align: center;
+}
+div.album dl dt {
+    display: inline;
+    padding: 0  0 0 5px;
+}
+div.album dl dd {
+    display: inline;
+    padding: 0 5px 0 0;
+    font-size: 85%;
+	vertical-align: 3px;
+}
+div.header {
+	position: relative;
+	background: url('http://static.zino.gr/phoenix/bannerfade.png') repeat-x;
+	height: 51px;
+	margin: 0 30px;
+}
+div.header a.novisual {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    display: block;
+}
+div.header a {
+	font-weight: bold;
+	color: #fff;
+}
+div.header a:hover {
+	color: #fff;
+}
+div.header h1 {
+	display: inline;
+	color: #fff;
+	font: 180% normal;
+	margin: 0;
+	padding: 0;
+    height: 51px;
+    width: 90px;
+	top: 0;
+    _top: 3px;
+	left: 0;
+	position: absolute;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1645px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');*/
+}
+div.header div.eof {
+	display: inline;
+    clear: none;
+	margin: 0;
+	padding: 0;
+	top: 0;
+    _top: 3px;
+	right: 0;
+    width: 71px;
+    height: 51px;
+	position: absolute;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1877px;
+	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');*/
+}
+div.header h1 a {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -735px -1674px;
+	display: block;
+	height: 48px; 
+	width: 92px;
+}
+div.header h1 a:hover {
+	text-decoration: none;
+} 
+div.header ul {
+	display: block;
+	padding: 10px;
+	margin: 2px 0 0 0;
+	height: 50px;
+	text-align: center;
+}
+div.header ul li {
+	padding: 1px;
+	display: inline;
+	color: #fff;
+}
+div.header ul li a.unread {
+    color: #ff0044;
+}
+div.header ul li a {
+	padding-left: 0;
+}
+div.header ul li a.messages span {
+	padding: 0 0 8px 11px;
+	margin-right: 4px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -980px;
+}
+div.header ul li a.settings span {
+	padding: 0 0 8px 15px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -50px;
+}
+div.header ul li a.login {
+	padding-left: 17px;
+	margin-right: 1px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -644px;
+	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
+}
+div.header ul li a.profile img {
+    vertical-align: bottom;
+    margin-right: 6px;
+    border: 1px solid #eee;
+}
+div.header ul li a.register {
+	padding-left: 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1379px;	
+}
+div.header ul li a.self {
+	padding-left: 30px;
+}
+div.header ul li input {
+	border: 1px solid #999;
+}
+div.header ul li input.button {
+    background-color: #f0f0f0;
+}
+div.header a.logout {
+    z-index: 100;
+	position: absolute;
+	right: 8px;
+	top: 6px;
+}
+div.header a.logout span {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1633px;
+	padding: 3px 10px 0 0;
+	margin: 0 0 0 5px;
+	vertical-align: -4px;
+}
+div.header a.nohover:hover {
+	text-decoration: none;
+}
+div.header a:hover {
+	text-decoration: underline;
+}
+div.header a img {
+	vertical-align: text-top;
+}
+div.header a.search {
+    position: absolute;
+    top: 27px;
+    right: 10px;
+    z-index: 10;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1827px;
+	display: block;
+	width: 38px;
+	height: 38px;
+}
+div.header a.search:hover {
+	text-decoration: none;
+}
+div.bubble {
+    position: relative;
+    background: #f6f6f6 url( 'http://static.zino.gr/phoenix/q_top.jpg' ) repeat-x top;
+    padding: 10px;
+}
+i.tl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.tr {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.bl {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.br {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+div.bubble i.tl {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1117px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );*/
+}
+div.bubble i.tr {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -507px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );*/
+}
+div.bubble i.bl {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1169px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );*/
+}
+div.bubble i.br {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1090px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );*/
+}
+div.bubble i.qleft {
+    background: url( 'http://static.zino.gr/phoenix/q_left.jpg' ) repeat-y left;
+    width: 10px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    bottom: 10px;
+}
+div.bubble i.qright {
+    background: url( 'http://static.zino.gr/phoenix/q_right.jpg' ) repeat-y left;
+    width: 10px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    bottom: 10px;
+}
+div.bubble i.qbottom {
+    background: url( 'http://static.zino.gr/phoenix/q_bottom.jpg' ) repeat-x bottom;
+    display: block;
+    position: absolute;
+    height: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+}
+div.ybubble {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 40px auto;
+}
+div.ybubble div.body {
+	background: #ffda74; 
+	height: 100%;
+}
+div.ybubble i {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat;
+}
+div.ybubble i.tl {
+	background-position: -739px -1430px;
+}
+div.ybubble i.tr {
+	background-position: -203px -847px;
+}
+div.ybubble i.bl {
+	background-position: -739px -1109px;
+	left: 0;
+}
+div.ybubble i.br {
+	background-position: -203px -198px;
+	right: 0;
+}
+div.ybubble form {
+    text-align: center;
+}
+div.ybubble form div.search {
+    width: 50%;
+    float: left;
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+div.ybubble form div.search h3 {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+    font-size: 100%;
+}
+div.bbbl {
+	background: url( 'http://static.zino.gr/phoenix/aplbubble_repeat.png' ) repeat-x;
+	height: 19px;
+	margin-right: 10px;
+}
+div.bbbl span.bbblleft {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -299px;
+	padding: 0 0 3px 10px;
+}
+div.bbbl span.bbblright {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -735px -1229px;
+	padding: 0 0 3px 19px;
+}
+div.bbbl span.bbblmiddle {
+	margin: 0 0 0 -7px;
+	vertical-align: -1px;
+}
+div.bbbl a.s_delete {
+	background-position: 1px -511px;
+	position: absolute;
+}div.comment {
+	margin: 7px 0 5px 3px;
+	padding: 0 3px 3px 0px;
+	border-top: 1px solid #ccc;
+	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
+	position: relative;
+    clear: both;
+}
+div.comment div.who img {
+	float: left;
+	margin-right: 5px;
+	border: 1px solid black;
+}
+div.comment div.who {
+	border: 0px solid #ccc;
+	margin: 2px 0 2px 4px;
+	color: #666;
+}
+div.comment div.toolbox {
+	float: right; 
+	padding: 2px 6px 2px 2px;
+}
+div.comment div.toolbox span.time {
+	color: #999;
+	font-size: 80%;
+}
+div.comment div.toolbox img {
+	vertical-align: text-bottom;
+}
+div.comment div.toolbox a {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 1 -512px;
+	padding: 0 0 2px 12px;
+	margin-left: 5px;
+	/* A little hack for IE7 */
+	color: #f4f4f4;
+}
+div.comment div.bottom {
+	clear: both;
+	font-size: 80%;
+	color: #999;
+	margin: 4px 4px 4px 60px;
+}
+div.comment div.text {
+	top: 5px;
+	left: 20px;
+	right: 5px;
+	overflow: hidden;
+}
+div.newcomment {
+	margin: 6px 0 6px 3px;
+	padding: 0; /* a fix for the newcomment box */
+}
+div.newcomment div.who {
+	height: 50px;
+	width:50px;
+	/*padding-left: 4px;  made 4px from 2px */
+}
+div.newcomment div.who a {
+	margin-right: 5px;
+}
+div.newcomment div.toolbox span.time {
+	margin-right: 2px;
+}
+div.newcomment, div.comments div.newcomment div.who {
+	background: #e7f3d9;
+}
+div.newcomment div.text {
+	height: 55px;
+	position: absolute;
+	border: 1px solid #999;
+	top: 5px;
+	left: 60px;
+	right: 5px;
+}
+div.newcomment div.text textarea {
+	color: black;
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	border: 0;
+	padding:0;
+	margin:0;
+}
+div.newcomment div.bottom  form{
+	margin:15px 0 5px;
+	padding:0;
+}
+div.newcomment div.bottom input {
+	margin-bottom: 5px;
+	font-size: 90%;
+}
+html, body {
+    height: 100%;
+    background-color: white;
+}
+body {
+	font-size: 83%;
+    font-family: helvetica, arial, sans-serif;
+	margin: 0;
+}
+ul {
+	list-style: none;
+}
+ul , li {
+	margin: 0;
+	padding: 0;
+}
+dl, dd {
+	padding: 0;
+	margin: 0;
+}
+div.content {
+	padding: 0 30px;
+}
+div.eof {
+	clear: both;
+}
+.invisible {
+	display: none;
+}
+div.barfade {
+	background: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
+	height: 1px;
+}
+div.barfade div.leftbar {
+	float: left;
+	background: url('http://static.zino.gr/phoenix/icons2.png') no-repeat -739px -1556px;
+	height: 1px;
+	width: 153px;
+}
+div.barfade div.rightbar {
+	float: right;
+	background: url('http://static.zino.gr/phoenix/icons2.png') no-repeat 0 -182px;
+	height: 1px;
+	width: 153px;
+}
+.colorlink {
+	color: #105cb6;
+}
+.plist {
+	overflow: hidden;
+	position: relative;
+}
+/* modal overlays stylings */
+div.mdloverlay1 {
+	background: #000;
+}
+h3.modaltitle {
+    height: 20px;
+    background: #7b9db1;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #284659;
+    color: #fff;
+}
+div.thisisatest {
+    color: #abc;
+}
+div#fav {
+	margin: 0 auto 20px auto;
+	text-align: center;
+	padding-top: 20px;
+}
+div#fav h2 {
+	margin: 0;
+	padding: 0;
+}
+/*
+div#fav div {
+	text-align: left;
+}*/
+div#fav div.list {
+	width: 40%;
+	margin: 0 auto;
+}
+div#fav div.list ul.favcategories {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: right;
+}
+div#fav div.list ul.favcategories li {
+	margin: 0 0 0 5px;
+	padding: 5px 0 0 0;
+	float: right;
+	height: 21px;
+	width: 35px;
+	text-align: center;
+	border: 1px solid #d7d7d7;
+	border-bottom: none;
+	font-size: 105%;
+	cursor: pointer;
+}
+div#fav div.list ul.favcategories li a {
+	display: block;
+	margin: 0 0 0 9px;
+}
+div#fav div.list ul.favcategories li.selected {
+	background: #e5f0ff;
+}
+div#fav ul.events {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+    text-align: left;
+    position: relative;
+    top: -1px;
+}
+div#fav ul.events li.last {
+	border-bottom: 1px solid #d7d7d7;
+}
+div#fav ul.events li {
+	padding: 5px 0 5px 5px;
+	margin: 0;
+	border: 1px solid #d7d7d7;
+	border-bottom: none;
+}
+div#fav ul.events li div {
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+div#fav ul.events li.photo img {
+	padding: 3px 3px 3px 0px;
+}
+
+div#fav div.pagify {
+	margin: 20px 0 0 0;
+	text-align: center;
+}span[class^="emoticon"] {
+	color: transparent;
+	vertical-align: 7px;
+	background-image: url( 'http://static.zino.gr/phoenix/emoticons/emoticons.png' );
+	background-repeat: no-repeat;
+	padding: 0 5px 18px 18px;
+}
+.emoticon-teeth {
+    background-position:  0 -30px;
+}
+.emoticon-sun {
+    background-position: 0 -82px;      
+}
+.emoticon-airplane {
+    background-position: 0 -134px;
+}
+.emoticon-sad {
+    background-position: 0 -186px;
+}
+.emoticon-star {
+    background-position: 0 -238px;
+}
+.emoticon-soccer {
+    background-position: 0 -290px;
+}
+.emoticon-umbrella {
+    background-position: 0 -342px;   
+}
+.emoticon-storm {
+    background-position: 0 -394px;   
+}
+.emoticon-empty {
+    background-position: 0 -446px;
+}
+.emoticon-boy {
+    background-position: 0 -498px; 
+}
+.emoticon-beer {
+    background-position: 0 -550px;
+}
+.emoticon-shade {
+    background-position: 0 -602px; 
+}
+.emoticon-email {
+    background-position: 0 -654px;
+}
+.emoticon-car {
+    background-position: 0 -706px;  
+}
+.emoticon-phone {
+    background-position: 0 -758px;  
+}
+.emoticon-uptight {
+    background-position: 0 -810px;
+}
+.emoticon-lol {
+    background-position: 0 -862px;
+}
+.emoticon-ugly {
+    background-position: 0 -914px;
+}
+.emoticon-smile {
+    background-position: 0 -966px;
+}
+.emoticon-computer {
+    background-position: 0 -1018px;
+}
+.emoticon-cry {
+    background-position: 0 -1070px; 
+}
+.emoticon-lightning {
+    background-position: 0 -1122px; 
+}
+.emoticon-confused {
+    background-position: 0 -1174px;
+}
+.emoticon-dog {
+    background-position: 0 -1226px;
+}
+.emoticon-devil {
+    background-position: 0 -1278px;
+}
+.emoticon-cup {
+    background-position: 0 -1330px;    
+	padding: 0 0 7px 18px;
+}
+.emoticon-smile {
+    background-position: 0 -1382px;
+}
+.emoticon-embarassed {
+    background-position: 0 -1434px;  
+}
+.emoticon-present {
+    background-position: 0 -1486px; 
+}
+.emoticon-innocent {
+    background-position: 0 -1538px; 
+}
+.emoticon-unlove {
+    background-position: 0 -1590px;    
+}
+.emoticon-note {
+    background-position: 0 -1642px;
+    padding: 0 5px 19px 18px;   
+}
+.emoticon-thumbs-down {
+    background-position: 0 -1694px;    
+}
+.emoticon-indifferent {
+    background-position: 0 -1746px;    
+}
+.emoticon-cigarette {
+    background-position: 0 -1798px; 
+}
+.emoticon-snail {
+    background-position: 0 -1850px;  
+}
+.emoticon-ip {
+    background-position: 0 -1902px;    
+}
+.emoticon-camera {
+    background-position: 0 -1954px;  
+}
+.emoticon-mobile-phone {
+    background-position: -52px -30px;  
+}
+.emoticon-wilted-rose {
+    background-position: -52px -82px; 
+}
+.emoticon-cake {
+    background-position: -52px -134px; 
+}
+.emoticon-teeth {
+    background-position: -52px -186px; 
+}
+.emoticon-kiss {
+    background-position: -52px -238px; 
+}
+.emoticon-thinking {
+    background-position: -52px -290px;
+}
+.emoticon-cat {
+    background-position: -52px -342px;    
+}
+.emoticon-bat {
+    background-position: -52px -394px; 
+    padding: 0 5px 18px 27px;   
+}
+.emoticon-angry {
+    background-position: -52px -446px;  
+}
+.emoticon-confused {
+    background-position: -52px -498px; 
+}
+.emoticon-omg {
+    background-position: -52px -550px; 
+}
+.emoticon-love {
+    background-position: -52px -602px; 
+}
+.emoticon-thumbs-up {
+    background-position: -52px -654px;    
+}
+.emoticon-clock {
+    background-position: -52px -706px; 
+    padding: 0 5px 19px 18px;   
+}
+.emoticon-wink {
+    background-position: -52px -758px;  
+}
+.emoticon-cocktail {
+    background-position: -52px -810px;   
+}
+.emoticon-turtle {
+    background-position: -52px -862px;  
+}
+.emoticon-film {
+    background-position: -52px -914px; 
+    padding: 0 5px 19px 18px;    
+}
+.emoticon-tongue {
+    background-position: -52px -966px; 
+    padding: 0 5px 19px 18px;   
+}
+.emoticon-lightbulb {
+    background-position: -52px -1018px; 
+}
+.emoticon-sheep {
+    background-position: -52px -1070px;
+}
+.emoticon-girl {
+    background-position: -52px -1122px;
+}
+.emoticon-foot-in-mouth {
+    background-position: -52px -1174px; 
+}
+div.footer {
+	width: 100%;
+	padding: 15px 0 20px 0;
+	background: #fff url('http://static.zino.gr/phoenix/copybg.jpg') repeat-x 0 10px;
+}
+div.footer div.copy {
+	width: 100%;
+	color: #aaa;
+	font-size: 80%;
+	text-align: center;
+	margin-top: 15px;
+}
+div.footer div.copy a {
+	color: #999;
+	text-decoration: none;
+}
+div.footer div.copy a:hover {
+	color: #666;
+	text-decoration: underline;
+}
+div.footer ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+div.footer ul li {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+div.footer ul li a {
+	text-decoration: none;
+	color: #666;
+	font-size: 80%;
+	margin: 5px;
+}
+div.footer ul li a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+form input {
+	border: 1px solid #999;
+}
+form input.button {
+    background: #f0f0f0;
+}
+div.latest div.comments div.more {
+    margin-bottom: 10px;
+}
+div.latest div.comments {
+    margin-bottom: 10px;
+}div.list {
+	text-align: left;
+}
+div.list div.event {
+	float: left;
+	clear: both;
+	margin: 0 0 20px 0;
+	width: 100%;
+}
+div.list div.event div.toolbox {
+	float: right;
+	padding: 2px 6px 2px 2px;
+}
+div.list div.event div.toolbox a.s_delete {
+	color: transparent;
+}
+div.list div.event div.toolbox span.time {
+	color: #999;
+	font-size: 80%;
+}
+div.list div.event div.who {
+	border-top: 1px solid #ccc !important;
+	padding: 2px 0 2px 4px;
+	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
+	color: #666;
+}
+div.list div.event div.who a img.avatar {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #666;
+	float: left;
+	margin: 0 4px 0 0;
+}
+div.list div.event div.subject {
+	padding: 5px 0 0 60px;
+}
+div.list div.event div.subject p {
+	padding: 0;
+	margin: 0 0 4px 0;
+}
+div.list div.event div.subject p span.text {
+	font-style: oblique;
+}
+div.list div.event div.subject p a.itempic {
+	float: right;
+}
+div#shoutbox {
+	padding-left: 10px;
+}
+div#shoutbox div.newcomment div.text input {
+    border: 1px solid #999;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+div#shoutbox div.newcomment div.text {
+    height: 49px;
+}
+div#shoutbox div.newcomment div.bottom {
+    text-align: right;
+}
+div#shoutbox div.newcomment div.bottom input#shoutbox_submit {
+    margin: 5px 3px 0;
+}
+div#shoutbox div.newcomment div.bottom div.typing {
+    margin: 5px 0 0 0;
+    float: left;
+}
+div#shoutbox div.newcomment div.who {
+    float: left;
+    width: 50px;
+}
+div#shoutbox div.comments {
+	width: 100%;
+}
+div#shoutbox div.comments div.comment {
+    max-height: 300px;
+    overflow: hidden;
+}
+div#shoutbox h2 {	
+	margin-bottom: 10px;
+}
+div#shoutbox h2 span {
+    font-size: 70%;
+}
+div#shoutbox div.more {
+	margin: 10px 0;
+}
+div.outshoutbox {
+	float: left;
+	width: 95%;
+}
+div.frontpage {
+    text-align: left;
+    position: relative;
+}
+div.frontpage div.zinomeeting {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f7f7ff;
+	border-top: none;
+	margin: 0px auto;
+	width: 70%;
+	text-align: center;
+}
+div.frontpage div.zinomeeting h3 {
+	margin: 5px 0;
+	text-align: center;
+}
+div.frontpage div.ybubble {
+    margin: 0 auto 10px auto;
+    text-align: center;
+    width: 700px;
+    height: 170px;
+}
+div.frontpage div.ybubble div.body a.delete {
+    width: 16px;
+    height: 16px;
+    float: right;
+    padding: 3px 1px 0 0;
+}
+div.frontpage div.ybubble div.body form {
+    text-align: left;
+    padding: 5px;
+}
+div.frontpage div.ybubble div.body form div span {
+    margin-right: 5px;
+}
+div.frontpage div.ybubble div.body form p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+div.frontpage div.ybubble div.body form div div#selectplace { 
+    margin: 10px 0 0 0;
+}
+div.frontpage div.ybubble div.body form div div#selecteducation {
+    margin: 10px 0 0 0;
+}
+div.frontpage div.ybubble div.body form div div#selectuni {
+    margin: 10px 0 0 0;
+}
+div.frontpage div.ybubble div.body form div span {
+    padding: 0 3px 0 0;
+}
+div.lstimages {
+    height: 130px;
+    margin: 0 4px 20px 4px;
+}
+div.lstimages ul {
+    padding: 17px 0 14px 0;
+    height: 110px;
+    position: relative;
+	margin-right: 25px;
+}
+div.lstimages ul li {
+    float: left;
+    margin: 5px;
+    height: 110px;
+    text-align: center;
+}
+div.lstimages ul li img {
+    border: 1px solid #cce;
+}
+div.frontpage div.more {
+    float: right;
+    margin: 30px 0 0;
+}
+div.members {
+	z-index: 999;
+}
+div.members div.join {
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -907px;
+    height: 133px;
+    width: 486px;
+    float: left;
+    margin: 0 100px 0 0;
+}
+div.members div.join form {
+    text-align: left;
+    width: 40%;
+    margin: 30px 0 0 250px;
+    color: #ffffff;
+    font-weight: bold;
+}
+div.members div.join form div {
+    margin: 9px 0 9px 0;
+    width: 123%;
+}
+div.members div.join form h2 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    display: inline;
+    font-size: 100%;
+    color: #ffffff;
+}
+div.members form label {
+    margin-right: 5px;
+}
+div.members div.login {
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1150px;
+    text-align: left;
+    height: 129px;
+    width: 293px;
+    float: left;
+    padding: 20px 0 0 10px;
+}
+div.members div.login form div {
+    margin: 5px; 
+}
+div.members div.login form h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 110%;
+}
+div.members div.login form div label {
+    float: left;
+    display: block;
+    width: 70px;
+}
+div.frontpage div.notifications {
+    padding: 5px 0 0 0;
+    top: 0;
+    margin: 0 0 20px 15%;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-top: 0;
+    position: absolute;
+    background-color: #fdfdfd;
+    z-index: 2;
+}
+div.frontpage div.notifications div.expand a {
+    background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 4px -1440px;
+    padding: 0 0 0 18px;
+}
+div.frontpage div.notifications h3 {
+    margin: 0 0 10px 0;
+    padding: 5px 0 0 20px;
+}
+div.frontpage div.notifications div.list div.event {
+    float: none;
+    width: 95%;
+    margin: 2px auto;
+    padding: 5px;
+    cursor: pointer;
+}
+div.frontpage div.notifications div.list div.event div.toolbox a {
+    z-index: 100;
+}
+div.frontpage div.notifications div.list div.event div.who img.avatar {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #666;
+    float: left;
+    margin: 0 4px 0 0;
+}
+div.frontpage div.notifications  div.list div.event div.subject p img {
+    float: right;
+    margin-top: -17px;
+}
+div.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
+    width: 75px;
+    height: 75px;
+}
+div.fontpage div.notifications div.list div.event div.subject div.addfriend {
+    margin-bottom: 4px;
+    font-size: 90%;
+}
+/*
+div.fontpage div.notifications div.list div.event div.subject div.addfriend  a {
+	padding: 0 0 0 18px;
+}
+*/
+div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
+    font-size: 90%;
+}
+div.onlinenow a {
+    margin: 0 10px 0 0;
+}
+div.onlinenow a img {
+    border: 1px solid #666;
+    margin: 0 0 10px 0;
+}
+div.frontpage div.inuser {
+    float: none;
+    width: 100%;
+}
+div.inuser div.left {
+    width: 48%;
+    float: left;
+}
+div.inuser div.right {
+    width: 48%;
+    float: right;
+}
+div.inuser div.left div.onlinenow {
+    padding-left: 10px;
+    margin-top: 40px;
+}
+div.latest div.journals {
+    margin-bottom: 10px;
+}
+div.inuser div.right div.latest > h2 {
+    margin-bottom: 5px;
+}
+div.inuser div.right div.latest div h2 {
+    font-size: 90%;
+}
+div.inuser div.right div.latest div.barfade {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+div.inuser div.right div.latest div.comments {
+    width: 100%;
+}
+div.inuser div.right div.latest div.journals {
+    width: 100%;
+}
+div.inuser div.right div.latest div.polls {
+    width: 100%;
+}h2 {
+	font-size: 130%;
+	color: #666;
+    text-align: left;
+}
+h3 {
+	font-size: 105%;
+	color: #666;
+	text-align: left;
+}
+h2>span, h3>span {
+    font-size: 90%;
+}
+span.imageview {
+    position: relative;
+}
+span.imageview > span {
+    background: #d8d8d8;
+    font-weight: bold;
+    opacity: 0.8;
+	filter: alpha(opacity=80);
+    position: absolute;
+    bottom: 4px;
+    right: 1px;
+    border-top: 1px solid #ccccee;
+    border-left: 1px solid #ccccee;
+    color: #000;
+}
+span.imageview span > span {
+	vertical-align: -1px;
+}div#jlist {
+	margin: 0 0 20px 0;
+}
+div#jlist > ul {
+	margin: 0 0 0 170px;
+	width: 60%;
+}
+div#jlist ul li {
+	padding: 10px 0 25px 0;
+}
+div#jlist ul li div.barfade {
+	margin: 5px 0 0 0;
+	clear: right;
+}
+div#jlist ul li div.journalsmall ul {
+	width: 100%;
+}
+div#jlist ul li.create a {
+	font-weight: bold;
+}
+div#jlist ul li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+}
+div#jlist div.pagifyjournals {
+	text-align: center;
+	margin-top: 10px;
+}div#journalnew {
+	margin-bottom: 20px;
+}
+div#journalnew h2 {
+	margin: -7px 0 0 0;
+	padding: 0;
+}
+div#journalnew div.edit {
+	clear: both;
+}
+div#journalnew div.edit div.title {
+	margin-bottom: 20px;
+}
+div#journalnew div.edit div.title input {
+	margin-left: 30px;
+	width: 300px;
+}
+div#journalnew div.edit div.submit {
+	margin-top: 20px;
+}div.jsmall h4 {
+	padding: 0;
+	margin: 0;
+}
+div.jsmall div.barfade {
+	border-bottom: 1px solid #c6c6c6;
+	margin-top: 5px;
+	clear: right;
+}
+div.jsmall h3 {
+	padding: 0;
+	margin: 0;
+}
+div.jsmall p {
+	padding: 5px 0;
+	margin: 0;
+}
+div.jsmall ul {
+	padding: 3px 0 0 0;
+	width: 100%;
+}
+div.jsmall ul li {
+	display: inline;
+}
+div.jsmall ul li dl {
+	display: inline;
+}
+div.jsmall ul li dt {
+	display: inline;
+}
+div.jsmall ul li dl dt.commentsnum {
+	vertical-align: 3px;
+}
+div.jsmall ul li dl dt.commentsnum a {
+	font-size: 85%;
+}div#journalview {
+	margin: 0 0 20px 0;
+}
+div#journalview h2 {
+	margin: 0;
+	padding: 0 0 3px 0;
+}
+div#journalview dl {
+	margin: 2px 0 0 0;
+}
+div#journalview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}
+div#journalview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+div#journalview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+div#journalview ul.edit {
+	margin: 25px 0 0 0;
+}
+div#journalview ul.edit li {
+	display: inline;
+	margin: 0 0 0 2px;
+}
+div#journalview ul.edit li:first {
+	margin: 0;
+}
+div#journalview div.journal p {
+	text-align: left;
+	width: 70%;
+	margin: 0 0 20px 10px;
+}
+div#journalview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
+div#journalview div.comments {
+	margin-top: 50px;
+}
+div#journalview div.comments div.pagifycomments {
+	text-align: center;
+}
+div#journalview div.journal div.b300x250 {
+	margin: -35px 0 0 20px;
+}
+div#journalview div.b728x90 {
+	margin: 110px auto 0 auto;
+}
+#progress {
+    width:250px;
+    height:50px;
+    background-color : white;
+    border : solid black 1px;   
+    margin : 30px auto; 
+}
+#percentage {
+    background-color : #0177b7;
+    width:0px;
+    height:50px;
+}
+div.kolazimage {
+    background-color : black;
+    display:none;
+    margin : 30px auto; 
+}
+div.kolazimage div {
+    overflow : hidden;
+}
+a {
+	color: #105cb6;
+	text-decoration: none;
+}
+a:hover {
+	color: #000033;
+}
+a img {
+	border: 0;
+}
+a.button {
+	padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background: #fff;
+	text-align: center;
+}
+a.button_big {
+	font-size: 120%;
+	padding: 5px 10px;
+	font-weight: bold;
+	
+}
+a.button:hover {
+	background: #eef;
+}
+a.button_disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+a.button_disabled:hover {
+	background: #fff; /* if the class coexists with the button class it overwrites the hover behaviour */
+	color: #105cb6; 
+}body {
+    margin: 0;
+}
+div.modal {
+    background: #e8eaec url( 'http://static.zino.gr/images/sorabody.jpg' ) repeat-x top right;
+    border: 1px solid #2e486c;
+    z-index: 1000;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    _position: absolute;
+    text-align: center;
+    vertical-align: middle;
+}
+div.modalbg {
+    position: fixed;
+    _position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    _width: 100%;
+    _height: 100%;
+    _filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+    z-index: 680;
+    background-image: url( 'http://static.zino.gr/images/modalbg.png' );
+}
+div.moodpicker {
+    height: 55px;
+    width: 68px;
+    padding-top: 1px;
+    position: relative;
+}
+div.moodpicker div.view {
+    border: 1px solid #666;
+    margin: 1px 1px 0 1px;
+    display: block;
+    width: 65px;
+    height: 52px;
+    position: relative;
+    background: #ccc;
+    overflow: hidden;
+}
+div.moodpicker div.view:hover {
+    border: 1px solid black;
+}
+div.moodpicker img.selected {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+div.moodpicker div.view a {
+    float: right;
+    line-height: 50px;
+    text-decoration: none;
+    padding: 2px 1px 0 3px;
+    display: block;
+    color: #333;
+    background: url( 'http://static.zino.gr/phoenix/dropbutton.png' ) no-repeat 3px 0;
+}
+div.moodpicker a img {
+    border-width: 0px;
+}
+div.moodpicker div.pick {
+    background: #fff;
+    border: 1px solid #666;
+    width: 328px;
+    margin: -1px 1px 1px 1px;
+    padding: 0 0 2px 0;
+    position: absolute;
+    left: 0;
+    top: 56px;
+}
+div.moodpicker div.pick ul {
+    margin: 0;
+    padding: 0 0 4px 2px;
+}
+div.moodpicker div.pick ul li {
+    display: block;
+    float: left;
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    margin: 0 2px 4px 2px;
+    padding: 0;
+}
+div.moodpicker div.pick ul li a {
+    height: 52px;
+    cursor: pointer;
+}
+div.moodpicker div.pick ul li a img {
+    border: 1px solid white;
+}
+div.moodpicker div.pick ul li a:hover img {
+    border: 1px solid #469;
+}
+div.eof {
+    clear: both;
+}
+div.pagify a.next {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1907px;
+	padding: 0 0 0 16px;
+}
+div.pagify a.previous {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -116px;
+	padding: 0 0 0 16px;
+}
+div.pagify a.nextbacklinks, div.pagify strong {
+	padding: 0 4px;
+}
+div.pagify div.pagifycount {
+    color: #aaa;
+    font-size: small;
+}
+div.pagify {
+	font-size: 11pt;
+	text-align: center;
+}
+div.people ul li { 
+	float: left;
+	width: 100px;
+	height: 100px;
+    margin: 0 10px;
+}
+div.people ul li a img {
+	float: left;
+	border: 1px solid #cce;
+}
+div.body {
+	width: 100%;
+}
+div.body div.upper {
+	border-bottom: 1px solid #c7c7c7;
+	margin-bottom: 1px;
+}
+div.body div.upper span.title {
+	font: 14pt arial;
+	color: #9b9696;
+}
+div.body div.upper div.subheading {
+	font: 10pt arial bold;
+	float: right;
+	color: #838080;
+	position: relative;
+	bottom: 15px;
+}
+div.body div.leftbar {
+	padding: 10px 30px 20px 0;
+	float: left;
+	font: 10pt tahoma;
+}
+div.body div.rightbar {
+	padding: 10px 0 0 10px;
+}
+div.body div.leftbar div.folders {
+	border: 1px solid #838080;
+	max-width: 400px;
+}
+div.top {
+	border-top: 1px solid #d7d7d7;
+}
+div.folder {	
+	padding: 3px 3px 3px 0;
+	min-width: 108px;
+}
+div.folder span {
+	padding-left: 12px;
+	margin: 0 2px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -744px -2034px;
+}
+div.activefolder {
+	font-weight: bold;
+	background: #d6e6f7;
+}
+div.newfolder span {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1051px;
+}
+div.newfolderactive {
+	font-weight: bold;
+	background: #d6e6f7;
+}
+/*
+div.newfolderactive span {
+	font-weight: bold;
+	background: #d6e6f7 url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -469px -674px;
+}
+*/
+div.leftbar a.newpm span {
+	margin-right: 2px;
+	padding: 2px 0 2px 14px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -578px;
+}
+div.leftbar a.deletefolder span {
+	margin-right: 2px;
+	padding: 2px 0 2px 14px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -914px;
+}
+div.leftbar a.renamefolder span {
+	margin-right: 2px;
+	padding: 2px 0 2px 14px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1762px;
+}
+a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
+	text-decoration: none;
+}
+a.folderlinks , a.folderlinks:active , a.folderlinks:visited , a.folderlinksactive:hover {
+	text-decoration: none;
+}
+a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folderlinksnew:hover {
+	color: #d0cfcf;
+	text-decoration: none;
+}
+div.messages {
+    position: relative;
+}
+div.messages div.message {
+	position: relative; 
+	margin-bottom: 15px;
+}
+div.message div.infobar {
+	height: 21px;
+	border: 1px solid #cdcdcb;
+	padding: 3px 3px 0px 3px;
+    cursor: move;
+    background: #fff;
+}
+div.message div.infobar a.s_delete {
+	float: right;
+	margin: 1px 0 0 0;
+	color: transparent;
+}
+div.message div.infobar span.unreadpm {
+	padding: 0 0 0 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -392px;
+}
+div.message div.infobar div.infobar_info {
+	padding: 1px;
+	display: inline;
+	height: 21px;
+	cursor: pointer;
+}
+div.message div.text {
+	background: #f8f8f6;
+	border-left: 1px solid #cdcdcb;
+	border-right: 1px solid #cdcdcb;
+    padding: 0 60px 0 0;
+	overflow: auto;
+}
+div.message div.text div {
+	padding: 10px 5px 0px 5px;
+}
+div.message div.lowerline {
+	height: 13px;
+	position: relative;
+}
+div.message div.lowerline div.leftcorner {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1275px -122px;
+	height: 13px;
+	width: 10px;
+	float: left;
+}
+div.message div.lowerline div.middle {
+	background: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
+	height: 13px;
+}
+
+div.message div.lowerline div.rightcorner {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1276px -186px;
+	height: 13px;
+	width: 10px;
+	float: right;
+}
+div.message div.toolbar {
+	position: absolute;
+	right: 9px;
+	bottom: 3px;
+}
+/*
+div.message div.toolbar div.left {
+	display: inline;
+	background: #dedddb url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1282px;
+	float: left;
+	width: 7px;
+	height: 14px;
+}
+div.message div.toolbar div.middle2 {
+	background: #dddddb;
+	float: left;
+	height: 14px;
+}
+div.message div.toolbar div.middle2 a {
+	color: #858583;
+}
+div.message div.toolbar div.middle2 a:hover {
+	color: #000;
+}
+
+div.message div.toolbar div.right{
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1348px;
+	float: left;
+	width: 7px;
+	height: 14px;
+}
+div.message div.toolbar ul li  a:hover {
+	text-decoration: none;
+	color: black;
+}
+*/
+a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:hover {
+	text-decoration: none;
+	padding-top: 5px;
+}
+div.hoverfolder {
+	background: #f4f5f7;
+}
+form#newfolderform a.acceptcreate {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1504px;
+	padding: 0 0 0 16px;
+}
+form#newfolderform a.cancelcreate {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1779px;
+	padding: 0 0 0 16px;
+	margin: 0 0 0 5px;
+	vertical-align: -1px;
+}
+div#polist ul li h3 {
+	margin: 0;
+	padding: 0;
+}
+div#polist > ul {
+	margin: 0 0 0 170px;
+}
+div#polist ul li {
+	padding: 10px 0;
+}
+div#polist ul li div.results {
+	width: 100%;
+	padding-top: 10px;
+}
+div#polist ul li div.results dl.pollinfo {
+	text-align: left;
+}
+div#polist ul li div.results dl.pollinfo dd {
+	display: inline;
+	font-size: 80%;
+}
+div#polist ul li div.results ul li {
+	padding: 5px 0 1px 0;
+    clear: both;
+}
+div.creationmockup {
+	border: 1px solid #ccc;
+	border-style: dotted;
+	padding: 15px;
+	width: 450px;
+	display: none;
+}
+div.creationmockup div input {
+	width: 300px;
+	padding: 2px;
+}
+div.creationmockup div a.createpoll {
+	margin-left: 3px;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1504px;
+	padding-left: 12px;
+}
+div.creationmockup div.tip , div#polllist div.tip2 {
+	font-size: 90%;
+	margin-top: 5px;
+}
+div.creationmockup div.tip span , div#polist div.tip2 span {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -710px;
+	padding: 0 5px 0 12px;
+}
+div#polist div.tip2 {
+	display: none;
+	margin-bottom: 25px;
+}
+div.creationmockup div.newoption {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -379px; 	
+	padding-left: 10px;
+	margin: 2px 0;
+	overflow: hidden;
+}
+div#polist div.creatingpoll {
+	display: none;
+}
+div#polist ul li.create a {
+	font-weight: bold;
+}
+div#polist ul li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+}
+div#polist div.pagifypolls {
+	text-align: center;
+	margin-top: 20px;
+}
+div.posmall {
+	padding: 10px 0;
+}
+div.posmall h4 {
+	padding: 0;
+	margin: 0;
+}
+div.posmall div.results ul {
+	margin: 10px 0;
+	width: 100%;
+}
+div.posmall div.results ul li {
+	margin: 0 0 10px 0;
+	padding: 3px 0;
+    clear: both;
+}
+div.posmall div.results ul li dl {
+    float: left;
+}
+div.posmall div.results ul li dl span {
+	margin-left: 20px;
+}
+div.posmall div.results ul li dl dt.voteterm {
+	margin: 0 3px 0 0;
+    width: 20px;
+    float: left;
+    display: block;
+}
+div.posmall div.results ul li dl dd.votedefinition {
+	display: block;
+	vertical-align: 3px;
+    margin-left: 23px;
+}
+div.posmall div.results ul li dl dd {
+    width: 270px;
+}
+div.posmall div.results ul li dl dd span {
+	padding: 0 0 0 7px;
+}
+div.posmall div.results ul li dl dd div.option {
+	height: 15px;
+	float: left;
+}
+div.posmall div.results ul li dl dd div.option div.percentagebar {
+    float: left;
+    height: 13px;
+    margin: 0 10px 0 0;
+}
+div.posmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
+	float: left;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1046px;
+	height: 13px;
+	width: 9px;
+}
+div.posmall div.results ul li dl dd div.option div.percentagebar div.rightrounded {
+	float: right;
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -988px;
+	height: 13px;
+	width: 9px;
+}
+div.posmall div.results ul li dl dd div.option div.percentagebar div.middlerounded {
+	background: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' ) repeat-x top;
+	height: 13px;
+}
+div.posmall div.results dl.pollinfo {
+	text-align: right;
+}
+div.posmall div.results dl.pollinfo2 {
+	text-align: left;
+	margin: 5px 0 0 0;
+}
+div.posmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
+	display: inline;
+	font-size: 80%;
+}
+div.posmall div.voting {
+	display: none;
+}
+div#poview {
+    margin-bottom: 20px;
+}
+div#poview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
+div#poview h2 {
+	margin: 0 0 0 165px;
+	padding: 0 0 3px 0;
+}
+div#poview dl {
+	margin: 2px 0 0 0;
+}
+div#poview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}
+div#poview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+div#poview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+div#poview ul.edit {
+	margin: 25px 0 0 0;
+}
+div#poview ul.edit li {
+	display: inline;
+	margin: 0 0 0 2px;
+}
+div#poview ul.edit li:first {
+	margin: 0;
+}
+div#poview div.posmall {
+	margin-left: 165px;
+}
+div#poview div.posmall div.results {
+	margin-bottom: 30px;
+}
+div#poview div.comments {
+	margin-top: 50px;
+}	
+div#poview div.comments div.pagifycomments {
+	text-align: center;
+}
+div#poview dl {
+	text-align: left;
+}
+div#poview dl.toolbar {
+    margin: 0 0 0 167px;
+}
+div#poview dd.delete {
+    display: inline;
+    padding: 0 0 0 2px;
+}
+div#poview dl dd.createdate {
+    margin: 0 0 10px 0;
+}
+div#poview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}div#answers div.questions {
+	padding: 5px 0 0 170px;
+}
+div#answers div.questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#answers div.questions ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 70%;
+}
+div#answers div.questions ul li {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#answers div.questions ul li a {
+	margin-left: 5px;
+	display: none;
+}
+div#answers div.questions ul li a img {
+	height: 14px;
+}
+div#answers div.questions ul li p.question, div#answers div.newquestion p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
+	padding: 0;
+	margin: 0;
+	display: inline;
+	font-size: 14px;
+}
+div#answers div.newquestion {
+    padding: 10px;
+    border: 1px #aaa solid;
+    background-color: #f6f6f6;
+}
+div#answers div.newquestion form input {
+    width: 250px;
+    margin: 5px 5px 0 5px;
+}
+div#answers div.questions a.button {
+	margin-left: 0;
+}
+div.gname {
+    padding: 20px 0 0 0;
+    margin: 0 0 5px 0;
+}
+div.gname img {
+	float: left;
+	border: 1px solid #cce;
+	margin: 0 7px 0 0;
+}
+div.gname h2 {
+	color: #105cb6;
+	margin: 0;
+}
+div.gname h3 {
+	margin: 7px 0 0 0;
+}
+div#schview > div {
+	padding: 20px 0 0 0;
+}
+div#schview div.eof {
+	padding: 0;
+}
+div#schview h4 {
+	padding: 0;
+	margin: 0;
+	color: #666;
+}
+div#schview div.members h4{
+	color: #666;
+}
+div#schview div.members div.people {
+	margin: 2px 0 0 0;
+}
+div#schview div.photos div.plist {
+	height: 100px;
+	margin: 2px 0 0 0;
+}
+div#schview div.photos div.plist ul {
+	height: 100px;
+}
+div#schview div.photos div.plist ul li {
+	float: left;
+	margin: 0 5px;
+	height: 100px;
+	text-align: center;
+}
+div#schview div.photos div.plist ul li:first-child {
+	margin-left: 0;
+}
+div#schview div.members div.pagifymembers {
+	text-align: center;
+}
+div.content div#photolist.schoolupload div.uploaddiv { 
+    top: 113px;
+}
+div#schview div.photos ul li a.s_bigadd {
+	display: block;
+	height: 40px; 
+	margin: 30px 0 0 15px;
+	padding-bottom: 20px;/*do not use padding: x x x x*/
+}
+div#schview div.photos div.plist#photolist ul {
+    padding: 0;
+}
+div#schview div.photos div.plist#photolist ul li {
+    width: 100px;
+    padding: 0;
+}
+div#schooluploadcontainer {
+    padding: 10px 0 0 0;
+}
+div#search h2 {
+	text-align: center;
+}
+div#search div.ybubble form input.submit {
+	border: 0 none transparent;
+    font-size: 110%;
+	color: #105cb6;
+    margin: 0 auto;
+    font-weight: bold;
+    cursor: pointer;
+    width: 110px;
+    height: 32px;
+    padding: 0;
+    background: transparent url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -195px -699px;
+    position: relative;
+    top: 15px;
+}
+div#search div.ybubble i.tl {
+    height: 9px;
+}
+div#search div.ybubble form input.submit:hover {
+    color: #000033;
+}
+div#search div.ybubble form div.search {
+    width: 49%;
+}
+div#search div.ybubble div.body {
+    padding: 10px 0 0 0;
+}
+div#search div.findim {
+	text-align: center;
+}
+div#search div.findim ul {
+	height: 120px;
+	padding: 10px 0 5px 0;
+}
+div#search div.findim ul li {
+	display: inline;
+}
+div#search div.findim ul li a {
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
+	background-repeat: no-repeat;
+	padding: 0 0 120px 120px; 
+}
+div.findim ul li a.msn {
+	background-position: -1276px -270px; 
+}
+div.findim ul li a.gmail {	
+	background-position: -1276px -454px;
+	margin: 0 0 0 30px;
+}
+div.findim ul li a.yahoo {
+	background-position: -1276px -642px;
+	margin: 0 0 0 40px;
+}div#im  h2 {
+	text-align: center;
+}
+div#im div.cred {
+	border: 1px solid #dad9d9;
+	text-align: center;
+	width: 500px;
+	height: 210px;
+	margin: 20px auto;
+}
+div#im div.cred h3 {
+	font-size: 100%;
+	color: #4875c7;
+	text-align: center;
+	margin: 5px 0 15px 0;
+}
+div#im div.cred div.empwd {
+	text-align: left;
+	padding: 0 0 0 100px;
+}
+div#im div.cred div.empwd div.mail span {
+	padding: 0 23px 0 0;
+}
+div#im div.cred div.empwd div.pwd {
+	margin: 7px 0 0 0;
+}
+div#im div.cred div.empwd div.pwd span {
+	padding: 0 8px 0 0;
+}
+div#im div.cred div.wrong {
+	margin: 10px 0 0 0;
+}
+div#im div.cred div.wrong {
+	font-size: 90%;
+	font-weight: 700;
+	height: 18px;
+}
+div#im div.cred div.wrong > div {
+	display: none;
+}
+div#im div.cred div.wrong > div.w {
+	font-weight: 400;
+}
+div#im div.cred div.wrong > div.w img {
+	vertical-align: -2px; 
+	padding: 0 1px 0 0;
+}
+div#im div.cred div.next {
+	margin: 15px 0 0 0;
+}
+div#im div.cred div.barfade {
+	margin: 20px 0 0 0;
+}
+div#im div.cred > p {
+	padding: 5px; 
+	font-size: 80%; 
+	margin: 0;
+}/* Warning: File not found: space/edit.css */
+/* Warning: File not found: space/view.css */
+span[class^="s_"] , a[class^="s_"] {
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
+	background-repeat: no-repeat;
+}
+.s_delete {
+	background-position: 1px -512px;
+	padding: 1px 0 0 13px;
+}
+.s_edit {
+	background-position: -203px -258px;
+	padding: 0 0 0 16px;
+}
+.s_commnum {
+	background-position: -739px -380px;
+	padding: 0 0 0 15px;
+}
+.s_add {
+	background-position: -203px -567px;
+	padding: 0 0 0 16px;
+}
+.s_addfav {
+	background-position: -739px -1298px;
+	padding: 0 0 0 16px;
+}
+.s_isaddedfav {
+	background-position: -739px -776px;
+	padding: 0 0 0 16px;
+}
+.s_mainimage {
+	background-position: 2px -1745px;
+	padding: 0 0 0 16px;
+}
+.s_photonum {
+	background: 0 -1313px;
+	padding: 0 0 0 14px;
+}
+.s_addfriend {
+	background-position: -739px -182px;
+	padding: 0 0 0 16px;
+}
+.s_deletefriend {
+	background-position: -203px -633px;
+	padding: 0 0 0 16px;
+}
+.s_clock {
+	background-position: -739px -1972px;
+	padding: 0 0 0 16px;
+}
+.s_addtag {
+	background-position: -733px -512px;
+	padding: 0 0 0 21px;
+}
+.s_bigadd {
+	background: 0 -1177px;
+	vertical-align: -5px;
+	padding: 12px 0 2px 30px;
+}
+.s_invalid {
+	background-position: 0 -747px;
+	padding: 0 0 2px 16px;
+	vertical-align: 1px;
+}
+.s_photo {
+	background-position: 0 -1745px;
+	padding: 0 0 0 16px;
+}
+.s_book {
+	background-position: 0 -233px;
+	padding: 0 0 0 16px;
+}
+div.join {
+	padding-top: 20px;
+	text-align: center;
+	margin: 30px 0 40px 0;
+}
+div.join h2 {
+	margin: 0;
+	padding-bottom: 5px;
+}
+div.join div.bubble {
+	margin: auto;
+	width: 650px;
+	text-align: left;
+}
+div.join div.bubble form.joinform div {
+	padding: 5px 0 20px 0; 
+}
+div.join div.bubble form.joinform div a.button {
+	font-size: 120%;
+	padding: 5px 10px;
+	font-weight: bold;
+	display: block;
+	width: 120px;
+	margin: 20px auto 0 auto;
+	text-align: center;
+}
+div.join div.bubble form.joinform div label {
+	display: block;
+	padding: 0 0 3px 0;
+}
+div.join div.bubble form.joinform div input {
+	display: inline;
+}
+div.join div.bubble form.joinform div > span 	{
+	vertical-align: bottom;
+	display: none;
+	padding: 5px 0 0 0;
+}
+div.join div.bubble form.joinform div span span {
+	font-size: 80%;
+	font-weight: bold;
+	vertical-align: 3px;
+	padding: 5px 0 0 0;
+}
+div.join div.bubble form.joinform div div > span {
+	vertical-align: bottom;
+	display: none;
+}
+div.join div.bubble form.joinform div div > span img.okpwd {
+	padding-left: 5px;
+}
+div.join div.bubble form.joinform div div span span {
+	font-size: 80%;
+	font-weight: bold;
+	vertical-align: 3px;
+	padding: 5px 0 0 0;
+}
+div.join div.bubble form.joinform div p {
+	padding: 3px 0 0 0;
+	margin: 0;
+	font-size: 80%;
+}
+div.join div.bubble form.joinform div div {
+	height: 20px;
+}
+
+div.join div.bubble form.joinform div div img {
+	padding: 1px;
+}
+div.join div.bubble p {
+	padding: 3px 0 0 0;
+	margin: 0;
+	font-size: 80%;
+}
+div#join_tos {
+	width: 620px;
+	height: 520px;
+	display: none;
+	text-align: center;
+}
+div#join_tos div {
+	text-align: left;
+	overflow: hidden;
+	width: 600px;
+	height: 450px;
+	overflow: auto;
+	margin: 10px auto 20px auto;
+}
+div#join_tos div h3 {
+	margin: 0;
+	padding: 0;
+	color: black;
+}
+div#join_tos div p {
+	margin: 0;
+	padding: 3px 0 15px 0;
+}
+div#join_tos div p ol {
+	margin: 0;
+	padding: 0;
+}
+div#join_tos div p ol li {
+	margin: 0;
+	padding: 0;
+}div#joined {
+	padding: 0;
+	text-align: center;
+}
+div#joined div.ybubble {
+	text-align: left;
+	width: 550px;
+	height: 50px;
+	margin: auto;
+}
+div#joined div.ybubble div.body div.welcome {
+	padding: 7px 0 0 0;
+	text-align: center;
+}
+div#joined div.profinfo{
+	text-align: left;
+	padding: 20px 0 0 0;
+	margin: auto;
+	width: 550px;
+}
+div#joined div.profinfo div.logininfo {
+	display:block;
+	background: #82a4b6;
+	width:302px;
+	border: 1px solid #335;
+	padding:5px;
+}
+div#joined div.profinfo div.loginfo span {
+	display: block;
+	text-align: center;
+	font-size:80%;
+	color: white;
+	padding: 2px;
+}
+div#joined div.profinfo form div > span {
+	padding: 10px 0 3px 0;
+	display: block;
+}
+div#joined div.profinfo form span.invaliddob {
+	font-weight: bold;
+	font-size: 90%;
+	display: none;
+	margin: 0 0 0 5px;
+	vertical-align: 1px;
+}
+div#joined div.profinfo form span.invaliddob span {
+	display: inline;
+}
+div#joined div.profinfo p {
+	font-size: 105%;
+}
+div#joined div a.button {
+	display: block;
+	width: 120px;
+	margin: 20px auto 0 auto;
+}div.people ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+div.people ul li { 
+	float: left;
+	width: 100px;
+	height: 100px;
+    margin: 0 10px 10px 0;
+}
+div.people ul li a img {
+	float: left;
+	border: 1px solid #cce;
+}
+div#reportabusemodal {
+	display: none;
+	top: 25%;
+	left: 40%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    height: 120px;
+    width: 500px;
+}
+div.tweetbox {
+    position: absolute;
+    top: 25px;
+    left: 150px;
+}
+div.tweet {
+    background: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;
+    height: 55px;
+    float: left;
+    padding: 0;
+}
+div.tweetbox i.corner {
+    display: block;
+    width: 40px;
+    height: 55px;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+div.tweetbox i.left {
+    float: left;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -812px;
+}
+div.tweetbox i.right {
+    float: right;
+    width: 27px;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -642px;
+}
+div.tweet div {
+    padding-top: 19px;
+    display: block;
+    float: left;
+    position: relative;
+    left: -18px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 1000px;
+}
+div.tweetbox {
+    float: left;
+    padding-right: 25px;
+    z-index: 2;
+}
+div.tweetactive div.tweet a:hover {
+    text-decoration: underline;
+    color: #149;
+}
+div#tweetedit {
+	display: none;
+	top: 25%;
+	left: 40%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    height: 120px;
+}
+div#tweetedit form {
+    margin: 20px 15px 0 15px;
+    text-align: center;
+}
+div#tweetedit ul li {
+    display: inline;
+    margin: 10px;
+}
+div#tweetedit h5 {
+    margin: 0 0 30px 0;
+}
+div#tweetedit div.input {
+    padding: 0 0 30px 0;
+}
+div#tweetedit input {
+    width: 200px;
+}div#profile {
+	margin: 0;
+}
+div#profile div.sidebar {
+	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
+	float: left;
+	position: relative;
+	width: 330px;
+	padding: 14px 0 0 0;
+	overflow: hidden;
+}
+div#profile div.sidebar div.basicinfo dl dt {
+    clear: both;
+}
+div#profile div.sidebar div.basicinfo {
+	padding: 4px;
+	margin-bottom: 20px;
+}
+div#profile div.sidebar div.basicinfo #birthday img {
+    float: left;
+    padding-right: 5px;
+}
+div#profile div.sidebar div.basicinfo h2 img {
+	margin-bottom: 5px;
+}
+div#profile div.sidebar div.basicinfo div.mood {
+	padding-top: 5px;
+	margin-top: 5px;
+}
+div#profile div.sidebar div.basicinfo div.mood img {
+	display: block; 
+	margin-top: 3px;
+}
+div#profile div.sidebar div.bacicinfo div.friendedit {
+    display: none;
+}
+div#profile div.sidebar div.basicinfo div.common {
+    clear: left;
+    margin-bottom: 15px;
+    height: 20px;
+}
+div#profile div.sidebar div.basicinfo div.info {
+	clear: left;
+}
+div#profile div.sidebar div.basicinfo dl dt {
+	float: left;
+	width: 12em;
+	padding: 3px 0;
+}
+div#profile div.sidebar div.basicinfo dl dd {
+	text-align: left;
+	margin-left: 12em;
+	padding: 3px 0;
+	width: 160px;
+}
+div#profile div.sidebar div.basicinfo h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 120%;
+	color: #105cb6;
+}
+div#profile div.sidebar div.basicinfo h2  img {
+	float: left;
+	margin: 3px 6px 20px 3px;
+	border: 1px solid #666;
+	width: 150px;
+	height: 150px;
+}
+div#profile div.sidebar div.basicinfo h2 span.name {
+	font-size: 120%;
+	display: block;
+	font-weight: bold;
+}
+div#profile div.sidebar dl.online dt{
+	display: block;
+	float: left;
+	padding: 3px 0;
+}
+div#profile div.sidebar dl.online dd {
+	display: block;
+	text-align: left;
+	margin-left: 12em;
+	padding: 3px 0;
+	width: 160px;
+}
+div#profile div.sidebar div.look {
+	clear: both;
+	padding: 0 10px 10px 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+	height: 30px;
+}
+div#profile div.sidebar div.look span.malebody {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1900px; 
+	padding: 0 0 50px 16px;
+	position: relative;
+}
+div#profile div.sidebar div.look ul li.dot {
+	color: #999;
+	font-size: 100%;
+}
+div#profile div.sidebar div.look img {
+	float: left;
+}
+div#profile div.sidebar div.look ul {
+	margin: 0 0 0 30px;
+}
+div#profile div.sidebar div.look ul li {
+	font-weight: bold;
+	padding: 1px;
+	display: inline;
+}
+div#profile div.sidebar div.social {
+	padding: 4px;
+	clear: both;
+	margin-top: 10px;
+}
+div#profile div.sidebar div.social dl dt {
+	float: left;
+	width: 170px;
+	padding: 3px 0;
+}
+div#profile div.sidebar div.social dl dd {
+	text-align: left;
+	margin: 0 0 0 170px;
+	padding: 3px 0;
+	width: 100px;
+}
+div#profile div.sidebar div.social ul {
+	float:left;
+	padding:3px 0;
+	margin: 10px 0 0 0;
+}
+div#profile div.sidebar div.social li {
+	clear: both;
+	margin: 0 0 4px 0;
+}
+div#profile div.sidebar div.social li strong {
+	display:block;
+	width: 170px;
+	float:left;
+}
+div#profile div.sidebar div.aboutme {
+	padding: 4px;
+	clear: both;
+}
+div#profile div.sidebar div.aboutme dl {
+	padding: 7px 0 0 0;
+}
+div#profile div.sidebar div.aboutme dl dt {
+	padding: 3px 0 1px 0;
+}
+div#profile div.sidebar div.aboutme dl dd {
+	padding: 1px 0 0 0;
+}
+div#profile div.sidebar div.interests {
+	padding: 4px;
+	clear: both;
+}
+div#profile div.sidebar div.interests dl dt {
+	padding: 3px 0 1px 0;
+}
+div#profile div.sidebar div.interests dl dd {
+	padding: 1px 0 5px 0;
+}
+div#profile div.sidebar div.contacts {
+	padding: 4px;
+}
+div#profile div.sidebar div.contacts dt {
+	float: left;
+	height: 18px;
+	width: 18px;
+}
+div.contacts dl dt {
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
+	background-repeat: no-repeat;
+}
+div.contacts dl dt.skype {
+	background-position: -739px -578px;
+}
+div.contacts dl dt.msn {
+	background-position: -739px -1490px;
+}
+div.contacts dl dt.gtalk {
+	background-position: -739px -248px;
+}
+div.contacts dl dt.yim {
+	background-position: 0 -116px;
+}
+div#profile div.sidebar div.contacts dd {
+	height: 18px;
+	margin: 4px 4px 4px 20px;
+}
+div#profile div.sidebar div.notice {
+	margin: 10px 0 20px 0;
+	text-align: left;
+}
+div#profile div#antisocial {
+    background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
+    padding: 10px;
+    margin: 0 20px 10px 330px;
+    height: 40px;
+}
+div#profile div#antisocial div {
+    padding: 10px 5px 0 0px;
+    width: 100%;
+    height: 20px;
+}
+div#profile div.main {
+	padding: 14px 0 0 25px;
+	margin-left: 330px;
+	position: relative;
+}
+div#profile div.main div.ybubble {
+	margin: -28px 0 20px 50px;
+	width: 500px;
+	height: 85px;
+}
+div#profile div.main div.ybubble div.body h3 {
+	padding: 5px 0 0 5px;
+}	
+div#profile div.main div.ybubble div.body div.uploaddiv {
+	margin: 0 0 5px 0px;
+}
+div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
+	height: 40px;
+}
+div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
+    height: 40px;
+    margin: 0 0 0 30px;
+}
+div#profile div.main div.photos {
+	height: 115px;
+}
+div#profile div.main div.photos div.more {
+	float: right;
+	margin: 5px 0 0 0;
+}
+div.morealbums {
+	margin: 0 0 10px 0;
+}
+div#profile div.main div.photos div.viewalbums {
+	margin: 20px 0 0 0;
+}
+div#profile div.main div.photos ul {
+	height: 100px;
+}
+div#profile div.main div.photos ul li {
+	padding: 0 3px;
+	float: left;
+}
+div#profile div.main div.photos ul li.addphoto {
+    padding: 43px 10px 0 5px;
+}
+div#easyphotoupload {
+	display: none;
+	top: 15%;
+	left: 37%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    width: 450px;
+    height: 225px;
+}
+div#easyphotoupload div.modalcontent {
+    padding: 80px 0 0 140px; 
+}
+div#easyphotoupload div.modalcontent span.plswait {
+    padding: 0 0 0 5px;
+    vertical-align: 3px;
+}
+div#easyphotoupload div {
+    padding: 5px 0 0 0;
+}
+div#easyphotoupload div span.inalb {
+    padding: 0 0 0 10px;
+}
+div#easyphotoupload div div.ulcontainer {
+    overflow: auto;
+    height: 80px;
+    padding: 0 0 0 5px;
+}
+div#easyphotoupload div ul li {
+    margin: 3px 5px; 
+    float: left;
+    cursor: pointer;
+    background: #e0ffff;
+}
+div#easyphotoupload div ul li.selected span img {
+    border: 1px solid #4682b4;
+    padding: 1px;
+}
+div#easyphotoupload div ul li span img {
+    border: 1px solid #add8e6;
+    padding: 1px; 
+}
+div#easyphotoupload div.uploadsuccess {
+    padding: 0 0 0 30px;
+    height: 20px;
+}
+div#easyphotoupload div.uploadsuccess div {
+    font-weight: 700;
+    display: none;
+}
+div#profile div.main div.friends h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.friends a.button {
+	margin-left: 0;
+}
+div#profile div.main div.questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.questions ul {
+	width: 70%;
+}
+div#profile div.main div.questions ul li {
+	padding: 5px 0 5px 0;
+	overflow: hidden;
+}
+div#profile div.main div.questions ul li p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+div#profile div.main div.questions ul li p.answer {
+	padding: 0;
+	margin: 0;
+}
+div#profile div.main div.lastpoll {
+	float: right;
+	padding: 0 0 20px 0;
+    margin: 0 50px;
+}
+
+div#profile div.main div.lastpoll h3 {
+	padding: 5px 0;
+	margin: 0;
+}
+div#profile div.main div.lastpoll h4 {
+	padding: 2px 0 0 0;
+	margin: 0;
+}
+div#profile div.main div.lastpoll div.container {
+	margin-bottom: 10px;
+}
+div#profile div.main div.lastpoll a.button {
+	margin-left: 0;
+}
+div#profile div.main div.lastpoll div.nopolls {
+	width: 400px;
+}	
+div#profile div.main div.lastpoll div.nopolls div {
+	margin: 5px 0 0 0;
+	font-weight: bold;
+}
+div#profile div.main div.lastjournal div.jsmall {
+	margin: 0 0 10px 0;
+}
+div#profile div.main div.lastjournal h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal div.nojournals div {
+	font-weight: bold;
+	margin: 5px 0 0 0;
+}
+div#profile div.main div.space {
+	margin: 0 0 20px 0;
+}
+div#profile div.main div.space div {
+	margin: 0  0 20px 0;
+}
+div#profile div.main div.space h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.space a.button {
+	margin-left: 0;
+}
+div.comments {
+	width: 90%;
+	overflow:hidden;
+}
+div.comments h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+div.comments div.pagifycomments {
+	text-align: center;
+}
+div#profile div.friends div.people {
+    overflow: hidden;
+    height: 110px;
+	position: relative;
+}
+div#relations {
+	margin-bottom: 50px;
+}
+div#relations div.people {
+	margin: 0 0 0 170px;
+}
+div#relations div.pagifyrelations {
+	text-align: center;
+}div.usersections {
+	padding: 25px 0 5px 0;
+}
+div.usersections a img {
+	float: left;
+	margin: 3px 6px 20px 3px;
+	border: 1px solid #666;
+}
+div.usersections a span.name {
+	font-size: 120%;
+	display: inline;
+	font-weight: bold;
+}
+div.usersections ul {
+	margin: 0 0 0 160px;
+	padding: 15px 10px 0 0;
+	text-align: right;
+	background: #fff url( 'http://static.zino.gr/phoenix/copybg_rev.jpg' ) repeat-x 0 -8px;
+	height: 30px;
+	vertical-align: bottom;
+}
+div.usersections ul li {
+	padding: 0 5px 0 5px;
+	font-size: 105%;
+	display: inline;
+}
+div.usersections ul li.selected a {
+	font-weight: 700;
+    color: #4a7aab;
+}
+div.usersections div {
+	clear: both;
+}
+div.settings {
+    padding: 30px 0 30px 5px;
+}
+div.settings div.sidebar {
+    float: right;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    padding-left: 50px;
+}
+div.sidebar div.savesettings div.savebutton {
+    margin: 5px 0 0 0;
+}
+div.sidebar div.savesettings div.savebutton a {
+    display: block;
+}
+div.sidebar div.savesettings div.savebutton img {
+    vertical-align: -2px;
+    margin-right: 3px;
+}
+div.sidebar div.backtoprofile {
+    margin: 20px 0 0 0;
+}
+div.sidebar div.backtoprofile a {
+    display: block;
+}
+div.sidebar div.savesettings div.saving span {
+    padding: 0 0 0 5px;
+    vertical-align: 3px;
+}
+div.sidebar div.savesettings div.saved span span {
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -440px;
+    padding: 1px 20px 0 0;
+}
+div.sidebar a.disabled {
+    opacity: 0.3;
+	filter: alpha(opacity = 30);
+	background: #fff;
+}
+div.sidebar a.disabled:hover {
+    color: #105cb6;
+}
+div.settings div.sidebar ol {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+div.settings div.sidebar ol li {
+    padding: 0 0 0 18px;
+    margin: 0 0 0 22px;
+    background: #fff none no-repeat left;
+}
+div.settings div.sidebar ol li.selected {
+	font-weight: bold;
+	background: #047cbb url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -112px;
+}
+div.settings div.sidebar ol li a {
+    height: 25px;
+    padding: 5px 35px 5px 35px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef;
+    display: block;
+}
+div.sidebar ol li a span {
+	margin-left: -30px;
+	padding-left: 22px;
+	float: left;
+}
+div.sidebar ol li a span {
+	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
+	background-repeat: no-repeat;
+}
+div.sidebar ol li.personal a span {
+    background-position: 0 -1501px;;
+}	
+div.sidebar ol li.characteristics a span {
+    background-position: 0 -368px;
+}
+div.sidebar ol li.interests a span {
+    background-position: -739px -1607px;
+}
+div.sidebar ol li.contact a span {
+    background-position: 0 -916px;
+}
+div.sidebar ol li.settings a span {
+    background-position: -739px -842px;
+}
+div.settings div.tabs {
+    margin: 0 350px 0 0;
+}
+div.settings div.tabs form div.option { /* denotes a specific setting */
+    padding: 10px 0;
+}
+div.settings div.tabs form div.barfade {
+	padding: 0;
+	margin: 5px 0;
+}
+div.settings div.tabs form div label {
+    float: left;
+    width: 300px;
+    display: block;
+}
+form#personalinfo div span.invaliddob {
+	display: none;
+	opacity: 0;
+	font-weight: bold;
+	padding-left: 10px;
+	font-size: 80%;
+}
+/*
+form#personalinfo div span.invaliddob span {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -747px;
+	padding: 0 0 2px 16px;
+	vertical-align: 1px;
+}
+*/
+div.settings div.tabs form div div.setting input.small,
+div.settings div.tabs form div div.setting select.small {
+    width: auto;
+}
+div.settings div.tabs form div div.setting input,
+div.settings div.tabs form div div.setting textarea, 
+div.settings div.tabs form div div.setting select {
+    border: 1px solid #666;
+    width: 50%;
+}
+div.settings div.tabs form div table tr th {
+    text-align: left;
+}
+div.settings div.tabs form div table tr td {
+    text-align: center;
+}
+div.settings div.tabs form div div.setting {
+    margin-left: 300px;
+    border: none;
+}
+div.settings div.tabs form#contactinfo div div.setting input {
+	width: 300px;
+}
+form#interestsinfo div.option {
+	margin: 10px 0;
+}
+form#interestsinfo div.option div.setting div.add {
+	padding-top: 20px;
+	clear: left;
+}
+form#interestsinfo div.option div.setting div.add a {
+	margin-left: 5px;
+	vertical-align: 1px;
+}
+form#interestsinfo div.option div.setting div.add input {
+	width: 200px;
+}
+form#interestsinfo div.option div.setting div.add ul {
+    border: 1px solid gray;
+    border-top-width:0px;
+    width:200px;
+	max-height:250px;
+	overflow:auto;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+	display: none;
+}
+form#interestsinfo div.option div.setting div.add ul li.selected{
+    background-color: #3377EE;
+    color: white;
+    cursor: pointer;
+}
+form#interestsinfo div.creation {
+	display: none;
+}
+div.settings div.tabs form div div.setting ul.interesttags {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div.settings div.tabs form div div.setting ul.interesttags li {
+	margin: 0 10px 7px 0;
+	padding: 0;
+	float: left;
+}
+div#email span {
+	font-weight: bold;
+	font-size: 80%;
+	display: none;
+	opacity: 0;
+}
+div#email span img {
+	vertical-align: -2px;
+}
+div#msn span {
+	font-weight: bold;
+	font-size: 80%;
+	display: none;
+	opacity: 0;
+}
+div#msn span img {
+	vertical-align: -2px;
+}
+form#personalinfo div.option div.setting div#avatarlist {
+	display: none;
+	top: 10%;
+	left: 30%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+
+}
+div#avatarlist div.uploaddiv {
+	position: absolute;
+	top: 25px;
+	right: 0;
+}
+div#avatarlist div.uploaddiv object.uploadframe {
+	height: 40px;
+}
+div#avatarlist ul {
+	margin: 60px 0 0 0;
+	padding: 0;
+	width: 490px;
+	height: 400px;
+	overflow: auto;
+}
+div#avatarlist ul li {
+	margin: 0 5px 5px 0;
+	padding: 0;
+	float: left;
+	width: 110px;
+	height: 110px;
+	text-align: center;
+}
+div#avatarlist ul li img.photosmall {
+	padding: 1px;
+	border: 1px solid #ccc;
+}
+div#avatarlist div.cancel {
+	text-align: center;
+}
+div#pwdmodal {
+	display: none;
+    top: 10%;
+	left: 30%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    width: 400px;
+}
+div#pwdmodal > div {
+    padding: 0 0 0 20px;
+}
+div.oldpassword {
+	margin: 10px 0;
+}
+div.newpassword {
+	margin: 10px 0;
+}
+div.renewpassword {
+	margin: 10px 0 50px 0;
+}
+div.oldpassword div div.wrongpwd {
+	font-size: 80%;
+	font-weight: bold;
+	height: 20px;
+	margin-top: 3px;
+}
+div.oldpassword div div.wrongpwd span {
+	display: none;
+}
+div.oldpassword div div.wrongpwd span img {
+	vertical-align: -3px; 
+	padding-right: 3px;
+}
+div.newpassword div div.shortpwd {
+	font-size: 80%;
+	font-weight: bold;
+	height: 20px;
+	margin-top: 3px;
+}
+div.newpassword div div.shortpwd span {
+	display: none;
+}
+div.newpassword div div.shortpwd span img {
+	vertical-align: -3px; 
+	padding-right: 3px;
+}
+div.renewpassword div div.wrongrepwd {
+	font-size: 80%;
+	font-weight: bold;
+	height: 20px;
+	margin-top: 3px;
+}
+div.renewpassword div div.wrongrepwd span {
+	display: none;
+}
+div.renewpassword div div.wrongrepwd span img {
+	vertical-align: -3px; 
+	padding-right: 3px;
+}	
+div#pwdmodal div.save {
+    margin: 0 0 20px 0;
+	text-align: center;
+}
+form#settingsinfo label { 
+	font-weight: bold;
+}
+orm#settingsinfo div.email label {
+    font-weight: normal;
+    float: none;
+    margin: 2px 0;
+}
+div#email span span.s_invalid {
+	vertical-align: 3px;
+	padding-top: 3px;
+}
+form#settingsinfo div.changepwdl {
+    display:block;
+}
+form#settingsinfo div.changepwdl label {
+    width: 400px;
+    text-align: center;
+}
+form#settingsinfo div.barfade {
+    width: 400px;
+    clear: left;
+}
+form#settingsinfo div.emailbarfade { 
+    margin: 10px 0;
+}
+form#settingsinfo div.pwdbarfade {
+    margin: 35px 0 0 0;
+}
+form#settingsinfo span.notifyme {
+	font-weight: bold;
+	clear: left;
+	padding-top: 30px;
+	display: block;
+}
+form#settingsinfo div.setting table thead tr th {
+	font-weight: 400;
+}
+form#settingsinfo div.setting table tbody tr th {
+	font-weight: 400;
+}
+div.settings div.explanation {
+    color: #aaa;
+    font-size: 90%;
+    margin-top: 10px;
+}
+div.error {
+	background-image: url(http://static.zino.gr/phoenix/error.jpg);
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+	width: 650px;
+	height: 400px;
+}
+
+div.error h2 {
+	color: #052977;
+	size: 24pt;
+	position: absolute;
+	top: 60px;
+	right: 100px;
+	width: 380px;
+	height: 40px;
+}
+
+div.error p {
+	position: absolute;
+	right: 100px;
+	top: 100px;
+	width: 380px;
+	height: 200px;
+	text-align: justify;
+}
+
+div.error form {
+	margin-top: 20px;
+}div.success {
+	background-image: url(http://static.zino.gr/phoenix/success.jpg);
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+	width: 650px;
+	height: 400px;
+}
+
+div.success h2 {
+	color: #007500;
+	size: 24pt;
+	position: absolute;
+	top: 85px;
+	right: 100px;
+	width: 300px;
+	height: 40px;
+}.invite_contacts {
+    border: 0px solid black;
+    margin: 30px auto;
+    padding: 30px;
+    display: block;
+	width: 700px;
+}
+
+.invite_contacts #top_tabs {
+	margin-left: 130px;
+	position: relative;
+	top: 1px;
+    display: block;
+    height: 24px;
+    z-index: 500;
+}
+.invite_contacts #top_tabs li {
+	float: left;
+	display: block;
+	padding: 3px 10px;
+	border: 1px #ccc solid;
+	border-bottom-width: 0;
+	border-left-width: 0;
+	background: #eee;
+    cursor: pointer;
+}
+.invite_contacts #top_tabs li:first-child{
+	border-left-width: 1px;
+}
+.invite_contacts #top_tabs li.selected {
+	background: white;
+	position: relative;
+	height: 17px;
+	z-index: 100;
+}
+
+.invite_contacts #left_tabs {
+	float: left;
+	position: relative;
+	left: -1px;
+    display: block;
+    width: 102px;
+    z-index: 500;
+}
+.invite_contacts #left_tabs li {
+	display: block;
+	width: 90px;
+	padding: 10px 10px 10px 0;
+	background: #f5f5f5 no-repeat 7px 10px;
+	border: 1px solid #ccc;
+	border-right-width: 0;
+	border-top-width: 0;
+    cursor: pointer;
+	height: 16px;
+}
+.invite_contacts #left_tabs li:first-child{
+	border-top-width: 1px;
+}
+.invite_contacts #left_tabs li.selected {
+	background-color: white;
+	position: relative;
+	width: 91px;
+	z-index: 100;
+}
+.invite_contacts #left_tabs li span {
+	padding-left: 30px;
+	background: no-repeat 7px 0;
+}
+.invite_contacts #left_tabs #hotmail{
+    background-image: url("http://static.zino.gr/phoenix/contacts/msn-icon.gif");
+}
+.invite_contacts #left_tabs #yahoo{
+    background-image: url("http://static.zino.gr/phoenix/contacts/yahoo-icon.gif");
+}
+.invite_contacts #left_tabs #gmail{
+    background-image: url("http://static.zino.gr/phoenix/contacts/gmail-icon.gif");
+}
+.invite_contacts #left_tabs #hi5{
+    background-image: url("http://static.zino.gr/phoenix/contacts/hi5-icon.png");
+}
+
+.invite_contacts #body {
+	border: 1px solid #ccc;
+	margin-left: 100px;
+	font-size: 17px;
+	position: relative;
+	height: 245px;
+}
+.invite_contacts #body #foot {
+	background: #eee;
+	padding: 20px 0;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.invite_contacts #body #foot input {
+	width: 120px;
+	height: 40px;
+	display: block;
+	margin: auto;
+	border: 0;
+	background: transparent url('http://static.zino.gr/phoenix/buttons.png') no-repeat;
+	cursor: pointer;
+}
+.invite_contacts #body #foot input:active{
+	background-position: -120px 0;
+}
+.invite_contacts #body #foot input.add{
+	background-position: 0 -40px;
+}
+.invite_contacts #body #foot input.add:active{
+	background-position: -120px -40px;
+}
+.invite_contacts #body #foot input.invite{
+	background-position: 0 -80px;
+}
+.invite_contacts #body #foot input.invite:active{
+	background-position: -120px -80px;
+}
+.invite_contacts #body #foot input.finish{
+	background-position: 0 -120px;
+}
+.invite_contacts #body #foot input.finish:active{
+	background-position: -120px -120px;
+}
+.invite_contacts #body #login {
+	padding-top: 40px;
+}
+.invite_contacts #body #mail, #password {
+	height: 40px;
+	padding: 8px 10px;
+}
+.invite_contacts #body .inputs div {
+	float: left;
+	display: block;
+	width: 140px;
+	text-align: right;
+	padding-right:15px;
+	padding-top: 10px;
+	height: 30px;
+	color: #777;
+}
+
+.invite_contacts #body .inputs input.text{
+	display: block;
+	height: 30px;
+	padding: 5px;
+	width: 190px;
+	font-size: 20px;
+	border: 0;
+	background: url('http://static.zino.gr/phoenix/contacts/input.png') no-repeat;
+}
+.invite_contacts #body .inputs input.text:hover{
+	background-position: 0 -40px;
+}
+.invite_contacts #body .inputs input.text:focus{
+	background-position: 0 -80px;
+}
+.invite_contacts #body #security {
+	position: absolute;
+	left: 400px;
+	top: 40px;
+	width: 150px;
+	font-size: 12px;
+}
+
+.invite_contacts #body #loading {
+	display: none;
+	position: absolute;
+	width: 100%;
+}
+.invite_contacts #body #loading h1{
+	margin: 60px 0;
+	text-align: center;
+    font-size: 25px;
+}
+.invite_contacts #body #loading h2 {
+	margin: 60px 0;
+	text-align: center;
+}
+.invite_contacts #body #loading h2 {
+	font-size: 0.8em;
+}
+.invite_contacts #body #loading img {
+	display: block;
+	margin: auto;
+	width: 30px;
+}
+
+.invite_contacts #body .step {
+	display: none;
+    margin-top: 17px;
+}
+.invite_contacts #body .step h3 {
+	margin-left: 20px;
+}
+.invite_contacts #body .step .selectAll{
+	padding: 0 0 5px 0;
+	font-size: 13px;
+	color: #114779;
+}
+.invite_contacts #body .step .selectAll span{
+	margin-left: 16px;
+	cursor: pointer;
+}
+.invite_contacts #body .step .contacts{
+	padding: 0;
+	margin: 20px;
+	border: 1px solid #ccc;
+	overflow: auto;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height: 283px;
+}
+.invite_contacts #body .step .contact{
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+	padding: 10px 20px;
+	font-size: 12px;
+}
+.invite_contacts #body .step .contact:last-child{
+	border: 0;
+}
+.invite_contacts #body #contactsInZino .contact .contactName {
+    float: left;
+    width: 80%;
+}
+.invite_contacts #body #contactsInZino .contact .location {
+    float: left;
+    width: 20%;
+    padding-top: 20px;
+}
+.invite_contacts #body #contactsInZino .contact input{
+	float: left;
+	margin: 20px;
+}
+
+.invite_contacts #body #contactsInZino .contact a {
+    display: block;
+	font-weight: bold;
+    height: 15px;
+}
+.invite_contacts #body #contactsInZino .contact a img {
+    float: left;
+    margin-right: 20px;
+}
+.invite_contacts #body #contactsInZino .contact div div{
+    display: inline;
+    float: left;
+}
+
+.invite_contacts #body #contactsNotZino .contacts{
+	height: 240px;
+}
+.invite_contacts #body #contactsNotZino .contact{
+	height: 30px;
+}
+.invite_contacts #body #contactsNotZino .contact input{
+	float: left;
+	margin: 10px 20px;
+}
+div.wysiwyg iframe {
+    border: 1px solid #666;
+    width: 100%;
+    height: 300px;
+}
+div.wysiwyg div.toolbox {
+    float: right;
+    padding: 3px;
+    background: #eee;
+    border: 1px solid #666;
+    border-bottom-style: none;
+}
+div.wysiwyg div.toolbox a {
+    position: relative;
+    margin: 3px;
+}
+div.wysiwyg div.toolbox a span {
+    display: none;
+    position: absolute;
+}
+div.wysiwyg div.toolbox a:hover span {
+    display: block;
+    top: 18px;
+    right: 0;
+    background: #feffee;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+div.wysiwyg-control {
+    display: none;
+}
+form.wysiwyg-control-image-album {
+    position: relative;
+}
+form.wysiwyg-control-image-start ul {
+    list-style: none;
+}
+form.wysiwyg-control-image-start li {
+    margin: 20px;
+    font-weight: bold;
+}
+form.wysiwyg-control-image-album div.albumlist {
+    float: left;
+    border-right: 1px solid black;
+    width: 144px;
+    background: #fff;
+    height: 500px;
+    overflow: auto;
+}
+form.wysiwyg-control-image-album div.albumlist div.album {
+    float: left;
+    clear: both;
+    padding: 10px;
+}
+form.wysiwyg-control-image-album div.photolist a {
+    float: left;
+    margin: 5px;
+}
+form.wysiwyg-control-image-album input {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/*
+ZinoPlayer CSS
+*/
+
+#zinoPlayer {
+	display:block;
+	float:left;
+	width:320px;
+	height:115px;
+	background:url('http://static.zino.gr/phoenix/art/player/background.jpg') no-repeat;
+	margin-bottom:5px;
+	font-family:arial;
+}
+
+/*#playerObject {
+	position:absolute;
+	left:-100px;
+	top:-100px;
+}*/
+
+#zinoPlayer span.playing {
+	display:block;
+	float:left;
+	width:4px;
+	height:7px;
+	background:url('http://static.zino.gr/phoenix/art/player/playing.gif') no-repeat;
+	margin: 3px 4px 0px 4px;
+}
+
+
+#zinoPlayer #playerControls {
+	display:block;
+	float:left;
+	width:320px;
+	height:32px;
+}
+
+#zinoPlayer ul#playList {
+	display:block;
+	float:left;
+	width:310px;
+	height:75px;
+	list-style:none;
+	margin:6px 0px 0px 4px;
+}
+
+#zinoPlayer ul#playList li {
+	display:block;
+	height:15px;
+	width:310px;
+	border-bottom:1px solid #cccccc;
+}
+
+#zinoPlayer ul#playList li a {
+	display:block;
+	height:13px;
+	padding-top:2px;
+	width:310px;
+	overflow:hidden;
+	font-size:10px;
+	color:#4b6c7f;
+	text-indent:4px;
+	outline:none;
+}
+
+#zinoPlayer ul#playList li a.selected {
+	background:url('http://static.zino.gr/phoenix/art/player/trackSelection.jpg') repeat-x;
+	color:#ffffff;
+	text-indent:8px;
+	width:311px;
+	font-weight:bold;
+}
+
+#zinoPlayer #playerControls #playButton {
+	margin:4px 0px 0px 12px;
+	display:block;
+	float:left;
+	width:25px;
+	height:25px;
+	background:url('http://static.zino.gr/phoenix/art/player/pause_button.png') no-repeat;
+	text-indent:-4000px;
+	opacity:0.55;
+	filter:alpha(opacity=55);
+	outline:none;
+}
+
+#zinoPlayer #playerControls #playButton.pause {
+	background:url('http://static.zino.gr/phoenix/art/player/pause_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton.play {
+	background:url('http://static.zino.gr/phoenix/art/player/play_button.png') no-repeat;
+}
+
+#zinoPlayer #playerControls #playButton:hover {
+	opacity:0.95;
+	filter:alpha(opacity=95);
+}
+
+#zinoPlayer #playerControls #progressBar {
+	display:block;
+	float:left;
+	margin:12px 0px 0px 20px;
+	width:260px;
+	height:11px;
+	background:url('http://static.zino.gr/phoenix/art/player/progressbar.jpg') no-repeat;
+}
+
+#zinoPlayer #playerControls #progressBar #progress {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	max-width:253px;
+	background:url('http://static.zino.gr/phoenix/art/player/progress.jpg') repeat-x;
+	margin:0px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #progressEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	background:#cfcfcf url('http://static.zino.gr/phoenix/art/player/progressEnd.gif') repeat-x;
+	margin:0px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #buffered {
+	display:block;
+	float:left;
+	height:9px;
+	width:7px;
+	max-width:253px;
+	background:#CFCFCF repeat-x;
+	margin:1px 0px 0px 3px;
+	border:none;
+}
+
+#zinoPlayer #playerControls #progressBar #bufferedEnd {
+	display:block;
+	float:left;
+	height:9px;
+	width:3px;
+	background:url('http://static.zino.gr/phoenix/art/player/bufferedEnd.gif') repeat-x;
+	margin:1px 0px 0px 0px;
+	border:none;
+}
