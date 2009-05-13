@@ -16,6 +16,8 @@ var Banner = {
             switch( event.keyCode ) {
 				case 13:
 					$('#loginSubmit').submit();
+					alert("Logging in...");
+					break;
 			}
          });
             
