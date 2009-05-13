@@ -12,7 +12,7 @@ var Banner = {
 			return;
 		}
         $( 'div#banner ul input' )[ 1 ].keydown( function( event ) {
-            alert( event.keycode );
+            alert( event.keyCode );
          });
             
 		Banner.isanimating = true;
