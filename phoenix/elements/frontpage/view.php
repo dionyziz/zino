@@ -19,7 +19,7 @@
                 ?><div class="ybubble"><div class="body">
                 <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
                 <p>
-                <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong>
+                <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong> 
                 <br /><br />
                 Για την δική σου ασφάλεια, μην δίνεις ποτέ τον κωδικό του λογαριασμού σου σε τρίτους. <br />
                 Να θυμάσαι να κάνεις "Έξοδο" από το προφίλ σου κάθε φορά που χρησιμοποιείς δημόσιο υπολογιστή.
