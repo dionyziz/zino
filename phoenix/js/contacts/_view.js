@@ -146,18 +146,18 @@ var contacts = {
     calcCheckboxes: function( step ){
         if ( step == 2 ){
             if ( $( "#contactsInZino input:checked" ).size() ){
-                $( "#foot input" ).removeClass();
+                $( "#foot input" ).removeClass().addClass( "add" );
             }
             else{
-                $( "#foot input" ).removeClass().addClass( "add" );
+                $( "#foot input" ).removeClass();
             }
         }
         else{ //if step == 3
             if ( $( "#contactsNotZino input:checked" ).size() ){
-                $( "#foot input" ).removeClass().addClass( "finish" );
+                $( "#foot input" ).removeClass().addClass( "invite" );
             }
             else{
-                $( "#foot input" ).removeClass().addClass( "invite" );
+                $( "#foot input" ).removeClass().addClass( "finish" );
             }
         }
     },
