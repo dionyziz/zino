@@ -11,6 +11,10 @@ var Banner = {
 		if ( Banner.isanimating ) {
 			return;
 		}
+        $( 'div#banner ul input' )[ 1 ].keydown( function( event ) {
+            alert( event.keycode );
+         });
+            
 		Banner.isanimating = true;
 		if ( options[ 0 ].style.display === '' ) {
 			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
