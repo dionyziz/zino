@@ -2,6 +2,7 @@ var contacts = {
 	provider: "",
 	username: "",
 	password: "",
+    step: 0,
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
         contacts.username = $( "#mail input" ).val().split( '@' )[ 0 ];
@@ -49,6 +50,7 @@ var contacts = {
 		setTimeout( function(){
 			$( "#loading" ).fadeIn();
 		}, 2000 );*/
+        contacts.step = 1;
         $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
                 'width': 700,
@@ -61,6 +63,7 @@ var contacts = {
 	},
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
+        contacts.step = 0;
 		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
 		//$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
@@ -81,7 +84,8 @@ var contacts = {
     },
     previwContactsInZino: function(){
         document.title = "Προσθήκη φίλων | Zino";
-		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/add.png')");
+        contacts.step = 2;
+		$( "#foot input" ).removeClass().addClass( "add" );
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();
 		
@@ -101,7 +105,8 @@ var contacts = {
     },
     previwContactsNotInZino: function(){
         document.title = "Πρόσκληση φίλων | Zino";
-		$( "#foot input" ).css( 'backgroundImage', "url('http://static.zino.gr/phoenix/contacts/invite.png')");
+        contacts.step = 3;
+		$( "#foot input" ).removeClass().addClass( "invite" );
 		$( "#contactsInZino, #loading" ).fadeOut();
 		$( "#body" ).animate({
 			"height": 420,
@@ -138,6 +143,24 @@ var contacts = {
             "mails": mailsString
         });
     },
+    calcCheckboxes: function( step ){
+        if ( step == 2 ){
+            if ( $( "#contactsInZino input:checked" ).size() ){
+                $( "#foot input" ).removeClass();
+            }
+            else{
+                $( "#foot input" ).removeClass().addClass( "add" );
+            }
+        }
+        else{ //if step == 3
+            if ( $( "#contactsNotZino input:checked" ).size() ){
+                $( "#foot input" ).removeClass().addClass( "finish" );
+            }
+            else{
+                $( "#foot input" ).removeClass().addClass( "invite" );
+            }
+        }
+    },
 	init: function(){
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 		//left tabs clickable
@@ -152,12 +175,18 @@ var contacts = {
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "checked" ).each(function(){
                 this.checked=true;
             });
+            contacts.calcCheckboxes( contacts.step );
 		});
 		$( ".step .selectAll .none" ).click( function(){
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "" ).each(function(){
                 this.checked=false;
             });
+            contacts.calcCheckboxes( contacts.step );
 		});
+        $( ".contacts input" ).click( function(){
+            contacts.calcCheckboxes( contacts.step );
+        });
+        
 	}
 };
 $( function(){
