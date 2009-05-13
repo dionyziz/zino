@@ -61,6 +61,7 @@ div.settings div.sidebar ol li a {
     vertical-align: middle;
     border-bottom: 1px solid #eef;
     display: block;
+    white-space: nowrap;
 }
 div.sidebar ol li a span {
 	margin-left: -30px;
