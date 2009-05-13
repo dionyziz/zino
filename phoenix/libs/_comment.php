@@ -424,6 +424,7 @@
         private $mText = false;
 
         public function __get( $key ) {
+            var_dump( $key );
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
@@ -431,7 +432,6 @@
                     }
                     return $this->mText;
                 default:
-		    echo "$key\n";
                     return parent::__get( $key );
             }
         }
