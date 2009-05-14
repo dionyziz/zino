@@ -164,7 +164,7 @@ div.frontpage div.notifications div.list div.event div.who img.avatar {
 }
 div.frontpage div.notifications  div.list div.event div.subject p img {
     float: right;
-    margin-top: -17px;
+    /*margin-top: -17px;*/
 }
 div.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
     width: 75px;
