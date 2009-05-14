@@ -35,7 +35,7 @@
                     <br /><br />
                     <input type="text" value="" style="width:400px" />
                     <br /><br />
-                    <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertImage(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
+                    <input type="button" value="Εισαγωγή" onclick="WYSIWYG.InsertImage(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
                     <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
                 </form>
                 <form class="wysiwyg-control-image-album">
