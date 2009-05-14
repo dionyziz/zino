@@ -1,8 +1,8 @@
 div.latestphotos {
-    margin: 0 4px 20px 4px;
+    margin: 20px auto 20px auto;
 }
 div.latestphotos ul {
-    padding: 17px 0 14px 0;
+    padding: 0;
 }
 div.latestphotos ul li {
     float: left;
