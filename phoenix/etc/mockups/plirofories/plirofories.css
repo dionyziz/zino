@@ -1,0 +1,7 @@
+div.settings div.sidebar ol li a {
+    height: 21px;
+    padding: 0 35px;
+}
+div.settings div.sidebar ol li.selected {
+    background-position: -203px -120px
+}
