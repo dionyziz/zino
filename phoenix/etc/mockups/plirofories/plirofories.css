@@ -5,3 +5,8 @@ div.settings div.sidebar ol li a {
 div.settings div.sidebar ol li.selected {
     background-position: -203px -120px
 }
+div.settings div.sidebar ol li {
+    margin-bottom: 1px;
+    font-size: 90%;
+    font-weight: bold;
+}
