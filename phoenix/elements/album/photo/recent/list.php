@@ -14,7 +14,7 @@
             if ( count( $images ) > 0 ) {
                 ?><div class="latestphotos">
                     <h2>Φωτογραφίες</h2>
-                    <ul>
+                    <ul class="lstimages plist">
                         <?php
                         foreach ( $images as $image ) {
                             if ( $image->Image->Id != null ) {
