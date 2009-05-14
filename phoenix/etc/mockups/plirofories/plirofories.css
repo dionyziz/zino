@@ -10,3 +10,15 @@ div.settings div.sidebar ol li {
     font-size: 90%;
     font-weight: bold;
 }
+div.tabs form#characteristicsinfo textarea.msg {
+    width: 400px;
+    height: 200px;
+}
+div.tabs form#characteristicsinfo div.apostoli {
+    margin: 40px 0 0 50px;
+    text-align: center;
+}
+div.tabs form#characteristicsinfo div.apostoli a.button {
+    width:400px;
+    padding: 5px 60px 5px 60px;
+}
