@@ -15,7 +15,7 @@
                 }
             }
             else {
-				?><img src="<?php
+				?><span class="imageview"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>anonymous<?php
 				echo $size;
@@ -47,7 +47,7 @@
 				if ( $style != "" ) {
 					echo htmlspecialchars( $style );
 				}
-				?>" /><?php
+				?>"></img></span><?php
             }
         }
     }
