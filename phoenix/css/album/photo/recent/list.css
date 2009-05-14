@@ -9,6 +9,7 @@ div.latestphotos ul li {
     margin: 8px;
     height: 110px;
     text-align: center;
+    display: block;
 }
 div.latestphotos ul li img {
     border: 1px solid #cce;
