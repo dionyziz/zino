@@ -24,11 +24,7 @@ var Profile = {
 	},
 	DeleteFriend : function( relationid ) {
 		$( 'div.sidebar div.basicinfo div a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
-			$( this )
-			.parent()
-			.css( 'display' , 'hidden' )
-			.append( document.createTextNode( 'Έγινε διαγραφή' ) )
-			.fadeIn( 400 );
+			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
 		return false;
