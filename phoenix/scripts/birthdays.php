@@ -29,7 +29,7 @@
     echo "Found " . count( $arr ) . " users to inform.\n";
 
     foreach ( $arr as $row ) {
-        echo "Informing " . ( string )$row[ 1 ] . " of " . ( string )$row[ 1 ] . "'s birthday.\n";
+        echo "Informing " . ( string )$row[ 1 ] . " of " . ( string )$row[ 0 ] . "'s birthday.\n";
         
         $notification = New Notification();
         $notification->Typeid = EVENT_USER_BIRTHDAY;
