@@ -80,7 +80,7 @@ var Suggest = {
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
-			alert( $("div.add.hobbies ul li.selected").html() );
+			$('div.add.hobbies input').value( $("div.add.hobbies ul li.selected").attr('value') );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length === 0 ) {
