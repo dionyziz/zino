@@ -34,7 +34,7 @@ var Comments = {
 		
 		var valu = temp.find( "div.text" ).html();
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
-        
+        alert( "here" );
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
@@ -43,12 +43,10 @@ var Comments = {
         else {
             var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
         }
-        alert( "here" );
         var avatarview = $( daddy ).find( "div.who span.imageview" );
         var avatar = $( avatarview ).clone( true );
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
-        alert( "here2" );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
         alert( "before" );
 		if ( parentid === 0 ) {
