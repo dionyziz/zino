@@ -16,7 +16,7 @@ var Profile = {
         }
 		$( 'div.sidebar div.basicinfo div a span.s_addfriend' ).parent().fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
-			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( '<p>Έγινε προσθήκη</p>' ) ).fadeIn( 400 );
+			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
 			
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
