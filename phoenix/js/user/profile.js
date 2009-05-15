@@ -19,7 +19,7 @@ var Profile = {
 			.parent()
 			.css( 'display' , 'hidden' )
 			//.append( document.createTextNode( 'Έγινε προσθήκη' ) )
-			.append('<p>Έγινε προσθήκη</p>');
+			.append('Έγινε προσθήκη');
 			.fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
