@@ -181,7 +181,6 @@ var Suggest = {
 						$( 'div.' + type + ' input' ).attr( 'value', suggestions[ i ] );
 						Settings.AddInterest( type, Suggest.type2int( type ) );
 						$( 'div.' + type + ' ul li' ).remove();
-						$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
 					};
 				}( i );
 				li.onmousemove = function() {

@@ -18,7 +18,8 @@ var Profile = {
 			$( this )
 			.parent()
 			.css( 'display' , 'hidden' )
-			.append( document.createTextNode( 'Έγινε προσθήκη' ) )
+			//.append( document.createTextNode( 'Έγινε προσθήκη' ) )
+			.append('<p>Έγινε προσθήκη</p>');
 			.fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
