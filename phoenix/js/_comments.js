@@ -31,10 +31,11 @@ var Comments = {
         .css( "border-top" , "3px solid #b3d589" )
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
-		
+		alert( "here" );
 		var valu = temp.find( "div.text" ).html();
+        alert( "here2" );
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
-        alert( "here" );
+        
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
