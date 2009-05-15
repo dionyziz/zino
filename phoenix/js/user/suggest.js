@@ -80,7 +80,7 @@ var Suggest = {
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
-			$("div.add.hobbies input").val( $("div.add.hobbies ul li.selected").text() );
+			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
         }
         else if ( event.keyCode == 38 ) { // up
             if ( lis.length === 0 ) {
@@ -90,6 +90,7 @@ var Suggest = {
             ul.find( 'li.selected' ).removeClass( 'selected' ).prev().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
+			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
         }
 		else if ( event.keyCode == 33 ) { // PageUp
 			var piso = ul.find( 'li.selected' ).removeClass( 'selected' ).prevAll();
@@ -101,6 +102,7 @@ var Suggest = {
 				$( piso[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			}
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
+			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
 		}
 		else if ( event.keyCode == 34 ) { // PageDown
 			var mprosta = ul.find( 'li.selected' ).removeClass( 'selected' ).nextAll();
@@ -112,6 +114,7 @@ var Suggest = {
 				$( mprosta[ 4 ] ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			}
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
+			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
 		}
         else if ( event.keyCode == 27 ) { // escape
             ul.find( 'li' ).remove();
@@ -121,6 +124,7 @@ var Suggest = {
 			if ( lis.length !== 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
 			}
+			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
 			Settings.AddInterest( type, Suggest.type2int( type ) );
 			ul.find( 'li' ).remove();
         }
