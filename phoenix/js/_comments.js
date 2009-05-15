@@ -10,6 +10,7 @@ var Comments = {
 		else {
 			texter = $( "#comment_reply_" + parentid + " > div.text > textarea" ).get( 0 ).value;
 		}
+        alert( texter );
 		texter = $.trim( texter );
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
