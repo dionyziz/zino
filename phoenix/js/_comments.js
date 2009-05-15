@@ -31,7 +31,8 @@ var Comments = {
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
-		var valu = temp.find( "div.text" ).html() + '&nbsp;';
+		var valu = temp.find( "div.text" ).html();
+        alert( valu );
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
 		
         var link = document.createElement( 'a' );
