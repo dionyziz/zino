@@ -51,12 +51,14 @@ var Comments = {
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
+        alert( "before" );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 		}
+        alert( "after" );
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
 		Coala.Warm( 'comments/new', { 	text : texter, 
