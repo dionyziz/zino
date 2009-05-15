@@ -73,10 +73,10 @@ var Suggest = {
         var lis = ul.find( 'li.selected' );
 		var text = $( 'div.' + type + ' input' ).val();
         if ( event.keyCode == 40 ) { // down
-            if ( lis.length === 0 ) {
+            /*if ( lis.length === 0 ) {
                 ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
                 return;
-            }
+            }*/
             lis.removeClass( 'selected' ).next().addClass( 'selected' ).get( 0 ).scrollIntoView( false );
 			Suggest.allowHover = false;
 			setTimeout( function() { Suggest.allowHover = true; }, 15 );
