@@ -352,24 +352,16 @@ var Frontpage = {
             Frontpage.Comment.Animating = true;
             setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
-            //var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
+            var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             $( node ).css( "opacity" , "0" )
             .animate( {
                 //height: targetheight,
                 opacity: "1"
-            } , 900 , 'linear' );
+            } , 700 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 opacity: "0"
             } , 700 , 'linear' , function() {
                 $( this ).remove();
-                $( 'div.latest div.comments div.list' ).prepend( node );
-                //var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
-                $( node ).css( "opacity" , "0" )
-                .animate( {
-                    //height: targetheight,
-                    opacity: "1"
-                } , 900 , 'linear' );
-                
             } );
         },
         NextComment : function() {
