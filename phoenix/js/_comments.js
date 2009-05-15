@@ -12,7 +12,6 @@ var Comments = {
 		}
         
 		texter = $.trim( texter );
-        alert( texter );
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
@@ -34,9 +33,7 @@ var Comments = {
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var valu = temp.find( "div.text" ).html();
-        alert( valu );
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
-		alert( valu );
         
         var link = document.createElement( 'a' );
         var username = GetUsername();
@@ -46,10 +43,12 @@ var Comments = {
         else {
             var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
         }
+        alert( "here" );
         var avatarview = $( daddy ).find( "div.who span.imageview" );
         var avatar = $( avatarview ).clone( true );
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
+        alert( "here2" );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
         alert( "before" );
 		if ( parentid === 0 ) {
