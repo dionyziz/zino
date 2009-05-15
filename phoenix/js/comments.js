@@ -32,7 +32,7 @@ var Comments = {
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		var valu = temp.find( "div.text" ).html();
-		temp.find( "div.text" ).text( valu/*.replace( /\n/gi, "<br />" )*/ );
+		temp.find( "div.text" ).html( '<span></span>' + valu.replace( /\n/gi, "<br />" ) );
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
