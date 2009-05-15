@@ -358,7 +358,7 @@
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
-                            ?>' );return false" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
+                            ?>' );return false" title="Διαγραφή">&nbsp;</a><?php // Space needed for CSS Spriting
                         }
 						if ( $i == $tags_num - 2 ) {
 							?> και <?php
