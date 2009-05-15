@@ -133,7 +133,7 @@
                     ?></select>
                 </div>
                 
-                <div><input type="submit" value="Ψάξε!" class="submit" /></div>
+                <div><input style="display:block;margin:auto;" type="submit" value="Ψάξε!" class="submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
