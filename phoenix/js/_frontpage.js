@@ -357,7 +357,7 @@ var Frontpage = {
             .animate( {
                 //height: targetheight,
                 opacity: "1"
-            } , 70 , 'linear' );
+            } , 100 , 'linear' );
             $( 'div.latest div.comments div.list>div:last-child' ).animate( {
                 height: "0",
                 opacity: "0"
