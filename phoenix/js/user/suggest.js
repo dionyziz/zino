@@ -66,7 +66,6 @@ var Suggest = {
 		}
 	},
     inputMove : function( event, type ) {
-		alert('your_mom');
         var ul = $( 'div.' + type + ' ul' );
         if ( ul.css( "display" ) == "none" && event.keyCode != 13 ) {
 			return;
