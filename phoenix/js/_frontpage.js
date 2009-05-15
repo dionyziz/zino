@@ -353,7 +353,7 @@ var Frontpage = {
             setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
             $( 'div.latest div.comments div.list' ).prepend( node );
             var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
-            $( node )/*.css( "height" , "0" )*/
+            $( node ).css( "opacity" , "0" )
             .animate( {
                 //height: targetheight,
                 opacity: "1"
