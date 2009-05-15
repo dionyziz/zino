@@ -35,7 +35,7 @@ var Comments = {
 		var valu = temp.find( "div.text" ).html();
         alert( "here2" );
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
-        
+        alert( "here3" );
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
