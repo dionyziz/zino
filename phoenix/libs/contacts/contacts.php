@@ -43,7 +43,7 @@
         foreach ( $emails as $toemail ) {    
             $parts = array();
             $parts = explode( '@', $toemail );
-            $toname = $parts[ 0 ];            
+            $toname = $parts[ 0 ];
             
             $subject = 'Πρόσκληση απο ';
             if ( $user->Gender == 'f' ) {
@@ -66,7 +66,8 @@
                 $message .= 'του';
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
-http://" . $user->Subdomain . ".zino.gr/
+"//http://" . $user->Subdomain . ".zino.gr/
+. "http://www.zino.gr/join?user_id=" . $user->Id . "&mail=" . $tomail . "
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer
