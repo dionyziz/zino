@@ -32,7 +32,7 @@ var Comments = {
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var valu = temp.find( "div.text" ).html();
-        alert( valu );
+        valu = valu + 'test';
 		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
 		
         var link = document.createElement( 'a' );
