@@ -31,11 +31,8 @@ var Comments = {
         .css( "border-top" , "3px solid #b3d589" )
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).css( "visibility" , "hidden" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
-		alert( "here" ); 
 		var valu = temp.find( "div.text" ).html();
-        alert( "here2" );
 		temp.find( "div.text" ).text( valu/*.replace( /\n/gi, "<br />" )*/ );
-        alert( "here3" );
         var link = document.createElement( 'a' );
         var username = GetUsername();
         if ( ExcaliburSettings.Production ) {
@@ -49,14 +46,12 @@ var Comments = {
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
 	    $( daddy ).find( "div.who" ).empty().append( link );	
-        alert( "before" );
 		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 		}
-        alert( "after" );
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
 		Coala.Warm( 'comments/new', { 	text : texter, 
@@ -75,7 +70,7 @@ var Comments = {
 		Comments.numchildren[ id ] = 0;	
 		var indent = ( parentid===0 )? -1 : parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
         node.attr( 'id', 'comment_' + id )
-		.find( "div.text" ).html( newtext ).end()
+		.find( "div.text" ).text( newtext ).end()
         .find( 'div.bottom' ).css( "visibility" , "visible" ).find( 'a' ).click( function() {
                 Comments.ToggleReply( id , indent + 1 );
                 return false;
