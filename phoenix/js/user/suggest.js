@@ -72,7 +72,6 @@ var Suggest = {
 		}
         var lis = ul.find( 'li.selected' );
 		var text = $( 'div.' + type + ' input' ).val();
-		alert( text );
         if ( event.keyCode == 40 ) { // down
             if ( lis.length === 0 ) {
                 ul.find( 'li:first' ).addClass( 'selected' ).get( 0 ).scrollIntoView( false );
