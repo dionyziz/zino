@@ -35,7 +35,7 @@
                 $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
-            if ( UserIP() == ip2long( '85.72.160.231' ) || UserIP() == ip2long('85.72.142.132') ) {
+            if ( UserIP() == ip2long( '88.218.142.142' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
             }
