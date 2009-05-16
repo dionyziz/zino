@@ -13,8 +13,7 @@
             }
             
             if ( !$album->Exists() ) {
-                Element( '404', 'To album δεν υπάρχει' );
-                return;
+                return Element( '404', 'To album δεν υπάρχει' );
             }
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
                 Element( 'user/sections', 'album' , $album->Owner );
@@ -28,9 +27,7 @@
                 }
                 ?>><?php
                 if ( $album->IsDeleted() ) {
-                    $page->SetTitle( 'Το album έχει διαγραφεί' ); 
-                    ?>Το album έχει διαγραφεί</div><div class="eof"></div><?php
-                    return;
+                    return Element( '404', 'Το album έχει διαγραφεί' ); 
                 }
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
