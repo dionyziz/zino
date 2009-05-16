@@ -41,9 +41,21 @@
     function EmailFriend( $contacts ) {
         global $user;
     
-        foreach ( $contacts as $contact_id => $toemail ) {
+        foreach ( $contacts as $contact ) {
+            $chars = "abcdefghijkmnopqrstuvwxyz123456789";
+            srand((double)microtime()*1000000);
+            $token = '' ;
+            for ( $i = 0; $i <= 30; ++$i ){
+                $num = rand() % 35;
+                $tmp = substr($chars, $num, 1);
+                $token = $token . $tmp;
+            }
+            $contact->Validtoken = $token;
+            $contact->Invited = true;
+            $contact->Save();
+            
             $parts = array();
-            $parts = explode( '@', $toemail );
+            $parts = explode( '@', $contact->Mail );
             $toname = $parts[ 0 ];
             
             $subject = 'Πρόσκληση απο ';
@@ -68,7 +80,7 @@
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
 "//http://" . $user->Subdomain . ".zino.gr/
-. "http://www.zino.gr/join?id=$contact_id
+. "http://www.zino.gr/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer
@@ -153,7 +165,7 @@
             global $user;
             
             $libs->Load( 'relation/relation' );
-        
+            
             $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
             
             $relationfinder = new FriendRelationFinder();//find already zino friends
@@ -170,6 +182,21 @@
                 }
             }
             return $notzino_friends;//<-RETURN array[ 'profile_email' ] = 'profile_userid'
+        }
+        
+        public function FindById( $contact_id ){
+            $query = $this->mDb->Prepare(
+                'SELECT *
+                FROM :contacts
+                WHERE `contact_id` = :id 
+                LIMIT 1;
+            ');
+            $query->BindTable( 'contacts' );
+            $query->Bind( 'id', $contact_id );
+            $res = $query->Execute();
+            
+            $row = $res->FetchArray();
+            return new Contact( $row );
         }
     }
     

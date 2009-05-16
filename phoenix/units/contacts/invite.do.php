@@ -1,20 +1,19 @@
 <?php
-    function UnitContactsInvite( tText $mails ) {
+    function UnitContactsInvite( tText $ids ) {
         global $libs;
         global $user;
         global $rabbit_settings;
         $libs->Load( 'contacts/contacts' );
         
-        $mails = $mails->Get();
-        if ( strpos( $mails, "@"  ) === false ){
+        $ids = $ids->Get();
+        if ( $mails != "" ){
             return;
         }
-        $contactsStr = explode( ";", $mails );
-        foreach ( $contactsStr as $contact ){
-            $contact = explode( " ", $contact );
-            $id = $contact[ 0 ];
-            $mail = $contact[ 1 ];
-            $contacts[ $id ] = $mail;
+        $contact_ids = explode( ",", $mails );
+        foreach ( $contact_ids as $contact_id ){
+            $finder = new ContactFinder();
+            $contact = $finder->FindById( $contact_id );
+            $contacts[] = $contact;
         }
         EmailFriend( $contacts );
         echo "alert(2);";

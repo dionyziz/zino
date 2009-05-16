@@ -131,17 +131,21 @@ var contacts = {
         });
     },
     invite: function(){
-    var mails = new Array;
-        $( "#contactsNotZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
-            var id = $( this ).parent().attr( 'id' ).split( "_" )[ 1 ];
-            mails.push( id + " " + $( this ).html() );
+    var ids = new Array;
+        $( "#contactsNotZino .contact input:checked" ).parent().each( function( i ){
+            var id = $( this ).attr( 'id' ).split( "_" )[ 1 ];
+            ids.push( id );
         });
-        mailsString = mails.join( ";" );
+        idsString = ids.join( "," );
         /*if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
             return 0;
         }*/
+        if ( idsString == "" ){
+            return;
+        }
+        alert( idsString );
         Coala.Warm( "contacts/invite", {
-            "mails": mailsString
+            "ids": idsString
         });
     },
     calcCheckboxes: function( step ){
