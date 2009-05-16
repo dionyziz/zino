@@ -42,6 +42,7 @@
         global $user;
     
         foreach ( $contacts as $contact ) {
+            echo "alert('" . $contact->Mail . "')";
             $chars = "abcdefghijkmnopqrstuvwxyz123456789";
             srand((double)microtime()*1000000);
             $token = '' ;
@@ -54,7 +55,7 @@
             $contact->Invited = true;
             $contact->Save();
             
-            echo "alert('" . $contact->Mail . "')";
+            
             
             $parts = array();
             $parts = explode( '@', $contact->Mail );
