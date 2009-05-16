@@ -32,7 +32,7 @@
         
         $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
-            $contact->AddContact( $key, $username );
+            $comtact = $contact->AddContact( $key, $username );
             $ret[] = $contact;
         }
         return $ret;
@@ -184,6 +184,6 @@
             $contact->Userid = $user->Id;
             $contact->Created = NowDate();
             $contact->Save();
-            return;
+            return $contact;
         }
     }
