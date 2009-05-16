@@ -6,6 +6,9 @@
         $libs->Load( 'contacts/contacts' );
         
         $mails = $mails->Get();
+        ?>alert( '<?php
+        echo $mails;
+        ?>' );<?php
         if ( strpos( $mails, "@"  ) ){
             return;
         }
