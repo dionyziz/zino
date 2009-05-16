@@ -11,6 +11,7 @@
         }
         $contact_ids = explode( ",", $mails );
         foreach ( $contact_ids as $contact_id ){
+            echo "alert('" . $contact_id . "')";
             $finder = new ContactFinder();
             $contact = $finder->FindById( $contact_id );
             $contacts[] = $contact;
