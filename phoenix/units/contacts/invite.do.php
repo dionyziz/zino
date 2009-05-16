@@ -15,8 +15,11 @@
             $id = $contact[ 0 ];
             $mail = $contact[ 1 ];
             $contacts[ $id ] = $mail;
+            ?>alert( '<?php
+            echo $id . " -> " . $mail;
+            ?>');<?php
         }
-        EmailFriend( $contacts );
+        //EmailFriend( $contacts );
         ?>
         window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
