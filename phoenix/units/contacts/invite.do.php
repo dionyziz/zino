@@ -6,10 +6,17 @@
         $libs->Load( 'contacts/contacts' );
         
         $mails = $mails->Get();
-        $emails = explode( " ", $mails );
         if ( strpos( $mails, "@"  ) ){
-            EmailFriend( $emails );
+            return;
         }
+        $contactsStr = explode( ";", $mails );
+        foreach ( $contactsStr as $contact ){
+            $contact = explode( " ", $contact );
+            $id = $contact[ 0 ];
+            $mail = $contact[ 1 ];
+            $contacts[ $id ] = $mail;
+        }
+        EmailFriend( $contacts );
         ?>
         window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];

@@ -133,9 +133,10 @@ var contacts = {
     invite: function(){
     var mails = new Array;
         $( "#contactsNotZino .contact input:checked" ).siblings( ".contactMail" ).each( function( i ){
-            mails.push( $( this ).html() );
+            var id = $( this ).parent().attr( 'id' ).split( "_" )[ 1 ];
+            mails.push( id + " " + $( this ).html() );
         });
-        mailsString = mails.join( " " );
+        mailsString = mails.join( ";" );
         /*if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
             return 0;
         }*/

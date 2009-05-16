@@ -38,10 +38,10 @@
         return $ret;
     }
     
-    function EmailFriend( $emails ) {
+    function EmailFriend( $contacts ) {
         global $user;
     
-        foreach ( $emails as $toemail ) {    
+        foreach ( $contacts as $contact_id => $toemail ) {
             $parts = array();
             $parts = explode( '@', $toemail );
             $toname = $parts[ 0 ];
@@ -68,7 +68,7 @@
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
 "//http://" . $user->Subdomain . ".zino.gr/
-. "http://www.zino.gr/join?user_id=" . $user->Id . "&mail=" . $toemail . "
+. "http://www.zino.gr/join?id=$contact_id
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer
