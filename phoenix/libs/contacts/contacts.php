@@ -86,7 +86,7 @@
 " . $user->Name; // TODO: Add unsubscribe footer
             $fromname = $user->Name;
             $fromemail = 'invite@zino.gr';
-            Email( $toname, $toemail, $subject, $message, $fromname, $fromemail );
+            Email( $toname, $contact->Mail, $subject, $message, $fromname, $fromemail );
         }
         return;
     }
