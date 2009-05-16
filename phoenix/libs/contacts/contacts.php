@@ -54,6 +54,8 @@
             $contact->Invited = true;
             $contact->Save();
             
+            echo "alert('" . $contact->Mail . "')";
+            
             $parts = array();
             $parts = explode( '@', $contact->Mail );
             $toname = $parts[ 0 ];
