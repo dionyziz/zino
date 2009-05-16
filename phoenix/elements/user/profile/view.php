@@ -23,8 +23,7 @@
                 $theuser = $finder->FindBySubdomain( $subdomain );
             }
             if ( !isset( $theuser ) || $theuser === false ) {
-                ?>Ο χρήστης δεν υπάρχει<?php
-                return;
+                return Element( '404', 'Ο χρήστης δεν υπάρχει' );
             }
             $page->SetTitle( $theuser->Name );
             $page->AddKeyword( $theuser->Name );

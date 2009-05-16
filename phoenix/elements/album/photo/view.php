@@ -26,8 +26,7 @@
             }
             
             if( !$image->Exists() ) {
-                ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
-                return;
+                return Element( '404', 'Η φωτογραφία δεν υπάρχει' );
             }
             switch ( $image->Album->Ownertype ) {
                 case TYPE_USERPROFILE:

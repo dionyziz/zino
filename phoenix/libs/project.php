@@ -158,7 +158,7 @@
             'iphone/user'       => 'iphone/user/profile/view',
             'recent'            => 'recent/view',
             'meteor'            => 'developer/dionyziz/meteor',
-            'kolaz'             => 'kolaz',
+            'kolaz'             => 'album/photo/kolaz',
             'notvalidated'      => 'validation/page',
 			'revalidate'        => 'validation/resend',
             'test'              => 'test',

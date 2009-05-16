@@ -26,7 +26,7 @@
                 $poll = New Poll( $id->Get() );
             }
             if ( $poll === false || !$poll->Exists() ) {
-                return Element( '404' );
+                return Element( '404', 'Δεν βρέθηκε η δημοσκόπηση' );
             }
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();

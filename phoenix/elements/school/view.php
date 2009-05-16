@@ -17,8 +17,7 @@
 			$userfinder = New UserFinder();
 			$students = $userfinder->FindBySchool( $school , 0 , 12 );
             if ( !$school->Exists() ) {
-                die( 'Το σχολείο που προσπαθείς να δεις δεν υπάρχει.' );
-                return Element( '404' );
+                return Element( '404', 'Το σχολείο δεν βρέθηκε' );
             }
 
             $institution = $school->Institution;

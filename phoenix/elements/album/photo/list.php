@@ -13,7 +13,7 @@
             }
             
             if ( !$album->Exists() ) {
-                ?>To album δεν υπάρχει<div class="eof"></div><?php
+                Element( '404', 'To album δεν υπάρχει' );
                 return;
             }
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
