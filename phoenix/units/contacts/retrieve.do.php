@@ -34,8 +34,8 @@
             return;
         }
         ?>alert('<?php
-        foreach ( $ret as $contact ){
-            echo $contact->Mail . " - " . $contact->Usermail . " - " . $contact->Id;
+        foreach ( $ret as $name => $contact ){
+            echo $contact->Mail . " - " . $name . " - " . $contact->Id;
         }
         ?>');<?php
         $contactsInZino = 0;

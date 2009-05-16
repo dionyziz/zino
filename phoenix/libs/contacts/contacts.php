@@ -33,7 +33,7 @@
         $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
             $contact = $contact->AddContact( $key, $username );
-            $ret[] = $contact;
+            $ret[ $val ] = $contact;
         }
         return $ret;
     }
