@@ -16,8 +16,6 @@
             $contacts[] = $contact;
         }
         EmailFriend( $contacts );
-        echo "alert(2);";
-        return;
         ?>
         window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
