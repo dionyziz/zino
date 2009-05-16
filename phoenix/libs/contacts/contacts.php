@@ -42,7 +42,6 @@
         global $user;
     
         foreach ( $contacts as $contact ) {
-            echo "alert('" . $contact->Mail . "')";
             $chars = "abcdefghijkmnopqrstuvwxyz123456789";
             srand((double)microtime()*1000000);
             $token = '' ;

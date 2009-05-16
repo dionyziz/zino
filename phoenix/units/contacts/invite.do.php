@@ -14,6 +14,7 @@
             $finder = new ContactFinder();
             $contact = $finder->FindById( $contact_id );
             $contacts[] = $contact;
+            echo "alert('" . $contact->Mail . "')";
         }
         EmailFriend( $contacts );
         echo "alert(2);";
