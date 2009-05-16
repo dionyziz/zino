@@ -91,7 +91,7 @@ var contacts = {
 		
 		$( "#foot input" ).one( 'click', contacts.addFriends );
 	},
-    addContactNotZino: function( mail, nickname ){
+    addContactNotZino: function( mail, nickname, contact_id ){
         div = document.createElement( "div" );
         var text = "<input type='checkbox' checked='checked' />";
         if ( mail != nickname ){
@@ -101,7 +101,7 @@ var contacts = {
         else{
             text += "<div style='margin-top: 8px' class='contactMail'>" + mail + "</div>";
         }
-        $( div ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
+        $( div ).attr( 'id', 'contact_' + contact_id ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
     previwContactsNotInZino: function(){
         document.title = "Πρόσκληση φίλων | Zino";

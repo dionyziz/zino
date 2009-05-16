@@ -33,18 +33,16 @@
             }, 3000 );<?php
             return;
         }
-        ?>alert('<?php
         foreach ( $ret as $name => $contact ){
-            echo $contact->Mail . " - " . $name . " - " . $contact->Id;
+            $mails[ $name ] = $contact->Mail;
         }
-        ?>');<?php
         $contactsInZino = 0;
         $contactsNotZino = 0;
         $mailfinder = new UserProfileFinder();
-        $members = $mailfinder->FindAllUsersByEmails( $ret );
-        foreach( $ret as $mail => $nickname ){
-            if ( $members[ $mail ] != "" ){
-                $theuser = new User( $members[ $mail ] );
+        $members = $mailfinder->FindAllUsersByEmails( $mails );
+        foreach( $ret as $nickname => $contact ){
+            if ( $members[ $contact->Mail ] != "" ){
+                $theuser = new User( $members[ $contact->Mail ] );
                 $finder = New FriendRelationFinder();
                 if ( $finder->IsFriend( $theuser, $user ) ){
                     continue;
@@ -52,7 +50,7 @@
                 ?>contacts.addContactInZino( '<?php
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser );
                 ?>', '<?php
-                echo addslashes( $mail );
+                echo addslashes( $contact->Mail );
                 ?>', '<?php
                 echo addslashes( $theuser->Profile->Location->Name );
                 ?>', '<?php
@@ -62,9 +60,11 @@
             }
             else {
                 ?>contacts.addContactNotZino( '<?php
-                echo addslashes( $mail );
+                echo addslashes( $contact->Mail );
                 ?>', '<?php
                 echo addslashes( $nickname );
+                ?>', '<?php
+                echo $contact->Id;
                 ?>' );<?php
                 $contactsNotZino++;
             }
