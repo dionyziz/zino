@@ -6,7 +6,7 @@
         $libs->Load( 'contacts/contacts' );
         
         $mails = $mails->Get();
-        if ( strpos( $mails, "@"  ) ){
+        if ( strpos( $mails, "@"  ) === false ){
             echo "alert(4);";
             return;
         }
@@ -21,6 +21,8 @@
             ?>');<?php
         }
         //EmailFriend( $contacts );
+        echo "alert(2);";
+        return;
         ?>
         window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
