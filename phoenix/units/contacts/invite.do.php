@@ -6,7 +6,8 @@
         $libs->Load( 'contacts/contacts' );
         
         $ids = $ids->Get();
-        if ( $mails != "" ){
+        echo "alert('" . $ids . "')";
+        if ( $ids == "" ){
             return;
         }
         $contact_ids = explode( ",", $mails );
