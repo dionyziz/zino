@@ -7,7 +7,6 @@
         
         $mails = $mails->Get();
         if ( strpos( $mails, "@"  ) === false ){
-            echo "alert(4);";
             return;
         }
         $contactsStr = explode( ";", $mails );
@@ -16,11 +15,8 @@
             $id = $contact[ 0 ];
             $mail = $contact[ 1 ];
             $contacts[ $id ] = $mail;
-            ?>alert( '<?php
-            echo $id . " -> " . $mail;
-            ?>');<?php
         }
-        //EmailFriend( $contacts );
+        EmailFriend( $contacts );
         echo "alert(2);";
         return;
         ?>
