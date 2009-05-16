@@ -33,6 +33,11 @@
             }, 3000 );<?php
             return;
         }
+        ?>alert('<?php
+        foreach ( $ret as $contact ){
+            echo $contact->Mail . " - " . $contact->Usermail . " - " . $contact->Id;
+        }
+        ?>');<?php
         $contactsInZino = 0;
         $contactsNotZino = 0;
         $mailfinder = new UserProfileFinder();

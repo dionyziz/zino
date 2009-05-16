@@ -14,7 +14,7 @@
         
         if ( empty( $username ) || empty( $pass ) ) {//check if the password or the username are empty
             return 'ERROR_CREDENTIALS';
-        }        
+        }
 
         $inviter = new OpenInviter();
         $inviter->getPlugins();
@@ -33,9 +33,10 @@
         $contact = new Contact();
         foreach ( $contacts as $key=>$val ) {
             $contact->AddContact( $key, $username );
-        }        
-        return $contacts;
-    }    
+            $ret[] = $contact;
+        }
+        return $ret;
+    }
     
     function EmailFriend( $emails ) {
         global $user;
@@ -67,7 +68,7 @@
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
 "//http://" . $user->Subdomain . ".zino.gr/
-. "http://www.zino.gr/join?user_id=" . $user->Id . "&mail=" . $tomail . "
+. "http://www.zino.gr/join?user_id=" . $user->Id . "&mail=" . $toemail . "
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer
