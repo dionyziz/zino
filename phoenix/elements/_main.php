@@ -24,9 +24,11 @@
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
             }
-			if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0' ) !== false ) {
-				$page->AttachStylesheet( 'css/ie6.css' );
-            }
+			if ( UserIP() == ip2long( '88.218.142.142' ) ) {
+				if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0' ) !== false ) {
+					$page->AttachStylesheet( 'css/ie6.css' );
+				}
+			}
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
