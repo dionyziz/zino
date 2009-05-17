@@ -1,16 +1,33 @@
 <?php
     
     class ElementUserJoin extends Element {
-        public function Render( tText $username) {
+        public function Render( tText $username, tText $id, tText $validtoken ) {
             global $page;
             global $rabbit_settings;
             global $user;
+            global $libs;
+            $libs->Load( 'contacts/contacts' );
             
             $page->SetTitle( 'Γίνε μέλος!' );
             if ( $user->Exists() ) {
                 return Redirect( $rabbit_settings[ 'webadresss' ] );
             }
             $username = $username->Get();
+            $id = $id->Get();
+            $validtoken = $validtoken->Get();
+            if( $id != "" ){
+                $finder = new ContactFinder();
+                $contact = $finder->FindById( $id );
+                if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
+                    $email = $contact->Mail;
+                    $parts = explode( '@', $contact->Mail );
+                    $username = $parts[ 0 ];
+                    $finder = new UserFinder();
+                    if ( $finder->IsTaken( $username ) ){
+                        $username = "";
+                    }
+                }
+            }
             ?><div class="join">
                 <div class="bubble">
                     <i class="tl"></i><i class="tr"></i>
@@ -58,7 +75,9 @@
                         </div>
                         <div>
                             <label for="join_email">E-mail:</label>
-                            <input type="text" value="" style="width:200px" id="join_email" />
+                            <input type="text" value="<?php
+                            echo $email;
+                            ?>" style="width:200px" id="join_email" />
                             <span><img src="<?php
                             echo $rabbit_settings[ 'imagesurl' ];
                             ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
