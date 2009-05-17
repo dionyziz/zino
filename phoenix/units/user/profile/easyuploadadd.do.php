@@ -25,7 +25,10 @@
                 $( 'div#profile div.main div.photos ul.plist li.addphoto' ).after( newli );<?php
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
-                $( this ).fadeOut( 1000, function() {
+                $( this ).fadeOut( 1000, function() {<?php
+					if ( $user->Id == 872 ) {
+						?>alert(1);<?php
+					}?>
                     $( '#easyphotoupload').jqmHide();
                 } );
             } );<?php
