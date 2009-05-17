@@ -24,7 +24,10 @@
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
             if ( $_SESSION[ 'destuser_id' ] != "" ){
                 $destuser = new User( $_SESSION[ 'destuser_id' ] );
-                echo ValidURL( "http://ted.beta.zino.gr/phoenix" );
+                ob_start();
+                Element( 'user/url', $destuser->Id, $destuser->Subdomain );
+                
+                echo ValidURL( ob_get_contents() );
                 return;
                 return Redirect( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
             }
