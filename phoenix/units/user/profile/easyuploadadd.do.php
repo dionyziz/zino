@@ -26,7 +26,7 @@
             }
             ?>$( 'div#easyphotoupload div.modalcontent div.uploadsuccess div' ).fadeIn( 400 , function() {
                 $( this ).fadeOut( 1000, function() {<?php
-					if ( $user->Id == 872 ) {
+					if ( $user->Id == 872 || $user->Id == 1 ) {
 						?>alert(1);<?php
 					}?>
                     $( '#easyphotoupload').jqmHide();
