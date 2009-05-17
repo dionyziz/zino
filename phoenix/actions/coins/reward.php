@@ -16,6 +16,10 @@
         
         $libs->Load( 'coins' );
         $coins = New Coins( $snuid );
+        if ( !$coins->Exists() ) {
+            $coins = New Coins();
+            $coins->Userid = $snuid;
+        }
         $coins->Amount += $currency;
         $coins->Save();
     }
