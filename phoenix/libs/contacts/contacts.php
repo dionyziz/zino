@@ -208,7 +208,7 @@
                 FROM :contacts
                 WHERE `contact_mail` = :mail 
                 AND `contact_invited` = :invited
-                GROUP BY `contact_usermail` ;
+                GROUP BY `contact_userid` ;
             ');
             $query->BindTable( 'contacts' );
             $query->Bind( 'mail', $contact_mail );
