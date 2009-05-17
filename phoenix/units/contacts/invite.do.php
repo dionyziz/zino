@@ -6,14 +6,13 @@
         $libs->Load( 'contacts/contacts' );
         
         $ids = $ids->Get();
-        if ( $ids == "" ){
-            return;
-        }
-        $contact_ids = explode( ",", $ids );
-        foreach ( $contact_ids as $contact_id ){
-            $finder = new ContactFinder();
-            $contact = $finder->FindById( $contact_id );
-            $contacts[] = $contact;
+        if ( $ids != "" ){
+            $contact_ids = explode( ",", $ids );
+            foreach ( $contact_ids as $contact_id ){
+                $finder = new ContactFinder();
+                $contact = $finder->FindById( $contact_id );
+                $contacts[] = $contact;
+            }
         }
         EmailFriend( $contacts );
         ?>
