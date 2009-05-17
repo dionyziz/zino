@@ -24,6 +24,9 @@
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
             }
+			if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0' ) !== false ) {
+				$page->AttachStylesheet( 'css/ie6.css' );
+            }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
@@ -38,8 +41,6 @@
             if ( UserIP() == ip2long( '88.218.142.142' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
-				$browser = $_SERVER['HTTP_USER_AGENT'];
-				var_dump( $browser );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
