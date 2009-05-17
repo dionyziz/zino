@@ -4,6 +4,7 @@
         global $libs;
 		global $water;
 		$water->ExitWithoutSubmission();
+        $libs->Load( 'contacts/contacts' );
         $libs->Load( 'relation/relation' );
 		
         $username = $username->Get();
