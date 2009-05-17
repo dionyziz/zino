@@ -10,7 +10,7 @@
         <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
-            <div class="body">
+            <div class="body" style="padding:0px;">
             <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
                 <div class="search">
