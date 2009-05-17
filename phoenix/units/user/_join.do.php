@@ -70,12 +70,11 @@
                     //$current_contact->Save();
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
                     if ( $current_contact->Mail == $email ){
-                        $finder = New UserFinder();
-                        $destuser = $finder->FindById( $current_contact->Userid );
-                        ?>alert( '<?php //location.href = '
+                        $destuser = new User( $current_contact->Userid );
+                        ?>location.href = '<?php 
                         echo $current_contact->Userid;
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
-                        ?>' );<?php
+                        ?>';<?php
                         return;
                     }
                 }
