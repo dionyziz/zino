@@ -68,7 +68,7 @@
                     }
                     if ( $current_contact->Mail == $email ){
                         $userfinder = new UserFinder();
-                        $destuser = $userfinder->FindById( $current_contact->Id );
+                        $destuser = $userfinder->FindById( $current_contact->Userid );
                         ?>alert( '<?php //location.href = '
                         Element( 'user/subdomain', $destuser );
                         ?>' );<?php
