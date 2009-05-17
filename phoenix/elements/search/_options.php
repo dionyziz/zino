@@ -11,7 +11,7 @@
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
-            <form action="" method="get" onsubmit="return Search.check()">
+            <form action="" method="get" onsubmit="return Search.check()" style="position:relative;top:10px;">
                 <input type="hidden" name="p" value="search" />
                 <div class="search">
                     <h3>Φύλο:</h3><?php
