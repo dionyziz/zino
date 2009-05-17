@@ -7,7 +7,7 @@
             global $page;
 ?>
         <h2>Αναζήτησε άτομα</h2>
-        <div class="ybubble" style="margin: 0 auto 10px">
+        <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
@@ -132,7 +132,7 @@
                         }
                     ?></select>
                 </div>
-                <div style="width:120px;margin:10px auto 0px;"><input type="submit" value="Ψάξε!" class="submit" /></div>
+                <div style="width:120px;height:32px;margin:auto;"><input type="submit" value="Ψάξε!" class="submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
