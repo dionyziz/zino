@@ -70,8 +70,9 @@
                     //$current_contact->Save();
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
                     if ( $current_contact->Mail == $email ){
+                        $destuser = New User( $current_contact->Userid );
                         ?>location.href = '<?php
-                        Element( 'user/url', $current_contact->Userid );
+                        Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                         ?>';<?php
                         return;
                     }
