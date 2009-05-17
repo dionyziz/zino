@@ -7,7 +7,7 @@
             global $page;
 ?>
         <h2>Αναζήτησε άτομα</h2>
-        <div class="ybubble">
+        <div class="ybubble" style="margin: 0 auto 0">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
@@ -138,14 +138,6 @@
             <i class="bl"></i>
             <i class="br"></i>
         </div>
-		<div class="findim">
-			<h2>ή αναζήτησε φίλους από</h2>
-			<ul>
-				<li><a href="?p=find&amp;im=msn" class="msn">&nbsp;</a></li>
-				<li><a href="?p=find&amp;im=gmail" class="gmail">&nbsp;</a></li>
-				<li><a href="?p=find&amp;im=yahoo" class="yahoo">&nbsp;</a></li>
-			</ul>
-		</div>
 		<div class="eof"></div><?php
         }
     }
