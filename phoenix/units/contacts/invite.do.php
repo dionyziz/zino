@@ -6,8 +6,7 @@
         $libs->Load( 'contacts/contacts' );
         
         $ids = $ids->Get();
-        var_dump( $ids );
-        if ( $ids != "" ){
+        if ( strlen( $ids ) != 0 ){
             
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
