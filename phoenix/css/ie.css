@@ -34,6 +34,9 @@ div#shoutbox div.newcomment div.text input {
 div#shoutbox div.newcomment div.who a span img {
     position: absolute;
 }
+span.imageview > span {
+    bottom: 0;
+}
 /*div.header h1 {
 	background: url('http://static.zino.gr/phoenix/banner-begin2.jpg') no-repeat;
 }
