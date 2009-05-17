@@ -67,8 +67,8 @@
                         Element::ClearFromCache( 'user/profile/main/friends' , $newuser->Id );
                     }
                     if ( $current_contact->Mail == $email ){
-                        echo "TESTING";
-                        $destuser = New User( $current_contact->Userid );
+                        $userfinder = new UserFinder();
+                        $destuser = $userfinder->FindById( $current_contact->Id );
                         ?>location.href = '<?php
                         Element( 'user/subdomain', $destuser );
                         ?>';<?php
