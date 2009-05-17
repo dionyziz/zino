@@ -87,7 +87,7 @@
                     ?></select>
                 </div>
                 
-                <div class="search">
+                <div class="search" style="clear:both;">
                     <h3>Περιοχή:</h3>
                     
                     <select name="placeid">
@@ -132,8 +132,7 @@
                         }
                     ?></select>
                 </div>
-                
-                <input type="submit" value="Ψάξε!" class="submit" />
+                <div style="width:120px;margin:auto;"><input type="submit" value="Ψάξε!" class="submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
