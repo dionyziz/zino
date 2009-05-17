@@ -70,7 +70,7 @@
                         $userfinder = new UserFinder();
                         $destuser = $userfinder->FindById( $current_contact->Userid );
                         ?>location.href = '<?php
-                        Element( 'user/subdomain', $destuser );
+                        Element( 'user/url', $destuser );
                         ?>';<?php
                         return;
                     }
