@@ -1,31 +1,20 @@
 div.header h1 {
 	width: 1761px;
 	height: 2081px;
-	top: 0;
-	cursor: pointer;
 	clip: rect(1645px 90px 1696px 0px);
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/icons2.png', sizingMethod='scale');
 	top: -1645px;
 }
-div.header div.eof {
-	display: inline;
-    clear: none;
-	margin: 0;
-	padding: 0;
-	top: 0;
-    _top: 3px;
-	right: 0;
-    width: 71px;
-    height: 51px;
-	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1877px;
-	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');*/
-}
 div.header h1 a {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -735px -1674px;
+	width: 1761px;
+	height: 2081px;
+	clip: rect(1674px 827px 1722px 735px);
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/icons2.png', sizingMethod='scale');
+	top: -1674px;
+	left: -735px;
+	position: absolute;
+	cursor: pointer;
 	display: block;
-	height: 48px; 
-	width: 92px;
 }
 div.header h1 a:hover {
 	text-decoration: none;
