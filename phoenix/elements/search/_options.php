@@ -110,7 +110,7 @@
                         ?>
                     </select>
                 </div>
-                <div class="search">
+                <div class="search" style="padding:0px;">
                     <h3>Σεξουαλικές προτιμήσεις:</h3>
                     <select name="orientation"><?php
                         $orientations = array(
@@ -132,7 +132,7 @@
                         }
                     ?></select>
                 </div>
-                <div style="position:relative;top:10px;"><div style="width:120px;margin:auto;padding:0px;"><input style="top:0px;" type="submit" value="Ψάξε!" class="submit" /></div></div>
+                <div style="position:relative;padding:0px;"><div style="width:120px;margin:auto;padding:0px;"><input style="top:0px;" type="submit" value="Ψάξε!" class="submit" /></div></div>
             </form>
             </div>
             <i class="bl"></i>
