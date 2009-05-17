@@ -187,10 +187,10 @@
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php
-							Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                             switch ( $notif->Item->Typeid ) {
                                 case TYPE_IMAGE:
                                     $image = $notif->Item->Item;
+									Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                                     if ( $image->Name != '' ) {
                                         ?>την εικόνα "<?php
                                         echo htmlspecialchars( $image->Name );
@@ -211,7 +211,6 @@
                                         }
                                         ?>"<?php
                                     }
-                                                                   
                                     break;
                                 case TYPE_JOURNAL:
                                     $journal = $notif->Item->Item;
