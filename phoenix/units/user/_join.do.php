@@ -72,9 +72,9 @@
                     if ( $current_contact->Mail == $email ){
                         $destuser = new User( $current_contact->Userid );
                         //user login
-                        $_SESSION[ 's_userid' ] = $myuser->Id;
-                        $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
-                        User_SetCookie( $myuser->Id, $myuser->Authtoken );
+                        $_SESSION[ 's_userid' ] = $newuser->Id;
+                        $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
+                        User_SetCookie( $newuser->Id, $newuser->Authtoken );
                         
                         ?>location.href = '<?php 
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
