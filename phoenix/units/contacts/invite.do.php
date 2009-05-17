@@ -6,19 +6,16 @@
         $libs->Load( 'contacts/contacts' );
         
         $ids = $ids->Get();
-        echo strlen( $ids );
         if ( strlen( $ids ) != 0 ){
-            echo strlen( $ids );
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
                 $finder = new ContactFinder();
                 $contact = $finder->FindById( $contact_id );
                 $contacts[] = $contact;
             }
+            EmailFriend( $contacts );
         }
-        EmailFriend( $contacts );
-        ?>
-        window.location = '<?php
+        ?>window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
         ?>';<?php
     }
