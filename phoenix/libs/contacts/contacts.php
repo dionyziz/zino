@@ -200,6 +200,29 @@
             $row = $res->FetchArray();
             return new Contact( $row );
         }
+
+        public function FindByMail( $contact_mail ){
+        
+            $query = $this->mDb->Prepare(
+                'SELECT *
+                FROM :contacts
+                WHERE `contact_mail` = :mail 
+                AND `contact_invited` = :invited
+                GROUP BY `contact_usermail` ;
+            ');
+            $query->BindTable( 'contacts' );
+            $query->Bind( 'mail', $contact_mail );
+            $query->Bind( 'invited', 1 );
+            $res = $query->Execute();
+            
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $contact = new Contact( $row );
+                $ret []  = $contact;
+            }
+            
+            return $ret;
+        }
     }
     
     class Contact extends Satori {

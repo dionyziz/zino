@@ -23,6 +23,7 @@
                     $parts = explode( '@', $contact->Mail );
                     $username = $parts[ 0 ];
                     $finder = new UserFinder();
+                    $_SESSION[ 'contact_id' ] = $id;
                     if ( $finder->IsTaken( $username ) ){
                         $username = "";
                     }
