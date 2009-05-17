@@ -2,12 +2,12 @@ div.header h1 {
 	width: 1761px;
 	height: 2081px;
 	clip: rect(1645px 90px 1696px 0px);
-	background: none;
+	background-image: none;
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/icons2.png', sizingMethod='scale');
 	top: -1645px;
 }
 div.header h1 a {
-	background: none;
+	background-image: none;
 	width: 1761px;
 	height: 2081px;
 	clip: rect(1674px 827px 1722px 735px);
