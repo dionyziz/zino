@@ -26,9 +26,7 @@
                 $destuser = new User( $_SESSION[ 'destuser_id' ] );
                 ob_start();
                 Element( 'user/url', $destuser->Id, $destuser->Subdomain );
-                echo ValidURL( ob_get_clean() );
-                return;
-                return Redirect( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
+                return Redirect( ob_get_clean() );
             }
             return Redirect( '?p=joined' );
         }
