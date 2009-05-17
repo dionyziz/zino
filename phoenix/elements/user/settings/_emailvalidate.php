@@ -25,6 +25,7 @@
             if ( $_SESSION[ 'destuser_id' ] != "" ){
                 $destuser = new User( $_SESSION[ 'destuser_id' ] );
                 echo $_SESSION[ 'destuser_id' ];
+                return;
                 //return Redirect( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
             }
             return Redirect( '?p=joined' );
