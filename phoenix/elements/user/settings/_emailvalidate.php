@@ -22,6 +22,9 @@
             $_SESSION[ 's_userid' ] = $myuser->Id;
             $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
+            if ( $_SESSION[ 'destuser_id' ] != "" ){
+                return Redirect( Element( 'user/url', $_SESSION[ 'destuser_id' ] ) );
+            }
             return Redirect( '?p=joined' );
         }
     }
