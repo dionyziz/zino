@@ -8,6 +8,7 @@
         $ids = $ids->Get();
         echo strlen( $ids );
         if ( strlen( $ids ) != 0 ){
+            echo strlen( $ids );
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
                 $finder = new ContactFinder();
