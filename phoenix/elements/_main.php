@@ -38,7 +38,7 @@
             if ( UserIP() == ip2long( '88.218.142.142' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
-				$browser = get_browser( $_SERVER['HTTP_USER_AGENT'], true );
+				$browser = $_SERVER['HTTP_USER_AGENT'];
 				var_dump( $browser );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
