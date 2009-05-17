@@ -7,6 +7,7 @@
         
         $ids = $ids->Get();
         if ( $ids != "" ){
+            var_dump( $ids );
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
                 $finder = new ContactFinder();

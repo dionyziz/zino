@@ -61,7 +61,7 @@ var contacts = {
     addContactNotZino: function( mail, nickname, contact_id ){
         div = document.createElement( "div" );
         var text = "<input type='checkbox' checked='checked' />";
-        if ( mail != nickname ){
+        if ( mail != nickname && mail.split( "@" )[ 0 ] != nickname ){
             text += "<div class='contactNickname'>" + nickname + "</div>";
             text += "<div class='contactMail'>" + mail + "</div>";
         }
