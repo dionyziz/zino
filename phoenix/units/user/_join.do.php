@@ -72,7 +72,6 @@
                     if ( $current_contact->Mail == $email ){
                         $destuser = new User( $current_contact->Userid );
                         ?>location.href = '<?php 
-                        echo $current_contact->Userid;
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                         ?>';<?php
                         return;
