@@ -23,8 +23,7 @@
             $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
             if ( $_SESSION[ 'destuser_id' ] != "" ){
-                $finder = New UserFinder();
-                $destuser = $finder->FindById( $current_contact->Userid );
+                $destuser = new User( $_SESSION[ 'destuser_id' ] );
                 return Redirect( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
             }
             return Redirect( '?p=joined' );
