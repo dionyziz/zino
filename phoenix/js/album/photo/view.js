@@ -14,6 +14,7 @@ var PhotoView = {
 			$( 'div#pview h2' ).empty().append( inputbox );
 		}
 		$( 'div#pview h2 input' )[ 0 ].select();
+		$( 'div#pview h2 input' ).focus();
 		return false;
 	},
 	Delete : function( photoid ) {
