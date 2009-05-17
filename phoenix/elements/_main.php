@@ -26,7 +26,7 @@
             }
 			if ( UserIP() == ip2long( '88.218.142.142' ) ) {
 				if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0' ) !== false ) {
-					$page->AttachStylesheet( 'css/ie6.css' );
+					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
 				}
 			}
             //start javascript attaching

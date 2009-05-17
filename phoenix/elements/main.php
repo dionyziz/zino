@@ -22,7 +22,7 @@
                 $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
             }
             if ( UserBrowser() == "MSIE" ) {
-                $page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
+                $page->AttachStylesheet( 'css/ie.css' );
             }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
