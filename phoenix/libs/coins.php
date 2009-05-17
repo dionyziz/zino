@@ -1,6 +1,6 @@
 <?php
     class Coins extends Satori {
-        protected $mDbTable = 'coins';
+        protected $mDbTableAlias = 'coins';
         
         public function LoadDefaults() {
             global $user;
