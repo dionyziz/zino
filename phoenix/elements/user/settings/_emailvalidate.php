@@ -24,6 +24,10 @@
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
             if ( $_SESSION[ 'destuser_id' ] != "" ){
                 $destuser = new User( $_SESSION[ 'destuser_id' ] );
+                echo Element( 'user/url', $destuser->Id, $destuser->Subdomain );
+                echo "-> ";
+                echo ValidURL( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
+                return;
                 return Redirect( Element( 'user/url', $destuser->Id, $destuser->Subdomain ) );
             }
             return Redirect( '?p=joined' );
