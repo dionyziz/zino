@@ -7,7 +7,7 @@
             global $page;
 ?>
         <h2>Αναζήτησε άτομα</h2>
-        <div class="ybubble" style="margin: 0 auto 0">
+        <div class="ybubble" style="margin: 0 auto 10">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
