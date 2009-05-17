@@ -19,37 +19,6 @@ var contacts = {
     },
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
-/*		$( '#foot, #login' ).fadeOut( 2000 ); too heavy...
-		$( '#left_tabs li span')
-			.fadeTo( 'normal', 0 ).parent()
-			.filter( 'li.selected' )
-			.css({
-				'position': 'absolute',
-				'borderTopWidth': 1
-				})
-			.animate({
-				'height': 144,
-				'top': '0'
-			}, 1000, function(){
-				$( '#left_tabs li:not(.selected)').hide();
-				$( '#left_tabs li.selected' ).animate({
-					'width': 0,
-					'paddingLeft': 0,
-					'paddingRight': 0,
-					'left': 1
-					}, 1000, function(){
-						$( this ).hide();
-				});
-				$( '#body' )
-					.animate({
-						'width': 698,
-						'height': 466,
-						'marginLeft': 0
-					}, 960 );
-		});
-		setTimeout( function(){
-			$( "#loading" ).fadeIn();
-		}, 2000 );*/
         contacts.step = 1;
         $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
@@ -65,14 +34,12 @@ var contacts = {
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
 		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
-		//$( '#password div label' ).css( 'fontWeight', 'bold' );
 		$( "#foot input" ).one( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
         text += "<input type='checkbox' checked='checked' />";
-        //text += "<input type='hidden' name='mails[]' value='" + mail + "' />";
         text += display;
         text += "<div class='contactMail'>" + mail + "</div>";
         text += "</div>";
@@ -123,9 +90,6 @@ var contacts = {
             ids.push( $( this ).attr( "id" ) );
         });
         idsString = ids.join( " " );
-        /*if ( !confirm( "The following users will be added as friends\n" + idsString ) ){
-            return 0;
-        }*/
         Coala.Warm( "contacts/addfriends", {
             "ids": idsString
         });
@@ -137,13 +101,6 @@ var contacts = {
             ids.push( id );
         });
         idsString = ids.join( "," );
-        /*if ( !confirm( "Invitations will be send to:\n" + mailsString ) ){
-            return 0;
-        }*/
-        if ( idsString == "" ){
-            return;
-        }
-        alert( idsString );
         Coala.Warm( "contacts/invite", {
             "ids": idsString
         });
