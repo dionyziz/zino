@@ -11,7 +11,7 @@
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
-            <form action="" method="get" onsubmit="return Search.check()" style="position:relative;top:10px;">
+            <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
                 <div class="search">
                     <h3>Φύλο:</h3><?php
@@ -132,7 +132,7 @@
                         }
                     ?></select>
                 </div>
-                <div><div style="width:120px;margin:auto;padding:0px;"><input style="top:0px;" type="submit" value="Ψάξε!" class="submit" /></div></div>
+                <div style="position:relative;top:10px;"><div style="width:120px;margin:auto;padding:0px;"><input style="top:0px;" type="submit" value="Ψάξε!" class="submit" /></div></div>
             </form>
             </div>
             <i class="bl"></i>
