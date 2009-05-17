@@ -71,9 +71,10 @@
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
                     if ( $current_contact->Mail == $email ){
                         $destuser = New User( $current_contact->Userid );
-                        ?>location.href = '<?php
+                        ?>alert( '<?php //location.href = '
+                        echo $destuser->Id . $destuser->Subdomain;
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
-                        ?>';<?php
+                        ?>' );<?php
                         return;
                     }
                 }
