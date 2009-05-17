@@ -71,14 +71,14 @@
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
                     if ( $current_contact->Mail == $email ){
                         $destuser = new User( $current_contact->Userid );
-                        ?>slocation.href = '<?php 
+                        ?>location.href = '<?php 
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                         ?>';<?php
                         return;
                     }
                 }
             }
-    		?>slocation.href = '<?php
+    		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
             ?>?p=notvalidated&firsttime=true&userid=<?php
 			echo $newuser->Id;
