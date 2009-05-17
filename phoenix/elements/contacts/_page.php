@@ -1,6 +1,10 @@
 <?php
 	class ElementContactsPage extends Element {
 		public function Render(){
+            global $user;
+            if ( !$user->Exists() ) {
+                return Redirect( $rabbit_settings[ 'webaddress' ] );
+            }
 			?>
             <div class="invite_contacts">
                 <ul id="top_tabs">
