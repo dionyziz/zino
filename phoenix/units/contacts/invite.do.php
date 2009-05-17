@@ -6,8 +6,9 @@
         $libs->Load( 'contacts/contacts' );
         
         $ids = $ids->Get();
+        var_dump( $ids );
         if ( $ids != "" ){
-            var_dump( $ids );
+            
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
                 $finder = new ContactFinder();
