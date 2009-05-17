@@ -133,6 +133,7 @@
                     ?></select>
                 </div>
                 <div style="width:120px;margin:auto;"><input type="submit" value="Ψάξε!" class="submit" /></div>
+				<div class="eof"></div>
             </form>
             </div>
             <i class="bl"></i>
