@@ -45,7 +45,7 @@
             $newuser->Profile->Email = $email;
             $newuser->Save();
             if ( $_SESSION[ 'contact_id' ] != "" ){
-                $finder = ContactFinder();
+                $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
                 if ( $current_contact != false ){
                     $finder = ContactFinder();
