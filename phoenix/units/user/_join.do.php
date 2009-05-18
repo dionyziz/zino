@@ -57,6 +57,7 @@
                         $relation->Friendid = $contact->Userid;
                         $relation->Typeid = 3;
                         $relation->Save();
+                        Element::ClearFromCache( 'user/profile/main/friends' , $newuser->Id );
                         
                         $relation = New FriendRelation();
                         $relation->Userid = $contact->Userid;
@@ -65,7 +66,7 @@
                         $relation->Save();
                         Element::ClearFromCache( 'user/profile/main/friends' , $contact->Userid );
                     }
-                    Element::ClearFromCache( 'user/profile/main/friends' , $newuser->Id );
+                    
                     //$current_contact->Validtoken = "";
                     //$current_contact->Save();
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
