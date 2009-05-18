@@ -49,7 +49,7 @@
                 $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
                 if ( $current_contact != false ){
-                    $newuser->EmailValidated = true;
+                    $newuser->Emailveriflied = 'yes';
                     $newuser->Save();
                     $finder = New ContactFinder();
                     $contacts = $finder->FindByMail( $current_contact->Mail );
