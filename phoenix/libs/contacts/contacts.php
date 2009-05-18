@@ -76,7 +76,7 @@
                 $message .= 'του';
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
-" . $rabbit_settings[ 'webadresss' ] . "/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
+" . $rabbit_settings[ 'webaddress' ] . "/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer
