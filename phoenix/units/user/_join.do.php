@@ -49,6 +49,8 @@
                 $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
                 if ( $current_contact != false ){
+                    $newuser->EmailValidated = true;
+                    $newuser->Save();
                     $finder = New ContactFinder();
                     $contacts = $finder->FindByMail( $current_contact->Mail );
                     foreach ( $contacts as $contact ){
@@ -57,7 +59,6 @@
                         $relation->Friendid = $contact->Userid;
                         $relation->Typeid = 3;
                         $relation->Save();
-                        Element::ClearFromCache( 'user/profile/main/friends' , $newuser->Id );
                         
                         $relation = New FriendRelation();
                         $relation->Userid = $contact->Userid;
@@ -66,7 +67,7 @@
                         $relation->Save();
                         Element::ClearFromCache( 'user/profile/main/friends' , $contact->Userid );
                     }
-                    
+                    Element::ClearFromCache( 'user/profile/main/friends' , $newuser->Id );
                     //$current_contact->Validtoken = "";
                     //$current_contact->Save();
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
@@ -80,8 +81,6 @@
                         ?>location.href = '<?php 
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                         ?>';<?php
-                        $newuser->EmailValidated = true;
-                        $newuser->Save();
                         return;
                     }
                 }
