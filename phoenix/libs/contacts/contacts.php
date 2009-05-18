@@ -40,17 +40,12 @@
     
     function EmailFriend( $contacts ) {
         global $user;
+        global $rabbit_settings;
+        global $libs;
+        $libs->Load( 'rabbit/helpers/hashstring' );
     
         foreach ( $contacts as $contact ) {
-            $chars = "abcdefghijkmnopqrstuvwxyz123456789";
-            srand((double)microtime()*1000000);
-            $token = '' ;
-            for ( $i = 0; $i <= 30; ++$i ){
-                $num = rand() % 35;
-                $tmp = substr($chars, $num, 1);
-                $token = $token . $tmp;
-            }
-            $contact->Validtoken = $token;
+            $contact->Validtoken = GenerateRandomHash();
             $contact->Invited = true;
             $contact->Save();
             
@@ -81,8 +76,7 @@
                 $message .= 'του';
             }
             $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
-"//http://" . $user->Subdomain . ".zino.gr/
-. "http://www.zino.gr/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
+" . $rabbit_settings[ 'webadresss' ] . "/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
 
 Ευχαριστώ,
 " . $user->Name; // TODO: Add unsubscribe footer

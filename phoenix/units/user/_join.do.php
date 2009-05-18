@@ -44,7 +44,7 @@
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
             $newuser->Profile->Email = $email;
-            $newuser->Save();
+            //$newuser->Save(); moved to line 88
             if ( $_SESSION[ 'contact_id' ] != "" ){
                 $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
@@ -79,10 +79,13 @@
                         ?>location.href = '<?php 
                         Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                         ?>';<?php
+                        $newuser->EmailValidated = true;
+                        $newuser->Save();
                         return;
                     }
                 }
             }
+            $newuser->Save();
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
             ?>?p=notvalidated&firsttime=true&userid=<?php
