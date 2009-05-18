@@ -8,7 +8,7 @@
             ?>Γεια σου <?php
             echo $target->Name;
             ?>,<?php
-                if( $target->EmailValidated ){
+                if( $target->Emailverified == 'yes' ){
             ?>
 
 Πρόσφατα δημιούργησες ένα λογαριασμό στο Zino χρησιμοποιώντας αυτή την ηλεκτρονική διεύθυνση.
