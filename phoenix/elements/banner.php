@@ -10,6 +10,9 @@
             <h1><a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
 ?>">&nbsp;</a></h1>
+            <div style="z-index:500;position:absolute;top:2px;right:100px">
+                <img src="http://static.zino.gr/images/aetos.png" alt="90 χρόνια από τη γενοκτονία του Πόντου" />
+            </div>
             <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
             <?php   
                 if ( !$user->Exists() ) {
