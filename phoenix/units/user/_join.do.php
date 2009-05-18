@@ -49,8 +49,11 @@
                 $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
                 if ( $current_contact != false ){
-                    $newuser->Emailverified = 'yes';
+                    if ( $current_contact->Mail == $email ){
+                        $newuser->Emailverified = 'yes';
+                    }
                     $newuser->Save();
+                    
                     $finder = New ContactFinder();
                     $contacts = $finder->FindByMail( $current_contact->Mail );
                     foreach ( $contacts as $contact ){
