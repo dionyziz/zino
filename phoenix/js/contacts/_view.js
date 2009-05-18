@@ -133,7 +133,7 @@ var contacts = {
         //next step with enter
         $( '#password input' ).keydown( function( event ){
             if ( event.keyCode == 13 ){
-                contacts.retrieve();
+                $( '#foot input' ).click();
             }
         });
 		//checkboxes
