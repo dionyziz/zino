@@ -13,10 +13,10 @@
                     <li>Πρόσκληση με e-mail</li>
                 </ul>
                 <ul id="left_tabs">
-                    <li><span id="hotmail">MSN</span></li>
+                    <li class="selected"><span id="hotmail">MSN</span></li>
                 <!--    <li><span id="hi5">Hi5</span></li> -->
                     <li><span id="yahoo">Yahoo</span></li>
-                    <li class="selected"><span id="gmail">Gmail</span></li>
+                    <li><span id="gmail">Gmail</span></li>
                 </ul>
                 <div id="body">
                     <div id="login">
