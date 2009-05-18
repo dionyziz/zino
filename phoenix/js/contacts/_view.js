@@ -130,6 +130,12 @@ var contacts = {
 			$('#left_tabs li').removeClass();
 			$( this ).addClass( 'selected' );
 		});
+        //next step with enter
+        $( '#password input' ).keydown( function( event ){
+            if ( event.keyCode == 13 ){
+                contacts.retrieve();
+            }
+        });
 		//checkboxes
 		$( ".step .contact input" ).attr( "checked", "checked" );
 		
