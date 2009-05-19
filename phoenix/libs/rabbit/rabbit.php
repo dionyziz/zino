@@ -19,6 +19,9 @@
         
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
+            if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+                echo "No page class!\n";
+            }
             throw New Exception( 'Invalid Rabbit_Contrust pagetype used: ' . $mode );
             return;
         }
@@ -34,7 +37,13 @@
         }
         
         if ( function_exists( 'Project_Construct' ) ) {
+            if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+                echo "Calling Project_Construct!\n";
+            }
             return Project_Construct( $mode );
+        }
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "End of Rabbit_Construct!\n";
         }
         $water->Notice( 'Project_Construct() is not defined; please define it in libs/project.php' );
     }
