@@ -301,7 +301,8 @@ var Frontpage = {
                             + who.name + '</a>' + ' είπε:';
             text.className = 'text';
             //text.innerHTML = shouttext;
-			text.innerHTML = unescape( shouttext );            
+			text.innerHTML = unescape( shouttext );
+			alert( text.innerHTML );     
 
             var div = document.createElement( 'div' );
             div.id = 's_' + shoutid;
