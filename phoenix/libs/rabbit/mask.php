@@ -26,6 +26,9 @@
     function Rabbit_IncludeReal( /* $filename */ ) {
         // force no variables -- $filename is avoided using func_get_args()
         // include and pass the return value up the callchain
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Rabbit including from filesystem: " . func_get_arg( 0 ) . "\n";
+        }
         w_assert( func_num_args() == 1 );
         return require_once func_get_arg( 0 );
     }
