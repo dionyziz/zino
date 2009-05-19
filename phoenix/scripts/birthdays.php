@@ -2,7 +2,7 @@
 <?php
     $set = explode( "\n", shell_exec( "set" ) );
     foreach ( $set as $attribute ) {
-        if ( !empty( $attribute ) ) {
+        if ( strpos( $attribute, '=' ) !== false ) {
             list( $key, $value ) = explode( '=', $attribute );
             if ( $key == 'HOSTNAME' ) {
                 if ( $value == 'europa.kamibu.com' ) {
