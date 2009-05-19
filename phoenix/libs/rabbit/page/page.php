@@ -240,7 +240,7 @@ class PageHTML extends Page {
             }
         }
         foreach ( $this->mScriptsInline as $language => $code ) {
-            ?><script charset="utf-8" type="text/<?php
+            ?><script type="text/<?php
             echo $language;
             ?>"><?php
             if ( $this->mSupportsXML ) {
