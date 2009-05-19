@@ -30,12 +30,17 @@
 
     foreach ( $arr as $row ) {
         echo "Informing " . ( string )$row[ 1 ] . " of " . ( string )$row[ 0 ] . "'s birthday.\n";
-        
+
         $notification = New Notification();
+        echo "Setting notification type...\n";
         $notification->Typeid = EVENT_USER_BIRTHDAY;
-        $notification->Userid = $row[ 0 ];
+        echo "Setting notification user...\n";
+        $notification->Touserid = $row[ 0 ];
+        echo "Setting notification item...\n";
         $notification->Itemid = $row[ 1 ];
+        echo "Saving notification...\n";
         $notification->Save();
+        echo "Notification saved\n";
     }
 
     echo count( $arr ) . " birthday notifications deployed.\n";
