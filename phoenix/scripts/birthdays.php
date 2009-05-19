@@ -2,6 +2,7 @@
 <?php
     if ( $_SERVER[ 'PWD' ] == '/var/www/zino.gr/beta/phoenix/scripts' ) {
         $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
+        die( '... >>' . $_SERVER[ 'DOCUMENT_ROOT' ] );
     }
     
     echo "Starting...\n";
