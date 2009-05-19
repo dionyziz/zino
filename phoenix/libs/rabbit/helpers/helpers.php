@@ -1,8 +1,4 @@
 <?php
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "In libs/helpers/helpers\n";
-    }
-    
     global $libs;
     
     $libs->Load( 'rabbit/helpers/array' );

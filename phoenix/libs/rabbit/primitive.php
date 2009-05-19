@@ -12,20 +12,11 @@
     global $libs;
     global $page;
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Clear superglobals\n";
-    }
     Rabbit_ClearSuperGlobals();
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Import settings\n";
-    }
     // you might want to modify this require to the fullpath to your settings file
     $rabbit_settings = require_once 'settings.php'; // site-wise settings
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "set_include_path\n";
-    }
     // set the include path that will be used from now on, relative to the rootdir of our site
     set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
@@ -34,9 +25,6 @@
         define( 'WATER_ENABLE', !$rabbit_settings[ 'production' ] );
     }
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading rabbit\n";
-    }
     // load the debugging library
     require_once 'libs/rabbit/water/water.php';
     
@@ -52,9 +40,6 @@
     if ( !isset( $rabbit_settings[ 'dbschemaversion' ] ) ) {
         $rabbit_settings[ 'dbschemaversion' ] = 0;
     }
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Setting locales\n";
-    }
     if ( function_exists( 'mb_internal_encoding' ) ) {
         mb_internal_encoding( 'UTF-8' );
     }
@@ -62,36 +47,21 @@
         setlocale( LC_ALL, $rabbit_settings[ 'locale' ] );
     }
 
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading mask library\n";
-    }
     require_once 'libs/rabbit/mask.php';
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading libraries system\n";
-    }
     // load the libraries system -- it will be used to load everything else
     // the debugging module is NOT loaded using the libraries system, just
     // to make debugging the libraries system easier
     $libs = require_once 'libs/rabbit/lib.php';
 
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading helpers\n";
-    }
     // load the helper libraries
     $libs->Load( 'rabbit/helpers/helpers' );
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Checking if ValidURL function exists\n";
-    }
     if ( !function_exists( 'ValidURL' ) ) {
         throw New Exception( 'Could not load the Rabbit trivial libraries; check your "rootdir" setting in your settings.php file?' );
     }
     
     if ( strlen( $_SERVER[ 'REQUEST_METHOD' ] ) ) { // if we're running on a web environment
-        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-            echo "Validating settings\n";
-        }
         w_assert( isset( $rabbit_settings[ 'webaddress' ] )    , "`webaddress' setting is not defined in a web environment" );
         w_assert( is_string( $rabbit_settings[ 'webaddress' ] ), "`webaddress' setting must be a string" );
         w_assert( isset( $rabbit_settings[ 'url' ] )           , "`url' setting is not defined in a web environment" );
@@ -118,17 +88,11 @@
         }
     }
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Configuring time settings\n";
-    }
     // define timezone, as of PHP 5.1.0
     if ( function_exists( 'date_default_timezone_set' ) ) {
         date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
     }
     
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Cleaning up superglobals\n";
-    }
     // manual register_globals off
     registerglobals_off(); 
     magicquotes_off();
@@ -140,9 +104,6 @@
         $libs->Load( 'rabbit/memcache/mc' );
     }
 
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading databases\n";
-    }
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
          && is_array( $rabbit_settings[ 'databases' ] ) 
@@ -206,8 +167,5 @@
     registerglobals_off(); // this needs to be performed again now that session_start has been fired
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();
-    }
-    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Done primitive\n";
     }
 ?>

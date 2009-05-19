@@ -8,9 +8,6 @@
         public function Load( $which ) {
             global $water;
             
-            if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-                echo "Loading library: " . $which . "\n";
-            }
             if ( !isset( $this->mLoaded[ $which ] ) || !$this->mLoaded[ $which ] ) {
                 if ( $this->ValidatePath( $which ) ) {
                     $this->mLoaded[ $which ] = true;
@@ -20,9 +17,6 @@
                     $ret = Rabbit_Include( "libs/$which" );
                     $out = ob_get_clean();
                     if ( strlen( $out ) ) {
-                        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-                            echo 'Non-functional library output: ' . $which . "\n";
-                        }
                         $water->Warning( 'Non-functional library output: ' . $which );
                     }
                     $this->ProfileEnd();
@@ -31,9 +25,6 @@
                     }
                     return $ret;
                 }
-            }
-            if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-                echo "Failed to load library or libary already loaded: " . $which . "\n";
             }
             return false;
         }
