@@ -163,7 +163,8 @@
 			'revalidate'        => 'validation/resend',
             'test'              => 'test',
             'taglist'           => 'album/photo/taglist',
-			'paginationtest'	=> 'developer/petros/pagination'
+			'paginationtest'	=> 'developer/petros/pagination',
+			'photomanager' 		=> 'album/manager'
         );
     }
     
