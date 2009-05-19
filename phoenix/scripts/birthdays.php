@@ -42,7 +42,9 @@
         $notification = New Notification();
         echo "Setting notification type...\n";
         $notification->Typeid = EVENT_USER_BIRTHDAY;
-        echo "Setting notification user...\n";
+        echo "Setting notification source user...\n";
+        $notification->Fromuserid = $row[ 1 ];
+        echo "Setting notification target user...\n";
         $notification->Touserid = $row[ 0 ];
         echo "Setting notification item...\n";
         $notification->Itemid = $row[ 1 ];

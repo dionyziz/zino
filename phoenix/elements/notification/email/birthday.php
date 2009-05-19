@@ -6,8 +6,8 @@
         
             $from = $notification->FromUser;
  
-            w_assert( $from instanceof User );
-            w_assert( $from->Exists() );
+            w_assert( $from instanceof User, 'From user is not an object' );
+            w_assert( $from->Exists(), 'From user does not exist' );
  
             ob_start();
             if ( $from->Gender == 'f' ) {
