@@ -15,15 +15,7 @@
             die( 'Rabbit_Construct() must only be called once!' );
         }
         
-        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-            echo "Before importing primitive\n";
-        }
-
         require_once 'libs/rabbit/primitive.php';
-        
-        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-            echo "Imported primitive\n";
-        }
         
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
