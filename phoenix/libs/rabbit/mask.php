@@ -10,6 +10,9 @@
         global $water;
         global $rabbit_settings;
         
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Rabbit including file: " . $filename . "\n";
+        }
         // resolve into full path
         $filename = $rabbit_settings[ 'rootdir' ] . '/' . $filename;
         
