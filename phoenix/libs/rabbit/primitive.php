@@ -81,6 +81,9 @@
     // load the helper libraries
     $libs->Load( 'rabbit/helpers/helpers' );
     
+    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+        echo "Checking if ValidURL function exists\n";
+    }
     if ( !function_exists( 'ValidURL' ) ) {
         throw New Exception( 'Could not load the Rabbit trivial libraries; check your "rootdir" setting in your settings.php file?' );
     }
