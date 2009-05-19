@@ -10,6 +10,12 @@
     require '../libs/rabbit/rabbit.php';
 
     echo "Initializing rabbit...\n";
+    if ( !function_exists( 'Rabbit_Construct' ) ) {
+        echo "Function does not exist: Rabbit_Construct.\n";
+    }
+    else {
+        echo "Function exists: Rabbit_Construct.\n";
+    }
     Rabbit_Construct();
     echo "Rabbit initialized\n";
 

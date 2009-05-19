@@ -19,6 +19,7 @@
         if ( !$coins->Exists() ) {
             $coins = New Coins();
             $coins->Userid = $snuid;
+            $coins->Amount = 10;
         }
         $coins->Amount += $currency;
         $coins->Save();
