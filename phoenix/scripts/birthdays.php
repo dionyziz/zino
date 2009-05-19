@@ -1,5 +1,9 @@
 #!/usr/bin/php
 <?php
+    if ( $_SERVER[ 'PWD' ] == '/var/www/zino.gr/beta/phoenix/scripts' ) {
+        $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
+    }
+    
     echo "Starting...\n";
 
     set_include_path( '../:./' );
