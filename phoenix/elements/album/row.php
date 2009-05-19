@@ -2,6 +2,7 @@
 
     class ElementAlbumRow extends Element {
         public function Render( $album, $selected = false ) {
+            echo 1;
                 if ( $album->Id == $album->Owner->Egoalbumid ) {
                     $albumname = 'Εγώ';
                 }
@@ -12,6 +13,7 @@
             echo $album->Id;
             ?>"> 
                 <span class="imageview"><?php
+                    echo 2;
                     if ( $album->Mainimage->Exists() ) {    
                         Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->User->Id , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , true , 50 , 50 , 0 ); 
                     }
@@ -24,6 +26,7 @@
                         echo htmlspecialchars( $albumname );
                         ?>" style="width:100px;height:100px" /><?php
                     }
+                    echo 3;
                 ?></span>
                 <span class="albumname">
                     <h3><?php
