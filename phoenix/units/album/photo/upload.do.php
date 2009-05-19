@@ -14,11 +14,7 @@
         ?> ).html( <?php
         ob_start();
         if ( $x100 ) {
-			if ( $user->Id == 872 ) {
-            	?><a href="?p=photo&id=<?php
-			}else {
 				?><a href="?p=photo&amp;id=<?php
-			}
             echo $image->Id;
             ?>"><?php
             Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
