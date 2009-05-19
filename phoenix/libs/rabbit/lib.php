@@ -26,6 +26,9 @@
                         $water->Warning( 'Non-functional library output: ' . $which );
                     }
                     $this->ProfileEnd();
+                    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+                        echo "Library loaded: " . $which . "\n";
+                    }
                     return $ret;
                 }
             }
