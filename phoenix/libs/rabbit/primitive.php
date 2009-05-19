@@ -63,15 +63,21 @@
     }
 
     if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
-        echo "Loading libraries system\n";
+        echo "Loading mask library\n";
     }
     require_once 'libs/rabbit/mask.php';
     
+    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+        echo "Loading libraries system\n";
+    }
     // load the libraries system -- it will be used to load everything else
     // the debugging module is NOT loaded using the libraries system, just
     // to make debugging the libraries system easier
     $libs = require_once 'libs/rabbit/lib.php';
 
+    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+        echo "Loading helpers\n";
+    }
     // load the helper libraries
     $libs->Load( 'rabbit/helpers/helpers' );
     
@@ -80,6 +86,9 @@
     }
     
     if ( strlen( $_SERVER[ 'REQUEST_METHOD' ] ) ) { // if we're running on a web environment
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Validating settings\n";
+        }
         w_assert( isset( $rabbit_settings[ 'webaddress' ] )    , "`webaddress' setting is not defined in a web environment" );
         w_assert( is_string( $rabbit_settings[ 'webaddress' ] ), "`webaddress' setting must be a string" );
         w_assert( isset( $rabbit_settings[ 'url' ] )           , "`url' setting is not defined in a web environment" );
@@ -106,6 +115,9 @@
         }
     }
     
+    if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+        echo "Configuring time settings\n";
+    }
     // define timezone, as of PHP 5.1.0
     if ( function_exists( 'date_default_timezone_set' ) ) {
         date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
