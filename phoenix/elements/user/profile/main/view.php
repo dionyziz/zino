@@ -76,7 +76,6 @@
                     }
                     ?>>
                     <i class="right corner">&nbsp;</i>
-                    <i class="left corner">&nbsp;</i>
                     <div class="tweet">
                         <div><?php
                         if ( $theuser->Id == $user->Id ) {
@@ -105,6 +104,7 @@
                         }
                         ?></div>
                     </div>
+                    <i style="float:left;" class="left corner">&nbsp;</i>
                 </div><?php
                 if ( $theuser->Id == $user->Id ) {
                     ?><div id="tweetedit">
