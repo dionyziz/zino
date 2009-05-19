@@ -2,17 +2,16 @@
 <?php
     $set = explode( "\n", shell_exec( "set" ) );
     foreach ( $set as $attribute ) {
-        list( $key, $value ) = explode( '=', $attribute );
-        if ( $key == 'HOSTNAME' ) {
-            if ( $value == 'europa.kamibu.com' ) {
-                echo "We're on europa!\n";
-                $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
+        if ( !empty( $attribute ) ) {
+            list( $key, $value ) = explode( '=', $attribute );
+            if ( $key == 'HOSTNAME' ) {
+                if ( $value == 'europa.kamibu.com' ) {
+                    $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
+                }
             }
         }
     }
     
-    echo "Starting...\n";
-
     set_include_path( '../:./' );
 
     global $libs;
@@ -20,7 +19,6 @@
 
     require '../libs/rabbit/rabbit.php';
 
-    echo "Initializing rabbit...\n";
     Rabbit_Construct();
     echo "Rabbit initialized\n";
 
