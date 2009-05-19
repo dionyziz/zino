@@ -1,17 +1,17 @@
-<?php 
+ο»Ώ<?php 
 	class ElementAlbumManager extends Element {
 		public function Render () { 
 			
 			global $user;
 			
 			if ( !$user->Exists() ) { 
-				?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
+				?>Ξ ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± ΞµΞ―ΟƒΞ±ΞΉ ΟƒΟ…Ξ½Ξ΄ΞµΞ΄ΞµΞΌΞ­Ξ½ΞΏΟ‚ Ξ³ΞΉΞ± Ξ½Ξ± Ο‡ΟΞ·ΟƒΞΉΞΌΞΏΟ€ΞΏΞΉΞ®ΟƒΞµΞΉΟ‚ Ξ±Ο…Ο„Ξ®Ξ½ Ο„Ξ·Ξ½ Ξ»ΞµΞΉΟ„ΞΏΟ…ΟΞ³Ξ―Ξ±<?php
 				return;
 			}
 			
 			
 			?><div class="photomanager" id="photomanager">
-				<h2>Διαχείριση Φωτογραφιών</h2>
+				<h2>Ξ”ΞΉΞ±Ο‡ΞµΞ―ΟΞΉΟƒΞ· Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†ΞΉΟΞ½</h2>
 				<div class="manager" id="manager">
 					<div class="albums" id="albums">
 						<h2>Albums</h2>
