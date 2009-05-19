@@ -1,7 +1,7 @@
 <?php
 
     class ElementAlbumRow extends Element {
-        public function Render( Album $album, $selected = false ) {
+        public function Render( $album, $selected = false ) {
                 if ( $album->Id == $album->Owner->Egoalbumid ) {
                     $albumname = 'Εγώ';
                 }
