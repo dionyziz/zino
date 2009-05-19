@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 	class ElementAlbumManager extends Element {
 		public function Render () { 
 			
