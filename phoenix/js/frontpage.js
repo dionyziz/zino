@@ -300,9 +300,9 @@ var Frontpage = {
                             + who.name + '" class="avatar" />'
                             + who.name + '</a>' + ' είπε:';
             text.className = 'text';
-            //text.innerHTML = shouttext;
-			text.innerHTML = unescape( shouttext );
-			alert( text.innerHTML );     
+            text.innerHTML = shouttext;
+			alert( unescape( shouttext ) );
+			
 
             var div = document.createElement( 'div' );
             div.id = 's_' + shoutid;
