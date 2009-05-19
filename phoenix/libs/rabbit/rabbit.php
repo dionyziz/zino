@@ -7,6 +7,10 @@
         global $water;
         global $libs;
         
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "In Rabbit_Construct!\n";
+        }
+        
         if ( function_exists( 'Rabbit_Include' ) ) {
             die( 'Rabbit_Construct() must only be called once!' );
         }
