@@ -1,0 +1,143 @@
+div#photomanager {
+	margin: 0;
+	padding: 0 0 5px 0;
+}
+div#photomanager h2 {
+	text-align: center;
+}
+div#photomanager div.albums {
+	float: left;
+	position: relative;
+	width: 240px;
+	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
+	overflow: hidden;
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	min-height: 400px;
+	top:0;
+}
+div#photomanager div.manager  h2 {
+	text-align: middle;
+}
+div#photomanager div.photos {
+	/* float: right; */
+	margin-left:260px;
+	position: relative;
+}
+div#photomanager div.photos ul {
+	clear: none;
+}
+div#photomanager div div div.albumlist {
+	position: relative;
+	height: 400px;
+	overflow-x: hidden;
+	width: 200px;
+	margin: 20px;
+}
+div#photomanager div div div.albumlist ul li {
+	border: 1px solid #ADD8E6;
+	width: 160px;
+	margin: 4px;
+	height: 54px;
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+}
+div#photomanager div div div.albumlist ul li.selected {
+	background: #4682B4;
+}
+div#photomanager div div div.albumlist ul li.selected span h3{
+	color: white;
+}
+div#photomanager div div div.albumlist ul li.dropover {
+	border-color: #4682B4;
+}
+div#photomanager div div div.albumlist ul li div.fade {
+	z-index: 0;
+	height: 100%;
+	width: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: transparent url(http://chorvus.kamibu.com/mockup/overlay.png);
+}
+div#photomanager div div div.albumlist ul li.selected div.fade {
+	background: transparent url(http://chorvus.kamibu.com/mockup/overlay-selected.png);
+}
+div#photomanager div div div.albumlist ul li span.imageview  {
+	float: left;
+	padding: 2px;
+	padding-right: 6px;
+	position: relative;
+}
+div#photomanager div div div.albumlist ul li span.albumname {
+	vertical-align:middle;
+	width: 20px;
+	white-space: nowrap;
+}
+div#photomanager div div div.albumlist ul li span.imageview img{
+	border: 1px solid #ADD8E6;
+}
+div#photomanager div div div ul {
+	clear: none;
+}
+div#photomanager div div div ul li {
+	float:left;
+	padding: 5px;
+}
+div#photomanager div.photos ul li {
+	width: 115px;
+	height: 130px;
+	padding: 0px;
+}
+div#photomanager div.photos ul li div img {
+	cursor: size;
+}
+div#photomanager div.photos ul li div div {
+	/*font-size: 90%;
+	border: #444 1px solid;
+	background: #eee;*/
+	display: none;
+	width: 115px;
+	height: 16px;
+	background: transparent url(http://chorvus.kamibu.com/mockup/dragndrop.png);
+}
+div#photomanager div.photos ul li a {
+	position: relative;	
+}
+
+/*PAGINATION*/
+.pagination {
+            font-size: 80%;
+        }
+        
+.pagination a {
+    text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+}
+
+.pagination a, .pagination span {
+    display: block;
+    float: left;
+    padding: 0.3em 0.5em;
+    margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.pagination .current {
+    background: #26B;
+    color: #fff;
+	border: solid 1px #AAE;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+
+.pagination {
+	height: 30px;
+	width: 100%;
+}
