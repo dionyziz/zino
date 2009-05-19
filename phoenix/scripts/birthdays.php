@@ -1,8 +1,14 @@
 #!/usr/bin/php
 <?php
-    if ( $_SERVER[ 'PWD' ] == '/var/www/zino.gr/beta/phoenix/scripts' ) {
-        $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
-        die( '... >>' . $_SERVER[ 'DOCUMENT_ROOT' ] );
+    $set = explode( "\n", shell_exec( "set" ) );
+    foreach ( $set as $attribute ) {
+        list( $key, $value ) = explode( '=', $attribute );
+        if ( $key == 'HOSTNAME' ) {
+            if ( $value == 'europa.kamibu.com' ) {
+                echo "We're on europa!\n";
+                $_SERVER[ 'DOCUMENT_ROOT' ] = '/var/www/zino.gr/beta';
+            }
+        }
     }
     
     echo "Starting...\n";
