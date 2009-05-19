@@ -20,7 +20,6 @@
     require '../libs/rabbit/rabbit.php';
 
     Rabbit_Construct();
-    echo "Rabbit initialized\n";
 
     header( 'Content-Type: text/html; charset=utf-8' );
 
