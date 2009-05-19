@@ -1,6 +1,6 @@
 <?php
     /// Content-type: text/plain ///
-    class ElementNotificationBirthday extends Element {
+    class ElementNotificationEmailBirthday extends Element {
         public function Render( Notification $notification ) {
             global $rabbit_settings;
         
