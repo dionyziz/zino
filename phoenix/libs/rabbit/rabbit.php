@@ -17,6 +17,10 @@
         
         require_once 'libs/rabbit/primitive.php';
         
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Imported primitive\n";
+        }
+        
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
             if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
@@ -27,6 +31,9 @@
         }
         
         $page = New $pageclass(); // MAGIC
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Loaded page system!\n";
+        }
         $page->SetNaturalLanguage( $rabbit_settings[ 'language' ] );
         $page->SetBaseIncludePath( $rabbit_settings[ 'rootdir' ] );
         if ( method_exists( $page, 'SetBase' ) ) {
@@ -36,6 +43,9 @@
             $page->SetWaterDump( !$rabbit_settings[ 'production' ] );
         }
         
+        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+            echo "Initialized page attributes!\n";
+        }
         if ( function_exists( 'Project_Construct' ) ) {
             if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
                 echo "Calling Project_Construct!\n";
