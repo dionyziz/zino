@@ -20,11 +20,17 @@
                     $ret = Rabbit_Include( "libs/$which" );
                     $out = ob_get_clean();
                     if ( strlen( $out ) ) {
+                        if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+                            echo 'Non-functional library output: ' . $which . "\n";
+                        }
                         $water->Warning( 'Non-functional library output: ' . $which );
                     }
                     $this->ProfileEnd();
                     return $ret;
                 }
+            }
+            if ( !isset( $_SERVER[ 'REMOTE_ADDR' ] ) ) { // debug
+                echo "Failed to load library or libary already loaded: " . $which . "\n";
             }
             return false;
         }
