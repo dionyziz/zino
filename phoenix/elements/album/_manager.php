@@ -20,8 +20,9 @@
                             <ul style="height: 400px; position: relative;"><?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user->Id, 0, 0 );
+                            $selected = true;
                             foreach ( $albums as $album ) {
-                                
+                                Element( 'album/row', $album );
                             }
                             ?></ul>
                         </div>
