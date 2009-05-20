@@ -1,7 +1,7 @@
 <?php 
     class ElementAlbumManager extends Element {
         public function Render () { 
-            
+            global $page;
             global $user;
             global $rabbit_settings;
             
