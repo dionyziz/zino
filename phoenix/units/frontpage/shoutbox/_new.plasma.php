@@ -11,6 +11,6 @@
             'avatar' => $shout->User->Avatarid,
             'subdomain' => $shout->User->Subdomain
         ) );
-        ?> );alert( unescape('<? echo rawurlencode($shout->Text); ?>') );<?php
+        ?> );alert( unescape('<? echo mb_convert_encoding($shout->Text, "UTF-8"); ?>') );<?php
     }
 ?>
