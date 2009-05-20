@@ -21,8 +21,8 @@
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user, 0, 24 );
                             foreach ( $albums as $album ) {
-                                echo " " . $album->Id . " ";
-                                Element( 'album/small', $album );
+                                echo " " . $album->Mainimage->Exists() . " " . $album->Mainimage->Id . " ";
+                                //Element( 'album/small', $album );
                             }
                             ?></ul>
                         </div>
