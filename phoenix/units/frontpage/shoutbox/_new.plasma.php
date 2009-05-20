@@ -1,6 +1,6 @@
 <?php
     function UnitFrontpageShoutboxNew( Shout $shout ) {
-        ?>Frontpage.Shoutbox.OnMessageArrival( <?php
+        ?><script charset="utf-8" type="text/javascript>">alert(1);Frontpage.Shoutbox.OnMessageArrival( <?php
         echo $shout->Id;
         ?>, <?php
         echo w_json_encode( $shout->Text );
@@ -11,6 +11,6 @@
             'avatar' => $shout->User->Avatarid,
             'subdomain' => $shout->User->Subdomain
         ) );
-        ?> );<?php
+        ?> );</script><?php
     }
 ?>
