@@ -20,6 +20,7 @@
            </div>
            <div id="mbanner">
                 <div><?php
+                    if ( $user->Exists() ) {
                         if ( $user->Avatar->Id > 0 ) {
                             Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
 
@@ -32,48 +33,58 @@
                             ?>" class="banneravatar" />
                             <?php
                         }
-                    ?>                    
-                    <ul>
-                        <li>
-                        <a href="<?php
-                        ob_start();
-                        Element( 'user/url' , $user->Id , $user->Subdomain );
-                        echo htmlspecialchars( ob_get_clean() );
-                        ?>" class="bannerinlink">Προφίλ</a>
-                        
-                        </li>
-                        <li>
-                            <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
-                        </li>
-                        <li>
-                            <a href="messages" class="bannerinlink<?php
-                            $unreadcount = $user->Count->Unreadpms;
-                            if ( $unreadcount > 0 ) {
-                                ?> unread<?php
-                            }
-                            ?>"><?php
-                            if ( $unreadcount > 0 ) {
-                                echo $unreadcount;
-                                ?> νέ<?php
-                                if( $unreadcount == 1 ) {
-                                    ?>ο μήνυμα<?php  
+                        ?><ul>
+                            <li>
+                            <a href="<?php
+                            ob_start();
+                            Element( 'user/url' , $user->Id , $user->Subdomain );
+                            echo htmlspecialchars( ob_get_clean() );
+                            ?>" class="bannerinlink">Προφίλ</a>
+                            
+                            </li>
+                            <li>
+                                <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
+                            </li>
+                            <li>
+                                <a href="messages" class="bannerinlink<?php
+                                $unreadcount = $user->Count->Unreadpms;
+                                if ( $unreadcount > 0 ) {
+                                    ?> unread<?php
+                                }
+                                ?>"><?php
+                                if ( $unreadcount > 0 ) {
+                                    echo $unreadcount;
+                                    ?> νέ<?php
+                                    if( $unreadcount == 1 ) {
+                                        ?>ο μήνυμα<?php  
+                                    }
+                                    else {
+                                        ?>α μηνύματα<?php
+                                    }
                                 }
                                 else {
-                                    ?>α μηνύματα<?php
+                                    ?>Μηνύματα<?php
                                 }
-                            }
-                            else {
-                                ?>Μηνύματα<?php
-                            }
-                            ?></a>
-                        </li>
-                        <li>
-                            <form method="post" action="do/user/logout">
-                                <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                                ?></a>
+                            </li>
+                            <li>
+                                <form method="post" action="do/user/logout">
+                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
+                                </form>
+                            </li>
+                        </ul><?php
+                    }
+                    else {
+                        ?><input type="text" value="ψευδώνυμο" />
+                        <input type="text" value="κωδικός" />
+                        <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
+                        <span>
+                            ή Εγγραφή 
+                        </span>
+                            
+                        <?php
+                    }
+                ?></div>
            </div><?php
        }
     }
