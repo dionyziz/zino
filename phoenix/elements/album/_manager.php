@@ -10,7 +10,7 @@
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
                 return;
             }
-            
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.pagination.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/album/manager.js' );
             ?><div class="photomanager" id="photomanager">
                 <h2>Διαχείριση Φωτογραφιών</h2>
