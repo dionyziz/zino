@@ -81,7 +81,7 @@
                     else {
                         ?><form id="loginform" action="do/user/login" method="post">
                             <input type="text" name="username" value="ψευδώνυμο" />
-                            <input type="text" name="password" value="κωδικός" />
+                            <input type="password" name="password" value="κωδικός" />
                             <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
                             <span>
                                 ή <a href="join" class="wlink" onclick="document.getElementById( 'loginform' ).submit();return false;">Εγγραφή</a>
