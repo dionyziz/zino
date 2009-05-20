@@ -24,11 +24,6 @@
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
             }
-			if ( UserIP() == ip2long( '88.218.142.142' ) ) {
-				if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'MSIE 6.0' ) !== false ) {
-					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
-				}
-			}
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
@@ -53,21 +48,70 @@
             $res = Element::MasterElement();
             $master = ob_get_clean();
             if ( $res === false ) { //If the page requested is not in the pages available
-                Element( 'banner' );
-                ?><div class="content" id="content"><?php
-                Element( '404' );
+                ?><div id="upstrip"><?php
+                    Element( 'banner' );
+                ?></div>
+               
+                <div id="midstrip">
+                    <div id="strip1">
+                        <div id="strip1left">
+                        </div>
+                        <div id="strip1right">
+                        </div>
+                    </div>
+                    <div id="strip2">
+                        <div id="content"><?php
+                            Element( '404' );
+                        ?></div> 
+                    </div>
+                    <div id="strip3">
+                        <div id="strip3left">
+                        </div>
+                        <div id="strip3right">
+                        </div>
+                        <div id="strip3middle">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="downstrip"><?php
+                    Element( 'footer' );
                 ?></div><?php
-                Element( 'footer' );
             }
             else {
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'banner' );
+                    ?><div id="upstrip"><?php
+                        Element( 'banner' );
+                    ?></div><?php
                 }
-                ?><div class="content" id="content"><?php    
-                echo $master;
-                ?></div><?php
+                ?><div id="midstrip">
+                    <div id="strip1">
+                        <div id="strip1left">
+                        </div>
+                        <div id="strip1right">
+                        </div>
+                    </div>
+
+                    <div id="strip2">
+                        <div id="content"><?php
+                            echo $master;
+                        ?></div>
+                    </div>
+                
+                    <div id="strip3">
+                        <div id="strip3left">
+                        </div>
+                        <div id="strip3right">
+                        </div>
+                        <div id="strip3middle">
+                        </div>
+                    </div>
+                </div><?php    
+                 
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'footer' );
+                    ?><div id="downstrip"><?php
+                        Element( 'footer' );
+                    ?></div><?php
                 }
             }
             if ( !$page->TitleFinal() ) {
