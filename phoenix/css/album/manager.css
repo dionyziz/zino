@@ -60,10 +60,10 @@ div#photomanager div div div.albumlist ul li div.fade {
     position: absolute;
     right: 0;
     top: 0;
-    background: transparent url(http://chorvus.kamibu.com/mockup/overlay.png);
+    background: transparent url('http://chorvus.kamibu.com/mockup/overlay.png');
 }
 div#photomanager div div div.albumlist ul li.selected div.fade {
-    background: transparent url(http://chorvus.kamibu.com/mockup/overlay-selected.png);
+    background: transparent url('http://chorvus.kamibu.com/mockup/overlay-selected.png');
 }
 div#photomanager div div div.albumlist ul li span.imageview  {
     float: left;
@@ -101,7 +101,7 @@ div#photomanager div.photos ul li div div {
     display: none;
     width: 115px;
     height: 16px;
-    background: transparent url(http://chorvus.kamibu.com/mockup/dragndrop.png);
+    background: transparent url('http://chorvus.kamibu.com/mockup/dragndrop.png');
 }
 div#photomanager div.photos ul li a {
     position: relative;    

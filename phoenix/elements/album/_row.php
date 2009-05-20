@@ -30,6 +30,7 @@
                     echo htmlspecialchars( $albumname );
                     ?></h3>
                 </span>
+                <div class="fade"/>
             </li><?php
         }
     }
