@@ -6,7 +6,7 @@ var Banner = {
             }
         } ).blur( function() {
             if ( $( this ).attr( "value" ) == '' ) {
-                $( this ).css( 'color' , '#aaa' ).attr( 'value' , 'κωδικός' );
+                $( this ).css( 'color' , '#aaa' ).attr( 'value' , 'ψευδώνυμο' );
             }
         } );
     }
