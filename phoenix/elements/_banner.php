@@ -90,7 +90,7 @@
                     }
                 ?></div>
            </div><?php
-           $page->AttachInlineScript( 'Banner.OnLoad();' );
+           $page->AttachInlineScript( 'alert( "gamisou" );' );
        }
     }
 ?>
