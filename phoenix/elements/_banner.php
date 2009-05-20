@@ -84,7 +84,7 @@
                             <input type="password" name="password" value="κωδικός" />
                             <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
                             <span>
-                                ή <a href="join" class="wlink" onclick="document.getElementById( 'loginform' ).submit();return false;">Εγγραφή</a>
+                                ή <a href="join" class="wlink" onclick="document.getElementById( 'loginform' ).submit();">Εγγραφή</a>
                             </span>
                         </form><?php
                     }
