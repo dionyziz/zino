@@ -17,16 +17,16 @@ div#mbanner > div {
     color: #fff;
     font-size: 8pt;
     position: absolute;
-    top: 5px;
+    top: 21px;
     right: 29px;
 }
-/*div#mbanner > div#loggedinmenu {
+div#mbanner > div#loggedinmenu {
     top: 5px;
 }
 div#loggedinmenu > form {
     display: inline;
 }
-*/
+
 div#mbanner > div > ul {
     display: inline;
 }

@@ -19,7 +19,11 @@
            <div id="rbanner">
            </div>
            <div id="mbanner">
-                <div><?php
+                <div<?php
+                if ( $user->Exists() ) {
+                    ?>id="loggedinmenu"<?php   
+                }
+                ?>><?php
                     if ( $user->Exists() ) {
                         if ( $user->Avatar->Id > 0 ) {
                             Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
