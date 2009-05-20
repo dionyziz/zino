@@ -61,7 +61,7 @@ div.lstimages ul {
 }
 div.lstimages ul li {
     float: left;
-    margin: 5px;
+    margin: 2px 8px 20px 0;
     height: 110px;
     text-align: center;
 }
