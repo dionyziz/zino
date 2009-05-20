@@ -4,11 +4,11 @@ var Banner = {
             if ( $( this ).attr( "value" ) == "ψευδώνυμο" ) {
                 $( this ).css( 'color' , '#000' ).attr( 'value' , '' );
             }
-        } ).blur( function() {
+        } )/*.blur( function() {
             if ( $( this ).attr( "value" ) == '' ) {
                 $( this ).css( 'color' , '#aaa' ).attr( 'value' , "ψευδώνυμο" );
             }
-        } );
+        } )*/;
         $( "#lpassword" ).focus( function() {
             if ( $( this ).attr( "value" ) == "κωδικός" ) {
                 $( this ).css( 'color' , '#000' ).attr( 
@@ -18,7 +18,7 @@ var Banner = {
                     } );
             }
 
-        } ).blur( function() {
+        } )/*.blur( function() {
             if ( $( this ).attr( "value" ) == '' ) {
                 $( this ).css( 'color' , '#aaa' ).attr( 
                 {
@@ -26,6 +26,6 @@ var Banner = {
                     type : 'text' 
                 } );
             }
-        } );
+        } )*/;
     }
 };
