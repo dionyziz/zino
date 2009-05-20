@@ -11,7 +11,7 @@
                 return;
             }
             
-            $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'album/manager.js?' . $xc_settings[ 'jsversion' ] );
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/album/manager.js' );
             ?><div class="photomanager" id="photomanager">
                 <h2>Διαχείριση Φωτογραφιών</h2>
                 <div class="manager" id="manager">
