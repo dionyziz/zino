@@ -12,8 +12,7 @@
             }
             ?><li id="<?php
             echo $album->Id;
-            ?>">
-                <span class="imageview"><?php
+            ?>"><?php
                     if ( $album->Mainimage->Exists() ) {    
                         Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->User->Id , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , true , 50 , 50 , 0 ); 
                     }
@@ -26,8 +25,7 @@
                         echo htmlspecialchars( $albumname );
                         ?>" style="width:50px;height:50px" /><?php
                     }
-                ?></span>
-                <span class="albumname">
+                ?><span class="albumname">
                     <h3><?php
                     echo htmlspecialchars( $albumname );
                     ?></h3>
