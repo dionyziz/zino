@@ -134,7 +134,7 @@ var Meteor = {
 				Meteor.frameref = transferDoc;
 			}
 			Meteor.frameref.open();
-			Meteor.frameref.write("<html><script>");
+			Meteor.frameref.write("<html><script type=\"text/javascript\"charset=\"utf-8\">");
 			Meteor.frameref.write("document.domain=\""+(document.domain)+"\";");
 			Meteor.frameref.write("</"+"script></html>");
 			Meteor.frameref.parentWindow.Meteor = Meteor;
