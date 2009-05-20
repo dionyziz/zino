@@ -33,19 +33,27 @@
                             <?php
                         }
                     ?>                    
-                    <a href="<?php
-                    ob_start();
-                    Element( 'user/url' , $user->Id , $user->Subdomain );
-                    echo htmlspecialchars( ob_get_clean() );
-                    ?>" class="bannerinlink">Προφίλ</a>
-                    
-                    <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
-                    
-                    <a href="#" class="bannerinlink">Βρες φίλους</a>
-                    
-                    <form method="post" action="do/user/logout">
-                        <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
-                    </form>
+                    <ul>
+                        <li>
+                        <a href="<?php
+                        ob_start();
+                        Element( 'user/url' , $user->Id , $user->Subdomain );
+                        echo htmlspecialchars( ob_get_clean() );
+                        ?>" class="bannerinlink">Προφίλ</a>
+                        
+                        </li>
+                        <li>
+                            <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
+                        </li>
+                        <li>
+                            <a href="#" class="bannerinlink">Βρες φίλους</a>
+                        </li>
+                        <li>
+                            <form method="post" action="do/user/logout">
+                                <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
            </div><?php
        }

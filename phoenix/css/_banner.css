@@ -33,7 +33,7 @@ div#loggedinmenu > form {
 img.banneravatar {
     width: 50px;
     height: 50px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccaaff;
 }
 div#mbanner > div > input {
     background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
