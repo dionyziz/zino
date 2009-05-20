@@ -1,5 +1,5 @@
 <?php
-    
+
     class ElementAlbumRow extends Element {
         public function Render( $album ) {
             global $rabbit_settings;
