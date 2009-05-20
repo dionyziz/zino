@@ -21,7 +21,7 @@
            <div id="mbanner">
                 <div<?php
                 if ( $user->Exists() ) {
-                    ?>id="loggedinmenu"<?php   
+                    ?> id="loggedinmenu"<?php   
                 }
                 ?>><?php
                     if ( $user->Exists() ) {
