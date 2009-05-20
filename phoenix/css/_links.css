@@ -53,4 +53,6 @@ a#loginbutton {
     background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
     padding: 4px 25px 12px 16px;
 }
-
+a#loginbutton:hover {
+    text-decoration: none;
+}
