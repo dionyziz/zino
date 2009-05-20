@@ -22,7 +22,6 @@
                             $albums = $finder->FindByUser( $user, 0, 24 );
                             foreach ( $albums as $album ) {
                                 Element( 'album/row', $album );
-                                var_dump( $album->Mainimage->Id );
                             }
                             ?></ul>
                         </div>
