@@ -10,6 +10,11 @@
             else {
                 $albumname = $album->Name;
             }
+            ?><li id="<?php
+            echo $album->Id;
+            ?>"><?php
+            echo $albumname;
+            ?></li><?php
         }
     }
 ?>
