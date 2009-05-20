@@ -15,7 +15,7 @@
             ?>alert( 'You can\'t use somebody elses images as your avatar' );<?php
             return;
         }
-
+       
         if ( $rabbit_settings[ 'production' ] ) {
             ?>$( 'div.settings div.tabs form#personalinfo div.option div.setting img.avie' ).attr( {
                 src : ExcaliburSettings.photosurl + '<?php
@@ -25,6 +25,15 @@
                 ?>/<?php
                 echo $image->Id;
                 ?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
+            } );
+            $( 'img.banneravatar' ).attr( {
+                src : ExcaliburSettings.photosurl + '<?php
+                echo $user->Id;
+                ?>/<?php
+                echo $image->Id;
+                ?>/<?php
+                echo $image->Id;
+                ?>_' + ExcaliburSettings.image_cropped_100x100 + '.jpg'
             } );<?php
         }
         else {
@@ -36,6 +45,15 @@
                 ?>/<?php
                 echo $image->Id;
                 ?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
+            } );
+            $( 'img.banneravatar' ).attr( {
+                src : ExcaliburSettings.photosurl + '<?php
+                echo $user->Id;
+                ?>/_<?php
+                echo $image->Id;
+                ?>/<?php
+                echo $image->Id;
+                ?>_' + ExcaliburSettings.image_cropped_100x100 + '.jpg'
             } );<?php
         }
 
