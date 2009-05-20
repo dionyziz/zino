@@ -3,10 +3,8 @@
     class ElementAlbumRow extends Element {
         public function Render( $album ) {
             global $rabbit_settings;
-            global $libs;
             global $user;
-            
-            $libs->Load( 'album' );
+
             if ( $album->Id == $album->Owner->Egoalbumid ) {
                 $albumname = 'Εγώ';
             }
