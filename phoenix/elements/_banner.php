@@ -19,21 +19,20 @@
            <div id="rbanner">
            </div>
            <div id="mbanner">
-                <div id="loggedinmenu">
-                    <span class="avatar50"><?php
+                <div><?php
                         if ( $user->Avatar->Id > 0 ) {
-                            Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , '' , $user->Name , '' , true , 50 , 50 , 0 );
+                            Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'avatar50' , $user->Name , '' , true , 50 , 50 , 0 );
 
                         }
                         else {
-                            ?><img src="http://static.zino.gr/phoenix/anonymous100.jpg" style="width:50px;height:50px;" alt="<?php
+                            ?><span class="avatar50"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" style="width:50px;height:50px;" alt="<?php
                             echo htmlspecialchars( $user->Name );
                             ?>" title="<?php
                             echo htmlspecialchars( $user->Name );
-                            ?>" /><?php
+                            ?>" />
+                            </span><?php
                         }
-                    ?></span>
-                    
+                    ?>                    
                     <a href="<?php
                     ob_start();
                     Element( 'user/url' , $user->Id , $user->Subdomain );
