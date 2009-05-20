@@ -20,9 +20,6 @@ div#mbanner > div {
     top: 5px;
     right: 29px;
 }
-div#mbanner > div > form {
-    display: inline;
-}
 /*div#mbanner > div#loggedinmenu {
     top: 5px;
 }
@@ -34,6 +31,9 @@ div#mbanner > div > ul {
     display: inline;
 }
 div#mbanner > div > ul > li {
+    display: inline;
+}
+div#mbanner > div > ul > li > form {
     display: inline;
 }
 img.banneravatar {
