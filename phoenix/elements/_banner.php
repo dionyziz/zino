@@ -46,7 +46,7 @@
                             <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
                         </li>
                         <li>
-                            <a href="#" class="bannerinlink<?php
+                            <a href="messages" class="bannerinlink<?php
                             $unreadcount = $user->Count->Unreadpms;
                             if ( $unreadcount > 0 ) {
                                 ?> unread<?php
