@@ -1,6 +1,5 @@
 <?php
     class ElementFooter extends Element {
-        
         public function Render() {
             ?><div>
                 <a class="wlink" href="#">Πληροφορίες</a>
