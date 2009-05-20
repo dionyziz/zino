@@ -335,7 +335,7 @@
                     $this->Touserid = $this->Item->Item->Userid;
                     break;
                 case EVENT_USER_BIRTHDAY:
-                    $this->Touserid = $this->Itemid;
+                    // $this->Touserid predefined
                     break;
             }
             
