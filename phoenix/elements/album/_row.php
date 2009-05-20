@@ -17,13 +17,13 @@
                         Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->User->Id , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , true , 50 , 50 , 0 ); 
                     }
                     else {
-                        ?><img src="<?php
+                        ?><span class="imageview"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>anonymous100.jpg" alt="<?php
                         echo htmlspecialchars( $albumname );
                         ?>" title="<?php
                         echo htmlspecialchars( $albumname );
-                        ?>" style="width:50px;height:50px" /><?php
+                        ?>" style="width:50px;height:50px" /></span><?php
                     }
                 ?><span class="albumname">
                     <h3><?php
