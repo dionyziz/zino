@@ -10,8 +10,8 @@
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
                 return;
             }
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.draggable.js' );
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.droppable.js' );
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.draggable.js' );
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.droppable.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.pagination.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/album/manager.js' );
             ?><div class="photomanager" id="photomanager">
