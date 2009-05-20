@@ -80,8 +80,8 @@
                     }
                     else {
                         ?><form id="loginform" action="do/user/login" method="post">
-                            <input type="text" name="username" value="ψευδώνυμο" />
-                            <input type="password" name="password" value="κωδικός" />
+                            <input id="lusername" type="text" name="username" value="ψευδώνυμο" />
+                            <input id="lpassword" type="password" name="password" value="κωδικός" />
                             <a id="loginbutton" class="wlink" href="#" onclick="this.parentNode.submit();return false;">Είσοδος</a>
                             <span>
                                 ή <a href="join" class="wlink">Εγγραφή</a>
@@ -90,6 +90,7 @@
                     }
                 ?></div>
            </div><?php
+           $page->AttachScript( "Banner.OnLoad();" );
        }
     }
 ?>
