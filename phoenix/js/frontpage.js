@@ -186,8 +186,10 @@ var Frontpage = {
                     Frontpage.Shoutbox.Changed = true;
                 }
             } ).blur();
-            
-            textarea[ 0 ].disabled = false;
+           
+            if ( textarea[ 0 ] ) {
+                textarea[ 0 ].disabled = false;
+            }
         },
         OnStartTyping: function ( who ) { // received when someone starts typing
             if ( who.name == GetUsername() ) { // don't show it when you're typing
