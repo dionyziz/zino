@@ -1,0 +1,57 @@
+a {
+	color: #105cb6;
+	text-decoration: none;
+}
+a:hover {
+	color: #000033;
+}
+a img {
+	border: 0;
+}
+a.button {
+	padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background: #fff;
+	text-align: center;
+}
+a.button_big {
+	font-size: 120%;
+	padding: 5px 10px;
+	font-weight: bold;
+	
+}
+a.button:hover {
+	background: #eef;
+}
+a.button_disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+a.button_disabled:hover {
+	background: #fff; /* if the class coexists with the button class it overwrites the hover behaviour */
+	color: #105cb6; 
+}
+
+
+a.wlink {
+    color: #fff;
+}
+a.wlink:hover {
+    text-decoration: underline;
+}
+a.bannerinlink {
+    font-size: 10pt;
+    color: #fff;
+    margin: 0 7px;
+    vertical-align: 21px;
+}
+a.bannerinlink:hover {
+    text-decoration: underline;
+}
+a#loginbutton {
+    background: url( 'login.png' ) no-repeat;
+    padding: 4px 8px 12px 10px;
+    margin: 0 10px 0 0;
+}
+
