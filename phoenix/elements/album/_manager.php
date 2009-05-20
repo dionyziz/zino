@@ -4,6 +4,7 @@
             global $page;
             global $user;
             global $rabbit_settings;
+            global $xc_settings;
             
             if ( !$user->Exists() ) { 
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
