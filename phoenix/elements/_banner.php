@@ -21,16 +21,16 @@
            <div id="mbanner">
                 <div><?php
                         if ( $user->Avatar->Id > 0 ) {
-                            Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'avatar50' , $user->Name , '' , true , 50 , 50 , 0 );
+                            Element( 'image/view' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
 
                         }
                         else {
-                            ?><span class="avatar50"><img src="http://static.zino.gr/phoenix/anonymous100.jpg" style="width:50px;height:50px;" alt="<?php
+                            ?><img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="<?php
                             echo htmlspecialchars( $user->Name );
                             ?>" title="<?php
                             echo htmlspecialchars( $user->Name );
-                            ?>" />
-                            </span><?php
+                            ?>" class="banneravatar" />
+                            <?php
                         }
                     ?>                    
                     <a href="<?php
