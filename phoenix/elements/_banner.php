@@ -90,7 +90,7 @@
                     }
                 ?></div>
            </div><?php
-           $page->AttachScript( "Banner.OnLoad();" );
+           $page->AttachInlineScript( "Banner.OnLoad();" );
        }
     }
 ?>
