@@ -51,7 +51,6 @@ var Banner = {
 		}
 	},
     OnLoad : function() {
-        alert( 'testing2' );
         $( 'div.search form input.text' ).focus( function() {
             this.value = '';
         });
