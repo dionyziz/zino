@@ -83,6 +83,7 @@ div#strip2 {
 div#content {
     margin: 0 11px 0 11px;
     background: #fff;
+    padding: 0 15px 0 10px;
 }
 div#strip3left {
     float: left;

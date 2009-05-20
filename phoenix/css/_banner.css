@@ -38,6 +38,7 @@ div#mbanner > div > ul > li > form {
 }
 div#mbanner > div > ul > li > a.unread {
     color: #ff0044;
+    font-weight: 700;
 }
 img.banneravatar {
     width: 50px;
