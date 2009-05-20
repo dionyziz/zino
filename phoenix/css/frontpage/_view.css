@@ -183,7 +183,7 @@ div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
 }
 div.onlinenow a img {
     border: 1px solid #666;
-    margin: 0 0 10px 0;
+    margin: 0 10px 10px 0;
 }
 div.frontpage div.inuser {
     float: none;
