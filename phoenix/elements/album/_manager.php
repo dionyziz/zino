@@ -21,6 +21,7 @@
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user, 0, 24 );
                             foreach ( $albums as $album ) {
+                                echo " " . $album->Id . " ";
                                 Element( 'album/row', $album );
                             }
                             ?></ul>
