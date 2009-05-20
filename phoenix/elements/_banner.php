@@ -79,14 +79,14 @@
                         </ul><?php
                     }
                     else {
-                        ?><input type="text" value="ψευδώνυμο" />
-                        <input type="text" value="κωδικός" />
-                        <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
-                        <span>
-                            ή Εγγραφή 
-                        </span>
-                            
-                        <?php
+                        ?><form action="do/user/login" method="post">
+                            <input type="text" value="ψευδώνυμο" />
+                            <input type="text" value="κωδικός" />
+                            <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
+                            <span>
+                                ή <a href="join" class="wlink" onclick="this.parentNode.parentNode.submit();return false;">Εγγραφή</a>
+                            </span>
+                        </form><?php
                     }
                 ?></div>
            </div><?php
