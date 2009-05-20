@@ -10,6 +10,7 @@
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
                 return;
             }
+            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.base.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.draggable.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.droppable.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.pagination.js' );
