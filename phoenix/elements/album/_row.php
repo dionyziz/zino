@@ -5,7 +5,7 @@
             global $rabbit_settings;
 
             if ( $album->Id == $album->Owner->Egoalbumid ) {
-                $albumname = 'Εγώ';
+                $albumname = 'Ξ•Ξ³Ο';
             }
             else {
                 $albumname = $album->Name;
