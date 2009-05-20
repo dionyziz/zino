@@ -20,8 +20,11 @@ div#mbanner > div {
     top: 21px;
     right: 29px;
 }
-div#mbanner > div#loggedinmenu {
+div#loggedinmenu {
     top: 5px;
+}
+div#loggedinmenu > form {
+    display: inline;
 }
 span.rounded50 > img {
     border: 1px solid #ccc;
