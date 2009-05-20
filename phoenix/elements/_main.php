@@ -82,22 +82,24 @@
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                     ?><div id="upstrip"><?php
                         Element( 'banner' );
-                    ?></div><?php
-                }
-                ?><div id="midstrip">
-                    <div id="strip1">
-                        <div id="strip1left">
+                    ?></div>
+                    <div id="midstrip">
+                        <div id="strip1">
+                            <div id="strip1left">
+                            </div>
+                            <div id="strip1right">
+                            </div>
                         </div>
-                        <div id="strip1right">
-                        </div>
-                    </div>
 
-                    <div id="strip2">
-                        <div id="content"><?php
-                            echo $master;
-                        ?></div>
-                    </div>
-                
+                        <div id="strip2"><?php
+                }
+
+                ?><div id="content"><?php
+                    echo $master;
+                ?></div><?php
+                 
+                if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
+                    ?></div> 
                     <div id="strip3">
                         <div id="strip3left">
                         </div>
@@ -106,10 +108,8 @@
                         <div id="strip3middle">
                         </div>
                     </div>
-                </div><?php    
-                 
-                if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    ?><div id="downstrip"><?php
+                    </div>    
+                    <div id="downstrip"><?php
                         Element( 'footer' );
                     ?></div><?php
                 }
