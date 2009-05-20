@@ -20,7 +20,7 @@
                             <ul style="height: 400px; position: relative;"><?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user, 0, 24 );
-                            Element( 'album/row', $user->Egoalbum );
+                            Element( 'album/row', $user->EgoAlbum );
                             foreach ( $albums as $album ) {
                                 if ( $album->Id != $user->Egoalbumid ) {
                                     Element( 'album/row', $album );
