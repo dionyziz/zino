@@ -46,7 +46,26 @@
                             <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
                         </li>
                         <li>
-                            <a href="#" class="bannerinlink">Βρες φίλους</a>
+                            <a href="#" class="bannerinlink<?php
+                            $unreadcount = $user->Count->Unreadpms;
+                            if ( $unreadcount > 0 ) {
+                                ?> unread<?php
+                            }
+                            ?>"><?php
+                            if ( $unreadcount > 0 ) {
+                                echo $unreadcount;
+                                ?> νέ<?php
+                                if( $unreadcount == 1 ) {
+                                    ?>ο μήνυμα<?php  
+                                }
+                                else {
+                                    ?>α μηνύματα<?php
+                                }
+                            }
+                            else {
+                                ?>Μηνύματα<?php
+                            }
+                            ?></a>
                         </li>
                         <li>
                             <form method="post" action="do/user/logout">
