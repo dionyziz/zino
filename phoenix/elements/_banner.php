@@ -79,12 +79,12 @@
                         </ul><?php
                     }
                     else {
-                        ?><form action="do/user/login" method="post">
-                            <input type="text" value="ψευδώνυμο" />
-                            <input type="text" value="κωδικός" />
+                        ?><form id="loginform" action="do/user/login" method="post">
+                            <input type="text" name="username" value="ψευδώνυμο" />
+                            <input type="text" name="password" value="κωδικός" />
                             <a id="loginbutton" class="wlink" href="#">Είσοδος</a>
                             <span>
-                                ή <a href="join" class="wlink" onclick="this.parentNode.parentNode.submit();return false;">Εγγραφή</a>
+                                ή <a href="join" class="wlink" onclick="document.getElementById( 'loginform' ).submit();return false;">Εγγραφή</a>
                             </span>
                         </form><?php
                     }
