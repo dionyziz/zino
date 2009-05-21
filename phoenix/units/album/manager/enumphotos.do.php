@@ -24,6 +24,8 @@
                 $( "ul.photolist" ).append( newli );
                 <?php
             }
+        } else {
+            ?>alert( "ownerid is <?php echo $album->Ownerid; ?>" ); <?php
         }
     }
 ?>
