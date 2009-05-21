@@ -61,6 +61,11 @@ div#mbanner > div > form > input#loginbutton {
     height: 23px;
     border: 0;
     background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
+    color: #fff;
+    padding: 0 0 4px 0;
+    margin: 0 12px 0 0;
+    vertical-align: -1px;
+    cursor: pointer;
 }
 div#mbanner > div > a.bannerinlink {
     font-size: 10pt;
