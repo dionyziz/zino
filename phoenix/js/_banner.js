@@ -3,7 +3,7 @@ var Banner = {
         Banner.Lusername = false;
         Banner.Lpassword = false;
         $( "#lusername" ).focus( function() {
-            if ( !Banner.Lusername ) {{
+            if ( !Banner.Lusername ) {
                 $( this ).css( 'color' , '#000' ).attr( 'value' , '' );
                 Banner.Lusername = true;
             }
