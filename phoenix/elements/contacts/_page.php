@@ -14,7 +14,7 @@
                 </ul>
                 <ul id="left_tabs">
                     <li class="selected"><span id="hotmail">MSN</span></li>
-                <!--    <li><span id="hi5">Hi5</span></li> -->
+                    <?php/*<li><span id="hi5">Hi5</span></li> */?>
                     <li><span id="yahoo">Yahoo</span></li>
                     <li><span id="gmail">Gmail</span></li>
                 </ul>
@@ -31,6 +31,12 @@
                         <p id="security">
                             Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
                         </p>
+                    </div>
+                    <div id="inviteByEmail">
+                        <div class="inputs" id="contactMail">
+                            <div><label>Γράψε το email του φίλου σου:</label></div>
+                            <input class="text" type="text"></input>
+                        </div>
                     </div>
                     <center id="loading">
                         <h1>Φορτώνουμε τις επαφές σου</h1>

@@ -3,6 +3,17 @@ var contacts = {
 	username: "",
 	password: "",
     step: 0,
+    changeToAddByEmail: function(){
+        contacts.step = 0;
+        $( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading, #contactsInZino, #contactsNotInZino' ).attr( 'style', '' );
+        
+        $( '#login, #left_tabs' ).fadeOut( 'normal' );
+        $( '#inviteByEmail' ).fadeIn( 'normal' );
+    },
+    changeToFindInOtherNetworks: function(){
+        $( '#inviteByEmail' ).fadeIn( 'normal' );
+        $( '#login, #left_tabs' ).fadeOut( 'normal' );
+    },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
         contacts.username = $( "#mail input" ).val().split( '@' )[ 0 ];

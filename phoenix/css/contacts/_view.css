@@ -164,6 +164,11 @@
 	font-size: 12px;
 }
 
+.invite_contacts #body #inviteByEmail{
+    display: none;
+    padding-top: 60px;
+}
+
 .invite_contacts #body #loading {
 	display: none;
 	position: absolute;
@@ -221,6 +226,7 @@
 .invite_contacts #body .step .contact:last-child{
 	border: 0;
 }
+
 .invite_contacts #body #contactsInZino .contact .contactName {
     float: left;
     width: 80%;
@@ -234,7 +240,6 @@
 	float: left;
 	margin: 20px;
 }
-
 .invite_contacts #body #contactsInZino .contact a {
     display: block;
 	font-weight: bold;
