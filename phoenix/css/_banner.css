@@ -64,7 +64,6 @@ div#mbanner > div > form > input#loginbutton {
     color: #fff;
     padding: 0 0 4px 0;
     margin: 0 12px 0 0;
-    vertical-align: -1px;
     cursor: pointer;
 }
 div#mbanner > div > a.bannerinlink {
