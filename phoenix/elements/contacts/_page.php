@@ -34,7 +34,7 @@
                     </div>
                     <div id="inviteByEmail">
                         <div class="inputs" id="contactMail">
-                            <div><label>Γράψε το email του φίλου σου:</label></div>
+                            <div><label>Γράψε το email του φίλου σου</label></div>
                             <input class="text" type="text"></input>
                         </div>
                     </div>

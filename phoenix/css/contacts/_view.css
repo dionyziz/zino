@@ -170,8 +170,9 @@
     margin: auto;
     width: 470px;
 }
-.invite_contacts #body #inviteByEmail #contactMail div label {
+.invite_contacts #body #inviteByEmail #contactMail div {
     width: 130px;
+    padding-top: 0;
 }
 .invite_contacts #body #inviteByEmail #contactMail input {
     width: 290px;
