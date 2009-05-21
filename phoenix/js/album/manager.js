@@ -56,7 +56,7 @@ var PhotoManager = {
             cursor : 'move',
             zIndex : 500,
             scroll: false,
-            //opacity: 0.8
+            opacity: 0.8
             cursorAt: { cursor: 'move', bottom: 50, left: 50 }
         } );
         //Fade out the helper (or cancel the hover timer) when the drag starts
