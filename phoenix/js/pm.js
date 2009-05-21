@@ -286,10 +286,10 @@ var pms = {
 			newtext2 = document.createTextNode( 'Μηνύματα' );
 		}
 		var folderspan = document.createElement( 'span' );
-		var bannerspan = document.createElement( 'span' );
+		//var bannerspan = document.createElement( 'span' );
 		$( incominglink ).append( folderspan );
 		$( incominglink ).append( newtext );
-		$( unreadmsgbanner ).append( bannerspan );
+		/*$( unreadmsgbanner ).append( bannerspan );*/
 		$( unreadmsgbanner ).append( newtext2 );
 		if ( unreadpms === 0 ) {
 		    $( unreadmsgbanner ).removeClass( "unread" );
