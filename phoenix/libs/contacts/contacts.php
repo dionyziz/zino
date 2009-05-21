@@ -42,7 +42,7 @@
             return 1;
         }
         
-        usort( $ret, "sortContacts" );
+        uasort( $ret, "sortContacts" );
         return $ret;
     }
     
