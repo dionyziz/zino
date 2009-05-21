@@ -1,10 +1,10 @@
 html, body {
     height: 100%;
-    background-color: white;
+    background: #5081ad;
 }
 body {
 	font-size: 83%;
-    font-family: helvetica, arial, sans-serif;
+    font-family: sans-serif, serif , arial;
 	margin: 0;
 }
 ul {
@@ -17,9 +17,6 @@ ul , li {
 dl, dd {
 	padding: 0;
 	margin: 0;
-}
-div.content {
-	padding: 0 30px;
 }
 div.eof {
 	clear: both;
@@ -63,6 +60,53 @@ h3.modaltitle {
     border-bottom: 1px solid #284659;
     color: #fff;
 }
-div.thisisatest {
-    color: #abc;
+
+
+
+
+div#strip1left {
+    float: left;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
+    width: 20px;
+    height: 8px;
+}
+div#strip1right {
+    float: right;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content2.png' ) no-repeat;
+    width: 20px;
+    height: 8px;
+}
+div#strip2 {
+    background: url( 'http://static.zino.gr/phoenix/siderfade.png' ) #639dce repeat-x;
+    clear: both;
+}
+div#midstrip {
+    background: #fff;
+}
+div#content {
+    margin: 0 11px 0 11px;
+    background: #fff;
+    padding: 0 12px 0 7px;
+}
+div#strip3left {
+    float: left;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content3.png' ) no-repeat;
+    width: 20px;
+    height: 17px;
+}
+div#strip3middle {
+    height: 17px;
+    background: url( 'http://static.zino.gr/phoenix/content_fade.png' ) repeat-x;
+}
+div#strip3right {
+    float: right;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content4.png' ) no-repeat;
+    width: 20px;
+    height: 17px;
+}
+div#downstrip {
+    text-align: center;
+    color: #fff;
+    height: 87px;
+    background: url( 'http://static.zino.gr/phoenix/footerfade.png' ) repeat-x;
 }

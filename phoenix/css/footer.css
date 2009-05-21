@@ -39,3 +39,15 @@ div.footer ul li a:hover {
 	color: #333;
 	text-decoration: underline;
 }
+
+div#copyleft {
+    margin-top: 30px;
+}
+div#copyleft > span {
+    font-size: 80%;
+}
+div#downstrip > div > a {
+    font-size: 80%;
+    padding: 0 9px;
+}
+

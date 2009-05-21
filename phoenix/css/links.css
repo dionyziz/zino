@@ -32,3 +32,29 @@ a.button_disabled:hover {
 	background: #fff; /* if the class coexists with the button class it overwrites the hover behaviour */
 	color: #105cb6; 
 }
+
+
+a.wlink {
+    color: #fff;
+}
+a.wlink:hover {
+    text-decoration: underline;
+}
+a.bannerinlink {
+    font-size: 10pt;
+    color: #fff;
+    margin: 0 7px;
+    vertical-align: 21px;
+    font-family: verdana, sans-serif , serif, arial;
+    font-size: 9pt;
+}
+a.bannerinlink:hover {
+    text-decoration: underline;
+}
+a#loginbutton {
+    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
+    padding: 4px 25px 12px 16px;
+}
+a#loginbutton:hover {
+    text-decoration: none;
+}
