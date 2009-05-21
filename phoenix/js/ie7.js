@@ -926,7 +926,7 @@ IE7.CSS = new (Fix.extend({ // single instance
   apply: function() {
     //this.getInlineStyles();
     new StyleSheet("screen");
-    this.trash();
+    //this.trash();
   },
   
   createStyleSheet: function() {
