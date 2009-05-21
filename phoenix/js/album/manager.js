@@ -71,7 +71,7 @@ var PhotoManager = {
         //Album selection
         $( "div.albumlist ul li" ).click( function () {
             $( this ).addClass( "selected" ).siblings().removeClass( "selected" );
-            checkEnabledAlbumbs();
+            PhotoManager.checkEnabledAlbumbs();
         } );
     }
 }
