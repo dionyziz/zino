@@ -1,31 +1,25 @@
 var Banner = {
     OnLoad : function() {
+        Banner.Lusername = false;
+        Banner.Lpassword = false;
         $( "#lusername" ).focus( function() {
-            if ( $( this ).attr( "value" ) == "ψευδώνυμο" ) {
+            if ( !Banner.Lusername ) {{
                 $( this ).css( 'color' , '#000' ).attr( 'value' , '' );
+                Banner.Lusername = true;
             }
-        } )/*.blur( function() {
-            if ( $( this ).attr( "value" ) == '' ) {
-                $( this ).css( 'color' , '#aaa' ).attr( 'value' , "ψευδώνυμο" );
-            }
-        } )*/;
+        } );
         $( "#lpassword" ).focus( function() {
-            if ( $( this ).attr( "value" ) == "κωδικός" ) {
-                $( this ).css( 'color' , '#000' ).attr( 
-                    {
-                        value : "",
-                        type : 'password'
-                    } );
+            if ( !Banner.Lpassword ) {
+                $( "#lpassword" ).remove();
+                var newinput = document.createElement( 'input' );
+                $( newinput ).css( 'color' , '#000' ).attr( 
+                    { value : '',
+                    type : 'password' 
+                } );
+                $( "#lusername" ).after( newinput ); 
+                Banner.Lpassword = true; 
             }
 
-        } )/*.blur( function() {
-            if ( $( this ).attr( "value" ) == '' ) {
-                $( this ).css( 'color' , '#aaa' ).attr( 
-                {
-                    value : 'κωδικός',
-                    type : 'text' 
-                } );
-            }
-        } )*/;
+        } );
     }
 };
