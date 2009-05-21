@@ -8,17 +8,25 @@ var contacts = {
         $( '#left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
         
         $( '#login, #left_tabs' ).fadeOut( 'normal', function(){
-            $( '#body' ).animate({ marginLeft: 90, width: 540 }, function(){
-                $( '#inviteByEmail' ).fadeIn( 'normal' );
-                $( "#foot input" ).removeClass().addClass( "invite" );
+            $( '#body' ).animate({ 
+                marginLeft: 90,
+                width: 540
+                height: 400
+                }, function(){
+                    $( '#inviteByEmail' ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass().addClass( "invite" );
             });
         });
     },
     changeToFindInOtherNetworks: function(){
         $( '#inviteByEmail' ).fadeOut( 'normal', function(){
-            $( '#body' ).animate({ marginLeft: 100, width: 600 }, function(){
-                $( '#login, #left_tabs' ).fadeIn( 'normal' );
-                $( "#foot input" ).removeClass();
+            $( '#body' ).animate({ 
+                marginLeft: 100,
+                width: 600
+                height: 245
+                }, function(){
+                    $( '#login, #left_tabs' ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass();
             });
         });
     },

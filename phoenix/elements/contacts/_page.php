@@ -34,8 +34,9 @@
                     </div>
                     <div id="inviteByEmail">
                         <div class="inputs" id="contactMail">
-                            <div><label>Γράψε το email του φίλου σου</label></div>
-                            <input class="text" type="text"></input>
+                            <div><label>Γράψε τα email των φίλων σου</label></div>
+                            <textarea class="text"></textarea>
+                            <div>Παράδειγμα: someone@gmail.com,someoneelse@hotmail.com κλπ.</div>
                         </div>
                     </div>
                     <center id="loading">

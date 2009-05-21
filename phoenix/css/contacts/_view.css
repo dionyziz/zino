@@ -166,17 +166,28 @@
 
 .invite_contacts #body #inviteByEmail{
     display: none;
-    padding-top: 60px;
+    padding-top: 40px;
     margin: auto;
-    width: 470px;
+    width: 360px;
 }
 .invite_contacts #body #inviteByEmail #contactMail div {
-    width: 130px;
+    width: 340px;
     padding-top: 0;
+    float: none;
 }
-.invite_contacts #body #inviteByEmail #contactMail input {
-    width: 290px;
+.invite_contacts #body #inviteByEmail #contactMail textarea {
+    width: 340px;
+    height: 150px;
     background-image: url('http://static.zino.gr/phoenix/inputBig.png');
+    padding: 5px;
+    font-size: 20px;
+    border: 0;
+}
+.invite_contacts #body #inviteByEmail #contactMail textarea:hover{
+    background-position: 0 -160px;
+}
+.invite_contacts #body #inviteByEmail #contactMail textarea:focus{
+    background-position: 0 -320px;
 }
 
 .invite_contacts #body #loading {
