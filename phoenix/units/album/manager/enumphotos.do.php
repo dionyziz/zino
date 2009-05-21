@@ -6,7 +6,7 @@
         $libs->Load( 'image/image' );
         $albumid->Get();
         $album = New Album( $albumid );
-        if ( $album->Ownerid == $user->Id ) {
+        if ( $album->Owner->Id == $user->Id ) {
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album, 0, 400 );
             foreach( $images as $image ) {
@@ -24,8 +24,6 @@
                 $( "ul.photolist" ).append( newli );
                 <?php
             }
-        } else {
-            ?>alert( "ownerid is <?php echo $album->Ownerid; ?>" ); <?php
         }
     }
 ?>
