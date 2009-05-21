@@ -41,7 +41,7 @@
             ?> στο Zino: 
 <?php
             ob_start();
-            Element( 'user/url', $from );
+            Element( 'user/url', $from->Id, $from->Subdomain );
             $url = ob_get_clean();
             echo $url;
             
