@@ -278,6 +278,7 @@ var Frontpage = {
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
             if ( who.name == GetUsername() ) {
+				alert( GetUsername() );
                 return;
             }
             
