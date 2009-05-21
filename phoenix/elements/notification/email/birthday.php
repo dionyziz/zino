@@ -22,7 +22,7 @@
             $subject = ob_get_clean();
             echo $subject;
             
-            ?>.
+            ?>
             
 Πες <?php
             if ( $from->Gender == 'f' ) {
