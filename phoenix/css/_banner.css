@@ -56,7 +56,7 @@ div#mbanner > div > form > input {
     padding: 3px 0 0 0;
     margin: 1px 0 0 0;
 }
-input#loginbutton {
+div#mbanner > div > form > input#loginbutton {
     width: 68px;
     height: 23px;
     border: 0;
