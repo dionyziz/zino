@@ -61,33 +61,33 @@ var PhotoManager = {
         } );
         //Fade out the helper (or cancel the hover timer) when the drag starts
         $( "div.photo" ).bind( "dragstart", function(event, ui) {
-            if (fade) {
-                clearTimeout( fade ); 
+            if (PhotoManager.fade) {
+                clearTimeout( PhotoManager.fade ); 
             } else {
-                draginfo.hide(200);
+                PhotoManager.draginfo.hide(200);
             }
         });
         //Helper Bubble
-        $( $("div.photo img") ).hover(
+        $( $("div.photo img") ).hover(fade
             //MouseEnter Event
             function () {
-                draginfo = $("div", $(this).parent());
-                if ( !$("img", draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
-                    fade = setTimeout( function() {
-                        if (!draginfo.parent().hasClass( "ui-draggable-dragging" )) {
-                            draginfo.fadeIn( "fast" );
+                PhotoManager.draginfo = $("div", $(this).parent());
+                if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
+                    PhotoManager.fade = setTimeout( function() {
+                        if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
+                            PhotoManager.draginfo.fadeIn( "fast" );
                         }
-                        fade=false;
+                        PhotoManager.=false;
                     }, 600 );
                 }
             }
             ,
             //MouseOut Event
             function () {
-                if (fade) {
-                    clearTimeout( fade ); 
+                if (PhotoManager.fade) {
+                    clearTimeout( PhotoManager.fade ); 
                 } else {
-                    draginfo.fadeOut( "fast" );
+                    PhotoManager.draginfo.fadeOut( "fast" );
                 }
             }
         );
