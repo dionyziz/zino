@@ -31,7 +31,7 @@ var PhotoManager = {
     fade: false,
     draginfo: false,
     perpage: 20,
-    ,
+    
     checkEnabledAlbumbs: function() {
         jQuery.each( $("div.albumlist li"), function() {
             if (PhotoManager.isScrollingElementVisible(this,$("div.albumlist").get()[0])) {
