@@ -925,7 +925,7 @@ IE7.CSS = new (Fix.extend({ // single instance
   
   apply: function() {
     //this.getInlineStyles();
-    //new StyleSheet("screen");
+    new StyleSheet("screen");
     //this.trash();
   },
   
@@ -1032,8 +1032,8 @@ var StyleSheet = Base.extend({
   constructor: function(media) {
     this.media = media;
     this.load();
-    IE7.CSS[media] = this;
-    IE7.CSS.refresh();
+    //IE7.CSS[media] = this;
+    //IE7.CSS.refresh();
   },
   
   createRule: function(selector, cssText) {
