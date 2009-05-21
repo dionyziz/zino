@@ -38,4 +38,6 @@ var appVersion = IE7.appVersion = navigator.appVersion.match(/MSIE (\d\.\d)/)[1]
 
 if (/ie7_off/.test(top.location.search) || appVersion < 5) return;
 
+var Undefined = K();
+
 })();
