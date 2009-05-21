@@ -34,7 +34,7 @@ var PhotoManager = {
     
     checkEnabledAlbumbs: function() {
         jQuery.each( $("div.albumlist li"), function() {
-            if (PhotoManager.isScrollingElementVisible(this,$("div.albumlist").get()[0])) {
+            if (isScrollingElementVisible(this,$("div.albumlist").get()[0])) {
                 if (  $(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'enable' ); }
             } else {
                 if ( !$(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'disable' ); }
