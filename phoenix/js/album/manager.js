@@ -64,7 +64,8 @@ var PhotoManager = {
             if (PhotoManager.fade) {
                 clearTimeout( PhotoManager.fade ); 
             } else {
-                PhotoManager.draginfo.fadeOut(200);
+                PhotoManager.draginfo.stop();
+                PhotoManager.draginfo.fadeOut(100);
             }
         } );
         //Helper Bubble
