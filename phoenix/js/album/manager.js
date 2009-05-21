@@ -43,8 +43,31 @@ var PhotoManager = {
         if ( !$( "div.albumlist li.selected" ).hasClass( "ui-droppable-disabled" ) ) { $( "div.albumlist li.selected" ).droppable( 'disable' ); }
     }
     ,
-    OnLoad: function () {
-        //(Syre & Metefere) Bubble
+    preEnumPhotos: function() {
+    }
+    ,
+    postEnumPhotos: function() {
+        $( 'div.photo img' ).draggable( { 
+            //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
+            stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
+            handle : 'div.photo > img',
+            helper : 'original',
+            revert :  'invalid',
+            cursor : 'move',
+            zIndex : 500,
+            scroll: false,
+            //opacity: 0.8
+            cursorAt: { cursor: 'move', bottom: 50, left: 50 }
+        } );
+        //Fade out the helper (or cancel the hover timer) when the drag starts
+        $( "div.photo" ).bind( "dragstart", function(event, ui) {
+            if (fade) {
+                clearTimeout( fade ); 
+            } else {
+                draginfo.hide(200);
+            }
+        });
+        //Helper Bubble
         $( $("div.photo img") ).hover(
             //MouseEnter Event
             function () {
@@ -68,6 +91,9 @@ var PhotoManager = {
                 }
             }
         );
+    }
+    ,
+    OnLoad: function () {
         //Album selection
         $( "div.albumlist ul li" ).click( function () {
             $( this ).addClass( "selected" ).siblings().removeClass( "selected" );
