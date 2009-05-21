@@ -39,7 +39,7 @@ var contacts = {
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
         contacts.step = 1;
-        $( "top_tabs, #foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
+        $( "#top_tabs, #foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
                 'width': 700,
                 'height': 466,
@@ -52,7 +52,7 @@ var contacts = {
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
-		$( '#left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
+		$( '#top_tabs, #left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
 		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
