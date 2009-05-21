@@ -16,9 +16,11 @@ var contacts = {
     },
     changeToFindInOtherNetworks: function(){
         $( '#inviteByEmail' ).fadeOut( 'normal', function(){
-            $( '#login, #left_tabs' ).fadeIn( 'normal' );
-            $( "#foot input" ).removeClass();
-        } );
+            $( '#body' ).animate({ marginLeft: 100, width: 600 }, function(){
+                $( '#login, #left_tabs' ).fadeIn( 'normal' );
+                $( "#foot input" ).removeClass();
+            });
+        });
     },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
