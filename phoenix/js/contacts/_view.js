@@ -39,7 +39,7 @@ var contacts = {
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
         contacts.step = 1;
-        $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
+        $( "top_tabs, #foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
                 'width': 700,
                 'height': 466,
