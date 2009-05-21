@@ -34,7 +34,7 @@ var contacts = {
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
 		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
-		$( "#foot input" ).one( 'click', contacts.retrieve );
+		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
@@ -56,7 +56,7 @@ var contacts = {
 		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
 		$( "#contactsInZino, #foot" ).fadeIn();
 		
-		$( "#foot input" ).one( 'click', contacts.addFriends );
+		$( "#foot input" ).unbind().bind( 'click', contacts.addFriends );
 	},
     addContactNotZino: function( mail, nickname, contact_id ){
         div = document.createElement( "div" );
@@ -82,7 +82,7 @@ var contacts = {
 			}, 1000, function(){
 				$( "#contactsNotZino, #foot" ).fadeIn();
 		});
-        $( "#foot input" ).one( 'click', contacts.invite );
+        $( "#foot input" ).unbind().bind( 'click', contacts.invite );
 	},
     addFriends: function(){
     var ids = new Array;
@@ -124,7 +124,7 @@ var contacts = {
         }
     },
 	init: function(){
-		$( "#foot input" ).one( 'click', contacts.retrieve );
+		$( "#foot input" ).bind( 'click', contacts.retrieve );
 		//left tabs clickable
 		$('#left_tabs li').click( function(){
 			$('#left_tabs li').removeClass();
