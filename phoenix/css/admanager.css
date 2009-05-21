@@ -55,6 +55,10 @@ div.buyad ol li.l2 {
     margin-left: 34%;
     margin-right: 34%;
 }
+div.buyad ol.footnotes {
+    margin: 0;
+    padding: 0 0 20px 0;
+}
 div.buyad ol.footnotes li {
     font-size: 90%;
 }
