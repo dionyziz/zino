@@ -66,7 +66,7 @@ var PhotoManager = {
             } else {
                 PhotoManager.draginfo.hide(200);
             }
-        });
+        } );
         //Helper Bubble
         $("div.photo img").hover(
             //MouseEnter Event
@@ -78,6 +78,7 @@ var PhotoManager = {
                             PhotoManager.draginfo.fadeIn( "fast" );
                         }
                         PhotoManager.fade=false;
+                        alert( "lal" );
                     }, 600 );
                 }
             }
