@@ -11,8 +11,8 @@
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album, 0, 400 );
             foreach( $images as $image ) {
-                ?>var newli = document.createElement( 'li' ).css( "display", "list-item" );
-                var newdiv = document.createElement( 'div' ).addClass( "photo" );
+                ?>var newli = document.createElement( 'li' );
+                var newdiv = document.createElement( 'div' );
                 $( newdiv ).html( <?php
                 ob_start();
                 Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , '' , '' , false , 0 , 0 , 0 );
@@ -20,8 +20,8 @@
                 ?> );
                 var dragdiv = document.createElement( 'div' );
                 $( dragdiv ).addClass( 'draginfo' );
-                $( newdiv ).append( dragdiv );
-                $( newli ).append( newdiv )
+                $( newdiv ).append( dragdiv ).addClass( "photo" );
+                $( newli ).append( newdiv ).css( "display", "list-item" );
                 $( "ul.photolist" ).append( newli );
                 <?php
             }
