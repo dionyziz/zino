@@ -38,11 +38,4 @@ var appVersion = IE7.appVersion = navigator.appVersion.match(/MSIE (\d\.\d)/)[1]
 
 if (/ie7_off/.test(top.location.search) || appVersion < 5) return;
 
-var Undefined = K();
-var quirksMode = document.compatMode != "CSS1Compat";
-var documentElement = document.documentElement, body, viewport;
-var ANON = "!";
-var HEADER = ":link{ie7-link:link}:visited{ie7-link:visited}";
-
-
 })();
