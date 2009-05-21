@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    background-color: white;
+    background: #5081ad;
 }
 body {
 	font-size: 83%;
@@ -79,6 +79,9 @@ div#strip1right {
 div#strip2 {
     background: url( 'http://static.zino.gr/phoenix/siderfade.png' ) #639dce repeat-x;
     clear: both;
+}
+div#midstrip {
+    background: #fff;
 }
 div#content {
     margin: 0 11px 0 11px;

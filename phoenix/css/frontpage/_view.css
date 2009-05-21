@@ -127,7 +127,7 @@ div.members div.login form div label {
 }
 div.frontpage div.notifications {
     padding: 5px 0 0 0;
-    top: 0;
+    top: -8px;
     margin: 0 0 20px 15%;
     width: 70%;
     border: 1px solid #ccc;
