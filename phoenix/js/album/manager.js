@@ -77,7 +77,7 @@ var PhotoManager = {
                         if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
                             PhotoManager.draginfo.fadeIn( "fast" );
                         }
-                        PhotoManager.=false;
+                        PhotoManager.fade=false;
                     }, 600 );
                 }
             }
