@@ -1078,6 +1078,7 @@ var StyleSheet = Base.extend({
     };
     var self = this;
     function _getCSSText(styleSheet, path, media, level) {
+		return;
       var cssText = "";
       if (!level) {
         media = _simpleMedia(styleSheet.media);
