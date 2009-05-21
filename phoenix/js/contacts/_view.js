@@ -10,7 +10,7 @@ var contacts = {
         $( '#login, #left_tabs' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({ 
                 marginLeft: 90,
-                width: 540
+                width: 540,
                 height: 400
                 }, function(){
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
@@ -22,7 +22,7 @@ var contacts = {
         $( '#inviteByEmail' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({ 
                 marginLeft: 100,
-                width: 600
+                width: 600,
                 height: 245
                 }, function(){
                     $( '#login, #left_tabs' ).fadeIn( 'normal' );
