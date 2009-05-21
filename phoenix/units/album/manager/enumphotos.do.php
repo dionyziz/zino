@@ -7,7 +7,7 @@
         $libs->Load( 'album' );
         $albumid->Get();
         $album = New Album( $albumid );
-        echo "alert( {$album->Owner->Id} );";
+        echo "alert( {$album->Ownertype} );";
         if ( $album->Ownerid == $user->Id ) {
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album, 0, 400 );
