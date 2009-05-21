@@ -17,7 +17,8 @@ var Banner = {
                     'margin-left' : '3px'
                     } ).attr( 
                     { value : '',
-                    type : 'password' 
+                    type : 'password',
+                    name : 'password'
                 } );
                 $( "#lusername" ).after( newinput ); 
                 newinput.focus();
