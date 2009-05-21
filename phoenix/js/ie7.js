@@ -2180,7 +2180,7 @@ IE7.loaded = true;
 
   if (quirksMode) ie7Quirks();
 
-  //IE7.CSS.init();
+  IE7.CSS.init();
   //IE7.HTML.init();
 
   //IE7.HTML.apply();
