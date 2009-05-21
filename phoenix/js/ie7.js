@@ -2164,7 +2164,7 @@ IE7.loaded = true;
   }
   // execute the inner text of the IE7 script
   try {
-    //eval(script.innerHTML);
+    eval(script.innerHTML);
   } catch (e) {
     // ignore errors
   }
@@ -2181,12 +2181,12 @@ IE7.loaded = true;
   if (quirksMode) ie7Quirks();
 
   IE7.CSS.init();
-  IE7.HTML.init();
+  //IE7.HTML.init();
 
-  IE7.HTML.apply();
+  //IE7.HTML.apply();
   IE7.CSS.apply();
 
-  IE7.recalc();
+  //IE7.recalc();
 })();
 
 
