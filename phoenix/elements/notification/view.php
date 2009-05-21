@@ -178,12 +178,13 @@
                             else {
                                 ?>O <?php
                             }
+                            echo $notif->FromUser->Name;
                             $days = daysDiff( $notif->Created );
                             if ( $days == 0 ) {
-                                ?>έχει γενέθλια σήμερα!<?php
+                                ?> έχει γενέθλια σήμερα!<?php
                             }
                             else {
-                                ?>είχε γενέθλια πριν <?php
+                                ?> είχε γενέθλια πριν <?php
                                 echo $days;
                                 ?> μέρες!<?php
                             }
