@@ -2184,7 +2184,7 @@ IE7.loaded = true;
   //IE7.HTML.init();
 
   //IE7.HTML.apply();
-  //IE7.CSS.apply();
+  IE7.CSS.apply();
 
   //IE7.recalc();
 })();
