@@ -1134,7 +1134,7 @@ var StyleSheet = Base.extend({
     //this.getText();
     this.parse();
     this.cssText = decode(this.cssText);
-    //fileCache = {};
+    fileCache = {};
   },
   
   parse: function() {
