@@ -12,7 +12,7 @@
                     <a href="<?php
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>">
-                        <img src="http://static.zino.gr/phoenix/logo.png" />
+                        <img src="http://static.zino.gr/phoenix/logo-trans.png" />
                     </a>
                 </h1>
            </div>
