@@ -44,23 +44,5 @@ var documentElement = document.documentElement, body, viewport;
 var ANON = "!";
 var HEADER = ":link{ie7-link:link}:visited{ie7-link:visited}";
 
-// -----------------------------------------------------------------------
-// external
-// -----------------------------------------------------------------------
-
-var RELATIVE = /^[\w\.]+[^:]*$/;
-function makePath(href, path) {
-  if (RELATIVE.test(href)) href = (path || "") + href;
-  return href;
-};
-
-function getPath(href, path) {
-  href = makePath(href, path);
-  return href.slice(0, href.lastIndexOf("/") + 1);
-};
-
-// get the path to this script
-var script = document.scripts[document.scripts.length - 1];
-var path = getPath(script.src);
 
 })();
