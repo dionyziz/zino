@@ -1,14 +1,5 @@
 function GetUsername() {
-    var username = false;
-	if ( $( '#banner a.profile' )[ 0 ] ) {
-        username = $( 'a.profile' ).text();
-	}
-	else {
-		username = false;
-	}
-    var newtime = new Date().getTime();
-
-    return username;
+    return $( "img.banneravatar" ).attr( "alt" );
 }
 $( function() {
     /*if ( $.browser.mozilla ) {
