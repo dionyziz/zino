@@ -172,6 +172,12 @@
                             break;
                         case EVENT_USER_BIRTHDAY:
                             ?><p><?php
+                            if ( $notif->FromUser->Gender == 'f' ) {
+                                ?>Η <?php
+                            }
+                            else {
+                                ?>O <?php
+                            }
                             $days = daysDiff( $notif->Created );
                             if ( $days == 0 ) {
                                 ?>έχει γενέθλια σήμερα!<?php
@@ -179,11 +185,16 @@
                             else {
                                 ?>είχε γενέθλια πριν <?php
                                 echo $days;
-                                ?> μέρες<?php
+                                ?> μέρες!<?php
                             }
-                            ?> Έγινε <?php
-                            echo $notif->FromUser->Profile->Age;
-                            ?> χρονών! <span class="emoticon-cake">.</span></p><?php
+                            ?> Πες <?php
+                            if ( $notif->FromUser->Gender == 'f' ) {
+                                ?>της <?php
+                            }
+                            else {
+                                ?>του <?php
+                            }
+                            ?> χρόνια πολλά! <span class="emoticon-cake">.</span></p><?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
                             ?><p><?php

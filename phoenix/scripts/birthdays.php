@@ -38,14 +38,12 @@
     foreach ( $arr as $row ) {
         echo "Informing " . ( string )$row[ 1 ] . " of " . ( string )$row[ 0 ] . "'s birthday.\n";
 
-        if ( $row[ 1 ] == 1 ) {
-            $notification = New Notification();
-            $notification->Typeid = EVENT_USER_BIRTHDAY;
-            $notification->Fromuserid = $row[ 0 ];
-            $notification->Touserid = $row[ 1 ];
-            $notification->Itemid = $row[ 0 ];
-            $notification->Save();
-        }
+        $notification = New Notification();
+        $notification->Typeid = EVENT_USER_BIRTHDAY;
+        $notification->Fromuserid = $row[ 0 ];
+        $notification->Touserid = $row[ 1 ];
+        $notification->Itemid = $row[ 0 ];
+        $notification->Save();
     }
 
     echo count( $arr ) . " birthday notifications deployed.\n";
