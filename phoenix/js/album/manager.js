@@ -68,7 +68,7 @@ var PhotoManager = {
             }
         });
         //Helper Bubble
-        $( $("div.photo img") ).hover(
+        $("div.photo img").hover(
             //MouseEnter Event
             function () {
                 PhotoManager.draginfo = $("div", $(this).parent());
