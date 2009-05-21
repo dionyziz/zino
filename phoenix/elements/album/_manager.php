@@ -41,6 +41,7 @@
                 </div>
                 <div class="eof"/>
             </div><?php
+            $page->AttachInlineScript( 'PhotoManager.OnLoad();' );
         }
     }
 ?>
