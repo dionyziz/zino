@@ -1031,7 +1031,7 @@ IE7.CSS = new (Fix.extend({ // single instance
 var StyleSheet = Base.extend({
   constructor: function(media) {
     this.media = media;
-    this.load();
+    //this.load();
     //IE7.CSS[media] = this;
     //IE7.CSS.refresh();
   },
