@@ -23,7 +23,7 @@
             }
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
-				$page->AttachScript( "js/ie.js" );
+				$page->AttachScript( "http://beta.zino.gr/phoenix/js/ie.js" );
             }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
