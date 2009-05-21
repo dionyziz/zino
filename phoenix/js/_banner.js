@@ -12,11 +12,15 @@ var Banner = {
             if ( !Banner.Lpassword ) {
                 $( "#lpassword" ).remove();
                 var newinput = document.createElement( 'input' );
-                $( newinput ).css( 'color' , '#000' ).attr( 
+                $( newinput ).css( {
+                    'color' : '#000',
+                    'margin-left' : '3px'
+                    } ).attr( 
                     { value : '',
                     type : 'password' 
                 } );
                 $( "#lusername" ).after( newinput ); 
+                newinput.focus();
                 Banner.Lpassword = true; 
             }
 
