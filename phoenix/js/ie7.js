@@ -63,10 +63,4 @@ function getPath(href, path) {
 var script = document.scripts[document.scripts.length - 1];
 var path = getPath(script.src);
 
-// we'll use microsoft's http request object to load external files
-try {
-  var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-} catch (e) {
-  // ActiveX disabled
-}
 })();
