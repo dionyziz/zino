@@ -51,18 +51,17 @@ div.frontpage div.ybubble div.body form div span {
     padding: 0 3px 0 0;
 }
 div.lstimages {
-    height: 130px;
+    height: 115px;
     margin: 0 4px 20px 4px;
 }
 div.lstimages ul {
-    padding: 17px 0 14px 0;
     height: 110px;
     position: relative;
 	margin-right: 25px;
 }
 div.lstimages ul li {
     float: left;
-    margin: 5px;
+    margin: 2px 8px 20px 0;
     height: 110px;
     text-align: center;
 }
@@ -128,7 +127,7 @@ div.members div.login form div label {
 }
 div.frontpage div.notifications {
     padding: 5px 0 0 0;
-    top: 0;
+    top: -8px;
     margin: 0 0 20px 15%;
     width: 70%;
     border: 1px solid #ccc;
@@ -182,12 +181,9 @@ div.fontpage div.notifications div.list div.event div.subject div.addfriend  a {
 div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
     font-size: 90%;
 }
-div.onlinenow a {
-    margin: 0 10px 0 0;
-}
 div.onlinenow a img {
     border: 1px solid #666;
-    margin: 0 0 10px 0;
+    margin: 0 10px 10px 0;
 }
 div.frontpage div.inuser {
     float: none;
