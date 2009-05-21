@@ -1,19 +1,13 @@
 <?php
     class ElementFooter extends Element {
-        protected $mPersistent = array();
-        
         public function Render() {
-            ?><div class="footer">
-                <ul>
-                    <li><a href="contact">Επικοινώνησε</a></li>
-                    <li><a href="tos">Όροι χρήσης</a></li>
-                    <li><a href="?p=ads">Διαφήμιση</a></li>
-                </ul>
-                <div class="copy">
-                    &copy; <?php
-                        echo date( 'Y'); ?> 
-                    <a href="http://www.kamibu.com/">Kamibu</a>
-                </div>
+            ?><div>
+                <a class="wlink" href="contact">Επικοινώνησε</a>
+                <a class="wlink" href="tos">Όροι χρήσης</a>
+                <a class="wlink" href="?p=ads">Διαφήμιση</a>
+            </div>
+            <div id="copyleft">
+                <span>&copy; 2009</span> <a class="wlink" href="http://www.kamibu.com/">Kamibu</a>
             </div><?php
         }
     }

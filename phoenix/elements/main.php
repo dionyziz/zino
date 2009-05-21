@@ -23,7 +23,7 @@
             }
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
-				$page->AttachScript( "js/ie.js" );
+				$page->AttachScript( "http://beta.zino.gr/phoenix/js/ie.js" );
             }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
@@ -48,21 +48,70 @@
             $res = Element::MasterElement();
             $master = ob_get_clean();
             if ( $res === false ) { //If the page requested is not in the pages available
-                Element( 'banner' );
-                ?><div class="content" id="content"><?php
-                Element( '404' );
+                ?><div id="upstrip"><?php
+                    Element( 'banner' );
+                ?></div>
+               
+                <div id="midstrip">
+                    <div id="strip1">
+                        <div id="strip1left">
+                        </div>
+                        <div id="strip1right">
+                        </div>
+                    </div>
+                    <div id="strip2">
+                        <div id="content"><?php
+                            Element( '404' );
+                        ?></div> 
+                    </div>
+                    <div id="strip3">
+                        <div id="strip3left">
+                        </div>
+                        <div id="strip3right">
+                        </div>
+                        <div id="strip3middle">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="downstrip"><?php
+                    Element( 'footer' );
                 ?></div><?php
-                Element( 'footer' );
             }
             else {
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'banner' );
+                    ?><div id="upstrip"><?php
+                        Element( 'banner' );
+                    ?></div>
+                    <div id="midstrip">
+                        <div id="strip1">
+                            <div id="strip1left">
+                            </div>
+                            <div id="strip1right">
+                            </div>
+                        </div>
+
+                        <div id="strip2"><?php
                 }
-                ?><div class="content" id="content"><?php    
-                echo $master;
+
+                ?><div id="content"><?php
+                    echo $master;
                 ?></div><?php
+                 
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                    Element( 'footer' );
+                    ?></div> 
+                    <div id="strip3">
+                        <div id="strip3left">
+                        </div>
+                        <div id="strip3right">
+                        </div>
+                        <div id="strip3middle">
+                        </div>
+                    </div>
+                    </div>    
+                    <div id="downstrip"><?php
+                        Element( 'footer' );
+                    ?></div><?php
                 }
             }
             if ( !$page->TitleFinal() ) {
