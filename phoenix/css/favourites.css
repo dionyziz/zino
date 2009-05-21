@@ -1,7 +1,7 @@
 div#fav {
-	margin: 0 auto 20px auto;
+	margin: 0 auto;
 	text-align: center;
-	padding-top: 20px;
+	padding: 20px 0;
 }
 div#fav h2 {
 	margin: 0;
