@@ -38,9 +38,12 @@
             else {
                 ?>του<?php
             }
-            ?> στο Zino:
-            <?php
-            echo $from->Subdomain . '.' . $rabbit_settings[ 'webaddress' ];
+            ?> στο Zino: 
+<?php
+            ob_start();
+            Element( 'user/url', $from );
+            $url = ob_get_clean();
+            echo $url;
             
             Element( 'email/footer' );
             
