@@ -5,14 +5,20 @@ var contacts = {
     step: 0,
     changeToAddByEmail: function(){
         contacts.step = 0;
-        $( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading, #contactsInZino, #contactsNotInZino' ).attr( 'style', '' );
+        $( '#left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
         
-        $( '#login, #left_tabs' ).fadeOut( 'normal' );
-        $( '#inviteByEmail' ).fadeIn( 'normal' );
+        $( '#login, #left_tabs' ).fadeOut( 'normal', function(){
+            $( '#body' ).animate({ marginLeft: 90, width: 540 }, function(){
+                $( '#inviteByEmail' ).fadeIn( 'normal' );
+                $( "#foot input" ).removeClass().addClass( "invite" );
+            });
+        });
     },
     changeToFindInOtherNetworks: function(){
-        $( '#inviteByEmail' ).fadeIn( 'normal' );
-        $( '#login, #left_tabs' ).fadeOut( 'normal' );
+        $( '#inviteByEmail' ).fadeOut( 'normal', function(){
+            $( '#login, #left_tabs' ).fadeIn( 'normal' );
+            $( "#foot input" ).removeClass();
+        } );
     },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
@@ -44,7 +50,7 @@ var contacts = {
 	backToLogin: function(){
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
-		$( '#foot, #login, #left_tabs, #left_tabs li, #left_tabs li span, #body, #loading' ).attr( 'style', '' );
+		$( '#left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
 		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
@@ -141,6 +147,13 @@ var contacts = {
 			$('#left_tabs li').removeClass();
 			$( this ).addClass( 'selected' );
 		});
+        //top tabs clickable
+        $( '#top_tabs li' ).click( function(){
+            $( '#top_tabs li' ).removeClass();
+            $( this ).addClass( 'selected' );
+        }).filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
+        .filter( '#ByEmail' ).click( contacts.changeToAddByEmail );
+        
         //next step with enter
         $( '#password input' ).keydown( function( event ){
             if ( event.keyCode == 13 ){

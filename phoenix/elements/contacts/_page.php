@@ -9,8 +9,8 @@
             <div class="invite_contacts">
                 <ul id="top_tabs">
                     <li>Αναζήτηση στο Zino</li>
-                    <li class="selected">Αναζήτηση σε άλλα δίκτυα</li>
-                    <li>Πρόσκληση με e-mail</li>
+                    <li id='otherNetworks' class="selected">Αναζήτηση σε άλλα δίκτυα</li>
+                    <li id='ByEmail'>Πρόσκληση με e-mail</li>
                 </ul>
                 <ul id="left_tabs">
                     <li class="selected"><span id="hotmail">MSN</span></li>

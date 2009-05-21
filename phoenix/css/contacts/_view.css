@@ -167,6 +167,15 @@
 .invite_contacts #body #inviteByEmail{
     display: none;
     padding-top: 60px;
+    margin: auto;
+    width: 470px;
+}
+.invite_contacts #body #inviteByEmail #contactMail div label {
+    width: 130px;
+}
+.invite_contacts #body #inviteByEmail #contactMail input {
+    width: 290px;
+    background-image: url('http://static.zino.gr/phoenix/inputBig.png');
 }
 
 .invite_contacts #body #loading {
