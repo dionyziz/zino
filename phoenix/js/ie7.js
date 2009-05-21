@@ -1088,10 +1088,10 @@ var StyleSheet = Base.extend({
         // it will crash if you try to access a level below this
         if (level < 3) {
           // loop through imported style sheets
-          //for (var i = 0; i < styleSheet.imports.length; i++) {
+          for (var i = 0; i < styleSheet.imports.length; i++) {
             // call this function recursively to get all imported style sheets
-            //cssText += _getCSSText(styleSheet.imports[i], getPath(styleSheet.href, path), media, level + 1);
-          //}
+            cssText += _getCSSText(styleSheet.imports[i], getPath(styleSheet.href, path), media, level + 1);
+          }
         }
         // retrieve inline style or load an external style sheet
         cssText += encode(styleSheet.href ? _loadStyleSheet(styleSheet, path) : _inlineStyles.pop() || "");
