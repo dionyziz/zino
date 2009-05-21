@@ -1078,12 +1078,12 @@ var StyleSheet = Base.extend({
     };
     var self = this;
     function _getCSSText(styleSheet, path, media, level) {
-		return;
       var cssText = "";
       if (!level) {
         media = _simpleMedia(styleSheet.media);
         level = 0;
       }
+	  return;
       if (media == "all" || media == self.media) {
         // IE only allows importing style sheets three levels deep.
         // it will crash if you try to access a level below this
