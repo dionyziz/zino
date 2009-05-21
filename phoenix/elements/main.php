@@ -23,11 +23,11 @@
             }
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
+				$page->AttachScript( "js/ie.js" );
             }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
-                $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                 $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
