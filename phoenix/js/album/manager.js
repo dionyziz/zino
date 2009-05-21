@@ -43,10 +43,10 @@ var PhotoManager = {
         if ( !$( "div.albumlist li.selected" ).hasClass( "ui-droppable-disabled" ) ) { $( "div.albumlist li.selected" ).droppable( 'disable' ); }
     }
     ,
-    preEnumPhotos: function() {
+    preEnumphotos: function() {
     }
     ,
-    postEnumPhotos: function() {
+    postEnumphotos: function() {
         $( 'div.photo img' ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
             stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
