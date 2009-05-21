@@ -4,6 +4,7 @@
         global $user;
         
         $libs->Load( 'image/image' );
+        $libs->Load( 'album' );
         $albumid->Get();
         $album = New Album( $albumid );
         if ( $album->Owner->Id == $user->Id ) {
