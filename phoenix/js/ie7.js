@@ -2148,5 +2148,46 @@ function ie7Quirks() {
 };
 
 
+// -----------------------------------------------------------------------
+// initialisation
+// -----------------------------------------------------------------------
+
+IE7.loaded = true;
+
+(function() {
+  try {
+    // http://javascript.nwbox.com/IEContentLoaded/
+    documentElement.doScroll("left");
+  } catch (e) {
+    setTimeout(arguments.callee, 1);
+    return;
+  }
+  // execute the inner text of the IE7 script
+  try {
+    //eval(script.innerHTML);
+  } catch (e) {
+    // ignore errors
+  }
+  PNG = new RegExp(rescape(typeof IE7_PNG_SUFFIX == "string" ? IE7_PNG_SUFFIX : "-trans.png") + "$", "i");
+
+  // frequently used references
+  body = document.body;
+  viewport = quirksMode ? body : documentElement;
+
+  // classes
+  body.className += " ie7_body";
+  documentElement.className += " ie7_html";
+
+  if (quirksMode) ie7Quirks();
+
+  IE7.CSS.init();
+  IE7.HTML.init();
+
+  IE7.HTML.apply();
+  IE7.CSS.apply();
+
+  IE7.recalc();
+})();
+
 
 })();
