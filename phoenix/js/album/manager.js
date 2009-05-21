@@ -75,7 +75,7 @@ var PhotoManager = {
                 if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
                     PhotoManager.fade = setTimeout( function() {
                         if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
-                            alert( PhotoManager.draginfo.html() );
+                            alert( PhotoManager.draginfo.parent().html() );
                             PhotoManager.draginfo.css( "display", "block" );
                             PhotoManager.draginfo.fadeIn( "fast" );
                         }
