@@ -35,14 +35,14 @@
             $contact = $contact->AddContact( $key, $username );
             $ret[ $val ] = $contact;
         }
-        function sort( $contact1, $contact2 ){
+        function sortContacts( $contact1, $contact2 ){
             if ( $contact1->Mail < $contact2->Mail ){
                 return -1;
             }
             return 1;
         }
         
-        usort( $ret, "sort" );
+        usort( $ret, "sortContacts" );
         return $ret;
     }
     
