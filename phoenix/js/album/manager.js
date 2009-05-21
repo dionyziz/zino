@@ -75,11 +75,10 @@ var PhotoManager = {
                 if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
                     PhotoManager.fade = setTimeout( function() {
                         if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
-                            alert(1);
+                            alert( PhotoManager.draginfo.get().innerHTML );
                             PhotoManager.draginfo.css( "display", "block" );
                             PhotoManager.draginfo.fadeIn( "fast" );
                         }
-                        alert(2);
                         PhotoManager.fade=false;
                     }, 600 );
                 }
