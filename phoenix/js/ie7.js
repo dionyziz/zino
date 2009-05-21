@@ -31,6 +31,7 @@
 
 (function() {
 
+
 IE7 = {
   toString: function(){return "IE7 version 2.0 (beta4)"}
 };
@@ -39,5 +40,59 @@ var appVersion = IE7.appVersion = navigator.appVersion.match(/MSIE (\d\.\d)/)[1]
 if (/ie7_off/.test(top.location.search) || appVersion < 5) return;
 
 var Undefined = K();
+var quirksMode = document.compatMode != "CSS1Compat";
+var documentElement = document.documentElement, body, viewport;
+var ANON = "!";
+var HEADER = ":link{ie7-link:link}:visited{ie7-link:visited}";
+
+// -----------------------------------------------------------------------
+// external
+// -----------------------------------------------------------------------
+
+var RELATIVE = /^[\w\.]+[^:]*$/;
+function makePath(href, path) {
+  if (RELATIVE.test(href)) href = (path || "") + href;
+  return href;
+};
+
+function getPath(href, path) {
+  href = makePath(href, path);
+  return href.slice(0, href.lastIndexOf("/") + 1);
+};
+
+// get the path to this script
+var script = document.scripts[document.scripts.length - 1];
+var path = getPath(script.src);
+
+// we'll use microsoft's http request object to load external files
+try {
+  var httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+} catch (e) {
+  // ActiveX disabled
+}
+
+var fileCache = {};
+function loadFile(href, path) {
+try {
+  href = makePath(href, path);
+  if (!fileCache[href]) {
+    // easy to load a file huh?
+    httpRequest.open("GET", href, false);
+    httpRequest.send();
+    if (httpRequest.status == 0 || httpRequest.status == 200) {
+      fileCache[href] = httpRequest.responseText;
+    }
+  }
+} catch (e) {
+  // ignore errors
+} finally {
+  return fileCache[href] || "";
+}};
+
+function K(k) {
+  return function() {
+    return k;
+  };
+};
 
 })();
