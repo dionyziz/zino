@@ -82,17 +82,14 @@ div#photomanager div div div.albumlist ul li span.imageview img{
 div#photomanager div div div ul {
     clear: none;
 }
-div#photomanager div div div ul li {
-    float:left;
-    padding: 5px;
-}
 div#photomanager div.photos ul li {
     float: left;
     width: 115px;
     height: 130px;
-    padding: 0px;
+    padding: 4px;
+    text-align: center;
 }
-div#photomanager div.photos ul li div img {
+div#photomanager div.photos ul li div span.imageview img {
     cursor: size;
 }
 div#photomanager div.photos ul li div div {
