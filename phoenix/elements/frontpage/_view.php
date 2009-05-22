@@ -122,7 +122,10 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                 ?><div class="frontpagejoin">
                     <div class="planet">
                         <form method="get">
-                            <input type="text" name="username" />        
+                            <div>
+                                <input type="text" name="username" />
+                                <input type="submit" />
+                            </div>
                         </form>
                     </div>
                 </div><?php
