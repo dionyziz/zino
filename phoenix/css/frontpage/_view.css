@@ -116,6 +116,7 @@ input#snewusername {
     top: 9px;
     right: 0;
     color: transparent;
+    cursor: pointer;
     position: absolute;
 }
 div.members div.join form {
