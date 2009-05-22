@@ -9,6 +9,10 @@
         $username = $username->Get();
         $password = $password->Get();
         
+        if ( !$user->Exists() ) {
+            return false;
+        }
+        
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) ){
             ?>

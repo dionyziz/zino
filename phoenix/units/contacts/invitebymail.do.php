@@ -1,5 +1,5 @@
 <?php
-    function UnitContactsInvite( tText $ids ) {
+    function UnitContactsInvite( tText $mails ) {
         global $libs;
         global $user;
         global $rabbit_settings;
@@ -9,12 +9,11 @@
             return false;
         }
         
-        $ids = $ids->Get();
-        if ( strlen( $ids ) != 0 ){
-            $contact_ids = explode( ",", $ids );
-            foreach ( $contact_ids as $contact_id ){
-                $finder = new ContactFinder();
-                $contact = $finder->FindById( $contact_id );
+        if ( strlen( $mails ) != 0 ){
+            $emails = explode( ';', $mails );
+            $contact = new Contact();
+            foreach ( $emails as $email ){
+                $contact = $contact->AddContact( $email, $user->Mail );
                 $contacts[] = $contact;
             }
             EmailFriend( $contacts );

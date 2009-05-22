@@ -37,10 +37,13 @@ var contacts = {
         var corMails = new Array();
         for ( var i in mails ){
             var mail = mails[ i ];
-            corMails.push = mail;
+            corMails.push( mail );
         }
         var mailString = corMails.join( ';' );
-        alert( mailString );
+        Coala.Warm( 'contacts/invitebymail', {
+            mails: mailString
+        });
+        $( '#foot input' ).unbind();
     },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
