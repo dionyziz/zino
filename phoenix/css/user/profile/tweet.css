@@ -1,7 +1,7 @@
 div.tweetbox {
     position: absolute;
-    top: 25px;
-    left: 150px;
+    top: 48px;
+    left: 120px;
 }
 div.tweet {
     background: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;
