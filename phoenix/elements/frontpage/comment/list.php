@@ -13,7 +13,9 @@
                 foreach ( $comments as $comment ) {
                     Element( 'frontpage/comment/view' , $comment );
                 }
-            ?></div>
+            
+            ?><div></div>
+            </div>
             <div class="eof"></div><?php
         }
     }
