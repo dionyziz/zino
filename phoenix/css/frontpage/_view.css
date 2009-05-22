@@ -99,10 +99,10 @@ div.frontpagejoin > div.planet > form > div {
 }
 input#newusername {
     width: 124px;
-    height: 42px;
+    height: 24px;
     border: 0;
     color: #aaa;
-    background: #fff url( 'http://static.zino.gr/phoenix/zinojointext.png' ) no-repeat;
+    background: #fff url( 'http://static.zino.gr/phoenix/zinojointextbg.png' ) no-repeat;
     text-align: center;
 }
 div.members div.join form {
