@@ -34,9 +34,10 @@ var contacts = {
         var text = $( '#contactMail textarea' ).val();
         var mails = text.split( /[\s,;]+/ );
         var mail;
+        var corMails = new Array();
         for ( var i in mails ){
             var mail = mails[ i ];
-            corMails[] = mail;
+            corMails.push = mail;
         }
         var mailString = corMails.join( ';' );
         alert( mailString );
