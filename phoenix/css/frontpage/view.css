@@ -220,9 +220,9 @@ div.inuser div.right div.latest div.comments {
     height: 750px;
 }
 div.commfading {
-    height: 18px;
+    height: 121px;
     background: url( 'http://static.zino.gr/phoenix/frontpagecommfade.png' ) bottom repeat-x;
-    margin-top: -28px;
+    margin-top: -121px;
     position: relative;
 }
 
