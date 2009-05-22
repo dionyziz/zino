@@ -123,9 +123,6 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                     <div class="planet">
                         
                     </div>
-                    <div class="areyouin">
-
-                    </div>
                 </div><?php
             } 
             ?><div class="inuser">
