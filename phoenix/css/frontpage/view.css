@@ -220,6 +220,9 @@ div.inuser div.right div.latest div.comments {
     height: 750px;
     background: url( 'http://static.zino.gr/phoenix/frontpagecommfade.png' ) bottom repeat-x;
 }
+div.dummy {
+    height: 44px;
+}
 div.inuser div.right div.latest div.journals {
     width: 100%;
 }
