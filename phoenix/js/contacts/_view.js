@@ -1,10 +1,4 @@
 var contacts = {
-    validProviders: {
-    'hotmail.com': '',
-    'gmail.com': '',
-    'yahoo.com': '',
-    'yahoo.gr': ''
-    },
 	provider: "",
 	username: "",
 	password: "",
@@ -38,18 +32,13 @@ var contacts = {
     },
     sendInvitations: function(){
         var text = $( '#contactMail textarea' ).val();
-        var mails = text.split( ' ' );
+        var mails = text.split( /[\s,;]+/ );
         var mail;
         for ( var i in mails ){
             var mail = mails[ i ];
-            var username = mail.split( '@' )[ 0 ];
-            var provider = mail.split( '@' )[ 1 ];
-            if ( !( provider in contacts.validProviders ) ){
-                alert( 'Ο πάροχος ' + provider + ' δεν υποστηρίζεται ακόμη.' );
-                return false;
-            }
+            corMails[] = mail;
         }
-        var mailString = mails.join( ';' );
+        var mailString = corMails.join( ';' );
         alert( mailString );
     },
     retrieve: function(){
