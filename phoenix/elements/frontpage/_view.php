@@ -121,10 +121,11 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
                     <div class="planet">
-                        <form method="get">
+                        <form action="" method="get">
                             <div>
+                                <input type="hidden" name="p" value="join" />
                                 <input id="newusername" type="text" name="username" value="ψευδώνυμο" />
-                                <input id="snewusername" type="submit" value="." />
+                                <input id="snewusername" type="submit" value="&nbsp;" />
                             </div>
                         </form>
                     </div>
