@@ -2,7 +2,8 @@ var contacts = {
     validProviders: {
     'hotmail.com': '',
     'gmail.com': '',
-    'yahoo.com': ''
+    'yahoo.com': '',
+    'yahoo.gr': ''
     },
 	provider: "",
 	username: "",
