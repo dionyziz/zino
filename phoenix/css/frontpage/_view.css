@@ -88,6 +88,7 @@ div.frontpagejoin > div.planet {
 }
 div.frontpagejoin > div.areyouin {
     width: 115px;
+    height: 64px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinin.png' ) no-repeat;
 }
 div.members div.join form {
