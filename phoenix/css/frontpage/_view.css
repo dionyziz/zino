@@ -82,9 +82,15 @@ div.frontpagejoin {
 }
 div.frontpagejoin > div.planet {
     height: 236px;
-    width: 500px;
+    width: 550px;
     margin: 0 auto;
+    position: relative;
     background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
+}
+div.frontpagejoin > div.planet > form > div {
+    position: absolute;
+    top: 150px;
+    left: 245px;
 }
 div.members div.join form {
     text-align: left;
