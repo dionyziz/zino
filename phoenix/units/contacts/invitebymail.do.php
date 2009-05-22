@@ -1,5 +1,5 @@
 <?php
-    function UnitContactsInvite( tText $mails ) {
+    function UnitContactsInvitebymail( tText $mails ) {
         global $libs;
         global $user;
         global $rabbit_settings;
