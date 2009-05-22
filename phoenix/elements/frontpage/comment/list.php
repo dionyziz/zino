@@ -14,7 +14,7 @@
                     Element( 'frontpage/comment/view' , $comment );
                 }
             
-            ?><div> &nbsp;</div>
+            ?><div class="dummy"></div>
             </div>
             <div class="eof"></div><?php
         }
