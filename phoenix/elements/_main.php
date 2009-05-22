@@ -38,6 +38,7 @@
             if ( !$rabbit_settings[ 'production' ] || UserIP() == ip2long( '88.218.140.184' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
 				$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
+				$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie.css' );
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
