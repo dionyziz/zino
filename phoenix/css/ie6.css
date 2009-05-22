@@ -3,9 +3,7 @@ div#lbanner {
     height: 65px;
     width: 110px;
     float: left;
-	margin-right:-2px;
-	border: 1px solid black;
-	overflow: hidden;
+	margin-right:-3px;	
 }
 div#lbanner h1 {
     padding: 9px 0 0 20px;
@@ -14,8 +12,6 @@ div#lbanner h1 {
 div#mbanner {
     background: url( 'http://static.zino.gr/phoenix/mbanner.png' ) repeat-x;
     height: 65px;
-	border: 1px solid red;
-	overflow: hidden;
 }
 div#mbanner div {
     padding-top: 3px;
@@ -82,7 +78,5 @@ div#rbanner {
     width: 101px;
     height: 65px;
     float: right;
-	margin-left:-2px;
-	border: 1px solid blue;
-	overflow: hidden;
+	margin-left:-3px;
 }
