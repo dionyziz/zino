@@ -1,4 +1,5 @@
 var contacts = {
+    validProviders: [ 'hotmail.com', 'gmail.com', 'yahoo.com' ],
 	provider: "",
 	username: "",
 	password: "",
@@ -14,7 +15,7 @@ var contacts = {
                 height: 400
                 }, function(){
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass().addClass( "invite" );
+                    $( "#foot input" ).removeClass().addClass( "invite" ).unbind().bind( 'click', contacts.sendInvitations );
             });
         });
     },
@@ -26,9 +27,23 @@ var contacts = {
                 height: 245
                 }, function(){
                     $( '#login, #left_tabs' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass();
+                    $( "#foot input" ).removeClass().unbind().bind( 'click', contacts.retrieve );
             });
         });
+    },
+    sendInvitations: function(){
+        var text = $( '#contactMail textarea' ).val();
+        var mails = text.split( ' ' );
+        for ( var mail in mails ){
+            var username = mail.split( '@' )[ 0 ];
+            var provider = mail.split( '@' )[ 1 ];
+            if ( !( provider in contacts.validProviders ) ){
+                alert( 'Ο πάροχος ' + provider + ' δεν υποστηρίζεται ακόμη.' );
+                return false;
+            }
+        }
+        var mailString = mails.join( ';' );
+        alert( mailString );
     },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
