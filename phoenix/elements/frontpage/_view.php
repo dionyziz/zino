@@ -120,8 +120,11 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
 
             if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
-                    <div>
+                    <div class="planet">
                         
+                    </div>
+                    <div class="areyouin">
+
                     </div>
                 </div><?php
             } 

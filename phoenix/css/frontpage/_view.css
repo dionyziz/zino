@@ -80,10 +80,14 @@ div.frontpagejoin {
     height: 244px;
     margin: 0 -12px 0 -7px;
 }
-div.frontpagejoin > div {
+div.frontpagejoin > div.planet {
     width: 500px;
     margin: 0 auto;
     background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 3px 0;
+}
+div.frontpagejoin > div.areyouin {
+    width: 115px;
+    background: url( 'http://static.zino.gr/phoenix/zinojoinin.png' ) no-repeat;
 }
 div.members div.join form {
     text-align: left;
