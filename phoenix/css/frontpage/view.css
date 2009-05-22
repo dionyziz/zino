@@ -216,8 +216,8 @@ div.inuser div.right div.latest div.barfade {
 }
 div.inuser div.right div.latest div.comments {
     width: 100%;
-    /*overflow: hidden;
-    height: 750px;*/
+    overflow: hidden;
+    height: 750px;
     background: url( 'http://static.zino.gr/phoenix/frontpagecommfade.png' ) bottom repeat-x;
 }
 div.inuser div.right div.latest div.journals {
