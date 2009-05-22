@@ -97,7 +97,7 @@ div.frontpagejoin > div.planet > form > div {
 }
 input#newusername {
     width: 116px;
-    height: 22px;
+    height: 19px;
     border: 0;
     color: #aaa;
     background: #fff url( 'http://static.zino.gr/phoenix/zinojointextbg.png' ) no-repeat;
@@ -110,7 +110,7 @@ input#newusername {
 }
 input#snewusername {
     width: 77px;
-    height: 18px;
+    height: 24px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
     border: 0;
     top: 9px;
