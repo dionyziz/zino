@@ -1,5 +1,9 @@
 var contacts = {
-    validProviders: [ 'hotmail.com', 'gmail.com', 'yahoo.com' ],
+    validProviders: {
+    'hotmail.com': '',
+    'gmail.com': '',
+    'yahoo.com': ''
+    },
 	provider: "",
 	username: "",
 	password: "",
@@ -34,7 +38,9 @@ var contacts = {
     sendInvitations: function(){
         var text = $( '#contactMail textarea' ).val();
         var mails = text.split( ' ' );
-        for ( var mail in mails ){
+        var mail;
+        for ( var i in mails ){
+            var mail = mails[ i ];
             var username = mail.split( '@' )[ 0 ];
             var provider = mail.split( '@' )[ 1 ];
             if ( !( provider in contacts.validProviders ) ){
