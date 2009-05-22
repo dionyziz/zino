@@ -75,7 +75,7 @@ div.frontpage div.more {
 div.members {
 	z-index: 999;
 }
-div.join {
+div.frontpagejoin {
     background: url( 'http://static.zino.gr/phoenix/joinfade.png' ) repeat-x
     height: 244px;
 }

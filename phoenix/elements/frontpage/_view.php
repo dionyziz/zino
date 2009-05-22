@@ -119,7 +119,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             if ( !$user->Exists() ) {
-                ?><div class="join">
+                ?><div class="frontpagejoin">
 
 
                     
