@@ -87,15 +87,13 @@ div.frontpagejoin > div.planet {
     position: relative;
     background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
 }
-div.frontpagejoing > div.planet > form > div {
-    background: url( 'http://static.zino.gr/phoenix/zinojoinbg.png' ) no-repeat;
-    height: 43px;
-    width: 197px;
-}
 div.frontpagejoin > div.planet > form > div {
     position: absolute;
     top: 150px;
     left: 245px;
+    background: url( 'http://static.zino.gr/phoenix/zinojoinbg.png' ) no-repeat;
+    height: 43px;
+    width: 197px;
 }
 input#newusername {
     width: 124px;
