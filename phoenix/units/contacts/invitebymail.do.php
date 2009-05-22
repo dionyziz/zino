@@ -13,7 +13,7 @@
             $emails = explode( ';', $mails );
             $contact = new Contact();
             foreach ( $emails as $email ){
-                $contact = $contact->AddContact( $email, $user->Mail );
+                $contact = $contact->AddContact( $email, $user->Profile->Email );
                 $contacts[] = $contact;
             }
             EmailFriend( $contacts );
