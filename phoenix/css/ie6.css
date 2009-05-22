@@ -80,3 +80,13 @@ div#rbanner {
     float: right;
 	margin-left:-3px;
 }
+
+div#strip1left {
+	position: absolute;
+	top: 0;
+	left: 0;
+    float: none;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
+    width: 20px;
+    height: 8px;
+}
