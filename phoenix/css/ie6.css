@@ -90,3 +90,17 @@ div#strip1left {
     width: 20px;
     height: 8px;
 }
+
+div#strip1right {
+    position: absolute;
+	top: 0;
+	left: 0;
+    float: none;
+    background: url( 'http://static.zino.gr/phoenix/rounded_content2.png' ) no-repeat;
+    width: 20px;
+    height: 8px;
+}
+div#midstrip {
+	position: relative;
+    background: #fff;
+}
