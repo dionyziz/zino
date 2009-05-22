@@ -47,6 +47,7 @@ a.bannerinlink {
     vertical-align: 21px;
     font-family: verdana, sans-serif , serif, arial;
     font-size: 9pt;
+    letter-spacing: 0.06em;
 }
 a.bannerinlink:hover {
     text-decoration: underline;

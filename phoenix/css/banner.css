@@ -27,6 +27,9 @@ div#loggedinmenu > form {
     display: inline;
 }
 
+div#loggedinmenu > span > img {
+    margin: 0 18px 0 0;
+}
 div#mbanner > div > ul {
     display: inline;
 }
