@@ -108,12 +108,14 @@ input#newusername {
 }
 input#snewusername {
     width: 77px;
-    height: 24px;
+    height: 18px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
     border: 0;
     top: 9px;
     right: 0;
     color: transparent;
+    font-size: 8pt;
+    padding: 5px 0 0 0;
     position: absolute;
 }
 div.members div.join form {
