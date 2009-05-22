@@ -107,6 +107,7 @@ input#snewusername {
     width: 71px;
     height: 24px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
+    border: 0;
 }
 div.members div.join form {
     text-align: left;
