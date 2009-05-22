@@ -121,7 +121,9 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
                     <div class="planet">
-                        
+                        <form method="get">
+                            <input type="text" name="username" />        
+                        </form>
                     </div>
                 </div><?php
             } 
