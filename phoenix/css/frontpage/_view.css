@@ -104,6 +104,8 @@ input#newusername {
     text-align: center;
     position: absolute;
     top: 9px;
+    font-size: 8pt;
+    padding: 5px 0 0 0;
     left: 8px;
 }
 input#snewusername {
@@ -114,8 +116,6 @@ input#snewusername {
     top: 9px;
     right: 0;
     color: transparent;
-    font-size: 8pt;
-    padding: 5px 0 0 0;
     position: absolute;
 }
 div.members div.join form {
