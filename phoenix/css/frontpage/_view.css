@@ -83,7 +83,7 @@ div.frontpagejoin {
 div.frontpagejoin > div {
     width: 500px;
     margin: 0 auto;
-    background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat;
+    background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 3px 0;
 }
 div.members div.join form {
     text-align: left;
