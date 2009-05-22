@@ -165,6 +165,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>
                         <div class="eof"></div>
+                        <div class="commfading"></div>
                         <div class="barfade">
                                 <div class="leftbar"></div>
                                 <div class="rightbar"></div>
