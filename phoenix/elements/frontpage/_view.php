@@ -124,7 +124,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         <form method="get">
                             <div>
                                 <input id="newusername" type="text" name="username" value="ψευδώνυμο" />
-                                <input type="submit" />
+                                <input id="snewusername" type="submit" />
                             </div>
                         </form>
                     </div>

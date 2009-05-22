@@ -103,6 +103,11 @@ input#newusername {
     background: #fff url( 'http://static.zino.gr/phoenix/zinojointextbg.png' ) no-repeat;
     text-align: center;
 }
+input#snewusername {
+    width: 71px;
+    height: 24px;
+    background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
+}
 div.members div.join form {
     text-align: left;
     width: 40%;
