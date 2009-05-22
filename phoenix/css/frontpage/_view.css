@@ -78,6 +78,12 @@ div.members {
 div.frontpagejoin {
     background: url( 'http://static.zino.gr/phoenix/joinfade.png' ) repeat-x;
     height: 244px;
+    margin: 0 -12px 0 -7px;
+}
+div.frontpagejoin > div {
+    width: 500px;
+    margin: 0 auto;
+    background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat;
 }
 div.members div.join form {
     text-align: left;
