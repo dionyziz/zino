@@ -1,6 +1,13 @@
+div#search {
+    padding-bottom: 40px;
+}
 div#search h2 {
 	text-align: center;
 }
+div#search div.ybubble {
+    margin: 0 auto;
+}
+
 div#search div.ybubble form input.submit {
 	border: 0 none transparent;
     font-size: 110%;
