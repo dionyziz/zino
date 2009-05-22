@@ -168,15 +168,19 @@
     display: none;
     padding-top: 40px;
     margin: auto;
-    width: 360px;
+    width: 490px;
 }
 .invite_contacts #body #inviteByEmail #contactMail div {
-    width: 340px;
+    width: 450px;
     padding-top: 0;
     float: none;
+    text-align: left;
+}
+.invite_contacts #body #inviteByEmail #contactMail div.example {
+    font-size: 12px;
 }
 .invite_contacts #body #inviteByEmail #contactMail textarea {
-    width: 340px;
+    width: 450px;
     height: 150px;
     background-image: url('http://static.zino.gr/phoenix/inputBig.png');
     padding: 5px;

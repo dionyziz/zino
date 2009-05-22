@@ -36,7 +36,7 @@
                         <div class="inputs" id="contactMail">
                             <div><label>Γράψε τα email των φίλων σου</label></div>
                             <textarea class="text"></textarea>
-                            <div>Παράδειγμα: someone@gmail.com,someoneelse@hotmail.com κλπ.</div>
+                            <div class="example">Παράδειγμα: someone@gmail.com someoneelse@hotmail.com κλπ.</div>
                         </div>
                     </div>
                     <center id="loading">
