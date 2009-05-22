@@ -79,6 +79,11 @@ var Frontpage = {
             Frontpage.Comment.NextComment();
         } );
         Frontpage.Shoutbox.OnLoad();
+        $( "div.inuser div.right div.latest div.comments div.list div.event div.who a span img" ).mouseenter( function() {
+            document.body.style.cursor = 'pointer';
+        } ).mouseleave( function() {
+            document.body.style.cursor = 'default';
+        } );
 	},
     Shoutbox: {
         Animating: 0,
