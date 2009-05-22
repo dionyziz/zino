@@ -1,23 +1,80 @@
-div.header h1 {
-	width: 1761px;
-	height: 2081px;
-	clip: rect(1645px 90px 1696px 0px);
-	background-image: none;
-	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/icons2.png', sizingMethod='scale');
-	top: -1645px;
+div#lbanner {
+    background: url( 'http://static.zino.gr/phoenix/lbanner.png' ) no-repeat;
+    height: 65px;
+    width: 110px;
+    float: left;
 }
-div.header h1 a {
-	background-image: none;
-	width: 1761px;
-	height: 2081px;
-	clip: rect(1674px 827px 1722px 735px);
-	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/icons2.png', sizingMethod='scale');
-	top: -1674px;
-	left: -735px;
-	position: absolute;
-	cursor: pointer;
-	display: block;
+div#lbanner h1 {
+    padding: 9px 0 0 20px;
+    margin: 0;
 }
-div.header h1 a:hover {
-	text-decoration: none;
-} 
+div#mbanner {
+    background: url( 'http://static.zino.gr/phoenix/mbanner.png' ) repeat-x;
+    height: 65px;
+}
+div#mbanner div {
+    padding-top: 3px;
+    color: #fff;
+    font-size: 8pt;
+    position: absolute;
+    top: 21px;
+    right: 29px;
+}
+div#mbanner  div#loggedinmenu {
+    top: 5px;
+}
+div#loggedinmenu  form {
+    display: inline;
+}
+
+div#mbanner  div  ul {
+    display: inline;
+}
+div#mbanner  div  ul  li {
+    display: inline;
+}
+div#mbanner div ul li form {
+    display: inline;
+}
+div#mbanner div ul li a.unread {
+    color: #ff0044;
+    font-weight: 700;
+}
+img.banneravatar {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #b4b4b4;
+}
+div#mbanner div form input {
+    background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
+    border: 0;
+    width: 104px;
+    height: 18px;
+    color: #aaa;
+    font-size: 8pt;
+    text-align: center;
+    padding: 3px 0 0 0;
+    margin: 1px 0 0 0;
+}
+div#mbanner div form input#loginbutton {
+    width: 68px;
+    height: 23px;
+    border: 0;
+    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
+    color: #fff;
+    padding: 0 0 4px 0;
+    margin: 0 12px 0 0;
+    cursor: pointer;
+}
+div#mbanner div a.bannerinlink {
+    font-size: 10pt;
+    color: #fff;
+    margin: 0 7px;
+    vertical-align: 21px;
+}
+div#rbanner {
+    background: url( 'http://static.zino.gr/phoenix/rbanner.png' ) no-repeat;
+    width: 101px;
+    height: 65px;
+    float: right;
+}
