@@ -123,7 +123,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                     <div class="planet">
                         <form method="get">
                             <div>
-                                <input type="text" name="username" />
+                                <input id="newusername" type="text" name="username" value="ψευδώνυμο" />
                                 <input type="submit" />
                             </div>
                         </form>

@@ -92,6 +92,12 @@ div.frontpagejoin > div.planet > form > div {
     top: 150px;
     left: 245px;
 }
+input#newusername {
+    border: 0;
+    color: #aaa;
+    background: url( 'http://static.zino.gr/phoenix/zinojointext.png' ) no-repeat;
+    text-align: center;
+}
 div.members div.join form {
     text-align: left;
     width: 40%;
