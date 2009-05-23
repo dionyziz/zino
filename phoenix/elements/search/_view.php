@@ -1,22 +1,11 @@
 <?php
     class ElementSearchView extends Element {
-        public function Render(
-            tInteger $minage, tInteger $maxage, tInteger $placeid, tText $gender, tText $orientation, tText $name,
-            tInteger $limit, tInteger $pageno
-        ) {
+        public function Render( $minage, $maxage, $placeid, $gender, $orientation, $name, $limit, $pageno ) {
             global $xc_settings;
             global $libs;
 
             $libs->Load( 'user/search' );
 
-            $minage = $minage->Get();
-            $maxage = $maxage->Get();
-            $placeid = $placeid->Get();
-            $gender = $gender->Get();
-            $orientation = $orientation->Get();
-            $name = $name->Get();
-            $pageno = $pageno->Get();
-            $limit = 25;
             if ( $pageno <= 0 ) {
                 $pageno = 1;
             }
