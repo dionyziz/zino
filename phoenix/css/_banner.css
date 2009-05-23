@@ -11,12 +11,14 @@ div#lbanner h1 {
 div#mbanner {
     background: url( 'http://static.zino.gr/phoenix/mbanner.png' ) repeat-x;
     height: 65px;
+	overflow: visible;
 }
 div#mbanner div {
     padding-top: 3px;
     color: #fff;
     font-size: 8pt;
-    margin: 21px 29px 0 0;
+    margin: 21px -72px 0 0;
+	float: right;
 }
 div#mbanner div#loggedinmenu {
     top: 5px;
