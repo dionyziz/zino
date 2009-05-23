@@ -14,7 +14,7 @@ div#mbanner {
     background: url( 'http://static.zino.gr/phoenix/mbanner.png' ) repeat-x;
     height: 65px;
 	overflow: visible;
-	margin: 0 -3 -2;
+	margin: 0 -3px -2px;
 }
 div#mbanner div {
     padding-top: 3px;
