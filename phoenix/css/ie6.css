@@ -17,7 +17,7 @@ div#mbanner div {
     padding-top: 3px;
     color: #fff;
     font-size: 8pt;
-    position: absolute;
+   /* position: absolute;*/
     top: 21px;
     right: 29px;
 }
