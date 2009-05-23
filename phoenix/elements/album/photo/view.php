@@ -74,6 +74,7 @@
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $image );
             ?><div id="pview">
+                <div class="ads"></div>
                 <h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
@@ -412,6 +413,7 @@
             </div><div class="eof"></div><?php
             $page->AttachInlineScript( 'Tag.OnLoad();' );
             $page->AttachInlineScript( 'PhotoView.scrollInit();' );
+            $page->AttachInlineScript( 'PhotoView.OnLoad();' );
         }
     }
 ?>

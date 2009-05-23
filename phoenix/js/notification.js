@@ -97,7 +97,7 @@ var Notification = {
 			$( list ).addClass( "list" );
 			$( notifscontainer ).addClass( "notifications" )
 			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
-			$( 'div.content div.frontpage' ).prepend( notifscontainer );
+			$( '#content div.frontpage' ).prepend( notifscontainer );
 			//var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
 			$( link ).css( {
                 "background-position" : "4px -1440px",
