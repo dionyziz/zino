@@ -22,13 +22,14 @@ var contacts = {
         if ( contacts.tab == 1 && contacts.step == 0 ){
             return;
         }
+        var maxwidth = $( '#content' ).innerWidth();
         contacts.tab = 1;
         contacts.step = 0;
         $( '.tab:visible, #foot' ).fadeOut( 'normal', function(){
             $( '#body' ).css({
                         borderWidth: '1px 0 0 0'
                     }).animate({
-                maxWidth: 950,
+                maxWidth: maxwidth,
                 minHeight: 560
                 }, function(){
                     $( '#searchtab' ).fadeIn( 'normal' );
@@ -39,6 +40,7 @@ var contacts = {
         if ( contacts.tab == 2 && contacts.step == 0 ){
             return;
         }
+        var maxwidth = $( '#content' ).innerWidth();
         document.title = "Αναζήτηση φίλων | Zino";
         contacts.tab = 2;
         contacts.step = 0;
@@ -62,6 +64,7 @@ var contacts = {
         if ( contacts.tab == 3 ){
             return;
         }
+        var maxwidth = $( '#content' ).innerWidth();
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.tab = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
@@ -276,8 +279,9 @@ var contacts = {
             });
             contacts.calcCheckboxes();
 		});
-        //search request
-        //$( '' )
+        //search maxwidth calculate
+        var maxwidth = $( '#content' ).innerWidth();
+        $( '#body' ).css( 'maxWidth', maxwidth );
 	}
 };
 $( function(){
