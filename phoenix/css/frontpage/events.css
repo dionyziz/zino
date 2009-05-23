@@ -6,6 +6,7 @@ div.list div.event {
 	clear: both;
 	margin: 0 0 20px 0;
 	width: 100%;
+    overflow: hidden;
 }
 div.list div.event div.toolbox {
 	float: right;
