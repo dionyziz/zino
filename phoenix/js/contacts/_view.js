@@ -215,15 +215,15 @@ var contacts = {
             }
         });
 		//checkboxes
-		$( ".step .contact input" ).attr( "checked", "checked" );
+		$( ".networks .contact input" ).attr( "checked", "checked" );
 		
-		$( ".step .selectAll .all" ).click( function(){
+		$( ".networks .selectAll .all" ).click( function(){
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "checked" ).each(function(){
                 this.checked=true;
             });
             contacts.calcCheckboxes();
 		});
-		$( ".step .selectAll .none" ).click( function(){
+		$( ".networks .selectAll .none" ).click( function(){
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "" ).each(function(){
                 this.checked=false;
             });
