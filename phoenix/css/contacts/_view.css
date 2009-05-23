@@ -4,11 +4,12 @@
     padding: 30px 0;
     display: block;
 	width: 100%;
-    max-width: 730px;
+    overflow: hidden;
 }
 
 .invite_contacts #top_tabs {
-	margin-left: 130px;
+	width: 600px;
+    margin: auto;
 	position: relative;
 	top: 1px;
     display: block;
@@ -39,16 +40,18 @@
 	border: 1px solid #ccc;
 	font-size: 17px;
 	position: relative;
-    padding-top: 40px;
 	color: #777;
-    float: left;
+    margin: auto;
+    width: 100%;
+    max-width: 600px; /* starting */
+    height: 250px; /* starting */
 }
 
 
 
 
 .invite_contacts #login {
-	width: 620px;
+	width: 600px;
     height: 250px;
 }
 .invite_contacts #login #left_tabs {
@@ -135,6 +138,7 @@
 	display: none;
 	position: absolute;
 	width: 700px;
+    height: 466px;
 }
 .invite_contacts #loading h1{
 	margin: 60px 0;
@@ -191,6 +195,7 @@
 
 .invite_contacts #contactsInZino {
     width: 700px;
+    height: 450px;
 }
 .invite_contacts #contactsInZino .contact .contactName {
     float: left;
@@ -220,7 +225,8 @@
 }
 
 .invite_contacts #contactsNotZino {
-    width: 
+    width: 570px;
+    height: 420px;
 }
 .invite_contacts #contactsNotZino .contacts{
 	height: 240px;
