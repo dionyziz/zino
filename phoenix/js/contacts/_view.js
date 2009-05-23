@@ -146,7 +146,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 570,
-                height: 420
+                height: 480
                 }, function(){
                     $( '#contactsNotZino' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( 'invite' )
