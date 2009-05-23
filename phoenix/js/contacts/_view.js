@@ -22,6 +22,7 @@ var contacts = {
         if ( contacts.tab == 2 ){
             return;
         }
+        document.title = "Αναζήτηση φίλων | Zino";
         contacts.tab = 2;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
@@ -29,8 +30,9 @@ var contacts = {
                 height: 250
                 }, function(){
                     $( '#login' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass().unbind().bind( 'click', contacts.retrieve )
-                        .filter( "input:hidden" ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass() //.addClass( 'continue' )
+                        .unbind().bind( 'click', contacts.retrieve )
+                        .parent().filter( "input:hidden" ).fadeIn( 'normal' );
             });
         });
     },
@@ -38,6 +40,7 @@ var contacts = {
         if ( contacts.tab == 3 ){
             return;
         }
+        document.title = "Πρόσκληση φίλων | Zino";
         contacts.tab = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
@@ -45,7 +48,9 @@ var contacts = {
                 height: 320
                 }, function(){
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass().addClass( "invite" ).unbind().bind( 'click', contacts.sendInvitations );
+                    $( "#foot input" ).removeClass().addClass( "invite" )
+                        .unbind().bind( 'click', contacts.sendInvitations )
+                        .parent().filter( "input:hidden" ).fadeIn( 'normal' );
             });
         });
     },
@@ -81,21 +86,21 @@ var contacts = {
 	loading: function(){
         document.title = "Φόρτωση επαφών...";
         contacts.step = 1;
-        $( "#top_tabs").css( 'zIndex', '-10' );
-        $( "#foot, #login, #left_tabs li" ).fadeOut( 'normal', function(){
+        $( "#top_tabs" ).css( 'zIndex', '-10' );
+        $( "#foot, .tab:visible" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
-                'width': 700,
-                'height': 466,
-                'marginLeft': 0
+                'maxWidth': 700,
+                'height': 466
             }, 'normal', function(){
                 $( "#loading" ).fadeIn();
             });
         });
 	},
 	backToLogin: function(){
+        contacts.changeToFindInOtherNetworks();
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
-		$( '#top_tabs, #left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
+        $( '#tob_tabs' ).css( 'zIndex', '5' );
 		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
@@ -114,11 +119,13 @@ var contacts = {
     previwContactsInZino: function(){
         document.title = "Προσθήκη φίλων | Zino";
         contacts.step = 2;
-		$( "#foot input" ).removeClass().addClass( "add" );
-		$( "#loading" ).css( 'position', 'absolute' ).fadeOut();
-		$( "#contactsInZino, #foot" ).fadeIn();
-		
-		$( "#foot input" ).unbind().bind( 'click', contacts.addFriends );
+        
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#contactsInZino' ).fadeIn( 'normal' );
+            $( "#foot input" ).removeClass().addClass( 'add' )
+                .unbind().bind( 'click', contacts.addFriends )
+                .filter( "input:hidden" ).fadeIn( 'normal' );
+        });
 	},
     addContactNotZino: function( mail, nickname, contact_id ){
         div = document.createElement( "div" );
@@ -135,15 +142,17 @@ var contacts = {
     previwContactsNotInZino: function(){
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.step = 3;
-		$( "#foot input" ).removeClass().addClass( "invite" );
-		$( "#contactsInZino, #loading" ).fadeOut();
-		$( "#body" ).animate({
-			"height": 420,
-			"width": 570
-			}, 1000, function(){
-				$( "#contactsNotZino, #foot" ).fadeIn();
-		});
-        $( "#foot input" ).unbind().bind( 'click', contacts.invite );
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#body' ).animate({
+                maxWidth: 570,
+                height: 420
+                }, function(){
+                    $( '#contactsNotZino' ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass().addClass( 'invite' )
+                        .unbind().bind( 'click', contacts.invite )
+                        parent().filter( "input:hidden" ).fadeIn( 'normal' );
+            });
+        });
 	},
     addFriends: function(){
     var ids = new Array;
@@ -166,8 +175,8 @@ var contacts = {
             "ids": idsString
         });
     },
-    calcCheckboxes: function( step ){
-        if ( step == 2 ){
+    calcCheckboxes: function(){
+        if ( contacts.step == 2 ){
             if ( $( "#contactsInZino input:checked" ).size() ){
                 $( "#foot input" ).removeClass().addClass( "add" );
             }
@@ -211,13 +220,13 @@ var contacts = {
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "checked" ).each(function(){
                 this.checked=true;
             });
-            contacts.calcCheckboxes( contacts.step );
+            contacts.calcCheckboxes();
 		});
 		$( ".step .selectAll .none" ).click( function(){
 			$( this ).parent().siblings( '.contacts' ).find( 'input' ).attr( "checked", "" ).each(function(){
                 this.checked=false;
             });
-            contacts.calcCheckboxes( contacts.step );
+            contacts.calcCheckboxes();
 		});
 	}
 };
