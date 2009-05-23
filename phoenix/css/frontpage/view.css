@@ -75,12 +75,49 @@ div.frontpage div.more {
 div.members {
 	z-index: 999;
 }
-div.members div.join {
-    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -907px;
-    height: 133px;
-    width: 486px;
-    float: left;
-    margin: 0 100px 0 0;
+div.frontpagejoin {
+    background: url( 'http://static.zino.gr/phoenix/joinfade.png' ) repeat-x;
+    height: 244px;
+    margin: 0 -12px 0 -7px;
+}
+div.frontpagejoin > div.planet {
+    height: 236px;
+    width: 550px;
+    margin: 0 auto;
+    position: relative;
+    background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
+}
+div.frontpagejoin > div.planet > form > div {
+    position: absolute;
+    top: 136px;
+    left: 240px;
+    background: url( 'http://static.zino.gr/phoenix/zinojoinbg.png' ) no-repeat;
+    height: 43px;
+    width: 201px;
+}
+input#newusername {
+    width: 116px;
+    height: 19px;
+    border: 0;
+    color: #aaa;
+    background: #fff url( 'http://static.zino.gr/phoenix/zinojointextbg.png' ) no-repeat;
+    text-align: center;
+    position: absolute;
+    top: 9px;
+    font-size: 8pt;
+    padding: 5px 0 0 0;
+    left: 8px;
+}
+input#snewusername {
+    width: 77px;
+    height: 24px;
+    background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
+    border: 0;
+    top: 9px;
+    right: 0;
+    color: transparent;
+    cursor: pointer;
+    position: absolute;
 }
 div.members div.join form {
     text-align: left;

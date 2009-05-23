@@ -78,6 +78,15 @@ var Frontpage = {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
+        Frontpage.JoinUsernametext = false;
+        if ( $( "#newusername" )[ 0 ] ) {
+            $( "#newusername" ).focus( function() {
+                if ( !Frontpage.JoinUsernametext ) {
+                    $( this ).css( "color" , "#000" ).attr( "value" , "" );
+                    Frontpage.JoinUsernametext = true;
+                }
+            } );
+        }
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {

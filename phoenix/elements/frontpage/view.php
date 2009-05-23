@@ -119,35 +119,17 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             if ( !$user->Exists() ) {
-                ?><div class="members">
-                    <div class="join">
+                ?><div class="frontpagejoin">
+                    <div class="planet">
                         <form action="" method="get">
-                            <h2>Δημιούργησε το προφίλ σου!</h2>
                             <div>
                                 <input type="hidden" name="p" value="join" />
-                                <label>Όνομα:</label><input type="text" name="username" />
-                            </div>
-                            <div>
-                                <input value="Δημιουργία &raquo;" type="submit" /> 
+                                <input id="newusername" type="text" name="username" value="ψευδώνυμο" />
+                                <input id="snewusername" type="submit" value="&nbsp;" />
                             </div>
                         </form>
                     </div>
-                    <div class="login">
-                        <form action="do/user/login" method="post">
-                            <h2>Είσοδος στο zino</h2>
-                            <div>
-                                <label>Όνομα:</label> <input type="text" name="username" />
-                            </div>
-                            <div>
-                                <label>Κωδικός:</label> <input type="password" name="password" />
-                            </div>
-                            <div>
-                                <input type="submit" value="Είσοδος &raquo;" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="eof"></div><?php
+                </div><?php
             } 
             ?><div class="inuser">
                 <div class="left">
