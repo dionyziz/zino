@@ -1,7 +1,7 @@
 <?php
     class ElementSearchOptions extends Element {
         public function Render(
-            $minage, $maxage = '', Place $location = NULL, $gender = '', $sexual = '', $name = '',
+            $minage = '', $maxage = '', Place $location = NULL, $gender = '', $sexual = '', $name = '',
             $offset = 0, $limit = 25
         ) {
             global $page;
