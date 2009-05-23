@@ -24,13 +24,12 @@ var contacts = {
         }
         contacts.tab = 1;
         contacts.step = 0;
-        $( '.tab:visible' ).fadeOut( 'normal', function(){
+        $( '.tab:visible, #foot' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 950,
                 minHeight: 300
                 }, function(){
                     $( '#search' ).fadeIn( 'normal' );
-                    $( "#foot" ).hide();
             });
         });
     },
