@@ -50,7 +50,7 @@
             $limit = 12;
             $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit );
             Element( 'user/sections', 'album' , $theuser );
-            ?><ul class="albums"><?php
+            ?><ul class="albums"><div class="ads"></div><?php
                 if ( $pageno == 1 ) {
                     ?><li><?php
                     Element( 'album/small', $theuser->EgoAlbum, false );
