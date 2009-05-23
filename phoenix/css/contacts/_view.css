@@ -45,7 +45,7 @@
     margin: auto;
     width: 99%;
     max-width: 950px; /* starting */
-    min-height: 300px; /* starting */
+    min-height: 560px; /* starting */
 }
 
 .invite_contacts #searchtab {

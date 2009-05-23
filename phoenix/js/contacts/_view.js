@@ -27,8 +27,11 @@ var contacts = {
         $( '.tab:visible, #foot' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 950,
-                minHeight: 300
+                minHeight: 560
                 }, function(){
+                    $( this ).css({
+                        borderWidth: '1px 0 0 0'
+                    });
                     $( '#searchtab' ).fadeIn( 'normal' );
             });
         });
@@ -45,6 +48,9 @@ var contacts = {
                 maxWidth: 600,
                 minHeight: 250
                 }, function(){
+                    $( this ).css({
+                        borderWidth: '1px'
+                    });
                     $( '#login' ).fadeIn( 'normal' );
                     $( "#top_tabs" ).css( 'zIndex', '10' );
                     $( "#foot input" ).removeClass() //.addClass( 'continue' )
@@ -64,6 +70,9 @@ var contacts = {
                 maxWidth: 540,
                 minHeight: 320
                 }, function(){
+                    $( this ).css({
+                        borderWidth: '1px'
+                    });
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( "invite" )
                         .unbind().bind( 'click', contacts.sendInvitations )
