@@ -28,6 +28,7 @@
             $pageno = 1;
         }
         $offset = ( $pageno - 1 ) * $limit;
+        $location = New Place( $placeid );
         $searching = $minage > 0 || $maxage > 0 || $gender == 'm' || $gender == 'f' || $orientation !== '' || $location->Exists();
         if ( $searching ) {
             // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
