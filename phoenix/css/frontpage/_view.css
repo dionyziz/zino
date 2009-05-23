@@ -87,8 +87,10 @@ div.frontpagejoin div.planet {
     position: relative;
     background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
 }
+div.frontpagejoin div.planet form {
+	margin: 136px 0 0 240px;
+}
 div.frontpagejoin div.planet form div {
-    margin: 136px 0 0 240px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinbg.png' ) no-repeat;
     height: 43px;
     width: 201px;
