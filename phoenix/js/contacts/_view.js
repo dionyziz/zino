@@ -151,7 +151,7 @@ var contacts = {
                     $( '#contactsNotZino' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( 'invite' )
                         .unbind().bind( 'click', contacts.invite )
-                        parent().filter( "div:hidden" ).fadeIn( 'normal' );
+                        .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
 	},
