@@ -144,20 +144,17 @@ div.buyad div.create div.url input {
 div.buyad div.create h3.preview {
     margin-bottom: 0;
 }
-
 div.ads {
     font-size: 90%;
     background-color: white;
     border-bottom: 1px solid transparent;
     padding: 10px 0 10px 0;
     margin: 0 0 0 10px;
-    border-top: 1px solid #ccc;
 }
 div.ad {
     width: 200px;
     border: 1px solid #ddd;
     padding: 5px;
-    margin: 20px auto 0 0;
 	overflow: hidden;
 }
 div.buyad div.ads {
