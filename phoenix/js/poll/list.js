@@ -119,7 +119,7 @@ var PollList = {
 		$( 'div#polist ul li div.creationmockup div input' )[ 0 ].focus();
 	},
     OnLoad : function() {
-        $( 'div#polist li.create a' ). click( function() {
+        $( '#polist li.create a' ).click( function() {
             PollList.Create();
             return false;
         } );

@@ -104,9 +104,7 @@
                 ?></div>
                 <div class="eof"></div>
             </div><?php
-            if ( $user->Id == $theuser->Id ) {
-                $page->AttachInlineScript( 'PollList.OnLoad();' );
-            }
+            $page->AttachInlineScript( 'PollList.OnLoad();' );
         }
     }
 ?>
