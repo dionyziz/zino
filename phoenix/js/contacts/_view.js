@@ -19,7 +19,7 @@ var contacts = {
 	username: "",
 	password: "",
     changeToFindInOtherNetworks: function(){
-        if ( contacts.tab == 2 ){
+        if ( contacts.tab == 2 && contacts.step == 0 ){
             return;
         }
         document.title = "Αναζήτηση φίλων | Zino";
