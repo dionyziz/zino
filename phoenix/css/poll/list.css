@@ -1,3 +1,11 @@
+div#polist {
+    position: relative;
+}
+div#polist div.ads {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 div#polist ul li h3 {
 	margin: 0;
 	padding: 0;
