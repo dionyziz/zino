@@ -51,6 +51,7 @@
             
             Element( 'user/sections' , 'journal' , $theuser );
             ?><div id="jlist">
+                <div class="ads"></div>
                 <ul><?php
                     if ( $theuser->Id == $user->Id ) {
                         ?><li class="create">
