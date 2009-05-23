@@ -1,8 +1,10 @@
+div#pview {
+    position: relative;
+}
 div#pview h2 {
 	margin: 0 2px 0 0;
 	padding: 0;
 	display: inline;
-    position: relative;
 }
 div#pview  div.ads {    
     position: absolute;
