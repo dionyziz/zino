@@ -13,7 +13,7 @@
             <div class="body">
             <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
-                <div class="search">
+                <div id="gender" class="search">
                     <h3>Φύλο:</h3><?php
                     $genders = array(
                         'm' => 'Αγόρια',
@@ -42,7 +42,7 @@
                     }
                 ?></div>
                 
-                <div class="search">
+                <div id="age" class="search">
                     <h3>Ηλικία:</h3>
                     από: 
                     <select name="minage"><?php
@@ -87,7 +87,7 @@
                     ?></select>
                 </div>
                 
-                <div class="search">
+                <div id="place" class="search">
                     <h3>Περιοχή:</h3>
                     
                     <select name="placeid">
@@ -111,7 +111,7 @@
                     </select>
                 </div>
 
-                <div class="search">
+                <div id="orientation" class="search">
                     <h3>Σεξουαλικές προτιμήσεις:</h3>
                     
                     <select name="orientation"><?php
