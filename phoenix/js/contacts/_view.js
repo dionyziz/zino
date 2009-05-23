@@ -26,8 +26,8 @@ var contacts = {
         contacts.step = 0;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
-                maxWidth: 600,
-                minHeight: 250
+                maxWidth: 950,
+                minHeight: 300
                 }, function(){
                     $( '#search' ).fadeIn( 'normal' );
                     $( "#foot input" ).hide();
