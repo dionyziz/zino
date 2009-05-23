@@ -30,7 +30,7 @@ var contacts = {
                 minHeight: 300
                 }, function(){
                     $( '#search' ).fadeIn( 'normal' );
-                    $( "#foot input" ).hide();
+                    $( "#foot" ).hide();
             });
         });
     },
