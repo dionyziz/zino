@@ -1,5 +1,5 @@
 <?php
-    class ElementApi extends Element {
+    class ElementApiTestapi extends Element {
         public function Render() {
             
         }
