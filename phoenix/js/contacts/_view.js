@@ -36,10 +36,13 @@ var contacts = {
         if ( contacts.tab == 3 ){
             return;
         }
-        $( '.tab' ).fadeOut( 'normal', function(){
-            $( '#body' ).animate({ 
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#top_tabs' ).animate({
+                width: 540
+            });
+            $( '#body' ).animate({
                 maxWidth: 540,
-                height: 400
+                height: 320
                 }, function(){
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( "invite" ).unbind().bind( 'click', contacts.sendInvitations );

@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 30px 0;
     display: block;
-	width: 100%;
+	width: 99%;
     overflow: hidden;
 }
 
@@ -240,7 +240,6 @@
 
 .invite_contacts #inviteByEmail{
     display: none;
-    padding-top: 40px;
     margin: auto;
     width: 450px;
 }
