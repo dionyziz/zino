@@ -30,6 +30,7 @@ var contacts = {
                 height: 250
                 }, function(){
                     $( '#login' ).fadeIn( 'normal' );
+                    $( "#top_tabs" ).css( 'zIndex', '10' );
                     $( "#foot input" ).removeClass() //.addClass( 'continue' )
                         .unbind().bind( 'click', contacts.retrieve )
                         .parent().filter( "div:hidden" ).fadeIn( 'normal' );
@@ -100,7 +101,7 @@ var contacts = {
         contacts.changeToFindInOtherNetworks();
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
-        $( "#top_tabs" ).css( 'zIndex', '10' );
+        
 		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
