@@ -1,3 +1,10 @@
+div#jlist {
+    position: relative;
+}
+div#jlist div.ads {
+    position: absolute;
+
+}
 div#jlist > ul {
 	margin: 0 0 0 170px;
 	width: 60%;

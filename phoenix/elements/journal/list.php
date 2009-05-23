@@ -86,6 +86,7 @@
             <div class="eof"></div><img src="<?php
             echo $rabbit_settings[ 'imagesurl' ];
             ?>heart.png" style="display:none" /><?php
+            $page->AttachInlineScript( 'JournalList.OnLoad();' );
         }
     }
 ?>
