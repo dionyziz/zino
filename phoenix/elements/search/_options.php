@@ -11,7 +11,7 @@
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
-            <form action="" method="get" onsubmit="return contacts.search()">
+            <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
                 <div id="gender" class="search">
                     <h3>Φύλο:</h3><?php
