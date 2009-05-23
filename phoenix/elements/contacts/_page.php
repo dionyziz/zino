@@ -19,6 +19,7 @@
                     <li><span id="gmail">Gmail</span></li>
                 </ul>
                 <div id="body">
+                    
                     <div id="login">
                         <div class="inputs" id="mail">
                             <div><label>Το username σου</label></div>
@@ -32,19 +33,12 @@
                             Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
                         </p>
                     </div>
-                    <div id="inviteByEmail">
-                        <div class="inputs" id="contactMail">
-                            <div><label>Γράψε τα email των φίλων σου</label></div>
-                            <textarea class="text"></textarea>
-                            <div class="example">Παράδειγμα: someone@gmail.com someoneelse@hotmail.com κλπ.</div>
-                        </div>
-                    </div>
                     <center id="loading">
                         <h1>Φορτώνουμε τις επαφές σου</h1>
                         <img src="http://static.zino.gr/phoenix/contacts/loader.gif" />
                         <h2>Αυτό μπορεί να πάρει δύο λεπτά...</h2>
                     </center>
-                    <div class="step" id="contactsInZino">
+                    <div class="networks" id="contactsInZino">
                         <h3></h3>
                         <div class="contacts">
                         </div>
@@ -53,7 +47,7 @@
                             <span class="none">Αποεπιλογή όλων</span>
                         </div>
                     </div>
-                    <div class="step" id="contactsNotZino">
+                    <div class="networks" id="contactsNotZino">
                         <h3></h3>
                         <div class="contacts">
                         </div>
@@ -62,12 +56,22 @@
                             <span class="none">Αποεπιλογή όλων</span>
                         </div>
                     </div>
-                    <div id="foot">
+                    
+                    <div id="inviteByEmail">
+                        <div id="contactMail">
+                            <div><label>Γράψε τα email των φίλων σου</label></div>
+                            <textarea class="text"></textarea>
+                            <div class="example">Παράδειγμα: someone@gmail.com someoneelse@hotmail.com κλπ.</div>
+                        </div>
+                    </div>
+                    
+                    <div id="foot" style="display: none">
                         <input onfocus="this.blur()" type="submit" value=""></input>
                     </div>
                 </div>
+                <div class="eof"></div>
             </div>
-            <div class="eof"></div>
+            
 		<?php
 		}
 	}

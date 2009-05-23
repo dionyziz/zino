@@ -3,7 +3,8 @@
     margin: 0 auto;
     padding: 30px;
     display: block;
-	width: 700px;
+	width: 100%;
+    max-width: 720px;
 }
 
 .invite_contacts #top_tabs {
@@ -36,10 +37,8 @@
 
 .invite_contacts #left_tabs {
 	float: left;
-	position: relative;
-	left: -1px;
     display: block;
-    width: 102px;
+    width: 101px;
     z-index: 500;
 }
 .invite_contacts #left_tabs li {
@@ -81,19 +80,20 @@
 
 .invite_contacts #body {
 	border: 1px solid #ccc;
-	margin-left: 100px;
 	font-size: 17px;
 	position: relative;
-	height: 245px;
+    padding-top: 40px;
+	color: #777;
 }
-.invite_contacts #body #foot {
+
+.invite_contacts  #foot {
 	background: #eee;
 	padding: 20px 0;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 }
-.invite_contacts #body #foot input {
+.invite_contacts  #foot input {
 	width: 120px;
 	height: 40px;
 	display: block;
@@ -102,35 +102,37 @@
 	background: transparent url('http://static.zino.gr/phoenix/buttons.png') no-repeat;
 	cursor: pointer;
 }
-.invite_contacts #body #foot input:active{
+.invite_contacts  #foot input:active{
 	background-position: -120px 0;
 }
-.invite_contacts #body #foot input.add{
+.invite_contacts  #foot input.add{
 	background-position: 0 -40px;
 }
-.invite_contacts #body #foot input.add:active{
+.invite_contacts  #foot input.add:active{
 	background-position: -120px -40px;
 }
-.invite_contacts #body #foot input.invite{
+.invite_contacts  #foot input.invite{
 	background-position: 0 -80px;
 }
-.invite_contacts #body #foot input.invite:active{
+.invite_contacts  #foot input.invite:active{
 	background-position: -120px -80px;
 }
-.invite_contacts #body #foot input.finish{
+.invite_contacts  #foot input.finish{
 	background-position: 0 -120px;
 }
-.invite_contacts #body #foot input.finish:active{
+.invite_contacts  #foot input.finish:active{
 	background-position: -120px -120px;
 }
-.invite_contacts #body #login {
-	padding-top: 40px;
+
+.invite_contacts #login {
+	width: 620px;
+    height: 250px;
 }
-.invite_contacts #body #mail, #password {
+.invite_contacts #login .inputs {
 	height: 40px;
 	padding: 8px 10px;
 }
-.invite_contacts #body .inputs div {
+.invite_contacts #login .inputs div {
 	float: left;
 	display: block;
 	width: 140px;
@@ -138,10 +140,8 @@
 	padding-right:15px;
 	padding-top: 10px;
 	height: 30px;
-	color: #777;
 }
-
-.invite_contacts #body .inputs input.text{
+.invite_contacts #login .inputs input.text{
 	display: block;
 	height: 30px;
 	padding: 5px;
@@ -150,13 +150,13 @@
 	border: 0;
 	background: url('http://static.zino.gr/phoenix/contacts/input.png') no-repeat;
 }
-.invite_contacts #body .inputs input.text:hover{
+.invite_contacts #login .inputs input.text:hover{
 	background-position: 0 -40px;
 }
-.invite_contacts #body .inputs input.text:focus{
+.invite_contacts #login .inputs input.text:focus{
 	background-position: 0 -80px;
 }
-.invite_contacts #body #security {
+.invite_contacts #login #security {
 	position: absolute;
 	left: 400px;
 	top: 40px;
@@ -164,22 +164,20 @@
 	font-size: 12px;
 }
 
-.invite_contacts #body #inviteByEmail{
+.invite_contacts #inviteByEmail{
     display: none;
     padding-top: 40px;
     margin: auto;
-    width: 490px;
-}
-.invite_contacts #body #inviteByEmail #contactMail div {
     width: 450px;
-    padding-top: 0;
-    float: none;
-    text-align: left;
+    height: 350px;
 }
-.invite_contacts #body #inviteByEmail #contactMail div.example {
+.invite_contacts #inviteByEmail #contactMail div {
+    width: 450px;
+}
+.invite_contacts #inviteByEmail #contactMail div.example {
     font-size: 12px;
 }
-.invite_contacts #body #inviteByEmail #contactMail textarea {
+.invite_contacts #inviteByEmail #contactMail textarea {
     width: 440px;
     height: 150px;
     background-image: url('http://static.zino.gr/phoenix/inputBig.png');
@@ -187,10 +185,10 @@
     font-size: 20px;
     border: 0;
 }
-.invite_contacts #body #inviteByEmail #contactMail textarea:hover{
+.invite_contacts #inviteByEmail #contactMail textarea:hover{
     background-position: 0 -160px;
 }
-.invite_contacts #body #inviteByEmail #contactMail textarea:focus{
+.invite_contacts #inviteByEmail #contactMail textarea:focus{
     background-position: 0 -320px;
 }
 
@@ -217,23 +215,23 @@
 	width: 30px;
 }
 
-.invite_contacts #body .step {
+.invite_contacts #body .networks {
 	display: none;
     margin-top: 17px;
 }
-.invite_contacts #body .step h3 {
+.invite_contacts #body .networks h3 {
 	margin-left: 20px;
 }
-.invite_contacts #body .step .selectAll{
+.invite_contacts #body .networks .selectAll{
 	padding: 0 0 5px 0;
 	font-size: 13px;
 	color: #114779;
 }
-.invite_contacts #body .step .selectAll span{
+.invite_contacts #body .networks .selectAll span{
 	margin-left: 16px;
 	cursor: pointer;
 }
-.invite_contacts #body .step .contacts{
+.invite_contacts #body .networks .contacts{
 	padding: 0;
 	margin: 20px;
 	border: 1px solid #ccc;
@@ -242,13 +240,13 @@
 	overflow-x:hidden;
 	height: 283px;
 }
-.invite_contacts #body .step .contact{
+.invite_contacts #body .networks .contact{
 	border-bottom: 1px solid #ccc;
 	height: 50px;
 	padding: 10px 20px;
 	font-size: 12px;
 }
-.invite_contacts #body .step .contact:last-child{
+.invite_contacts #body .networks .contact:last-child{
 	border: 0;
 }
 

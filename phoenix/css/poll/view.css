@@ -9,6 +9,7 @@ div#poview div.comments {
 div#poview h2 {
 	margin: 0 0 0 165px;
 	padding: 0 0 3px 0;
+    overflow: hidden;
 }
 div#poview dl {
 	margin: 2px 0 0 0;
@@ -37,6 +38,7 @@ div#poview ul.edit li:first {
 }
 div#poview div.posmall {
 	margin-left: 165px;
+    overflow: hidden;
 }
 div#poview div.posmall div.results {
 	margin-bottom: 30px;
