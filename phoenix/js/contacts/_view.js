@@ -29,11 +29,8 @@ var contacts = {
                 maxWidth: 600,
                 height: 250
                 }, function(){
-                    $( '#login' ).fadeIn( 'normal' );
-                    $( "#top_tabs" ).css( 'zIndex', '10' );
-                    $( "#foot input" ).removeClass() //.addClass( 'continue' )
-                        .unbind().bind( 'click', contacts.retrieve )
-                        .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+                    $( '#search' ).fadeIn( 'normal' );
+                    $( "#foot input" ).hide();
             });
         });
     },
