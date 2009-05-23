@@ -27,7 +27,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 600,
-                height: 250
+                minHeight: 250
                 }, function(){
                     $( '#search' ).fadeIn( 'normal' );
                     $( "#foot input" ).hide();
@@ -44,7 +44,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 600,
-                height: 250
+                minHeight: 250
                 }, function(){
                     $( '#login' ).fadeIn( 'normal' );
                     $( "#top_tabs" ).css( 'zIndex', '10' );
@@ -63,7 +63,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 540,
-                height: 320
+                minHeight: 320
                 }, function(){
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( "invite" )
@@ -107,8 +107,8 @@ var contacts = {
         $( "#top_tabs" ).css( 'zIndex', '-10' );
         $( "#foot, .tab:visible" ).fadeOut( 'normal', function(){
             $( "#body" ).animate({
-                'maxWidth': 700,
-                'height': 466
+                maxWidth: 700,
+                minHeight: 466
             }, 'normal', function(){
                 $( "#loading" ).fadeIn();
             });
@@ -160,7 +160,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 570,
-                height: 480
+                minHeight: 480
                 }, function(){
                     $( '#contactsNotZino' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( 'invite' )

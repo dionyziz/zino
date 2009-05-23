@@ -43,9 +43,9 @@
     padding-top: 30px;
 	color: #777;
     margin: auto;
-    width: 100%;
+    width: 99%;
     max-width: 600px; /* starting */
-    height: 250px; /* starting */
+    min-height: 250px; /* starting */
 }
 
 .invite_contacts #search {
