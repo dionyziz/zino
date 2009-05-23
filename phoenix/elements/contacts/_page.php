@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     
-                    <div id="foot" style="display: none">
+                    <div id="foot">
                         <input onfocus="this.blur()" type="submit" value=""></input>
                     </div>
                 </div>
