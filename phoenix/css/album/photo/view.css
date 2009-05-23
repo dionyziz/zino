@@ -12,6 +12,9 @@ div#pview  div.ads {
     top: -10px;
     z-index: 2;
 }
+div#pview div.ads h3 {
+    display: none;
+}
 div#pview dl {
 	margin: 2px 0 0 0;
 }
