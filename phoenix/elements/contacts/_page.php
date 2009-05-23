@@ -1,9 +1,24 @@
 <?php
 	class ElementContactsPage extends Element {
-		public function Render(){
+        public function Render( tInteger $minage, tInteger $maxage,
+            tInteger $placeid, tText $gender,
+            tText $orientation, tText $name,
+            tInteger $limit, tInteger $pageno
+        ) {
             global $user;
             if ( !$user->Exists() ) {
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
+            }
+            $minage = $minage->Get();
+            $maxage = $maxage->Get();
+            $placeid = $placeid->Get();
+            $gender = $gender->Get();
+            $orientation = $orientation->Get();
+            $name = $name->Get();
+            $pageno = $pageno->Get();
+            $limit = 25;
+            if ( $pageno <= 0 ) {
+                $pageno = 1;
             }
 			?>
             <div class="invite_contacts">
@@ -15,7 +30,10 @@
                 <div id="body">
                     <div class="tab" id="search">
                         <?php
-                            Element( 'search/view' );
+                            Element( 'search/options',
+                                $minage, $maxage, $location, $gender, $orientation, $name,
+                                $offset, $limit
+                            );
                         ?>
                     </div>
                     <div class="tab" id="login">
