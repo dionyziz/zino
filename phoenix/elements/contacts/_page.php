@@ -15,7 +15,7 @@
                 <div id="body">
                     <div class="tab" id="search">
                         <?php
-                            Element( 'search/options' );
+                            Element( 'search/view' );
                         ?>
                     </div>
                     <div class="tab" id="login">
