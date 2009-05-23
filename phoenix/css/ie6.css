@@ -1,3 +1,7 @@
+div#upstrip {
+	height: 65px;
+	overflow: hidden;
+}
 div#lbanner {
     background: url( 'http://static.zino.gr/phoenix/lbanner.png' ) no-repeat;
     height: 65px;
