@@ -7,13 +7,13 @@
             global $page;
 ?>
         <h2>Αναζήτησε άτομα</h2>
-        <div class="ybubble" style="padding:0px;">
+        <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
             <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
-                <div id="gender" class="search">
+                <div class="search">
                     <h3>Φύλο:</h3><?php
                     $genders = array(
                         'm' => 'Αγόρια',
@@ -42,11 +42,11 @@
                     }
                 ?></div>
                 
-                <div id="age" class="search">
+                <div class="search">
                     <h3>Ηλικία:</h3>
                     από: 
                     <select name="minage"><?php
-                        $ages = range( 10, 80 );
+                        $ages = range( 13, 80 );
                         ?><option value="any"<?php
                         if ( $minage == 0 ) {
                             ?> selected="selected"<?php
@@ -67,7 +67,7 @@
                     
                     έως: 
                     <select name="maxage"><?php
-                        $ages = range( 10, 80 );
+                        $ages = range( 13, 80 );
                         ?><option value="any"<?php
                         if ( $maxage == 0 ) {
                             ?> selected="selected"<?php
@@ -87,7 +87,7 @@
                     ?></select>
                 </div>
                 
-                <div id="place" class="search" style="clear:both;">
+                <div class="search">
                     <h3>Περιοχή:</h3>
                     
                     <select name="placeid">
@@ -110,8 +110,10 @@
                         ?>
                     </select>
                 </div>
-                <div id="orientation" class="search" style="padding:0px;">
+
+                <div class="search">
                     <h3>Σεξουαλικές προτιμήσεις:</h3>
+                    
                     <select name="orientation"><?php
                         $orientations = array(
                             '' => 'Οτιδήποτε',
@@ -132,13 +134,13 @@
                         }
                     ?></select>
                 </div>
-                <div style="position:relative;padding:0px;"><div style="width:120px;margin:auto;padding:0px;"><input style="top:0px;" type="submit" value="Ψάξε!" class="submit" /></div></div>
+                
+                <div><input type="submit" value="Ψάξε!" class="submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
             <i class="br"></i>
-        </div>
-		<div class="eof"></div><?php
+        </div><?php
         }
     }
 ?>
