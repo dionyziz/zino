@@ -26,8 +26,7 @@
             }
             
             if( !$image->Exists() ) {
-                ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
-                return;
+                return Element( '404', 'Η φωτογραφία δεν υπάρχει' );
             }
             switch ( $image->Album->Ownertype ) {
                 case TYPE_USERPROFILE:
@@ -75,6 +74,7 @@
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $image );
             ?><div id="pview">
+                <div class="ads"></div>
                 <h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
@@ -358,7 +358,7 @@
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
-                            ?>' );return false" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
+                            ?>' );return false" title="Διαγραφή">&nbsp;</a><?php // Space needed for CSS Spriting
                         }
 						if ( $i == $tags_num - 2 ) {
 							?> και <?php
