@@ -52,7 +52,6 @@
 
 .invite_contacts #login {
 	width: 600px;
-    height: 250px;
 }
 .invite_contacts #login #left_tabs {
     display: block;
@@ -138,7 +137,7 @@
 	display: none;
 	position: absolute;
 	width: 700px;
-    height: 466px;
+    padding-top: 30px;
 }
 .invite_contacts #loading h1{
 	margin: 60px 0;
@@ -195,7 +194,6 @@
 
 .invite_contacts #contactsInZino {
     width: 700px;
-    height: 450px;
 }
 .invite_contacts #contactsInZino .contact .contactName {
     float: left;
@@ -226,7 +224,6 @@
 
 .invite_contacts #contactsNotZino {
     width: 570px;
-    height: 420px;
 }
 .invite_contacts #contactsNotZino .contacts{
 	height: 240px;
@@ -245,7 +242,6 @@
     padding-top: 40px;
     margin: auto;
     width: 450px;
-    height: 350px;
 }
 .invite_contacts #inviteByEmail #contactMail div.example {
     font-size: 12px;

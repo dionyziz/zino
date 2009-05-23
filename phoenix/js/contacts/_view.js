@@ -1,32 +1,48 @@
+/**     available tabs: 
+* search in zino.
+*   width: 800px, height: 400px
+* search in other networks: login
+*   width: 600px, height: 250px
+* search in other networks: loading
+*   width: 700px, height: 466px
+* search in other networks: contacts In zino
+*   width: 700px, height: 466px
+* search in other networks: contacts Not in zino
+*   width: 570px, height: 420px
+* invite by mail
+*   width: 540px, height: 400px;
+*/
 var contacts = {
+    tab: 2,
+    step: 0,
 	provider: "",
 	username: "",
 	password: "",
-    step: 0,
-    changeToAddByEmail: function(){
-        contacts.step = 0;
-        $( '#left_tabs, #left_tabs li, #left_tabs li span, #body, #body > *' ).attr( 'style', '' );
-        
-        $( '#login, #left_tabs' ).fadeOut( 'normal', function(){
-            $( '#body' ).animate({ 
-                marginLeft: 90,
-                width: 540,
-                height: 400
-                }, function(){
-                    $( '#inviteByEmail' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass().addClass( "invite" ).unbind().bind( 'click', contacts.sendInvitations );
-            });
-        });
-    },
     changeToFindInOtherNetworks: function(){
-        $( '#inviteByEmail' ).fadeOut( 'normal', function(){
-            $( '#body' ).animate({ 
+        $( '.tab' ).fadeOut( 'normal', function(){
+            $( '#body' ).css({
+                'width': '',
+            }).animate({ 
                 marginLeft: 100,
                 width: 600,
                 height: 245
                 }, function(){
                     $( '#login, #left_tabs' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().unbind().bind( 'click', contacts.retrieve );
+            });
+        });
+    },
+    changeToAddByEmail: function(){
+        if ( contacts.tab == 3 ){
+            return;
+        }
+        $( '.tab' ).fadeOut( 'normal', function(){
+            $( '#body' ).animate({ 
+                maxWidth: 540,
+                height: 400
+                }, function(){
+                    $( '#inviteByEmail' ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass().addClass( "invite" ).unbind().bind( 'click', contacts.sendInvitations );
             });
         });
     },
@@ -120,7 +136,6 @@ var contacts = {
 		$( "#contactsInZino, #loading" ).fadeOut();
 		$( "#body" ).animate({
 			"height": 420,
-			"marginLeft": 80,
 			"width": 570
 			}, 1000, function(){
 				$( "#contactsNotZino, #foot" ).fadeIn();
