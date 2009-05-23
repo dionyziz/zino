@@ -51,6 +51,7 @@
 
             Element( 'user/sections', 'poll' , $theuser );
             ?><div id="polist">
+                <div class="ads"></div>
                 <ul><?php
                     if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                         ?><li class="create">
