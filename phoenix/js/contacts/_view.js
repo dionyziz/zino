@@ -40,9 +40,6 @@ var contacts = {
         }
         contacts.tab = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
-            $( '#top_tabs' ).animate({
-                width: 540
-            });
             $( '#body' ).animate({
                 maxWidth: 540,
                 height: 320
