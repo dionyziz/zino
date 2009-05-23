@@ -48,7 +48,6 @@
     height: 250px; /* starting */
 }
 
-
 .invite_contacts #search {
 
 }
@@ -240,7 +239,6 @@
 	margin: 10px 20px;
 }
 
-
 .invite_contacts #inviteByEmail{
     display: none;
     margin: auto;
@@ -264,13 +262,13 @@
     background-position: 0 -320px;
 }
 
-
 .invite_contacts  #foot {
 	background: #eee;
 	padding: 20px 0;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+    display: none;
 }
 .invite_contacts  #foot input {
 	width: 120px;
