@@ -269,7 +269,7 @@ var contacts = {
             contacts.calcCheckboxes();
 		});
         //search request
-        $( '' )
+        //$( '' )
 	}
 };
 $( function(){
