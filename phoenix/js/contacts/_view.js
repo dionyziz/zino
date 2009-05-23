@@ -19,16 +19,18 @@ var contacts = {
 	username: "",
 	password: "",
     changeToFindInOtherNetworks: function(){
-        $( '.tab' ).fadeOut( 'normal', function(){
-            $( '#body' ).css({
-                'width': '',
-            }).animate({ 
-                marginLeft: 100,
-                width: 600,
-                height: 245
+        if ( contacts.tab == 2 ){
+            return;
+        }
+        contacts.tab = 2;
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#body' ).animate({
+                maxWidth: 600,
+                height: 250
                 }, function(){
-                    $( '#login, #left_tabs' ).fadeIn( 'normal' );
-                    $( "#foot input" ).removeClass().unbind().bind( 'click', contacts.retrieve );
+                    $( '#login' ).fadeIn( 'normal' );
+                    $( "#foot input" ).removeClass().unbind().bind( 'click', contacts.retrieve )
+                        .filter( "input:hidden" ).fadeIn( 'normal' );
             });
         });
     },
@@ -36,6 +38,7 @@ var contacts = {
         if ( contacts.tab == 3 ){
             return;
         }
+        contacts.tab = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#top_tabs' ).animate({
                 width: 540
