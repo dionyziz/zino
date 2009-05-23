@@ -32,7 +32,7 @@ var contacts = {
                     $( '#login' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass() //.addClass( 'continue' )
                         .unbind().bind( 'click', contacts.retrieve )
-                        .parent().filter( "input:hidden" ).fadeIn( 'normal' );
+                        .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
     },
@@ -50,7 +50,7 @@ var contacts = {
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( "invite" )
                         .unbind().bind( 'click', contacts.sendInvitations )
-                        .parent().filter( "input:hidden" ).fadeIn( 'normal' );
+                        .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
     },
@@ -100,7 +100,7 @@ var contacts = {
         contacts.changeToFindInOtherNetworks();
         document.title = "Λάθος στοιχεία! | Zino";
         contacts.step = 0;
-        $( '#tob_tabs' ).css( 'zIndex', '5' );
+        $( "#top_tabs" ).css( 'zIndex', '10' );
 		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
@@ -124,7 +124,7 @@ var contacts = {
             $( '#contactsInZino' ).fadeIn( 'normal' );
             $( "#foot input" ).removeClass().addClass( 'add' )
                 .unbind().bind( 'click', contacts.addFriends )
-                .filter( "input:hidden" ).fadeIn( 'normal' );
+                .parent().filter( "div:hidden" ).fadeIn( 'normal' );
         });
 	},
     addContactNotZino: function( mail, nickname, contact_id ){
@@ -150,7 +150,7 @@ var contacts = {
                     $( '#contactsNotZino' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( 'invite' )
                         .unbind().bind( 'click', contacts.invite )
-                        parent().filter( "input:hidden" ).fadeIn( 'normal' );
+                        parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
 	},
