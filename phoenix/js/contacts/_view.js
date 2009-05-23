@@ -29,7 +29,7 @@ var contacts = {
                 maxWidth: 950,
                 minHeight: 300
                 }, function(){
-                    $( '#search' ).fadeIn( 'normal' );
+                    $( '#searchtab' ).fadeIn( 'normal' );
             });
         });
     },
@@ -71,6 +71,27 @@ var contacts = {
             });
         });
     },
+    search: function(){
+        if( !Search.check() ){
+            return false;
+        }
+        var gender = $( '#gender input:checked' ).val();
+        var minage = $( '#age select:first-child option:selected' ).val();
+        var maxage = $( '#age select:last-child option:selected' ).val();
+        var placeid = $( '#place select option:selected' ).val();
+        var orientation = $( '#orientation select option:selected ').val();
+        
+        Coala.Cold(
+            'contacts/search', {
+                gender: gender,
+                minage: minage,
+                maxage: maxage,
+                placeid: placeid,
+                orientation: orientation
+            }
+        );
+        return false;
+    }
     sendInvitations: function(){
         var text = $( '#contactMail textarea' ).val();
         var mails = text.split( /[\s,;]+/ );
@@ -247,6 +268,8 @@ var contacts = {
             });
             contacts.calcCheckboxes();
 		});
+        //search request
+        $( '' )
 	}
 };
 $( function(){

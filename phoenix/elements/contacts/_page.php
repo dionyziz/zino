@@ -16,7 +16,7 @@
             $orientation = $orientation->Get();
             $name = $name->Get();
             $pageno = $pageno->Get();
-            $limit = 25;
+            $limit = 24;
             if ( $pageno <= 0 ) {
                 $pageno = 1;
             }
@@ -28,7 +28,7 @@
                     <li id='ByEmail'>Πρόσκληση με e-mail</li>
                 </ul>
                 <div id="body">
-                    <div class="tab" id="search">
+                    <div class="tab" id="searchtab">
                         <?php
                             Element( 'search/view',
                                 $minage, $maxage, $placeid, $gender, $orientation, $name,
