@@ -12,15 +12,14 @@
                     <li id='otherNetworks' class="selected">Αναζήτηση σε άλλα δίκτυα</li>
                     <li id='ByEmail'>Πρόσκληση με e-mail</li>
                 </ul>
-                <ul id="left_tabs">
-                    <li class="selected"><span id="hotmail">MSN</span></li>
-                    <?php/*<li><span id="hi5">Hi5</span></li> */?>
-                    <li><span id="yahoo">Yahoo</span></li>
-                    <li><span id="gmail">Gmail</span></li>
-                </ul>
                 <div id="body">
-                    
-                    <div id="login">
+                    <div class="tab" id="login">
+                        <ul id="left_tabs">
+                            <li class="selected"><span id="hotmail">MSN</span></li>
+                            <?php/*<li><span id="hi5">Hi5</span></li> */?>
+                            <li><span id="yahoo">Yahoo</span></li>
+                            <li><span id="gmail">Gmail</span></li>
+                        </ul>
                         <div class="inputs" id="mail">
                             <div><label>Το username σου</label></div>
                             <input class="text" type="text"></input>
@@ -33,12 +32,12 @@
                             Δεν θα αποθηκεύσουμε τον κωδικό και δεν θα στείλουμε προσκλήσεις χωρίς να σε ρωτήσουμε.
                         </p>
                     </div>
-                    <center id="loading">
+                    <center class="tab" id="loading">
                         <h1>Φορτώνουμε τις επαφές σου</h1>
                         <img src="http://static.zino.gr/phoenix/contacts/loader.gif" />
                         <h2>Αυτό μπορεί να πάρει δύο λεπτά...</h2>
                     </center>
-                    <div class="networks" id="contactsInZino">
+                    <div class="tab networks" id="contactsInZino">
                         <h3></h3>
                         <div class="contacts">
                         </div>
@@ -47,7 +46,7 @@
                             <span class="none">Αποεπιλογή όλων</span>
                         </div>
                     </div>
-                    <div class="networks" id="contactsNotZino">
+                    <div class="tab networks" id="contactsNotZino">
                         <h3></h3>
                         <div class="contacts">
                         </div>
@@ -57,7 +56,7 @@
                         </div>
                     </div>
                     
-                    <div id="inviteByEmail">
+                    <div class="tab" id="inviteByEmail">
                         <div id="contactMail">
                             <div><label>Γράψε τα email των φίλων σου</label></div>
                             <textarea class="text"></textarea>
