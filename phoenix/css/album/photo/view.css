@@ -2,6 +2,13 @@ div#pview h2 {
 	margin: 0 2px 0 0;
 	padding: 0;
 	display: inline;
+    position: relative;
+}
+div#pview  div.ads {    
+    position: absolute;
+    right: 0;
+    top: -10px;
+    z-index: 2;
 }
 div#pview dl {
 	margin: 2px 0 0 0;

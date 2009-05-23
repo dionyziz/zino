@@ -176,6 +176,8 @@ div#profile div.sidebar div.contacts dt {
 }
 div#profile div.sidebar div.ads {
     border-top: 1px solid #ccc;
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 10px;
 }
 div#profile div.sidebar div.ads div.ad {
     margin: 20px auto 0 0;
