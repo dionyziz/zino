@@ -30,9 +30,9 @@
                 <div id="body">
                     <div class="tab" id="search">
                         <?php
-                            Element( 'search/options',
-                                $minage, $maxage, $location, $gender, $orientation, $name,
-                                $offset, $limit
+                            Element( 'search/view',
+                                $minage, $maxage, $placeid, $gender, $orientation, $name,
+                                $limit, $pageno
                             );
                         ?>
                     </div>
