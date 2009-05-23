@@ -216,6 +216,9 @@ var contacts = {
 		});
         //top tabs clickable
         $( '#top_tabs li' ).click( function(){
+            if ( $( '.tab:animated' ).length != 0 ){
+                return false;
+            }
             $( '#top_tabs li' ).removeClass();
             $( this ).addClass( 'selected' );
         }).filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
