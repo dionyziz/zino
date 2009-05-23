@@ -12,7 +12,7 @@
             <i class="tr"></i>
             <div class="body">
             <form action="" method="get" onsubmit="return Search.check()">
-                <input type="hidden" name="p" value="search" />
+                <input type="hidden" name="p" value="invite" />
                 <div id="gender" class="search">
                     <h3>Φύλο:</h3><?php
                     $genders = array(
