@@ -164,7 +164,8 @@
             'test'              => 'test',
             'taglist'           => 'album/photo/taglist',
 			'paginationtest'	=> 'developer/petros/pagination',
-			'photomanager' 		=> 'album/manager'
+			'photomanager' 		=> 'album/manager',
+            'testapi'           => 'api'
         );
     }
     
