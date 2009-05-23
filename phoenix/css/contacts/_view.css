@@ -48,13 +48,6 @@
     min-height: 560px; /* starting */
 }
 
-.invite_contacts #searchtab {
-
-}
-.invite_contacts .people {
-    margin: 0 30px;
-}
-
 .invite_contacts #login {
 	width: 600px;
     display: none;
