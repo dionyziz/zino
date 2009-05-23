@@ -91,7 +91,7 @@ var contacts = {
             }
         );
         return false;
-    }
+    },
     sendInvitations: function(){
         var text = $( '#contactMail textarea' ).val();
         var mails = text.split( /[\s,;]+/ );
