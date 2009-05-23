@@ -13,7 +13,7 @@
 *   width: 540px, height: 400px;
 */
 var contacts = {
-    tab: 2,
+    tab: 1,
     step: 0,
 	provider: "",
 	username: "",
@@ -220,7 +220,9 @@ var contacts = {
             $( '#top_tabs li' ).removeClass();
             $( this ).addClass( 'selected' );
         }).filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
-        .filter( '#ByEmail' ).click( contacts.changeToAddByEmail );
+            .filter( '#ByEmail' ).click( contacts.changeToAddByEmail ).end()
+            .filter( '#searchInZino' ).click( contacts.changeToSearchInZino );
+        
         
         //next step with enter
         $( '#password input' ).keydown( function( event ){
