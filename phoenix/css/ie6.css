@@ -3,6 +3,7 @@ div#lbanner {
     height: 65px;
     width: 110px;
     float: left;
+	overflow: hidden;
 }
 div#lbanner h1 {
     padding: 9px 0 0 20px;
