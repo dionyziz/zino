@@ -1,5 +1,11 @@
 div#journalview {
 	margin: 0 0 20px 0;
+    position: relative;
+}
+div#journalview div.ads {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 div#journalview h2 {
 	margin: 0;

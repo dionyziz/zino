@@ -37,7 +37,8 @@
                     $pageno = 1;
                 }
                 Element( 'user/sections', 'journal', $journal->User );
-                ?><div id="journalview"><?php
+                ?><div id="journalview">
+                    <div class="ads"></div><?php
                 if ( !$journal->IsDeleted() ) {
                     $page->SetTitle( $journal->Title );
                     ?><h2><?php
@@ -182,6 +183,7 @@
                 return Element( '404', "Η καταχώρηση δεν υπάρχει" );
             }
             ?><div class="eof"></div><?php
+            $page->AttachInlineScript( "JournalView.OnLoad();" );
         }
     }
 ?>

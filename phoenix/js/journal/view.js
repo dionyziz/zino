@@ -22,5 +22,10 @@ var JournalView = {
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
 		}
 		return false;
-	}
+	},
+    OnLoad : function() {
+        Coala.Cold( 'admanager/showad', { f: function ( html ) {
+            $( 'div.ads' )[ 0 ].innerHTML = html;
+        } } );
+    }
 };
