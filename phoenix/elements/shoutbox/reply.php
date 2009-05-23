@@ -10,7 +10,7 @@
                     Element( 'user/avatar', $user->Avatar->Id, $user->Id,
                              $user->Avatar->Width, $user->Avatar->Height,
                              $user->Name, 100, 'avatar', '', true, 50, 50 );
-                    ?>
+                    ?> 
                 </div>
                 <div class="text">
                     <input id="shoutbox_text" disabled="disabled" value="" />
