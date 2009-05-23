@@ -84,6 +84,7 @@
 	position: relative;
     padding-top: 40px;
 	color: #777;
+    float: left;
 }
 
 .invite_contacts  #foot {
@@ -171,9 +172,6 @@
     width: 450px;
     height: 350px;
 }
-.invite_contacts #inviteByEmail #contactMail div {
-    width: 450px;
-}
 .invite_contacts #inviteByEmail #contactMail div.example {
     font-size: 12px;
 }
@@ -192,24 +190,24 @@
     background-position: 0 -320px;
 }
 
-.invite_contacts #body #loading {
+.invite_contacts #loading {
 	display: none;
 	position: absolute;
-	width: 100%;
+	width: 700px;
 }
-.invite_contacts #body #loading h1{
+.invite_contacts #loading h1{
 	margin: 60px 0;
 	text-align: center;
     font-size: 25px;
 }
-.invite_contacts #body #loading h2 {
+.invite_contacts #loading h2 {
 	margin: 60px 0;
 	text-align: center;
 }
-.invite_contacts #body #loading h2 {
+.invite_contacts #loading h2 {
 	font-size: 0.8em;
 }
-.invite_contacts #body #loading img {
+.invite_contacts #loading img {
 	display: block;
 	margin: auto;
 	width: 30px;
@@ -250,33 +248,39 @@
 	border: 0;
 }
 
-.invite_contacts #body #contactsInZino .contact .contactName {
+.invite_contacts #contactsInZino {
+    width: 700px;
+}
+.invite_contacts #contactsInZino .contact .contactName {
     float: left;
     width: 80%;
 }
-.invite_contacts #body #contactsInZino .contact .location {
+.invite_contacts #contactsInZino .contact .location {
     float: left;
     width: 20%;
     padding-top: 20px;
 }
-.invite_contacts #body #contactsInZino .contact input{
+.invite_contacts #contactsInZino .contact input{
 	float: left;
 	margin: 20px;
 }
-.invite_contacts #body #contactsInZino .contact a {
+.invite_contacts #contactsInZino .contact a {
     display: block;
 	font-weight: bold;
     height: 15px;
 }
-.invite_contacts #body #contactsInZino .contact a img {
+.invite_contacts #contactsInZino .contact a img {
     float: left;
     margin-right: 20px;
 }
-.invite_contacts #body #contactsInZino .contact div div{
+.invite_contacts #contactsInZino .contact div div{
     display: inline;
     float: left;
 }
 
+.invite_contacts #contactsNotZino {
+    width: 
+}
 .invite_contacts #body #contactsNotZino .contacts{
 	height: 240px;
 }
