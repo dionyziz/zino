@@ -18,12 +18,32 @@ var contacts = {
 	provider: "",
 	username: "",
 	password: "",
+    changeToSearchInZino: function(){
+        if ( contacts.tab == 1 && contacts.step == 0 ){
+            return;
+        }
+        contacts.tab = 1;
+        contacts.step = 0;
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#body' ).animate({
+                maxWidth: 600,
+                height: 250
+                }, function(){
+                    $( '#login' ).fadeIn( 'normal' );
+                    $( "#top_tabs" ).css( 'zIndex', '10' );
+                    $( "#foot input" ).removeClass() //.addClass( 'continue' )
+                        .unbind().bind( 'click', contacts.retrieve )
+                        .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+            });
+        });
+    },
     changeToFindInOtherNetworks: function(){
         if ( contacts.tab == 2 && contacts.step == 0 ){
             return;
         }
         document.title = "Αναζήτηση φίλων | Zino";
         contacts.tab = 2;
+        contacts.step = 0;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 600,
@@ -100,9 +120,6 @@ var contacts = {
 	backToLogin: function(){
         contacts.changeToFindInOtherNetworks();
         document.title = "Λάθος στοιχεία! | Zino";
-        contacts.step = 0;
-        
-		$( "#foot input" ).unbind().bind( 'click', contacts.retrieve );
 	},
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );

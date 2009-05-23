@@ -13,6 +13,11 @@
                     <li id='ByEmail'>Πρόσκληση με e-mail</li>
                 </ul>
                 <div id="body">
+                    <div class="tab" id="search">
+                        <?php
+                            Element( 'search/options' );
+                        ?>
+                    </div>
                     <div class="tab" id="login">
                         <ul id="left_tabs">
                             <li class="selected"><span id="hotmail">MSN</span></li>

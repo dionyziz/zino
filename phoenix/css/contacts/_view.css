@@ -49,10 +49,13 @@
 }
 
 
+.invite_contacts #search {
 
+}
 
 .invite_contacts #login {
 	width: 600px;
+    display: none;
 }
 .invite_contacts #login #left_tabs {
     display: block;
