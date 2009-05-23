@@ -8,8 +8,8 @@
 			?>
             <div class="invite_contacts">
                 <ul id="top_tabs">
-                    <li>Αναζήτηση στο Zino</li>
-                    <li id='otherNetworks' class="selected">Αναζήτηση σε άλλα δίκτυα</li>
+                    <li id='searchInZino' class="selected">Αναζήτηση στο Zino</li>
+                    <li id='otherNetworks'>Αναζήτηση σε άλλα δίκτυα</li>
                     <li id='ByEmail'>Πρόσκληση με e-mail</li>
                 </ul>
                 <div id="body">
