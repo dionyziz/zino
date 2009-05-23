@@ -174,6 +174,14 @@ div#profile div.sidebar div.contacts dt {
 	height: 18px;
 	width: 18px;
 }
+div#profile div.sidebar div.ads {
+    border-top: 1px solid #ccc;
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 10px;
+}
+div#profile div.sidebar div.ads div.ad {
+    margin: 20px auto 0 0;
+}
 div.contacts dl dt {
 	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
 	background-repeat: no-repeat;
