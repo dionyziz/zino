@@ -13,10 +13,6 @@
 
     global $page;
 
-    if ( $_SERVER[ 'REMOTE_ADDR' ] == '85.72.176.204' ) {
-        define( 'WATER_ENABLE', true );
-    }
-    
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'ExcaliburHTML' );

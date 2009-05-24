@@ -8,7 +8,7 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
 
-            if ( !$notif->Exists() ) {
+            if ( !$notif->Exists() || !$notif->Item->Exists() ) {
                 return;
             }
 
