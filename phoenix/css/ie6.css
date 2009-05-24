@@ -8,3 +8,6 @@ div#rbanner {
 div#upstrip{
 	overflow: hidden;
 }
+div#midstrip {
+    background: url( 'http://beta.zino.gr/phoenix/js/blank.gif' ) #fffff;
+}
