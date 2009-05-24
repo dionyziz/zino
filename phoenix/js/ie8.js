@@ -86,7 +86,7 @@ function loadFile(href, path) {
   // ignore errors
 } finally {*/
   return "";
-}};
+};
 
 // -----------------------------------------------------------------------
 // IE5.0 compatibility
