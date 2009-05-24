@@ -35,8 +35,12 @@
                 $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
-            if ( !$rabbit_settings[ 'production' ] || UserIP() == ip2long( '147.102.232.90' ) || UserIP() == ip2long('85.72.142.132') ) {
+            if ( UserIP() == ip2long( '88.218.140.230' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
+				if ( UserBrowser() == "MSIE" ) {
+					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
+					$page->AttachScript( 'http://beta.zino.gr/phoenix/js/ie8.js' );
+				}
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
             }
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
