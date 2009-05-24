@@ -38,10 +38,8 @@
             if ( UserIP() == ip2long( '88.218.143.172' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
 				if ( UserBrowser() == "MSIE" ) {
-					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
+					//$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
 					$page->AttachScript( 'http://beta.zino.gr/phoenix/js/ie7.js' );
-					//$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie.css' );
-					//$page->AttachScript( "http://beta.zino.gr/phoenix/js/ie.js" );
 				}
                 $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
             }
