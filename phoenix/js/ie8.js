@@ -72,10 +72,11 @@ try {
 
 var fileCache = {};
 function loadFile(href, path) {
-/*try {
+try {
   href = makePath(href, path);
   if (!fileCache[href]) {
     // easy to load a file huh?
+	alert( href );
     httpRequest.open("GET", href, false);
     httpRequest.send();
     if (httpRequest.status == 0 || httpRequest.status == 200) {
@@ -84,9 +85,9 @@ function loadFile(href, path) {
   }
 } catch (e) {
   // ignore errors
-} finally {*/
-  return "";
-};
+} finally {
+  return fileCache[href] || "";
+}};
 
 // -----------------------------------------------------------------------
 // IE5.0 compatibility
