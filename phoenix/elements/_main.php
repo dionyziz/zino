@@ -39,6 +39,7 @@
                 // Petros or Gatoni testing IE
 				if ( UserBrowser() == "MSIE" ) {
 					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
+					$page->AttachScript( 'http://beta.zino/gr/phoenix/js/ie7.js' );
 					//$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie.css' );
 					//$page->AttachScript( "http://beta.zino.gr/phoenix/js/ie.js" );
 				}
