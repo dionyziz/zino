@@ -76,7 +76,6 @@ try {
   href = makePath(href, path);
   if (!fileCache[href]) {
     // easy to load a file huh?
-	alert( href );
     httpRequest.open("GET", href, false);
     httpRequest.send();
     if (httpRequest.status == 0 || httpRequest.status == 200) {
@@ -2579,7 +2578,7 @@ IE7.loaded = true;
   } catch (e) {
     // ignore errors
   }
-  PNG = new RegExp(rescape(typeof IE7_PNG_SUFFIX == "string" ? IE7_PNG_SUFFIX : "-trans.png") + "$", "i");
+  PNG = new RegExp(rescape(typeof IE7_PNG_SUFFIX == "string" ? IE7_PNG_SUFFIX : ".png") + "$", "i");
 
   // frequently used references
   body = document.body;
