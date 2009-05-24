@@ -35,7 +35,7 @@
                 $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
-            if ( UserIP() == ip2long( '88.218.140.184' ) || UserIP() == ip2long('85.72.142.132') ) {
+            if ( UserIP() == ip2long( '88.218.143.172' ) || UserIP() == ip2long('85.72.142.132') ) {
                 // Petros or Gatoni testing IE
 				if ( UserBrowser() == "MSIE" ) {
 					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
