@@ -105,11 +105,16 @@ div#strip1right {
 div.frontpagejoin {
 	text-align: center;
 }
+div.frontpagejoin div.planet form {
+	position: relative;
+	left: 50px;
+}
 div.frontpagejoin div.planet form div {
     margin-left:-240px;
 }
 input#newusername{
 	height: 24px;
+	background-image: none;
 }
 input#snewusername{
 	float: none;
