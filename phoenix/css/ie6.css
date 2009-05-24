@@ -108,3 +108,7 @@ div.frontpagejoin {
 div.frontpagejoin div.planet form div {
     margin-left:-240px;
 }
+div.frontpagejoin div.planet form div input{
+	height: 19px;
+	border: 1px solid black;
+}
