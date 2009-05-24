@@ -19,7 +19,12 @@
                 $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
             }
             else {
-                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
+                if ( UserIP() != ip2long( '88.218.140.230' ) ) {
+					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
+				}
+				else {
+					$page->AttachStylesheet( 'http://static.beta.zino.gr/css/global-beta.css' );
+				}
             }
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie.css' );
