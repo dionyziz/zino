@@ -1,6 +1,6 @@
 div#lbanner {
 	overflow: hidden;
-	margin-right: -3px;
+	/*margin-right: -3px;*/
 }
 div#rbanner {
 	margin-left: -3px;
@@ -10,4 +10,8 @@ div#upstrip{
 }
 div#midstrip {
     background: url( 'http://beta.zino.gr/phoenix/js/blank.gif' ) #fffff;
+}
+div#stip1 {
+	height: 8px;
+	background-color: #fff;
 }

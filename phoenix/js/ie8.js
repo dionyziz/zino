@@ -2578,7 +2578,7 @@ IE7.loaded = true;
   } catch (e) {
     // ignore errors
   }
-  PNG = new RegExp(rescape(typeof IE7_PNG_SUFFIX == "string" ? IE7_PNG_SUFFIX : "bg.png") + "$", "i");
+  PNG = new RegExp(rescape(typeof IE7_PNG_SUFFIX == "string" ? IE7_PNG_SUFFIX : "-trans.png") + "$", "i");
 
   // frequently used references
   body = document.body;
