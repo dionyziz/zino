@@ -108,7 +108,13 @@ div.frontpagejoin {
 div.frontpagejoin div.planet form div {
     margin-left:-240px;
 }
-div.frontpagejoin div.planet form div input#newusername{
+input#newusername{
 	height: 24px;
 	border: 1px solid black;
+}
+input#snewusername{
+	float: none;
+	position: relative;
+	top: -24px;
+	left: 116px;
 }
