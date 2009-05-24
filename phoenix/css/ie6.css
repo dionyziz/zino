@@ -8,3 +8,6 @@ div#lbanner {
 div#rbanner {
 	margin-left: -3px;
 }
+div#banner {
+	overflow: hidden;
+}
