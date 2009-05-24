@@ -72,7 +72,7 @@ try {
 
 var fileCache = {};
 function loadFile(href, path) {
-try {
+/*try {
   href = makePath(href, path);
   if (!fileCache[href]) {
     // easy to load a file huh?
@@ -84,8 +84,8 @@ try {
   }
 } catch (e) {
   // ignore errors
-} finally {
-  return fileCache[href] || "";
+} finally {*/
+  return "";
 }};
 
 // -----------------------------------------------------------------------
