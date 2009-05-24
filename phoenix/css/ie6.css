@@ -105,3 +105,6 @@ div#strip1right {
 div.frontpagejoin {
 	text-align: center;
 }
+div.frontpagejoin div.planet form div {
+    margin-left:-240px;
+}
