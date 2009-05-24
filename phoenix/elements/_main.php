@@ -23,7 +23,7 @@
 					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
 				}
 				else {
-					$page->AttachStylesheet( 'http://beta.zino.gr/css/global-beta.css' );
+					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/global-beta.css' );
 				}
             }
             if ( UserBrowser() == "MSIE" ) {
