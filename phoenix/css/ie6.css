@@ -1,3 +1,6 @@
+* html * {
+	height: 1%;
+}
 div#lbanner {
 	overflow: hidden;
 	margin-right: -3px;
