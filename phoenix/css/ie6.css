@@ -16,3 +16,9 @@ div#strip1 {
 	background-color: #fff;
 	overflow: hidden;
 }
+div#mbanner div form input#loginbutton {
+	position: relative;
+	top: 3px;
+	background-image: none;
+	filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='http://static.zino.gr/phoenix/login.png', sizingMethod='scale');
+}
