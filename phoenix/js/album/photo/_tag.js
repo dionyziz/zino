@@ -351,7 +351,7 @@ var Tag = {
             return;
         } //else if ( !show )
         //$( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
-        //$( node ).css( 'borderWidth', '0px' );
+        $( node ).css( 'borderWidth', '0px' );
     },
 	// displays conjucates and punctuation correctly
 	parseDel : function( par ) {
@@ -418,6 +418,7 @@ var Tag = {
 		}
 	},
     OnLoad : function() {
+        $( 'div.messageboxer' ).show();
         // Already Tagged people
         $( 'div.image_tags:first div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
@@ -456,7 +457,9 @@ var Tag = {
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
+        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> x = " + x;
         var x = ( image_width - tag_width - border_width )/2;
+        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> x = " + x;
         var y = ( image_height - tag_height - border_width )*0.25; // 1/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + tag_width ) + 'px', top : y + 'px' } );
