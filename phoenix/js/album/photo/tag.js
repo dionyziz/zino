@@ -168,8 +168,8 @@ var Tag = {
             return;
         }
         // Click position, relative to the image
-        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+        var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+        var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
         // Size of the tagging frame. At the moment it is fixed to 170x170px
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
@@ -201,8 +201,8 @@ var Tag = {
     // Drags the tagging window while tagging, or shows tags otherwise
     drag : function( event ) {
         if ( !Tag.run ) { // not tagging
-            var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-            var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+            var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+            var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
             $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
@@ -349,7 +349,7 @@ var Tag = {
                 Tag.ekso( event );
             }
             return;
-        }
+        } //else if ( !show )
         //$( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
         $( node ).css( 'borderWidth', '0px' );
     },
@@ -389,8 +389,8 @@ var Tag = {
 			return;
 		}
 		// Click position, relative to the image
-        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+        var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+        var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
 		var width = x - pos_x;
@@ -423,7 +423,7 @@ var Tag = {
                 var username = $( this ).find( 'a:first' ).text();
                 Tag.already_tagged.push( username );
                 var a = $( this ).find( 'a:first' ).get( 0 );
-                a.onmouseover = ( function( username ) { 
+                a.onmouseover = ( function( username ) {
                            return function( event ) {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                 Tag.showhideTag( nod, true, event );
@@ -432,7 +432,7 @@ var Tag = {
                                 }
                             };
                         } )( username );
-                a.onmouseout = ( function( username ) { 
+                a.onmouseout = ( function( username ) {
                         return function () {
                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                             Tag.showhideTag( nod, false );
@@ -446,8 +446,8 @@ var Tag = {
 				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
-        $( 'div.thephoto div.tanga div' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
-        $( 'div.thephoto div.tanga div' ).mouseout( function() { Tag.showhideTag( this, false ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseout( function() { Tag.showhideTag( this, false ); } );
         
         // Dump Face Detection Heuristic. Most faces are located on the first quarter of the image vertically, and in the middle horizontally. Place tag frame there
         // Change border_width accordingly

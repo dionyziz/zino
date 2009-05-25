@@ -203,10 +203,6 @@ var Tag = {
         if ( !Tag.run ) { // not tagging
             var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
             var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
-//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
-//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
-//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
-//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageY = " + event.pageY;
             $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
@@ -422,7 +418,6 @@ var Tag = {
 		}
 	},
     OnLoad : function() {
-        //$( 'div.messageboxer' ).show();
         // Already Tagged people
         $( 'div.image_tags:first div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
