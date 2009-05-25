@@ -201,8 +201,9 @@ var Tag = {
     // Drags the tagging window while tagging, or shows tags otherwise
     drag : function( event ) {
         if ( !Tag.run ) { // not tagging
-            var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-            var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+            var offset = $( "div.thephoto" ).offset();
+            var x = event.offsetX?(event.offsetX):event.pageX - offset.left;
+            var y = event.offsetY?(event.offsetY):event.pageY - offset.top;
             $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
             $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
             $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
