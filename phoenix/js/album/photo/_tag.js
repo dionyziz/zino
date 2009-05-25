@@ -345,9 +345,8 @@ var Tag = {
         if ( show ) {
             if ( !Tag.run ) {
                 //$( node ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
-                alert( $( node ).html() );
                 $( node ).css( 'borderWidth', '2px' );
-                Tag.ekso( event );
+                //Tag.ekso( event );
             }
             return;
         } //else if ( !show )
