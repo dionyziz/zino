@@ -446,8 +446,8 @@ var Tag = {
 				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
-        $( 'div.thephoto div.tanga div' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
-        $( 'div.thephoto div.tanga div' ).mouseout( function() { Tag.showhideTag( this, false ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseout( function() { Tag.showhideTag( this, false ); } );
         
         // Dump Face Detection Heuristic. Most faces are located on the first quarter of the image vertically, and in the middle horizontally. Place tag frame there
         // Change border_width accordingly
