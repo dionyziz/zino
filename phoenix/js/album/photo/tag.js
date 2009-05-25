@@ -203,7 +203,7 @@ var Tag = {
         if ( !Tag.run ) { // not tagging
             var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
             var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
-            $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
+            $( 'div.tanga div.tag' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
 				var width = parseInt( $( this ).css( 'width' ), 10 );
