@@ -19,6 +19,6 @@ div#strip1 {
 div#mbanner div form input#loginbutton {
 	position: relative;
 	top: 5px;
-	background-image: none;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src='the_png.png')
+	background: url( 'http://beta.zino.gr/phoenix/js/blank.gif' ) #fffff;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',src='http://static.zino.gr/phoenix/login.png');
 }
