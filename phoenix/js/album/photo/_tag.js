@@ -204,10 +204,10 @@ var Tag = {
             var offset = $( "div.thephoto" ).offset();
             var x = event.offsetX?(event.offsetX):event.pageX - offset.left;
             var y = event.offsetY?(event.offsetY):event.pageY - offset.top;
-            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
-            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
-            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
-            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageY = " + event.pageY;
+//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
+//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
+//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
+//            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageY = " + event.pageY;
             $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
@@ -423,7 +423,7 @@ var Tag = {
 		}
 	},
     OnLoad : function() {
-        $( 'div.messageboxer' ).show();
+        //$( 'div.messageboxer' ).show();
         // Already Tagged people
         $( 'div.image_tags:first div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
