@@ -26,7 +26,7 @@
         $contacts = $inviter->getMyContacts();
         if( $contacts == false  ) {
             return 'ERROR_CONTACTS';
-        }        
+        }
         $inviter->logout();
         $inviter->stopPlugin();
         

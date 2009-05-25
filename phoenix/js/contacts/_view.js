@@ -1,6 +1,6 @@
 /**     available tabs: 
 * search in zino.
-*   width: 800px, height: 400px
+*   width: max, height: 560px
 * search in other networks: login
 *   width: 600px, height: 250px
 * search in other networks: loading
