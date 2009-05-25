@@ -424,7 +424,7 @@ var Tag = {
                 var username = $( this ).find( 'a:first' ).text();
                 Tag.already_tagged.push( username );
                 var a = $( this ).find( 'a:first' ).get( 0 );
-                a.onmouseover = ( function( username ) { 
+                a.onmouseover = ( function( username ) {
                            return function( event ) {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                 Tag.showhideTag( nod, true, event );
@@ -433,7 +433,7 @@ var Tag = {
                                 }
                             };
                         } )( username );
-                a.onmouseout = ( function( username ) { 
+                a.onmouseout = ( function( username ) {
                         return function () {
                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                             Tag.showhideTag( nod, false );
@@ -447,8 +447,8 @@ var Tag = {
 				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
-        $( 'div.thephoto div.tanga div.tag' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
-        $( 'div.thephoto div.tanga div.tag' ).mouseout( function() { Tag.showhideTag( this, false ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseover( function(event) { Tag.showhideTag( $( this ), true, event ); } );
+        $( 'div.thephoto div.tanga div.tag' ).mouseout( function() { Tag.showhideTag( $( this ), false ); } );
         
         // Dump Face Detection Heuristic. Most faces are located on the first quarter of the image vertically, and in the middle horizontally. Place tag frame there
         // Change border_width accordingly
