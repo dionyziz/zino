@@ -12,9 +12,7 @@ div#midstrip {
     background: url( 'http://beta.zino.gr/phoenix/js/blank.gif' ) #fffff;
 }
 div#strip1 {
-	height: 4px;
+	height: 8px;
 	background-color: #fff;
-	border: 1px solid black;
-	padding-bottom: -5px;
 	overflow: hidden;
 }
