@@ -168,8 +168,8 @@ var Tag = {
             return;
         }
         // Click position, relative to the image
-        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).offset().left;
+        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).offset().top;
         // Size of the tagging frame. At the moment it is fixed to 170x170px
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
