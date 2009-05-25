@@ -168,8 +168,8 @@ var Tag = {
             return;
         }
         // Click position, relative to the image
-        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).offset().left;
-        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).offset().top;
+        var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+        var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
         // Size of the tagging frame. At the moment it is fixed to 170x170px
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
@@ -201,9 +201,8 @@ var Tag = {
     // Drags the tagging window while tagging, or shows tags otherwise
     drag : function( event ) {
         if ( !Tag.run ) { // not tagging
-            var offset = $( "div.thephoto" ).offset();
-            var x = event.offsetX?(event.offsetX):event.pageX - offset.left;
-            var y = event.offsetY?(event.offsetY):event.pageY - offset.top;
+            var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+            var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
 //            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
 //            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
 //            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
@@ -394,8 +393,8 @@ var Tag = {
 			return;
 		}
 		// Click position, relative to the image
-        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
-        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+        var x = event.offsetX?(event.offsetX):event.pageX - $( "div.thephoto" ).offset().left;
+        var y = event.offsetY?(event.offsetY):event.pageY - $( "div.thephoto" ).offset().top;
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
 		var width = x - pos_x;
