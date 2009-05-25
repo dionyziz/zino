@@ -204,7 +204,9 @@ var Tag = {
             var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
             var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
             $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />x = " + x;
+            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageX = " + event.pageX;
             $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />y = " + y;
+            $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />pageY = " + event.pageY;
             $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
