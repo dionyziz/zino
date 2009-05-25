@@ -113,7 +113,7 @@ div.thephoto div.tanga div.tag div {
     position: absolute;
     background-color: #FFFFBB;
     color: #3366FF;
-    border: 1px solid black;
+    /* border: 1px solid black; I think it looks better without that...*/
     display: none;
     padding: 0 5px 0 5px;
     cursor: pointer;
