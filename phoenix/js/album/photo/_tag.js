@@ -342,8 +342,6 @@ var Tag = {
         return false;
     },
     showhideTag : function( node, show, event ) {
-        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> x = " + event.offsetX;
-        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> Y = " + event.offsetY;
         if ( show ) {
             if ( !Tag.run ) {
                 //$( node ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
@@ -463,7 +461,5 @@ var Tag = {
         var y = ( image_height - tag_height - border_width )*0.25; // 1/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + tag_width ) + 'px', top : y + 'px' } );
-        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> x = " + x;
-        $( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> y = " + y;
     }
 };
