@@ -11,6 +11,7 @@ div.thephoto div.frienders {
     width: 250px;
     margin-left: 20px;
     opacity: 0.95;
+    z-index: 10;
 }
 div.thephoto div.frienders div.closer {
     text-align: center;
