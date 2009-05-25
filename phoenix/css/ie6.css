@@ -15,4 +15,5 @@ div#strip1 {
 	height: 8px;
 	background-color: #fff;
 	border: 1px solid black;
+	padding-bottom: -5px;
 }
