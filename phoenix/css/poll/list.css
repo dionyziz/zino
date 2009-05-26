@@ -3,8 +3,8 @@ div#polist {
 }
 div#polist div.ads {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    right: -20px;
 }
 div#polist ul li h3 {
 	margin: 0;
