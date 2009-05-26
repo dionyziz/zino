@@ -12,7 +12,7 @@
                 $apiarray[ 'age' ] = $user->Profile->Age;
                 $apiarray[ 'location' ] = $user->Profile->Location->Name;
                 $apiarray[ 'gender' ] = $user->Gender;
-                var_dump( $apiarray );
+                echo htmlspecialchars( w_json_encode( $apiarray ) );
             }
         }
     }
