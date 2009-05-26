@@ -18,7 +18,7 @@
                 $apiarray[ 'gender' ] = $user->Gender;
                 $apiarray[ 'avatar' ][ 'id' ] = $user->Avatar->Id;
                 ob_start();
-                Element( 'image/url', $user->Avatar-Id , $user->Id , IMAGE_CROPPED_150x150 );
+                Element( 'image/url', $user->Avatar->Id , $user->Id , IMAGE_CROPPED_150x150 );
                 $apiarray[ 'avatar' ][ 'thumb150' ] = ob_get_clean();
                 echo htmlspecialchars( w_json_encode( $apiarray ) );
             }
