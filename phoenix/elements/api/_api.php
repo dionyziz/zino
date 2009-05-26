@@ -1,6 +1,6 @@
 <?php
     class ElementApiApi extends Element {
-        public function Render( tText $url, tText $t ) {
+        public function Render() {
             $xml = $t == 'xml';
             $url = $url->Get();
             $params = explode( '/', $url );
