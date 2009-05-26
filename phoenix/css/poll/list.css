@@ -1,6 +1,3 @@
-div#polist {
-    position: relative;
-}
 div#polist div.ads {
     position: absolute;
     right: 23px;
