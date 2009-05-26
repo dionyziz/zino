@@ -110,6 +110,9 @@ var PhotoView = {
     OnLoad : function() {
         Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
+            if ( $( 'div.ads' )[ 0 ].offsetHeight >= 220 ) {
+                $( "div.pthumbs" ).css( 'margin-top' , '70px' );
+            }
         } } );
     }
 };
