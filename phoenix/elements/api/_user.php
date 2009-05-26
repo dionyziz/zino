@@ -11,7 +11,7 @@
                 $apiarray[ 'subdomain' ] = $user->Subdomain;
                 $apiarray[ 'age' ] = $user->Profile->Age;
                 $apiarray[ 'location' ] = $user->Profile->Location->Name;
-                $apiarray[ 'gender' ] = $user->Gender();
+                $apiarray[ 'gender' ] = $user->Gender;
                 var_dump( $apiarray );
             }
         }
