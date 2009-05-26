@@ -5,7 +5,7 @@
             global $page;
             $libs->Load( 'user/user' );
             $userfinder = New UserFinder();
-            $user = FindBySubdomain( $subdomain );
+            $user = $userfinder->FindBySubdomain( $subdomain );
             if ( $user !== false ) {
                 $apiarray[ 'name' ] = $user->Name;
                 $apiarray[ 'subdomain' ] = $user->Subdomain;
