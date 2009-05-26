@@ -74,6 +74,7 @@
             $finder = New FavouriteFinder();
             $fav = $finder->FindByUserAndEntity( $user, $image );
             ?><div id="pview">
+                <div class="ads"></div>
                 <h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
