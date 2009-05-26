@@ -12,6 +12,10 @@
                 $apiarray[ 'age' ] = $user->Profile->Age;
                 $apiarray[ 'location' ] = $user->Profile->Location->Name;
                 $apiarray[ 'gender' ] = $user->Gender;
+                $apiarray[ 'avatar' ] = Array(
+                    'id' => $user->Avatar->Id,
+                    'thumb150' => Element( 'image/url', $user->Avatar-Id , $user->Id , IMAGE_CROPPED_150x150 )
+                );
                 echo htmlspecialchars( w_json_encode( $apiarray ) );
             }
         }
