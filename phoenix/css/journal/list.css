@@ -4,7 +4,7 @@ div#jlist {
 div#jlist div.ads {
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 0;
 }
 div#jlist > ul {
 	margin: 0 0 0 170px;

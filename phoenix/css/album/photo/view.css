@@ -9,7 +9,7 @@ div#pview h2 {
 div#pview  div.ads {    
     position: absolute;
     right: 0;
-    top: -10px;
+    bottom: 0;
     z-index: 2;
 }
 div#pview div.ads h3 {
