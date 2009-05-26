@@ -16,12 +16,13 @@
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'Plain' );
-
+    
+    $url = $_GET[ 'url' ];
     $req = $_GET;
 
     Rabbit_ClearPostGet();
     
-    $page->AttachMainElement( 'api/api', $req );
+    $page->AttachMainElement( 'api/api', $req, $url );
     $page->Output();
 
     Rabbit_Destruct();
