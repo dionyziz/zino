@@ -4,8 +4,8 @@ ul.albums {
 }
 ul.albums div.ads {
     position: absolute;
-    top: 0;
-    right: -20px;
+    right: 23px;
+    top: 138px;
 }
 ul.albums li {
     float: left;

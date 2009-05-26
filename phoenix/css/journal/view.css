@@ -4,8 +4,8 @@ div#journalview {
 }
 div#journalview div.ads {
     position: absolute;
-    bottom: 0;
     right: 0;
+    bottom: 0;
 }
 div#journalview h2 {
 	margin: 0;
