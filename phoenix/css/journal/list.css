@@ -3,8 +3,8 @@ div#jlist {
 }
 div#jlist div.ads {
     position: absolute;
-    top: 0;
-    right: -20px;
+    right: 23px;
+    top: 138px;
 }
 div#jlist > ul {
 	margin: 0 0 0 170px;
