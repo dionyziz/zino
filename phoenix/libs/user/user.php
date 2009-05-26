@@ -32,7 +32,8 @@
             'images',
             'images2',
             'static',
-            'api'
+            'api',
+            'developers'
         );
         return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved );
     }
