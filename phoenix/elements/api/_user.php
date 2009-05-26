@@ -1,6 +1,6 @@
 <?php
     class ElementApiUser extends Element {
-        public function Render( tText $subdomain ) {
+        public function Render( $subdomain, $xml ) {
             global $libs;
             global $page;
             
@@ -19,7 +19,12 @@
                 ob_start();
                 Element( 'image/url', $user->Avatar->Id , $user->Id , IMAGE_CROPPED_150x150 );
                 $apiarray[ 'avatar' ][ 'thumb150' ] = ob_get_clean();
-                echo htmlspecialchars( w_json_encode( $apiarray ) );
+                if ( !$xml ) {
+                    echo htmlspecialchars( w_json_encode( $apiarray ) );
+                }
+                else {
+                    echo 'XML Zino API not yet supported';
+                }
             }
         }
     }
