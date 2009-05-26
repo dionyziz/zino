@@ -2,7 +2,12 @@
     class ElementApiTestapi extends Element {
         public function Render( tText $url ) {
             $url = $url->Get();
-            var_dump( explode( '/', $url ) );
+            $params = explode( '/', $url );
+            switch ( $params[0] ) {
+                case 'user':
+                    Element( 'api/user', $params[1] );
+                    break;
+            }
         }
     }
 ?>
