@@ -4,7 +4,7 @@ ul.albums {
 }
 ul.albums div.ads {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: -20px;
 }
 ul.albums li {
