@@ -3,7 +3,10 @@
         public function Render( tText $subdomain ) {
             global $libs;
             global $page;
+            
             $libs->Load( 'user/user' );
+            $libs->Load( 'image/image' );
+            
             $userfinder = New UserFinder();
             $user = $userfinder->FindBySubdomain( $subdomain );
             if ( $user !== false ) {
