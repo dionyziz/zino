@@ -1,5 +1,5 @@
 <?php
-    class ElementApiTestapi extends Element {
+    class ElementApiApi extends Element {
         public function Render( tText $url, tText $t ) {
             $xml = $t == 'xml';
             $url = $url->Get();
