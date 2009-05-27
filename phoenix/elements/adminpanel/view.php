@@ -25,7 +25,8 @@
 	        $libs->Load( 'contacts/contacts' );
 	        $username = $username->Get();
 	        $pass = $pass->Get();
-	        $provider - $provider->Get();
+	        $provider = $provider->Get();
+	        ?><p>654687</p><?php
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        ?><p>alksjgaf</p><?php
             if( count( $contacts ) > 0 ) {
