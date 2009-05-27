@@ -49,6 +49,27 @@
     class AdFinder extends Finder {
         protected $mModel = 'Ad';
         
+        public function FindAllActive() {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :ads
+                WHERE
+                    `ad_active`=:yes
+                    AND `ad_pageviewsremaining`>0'
+            );
+            $query->BindTable( 'ads' );
+            $query->Bind( 'yes', 'yes' );
+            $res = $query->Execute();
+            
+            $ads = array();
+            while( $ad = $res->FecthArray() ) {
+                $ads[] = new Ad( $ad );
+            }
+            return $ads;
+        }
+        
         public function FindToShow() {
             $query = $this->mDb->Prepare(
                 'SELECT
