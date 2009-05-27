@@ -17,7 +17,6 @@
             }
         }
         if ( $relationnotif ) {
-            ?>document.location.href = <?php
             ob_start();
             Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
             echo w_json_encode( ob_get_clean() );
