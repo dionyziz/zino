@@ -3,7 +3,7 @@
 $ch = curl_init();
 
 // set URL and other appropriate options
-curl_setopt($ch, CURLOPT_URL, "http://static.beta.zino.gr/css/global-beta.css");
+curl_setopt($ch, CURLOPT_URL, "http://static.beta.zino.gr/css/global.css");
 
 // grab URL and pass it to the browser
 curl_exec($ch);
