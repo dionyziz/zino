@@ -43,7 +43,9 @@
             }
 			if ( stripos( $_SERVER["HTTP_USER_AGENT"], 'MSIE 6.0' ) !== false ){
 				$page->AttachScript( 'http://zino.gr/js/ie8.js' );
-				$page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
+				if ( UserIP() == ip2long( '85.72.180.90' ) ) {
+					$page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
+				}
 			}
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
