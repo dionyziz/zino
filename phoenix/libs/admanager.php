@@ -65,7 +65,7 @@
             $res = $query->Execute();
             
             $ads = array();
-            while( $ad = $res->FecthArray() ) {
+            while( $ad = $res->FetchArray() ) {
                 $ads[] = new Ad( $ad );
             }
             return $ads;
