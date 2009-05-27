@@ -16,7 +16,10 @@
             <?php
             //attaching ALL css files
             if ( $rabbit_settings[ 'production' ] ) {
-				if ( UserIP() == ip2long('88.218.140.230') ) {
+				
+            }
+            else {
+			if ( UserIP() == ip2long('88.218.140.230') ) {
 					if ( stripos( $_SERVER["HTTP_USER_AGENT"], 'MSIE 6.0' ) !== false ){
 						$page->AttachStylesheet( 'http://zino.gr/global.php' );
 					}
@@ -25,11 +28,9 @@
 					}
 				}
 				else {
-					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
+					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
 				}
-            }
-            else {
-                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
+                
             }
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/ie.css' );
