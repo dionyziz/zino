@@ -25,7 +25,7 @@
                 </div>
                 <a href="<?php
                 Element( 'url' , $notif->Item );
-                ?>"><div class="who"<?php
+                ?>" style="display: block;"><div class="who"<?php
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
@@ -61,7 +61,7 @@
                             }
                             break;
                     }
-                ?></div></a>
+                ?></div>
                 <div class="subject"<?php
                 switch ( $notif->Typeid ) {
                     case EVENT_IMAGETAG_CREATED:
@@ -297,7 +297,7 @@
                             break;
                     }
                     ?><div class="eof"></div>
-                </div>
+                </div></a>
             </div><?php
         }
     }
