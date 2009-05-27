@@ -122,7 +122,7 @@ var contacts = {
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
         contacts.username = $( "#mail input" ).val().split( '@' )[ 0 ];
         if ( contacts.provider == "hotmail" ){
-            contacts.username += "@hotmail.com";
+            ;/*contacts.username += "@hotmail.com";*/
         }
         contacts.password = $( "#password input" ).val();
         Coala.Warm( 'contacts/retrieve', {
