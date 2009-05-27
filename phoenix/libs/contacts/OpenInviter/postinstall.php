@@ -117,7 +117,7 @@ if ($rewrite_config)
 	$file_contents="<?php\n";
 	$file_contents.="\$openinviter_settings=array(\n".row2text($openinviter_settings).");\n";
 	$file_contents.="?>";
-	file_put_contents('config.php',$file_contents);
+	//file_put_contents('config.php',$file_contents);
 	}
 
 //Instantiate OpenInviter
@@ -186,5 +186,5 @@ foreach ($plugins as $type=>$dummy)
 		}
 
 display_message("<br><b>WARNING:</b> Delete postinstall.php before running OpenInviter. Also please note that you cannot run postinstall.php again for 2 minutes.");
-file_put_contents('postinstall_results.res',$contents);
+//file_put_contents('postinstall_results.res',$contents);
 ?>
