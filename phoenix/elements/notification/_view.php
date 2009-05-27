@@ -25,7 +25,7 @@
                 </div>
                 <a href="<?php
                 Element( 'url' , $notif->Item );
-                ?>" style="display: block;color: black;"><div class="who"<?php
+                ?>" style="display:block;color:black;"><div class="who"<?php
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
