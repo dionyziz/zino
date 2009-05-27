@@ -1,5 +1,5 @@
 <?php    
-    class ElementAdminpanelAdviewerssView extends Element {
+    class ElementAdminpanelAdviewerView extends Element {
         public function Render() {
 	        global $page;
 	        global $user;
