@@ -57,7 +57,8 @@
                     :ads
                 WHERE
                     `ad_active`=:yes
-                    AND `ad_pageviewsremaining`>0'
+                    AND `ad_pageviewsremaining`>0
+                ;'
             );
             $query->BindTable( 'ads' );
             $query->Bind( 'yes', 'yes' );
