@@ -22,6 +22,9 @@
 	        ?></ul><?php
 	        
 	        /*$libs->Load( 'contacts/OpenInviter/postinstall' ); */
+	        $libs->Load( 'contacts/contacts' );
+	        $contacts = GetContacts( $username,$pass,$provider);
+	        echo $contacts;
         }
     }
 ?>
