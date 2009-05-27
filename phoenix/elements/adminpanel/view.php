@@ -20,24 +20,16 @@
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 	        ?></ul><?php    
     
-            $libs->Load( "contacts/contacts" );
+            $libs->Load( "admanager" );
             
-            $username = $username->Get();
-            $pass = $pass->Get();
-            $provider = $provider->Get();
-            $contacts = GetContacts( $username, $pass, $provider );
-            
-            if ( !is_array( $contacts ) ) {
-                echo "<p>".$contacts."</p>";
-            }
-            else {
-                foreach ( $contacts as $key=>$val ) {
+            $adfinder = new AdFinder();
+            $ads = $adfinder->FindAllActive();
+            foreach ( $ads as $ad ) {
                 ?><p><?php
-                echo $key . " " . $val;
+                $ad->Userid;
                 ?></p><?php
-                }
             }
-	        
+            
         }
     }
 ?>
