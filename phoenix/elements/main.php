@@ -16,7 +16,13 @@
             <?php
             //attaching ALL css files
             if ( $rabbit_settings[ 'production' ] ) {
-                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
+				if ( stripos( $_SERVER["HTTP_USER_AGENT"], 'MSIE 6.0' ) !== false ){
+					$page->AttachStylesheet( 'http://zino.gr/global.php' );
+					$page->AttachStylesheet( 'http://zino.gr/css/ie6.css' );
+				}
+				else {
+					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
+				}
             }
             else {
                 $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
@@ -35,14 +41,10 @@
                 $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
-            if ( UserIP() == ip2long( '85.72.180.90' ) || UserIP() == ip2long('88.218.140.230') ) {
-                // Petros or Gatoni testing IE
-				if ( UserBrowser() == "MSIE" ) {
-					$page->AttachStylesheet( 'http://beta.zino.gr/phoenix/css/ie6.css' );
-					$page->AttachScript( 'http://beta.zino.gr/phoenix/js/ie8.js' );
-				}
-                $page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
-            }
+			if ( stripos( $_SERVER["HTTP_USER_AGENT"], 'MSIE 6.0' ) !== false ){
+				$page->AttachScript( 'http://zino.gr/js/ie8.js' );
+				$page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
+			}
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people' ) );
