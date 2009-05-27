@@ -18,19 +18,8 @@
 		        ?><li><a href="?p=statistics" >Στατιστικά στοιχεία του Zino</a></li><?php
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
-	        ?></ul><?php    
-    
-            $libs->Load( "admanager" );
-            
-            $adfinder = new AdFinder();
-            $ads = $adfinder->FindAllActive();
-            echo '<p>Title ' . count( $ads ) . '</p>';
-            foreach ( $ads as $ad ) {
-                ?><p><?php
-                echo $ad->Title;
-                ?></p><?php
-            }
-            
+		        ?><li><a href="?p=adviewer" >Ενεργές Διαφημίσεις</a></li><?php
+	        ?></ul><?php
         }
     }
 ?>
