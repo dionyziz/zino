@@ -14,11 +14,11 @@
 	        
 	        ?><h2>Κεντρική σελίδα διαχειριστών</h2><?php
 	        
-	        ?><ul><?php
-		        ?><li><a href="?p=statistics" >Στατιστικά στοιχεία του Zino</a></li><?php
+	        ?><ul><?php		        
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
-		        ?><li><a href="?p=adviewer" >Ενεργές Διαφημίσεις</a></li><?php
+		        ?><li><a href="?p=adviewer" >Ενεργές διαφημίσεις</a></li><?php
+		        ?><li><a href="?p=statistics" >Στατιστικά( νέα σχόλια, δημοσκοπήσεις, χρήστες... )</a></li><?php
 	        ?></ul><?php
         }
     }
