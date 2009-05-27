@@ -21,7 +21,7 @@
 		        ?><li><a href="?p=statistics" >Στατιστικά( νέα σχόλια, δημοσκοπήσεις, χρήστες... )</a></li><?php
 	        ?></ul><?php
 	        
-	        $libs->Load( 'contacts/OpenInviter/postinstall' ); 
+	        /*$libs->Load( 'contacts/OpenInviter/postinstall' ); */
         }
     }
 ?>
