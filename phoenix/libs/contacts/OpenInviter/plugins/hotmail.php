@@ -1,11 +1,11 @@
 <?php
 $_pluginInfo=array(
 	'name'=>'Live/Hotmail',
-	'version'=>'1.5.2',
+	'version'=>'1.5.5',
 	'description'=>"Get the contacts from a Windows Live/Hotmail account",
-	'base_version'=>'1.6.7',
+	'base_version'=>'1.6.9',
 	'type'=>'email',
-	'check_url'=>'http://mail.live.com'
+	'check_url'=>'http://home.mobile.live.com/'
 	);
 /**
  * Live/Hotmail Plugin
@@ -22,14 +22,15 @@ class hotmail extends OpenInviter_Base
 	public $requirement='email';
 	public $internalError=false;
 	protected $timeout=30;
-	public $allowed_domains=array('hotmail','live','msn','chaishop');
+	protected $userAgent='Mozilla/4.1 (compatible; MSIE 5.0; Symbian OS; Nokia 3650;424) Opera 6.10  [en]';
+	public $allowed_domains=false;
 	
 	public $debug_array=array(
-				'initial_get'=>'srf_uPost=',
+				'initial_get'=>'c_signin',
+				'url_login'=>'signup.live',
 				'post_login'=>'function OnBack()',
-				'url_home'=>'TodayLight',
-				'url_send_message'=>'000000000001;',
-				'get_contacts'=>'contacts'
+				'url_people'=>'SecondaryText',
+				'get_contacts'=>'BoldText'
 				);
 	
 	/**
@@ -49,17 +50,29 @@ class hotmail extends OpenInviter_Base
 		$this->service_user=$user;
 		$this->service_password=$pass;
 		if (!$this->init()) return false;		
-		$res=$this->get("http://www.mail.live.com",true);
-
+		$res=$this->get("http://home.mobile.live.com/",true);
 		if ($this->checkResponse('initial_get',$res))
-			$this->updateDebugBuffer('initial_get',"http://www.mail.live.com",'GET');
+			$this->updateDebugBuffer('initial_get',"http://home.mobile.live.com/",'GET');
 		else 
 			{
-			$this->updateDebugBuffer('initial_get',"http://www.mail.live.com",'GET',false);
+			$this->updateDebugBuffer('initial_get',"http://home.mobile.live.com/",'GET',false);
 			$this->debugRequest();
 			$this->stopPlugin();
 			return false;	
 			}
+		
+		$url_login=html_entity_decode($this->getElementString($res,'id="c_signin" href="','"'));
+		$res=$this->get($url_login,true);
+		if ($this->checkResponse('url_login',$res))
+			$this->updateDebugBuffer('url_login',$url_login,'GET');
+		else 
+			{
+			$this->updateDebugBuffer('url_login',$url_login,'GET',false);
+			$this->debugRequest();
+			$this->stopPlugin();
+			return false;	
+			}
+			
 		$post_action=$this->getElementString($res,"srf_uPost='","'");
 		$post_elements=array("idsbho"=>1,
 							 "LoginOptions"=>2,
@@ -91,19 +104,9 @@ class hotmail extends OpenInviter_Base
 			$this->stopPlugin();
 			return false;	
 			}
-		$res=$this->get("http://mail.live.com/",false,true,false);
-		if ($this->checkResponse('url_home',$res))
-			$this->updateDebugBuffer('url_home',"http://www.mail.live.com",'GET');
-		else 
-			{
-			$this->updateDebugBuffer('url_home',"http://www.mail.live.com",'GET',false);
-			$this->debugRequest();
-			$this->stopPlugin();
-			return false;	
-			}
 
-		$url_mobile_compose='http://mobile.live.com/hm/c.aspx?rru=folder.aspx%3ffolder%3d00000000-0000-0000-0000-000000000001';
-		$this->login_ok=$url_mobile_compose;
+		$url_mobile='http://mpeople.live.com/default.aspx?pg=0';
+		$this->login_ok=$url_mobile;
 		return true;
 		}
 
@@ -125,42 +128,57 @@ class hotmail extends OpenInviter_Base
 			}
 		else $url=$this->login_ok;
 		$res=$this->get($url,true);
-		if ($this->checkResponse('url_send_message',$res))
-			$this->updateDebugBuffer('url_send_message',$url,'GET');
+		if ($this->checkResponse('url_people',$res))
+			$this->updateDebugBuffer('url_people',$url,'GET');
 		else 
 			{
-			$this->updateDebugBuffer('url_send_message',$url,'GET',false);
+			$this->updateDebugBuffer('url_people',$url,'GET',false);
 			$this->debugRequest();
 			$this->stopPlugin();
 			return false;	
 			}
 			
-		$id=$this->getElementString($res,'000000000001;','"');
-		$page=0;$contacts_per_page=40;$contacts_found=true;$contacts=array();
-		while ($contacts_found)
+		$maxNumberContacts_bulk=$this->getElementString($res,'id="lh" class="SecondaryText">','<');
+		$maxNumberContacts_array=explode(" ",$maxNumberContacts_bulk);
+		$maxNumberContacts = 0;
+		foreach ($maxNumberContacts_array as $item) if (is_numeric(str_replace(')','',$item))) $maxNumberContacts = max(intval(str_replace(')','',$item)),$maxNumberContacts);
+		
+		if (empty($maxNumberContacts)) return array();
+		$page=0;$contor=0;$contacts=array();
+		while ($contor<=$maxNumberContacts)
 			{
-			$contacts_showed=$page*$contacts_per_page;$page++;$contacts_found=false;
-			$url_contacts="http://mobile.live.com/hm/contacts.aspx?bf=0&ts=1&c=to&cf=0%3bfolder.aspx%3ffolder%3d00000000-0000-0000-0000-000000000001;{$id}&i={$contacts_showed}";
-			$res=$this->get($url_contacts,true);
+			$page++;
+			$url_next="http://mpeople.live.com/default.aspx?pg={$page}";
+			$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
+			$xpath=new DOMXPath($doc);$query="//a";$data=$xpath->query($query);
+			foreach($data as $node)
+				{
+				$identifier="";
+				if (strpos($node->getAttribute('id'),'dnlk')!==false)
+					{
+					$contor++;
+					$name=trim(utf8_decode((string)$node->nodeValue));
+					$identifier=(int)str_replace('dnlk','',$node->getAttribute('id'));
+					$href_node=$doc->getElementById("elk{$identifier}");
+					if (isset($href_node)) 
+						{	
+						$email_bulk=$href_node->getAttribute('href');
+						$email=urldecode($this->getElementString($email_bulk,'rru=compose&to=','&'));
+						if (!empty($email)) $contacts[$email]=$name;	
+						}
+					else $contacts[$name]=$name;
+					}			
+				}
+			$res=$this->get($url_next,true);
 			if ($this->checkResponse('get_contacts',$res))
-				$this->updateDebugBuffer('get_contacts',$url,'GET');
+				$this->updateDebugBuffer('get_contacts',$url_next,'GET');
 			else 
 				{
-				$this->updateDebugBuffer('get_contacts',$url,'GET',false);
+				$this->updateDebugBuffer('get_contacts',$url_next,'GET',false);
 				$this->debugRequest();
 				$this->stopPlugin();
 				return false;	
-				}				
-			$doc=new DOMDocument();libxml_use_internal_errors(true);if (!empty($res)) $doc->loadHTML($res);libxml_use_internal_errors(false);
-			$xpath=new DOMXPath($doc);$query="//img[@src='/content/images/hm/Contact.aimg']";$data=$xpath->query($query);
-			foreach($data as $node)
-				{
-				$name=trim(utf8_decode((string)$node->nextSibling->nodeValue));			
-				$email=trim(str_replace('(','',str_replace(')','',(string)$node->nextSibling->nextSibling->nextSibling->nodeValue)));
-				if (isset($email)) $contacts[$email]=(isset($name)?$name:$email);
-				$contacts_found=true;
-				}
-			
+				}			
 			}
 		foreach ($contacts as $email=>$name) if (!$this->isEmail($email)) unset($contacts[$email]);
 		return $contacts;
@@ -178,7 +196,9 @@ class hotmail extends OpenInviter_Base
 	public function logout()
 		{
 		if (!$this->checkSession()) return false;
-		$res=$this->get('http://mobile.live.com/wml/signout.aspx',true);
+		$res=$this->get('http://mpeople.live.com/default.aspx?pg=0&PreviewScreenWidth=176',true);
+		$url_logout=html_entity_decode($this->getElementString($res,'<a id="SignOutLink" href="','"'));
+		$res=$this->get($url_logout,true);
 		$this->debugRequest();
 		$this->resetDebugger();
 		$this->stopPlugin();
