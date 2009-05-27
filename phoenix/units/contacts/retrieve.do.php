@@ -18,12 +18,12 @@
             ?>
             setTimeout( function(){
             <?php
-                if ( $ret == 'ERROR_PROVIDER' ){
+                if ( $ret == 'ERROR_PROVIDER' || $ret == 'ERROR_CONTACTS' ){
                     ?>$( "#security" ).css({
                         'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
-                    }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκιμάστε αργότερα.' );<?php
+                    }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκίμασε αργότερα.' );<?php
                 }
                 if ( $ret == 'ERROR_CREDENTIALS' ){
                     ?>$( "#security" ).css({
