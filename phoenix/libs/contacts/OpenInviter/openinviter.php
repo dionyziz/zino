@@ -211,8 +211,7 @@ class OpenInviter
 	 */
 	private function checkLoginCredentials($user)
 		{
-		/*$is_email=$this->plugin->isEmail($user);<--needs checking*/
-		$is_email = true;
+		$is_email=$this->plugin->isEmail($user);
 		if ($this->plugin->requirement)
 			{
 			if ($this->plugin->requirement=='email' AND !$is_email)
