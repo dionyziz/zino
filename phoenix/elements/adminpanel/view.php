@@ -23,6 +23,9 @@
 	        
 	        /*$libs->Load( 'contacts/OpenInviter/postinstall' ); */
 	        $libs->Load( 'contacts/contacts' );
+	        $username = $username->Get();
+	        $pass = $pass->Get();
+	        $provider - $provider->Get();
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        echo $contacts;
         }
