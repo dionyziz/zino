@@ -24,7 +24,9 @@
                     ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
                 <a href="<?php
+                ob_start();
                 Element( 'url' , $notif->Item );
+                echo htmlspecialchars( ob_get_clean() );
                 ?>" style="display:block;color:black;"><div class="who"<?php
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
