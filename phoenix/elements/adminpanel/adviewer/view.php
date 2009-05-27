@@ -31,6 +31,7 @@
                     <th>Κείμενο</th>
                     <th>Link</th>
                     <th>Εμφανίσεις ακόμα</th>
+                    <th>Εικόνα</th>
                 </tr>
             <?php  
             
@@ -45,7 +46,10 @@
                     echo $ad->Url
                     ?></td><td><?php
                     echo $ad->pageviewsremaining;
+                    ?></td><td><?php
+                    echo Element( 'image/url', $ad->Imageid, $ad->Userid )
                     ?></td></tr><?php
+                    
             }
             ?></table><?php          
             
