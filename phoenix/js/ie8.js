@@ -70,13 +70,13 @@ try {
   // ActiveX disabled
 }
 
+document.domain = 'zino.gr';
 var fileCache = {};
 function loadFile(href, path) {
 try {
   href = makePath(href, path);
   if (!fileCache[href]) {
     // easy to load a file huh?
-	alert( href );
     httpRequest.open("GET", href, false);
     httpRequest.send();
     if (httpRequest.status == 0 || httpRequest.status == 200) {
