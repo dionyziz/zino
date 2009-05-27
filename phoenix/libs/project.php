@@ -120,6 +120,7 @@
             'admanager/success' => 'admanager/success',
             'admanager/failure' => 'admanager/failure',
             'admanager/bank'    => 'admanager/bank',
+            'adviewer'          => 'adminpanel/adviewer/view',
             'contact'           => 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'watertest'         => 'developer/dionyziz/water',
