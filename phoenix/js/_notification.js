@@ -3,14 +3,10 @@ var Notification = {
     TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
         //Notification.DecrementCount();
-		if ( typeid == 3 ) {
-			document.location.href = url;
-		} 
-		else {
+		if ( !typeid == 3 ) {
 			Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
-			document.location.href = url;
 		}
-		return false;
+		return true;
 	},
 	Delete : function( eventid ) {
         if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {

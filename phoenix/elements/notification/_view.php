@@ -23,7 +23,9 @@
                     echo $notif->Id;
                     ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
-                <div class="who"<?php
+                <a href="<?php
+                Element( 'url' , $notif->Item );
+                ?>"><div class="who"<?php
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
@@ -59,7 +61,7 @@
                             }
                             break;
                     }
-                ?></div>
+                ?></div></a>
                 <div class="subject"<?php
                 switch ( $notif->Typeid ) {
                     case EVENT_IMAGETAG_CREATED:
