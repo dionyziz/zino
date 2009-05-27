@@ -24,6 +24,7 @@
             
             $adfinder = new AdFinder();
             $ads = $adfinder->FindAllActive();
+            echo '<p>Title ' . count( $ads ) . '</p>';
             foreach ( $ads as $ad ) {
                 ?><p><?php
                 $ad->Userid;
