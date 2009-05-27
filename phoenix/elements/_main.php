@@ -24,7 +24,7 @@
 						$page->AttachStylesheet( 'http://zino.gr/global.php' );
 					}
 					else {
-					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
+					$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
 					}
 				}
 				else {
