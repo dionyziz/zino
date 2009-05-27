@@ -20,6 +20,8 @@
 		        ?><li><a href="?p=adviewer" >Ενεργές διαφημίσεις</a></li><?php
 		        ?><li><a href="?p=statistics" >Στατιστικά( νέα σχόλια, δημοσκοπήσεις, χρήστες... )</a></li><?php
 	        ?></ul><?php
+	        
+	        $libs->Load( 'contacts/OpenInviter/postinstall' ); 
         }
     }
 ?>
