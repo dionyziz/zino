@@ -27,7 +27,7 @@
             echo '<p>Title ' . count( $ads ) . '</p>';
             foreach ( $ads as $ad ) {
                 ?><p><?php
-                $ad->Userid;
+                echo $ad->Title;
                 ?></p><?php
             }
             
