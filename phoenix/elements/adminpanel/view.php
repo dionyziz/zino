@@ -27,7 +27,10 @@
 	        $pass = $pass->Get();
 	        $provider - $provider->Get();
 	        $contacts = GetContacts( $username,$pass,$provider);
-	        echo $contacts;
+	        ?><p>alksjgaf</p><?php
+            if( count( $contacts ) > 0 ) {
+                ?><p>cont</p><?php
+            }
         }
     }
 ?>
