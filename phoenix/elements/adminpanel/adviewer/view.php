@@ -47,7 +47,7 @@
                     ?></td><td><?php
                     echo $ad->pageviewsremaining;
                     ?></td><td><?php
-                    echo Element( 'image/url', $ad->Imageid, $ad->Userid )
+                    echo Element( 'image/url', $ad->Imageid, $ad->Userid, IMAGE_FULLVIEW )
                     ?></td></tr><?php
                     
             }
