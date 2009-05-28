@@ -211,12 +211,11 @@
 	float: left;
 	margin: 20px;
 }
-.invite_contacts #contactsInZino .contact a {
-    display: block;
+.invite_contacts #contactsInZino .contact span {
 	font-weight: bold;
     height: 15px;
 }
-.invite_contacts #contactsInZino .contact a img {
+.invite_contacts #contactsInZino .contact span img {
     float: left;
     margin-right: 20px;
 }

@@ -57,7 +57,7 @@
                     continue;
                 }
                 ?>contacts.addContactInZino( '<?php
-                Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser, true );
+                Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser, false );
                 ?>', '<?php
                 echo addslashes( $contact->Mail );
                 ?>', '<?php
