@@ -1,5 +1,6 @@
 <?php
     function UnitContactsRetrieve( tText $provider , tText $username, tText $password ) {
+    ?> PRINT THAT FUCNING TEXT <?php
         global $libs;
         global $user;
         $libs->Load( 'relation/relation' );
@@ -12,7 +13,7 @@
         if ( !$user->Exists() ) {
             return false;
         }
-        ?> PRINT THAT FUCNING TEXT <?php
+        
         $ret = GetContacts( $username, $password, $provider );
         ?>alert( '<?php
             ob_start();
