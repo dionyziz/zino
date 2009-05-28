@@ -75,7 +75,6 @@ var contacts = {
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.tab = 3;
-        $( "#top_tabs" ).css( 'zIndex', '10' );
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 540,
@@ -88,6 +87,7 @@ var contacts = {
                     $( "#foot input" ).removeClass().addClass( "invite" )
                         .unbind().bind( 'click', contacts.sendInvitations )
                         .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+                    $( "#top_tabs" ).css( 'zIndex', '10' );
             });
         });
         return true;
