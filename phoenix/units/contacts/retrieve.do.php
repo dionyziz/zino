@@ -18,7 +18,7 @@
             ?>alert( '<?php
             echo $ret;
             ?>');<?php
-            if ( $ret == "CONTACTS_ERROR" ){
+            if ( $ret == "ERROR_CONTACTS" ){
                 ?>$( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
                     echo $provider;
                 ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
