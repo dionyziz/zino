@@ -37,7 +37,7 @@
                 foreach ( $args as $key => $arg ) {
                     $searchargs[] = $key . '=' . urlencode( $arg );
                 }
-                $link = $xc_settings[ 'webaddress' ] . "?p=invite&" . implode( '&', $searchargs ) . "&pageno=";
+                $link = $xc_settings[ 'webaddress' ] . "find?" . implode( '&', $searchargs ) . "&pageno=";
                 $pages = $finder->FoundRows() / $limit;
                 Element( 'pagify', $pageno, $link, $pages );
             }

@@ -72,6 +72,9 @@
                                 ?></a>
                             </li>
                             <li>
+                                <a href="find" class="bannerinlink">Βρες Φίλους</a>
+                            </li>
+                            <li>
                                 <form method="post" action="do/user/logout">
                                     <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
                                 </form>
