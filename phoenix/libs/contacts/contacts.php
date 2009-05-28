@@ -24,13 +24,14 @@
             return 'ERROR_CREDENTIALS';
         }
         $contacts = $inviter->getMyContacts();
-        if( $contacts == false  ) {
+        if( $contacts === false  ) {
             return 'ERROR_CONTACTS';
         }
         $inviter->logout();
         $inviter->stopPlugin();
         
         $contact = new Contact();
+        $ret = array();
         foreach ( $contacts as $key=>$val ) {
             $contact = $contact->AddContact( $key, $username );
             $ret[ $val ] = $contact;
