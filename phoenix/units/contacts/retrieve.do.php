@@ -15,7 +15,9 @@
         
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) ){
-            ?>alert( $ret );<?php
+            ?>alert( '<?php
+            echo $ret;
+            ?>');<?php
             if ( $ret == "CONTACTS_ERROR" ){
                 ?>$( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
                     echo $provider;
