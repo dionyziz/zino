@@ -19,8 +19,8 @@ var contacts = {
 	username: "",
 	password: "",
     changeToSearchInZino: function(){
-        if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
-            return;
+        if ( contacts.tab == 1 && contacts.step == 0 ){
+            return false;
         }
         var maxwidth = $( '#content' ).innerWidth();
         contacts.tab = 1;
@@ -35,10 +35,11 @@ var contacts = {
                     $( '#searchtab' ).fadeIn( 'normal' );
             });
         });
+        return true;
     },
     changeToFindInOtherNetworks: function(){
-        if ( contacts.tab == 2 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
-            return;
+        if ( contacts.tab == 2 && contacts.step == 0 ){
+            return false;
         }
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Αναζήτηση φίλων | Zino";
@@ -59,10 +60,11 @@ var contacts = {
                         .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
+        return true;
     },
     changeToAddByEmail: function(){
-        if ( contacts.tab == 3 || $( '.invite_contacts *:animated' ).length != 0 ){
-            return;
+        if ( contacts.tab == 3 ){
+            return false;
         }
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Πρόσκληση φίλων | Zino";
@@ -81,6 +83,7 @@ var contacts = {
                         .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
+        return true;
     },
     search: function(){
         if( !Search.check() ){
@@ -248,7 +251,7 @@ var contacts = {
 		});
         //top tabs clickable
         $( '#top_tabs li' ).click( function(){
-            if ( $( '.tab:animated' ).length != 0 ){
+            if ( $( '.invite_contacts *:animated' ).length != 0 ){
                 return false;
             }
             $( '#top_tabs li' ).removeClass();
