@@ -24,7 +24,7 @@
         }
        
         $ban = new Ban();
-        $res = $ban->BanUser( $username, $reason, $time_banned );
+        //$res = $ban->BanUser( $username, $reason, $time_banned );
          
         if ( $delete_journals == "yes" ) {
             foreach ( $user2ban->Journals as $journal ) {
