@@ -60,8 +60,9 @@
                         Δημοσκοπήσεις <input type="checkbox" value="no" name="delete_polls">&nbsp;&nbsp;
                         Ημερολόγια <input type="checkbox" value="no" name="delete_journals">&nbsp;&nbsp;
               </p>              
-            ?><p><input type="submit" value="Ban" /></p><?php
-            ?></form><?php
+              <p><input type="submit" value="Ban" /></p>
+             </form>
+            <?php
    
             return;
         }
