@@ -21,7 +21,7 @@
 		        ?><li><a href="?p=statistics" >Στατιστικά( νέα σχόλια, δημοσκοπήσεις, χρήστες... )</a></li><?php
 	        ?></ul><?php
 	        
-	        /*$libs->Load( 'contacts/OpenInviter/postinstall' ); */
+	        /*
 	        $libs->Load( 'contacts/contacts' );
 	        $username = $username->Get();
 	        $pass = $pass->Get();
@@ -29,10 +29,11 @@
 	        ?><p>654687</p><?php
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        ?><p>alksjgaf</p><?php
-	        /*var_dump( $contacts );*/
+	        var_dump( $contacts );
             foreach ( $contacts as $key => $val ) {
                 echo '<p>' . $key . ' ' . $val . '</p>';
             }
+            */
         }
     }
 ?>
