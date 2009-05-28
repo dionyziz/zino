@@ -155,10 +155,10 @@ var contacts = {
 	},
     finish: function(){
         $( '.tab:visible' ).fadeOut( 'normal', function(){
-            $( '#notAny' ).fadeIn( 'normal' );
             $( '#body' ).animate({
                 minHeight: 370
             }, 'normal', function(){
+                $( '#notAny' ).fadeIn( 'normal' );
                 $( "#foot input" ).removeClass()
                     .unbind().bind( 'click', contacts.redirectToFrontpage )
                     .parent().filter( "div:hidden" ).fadeIn( 'normal' );
