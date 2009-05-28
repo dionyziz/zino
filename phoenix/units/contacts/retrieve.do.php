@@ -17,7 +17,7 @@
         ?>
         alert( '<?php
             ob_start();
-            dump_var( $ret );
+            var_dump( $ret );
             echo w_json_encode( ob_get_clean() );
         ?>' );<?php
         if( !is_array( $ret ) ){
