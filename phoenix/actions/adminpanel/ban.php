@@ -27,7 +27,7 @@
         }
        
         $ban = new Ban();
-        //$res = $ban->BanUser( $username, $reason, $time_banned );
+        $res = $ban->BanUser( $username, $reason, $time_banned );
         
         if ( $delete_images == "yes" ) {
             foreach ( $user2ban->Albums as $album ) {
