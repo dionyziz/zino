@@ -4,7 +4,7 @@
             ob_start();
             $res = Element::MasterElement();
             $master = ob_get_clean();
-            var_dump( $res );
+            echo $master;
             return $res;
         }
     }
