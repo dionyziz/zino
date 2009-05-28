@@ -19,14 +19,17 @@
         
         $userfinder = new UserFinder();
         $user2ban = $userfinder->FindByName( $username );
-        if ( $user2ban == false ) 
-        return Redirect( '?p=banlist&'.$user2ban ); 
+        if ( $user2ban == false ) {
+            return Redirect( '?p=banlist&errormessage=nouserwiththisname' );
+        }
        
         $ban = new Ban();
         $res = $ban->BanUser( $username, $reason, $time_banned );
          
         if ( $delete_journals == "yes" ) {
-            $jFinder = new JournalFinder();
+            foreach ( $user2ban->Journals as $journal ) {
+                $journal->Delete();
+            }
         }
            
         return Redirect( '?p=banlist' );
