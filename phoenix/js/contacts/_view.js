@@ -160,7 +160,7 @@ var contacts = {
             }, 'normal', function(){
                 $( '#notAny' ).fadeIn( 'normal' );
                 $( "#foot input" ).removeClass()
-                    .unbind().bind( 'click', contacts.redirectToFrontpage )
+                    .unbind().bind( 'click', contacts.changeToAddByEmail )
                     .parent().filter( "div:hidden" ).fadeIn( 'normal' );
             });
         });
