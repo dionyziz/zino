@@ -157,7 +157,7 @@ var contacts = {
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#notAny' ).fadeIn( 'normal' );
             $( '#body' ).animate({
-                maxHeight: 370
+                minHeight: 370
             }, 'normal', function(){
                 $( "#foot input" ).removeClass()
                     .unbind().bind( 'click', contacts.redirectToFrontpage )
