@@ -19,6 +19,7 @@ var contacts = {
 	provider: "",
 	username: "",
 	password: "",
+    contactsNotInZino: 0,
     redirectToFrontpage: function(){
         window.location = contacts.frontpage;
     },
@@ -168,15 +169,9 @@ var contacts = {
     previwContactsInZino: function( num ){
         document.title = "Προσθήκη φίλων | Zino";
         contacts.step = 2;
-        
+        contacts.contactsNotInZino = num;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#contactsInZino' ).fadeIn( 'normal' );
-            if ( num == 0 ){
-                var button = "finish";
-            }
-            else{
-                var button = "add";
-            }
             $( "#foot input" ).removeClass().addClass( button )
                 .unbind().bind( 'click', contacts.addFriends )
                 .parent().filter( "div:hidden" ).fadeIn( 'normal' );
@@ -240,7 +235,12 @@ var contacts = {
                 $( "#foot input" ).removeClass().addClass( "add" );
             }
             else{
-                $( "#foot input" ).removeClass();
+                if ( contacts.contactsNotInZino == 0 ){
+                    $( "#foot input" ).removeClass().addClass( "finish" );
+                }
+                else{
+                    $( "#foot input" ).removeClass();
+                }
             }
         }
         else{ //if step == 3
