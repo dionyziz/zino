@@ -23,7 +23,7 @@
 
     Rabbit_ClearPostGet();
     
-    $page->AttachMainElement( 'api/api', $req );
+    $page->AttachMainElement( 'api/main', $req );
     $page->Output();
 
     Rabbit_Destruct();
