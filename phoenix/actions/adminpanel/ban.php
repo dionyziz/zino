@@ -28,17 +28,17 @@
         }
        
         $ban = new Ban();
-        //$res = $ban->BanUser( $username, $reason, $time_banned );
+        $res = $ban->BanUser( $username, $reason, $time_banned );
         
         if ( $delete_images == "yes" ) {
-            foreach ( $user2ban->Albums as $album ) {
+            /*foreach ( $user2ban->Albums as $album ) {
                 $album->Delete();
             }
             
             $frontpageimagefinder = new FrontpageImageFinder();
             $frontpageimg =  $frontpageimagefinder->FindByUserid( $user2ban->Id );
             $frontpageimg->Delete();
-            Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
+            Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );*/
         }
         
         if ( $delete_polls == "yes" ) {
