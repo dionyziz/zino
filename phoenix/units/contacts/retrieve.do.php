@@ -17,6 +17,7 @@
         if( !is_array( $ret ) ){
             ?>
             setTimeout( function(){
+                contacts.changeToFindInOtherNetworks()
             <?php
                 if ( $ret == 'ERROR_PROVIDER' || $ret == 'ERROR_CONTACTS' ){
                     ?>$( "#security" ).css({
@@ -35,7 +36,6 @@
                     document.title = "Λάθος στοιχεία | Zino";<?php
                 }
             ?>
-                contacts.changeToFindInOtherNetworks();
             }, 3000 );<?php
             return;
         }
