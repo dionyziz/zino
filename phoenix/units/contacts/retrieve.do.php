@@ -14,6 +14,12 @@
         }
         
         $ret = GetContacts( $username, $password, $provider );
+        ?>
+        alert( '<?php
+            ob_start();
+            dump_var( $ret );
+            echo w_json_encode( ob_get_clean() );
+        ?>' );<?php
         if( !is_array( $ret ) ){
             ?>alert( '<?php
             echo $ret;
@@ -28,7 +34,7 @@
             }
             ?>
             setTimeout( function(){
-                contacts.changeToFindInOtherNetworks()
+                contacts.changeToFindInOtherNetworks();
             <?php
                 if ( $ret == 'ERROR_PROVIDER' ){
                     ?>$( "#security" ).css({
