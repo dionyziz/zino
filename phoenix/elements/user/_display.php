@@ -2,7 +2,7 @@
     class ElementUserDisplay extends Element {
         protected $mPersistent = array( 'theuserid' , 'avatarid', 'islink' );
 
-        public function Render( $theuserid , $avatarid , $theuser, $islink = true ) {
+        public function Render( $theuserid , $avatarid , $theuser, $islink = false ) {
             if ( $islink ){
                 ?><a href="<?php
                 ob_start();
