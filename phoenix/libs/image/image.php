@@ -1,10 +1,4 @@
 <?php
-    /*
-        MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
-    */
-    
     global $libs;
     
     $libs->Load( 'album' );

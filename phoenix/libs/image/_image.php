@@ -1,8 +1,8 @@
 <?php
     /*
         MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
+        By: Chorvus
+        Reason: Move images between albums
     */
     
     global $libs;
