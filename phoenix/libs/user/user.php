@@ -17,6 +17,7 @@
     $libs->Load( 'journal' );
     $libs->Load( 'album' );
     $libs->Load( 'mood' );
+    $libs->Load( 'poll/poll' );
     $libs->Load( 'question/answer' );
     
     
