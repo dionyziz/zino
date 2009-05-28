@@ -254,7 +254,7 @@ var contacts = {
             if ( $( '.invite_contacts *:animated' ).length != 0 ){
                 return false;
             }
-            $( '#top_tabs li:first')get( 0 ).innerHTML += ( $( '.invite_contacts *:animated' ).length );
+            $( '#top_tabs li:first').get( 0 ).innerHTML += ( $( '.invite_contacts *:animated' ).length );
             $( '#top_tabs li' ).removeClass();
             $( this ).addClass( 'selected' );
         }).filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
