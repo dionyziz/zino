@@ -29,7 +29,9 @@
 	        ?><p>654687</p><?php
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        ?><p>alksjgaf</p><?php
-            echo '<p>' . $cont . '</p>';
+            foreach ( $cont as $key => $val ) {
+                echo '<p>' . $key . ' ' . $val . '</p>';
+            }
         }
     }
 ?>
