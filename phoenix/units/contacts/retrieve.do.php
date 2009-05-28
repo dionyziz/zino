@@ -14,7 +14,7 @@
         }
         
         $ret = GetContacts( $username, $password, $provider );
-        if( !is_array( $ret ) ){
+        if( !is_array( $ret ) || count( $ret ) == 0 ){
             ?>alert( '<?php
             echo $ret;
             ?>');<?php
