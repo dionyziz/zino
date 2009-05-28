@@ -15,7 +15,7 @@
         
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) ){
-            if ( $contactsInZino == 0 && $contactsNotZino == 0 ){
+            if ( $ret == "CONTACTS_ERROR" ){
                 ?>$( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
                     echo $provider;
                 ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
