@@ -29,9 +29,7 @@
 	        ?><p>654687</p><?php
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        ?><p>alksjgaf</p><?php
-            if( count( $contacts ) > 0 ) {
-                ?><p>cont</p><?php
-            }
+            echo '<p>' . $cont . '</p>';
         }
     }
 ?>
