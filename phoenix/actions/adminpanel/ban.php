@@ -1,5 +1,5 @@
 <?php
-    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned ) {
+    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned, tText $delete_journals ) {
         global $libs;
         
         $username = $username->Get();
