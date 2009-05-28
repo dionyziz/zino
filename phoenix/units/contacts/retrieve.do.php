@@ -78,7 +78,7 @@
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
             if ( $contactsInZino == 1 ){
-                ?> επαφή σου έχει Zino. Πρόσθεσέ την στους φίλους σου...<?php
+                ?> επαφή σου έχει Zino. Πρόσθεσέ τη στους φίλους σου...<?php
             }
             else{
                 ?> επαφές σου έχουν Zino. Πρόσθεσέ τις στους φίλους σου...<?

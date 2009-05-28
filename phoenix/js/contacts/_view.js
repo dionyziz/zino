@@ -197,6 +197,7 @@ var contacts = {
     previwContactsNotInZino: function( num ){
         if ( $( '#contactsNotZino .contacts .contact' ).length == 0 ){
             contacts.redirectToFrontpage();
+            return;
         }
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.step = 3;
