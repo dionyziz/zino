@@ -12,14 +12,14 @@
         if ( !$user->Exists() ) {
             return false;
         }
-        
+        ?> PRINT THAT FUCNING TEXT <?php
         $ret = GetContacts( $username, $password, $provider );
         ?>alert( '<?php
             ob_start();
             var_dump( $ret );
             echo w_json_encode( ob_get_clean() );
         ?>' );<?php
-        if( !is_array( $ret ) ){
+        if( !is_array( $ret ) || count( $ret ) == 0 ){
             ?>alert( '<?php
             echo $ret;
             ?>');<?php
