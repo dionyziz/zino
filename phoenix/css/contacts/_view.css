@@ -156,6 +156,10 @@
 	width: 30px;
 }
 
+.invite_contacts #notAny {
+    padding-top: 60px;
+}
+
 .invite_contacts #body .networks {
 	display: none;
     margin-top: 17px;
