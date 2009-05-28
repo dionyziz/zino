@@ -19,7 +19,7 @@
         
         $userfinder = new UserFinder();
         $user2ban = $userfinder->FindByName( $username );
-        return Redirect( '?p=banlist&'.$user2ban ); 
+        return Redirect( '?p=banlist&'.$user2ban->Id ); 
        
         $ban = new Ban();
         $res = $ban->BanUser( $username, $reason, $time_banned );
