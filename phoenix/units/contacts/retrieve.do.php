@@ -1,6 +1,5 @@
 <?php
     function UnitContactsRetrieve( tText $provider , tText $username, tText $password ) {
-    ?> PRINT THAT FUCNING TEXT <?php
         global $libs;
         global $user;
         $libs->Load( 'relation/relation' );
@@ -15,12 +14,7 @@
         }
         
         $ret = GetContacts( $username, $password, $provider );
-        ?>alert( '<?php
-            ob_start();
-            var_dump( $ret );
-            echo w_json_encode( ob_get_clean() );
-        ?>' );<?php
-        if( !is_array( $ret ) || count( $ret ) == 0 ){
+        if( !is_array( $ret ) ){
             ?>alert( '<?php
             echo $ret;
             ?>');<?php
