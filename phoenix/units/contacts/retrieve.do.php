@@ -19,15 +19,16 @@
             echo $ret;
             ?>');<?php
             if ( $ret == "ERROR_CONTACTS" || is_array( $ret ) ){
-                ?>$( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
-                    echo $provider;
+                ?>setTimeout( function(){
+                $( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
+                echo $provider;
                 ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
                 contacts.finish();
-                <?php
+                }, 3000 );<?php
                 return;
             }
             ?>
-            setTimeout( function(){
+                setTimeout( function(){
                 contacts.changeToFindInOtherNetworks();
             <?php
                 if ( $ret == 'ERROR_PROVIDER' ){
