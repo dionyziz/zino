@@ -13,6 +13,7 @@
             }
             $page->AttachInlineScript( 'contacts.init();' );
             $page->AttachInlineScript( 'contacts.frontpage = "' . $rabbit_settings[ 'webaddress' ] . '";' );
+            $page->SetTitle( "Αναζήτηση φίλων" );
             
             $minage = $minage->Get();
             $maxage = $maxage->Get();

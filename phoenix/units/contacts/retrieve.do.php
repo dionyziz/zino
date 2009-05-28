@@ -23,17 +23,19 @@
                         'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
-                    }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκίμασε αργότερα.' );<?php
+                    }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκίμασε αργότερα.' );
+                    document.title = "Πρόβλημα στο σύστημα | Zino";<?php
                 }
                 if ( $ret == 'ERROR_CREDENTIALS' ){
                     ?>$( "#security" ).css({
                         'background': '#FEF4B7 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
-                    }).html( 'Το e-mail ή ο κωδικός που έγραψες δεν είναι σωστά.' );<?php
+                    }).html( 'Το e-mail ή ο κωδικός που έγραψες δεν είναι σωστά.' );
+                    document.title = "Λάθος στοιχεία | Zino";<?php
                 }
             ?>
-                contacts.backToLogin();
+                contacts.changeToFindInOtherNetworks();
             }, 3000 );<?php
             return;
         }

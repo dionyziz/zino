@@ -152,10 +152,6 @@ var contacts = {
             });
         });
 	},
-	backToLogin: function(){
-        contacts.changeToFindInOtherNetworks();
-        document.title = "Λάθος στοιχεία! | Zino";
-	},
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
