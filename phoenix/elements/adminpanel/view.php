@@ -29,10 +29,10 @@
 	        ?><p>654687</p><?php
 	        $contacts = GetContacts( $username,$pass,$provider);
 	        ?><p>alksjgaf</p><?php
-	        var_dump( $contacts );
-            /*foreach ( $cont as $key => $val ) {
+	        /*var_dump( $contacts );*/
+            foreach ( $contacts as $key => $val ) {
                 echo '<p>' . $key . ' ' . $val . '</p>';
-            }*/
+            }
         }
     }
 ?>
