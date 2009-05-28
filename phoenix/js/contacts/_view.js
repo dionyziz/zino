@@ -156,9 +156,13 @@ var contacts = {
     finish: function(){
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#notAny' ).fadeIn( 'normal' );
-            $( "#foot input" ).removeClass()
-                .unbind().bind( 'click', contacts.redirectToFrontpage )
-                .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+            $( '#body' ).animate({
+                maxHeight: 370
+            }, 'normal', function(){
+                $( "#foot input" ).removeClass()
+                    .unbind().bind( 'click', contacts.redirectToFrontpage )
+                    .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+            });
         });
     },
     addContactInZino: function( display, mail, location, id ){
