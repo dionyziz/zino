@@ -57,9 +57,9 @@
               </p>
               <p>
                         Μόνιμη διαγραφή ακόμα : &nbsp;&nbsp;&nbsp;  
-                        Εικόνες <input type="checkbox" value="delete_images" name="delete_images" />&nbsp;&nbsp;
-                        Δημοσκοπήσεις <input type="checkbox" value="delete_polls" name="delete_polls" />&nbsp;&nbsp;
-                        Ημερολόγια <input type="checkbox" value="delete_journals" name="delete_journals" />&nbsp;&nbsp;
+                        Εικόνες <input type="checkbox" value="yes" name="delete_images" />&nbsp;&nbsp;
+                        Δημοσκοπήσεις <input type="checkbox" value="yes" name="delete_polls" />&nbsp;&nbsp;
+                        Ημερολόγια <input type="checkbox" value="yes" name="delete_journals" />&nbsp;&nbsp;
               </p>              
               <p><input type="submit" value="Ban" /></p>
              </form>

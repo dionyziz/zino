@@ -17,9 +17,7 @@
         
         $ban = new Ban();
         $res = $ban->BanUser( $username, $reason, $time_banned );
-        
-        return Redirect( '?p=banlist&'.$delete_journals );
-        
+         
         if ( $delete_journals == "yes" ) {
             return Redirect( '?p=banlist&deletejournals' );;//deletejournals
         }
