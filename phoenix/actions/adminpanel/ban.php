@@ -1,11 +1,12 @@
 <?php
-    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned, tText $delete_images, tText $delete_journals ) {
+    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned, tText $delete_images, tText $delete_polls, tText $delete_journals ) {
         global $libs;
         
         $username = $username->Get();
         $reason = $reason->Get();
         $time_banned = $time_banned->Get();
         $delete_images = $delete_images->Get();
+        $delete_polls = $delete_polls->Get();
         $delete_journals = $delete_journals->Get();
         
         if ( $reason == "" ) {
@@ -28,9 +29,15 @@
         $ban = new Ban();
         //$res = $ban->BanUser( $username, $reason, $time_banned );
         
-         if ( $delete_images == "yes" ) {
+        if ( $delete_images == "yes" ) {
             foreach ( $user2ban->Albums as $album ) {
                 $album->Delete();
+            }
+        }
+        
+        if ( $delete_polls == "yes" ) {
+            foreach ( $user2ban->Polls as $poll ) {
+                $poll->Delete();
             }
         }
          

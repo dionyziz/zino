@@ -326,6 +326,7 @@
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
             $this->Count = $this->HasOne( 'UserCount', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
+            $this->Polls = $this->HasMany( 'PollFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Answers = $this->HasMany( 'AnswerFinder', 'FindByUser', $this );
             $this->LastActivity = $this->HasOne( 'UserLastActive', 'Id' );
