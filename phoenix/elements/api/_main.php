@@ -1,5 +1,5 @@
 <?php
-    class ElementApiApi extends Element {
+    class ElementApiMain extends Element {
         public function Render() {
             ob_start();
             $res = Element::MasterElement();
