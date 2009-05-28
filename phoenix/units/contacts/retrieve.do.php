@@ -101,7 +101,9 @@
                 if ( !$contactsInZino ){
                 echo "Not";
                 }
-                ?>InZino();
+                ?>InZino( <?php
+                echo $contactsNotZino;
+                ?> );
             }, 3000 );<?php
     }
 ?>

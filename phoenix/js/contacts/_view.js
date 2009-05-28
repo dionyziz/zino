@@ -165,13 +165,19 @@ var contacts = {
         
         $( div ).addClass( "contact" ).attr( 'id', id ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
-    previwContactsInZino: function(){
+    previwContactsInZino: function( num ){
         document.title = "Προσθήκη φίλων | Zino";
         contacts.step = 2;
         
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#contactsInZino' ).fadeIn( 'normal' );
-            $( "#foot input" ).removeClass().addClass( 'add' )
+            if ( num == 0 ){
+                var button = "finish";
+            }
+            else{
+                var button = "add";
+            }
+            $( "#foot input" ).removeClass().addClass( button )
                 .unbind().bind( 'click', contacts.addFriends )
                 .parent().filter( "div:hidden" ).fadeIn( 'normal' );
         });
@@ -188,7 +194,7 @@ var contacts = {
         }
         $( div ).attr( 'id', 'contact_' + contact_id ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
-    previwContactsNotInZino: function(){
+    previwContactsNotInZino: function( num ){
         if ( $( '#contactsNotZino .contacts .contact' ).length == 0 ){
             contacts.redirectToFrontpage();
         }
