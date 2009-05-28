@@ -13,11 +13,15 @@
 *   width: 540px, height: 400px;
 */
 var contacts = {
+    frontpage: "",
     tab: 1,
     step: 0,
 	provider: "",
 	username: "",
 	password: "",
+    redirectToFrontpage: function(){
+        window.location = contacts.frontpage;
+    },
     changeToSearchInZino: function(){
         if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
             return false;
@@ -189,6 +193,9 @@ var contacts = {
         $( div ).attr( 'id', 'contact_' + contact_id ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
     previwContactsNotInZino: function(){
+        if ( $( '#contactsNotZino .contacts .contact' ).length == 0 ){
+            contacts.redirectToFrontpage();
+        }
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.step = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){

@@ -19,8 +19,6 @@
             }
             EmailFriend( $contacts );
         }
-        ?>window.location = '<?php
-        echo $rabbit_settings[ 'webaddress' ];
-        ?>';<?php
+        ?>contacts.redirectToFrontpage();<?php
     }
 ?>
