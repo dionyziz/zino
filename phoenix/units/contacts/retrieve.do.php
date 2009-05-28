@@ -14,8 +14,7 @@
         }
         
         $ret = GetContacts( $username, $password, $provider );
-        ?>
-        alert( '<?php
+        ?>alert( '<?php
             ob_start();
             var_dump( $ret );
             echo w_json_encode( ob_get_clean() );
