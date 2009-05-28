@@ -1,10 +1,11 @@
 <?php
-    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned, tText $delete_journals ) {
+    function ActionAdminpanelBan( tText $username, tText $reason, tText $time_banned, tText $delete_images, tText $delete_journals ) {
         global $libs;
         
         $username = $username->Get();
         $reason = $reason->Get();
         $time_banned = $time_banned->Get();
+        $delete_images = $delete_images->Get();
         $delete_journals = $delete_journals->Get();
         
         if ( $reason == "" ) {
@@ -16,6 +17,7 @@
         $libs->Load( 'adminpanel/ban' );
         $libs->Load( 'journal' );
         $libs->Load( 'user/user' );
+        $libs->Load( 'album' );
         
         $userfinder = new UserFinder();
         $user2ban = $userfinder->FindByName( $username );
@@ -25,6 +27,12 @@
        
         $ban = new Ban();
         //$res = $ban->BanUser( $username, $reason, $time_banned );
+        
+         if ( $delete_images == "yes" ) {
+            foreach ( $user2ban->Albums as $album ) {
+                $album->Delete();
+            }
+        }
          
         if ( $delete_journals == "yes" ) {
             foreach ( $user2ban->Journals as $journal ) {
