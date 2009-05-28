@@ -153,6 +153,14 @@ var contacts = {
             });
         });
 	},
+    finish: function(){
+        $( '.tab:visible' ).fadeOut( 'normal', function(){
+            $( '#notAny' ).fadeIn( 'normal' );
+            $( "#foot input" ).removeClass()
+                .unbind().bind( 'click', contacts.redirectToFrontpage )
+                .parent().filter( "div:hidden" ).fadeIn( 'normal' );
+        });
+    }
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";

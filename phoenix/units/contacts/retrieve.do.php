@@ -75,6 +75,11 @@
                 $contactsNotZino++;
             }
         }
+        if ( $contactsInZino == 0 && $contactsNotZino == 0 ){
+            ?>$( "#notAny h1" ).html( 'Όλες οι επαφές σου είναι ήδη στο Zino. Προσκάλεσε κάποιον που δεν έχει Zino με το e-mail του.' );
+            contacts.finish();
+            <?php
+        }
         ?>$( "#contactsInZino > h3" ).html( "<?php
             echo $contactsInZino;
             if ( $contactsInZino == 1 ){
