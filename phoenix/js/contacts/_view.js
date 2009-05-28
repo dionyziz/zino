@@ -27,6 +27,7 @@ var contacts = {
         if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
             return false;
         }
+        $( '#top_tabs li' ).removeClass().filter( '#searchInZino' ).addClass( 'selected' );
         var maxwidth = $( '#content' ).innerWidth();
         contacts.tab = 1;
         contacts.step = 0;
@@ -47,6 +48,7 @@ var contacts = {
         if ( contacts.tab == 2 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
             return false;
         }
+        $( '#top_tabs li' ).removeClass().filter( '#otherNetworks' ).addClass( 'selected' );
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Αναζήτηση φίλων | Zino";
         contacts.tab = 2;
@@ -72,6 +74,7 @@ var contacts = {
         if ( contacts.tab == 3 || $( '.invite_contacts *:animated' ).length != 0 ){
             return false;
         }
+        $( '#top_tabs li' ).removeClass().filter( '#ByEmail' ).addClass( 'selected' );
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.tab = 3;
@@ -274,13 +277,8 @@ var contacts = {
 			$( this ).addClass( 'selected' );
 		});
         //top tabs clickable
-        $( '#top_tabs li' ).click( function(){
-            if ( $( '.invite_contacts *:animated' ).length != 0 ){
-                return false;
-            }
-            $( '#top_tabs li' ).removeClass();
-            $( this ).addClass( 'selected' );
-        }).filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
+        $( '#top_tabs li' )
+            .filter( '#otherNetworks' ).click( contacts.changeToFindInOtherNetworks ).end()
             .filter( '#ByEmail' ).click( contacts.changeToAddByEmail ).end()
             .filter( '#searchInZino' ).click( contacts.changeToSearchInZino );
         
