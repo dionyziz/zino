@@ -172,7 +172,7 @@ var contacts = {
         contacts.contactsNotInZino = num;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#contactsInZino' ).fadeIn( 'normal' );
-            $( "#foot input" ).removeClass().addClass( button )
+            $( "#foot input" ).removeClass().addClass( 'add' )
                 .unbind().bind( 'click', contacts.addFriends )
                 .parent().filter( "div:hidden" ).fadeIn( 'normal' );
         });
