@@ -30,6 +30,7 @@ var contacts = {
         var maxwidth = $( '#content' ).innerWidth();
         contacts.tab = 1;
         contacts.step = 0;
+        $( "#top_tabs" ).css( 'zIndex', '10' );
         $( '.tab:visible, #foot' ).fadeOut( 'normal', function(){
             $( '#body' ).css({
                         borderWidth: '1px 0 0 0'
@@ -74,6 +75,7 @@ var contacts = {
         var maxwidth = $( '#content' ).innerWidth();
         document.title = "Πρόσκληση φίλων | Zino";
         contacts.tab = 3;
+        $( "#top_tabs" ).css( 'zIndex', '10' );
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 maxWidth: 540,
