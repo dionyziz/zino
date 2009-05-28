@@ -17,7 +17,7 @@ class ElementPollRecentList extends Element {
                 foreach ( $polls as $poll ) {
                     ?><div class="event">
                         <div class="who"><?php
-                            Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
+                            Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User, true );
                         ?> δημιούργησε τη δημοσκόπηση
                         </div>
                         <div class="subject">

@@ -18,7 +18,7 @@
                     foreach ( $journals as $journal ) {
                         ?><div class="event">
                             <div class="who"><?php
-                                Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
+                                Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User, true );
                                 $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                                 $url = $domain . 'journals/' . $journal->Url;
                             ?> καταχώρησε

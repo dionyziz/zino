@@ -9,7 +9,7 @@
                 echo $shout->Id;
                 ?>">
                     <div class="who"><?php
-                        Element( 'user/display' , $shout->User->Id , $shout->User->Avatar->Id , $shout->User );
+                        Element( 'user/display' , $shout->User->Id , $shout->User->Avatar->Id , $shout->User, true );
                         ?> είπε:
                     </div>
                     <div class="text"><?php
@@ -20,7 +20,7 @@
             else {
                 ?><div class="comment empty" style="border-color:#dee;display:none">
                     <div class="who"><?php
-                        Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
+                        Element( 'user/display' , $user->Id , $user->Avatar->Id , $user, true );
                         ?> είπε:
                     </div>
                     <div class="text"></div>

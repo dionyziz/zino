@@ -12,7 +12,7 @@
                 foreach ( $journals as $journal ) {
                     ?><div class="event">
                         <div class="who"><?php
-                            Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User );
+                            Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User, true );
                         ?> καταχώρησε
                         </div>
                         <div class="subject"><?php
@@ -30,7 +30,7 @@
 				$journal = New Journal( 8528 );
 					?><div class="event">
 						<div style="background: #fff8d2;" class="who"><?php
-							Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User );
+							Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User, true );
 						?> καταχώρησε
 						</div>
 						<div class="subject">

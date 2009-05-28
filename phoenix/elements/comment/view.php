@@ -20,7 +20,7 @@
                         echo $comment->Created;
                     ?></span>
                 </div><div class="who"><?php
-                    Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
+                    Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User, true );
                     ?>
                 </div><div class="text"><?php
                     echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
