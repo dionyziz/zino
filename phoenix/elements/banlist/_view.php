@@ -56,9 +56,9 @@
                         Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες          
               </p>
               <p>
-                        Εικόνες <input type="checkbox" value="no" name="delete_images">&nbsp;&nbsp;
-                        Δημοσκοπήσεις <input type="checkbox" value="no" name="delete_polls">&nbsp;&nbsp;
-                        Ημερολόγια <input type="checkbox" value="no" name="delete_journals">&nbsp;&nbsp;
+                        Εικόνες <input type="checkbox" value="no" name="delete_images" />&nbsp;&nbsp;
+                        Δημοσκοπήσεις <input type="checkbox" value="no" name="delete_polls" />&nbsp;&nbsp;
+                        Ημερολόγια <input type="checkbox" value="no" name="delete_journals" />&nbsp;&nbsp;
               </p>              
               <p><input type="submit" value="Ban" /></p>
              </form>
