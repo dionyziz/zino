@@ -19,7 +19,7 @@ var contacts = {
 	username: "",
 	password: "",
     changeToSearchInZino: function(){
-        if ( contacts.tab == 1 && contacts.step == 0 && $( '.invite_contacts *:animated' ).length != 0 ){
+        if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
             return;
         }
         var maxwidth = $( '#content' ).innerWidth();
@@ -37,7 +37,7 @@ var contacts = {
         });
     },
     changeToFindInOtherNetworks: function(){
-        if ( contacts.tab == 2 && contacts.step == 0 && $( '.invite_contacts *:animated' ).length != 0 ){
+        if ( contacts.tab == 2 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
             return;
         }
         var maxwidth = $( '#content' ).innerWidth();
@@ -61,7 +61,7 @@ var contacts = {
         });
     },
     changeToAddByEmail: function(){
-        if ( contacts.tab == 3 && $( '.invite_contacts *:animated' ).length != 0 ){
+        if ( contacts.tab == 3 || $( '.invite_contacts *:animated' ).length != 0 ){
             return;
         }
         var maxwidth = $( '#content' ).innerWidth();
