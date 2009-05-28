@@ -19,6 +19,7 @@
         $libs->Load( 'journal' );
         $libs->Load( 'user/user' );
         $libs->Load( 'album' );
+        $libs->Load( 'image/frontpage' );
         
         $userfinder = new UserFinder();
         $user2ban = $userfinder->FindByName( $username );
@@ -33,6 +34,11 @@
             foreach ( $user2ban->Albums as $album ) {
                 $album->Delete();
             }
+            
+            $frontpageimagefinder = new FrontpageImageFinder();
+            $frontpageimg =  $frontpageimagefinder->FindByUserid( $user2ban->Id );
+            $frontpageimg->Delete();
+            Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
         }
         
         if ( $delete_polls == "yes" ) {

@@ -1,6 +1,13 @@
 <?php
     class FrontpageImageFinder extends Finder {
         protected $mModel = 'FrontpageImage';
+        
+        public function FindByUser( $userid ) {
+            $prototype = New FrontpageImage();
+            $prototype->Userid = $userid;
+
+            return $this->FindByPrototype( $prototype );
+        }
 
         public function FindLatest( $offset = 0, $limit = 15, $totalcount = false ) {
             $prototype = New FrontpageImage();
