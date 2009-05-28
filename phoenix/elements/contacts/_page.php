@@ -6,9 +6,12 @@
             tInteger $limit, tInteger $pageno
         ) {
             global $user;
+            global $page;
             if ( !$user->Exists() ) {
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
+            $page->AttachInlineScript( 'contacts.init();' );
+            
             $minage = $minage->Get();
             $maxage = $maxage->Get();
             $placeid = $placeid->Get();
