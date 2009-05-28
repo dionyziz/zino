@@ -24,7 +24,7 @@
             return 'ERROR_CREDENTIALS';
         }
         $contacts = $inviter->getMyContacts();
-        if( $contacts === false  ) {
+        if( !is_array( $contacts ) ) {
             return 'ERROR_CONTACTS';
         }
         $inviter->logout();
