@@ -12,7 +12,7 @@
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
             $page->AttachInlineScript( 'contacts.init();' );
-            $page->AttachInlineScript( 'contacts.frontpage = ' . $rabbit_settings[ 'webaddress' ] . ';' );
+            $page->AttachInlineScript( 'contacts.frontpage = "' . $rabbit_settings[ 'webaddress' ] . '";' );
             
             $minage = $minage->Get();
             $maxage = $maxage->Get();
