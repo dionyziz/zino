@@ -15,11 +15,19 @@
         
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) ){
+            if ( $contactsInZino == 0 && $contactsNotZino == 0 ){
+                ?>$( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
+                    echo $provider;
+                ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
+                contacts.finish();
+                <?php
+                return;
+            }
             ?>
             setTimeout( function(){
                 contacts.changeToFindInOtherNetworks()
             <?php
-                if ( $ret == 'ERROR_PROVIDER' || $ret == 'ERROR_CONTACTS' ){
+                if ( $ret == 'ERROR_PROVIDER' ){
                     ?>alert( "<?php
                     echo $ret;
                     ?>" );
