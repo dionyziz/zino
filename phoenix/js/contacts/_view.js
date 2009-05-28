@@ -160,7 +160,7 @@ var contacts = {
                 .unbind().bind( 'click', contacts.redirectToFrontpage )
                 .parent().filter( "div:hidden" ).fadeIn( 'normal' );
         });
-    }
+    },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
