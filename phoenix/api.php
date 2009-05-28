@@ -16,8 +16,7 @@
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'Plain' );
-    
-    $url = $_GET[ 'url' ];
+
     $req = $_GET;
 
     Rabbit_ClearPostGet();
