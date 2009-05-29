@@ -169,8 +169,8 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             </div>
             </div>
             <div class="eof"></div><?php
+            Element( 'shoutbox/comet' );
             if ( $user->Exists() ) {
-               Element( 'shoutbox/comet' );
                Element( 'frontpage/image/comet' );
                Element( 'frontpage/comment/comet' );
                Element( 'frontpage/notification/comet' );
