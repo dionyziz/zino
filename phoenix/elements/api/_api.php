@@ -1,7 +1,11 @@
 <?php
     class ElementApiApi extends Element {
         public function Render( tText $a ) {
-            echo $a->Get();
+            switch ( $a ) {
+                case 'user':
+                    Element( 'api/user' );
+                    break;
+            }
         }
     }
 ?>
