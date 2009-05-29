@@ -13,7 +13,7 @@
 
             if ( $user !== false ) {
                 $finder = New FriendRelationFinder();
-                $friends = $finder->FindByUser( $theuser , ( $pageno - 1 )*24 , 24 );
+                $friends = $finder->FindByUser( $user );
                 if ( $friends !== false ) {
                     foreach ( $friends as $friend ) {
                         $apiarray[] = $friend->Subdomain;
