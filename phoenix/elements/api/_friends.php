@@ -14,9 +14,9 @@
             if ( $user !== false ) {
                 $finder = New FriendRelationFinder();
                 $friends = $finder->FindByUser( $user );
-                if ( $friends !== false ) {
+                if ( !empty( $friends ) ) {
                     foreach ( $friends as $friend ) {
-                        $apiarray[] = $friend->Subdomain;
+                        $apiarray[] = $friend->Friend->Subdomain;
                     }
                 }
                 if ( !$xml ) {
