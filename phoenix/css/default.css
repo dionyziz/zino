@@ -110,3 +110,6 @@ div#downstrip {
     height: 87px;
     background: url( 'http://static.zino.gr/phoenix/footerfade.png' ) repeat-x;
 }
+div.objectinfo {
+    margin: 0 0 0 160px;
+}
