@@ -323,7 +323,7 @@ var Frontpage = {
             div.appendChild( text );
             
             var comments = $( 'div#shoutbox div.comments' );
-            if ( whoami != '' ) {
+            if ( typeof whoami != 'undefined' ) {
                 target = comments.find( 'div.comment' )[ 1 ];
             }
             else {
