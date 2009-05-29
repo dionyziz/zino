@@ -385,6 +385,8 @@ var Frontpage = {
             } );
         },
         NextComment : function() {
+            var timerval;
+            
             if ( Frontpage.Comment.Queue.length == 0 ) {
                 return;
             }
@@ -394,7 +396,7 @@ var Frontpage = {
             }
             */
             if ( Frontpage.Comment.MouseOver ) {
-	    	timerval = 7000;	
+                timerval = 7000;	
             }
             else {
                 if ( Frontpage.Comment.Queue.length <= 7 ) {

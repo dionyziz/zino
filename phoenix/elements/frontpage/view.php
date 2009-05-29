@@ -170,10 +170,10 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             </div>
             <div class="eof"></div><?php
             Element( 'shoutbox/comet' );
+            Element( 'frontpage/comment/comet' );
+            Element( 'frontpage/image/comet' );
             if ( $user->Exists() ) {
-               Element( 'frontpage/image/comet' );
-               Element( 'frontpage/comment/comet' );
-               Element( 'frontpage/notification/comet' );
+                Element( 'frontpage/notification/comet' );
             }
             $page->AttachInlineScript( 'Frontpage.FrontpageOnLoad();' );
         }
