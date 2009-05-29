@@ -36,7 +36,7 @@ div#poview ul.edit li:first {
 	margin: 0;
 }
 div#poview div.posmall {
-	/*margin-left: 165px;*/
+	margin-left: 165px;
     overflow: hidden;
 }
 div#poview div.posmall div.results {
