@@ -41,7 +41,7 @@
                     <div class="ads"></div><?php
                 if ( !$journal->IsDeleted() ) {
                     $page->SetTitle( $journal->Title );
-                    ?><h2><?php
+                    ?><div class="objectinfo"><h2><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></h2>
                     <div class="journal" style="clear:none">    
@@ -132,7 +132,7 @@
 							?></ul><?php
 						}
 						?>
-						<div class="eof"></div>
+						</div><div class="eof"></div>
                         <p><?php
                         echo $journal->Text; // purposely not formatted
                         ?></p>
