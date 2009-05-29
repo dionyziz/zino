@@ -37,8 +37,7 @@
                     $pageno = 1;
                 }
                 Element( 'user/sections', 'journal', $journal->User );
-                ?><div id="journalview">
-                    <div class="ads"></div><?php
+                ?><div id="journalview"><?php
                 if ( !$journal->IsDeleted() ) {
                     $page->SetTitle( $journal->Title );
                     ?><div class="objectinfo"><h2><?php
