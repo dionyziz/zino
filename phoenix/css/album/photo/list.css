@@ -27,6 +27,7 @@ div#photolist dl dt.commentsnum {
 div#photolist ul {
 	padding: 10px 0 0 0;
 	width: 100%;
+    margin: 60px 0 0 0;
 	clear: both;
 }
 div#photolist ul li {

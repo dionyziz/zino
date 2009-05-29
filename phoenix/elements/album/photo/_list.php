@@ -131,7 +131,6 @@
                         ?></li><?php
                     }
                 ?></ul>
-                <div class="eof"></div>
                 <div class="pagifyimages"><?php
 
                 $link = '?p=album&id=' . $album->Id . '&pageno=';

@@ -75,6 +75,7 @@
                         </div><?php
                     }
                 }
+                ?></div><?php
                 if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                     switch ( $album->Ownertype ) {
                         case TYPE_USERPROFILE:
