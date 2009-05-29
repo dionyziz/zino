@@ -57,7 +57,7 @@
 .lstimages ul {
     height: 110px;
     position: relative;
-	margin-right: 25px;
+	margin: 0 25px 0 0;
 }
 .lstimages ul li {
     float: left;
@@ -108,7 +108,7 @@ t#newusername {
     padding: 5px 0 0 0;
     left: 8px;
 }
-t#snewusername {
+#snewusername {
     width: 77px;
     height: 24px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
