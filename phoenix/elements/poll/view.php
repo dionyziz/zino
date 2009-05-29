@@ -49,7 +49,7 @@
             }
             ?><div id="poview"><?php
             $page->SetTitle( $poll->Question );
-                ?><h2><?php
+                ?><div class="objectinfo"><h2><?php
                     echo htmlspecialchars( $poll->Question );
                 ?></h2>
                 <dl><?php
@@ -80,7 +80,7 @@
                         }
                     ?></ul><?php
                 }
-                ?><div>
+                ?></div><div>
                     <div class="posmall">
                         <div class="results"><?php
                         Element( 'poll/result/view', $poll, $showresults );
