@@ -1,8 +1,8 @@
-div.frontpage {
+.frontpage {
     text-align: left;
     position: relative;
 }
-div.frontpage div.zinomeeting {
+.frontpage div.zinomeeting {
     padding: 10px;
     border: 1px solid #ccc;
     background: #f7f7ff;
@@ -11,83 +11,83 @@ div.frontpage div.zinomeeting {
 	width: 70%;
 	text-align: center;
 }
-div.frontpage div.zinomeeting h3 {
+.frontpage div.zinomeeting h3 {
 	margin: 5px 0;
 	text-align: center;
 }
-div.frontpage div.ybubble {
+.frontpage div.ybubble {
     margin: 0 auto 10px auto;
     text-align: center;
     width: 700px;
     height: 170px;
 }
-div.frontpage div.ybubble div.body a.delete {
+.frontpage div.ybubble div.body a.delete {
     width: 16px;
     height: 16px;
     float: right;
     padding: 3px 1px 0 0;
 }
-div.frontpage div.ybubble div.body form {
+.frontpage div.ybubble div.body form {
     text-align: left;
     padding: 5px;
 }
-div.frontpage div.ybubble div.body form div span {
+.frontpage div.ybubble div.body form div span {
     margin-right: 5px;
 }
-div.frontpage div.ybubble div.body form p {
+.frontpage div.ybubble div.body form p {
     padding-bottom: 0;
     margin-bottom: 0;
 }
-div.frontpage div.ybubble div.body form div div#selectplace { 
+.frontpage div.ybubble div.body form div div#selectplace { 
     margin: 10px 0 0 0;
 }
-div.frontpage div.ybubble div.body form div div#selecteducation {
+.frontpage div.ybubble div.body form div div#selecteducation {
     margin: 10px 0 0 0;
 }
-div.frontpage div.ybubble div.body form div div#selectuni {
+.frontpage div.ybubble div.body form div div#selectuni {
     margin: 10px 0 0 0;
 }
-div.frontpage div.ybubble div.body form div span {
+.frontpage div.ybubble div.body form div span {
     padding: 0 3px 0 0;
 }
-div.lstimages {
+.lstimages {
     height: 115px;
     margin: 0 4px 20px 4px;
 }
-div.lstimages ul {
+.lstimages ul {
     height: 110px;
     position: relative;
 	margin-right: 25px;
 }
-div.lstimages ul li {
+.lstimages ul li {
     float: left;
     margin: 2px 8px 20px 0;
     height: 110px;
     text-align: center;
 }
-div.lstimages ul li img {
+.lstimages ul li img {
     border: 1px solid #cce;
 }
-div.frontpage div.more {
+.frontpage div.more {
     float: right;
     margin: 30px 0 0;
 }
-div.members {
+.members {
 	z-index: 999;
 }
-div.frontpagejoin {
+.frontpagejoin {
     background: url( 'http://static.zino.gr/phoenix/joinfade.png' ) repeat-x;
     height: 244px;
     margin: 0 -12px 0 -7px;
 }
-div.frontpagejoin > div.planet {
+.frontpagejoin > div.planet {
     height: 236px;
     width: 550px;
     margin: 0 auto;
     position: relative;
     background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
 }
-div.frontpagejoin > div.planet > form > div {
+.frontpagejoin > div.planet > form > div {
     position: absolute;
     top: 136px;
     left: 240px;
@@ -95,7 +95,7 @@ div.frontpagejoin > div.planet > form > div {
     height: 43px;
     width: 201px;
 }
-input#newusername {
+t#newusername {
     width: 116px;
     height: 19px;
     border: 0;
@@ -108,7 +108,7 @@ input#newusername {
     padding: 5px 0 0 0;
     left: 8px;
 }
-input#snewusername {
+t#snewusername {
     width: 77px;
     height: 24px;
     background: url( 'http://static.zino.gr/phoenix/zinojoinnext.png' ) no-repeat;
@@ -119,18 +119,18 @@ input#snewusername {
     cursor: pointer;
     position: absolute;
 }
-div.members div.join form {
+.members div.join form {
     text-align: left;
     width: 40%;
     margin: 30px 0 0 250px;
     color: #ffffff;
     font-weight: bold;
 }
-div.members div.join form div {
+.members div.join form div {
     margin: 9px 0 9px 0;
     width: 123%;
 }
-div.members div.join form h2 {
+.members div.join form h2 {
     padding: 0;
     margin: 0;
     font-weight: normal;
@@ -138,10 +138,10 @@ div.members div.join form h2 {
     font-size: 100%;
     color: #ffffff;
 }
-div.members form label {
+.members form label {
     margin-right: 5px;
 }
-div.members div.login {
+.members div.login {
     background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1150px;
     text-align: left;
     height: 129px;
@@ -149,20 +149,20 @@ div.members div.login {
     float: left;
     padding: 20px 0 0 10px;
 }
-div.members div.login form div {
+.members div.login form div {
     margin: 5px; 
 }
-div.members div.login form h2 {
+.members div.login form h2 {
     padding: 0;
     margin: 0;
     font-size: 110%;
 }
-div.members div.login form div label {
+.members div.login form div label {
     float: left;
     display: block;
     width: 70px;
 }
-div.frontpage div.notifications {
+.frontpage div.notifications {
     padding: 5px 0 0 0;
     top: -8px;
     margin: 0 0 20px 15%;
@@ -173,40 +173,40 @@ div.frontpage div.notifications {
     background-color: #fdfdfd;
     z-index: 2;
 }
-div.frontpage div.notifications div.expand a {
+.frontpage div.notifications div.expand a {
     background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 4px -1440px;
     padding: 0 0 0 18px;
 }
-div.frontpage div.notifications h3 {
+.frontpage div.notifications h3 {
     margin: 0 0 10px 0;
     padding: 5px 0 0 20px;
 }
-div.frontpage div.notifications div.list div.event {
+.frontpage div.notifications div.list div.event {
     float: none;
     width: 95%;
     margin: 2px auto;
     padding: 5px;
     cursor: pointer;
 }
-div.frontpage div.notifications div.list div.event div.toolbox a {
+.frontpage div.notifications div.list div.event div.toolbox a {
     z-index: 100;
 }
-div.frontpage div.notifications div.list div.event div.who img.avatar {
+.frontpage div.notifications div.list div.event div.who img.avatar {
     width: 50px;
     height: 50px;
     border: 1px solid #666;
     float: left;
     margin: 0 4px 0 0;
 }
-div.frontpage div.notifications  div.list div.event div.subject p img {
+.frontpage div.notifications  div.list div.event div.subject p img {
     float: right;
     /*margin-top: -17px;*/
 }
-div.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
+.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
     width: 75px;
     height: 75px;
 }
-div.fontpage div.notifications div.list div.event div.subject div.addfriend {
+.fontpage div.notifications div.list div.event div.subject div.addfriend {
     margin-bottom: 4px;
     font-size: 90%;
 }
@@ -215,57 +215,57 @@ div.fontpage div.notifications div.list div.event div.subject div.addfriend  a {
 	padding: 0 0 0 18px;
 }
 */
-div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
+.frontpage div.notifications div.list div.event div.subject div.viewprofile {
     font-size: 90%;
 }
-div.onlinenow a img {
+.onlinenow a img {
     border: 1px solid #666;
     margin: 0 10px 10px 0;
 }
-div.frontpage div.inuser {
+.frontpage div.inuser {
     float: none;
     width: 100%;
 }
-div.inuser div.left {
+.inuser div.left {
     width: 48%;
     float: left;
 }
-div.inuser div.right {
+.inuser div.right {
     width: 48%;
     float: right;
 }
-div.inuser div.left div.onlinenow {
+.inuser div.left div.onlinenow {
     padding-left: 10px;
     margin-top: 40px;
 }
-div.latest div.journals {
+.latest div.journals {
     margin-bottom: 10px;
 }
-div.inuser div.right div.latest > h2 {
+.inuser div.right div.latest > h2 {
     margin-bottom: 5px;
 }
-div.inuser div.right div.latest div h2 {
+.inuser div.right div.latest div h2 {
     font-size: 90%;
 }
-div.inuser div.right div.latest div.barfade {
+.inuser div.right div.latest div.barfade {
     margin-top: 10px;
     padding-bottom: 10px;
 }
-div.inuser div.right div.latest div.comments {
+.inuser div.right div.latest div.comments {
     width: 100%;
     overflow: hidden;
     height: 780px;
 }
-div.commfading {
+.commfading {
     height: 24px;
     background: url( 'http://static.zino.gr/phoenix/frontpagecommfade.png' ) bottom repeat-x;
     margin-top: -20px;
     position: relative;
 }
 
-div.inuser div.right div.latest div.journals {
+.inuser div.right div.latest div.journals {
     width: 100%;
 }
-div.inuser div.right div.latest div.polls {
+.inuser div.right div.latest div.polls {
     width: 100%;
 }
