@@ -75,7 +75,6 @@
                         </div><?php
                     }
                 }
-                ?></div><?php
                 if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                     switch ( $album->Ownertype ) {
                         case TYPE_USERPROFILE:
@@ -104,7 +103,7 @@
                         ?></div><?php
                     }
                 }
-                ?><ul><?php
+                ?></div><ul><?php
                     foreach( $images as $image ) {
                         ?><li><?php
                         Element( 'album/photo/small' , $image , false , true );
