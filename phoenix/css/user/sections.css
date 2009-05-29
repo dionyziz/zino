@@ -1,5 +1,7 @@
 div.usersections {
-	padding: 2px 0 5px 0;
+	padding: 8px 0 5px 0;
+    height: 30px;
+    margin: 0 0 0 5px;
 	background: #fff url( 'http://static.zino.gr/phoenix/copybg_rev.jpg' ) repeat-x 0 -8px;
 }
 div.usersections a img {
@@ -14,7 +16,7 @@ div.usersections a span.name {
 }
 div.usersections ul {
 	margin: 0 0 0 160px;
-	padding: 15px 10px 0 0;
+	padding: 3px 10px 0 0;
 	text-align: right;
 	height: 30px;
 	vertical-align: bottom;
