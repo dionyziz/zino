@@ -282,7 +282,9 @@ var Frontpage = {
             }
             else {
                 typingdiv.css( 'opacity', 0 ).animate( { 'opacity': 1 } );
-                typingdiv[ 0 ].innerHTML = typetext;
+                if ( typeof $( 'div#shoutbox div.newcomment div.typing' )[ 0 ] != 'undefined' ) {
+                    typingdiv[ 0 ].innerHTML = typetext;
+                }
             }
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
