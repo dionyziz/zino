@@ -75,7 +75,7 @@
             $fav = $finder->FindByUserAndEntity( $user, $image );
             ?><div id="pview">
                 <div class="ads"></div>
-                <h2><?php
+                <div class="objectinfo"><h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
@@ -217,7 +217,7 @@
 					}
 					?></ul><?php
 				}
-                ?><div class="eof"></div><?php
+                ?></div><div class="eof"></div><?php
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="pthumbs plist"><?php
                         $finder = New ImageFinder();
