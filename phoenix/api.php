@@ -12,7 +12,8 @@
     */
 
     global $page;
-
+    global $plaintext;
+    
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'Plain' );

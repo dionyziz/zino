@@ -20,7 +20,7 @@
                 Element( 'image/url', $user->Avatar->Id , $user->Id , IMAGE_CROPPED_150x150 );
                 $apiarray[ 'avatar' ][ 'thumb150' ] = ob_get_clean();
                 if ( !$xml ) {
-                    echo htmlspecialchars( w_json_encode( $apiarray ) );
+                    echo w_json_encode( $apiarray );
                 }
                 else {
                     echo 'XML Zino API not yet supported';
