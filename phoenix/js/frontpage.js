@@ -286,7 +286,10 @@ var Frontpage = {
             }
         },
         OnMessageArrival: function ( shoutid, shouttext, who ) {
-            if ( who.name == GetUsername() ) {
+            var whoami = GetUsername();
+            var target;
+            
+            if ( who.name == whoami ) {
                 return;
             }
             
@@ -320,7 +323,13 @@ var Frontpage = {
             div.appendChild( text );
             
             var comments = $( 'div#shoutbox div.comments' );
-            comments[ 0 ].insertBefore( div, comments.find( 'div.comment' )[ 1 ] );
+            if ( whoami != '' ) {
+                target = comments.find( 'div.comment' )[ 1 ];
+            }
+            else {
+                target = comments.find( 'div.comment' )[ 0 ];
+            }
+            comments[ 0 ].insertBefore( div, target );
             
             Frontpage.Shoutbox.ShowShout( div );
         },
