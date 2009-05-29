@@ -3,14 +3,6 @@
     class ElementUserSections extends Element {
         public function Render( $section , $theuser ) {
             ?><div class="usersections">
-                <a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>"><?php
-                    Element( 'user/avatar' , $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 150 , '' , '' , false , 0 , 0 );
-                    ?><span class="name"><?php
-                    echo $theuser->Name;
-                    ?></span>
-                </a>
                 <ul>
                     <li<?php
                     if ( $section == 'album' ) {
@@ -52,6 +44,14 @@
                     Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>friends">Φίλοι</a></li>
                 </ul>
+                <a href="<?php
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                    ?>"><?php
+                    Element( 'user/avatar' , $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 150 , '' , '' , false , 0 , 0 );
+                    ?><span class="name"><?php
+                    echo $theuser->Name;
+                    ?></span>
+                </a>
             </div><?php
         }
     }
