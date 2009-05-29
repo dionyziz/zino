@@ -1,5 +1,5 @@
 <?php
-    class ElementApiUser extends Element {
+    class ElementApiFriends extends Element {
         public function Render( $subdomain ) {
             global $libs;
             global $page;
