@@ -3,7 +3,7 @@
         public function Render( tText $a ) {
             switch ( $a ) {
                 case 'user':
-                    Element( 'api/user' );
+                    Element( 'api/user', $user->Get() );
                     break;
             }
         }

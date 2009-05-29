@@ -1,10 +1,8 @@
 <?php
     class ElementApiUser extends Element {
-        public function Render() {
+        public function Render( $subdomain ) {
             global $libs;
             global $page;
-            
-            $subdomain = $subdomain->Get();
             
             $libs->Load( 'user/user' );
             $libs->Load( 'image/image' );
