@@ -15,7 +15,7 @@
         
         $ret = GetContacts( $username, $password, $provider );
         if( !is_array( $ret ) || count( $ret ) == 0 ){
-            if ( $ret == "ERROR_CONTACTS" || is_array( $ret ) ){
+            if ( $ret == "ERROR_CONTACTS" || $ret == 'NO_CONTACTS' ){
                 ?>setTimeout( function(){
                 $( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
                 echo $provider;
@@ -28,7 +28,7 @@
                 setTimeout( function(){
                 contacts.changeToFindInOtherNetworks();
             <?php
-                if ( $ret == 'ERROR_PROVIDER' ){
+                if ( $ret == 'ERROR_PROVIDER' || $ret == 'ERROR_BACKEND' ){
                     ?>$( "#security" ).css({
                         'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
                         'font-weight': 'bold',
@@ -36,7 +36,7 @@
                     }).html( 'Υπήρξε πρόβλημα στο σύστημα. Παρακαλώ δοκίμασε αργότερα.' );
                     document.title = "Πρόβλημα στο σύστημα | Zino";<?php
                 }
-                if ( $ret == 'ERROR_CREDENTIALS' ){
+                if ( $ret == 'ERROR_CREDENTIALS' || $ret == 'ERROR_EMPTYCREDENTIALS' ){
                     ?>$( "#security" ).css({
                         'background': '#FEF4B7 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
                         'font-weight': 'bold',

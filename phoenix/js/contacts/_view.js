@@ -138,6 +138,14 @@ var contacts = {
             contacts.username += "@hotmail.com";
         }
         contacts.password = $( "#password input" ).val();
+        if ( contacts.username == "" || contacts.password == "" ){
+            $( "#security" ).css({
+                'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
+                'font-weight': 'bold',
+                'padding': '10px 10px 10px 30px'
+            }).html( 'Συμπλήρωσε το e-mail σου και τον κωδικό σου.' );
+            return false;
+        }
         Coala.Warm( 'contacts/retrieve', {
             provider: contacts.provider,
             username: contacts.username,
