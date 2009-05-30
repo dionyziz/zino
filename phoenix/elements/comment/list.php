@@ -7,11 +7,8 @@
             global $page;
             global $user;
 
-            switch ( strtolower( $user->Name ) ) { 
-                case 'izual':
-                case 'dionyziz':
-                    Element( 'comment/comet' , $typeid , $itemid );
-            }
+            Element( 'comment/comet' , $typeid , $itemid );
+            
             if ( empty( $comments ) ) {
                 return; // why did you call me?
             }
