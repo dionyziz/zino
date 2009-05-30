@@ -11,8 +11,8 @@
             if ( !$user->Exists() ) {
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
-            $page->AttachInlineScript( 'contacts.init();' );
-            $page->AttachInlineScript( 'contacts.frontpage = "' . $rabbit_settings[ 'webaddress' ] . '";' );
+            $page->AttachInlineScript( '$( function(){ contacts.init(); });' );
+            $page->AttachInlineScript( '$( function(){ contacts.frontpage = "' . $rabbit_settings[ 'webaddress' ] . '"; })' );
             $page->SetTitle( "Αναζήτηση φίλων" );
             
             $minage = $minage->Get();
