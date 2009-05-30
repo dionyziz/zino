@@ -19,7 +19,10 @@
 
         $inviter = new OpenInviter();
         $inviter->getPlugins();
-        $inviter->startPlugin( $provider );
+        $state = $inviter->startPlugin( $provider );
+        if( $state == false ) {
+            return 'ERROR_BACKEND';
+        }
         $state = $inviter->login( $username, $pass );
         if( $state == false ) {
             return 'ERROR_CREDENTIALS';

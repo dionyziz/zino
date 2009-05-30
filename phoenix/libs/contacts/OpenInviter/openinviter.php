@@ -31,7 +31,8 @@ class OpenInviter
 	public function startPlugin($plugin_name)
 		{
 		if (file_exists(dirname(__FILE__)."/postinstall.php"))
-			$this->internalError="You have to delete postinstall.php before using OpenInviter";
+			{$this->internalError="You have to delete postinstall.php before using OpenInviter"; return false; }
+			
 		elseif (file_exists(dirname(__FILE__)."/plugins/{$plugin_name}.php"))
 			{
 			$ok=true;
@@ -40,9 +41,11 @@ class OpenInviter
     		$this->plugin->settings=$this->settings;
     		$this->plugin->base_version=$this->version;
     		$this->plugin->base_path=dirname(__FILE__);
+    		return true;
 			}
 		else
-			$this->internalError="Invalid service provider";
+			{ $this->internalError="Invalid service provider"; return false; }
+			
 		}
 	
 	/**
