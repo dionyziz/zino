@@ -30,9 +30,10 @@ var Comet = {
         
         eval( code );
     },
-    Init: function ( uniq ) {
+    Init: function ( uniq, domain ) {
+        domain = domain || 'universe.' + location.hostname;
         Meteor.hostid = uniq;
-        Meteor.host = "universe." + location.hostname;
+        Meteor.host = domain;
         Meteor.registerEventCallback( "process", Comet.Process );
         Meteor.registerEventCallback( 'pollmode', Comet.ChangeMode );
         Meteor.mode = 'stream';
