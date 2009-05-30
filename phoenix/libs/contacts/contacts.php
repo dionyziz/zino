@@ -6,9 +6,9 @@
         
         $providers = array();//check if valid provider
         $providers[ "hotmail" ] = true;
-        $providers[ "windowslive" ] = true;
-        $providers[ "live" ] = true;
-        $providers[ "msn" ] = true;
+        //$providers[ "windowslive" ] = true;
+        //$providers[ "live" ] = true;
+        //$providers[ "msn" ] = true;
         $providers[ "gmail" ] = true;
         $providers[ "yahoo" ] = true;
         if( $providers[ $provider ] == false ) {
