@@ -29,7 +29,8 @@
                 contacts.changeToFindInOtherNetworks();
             <?php
                 if ( $ret == 'ERROR_PROVIDER' || $ret == 'ERROR_BACKEND' ){
-                    ?>$( "#security" ).css({
+                    ?>alert(' <?php echo $ret; ?> ');
+                    $( "#security" ).css({
                         'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
                         'font-weight': 'bold',
                         'padding': '10px 10px 10px 30px'
