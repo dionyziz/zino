@@ -14,7 +14,7 @@
         }
         
         if ( empty( $username ) || empty( $pass ) ) {//check if the password or the username are empty
-            return 'ERROR_CREDENTIALS';
+            return 'ERROR_EMPTYCREDENTIALS';
         }
 
         $inviter = new OpenInviter();
@@ -27,6 +27,9 @@
         $contacts = $inviter->getMyContacts();
         if( !is_array( $contacts ) ) {
             return 'ERROR_CONTACTS';
+        }
+        if( is_array( $contacts ) && count( $contacts ) == 0 ) {
+            return 'NO_CONTACTS';
         }
         $inviter->logout();
         $inviter->stopPlugin();
