@@ -315,6 +315,5 @@ var contacts = {
         //search maxwidth calculate
         var maxwidth = $( '#content' ).innerWidth();
         $( '#body' ).css( 'maxWidth', maxwidth );
-        alert( maxwidth );
 	}
 };
