@@ -3,9 +3,12 @@
         public function Render( $typeid , $itemid ) {
             global $page;
             global $user;
+            global $rabbit_settings;
             
             ob_start();
-            ?>Comet.Init( <?php
+            ?>document.domain=<?php
+            echo w_json_encode( $rabbit_settings[ 'hostname' ] );
+            ?>;Comet.Init( <?php
             echo w_json_encode( session_id() );
             ?> );
             Comet.Subscribe( 'CommentsPageNew<?php
