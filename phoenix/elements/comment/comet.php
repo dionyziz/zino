@@ -10,6 +10,8 @@
             echo w_json_encode( $rabbit_settings[ 'hostname' ] );
             ?>;Comet.Init( <?php
             echo w_json_encode( session_id() );
+            ?>, 'universe.' + <?php
+            echo w_json_encode( $rabbit_settings[ 'hostname' ] );
             ?> );
             Comet.Subscribe( 'CommentsPageNew<?php
             echo $typeid;
