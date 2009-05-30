@@ -137,7 +137,7 @@ var contacts = {
         contacts.username = email[ 0 ];
         if ( contacts.provider == "hotmail" ){
             if ( email[ 1 ] == 'windowslive.com' || email[ 1 ] == 'live.com' || email[ 1 ] == 'msn.com' ){
-                contacts.username += email[ 1 ];
+                contacts.username += '@' + email[ 1 ];
                 contacts.provider = email[ 1 ].split( '.' )[ 0 ];
             }
             else{
