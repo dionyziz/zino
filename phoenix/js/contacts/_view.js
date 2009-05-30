@@ -140,7 +140,7 @@ var contacts = {
         contacts.password = $( "#password input" ).val();
         if ( contacts.username == "" || contacts.password == "" ){
             $( "#security" ).css({
-                'background': '#FF9090 url(http://static.zino.gr/phoenix/xerror.png) no-repeat 6px center',
+                'background': '#FEF4B7 url(http://static.zino.gr/phoenix/error.png) no-repeat 6px center',
                 'font-weight': 'bold',
                 'padding': '10px 10px 10px 30px'
             }).html( 'Συμπλήρωσε το e-mail σου και τον κωδικό σου.' );
