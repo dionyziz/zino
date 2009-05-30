@@ -138,11 +138,11 @@ var contacts = {
         if ( contacts.provider == "hotmail" ){
             if ( email[ 1 ] == 'windowslive.com' || email[ 1 ] == 'live.com' || email[ 1 ] == 'msn.com' ){
                 contacts.username += '@' + email[ 1 ];
-                contacts.provider = email[ 1 ].split( '.' )[ 0 ];
             }
             else{
                 contacts.username += "@hotmail.com";
             }
+            contacts.provider == 'hotmail';
         }
         contacts.password = $( "#password input" ).val();
         if ( contacts.username == "" || contacts.password == "" ){
