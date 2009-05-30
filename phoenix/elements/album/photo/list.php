@@ -104,7 +104,7 @@
                         ?></div><?php
                     }
                 }
-                ?></div><ul><?php
+                ?><div class="eof"></div><ul><?php
                     foreach( $images as $image ) {
                         ?><li><?php
                         Element( 'album/photo/small' , $image , false , true );
