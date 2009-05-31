@@ -166,7 +166,7 @@
             'taglist'           => 'album/photo/taglist',
 			'paginationtest'	=> 'developer/petros/pagination',
 			'photomanager' 		=> 'album/manager',
-            'api/user'          => 'api/api',
+            'api/user'          => 'api/user',
             'api/friends'       => 'api/friends'
         );
     }
