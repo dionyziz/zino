@@ -14,8 +14,10 @@
                 $albumfinder = New AlbumFinder();
                 $albums = $albumfinder->FindByUser( $theuser, 0, 4000 );
                 if ( !empty( $albums ) ) {
+                    $apiarray[ 'egoalbum' ] = $theuser->EgoAlbum->Id;
+                    $apiarray[ 'count' ] = $theuser->Count->Albums;
                     foreach ( $albums as $album ) {
-                        $apiarray[] = $album->Ownerid;
+                        $apiarray[ 'albums' ][] = $album->Id;
                     }
                 }
                 if ( !$xml ) {
