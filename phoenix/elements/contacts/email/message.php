@@ -28,7 +28,7 @@
 <?php
             echo $rabbit_settings[ 'webaddress' ];
             if ( $contact == null ){
-                ?>/join<?php
+                ?>/join <?php
             }
             else{
                 ?>/join?id="<?php
@@ -36,7 +36,8 @@
                 ?>&validtoken=<?php
                 echo $contact->Validtoken;
             }
-            ?>
+            ?> 
+
 Ευχαριστώ,
 <?php
             echo $user->Name;
