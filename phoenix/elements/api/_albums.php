@@ -11,8 +11,8 @@
             $theuser = $userfinder->FindBySubdomain( $user );
             
             if ( $theuser !== false ) {
-                $finder = New AlbumFinder();
-                $albums = $finder->FindByUser( $theuser, 0, 4000 );
+                $albumfinder = New AlbumFinder();
+                $albums = $albumfinder->FindByUser( $theuser, 0, 4000 );
                 if ( !empty( $albums ) ) {
                     foreach ( $albums as $album ) {
                         $apiarray[] = $album->Ownerid;

@@ -9,6 +9,7 @@
             
             $theuserfinder = New UserFinder();
             $theuser = $theuserfinder->FindBySubdomain( $user );
+            
             if ( $theuser !== false ) {
                 $apiarray[ 'name' ] = $theuser->Name;
                 $apiarray[ 'subdomain' ] = $theuser->Subdomain;

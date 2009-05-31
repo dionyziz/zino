@@ -11,8 +11,8 @@
             $theuser = $userfinder->FindBySubdomain( $user );
             
             if ( $theuser !== false ) {
-                $finder = New FriendRelationFinder();
-                $friends = $finder->FindByUser( $theuser );
+                $friendfinder = New FriendRelationFinder();
+                $friends = $friendfinder->FindByUser( $theuser );
                 if ( !empty( $friends ) ) {
                     foreach ( $friends as $friend ) {
                         $apiarray[] = $friend->Friend->Subdomain;
