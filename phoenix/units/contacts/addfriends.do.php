@@ -8,6 +8,9 @@
         $userids = explode( " ", $ids );
         if ( $user->Exists() && sizeof( $ids ) != 0 ) {
             foreach( $userids as $userid ){
+				if ( $user->Id == $userid ){
+                    continue;
+				}
                 $theuser = New User( $userid );
                 if ( $theuser->Exists() ) {
                     $relation = New FriendRelation();
