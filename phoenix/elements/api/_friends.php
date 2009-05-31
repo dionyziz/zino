@@ -8,11 +8,11 @@
             $libs->Load( 'relation/relation' );
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindBySubdomain( $user );
+            $theuser = $userfinder->FindBySubdomain( $user );
             
-            if ( $user !== false ) {
+            if ( $theuser !== false ) {
                 $finder = New FriendRelationFinder();
-                $friends = $finder->FindByUser( $user );
+                $friends = $finder->FindByUser( $theuser );
                 if ( !empty( $friends ) ) {
                     foreach ( $friends as $friend ) {
                         $apiarray[] = $friend->Friend->Subdomain;

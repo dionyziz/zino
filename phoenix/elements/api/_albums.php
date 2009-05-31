@@ -1,6 +1,6 @@
 <?php
     class ElementApiAlbums extends Element {
-        public function Render( tText $userid ) {
+        public function Render( tText $user ) {
             global $libs;
             global $page;
             
@@ -8,11 +8,11 @@
             $libs->Load( 'album' );
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindBySubdomain( $user );
+            $theuser = $userfinder->FindBySubdomain( $user );
             
-            if ( $user !== false ) {
+            if ( $theuser !== false ) {
                 $finder = New AlbumFinder();
-                $albums = $finder->FindByUser( $user, 0, 4000 );
+                $albums = $finder->FindByUser( $theuser, 0, 4000 );
                 if ( !empty( $albums ) ) {
                     foreach ( $albums as $album ) {
                         $apiarray[] = $album->Id;
