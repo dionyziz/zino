@@ -1,6 +1,6 @@
 <?php
     class ElementApiUser extends Element {
-        public function Render( tText $subdomain ) {
+        public function Render( tText $user ) {
             global $libs;
             global $page;
             
@@ -8,7 +8,7 @@
             $libs->Load( 'image/image' );
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindBySubdomain( $subdomain );
+            $user = $userfinder->FindBySubdomain( $user );
             if ( $user !== false ) {
                 $apiarray[ 'name' ] = $user->Name;
                 $apiarray[ 'subdomain' ] = $user->Subdomain;
