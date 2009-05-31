@@ -45,7 +45,8 @@
             else {
                 $page->SetTitle( $theuser->Name . " δημοσκοπήσεις" );
             }
-
+			
+			//Rhapsody testing svn commit with this comment
             $finder = New PollFinder();
             $polls = $finder->FindByUser( $theuser  , ( $pageno - 1 )*5 , 5 );
 
