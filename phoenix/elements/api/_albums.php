@@ -17,8 +17,6 @@
                     foreach ( $albums as $album ) {
                         $apiarray[] = $album->Ownerid;
                     }
-                } else {
-                    $apiarray[ 'error' ] = 'no albums found';
                 }
                 if ( !$xml ) {
                     echo w_json_encode( $apiarray );
