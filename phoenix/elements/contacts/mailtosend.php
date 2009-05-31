@@ -1,8 +1,12 @@
 <?php
     class ElementContactsMailtosend extends Element{
         function Render(){
-            ?><p><b>Από:</b> inviter@zino.gr</p>
-            <p><b>Θέμα:</b> <?php
+            global $user;
+            if ( !$user->Exists() ){
+                return Redirect( './' );
+            }
+            ?><p><strong>Από:</strong> inviter@zino.gr</p>
+            <p><strong>Θέμα:</strong> <?php
             Element( 'contacts/email/subject' );
             ?></p><p><?php
             ob_start();
