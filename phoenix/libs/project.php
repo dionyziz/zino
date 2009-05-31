@@ -153,6 +153,7 @@
             'contactfinder'     => 'contacts/select',
             'emailvalidate'     => 'user/settings/emailvalidate',
 			'invite'            => 'contacts/page',
+            'mailtosend'        => 'contacts/mailtosend',
             'interests'         => 'tag/view',
 			'find'				=> 'search/im/credentials',
             'iphone/'           => 'iphone/frontpage/view',
