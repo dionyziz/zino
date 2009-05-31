@@ -13,7 +13,7 @@
 
     global $page;
     global $plaintext;
-    
+    die( $_GET['p'] );
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'Plain' );
