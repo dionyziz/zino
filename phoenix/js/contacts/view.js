@@ -87,8 +87,10 @@ var contacts = {
                     $( this ).css({
                         borderWidth: '1px'
                     });
-					$( '#contactMail textarea' ).focus();
-                    $( '#inviteByEmail' ).fadeIn( 'normal' );
+					
+                    $( '#inviteByEmail' ).fadeIn( 'normal', function(){
+						$( '#contactMail textarea' ).focus();
+                    });
                     $( "#foot input" ).removeClass().addClass( "invite" )
                         .unbind().bind( 'click', contacts.sendInvitations )
                         .parent().filter( "div:hidden" ).fadeIn( 'normal' );
