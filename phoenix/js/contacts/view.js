@@ -296,6 +296,7 @@ var contacts = {
 		$('#left_tabs li').click( function(){
 			$('#left_tabs li').removeClass();
 			$( this ).addClass( 'selected' );
+            $( '#mail input' ).focus();
 		});
         //top tabs clickable
         $( '#top_tabs li' )
