@@ -8,7 +8,7 @@
             $libs->Load( 'album' );
             
             $userfinder = New UserFinder();
-            $theuser = $userfinder->FindBySubdomain( $user );
+            $theuser = $userfinder->FindBySubdomain( $user->Get() );
             
             if ( $theuser !== false ) {
                 $albumfinder = New AlbumFinder();

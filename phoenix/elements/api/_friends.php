@@ -8,7 +8,7 @@
             $libs->Load( 'relation/relation' );
             
             $userfinder = New UserFinder();
-            $theuser = $userfinder->FindBySubdomain( $user );
+            $theuser = $userfinder->FindBySubdomain( $user->Get() );
             
             if ( $theuser !== false ) {
                 $friendfinder = New FriendRelationFinder();

@@ -8,7 +8,7 @@
             $libs->Load( 'image/image' );
             
             $theuserfinder = New UserFinder();
-            $theuser = $theuserfinder->FindBySubdomain( $user );
+            $theuser = $theuserfinder->FindBySubdomain( $user->Get() );
             
             if ( $theuser !== false ) {
                 $apiarray[ 'name' ] = $theuser->Name;
