@@ -1,6 +1,6 @@
 <?php
     class ElementApiFriends extends Element {
-        public function Render( $subdomain ) {
+        public function Render( tText $subdomain ) {
             global $libs;
             global $page;
             
