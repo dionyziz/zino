@@ -17,8 +17,6 @@
     require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct( 'Plain' );
-    
-    $_GET[ 'p' ] = 'api';
 
     $req = $_GET;
 
