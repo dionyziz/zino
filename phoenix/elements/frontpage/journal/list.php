@@ -5,11 +5,16 @@
         public function Render( $journalseq ) {
             global $xc_settings;
 
+            $sticky = 8695;
+            
             $finder = New JournalFinder();
             $journals = $finder->FindAll( 0, 4 );
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
+                    if ( $journal->Id == $sticky ) {
+                        continue;
+                    }
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User, true );
@@ -27,7 +32,8 @@
                     </div><?php
                 }
 				// Sticky article
-				$journal = New Journal( 8528 );
+				$journal = New Journal( $sticky );
+                if ( $journal->Exists() ) {
 					?><div class="event">
 						<div style="background: #fff8d2;" class="who"><?php
 							Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User, true );
@@ -41,6 +47,7 @@
 							?></a>
 						</div>
 					</div><?php
+                }
 				?></div><?php
         }
     }
