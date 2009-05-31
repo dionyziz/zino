@@ -1,13 +1,12 @@
 <?php
     class ElementContactsMailtosend extends Element{
         function Render(){
-            ?>Από: inviter@zino.gr
-Θέμα: <?php
+            ?><p><b>Από:</b> inviter@zino.gr</p>
+            <p><b>Θέμα:</p> <?php
             Element( 'contacts/email/subject' );
-            ?>
-
-<?php
+            ?></p><p><?php
             Element( 'contacts/email/message' );
+            ?></p><?php
             return array( 'tiny' => true );
         }
     }
