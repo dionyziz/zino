@@ -1,8 +1,8 @@
 <?php
     class ElementContactsMailtosend extends Element{
         function Render(){
-            ?>Από: inviter@zino.gr
-Θέμα: <?php
+            ?>Ξ‘Ο€Ο: inviter@zino.gr
+ΞΞ­ΞΌΞ±: <?php
             Element( 'contacts/email/subject' );
             ?>
 

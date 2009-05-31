@@ -2,15 +2,15 @@
     class ElementContactsEmailSubject extends Element{
         function Render(){
             global $user;
-            ?>Πρόσκληση απο <?php
+            ?>Ξ ΟΟΟƒΞΊΞ»Ξ·ΟƒΞ· Ξ±Ο€ΞΏ <?php
             if ( $user->Gender == 'f' ) {
-                ?>την <?php
+                ?>Ο„Ξ·Ξ½ <?php
             }
             else {
-                ?>τον <?php
+                ?>Ο„ΞΏΞ½ <?php
             }
             echo $user->Name;
-            ?> στο Zino<?php
+            ?> ΟƒΟ„ΞΏ Zino<?php
         }
     }
 ?>
