@@ -168,7 +168,8 @@
 			'paginationtest'	=> 'developer/petros/pagination',
 			'photomanager' 		=> 'album/manager',
             'api/user'          => 'api/user',
-            'api/friends'       => 'api/friends'
+            'api/friends'       => 'api/friends',
+            'api/albums'        => 'api/albums'
         );
     }
     
