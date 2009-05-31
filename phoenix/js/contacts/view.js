@@ -61,8 +61,10 @@ var contacts = {
                     $( this ).css({
                         borderWidth: '1px'
                     });
-					$( '#mail input' ).focus();
-                    $( '#login' ).fadeIn( 'normal' );
+					
+                    $( '#login' ).fadeIn( 'normal', function(){
+						$( '#mail input' ).focus();
+					});
                     $( "#top_tabs" ).css( 'zIndex', '10' );
                     $( "#foot input" ).removeClass() //.addClass( 'continue' )
                         .unbind().bind( 'click', contacts.retrieve )
