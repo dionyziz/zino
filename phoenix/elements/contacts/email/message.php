@@ -7,7 +7,7 @@
                 return false;
             }
             if ( $toname == '' ){
-                $toname == '(όνομα φίλου)';
+                $toname = '(όνομα φίλου)';
             }
 
             ?>Γεια σου <?php
