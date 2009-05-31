@@ -24,19 +24,24 @@
                 ?>του <?php
             }
             echo $user->Name;
-            ?> στο Zino, πήγαινε στο:
+            ?> στο Zino, πήγαινε στο:<a href="
 <?php
+            ob_start();
             echo $rabbit_settings[ 'webaddress' ];
             if ( $contact == null ){
                 ?>/join <?php
             }
             else{
-                ?>/join?id="<?php
+                ?>/join?id=<?php
                 echo $contact->Id;
                 ?>&validtoken=<?php
                 echo $contact->Validtoken;
             }
-            ?> 
+            $link = ob_get_clean();
+            echo $link;
+            ?> "><?php
+            echo $link;
+            ?></a>
 
 Ευχαριστώ,
 <?php
