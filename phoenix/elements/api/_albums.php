@@ -13,7 +13,6 @@
             if ( $theuser !== false ) {
                 $finder = New AlbumFinder();
                 $albums = $finder->FindByUser( $theuser, 0, 4000 );
-                die( empty( $albums ) );
                 if ( !empty( $albums ) ) {
                     foreach ( $albums as $album ) {
                         $apiarray[] = $album->Ownerid;
