@@ -15,7 +15,7 @@
                 $albums = $finder->FindByUser( $theuser, 0, 4000 );
                 if ( !empty( $albums ) ) {
                     foreach ( $albums as $album ) {
-                        $apiarray[] = $album->Id;
+                        $apiarray[] = $album->Ownerid;
                     }
                 }
                 if ( !$xml ) {
