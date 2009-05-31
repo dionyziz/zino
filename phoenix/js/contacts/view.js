@@ -61,6 +61,7 @@ var contacts = {
                     $( this ).css({
                         borderWidth: '1px'
                     });
+					$( '#mail input' ).focus();
                     $( '#login' ).fadeIn( 'normal' );
                     $( "#top_tabs" ).css( 'zIndex', '10' );
                     $( "#foot input" ).removeClass() //.addClass( 'continue' )
@@ -86,6 +87,7 @@ var contacts = {
                     $( this ).css({
                         borderWidth: '1px'
                     });
+					$( '#contactMail textarea' ).focus();
                     $( '#inviteByEmail' ).fadeIn( 'normal' );
                     $( "#foot input" ).removeClass().addClass( "invite" )
                         .unbind().bind( 'click', contacts.sendInvitations )
