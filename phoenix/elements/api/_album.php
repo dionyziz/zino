@@ -10,7 +10,7 @@
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $user->Get() );
             
-            $album = New Album( $id->Get() );
+            $album = New Album( $albumid->Get() );
             
             if ( $album->Exists() && $album->Ownerid == $theuser->Id && $album->Ownertype == TYPE_USERPROFILE ) {
                 $imagefinder = New ImageFinder();
