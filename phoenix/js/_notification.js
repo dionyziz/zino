@@ -20,7 +20,7 @@ var Notification = {
                 } );
             }
 		} );
-		//Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
+		Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );

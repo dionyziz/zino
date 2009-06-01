@@ -16,10 +16,12 @@ var Notification = {
         if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {
             --Notification.VNotifs;
         }
-		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
+		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 100 , "linear" , function() {
 			$( this ).remove();
             if ( Notification.VNotifs === 0 ) {
-                $( "div.notifications" ).remove();  
+                $( "div.notifications" ).animate( { opacity : "0" , height : "0" } , 100 , "linear"  , function() {
+                    $( this ).remove();  
+                } );
             }
 		} );
 		Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
