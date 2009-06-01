@@ -15,7 +15,7 @@ var Notification = {
 		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
 			$( this ).remove();
             if ( Notification.VNotifs === 0 ) {
-                $( "div.notifications" ).fadeOut( 100 , function() {
+                $( "div.notifications" ).fadeOut( 80 , function() {
                     $( this ).remove();  
                 } );
             }
