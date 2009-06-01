@@ -1,8 +1,8 @@
-.frontpage {
+#frontpage {
     text-align: left;
     position: relative;
 }
-.frontpage div.zinomeeting {
+#frontpage div.zinomeeting {
     padding: 10px;
     border: 1px solid #ccc;
     background: #f7f7ff;
@@ -11,43 +11,43 @@
 	width: 70%;
 	text-align: center;
 }
-.frontpage div.zinomeeting h3 {
+#frontpage div.zinomeeting h3 {
 	margin: 5px 0;
 	text-align: center;
 }
-.frontpage div.ybubble {
+#frontpage div.ybubble {
     margin: 0 auto 10px auto;
     text-align: center;
     width: 700px;
     height: 170px;
 }
-.frontpage div.ybubble div.body a.delete {
+#frontpage div.ybubble div.body a.delete {
     width: 16px;
     height: 16px;
     float: right;
     padding: 3px 1px 0 0;
 }
-.frontpage div.ybubble div.body form {
+#frontpage div.ybubble div.body form {
     text-align: left;
     padding: 5px;
 }
-.frontpage div.ybubble div.body form div span {
+#frontpage div.ybubble div.body form div span {
     margin-right: 5px;
 }
-.frontpage div.ybubble div.body form p {
+#frontpage div.ybubble div.body form p {
     padding-bottom: 0;
     margin-bottom: 0;
 }
-.frontpage div.ybubble div.body form div div#selectplace { 
+#selectplace { 
     margin: 10px 0 0 0;
 }
-.frontpage div.ybubble div.body form div div#selecteducation {
+#selecteducation {
     margin: 10px 0 0 0;
 }
-.frontpage div.ybubble div.body form div div#selectuni {
+#selectuni {
     margin: 10px 0 0 0;
 }
-.frontpage div.ybubble div.body form div span {
+#frontpage div.ybubble div.body form div span {
     padding: 0 3px 0 0;
 }
 .lstimages {
@@ -68,7 +68,7 @@
 .lstimages ul li img {
     border: 1px solid #cce;
 }
-.frontpage div.more {
+#frontpage div.more {
     float: right;
     margin: 30px 0 0;
 }
@@ -217,7 +217,7 @@
     border: 1px solid #666;
     margin: 0 10px 10px 0;
 }
-.frontpage div.inuser {
+#frontpage div.inuser {
     float: none;
     width: 100%;
 }
