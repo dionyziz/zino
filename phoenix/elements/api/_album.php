@@ -17,7 +17,12 @@
                 $images = $imagefinder->FindByAlbum( $album, 0, 4000 );
                 
                 if ( !empty( $images ) ) {
-                    $apiarray[ 'name' ] = $album->Name;
+                    if ( $theuser->Egoalbum->Id == $album->Id ) {
+                        $apiarray[ 'name' ] = 'Εγώ';
+                    }
+                    else {
+                        $apiarray[ 'name' ] = $album->Name;
+                    }
                     $apiarray[ 'photocount' ] = $album->Numphotos;
                     $apiarray[ 'commentscount' ] = $album->Numcomments;
                     foreach ( $images as $image ) {
