@@ -131,8 +131,8 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                     </div>
                 </div><?php
             } 
-            ?><div class="inuser">
-                <div class="left">
+            ?><div id="fp_inuser">
+                <div id="fp_left">
                     <div id="shoutbox"><?php
                         Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
                     ?></div>
@@ -140,8 +140,8 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         Element( 'frontpage/online' );
                     ?></div>
                 </div>
-                <div class="right">
-                    <div class="latest">
+                <div id="fp_right">
+                    <div id="fp_latest">
                         <h2>Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
@@ -164,7 +164,6 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                             Element( 'frontpage/poll/list' , $sequences[ SEQUENCE_POLL ] );
                         ?></div>
                     </div>
-                
                 </div>
             </div>
             </div>

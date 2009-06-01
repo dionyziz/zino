@@ -217,36 +217,36 @@
     border: 1px solid #666;
     margin: 0 10px 10px 0;
 }
-#frontpage div.inuser {
+#fp_inuser {
     float: none;
     width: 100%;
 }
-.inuser div.left {
+#fp_left {
     width: 48%;
     float: left;
 }
-.inuser div.right {
+#fp_right {
     width: 48%;
     float: right;
 }
-.inuser div.left div.onlinenow {
+#fp_left div.onlinenow {
     padding-left: 10px;
     margin-top: 40px;
 }
-.latest div.journals {
+#fp_latest div.journals {
     margin-bottom: 10px;
 }
-.inuser div.right div.latest > h2 {
+#fp_latest > h2 {
     margin-bottom: 5px;
 }
-.inuser div.right div.latest div h2 {
+#fp_latest div h2 {
     font-size: 90%;
 }
-.inuser div.right div.latest div.barfade {
+#fp_latest div.barfade {
     margin-top: 10px;
     padding-bottom: 10px;
 }
-.inuser div.right div.latest div.comments {
+#fp_latest div.comments {
     width: 100%;
     overflow: hidden;
     height: 780px;
@@ -258,9 +258,9 @@
     position: relative;
 }
 
-.inuser div.right div.latest div.journals {
+#fp_latest div.journals {
     width: 100%;
 }
-.inuser div.right div.latest div.polls {
+#fp_latest div.polls {
     width: 100%;
 }

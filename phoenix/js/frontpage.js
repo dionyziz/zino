@@ -62,14 +62,14 @@ var Frontpage = {
                 return false;
             } );  
          }
-        $( 'div.right div.latest' ).mousemove( function() {
+        $( '#fp_latest' ).mousemove( function() {
             if ( typeof( timer ) != 'undefined'  && timer ) {
                 clearTimeout( timer );
             }
             timer = setTimeout( "Frontpage.Comment.MouseOver=false;Frontpage.Comment.NextComment();" , 1000 );
         
         } );
-        $( 'div.right div.latest' ).mouseenter( function() {
+        $( '#fp_latest' ).mouseenter( function() {
             Frontpage.Comment.MouseOver = true;
         } ).mouseleave( function() {
             Frontpage.Comment.MouseOver = false;
@@ -370,14 +370,14 @@ var Frontpage = {
         ShowComment : function( node , timerint ) {
             Frontpage.Comment.Animating = true;
             setTimeout( "Frontpage.Comment.Animating = false;Frontpage.Comment.NextComment()" , timerint );
-            $( 'div.latest div.comments div.list' ).prepend( node );
-            var targetheight = $( 'div.latest div.comments div.list div.event' )[ 0 ].offsetHeight;
+            $( '#fp_latest div.comments div.list' ).prepend( node );
+            var targetheight = $( '#fp_latest div.comments div.list div.event' )[ 0 ].offsetHeight;
             $( node ).css( "opacity" , "0" )
             .animate( {
                 //height: targetheight,
                 opacity: "1"
             } , 900 , 'linear' );
-            $( 'div.latest div.comments div.list>div:last-child' ).animate( {
+            $( '#fp_latest div.comments div.list>div:last-child' ).animate( {
                 opacity: "0"
             } , 900 , 'linear' , function() {
                 $( this ).remove();

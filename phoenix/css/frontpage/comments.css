@@ -1,6 +1,6 @@
-div.latest div.comments div.more {
+#fp_latest div.comments div.more {
     margin-bottom: 10px;
 }
-div.latest div.comments {
+#fp_latest div.comments {
     margin-bottom: 10px;
 }
