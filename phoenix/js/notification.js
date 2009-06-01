@@ -19,7 +19,7 @@ var Notification = {
 		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 100 , "linear" , function() {
 			$( this ).remove();
             if ( Notification.VNotifs === 0 ) {
-                $( "div.notifications" ).animate( { opacity : "0" , height : "0" } , 100 , "linear"  , function() {
+                $( "#notifications" ).animate( { opacity : "0" , height : "0" } , 100 , "linear"  , function() {
                     $( this ).remove();  
                 } );
             }
@@ -29,8 +29,8 @@ var Notification = {
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );
             var clonenew = $( newnotif ).clone( true );
-            $( "div.notifications div.list" ).append( clonenew );
-            clonenew = $( "div.notifications div.list div.event:last-child" )[ 0 ];
+            $( "#notiflist" ).append( clonenew );
+            clonenew = $( "#notiflist div.event:last-child" )[ 0 ];
             var targetheight = clonenew.offsetHeight;
             $( clonenew ).css( {
                 "height" : "0",
@@ -123,7 +123,7 @@ var Notification = {
                     } );
                     Notification.Expanded = false;
                 }
-                $( 'div.notifications div.list' ).slideToggle( "slow" );
+                $( '#notiflist' ).slideToggle( "slow" );
 			
                 return false;
 			} );
@@ -132,7 +132,7 @@ var Notification = {
 			Notification.VNotifs++;
 		}
 		else {
-			$( 'div.frontpage div.notifications div.list>div:last-child' ).animate( {
+			$( '#notiflist>div:last-child' ).animate( {
 				opacity : "0",
 				height: "0"
 			} , 400 , "linear" , function() {
@@ -145,8 +145,8 @@ var Notification = {
 		Notification.Show( node );
 	},
 	Show : function( node ) {
-		$( 'div.notifications div.list' ).prepend( node );
-		var targetheight = $( 'div.notifications div.list div.event' )[ 0 ].offsetHeight;
+		$( '#notiflist' ).prepend( node );
+		var targetheight = $( '#notiflist div.event' )[ 0 ].offsetHeight;
 		$( node ).css( {
             'opacity' : '0',
             'height' : '0'

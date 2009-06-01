@@ -98,9 +98,9 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                     $vnotifs = $notifs;
                     $page->AttachInlineScript( "Notification.VNotifs = " . count( $notifs ) . ";Notification.INotifs = 0;" );
                 }
-                ?><div class="notifications">
+                ?><div id="notifications">
                     <h3>Ενημερώσεις</h3>
-                    <div class="list"><?php
+                    <div id="notiflist"><?php
                         Element( 'notification/list', $vnotifs );
                     ?></div>
                     <div id="inotifs" class="invisible"><?php

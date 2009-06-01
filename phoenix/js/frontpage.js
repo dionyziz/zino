@@ -34,18 +34,15 @@ var Frontpage = {
                 Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
             } );
         }
-        if ( $( 'div.notifications div.list' )[ 0 ] ) {
-            /*var notiflist = $( 'div.notifications div.list' )[ 0 ];
-            var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
-            */
-            $( 'div.notifications div.event' ).mouseover( function() {
+        if ( $( '#notiflist' )[ 0 ] ) {
+            $( '#notiflist  div.event' ).mouseover( function() {
                 $( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
             } )
             .mouseout( function() {
                 $( this ).css( "border" , "0" ).css( "padding" , "5px" );
             } );
         
-            $( 'div.notifications div.expand a' ).click( function() {
+            $( '#notifications div.expand a' ).click( function() {
                 if ( !Notification.Expanded ) {
                     $( this ).css( "background-position" , "4px -1440px" )
                     .attr( {
@@ -60,7 +57,7 @@ var Frontpage = {
                     } );
                     Notification.Expanded = false;
                 }
-                $( 'div.notifications div.list' ).slideToggle( "slow" );
+                $( '#notifications div.list' ).slideToggle( "slow" );
 
                 return false;
             } );  

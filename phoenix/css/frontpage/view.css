@@ -162,7 +162,7 @@
     display: block;
     width: 70px;
 }
-.frontpage div.notifications {
+#notifications {
     padding: 5px 0 0 0;
     top: -8px;
     margin: 0 0 20px 15%;
@@ -173,49 +173,44 @@
     background-color: #fdfdfd;
     z-index: 2;
 }
-.frontpage div.notifications div.expand a {
+#notifications div.expand a {
     background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 4px -1440px;
     padding: 0 0 0 18px;
 }
-.frontpage div.notifications h3 {
+#notifications h3 {
     margin: 0 0 10px 0;
     padding: 5px 0 0 20px;
 }
-.frontpage div.notifications div.list div.event {
+#notiflist div.event {
     float: none;
     width: 95%;
     margin: 2px auto;
     padding: 5px;
     cursor: pointer;
 }
-.frontpage div.notifications div.list div.event div.toolbox a {
+#notiflist div.event div.toolbox a {
     z-index: 100;
 }
-.frontpage div.notifications div.list div.event div.who img.avatar {
+#notiflist div.event div.who img.avatar {
     width: 50px;
     height: 50px;
     border: 1px solid #666;
     float: left;
     margin: 0 4px 0 0;
 }
-.frontpage div.notifications  div.list div.event div.subject p img {
+#notiflist div.event div.subject p img {
     float: right;
     /*margin-top: -17px;*/
 }
-.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
+#notiflist div.event div.subject p a.itempic img {
     width: 75px;
     height: 75px;
 }
-.fontpage div.notifications div.list div.event div.subject div.addfriend {
+#notiflist div.event div.subject div.addfriend {
     margin-bottom: 4px;
     font-size: 90%;
 }
-/*
-div.fontpage div.notifications div.list div.event div.subject div.addfriend  a {
-	padding: 0 0 0 18px;
-}
-*/
-.frontpage div.notifications div.list div.event div.subject div.viewprofile {
+#notiflist div.event div.subject div.viewprofile {
     font-size: 90%;
 }
 .onlinenow a img {
