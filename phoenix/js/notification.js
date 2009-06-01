@@ -19,10 +19,12 @@ var Notification = {
 		$( '#event_' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , "linear" , function() {
 			$( this ).remove();
             if ( Notification.VNotifs === 0 ) {
-                $( "div.notifications" ).remove();
+                $( "div.notifications" ).fadeOut( 150 , function() {
+                    $( this ).remove();  
+                } );
             }
 		} );
-		Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
+		//Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
         
         if ( Notification.INotifs > 0 ) {
             var newnotif = $( '#inotifs div.event:first-child' );
