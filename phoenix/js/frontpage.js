@@ -1,12 +1,12 @@
 var Frontpage = {
 	Closenewuser : function ( node ) {
-		$( 'div.frontpage div.ybubble' ).animate( { height : '0'} , 800 , function() {
+		$( '#frontpage div.ybubble' ).animate( { height : '0'} , 800 , function() {
 			$( this ).remove();
 		} );
 	},
 	DeleteShout : function( shoutid ) {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
-			$( 'div#s_' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
+			$( '#s_' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
 				$( this ).remove();
 			} );
 			Coala.Warm( 'shoutbox/delete' , { shoutid : shoutid } );
@@ -17,7 +17,7 @@ var Frontpage = {
         if ( $( 'div.members div.join' )[ 0 ] ) {
             $( 'div.members div.join input' )[ 1 ].focus();
         }
-        if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
+        if ( $( '#frontpage div.ybubble' )[ 0 ] ) {
             $( '#selectplace select' ).change( function() {
                 var place = $( '#selectplace select' )[ 0 ].value;
                 $( 'div.ybubble div.body div.saving' ).removeClass( 'invisible' );
