@@ -21,7 +21,7 @@
                     $apiarray[ 'photocount' ] = $album->Numphotos;
                     $apiarray[ 'commentscount' ] = $album->Numcomments;
                     foreach ( $images as $image ) {
-                        $apiarray[ 'photos' ][] = $photo->Id;
+                        $apiarray[ 'photos' ][] = $image->Id;
                     }
                 }
                 if ( !$xml ) {
