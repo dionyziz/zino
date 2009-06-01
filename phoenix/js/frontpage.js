@@ -377,7 +377,7 @@ var Frontpage = {
                 //height: targetheight,
                 opacity: "1"
             } , 900 , 'linear' );
-            $( '#fp_latest div.comments div.list>div:last-child' ).animate( {
+            $( '#fp_latest div.comments div.list > div:last-child' ).animate( {
                 opacity: "0"
             } , 900 , 'linear' , function() {
                 $( this ).remove();
