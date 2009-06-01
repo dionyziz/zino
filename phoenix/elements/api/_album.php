@@ -19,7 +19,7 @@
                 if ( !empty( $images ) ) {
                     $apiarray[ 'name' ] = $album->Name;
                     $apiarray[ 'photocount' ] = $album->Numphotos;
-                    $apiarray[ 'commentscount' ] = $theuser->Numcomments;
+                    $apiarray[ 'commentscount' ] = $album->Numcomments;
                     foreach ( $images as $image ) {
                         $apiarray[ 'photos' ][] = $photo->Id;
                     }
