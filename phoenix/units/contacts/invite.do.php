@@ -15,7 +15,7 @@
             foreach ( $contact_ids as $contact_id ){
                 $finder = new ContactFinder();
                 $contact = $finder->FindById( $contact_id );
-                if ( $contact->Mail == $user->Profile->Mail ){
+                if ( $contact->Mail == $user->Profile->Email ){
                     continue;
                 }
                 $contacts[] = $contact;
