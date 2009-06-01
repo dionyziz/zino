@@ -109,7 +109,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         }
                     ?></div>
                     <div class="expand">
-                        <a href="" title="Απόκρυψη">&nbsp;</a>
+                        <a id="notifexpand" href="" title="Απόκρυψη">&nbsp;</a>
                     </div>
                 </div><?php
             }

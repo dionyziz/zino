@@ -173,7 +173,7 @@
     background-color: #fdfdfd;
     z-index: 2;
 }
-#notifications div.expand a {
+#notifexpand {
     background: #cfc9fd url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 4px -1440px;
     padding: 0 0 0 18px;
 }

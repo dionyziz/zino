@@ -42,7 +42,7 @@ var Frontpage = {
                 $( this ).css( "border" , "0" ).css( "padding" , "5px" );
             } );
         
-            $( '#notifications div.expand a' ).click( function() {
+            $( '#notifexpand' ).click( function() {
                 if ( !Notification.Expanded ) {
                     $( this ).css( "background-position" , "4px -1440px" )
                     .attr( {
@@ -57,7 +57,7 @@ var Frontpage = {
                     } );
                     Notification.Expanded = false;
                 }
-                $( '#notifications div.list' ).slideToggle( "slow" );
+                $( '#notiflist' ).slideToggle( "slow" );
 
                 return false;
             } );  
