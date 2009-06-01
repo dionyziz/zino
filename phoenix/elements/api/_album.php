@@ -1,5 +1,5 @@
 <?php
-    class ElementApiAlbums extends Element {
+    class ElementApiAlbum extends Element {
         public function Render( tInteger $albumid, tText $user ) {
             global $libs;
             global $page;
