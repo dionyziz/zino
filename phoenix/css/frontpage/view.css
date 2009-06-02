@@ -253,7 +253,8 @@
 }
 .commfading {
     height: 24px;
-    background: url( 'http://static.zino.gr/phoenix/frontpagecommfade.png' ) bottom repeat-x;
+    /* frontpagecommfade */
+    background: url( 'attp://static.zino.gr/phoenix/sprite_x.png' ) 0 -995px;
     margin-top: -20px;
     position: relative;
 }
