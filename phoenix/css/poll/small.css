@@ -59,7 +59,8 @@ div.posmall div.results ul li dl dd div.option div.percentagebar div.rightrounde
 	width: 9px;
 }
 div.posmall div.results ul li dl dd div.option div.percentagebar div.middlerounded {
-	background: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' ) repeat-x top;
+    /* percantagebar-fade */
+    background: transparent url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -1028px;
 	height: 13px;
 }
 div.posmall div.results dl.pollinfo {
