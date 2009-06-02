@@ -4,7 +4,9 @@ div.tweetbox {
     left: 120px;
 }
 div.tweet {
-    background: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;
+    /*background: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;*/
+    /* tweet-mid */
+    background: transparent url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -835px;
     height: 55px;
     float: left;
     padding: 0;
