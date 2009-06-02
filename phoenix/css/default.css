@@ -60,10 +60,6 @@ h3.modaltitle {
     border-bottom: 1px solid #284659;
     color: #fff;
 }
-
-
-
-
 div#strip1left {
     float: left;
     background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
@@ -77,8 +73,8 @@ div#strip1right {
     height: 8px;
 }
 div#strip2 {
+    background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) #639dce repeat-x;
     /* siderfade */
-    background: #639dce url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 0;
     clear: both;
 }
 div#midstrip {
@@ -97,7 +93,8 @@ div#strip3left {
 }
 div#strip3middle {
     height: 17px;
-    background: url( 'http://static.zino.gr/phoenix/content_fade.png' ) repeat-x;
+    /* content_fade */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -814px;
 }
 div#strip3right {
     float: right;
