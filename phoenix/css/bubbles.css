@@ -70,7 +70,8 @@ div.bubble i.qright {
     bottom: 10px;
 }
 div.bubble i.qbottom {
-    background: url( 'http://static.zino.gr/phoenix/q_bottom.jpg' ) repeat-x bottom;
+    /* q_bottom */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -1047px;
     display: block;
     position: absolute;
     height: 10px;
