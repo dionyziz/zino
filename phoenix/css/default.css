@@ -73,7 +73,7 @@ div#strip1right {
     height: 8px;
 }
 div#strip2 {
-    background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) #639dce repeat-x;
+    background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) repeat-x;
     /* siderfade */
     clear: both;
 }
@@ -107,6 +107,8 @@ div#downstrip {
     color: #fff;
     height: 87px;
     background: url( 'http://static.zino.gr/phoenix/footerfade.png' ) repeat-x;
+    /* footerfade */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -400px;
 }
 div.objectinfo {
     margin: 0 0 0 0px;
