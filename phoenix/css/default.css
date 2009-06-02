@@ -77,7 +77,8 @@ div#strip1right {
     height: 8px;
 }
 div#strip2 {
-    background: url( 'http://static.zino.gr/phoenix/siderfade.png' ) #639dce repeat-x;
+    /* siderfade */
+    background: #639dce url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 0;
     clear: both;
 }
 div#midstrip {
