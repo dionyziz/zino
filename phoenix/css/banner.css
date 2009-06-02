@@ -9,7 +9,8 @@ div#lbanner > h1 {
     margin: 0;
 }
 div#mbanner {
-    background: url( 'http://static.zino.gr/phoenix/mbanner.png' ) repeat-x;
+    /* mbanner */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -743px;
     height: 65px;
 }
 div#mbanner > div {
