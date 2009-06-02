@@ -254,7 +254,7 @@
 .commfading {
     height: 24px;
     /* frontpagecommfade */
-    background: url( 'attp://static.zino.gr/phoenix/sprite_x.png' ) 0 -995px;
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -995px;
     margin-top: -20px;
     position: relative;
 }
