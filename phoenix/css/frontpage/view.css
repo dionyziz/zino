@@ -76,7 +76,8 @@
 	z-index: 999;
 }
 .frontpagejoin {
-    background: url( 'http://static.zino.gr/phoenix/joinfade.png' ) repeat-x;
+    /* joinfade */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -491px;
     height: 244px;
     margin: 0 -12px 0 -7px;
 }
