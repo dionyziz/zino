@@ -22,7 +22,8 @@ div.event div.toolbox span.time {
 div.event div.who {
 	border-top: 1px solid #ccc !important;
 	padding: 2px 0 2px 4px;
-	background: url( 'http://static.zino.gr/phoenix/commgradient.jpg' ) repeat-x top right;
+    /* commgradient.jpg */
+    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -918px;
 	color: #666;
 }
 div.event div.who a img.avatar {
