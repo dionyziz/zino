@@ -1,48 +1,48 @@
 div.list {
 	text-align: left;
 }
-div.event {
+.event {
 	float: left;
 	clear: both;
 	margin: 0 0 20px 0;
 	width: 100%;
     overflow: hidden;
 }
-div.event div.toolbox {
+.event div.toolbox {
 	float: right;
 	padding: 2px 6px 2px 2px;
 }
-div.event div.toolbox a.s_delete {
+.event div.toolbox a.s_delete {
 	color: transparent;
 }
-div.event div.toolbox span.time {
+.event div.toolbox span.time {
 	color: #999;
 	font-size: 80%;
 }
-div.event div.who {
+.event div.who {
 	border-top: 1px solid #ccc !important;
 	padding: 2px 0 2px 4px;
     /* commgradient.jpg */
     background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -918px;
 	color: #666;
 }
-div.event div.who a img.avatar {
+.event div.who a img.avatar {
 	width: 50px;
 	height: 50px;
 	border: 1px solid #666;
 	float: left;
 	margin: 0 4px 0 0;
 }
-div.event div.subject {
+.event div.subject {
 	padding: 5px 0 0 60px;
 }
-div.event div.subject p {
+.event div.subject p {
 	padding: 0;
 	margin: 0 0 4px 0;
 }
-div.event div.subject p span.text {
+.event div.subject p span.text {
 	font-style: oblique;
 }
-div.event div.subject p a.itempic {
+.event div.subject p a.itempic {
 	float: right;
 }

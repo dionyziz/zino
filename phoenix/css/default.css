@@ -60,49 +60,49 @@ h3.modaltitle {
     border-bottom: 1px solid #284659;
     color: #fff;
 }
-div#strip1left {
+#strip1left {
     float: left;
     background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
-div#strip1right {
+#strip1right {
     float: right;
     background: url( 'http://static.zino.gr/phoenix/rounded_content2.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
-div#strip2 {
+#strip2 {
     background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) repeat-x;
     /* siderfade */
     clear: both;
 }
-div#midstrip {
+#midstrip {
     background: #fff;
 }
-div#content {
+#content {
     margin: 0 11px 0 11px;
     background: #fff;
     padding: 0 12px 0 7px;
 }
-div#strip3left {
+#strip3left {
     float: left;
     background: url( 'http://static.zino.gr/phoenix/rounded_content3.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
-div#strip3middle {
+#strip3middle {
     height: 17px;
     /* content_fade */
     background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -814px;
 }
-div#strip3right {
+#strip3right {
     float: right;
     background: url( 'http://static.zino.gr/phoenix/rounded_content4.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
-div#downstrip {
+#downstrip {
     text-align: center;
     color: #fff;
     height: 87px;
