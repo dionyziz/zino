@@ -17,7 +17,7 @@
             $userids = array();
             
             foreach ( $latest as $frontpagepoll ) {
-                $pollids[] = $frontpagepoll->Imageid;
+                $pollids[] = $frontpagepoll->Pollid;
                 $userids[] = $frontpagepoll->Userid;
             }
             
