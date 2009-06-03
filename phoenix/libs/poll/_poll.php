@@ -10,6 +10,7 @@
 
     $libs->Load( 'poll/option' );
     $libs->Load( 'url' );
+	$libs->Load( 'poll/frontpage' );
 
     class PollFinder extends Finder {
         protected $mModel = 'Poll';

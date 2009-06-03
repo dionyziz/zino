@@ -4,6 +4,7 @@
     $libs->Load( 'bulk' );
     $libs->Load( 'url' );
     $libs->Load( 'user/user' );
+	$libs->Load( 'journal/frontpage' );
 
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
