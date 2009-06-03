@@ -25,7 +25,7 @@
             
             w_assert( is_array( $users ) );
             
-            $journalfinder = New ImageFinder();
+            $journalfinder = New JournalFinder();
             $journals = $journalfinder->FindByIds( $journalids );
             w_assert( is_array( $journals ) );
             

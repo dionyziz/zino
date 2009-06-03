@@ -26,7 +26,7 @@
             
             w_assert( is_array( $users ) );
             
-            $pollfinder = New ImageFinder();
+            $pollfinder = New PollFinder();
             $polls = $pollfinder->FindByIds( $pollids );
             w_assert( is_array( $polls ) );
             
