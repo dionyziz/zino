@@ -170,7 +170,8 @@
             'api/user'          => 'api/user',
             'api/friends'       => 'api/friends',
             'api/albums'        => 'api/albums',
-            'api/album'         => 'api/album'
+            'api/album'         => 'api/album',
+            'api/image'         => 'api/image'
         );
     }
     
