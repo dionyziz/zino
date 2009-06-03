@@ -221,7 +221,7 @@
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="pthumbs plist"><?php
                         $finder = New ImageFinder();
-                        $photos = $finder->FindAround( $image , 5 );
+                        $photos = $finder->FindAround( $image , 10 );
                         $pivot = $i = 0;
                         foreach ( $photos as $photo ) {
                             if ( $photo->Id == $image->Id ) {
