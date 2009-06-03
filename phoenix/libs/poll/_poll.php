@@ -33,7 +33,7 @@
                     `poll_id` IN :pollids'
             );
             $query->BindTable( 'polls' );
-            $query->Bind( 'pollids', $imageids );
+            $query->Bind( 'pollids', $pollids );
             
             return $this->FindBySQLResource( $query->Execute() );
         }

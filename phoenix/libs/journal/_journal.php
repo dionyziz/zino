@@ -32,7 +32,7 @@
                     `journal_id` IN :journalids'
             );
             $query->BindTable( 'journals' );
-            $query->Bind( 'journalids', $imageids );
+            $query->Bind( 'journalids', $journalids );
             
             return $this->FindBySQLResource( $query->Execute() );
         }
