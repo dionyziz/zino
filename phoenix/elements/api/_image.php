@@ -18,7 +18,7 @@
                 $apiarray[ 'id' ] = $image->Id;
                 $apiarray[ 'name' ] = $image->Name;
                 $favfinder = New FavouriteFinder();
-                $favourites = $favfinder->FindByUserAndEntity( $theuser, $image );
+                $favourites = $favfinder->FindByEntity( $image, 100 );
                 if ( !empty( $favourites ) ) {
                     foreach ( $favourites as $favourite ) {
                         $apiarray[ 'favourites' ][] = $favourite->User->Subdomain;
