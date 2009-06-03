@@ -15,6 +15,28 @@
     class PollFinder extends Finder {
         protected $mModel = 'Poll';
 
+		public function FindByIds( $pollids ) {
+            w_assert( is_array( $pollids ), 'PollFinder->FindByIds() expects an array' );
+            foreach ( $pollids as $pollid ) {
+                w_assert( is_int( $pollid ), 'Each item of the array passed to PollFinder->FindByIds() must be an integer' );
+            }
+            if ( !count( $pollids ) ) {
+                return array();
+            }
+            
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :polls
+                WHERE
+                    `poll_id` IN :pollids'
+            );
+            $query->BindTable( 'polls' );
+            $query->Bind( 'pollids', $imageids );
+            
+            return $this->FindBySQLResource( $query->Execute() );
+        }
         public function FindByUser( $user, $offset = 0, $limit = 25 ) {
             $poll = New Poll();
             $poll->Userid = $user->Id;
