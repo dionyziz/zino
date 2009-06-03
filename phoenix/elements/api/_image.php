@@ -14,7 +14,7 @@
             
             $image = New Image( $imageid->Get() );
             
-            if ( $image->Exists() && $image->Ownerid == $theuser->Id && $image->Ownertype == TYPE_USERPROFILE ) {
+            if ( $image->Exists() && $image->Userid == $theuser->Id && $image->Ownertype == TYPE_USERPROFILE ) {
                 $apiarray[ 'id' ] = $Image->Id;
                 $apiarray[ 'name' ] = $image->Name;
                 $favfinder = New FavouritesFinder();
