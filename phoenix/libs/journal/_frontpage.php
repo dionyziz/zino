@@ -39,7 +39,7 @@
             foreach ( $journals as $journal ) {
                 w_assert( $journal instanceof Journal );
                 w_assert( $journal->Id > 0 );
-                $imagebyid[ $journal->Id ] = $journal;
+                $journalbyid[ $journal->Id ] = $journal;
             }
             
             $c = 0;
@@ -47,10 +47,10 @@
                 if ( isset( $userbyid[ $frontpagejournal->Userid ] ) ) {
                     $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpagejournal->Userid ] );
                 }
-                if ( isset( $imagebyid[ $frontpagejournal->Imageid ] ) ) {
-                    $latest[ $i ]->CopyJournalFrom( $imagebyid[ $frontpagejournal->Imageid ] );
-                    if ( isset( $userbyid[ $frontpageimage->Userid ] ) ) {
-                        $latest[ $i ]->Image->CopyUserFrom( $userbyid[ $frontpagejournal->Userid ] );
+                if ( isset( $journalbyid[ $frontpagejournal->Journalid ] ) ) {
+                    $latest[ $i ]->CopyJournalFrom( $journalbyid[ $frontpagejournal->Journalid ] );
+                    if ( isset( $userbyid[ $frontpagejournal->Userid ] ) ) {
+                        $latest[ $i ]->Journal->CopyUserFrom( $userbyid[ $frontpagejournal->Userid ] );
                     }
                 }
             }

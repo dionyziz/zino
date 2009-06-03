@@ -40,7 +40,7 @@
             foreach ( $polls as $poll ) {
                 w_assert( $poll instanceof Poll );
                 w_assert( $poll->Id > 0 );
-                $imagebyid[ $poll->Id ] = $poll;
+                $pollbyid[ $poll->Id ] = $poll;
             }
             
             $c = 0;
@@ -48,10 +48,10 @@
                 if ( isset( $userbyid[ $frontpagepoll->Userid ] ) ) {
                     $latest[ $i ]->CopyUserFrom( $userbyid[ $frontpagepoll->Userid ] );
                 }
-                if ( isset( $imagebyid[ $frontpagepoll->Imageid ] ) ) {
-                    $latest[ $i ]->CopyPollFrom( $imagebyid[ $frontpagepoll->Imageid ] );
-                    if ( isset( $userbyid[ $frontpageimage->Userid ] ) ) {
-                        $latest[ $i ]->Image->CopyUserFrom( $userbyid[ $frontpagepoll->Userid ] );
+                if ( isset( $pollbyid[ $frontpagepoll->Pollid ] ) ) {
+                    $latest[ $i ]->CopyPollFrom( $pollbyid[ $frontpagepoll->Pollid ] );
+                    if ( isset( $userbyid[ $frontpagepoll->Userid ] ) ) {
+                        $latest[ $i ]->Poll->CopyUserFrom( $userbyid[ $frontpagepoll->Userid ] );
                     }
                 }
             }
