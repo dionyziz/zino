@@ -9,7 +9,6 @@
             
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $user->Get() );
-            die( $theuser !== false );
             if ( $theuser !== false ) {
                 $friendfinder = New FriendRelationFinder();
                 $friends = $friendfinder->FindByUser( $theuser );
