@@ -20,6 +20,11 @@
                 $contact = $finder->FindById( $id );
                 if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
                     $email = $contact->Mail;
+                    $mailfinder = new UserProfileFinder();
+                    $userprofiles = $mailfinder->FindAllUsersByEmails( $email );
+                    if ( count( $userprofiles ) != 0 ){
+                        $email = '';
+                    }
                     $parts = explode( '@', $contact->Mail );
                     $username = $parts[ 0 ];
                     $finder = new UserFinder();
