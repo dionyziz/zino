@@ -24,6 +24,18 @@
                         $apiarray[ 'favourites' ][] = $favourite->User->Subdomain;
                     }
                 }
+                $tagfinder = New ImageTagFinder();
+                $tags = $tagfinder->FindByImage( $image );
+                foreach ( $tags as $tag ) {
+                    unset( $tagarray );
+                    $person = New User( $tag->Personid );
+                    $tagarray[ 'tagged' ] = $person->Subdomain;
+                    $tagarray[ 'left' ] = $tag->Left;
+                    $tagarray[ 'top' ] = $tag->Top;
+                    $tagarray[ 'width' ] = $tag->Width;
+                    $tagarray[ 'height' ] = $tag->height;
+                    $apiarray[ 'tags' ][] = $tagarray;
+                }
                 if ( !$xml ) {
                     echo w_json_encode( $apiarray );
                 }
