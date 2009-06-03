@@ -1,10 +1,16 @@
 <?php
-
+	/*
+		MASKED
+		By: Rhapsody
+		Reason: Changed the journal lib path for the intergration of frontpage journals
+		DON'T unmask me fish, people depend on me T_T
+	*/
+	
     function ActionCommentFill( tInteger $typeid, tInteger $itemid ) {
         global $libs;
         $libs->Load( 'comment' );
         $libs->Load( 'poll' );
-        $libs->Load( 'journal' );
+        $libs->Load( 'journal/journal' );
         $libs->Load( 'image/image' );
 
         $typeid = $typeid->Get();

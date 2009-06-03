@@ -10,7 +10,7 @@
         public function SetUp() {
             global $libs;
             $libs->Load( 'favourite' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
 
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testfavourite' );

@@ -10,7 +10,7 @@
             global $libs;
 
             $libs->Load( 'comment' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
 
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testcomments' );
