@@ -17,7 +17,7 @@
             if ( $image->Exists() && $image->Userid == $theuser->Id && $image->Album->Ownertype == TYPE_USERPROFILE ) {
                 $apiarray[ 'id' ] = $Image->Id;
                 $apiarray[ 'name' ] = $image->Name;
-                $favfinder = New FavouritesFinder();
+                $favfinder = New FavouriteFinder();
                 $favourites = $finder->FindByUserAndEntity( $user, $image );
                 if ( !empty( $favourites ) ) {
                     foreach ( $favourites as $favourite ) {
