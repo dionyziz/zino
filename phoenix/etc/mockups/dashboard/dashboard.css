@@ -338,7 +338,7 @@ div.fuckoff {
 .dashboard .documents .document div.data {
     font-size: 80%;
     float: left;
-    width: 300px;
+    width: 400px;
     margin: 5px;
     height: 55px;
     overflow: hidden;
@@ -356,7 +356,7 @@ div.fuckoff {
 .dashboard .documents .document .chat {
     height: 100%;
     background-color: #def;
-    margin-left: 300px;
+    margin-left: 400px;
     background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-light.png' );
     background-repeat: repeat-x;
     background-position: 0 -2px;
