@@ -24,8 +24,7 @@
                     else {
                         ?>Ο <?php
                     }
-                    echo $theuser->Name;
-                    echo $tweet->Message;
+                    echo $theuser->Name . ' ' . $tweet->Message;
                     $apiarray = ob_get_clean();
                 }
                 else {
