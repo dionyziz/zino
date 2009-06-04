@@ -437,7 +437,9 @@
                         Animating: false,
                         MouseOver: false,
                         ShowComment: function ( div ) {
-                            alert( div );
+                            var avatar = div.find( 'div.who img' )[ 0 ].src;
+                            var username = div.find( 'div.who img' )[ 0 ].alt;
+                            alert( username + ' says: ' + div.find( 'span.text' ).text() );
                         }
                     }
                 };
