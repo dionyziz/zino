@@ -172,7 +172,8 @@
             'api/albums'        => 'api/albums',
             'api/album'         => 'api/album',
             'api/image'         => 'api/image',
-            'api/status'        => 'api/status'
+            'api/status'        => 'api/status',
+            'api/avatar'        => 'api/avatar'
         );
     }
     
