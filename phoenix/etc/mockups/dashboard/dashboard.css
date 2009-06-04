@@ -265,7 +265,7 @@ div.fuckoff {
     border: 1px solid #def;
     color: black;
     vertical-align: middle;
-    height: 80px;
+    height: 65px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -332,13 +332,15 @@ div.fuckoff {
 .dashboard .documents .document .data img.data {
     float: left;
     margin: 0 5px 0 0;
+    position: relative;
+    top: -10px;
 }
 .dashboard .documents .document div.data {
     font-size: 80%;
     float: left;
     width: 300px;
     margin: 5px;
-    height: 70px;
+    height: 55px;
     overflow: hidden;
 }
 .dashboard .documents .document div.data span.info {
