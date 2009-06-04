@@ -437,11 +437,28 @@
                         Animating: false,
                         MouseOver: false,
                         ShowComment: function ( div ) {
+                            var q = $( '.documents .document div.chat ol' );
+                            var i = Math.floor( Math.random() * q.length );
+                            
                             var avatar = div.find( 'div.who img' )[ 0 ].src;
                             var username = div.find( 'div.who img' )[ 0 ].alt;
                             var text = div.find( 'span.text' ).text();
                             text = text.substr( 1, text.length - 2 );
                             alert( username + ' says: ' + text );
+                            
+                            var li = document.createElement( 'li' );
+                            var img = document.createElement( 'img' );
+                            img.src = avatar;
+                            img.alt = username;
+                            
+                            var strong = document.createElement( 'strong' );
+                            strong.appendChild( document.createTextNode( username + ': ' ) );
+                            
+                            li.appendChild( img );
+                            li.appendChild( strong );
+                            li.appendChild( document.createTextNode( text ) );
+                            
+                            q[ i ].appendChild( li );
                         }
                     }
                 };
