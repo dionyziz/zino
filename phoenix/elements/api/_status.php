@@ -15,7 +15,7 @@
                 $tweet = $tweetfinder->FindLastByUserId( $theuser->Id );
                 if ( $tweet !== false ) {
                     ob_start();
-                    if ( $gender == 'f' ) {
+                    if ( $theuser->Gender == 'f' ) {
                         ?>Η <?php
                     }
                     elseif ( $userid == 872 ) {
