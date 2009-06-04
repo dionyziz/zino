@@ -400,9 +400,9 @@ li.last {
     margin-left: 600px;
     background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-light-info.png' );
 }
-.dashboard .documents div.focus .chat {
+.dashboard .documents li.focus .chat {
     background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-light.png' );
 }
-.dashboard div.documents div.focus ol.docs > li {
+.dashboard div.documents ol.docs > li.focus {
     background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2.png' );
 }
