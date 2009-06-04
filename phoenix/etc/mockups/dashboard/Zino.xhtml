@@ -186,7 +186,7 @@
                                             <a href="#" class="delete"></a>
                                             <div class="data">
                                                 <img src="http://images2.zino.gr/media/7160/184531/184531_100.jpg" alt="emangel" title="emangel" class="data" />
-                                                emangel <img src="file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/dashboard/breadcrumb.png" alt="&gt;" />
+                                                emangel <img src="http://localhost/dashboard/breadcrumb.png" alt="&gt;" />
                                                 <span class="info">
                                                     <h3>Τι όμορφη κούκλα!</h3>
                                                     στο album <strong>pics for/by friends^^</strong>
@@ -271,7 +271,7 @@
                                             <div class="br corner"></div><div class="bl corner"></div>
                                             <a href="#" class="delete"></a>
                                             <div class="data">
-                                                chorvus <img src="file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/dashboard/breadcrumb.png" alt="&gt;" />
+                                                chorvus <img src="http://localhost/dashboard/breadcrumb.png" alt="&gt;" />
                                                 <span class="info">
                                                     <h3>Πόσο πέφτουλας είσαι;</h3>
                                                     <strong>40% Αντι-πέφτουλας</strong>, 29% Φλτερτάτος, 13% Μαμούχαλος, 14% Αρχιπέφτουλας, 4% Πέφτουλας
@@ -313,7 +313,7 @@
                                             <div class="br corner"></div><div class="bl corner"></div>
                                             <a href="#" class="delete"></a>
                                             <div class="data">
-                                                Izual <img src="file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/dashboard/breadcrumb.png" alt="&gt;" />
+                                                Izual <img src="http://localhost/dashboard/breadcrumb.png" alt="&gt;" />
                                                 <span class="info">
                                                     <h3>Οι Blink επιστρέφουν...</h3>
                                                     <strong>Αφορμή για τα παρακάτω βιντεα</strong>
@@ -402,7 +402,7 @@
                                     } );
                                     ExcaliburSettings.Production = true;
                                     setTimeout( function () {
-                                        Comet.Init( 'e2204478745e821295dc57d3213e549b' );
+                                        Comet.Init( ( Math.random() + '' ).replace( '.', '' ) );
                                         Comet.Subscribe( 'FrontpageCommentNew' );
                                     }, 100 );
                                 } );
