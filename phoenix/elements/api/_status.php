@@ -12,7 +12,7 @@
             
             if ( $theuser !== false ) {
                 $tweetfinder = New StatusBoxFinder();
-                $tweet = $finder->FindLastByUserId( $userid );
+                $tweet = $tweetfinder->FindLastByUserId( $userid );
                 if ( $tweet !== false ) {
                     ob_start();
                     if ( $gender == 'f' ) {
