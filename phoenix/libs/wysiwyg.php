@@ -115,7 +115,7 @@
             $text
         );
         $text = preg_replace(
-            '#\bhttp\://www.youtube.com/watch\?v=([a-zA-Z0-9_-]+)\b#',
+            '#\bhttp\://www.youtube.com/watch\?v=([a-zA-Z0-9_-]+)[a-zA-Z0-9./+?=&\(\)_;\#~%-]*\b#',
             '<object width="297" height="240"><param name="movie" value="http://www.youtube.com/v/\1"></param><embed src="http://www.youtube.com/v/\1" type="application/x-shockwave-flash" width="297" height="240"></embed></object>',
             $text
         );
