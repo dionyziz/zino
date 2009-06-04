@@ -253,7 +253,7 @@ div.fuckoff {
 .dashboard div.documents ol.docs > li {
     border: 1px solid #375583;
     position: relative;
-    background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-pale.png' );
     background-position: top;
     background-repeat: repeat-x;
     background-color: #d0dff0;
@@ -357,7 +357,7 @@ div.fuckoff {
     height: 100%;
     background-color: #def;
     margin-left: 400px;
-    background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-light.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/dashboard/document-bg2-light-pale.png' );
     background-repeat: repeat-x;
     background-position: 0 -2px;
     color: #666;
@@ -365,6 +365,7 @@ div.fuckoff {
 }
 .dashboard .documents .document .chat img {
     vertical-align: text-top;
+    opacity: 0.7;
 }
 .dashboard .document .chat strong {
     color: #456;
@@ -382,10 +383,15 @@ div.fuckoff {
     background: none;
     border: none;
 }
+.dashboard .documents .document .chat ol li {
+    opacity: 0.9;
+}
 li.last {
     border-bottom: 5px solid #666;
     background-color: red;
     z-index: 10;
+}
+.dashboard ol.docs li div.data {
 }
 .dashboard ol.docs > li.typeinfo div.data {
     width: 600px;
