@@ -400,9 +400,10 @@
                                         
                                         return false;
                                     } );
-                                    alert( Comet );
-                                    Comet.Init( 'e2204478745e821295dc57d3213e549b' );
-                                    Comet.Subscribe( 'FrontpageCommentNew' );
+                                    setTimeout( function () {
+                                        Comet.Init( 'e2204478745e821295dc57d3213e549b' );
+                                        Comet.Subscribe( 'FrontpageCommentNew' );
+                                    }, 100 );
                                 } );
                                 
                             </script>
