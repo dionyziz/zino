@@ -16,15 +16,15 @@
                 if ( $tweet !== false ) {
                     ob_start();
                     if ( $gender == 'f' ) {
-                        ?>Η <?php
+                        ?>Ξ— <?php
                     }
                     elseif ( $userid == 872 ) {
-                        ?>Το <?php
+                        ?>Ξ¤ΞΏ <?php
                     }
                     else {
-                        ?>Ο <?php
+                        ?>Ξ <?php
                     }
-                    echo $name;
+                    echo $theuser->Name;
                     echo $tweet->Message;
                     $apiarray = ob_get_clean();
                 }
