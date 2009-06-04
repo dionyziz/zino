@@ -1,18 +1,35 @@
 <?php
-    /*
-        MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
-    */
-    
     global $libs;
 
     $libs->Load( 'poll/option' );
     $libs->Load( 'url' );
+	$libs->Load( 'poll/frontpage' );
 
     class PollFinder extends Finder {
         protected $mModel = 'Poll';
 
+		public function FindByIds( $pollids ) {
+            w_assert( is_array( $pollids ), 'PollFinder->FindByIds() expects an array' );
+            foreach ( $pollids as $pollid ) {
+                w_assert( is_int( $pollid ), 'Each item of the array passed to PollFinder->FindByIds() must be an integer' );
+            }
+            if ( !count( $pollids ) ) {
+                return array();
+            }
+            
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :polls
+                WHERE
+                    `poll_id` IN :pollids'
+            );
+            $query->BindTable( 'polls' );
+            $query->Bind( 'pollids', $pollids );
+            
+            return $this->FindBySQLResource( $query->Execute() );
+        }
         public function FindByUser( $user, $offset = 0, $limit = 25 ) {
             $poll = New Poll();
             $poll->Userid = $user->Id;
@@ -49,6 +66,45 @@
             $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
+		public function FindFrontpageLatest( $offset = 0, $limit = 4 ) {
+            $finder = New FrontpagePollFinder();
+            $found = $finder->FindLatest( $offset, $limit );
+            $pollids = array();
+            foreach ( $found as $frontpagepoll ) {
+                $pollids[] = $frontpagepoll->Pollid;
+            }
+            if ( !count( $pollids ) ) {
+                return array();
+            }
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :polls 
+                    LEFT JOIN :users ON
+                        `poll_userid` = `user_id`
+                WHERE
+                    `poll_id` IN :pollids'
+            );
+            $query->BindTable( 'polls', 'users' );
+            $query->Bind( 'pollids', $pollids );
+            
+            $res = $query->Execute();
+            $polls = array();
+            while ( $row = $res->FetchArray() ) {
+                $poll = New Poll( $row );
+                $poll->CopyUserFrom( New User( $row ) );
+                $polls[] = $poll;
+            }
+
+            $ret = array();
+            foreach ( $polls as $poll ) {
+                $ret[ $poll->Id ] = $poll;
+            }
+            krsort( $ret );
+
+            return $ret;
         }
     }
 
@@ -141,8 +197,21 @@
             ++$this->User->Count->Polls;
             $this->User->Count->Save();
             
+			$this->MakeFrontpage();
+			
+
             Sequence_Increment( SEQUENCE_POLL );
         }
+		protected function MakeFrontpage() {
+			$frontpage = New FrontpagePoll( $this->Userid );
+			
+            if ( !$frontpage->Exists() ) {
+                $frontpage = New FrontpagePoll();
+                $frontpage->Userid = $this->Userid;
+            }
+            $frontpage->Pollid = $this->Id;
+            $frontpage->Save();
+		}
         protected function OnDelete() {
             global $libs;
 
@@ -173,5 +242,4 @@
             $this->Options = $this->HasMany( 'PollOptionFinder', 'FindByPoll', $this );
         }    
     }
-
 ?>

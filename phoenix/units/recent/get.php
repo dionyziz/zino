@@ -15,7 +15,7 @@
             $libs->Load( 'image/image' );
             $libs->Load( 'favourite' );
             $libs->Load( 'poll/poll' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
             $libs->Load( 'album' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );

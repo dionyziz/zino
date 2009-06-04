@@ -16,7 +16,7 @@
         $time_banned = $time_banned*24*60*60;//<--make days to secs
         
         $libs->Load( 'adminpanel/ban' );
-        $libs->Load( 'journal' );
+        $libs->Load( 'journal/journal' );
         $libs->Load( 'user/user' );
         $libs->Load( 'album' );
         $libs->Load( 'image/frontpage' );

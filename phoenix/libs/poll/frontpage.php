@@ -1,10 +1,4 @@
 <?php
-	/*
-		MASKED
-		By: Rhapsody
-		Reason: New class for displaying the latest polls on the frontpage
-	*/
-	
     class FrontpagePollFinder extends Finder {
         protected $mModel = 'FrontpagePoll';
 

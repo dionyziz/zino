@@ -1,9 +1,4 @@
 <?php
-	/*
-		MASKED
-		By: Rhapsody
-		Reason: Adding new frontpage journal finder 
-	*/
     global $libs;
 
     $libs->Load( 'bulk' );

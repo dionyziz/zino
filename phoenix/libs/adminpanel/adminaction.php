@@ -1,13 +1,13 @@
 <?php
     /* 
         Developer:Pagio
-    */   
+    */
 
     global $libs;
 
     $libs->Load( 'poll/poll' );
     $libs->Load( 'image/image' );
-    $libs->Load( 'journal' );
+    $libs->Load( 'journal/journal' );
     $libs->Load( 'comment' );
     
     class AdminActionFinder extends Finder {

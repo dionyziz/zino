@@ -1,9 +1,4 @@
 <?php
-	/*
-		MASKED
-		By: Rhapsody
-		Reason: New class for displaying the latest journals on the frontpage
-	*/
     class FrontpageJournalFinder extends Finder {
         protected $mModel = 'FrontpageJournal';
 

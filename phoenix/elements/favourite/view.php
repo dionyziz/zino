@@ -7,7 +7,7 @@
             global $page;
 
             $libs->Load( 'favourite' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
             
             $subdomain = $subdomain->Get();
             $type = $type->Get();

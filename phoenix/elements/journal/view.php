@@ -1,5 +1,4 @@
 <?php
-    
     class ElementJournalView extends Element {
         public function Render( tInteger $id, tInteger $commentid, tInteger $pageno, tText $subdomain, tText $url ) {
             global $page;
@@ -11,7 +10,7 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
             $libs->Load( 'user/user' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
 
             Element( 'user/subdomainmatch' );
 

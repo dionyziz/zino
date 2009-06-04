@@ -1,9 +1,7 @@
 <?php
 	/*
-		MASKED
-		By: Rhapsody
-		Reason: Changed the journal lib path for the intergration of frontpage journals
-		DON'T unmask me fish, people depend on me T_T
+		MASKED 
+		By: ...?
 	*/
 	
     function ActionCommentFill( tInteger $typeid, tInteger $itemid ) {
