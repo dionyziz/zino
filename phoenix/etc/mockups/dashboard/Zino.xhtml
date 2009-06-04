@@ -439,7 +439,9 @@
                         ShowComment: function ( div ) {
                             var avatar = div.find( 'div.who img' )[ 0 ].src;
                             var username = div.find( 'div.who img' )[ 0 ].alt;
-                            alert( username + ' says: ' + div.find( 'span.text' ).text() );
+                            var text = div.find( 'span.text' ).text();
+                            text = text.substr( 1, text.length - 2 );
+                            alert( username + ' says: ' + text );
                         }
                     }
                 };
