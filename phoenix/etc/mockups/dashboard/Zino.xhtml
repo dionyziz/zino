@@ -444,12 +444,13 @@
                             var username = div.find( 'div.who img' )[ 0 ].alt;
                             var text = div.find( 'span.text' ).text();
                             text = text.substr( 1, text.length - 2 );
-                            alert( username + ' says: ' + text );
                             
                             var li = document.createElement( 'li' );
                             var img = document.createElement( 'img' );
                             img.src = avatar;
                             img.alt = username;
+                            img.width = 20;
+                            img.height = 20;
                             
                             var strong = document.createElement( 'strong' );
                             strong.appendChild( document.createTextNode( username + ': ' ) );
@@ -458,7 +459,7 @@
                             li.appendChild( strong );
                             li.appendChild( document.createTextNode( text ) );
                             
-                            q[ i ].appendChild( li );
+                            q[ i ].insertBefore( li, q[ i ].firstChild );
                         }
                     }
                 };
