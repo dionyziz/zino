@@ -11,7 +11,6 @@
             return false;
         }
         $mails = $mails->Get();
-		echo "alert( $mails )";
         if ( strlen( $mails ) != 0 ){
             $emails = explode( ';', $mails );
             $contact = new Contact();
@@ -39,7 +38,9 @@
                     $contacts[] = $contact;
                 }
             }
-            EmailFriend( $contacts );
+			if ( !empty( $contacts ) ){
+				EmailFriend( $contacts );
+			}
         }
         ?>window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
