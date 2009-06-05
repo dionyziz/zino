@@ -25,7 +25,7 @@
 					$friendFinder = new FriendRelationFinder();
 					$friendship = $friendFinder->IsFriend( $user, $newUser );
 					if ( $friendship == 1 || $friendship == 3 ){
-						echo "done";
+						echo $friendship;
 						continue;
 					}
                     $relation = New FriendRelation();
