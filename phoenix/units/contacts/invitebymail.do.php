@@ -5,6 +5,7 @@
         global $rabbit_settings;
         $libs->Load( 'contacts/contacts' );
 		$libs->Load( 'relation/relation' );
+		$libs->Load( 'rabbit/helpers/validate' );
         
         if ( !$user->Exists() ) {
             return false;
@@ -14,7 +15,7 @@
             $emails = explode( ';', $mails );
             $contact = new Contact();
             foreach ( $emails as $email ){
-				if ( $email == $user->Profile->Email ){
+				if ( $email == $user->Profile->Email || !ValidEmail( $email ) ){
 					continue;
 				}
                 $finder = new UserProfileFinder();
