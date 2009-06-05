@@ -34,7 +34,7 @@
 					}
                     $relation = New FriendRelation();
                     $relation->Userid = $user->Id;
-                    $relation->Friendid = $newuser->Id;
+                    $relation->Friendid = $newUser->Id;
                     $relation->Typeid = 3;
                     $relation->Save();
                     Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
