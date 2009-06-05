@@ -119,6 +119,7 @@ var Join = {
 				$( $( 'form.joinform div > span' )[ 6 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" );
 				});
+				$( 'div a.button' ).removeClass( 'button_disabled' );
 			}
         });
         
