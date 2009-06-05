@@ -30,7 +30,9 @@
 		$mailfinder = New UserProfileFinder();
 		$mailid = $mailfinder->FindAllUsersByEmails( array ( $email ) );
 		if ( !empty( $mailid ) ){
-			?>Join.emailexists = true;$( $( 'form.joinform div > span' )[ 6 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );<?php
+			?>Join.emailexists = true;
+			document.body.style.cursor = 'default';
+			$( $( 'form.joinform div > span' )[ 6 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );<?php
 			return;
 		}
         $finder = New UserFinder(); 
