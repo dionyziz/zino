@@ -9,7 +9,7 @@
         if ( !$user->Exists() ) {
             return false;
         }
-        
+        $mails = $mails->Get();
         if ( strlen( $mails ) != 0 ){
             $emails = explode( ';', $mails );
             $contact = new Contact();
