@@ -59,7 +59,8 @@
             if ( $members[ $contact->Mail ] != "" ){
                 $theuser = new User( $members[ $contact->Mail ] );
                 $finder = New FriendRelationFinder();
-                if ( $finder->IsFriend( $theuser, $user ) ){
+				$friendship = $finder->IsFriend( $theuser, $user );
+                if ( $friendship == 1 || $friendship == 3 ){
                     continue;
                 }
                 ?>contacts.addContactInZino( '<?php
