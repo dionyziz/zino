@@ -11,6 +11,7 @@
             return false;
         }
         $mails = $mails->Get();
+		echo "alert( $mails )";
         if ( strlen( $mails ) != 0 ){
             $emails = explode( ';', $mails );
             $contact = new Contact();
