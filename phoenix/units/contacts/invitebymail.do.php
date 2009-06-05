@@ -38,7 +38,9 @@
                     $contacts[] = $contact;
                 }
             }
-            EmailFriend( $contacts );
+			if ( !empty( $contacts ) ){
+				EmailFriend( $contacts );
+			}
         }
         ?>window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];

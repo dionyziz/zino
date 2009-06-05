@@ -24,6 +24,7 @@
                     $newuser = new User( $mailid[ $email ] );
 					$friendFinder = new FriendRelationFinder();
 					if ( $friendFinder->IsFriend( $user, $newUser ) ){
+						echo "done";
 						continue;
 					}
                     $relation = New FriendRelation();
