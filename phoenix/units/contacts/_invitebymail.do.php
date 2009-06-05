@@ -21,7 +21,7 @@
                 $finder = new UserProfileFinder();
                 $mailid = $finder->FindAllUsersByEmails( array ( $email ) );
 				if ( count( $mailid ) != 0 ){
-                    $newuser = new User( $mailid[ $email ] );
+                    $newUser = new User( $mailid[ $email ] );
 					$friendFinder = new FriendRelationFinder();
 					$friendship = $friendFinder->IsFriend( $user, $newUser );
 					if ( $friendship == 1 || $friendship == 3 ){
