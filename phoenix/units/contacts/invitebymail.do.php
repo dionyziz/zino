@@ -22,6 +22,10 @@
                 $mailid = $finder->FindAllUsersByEmails( array ( $email ) );
 				if ( count( $mailid ) != 0 ){
                     $newuser = new User( $mailid[ $email ] );
+					$friendFinder = new FriendRelationFinder();
+					if ( $friendFinder->IsFriend( $user, $newUser ) ){
+						continue;
+					}
                     $relation = New FriendRelation();
                     $relation->Userid = $user->Id;
                     $relation->Friendid = $newuser->Id;
