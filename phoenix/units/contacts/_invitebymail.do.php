@@ -25,6 +25,8 @@
 					$friendFinder = new FriendRelationFinder();
 					$friendship = $friendFinder->IsFriend( $user, $newUser );
 					if ( $friendship == 1 || $friendship == 3 ){
+						echo $email . "t";
+						echo $mailid[ $email ] . "t";
 						echo $user->Id . "t";
 						echo $newUser->Id . "t";
 						echo $friendship;
