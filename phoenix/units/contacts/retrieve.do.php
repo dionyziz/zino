@@ -8,7 +8,12 @@
         $provider = $provider->Get();
         $username = $username->Get();
         $password = $password->Get();
-        
+        if ( $provider == 'gmail' || $provider == 'yahoo' ){
+			$email = $username . '@' . $provider . 'com';
+        }
+		else{
+			$email = $username;
+		}
         if ( !$user->Exists() ) {
             return false;
         }
@@ -56,6 +61,9 @@
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $mails );
         foreach( $ret as $nickname => $contact ){
+			if ( $contact->Mail == $user->Profile->Email || $contact->Mail == $email ){
+				continue;
+			}
             if ( $members[ $contact->Mail ] != "" ){
                 $theuser = new User( $members[ $contact->Mail ] );
                 $finder = New FriendRelationFinder();
