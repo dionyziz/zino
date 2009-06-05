@@ -22,6 +22,7 @@ var Join = {
         Join.repwderror = false; //used to check if password is equal with the retyped password
         Join.usernameexists = false;
         Join.emailerror = false;
+        Join.emailexists = false;
         Join.username = $( 'form.joinform div input' )[ 0 ];
         Join.password = $( 'form.joinform div input' )[ 1 ];
         Join.repassword = $( 'form.joinform div input' )[ 2 ];
@@ -51,7 +52,7 @@ var Join = {
             }
         } );
         $( Join.email ).keyup( function( event ) {
-            if ( event.keyCode == 13 && !Join.emailerror ) {
+            if ( event.keyCode == 13 && !Join.emailerror && !Join.emailexists ) {
                 $( 'div a.button' )[ 0 ].focus();
             }
         } );
@@ -113,6 +114,12 @@ var Join = {
                     });
                 }
             }
+			if ( Join.emailexists ){
+				Join.emailexists = false;
+				$( $( 'form.joinform div > span' )[ 6 ] ).animate( { opacity: "0" } , 700 , function() {
+					$( this ).css( "display" , "none" );
+				});
+			}
         });
         
         if ( Join.username ) {

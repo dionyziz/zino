@@ -20,7 +20,9 @@
                 }
                 $contacts[] = $contact;
             }
-            EmailFriend( $contacts );
+			if ( !empty( $contacts ) ){
+				EmailFriend( $contacts );
+			}
         }
         ?>contacts.redirectToFrontpage();<?php
     }
