@@ -28,7 +28,7 @@
             return;
         }
 		$mailfinder = New UserProfileFinder();
-		$mailid = $finder->FindAllUsersByEmails( array ( $email ) );
+		$mailid = $mailfinder->FindAllUsersByEmails( array ( $email ) );
 		if ( !empty( $mailid ) ){
 			?>Join.emailexists = true;$( $( 'form.joinform div > span' )[ 6 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );<?php
 			return;
