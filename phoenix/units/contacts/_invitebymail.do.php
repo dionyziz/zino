@@ -23,7 +23,8 @@
 				if ( count( $mailid ) != 0 ){
                     $newuser = new User( $mailid[ $email ] );
 					$friendFinder = new FriendRelationFinder();
-					if ( $friendFinder->IsFriend( $user, $newUser ) ){
+					$friendship = $friendFinder->IsFriend( $user, $newUser );
+					if ( $friendship == 1 || $friendship == 3 ){
 						echo "done";
 						continue;
 					}
