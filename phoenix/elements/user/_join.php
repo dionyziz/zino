@@ -21,7 +21,7 @@
                 if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
                     $email = $contact->Mail;
                     $mailfinder = new UserProfileFinder();
-                    $userprofiles = $mailfinder->FindAllUsersByEmails( $email );
+                    $userprofiles = $mailfinder->FindAllUsersByEmails( array( $email ) );
                     if ( count( $userprofiles ) != 0 ){
                         $email = '';
                     }
