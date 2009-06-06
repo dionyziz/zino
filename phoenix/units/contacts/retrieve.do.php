@@ -22,10 +22,12 @@
         if( !is_array( $ret ) || count( $ret ) == 0 ){
             if ( $ret == "ERROR_CONTACTS" || $ret == 'NO_CONTACTS' ){
                 ?>setTimeout( function(){
-                $( "#notAny h1" ).html( 'Δεν βρήκαμε επαφές στο <?php
+                contacts.message('Δεν βρήκαμε επαφές στο <?php
                 echo $provider;
                 ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
-                contacts.finish();
+				setTimeout( function(){
+					contacts.changeToAddByEmail();
+				}, 4000 );
                 }, 3000 );<?php
                 return;
             }
@@ -94,8 +96,10 @@
             }
         }
         if ( $contactsInZino == 0 && $contactsNotZino == 0 ){
-            ?>$( "#notAny h1" ).html( 'Όλες οι επαφές σου είναι ήδη στο Zino. Προσκάλεσε κάποιον που δεν έχει Zino με το e-mail του.' );
-            contacts.finish();
+            ?>contacts.message( 'Όλες οι επαφές σου είναι ήδη στο Zino. Προσκάλεσε κάποιον που δεν έχει Zino με το e-mail του.' );
+			setTimeout( function(){
+				contacts.changeToAddByEmail();
+			}, 4000 );
             <?php
             return;
         }

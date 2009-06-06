@@ -14,6 +14,8 @@
         if ( strlen( $mails ) != 0 ){
             $emails = explode( ';', $mails );
             $contact = new Contact();
+			$friends = 0;
+			$invited = 0;
             foreach ( $emails as $email ){
 				if ( $email == $user->Profile->Email || !ValidEmail( $email ) ){
 					continue;
@@ -32,11 +34,13 @@
                     $relation->Friendid = $newUser->Id;
                     $relation->Typeid = 3;
                     $relation->Save();
+					++$friends;
                     Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
 				}
                 else{
                     $contact = $contact->AddContact( $email, $user->Profile->Email );
                     $contacts[] = $contact;
+					++$invited;
                 }
             }
 			if ( !empty( $contacts ) ){

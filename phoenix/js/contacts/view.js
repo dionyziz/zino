@@ -1,16 +1,16 @@
 /**     available tabs: 
 * search in zino.
-*   width: max, height: 560px
+*   width: max, min-height: 560px
 * search in other networks: login
-*   width: 600px, height: 250px
+*   max-width: 600px, min-height: 250px
 * search in other networks: loading
-*   width: 700px, height: 466px
+*   max-width: 700px, min-height: 466px
 * search in other networks: contacts In zino
-*   width: 700px, height: 466px
+*   max-width: 700px, min-height: 466px
 * search in other networks: contacts Not in zino
-*   width: 570px, height: 420px
+*   max-width: 570px, min-height: 420px
 * invite by mail
-*   width: 540px, height: 400px;
+*   max-width: 540px, min-height: 400px;
 */
 var contacts = {
     frontpage: "",
@@ -179,16 +179,14 @@ var contacts = {
             });
         });
 	},
-    finish: function(){
-        $( '.tab:visible' ).fadeOut( 'normal', function(){
+    message: function( text ){
+        $( '#message h1' ).html( text );
+		$( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 minHeight: 370
             }, 'normal', function(){
-                $( '#notAny' ).fadeIn( 'normal' );
-                $( "#foot input" ).removeClass()
-                    .unbind().bind( 'click', contacts.changeToAddByEmail )
-                    .parent().filter( "div:hidden" ).fadeIn( 'normal' );
-            });
+                $( '#message' ).fadeIn( 'normal' );
+			});
         });
     },
     addContactInZino: function( display, mail, location, id ){
