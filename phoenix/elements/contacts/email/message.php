@@ -31,7 +31,7 @@
                 ?>/join <?php
             }
             else{
-                ?>/join?id="<?php
+                ?>/join?id=<?php
                 echo $contact->Id;
                 ?>&validtoken=<?php
                 echo $contact->Validtoken;
