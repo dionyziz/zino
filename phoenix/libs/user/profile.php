@@ -34,7 +34,7 @@
                 'SELECT * FROM `userprofiles` WHERE
                 `profile_email` IN :emails
                 ;'
-            );            
+            );
             $query->Bind( 'emails', $mails );  
             $res = $query->Execute();
             
