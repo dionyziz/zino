@@ -73,31 +73,15 @@
             $parts = explode( '@', $contact->Mail );
             $toname = $parts[ 0 ];
             
-            $subject = 'Πρόσκληση απο ';
-            if ( $user->Gender == 'f' ) {
-                $subject .= 'την';
-            }
-            else {
-                $subject .= 'τον';
-            }
-            $subject .= ' ' . $user->Name . ' στο Zino';
-            // TODO: move message/subject to element
-            $message = "Γεια σου " . $toname . ",
-
-Σε έχω προσθέσει στους φίλους μου στο Zino. Γίνε μέλος στο Zino για να δεις τα προφίλ των φίλων σου, να φτιάξεις το δικό σου, και να μοιραστείς τις φωτογραφίες και τα νέα σου.
-
-Για να δεις το προφίλ ";
-            if ( $user->Gender == 'f' ) {
-                $message .= 'της';
-            }
-            else {
-                $message .= 'του';
-            }
-            $message .= ' ' . $user->Name . " στο Zino, πήγαινε στο:
-" . $rabbit_settings[ 'webaddress' ] . "/join?id=" . $contact->Id . "&validtoken=" . $contact->Validtoken . "
-
-Ευχαριστώ,
-" . $user->Name; // TODO: Add unsubscribe footer
+			//subject
+			ob_start();
+			Element( 'contacts/email/subject' );
+			$subject = ob_get_clean();
+			//message
+			ob_start();
+			Element( 'contacts/email/message', $toname, $contact );
+			$message = ob_get_clean();
+			// TODO: Add unsubscribe footer
             $fromname = $user->Name;
             $fromemail = 'invite@zino.gr';
             Email( $toname, $contact->Mail, $subject, $message, $fromname, $fromemail );
