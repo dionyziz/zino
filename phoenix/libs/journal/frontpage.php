@@ -2,7 +2,7 @@
     class FrontpageJournalFinder extends Finder {
         protected $mModel = 'FrontpageJournal';
 
-        public function FindLatest( $offset = 0, $limit = 15, $totalcount = false ) {
+        public function FindLatest( $offset = 0, $limit = 4, $totalcount = false ) {
             $prototype = New FrontpageJournal();
             
             $latest = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Journalid', 'DESC' ), $totalcount );
