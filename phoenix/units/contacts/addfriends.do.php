@@ -7,6 +7,7 @@
         $ids = $ids->Get();
         $userids = explode( " ", $ids );
         if ( $user->Exists() && sizeof( $ids ) != 0 ) {
+			$friends = 0;
             foreach( $userids as $userid ){
 				if ( $user->Id == $userid ){
                     continue;
@@ -24,8 +25,12 @@
                     $relation->Typeid = 3;
                     $relation->Save();
                     Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
+					++$friends;
                 }
             }
+			?>contacts.message( "Πρόσθεσες <?php
+				echo $friends;
+			?> φίλους." );<?php
         }
         ?>
         contacts.previwContactsNotInZino();
