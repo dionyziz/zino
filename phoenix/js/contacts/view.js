@@ -181,6 +181,7 @@ var contacts = {
 	},
     message: function( text ){
         $( '#message h1' ).html( text );
+		$( '#top_tabs:visible' ).fadeOut( 'normal' );
 		$( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
                 minHeight: 370
@@ -188,6 +189,7 @@ var contacts = {
                 $( '#message' ).fadeIn( 'normal' );
 			});
         });
+		$( '#foot:visible' ).fadeOut( 'normal' );
     },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
