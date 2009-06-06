@@ -22,8 +22,8 @@ var contacts = {
 	borderhide: "",
     contactsNotInZino: 0,
     redirectToFrontpage: function(){
-        window.location = contacts.frontpage;
 		clearTimeout( contacts.borderhide );
+        window.location = contacts.frontpage;
     },
     changeToSearchInZino: function(){
         if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
@@ -197,7 +197,7 @@ var contacts = {
 		$( '#foot:visible' ).fadeOut( 'normal' );
 		contacts.borderhide = setTimeout( function(){
 			$( '#body' ).css( 'borderWidth', '1px' );
-			}, 3000 );
+			}, 3100 );
 		setTimeout( callback, 3000 );
     },
     addContactInZino: function( display, mail, location, id ){
