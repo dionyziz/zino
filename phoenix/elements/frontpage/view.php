@@ -135,11 +135,13 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                 <div id="fp_left">
                     <div id="shoutbox"><?php
                         Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
-                    ?></div>
-                    <div class="onlinenow"><?php
-                        Element( 'frontpage/online' );
-                    ?></div>
-                </div>
+                    ?></div><?php
+                    if ( $user->Exists() ) {
+                        ?><div class="onlinenow"><?php
+                            Element( 'frontpage/online' );
+                        ?></div><?php
+                    }
+                ?></div>
                 <div id="fp_right">
                     <div id="fp_latest">
                         <h2>Πρόσφατα γεγονότα</h2>
