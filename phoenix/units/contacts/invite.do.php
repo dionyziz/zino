@@ -22,8 +22,11 @@
             }
 			if ( !empty( $contacts ) ){
 				EmailFriend( $contacts );
+				?>contacts.message( "Έστειλες <?php
+					echo count( $contacts );
+				?> προσκλήσεις." );<?php
 			}
         }
-        ?>contacts.redirectToFrontpage();<?php
+        ?>setTimeout( contacts.redirectToFrontpage, 4000 );<?php
     }
 ?>
