@@ -55,10 +55,10 @@
 		}
 		$message = '';
 		if ( $friends ){
-			$message .= "<div>Πρόσθεσες $friends φίλους.</div>";
+			$message .= "<div>Ξ ΟΟΟƒΞΈΞµΟƒΞµΟ‚ $friends Ο†Ξ―Ξ»ΞΏΟ…Ο‚.</div>";
 		}
 		if ( $invited ){
-			$message .= "<div>Έστειλες $invited προσκλήσεις.</div>";
+			$message .= "<div>ΞΟƒΟ„ΞµΞΉΞ»ΞµΟ‚ $invited Ο€ΟΞΏΟƒΞΊΞ»Ξ®ΟƒΞµΞΉΟ‚.</div>";
 		}
         ?>contacts.message( "<?php 
 			echo $message;
