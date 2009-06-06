@@ -60,6 +60,10 @@
         $contactsNotZino = 0;
         $mailfinder = new UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $mails );
+		$echo = "";
+		foreach ( $members as $mail => $member ){
+			$echo .= $mail."-".$member.",";
+		}
         foreach( $ret as $nickname => $contact ){
 			if ( $contact->Mail == $user->Profile->Email || $contact->Mail == $email ){
 				continue;
