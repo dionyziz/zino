@@ -47,8 +47,24 @@
 				EmailFriend( $contacts );
 			}
         }
-        ?>window.location = '<?php
+		if ( $friends + $invited == 0 ){
+			?>window.location = '<?php
         echo $rabbit_settings[ 'webaddress' ];
         ?>';<?php
+			return;
+		}
+		$message = '';
+		if ( $friends ){
+			$message .= "<div>Πρόσθεσες $friends φίλους.</div>";
+		}
+		if ( $invited ){
+			$message .= "<div>Έστειλες $invited προσκλήσεις.</div>";
+		}
+        ?>contacts.message( $message );
+		setTimeout( function(){
+			window.location = '<?php
+			echo $rabbit_settings[ 'webaddress' ];
+			?>';
+		}, 4000 );<?php
     }
 ?>
