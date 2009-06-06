@@ -22,9 +22,9 @@
             }
 			if ( !empty( $contacts ) ){
 				EmailFriend( $contacts );
-				?>contacts.message( "Έστειλες <?php
+				?>contacts.message( "ΞΟƒΟ„ΞµΞΉΞ»ΞµΟ‚ <?php
 					echo count( $contacts );
-				?> προσκλήσεις." );<?php
+				?> Ο€ΟΞΏΟƒΞΊΞ»Ξ®ΟƒΞµΞΉΟ‚." );<?php
 			}
         }
         ?>setTimeout( contacts.redirectToFrontpage, 4000 );<?php
