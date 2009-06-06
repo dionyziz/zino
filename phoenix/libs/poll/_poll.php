@@ -245,7 +245,7 @@
                     }
                     else {
                         $oldpoll = $oldpoll[ 0 ];
-                        $frontpage->Journalid = $oldpoll->Id;
+                        $frontpage->Pollid = $oldpoll->Id;
                         $frontpage->Save();
                     }
                 }
