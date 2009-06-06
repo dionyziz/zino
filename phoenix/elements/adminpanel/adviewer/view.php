@@ -41,7 +41,7 @@
                     ?></td><td><?php                    
                     echo htmlspecialchars( $ad->Title );
                     ?></td><td><?php                    
-                    echo html_specialchars( $ad->Body );
+                    echo htmlspecialchars( $ad->Body );
                     ?></td><td><?php
                     echo $ad->Url
                     ?></td><td><?php
