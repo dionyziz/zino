@@ -156,8 +156,9 @@
 	width: 30px;
 }
 
-.invite_contacts #notAny {
+.invite_contacts #message {
     padding: 70px 20px;
+	display: none;
 }
 
 .invite_contacts #body .networks {
