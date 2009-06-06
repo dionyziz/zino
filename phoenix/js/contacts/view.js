@@ -138,6 +138,7 @@ var contacts = {
             mails: mailString
         });
         $( '#foot input' ).unbind();
+		document.body.style.cursor = 'wait';
     },
     retrieve: function(){
         contacts.provider = $( "#left_tabs li.selected span" ).attr( 'id' );
@@ -197,6 +198,7 @@ var contacts = {
 		$( '#foot:visible' ).fadeOut( 'normal' );
 		contacts.borderhide = setTimeout( function(){
 			$( '#body' ).css( 'borderWidth', '1px' );
+			document.body.style.cursor = 'default';
 			}, 3100 );
 		setTimeout( callback, 3000 );
     },
@@ -264,6 +266,7 @@ var contacts = {
         Coala.Warm( "contacts/addfriends", {
             "ids": idsString
         });
+		document.body.style.cursor = 'wait';
     },
     invite: function(){
     var ids = new Array;
@@ -275,6 +278,7 @@ var contacts = {
         Coala.Warm( "contacts/invite", {
             "ids": idsString
         });
+		document.body.style.cursor = 'wait';
     },
     calcCheckboxes: function(){
         if ( contacts.step == 2 ){
