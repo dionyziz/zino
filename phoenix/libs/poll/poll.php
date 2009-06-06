@@ -37,6 +37,13 @@
 
             return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+		public function FindByUserId( $userid, $offset = 0, $limit = 25 ) {
+            $poll = New Poll();
+            $poll->Userid = $userid;
+            $poll->Delid = 0;
+
+            return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
             $prototype = New Poll();
             $prototype->Userid = $user->Id;
@@ -222,6 +229,22 @@
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
+			
+			$frontpage = New FrontpagePoll( $this->Userid );
+            if ( $frontpage->Exists() ) {
+                if ( $frontpage->Pollid == $this->Id ) {
+                    $finder = New PollFinder();
+                    $oldpoll = $finder->FindByUserId( $this->Userid, 0, 1 );
+                    if ( count( $oldpoll ) === 0 ) {
+                        $frontpage->Delete();
+                    }
+                    else {
+                        $oldpoll = $oldpoll[ 0 ];
+                        $frontpage->Pollid = $oldpoll->Id;
+                        $frontpage->Save();
+                    }
+                }
+            }
 
             Sequence_Increment( SEQUENCE_POLL );
         }

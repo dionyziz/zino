@@ -45,6 +45,13 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+		public function FindByUserId( $userid, $offset = 0, $limit = 25 ) {
+            $prototype = New Journal();
+            $prototype->Userid = $userid;
+            $prototype->Delid = 0;
+
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
         public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
@@ -89,7 +96,7 @@
 
             return $journals;
         }
-		public function FindFrontpageLatest( $offset = 0, $limit = 15 ) {
+		public function FindFrontpageLatest( $offset = 0, $limit = 4 ) {
             $finder = New FrontpageJournalFinder();
             $found = $finder->FindLatest( $offset, $limit );
             $journalids = array();
@@ -250,9 +257,25 @@
 
             --$this->User->Count->Journals;
             $this->User->Count->Save();
-
+			
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
+			
+			$frontpage = New FrontpageJournal( $this->Userid );
+            if ( $frontpage->Exists() ) {
+                if ( $frontpage->Journalid == $this->Id ) {
+                    $finder = New JournalFinder();
+                    $oldjournal = $finder->FindByUserId( $this->Userid, 0, 1 );
+                    if ( count( $oldjournal ) === 0 ) {
+                        $frontpage->Delete();
+                    }
+                    else {
+                        $oldjournal = $oldjournal[ 0 ];
+                        $frontpage->Journalid = $oldjournal->Id;
+                        $frontpage->Save();
+                    }
+                }
+            }
 
             Sequence_Increment( SEQUENCE_JOURNAL );
         }
