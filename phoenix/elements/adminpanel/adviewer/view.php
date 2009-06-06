@@ -39,9 +39,9 @@
                     ?><tr><td><?php
                     echo $ad->Userid;
                     ?></td><td><?php                    
-                    echo $ad->Title;
+                    echo htmlspecialchars( $ad->Title );
                     ?></td><td><?php                    
-                    echo $ad->Body;
+                    echo html_specialchars( $ad->Body );
                     ?></td><td><?php
                     echo $ad->Url
                     ?></td><td><?php
