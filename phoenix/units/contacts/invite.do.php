@@ -24,7 +24,7 @@
 				EmailFriend( $contacts );
 				?>contacts.message( "Έστειλες <?php
 				echo count( $contacts );
-				if ( $contacts == 1 ){
+				if ( count( $contacts ) == 1 ){
 					?> πρόσκληση."<?php
 				}
 				else{

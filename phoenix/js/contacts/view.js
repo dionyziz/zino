@@ -19,6 +19,7 @@ var contacts = {
 	provider: "",
 	username: "",
 	password: "",
+	borderhide: "",
     contactsNotInZino: 0,
     redirectToFrontpage: function(){
         window.location = contacts.frontpage;
@@ -195,9 +196,9 @@ var contacts = {
         });
 		$( '#foot:visible' ).fadeOut( 'normal' );
 		contacts.borderhide = setTimeout( function(){
-			callback();
 			$( '#body' ).css( 'borderWidth', '1px' );
 			}, 3000 );
+		setTimeout( callback, 3000 );
     },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
