@@ -160,6 +160,9 @@
     padding: 70px 20px;
 	display: none;
 }
+.invite_contacts #message a {
+	display: block;
+}
 
 .invite_contacts #body .networks {
 	display: none;
