@@ -37,7 +37,7 @@
 				WHERE
 					`profile_email` IN :emails
 				ORDER BY
-					`profile_email` ASC, `user_lastlogin` ASC
+					`profile_email` ASC, `user_lastlogin` DESC
                 ;'
             );
             $query->Bind( 'emails', $mails );  
@@ -45,7 +45,11 @@
             
             $users = array();
             while ( $row = $res->FetchArray() ) {
-                $users[ $row[ 'profile_email' ] ] = $row[ 'profile_userid' ];
+				if ( $row[ 'profile_email' ] == $curmail ){
+					continue;
+				}
+				$curmail = $row[ 'profile_email' ];
+                $users[ $row[ 'profile_email' ] ] = $row[ 'user_id' ];
             }
             return $users;//<-return array[ 'profile_email' ] = 'profile_userid'
         }
