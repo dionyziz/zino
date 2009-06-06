@@ -4,11 +4,14 @@
 
         public function Render( $journalseq ) {
             global $xc_settings;
+			global $libs;
 
             // $sticky = 8695;
             
+			$libs->Load( 'journal/frontpage' );
+			
             $finder = New JournalFinder();
-            $journals = $finder->FindAll( 0, 4 );
+            $journals = $finder->FindFrontpageLatest( 0, 4 );
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {

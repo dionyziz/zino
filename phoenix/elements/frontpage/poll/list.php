@@ -7,9 +7,10 @@
             global $xc_settings;
 
             $libs->Load( 'poll/poll' );
-
+			$libs->Load( 'poll/frontpage' );
+			
             $finder = New PollFinder();
-            $polls = $finder->FindAll( 0 , 4 );
+            $polls = $finder->FindFrontpageLatest( 0 , 4 );
             ?><div class="list">
                 <h2>Δημοσκοπήσεις (<a href="polls">προβολή όλων</a>)</h2><?php
                 foreach ( $polls as $poll ) {
