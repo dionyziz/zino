@@ -24,10 +24,7 @@
                 ?>setTimeout( function(){
                 contacts.message('Δεν βρήκαμε επαφές στο <?php
                 echo $provider;
-                ?> σου. Προσκάλεσε κάποιον με το e-mail του.' );
-				setTimeout( function(){
-					contacts.changeToAddByEmail();
-				}, 4000 );
+                ?> σου. <a href="" onclick="contacts.changeToAddByEmail();return false;" >Προσκάλεσε κάποιον με το e-mail του.</a>' );
                 }, 3000 );<?php
                 return;
             }
