@@ -184,7 +184,7 @@ var contacts = {
 		$( '#top_tabs:visible' ).fadeOut( 'normal' );
 		$( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
-                minHeight: 370
+                minHeight: 300
             }, 'normal', function(){
                 $( '#message' ).fadeIn( 'normal' );
 			});
