@@ -196,9 +196,9 @@ var contacts = {
 			});
         });
 		$( '#foot:visible' ).fadeOut( 'normal' );
+		document.body.style.cursor = 'default';
 		contacts.borderhide = setTimeout( function(){
 			$( '#body' ).css( 'borderWidth', '1px' );
-			document.body.style.cursor = 'default';
 			}, 3100 );
 		setTimeout( callback, 3000 );
     },
