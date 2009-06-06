@@ -97,7 +97,7 @@ var Notification = {
 			$( expand ).addClass( "expand" ).append( link );
 			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
 			$( list ).addClass( "list" );
-			$( notifscontainer ).addClass( "notifications" )
+			$( notifscontainer ).attr( 'id' , 'notifications')
 			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
 			$( '#frontpage' ).prepend( notifscontainer );
 			//var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
