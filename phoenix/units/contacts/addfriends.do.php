@@ -29,9 +29,16 @@
                 }
             }
 			?>contacts.message( "Πρόσθεσες <?php
-				echo $friends;
-			?> φίλους." );<?php
+			echo $friends;
+			if ( $friends == 1 ){
+				?> φίλο."<?php
+			}
+			else{
+				?> φίλους."<?php
+			}
+			?>, contacts.previwContactsNotInZino );<?php
+			return;
         }
-        ?>setTimeout( contacts.previwContactsNotInZino, 4000 );<?php
+        ?>contacts.previwContactsNotInZino();<?php
     }
 ?>

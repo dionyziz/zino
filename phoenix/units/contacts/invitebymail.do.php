@@ -62,11 +62,9 @@
 		}
         ?>contacts.message( "<?php 
 			echo $message;
-		?> ");
-		setTimeout( function(){
+		?> ",function(){
 			window.location = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
-			?>';
-		}, 4000 );<?php
+			?>'} );<?php
     }
 ?>

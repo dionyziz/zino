@@ -23,10 +23,15 @@
 			if ( !empty( $contacts ) ){
 				EmailFriend( $contacts );
 				?>contacts.message( "Έστειλες <?php
-					echo count( $contacts );
-				?> προσκλήσεις." );<?php
+				echo count( $contacts );
+				if ( $contacts == 1 ){
+					?> πρόσκληση."<?php
+				}
+				else{
+					?> προσκλήσεις."<?php
+				}
+				?>, contacts.redirectToFrontpage );<?php
 			}
         }
-        ?>setTimeout( contacts.redirectToFrontpage, 4000 );<?php
     }
 ?>

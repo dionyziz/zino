@@ -179,7 +179,10 @@ var contacts = {
             });
         });
 	},
-    message: function( text ){
+    message: function( text, callback ){
+		if ( typeof( callback ) != 'undefined' ){
+			$( '#body' ).css( 'borderWidth', 0 );
+		}
         $( '#message h1' ).html( text );
 		$( '#top_tabs:visible' ).fadeOut( 'normal' );
 		$( '.tab:visible' ).fadeOut( 'normal', function(){
@@ -190,6 +193,10 @@ var contacts = {
 			});
         });
 		$( '#foot:visible' ).fadeOut( 'normal' );
+		setTimeout( function(){
+			callback();
+			$( '#body' ).css( 'borderWidth', '1px' );
+			}, 3000 );
     },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );

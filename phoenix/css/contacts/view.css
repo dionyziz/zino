@@ -160,9 +160,13 @@
     padding: 70px 20px;
 	display: none;
 }
+.invite_contacts #message h1 {
+	font-size: 22px;
+}
 .invite_contacts #message a {
 	display: block;
 }
+
 
 .invite_contacts #body .networks {
 	display: none;
