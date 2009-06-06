@@ -21,9 +21,9 @@
                 $finder = new UserProfileFinder();
                 $mailid = $finder->FindAllUsersByEmails( array ( $email ) );
 				if ( count( $mailid ) != 0 ){
-					ob_start();
-					print_r( $mailid );
-					echo "alert( '" . nl2br( ob_get_clean() ) . "' );";
+					foreach( $mailid as $id ){
+						echo "alert( '$id' );";
+					}
                     $newUser = new User( $mailid[ $email ] );
 					$friendFinder = new FriendRelationFinder();
 					$friendship = $friendFinder->IsFriend( $user, $newUser );
