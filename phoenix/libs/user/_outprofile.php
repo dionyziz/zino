@@ -31,15 +31,24 @@
         
         public function FindAllUsersByEmails( $mails ) {
             $query = $this->mDb->Prepare(
-                'SELECT * FROM `userprofiles` WHERE
-                `profile_email` IN :emails
+                'SELECT `user_id`, `profile_email`, `user_lastlogin` 
+					FROM `userprofiles` 
+					LEFT JOIN `users` ON userprofiles.profile_userid=users.user_id
+				WHERE
+					`profile_email` IN :emails
+				ORDER BY
+					`profile_email` ASC, `user_lastlogin` DESC
                 ;'
-            );            
+            );
             $query->Bind( 'emails', $mails );  
             $res = $query->Execute();
             
             $users = array();
             while ( $row = $res->FetchArray() ) {
+				if ( $row[ 'profile_email' ] == $curmail ){
+					continue;
+				}
+				$curmail = $row[ 'profile_email' ];
                 $users[ $row[ 'profile_email' ] ] = $row[ 'profile_userid' ];
             }
             return $users;//<-return array[ 'profile_email' ] = 'profile_userid'
