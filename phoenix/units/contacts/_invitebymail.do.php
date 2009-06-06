@@ -21,6 +21,7 @@
                 $finder = new UserProfileFinder();
                 $mailid = $finder->FindAllUsersByEmails( array ( $email ) );
 				if ( count( $mailid ) != 0 ){
+					echo "alert( '".count( $mailid )."' )";
 					foreach( $mailid as $id ){
 						echo "alert( '$id' );";
 					}
