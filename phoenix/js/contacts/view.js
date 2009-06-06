@@ -193,10 +193,10 @@ var contacts = {
 			});
         });
 		$( '#foot:visible' ).fadeOut( 'normal' );
+		setTimeout( callback, 3000 );
 		setTimeout( function(){
-			callback();
 			$( '#body' ).css( 'borderWidth', '1px' );
-			}, 3000 );
+			}, 3500 );
     },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
