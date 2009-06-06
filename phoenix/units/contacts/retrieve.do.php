@@ -66,7 +66,7 @@
             if ( $members[ $contact->Mail ] != "" ){
                 $theuser = new User( $members[ $contact->Mail ] );
                 $finder = New FriendRelationFinder();
-				$friendship = $finder->IsFriend( $theuser, $user );
+				$friendship = $finder->IsFriend( $user, $theuser );
                 if ( $friendship == 1 || $friendship == 3 ){
                     continue;
                 }
