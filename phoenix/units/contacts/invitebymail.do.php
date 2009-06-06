@@ -60,7 +60,9 @@
 		if ( $invited ){
 			$message .= "<div>Έστειλες $invited προσκλήσεις.</div>";
 		}
-        ?>contacts.message( $message );
+        ?>contacts.message( "<?php 
+			echo $message;
+		?> ");
 		setTimeout( function(){
 			window.location = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
