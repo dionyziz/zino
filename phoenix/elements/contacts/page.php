@@ -66,7 +66,7 @@
                         <img src="http://static.zino.gr/phoenix/contacts/loader.gif" />
                         <h2>Αυτό μπορεί να πάρει δύο λεπτά...</h2>
                     </center>
-                    <center class="tab" id="notAny">
+                    <center class="tab" id="message">
                         <h1></h1>
                     </center>
                     <div class="tab networks" id="contactsInZino">
