@@ -22,6 +22,7 @@ var contacts = {
     contactsNotInZino: 0,
     redirectToFrontpage: function(){
         window.location = contacts.frontpage;
+		clearTimeout( contacts.borderhide );
     },
     changeToSearchInZino: function(){
         if ( contacts.tab == 1 && contacts.step == 0 || $( '.invite_contacts *:animated' ).length != 0 ){
@@ -193,10 +194,10 @@ var contacts = {
 			});
         });
 		$( '#foot:visible' ).fadeOut( 'normal' );
-		setTimeout( callback, 3000 );
-		setTimeout( function(){
+		contacts.borderhide = setTimeout( function(){
+			callback();
 			$( '#body' ).css( 'borderWidth', '1px' );
-			}, 3500 );
+			}, 3000 );
     },
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );

@@ -48,9 +48,7 @@
 			}
         }
 		if ( $friends + $invited == 0 ){
-			?>window.location = '<?php
-        echo $rabbit_settings[ 'webaddress' ];
-        ?>';<?php
+			?>contacts.redirectToFrontpage();<?php
 			return;
 		}
 		$message = '';
@@ -62,9 +60,6 @@
 		}
         ?>contacts.message( "<?php 
 			echo $message;
-		?> ",function(){
-			window.location = '<?php
-			echo $rabbit_settings[ 'webaddress' ];
-			?>'} );<?php
+		?> ", contacts.redirectToFrontpage );<?php
     }
 ?>
