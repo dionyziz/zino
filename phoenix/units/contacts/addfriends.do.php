@@ -28,12 +28,10 @@
 					++$friends;
                 }
             }
-			?>contacts.message( "Πρόσθεσες <?php
+			?>contacts.message( "Ξ ΟΟΟƒΞΈΞµΟƒΞµΟ‚ <?php
 				echo $friends;
-			?> φίλους." );<?php
+			?> Ο†Ξ―Ξ»ΞΏΟ…Ο‚." );<?php
         }
-        ?>
-        contacts.previwContactsNotInZino();
-        <?php
+        ?>setTimeout( contacts.previwContactsNotInZino, 4000 );<?php
     }
 ?>
