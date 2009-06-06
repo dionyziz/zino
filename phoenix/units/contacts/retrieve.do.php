@@ -96,10 +96,7 @@
             }
         }
         if ( $contactsInZino == 0 && $contactsNotZino == 0 ){
-            ?>contacts.message( 'Όλες οι επαφές σου είναι ήδη στο Zino. Προσκάλεσε κάποιον που δεν έχει Zino με το e-mail του.' );
-			setTimeout( function(){
-				contacts.changeToAddByEmail();
-			}, 4000 );
+            ?>contacts.message( 'Όλες οι επαφές σου είναι ήδη στο Zino. <a href="" onclick="contacts.changeToAddByEmail();return false;" >Προσκάλεσε κάποιον που δεν έχει Zino με το e-mail του.</a>' );
             <?php
             return;
         }
