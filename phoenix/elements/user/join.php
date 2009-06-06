@@ -20,6 +20,11 @@
                 $contact = $finder->FindById( $id );
                 if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
                     $email = $contact->Mail;
+                    $mailfinder = new UserProfileFinder();
+                    $userprofiles = $mailfinder->FindAllUsersByEmails( array( $email ) );
+                    if ( count( $userprofiles ) != 0 ){
+                        $email = '';
+                    }
                     $parts = explode( '@', $contact->Mail );
                     $username = $parts[ 0 ];
                     $finder = new UserFinder();
@@ -83,6 +88,11 @@
                             echo $rabbit_settings[ 'imagesurl' ];
                             ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
                             <span>Το email που έχεις γράψει δεν είναι έγκυρο!</span>
+                            </span>
+                            <span><img src="<?php
+                            echo $rabbit_settings[ 'imagesurl' ];
+                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
+                            <span>Το e-mail που διάλεξες υπάρχει ήδη!</span>
                             </span>
                             <p>Η διεύθυνση e-mail που θα δηλώσεις πρέπει να είναι έγκυρη για να μπορέσεις να επιβεβαιώσεις τον λογαριασμό σου.</p>
                         </div>
