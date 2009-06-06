@@ -44,6 +44,7 @@
             $res = $query->Execute();
             
             $users = array();
+			$curmail == "";
             while ( $row = $res->FetchArray() ) {
 				if ( $row[ 'profile_email' ] == $curmail ){
 					continue;
