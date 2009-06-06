@@ -64,6 +64,7 @@
 		foreach ( $members as $mail => $member ){
 			$echo .= $mail."-".$member.",";
 		}
+		echo "alert('$echo');";
         foreach( $ret as $nickname => $contact ){
 			if ( $contact->Mail == $user->Profile->Email || $contact->Mail == $email ){
 				continue;
