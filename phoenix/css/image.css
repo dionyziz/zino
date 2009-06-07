@@ -41,6 +41,29 @@ span.imageview span > span {
     display: block;
 }
 
+.vavie100 {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    float: left;
+    display: block;
+}
+.vavie100 img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+}
+.vavie100 .rndavie100 {
+    background: url( 'http://static.zino.gr/phoenix/shadow100.png' ) no-repeat;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: 0;
+    left: 1px;
+    display: block;
+}
 .vavie150 {
     position: relative;
     width: 160px;
