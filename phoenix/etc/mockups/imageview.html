@@ -2,14 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el"><head>
 <style>
+	.edit {
+		overflow: hidden;
+	}
+	.edit li {
+		float: left;
+	}
+	.imageview {
+		overflow: hidden;
+	}
 	#content {
 		position: relative;
 	}
 	#rightside {
 		width: 25%;
 		float: left;
-		margin: -1px;
-		border: 1px solid blue;
 	}
 	#leftside div.comments{
 		float: none;
@@ -17,11 +24,9 @@
 		margin: 0 auto;
 	}
 	#leftside {
-		margin: -1px;
 		width: 75%;
 		float: left;
 		padding-bottom: 20px;
-		border: 1px solid red;
 	}
 	#leftside > img {
 		display: block;
@@ -55,7 +60,8 @@
            <div id="rbanner">
            </div>
            <div id="mbanner">
-                <div id="loggedinmenu"><span class="imageview"><img src="http://images2.zino.gr/media/5181/176638/176638_100.jpg" class="banneravatar" style="width:50px;height:50px;" title="Petrosagg18" alt="Petrosagg18"></img></span><ul>
+                <div id="loggedinmenu"><span class="imageview"><img src="http://images2.zino.gr/media/5181/176638/176638_100.jpg" class="banneravatar" style="width: 50px; height: 50px;" title="Petrosagg18" alt="Petrosagg18"/></span>
+						<ul>
                             <li>
                             <a href="http://petrosagg18.zino.gr/" class="bannerinlink">Προφίλ</a>
                             
@@ -91,7 +97,7 @@
                         <div id="strip2">
 							<div id="content">
 								<div id="leftside">
-									<p> <a href="#">petrosagg18</a> &gt; <a href="#">photos</a> &gt; <a href="#">a nice landscape</a> </p>
+									<p> <a href="#">petrosagg18</a> <img src="http://static.zino.gr/phoenix/dashboard/breadcrumb.png" /><a href="#">photos</a> <img src="http://static.zino.gr/phoenix/dashboard/breadcrumb.png" /> <a href="#">a nice landscape</a> </p>
 									<img src="http://images2.zino.gr/media/5181/185975/185975_full.jpg" alt="xazo"/>
 									<div class="comments"><div id="newcom" class="comment newcomment">
                 <div class="toolbox" style="display: none;">
@@ -168,10 +174,10 @@
 												<a href="" ><span class="s_edit">&nbsp;</span>Όρισε όνομα</a>
 											</li>
 											<li>
-												<a href="" ><span class="s_delete">&nbsp;</span>Διαγραφή</a>
-											</li>
-											<li>
 												<a href="" title="Ποιος είναι στην φωτογραφία" ><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
+											</li>
+											<li style="clear: left;">
+												<a href="" ><span class="s_delete">&nbsp;</span>Διαγραφή</a>
 											</li>
 											<li>
 												<a href="" ><span class="s_mainimage">&nbsp;</span>Ορισμός προεπιλεγμένης</a>
