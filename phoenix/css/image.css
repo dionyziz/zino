@@ -37,6 +37,6 @@ span.imageview span > span {
     height: 80px;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 1px;
     display: block;
 }
