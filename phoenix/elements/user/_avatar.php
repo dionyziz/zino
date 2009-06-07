@@ -2,52 +2,65 @@
     class ElementUserAvatar extends Element {
 
         public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
-            global $rabbit_settings;
+            global $rabbit_settings, $xc_settings;
             
             // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
-            if ( $avatarid > 0 ) {
-                if ( $size == 150 ) {
-                    Element( 'image/view' , $avatarid , $avataruserid , $avatarwidth , $avatarheight , IMAGE_CROPPED_150x150, $class , $theusername , $style , $cssresizable , $csswidth , $cssheight , 0 );
+            ?><span class="vavie">
+                <img src="<?php
+                if ( $avatarid > 0 ) {
+                    if ( $size == 150 ) {
+                        $type = IMAGE_CROPPED_150x150;
+                    }
+                    else if ( $size == 100 ) {
+                        $type = IMAGE_CROPPED_100x100;
+                    }
+                    else {
+                        die( "avatar size must be either 150 or 100" );
+                    }
+                    echo $xc_settings[ 'imagesurl' ] . $avataruserid . '/';
+                    if ( !$rabbit_settings[ 'production' ] ) {
+                        echo '_';
+                    }
+                    echo $avatarid . '/' . $avatarid . '_' . $type . '.jpg';
+                    //Element( 'image/url' , $avatarid , $avataruserid , $type );
                 }
-                else if ( $size == 100 ) {
-                    Element( 'image/view' , $avatarid , $avataruserid , $avatarwidth , $avatarheight ,  IMAGE_CROPPED_100x100, $class , $theusername , $style , $cssresizable , $csswidth , $cssheight , 0 );
+                else {
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>anonymous<?php
+                    echo $size;
+                    ?>.jpg<?php
+                }   
+                ?>"<?php
+                if ( $class != "" ) {
+                    ?> class="<?php
+                    echo htmlspecialchars( $class );
+                    ?>"<?php
                 }
-            }
-            else {
-				?><span class="imageview"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>anonymous<?php
-				echo $size;
-				?>.jpg"<?php
-				if ( $class != "" ) {
-					?> class="<?php
-					echo htmlspecialchars( $class ); 
-					?>"<?php
-				}
-				?> alt="<?php
-				echo htmlspecialchars( $theusername );
-				?>" title="<?php
-				echo htmlspecialchars( $theusername );
-				?>" style="<?php
-				if ( !$cssresizable ) {
-					?>width:<?php
-					echo $size;
-					?>px;height:<?php
-					echo $size;
-					?>px;<?php
-				}
-				else {
-					?>width:<?php
-					echo $csswidth;
-					?>px;height:<?php
-					echo $cssheight;
-					?>px;<?php
-				}
-				if ( $style != "" ) {
-					echo htmlspecialchars( $style );
-				}
-				?>"></img></span><?php
-            }
+                ?> style="<?php
+                if ( $cssresizable ) {
+                    ?>width:<?php
+                    echo $csswidth;
+                    ?>px;height:<?php
+                    echo $cssheight;
+                    ?>px;<?php
+                }
+                else {
+                    ?>width:<?php
+                    echo $width;
+                    ?>px;height:<?php
+                    echo $height;
+                    ?>px;<?php
+                }
+                if ( $style != "" ) {
+                    echo htmlspecialchars( $style );
+                }
+                ?>" title="<?php
+                echo $theusername;
+                ?>" alt="<?php
+                echo $theusername;
+                ?>"></img>
+                <span>&nbsp;</span>  
+            </span><?php
         }
     }
 ?>
