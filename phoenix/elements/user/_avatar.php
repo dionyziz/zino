@@ -7,12 +7,7 @@
             // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
             
             if ( $cssresizable ) {
-                if ( $csswidth == 50 ) {
-                    $aviesize = 50;
-                }
-                else if ( $csswidth == 75 ) {
-                    $aviesize = 75;
-                }
+                $aviesize = $csswidth;
             }
             else {
                 $aviesize = $size;

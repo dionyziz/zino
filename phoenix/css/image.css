@@ -16,7 +16,7 @@ span.imageview > span {
 span.imageview span > span {
 	vertical-align: -1px;
 }
-.avie75 {
+.vavie75 {
     position: relative;
     width: 80px;
     height: 80px;
@@ -24,14 +24,14 @@ span.imageview span > span {
     padding: 0 2px 0 0;
     display: block;
 }
-.avie75 img {
+.vavie75 img {
     width: 70px;
     height: 70px;
     position: absolute;
     top: 5px;
     left: 6px;
 }
-.avie75 .rndavie75 {
+.vavie75 .rndavie75 {
     background: url( 'http://static.zino.gr/phoenix/shadow75.png' ) no-repeat;
     width: 80px;
     height: 80px;
