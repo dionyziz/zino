@@ -67,11 +67,13 @@
                 echo $theusername;
                 ?>" alt="<?php
                 echo $theusername;
-                ?>"></img>
-                <span class="rndavie<?php
-                    echo $aviesize;
-                ?>">&nbsp;</span>  
-            </span><?php
+                ?>"></img><?php
+                if ( $csswidth != 50 ) {
+                    ?><span class="rndavie<?php
+                        echo $aviesize;
+                    ?>">&nbsp;</span><?php
+                }
+                ?></span><?php
         }
     }
 ?>
