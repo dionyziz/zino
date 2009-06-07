@@ -22,10 +22,10 @@ div#mbanner > div {
     right: 29px;
 }
 div#mbanner > div#loggedinmenu {
-    top: 5px;
+    top: 3px;
 }
 div#loggedinmenu  {
-	margin-top: -3px;
+	margin-top: -6px;
 }
 div#loggedinmenu > form {
     display: inline;
