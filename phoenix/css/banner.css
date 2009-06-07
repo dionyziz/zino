@@ -22,14 +22,25 @@ div#mbanner > div {
     right: 29px;
 }
 div#mbanner > div#loggedinmenu {
-    top: 5px;
+    top: 3px;
+}
+div#loggedinmenu  {
+	margin-top: -6px;
 }
 div#loggedinmenu > form {
     display: inline;
 }
 
 div#loggedinmenu > span > img {
-    margin: 0 18px 0 0;
+    margin: 0 17px 4px 0;
+}
+div#loggedinmenu > span {
+	right: 14px;
+	top: 4px;
+}
+div#loggedinmenu > span:after {
+    content: url( 'http://static.zino.gr/phoenix/shadow.png' );
+    margin-left: -74px;
 }
 div#mbanner > div > ul {
     display: inline;
