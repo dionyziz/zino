@@ -5,7 +5,21 @@
             global $rabbit_settings, $xc_settings;
             
             // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
-            ?><span class="vavie">
+            
+            if ( $cssresizable ) {
+                if ( $csswidth == 50 ) {
+                    $aviesize = 50;
+                }
+                else if ( $csswidth == 75 ) {
+                    $aviesize = 75;
+                }
+            }
+            else {
+                $aviesize = $size;
+            }
+            ?><span class="vavie<?php
+            echo $aviesize;
+            ?>">
                 <img src="<?php
                 if ( $avatarid > 0 ) {
                     if ( $size == 150 ) {
@@ -60,17 +74,7 @@
                 echo $theusername;
                 ?>"></img>
                 <span class="rndavie<?php
-                if ( $cssresizable ) {
-                    if ( $csswidth == 50 ) {
-                        ?>50<?php
-                    }
-                    else if ( $csswidth == 75 ) {
-                        ?>75<?php
-                    }
-                }
-                else {
-                    echo $size;
-                }
+                    echo $aviesize;
                 ?>">&nbsp;</span>  
             </span><?php
         }
