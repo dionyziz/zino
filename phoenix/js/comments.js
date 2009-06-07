@@ -41,7 +41,7 @@ var Comments = {
         else {
             var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
         }
-        var avatarview = $( daddy ).find( "div.who span.imageview" );
+        var avatarview = $( daddy ).find( "div.who span" );
         var avatar = $( avatarview ).clone( true );
         $( link ).attr( "href" , hrefs )
         .append( avatar ).append( document.createTextNode( username ) );
