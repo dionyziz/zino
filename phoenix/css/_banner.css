@@ -32,7 +32,7 @@ div#loggedinmenu > form {
 }
 
 div#loggedinmenu > span > img {
-    margin: 0 18px 5px 0;
+    margin: 0 17px 4px 0;
 }
 div#loggedinmenu > span:after {
     content: url( 'http://static.zino.gr/phoenix/shadow.png' );
