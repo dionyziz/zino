@@ -36,6 +36,7 @@ div#loggedinmenu > span > img {
 }
 div#loggedinmenu > span {
 	right: 14px;
+	top: 2px;
 }
 div#loggedinmenu > span:after {
     content: url( 'http://static.zino.gr/phoenix/shadow.png' );
