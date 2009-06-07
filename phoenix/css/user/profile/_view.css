@@ -22,16 +22,6 @@ div#profile div.sidebar div.basicinfo #birthday img {
     float: left;
     padding-right: 5px;
 }
-div.sidebar div.basicinfo h2 a span.vavie150 {
-    padding: 0 4px 0 0;
-}
-/*div#profile div.sidebar div.basicinfo h2 img {
-	float: left;
-}
-*/
-div#profile div.sidebar div.basicinfo h2 img {
-	margin-bottom: 5px;
-}
 div#profile div.sidebar div.basicinfo div.mood {
 	padding-top: 5px;
 	margin-top: 5px;
@@ -68,12 +58,11 @@ div#profile div.sidebar div.basicinfo h2 {
 	font-size: 120%;
 	color: #105cb6;
 }
-div#profile div.sidebar div.basicinfo h2  img {
+div.sidebar div.basicinfo h2 a span.vavie150 {
+    padding: 0 4px 0 0;
+}
+div#profile div.sidebar div.basicinfo h2 img {
 	float: left;
-	margin: 3px 6px 20px 3px;
-	border: 1px solid #666;
-	width: 150px;
-	height: 150px;
 }
 div#profile div.sidebar div.basicinfo h2 span.name {
 	font-size: 120%;
