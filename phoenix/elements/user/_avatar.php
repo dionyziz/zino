@@ -19,6 +19,17 @@
             }
             ?><span class="vavie<?php
             echo $aviesize;
+                if ( $cssresizable ) {
+                    if ( $csswidth == 50 ) {
+                        ?>50<?php
+                    }
+                    else if ( $csswidth == 75 ) {
+                        ?>75<?php
+                    }
+                }
+                else {
+                    echo $size;
+                }
             ?>">
                 <img src="<?php
                 if ( $avatarid > 0 ) {
