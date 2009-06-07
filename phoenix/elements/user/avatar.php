@@ -68,7 +68,7 @@
                 ?>" alt="<?php
                 echo $theusername;
                 ?>"></img><?php
-                if ( $csswidth != 50 ) {
+                if ( $csswidth != 50 && $size != 100 ) {
                     ?><span class="rndavie<?php
                         echo $aviesize;
                     ?>">&nbsp;</span><?php
