@@ -1,6 +1,7 @@
 <?php
     class ElementUserProfileSidebarWho extends Element {
         protected $mPersistent = array( 'theuserid' , 'avatarid' );
+
         public function Render( $theuser , $theuserid , $avatarid ) {
             ?><h2><?php
                 if ( $avatarid != 0 ) {
