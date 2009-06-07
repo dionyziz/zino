@@ -96,7 +96,7 @@ var Notification = {
             $( inotifsdiv ).attr( "id" , "inotifs" ).addClass( "invisible" );
 			$( expand ).addClass( "expand" ).append( link );
 			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
-			$( list ).addClass( "list" );
+			$( list ).attr( "id" , "notiflist" );
 			$( notifscontainer ).attr( 'id' , 'notifications')
 			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
 			$( '#frontpage' ).prepend( notifscontainer );
