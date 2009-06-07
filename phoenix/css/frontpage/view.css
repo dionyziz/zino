@@ -216,6 +216,9 @@
 #notiflist div.event div.subject div.viewprofile {
     font-size: 90%;
 }
+.onlineusers .list a span.vavie {
+    cursor: pointer;
+}
 .onlinenow a img {
     border: 1px solid #666;
     margin: 0 10px 10px 0;
