@@ -16,6 +16,20 @@ span.imageview > span {
 span.imageview span > span {
 	vertical-align: -1px;
 }
+.vavie50 {
+    float: left;
+}
+.vavie50:after {
+    content: url( 'http://static.zino.gr/phoenix/shadow.png' );
+    margin-left: -62px;
+}
+div.who span.vavie50 img.avatar {
+    margin-top: 4px;
+}
+
+div.newcomment .vavie50:after {
+    content: url( 'http://static.zino.gr/phoenix/shadownewcomment.png' );
+}
 .vavie75 {
     position: relative;
     width: 80px;
