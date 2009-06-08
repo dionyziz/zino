@@ -309,8 +309,8 @@ var Frontpage = {
             
             whodiv.className = 'who';
             whodiv.innerHTML = '<a href="http://' + who.subdomain + '.zino.gr/">'
-                            + '<img src="' + avatar + '" width="50" height="50" alt="' 
-                            + who.name + '" class="avatar" />'
+                            + '<span class="vavie50"><img src="' + avatar + '" width="50" height="50" alt="' 
+                            + who.name + '" class="avatar" /></span>'
                             + who.name + '</a>' + ' είπε:';
             text.className = 'text';
             text.innerHTML = shouttext;
