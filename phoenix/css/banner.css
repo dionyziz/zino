@@ -39,7 +39,7 @@ div#loggedinmenu > span {
 	top: 4px;
 }
 div#loggedinmenu > span:after {
-    content: url( 'http://static.zino.gr/phoenix/shadow.png' );
+    content: url( 'http://static.zino.gr/phoenix/shadowblue.png' );
     margin-left: -74px;
 }
 div#mbanner > div > ul {
