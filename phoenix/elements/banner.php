@@ -12,7 +12,7 @@
                     <a href="<?php
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>">
-                        <img src="http://static.zino.gr/phoenix/logo-trans.png" />
+                        <img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" />
                     </a>
                 </h1>
            </div>
@@ -82,14 +82,14 @@
                         </ul><?php
                     }
                     else {
-                        ?><form id="loginform" action="do/user/login" method="post">
+                        ?><form id="loginform" action="do/user/login" method="post"><div>
                             <input id="lusername" type="text" name="username" value="ψευδώνυμο" />
                             <input id="lpassword" type="text" name="password" value="κωδικός" />
                             <input type="submit" id="loginbutton" value="Είσοδος" />
                             <span>
                                 ή <a href="join" class="wlink">Εγγραφή</a>
                             </span>
-                        </form><?php
+                        </div></form><?php
                     }
                 ?></div>
            </div><?php
