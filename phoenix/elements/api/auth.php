@@ -5,7 +5,7 @@
             $libs->Load( 'user/user' );
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindByNameAndPassword( $username->Get(), $password->Post() );
+            $user = $userfinder->FindByNameAndPassword( $username->Get(), $password->Get() );
             
             if ( $user !== false ) {
                 $apiarray[ 'id' ] = $user->Id;
