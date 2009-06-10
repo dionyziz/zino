@@ -6,6 +6,8 @@
             $libs->Load( 'user/user' );
             $libs->Load( 'notify' );
             
+            die( $id . $authtoken );
+            
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );
             
@@ -23,7 +25,12 @@
             {
                 $apiarray[ 'error' ][ 'description' ] = "Wrong username or authtoken";
             }
-            
+            if ( !$xml ) {
+                echo w_json_encode( $apiarray );
+            }
+            else {
+                echo 'XML Zino API not yet supported';
+            }
         }
     }
 ?>
