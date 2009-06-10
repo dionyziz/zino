@@ -4,7 +4,7 @@
         
         $username = $username->Get();
         $userfinder = New UserFinder();
-        $user = $userfinder->FindByUser( $username );
+        $user = $userfinder->FindByUsername( $username );
         if ( !$user->Exists() || empty( $user->Profile->Email ) ) {
             return Redirect( 'forgot/failure' );
         }
