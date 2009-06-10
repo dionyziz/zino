@@ -5,6 +5,10 @@
     class HappeningParticipant extends Satori {
         protected $mDbTableAlias = 'happeningparticipants';
         
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Location = $this->HasOne( 'Place', 'Placeid' );
+        }
         protected function LoadDefaults() {
             global $user;
             

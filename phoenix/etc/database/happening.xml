@@ -5,7 +5,7 @@
         <table name="happenings">
             <field name="happening_id" type="int" autoincrement="yes" />
             <field name="happening_title" type="text" />
-            <field name="happening_location" type="int" ref="places.place_id" />
+            <field name="happening_placeid" type="int" ref="places.place_id" />
             <field name="happening_date" type="datetime" />
             <index type="primary">
                 <indexfield>happening_id</indexfield>
