@@ -1,13 +1,13 @@
 <?php
     class ElementApiNotifications extends Element {
-        public function Render( tText $username, tText $authtoken ) {
+        public function Render( tInteger $id, tText $authtoken ) {
             global $libs;
             
             $libs->Load( 'user/user' );
             $libs->Load( 'notify' );
             
             $userfinder = New UserFinder();
-            $theuser = $userfinder->FindByNameAndPassword( $username->Get(), $password->Get() );
+            $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );
             
             if ( $user !== false ) {
                 $notifinder = New NotificationFinder();
