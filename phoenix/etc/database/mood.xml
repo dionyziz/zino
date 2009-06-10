@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
+<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
+    <database name="zinophoenix" type="mysql">
+        <table name="moods">
+            <field name="mood_id" type="int" autoincrement="yes" />
+            <field name="mood_label" type="text" />
+            <field name="mood_icon" type="int" ref="images.image_id" />
+            <index type="primary">
+                <indexfield>mood_id</indexfield>
+            </index>
+        </table>
+    </database>
+</project>

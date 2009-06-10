@@ -6,7 +6,6 @@
             
             $libs->Load( 'user/profile' );
             
-
             $userid = $userid->Get();
             $hash = $hash->Get();
             
@@ -16,7 +15,7 @@
                 return;
             }
             
-            $myuser = New $user( $userid );
+            $myuser = New User( $userid );
             $myuser->UpdateLastLogin();
             $myuser->Save();
             $_SESSION[ 's_userid' ] = $myuser->Id;

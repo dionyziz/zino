@@ -24,8 +24,8 @@
 		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
 		w_assert( ValidEmail( $fromemail ), 'Invalid sender e-mail: ' . $fromemail );
 
-        $headers = "To: \"$toname\" <$toemail>\r\n"
-                 . "From: \"$fromname\" <$fromemail>\r\n"
+        $headers = "To: $toemail\r\n"
+                 . "From: $fromemail\r\n"
                  . "Reply-To: $fromemail\r\n"
                  . "Content-type: text/plain; charset=utf-8";
         

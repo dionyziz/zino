@@ -174,7 +174,10 @@
             'api/image'         => 'api/image',
             'api/status'        => 'api/status',
             'api/avatar'        => 'api/avatar',
-            'api/auth'          => 'api/auth'
+            'api/auth'          => 'api/auth',
+            'forgot'            => 'user/passwordrequest/view',
+            'forgot/success'    => 'user/passwordrequest/success',
+            'forgot/failure'    => 'user/passwordrequest/failure'
         );
     }
     

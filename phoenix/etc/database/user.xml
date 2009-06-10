@@ -192,12 +192,18 @@
                 <indexfield>lastactive_updated</indexfield>
             </index>
         </table>
-        <table name="moods">
-            <field name="mood_id" type="int" autoincrement="yes" />
-            <field name="mood_label" type="text" />
-            <field name="mood_icon" type="int" ref="images.image_id" />
+        <table name="passwordrequests">
+            <field name="request_id" type="int" autoincrement="yes" />
+            <field name="request_host" type="int" />
+            <field name="request_userid" type="int" ref="users.user_id" />
+            <field name="request_hash" type="char" size="32" />
+            <field name="request_used" type="int" />
+            <field name="request_created" type="date" />
             <index type="primary">
-                <indexfield>mood_id</indexfield>
+                <indexfield>request_id</indexfield>
+            </index>
+            <index type="index" name="user">
+                <indexfield>request_userid</indexfield>
             </index>
         </table>
     </database>
