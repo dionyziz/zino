@@ -22,7 +22,7 @@
                     else {
                         ?>το όνομα χρήστη <strong><?php
                         echo htmlspecialchars( $username );
-                        ?></strong> δεν υπάρχει.</p>
+                        ?></strong> δεν υπάρχει.</p><p>
                         
                         <strong><a href="http://www.zino.gr/?p=join&amp;username=<?php
                         echo htmlspecialchars( $username );
