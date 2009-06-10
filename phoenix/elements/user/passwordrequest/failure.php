@@ -13,7 +13,7 @@
             <form action="user/passwordrequest" method="post" style="padding-bottom: 20px">
                 <p>
                     Συγγνώμη, αλλά δεν μπορέσαμε να επαναφέρουμε τον κωδικό σου, επειδή <?php
-                    if ( $user->Exists() ) {
+                    if ( $user === false ) {
                         ?>δεν είχες δηλώσει μία έγκυρη διεύθυνση e-mail κατά την εγγραφή σου.
                         </p><p>
                         <strong><a href="http://www.zino.gr/?p=join" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ 

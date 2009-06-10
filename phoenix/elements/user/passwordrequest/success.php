@@ -9,7 +9,7 @@
             
             $userfinder = New UserFinder();
             $user = $userfinder->FindByName( $username );
-            if ( !$user->Exists() ) {
+            if ( $user === false ) {
                 return Redirect( 'forgot/failure' );
             }
             
