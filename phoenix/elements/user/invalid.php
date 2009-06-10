@@ -8,7 +8,7 @@
             }
 
             ?>
-            <h3>Ο κωδικός ή το ψευδώνυμο δεν είναι σωστά <span>.</span></h3>
+            <h3>Ο κωδικός ή το ψευδώνυμο δεν είναι σωστά <span class="emoticon-sad">.</span></h3>
             <ul style="margin:0; padding:0 0 10pt 14pt; list-style: disc;">
                 <li>
                     Τα κεφαλαία και τα μικρά γράμματα παίζουν ρόλο.<br />
