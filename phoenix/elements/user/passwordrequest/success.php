@@ -1,5 +1,5 @@
 <?php
-    class ElementUserPasswordRequestView extends Element {
+    class ElementUserPasswordRequestSuccess extends Element {
         public function Render( tText $username ) {
             $username = $username->Get();
             
