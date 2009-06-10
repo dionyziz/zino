@@ -2,7 +2,7 @@
     function ActionUserPasswordRecover( tInteger $requestid, tText $hash, tText $newpassword ) {
         global $libs;
         
-        $userid = $userid->Get();
+        $requestid = $requestid->Get();
         $hash = $hash->Get();
         $user = New User( $userid );
         if ( !$user->Exists() ) {
@@ -18,13 +18,6 @@
         
         $request->Used = true;
         $request->Save();
-        
-        $myuser = New User( $userid );
-        $myuser->UpdateLastLogin();
-        $myuser->Save();
-        $_SESSION[ 's_userid' ] = $myuser->Id;
-        $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
-        User_SetCookie( $myuser->Id, $myuser->Authtoken );
         
         return Redirect();
     }

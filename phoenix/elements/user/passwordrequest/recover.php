@@ -12,9 +12,16 @@
             $libs->Load( 'passwordrequest' );
             
             $request = New PasswordRequest( $requestid );
-            if ( $request->Used || $request->Hash != $hash ) {
+            $myuser = New User( $request->Userid );
+            if ( $request->Used || $request->Hash != $hash || !$user->Exists() ) {
                 return Redirect( 'forgot/success' );
             }
+            
+            $myuser->UpdateLastLogin();
+            $myuser->Save();
+            $_SESSION[ 's_userid' ] = $myuser->Id;
+            $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
+            User_SetCookie( $myuser->Id, $myuser->Authtoken );
             
             ?><h2>Αλλαγή κωδικού πρόσβασης</h2>
             
