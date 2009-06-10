@@ -6,6 +6,7 @@
             $this->Used = false;
             $this->Created = NowDate();
             $this->Hash = GenerateRandomHash();
+            $this->Host = UserIp();
         }
     }
 ?>
