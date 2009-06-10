@@ -9,7 +9,7 @@
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );
             
-            if ( $user !== false ) {
+            if ( $theuser !== false ) {
                 $notifinder = New NotificationFinder();
                 $notifs = $notifinder->FindByUser( $theuser );
                 if ( !empty( $notifs ) ) {
