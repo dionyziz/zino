@@ -6,7 +6,7 @@
         $userfinder = New UserFinder();
         $user = $userfinder->FindByName( $username );
         if ( $user === false || empty( $user->Profile->Email ) ) {
-            return Redirect( 'forgot/failure' );
+            return Redirect( 'forgot/failure?username=' . $username );
         }
         
         $libs->Load( 'passwordrequest' );

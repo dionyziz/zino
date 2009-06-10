@@ -16,7 +16,7 @@
                     if ( $user === false ) {
                         ?>δεν είχες δηλώσει μία έγκυρη διεύθυνση e-mail κατά την εγγραφή σου.
                         </p><p>
-                        <strong><a href="http://www.zino.gr/?p=join" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ 
+                        <strong><a href="?p=join" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ 
                         ένα νέο προφίλ</a></strong>!<?php
                     }
                     else {
@@ -24,7 +24,7 @@
                         echo htmlspecialchars( $username );
                         ?></strong> δεν υπάρχει.</p><p>
                         
-                        <strong><a href="http://www.zino.gr/?p=join&amp;username=<?php
+                        <strong><a href="?p=join&amp;username=<?php
                         echo htmlspecialchars( $username );
                         ?>" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ το</a></strong>!<?php
                     }
