@@ -12,8 +12,11 @@
         $libs->Load( 'passwordrequest' );
         
         $request = New PasswordRequest( $requestid );
-        if ( $request->Used || $request->Hash != $hash ) {
-            return Redirect( 'forgot/failure' );
+        if ( $request->Used ) {
+            return Redirect( 'forgot/failure?used' );
+        }
+        if ( $request->Hash != $hash ){
+            return Redirect( 'forgot/failure?hash' );
         }
         
         $request->Used = true;
