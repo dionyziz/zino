@@ -21,11 +21,10 @@
                 ?>ος<?php
             }
             ?>!</h2>
-            <form action="user/passwordrequest" method="post">
-                <p>
-                    Σου έχουμε στείλει ένα e-mail με οδηγίες για το πώς θα αλλάξεις τον κωδικό σου.
-                </p>
-            </form><?php
+            <p style="padding-bottom: 20px">
+                Σου έχουμε στείλει ένα e-mail με οδηγίες για το πώς θα αλλάξεις τον κωδικό σου.
+            </p>
+            <?php
         }
     }
 ?>

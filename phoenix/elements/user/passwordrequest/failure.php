@@ -10,7 +10,7 @@
             $userfinder = New UserFinder();
             $user = $userfinder->FindByName( $username );
             ?><h2>Δεν μπορούμε να επαναφέρουμε τον κωδικό σου <span class="emoticon-cry">.</span></h2>
-            <form action="user/passwordrequest" method="post">
+            <form action="user/passwordrequest" method="post" style="padding-bottom: 20px">
                 <p>
                     Συγγνώμη, αλλά δεν μπορέσαμε να επαναφέρουμε τον κωδικό σου, επειδή <?php
                     if ( $user->Exists() ) {
