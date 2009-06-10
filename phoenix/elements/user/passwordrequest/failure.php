@@ -1,6 +1,10 @@
 <?php
     class ElementUserPasswordRequestFailure extends Element {
         public function Render( tText $username ) {
+            global $page;
+            
+            $page->SetTitle( 'Επαναφορά κωδικού' );
+            
             $username = $username->Get();
             
             $userfinder = New UserFinder();
@@ -16,7 +20,7 @@
                         ένα νέο προφίλ</a></strong>!<?php
                     }
                     else {
-                        ?>το όνομα χρήστη </strong><?php
+                        ?>το όνομα χρήστη <strong><?php
                         echo htmlspecialchars( $username );
                         ?></strong> δεν υπάρχει.</p>
                         

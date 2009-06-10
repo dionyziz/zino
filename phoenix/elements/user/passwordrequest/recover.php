@@ -2,6 +2,9 @@
     class ElementUserPasswordRequestRecover extends Element {
         public function Render( tInteger $requestid, tText $hash ) {
             global $libs;
+            global $page;
+            
+            $page->SetTitle( 'Επαναφορά κωδικού' );
             
             $requestid = $requestid->Get();
             $hash = $hash->Get();

@@ -1,6 +1,10 @@
 <?php
     class ElementUserPasswordRequestSuccess extends Element {
         public function Render( tText $username ) {
+            global $page;
+            
+            $page->SetTitle( 'Επαναφορά κωδικού' );
+            
             $username = $username->Get();
             
             $userfinder = New UserFinder();
