@@ -5,11 +5,11 @@
             $libs->Load( 'user/user' );
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindByNameAndPassword( $username->Get(), $password->Get() );
+            $theuser = $userfinder->FindByNameAndPassword( $username->Get(), $password->Get() );
             
-            if ( $user !== false ) {
-                $apiarray[ 'id' ] = $user->Id;
-                $apiarray[ 'auth' ] = $user->Authtoken;
+            if ( $theuser !== false ) {
+                $apiarray[ 'id' ] = $theuser->Id;
+                $apiarray[ 'auth' ] = $theuser->Authtoken;
             } else
             {
                 $apiarray[ 'error' ][ 'description' ] = "No such user";
