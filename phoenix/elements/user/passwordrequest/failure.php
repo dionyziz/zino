@@ -4,7 +4,7 @@
             $username = $username->Get();
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindByUsername( $username );
+            $user = $userfinder->FindByName( $username );
             ?><h2>Δεν μπορούμε να επαναφέρουμε τον κωδικό σου <span class="emoticon-cry">.</span></h2>
             <form action="user/passwordrequest" method="post">
                 <p>
