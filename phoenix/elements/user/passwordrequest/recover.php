@@ -13,11 +13,11 @@
                 return Redirect( 'forgot/success' );
             }
             
-            ?><h2>Αλλαγή κωδικού πρόσβασης</h2>
+            ?><h2>Ξ‘Ξ»Ξ»Ξ±Ξ³Ξ® ΞΊΟ‰Ξ΄ΞΉΞΊΞΏΟ Ο€ΟΟΟƒΞ²Ξ±ΟƒΞ·Ο‚</h2>
             
             <form action="do/user/password/recover" method="post">
                 <div>
-                    <label>Πληκτρολόγησε τον νέο σου κωδικό:</label>
+                    <label>Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„ΞΏΞ½ Ξ½Ξ­ΞΏ ΟƒΞΏΟ… ΞΊΟ‰Ξ΄ΞΉΞΊΟ:</label>
                     <input type="password" name="password" value="" />
                 </div>
                 <input type="hidden" value="<?php
@@ -26,7 +26,7 @@
                 <input type="hidden" value="<?php
                 echo htmlspecialchars( $requestid );
                 ?>" name="requestid" />
-                <input type="submit" value="Αλλαγή κωδικού" />
+                <input type="submit" value="Ξ‘Ξ»Ξ»Ξ±Ξ³Ξ® ΞΊΟ‰Ξ΄ΞΉΞΊΞΏΟ" />
             </form><?php
         }
     }

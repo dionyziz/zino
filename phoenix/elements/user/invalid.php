@@ -1,5 +1,4 @@
 <?php
-
     class ElementUserInvalid extends Element {
         public function Render() {
             global $user;
@@ -25,6 +24,5 @@
             </ul>
             <?php
         }
-
     }
 ?>

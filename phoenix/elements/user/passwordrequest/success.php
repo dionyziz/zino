@@ -5,17 +5,17 @@
             
             $userfinder = New UserFinder();
             $user = $userfinder->FindByUsername( $username );
-            ?><h2>Έτοιμ<?php
+            ?><h2>ΞΟ„ΞΏΞΉΞΌ<?php
             if ( $user->Gender == 'f' ) {
-                ?>η<?php
+                ?>Ξ·<?php
             }
             else {
-                ?>ος<?php
+                ?>ΞΏΟ‚<?php
             }
             ?>!</h2>
             <form action="user/passwordrequest" method="post">
                 <p>
-                    Σου έχουμε στείλει ένα e-mail με οδηγίες για το πώς θα αλλάξεις τον κωδικό σου.
+                    Ξ£ΞΏΟ… Ξ­Ο‡ΞΏΟ…ΞΌΞµ ΟƒΟ„ΞµΞ―Ξ»ΞµΞΉ Ξ­Ξ½Ξ± e-mail ΞΌΞµ ΞΏΞ΄Ξ·Ξ³Ξ―ΞµΟ‚ Ξ³ΞΉΞ± Ο„ΞΏ Ο€ΟΟ‚ ΞΈΞ± Ξ±Ξ»Ξ»Ξ¬ΞΎΞµΞΉΟ‚ Ο„ΞΏΞ½ ΞΊΟ‰Ξ΄ΞΉΞΊΟ ΟƒΞΏΟ….
                 </p>
             </form><?php
         }

@@ -1,12 +1,12 @@
 <?php
     class ElementUserPasswordRequestView extends Element {
         public function Render() {
-            ?><h2>Επαναφορά κωδικού πρόσβασης</h2>
+            ?><h2>Ξ•Ο€Ξ±Ξ½Ξ±Ο†ΞΏΟΞ¬ ΞΊΟ‰Ξ΄ΞΉΞΊΞΏΟ Ο€ΟΟΟƒΞ²Ξ±ΟƒΞ·Ο‚</h2>
             <form action="user/passwordrequest" method="post">
                 <p>
-                    Πληκτρολόγησε το ψευδώνυμό σου:
+                    Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„ΞΏ ΟΞµΟ…Ξ΄ΟΞ½Ο…ΞΌΟ ΟƒΞΏΟ…:
                     <input type="text" value="" name="username" />
-                    <input type="submit" value="Επαναφορά" />
+                    <input type="submit" value="Ξ•Ο€Ξ±Ξ½Ξ±Ο†ΞΏΟΞ¬" />
                 </p>
             </form><?php
         }

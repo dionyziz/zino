@@ -5,24 +5,24 @@
             
             $userfinder = New UserFinder();
             $user = $userfinder->FindByUsername( $username );
-            ?><h2>Δεν μπορούμε να επαναφέρουμε τον κωδικό σου <span class="emoticon-cry">.</span></h2>
+            ?><h2>Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΞΏΟΞΌΞµ Ξ½Ξ± ΞµΟ€Ξ±Ξ½Ξ±Ο†Ξ­ΟΞΏΟ…ΞΌΞµ Ο„ΞΏΞ½ ΞΊΟ‰Ξ΄ΞΉΞΊΟ ΟƒΞΏΟ… <span class="emoticon-cry">.</span></h2>
             <form action="user/passwordrequest" method="post">
                 <p>
-                    Συγγνώμη, αλλά δεν μπορέσαμε να επαναφέρουμε τον κωδικό σου, επειδή <?php
+                    Ξ£Ο…Ξ³Ξ³Ξ½ΟΞΌΞ·, Ξ±Ξ»Ξ»Ξ¬ Ξ΄ΞµΞ½ ΞΌΟ€ΞΏΟΞ­ΟƒΞ±ΞΌΞµ Ξ½Ξ± ΞµΟ€Ξ±Ξ½Ξ±Ο†Ξ­ΟΞΏΟ…ΞΌΞµ Ο„ΞΏΞ½ ΞΊΟ‰Ξ΄ΞΉΞΊΟ ΟƒΞΏΟ…, ΞµΟ€ΞµΞΉΞ΄Ξ® <?php
                     if ( $user->Exists() ) {
-                        ?>δεν είχες δηλώσει μία έγκυρη διεύθυνση e-mail κατά την εγγραφή σου.
+                        ?>Ξ΄ΞµΞ½ ΞµΞ―Ο‡ΞµΟ‚ Ξ΄Ξ·Ξ»ΟΟƒΞµΞΉ ΞΌΞ―Ξ± Ξ­Ξ³ΞΊΟ…ΟΞ· Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· e-mail ΞΊΞ±Ο„Ξ¬ Ο„Ξ·Ξ½ ΞµΞ³Ξ³ΟΞ±Ο†Ξ® ΟƒΞΏΟ….
                         </p><p>
-                        <strong><a href="http://www.zino.gr/?p=join" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ 
-                        ένα νέο προφίλ</a></strong>!<?php
+                        <strong><a href="http://www.zino.gr/?p=join" title="Ξ¦Ο„ΞΉΞ¬ΞΎΞµ Ξ­Ξ½Ξ± Ξ½Ξ­ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ»">Ξ”Ξ·ΞΌΞΉΞΏΟΟΞ³Ξ·ΟƒΞ­ 
+                        Ξ­Ξ½Ξ± Ξ½Ξ­ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ»</a></strong>!<?php
                     }
                     else {
-                        ?>το όνομα χρήστη </strong><?php
+                        ?>Ο„ΞΏ ΟΞ½ΞΏΞΌΞ± Ο‡ΟΞ®ΟƒΟ„Ξ· </strong><?php
                         echo htmlspecialchars( $username );
-                        ?></strong> δεν υπάρχει.</p>
+                        ?></strong> Ξ΄ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ.</p>
                         
                         <strong><a href="http://www.zino.gr/?p=join&amp;username=<?php
                         echo htmlspecialchars( $username );
-                        ?>" title="Φτιάξε ένα νέο προφίλ">Δημιούργησέ το</a></strong>!<?php
+                        ?>" title="Ξ¦Ο„ΞΉΞ¬ΞΎΞµ Ξ­Ξ½Ξ± Ξ½Ξ­ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ»">Ξ”Ξ·ΞΌΞΉΞΏΟΟΞ³Ξ·ΟƒΞ­ Ο„ΞΏ</a></strong>!<?php
                     }
                     ?>
                 </p>
