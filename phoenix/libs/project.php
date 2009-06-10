@@ -175,6 +175,8 @@
             'api/status'        => 'api/status',
             'api/avatar'        => 'api/avatar',
             'api/auth'          => 'api/auth',
+            'api/status'        => 'api/status',
+            'api/notifications' => 'api/notifications',
             'forgot'            => 'user/passwordrequest/view',
             'forgot/success'    => 'user/passwordrequest/success',
             'forgot/failure'    => 'user/passwordrequest/failure',
