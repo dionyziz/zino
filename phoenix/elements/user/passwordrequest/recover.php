@@ -14,7 +14,7 @@
             $request = New PasswordRequest( $requestid );
             $myuser = New User( $request->Userid );
             if ( $request->Used || $request->Hash != $hash || !$myuser->Exists() ) {
-                return Redirect( 'forgot/success' );
+                return Redirect( 'forgot/failure' );
             }
             
             $myuser->UpdateLastLogin();
