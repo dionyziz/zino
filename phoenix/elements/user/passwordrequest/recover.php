@@ -13,7 +13,7 @@
             
             $request = New PasswordRequest( $requestid );
             $myuser = New User( $request->Userid );
-            if ( $request->Used || $request->Hash != $hash || !$user->Exists() ) {
+            if ( $request->Used || $request->Hash != $hash || !$myuser->Exists() ) {
                 return Redirect( 'forgot/success' );
             }
             
