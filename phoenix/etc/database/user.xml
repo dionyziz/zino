@@ -194,11 +194,11 @@
         </table>
         <table name="passwordrequests">
             <field name="request_id" type="int" autoincrement="yes" />
-            <field name="request_host" type="int" />
             <field name="request_userid" type="int" ref="users.user_id" />
             <field name="request_hash" type="char" size="32" />
             <field name="request_used" type="int" />
-            <field name="request_created" type="date" />
+            <field name="request_host" type="int" signed="no" />
+            <field name="request_created" type="datetime" />
             <index type="primary">
                 <indexfield>request_id</indexfield>
             </index>

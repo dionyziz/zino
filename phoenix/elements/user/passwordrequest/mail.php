@@ -1,7 +1,7 @@
 <?php
     /* Content-type: text/plain */
     class ElementUserPasswordRequestMail extends Element {
-        public function Render( $username, $requestid, $hash ) {
+        public function Render( $requestid, $hash ) {
             global $rabbit_settings;
             
             ?>Είμαστε έτοιμοι να αλλάξεις τον κωδικό στον λογαριασμό σου στο Zino.
@@ -20,6 +20,8 @@
 
 Αν δεν έχεις ζητήσει να αλλάξεις τον κωδικό σου, μπορείς να αγνοήσεις αυτό το μήνυμα.<?php
             Element( 'email/footer', false );
+            
+            return 'Zino: Επαναφορά κωδικού πρόσβασης';
         }
     }
 ?>

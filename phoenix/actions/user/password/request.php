@@ -16,7 +16,7 @@
         $request->Save();
         
         ob_start();
-        $subject = Element( 'user/passwordrequest/mail' );
+        $subject = Element( 'user/passwordrequest/mail', $request->Id, $request->Hash );
         $message = ob_get_clean();
         Email( $user->Name, $user->Profile->Email, $subject, $message, 'Zino', 'info@zino.gr' );
         
