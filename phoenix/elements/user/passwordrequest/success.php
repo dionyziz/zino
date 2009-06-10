@@ -21,7 +21,7 @@
                 ?>ος<?php
             }
             ?>!</h2>
-            <p style="padding-bottom: 20px">
+            <p style="padding-bottom: 20px; margin-bottom: 0">
                 Σου έχουμε στείλει ένα e-mail με οδηγίες για το πώς θα αλλάξεις τον κωδικό σου.
             </p>
             <?php
