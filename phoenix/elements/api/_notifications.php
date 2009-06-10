@@ -5,8 +5,7 @@
             
             $libs->Load( 'user/user' );
             $libs->Load( 'notify' );
-            
-            die( $id . $authtoken );
+
             
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );
