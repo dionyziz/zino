@@ -177,6 +177,7 @@
             <field name="profile_homepage" type="varchar" size="256" />
             <field name="profile_firstname" type="varchar" size="256" />
             <field name="profile_lastname" type="varchar" size="256" />
+            <field name="profile_mobile" type="varchar" size="32" />
             <field name="profile_updated" type="datetime" />
             <index type="primary">
                 <indexfield>profile_userid</indexfield>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
+<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
+    <database name="zinophoenix" type="mysql">
+        <table name="happenings">
+            <field name="happening_id" type="int" autoincrement="yes" />
+            <field name="happening_title" type="text" />
+            <field name="happening_location" type="int" ref="places.place_id" />
+            <field name="happening_date" type="datetime" />
+            <index type="primary">
+                <indexfield>happening_id</indexfield>
+            </index>
+        </table>
+        <table name="happeningparticipants">
+            <field name="participation_happeningid" type="int" ref="happenings.happening_id" />
+            <field name="participation_userid" type="int" ref="users.user_id" />
+            <field name="participation_certainty" type="int" /><!-- 0 = won't come, 1 = maybe, 2 = will come for sure -->
+            <field name="participation_created" type="datetime" />
+            <index type="primary">
+                <indexfield>participation_happeningid</indexfield>
+                <indexfield>participation_userid</indexfield>
+            </index>
+        </table>
+    </database>
+</project>
