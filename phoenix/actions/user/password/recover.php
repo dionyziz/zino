@@ -4,10 +4,6 @@
         
         $requestid = $requestid->Get();
         $hash = $hash->Get();
-        $user = New User( $userid );
-        if ( !$user->Exists() ) {
-            return Redirect( 'forgot/failure' );
-        }
         
         $libs->Load( 'passwordrequest' );
         
@@ -22,6 +18,6 @@
         $request->Used = true;
         $request->Save();
         
-        return Redirect();
+        return Redirect( '' );
     }
 ?>
