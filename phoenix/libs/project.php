@@ -177,7 +177,8 @@
             'api/auth'          => 'api/auth',
             'forgot'            => 'user/passwordrequest/view',
             'forgot/success'    => 'user/passwordrequest/success',
-            'forgot/failure'    => 'user/passwordrequest/failure'
+            'forgot/failure'    => 'user/passwordrequest/failure',
+            'forgot/recover'    => 'user/passwordrequest/recover'
         );
     }
     
