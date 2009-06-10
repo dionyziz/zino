@@ -4,7 +4,11 @@
             $username = $username->Get();
             
             $userfinder = New UserFinder();
-            $user = $userfinder->FindByUsername( $username );
+            $user = $userfinder->FindByName( $username );
+            if ( !$user->Exists() ) {
+                return Redirect( 'forgot/failure' );
+            }
+            
             ?><h2>Έτοιμ<?php
             if ( $user->Gender == 'f' ) {
                 ?>η<?php
