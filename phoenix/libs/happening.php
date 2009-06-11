@@ -1,4 +1,8 @@
 <?php
+    define( 'HAPPENING_PARTICIPATION_NO', 0 );
+    define( 'HAPPENING_PARTICIPATION_MAYBE', 1 );
+    define( 'HAPPENING_PARTICIPATION_YES', 2 );
+    
     class Happening extends Satori {
         protected $mDbTableAlias = 'happenings';
         
