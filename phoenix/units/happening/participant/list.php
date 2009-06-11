@@ -1,5 +1,5 @@
 <?php
-    function UnitHappeningParticipants( tInteger $happeningid, tCoalaPointer $f ) {
+    function UnitHappeningParticipantList( tInteger $happeningid, tCoalaPointer $f ) {
         global $libs;
         
         $libs->Load( 'happening' );
