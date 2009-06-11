@@ -8,8 +8,8 @@
         $happening = New Happening( $happeningid );
         
         $participants = array();
-        foreach ( $participants as $participant ) {
-            
+        foreach ( $happening->Participants as $participant ) {
+            $participants[] = $participant->User->Name;
         }
         
         echo $f;

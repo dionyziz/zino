@@ -17,7 +17,26 @@
             $prototype = New HappeningParticipant();
             $prototype->Happeningid = $happening->Id;
             
-            return $this->FindByPrototype( $prototype, 0, 1000 );
+            $participants = $this->FindByPrototype( $prototype, 0, 1000 );
+            $userids = array();
+            $userid2user = array();
+            
+            foreach ( $participants as $participant ) {
+                $userids[] = $participant->Userid;
+            }
+            
+            $userfinder = New UserFinder();
+            $users = $userfinder->FindByIds( $userids );
+            
+            foreach ( $users as $user ) {
+                $userid2user[ $user->Id ] = $user;
+            }
+            
+            foreach ( $participants as $participant ) {
+                $participant->CopyUserFrom( $userid2user[ $participant->Userid ] );
+            }
+            
+            return $participants;
         }
     }
     class HappeningParticipant extends Satori {
@@ -26,6 +45,9 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
+        }
+        public function CopyUserFrom( User $user ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $user );
         }
         protected function LoadDefaults() {
             global $user;
