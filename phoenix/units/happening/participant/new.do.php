@@ -18,9 +18,12 @@
             ?>window.location.href = '?p=join';<?php
             return;
         }
-        $participant = New HappeningParticipant();
-        $participant->Happeningid = $happeningid;
-        $participant->Save();
+        $participant = New HappeningParticipant( $happeningid, $user->Id );
+        if ( !$participant->Exists() ) {
+            $participant = New HappeningParticipant();
+            $participant->Happeningid = $happeningid;
+            $participant->Save();
+        }
         
         $user->Profile->Mobile = $mobile;
         $user->Profile->Firstname = $firstname;
