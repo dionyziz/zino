@@ -9,12 +9,17 @@
         
         $participants = array();
         foreach ( $happening->Participants as $participant ) {
-            $participants[] = $participant->User->Name;
+            $participants[] = array( 
+                $participant->User->Name,
+                $participant->User->Subdomain,
+                $participant->User->Id,
+                $participant->User->Avatarid
+            );
         }
         
         echo $f;
         ?>( <?php
-        echo w_json_encode( $happening->Participants );
+        echo w_json_encode( $participants );
         ?> );<?php
     }
 ?>
