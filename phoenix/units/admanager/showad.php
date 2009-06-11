@@ -6,6 +6,6 @@
         echo $f;
         ?>(<?php
         echo w_json_encode( $html );
-        ?>)<?php
+        ?>);<?php
     }
 ?>
