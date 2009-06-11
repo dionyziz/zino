@@ -22,6 +22,7 @@
         if ( !$participant->Exists() ) {
             $participant = New HappeningParticipant();
             $participant->Happeningid = $happeningid;
+            $participant->Certainty = HAPPENING_PARTICIPATION_YES;
             $participant->Save();
         }
         
