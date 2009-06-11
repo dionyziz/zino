@@ -9,7 +9,7 @@
     class HappeningParticipantFinder extends Finder {
         protected $mModel = 'HappeningParticipant';
         
-        protected function FindByHappening( Happening $happening ) {
+        public function FindByHappening( Happening $happening ) {
             $prototype = New HappeningParticipant();
             $prototype->Happeningid = $happening->Id;
             
