@@ -229,15 +229,17 @@
 .invite_contacts #contactsNotZino {
     width: 570px;
 }
-.invite_contacts #contactsNotZino .contacts{
+.invite_contacts #body #contactsNotZino.networks .contacts{
 	height: 240px;
 }
-.invite_contacts #contactsNotZino .contact{
-	height: 60px;
+.invite_contacts #body #contactsNotZino.networks .contact{
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+	height: 40px;
 }
 .invite_contacts #contactsNotZino .contact input{
 	float: left;
-	margin: 20px;
+	margin: 12px;
 }
 
 .invite_contacts #inviteByEmail{
