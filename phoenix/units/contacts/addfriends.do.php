@@ -30,6 +30,7 @@
             }
 			if( $friends == 0 ){
 				?>contacts.previewContactsNotInZino();<?php
+				return;
 			}
 			?>contacts.message( "Πρόσθεσες <?php
 			echo $friends;
