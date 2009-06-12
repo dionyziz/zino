@@ -217,6 +217,7 @@ var contacts = {
     },
     previewContactsInZino: function( num ){
         document.title = "Προσθήκη φίλων | Zino";
+		document.body.style.cursor = 'default';
         contacts.step = 2;
         contacts.contactsNotInZino = num;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
