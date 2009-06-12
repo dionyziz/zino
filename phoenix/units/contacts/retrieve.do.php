@@ -70,11 +70,11 @@
                 if ( $friendship == 1 || $friendship == 3 ){
                     continue;
                 }
-                ?>contacts.addContactInZino( '<?php
+                ?>contacts.addContactInZino( <?php
 				ob_start();
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser, false );
 				echo w_json_encode( ob_get_clean() );
-                ?>', '<?php
+                ?>, '<?php
                 echo addslashes( $contact->Mail );
                 ?>', '<?php
                 echo addslashes( $theuser->Profile->Location->Name );
