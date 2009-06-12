@@ -225,10 +225,6 @@
 .invite_contacts #contactsInZino .contact span span {
     margin-right: 20px;
 }
-.invite_contacts #contactsInZino .contact div div{
-    display: inline;
-    float: left;
-}
 
 .invite_contacts #contactsNotZino {
     width: 570px;
