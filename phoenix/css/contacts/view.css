@@ -230,14 +230,14 @@
     width: 570px;
 }
 .invite_contacts #body #contactsNotZino.networks .contacts{
-	height: 240px;
+	height: 300px;
 }
 .invite_contacts #body #contactsNotZino.networks .contact{
 	border-top: 1px solid #ccc;
 	padding: 10px 0;
 	height: 40px;
 }
-.invite_contacts #body #contactsNotZino.networks .contact{
+.invite_contacts #body #contactsNotZino.networks .contact:first-child{
 	border-top: 0;
 }
 .invite_contacts #contactsNotZino .contact input{

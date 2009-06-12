@@ -28,6 +28,9 @@
 					++$friends;
                 }
             }
+			if( $friends == 0 ){
+				?>contacts.previewContactsNotInZino();<?php
+			}
 			?>contacts.message( "Πρόσθεσες <?php
 			echo $friends;
 			if ( $friends == 1 ){
