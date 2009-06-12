@@ -205,17 +205,17 @@ var contacts = {
     addContactInZino: function( display, mail, location, id ){
         div = document.createElement( "div" );
         var text = "<div class='contactName'>";
-        text += "<input type='checkbox' checked='checked' />";
+        text += "<input type='checkbox' checked='checked' /><div class='who'>";
         text += display;
-        text += "<div class='contactMail'>" + mail + "</div>";
+        text += "</div><div class='contactMail text'>" + mail + "</div>";
         text += "</div>";
         text += "<div class='location'>";
         text += location;
         text += "</div>";
         
-        $( div ).addClass( "contact" ).attr( 'id', id ).html( text ).appendTo( '#contactsInZino .contacts' );
+        $( div ).addClass( "contact comment" ).attr( 'id', id ).html( text ).appendTo( '#contactsInZino .contacts' );
     },
-    previwContactsInZino: function( num ){
+    previewContactsInZino: function( num ){
         document.title = "Προσθήκη φίλων | Zino";
         contacts.step = 2;
         contacts.contactsNotInZino = num;
@@ -238,7 +238,7 @@ var contacts = {
         }
         $( div ).attr( 'id', 'contact_' + contact_id ).addClass( "contact" ).html( text ).appendTo( '#contactsNotZino .contacts' );
     },
-    previwContactsNotInZino: function( num ){
+    previewContactsNotInZino: function( num ){
         if ( $( '#contactsNotZino .contacts .contact' ).length == 0 ){
             contacts.redirectToFrontpage();
             return;
