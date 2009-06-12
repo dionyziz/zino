@@ -121,7 +121,7 @@
             contacts.calcCheckboxes( contacts.step );
         });
         setTimeout( function(){
-                contacts.previwContacts<?php
+                contacts.previewContacts<?php
                 if ( !$contactsInZino ){
                 echo "Not";
                 }

@@ -36,9 +36,9 @@
 			else{
 				?> φίλους."<?php
 			}
-			?>, contacts.previwContactsNotInZino );<?php
+			?>, contacts.previewContactsNotInZino );<?php
 			return;
         }
-        ?>contacts.previwContactsNotInZino();<?php
+        ?>contacts.previewContactsNotInZino();<?php
     }
 ?>
