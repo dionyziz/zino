@@ -71,7 +71,9 @@
                     continue;
                 }
                 ?>contacts.addContactInZino( '<?php
+				ob_start();
                 Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser, false );
+				echo w_json_encode( ob_get_clean() );
                 ?>', '<?php
                 echo addslashes( $contact->Mail );
                 ?>', '<?php
