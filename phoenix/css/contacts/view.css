@@ -190,7 +190,7 @@
 	overflow: auto;
 	overflow-y:scroll;
 	overflow-x:hidden;
-	height: 283px;
+	height: 271px;
 }
 .invite_contacts #body .networks .contact{
 	height: 60px;
@@ -236,6 +236,9 @@
 	border-top: 1px solid #ccc;
 	padding: 10px 0;
 	height: 40px;
+}
+.invite_contacts #body #contactsNotZino.networks .contact{
+	border-top: 0;
 }
 .invite_contacts #contactsNotZino .contact input{
 	float: left;
