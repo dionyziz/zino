@@ -11,11 +11,11 @@
         foreach ( $happening->Participants as $participant ) {
             if ( $participant->Certainty != HAPPENING_PARTICIPATION_NO ) {
                 $participants[] = array( 
-                    $participant->User->Name,
-                    $participant->User->Subdomain,
-                    $participant->User->Id,
-                    $participant->User->Avatarid,
-                    $participant->Certainty
+                    'name' => $participant->User->Name,
+                    'subdomain' => $participant->User->Subdomain,
+                    'userid' => $participant->User->Id,
+                    'avatarid' => $participant->User->Avatarid,
+                    'certainty' => $participant->Certainty
                 );
             }
         }
