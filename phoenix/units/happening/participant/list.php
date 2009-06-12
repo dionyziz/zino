@@ -9,12 +9,15 @@
         
         $participants = array();
         foreach ( $happening->Participants as $participant ) {
-            $participants[] = array( 
-                $participant->User->Name,
-                $participant->User->Subdomain,
-                $participant->User->Id,
-                $participant->User->Avatarid
-            );
+            if ( $participant->Certainty != HAPPENING_PARTICIPATION_NO ) {
+                $participants[] = array( 
+                    $participant->User->Name,
+                    $participant->User->Subdomain,
+                    $participant->User->Id,
+                    $participant->User->Avatarid,
+                    $participant->Certainty
+                );
+            }
         }
         
         echo $f;
