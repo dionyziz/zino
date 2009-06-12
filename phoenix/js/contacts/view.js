@@ -245,6 +245,7 @@ var contacts = {
             return;
         }
         document.title = "Πρόσκληση φίλων | Zino";
+		document.body.style.cursor = 'default';
         contacts.step = 3;
         $( '.tab:visible' ).fadeOut( 'normal', function(){
             $( '#body' ).animate({
