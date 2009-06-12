@@ -200,6 +200,9 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
+#photo .changeavatar{
+	clear: both;
+}
 form#personalinfo div.option div.setting div#avatarlist {
 	display: none;
 	top: 10%;
