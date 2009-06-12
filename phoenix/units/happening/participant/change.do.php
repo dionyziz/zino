@@ -28,5 +28,6 @@
         
         $participant->Certainty = $certainity;
         $participant->Save();
+        ?>alert( "Κρίμα... Θα θέλαμε πολύ να σε δούμε!\nΑν αλλάξεις γνώμη μη διστάσεις να ξαναδηλώσεις συμμετοχή!" );<?php
     }
 ?>
