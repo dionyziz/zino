@@ -387,6 +387,10 @@
             $this->EgoAlbum->Ownerid = $this->Id;
             $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
+            global $user;
+            if ( $user->Id == 658 ) {
+                die( "before update" );
+            }
 
             $this->OnUpdate();
             PMFolder_PrepareUser( $this );
