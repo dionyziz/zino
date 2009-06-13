@@ -1,7 +1,7 @@
 <?php
 
     class TestJournal extends Testcase {
-        protected $mAppliesTo = 'libs/journal';
+        protected $mAppliesTo = 'libs/journal/journal';
         private $mUser;
 
         public function TestClassesExist() {
