@@ -33,13 +33,13 @@
             }
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
-            $webaddress = $rabbit_settings[ 'webaddress' ];
+            $page->AttachInlineScript( "ExcaliburSettings.webaddress = '" . $rabbit_settings[ 'webaddress' ] . "';" );
             if ( $rabbit_settings[ 'production' ] ) {
-                $page->AttachInlineScript( "ExcaliburSettings.Production = true; ExcaliburSettings.webaddress = '$webaddress';" );
+                $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
             else {
-                $page->AttachInlineScript( "ExcaliburSettings.Production = false; ExcaliburSettings.webaddress = '$webaddress';" );
+                $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                 $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
 			/*if ( stripos( $_SERVER["HTTP_USER_AGENT"], 'MSIE 6.0' ) !== false ){
