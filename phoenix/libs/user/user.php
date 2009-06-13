@@ -397,7 +397,9 @@
             $link = $this->Profile->ChangedEmail( '', $this->Name );
             $subject = Element( 'user/email/welcome', $this, $link );
             $text = ob_get_clean();
-            Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
+            if ( !empty( $this->Profile->Email ) ) { // do not send emails in unit test
+                Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
+            }
         }
         protected function OnUpdate() {
             $this->Profile->Save();
