@@ -65,6 +65,8 @@
             return $content;
         }
         public static function GetSamecom( $auser, $buser ) { // for testing only.
+            $auserid = $auser->Id;
+            $buserid = $buser->Id;
             $request = "GET SAMECOM\n$auserid\n$buserid\n";
             $samecom = (int)( self::SendRequest( $request ) );
             return $samecom;
