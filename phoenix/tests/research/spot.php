@@ -15,12 +15,12 @@
         }
         public function TestCommentCreated() {
             $john = New User();
-            /*
             $john->Name = "JohnTester";
             $john->Password = "travolta";
             $john->Subdomain = "travolta";
             $john->Save();
 
+            /*
             $george = New User();
             $george->Name = "GeorgeTester";
             $george->Password = "washington";
@@ -38,10 +38,11 @@
             $comment->Save();
 
             $comment->Delete();
+            */
 
+            
             $john->Delete();
             // $george->Delete();
-            */
         }
     }
 
