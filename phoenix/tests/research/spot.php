@@ -21,11 +21,6 @@
 
             $john->Save();
 
-            global $user;
-            if ( $user->Id == 658 ) {
-                die( "after save" );
-            }
-
             /*
             $george = New User();
             $george->Name = "GeorgeTester";
