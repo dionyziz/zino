@@ -21,13 +21,13 @@
 
             $john->Save();
 
-            /*
             $george = New User();
             $george->Name = "GeorgeTester";
             $george->Password = "washington";
             $george->Subdomain = "washington";
             $george->Save();
 
+            /*
 
             $samecom = Spot::GetSamecom( $john->Id, $george->Id );
             $this->AssertEquals( 0, $samecom, 'Samecom should be zero for two new users' );
@@ -43,7 +43,7 @@
 
             
             $john->Delete();
-            // $george->Delete();
+            $george->Delete();
         }
     }
 
