@@ -15,4 +15,6 @@
         }
     }
 
+    return New TestResearchSpot();
+
 ?>
