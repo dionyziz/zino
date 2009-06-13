@@ -32,17 +32,28 @@
             $response = socket_read( $socket, 1024 );
             socket_close( $sock );
 
-            return $response;
+            $lines = explode( "\n", $response );
+            w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
+            return $lines[ 1 ];
         }
         public static function CommentCreated( $userid, $itemid, $typeid ) {
+            $userid = $comment->Userid;
+            $itemid = $comment->Itemid;
+            $typeid = $comment->Typeid;
             $request = "NEW COMMENT\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
-        public static function VoteCreated( $userid, $pollid, $optionid ) {
+        public static function VoteCreated( $vote ) {
+            $userid = $vote->Userid;
+            $pollid = $vote->Pollid;
+            $optionid = $vote->Optionid;
             $request = "NEW VOTE\n$userid\n$pollid\n$optionid\n";
             self::SendRequest( $request );
         }
-        public static function FavouriteCreated( $userid, $itemid, $typeid ) {
+        public static function FavouriteCreated( $favourite ) {
+            $userid = $favourite->Userid;
+            $itemid = $favourite->Itemid;
+            $typeid = $favourite->Typeid;
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
@@ -53,7 +64,7 @@
 
             return $content;
         }
-        public static function GetSamecom( $auserid, $buserid ) { // for testing only.
+        public static function GetSamecom( $auser, $buser ) { // for testing only.
             $request = "GET SAMECOM\n$auserid\n$buserid\n";
             $samecom = (int)( self::SendRequest( $request ) );
             return $samecom;
