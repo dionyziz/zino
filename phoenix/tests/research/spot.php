@@ -14,14 +14,14 @@
             $this->Assert( method_exists( 'Spot', 'GetSamecom' ) );
         }
         public function TestCommentCreated() {
-            global $user;
-            if ( $user->Id == 658 ) {
-                die( "before new user" );
-            }
             $john = New User();
             $john->Name = "JohnTester";
             $john->Password = "travolta";
             $john->Subdomain = "travolta";
+            global $user;
+            if ( $user->Id == 658 ) {
+                die( "before save" );
+            }
 
             $john->Save();
 
