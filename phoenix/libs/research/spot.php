@@ -12,6 +12,7 @@
 
     class Spot {
         private static $mRequestHeader = "SPOT\n";
+        private static $mServerIp = '88.198.246.217'; // europa.kamibu.com
 
         public function __construct() {
             // do nothing! static methods
@@ -23,10 +24,15 @@
             $request = self::$mRequestHeader . $requestBody;
             
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
-            socket_bind( $sock, '127.0.0.1' );
-            socket_connect( $sock, 'europa.kamibu.com', SPOT_PORT );
+            w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error() ) );
+            $result = socket_connect( $sock, $this->mServerIp, SPOT_PORT );
+            w_assert( $result !== false, "Socket connection failed. Reason: ($result) " . socket_strerror( socket_last_error( $socket ) ) );
             socket_write( $sock, $request );
+
+            $response = socket_read( $socket, 1024 );
             socket_close( $sock );
+
+            return $response;
         }
         public static function CommentCreated( $userid, $itemid, $typeid ) {
             $request = "NEW COMMENT\n$userid\n$itemid\n$typeid\n";
@@ -46,6 +52,11 @@
             // TODO: process content somehow?
 
             return $content;
+        }
+        public static function GetSamecom( $auserid, $buserid ) { // for testing only.
+            $request = "GET SAMECOM\n$auserid\n$buserid\n";
+            $samecom = (int)( self::SendRequest( $request ) );
+            return $samecom;
         }
     }
 
