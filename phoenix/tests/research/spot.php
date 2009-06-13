@@ -15,13 +15,13 @@
         }
         public function TestCommentCreated() {
             $john = New User();
-            $john->Name = "JohnTester";
-            $john->Password = "travolta";
-            $john->Subdomain = "travolta";
             global $user;
             if ( $user->Id == 658 ) {
                 die( "before Save" );
             }
+            $john->Name = "JohnTester";
+            $john->Password = "travolta";
+            $john->Subdomain = "travolta";
 
             $john->Save();
 
