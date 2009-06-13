@@ -1,6 +1,6 @@
 <?php
 
-    class TestSpot extends Testcase {
+    class TestResearchSpot extends Testcase {
         protected $mAppliesTo = 'libs/research/spot';
         
         public function TestClassesExist() {
