@@ -68,6 +68,7 @@
             $auserid = $auser->Id;
             $buserid = $buser->Id;
             $request = "GET SAMECOM\n$auserid\n$buserid\n";
+            die( $request );
             $samecom = (int)( self::SendRequest( $request ) );
             return $samecom;
         }
