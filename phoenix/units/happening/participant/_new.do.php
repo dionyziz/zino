@@ -29,8 +29,7 @@
             $participant->Happeningid = $happeningid;
             $participant->Certainty = $certainty;
         } else
-        { 
-            ?>alert( 'existed' );<?php
+        {
             $participant->Certainty = $certainty;
         }
         $participant->Save();
