@@ -1,5 +1,5 @@
 <?php
-    function UnitBackendNotificationCommentCreated( Comment $comment ) {
+    function UnitBackendNotificationCommentDeleted( Comment $comment ) {
         global $libs;
         
         $libs->Load( 'notify' );
