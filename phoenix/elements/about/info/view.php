@@ -20,7 +20,8 @@
             Element( 'about/info/sidebar', $section, $sections );
             ?><div id="aboutsection"><?php
             Element( 'about/info/' . $section );
-            ?></div><?php
+            ?><div class="eof"></div>
+            </div><?php
         }
     }
 ?>
