@@ -47,6 +47,9 @@
 #aboutmenu li.ads {
     background-image: url( 'http://static.zino.gr/phoenix/about/ads.png' );
 }
+#aboutmenu li.status {
+    background-image: url( 'http://static.zino.gr/phoenix/about/status.png' );
+}
 #aboutmenu li.selected a {
     color: white;
 }

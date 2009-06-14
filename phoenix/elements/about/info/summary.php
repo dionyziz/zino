@@ -38,32 +38,6 @@
                     νέοι επικοινωνούν στο Internet και το πώς εκφράζονται μέσα από την 
                     επικοινωνία τους.
                 </p>
-                
-                <h3 class="sweet">Πρόσφατη κατάσταση του Zino</h3>
-<ul class="blog">
-<li><div class="jsmall">
-<h4><a href="http://oniz.zino.gr/journals/Proswrini_Mi-Diathesimotita_tou_Zino">Προσωρινή Μη-Διαθεσιμότητα του Zino</a></h4>
-<p>Καλημέρα Zino,  Θα θέλαμε να σας ενημερώσουμε για ένα προσωρινό τεχνικό πρόβλημα που έλαβε χώρα νωρίς σήμερα το πρωί, το οποίο απέτρεψε την πρόσβαση στους χρήστες του Zino για μερικά λεπτά (περίπου από τις 01....</p>
-</div>
-<div class="barfade"><div class="leftbar"></div><div class="rightbar"></div></div>
-</li><li><div class="jsmall">
-<h4><a href="http://oniz.zino.gr/journals/Suntomi_mi_diathesimotita_tou_Zino">Σύντομη μη διαθεσιμότητα του Zino</a></h4>
-<p>Καλημέρα Zino,  Το Zino αυτή τη στιγμή και για μερικά λεπτά ακόμα, δεν είναι διαθέσιμο στο περίπου 30% των χρηστών μας. Αν έχετε προβλήματα σύνδεσης, δοκιμαστε ξανά σε λίγο, και μην ξεχάσετε να το πείτε στους φίλους σας που ίσως δεν μπορούν να μπουν αυτή τη στιγμή....</p>
-
-</div><div class="barfade">
-        <div class="leftbar"/>
-        <div class="rightbar"/>
-
-    </div>
-</li><li><div class="jsmall">
-<h4><a href="http://oniz.zino.gr/journals/To_Zino_upostirizei_3_enimerwtikes_ekstrateies">Το Zino υποστηρίζει 3 ενημερωτικές εκστρατείες</a></h4>
-<p>To Zino στηρίζει τις εκστρατείες των μη κυβερνητικών οργανώσεων που θεωρούμε ότι κάνουν σημαντικό έργο απέναντι στους πολίτες. Σε συνεργασία με τρεις μεγάλους φορείς, τρέχουμε τις ερχόμενες 2 εβδομάδες τρεις ενημερωτικές καμπάνιες σχετικά με 3 σημαντικά θέματα που μας αφορούν όλους, και ιδιαίτερα εμά...</p>
-</div><div class="barfade">
-        <div class="leftbar"/>
-        <div class="rightbar"/>
-    </div>
-</li></ul>
-
             </div><?php
         }
     }
