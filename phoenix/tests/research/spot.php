@@ -43,9 +43,20 @@
             $comment->Save();
 
             $samecom = Spot::GetSamecom( $this->john, $this->george );
+            $this->AssertEquals( 0, $samecom, 'No samecom for one comment on a profile' );
+
+            $comment1 = New Comment();
+            $comment1->Userid = $this->john->Id;
+            $comment1->Itemid = $this->john->Id;
+            $comment1->Typeid = TYPE_USERPROFILE;
+            $comment1->Text = ":dance: :dance:";
+            $comment1->Save();
+
+            $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 1, $samecom, 'Samecom has wrong value for 1 samecom' );
 
             $comment->Delete();
+            $comment1->Delete();
         }
         public function TearDown() {
             $this->john->Delete();
