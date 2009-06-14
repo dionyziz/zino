@@ -29,18 +29,18 @@
 
             $samecom = Spot::GetSamecom( $john, $george );
             $this->AssertEquals( 0, $samecom, 'Samecom should be zero for two new users' );
-            /*
 
             $comment = New Comment();
-            $comment->Itemid = $george->Id;
+            $comment->Userid = $george->Id;
+            $comment->Itemid = $john->Id;
             $comment->Typeid = TYPE_USERPROFILE;
             $comment->Text = "Hey John!";
             $comment->Save();
 
-            $comment->Delete();
-            */
+            $samecom = Spot::GetSamecom( $john, $george );
+            $this->AssertEquals( 1, $samecom, 'Samecom has wrong value for 1 samecom' );
 
-            
+            $comment->Delete();
             $john->Delete();
             $george->Delete();
         }
