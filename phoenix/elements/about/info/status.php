@@ -6,7 +6,7 @@
             $user = $userfinder->FindByName( 'oniz' );
             $journals = $journalfinder->FindByUser( $user, 0, 3 );
             
-            ?><h2 class="sweet">Πρόσφατη κατάσταση του Zino</h2>
+            ?><h2 class="sweet">Ξ ΟΟΟƒΟ†Ξ±Ο„Ξ· ΞΊΞ±Ο„Ξ¬ΟƒΟ„Ξ±ΟƒΞ· Ο„ΞΏΟ… Zino</h2>
             <ul class="blog">
             <?php
             foreach ( $journals as $journal ) {
