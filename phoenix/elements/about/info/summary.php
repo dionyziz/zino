@@ -1,6 +1,10 @@
 <?php
     class ElementAboutInfoSummary extends Element {
         public function Render() {
+            global $page;
+            
+            $page->Title( 'Πληροφορίες' );
+            
             ?>
             <div id="aboutsection">
                 <h2 class="sweet">Τι είναι το Zino?</h2>

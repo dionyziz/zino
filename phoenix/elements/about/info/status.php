@@ -1,6 +1,10 @@
 <?php
     class ElementAboutInfoStatus extends Element {
         public function Render() {
+            global $page;
+            
+            $page->Title( 'Κατάσταση' );
+            
             $journalfinder = New JournalFinder();
             $userfinder = New UserFinder();
             $user = $userfinder->FindByName( 'oniz' );
