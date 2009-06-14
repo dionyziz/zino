@@ -36,7 +36,7 @@
             w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
             return $lines[ 1 ];
         }
-        public static function CommentCreated( $userid, $itemid, $typeid ) {
+        public static function CommentCreated( $comment ) {
             $userid = $comment->Userid;
             $itemid = $comment->Itemid;
             $typeid = $comment->Typeid;

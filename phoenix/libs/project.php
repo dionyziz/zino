@@ -190,7 +190,8 @@
             'CommentCreated' => array( 
                 'frontpage/comment/new', 
                 'comments/page/new',
-                'backend/notification/comment/created'
+                'backend/notification/comment/created',
+                'backend/spot/comment/created'
             ),
             'CommentDeleted' => 'backend/notification/comment/deleted',
             'ShoutCreated' => 'frontpage/shoutbox/new',
