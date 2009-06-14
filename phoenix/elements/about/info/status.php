@@ -4,7 +4,7 @@
             $journalfinder = New JournalFinder();
             $userfinder = New UserFinder();
             $user = $userfinder->FindByName( 'oniz' );
-            $journals = $finder->FindByUser( $user, 0, 3 );
+            $journals = $journalfinder->FindByUser( $user, 0, 3 );
             
             ?><h2 class="sweet">Πρόσφατη κατάσταση του Zino</h2>
             <ul class="blog">
