@@ -6,6 +6,7 @@
         protected $goerge;
 
         public function SetUp() {
+            global $libs;
             $libs->Load( 'comment' );
 
             $this->john = New User();
