@@ -2,7 +2,24 @@
 
     class TestResearchSpot extends Testcase {
         protected $mAppliesTo = 'libs/research/spot';
-        
+        protected $john;
+        protected $goerge;
+
+        public function SetUp() {
+            $libs->Load( 'comment' );
+
+            $this->john = New User();
+            $this->john->Name = "JohnTester";
+            $this->john->Password = "travolta";
+            $this->john->Subdomain = "travolta";
+            $this->john->Save();
+
+            $this->george = New User();
+            $this->george->Name = "GeorgeTester";
+            $this->george->Password = "washington";
+            $this->george->Subdomain = "washington";
+            $this->george->Save();
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Spot' ), 'Spot class does not exist' );
         }
@@ -14,35 +31,24 @@
             $this->Assert( method_exists( 'Spot', 'GetSamecom' ) );
         }
         public function TestCommentCreated() {
-            $john = New User();
-            $john->Name = "JohnTester";
-            $john->Password = "travolta";
-            $john->Subdomain = "travolta";
-            $john->Save();
-
-            $george = New User();
-            $george->Name = "GeorgeTester";
-            $george->Password = "washington";
-            $george->Subdomain = "washington";
-            $george->Save();
-
-
-            $samecom = Spot::GetSamecom( $john, $george );
+            $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 0, $samecom, 'Samecom should be zero for two new users' );
 
             $comment = New Comment();
-            $comment->Userid = $george->Id;
-            $comment->Itemid = $john->Id;
+            $comment->Userid = $this->george->Id;
+            $comment->Itemid = $this->john->Id;
             $comment->Typeid = TYPE_USERPROFILE;
             $comment->Text = "Hey John!";
             $comment->Save();
 
-            $samecom = Spot::GetSamecom( $john, $george );
+            $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 1, $samecom, 'Samecom has wrong value for 1 samecom' );
 
             $comment->Delete();
-            $john->Delete();
-            $george->Delete();
+        }
+        public function TearDown() {
+            $this->john->Delete();
+            $this->goerge->Delete();
         }
     }
 
