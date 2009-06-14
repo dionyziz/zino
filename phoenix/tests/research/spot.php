@@ -49,7 +49,7 @@
         }
         public function TearDown() {
             $this->john->Delete();
-            $this->goerge->Delete();
+            $this->george->Delete();
         }
     }
 
