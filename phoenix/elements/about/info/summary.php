@@ -3,7 +3,7 @@
         public function Render() {
             global $page;
             
-            $page->Title( 'Πληροφορίες' );
+            $page->SetTitle( 'Πληροφορίες' );
             
             ?>
             <div id="aboutsection">

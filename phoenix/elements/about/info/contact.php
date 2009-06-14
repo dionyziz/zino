@@ -3,7 +3,7 @@
         public function Render() {
             global $page;
             
-            $page->Title( 'Επικοινωνία' );
+            $page->SetTitle( 'Επικοινωνία' );
             
             Element( 'about/contact/view' ); // TODO!
         }
