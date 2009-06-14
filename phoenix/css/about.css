@@ -1,0 +1,72 @@
+#aboutmenu {
+    float: right;
+    width: 380px;
+    margin: 40px 20px;
+}
+#aboutmenu ol {
+    list-style: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+#aboutmenu li {
+    padding: 4px 4px 4px 28px;
+    background-position: 5px 4px;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #abc;
+    font-size: 90%;
+    height: 18px;
+}
+#aboutmenu li.selected {
+    background-color: #5181ad;
+}
+#aboutmenu li.summary {
+    background-image: url( 'http://static.zino.gr/phoenix/about/summary.png' );
+}
+#aboutmenu li.jobs {
+    background-image: url( 'http://static.zino.gr/phoenix/about/jobs.png' );
+}
+#aboutmenu li.workings {
+    background-image: url( 'http://static.zino.gr/phoenix/about/workings.png' );
+}
+#aboutmenu li.contact {
+    background-image: url( 'http://static.zino.gr/phoenix/about/contact.png' );
+}
+#aboutmenu li.team {
+    background-image: url( 'http://static.zino.gr/phoenix/about/team.png' );
+}
+#aboutmenu li.faq {
+    background-image: url( 'http://static.zino.gr/phoenix/about/faq.png' );
+}
+#aboutmenu li.journalists {
+    background-image: url( 'http://static.zino.gr/phoenix/about/journalists.png' );
+}
+#aboutmenu li.jobs {
+    background-image: url( 'http://static.zino.gr/phoenix/about/jobs.png' );
+}
+#aboutmenu li.ads {
+    background-image: url( 'http://static.zino.gr/phoenix/about/ads.png' );
+}
+#aboutmenu li.selected a {
+    color: white;
+}
+#aboutmenu h3 {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 5px 5px 0;
+    margin: 0;
+}
+#aboutmenu .blog {
+    opacity: 0.5;
+}
+#aboutsection {
+    margin-right: 400px;
+    padding: 20px;
+    color: #345;
+}
+#aboutsection .blog p {
+    padding: 0 0 1em 2em;
+    color: #666;
+}
+#aboutsection h4 {
+    padding-top: 1em;
+}
