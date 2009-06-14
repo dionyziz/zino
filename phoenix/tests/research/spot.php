@@ -18,7 +18,6 @@
             $john->Name = "JohnTester";
             $john->Password = "travolta";
             $john->Subdomain = "travolta";
-
             $john->Save();
 
             $george = New User();
@@ -28,7 +27,7 @@
             $george->Save();
 
 
-            $samecom = Spot::GetSamecom( $john->Id, $george->Id );
+            $samecom = Spot::GetSamecom( $john, $george );
             $this->AssertEquals( 0, $samecom, 'Samecom should be zero for two new users' );
             /*
 
