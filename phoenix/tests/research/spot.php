@@ -3,7 +3,7 @@
     class TestResearchSpot extends Testcase {
         protected $mAppliesTo = 'libs/research/spot';
         protected $john;
-        protected $goerge;
+        protected $george;
 
         public function SetUp() {
             global $libs;
