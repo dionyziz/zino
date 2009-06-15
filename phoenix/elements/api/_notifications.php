@@ -25,7 +25,7 @@
                             $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
                             if ( $notif->FromUser->Avatar->Id == false ) {
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
-                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
+                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $settings[ 'imagesurl' ] . 'anonymous150.jpg';
                             }
                             else {
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
