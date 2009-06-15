@@ -18,21 +18,33 @@
                         unset( $notifarray );
                         $notifarray[ 'type' ] = Notification_GetField( $notif );
                         $notifarray[ 'id' ] = $notif->Id;
+                        
+                        //FromUser
+                        $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
+                        $notifarray[ 'fromuser' ][ 'name' ] = $notif->FromUser->Name;
+                        if ( $notif->FromUser->Avatar->Id == false ) {
+                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
+                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
+                        }
+                        else {
+                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
+                            ob_start();
+                            Element( 'image/url', $notif->FromUser->Avatar->Id , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
+                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
+                        }
+                        //Type
                         if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                             ob_start();
                             Element( 'url' , $notif->Item );
                             $notifarray[ 'url' ] = ob_get_clean();
-                            $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
-                            if ( $notif->FromUser->Avatar->Id == false ) {
-                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
-                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
+                            
+                            $comment = $notif->Item;
+                            $text = $comment->GetText( 30 );
+                            $notifarray[ 'text' ] = $text;
+                            if ( mb_strlen( $comment->Text ) > 30 ) {
+                                $notifarray[ 'text' ] .= "...";
                             }
-                            else {
-                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
-                                ob_start();
-                                Element( 'image/url', $notif->FromUser->Avatar->Id , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
-                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
-                            }
+                            //switch ( $comment->Typeid
                         }
                         $apiarray[] = $notifarray;
                     }
