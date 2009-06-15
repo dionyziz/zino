@@ -2,7 +2,7 @@
     class ElementApiNotifications extends Element {
         public function Render( tInteger $id, tText $authtoken ) {
             global $libs;
-            global $settings;
+            global $xc_settings;
             
             $libs->Load( 'user/user' );
             $libs->Load( 'notify' );
@@ -24,6 +24,7 @@
                             $notifarray[ 'url' ] = ob_get_clean();
                             $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
                             if ( $notif->FromUser->Avatar->Id == false ) {
+                            die( $xc_settings[ 'imagesurl' ] );
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $xc_settings[ 'imagesurl' ] . 'anonymous150.jpg';
                             }
