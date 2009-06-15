@@ -17,6 +17,12 @@
                     foreach ( $notifs as $notif ) {
                         unset( $notifarray );
                         $notifarray[ 'type' ] = Notification_GetField( $notif );
+                        $notifarray[ 'id' ] = $notif->Id;
+                        if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
+                            ob_start();
+                            Element( 'url' , $notif->Item );
+                            $notifarray[ 'url' ] = ob_get_clean();
+                        }
                         $apiarray[] = $notifarray;
                     }
                 }
