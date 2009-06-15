@@ -2,10 +2,10 @@
     class ElementApiNotifications extends Element {
         public function Render( tInteger $id, tText $authtoken ) {
             global $libs;
+            global $settings;
             
             $libs->Load( 'user/user' );
             $libs->Load( 'notify' );
-
             
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );
