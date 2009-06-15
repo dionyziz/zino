@@ -23,10 +23,16 @@
                             Element( 'url' , $notif->Item );
                             $notifarray[ 'url' ] = ob_get_clean();
                             $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
-                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
-                            ob_start();
-                            Element( 'image/url', $notif->FromUser->Avatar->Id , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
-                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
+                            if ( $notif->FromUser->Avatar->Exists() ) {
+                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
+                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
+                            }
+                            else {
+                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
+                                ob_start();
+                                Element( 'image/url', $notif->FromUser->Avatar->Id , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
+                                $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
+                            }
                         }
                         $apiarray[] = $notifarray;
                     }
