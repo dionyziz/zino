@@ -40,7 +40,7 @@
                             
                             $comment = $notif->Item;
                             $text = $comment->GetText( 30 );
-                            $notifarray[ 'text' ] = $text;
+                            $notifarray[ 'comment' ][ 'text' ] = $text;
                             if ( mb_strlen( $comment->Text ) > 30 ) {
                                 $notifarray[ 'comment' ][ 'text' ] .= "...";
                             }
