@@ -23,7 +23,7 @@
                             Element( 'url' , $notif->Item );
                             $notifarray[ 'url' ] = ob_get_clean();
                             $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
-                            if ( $notif->FromUser->Avatar->Id !== false ) {
+                            if ( $notif->FromUser->Avatar->Id == false ) {
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
                                 $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
                             }
