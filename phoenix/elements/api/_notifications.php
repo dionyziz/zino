@@ -42,9 +42,20 @@
                             $text = $comment->GetText( 30 );
                             $notifarray[ 'text' ] = $text;
                             if ( mb_strlen( $comment->Text ) > 30 ) {
-                                $notifarray[ 'text' ] .= "...";
+                                $notifarray[ 'comment' ][ 'text' ] .= "...";
                             }
-                            //switch ( $comment->Typeid
+                            switch ( $comment->Typeid ) {
+                                case TYPE_USERPROFILE:
+                                    $notifarray[ 'comment' ][ 'place' ][ 'type'] = 'profile';
+                                    if ( $comment->Item->Id == $notif->Touserid ) {
+                                        $notifarray[ 'comment' ][ 'place' ][ 'you' ] = true;
+                                    }
+                                    else {
+                                        $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Subdomain;
+                                        $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
+                                    }
+                                break;
+                            }
                         }
                         $apiarray[] = $notifarray;
                     }
