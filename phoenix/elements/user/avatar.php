@@ -71,6 +71,10 @@
                 if ( $csswidth != 50 ) {
                     ?><span class="rndavie<?php
                         echo $aviesize;
+                    ?>" title="<?php
+                    echo $theusername;
+                    ?>" alt="<?php
+                    echo $theusername;
                     ?>">&nbsp;</span><?php
                 }
                 ?></span><?php
