@@ -54,7 +54,15 @@
                                         $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Subdomain;
                                         $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
                                     }
-                                break;
+                                    break;
+
+                                case TYPE_IMAGE:
+                                    $notifarray[ 'comment' ][ 'place' ][ 'type' ] = 'photo';
+                                    $notifarray[ 'comment' ][ 'place' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    ob_start();
+                                    Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                    $notifarray[ 'comment' ][ 'place' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
+                                    break;
                             }
                         }
                         $apiarray[] = $notifarray;
