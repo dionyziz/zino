@@ -46,22 +46,22 @@
                             }
                             switch ( $comment->Typeid ) {
                                 case TYPE_USERPROFILE:
-                                    $notifarray[ 'comment' ][ 'place' ][ 'type'] = 'profile';
+                                    $notifarray[ 'comment' ][ 'type' ] = 'profile';
                                     if ( $comment->Item->Id == $notif->Touserid ) {
-                                        $notifarray[ 'comment' ][ 'place' ][ 'you' ] = true;
+                                        $notifarray[ 'comment' ][ 'you' ] = true;
                                     }
                                     else {
-                                        $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Subdomain;
-                                        $notifarray[ 'comment' ][ 'place' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
+                                        $notifarray[ 'comment' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Subdomain;
+                                        $notifarray[ 'comment' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
                                     }
                                     break;
 
                                 case TYPE_IMAGE:
-                                    $notifarray[ 'comment' ][ 'place' ][ 'type' ] = 'photo';
-                                    $notifarray[ 'comment' ][ 'place' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    $notifarray[ 'comment' ][ 'type' ] = 'photo';
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
                                     ob_start();
                                     Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
-                                    $notifarray[ 'comment' ][ 'place' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
                         }
