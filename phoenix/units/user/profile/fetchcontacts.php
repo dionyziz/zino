@@ -5,6 +5,7 @@
         $libs->Load( 'user/user' );
         
         $subdomain->Get();
+        $finder = New UserFinder();
         $theuser = $finder->FindBySubdomain( $subdomain );
         if ( !isset( $theuser ) || $theuser === false ) {
             ?>alert( "Υπήρξε πρόβλημα κατά την παρουσίαση των στοιχείων επικοινωνίας" );<?php
