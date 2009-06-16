@@ -76,6 +76,7 @@
             $this->Assert( is_array( $journals ), 'Spot::GetJournals should return array' );
             $this->Assert( !empty( $journals ), 'Spot::GetJournals returned empty array' );
             $this->Assert( $journals[ 0 ] instanceof Journal, 'Spot::GetJournals should return array of Journals' );
+            $this->Assert( $journals[ 0 ]->Userid == 1 );
         }
         public function TearDown() {
             $this->john->Delete();
