@@ -20,7 +20,9 @@
                 Element( 'user/profile/sidebar/interests' , $theuser );
             ?></div>
             <div class="contacts"><?php
-                Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim );
+                /*Removed by: Chorvus
+                  Reason: to counter web-crawlers searching for IMs
+                  Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
             ?></div>
             <div id="reportabuse"><?php
                 Element( 'user/profile/sidebar/abuse', $theuser->Id );
