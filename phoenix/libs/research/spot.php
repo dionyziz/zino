@@ -58,26 +58,30 @@
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
-        public static function GetContent( $userid ) {
+        public static function GetContent( $user ) {
+            $userid = $user->Id;
             $request = "GET CONTENT\n$userid\n";
             $content = self::SendRequest( $request );
             // TODO: process content somehow?
 
             return $content;
         }
-        public static function GetJournals( $userid ) {
+        public static function GetJournals( $user ) {
+            $userid = $user->Id;
             $request = "GET JOURNALS\n$userid\n";
             $content= self::SendRequest( $request );
 
             return $content;
         }
-        public static function GetImages( $userid ) {
+        public static function GetImages( $user ) {
+            $userid = $user->Id;
             $request = "GET IMAGES\n$userid\n";
             $content= self::SendRequest( $request );
 
             return $content;
         }
-        public static function GetPolls( $userid ) {
+        public static function GetPolls( $user ) {
+            $userid = $user->Id;
             $request = "GET POLLS\n$userid\n";
             $content= self::SendRequest( $request );
 

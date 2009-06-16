@@ -10,6 +10,17 @@
             $libs->Load( 'comment' );
             $libs->Load( 'journal/journal' );
 
+            $userfinder = New UserFinder();
+            $john = $userfinder->FindByName( "JohnTester" );
+            if ( $john !== false ) {
+                $john->Delete();
+            }
+
+            $george = $userfinder->FindByName( "GeorgeTester" );
+            if ( $george !== false ) {
+                $george->Delete();
+            }
+
             $this->john = New User();
             $this->john->Name = "JohnTester";
             $this->john->Password = "travolta";
