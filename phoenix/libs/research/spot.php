@@ -69,7 +69,12 @@
         public static function GetJournals( $user ) {
             $userid = $user->Id;
             $request = "GET JOURNALS\n$userid\n";
-            $content= self::SendRequest( $request );
+            $lines = self::SendRequest( $request );
+
+            $content = array();
+            foreach ( $lines as $id ) {
+                $content[] = New Journal( $id );
+            }
 
             return $content;
         }
