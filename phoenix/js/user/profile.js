@@ -163,4 +163,10 @@ var Profile = {
             return false;
         } );
     }
+    ,
+    FetchContacts: function( subdomain ) {
+        Coala.Cold( 'user/profile/fetchcontacts', { subdomain, f: function ( html ) {
+            $( 'div.contacts' )[ 0 ].innerHTML = html;
+        } } );
+    }
 };
