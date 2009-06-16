@@ -30,12 +30,13 @@
 
                         }
                         else {
-                            ?><img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="<?php
-                            echo htmlspecialchars( $user->Name );
-                            ?>" title="<?php
-                            echo htmlspecialchars( $user->Name );
-                            ?>" class="banneravatar" />
-                            <?php
+                            ?><span class="imageview">
+                                <img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="<?php
+                                echo htmlspecialchars( $user->Name );
+                                ?>" title="<?php
+                                echo htmlspecialchars( $user->Name );
+                                ?>" class="banneravatar" />
+                            </span><?php
                         }
                         ?><ul>
                             <li>
