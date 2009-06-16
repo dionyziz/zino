@@ -34,7 +34,8 @@
 
             $lines = explode( "\n", $response );
             w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
-            return $lines[ 1 ];
+            array_shift( $lines );
+            return $lines;
         }
         public static function CommentCreated( $comment ) {
             $userid = $comment->Userid;
@@ -64,11 +65,30 @@
 
             return $content;
         }
+        public static function GetJournals( $userid ) {
+            $request = "GET JOURNALS\n$userid\n";
+            $content= self::SendRequest( $request );
+
+            return $content;
+        }
+        public static function GetImages( $userid ) {
+            $request = "GET IMAGES\n$userid\n";
+            $content= self::SendRequest( $request );
+
+            return $content;
+        }
+        public static function GetPolls( $userid ) {
+            $request = "GET POLLS\n$userid\n";
+            $content= self::SendRequest( $request );
+
+            return $content;
+        }
         public static function GetSamecom( $auser, $buser ) { // for testing only.
             $auserid = $auser->Id;
             $buserid = $buser->Id;
             $request = "GET SAMECOM\n$auserid\n$buserid\n";
-            $samecom = (int)( self::SendRequest( $request ) );
+            $response = self::SendRequest( $request );
+            $samecom = (int)( $response[ 0 ] );
             return $samecom;
         }
     }

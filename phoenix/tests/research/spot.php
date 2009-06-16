@@ -8,6 +8,7 @@
         public function SetUp() {
             global $libs;
             $libs->Load( 'comment' );
+            $libs->Load( 'journal/journal' );
 
             $this->john = New User();
             $this->john->Name = "JohnTester";
@@ -29,6 +30,7 @@
             $this->Assert( method_exists( 'Spot', 'FavouriteCreated' ) );
             $this->Assert( method_exists( 'Spot', 'VoteCreated' ) );
             $this->Assert( method_exists( 'Spot', 'GetContent' ) );
+            $this->Assert( method_exists( 'Spot', 'GetJournals' ) );
             $this->Assert( method_exists( 'Spot', 'GetSamecom' ) );
         }
         public function TestCommentCreated() {
@@ -57,6 +59,12 @@
 
             $comment->Delete();
             $comment1->Delete();
+        }
+        public function TestGetJournals() {
+            $journals = Spot::GetJournals( $this->john );
+            $this->Assert( is_array( $journals ), 'Spot::GetJournals should return array' );
+            $this->Assert( !empty( $journals ), 'Spot::GetJournals returned empty array' );
+            $this->Assert( $journals[ 0 ] instanceof Journal, 'Spot::GetJournals should return array of Journals' );
         }
         public function TearDown() {
             $this->john->Delete();
