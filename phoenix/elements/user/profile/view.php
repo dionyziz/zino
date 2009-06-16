@@ -1,5 +1,4 @@
 <?php
-    
     class ElementUserProfileView extends Element {
         public function Render( tText $name , tText $subdomain, tInteger $commentid , tInteger $pageno ) {
             global $page;
@@ -59,6 +58,7 @@
             $dob = explode( '-', $theuser->Profile->Dob );
             if ( count( $dob ) == 3 && $dob[ 0 ] != '0000' ) {
                 $page->AttachInlineScript( 'Profile.CheckBirthday( ' . $dob[ 0 ] . ', ' . $dob[ 1 ] . ', ' . $dob[ 2 ] . ' );' );
+                $page->AttachInlineScript( "Profile.FetchContacts( '$subdomain' );" );
             }
             ?><div id="profile"><?php
                 $schoolexists = $theuser->Profile->School->Numstudents > 2;

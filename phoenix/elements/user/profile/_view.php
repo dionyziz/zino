@@ -1,8 +1,4 @@
 <?php
-    /*
-      Masked by: Chorvus
-      Reason: make contacts be displayed through coala
-    */
     class ElementUserProfileView extends Element {
         public function Render( tText $name , tText $subdomain, tInteger $commentid , tInteger $pageno ) {
             global $page;
