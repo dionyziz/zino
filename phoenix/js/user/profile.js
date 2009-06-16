@@ -165,7 +165,7 @@ var Profile = {
     }
     ,
     FetchContacts: function( subdomain ) {
-        Coala.Cold( 'user/profile/fetchcontacts', { subdomain, f: function ( html ) {
+        Coala.Cold( 'user/profile/fetchcontacts', { 'subdomain': subdomain, f: function ( html ) {
             $( 'div.contacts' )[ 0 ].innerHTML = html;
         } } );
     }
