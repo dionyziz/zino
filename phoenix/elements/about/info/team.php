@@ -81,7 +81,7 @@
                 <div class="eof"></div>
             </div>
                 <ul id="aboutpeople">
-                    <li class="selected">
+                    <li>
                         <a href=""><img src="http://images2.zino.gr/media/1/178164/178164_100.jpg" alt="dionyziz" /></a>
                     </li>
                     <li>

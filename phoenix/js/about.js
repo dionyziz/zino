@@ -4,6 +4,8 @@ var About = {
         if ( $( '#aboutpeople' ).length ) {
             $( '#aboutpeople li a' ).click( function () {
                 var username = $( this ).find( 'img' )[ 0 ].alt;
+                $( this ).parent.parent.find( 'li' ).removeClass( 'selected' );
+                $( this ).parent.addClass( 'selected' );
                 if ( About.VisiblePerson ) {
                     $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
                         left: '-100%'
