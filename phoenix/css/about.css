@@ -1,5 +1,5 @@
 #aboutsection {
-    margin-right: 400px;
+    margin-right: 30%;
     padding: 20px;
     color: #345;
 }
@@ -12,7 +12,7 @@
 }
 #aboutmenu {
     float: right;
-    width: 380px;
+    width: 28%;
     margin: 40px 20px;
 }
 #aboutmenu ol {
@@ -52,6 +52,9 @@
 }
 #aboutmenu li.journalists {
     background-image: url( 'http://static.zino.gr/phoenix/about/press.png' );
+}
+#aboutmenu li.status {
+    background-image: url( 'http://static.zino.gr/phoenix/about/status.png' );
 }
 #aboutmenu li.jobs {
     background-image: url( 'http://static.zino.gr/phoenix/about/jobs.png' );

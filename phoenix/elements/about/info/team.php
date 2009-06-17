@@ -5,7 +5,7 @@
             
             <div class="info">
                 <div id="aboutperson">
-                    <div class="aboutoneperson">
+                    <div class="aboutoneperson" id="iamdionyziz">
                         <img src="http://static.zino.gr/phoenix/about/dionyziz.png" alt="dionyziz" />
                         <h3>Διονύσης Ζήνδρος</h3>
                         <ul>
@@ -35,7 +35,7 @@
                             <a href="http://dionyziz.zino.gr/">Πήγαινε στο Zino του Διονύση &raquo;</a>
                         </p>
                     </div>
-                    <div class="aboutoneperson aboutonepersonslide">
+                    <div class="aboutoneperson aboutonepersonslide" id="iamizual">
                         <img src="http://static.zino.gr/phoenix/about/izual.jpg" alt="izual" />
                         <h3>Xρήστος Παππάς</h3>
                         <ul>
@@ -65,7 +65,7 @@
             </div>
                 <ul id="aboutpeople">
                     <li class="selected">
-                        <img src="http://images2.zino.gr/media/1/178164/178164_100.jpg" alt="dionyziz" />
+                        <a href=""><img src="http://images2.zino.gr/media/1/178164/178164_100.jpg" alt="dionyziz" /></a>
                     </li>
                     <li>
                         <a href=""><img src="http://images2.zino.gr/media/58/141855/141855_100.jpg" alt="izual" /></a>
