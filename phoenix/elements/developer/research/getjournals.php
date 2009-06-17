@@ -23,16 +23,10 @@
             ?><div style="margin-left: 10px;"><?php
                 foreach ( $journals as $journal ) {
                     echo $journal->User->Name;
-                    ?><div><?php
-                        $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
-                        $url = $domain . 'journals/' . $journal->Url;
-                        ?><a href="?p=journal&id=<?php
-                        echo $journal->Id;
-                        ?>"><?php
-                        echo htmlspecialchars( $journal->Title );
-                        ?></a>
-                    </div>
-                    <div style="clear:both;" />
+                    ?><br /><?php
+                    ?><a href=""><?php
+                    echo htmlspecialchars( $journal->Title );
+                    ?></a>
                     <br /><br /><?php
                 }
                 ?></div><?php
