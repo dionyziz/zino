@@ -20,7 +20,7 @@
             <small>Powered by Spot</small><br /><?php
 
             $journals = Spot::GetJournals( $theuser );
-            ?><div style="width: 50%; margin-left: 10px;";><?php
+            ?><div style="width: 50%; margin-left: 10px;"><?php
                 foreach ( $journals as $journal ) {
                     if ( isset( $sticky ) && $journal->Id == $sticky ) {
                         continue;
