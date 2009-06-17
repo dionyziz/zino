@@ -22,14 +22,11 @@
             $journals = Spot::GetJournals( $theuser );
             ?><div style="margin-left: 100px;"><?php
                 foreach ( $journals as $journal ) {
-                    if ( isset( $sticky ) && $journal->Id == $sticky ) {
-                        continue;
-                    }
                     ?><div class="who"><?php
                             Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User, true );
                         ?> καταχώρησε
                     </div>
-                    <div class="subject"><?php
+                    <div><?php
                         $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                         $url = $domain . 'journals/' . $journal->Url;
                         ?><a href="<?php
