@@ -126,6 +126,9 @@ ul#aboutpeople li.selected img {
     margin: 30px;
     color: #3986de;
 }
+.aboutoneperson a:hover {
+    text-decoration: underline;
+}
 .aboutoneperson ul {
     padding: 10px;
 }
