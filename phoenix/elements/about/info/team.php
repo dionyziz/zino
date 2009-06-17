@@ -109,7 +109,7 @@
                     'of' => 'Θεοδόση',
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
-                    'image'   => 'http://static.zino.gr/phoenix/about/ted.png',
+                    'image'   => 'http://static.zino.gr/phoenix/about/ted.jpg',
                     'thumbnail' => 'http://images2.zino.gr/media/3890/140401/140401_100.jpg',
                     'about' => array(
                         'Ο Θεοδόσης σπουδάζει Ηλεκτρολόγος Μηχανικός στο Αριστοτέλειο Πανεπιστήμιο
@@ -129,7 +129,7 @@
                     'byday' => 'Φοιτητής ΗΜΜΥ, Εθνικό Μετσόβιο Πολυτεχνείο',
                     'bynight' => 'Software Engineer, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/5181/176638/176638_100.jpg',
-                    'image' => 'http://static.zino.gr/phoenix/about/petros.png',
+                    'image' => 'http://static.zino.gr/phoenix/about/petros.jpg',
                     'about' => array(
                         'Ο Πέτρος σπουδάζει Ηλεκτρολόγος Μηχανικός στο Εθνικό Μετσόβιο Πολυτεχνείο.',
                         
@@ -147,7 +147,7 @@
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/4047/183422/183422_100.jpg',
-                    'image' => 'http://static.zino.gr/phoenix/about/indy.png',
+                    'image' => 'http://static.zino.gr/phoenix/about/indy.jpg',
                     'about' => array(
                         'Ο Άρης είναι προπτυχιακός φοιτητής στη σχολή Ηλετρολόγων Μηχανικών του ΑΠΘ.',
                         
@@ -183,7 +183,7 @@
                     'byday' => 'Φοιτήτρια Web-Based Systems, University of Derby',
                     'bynight' => 'Brand Manager, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/1023/174561/174561_100.jpg',
-                    'image' => 'http://static.zino.gr/phoenix/about/rhapsody.png',
+                    'image' => 'http://static.zino.gr/phoenix/about/rhapsody.jpg',
                     'about' => array(
                         'Η Ελένη σπουδάζει Web-Based Systems και Computing Management στο πανεπιστήμιο
                         του Derby της Αγγλίας.',
@@ -198,8 +198,8 @@
                     'name' => 'Christian Herrmann',
                     'of' => 'Christian',
                     'byday' => 'Systems Administrator, Kamibu',
-                    'image' => 'http://static.zino.gr/phoenix/about/ch-world.png',
                     'thumbnail' => 'http://images2.zino.gr/media/5619/129121/129121_100.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/ch-world.jpg',
                     'about' => array(
                         'Ο Christian σύντομα θα ξεκινήσει τις σπουδές του στην πληροφορική.',
                         
@@ -217,7 +217,7 @@
                     'of' => 'Αλεξ',
                     'byday' => 'Φοιτητής Πληροφορικής',
                     'bynight' => 'Software engineer, Kamibu',
-                    'image' => 'http://static.zino.gr/phoenix/about/chorvus.png',
+                    'image' => 'http://static.zino.gr/phoenix/about/chorvus.jpg',
                     'thumbnail' => 'http://images2.zino.gr/media/5104/162838/162838_100.jpg',
                     'about' => array(
                         'Ο Αλεξ σπουδάζει πληροφορική στην Θεσσαλονίκη.',
@@ -235,7 +235,7 @@
                     'of' => 'Γιώργου',
                     'byday' => 'Researcher, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/4005/101270/101270_100.jpg',
-                    'image' => 'http://static.zino.gr/phoenix/about/pagio.png',
+                    'image' => 'http://static.zino.gr/phoenix/about/pagio.jpg',
                     'about' => array(
                         'Ο Γιώργος σύντομα θα ξεκινήσει τις σπουδές του στην πληροφορική.',
                         
