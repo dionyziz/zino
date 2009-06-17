@@ -37,7 +37,9 @@
                         ?>"><?php
                         echo htmlspecialchars( $journal->Title );
                         ?></a>
-                    </div><?php
+                    </div>
+                    <div style="clear:both;" />
+                    <br /><br /><?php
                 }
                 ?></div><?php
         }
