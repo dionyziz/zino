@@ -18,15 +18,19 @@
 
             ?>Recommended journals<br />
             <small>Powered by Spot</small><br /><?php
+
             $journals = Spot::GetJournals( $theuser );
+            ?><div id="jlist">
+            <ul><?php
             foreach ( $journals as $journal ) {
-                if ( is_int( $journal->Bulkid ) ) {
-                    Element( 'journal/small', $journal );
+                if ( !is_int( $journal->Bulkid ) ) { // weird bug. hope it's sandbox issue
+                    continue;
                 }
-                else {
-                    echo 'Weird journal, bulkid = ' . var_dump( $journal->Bulkid );
-                }
+                ?><li><?php
+                Element( 'journal/small', $journal );
+                ?></li><?php
             }
+            ?></ul></div><?php
         }
     }
 
