@@ -20,8 +20,7 @@
             <small>Powered by Spot</small><br /><?php
 
             $journals = Spot::GetJournals( $theuser );
-            ?><div class="list">
-                <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
+            ?><div id="fp_latest"><div class="journals"><div class="list"><?php
                 foreach ( $journals as $journal ) {
                     if ( isset( $sticky ) && $journal->Id == $sticky ) {
                         continue;
@@ -42,7 +41,7 @@
                         </div>
                     </div><?php
                 }
-                ?></div><?php
+                ?></div></div></div><?php
         }
     }
 
