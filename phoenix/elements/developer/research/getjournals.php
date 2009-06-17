@@ -20,9 +20,9 @@
             <small>Powered by Spot</small><br /><?php
 
             $journals = Spot::GetJournals( $theuser );
-            ?><div style="margin-left: 10px;"><?php
+            ?><div style="margin: 10px 0 0 10px;"><?php
                 foreach ( $journals as $journal ) {
-                    ?><div style="border-bottom: 1px solid silver;"><?php
+                    ?><div style="border-bottom: 1px solid silver; padding-top: 5px;"><?php
                     echo $journal->User->Name;
                     ?><br /><?php
                     ?><a href="?p=journal&amp;id=<?php
