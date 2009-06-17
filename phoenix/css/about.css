@@ -1,3 +1,15 @@
+#aboutsection {
+    margin-right: 200px;
+    padding: 20px;
+    color: #345;
+}
+#aboutsection .blog p {
+    padding: 0 0 1em 2em;
+    color: #666;
+}
+#aboutsection h4 {
+    padding-top: 1em;
+}
 #aboutmenu {
     float: right;
     width: 380px;
@@ -39,16 +51,13 @@
     background-image: url( 'http://static.zino.gr/phoenix/about/faq.png' );
 }
 #aboutmenu li.journalists {
-    background-image: url( 'http://static.zino.gr/phoenix/about/journalists.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/about/press.png' );
 }
 #aboutmenu li.jobs {
     background-image: url( 'http://static.zino.gr/phoenix/about/jobs.png' );
 }
 #aboutmenu li.ads {
     background-image: url( 'http://static.zino.gr/phoenix/about/ads.png' );
-}
-#aboutmenu li.status {
-    background-image: url( 'http://static.zino.gr/phoenix/about/status.png' );
 }
 #aboutmenu li.selected a {
     color: white;
