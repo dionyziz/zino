@@ -313,7 +313,7 @@
                             if ( $i == count( $member[ 'about' ] ) ) { // add a link to the last paragraph
                                 ?><a href="http://<?php
                                 echo $member[ 'nickname' ];
-                                ?>">Πήγαινε στο Zino <?php
+                                ?>.zino.gr/">Πήγαινε στο Zino <?php
                                 switch ( $member[ 'gender' ] ) {
                                     case 'f':
                                         ?>της <?php
