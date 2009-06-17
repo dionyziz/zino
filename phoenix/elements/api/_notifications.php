@@ -16,7 +16,13 @@
                 if ( !empty( $notifs ) ) {
                     foreach ( $notifs as $notif ) {
                         unset( $notifarray );
-                        $notifarray[ 'type' ] = Notification_GetField( $notif );
+                        
+                        if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
+                            $notifarray[ 'type' ] = 'comment';
+                        }
+                        else {
+                            $notifarray[ 'type' ] = Notification_GetField( $notif );
+                        }
                         $notifarray[ 'id' ] = $notif->Id;
                         
                         //FromUser
@@ -55,13 +61,25 @@
                                         $notifarray[ 'comment' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
                                     }
                                     break;
-
                                 case TYPE_IMAGE:
                                     $notifarray[ 'comment' ][ 'type' ] = 'photo';
                                     $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
                                     ob_start();
                                     Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
+                                    break;
+                            }
+                        }
+                        else {
+                            switch ( $notif->Typeid ) {
+                                case EVENT_FRIENDRELATION_CREATED;
+                                    $notifarray[ 'type' ] = 'friendship';
+                                    $finder = New FriendRelationFinder();
+                                    $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser );
+                                    $notifarray[ 'friendship' ][ 'hasyou' ] = (bool) $hasyou;
+                                    break;
+                                case EVENT_IMAGETAG_CREATED:
+                                    $notifarray[ 'comment' ][ 'type' ] = 'tag';
                                     break;
                             }
                         }
