@@ -1,5 +1,5 @@
 #aboutsection {
-    margin-right: 200px;
+    margin-right: 400px;
     padding: 20px;
     color: #345;
 }
@@ -76,12 +76,10 @@
     font-size: 110%;
     background-color: #0d2438;
     color: white;
-    margin-right: 200px;
 }
 ul#aboutpeople {
     border-top: 2px solid #456;
     height: 91px;
-    margin-right: 200px;
 }
 ul#aboutpeople li {
     float: left;
