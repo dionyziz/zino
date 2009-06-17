@@ -7,7 +7,7 @@ var About = {
                 if ( About.VisiblePerson ) {
                     $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
                         left: '-100%'
-                    }, 500, 'easein', function () {
+                    }, 500, 'swing', function () {
                         alert( 'Boo' );
                     } );
                 }
