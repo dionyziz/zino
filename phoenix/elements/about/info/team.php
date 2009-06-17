@@ -26,7 +26,7 @@
                 array(
                     'nickname' => 'izual',
                     'name'    => 'Xρήστος Παππάς',
-                    'of'      => 'Χρήστου',
+                    'of'      => 'Chris',
                     'byday'   => 'Φοιτητής ΗΜΜΥ στο Εθνικό Μετσόβιο Πολυτεχνείο',
                     'bynight' => 'Chief Front-end Engineer, Kamibu',
                     'image'   => 'http://static.zino.gr/phoenix/about/izual.jpg',
@@ -144,7 +144,7 @@
                 array(
                     'nickname' => 'indy',
                     'name' => 'Αριστοτέλης Μικρόπουλος',
-                    'of' => 'Αρη',
+                    'of' => 'Άρη',
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/4047/183422/183422_100.jpg',
@@ -215,8 +215,8 @@
                 ),
                 array(
                     'nickname' => 'chorvus',
-                    'name' => 'Αλεξ Τζο',
-                    'of' => 'Αλεξ',
+                    'name' => 'Άλεξ Τζο',
+                    'of' => 'Άλεξ',
                     'byday' => 'Φοιτητής Πληροφορικής',
                     'bynight' => 'Software engineer, Kamibu',
                     'image' => 'http://static.zino.gr/phoenix/about/chorvus.jpg',
