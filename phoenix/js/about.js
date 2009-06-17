@@ -4,6 +4,11 @@ var About = {
         if ( $( '#aboutpeople' ).length ) {
             $( '#aboutpeople li a' ).click( function () {
                 var username = $( this ).find( 'img' )[ 0 ].alt;
+                
+                if ( username == About.VisiblePerson ) {
+                    return;
+                }
+                
                 $( this ).parent().parent().find( 'li' ).removeClass( 'selected' );
                 $( this ).parent().addClass( 'selected' );
                 if ( About.VisiblePerson ) {

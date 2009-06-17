@@ -1,6 +1,45 @@
 <?php
     class ElementAboutInfoTeam extends Element {
         public function Render() {
+            static $team = array(
+                'dionyziz' => array(
+                    'name'    => 'Διονύσης Ζήνδρος',
+                    'gender'  => 'm',
+                    'of'      => 'Διονύση',
+                    'byday'   => 'Φοιτητής ΗΜΜΥ στο Εθνικό Μετσόβιο Πολυτεχνείο',
+                    'bynight' => 'Managing Director στην Kamibu και το Zino',
+                    'image'   => 'http://static.zino.gr/phoenix/about/dionyziz.png',
+                    'thumbnail' => 'http://images2.zino.gr/media/1/178164/178164_100.jpg',
+                    'about'   => array(
+                        'O Διονύσης είναι φοιτητής στη σχολή Ηλεκτρολόγων Μηχανικών στο Εθνικό Μετσόβιο Πολυτεχνείο.
+                        Ίδρυσε την Kamibu το 2007 και το Zino με την μορφή που έχει σήμερα
+                        το καλοκαίρι του 2008 μαζί με τον Χρήστο και τον Αλέξη.',
+                        
+                        'Στο παρελθόν, 
+                        έχει εργαστεί στην διεύθυνση της ομάδας
+                        πίσω από το BlogCube και πίσω από το IRC client ανοιχτού λογισμικού Node,
+                        όπως επίσης και στην τεχνική ομάδα που δημιούργησε το deviantART.',
+                        
+                        'Λατρεύει το γάλα και την σοκολάτα.'
+                    )
+                ),
+                'izual' => array(
+                    'name'    => 'Xρήστος Παππάς',
+                    'gender'  => 'm',
+                    'of'      => 'Χρήστου',
+                    'byday'   => 'Φοιτητής ΗΜΜΥ στο Εθνικό Μετσόβιο Πολυτεχνείο',
+                    'bynight' => 'Chief Front-end Engineer στο Zino',
+                    'image'   => 'http://static.zino.gr/phoenix/about/izual.jpg',
+                    'thumbnail' => 'http://images2.zino.gr/media/58/141855/141855_100.jpg',
+                    'about'   => array(
+                        'Ο  Χρήστος είναι προπτυχιακός φοιτητής Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών 
+                        στο Εθνικό Μετσόβιο Πολυτεχνείο.
+                        Εργάζεται στην ομάδα ανάπτυξης του Zino από την ίδρυσή του και παλιότερα έχει δουλέψει
+                        στο BlogCube.',
+                        'Λατρεύει να ταξιδεύει, την ταχύτητα και τα γρήγορα αυτοκίνητα.'
+                    )
+                )
+            );
             ?><h2 class="sweet">Ποιοι εργάζονται πίσω απ' το Zino?</h2>
             
             <div class="info">
@@ -21,8 +60,57 @@
                             για την δουλειά μας. Θα χαρούμε πολύ να μας προσθέσεις στους φίλους 
                             <span class="emoticon-smile">.</span>
                         </p>
-                    </div>
-                    <div class="aboutoneperson aboutonepersonslide" id="iamdionyziz">
+                    </div><?php
+                    foreach ( $team as $nickname => $member ) {
+                        ?><div class="aboutoneperosn aboutonepersonslide" id="iam<?php
+                        echo $nickname;
+                        ?>">
+                        <img src="<?php
+                        echo $member[ 'image' ];
+                        ?>" alt="<?php
+                        echo $nickname;
+                        ?>" />
+                        
+                        <h3><?php
+                        echo $member[ 'name' ];
+                        ?></h3>
+                        <ul>
+                            <li>
+                                <strong>Την ημέρα: </strong>
+                                <?php
+                                echo $member[ 'byday' ];
+                                ?>
+                            </li>
+                            <li>
+                                <strong>Τη νύχτα: </strong>
+                                <?php
+                                echo $member[ 'bynight' ];
+                                ?>
+                            </li>
+                        </ul><?php
+                        foreach ( $member[ 'about' ] as $paragraph ) {
+                            ?><p><?php
+                            echo $paragraph;
+                            if ( $i == count( $member[ 'about' ] ) ) { // add a link to the last paragraph
+                                ?><a href="http://<?php
+                                echo $nickname;
+                                ?>">Πήγαινε στο Zino <?php
+                                switch ( $member[ 'gender' ] ) {
+                                    case 'f':
+                                        ?>της <?php
+                                        break;
+                                    default:
+                                        ?>του <?php
+                                }
+                                echo $member[ 'of' ];
+                                ?></a><?php
+                            }
+                            ?></p><?php
+                        }
+                        ?></div><?php
+                    }
+                    ?>
+                    <!-- <div class="aboutoneperson aboutonepersonslide" id="iamdionyziz">
                         <img src="http://static.zino.gr/phoenix/about/dionyziz.png" alt="dionyziz" />
                         <h3>Διονύσης Ζήνδρος</h3>
                         <ul>
@@ -76,7 +164,7 @@
                             
                             <a href="http://izual.zino.gr/">Πήγαινε στο Zino του Χρήστου &raquo;</a>
                         </p>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="eof"></div>
             </div>
