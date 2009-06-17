@@ -20,11 +20,10 @@
             <small>Powered by Spot</small><br /><?php
 
             $journals = Spot::GetJournals( $theuser );
-            ?><div style="margin-left: 100px;"><?php
+            ?><div style="margin-left: 10px;"><?php
                 foreach ( $journals as $journal ) {
-                    Element( 'user/display', $journal->User->Id, $journal->User->Avatar->Id, $journal->User, true );
-                    ?><div class="clear:both;" />
-                    <div><?php
+                    echo $journal->User->Name;
+                    ?><div><?php
                         $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                         $url = $domain . 'journals/' . $journal->Url;
                         ?><a href="<?php
