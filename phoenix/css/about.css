@@ -81,6 +81,7 @@
 ul#aboutpeople {
     border-top: 2px solid #456;
     height: 91px;
+    margin-right: 200px;
 }
 ul#aboutpeople li {
     float: left;
