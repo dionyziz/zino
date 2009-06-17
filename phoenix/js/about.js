@@ -7,9 +7,12 @@ var About = {
                 if ( About.VisiblePerson ) {
                     $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
                         left: '-100%'
-                    }, 500, 'swing', function () {
-                        alert( 'Boo' );
-                    } );
+                    }, 500, 'swing', function ( removed, added ) {
+                        return function () {
+                            $( '#iam' + added ).removeClass( 'aboutonepersonslide' );
+                            $( '#iam' + removed ).addClass( 'aboutonepersonslide' );
+                        }
+                    }( About.VisiblePerson, username ) );
                 }
                 $( $( '#aboutperson div#iam' + username )[ 0 ] ).animate( {
                     left: 0
