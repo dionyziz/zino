@@ -30,6 +30,9 @@
                     echo htmlspecialchars( $journal->Title );
                     ?></a>
                     <br /><br /><?php
+                    if ( is_int( $journal->Bulkid ) ) {
+                        echo $journal->GetText( 300 );
+                    }
                 }
                 ?></div><?php
         }
