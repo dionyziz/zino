@@ -87,7 +87,7 @@
                                 background-image: url( 'http://static.zino.gr/phoenix/about/faq.png' );
                             }
                             #aboutmenu li.journalists {
-                                background-image: url( 'http://static.zino.gr/phoenix/about/journalists.png' );
+                                background-image: url( 'http://static.zino.gr/phoenix/about/press.png' );
                             }
                             #aboutmenu li.jobs {
                                 background-image: url( 'http://static.zino.gr/phoenix/about/jobs.png' );
@@ -136,7 +136,7 @@
                             }
                             ul#aboutpeople li.selected img {
                                 border-bottom: 4px solid #70c32d;
-                                border-top: 4px solid #456;
+                                border-top: 3px solid #456;
                                 opacity: 1;
                             }
                         </style>
@@ -159,8 +159,8 @@
                             <h2 class="sweet">Ποιοι εργάζονται πίσω απ' το Zino?</h2>
                             
                             <div style="border-top:2px solid #ccc;margin-top: 10px;font-size:110%;background-color:#0d2438;color:white">
-                                <div style="">
-                                    <div>
+                                <div style="position:relative;overflow:hidden;" id="aboutperson">
+                                    <div style="position:relative;left:0;top:0;width:100%;background-color:#0d2438">
                                         <img src="http://static.zino.gr/phoenix/about/dionyziz.png" alt="dionyziz" style="float:right" />
                                         <h3 style="margin:0;padding:10px 0 0 10px;color:#70c32d">Διονύσης Ζήνδρος</h3>
                                         <ul style="padding:10px">
@@ -190,7 +190,31 @@
                                             <a href="http://dionyziz.zino.gr/" style="display:block;text-align:center;font-weight:bold;margin:30px;color:#3986de">Πήγαινε στο Zino του Διονύση &raquo;</a>
                                         </p>
                                     </div>
-
+                                    <div style="position:absolute;left:100%;top:0;width:100%;background-color:#0d2438">
+                                        <img src="http://static.zino.gr/phoenix/about/izual.jpg" alt="izual" style="float:right" />
+                                        <h3 style="margin:0;padding:10px 0 0 10px;color:#70c32d">Xρήστος Παππάς</h3>
+                                        <ul style="padding:10px">
+                                            <li>
+                                                <strong>Την ημέρα: </strong>
+                                                Φοιτητής ΗΜΜΥ στο Εθνικό Μετσόβιο Πολυτεχνείο
+                                            </li>
+                                            <li style="padding-top:5px">
+                                                <strong>Την νύχτα: </strong>
+                                                Chief Front-end Engineer στο Zino
+                                            </li>
+                                        </ul>
+                                        <p style="padding:10px 0 0 10px;margin-right:380px">
+                                            Ο Χρήστος είναι προπτυχιακός φοιτητής Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών 
+                                            στο Εθνικό Μετσόβιο Πολυτεχνείο.
+                                            Εργάζεται στην ομάδα ανάπτυξης του Zino από την ίδρυσή του και παλιότερα έχει δουλέψει
+                                            στο BlogCube.
+                                        </p>
+                                        <p style="padding:10px 0 0 10px;margin-right:380px">
+                                            Λατρεύει να ταξιδεύει, την ταχύτητα και τα γρήγορα αυτοκίνητα.
+                                            
+                                            <a href="http://dionyziz.zino.gr/" style="display:block;text-align:center;font-weight:bold;margin:30px;color:#3986de">Πήγαινε στο Zino του Χρήστου &raquo;</a>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="eof"></div>
                             </div>
@@ -246,4 +270,16 @@
             </div>
             <div id="copyleft">
                 <span>&copy; 2009</span> <a class="wlink" href="http://www.kamibu.com/">Kamibu</a>
-            </div></div><script type="text/javascript" src="http://static.zino.gr/js/global.js?117" charset="utf-8"></script></body></html>
+            </div></div><script type="text/javascript" src="http://static.zino.gr/js/global.js?117" charset="utf-8"></script>
+
+            <script type="text/javascript">
+                setTimeout( function() {
+                    $( $( '#aboutperson > div' )[ 0 ] ).animate( {
+                        left: '-100%'
+                    } );
+                    $( $( '#aboutperson > div' )[ 1 ] ).animate( {
+                        left: 0
+                    } );
+                }, 500 );
+            </script>
+            </body></html>
