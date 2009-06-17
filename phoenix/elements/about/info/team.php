@@ -40,7 +40,7 @@
                         'Λατρεύει να ταξιδεύει, την ταχύτητα και τα γρήγορα αυτοκίνητα.'
                     )
                 ),
-                'abresas' => array(
+                'finlandos' => array(
                     'name' => 'Αλέξης Μπρέσας',
                     'of' => 'Αλέξη',
                     'byday' => 'Technical Director, Kamibu',
@@ -103,6 +103,7 @@
                     'of' => 'Θεοδόση',
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
+                    'image'   => 'http://static.zino.gr/phoenix/about/ted.png',
                     'thumbnail' => 'http://images2.zino.gr/media/3890/140401/140401_100.jpg',
                     'about' => array(
                         'Ο Θεοδόσης σπουδάζει Ηλεκτρολόγος Μηχανικός στο Αριστοτέλειο Πανεπιστήμιο
@@ -115,12 +116,13 @@
                         'Λατρεύει την θάλασσα και το camping, την οδήγηση, και τα ταξίδια.'
                     )
                 ),
-                'petros' => array(
+                'petrosagg18' => array(
                     'name' => 'Πέτρος Αγγελάτος',
                     'of' => 'Πέτρου',
                     'byday' => 'Φοιτητής ΗΜΜΥ, Εθνικό Μετσόβιο Πολυτεχνείο',
                     'bynight' => 'Software Engineer, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/5181/176638/176638_100.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/petros.png',
                     'about' => array(
                         'Ο Πέτρος σπουδάζει Ηλεκτρολόγος Μηχανικός στο Εθνικό Μετσόβιο Πολυτεχνείο.',
                         
@@ -137,6 +139,7 @@
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/4047/183422/183422_100.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/indy.png',
                     'about' => array(
                         'Ο Άρης είναι προπτυχιακός φοιτητής στη σχολή Ηλετρολόγων Μηχανικών του ΑΠΘ.',
                         
@@ -149,10 +152,12 @@
                 'd3nnn1z' => array(
                     'name' => 'Διονύσης Πανταζόπουλος',
                     'of' => 'Διονύση',
-                    'byday' => 'Φοιτητής Ηλεκτρολογίας, ΤΕΙ Αθηνών',
+                    'byday' => 'Φοιτητής Ηλεκτρονική, ΤΕΙ Αθηνών',
                     'bynight' => 'Project Leader, Kamibu',
+                    'thumbnail' => 'http://images2.zino.gr/media/39/101492/101492_150.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/d3nnn1z.png',
                     'about' => array(
-                        'Ο Διονύσης σπουδάζει Ηλεκτρολογία στο ΤΕΙ Αθηνών.',
+                        'Ο Διονύσης σπουδάζει Ηλεκτρονική στο ΤΕΙ Αθηνών.',
                         
                        'Εργάζεται για την Kamibu ως project leader από την Δεκέμβριο του 2007. Πάντα
                        φέρνει την κουβέντα στο μπουζούκι και τελικά καταλήγουμε να διασκεδάζουμε αντί
@@ -167,6 +172,8 @@
                     'of' => 'Ελένης',
                     'byday' => 'Φοιτήτρια Web-Based Systems, University of Derby',
                     'bynight' => 'Brand Manager, Kamibu',
+                    'thumbnail' => 'http://images2.zino.gr/media/1023/174561/174561_100.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/rhapsody.png',
                     'about' => array(
                         'Η Ελένη σπουδάζει Web-Based Systems και Computing Management στο πανεπιστήμιο
                         του Derby της Αγγλίας.',
@@ -180,6 +187,8 @@
                     'name' => 'Christian Herrmann',
                     'of' => 'Christian',
                     'byday' => 'Systems Administrator, Kamibu',
+                    'image' => 'http://static.zino.gr/phoenix/about/ch-world.png',
+                    'thumbnail' => 'http://images2.zino.gr/media/5619/129121/129121_100.jpg',
                     'about' => array(
                         'Ο Christian σύντομα θα ξεκινήσει τις σπουδές του στην πληροφορική.',
                         
@@ -196,6 +205,8 @@
                     'of' => 'Αλεξ',
                     'byday' => 'Φοιτητής Πληροφορικής',
                     'bynight' => 'Software engineer, Kamibu',
+                    'image' => 'http://static.zino.gr/phoenix/about/chorvus.png',
+                    'thumbnail' => 'http://images2.zino.gr/media/5104/162838/162838_100.jpg',
                     'about' => array(
                         'Ο Αλεξ σπουδάζει πληροφορική στην Θεσσαλονίκη.',
                         
@@ -210,6 +221,8 @@
                     'name' => 'Γιώργος Παναγιωτάκος',
                     'of' => 'Γιώργου',
                     'byday' => 'Researcher, Kamibu',
+                    'thumbnail' => 'http://images2.zino.gr/media/4005/101270/101270_100.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/pagio.png',
                     'about' => array(
                         'Ο Γιώργος σύντομα θα ξεκινήσει τις σπουδές του στην πληροφορική.',
                         
@@ -371,7 +384,7 @@
                         <a href=""><img src="http://images2.zino.gr/media/800/102278/102278_100.jpg" alt="romeo" /></a>
                     </li>
                     <li>
-                        <a href=""><img src="http://images2.zino.gr/media/10205/180947/180947_100.jpg" alt="steve" /></a>
+                        <a href=""><img src="http://images2.zino.gr/media/10205/180947/180947_100.jpg" alt="sbartsa" /></a>
                     </li>
                     <li>
                         <a href=""><img src="http://images2.zino.gr/media/3890/140401/140401_100.jpg" alt="ted" /></a>
