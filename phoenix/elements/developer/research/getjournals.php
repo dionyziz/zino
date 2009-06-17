@@ -22,7 +22,7 @@
             $journals = Spot::GetJournals( $theuser );
             ?><div style="margin-left: 10px;"><?php
                 foreach ( $journals as $journal ) {
-                    ?><div><?php
+                    ?><div style="border-bottom: 1px solid silver;"><?php
                     echo $journal->User->Name;
                     ?><br /><?php
                     ?><a href="?p=journal&amp;id=<?php
