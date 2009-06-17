@@ -305,7 +305,9 @@
                                 </li><?php
                             }
                         ?></ul><?php
+                        $i = 0;
                         foreach ( $member[ 'about' ] as $paragraph ) {
+                            ++$i;
                             ?><p><?php
                             echo $paragraph;
                             if ( $i == count( $member[ 'about' ] ) ) { // add a link to the last paragraph
