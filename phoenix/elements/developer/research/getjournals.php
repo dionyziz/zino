@@ -20,7 +20,12 @@
             <small>Powered by Spot</small><br /><?php
             $journals = Spot::GetJournals( $theuser );
             foreach ( $journals as $journal ) {
-                Element( 'journal/small', $journal );
+                if ( is_int( $journal->Bulkid ) ) {
+                    Element( 'journal/small', $journal );
+                }
+                else {
+                    echo 'Weird journal, bulkid = ' . var_dump( $journal->Bulkid );
+                }
             }
         }
     }
