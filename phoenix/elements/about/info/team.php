@@ -111,7 +111,7 @@
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
                     'bynight' => 'Software Engineer, Kamibu',
                     'image'   => 'http://static.zino.gr/phoenix/about/ted.jpg',
-                    'thumbnail' => 'http://images2.zino.gr/media/3890/140401/140401_100.jpg',
+                    'thumbnail' => 'http://images2.zino.gr/media/3890/187010/187010_150.jpg',
                     'about' => array(
                         'Ο Θεοδόσης σπουδάζει Ηλεκτρολόγος Μηχανικός στο Αριστοτέλειο Πανεπιστήμιο
                         Θεσσαλονίκης.',
