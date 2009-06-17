@@ -6,7 +6,7 @@ var About = {
                 var username = $( this ).find( 'img' )[ 0 ].alt;
                 
                 if ( username == About.VisiblePerson ) {
-                    return;
+                    return false;
                 }
                 
                 $( this ).parent().parent().find( 'li' ).removeClass( 'selected' );
