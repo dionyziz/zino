@@ -57,7 +57,7 @@
                                     }
                                     else {
                                         $notifarray[ 'comment' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Subdomain;
-                                        $notifarray[ 'comment' ][ 'owner' ][ 'subdomain' ] = $notif->Item->Item->Name;
+                                        $notifarray[ 'comment' ][ 'owner' ][ 'name' ] = $notif->Item->Item->Name;
                                     }
                                     break;
                                 case TYPE_IMAGE:
@@ -68,6 +68,7 @@
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
+                            $notifarray[ 'comment' ][ 'answer' ] = !( $notif->Item->Parentid == 0 );
                         }
                         else {
                             switch ( $notif->Typeid ) {
