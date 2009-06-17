@@ -181,6 +181,7 @@
             'forgot/success'    => 'user/passwordrequest/success',
             'forgot/failure'    => 'user/passwordrequest/failure',
             'forgot/recover'    => 'user/passwordrequest/recover',
+            'spot'              => 'developer/research/getjournals',
             'about'             => 'about/info/view'
         );
     }

@@ -75,10 +75,16 @@
             $journals = Spot::GetJournals( $this->john );
             $this->Assert( is_array( $journals ), 'Spot::GetJournals should return array' );
             $this->Assert( !empty( $journals ), 'Spot::GetJournals returned empty array' );
-            $this->Assert( $journals[ 0 ] instanceof Journal, 'Spot::GetJournals should return array of Journals' );
+            $are_journals = true;
+            foreach ( $journals as $journal ) {
+                if ( !$journal instanceof Journal ) {
+                    $are_journals = false;
+                }
+            }
+            $this->Assert( $are_journals, 'Spot::GetJournals should return array of Journals' );
         }
         public function TestGetImages() {
-            // TODO
+            // TODOl
         }
         public function TestGetPolls() {
             // TODO
