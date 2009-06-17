@@ -181,7 +181,7 @@
                     'gender' => 'f',
                     'of' => 'Ελένης',
                     'byday' => 'Φοιτήτρια Web-Based Systems, University of Derby',
-                    'bynight' => 'Brand Manager, Kamibu',
+                    'bynight' => 'Coding Monkey, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/1023/174561/174561_100.jpg',
                     'image' => 'http://static.zino.gr/phoenix/about/rhapsody.jpg',
                     'about' => array(
@@ -265,7 +265,7 @@
                         <p>
                             Για να μας γνωρίσεις διάλεξε μία από τις φάτσες που σου αρέσει. Μην 
                             διστάσεις να επισκευθείς το προφίλ του καθενός και να μας αφήσεις ένα
-                            ενθαρρυντικό σχόλιο — αυτά είναι που μας κάνουμε να έχουμε πάθος και αγάπη
+                            ενθαρρυντικό σχόλιο — αυτά είναι που μας κάνουν να έχουμε πάθος και αγάπη
                             για την δουλειά μας. Θα χαρούμε πολύ να μας προσθέσεις στους φίλους 
                             <span class="emoticon-smile">.</span>
                         </p>
