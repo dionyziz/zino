@@ -232,7 +232,7 @@
                     )
                 ),
                 array(
-                    'nickname' => 'pagio',
+                    'nickname' => 'pagio91',
                     'name' => 'Γιώργος Παναγιωτάκος',
                     'of' => 'Γιώργου',
                     'byday' => 'Researcher, Kamibu',
