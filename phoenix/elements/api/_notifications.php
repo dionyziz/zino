@@ -42,8 +42,7 @@
                         if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                             ob_start();
                             Element( 'url' , $notif->Item );
-                            $notifarray[ 'url' ] = ob_get_clean();
-                            
+                            $notifarray[ 'url' ] = ob_get_clean();                         
                             $comment = $notif->Item;
                             $text = $comment->GetText( 30 );
                             $notifarray[ 'comment' ][ 'text' ] = $text;
@@ -76,10 +75,14 @@
                                     $notifarray[ 'type' ] = 'friendship';
                                     $finder = New FriendRelationFinder();
                                     $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser );
-                                    $notifarray[ 'friendship' ][ 'hasyou' ] = (bool) $hasyou;
+                                    $notifarray[ 'friendship' ][ 'yourfriend' ] = (bool) $hasyou;
                                     break;
                                 case EVENT_IMAGETAG_CREATED:
-                                    $notifarray[ 'comment' ][ 'type' ] = 'tag';
+                                    $notifarray[ 'type' ] = 'tag';
+                                    $notifarray[ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    ob_start();
+                                    Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                    $notifarray[ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
                         }
