@@ -5,7 +5,7 @@
             
             <div class="info">
                 <div id="aboutperson">
-                    <div class="aboutoneperson aboutonepersonslide" id="iamnoone">
+                    <div class="aboutoneperson" id="iamnoone">
                         <img src="http://static.zino.gr/phoenix/about/team.jpg" alt="noone" />
                         <p>
                             Η ομάδα του Zino είναι μία καταρτισμένη ομάδα σε όλους τους τομείς
