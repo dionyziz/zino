@@ -79,9 +79,10 @@
                                     break;
                                 case EVENT_IMAGETAG_CREATED:
                                     $notifarray[ 'type' ] = 'tag';
-                                    $notifarray[ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    $image = New Image( $notif->Item->Imageid );
+                                    $notifarray[ 'photo' ][ 'id' ] = $notif->Item->Imageid;
                                     ob_start();
-                                    Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                    Element( 'image/url', $image->Id , $image->User->Id , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
