@@ -2,7 +2,8 @@
     class ElementAboutInfoTeam extends Element {
         public function Render() {
             static $team = array(
-                'dionyziz' => array(
+                array(
+                    'nickname' => 'dionyziz',
                     'name'    => 'Διονύσης Ζήνδρος',
                     'of'      => 'Διονύση',
                     'byday'   => 'Φοιτητής ΗΜΜΥ, Εθνικό Μετσόβιο Πολυτεχνείο',
@@ -22,7 +23,8 @@
                         'Λατρεύει το γάλα και την σοκολάτα.'
                     )
                 ),
-                'izual' => array(
+                array(
+                    'nickname' => 'izual',
                     'name'    => 'Xρήστος Παππάς',
                     'of'      => 'Χρήστου',
                     'byday'   => 'Φοιτητής ΗΜΜΥ στο Εθνικό Μετσόβιο Πολυτεχνείο',
@@ -40,7 +42,8 @@
                         'Λατρεύει να ταξιδεύει, την ταχύτητα και τα γρήγορα αυτοκίνητα.'
                     )
                 ),
-                'finlandos' => array(
+                array(
+                    'nickname' => 'finlandos',
                     'name' => 'Αλέξης Μπρέσας',
                     'of' => 'Αλέξη',
                     'byday' => 'Technical Director, Kamibu',
@@ -57,7 +60,8 @@
                         'Λατρεύει το vim, την πανσέληνο, το περπάτημα, και την Φινλανδία.'
                     )
                 ),
-                'romeo' => array(
+                array(
+                    'nickname' => 'romeo',
                     'name' => 'Δημήτρης Χαυλίδης',
                     'of' => 'Δημήτρη',
                     'byday' => 'CEO, Black Box Studios',
@@ -79,7 +83,8 @@
                         'Λατρεύει τα ταξίδα, τις πολεμικές τέχνες, να λέει ιστορίες, και την φωτογραφία.'
                     )
                 ),
-                'sbartsa' => array(
+                array(
+                    'nickname' => 'sbartsa',
                     'name' => 'Στέφανος Βαρσάνης',
                     'of' => 'Στέφανου',
                     'byday' =>' Φοιτητής, Οικονομικό Πανεπιστήμιο Αθηνών',
@@ -98,7 +103,8 @@
                         'Λατρεύει τα παιχνίδια στρατηγικής, το τέννις, και τις οικονομικές αναλύσεις.'
                     )
                 ),
-                'ted' => array(
+                array(
+                    'nickname' => 'ted',
                     'name' => 'Θεοδόσης Σουργκούνης',
                     'of' => 'Θεοδόση',
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
@@ -116,7 +122,8 @@
                         'Λατρεύει την θάλασσα και το camping, την οδήγηση, και τα ταξίδια.'
                     )
                 ),
-                'petrosagg18' => array(
+                array(
+                    'nickname' => 'petrosagg18',
                     'name' => 'Πέτρος Αγγελάτος',
                     'of' => 'Πέτρου',
                     'byday' => 'Φοιτητής ΗΜΜΥ, Εθνικό Μετσόβιο Πολυτεχνείο',
@@ -133,7 +140,8 @@
                         και διαβάζουν τις σελίδες με πληροφορίες για το Zino.'
                     )
                 ),
-                'indy' => array(
+                array(
+                    'nickname' => 'indy',
                     'name' => 'Αριστοτέλης Μικρόπουλος',
                     'of' => 'Αρη',
                     'byday' => 'Φοιτητής ΗΜΜΥ, ΑΠΘ',
@@ -149,7 +157,8 @@
                        'Του αρέσει το ανοιχτό λογισμικό και οι βόλτες με φίλους.'
                     )
                 ),
-                'd3nnn1z' => array(
+                array(
+                    'nickname' => 'd3nnn1z',
                     'name' => 'Διονύσης Πανταζόπουλος',
                     'of' => 'Διονύση',
                     'byday' => 'Φοιτητής Ηλεκτρονική, ΤΕΙ Αθηνών',
@@ -166,7 +175,8 @@
                        'Λατρεύει το μπουζούκι και το καλό φαγητό.'
                    )
                 ),
-                'rhapsody' => array(
+                array(
+                    'nickname' => 'rhapsody',
                     'name' => 'Ελένη Λιξουριώτη',
                     'gender' => 'f',
                     'of' => 'Ελένης',
@@ -183,7 +193,8 @@
                         'Λατρεύει το vim, το guitar hero, τα ψάρια και τις γάτες.'
                     )
                 ),
-                'ch-world' => array(
+                array(
+                    'nickname' => 'ch-world',
                     'name' => 'Christian Herrmann',
                     'of' => 'Christian',
                     'byday' => 'Systems Administrator, Kamibu',
@@ -200,7 +211,8 @@
                         περνάει χρόνο με την οικογένειά του.'
                     )
                 ),
-                'chorvus' => array(
+                array(
+                    'nickname' => 'chorvus',
                     'name' => 'Αλεξ Τζο',
                     'of' => 'Αλεξ',
                     'byday' => 'Φοιτητής Πληροφορικής',
@@ -217,7 +229,8 @@
                         'Λατρεύει να ταξιδεύει, να βλέπει anime, και να παίζει βιντεοπαιχνίδια.'
                     )
                 ),
-                'pagio' => array(
+                array(
+                    'nickname' => 'pagio',
                     'name' => 'Γιώργος Παναγιωτάκος',
                     'of' => 'Γιώργου',
                     'byday' => 'Researcher, Kamibu',
@@ -257,14 +270,14 @@
                             <span class="emoticon-smile">.</span>
                         </p>
                     </div><?php
-                    foreach ( $team as $nickname => $member ) {
+                    foreach ( $team as $member ) {
                         ?><div class="aboutoneperson aboutonepersonslide" id="iam<?php
-                        echo $nickname;
+                        echo $member[ 'nickname' ];
                         ?>">
                         <img src="<?php
                         echo $member[ 'image' ];
                         ?>" alt="<?php
-                        echo $nickname;
+                        echo $member[ 'nickname' ];
                         ?>" />
                         
                         <h3><?php
@@ -295,7 +308,7 @@
                             echo $paragraph;
                             if ( $i == count( $member[ 'about' ] ) ) { // add a link to the last paragraph
                                 ?><a href="http://<?php
-                                echo $nickname;
+                                echo $member[ 'nickname' ];
                                 ?>">Πήγαινε στο Zino <?php
                                 switch ( $member[ 'gender' ] ) {
                                     case 'f':
@@ -316,16 +329,17 @@
                 <div class="eof"></div>
             </div>
                 <ul id="aboutpeople"><?php
-                    foreach ( $team as $nickname => $member ) {
+                    shuffle( $team );
+                    foreach ( $team as $member ) {
                         ?><li style="width:<?php
                         echo round( 100 / count( $team ), 2 );
                         ?>%"><a href=""><img src="<?php
                         echo $member[ 'thumbnail' ];
                         ?>" alt="<?php
-                        echo $nickname;
+                        echo $member[ 'nickname' ];
                         ?>" /></a></li><?php
                     }
-                    ?></li>
+                    ?>
                 </ul>
                 <div class="eof"></div><?php
         }
