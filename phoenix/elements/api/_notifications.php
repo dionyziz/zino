@@ -77,7 +77,7 @@
                                     $notifarray[ 'url' ] = ob_get_clean();
                                     $notifarray[ 'type' ] = 'friendship';
                                     $finder = New FriendRelationFinder();
-                                    $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser );
+                                    $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser->Id, $notif->FromUser->Subdomain );
                                     $notifarray[ 'friendship' ][ 'yourfriend' ] = (bool) $hasyou;
                                     break;
                                 case EVENT_IMAGETAG_CREATED:
