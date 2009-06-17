@@ -24,7 +24,9 @@
                 foreach ( $journals as $journal ) {
                     echo $journal->User->Name;
                     ?><br /><?php
-                    ?><a href=""><?php
+                    ?><a href="?p=journal&id=<?php
+                    echo $journal->Id;
+                    ?>"><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></a>
                     <br /><br /><?php
