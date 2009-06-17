@@ -4,9 +4,13 @@ var About = {
         if ( $( '#aboutpeople' ).length ) {
             $( '#aboutpeople li a' ).click( function () {
                 var username = $( this ).find( 'img' )[ 0 ].alt;
-                $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
-                    left: '-100%'
-                } );
+                if ( About.VisiblePerson ) {
+                    $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
+                        left: '-100%'
+                    }, 500, 'easein', function () {
+                        alert( 'Boo' );
+                    } );
+                }
                 $( $( '#aboutperson div#iam' + username )[ 0 ] ).animate( {
                     left: 0
                 } );
