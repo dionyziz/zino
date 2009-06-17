@@ -22,6 +22,7 @@
             $journals = Spot::GetJournals( $theuser );
             ?><div style="margin-left: 10px;"><?php
                 foreach ( $journals as $journal ) {
+                    ?><div><?php
                     echo $journal->User->Name;
                     ?><br /><?php
                     ?><a href="?p=journal&amp;id=<?php
@@ -29,10 +30,11 @@
                     ?>"><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></a>
-                    <br /><br /><?php
+                    <br /><?php
                     if ( is_int( $journal->Bulkid ) ) {
                         echo $journal->GetText( 300 );
                     }
+                    ?><br /><br /></div><?php
                 }
                 ?></div><?php
         }
