@@ -1,8 +1,16 @@
 var About = {
+    VisiblePerson: 'dionyziz',
     OnLoad: function() {
         if ( $( '#aboutpeople' ).length ) {
             $( '#aboutpeople li a' ).click( function () {
-                alert( $( this ).find( 'img' )[ 0 ].alt );
+                var username = $( this ).find( 'img' )[ 0 ].alt;
+                $( $( '#aboutperson div#iam' + About.VisiblePerson )[ 0 ] ).animate( {
+                    left: '-100%'
+                } );
+                $( $( '#aboutperson div#iam' + username )[ 0 ] ).animate( {
+                    left: 0
+                } );
+                About.VisiblePerson = username;
                 return false;
             } );
         }
