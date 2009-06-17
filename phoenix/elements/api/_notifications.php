@@ -73,7 +73,7 @@
                             switch ( $notif->Typeid ) {
                                 case EVENT_FRIENDRELATION_CREATED;
                                     ob_start();
-                                    Element( 'url', $notif->Item );
+                                    Element( 'user/url', $notif->FromUser );
                                     $notifarray[ 'url' ] = ob_get_clean();
                                     $notifarray[ 'type' ] = 'friendship';
                                     $finder = New FriendRelationFinder();
