@@ -78,6 +78,9 @@
                                     $notifarray[ 'friendship' ][ 'yourfriend' ] = (bool) $hasyou;
                                     break;
                                 case EVENT_IMAGETAG_CREATED:
+                                    ob_start();
+                                    Element( 'url', $notif->Item );
+                                    $notifarray[ 'url' ] = ob_get_clean();
                                     $notifarray[ 'type' ] = 'tag';
                                     $image = New Image( $notif->Item->Imageid );
                                     $notifarray[ 'photo' ][ 'id' ] = $notif->Item->Imageid;
