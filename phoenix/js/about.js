@@ -11,6 +11,7 @@ var About = {
                         return function () {
                             $( '#iam' + added ).removeClass( 'aboutonepersonslide' );
                             $( '#iam' + removed ).addClass( 'aboutonepersonslide' );
+                            $( '#iam' + removed ).css( { left: '100%' } );
                         }
                     }( About.VisiblePerson, username ) );
                 }
