@@ -5,7 +5,22 @@
             
             <div class="info">
                 <div id="aboutperson">
-                    <div class="aboutoneperson" id="iamdionyziz">
+                    <div class="aboutoneperson aboutonepersonslide" id="iamnoone">
+                        <img src="http://static.zino.gr/phoenix/about/team.jpg" alt="noone" />
+                        <p>
+                            Η ομάδα του Zino είναι μία καταρτισμένη ομάδα σε όλους τους τομείς
+                            από θέματα τεχνικά μέχρι το business, το marketing, και το design. Κάθε
+                            μέλος της ομάδας μας είναι μία πολύπλευρη προσωπικότητα με μοναδικά 
+                            ενδιαφέροντα και ασχολίες πέρα από την δουλειά του στο Zino.
+                        </p>
+                        <p>
+                            Για να μας γνωρίσεις διάλεξε μία από τις φάτσες που σου αρέσει. Μην 
+                            διστάσεις να επισκευθείς το προφίλ του καθενός και να μας αφήσεις ένα
+                            ενθαρρυντικό σχόλιο — αυτά είναι που μας κάνουμε να έχουμε πάθος και αγάπη
+                            για την δουλειά μας.
+                        </p>
+                    </div>
+                    <div class="aboutoneperson aboutonepersonslide" id="iamdionyziz">
                         <img src="http://static.zino.gr/phoenix/about/dionyziz.png" alt="dionyziz" />
                         <h3>Διονύσης Ζήνδρος</h3>
                         <ul>

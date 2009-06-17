@@ -1,5 +1,5 @@
 var About = {
-    VisiblePerson: 'dionyziz',
+    VisiblePerson: 'noone',
     OnLoad: function() {
         if ( $( '#aboutpeople' ).length ) {
             $( '#aboutpeople li a' ).click( function () {
