@@ -73,11 +73,11 @@
                             switch ( $notif->Typeid ) {
                                 case EVENT_FRIENDRELATION_CREATED;
                                     ob_start();
-                                    Element( 'user/url', $notif->FromUser );
+                                    Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
                                     $notifarray[ 'url' ] = ob_get_clean();
                                     $notifarray[ 'type' ] = 'friendship';
                                     $finder = New FriendRelationFinder();
-                                    $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser->Id, $notif->FromUser->Subdomain );
+                                    $hasyou = $finder->FindFriendship( $theuser, $notif->FromUser );
                                     $notifarray[ 'friendship' ][ 'yourfriend' ] = (bool) $hasyou;
                                     break;
                                 case EVENT_IMAGETAG_CREATED:
