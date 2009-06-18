@@ -113,7 +113,7 @@
                                             $journal = $notif->Item->Item;
                                             $notifarray[ 'favourite' ][ 'type' ] = 'journal';
                                             $notifarray[ 'journal' ][ 'id' ] = $journal->Id;
-                                            $notifarray[ 'journal' ][ 'name' ] = $journal->Name;
+                                            $notifarray[ 'journal' ][ 'title' ] = $journal->Title;
                                             break;
                                     }
                             }
