@@ -46,6 +46,7 @@
                             $comment = $notif->Item;
                             $text = $comment->GetText( 30 );
                             $notifarray[ 'comment' ][ 'text' ] = $text;
+                            $notifarray[ 'comment' ][ 'id' ] = $comment->Id;
                             if ( mb_strlen( $comment->Text ) > 30 ) {
                                 $notifarray[ 'comment' ][ 'text' ] .= "...";
                             }
@@ -63,6 +64,7 @@
                                 case TYPE_IMAGE:
                                     $notifarray[ 'comment' ][ 'type' ] = 'photo';
                                     $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'name' ] = $notif->Item->Item->Name;
                                     ob_start();
                                     Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
@@ -92,6 +94,26 @@
                                     Element( 'image/url', $image->Id , $image->User->Id , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
+                                case EVENT_FAVOURITE_CREATED:
+                                    ob_start();
+                                    Element( 'url', $notif->Item );
+                                    $notifarray[ 'url' ] = ob_get_clean();
+                                    $notifarray[ 'type' ] = 'favourite';
+                                    switch ( $notif->Item->Typeid ) {
+                                        case TYPE_IMAGE:
+                                            $notifarray[ 'favourite' ][ 'type' ] = 'photo';
+                                            $notifarray[ 'favourite' ][ 'photo' ][ 'id' ] = $notif->Item->Id;
+                                            ob_start();
+                                            Element( 'image/url', $notif->Item->Id , $notif->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                            $notifarray[ 'favourite' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
+                                            $notifarray[ 'favourite' ][ 'photo' ][ 'name' ] = $notif->Item->Name;
+                                            break;
+                                        case TYPE_JOURNAL:
+                                            $notifarray[ 'favourite' ][ 'type' ] = 'journal';
+                                            $notifarray[ 'journal' ][ 'id' ] = $notif->Item->Id;
+                                            $notifarray[ 'journal' ][ 'name' ] = $notif->Item->Name;
+                                            break;
+                                    }
                             }
                         }
                         $apiarray[] = $notifarray;
