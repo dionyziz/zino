@@ -101,17 +101,19 @@
                                     $notifarray[ 'type' ] = 'favourite';
                                     switch ( $notif->Item->Typeid ) {
                                         case TYPE_IMAGE:
+                                            $image = $notif->Item->Item;
                                             $notifarray[ 'favourite' ][ 'type' ] = 'photo';
-                                            $notifarray[ 'favourite' ][ 'photo' ][ 'id' ] = $notif->Item->Id;
+                                            $notifarray[ 'favourite' ][ 'photo' ][ 'id' ] = $image->Id;
                                             ob_start();
-                                            Element( 'image/url', $notif->Item->Id , $notif->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                            Element( 'image/url', $image->Id , $image->User->Id , IMAGE_CROPPED_150x150 );
                                             $notifarray[ 'favourite' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
-                                            $notifarray[ 'favourite' ][ 'photo' ][ 'name' ] = $notif->Item->Name;
+                                            $notifarray[ 'favourite' ][ 'photo' ][ 'name' ] = $image->Name;
                                             break;
                                         case TYPE_JOURNAL:
+                                            $journal = $notif->Item->Item;
                                             $notifarray[ 'favourite' ][ 'type' ] = 'journal';
-                                            $notifarray[ 'journal' ][ 'id' ] = $notif->Item->Id;
-                                            $notifarray[ 'journal' ][ 'name' ] = $notif->Item->Name;
+                                            $notifarray[ 'journal' ][ 'id' ] = $journal->Id;
+                                            $notifarray[ 'journal' ][ 'name' ] = $journal->Name;
                                             break;
                                     }
                             }
