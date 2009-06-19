@@ -18,7 +18,7 @@
                 ?><tr>
                     <td><?php echo $happening->Id; ?></td>
                     <td><?php echo htmlspecialchars( $happening->Title ); ?></td>
-                    <td><?php echo htmlspecialchars( $happening->Location->Name ); ?></td>
+                    <td><?php echo htmlspecialchars( $happening->Place->Name ); ?></td>
                     <td><?php
                         $timestamp = new DateTime( $happening->Date );
                         echo htmlspecialchars( $timestamp->format( 'j/n/Y H:i:s' ) );
