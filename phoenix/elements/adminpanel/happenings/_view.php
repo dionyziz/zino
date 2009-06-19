@@ -5,7 +5,7 @@
             $libs->Load( 'happening' );
             ?>Τρέχουσες Εκδηλώσεις:<?php
             $hapfinder = New HappeningFinder();
-            $happenigns = $hapfinder->FindAll();
+            $happenings = $hapfinder->FindAll();
             ?><table class="happeninglist">
                 <tr>
                     <th>ID</th>
