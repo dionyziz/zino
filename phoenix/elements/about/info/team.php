@@ -133,7 +133,7 @@
                     'of' => 'Πέτρου',
                     'byday' => 'Φοιτητής ΗΜΜΥ, Εθνικό Μετσόβιο Πολυτεχνείο',
                     'bynight' => 'Software Engineer, Kamibu',
-                    'thumbnail' => 'http://images2.zino.gr/media/5181/176638/176638_100.jpg',
+                    'thumbnail' => 'http://images2.zino.gr/media/5181/189917/189917_100.jpg',
                     'image' => 'http://static.zino.gr/phoenix/about/petros.jpg',
                     'about' => array(
                         'Ο Πέτρος σπουδάζει Ηλεκτρολόγος Μηχανικός στο Εθνικό Μετσόβιο Πολυτεχνείο.',
