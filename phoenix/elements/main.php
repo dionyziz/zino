@@ -51,7 +51,7 @@
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people' ) );
-            $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
+            $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι η παρέα σου online - είσαι μέσα;' );
             
             ob_start();
             $res = Element::MasterElement();
