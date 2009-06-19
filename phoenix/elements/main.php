@@ -85,7 +85,11 @@
                 
                 <div id="downstrip"><?php
                     Element( 'footer' );
-                ?></div><?php
+                ?></div>
+                <a href="http://dionyziz.zino.gr/journals/Drops_of_Summer" style="position:absolute;right:0;bottom:0" title="Zino Meetings: Αθήνα, Βέροια, Θεσσαλονίκη, Γιάννενα">
+                    <img src="http://static.zino.gr/phoenix/dropsofsummer/footerdrops.png" alt="Drops of Summer" />
+                </a>
+                <?php
             }
             else {
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
