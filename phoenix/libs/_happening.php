@@ -8,6 +8,7 @@
         
         protected function Relations() {
             $this->Participants = $this->HasMany( 'HappeningParticipantFinder', 'FindByHappening', $this );
+            $this->Place = $this->HasOne( 'Place', 'Placeid' );
         }
     }
     class HappeningFinder extends Finder {
