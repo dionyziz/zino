@@ -21,7 +21,7 @@
                     <td><?php echo htmlspecialchars( $happening->Place->Name ); ?></td>
                     <td><?php
                         $timestamp = new DateTime( $happening->Date );
-                        echo htmlspecialchars( $timestamp->format( 'j/n/Y H:i:s' ) );
+                        echo htmlspecialchars( $timestamp->format( 'j-n-Y H:i' ) );
                     ?></td>
                 </tr><?php
             }
