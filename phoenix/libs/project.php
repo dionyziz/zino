@@ -182,7 +182,8 @@
             'forgot/failure'    => 'user/passwordrequest/failure',
             'forgot/recover'    => 'user/passwordrequest/recover',
             'spot'              => 'developer/research/getjournals',
-            'about'             => 'about/info/view'
+            'about'             => 'about/info/view',
+            'happeningadmin'    => 'adminpanel/happenings/view'
         );
     }
     
