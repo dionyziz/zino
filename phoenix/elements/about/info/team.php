@@ -260,6 +260,7 @@
                     'name' => 'Καραγκασίδης Δημήτρης',
                     'of' => 'Δημήτρη',
                     'byday' => 'Φοιτητής Πληροφορικής στο ΑΤΕΙ Πληροφορικής, Web Developer',
+					'bynight' => 'Software engineer and pet, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/872/166823/166823_100.jpg',
                     'image' => 'http://images2.zino.gr/media/872/166820/166820_full.jpg',
                     'about' => array(
