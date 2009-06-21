@@ -9,6 +9,10 @@
 
     define( 'SPOT_PORT', 21490 );
 
+    global $libs;
+    $libs->Load( 'journal/journal' );
+    $libs->Load( 'image/image' );
+    $libs->Load( 'poll/vote' );
 
     class Spot {
         private static $mRequestHeader = "SPOT\n";

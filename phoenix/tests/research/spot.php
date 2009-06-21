@@ -84,10 +84,30 @@
             $this->Assert( $are_journals, 'Spot::GetJournals should return array of Journals' );
         }
         public function TestGetImages() {
-            // TODOl
-        }
-        public function TestGetPolls() {
             // TODO
+            $images = Spot::GetImages( $this->john );
+            $this->Assert( is_array( $images ), 'Spot::GetImages should return array' );
+            $this->Assert( !empty( $images ), 'Spot::GetImages returned empty array' );
+            $are_imagess = true;
+            foreach ( $images as $image ) {
+                if ( !$image instanceof Image ) {
+                    $are_images = false;
+                }
+            }
+            $this->Assert( $are_images, 'Spot::GetImages should return array of Images' );
+        }
+        public function TestGetVotes() {
+            // TODO
+            $votes = Spot::GetVotes( $this->john );
+            $this->Assert( is_array( $votes ), 'Spot::GetVotes should return array' );
+            $this->Assert( !empty( $votes ), 'Spot::GetVotes returned empty array' );
+            $are_votes = true;
+            foreach ( $votes as $vote ) {
+                if ( !$vote instanceof Vote ) {
+                    $are_votes = false;
+                }
+            }
+            $this->Assert( $are_votes, 'Spot::GetVotes should return array of Votes' );
         }
         public function TearDown() {
             $this->john->Delete();
