@@ -343,7 +343,7 @@
             $header[] = "Connection: keep-alive";
             $header[] = "Expect: ";
 
-            $server = 'https://water.kamibu.com/do/footprint/new';
+            $server = 'http://water.kamibu.com/do/footprint/new';
             curl_setopt( $curl, CURLOPT_URL, $server );
             curl_setopt( $curl, CURLOPT_USERAGENT, "Water-PHP/5.0 (water.kamibu.com)" );
             curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
@@ -353,9 +353,9 @@
             curl_setopt( $curl, CURLOPT_POST, 1 );
             curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
             curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
-            curl_setopt( $curl, CURLOPT_CAINFO, 'libs/rabbit/water/orion.kamibu.com.crt' );
-            curl_setopt( $curl, CURLOPT_CAPATH, 'libs/rabbit/water/orion.kamibu.com.crt' );
-            curl_setopt( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
+            // curl_setopt( $curl, CURLOPT_CAINFO, 'libs/rabbit/water/orion.kamibu.com.crt' );
+            // curl_setopt( $curl, CURLOPT_CAPATH, 'libs/rabbit/water/orion.kamibu.com.crt' );
+            // curl_setopt( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
             $data = curl_exec( $curl );
 
             if ( $data === false ) {
