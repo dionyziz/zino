@@ -9,9 +9,14 @@
             $libs->Load( 'notify' );
             $newuser = $newuser->Get();
             $validated = $validated->Get();
-            $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user, 0, 8 );
-            $shownotifications = $notifs->TotalCount() > 0;
+            if ( $user->Exists() ) {
+                $finder = New NotificationFinder();
+                $notifs = $finder->FindByUser( $user, 0, 8 );
+                $shownotifications = $notifs->TotalCount() > 0;
+            }
+            else {
+                $shownotifications = false;
+            }
             $sequencefinder = New SequenceFinder();
             $sequences = $sequencefinder->FindFrontpage();
             ?><div id="frontpage"><?php
