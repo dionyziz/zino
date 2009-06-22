@@ -96,18 +96,18 @@
             }
             $this->Assert( $are_images, 'Spot::GetImages should return array of Images' );
         }
-        public function TestGetVotes() {
+        public function TestGetPolls() {
             // TODO
-            $votes = Spot::GetVotes( $this->john );
-            $this->Assert( is_array( $votes ), 'Spot::GetVotes should return array' );
-            $this->Assert( !empty( $votes ), 'Spot::GetVotes returned empty array' );
-            $are_votes = true;
-            foreach ( $votes as $vote ) {
-                if ( !$vote instanceof Vote ) {
-                    $are_votes = false;
+            $polls = Spot::GetPolls( $this->john );
+            $this->Assert( is_array( $polls ), 'Spot::GetPolls should return array' );
+            $this->Assert( !empty( $polls ), 'Spot::GetPolls returned empty array' );
+            $are_polls = true;
+            foreach ( $polls as $poll ) {
+                if ( !$poll instanceof poll ) {
+                    $are_polls = false;
                 }
             }
-            $this->Assert( $are_votes, 'Spot::GetVotes should return array of Votes' );
+            $this->Assert( $are_polls, 'Spot::GetPolls should return array of polls' );
         }
         public function TearDown() {
             $this->john->Delete();
