@@ -375,6 +375,7 @@
             $this->Lastlogin = NowDate();
         }
         protected function OnBeforeCreate() {
+            $this->Count->Save();
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
         }
