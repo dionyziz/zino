@@ -122,7 +122,7 @@
             $userid = $user->Id;
             $request = "GET UNIQUECOMS\n$userid\n";
             $response = self::SendRequest( $request );
-            $uniquecoms = (int)( $reponse[ 0 ] );
+            $uniquecoms = (int)( $response[ 0 ] );
             return $uniquecoms;
         }
     }
