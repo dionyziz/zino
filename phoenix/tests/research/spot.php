@@ -81,7 +81,7 @@
             $this->AssertEquals( 1, $samecom, 'Samecom has wrong value for 1 samecom' );
 
             $john_unique = Spot::GetUniquecoms( $this->john );
-            $this->AssertEquals( 0, $john_unique, 'Uniquecoms should be one for john' );
+            $this->AssertEquals( 1, $john_unique, 'Uniquecoms should be one for john' );
 
             $george_unique = Spot::GetUniquecoms( $this->george );
             $this->AssertEquals( 1, $george_unique, 'Uniquecoms should be one for george (like john)' );
