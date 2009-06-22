@@ -311,7 +311,6 @@ class PageHTML extends Page {
     protected function WaterLink() {
         global $water;
         
-        var_dump( debug_backtrace() );
         // keep in mind that profiles and alerts beyond this point will not be dumped
         if ( $this->mDoWaterDump ) {
             ob_start();
