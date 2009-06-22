@@ -9,11 +9,6 @@
 
     define( 'SPOT_PORT', 21490 );
 
-    global $libs;
-    $libs->Load( 'journal/journal' );
-    $libs->Load( 'image/image' );
-    $libs->Load( 'poll/vote' );
-
     class Spot {
         private static $mRequestHeader = "SPOT\n";
         private static $mServerIp = '88.198.246.217'; // europa.kamibu.com
@@ -71,6 +66,9 @@
             return $content;
         }
         public static function GetJournals( $user ) {
+            global $libs;
+            $libs->Load( 'journal/journal' );
+
             $userid = $user->Id;
             $request = "GET JOURNALS\n$userid\n";
             $lines = self::SendRequest( $request );
@@ -83,16 +81,32 @@
             return $content;
         }
         public static function GetImages( $user ) {
+            global $libs;
+            $libs->Load( 'image/image' );
+
             $userid = $user->Id;
             $request = "GET IMAGES\n$userid\n";
-            $content= self::SendRequest( $request );
+            $lines = self::SendRequest( $request );
+
+            $content = array();
+            foreach ( $lines as $id ) {
+                $content[] = New Image( $id );
+            }
 
             return $content;
         }
         public static function GetPolls( $user ) {
+            global $libs;
+            $libs->Load( 'poll/poll' );
+
             $userid = $user->Id;
             $request = "GET POLLS\n$userid\n";
-            $content= self::SendRequest( $request );
+            $lines = self::SendRequest( $request );
+
+            $content = array();
+            foreach ( $lines as $id ) {
+                $content[] = New Poll( $id );
+            }
 
             return $content;
         }
