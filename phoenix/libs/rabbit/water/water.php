@@ -321,12 +321,8 @@
             $this->mDataSent = true;
         }
         public function Post() {
-            $this->mDataSent = true;
-            return;
-
             $this->Finalize();
             $curl = curl_init();
-
 
             $data = array(
                 'protocolversion' => WATER_PROTOCOL_VERSION,
