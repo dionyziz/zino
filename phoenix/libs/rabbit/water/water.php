@@ -373,14 +373,14 @@
             }
         }
         protected function DumpHTML() {
-           ?><link href="https://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css"></link>
-            <script type="text/javascript" src="https://water.kamibu.com/js/client.js"></script>
+           ?><link href="http://water.kamibu.com/css/client.css" rel="stylesheet" type="text/css"></link>
+            <script type="text/javascript" src="http://water.kamibu.com/js/client.js"></script>
             <div id="water" onclick="window.open('<?php
                 if ( $this->mResponseStatus == 200 ) {
                     echo htmlspecialchars( $this->mFootprintURL );
                 }
                 else {
-                    ?>https://water.kamibu.com/errors/<?php
+                    ?>http://water.kamibu.com/errors/<?php
                     echo $this->mResponseStatus;
                 }
                 ?>');" title="Debug this page"><?php
