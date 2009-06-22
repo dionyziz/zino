@@ -88,7 +88,7 @@
             $images = Spot::GetImages( $this->john );
             $this->Assert( is_array( $images ), 'Spot::GetImages should return array' );
             $this->Assert( !empty( $images ), 'Spot::GetImages returned empty array' );
-            $are_imagess = true;
+            $are_images = true;
             foreach ( $images as $image ) {
                 if ( !$image instanceof Image ) {
                     $are_images = false;
