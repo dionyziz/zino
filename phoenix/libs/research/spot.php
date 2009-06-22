@@ -118,6 +118,13 @@
             $samecom = (int)( $response[ 0 ] );
             return $samecom;
         }
+        public static function GetUniquecoms( $user ) { // for testing only.
+            $userid = $user->Id;
+            $request = "GET UNIQUECOMS\n$userid\n";
+            $response = self::SendRequest( $request );
+            $uniquecoms = (int)( $reponse[ 0 ] );
+            return $uniquecoms;
+        }
     }
 
 ?>

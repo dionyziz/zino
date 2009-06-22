@@ -48,6 +48,12 @@
             $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 0, $samecom, 'Samecom should be zero for two new users' );
 
+            $john_unique = Spot::GetUniquecoms( $this->john );
+            $this->AssertEquals( 0, $john_unique, 'Uniquecoms should be zero for new user' );
+
+            $george_unique = Spot::GetUniquecoms( $this->george );
+            $this->AssertEquals( 0, $george_unique, 'Uniquecoms should be zero for new user' );
+
             $comment = New Comment();
             $comment->Userid = $this->george->Id;
             $comment->Itemid = $this->john->Id;
@@ -58,6 +64,12 @@
             $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 0, $samecom, 'No samecom for one comment on a profile' );
 
+            $john_unique = Spot::GetUniquecoms( $this->john );
+            $this->AssertEquals( 0, $john_unique, 'Uniquecoms should be zero for new user with comments on profile' );
+
+            $george_unique = Spot::GetUniquecoms( $this->george );
+            $this->AssertEquals( 1, $george_unique, 'Uniquecoms should be one for george' );
+
             $comment1 = New Comment();
             $comment1->Userid = $this->john->Id;
             $comment1->Itemid = $this->john->Id;
@@ -67,6 +79,12 @@
 
             $samecom = Spot::GetSamecom( $this->john, $this->george );
             $this->AssertEquals( 1, $samecom, 'Samecom has wrong value for 1 samecom' );
+
+            $john_unique = Spot::GetUniquecoms( $this->john );
+            $this->AssertEquals( 0, $john_unique, 'Uniquecoms should be one for john' );
+
+            $george_unique = Spot::GetUniquecoms( $this->george );
+            $this->AssertEquals( 1, $george_unique, 'Uniquecoms should be one for george (like john)' );
 
             $comment->Delete();
             $comment1->Delete();
