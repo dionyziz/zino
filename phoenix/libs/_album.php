@@ -17,6 +17,7 @@
             if ( $emptyalbums ) {
                 $query = $this->mDb->Prepare( "
                     SELECT
+                    SQL_CALC_FOUND_ROWS
                         *
                     FROM
                         :albums LEFT JOIN :images
@@ -33,6 +34,7 @@
             else {
                 $query = $this->mDb->Prepare( "
                     SELECT
+                    SQL_CALC_FOUND_ROWS
                         *
                     FROM
                         :albums LEFT JOIN :images
@@ -63,8 +65,14 @@
                 $album->CopyUserFrom( $theuser );
                 $ret[] = $album;
             }
+        
+            $totalcount = ( int )array_shift(
+                $this->mDb->Prepare(
+                    'SELECT FOUND_ROWS();'
+                )->Execute()->FetchArray()
+            );
 
-            return $ret;
+            return New Collection( $ret, $totalcount );
         }
         public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
             $prototype = New Album();
@@ -73,7 +81,7 @@
             $prototype->Url = $url;
             $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype, 0, 25, false, true );
+            return $this->FindByPrototype( $prototype );
         }
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
