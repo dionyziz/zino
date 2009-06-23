@@ -4,6 +4,9 @@
             global $user;
             global $rabbit_settings;
             global $page;
+            global $libs;
+            
+            $libs->Load( 'user/settings' );
             
             $page->SetTitle( 'Ρυθμίσεις' );
             if ( !$user->Exists() ) {
