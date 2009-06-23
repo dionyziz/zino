@@ -301,6 +301,9 @@
         }
         public function OnBeforeCreate() {
             global $water;
+            global $libs;
+            
+            $libs->Load( 'user/settings' );
             
             $this->DefineRelations();
             
