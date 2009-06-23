@@ -10,6 +10,7 @@
             $hash = $hash->Get();
             
             $libs->Load( 'passwordrequest' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             $request = New PasswordRequest( $requestid );
             $myuser = New User( $request->Userid );
