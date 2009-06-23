@@ -304,6 +304,7 @@
             global $libs;
             
             $libs->Load( 'user/settings' );
+            $libs->Load( 'user/profile' );
             
             $this->DefineRelations();
             
