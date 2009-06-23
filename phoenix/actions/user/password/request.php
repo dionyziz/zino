@@ -3,6 +3,7 @@
         global $libs;
         
         $libs->Load( 'user/profile' );
+        $libs->Load( 'rabbit/helpers/email' );
         
         $username = $username->Get();
         $userfinder = New UserFinder();
