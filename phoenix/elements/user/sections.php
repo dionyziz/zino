@@ -2,47 +2,72 @@
 
     class ElementUserSections extends Element {
         public function Render( $section , $theuser ) {
+            global $user;
+            
             ?><div class="usersections">
-                <ul>
-                    <li<?php
-                    if ( $section == 'album' ) {
-                        ?> class="selected"<?php
+                <ul><?php
+                    if ( $theuser->Count->Images > 0 || $theuser->Id == $user->Id ) {
+                        ob_start();
+                        ?><li<?php
+                        if ( $section == 'album' ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                        ?>albums">Albums</a></li><?php
+                        $linklist[] = ob_get_clean();
                     }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>albums">Albums</a></li>
-                    <li>·</li>
-                    <li<?php
-                    if ( $section == 'poll' ) {
-                        ?> class="selected"<?php
+                    if ( $theuser->Count->Polls > 0 || $theuser->Id == $user->Id ) {
+                        ob_start();
+                        ?><li<?php
+                        if ( $section == 'poll' ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                        ?>polls">Δημοσκοπήσεις</a></li><?php
+                        $linklist[] = ob_get_clean();
                     }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>polls">Δημοσκοπήσεις</a></li>
-                    <li>·</li>
-                    <li<?php
-                    if ( $section == 'journal' ) {
-                        ?> class="selected"<?php
+                    if ( $theuser->Count->Journals > 0 || $theuser->Id == $user->Id ) {
+                        ob_start();
+                        ?><li<?php
+                        if ( $section == 'journal' ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                        ?>journals">Ημερολόγιο</a></li><?php
+                        $linklist[] = ob_get_clean();
                     }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>journals">Ημερολόγιο</a></li>
-                    <li>·</li>
-                    <li<?php
-                    if ( $section == 'favourites' ) {
-                        ?> class="selected"<?php
+                    if ( $theuser->Count->Favourites > 0 || $theuser->Id == $user->Id ) {
+                        ob_start();
+                        ?><li<?php
+                        if ( $section == 'favourites' ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                        ?>favourites">Αγαπημένα</a></li><?php
+                        $linklist[] = ob_get_clean();
                     }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>favourites">Αγαπημένα</a></li>
-                    <li>·</li>
-                    <li<?php
-                    if ( $section == 'relations' ) {
-                        ?> class="selected"<?php
+                    if ( $theuser->Count->Relations > 0 || $theuser->Id == $user->Id ) {
+                        ob_start();
+                        ?><li<?php
+                        if ( $section == 'relations' ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                        ?>friends">Φίλοι</a></li><?php
+                        $linklist[] = ob_get_clean();
                     }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>friends">Φίλοι</a></li>
+                    while ( $link = array_shift( $linklist ) ) {
+                        echo $link;
+                        if ( !empty( $linklist ) ) {
+                            ?><li>·</li><?php
+                        }
+                    }
+                    ?>
                 </ul>
                 <a href="<?php
                     Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
