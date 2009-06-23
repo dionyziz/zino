@@ -14,6 +14,7 @@
             }
             
             $libs->Load( 'admanager' );
+            $libs->Load( 'place' );
             
             $adfinder = New AdFinder();
             $ads = $adfinder->FindByUser( $user );
