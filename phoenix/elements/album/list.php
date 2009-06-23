@@ -1,11 +1,13 @@
 <?php
-    
     class ElementAlbumList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
             global $page;
             global $user;
             global $rabbit_settings;
             global $water;
+            global $libs;
+            
+            $libs->Load( 'album' );
             
             $page->AttachStylesheet( 'css/album/list_ie.css', true );
             
