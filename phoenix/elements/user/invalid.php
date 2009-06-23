@@ -2,7 +2,10 @@
     class ElementUserInvalid extends Element {
         public function Render() {
             global $user;
-
+            global $libs;
+            
+            $libs->Load( 'rabbit/helpers/http' );
+            
             if ( $user->Exists() ) {
                 return Redirect();
             }
