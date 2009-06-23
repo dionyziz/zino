@@ -1,9 +1,10 @@
 <?php
-    
     function UnitJournalDelete( tInteger $journalid ) {
         global $user;
         global $xc_settings;
+        global $libs;
         
+        $libs->Load( 'journal/journal' );
         $journal = New Journal( $journalid->Get() );
         
         if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
