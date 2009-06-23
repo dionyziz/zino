@@ -219,6 +219,10 @@
             return $this->Delid > 0 || !$this->Exists();
         }
         public function OnCommentCreate() {
+            global $libs;
+            
+            $libs->Load( 'album' );
+            
             $frontpageimagefinder = New FrontpageImageFinder();
             $latest = $frontpageimagefinder->FindLatest();
             foreach ( $latest as $photo ) {
@@ -236,6 +240,10 @@
             return $this->Save();
         }
         public function OnCommentDelete() {
+            global $libs;
+            
+            $libs->Load( 'album' );
+
             $frontpageimagefinder = New FrontpageImageFinder();
             $latest = $frontpageimagefinder->FindLatest();
             foreach ( $latest as $photo ) {
@@ -282,6 +290,10 @@
             return false;
         }
         public function Undelete() {
+            global $libs;
+            
+            $libs->Load( 'album' );
+
             $this->Delid = 0;
             $this->Save();
 
@@ -292,6 +304,10 @@
             $this->OnUndelete();
         }
         public function CommentDeleted() {
+            global $libs;
+            
+            $libs->Load( 'album' );
+
             if ( $this->Albumid ) {
                 if ( !$this->Album->CommentDeleted() ) {
                     return false;
@@ -341,8 +357,10 @@
         }
         public function OnCreate() {
             global $libs;
-
+            
+            $libs->Load( 'album' );
             $libs->Load( 'user/count' );
+            
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -366,7 +384,8 @@
             
             $libs->Load( 'comment' );
             $libs->Load( 'user/count' );
-            
+            $libs->Load( 'album' );
+
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -380,6 +399,10 @@
             Sequence_Increment( SEQUENCE_IMAGE );
         }
         protected function OnUndelete() {
+            global $libs;
+            
+            $libs->Load( 'album' );
+
             if ( $this->Albumid ) {
                 $this->Album->ImageUndeleted( $this );
             }
