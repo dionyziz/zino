@@ -3,10 +3,13 @@
         global $rabbit_settings;
         global $libs;
 		global $water;
-		$water->ExitWithoutSubmission();
+		
+        $water->ExitWithoutSubmission();
+        
         $libs->Load( 'contacts/contacts' );
         $libs->Load( 'relation/relation' );
-		
+		$libs->Load( 'user/profile' );
+        
         $username = $username->Get();
         $password = $password->Get();
         $email = $email->Get();
