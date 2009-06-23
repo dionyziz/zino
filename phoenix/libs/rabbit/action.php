@@ -2,6 +2,9 @@
     final class Actions { // do-and-redirect controllers handler
         public function Request( $p , $req ) {
             global $water;
+            global $libs;
+            
+            $libs->Load( 'rabbit/helpers/http' );
             
             if (   !isset( $p ) 
                 || !preg_match( '#^[a-zA-Z0-9/]+$#' , $p ) ) {
