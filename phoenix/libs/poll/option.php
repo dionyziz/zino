@@ -38,7 +38,7 @@
         
         public function __get( $key ) {
             if ( $key == 'Percentage' ) {
-                if ( $this->Poll->Numvotes = 0 ) {
+                if ( $this->Poll->Numvotes == 0 ) {
                     return 0;
                 }   
                 return $this->Numvotes / $this->Poll->Numvotes;
