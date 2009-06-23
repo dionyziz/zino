@@ -3,7 +3,10 @@
         protected $mPersistent = array( 'imageseq' );
         public function Render( $imageseq ) {
             global $user;
+            global $libs;
         
+            $libs->Load( 'image/image' );
+
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
             if ( count( $images ) > 0 ) {
