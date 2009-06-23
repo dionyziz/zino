@@ -6,6 +6,9 @@
             global $rabbit_settings;
             global $xc_settings;
             global $user;
+            global $libs;
+            
+            $libs->Load( 'journal/journal' );
             
             Element( 'user/subdomainmatch' );
             
