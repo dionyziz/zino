@@ -2,8 +2,10 @@
     function UnitContactsRetrieve( tText $provider , tText $username, tText $password ) {
         global $libs;
         global $user;
+        
         $libs->Load( 'relation/relation' );
         $libs->Load( 'contacts/contacts' );
+        $libs->Load( 'user/profile' );
         
         $provider = $provider->Get();
         $username = $username->Get();
