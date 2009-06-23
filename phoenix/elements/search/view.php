@@ -5,7 +5,8 @@
             global $libs;
 
             $libs->Load( 'user/search' );
-
+            $libs->Load( 'place' );
+            
             if ( $pageno <= 0 ) {
                 $pageno = 1;
             }
