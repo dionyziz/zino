@@ -1,4 +1,4 @@
-<?php
+3<?php
     global $libs;
 
     $libs->Load( 'bulk' );
@@ -216,6 +216,10 @@
             $this->Save();
         }
         protected function OnCreate() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            
             $this->OnUpdate();
 
             ++$this->User->Count->Journals;
@@ -249,7 +253,8 @@
 
             $libs->Load( 'comment' );
             $libs->Load( 'adminpanel/adminaction' );
-                        
+            $libs->Load( 'user/count' );
+            
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_JOURNAL, $this->id );

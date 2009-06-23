@@ -161,6 +161,7 @@
             global $water;
             global $libs;
 
+            $libs->Load( 'user/count' );
             if ( $this->IsDeleted() ) {
                 $water->Notice( 'Album already deleted; skipping' );
                 return;
@@ -268,6 +269,10 @@
             }
         }
         protected function OnCreate() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+        
             if ( $this->Ownertype == TYPE_USERPROFILE ) {
                 ++$this->Owner->Count->Albums;
                 $this->Owner->Count->Save();
