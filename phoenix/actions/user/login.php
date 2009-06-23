@@ -12,6 +12,8 @@
         
         $libs->Load( 'loginattempt' );
         $libs->Load( 'adminpanel/ban' );
+        $libs->Load( 'user/profile' );
+        
         $loginattempt = New LoginAttempt();
         $loginattempt->Username = $username;
         if ( $user === false ) {
