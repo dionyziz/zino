@@ -213,7 +213,8 @@
             global $libs;
             
             $libs->Load( 'image/image' );
-
+            $libs->Load( 'bulk' );
+            
             $query = $this->mDb->Prepare( "
                 SELECT
                     *

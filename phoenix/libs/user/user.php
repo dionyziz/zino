@@ -364,6 +364,10 @@
             $this->Lastlogin = NowDate();
         }
         protected function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            
             $this->Count->Save();
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
@@ -441,10 +445,16 @@
         } 
         // user added a new comment; for profile comments, UserProfile::OnCommentCreate
         public function OnCommentCreate() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
             ++$this->Count->Comments;
             $this->Count->Save();
         }
         public function OnCommentDelete() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
             --$this->Count->Comments;
             $this->Count->Save();
         }
