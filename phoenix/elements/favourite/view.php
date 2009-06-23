@@ -8,6 +8,7 @@
 
             $libs->Load( 'favourite' );
             $libs->Load( 'journal/journal' );
+            $libs->Load( 'album' );
             
             $subdomain = $subdomain->Get();
             $type = $type->Get();
