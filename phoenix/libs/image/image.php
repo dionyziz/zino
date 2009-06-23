@@ -343,6 +343,7 @@
         public function OnCreate() {
             global $libs;
 
+            $libs->Load( 'user/count' );
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -365,6 +366,8 @@
             global $libs;
             
             $libs->Load( 'comment' );
+            $libs->Load( 'user/count' );
+            
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
