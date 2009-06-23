@@ -9,17 +9,6 @@
     global $libs;
 
     $libs->Load( 'user/permission' );
-    $libs->Load( 'user/settings' );
-    $libs->Load( 'user/profile' );
-    $libs->Load( 'user/lastactive' );
-    $libs->Load( 'user/count' );
-    $libs->Load( 'image/image' );
-    $libs->Load( 'journal/journal' );
-    $libs->Load( 'album' );
-    $libs->Load( 'mood' );
-    $libs->Load( 'poll/poll' );
-    $libs->Load( 'question/answer' );
-    
     
     function User_Valid( $username ) {
         static $reserved = array(
