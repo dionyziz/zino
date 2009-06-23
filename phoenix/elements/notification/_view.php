@@ -38,12 +38,12 @@
                     ?>' , '<?php
                     echo $notif->Id;
                     ?>' , '<?php
-                    echo $notif->Item->Id;
+                    echo $notif->Itemid;
                     ?>' );"<?php
                 }
                 ?>><?php
-                    Element( 'user/avatar' , $notif->FromUser->Avatarid , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
-                    Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
+                    Element( 'user/avatar' , $notif->FromUser->Avatarid , $notif->Fromuserid , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
+                    Element( 'user/name' , $notif->Fromuserid , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
                             ?> σε πρόσθεσε στους φίλους:<?php
@@ -105,7 +105,7 @@
                         ?>' , '<?php
                         echo $notif->Id;
                         ?>' , '<?php
-                        echo $notif->Item->Id;
+                        echo $notif->Itemid;
                         ?>' );"<?php
                         break;
                 }
@@ -120,7 +120,7 @@
                                 ?>"><a href="" onclick="return Notification.AddFriend( '<?php
                                 echo $notif->Id;
                                 ?>' , '<?php
-                                echo $notif->FromUser->Id;
+                                echo $notif->Fromuserid;
                                 ?>' )"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ τ<?php
                                 if ( $notif->FromUser->Gender == 'f' ) {
                                     ?>η<?php
@@ -131,7 +131,7 @@
                                 ?>ν στους φίλους</a></div><?php
                             }
                             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
-                            Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                            Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
                             ?>' , '0' , '<?php
                             echo $notif->Id;
                             ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
@@ -144,7 +144,7 @@
                                 echo htmlspecialchars( $image->Name );
                                 ?>"<?php
                             }
-                            else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                            else if ( $image->Albumid == $image->User->Egoalbumid ) {
                                 ?>στις φωτογραφίες <?php
                                 if ( $image->Userid == $user->Id ) {
                                     ?>σου<?php
@@ -212,7 +212,7 @@
                                         echo htmlspecialchars( $image->Name );
                                         ?>"<?php
                                     }
-                                    else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                                    else if ( $image->Albumid == $image->User->Egoalbumid ) {
                                         ?>μια φωτογραφία σου<?php
                                     }
                                     else {
@@ -254,7 +254,7 @@
                             switch ( $comment->Typeid ) {
                                 case TYPE_USERPROFILE:
                                     ?>στο προφίλ <?php
-                                    if ( $comment->Item->Id == $notif->Touserid ) {
+                                    if ( $comment->Itemid == $notif->Touserid ) {
                                         ?>σου<?php
                                     }
                                     else {
@@ -264,13 +264,13 @@
                                         else {
                                             ?>του <?php
                                         }
-                                        if ( $notif->Fromuserid != $comment->Item->Id ) {
+                                        if ( $notif->Fromuserid != $comment->Itemid ) {
                                             ?><a href="<?php
                                             ob_start();
                                             Element( 'url', $comment );
                                             echo htmlspecialchars( ob_get_clean() );
                                             ?>" class="itempic"><?php
-                                            Element( 'user/avatar' , $comment->Item->Avatarid , $comment->Item->Id , $comment->Item->Avatar->Width , $comment->Item->Avatar->Height , $comment->Item->Name , IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
+                                            Element( 'user/avatar' , $comment->Item->Avatarid , $comment->Itemid , $comment->Item->Avatar->Width , $comment->Item->Avatar->Height , $comment->Item->Name , IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
                                             ?></a><?php
                                         }
                                     }
@@ -282,7 +282,7 @@
                                     break;
                                 case TYPE_IMAGE:
                                     ?>στη φωτογραφία <?php
-                                    Element( 'image/view' , $comment->Item->Id , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
+                                    Element( 'image/view' , $comment->Itemid , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
                                     break;
                                 case TYPE_JOURNAL:
                                     ?>στο ημερολόγιο "<?php
