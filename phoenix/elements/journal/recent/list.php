@@ -4,6 +4,8 @@
             global $libs;
             global $xc_settings;
 
+            $libs->Load( 'journal/journal' );
+            
             $pageno = $pageno->Get();
 
             if ( $pageno <= 0 ) {
@@ -18,7 +20,7 @@
                     foreach ( $journals as $journal ) {
                         ?><div class="event">
                             <div class="who"><?php
-                                Element( 'user/display' , $journal->User->Id , $journal->User->Avatar->Id , $journal->User, true );
+                                Element( 'user/display' , $journal->Userid , $journal->User->Avatarid , $journal->User, true );
                                 $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                                 $url = $domain . 'journals/' . $journal->Url;
                             ?> καταχώρησε
