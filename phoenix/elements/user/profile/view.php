@@ -7,6 +7,9 @@
             global $libs;
 
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'user/lastactive' );
+            $libs->Load( 'user/profile' );
+            
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $name = $name->Get();
@@ -41,7 +44,6 @@
                 $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
             }
             $page->AttachInlineScript( '$( Profile.OnLoad );' );
-            $libs->Load( 'user/lastactive' );
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
                     $text = "αυτή τη στιγμή!";
