@@ -5,7 +5,7 @@
             global $user;
             global $libs;
             
-            $libs->Load( 'image/image' );
+            $libs->Load( 'album' );
             
             Element( 'user/avatar' , $user->Avatarid , $user->Id , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 150 , 'avie' , '' , false , 0 , 0 );
             ?><div class="changeavatar">
