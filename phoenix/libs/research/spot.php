@@ -121,6 +121,9 @@
 
             $content = array();
             foreach ( $lines as $id ) {
+                if ( empty( $id ) ) {
+                    continue;
+                }
                 $content[] = New Poll( $id );
             }
 
