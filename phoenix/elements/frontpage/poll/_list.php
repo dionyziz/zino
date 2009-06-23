@@ -13,16 +13,17 @@
             global $xc_settings;
             global $user;
 
-            /*
-            $libs->Load( 'poll/poll' );
-			$libs->Load( 'poll/frontpage' );
+            if ( $user->Exists() ) {
+                $libs->Load( 'research/spot' );
+                $polls = Spot::GetPolls( $user, 4 );
+            }
+            else { // no spot for anonymous
+                $libs->Load( 'poll/poll' );
+                $libs->Load( 'poll/frontpage' );
 			
-            $finder = New PollFinder();
-            $polls = $finder->FindFrontpageLatest( 0 , 4 );
-            */
-
-            $libs->Load( 'research/spot' );
-            $polls = Spot::GetPolls( $user, 4 );
+                $finder = New PollFinder();
+                $polls = $finder->FindFrontpageLatest( 0 , 4 );
+            }
             
             ?><div class="list">
                 <h2>Δημοσκοπήσεις (<a href="polls">προβολή όλων</a>)</h2><?php
