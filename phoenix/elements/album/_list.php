@@ -87,7 +87,7 @@
             ob_start();
             Element( 'user/url', $theuser->Id , $theuser->Subdomain );
             $link = ob_get_clean() . 'albums?pageno=';
-            $total_albums = $theuser->Count->Albums;
+            $total_albums = $albums->TotalCount() + 1;
             $total_pages = ceil( $total_albums / $limit );
             $text = "( " . $total_albums . " Album";
             if ( $total_albums > 1 ) {
