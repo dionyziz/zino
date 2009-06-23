@@ -82,7 +82,8 @@
             }
             ?></ul></div>
             
-            </div><?php
+            </div>
+            <div class="eof" /><?php
             $page->AttachInlineScript( 'Questions.OnLoad();' );
         }
     }
