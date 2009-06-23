@@ -13,7 +13,6 @@
                                 <dd><?php //max width will be 220px and minimum 24px
                                 ?><div class="option">
                                     <div class="percentagebar" style="width:<?php
-                                    echo $option->Poll->Numvotes;
                                     echo 24 + round( $option->Percentage * 196 );
                                     ?>px;">
                                         <div class="leftrounded"></div>
