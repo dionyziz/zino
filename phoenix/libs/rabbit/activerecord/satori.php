@@ -157,9 +157,7 @@
             return $target->IsSameAs( $this->mFinderClass, $this->mFinderMethod, $this->mForeignKey );
         }
         public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
-            if ( !class_exists( $finderClass ) ) {
-                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
-            }
+            // don't assert finder class exists -- it may be loaded later
             $this->mQueryModel = $queryModel;
             $this->mFinderClass = $finderClass;
             $this->mFinderMethod = $finderMethod;
@@ -169,6 +167,9 @@
             return false; // too expensive to detect automatically
         }
         public function MakeObj() {
+            if ( !class_exists( $this->mFinderClass() ) ) {
+                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
+            }
             $finder = New $this->mFinderClass(); // MAGIC!
             if ( !is_subclass_of( $finder, 'Finder' ) ) {
                 throw New SatoriException( 'Finder class `' . $this->mFinderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
