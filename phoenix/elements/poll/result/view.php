@@ -13,7 +13,9 @@
                                 <dd><?php //max width will be 220px and minimum 24px
                                 ?><div class="option">
                                     <div class="percentagebar" style="width:<?php
+                                    echo 1;
                                     echo 24 + round( $option->Percentage * 196 );
+                                    echo 2;
                                     ?>px;">
                                         <div class="leftrounded"></div>
                                         <div class="rightrounded"></div>
@@ -21,10 +23,12 @@
                                     </div>
                                 </div><?php
                                     echo round( $option->Percentage * 100, 0 );
+                                    echo 3;
                                 ?>%</dd>
                             </dl>
                             <span class="resultterm"><?php
                                 echo htmlspecialchars( $option->Text );
+                                echo 4;
                             ?></span><?php
                         }
                         else {
