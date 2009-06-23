@@ -1,4 +1,10 @@
 <?php
+    
+    /* 
+    Masked by: abresas
+    Reason: spot
+    */
+
     class ElementFrontpagePollList extends Element {
         protected $mPersistent = array( 'pollseq' );
 

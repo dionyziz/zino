@@ -1,4 +1,8 @@
 <?php
+    /*
+    Masked by: abresas
+    Reason: spot
+    */
     class ElementFrontpageJournalList extends Element {
         // protected $mPersistent = array( 'journalseq' );
 
