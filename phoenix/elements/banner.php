@@ -5,6 +5,7 @@
             global $page;
             global $user;
             global $rabbit_settings;
+            global $libs;
             
             ?>
            <div id="lbanner">
@@ -52,6 +53,8 @@
                             </li>
                             <li>
                                 <a id="unreadmessages" href="messages" class="bannerinlink<?php
+                                $libs->Load( 'user/count' );
+                                
                                 $unreadcount = $user->Count->Unreadpms;
                                 if ( $unreadcount > 0 ) {
                                     ?> unread<?php
