@@ -11,6 +11,7 @@
         $adid = $adid->Get();
         
         $libs->Load( 'admanager' );
+        $libs->Load( 'image/image' );
         
         if ( $adid ) {
             // this user may be logged out; TODO
