@@ -67,6 +67,7 @@
         }
         public static function GetJournals( $user, $num = 4 ) {
             global $libs;
+            global $water;
             $libs->Load( 'journal/journal' );
 
             $water->Profile( 'Spot get journals' );
@@ -89,6 +90,7 @@
         }
         public static function GetImages( $user ) {
             global $libs;
+            global $water;
             $libs->Load( 'image/image' );
 
             $water->Profile( 'Spot get images' );
@@ -108,6 +110,7 @@
         }
         public static function GetPolls( $user ) {
             global $libs;
+            global $water;
             $libs->Load( 'poll/poll' );
 
             $water->Profile( 'Spot get polls' );
