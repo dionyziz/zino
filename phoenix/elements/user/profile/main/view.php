@@ -10,7 +10,6 @@
             
             $libs->Load( 'poll/poll' );
             $libs->Load( 'comment' );
-            $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'user/statusbox' );
             $libs->Load( 'journal/journal' );
@@ -36,6 +35,9 @@
                     $total_pages = $comments[ 0 ];
                     $pageno = $comments[ 1 ];
                     $comments = $comments[ 2 ];
+                    
+                    $libs->Load( 'notify' );
+                    
                     $finder = New NotificationFinder();
                     $finder->DeleteByCommentAndUser( $speccomment, $user );
                     $water->Trace( 'speccoment is ' . $speccomment->Id );

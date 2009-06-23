@@ -8,7 +8,6 @@
 			
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
-            $libs->Load( 'notify' );
             $libs->Load( 'user/user' );
             $libs->Load( 'journal/journal' );
 
@@ -154,6 +153,8 @@
                                 $total_pages = $comments[ 0 ];
                                 $pageno = $comments[ 1 ];
                                 $comments = $comments[ 2 ];
+                                
+                                $libs->Load( 'notify' );
                                 $finder = New NotificationFinder();
                                 $finder->DeleteByCommentAndUser( $speccomment, $user );
                             }       

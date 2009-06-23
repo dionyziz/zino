@@ -9,9 +9,9 @@
             
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
-            $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
+            $libs->Load( 'album' );
             
             $id = $id->Get();
             $commentid = $commentid->Get();
@@ -22,7 +22,6 @@
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $jsarr = "Tag.photoid = " . $id . ";";
                 $page->AttachInlineScript( $jsarr );
-				
             }
             
             if( !$image->Exists() ) {
@@ -394,6 +393,9 @@
                             $total_pages = $comments[ 0 ];
                             $pageno = $comments[ 1 ];
                             $comments = $comments[ 2 ];
+                            
+                            $libs->Load( 'notify' );
+                            
                             $finder = New NotificationFinder();
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
