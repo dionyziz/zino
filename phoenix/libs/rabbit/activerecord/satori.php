@@ -246,6 +246,18 @@
             }
             return $this->mCurrentValues[ $key ];
         }
+        public function GetDb() {
+            return $this->mDb;
+        }
+        public function GetDbTable() {
+            return $this->mDbTable;
+        }
+        public function GetDbFields() {
+            return $this->mDbFields;
+        }
+        public function GetPrimaryKeyFields() {
+            return $this->mPrimaryKeyFields;
+        }
         public function __set( $name, $value ) {
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {

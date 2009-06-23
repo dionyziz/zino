@@ -18,6 +18,7 @@
             $prototype->Happeningid = $happening->Id;
             
             $participants = $this->FindByPrototype( $prototype, 0, 1000 );
+            // TODO: participants->OptimizeRelation( 'User' )
             $userids = array();
             $userid2user = array();
             

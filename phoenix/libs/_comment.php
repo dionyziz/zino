@@ -269,7 +269,7 @@
 
             $class = Type_GetClass( $type );
             $obj = New $class();
-            $table = $obj->DbTable->Alias;
+            $table = $obj->GetDbTable()->Alias;
             $field = $obj->PrimaryKeyFields[ 0 ];
 
             if ( $type != TYPE_USERPROFILE ) {

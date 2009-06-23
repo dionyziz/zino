@@ -2,6 +2,7 @@
     class Collection extends ArrayIterator {
         protected $mTotalCount;
 
+        // TODO: public function OptimizeRelation( $relationName )
         public function TotalCount() {
             return $this->mTotalCount;
         }

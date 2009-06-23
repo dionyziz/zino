@@ -269,8 +269,9 @@
 
             $class = Type_GetClass( $type );
             $obj = New $class();
-            $table = $obj->DbTable->Alias;
-            $field = $obj->PrimaryKeyFields[ 0 ];
+            $table = $obj->GetDbTable()->Alias;
+            $primaryKeyFields = $obj->GetPrimaryKeyFields();
+            $field = $primaryKeyFields[ 0 ];
 
             if ( $type != TYPE_USERPROFILE ) {
                 $query = $this->mDb->Prepare( "

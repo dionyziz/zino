@@ -43,7 +43,7 @@
             $sql .= '
                         *
                     FROM
-                        :' . $prototype->DbTable->Alias;
+                        :' . $prototype->GetDbTable()->Alias;
             $where = array();
             foreach ( $mods as $column => $value ) {
                 $where[] = '`' . $column . '` = ' . ':_' . $column;
@@ -133,11 +133,12 @@
             w_assert( !empty( $this->mModel ), 'mModel not defined for finder `' . get_class( $this ) . '\'' );
             $prototype = Satori_GetPrototypeInstance( $this->mModel );
             w_assert( is_subclass_of( $prototype, 'Satori' ), 'mModel defined for finder `' . get_class( $this ) . '\' must be a class extending Satori' );
-            $this->mDb = $prototype->Db;
+            $this->mDb = $prototype->GetDb();
             w_assert( is_object( $this->mDb ) );
-            $this->mDbTableAlias = $prototype->DbTable->Alias;
-            $this->mDbIndexes = $prototype->DbTable->Indexes;
-            $this->mAttribute2DbField = array_flip( $prototype->DbFields );
+            $dbtable = $prototype->GetDbTable();
+            $this->mDbTableAlias = $dbtable->Alias;
+            $this->mDbIndexes = $dbtable->Indexes;
+            $this->mAttribute2DbField = array_flip( $prototype->GetDbFields() );
         }
     }
 ?>
