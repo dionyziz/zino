@@ -1,6 +1,10 @@
 <?php
     class ElementAdManagerView extends Element {
         public function Render( Ad $ad, $clickable = true ) {
+            global $libs;
+            
+            $libs->Load( 'image/image' );
+            
             ob_start();
             ?><a<?php
             if ( $ad->Url ) {
