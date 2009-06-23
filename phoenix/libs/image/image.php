@@ -7,7 +7,6 @@
     
     global $libs;
     
-    $libs->Load( 'album' );
     $libs->Load( 'image/server' );
     $libs->Load( 'image/frontpage' );
     $libs->Load( 'rabbit/helpers/file' );

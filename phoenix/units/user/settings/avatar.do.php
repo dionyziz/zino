@@ -3,6 +3,9 @@
     function UnitUserSettingsAvatar( tInteger $imageid ) {
         global $user;
         global $rabbit_settings;
+        global $libs;
+        
+        $libs->Load( 'album' );
         
         $image = New Image( $imageid->Get() );
         
