@@ -6,6 +6,7 @@
         $libs->Load( 'relation/relation' );
         $libs->Load( 'contacts/contacts' );
         $libs->Load( 'user/profile' );
+        $libs->Load( 'place' );
         
         $provider = $provider->Get();
         $username = $username->Get();
@@ -74,7 +75,7 @@
                 }
                 ?>contacts.addContactInZino( <?php
 				ob_start();
-                Element( 'user/display', $theuser->Id, $theuser->Avatar->Id, $theuser, false );
+                Element( 'user/display', $theuser->Id, $theuser->Avatarid, $theuser, false );
 				echo w_json_encode( ob_get_clean() );
                 ?>, '<?php
                 echo addslashes( $contact->Mail );
