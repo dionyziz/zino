@@ -373,7 +373,8 @@
 
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
-
+            $libs->Load( 'user/profile' );
+            
             $this->EgoAlbum->Ownerid = $this->Id;
             $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
@@ -392,6 +393,11 @@
             }
         }
         protected function OnUpdate() {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
+            $libs->Load( 'user/settings' );
+            
             $this->Profile->Save();
             $this->Preferences->Save();
         }
