@@ -28,7 +28,8 @@
                 echo htmlspecialchars( $question->Text );
                 ?></span></li><?php
             }
-            ?></ul><?php
+            ?></ul>
+            <div class="eof" /><?php
         }
     }
 ?>
