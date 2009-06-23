@@ -525,6 +525,24 @@
             global $mc;
             global $libs;
             
+            switch ( $this->Typeid ) {
+                case TYPE_USERPROFILE:
+                    $libs->Load( 'user/profile' );
+                    break;
+                case TYPE_POLL:
+                    $libs->Load( 'poll/poll' );
+                    break;
+                case TYPE_JOURNAL:
+                    $libs->Load( 'journal/journal' );
+                    break;
+                case TYPE_SCHOOL:
+                    $libs->Load( 'school/school' );
+                    break;
+                case TYPE_IMAGE:
+                    $libs->Load( 'image/image' );
+                    break;
+            }
+            
             w_assert( is_object( $this->User ), 'Comment->User not an object' );
             $this->User->OnCommentCreate();
 
@@ -536,7 +554,7 @@
                 $this->Item->OnCommentCreate();
             }
 
-            //Comment_RegenerateMemcache( $this->Item );        Old method
+            // Comment_RegenerateMemcache( $this->Item );        Old method
             Mitosis( $this->Id, $this->Parentid, $this->Item );
 
             Sequence_Increment( SEQUENCE_COMMENT );
