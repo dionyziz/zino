@@ -127,6 +127,8 @@
             global $user;
             global $libs;
             
+            $libs->Load( 'user/count' );
+            
             ++$user->Count->Shouts;
             $user->Count->Save();
 
@@ -139,6 +141,9 @@
         
         public function OnDelete() {
             global $user;
+            global $libs;
+            
+            $libs->Load( 'user/count' );
             
             --$user->Count->Shouts;
             $user->Count->Save();

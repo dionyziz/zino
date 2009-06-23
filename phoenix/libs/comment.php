@@ -525,8 +525,6 @@
             global $mc;
             global $libs;
             
-            global $libs;
-            
             switch ( $this->Typeid ) {
                 case TYPE_USERPROFILE:
                     $libs->Load( 'user/profile' );
