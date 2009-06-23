@@ -143,9 +143,9 @@
                                             echo htmlspecialchars( $favourite->Item->Name );
                                             ?>"<?php
                                         }
-                                        else if ( $favourite->Item->Album->Id == $favourite->Item->User->Egoalbumid ) {
+                                        else if ( $favourite->Item->Albumid == $favourite->Item->User->Egoalbumid ) {
                                             ?>Φωτογραφία <?php
-                                            if ( $favourite->Item->User->Id == $user->Id ) {
+                                            if ( $favourite->Item->Userid == $user->Id ) {
                                                 ?>σου<?php
                                             }
                                             else if ( $favourite->Item->User->Gender == 'f' ) {
@@ -154,7 +154,7 @@
                                             else {
                                                 ?>του <?php
                                             }
-                                            if ( $favourite->Item->User->Id != $user->Id ) {
+                                            if ( $favourite->Item->Userid != $user->Id ) {
                                                 echo htmlspecialchars( $favourite->Item->User->Name );
                                             }
                                         }
