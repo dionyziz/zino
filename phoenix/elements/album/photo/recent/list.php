@@ -2,6 +2,8 @@
     class ElementAlbumPhotoRecentList extends Element {
         public function Render( tInteger $pageno ) {
             global $libs;
+            $libs->Load( 'image/image' );
+            $libs->Load( 'image/frontpage' );
             
             $pageno = $pageno->Get();
             
