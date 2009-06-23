@@ -6,7 +6,7 @@
 
     Coming soon: unit tests!
     */
-
+    
     define( 'SPOT_PORT', 21490 );
 
     class Spot {
@@ -69,6 +69,8 @@
             global $libs;
             $libs->Load( 'journal/journal' );
 
+            $water->Profile( 'Spot get journals' );
+
             $userid = $user->Id;
             $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
@@ -81,11 +83,15 @@
                 $content[] = New Journal( $id );
             }
 
+            $water->ProfileEnd();
+
             return $content;
         }
         public static function GetImages( $user ) {
             global $libs;
             $libs->Load( 'image/image' );
+
+            $water->Profile( 'Spot get images' );
 
             $userid = $user->Id;
             $request = "GET IMAGES\n$userid\n";
@@ -96,11 +102,15 @@
                 $content[] = New Image( $id );
             }
 
+            $water->ProfileEnd();
+
             return $content;
         }
         public static function GetPolls( $user ) {
             global $libs;
             $libs->Load( 'poll/poll' );
+
+            $water->Profile( 'Spot get polls' );
 
             $userid = $user->Id;
             $request = "GET POLLS\n$userid\n";
@@ -110,6 +120,8 @@
             foreach ( $lines as $id ) {
                 $content[] = New Poll( $id );
             }
+
+            $water->ProfileEnd();
 
             return $content;
         }
