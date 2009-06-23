@@ -57,7 +57,7 @@
             }
             $this->mQueryModel = $queryModel;
             $this->mTargetModelClass = $targetModelClass;
-            w_assert( class_exists( $this->mTargetModelClass ), 'Model class `' . $this->mTargetModelClass . '\' used in HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not defined' );
+            // don't assert the class exists -- it may be loaded later
             $this->mForeignKey = $foreignKey;
             $this->mAttribute2DbField = $queryModel->Attribute2DbField;
             $this->mCurrentArgs = false;
@@ -108,6 +108,8 @@
             return $modified;
         }
         protected function MakeObj() {
+            w_assert( class_exists( $this->mTargetModelClass ), 'Model class `' . $this->mTargetModelClass . '\' used in HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not defined' );
+            
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
             $args = $this->Args();
