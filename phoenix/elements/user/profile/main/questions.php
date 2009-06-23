@@ -2,7 +2,10 @@
     class ElementUserProfileMainQuestions extends Element {
         public function Render( User $theuser ) {
             global $user;
-
+            global $libs;
+            
+            $libs->Load( 'question/answer' );
+            
             $answerfinder = New AnswerFinder();
             $answers = $answerfinder->FindByUser( $theuser, 0, 7 );
             if ( empty( $answers ) ) {
