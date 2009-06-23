@@ -23,6 +23,10 @@
          tText $emailfavourite, tText $notifyfavourite,
          tText $emailbirthday, tText $notifybirthday ) {
         global $user;
+        global $libs;
+        
+        $libs->Load( 'user/profile' );
+        $libs->Load( 'user/settings' );
 
         if ( $user->Exists() ) {
             $dobd = $dobd->Get();
@@ -109,7 +113,7 @@
                 $user->Profile->Relationship = $relationship;
             }
             if ( $religion ) {
-                $user->Profile->Religion =  $religion;
+                $user->Profile->Religion = $religion;
             }
             if ( $politics ) {
                 $user->Profile->Politics = $politics;
