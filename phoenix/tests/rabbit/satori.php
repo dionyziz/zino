@@ -128,9 +128,11 @@
         protected function OnUpdate() {
             ++$this->mOnUpdateNumCalls;
         }
+        /*
         protected function GetDb() {
             return $this->mDb;
         }
+        */
     }
     
     class TestRabbitSatoriExtensionFinder extends Finder {
