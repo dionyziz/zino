@@ -48,7 +48,7 @@
             
             $finder = New AlbumFinder();
             $limit = 12;
-            $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit, ( $theuser == $user ) );
+            $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit, ( $theuser != $user ) );
             Element( 'user/sections', 'album' , $theuser );
             ?><ul class="albums"><div class="ads"></div><?php
                 if ( $pageno == 1 ) {
