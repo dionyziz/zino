@@ -11,6 +11,7 @@
         global $libs;
         
         $libs->Load( 'admanager' );
+        $libs->Load( 'user/profile' );
         
         $numviews = $numviews->Get();
         $firstname = $firstname->Get();
