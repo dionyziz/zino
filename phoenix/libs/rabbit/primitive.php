@@ -56,6 +56,7 @@
 
     // load the validation helper library
     $libs->Load( 'rabbit/helpers/validate' );
+    $libs->Load( 'rabbit/helpers/registerglobals' );
     
     if ( !function_exists( 'ValidURL' ) ) {
         throw New Exception( 'Could not load the Rabbit validation helper; check your "rootdir" setting in your settings.php file?' );
