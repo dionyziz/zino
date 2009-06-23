@@ -19,6 +19,7 @@
                 $journals = Spot::GetJournals( $user, 4 );
             }
 			else {
+                $libs->Load( 'journal/journal' );
                 $libs->Load( 'journal/frontpage' );
                 $finder = New JournalFinder();
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
