@@ -6,6 +6,7 @@
             global $user;
             global $xc_settings;
             
+            $libs->Load( 'image/image' );
             $libs->Load( 'admanager' );
 
             $adid = $adid->Get();
