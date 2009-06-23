@@ -10,12 +10,12 @@
                 echo $shout->User->Subdomain;
                 ?>" class="loadable">
                 <span class="who"><?php
-                Element( 'user/avatar', $shout->User->Avatarid, $shout->User->Id,
+                Element( 'user/avatar', $shout->User->Avatarid, $shout->Userid,
                              $shout->User->Avatar->Width, $shout->User->Avatar->Height,
                              $shout->User->Name, 100, 'avatar', '', true, 50, 50 );
                 ?></span>
                 <span class="text"><strong><?php
-                    Element( 'user/name' , $shout->User->Id, $shout->User->Name, $shout->User->Subdomain, false );
+                    Element( 'user/name' , $shout->Userid, $shout->User->Name, $shout->User->Subdomain, false );
                     ?></strong><br /><?php
                     echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
                 ?></span>

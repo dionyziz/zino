@@ -7,7 +7,7 @@
         ?>" );
         $( newlink ).html( <?php
         ob_start();
-        Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
+        Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , $image->Numcomments );
         echo w_json_encode( ob_get_clean() );
         ?> );
         usernameact = "<?php

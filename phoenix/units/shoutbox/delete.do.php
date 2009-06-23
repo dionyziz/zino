@@ -7,7 +7,7 @@
         $libs->Load( 'shoutbox' );
         
         $shout = New Shout( $shoutid->Get() );
-        if ( ( $user->Id == $shout->User->Id && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
+        if ( ( $user->Id == $shout->Userid && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
             $shout->Delete();
         }
     }

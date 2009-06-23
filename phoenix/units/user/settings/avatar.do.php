@@ -14,7 +14,7 @@
             return;
         }
 
-        if ( $image->User->Id != $user->Id ) {
+        if ( $image->Userid != $user->Id ) {
             ?>alert( 'You can\'t use somebody elses images as your avatar' );<?php
             return;
         }

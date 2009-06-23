@@ -6,7 +6,7 @@
         $libs->Load( 'image/image' );
         
         $image = New Image( $photoid->Get() );
-        if ( $image->User->Id == $user->Id ) {
+        if ( $image->Userid == $user->Id ) {
             $image->Name = $photoname->Get();
             $image->Save();
         }

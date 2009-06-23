@@ -97,7 +97,7 @@
                             list( $width, $height ) = ProportionalSize( 210, 210, $event->Item->Width, $event->Item->Height );
                             $item[ 'target' ] = array(
                                 'owner' => array(
-                                    'id' => $event->Item->User->Id
+                                    'id' => $event->Item->Userid
                                 ),
                                 'id' => $event->Item->Id,
                                 'width' => $width,

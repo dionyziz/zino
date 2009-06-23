@@ -7,7 +7,7 @@
         $libs->Load( 'tag' );
         
         $tag = New Tag( $tagid->Get() );
-        if ( $tag->User->Id == $user->Id ) { 
+        if ( $tag->Userid == $user->Id ) { 
             $tag->Delete();
         }
     }

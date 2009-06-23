@@ -45,7 +45,7 @@
                         break;
                 }
                 ?>><td><a href="<?php
-                Element( 'user/url', $admin->User->Id, $admin->User->Subdomain );
+                Element( 'user/url', $admin->Userid, $admin->User->Subdomain );
                 ?>"><?php
                 echo $admin->User->Name;
                 ?></a></td><td><?php

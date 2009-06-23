@@ -10,10 +10,10 @@
                 <div class="who">
                     <a href="<?php
                     ob_start();
-                    Element( 'user/url' , $comment->User->Id , $comment->User->Subdomain );
+                    Element( 'user/url' , $comment->Userid , $comment->User->Subdomain );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
-                        Element( 'user/avatar' , $comment->User->Avatarid, $comment->User->Id , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
+                        Element( 'user/avatar' , $comment->User->Avatarid, $comment->Userid , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;
                     ?></a> έγραψε:
                 </div>
@@ -44,7 +44,7 @@
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'image/view' , $comment->Item->Id , $comment->Item->User->Id , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
+                                Element( 'image/view' , $comment->Item->Id , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
 								?></a><?php
                                 break;
                             case TYPE_USERPROFILE:

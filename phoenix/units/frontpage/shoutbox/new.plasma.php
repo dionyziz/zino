@@ -6,7 +6,7 @@
         echo w_json_encode( $shout->Text );
         ?>, <?php
         echo w_json_encode( array(
-            'id' => $shout->User->Id,
+            'id' => $shout->Userid,
             'name' => $shout->User->Name,
             'avatar' => $shout->User->Avatarid,
             'subdomain' => $shout->User->Subdomain

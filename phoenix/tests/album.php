@@ -94,7 +94,7 @@
             }
         }
         public function TestOwner() {
-            $this->Assert( $this->mAlbums[ 0 ]->User->Id, $this->mUser->Id, 'Owner of album is not what we expected' );
+            $this->Assert( $this->mAlbums[ 0 ]->Userid, $this->mUser->Id, 'Owner of album is not what we expected' );
         }
         public function TestDescription() {
             $this->mAlbums[ 0 ]->Description = 'Hello';

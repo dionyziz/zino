@@ -7,7 +7,7 @@
         $libs->Load( 'journal/journal' );
         $journal = New Journal( $journalid->Get() );
         
-        if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
+        if ( $journal->Userid == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
             $journal->Delete();
             $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
             $url = $domain . 'journals';

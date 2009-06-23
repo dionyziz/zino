@@ -66,7 +66,7 @@
                                     $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
                                     $notifarray[ 'comment' ][ 'photo' ][ 'name' ] = $notif->Item->Item->Name;
                                     ob_start();
-                                    Element( 'image/url', $comment->Item->Id , $comment->Item->User->Id , IMAGE_CROPPED_150x150 );
+                                    Element( 'image/url', $comment->Item->Id , $comment->Item->Userid , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
@@ -91,7 +91,7 @@
                                     $image = New Image( $notif->Item->Imageid );
                                     $notifarray[ 'photo' ][ 'id' ] = $notif->Item->Imageid;
                                     ob_start();
-                                    Element( 'image/url', $image->Id , $image->User->Id , IMAGE_CROPPED_150x150 );
+                                    Element( 'image/url', $image->Id , $image->Userid , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                                 case EVENT_FAVOURITE_CREATED:
@@ -105,7 +105,7 @@
                                             $notifarray[ 'favourite' ][ 'type' ] = 'photo';
                                             $notifarray[ 'favourite' ][ 'photo' ][ 'id' ] = $image->Id;
                                             ob_start();
-                                            Element( 'image/url', $image->Id , $image->User->Id , IMAGE_CROPPED_150x150 );
+                                            Element( 'image/url', $image->Id , $image->Userid , IMAGE_CROPPED_150x150 );
                                             $notifarray[ 'favourite' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                             $notifarray[ 'favourite' ][ 'photo' ][ 'name' ] = $image->Name;
                                             break;

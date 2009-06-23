@@ -32,7 +32,7 @@
                     $url = $domain . 'polls/' . $poll->Url;
                     ?><div class="event">
                         <div class="who"><?php
-                            Element( 'user/display' , $poll->User->Id , $poll->User->Avatarid , $poll->User, true );
+                            Element( 'user/display' , $poll->Userid , $poll->User->Avatarid , $poll->User, true );
                         ?> καταχώρησε
                         </div>
                         <div class="subject">

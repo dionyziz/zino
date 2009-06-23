@@ -13,7 +13,7 @@
                 $participants[] = array( 
                     'name' => $participant->User->Name,
                     'subdomain' => $participant->User->Subdomain,
-                    'userid' => $participant->User->Id,
+                    'userid' => $participant->Userid,
                     'avatarid' => $participant->User->Avatarid,
                     'certainty' => $participant->Certainty
                 );

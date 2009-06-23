@@ -136,7 +136,7 @@
                                     case TYPE_JOURNAL:
                                         echo htmlspecialchars( $favourite->Item->Title );
                                         ?></a> από <?php
-                                        Element( 'user/name', $favourite->Item->User->Id, $favourite->Item->User->Name, $favourite->Item->User->Subdomain, true );
+                                        Element( 'user/name', $favourite->Item->Userid, $favourite->Item->User->Name, $favourite->Item->User->Subdomain, true );
                                         break;
                                     case TYPE_IMAGE:
                                         if ( $favourite->Item->Name != '' ) {
@@ -165,7 +165,7 @@
                                             ?>"<?php
                                         }
                                         ?><br /><?php
-                                            Element( 'image/view' , $favourite->Item->Id , $favourite->Item->User->Id , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 , 0 );
+                                            Element( 'image/view' , $favourite->Item->Id , $favourite->Item->Userid , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 , 0 );
                                             ?>
                                         </a><?php
                                         break;

@@ -12,7 +12,7 @@
         
         if ( $id > 0 ) {
             $journal = New Journal( $id );
-            if ( $journal->User->Id != $user->Id ) {
+            if ( $journal->Userid != $user->Id ) {
                 die( 'You can\'t edit this journal' );
                 return;
             }

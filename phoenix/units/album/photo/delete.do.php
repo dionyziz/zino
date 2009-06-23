@@ -7,7 +7,7 @@
         $libs->Load( 'image/image' );
         
         $image = New Image( $photoid->Get() );
-        if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
+        if ( $image->Userid == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
             $albumid = $image->Albumid;
             $image->Delete();
             if ( $albumid > 0 ) {

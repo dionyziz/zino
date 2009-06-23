@@ -20,7 +20,7 @@
                     }
                     ?><div class="event">
                         <div class="who"><?php
-                            Element( 'user/display', $journal->User->Id, $journal->User->Avatarid, $journal->User, true );
+                            Element( 'user/display', $journal->Userid, $journal->User->Avatarid, $journal->User, true );
                         ?> καταχώρησε
                         </div>
                         <div class="subject"><?php
@@ -40,7 +40,7 @@
                     if ( $journal->Exists() ) {
                         ?><div class="event">
                             <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who"><?php
-                                Element( 'user/display' , $journal->User->Id , $journal->User->Avatarid , $journal->User, true );
+                                Element( 'user/display' , $journal->Userid , $journal->User->Avatarid , $journal->User, true );
                             ?> καταχώρησε
                             </div>
                             <div class="subject">

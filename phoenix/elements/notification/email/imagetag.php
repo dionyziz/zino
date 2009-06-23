@@ -29,7 +29,7 @@
             }
             else if ( $image->Album->Id == $image->User->Egoalbumid ) {
                 ?>στις φωτογραφίες <?php
-                if ( $image->User->Id == $user->Id ) {
+                if ( $image->Userid == $user->Id ) {
                     ?>σου<?php
                 }
                 else if ( $image->User->Gender == 'f' ) {
@@ -38,7 +38,7 @@
                 else {
                     ?>του <?php
                 }
-                if ( $image->User->Id != $user->Id ) {
+                if ( $image->Userid != $user->Id ) {
                     echo $image->User->Name;
                 }
             }

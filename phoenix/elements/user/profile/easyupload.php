@@ -17,14 +17,14 @@
                 ?><li id="album_<?php
                 echo $album->Id;
                 ?>" class="selected"><?php
-                Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->User->Id , 100 , 100 , IMAGE_CROPPED_100x100 , '' , "Eγώ" , false , true , 50 , 50 , 0 );
+                Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->Userid , 100 , 100 , IMAGE_CROPPED_100x100 , '' , "Eγώ" , false , true , 50 , 50 , 0 );
                 ?></li><?php
                 foreach ( $albums as $album ) {
                     if ( $album->Id != $user->Egoalbumid ) {
                         ?><li id="album_<?php
                         echo $album->Id;
                         ?>"><?php
-                        Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->User->Id , 100 , 100 , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 ); ?></li><?php
+                        Element( 'image/view' , $album->Mainimage->Id , $album->Mainimage->Userid , 100 , 100 , IMAGE_CROPPED_100x100 , '' , $album->Name , false , true , 50 , 50 , 0 ); ?></li><?php
                     }
                 }
                 ?></ul></div>

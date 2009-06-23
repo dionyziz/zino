@@ -147,7 +147,7 @@
                             }
                             else if ( $image->Album->Id == $image->User->Egoalbumid ) {
                                 ?>στις φωτογραφίες <?php
-                                if ( $image->User->Id == $user->Id ) {
+                                if ( $image->Userid == $user->Id ) {
                                     ?>σου<?php
                                 }
                                 else if ( $image->User->Gender == 'f' ) {
@@ -156,7 +156,7 @@
                                 else {
                                     ?>του <?php
                                 }
-                                if ( $image->User->Id != $user->Id ) {
+                                if ( $image->Userid != $user->Id ) {
                                     echo htmlspecialchars( $image->User->Name );
                                 }
                             }
@@ -172,7 +172,7 @@
                                 }
                                 ?>"<?php
                             }
-                            Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
+                            Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                             ?></p><?php
                             break;
                         case EVENT_USER_BIRTHDAY:
@@ -207,7 +207,7 @@
                             switch ( $notif->Item->Typeid ) {
                                 case TYPE_IMAGE:
                                     $image = $notif->Item->Item;
-									Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
+									Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                                     if ( $image->Name != '' ) {
                                         ?>την εικόνα "<?php
                                         echo htmlspecialchars( $image->Name );
@@ -283,7 +283,7 @@
                                     break;
                                 case TYPE_IMAGE:
                                     ?>στη φωτογραφία <?php
-                                    Element( 'image/view' , $comment->Item->Id , $comment->Item->User->Id , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
+                                    Element( 'image/view' , $comment->Item->Id , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
                                     break;
                                 case TYPE_JOURNAL:
                                     ?>στο ημερολόγιο "<?php
