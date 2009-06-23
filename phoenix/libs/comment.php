@@ -430,9 +430,12 @@
         private $mText = false;
 
         public function __get( $key ) {
+            global $libs;
+            
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
+                        $libs->Load( 'bulk' );
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
@@ -555,7 +558,8 @@
             global $libs;
             
             $libs->Load( 'adminpanel/adminaction' );
-                       
+            $libs->Load( 'bulk' );
+            
             if ( $user->id != $this->userid && $this->Delid == 0 ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , OPERATION_EDIT, TYPE_COMMENT, $this->id );
@@ -564,6 +568,9 @@
             Bulk::Store( $this->mText, $this->Bulkid );
         }
         public function OnBeforeCreate() {
+            global $libs;
+            
+            $load->Load( 'bulk' );
             if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }

@@ -9,6 +9,8 @@
         private $mText = false;
 
         public function __get( $key ) {
+            global $libs;
+            
             switch ( $key ) {
                 case 'Receivers':
                     if ( $this->Exists() && empty( $this->mReceivers ) ) {
@@ -19,6 +21,7 @@
                     return $this->mReceivers;
                 case 'Text':
                     if ( $this->mText === false ) {
+                        $libs->Load( 'bulk' );
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
@@ -47,6 +50,10 @@
             $this->mReceivers[] = $receiver;
         }
         protected function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'bulk' );
+            
             $this->Bulkid = Bulk::Store( $this->mText );
         }
         protected function OnCreate() {
@@ -78,6 +85,9 @@
             $upm->Save();
         }
         protected function OnBeforeUpdate() {
+            global $libs;
+            
+            $libs->Load( 'bulk' );
             Bulk::Store( $this->mText, $this->Bulkid );
         }
         protected function Relations() {
