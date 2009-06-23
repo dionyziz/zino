@@ -429,9 +429,12 @@
         private $mText = false;
 
         public function __get( $key ) {
+            global $libs;
+
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
+                        $libs->Load( 'bulk' );
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
