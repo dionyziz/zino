@@ -5,7 +5,10 @@
             global $water;
             global $user;
             global $rabbit_settings;
-
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            
             $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             ?><div class="option">
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
