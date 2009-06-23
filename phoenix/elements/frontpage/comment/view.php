@@ -4,7 +4,7 @@
         public function Render( $comment ) {
             global $libs;
             
-            $libs->Load( 'image' );
+            $libs->Load( 'image/image' );
             
             ?><div class="event">
                 <div class="who">
