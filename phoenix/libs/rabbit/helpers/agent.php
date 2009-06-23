@@ -1,4 +1,14 @@
 <?php
+    function uid() {
+        static $uid;
+        
+        if ( !isset( $uid ) ) {
+            $uid = 0;
+        }
+        
+        return ++$uid;
+    }
+    
     function GetUserBrowser() {
         global $userbrowser_name;
         global $userbrowser_version;

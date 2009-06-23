@@ -54,11 +54,11 @@
     // to make debugging the libraries system easier
     $libs = require_once 'libs/rabbit/lib.php';
 
-    // load the helper libraries
-    $libs->Load( 'rabbit/helpers/helpers' );
+    // load the validation helper library
+    $libs->Load( 'rabbit/helpers/validate' );
     
     if ( !function_exists( 'ValidURL' ) ) {
-        throw New Exception( 'Could not load the Rabbit trivial libraries; check your "rootdir" setting in your settings.php file?' );
+        throw New Exception( 'Could not load the Rabbit validation helper; check your "rootdir" setting in your settings.php file?' );
     }
     
     if ( strlen( $_SERVER[ 'REQUEST_METHOD' ] ) ) { // if we're running on a web environment
