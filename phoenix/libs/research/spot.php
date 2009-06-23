@@ -108,7 +108,7 @@
 
             return $content;
         }
-        public static function GetPolls( $user ) {
+        public static function GetPolls( $user, $num = 4 ) {
             global $libs;
             global $water;
             $libs->Load( 'poll/poll' );
@@ -116,7 +116,7 @@
             $water->Profile( 'Spot get polls' );
 
             $userid = $user->Id;
-            $request = "GET POLLS\n$userid\n";
+            $request = "GET POLLS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
 
             $content = array();
