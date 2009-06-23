@@ -34,6 +34,11 @@
             $lines = explode( "\n", $response );
             w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
             array_shift( $lines );
+            for ( $i = 0; $i < count( $lines ); ++$i ) {
+                if ( empty( $lines[ i ] ) ) {
+                    unset( $lines[ i ] );
+                }
+            }
             return $lines;
         }
         public static function CommentCreated( $comment ) {
