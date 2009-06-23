@@ -76,9 +76,13 @@
             }
 
             ?><ul class="questions"><?php
-              
-            foreach ( $answers as $answer ) {
-                Element( 'question/answer/view', $answer, $owner );
+            if ( $answers !== false ) {
+                ?>Ο χρήστης δεν έχει απαντήσει σε καμία ερώτηση.<?php
+            }
+            else {
+                foreach ( $answers as $answer ) {
+                    Element( 'question/answer/view', $answer, $owner );
+                }
             }
             ?></ul></div>
             
