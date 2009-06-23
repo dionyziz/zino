@@ -202,6 +202,7 @@
         }
         protected function OnCreate() {
             global $libs;
+            
             $libs->Load( 'user/count' );
 
             ++$this->User->Count->Polls;
@@ -225,10 +226,11 @@
         protected function OnDelete() {
             global $libs;
 
+            $libs->Load( 'comment' );
+            $libs->Load( 'user/count' );
+            
             --$this->User->Count->Polls;
             $this->User->Count->Save();
-
-            $libs->Load( 'comment' );
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
