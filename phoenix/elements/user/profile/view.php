@@ -9,6 +9,7 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'user/lastactive' );
             $libs->Load( 'user/profile' );
+            $libs->Load( 'image/image' );
             
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
