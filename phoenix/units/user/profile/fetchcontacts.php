@@ -3,6 +3,7 @@
         global $libs;
         
         $libs->Load( 'user/user' );
+        $libs->Load( 'user/profile' );
         
         $subdomain->Get();
         $finder = New UserFinder();
