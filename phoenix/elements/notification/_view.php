@@ -42,7 +42,7 @@
                     ?>' );"<?php
                 }
                 ?>><?php
-                    Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
+                    Element( 'user/avatar' , $notif->FromUser->Avatarid , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                     Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
@@ -270,7 +270,7 @@
                                             Element( 'url', $comment );
                                             echo htmlspecialchars( ob_get_clean() );
                                             ?>" class="itempic"><?php
-                                            Element( 'user/avatar' , $comment->Item->Avatar->Id , $comment->Item->Id , $comment->Item->Avatar->Width , $comment->Item->Avatar->Height , $comment->Item->Name , IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
+                                            Element( 'user/avatar' , $comment->Item->Avatarid , $comment->Item->Id , $comment->Item->Avatar->Width , $comment->Item->Avatar->Height , $comment->Item->Name , IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
                                             ?></a><?php
                                         }
                                     }

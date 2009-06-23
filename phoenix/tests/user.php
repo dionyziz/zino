@@ -92,7 +92,7 @@
             $this->AssertEquals( 'test@kamibu.com', $this->mUser->Profile->Email, 'test@kamibu.com', 'User email changed after saving user' );
             $this->AssertEquals( 'male', $this->mUser->Gender, 'User gender changed after saving user' );
             $this->AssertEquals( 10, $this->mUser->Rights, 'User rights changed after saving user' );
-            $this->AssertEquals( 1, $this->mUser->Avatar->Id, 'User icon changed after saving user' );
+            $this->AssertEquals( 1, $this->mUser->Avatarid, 'User icon changed after saving user' );
             $this->AssertEquals( 32, strlen( $this->mUser->Authtoken ), 'User does not have a valid authtoken after creation' );
         }
         public function TestProfileDefaults() {

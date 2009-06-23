@@ -12,7 +12,7 @@
                     echo $theuser->Subdomain;
                     ?>" class="loadable">
                     <span class="who"><?php
-                    Element( 'user/avatar', $theuser->Avatar->Id, $theuser->Id,
+                    Element( 'user/avatar', $theuser->Avatarid, $theuser->Id,
                                  $theuser->Avatar->Width, $theuser->Avatar->Height,
                                  $theuser->Name, 100, 'avatar', '', true, 50, 50 );
                     ?></span>

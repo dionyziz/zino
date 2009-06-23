@@ -376,7 +376,7 @@
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-                        Element( 'comment/reply', $image->Id, TYPE_IMAGE , $user->Id , $user->Avatar->Id );
+                        Element( 'comment/reply', $image->Id, TYPE_IMAGE , $user->Id , $user->Avatarid );
                     }
                     if ( $image->Numcomments > 0 ) {
                         $finder = New CommentFinder();

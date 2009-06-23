@@ -11,9 +11,9 @@
             $theuser = $theuserfinder->FindBySubdomain( $user->Get() );
             
             if ( $theuser !== false ) {
-                $apiarray[ 'id' ] = $theuser->Avatar->Id;
+                $apiarray[ 'id' ] = $theuser->Avatarid;
                 ob_start();
-                Element( 'image/url', $theuser->Avatar->Id , $theuser->Id , IMAGE_CROPPED_150x150 );
+                Element( 'image/url', $theuser->Avatarid , $theuser->Id , IMAGE_CROPPED_150x150 );
                 $apiarray[ 'thumb150' ] = ob_get_clean();
                 if ( !$xml ) {
                     echo w_json_encode( $apiarray );

@@ -129,7 +129,7 @@
                     list( $width, $height ) = ProportionalSize( 210, 210, $event->Friend->Avatar->Width, $event->Friend->Avatar->Height );
                     $item[ 'target' ] = array(
                         'id' => $event->Friend->Id,
-                        'avatar' => $event->Friend->Avatar->Id,
+                        'avatar' => $event->Friend->Avatarid,
                         'width' => $width,
                         'height' => $height,
                         'subdomain' => $event->Friend->Subdomain,
@@ -150,7 +150,7 @@
             $item[ 'who' ] = array(
                 'name' => $owner->Name,
                 'id' => $owner->Id,
-                'avatar' => $owner->Avatar->Id,
+                'avatar' => $owner->Avatarid,
                 'gender' => $owner->Gender,
                 'subdomain' => $owner->Subdomain
             );

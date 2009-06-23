@@ -89,7 +89,7 @@
 					echo htmlspecialchars( $school->Name );
 					?></h4><?php
 					if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatar->Id );
+						Element( 'comment/reply' , $school->Id , TYPE_SCHOOL , $user->Id , $user->Avatarid );
 					}
                     $indentation = Element( 'comment/list' , $comments, TYPE_SCHOOL, $school->Id );
                     $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );

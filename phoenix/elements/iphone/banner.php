@@ -12,7 +12,7 @@
                     ?>?p=user&amp;subdomain=<?php
                     echo $user->Subdomain;
                     ?>"><?php
-                    Element( 'user/avatar', $user->Avatar->Id, $user->Id,
+                    Element( 'user/avatar', $user->Avatarid, $user->Id,
                              $user->Avatar->Width, $user->Avatar->Height,
                              $user->Name, 100, 'avatar', '', true, 32, 32 );
                     ?></a><?php

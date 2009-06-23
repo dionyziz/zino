@@ -16,9 +16,9 @@
                 $apiarray[ 'age' ] = $theuser->Profile->Age;
                 $apiarray[ 'location' ] = $theuser->Profile->Location->Name;
                 $apiarray[ 'gender' ] = $theuser->Gender;
-                $apiarray[ 'avatar' ][ 'id' ] = $theuser->Avatar->Id;
+                $apiarray[ 'avatar' ][ 'id' ] = $theuser->Avatarid;
                 ob_start();
-                Element( 'image/url', $theuser->Avatar->Id , $theuser->Id , IMAGE_CROPPED_150x150 );
+                Element( 'image/url', $theuser->Avatarid , $theuser->Id , IMAGE_CROPPED_150x150 );
                 $apiarray[ 'avatar' ][ 'thumb150' ] = ob_get_clean();
                 if ( !$xml ) {
                     echo w_json_encode( $apiarray );

@@ -28,14 +28,14 @@
                         //FromUser
                         $notifarray[ 'fromuser' ][ 'subdomain' ] = $notif->FromUser->Subdomain;
                         $notifarray[ 'fromuser' ][ 'name' ] = $notif->FromUser->Name;
-                        if ( $notif->FromUser->Avatar->Id == false ) {
+                        if ( $notif->FromUser->Avatarid == false ) {
                             $notifarray[ 'fromuser' ][ 'avatar' ][ 'anonymous' ] = true;
                             $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = $rabbit_settings[ 'imagesurl' ] . 'anonymous150.jpg';
                         }
                         else {
-                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatar->Id;
+                            $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatarid;
                             ob_start();
-                            Element( 'image/url', $notif->FromUser->Avatar->Id , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
+                            Element( 'image/url', $notif->FromUser->Avatarid , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
                             $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
                         }
                         //Type
