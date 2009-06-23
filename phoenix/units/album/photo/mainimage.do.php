@@ -3,6 +3,10 @@
     function UnitAlbumPhotoMainimage( tInteger $photoid ) {
         global $user;
         global $rabbit_settings;
+        global $libs;
+        
+        $libs->Load( 'image/image' );
+        
         $photo = New Image( $photoid->Get() );
         
         if ( $photo->IsDeleted() || $photo->Userid != $user->Id ) {
