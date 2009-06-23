@@ -161,7 +161,7 @@
         
         public function __construct() {
             $this->mPageURL = $_SERVER[ 'PHP_SELF' ];
-            $this->mStartTS = microtime( true );
+            $this->mStartTS = microtime( true ) * 1000;
         }
         public function SetPageURL( $url ) {
             $this->mPageURL = $url;
@@ -176,7 +176,7 @@
             $this->ProcessError( E_USER_WARNING, $description, debug_backtrace() );
         }
         public function Profile( $description, $dump = false ) {
-            array_push( $this->mProfiles, array( $description, microtime( true ) - $this->mStartTS ) );
+            array_push( $this->mProfiles, array( $description, microtime( true ) * 1000 - $this->mStartTS ) );
         }
         public function ProfileEnd() {
             if ( empty( $this->mProfiles ) ) {
@@ -184,7 +184,7 @@
                 return;
             }
             $profile = array_pop( $this->mProfiles );
-            $this->AppendProfile( $profile[ 0 ], $profile[ 1 ], microtime( true ) - $this->mStartTS, debug_backtrace() );
+            $this->AppendProfile( $profile[ 0 ], $profile[ 1 ], microtime( true ) * 1000 - $this->mStartTS, debug_backtrace() );
         }
         public function LogSQL( $description ) {
             if ( $this->mLastSQLQueryStart !== false ) {
@@ -195,11 +195,11 @@
                     . '"); use $water->LogSQLEnd() to terminate logging the previous query once it is done.' );
                 return;
             }
-            $this->mLastSQLQueryStart = microtime( true ) - $this->mStartTS;
+            $this->mLastSQLQueryStart = microtime( true ) * 1000 - $this->mStartTS;
             $this->mLastSQLQuery = $description;
         }
         public function LogSQLEnd() {
-            $this->AppendQuery( $this->mLastSQLQuery, $this->mLastSQLQueryStart, microtime( true ) - $this->mStartTS, debug_backtrace() );
+            $this->AppendQuery( $this->mLastSQLQuery, $this->mLastSQLQueryStart, microtime( true ) * 1000 - $this->mStartTS, debug_backtrace() );
             $this->mLastSQLQueryStart = false;
         }
         public function HandleError( $errno, $errstr ) {
@@ -237,11 +237,11 @@
                     ++$this->mNumTraces;
                     break;
             }
-            $this->AppendAlert( $type, $errstr, microtime( true ) - $this->mStartTS, $backtrace );
+            $this->AppendAlert( $type, $errstr, microtime( true ) * 1000 - $this->mStartTS, $backtrace );
         }
         public function HandleException( Exception $e ) {
             w_assert( false, $e->getMessage(), $e->getTrace() );
-            // $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ) - $this->mStartTS, $e->getTrace() );
+            // $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ) * 1000 - $this->mStartTS, $e->getTrace() );
         }
         public function __destruct() {
             if ( !$this->mDataSent ) {
