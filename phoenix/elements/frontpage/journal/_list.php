@@ -17,7 +17,7 @@
             $journals = $finder->FindFrontpageLatest( 0, 4 );
             */
 
-            $journals = Spot::GetJournals( $user );
+            $journals = Spot::GetJournals( $user, 4 );
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {

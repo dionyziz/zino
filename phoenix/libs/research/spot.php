@@ -65,12 +65,12 @@
 
             return $content;
         }
-        public static function GetJournals( $user ) {
+        public static function GetJournals( $user, $num = 4 ) {
             global $libs;
             $libs->Load( 'journal/journal' );
 
             $userid = $user->Id;
-            $request = "GET JOURNALS\n$userid\n";
+            $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
 
             $content = array();
