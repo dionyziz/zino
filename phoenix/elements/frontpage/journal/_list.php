@@ -14,15 +14,16 @@
 
             $sticky = 9105;
             
-			$libs->Load( 'journal/frontpage' );
-            $libs->Load( 'research/spot' );
-			
-            /*
-            $finder = New JournalFinder();
-            $journals = $finder->FindFrontpageLatest( 0, 4 );
-            */
+            if ( $user->Exists() ) {
+                $libs->Load( 'research/spot' );
+                $journals = Spot::GetJournals( $user, 4 );
+            }
+			else {
+                $libs->Load( 'journal/frontpage' );
+                $finder = New JournalFinder();
+                $journals = $finder->FindFrontpageLatest( 0, 4 );
+            }
 
-            $journals = Spot::GetJournals( $user, 4 );
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
