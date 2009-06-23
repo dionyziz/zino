@@ -167,7 +167,7 @@
             return false; // too expensive to detect automatically
         }
         public function MakeObj() {
-            if ( !class_exists( $this->mFinderClass() ) ) {
+            if ( !class_exists( $this->mFinderClass ) ) {
                 throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
             }
             $finder = New $this->mFinderClass(); // MAGIC!
