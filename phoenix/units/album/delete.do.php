@@ -3,9 +3,11 @@
     function UnitAlbumDelete( tInteger $albumid ) {
         global $user;
         global $rabbit_settings;
+        global $libs;
         
+        $libs->Load( 'album' );
         $albumid = $albumid->Get();
-        $album = new Album( $albumid );
+        $album = New Album( $albumid );
         if ( $album->Ownertype == TYPE_USERPROFILE && $album->Owner->Id == $user->Id ) {
             if ( $album->Id != $user->Egoalbumid ) {
                 $useralbum = $album->Owner->Name;
