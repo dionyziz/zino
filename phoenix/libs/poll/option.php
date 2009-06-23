@@ -37,6 +37,9 @@
         protected $mDbTableAlias = 'polloptions';
         
         public function __get( $key ) {
+            if ( $this->Poll->Numvotes == 0 ) {
+                return 0;
+            }
             if ( $key == 'Percentage' ) {
                 return $this->Numvotes / $this->Poll->Numvotes;
             }
