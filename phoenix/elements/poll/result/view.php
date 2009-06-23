@@ -1,12 +1,14 @@
 <?php
     class ElementPollResultView extends Element {
         public function Render( $poll, $showresults ) {
+            global $user;
+            
             ?><ul><?php
                 $finder = New PollOptionFinder();
                 $options = $finder->FindByPoll( $poll );
                 foreach ( $options as $option ) {
                     ?><li><?php
-                        if ( $showresults ) {
+                        if ( $showresults || $user->Id == $poll->Userid ) {
                             ?><dl>
                                 <dd><?php //max width will be 220px and minimum 24px
                                 ?><div class="option">
