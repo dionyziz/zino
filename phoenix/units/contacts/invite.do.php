@@ -3,7 +3,9 @@
         global $libs;
         global $user;
         global $rabbit_settings;
+        
         $libs->Load( 'contacts/contacts' );
+        $libs->Load( 'user/profile' );
         
         if ( !$user->Exists() ) {
             return false;

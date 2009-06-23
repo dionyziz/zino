@@ -2,7 +2,11 @@
     function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tText $gender , tInteger $location ) {
         global $user;
         global $rabbit_settings;
-
+        global $libs;
+        
+        $libs->Load( 'user/profile' );
+        $libs->Load( 'place' );
+        
         $doby = $doby->Get();
         $dobm = $dobm->Get();
         $dobd = $dobd->Get();
