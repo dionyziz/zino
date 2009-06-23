@@ -6,6 +6,7 @@
             global $xc_settings;
 			global $libs;
             global $user;
+            global $water;
 
             $sticky = 9105;
             
@@ -21,6 +22,7 @@
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
+                    $water->Trace( 'Journal ID ' . $journal->Id . ' UserID ' . $journal->Userid );
                     if ( isset( $sticky ) && $journal->Id == $sticky ) {
                         continue;
                     }
