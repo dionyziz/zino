@@ -13,7 +13,7 @@
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'user/statusbox' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
             
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
