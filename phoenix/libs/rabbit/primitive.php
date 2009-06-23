@@ -59,6 +59,7 @@
     $libs->Load( 'rabbit/helpers/registerglobals' );
     $libs->Load( 'rabbit/helpers/magicquotes' );
     $libs->Load( 'rabbit/helpers/agent' );
+    $libs->Load( 'rabbit/helpers/date' );
     
     if ( !function_exists( 'ValidURL' ) ) {
         throw New Exception( 'Could not load the Rabbit validation helper; check your "rootdir" setting in your settings.php file?' );
