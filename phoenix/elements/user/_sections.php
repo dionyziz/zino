@@ -2,9 +2,11 @@
 
     class ElementUserSections extends Element {
         public function Render( $section , $theuser ) {
+            global $user;
+            
             ?><div class="usersections">
                 <ul><?php
-                    if ( $theuser->Count->Images > 0 ) {
+                    if ( $theuser->Count->Images > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'album' ) {
@@ -15,7 +17,7 @@
                         ?>albums">Albums</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
-                    if ( $theuser->Count->Polls > 0 ) {
+                    if ( $theuser->Count->Polls > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'poll' ) {
@@ -26,7 +28,7 @@
                         ?>polls">Δημοσκοπήσεις</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
-                    if ( $theuser->Count->Journals > 0 ) {
+                    if ( $theuser->Count->Journals > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'journal' ) {
@@ -37,7 +39,7 @@
                         ?>journals">Ημερολόγιο</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
-                    if ( $theuser->Count->Favourites > 0 ) {
+                    if ( $theuser->Count->Favourites > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'favourites' ) {
@@ -48,7 +50,7 @@
                         ?>favourites">Αγαπημένα</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
-                    if ( $theuser->Count->Relations > 0 ) {
+                    if ( $theuser->Count->Relations > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'relations' ) {
