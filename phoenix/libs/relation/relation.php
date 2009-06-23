@@ -148,6 +148,8 @@
         protected function OnCreate() {
             global $libs;
 
+            $libs->Load( 'user/count' );
+            
             ++$this->User->Count->Relations;
             $this->User->Count->Save();
             
@@ -156,6 +158,8 @@
         }
         protected function OnDelete() {
             global $libs;
+            
+            $libs->Load( 'user/count' );
             
             --$this->User->Count->Relations;
             $this->User->Count->Save();
