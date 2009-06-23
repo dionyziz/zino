@@ -83,6 +83,7 @@
         }
 
         if ( $user->Exists() ) {
+            $libs->Load( 'user/lastactive' );
             $user->LastActivity->Save();
         }
     }
