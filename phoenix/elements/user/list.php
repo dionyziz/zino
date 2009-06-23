@@ -2,6 +2,10 @@
 
     class ElementUserList extends Element {
         public function Render( $relations ) { /* array of Relation instances or User instances */
+            global $libs;
+            
+            $libs->Load( 'image/image' );
+            
             ?><div class="people">
                 <ul><?php
                     foreach ( $relations as $relation ) {
@@ -11,7 +15,7 @@
                         Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                         echo htmlspecialchars( ob_get_clean() );
                         ?>"><?php
-                        Element( 'user/avatar', $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 100 , '' , '' , false , 0 , 0 );
+                        Element( 'user/avatar', $theuser->Avatarid , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 100 , '' , '' , false , 0 , 0 );
                         ?></a></li><?php
                     }            
                 ?></ul>
