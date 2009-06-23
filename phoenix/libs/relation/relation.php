@@ -18,6 +18,7 @@
             global $libs;
             
             $libs->Load( 'user/profile' );
+            $libs->Load( 'image/image' );
             
             w_assert( $user instanceof User );
             w_assert( $user->Exists() );
