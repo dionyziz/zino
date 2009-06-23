@@ -349,6 +349,10 @@
             return $children;
         }
         public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
+            global $libs;
+            
+            $libs->Load( 'image' );
+            
             if ( empty( $commentids ) ) {
                 return array();
             }
