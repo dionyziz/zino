@@ -3,6 +3,9 @@
     class ElementUserSections extends Element {
         public function Render( $section , $theuser ) {
             global $user;
+            global $libs;
+            
+            $libs->Load( 'user/count' );
             
             ?><div class="usersections">
                 <ul><?php
