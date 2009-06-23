@@ -15,6 +15,10 @@
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
+            
             w_assert( $user instanceof User );
             w_assert( $user->Exists() );
             
