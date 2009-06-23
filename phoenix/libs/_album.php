@@ -73,7 +73,7 @@
             $prototype->Url = $url;
             $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype );
+            return $this->FindByPrototype( $prototype, 0, 25, false, true );
         }
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
