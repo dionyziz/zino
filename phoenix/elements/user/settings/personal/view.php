@@ -7,7 +7,7 @@
             global $rabbit_settings;
             global $libs;
             
-            $libs->Load( 'user/count' );
+            $libs->Load( 'user/profile' );
             
             $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             ?><div class="option">
