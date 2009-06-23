@@ -48,10 +48,10 @@
             
             $finder = New AlbumFinder();
             $limit = 12;
-            $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit );
+            $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit, ( $theuser == $user ) );
             Element( 'user/sections', 'album' , $theuser );
             ?><ul class="albums"><div class="ads"></div><?php
-                if ( $pageno == 1 ) {
+                if ( $pageno == 1 && $theuser->EgoAlbum->Numphotos != 0 ) {
                     ?><li><?php
                     Element( 'album/small', $theuser->EgoAlbum, false );
                     ?></li><?php
@@ -87,7 +87,7 @@
             ob_start();
             Element( 'user/url', $theuser->Id , $theuser->Subdomain );
             $link = ob_get_clean() . 'albums?pageno=';
-            $total_albums = $theuser->Count->Albums;
+            $total_albums = $albums->TotalCount();
             $total_pages = ceil( $total_albums / $limit );
             $text = "( " . $total_albums . " Album";
             if ( $total_albums > 1 ) {
