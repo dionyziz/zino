@@ -2,7 +2,10 @@
     class ElementUserProfileEasyupload extends Element {
         public function Render () {
             global $user;
-
+            global $libs;
+            
+            $libs->Load( 'album' );
+            
             ?><div>
                 <span class="inalb">Στο album <b>Εγώ</b></span><?php
                 $finder = New AlbumFinder();
