@@ -15,6 +15,7 @@
             $libs->Load( 'user/statusbox' );
             $libs->Load( 'journal/journal' );
             $libs->Load( 'user/count' );
+            $libs->Load( 'album' );
             
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!

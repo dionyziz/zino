@@ -6,8 +6,6 @@
     */
     global $libs;
 
-    $libs->Load( 'poll/poll' );
-
     define( 'COMMENT_PAGE_LIMIT', 50 );
 	define( 'COMMENT_MITOSIS_MIN', 30 );
 
