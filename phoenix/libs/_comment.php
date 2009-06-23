@@ -73,6 +73,28 @@
         return $paged;
     }
 
+    function Comment_LoadLibraryByType( $typeid ) {
+        global $libs;
+
+        switch ( $typeid ) {
+            case TYPE_USERPROFILE:
+                $libs->Load( 'user/profile' );
+                break;
+            case TYPE_POLL:
+                $libs->Load( 'poll/poll' );
+                break;
+            case TYPE_JOURNAL:
+                $libs->Load( 'journal/journal' );
+                break;
+            case TYPE_SCHOOL:
+                $libs->Load( 'school/school' );
+                break;
+            case TYPE_IMAGE:
+                $libs->Load( 'image/image' );
+                break;
+        }
+    }
+
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
@@ -263,6 +285,8 @@
             return $ret;
         }
         public function FindItemsByType( $type, $comments ) {
+            Comment_LoadLibraryByType( $type );
+
             $byitemids = array();
             foreach ( $comments as $comment ) {
                 $byitemids[ $comment->Itemid ][] = $comment;
@@ -524,24 +548,8 @@
         public function OnCreate() {
             global $mc;
             global $libs;
-            
-            switch ( $this->Typeid ) {
-                case TYPE_USERPROFILE:
-                    $libs->Load( 'user/profile' );
-                    break;
-                case TYPE_POLL:
-                    $libs->Load( 'poll/poll' );
-                    break;
-                case TYPE_JOURNAL:
-                    $libs->Load( 'journal/journal' );
-                    break;
-                case TYPE_SCHOOL:
-                    $libs->Load( 'school/school' );
-                    break;
-                case TYPE_IMAGE:
-                    $libs->Load( 'image/image' );
-                    break;
-            }
+           
+            Comment_LoadLibraryByType( $this->Typeid );
             
             w_assert( is_object( $this->User ), 'Comment->User not an object' );
             $this->User->OnCommentCreate();
