@@ -352,6 +352,7 @@
             global $libs;
             
             $libs->Load( 'image/image' );
+            $libs->Load( 'bulk' );
             
             if ( empty( $commentids ) ) {
                 return array();
