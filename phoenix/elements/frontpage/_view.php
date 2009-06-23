@@ -1,5 +1,10 @@
 <?php
-   class ElementFrontpageView extends Element {
+    /* 
+    Masked by: abresas
+    Reason: spot
+    */
+
+    class ElementFrontpageView extends Element {
         public function Render( tBoolean $newuser, tBoolean $validated ) {
             global $user;
             global $rabbit_settings;
@@ -168,7 +173,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                                 <div class="rightbar"></div>
                             </div>
                         <div class="polls"><?php
-                            Element( 'frontpage/poll/list' , $sequences[ SEQUENCE_POLL ] );
+                            Element( 'frontpage/poll/list', 0 );
                         ?></div>
                     </div>
                 </div>
