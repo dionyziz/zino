@@ -13,8 +13,8 @@
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
             $libs->Load( 'user/statusbox' );
-        
-            $water->Trace( 'Test A' );
+            $libs->Load( 'journal' );
+            
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
                 $finder = New CommentFinder();
@@ -40,7 +40,6 @@
                 }
             // }
             }
-            $water->Trace( 'Test B' );
 
             $finder = New PollFinder();
             $polls = $finder->FindByUser( $theuser , 0 , 1 );
