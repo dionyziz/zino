@@ -1,14 +1,7 @@
 <?php
-    /*
-        MASKED
-        By: Dionyziz
-        Reason: Optimize notifications system by eliminating events
-    */
-    
     global $libs;
     
     $libs->Load( 'image/image' );
-    $libs->Load( 'user/user' );
 
     class AlbumFinder extends Finder {
         protected $mModel = 'Album';

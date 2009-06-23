@@ -6,6 +6,9 @@
             global $user;
             global $rabbit_settings;
             global $page;
+            global $libs;
+            
+            $libs->Load( 'album' );
             
             $page->SetTitle( 'Ανέβασε μια εικόνα' );
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
