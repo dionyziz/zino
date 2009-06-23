@@ -243,12 +243,21 @@
             $this->User = $this->HasOne( 'User', 'userid' );
         }
         protected function OnCreate() {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
             $this->User->Profile->Save(); // force last update date to change
         }
         protected function OnUpdate() {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
             $this->User->Profile->Save();  // force last update date to change
         }
         protected function OnDelete() {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
             $this->User->Profile->Save();  // force last update date to change
             
             // fix broken linked list?
