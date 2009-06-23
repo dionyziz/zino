@@ -5,6 +5,7 @@
             global $libs;
             
             $libs->Load( 'admanager' );
+            $libs->Load( 'user/profile' );
             
             $adid = $adid->Get();
             
