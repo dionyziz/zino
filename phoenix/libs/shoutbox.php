@@ -18,7 +18,9 @@
 
         public function FindLatest( $offset = 0, $limit = 20 ) {
             global $libs;
+            
             $libs->Load( 'image/image' );
+            $libs->Load( 'bulk' );
 
             $query = $this->mDb->Prepare( "
                 SELECT
@@ -83,17 +85,26 @@
         }
         
         protected function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'bulk' );
             $this->Bulkid = Bulk::Store( $this->mText );
         }
 
         protected function OnBeforeUpdate() {
+            global $libs;
+            
+            $libs->Load( 'bulk' );
             Bulk::Store( $this->mText, $this->mBulkId );
         }
 
         public function __get( $key ) {
+            global $libs;
+            
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
+                        $libs->Load( 'bulk' );
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
