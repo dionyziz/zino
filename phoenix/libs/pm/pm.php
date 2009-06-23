@@ -58,7 +58,10 @@
         }
         protected function OnCreate() {
             global $water;
-
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            
             $ffinder = New PMFolderFinder();
             $receiversinbox = $ffinder->FindUsersInbox( $this->Receivers );
             $water->Trace( "pm receivers", $this->Receivers );
