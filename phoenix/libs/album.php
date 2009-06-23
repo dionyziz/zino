@@ -14,20 +14,42 @@
         protected $mModel = 'Album';
         
         public function FindByUser( User $theuser, $offset = 0, $limit = 25, $emptyalbums = true ) {
-            $query = $this->mDb->Prepare( "
-                SELECT
-                    *
-                FROM
-                    :albums LEFT JOIN :images
-                        ON `album_mainimageid` = `image_id`
-                WHERE
-                    `album_ownerid` = :userid AND
-                    `album_ownertype` = :user AND
-                    `album_delid` = 0
-                ORDER BY
-                    `album_id` DESC
-                LIMIT
-                    :offset, :limit;" );
+            if ( $emptyalbums ) {
+                $query = $this->mDb->Prepare( "
+                    SELECT
+                    SQL_CALC_FOUND_ROWS
+                        *
+                    FROM
+                        :albums LEFT JOIN :images
+                            ON `album_mainimageid` = `image_id`
+                    WHERE
+                        `album_ownerid` = :userid AND
+                        `album_ownertype` = :user AND
+                        `album_delid` = 0
+                    ORDER BY
+                        `album_id` DESC
+                    LIMIT
+                        :offset, :limit;" );
+            }
+            else {
+                $query = $this->mDb->Prepare( "
+                    SELECT
+                    SQL_CALC_FOUND_ROWS
+                        *
+                    FROM
+                        :albums LEFT JOIN :images
+                            ON `album_mainimageid` = `image_id`
+                    WHERE
+                        `album_ownerid` = :userid AND
+                        `album_ownertype` = :user AND
+                        `album_delid` = 0 AND
+                        `album_numphotos` != 0
+                    ORDER BY
+                        `album_id` DESC
+                    LIMIT
+                        :offset, :limit;" );
+            }
+            
             
             $query->BindTable( 'albums', 'images' );
             $query->Bind( 'userid', $theuser->Id );
@@ -43,8 +65,14 @@
                 $album->CopyUserFrom( $theuser );
                 $ret[] = $album;
             }
+        
+            $totalcount = ( int )array_shift(
+                $this->mDb->Prepare(
+                    'SELECT FOUND_ROWS();'
+                )->Execute()->FetchArray()
+            );
 
-            return $ret;
+            return New Collection( $ret, $totalcount );
         }
         public function FindByUserAndUrl( $user, $url, $offset = 0, $limit = 25 ) {
             $prototype = New Album();
