@@ -12,6 +12,8 @@
             }
 
             $libs->Load( 'pm/pm' );
+            $libs->Load( 'user/count' );
+            
             $page->SetTitle( 'Προσωπικά μηνύματα' );
             
             $finder = New PMFolderFinder();
