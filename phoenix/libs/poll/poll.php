@@ -201,6 +201,9 @@
             return false;
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'user/count' );
+
             ++$this->User->Count->Polls;
             $this->User->Count->Save();
             
