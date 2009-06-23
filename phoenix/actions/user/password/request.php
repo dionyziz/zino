@@ -2,6 +2,8 @@
     function ActionUserPasswordRequest( tText $username ) {
         global $libs;
         
+        $libs->Load( 'user/profile' );
+        
         $username = $username->Get();
         $userfinder = New UserFinder();
         $user = $userfinder->FindByName( $username );
