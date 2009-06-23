@@ -336,6 +336,9 @@
                     $this->Touserid = $this->Item->Personid;
                     break;
                 case EVENT_FAVOURITE_CREATED:
+                    $libs->Load( 'journal/journal' );
+                    $libs->Load( 'poll/poll' );
+                    
                     $this->Touserid = $this->Item->Item->Userid;
                     break;
                 case EVENT_USER_BIRTHDAY:
