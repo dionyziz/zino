@@ -2,6 +2,9 @@
     class ElementAdManagerBank {
         public function Render() {
             global $user;
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
             
             ?><div class="buyad">
             <h2 class="ad">Διαφήμιση στο Zino</h2>
