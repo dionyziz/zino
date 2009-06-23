@@ -1,4 +1,10 @@
 <?php
+    /*
+        MASKED
+        By: Chorvus
+        Reason: Move images between albums
+    */
+    
     global $libs;
     
     $libs->Load( 'album' );
@@ -385,5 +391,17 @@
             $this->Height  = 0;
             $this->Userid  = $user->Id;
         }
+		public function MoveTo( Album $album ) {
+			w_assert( $album instanceof Album );
+			w_assert( $album->Exists() );
+			w_assert( $this->Album->Numphotos > 0 );
+			w_assert( $this->Userid == $user->Id );
+			
+			--$this->Album->Numphotos;
+			$this->Albumid = $album->Albumid;
+			++$album->Numphotos;
+			$this->Save();
+			$album->Save();
+		}
     }
 ?>
