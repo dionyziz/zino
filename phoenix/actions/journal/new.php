@@ -4,6 +4,8 @@
         global $libs;
         global $xc_settings;
 
+        $libs->Load( 'journal/journal' );
+        
         header( 'Content-type: text/plain' );
 
         $id = $id->Get();
