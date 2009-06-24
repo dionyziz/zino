@@ -130,6 +130,9 @@
                     continue;
                 }
                 $itemid = $ret[ i ]->Itemid;
+                if ( empty( $itemid ) ) {
+                    continue;
+                }
                 die( 'needing ' . $typeid . ' ' . $itemid );
                 w_assert( isset( $objectsById[ $typeid ][ $itemid ] ) );
                 w_assert( is_object( $objectsById[ $typeid ][ $itemid ] ) );
