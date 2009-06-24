@@ -246,7 +246,7 @@
             global $rabbit_settings;
             global $water;
                         
-            $libs->Load( 'rabbit/helpers/helpers' );
+            $libs->Load( 'rabbit/helpers/email' );
             
             if ( $previousEmail == '' ) {
                 $this->Emailvalidated = false;                
