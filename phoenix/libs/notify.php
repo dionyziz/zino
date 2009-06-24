@@ -106,6 +106,8 @@
             foreach ( $ret as $notif ) {
                 $needed[ $notif->Typeid ][] = $notif->Itemid;
             }
+
+            /* Failed effort to optimize relations..........................
     
             $objectsById = array();
             foreach ( $needed as $typeid => $itemids ) {
@@ -137,6 +139,8 @@
                 w_assert( is_object( $objectsById[ $typeid ][ $itemid ] ) );
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
             }
+
+            */
 
             /* abresas: $i here doesn't look like totalcount */
             return New Collection( $ret, $i );
