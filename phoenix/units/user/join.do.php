@@ -55,8 +55,7 @@
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
             $newuser->Profile->Email = $email;
-            //$newuser->Save(); moved to line 88
-            if ( $_SESSION[ 'contact_id' ] != "" ){
+            if ( isset( $_SESSION[ 'contact_id' ] ) ){
                 $finder = New ContactFinder();
                 $current_contact = $finder->FindById( $_SESSION[ 'contact_id' ] );
                 if ( $current_contact != false ){
