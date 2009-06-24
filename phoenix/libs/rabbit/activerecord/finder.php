@@ -151,7 +151,7 @@
                 FROM
                     :' . $this->mDbTableAlias . '
                 WHERE
-                    `' . $primaryFields . '` IN :ids
+                    `' . $id_field . '` IN :ids
                 LIMIT
                     :limit;'
             );
