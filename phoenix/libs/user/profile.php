@@ -247,6 +247,7 @@
             global $water;
                         
             $libs->Load( 'rabbit/helpers/email' );
+            $libs->Load( 'rabbit/helpers/hashstring' );
             
             if ( $previousEmail == '' ) {
                 $this->Emailvalidated = false;                
