@@ -122,7 +122,7 @@
             }
 
             global $water;
-            $water->Trace( '.' . print_r( $objectsById ) . '.' );
+            $water->Trace( '.' . var_dump( $objectsById ) . '.' );
             for ( $i = 0; $i < count( $ret ); ++$i ) {
                 $typeid = $ret[ $i ]->Typeid;
                 if ( !isset( $objectsById[ $typeid ] ) ) {
