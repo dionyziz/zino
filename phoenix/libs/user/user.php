@@ -369,10 +369,11 @@
             $libs->Load( 'user/count' );
             $libs->Load( 'album' );
             
-            die( 'OnBeforeCreate libraries loaded' );
-            
             $this->Count->Save();
             $this->EgoAlbum->Save();
+            
+            die( 'Ready to execute last line' );
+            
             $this->Egoalbumid = $this->EgoAlbum->Id;
         }
         protected function OnCreate() {
