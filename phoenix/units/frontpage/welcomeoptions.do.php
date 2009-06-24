@@ -2,8 +2,12 @@
 
     function UnitFrontpageWelcomeoptions( tInteger $place , tText $education , tInteger $schoolid ) {
         global $user;
+        global $libs;
         
         if ( $user->Exists() ) {
+            $libs->Load( 'user/profile' );
+            $libs->Load( 'school/school' );
+            
             $place = $place->Get();
             $education = $education->Get();
             $schoolid = $schoolid->Get();
@@ -65,9 +69,6 @@
                     }<?php
                 }
             }
-            
-            
-            
         }
     }
 ?>
