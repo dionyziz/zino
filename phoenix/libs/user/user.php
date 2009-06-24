@@ -367,6 +367,7 @@
             global $libs;
             
             $libs->Load( 'user/count' );
+            $libs->Load( 'album' );
             
             $this->Count->Save();
             $this->EgoAlbum->Save();
@@ -378,7 +379,7 @@
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
             $libs->Load( 'user/profile' );
-            
+           
             $this->EgoAlbum->Ownerid = $this->Id;
             $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
