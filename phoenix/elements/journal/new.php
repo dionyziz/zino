@@ -8,6 +8,7 @@
             global $libs;
             
             $libs->Load( 'wysiwyg' );
+            $libs->Load( 'journal/journal' );
             
             $id = $id->Get();
             
