@@ -1,4 +1,4 @@
-3<?php
+<?php
     global $libs;
 
     $libs->Load( 'bulk' );
