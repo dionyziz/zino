@@ -76,17 +76,15 @@
             $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
 
-            $content = array();
-            foreach ( $lines as $id ) {
-                if ( empty( $id ) ) {
-                    continue;
+            for ( $i = 0; $i < count( $lines ); ++$i ) {
+                if ( empty( $lines[ $i ] ) ) {
+                    unset( $lines[ $i ] );
                 }
-                $content[] = New Journal( $id );
             }
 
             $water->ProfileEnd();
 
-            return $content;
+            return $lines; // journal ids
         }
         public static function GetImages( $user ) {
             global $libs;
