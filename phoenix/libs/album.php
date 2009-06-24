@@ -160,6 +160,8 @@
                 } while ( count( $someOfTheRest ) && !$exists );
             }
             $this->Url = $url;
+            
+            die( 'Done egoalbum onbeforecreate' );
         }
         public function OnBeforeDelete() {
             global $water;

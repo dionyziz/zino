@@ -372,8 +372,6 @@
             $this->Count->Save();
             $this->EgoAlbum->Save();
             
-            die( 'Saved egoalbum' );
-            
             $this->Egoalbumid = $this->EgoAlbum->Id;
         }
         protected function OnCreate() {
