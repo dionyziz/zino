@@ -10,7 +10,13 @@
                             'muslim'      => 'Ισλαμιστής',
                             'atheist'      => 'Άθεος',
                             'agnostic'      => 'Αγνωστικιστής',
-                            'nothing'      => 'Τίποτα'
+                            'nothing'      => 'Άθρησκος',
+                            'pastafarian'  => 'Πασταφαριανός',
+                            'pagan'        => 'Παγανιστής',
+                            'budhist'       => 'Βουδιστής',
+                            'greekpolytheism' => 'Δωδεκαθεϊστής',
+                            'hindu'         => 'Ινδουιστής'
+                            
                 );
             }
             else {
@@ -19,7 +25,12 @@
                             'muslim'       => 'Ισλαμίστρια',
                             'atheist'       => 'Άθεη',
                             'agnostic'      => 'Αγνωστικιστής',
-                            'nothing'       => 'Τίποτα'
+                            'nothing'       => 'Άθρησκη',
+                            'pastafarian'   => 'Πασταφαριανή',
+                            'pagan'         => 'Παγανίστρια',
+                            'budhist'       => 'Βουδίστρια',
+                            'greekpolytheism' => 'Δωδεκαθεΐστρια',
+                            'hindu'         => 'Ινδουίστρια'
                 );
             }
             echo htmlspecialchars( $religions[ $religion ] );
