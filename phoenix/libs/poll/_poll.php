@@ -162,7 +162,7 @@
                 $offset = 0;
                 $exists = false;
                 do {
-                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100, true );
                     foreach ( $someOfTheRest as $p ) {
                         if ( strtolower( $p->Url ) == strtolower( $url ) ) {
                             $exists = true;
