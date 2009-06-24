@@ -321,6 +321,8 @@
         }
         public function ExitWithoutSubmission() {
             $this->mDataSent = true;
+            restore_error_handler();
+            restore_exception_handler();
         }
         public function Post() {
             $this->mDataSent = true;
