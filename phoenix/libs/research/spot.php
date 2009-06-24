@@ -33,7 +33,8 @@
 
             $lines = explode( "\n", $response );
             w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
-            array_shift( $lines );
+            array_shift( $lines ); // success message
+            array_pop( $lines ); // useless last line exploded
             return $lines;
         }
         public static function CommentCreated( $comment ) {
@@ -76,13 +77,6 @@
             $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
 
-            for ( $i = 0; $i < count( $lines ); ++$i ) {
-                if ( empty( $lines[ $i ] ) ) {
-                    unset( $lines[ $i ] );
-                }
-                $lines[ $i ] = (int)$lines[ $i ];
-            }
-
             $water->ProfileEnd();
 
             return $lines; // journal ids
@@ -118,17 +112,9 @@
             $request = "GET POLLS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
 
-            $content = array();
-            foreach ( $lines as $id ) {
-                if ( empty( $id ) ) {
-                    continue;
-                }
-                $content[] = New Poll( $id );
-            }
-
             $water->ProfileEnd();
 
-            return $content;
+            return $lines; // journal ids
         }
         public static function GetSamecom( $auser, $buser ) { // for testing only.
             $auserid = $auser->Id;

@@ -15,14 +15,12 @@
             $sticky = 9105;
             
             $libs->Load( 'journal/journal' );
-
+            $finder = New JournalFinder();
             if ( $user->Exists() ) {
-                $finder = New JournalFinder();
                 $journals = $finder->FindUserRelated( $user );
             }
 			else {
                 $libs->Load( 'journal/frontpage' );
-                $finder = New FrontpageJournalFinder();
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
             }
 

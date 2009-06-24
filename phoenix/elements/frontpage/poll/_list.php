@@ -13,15 +13,13 @@
             global $xc_settings;
             global $user;
 
+            $libs->Load( 'poll/poll' );
+            $finder = New PollFinder();
             if ( $user->Exists() ) {
-                $libs->Load( 'research/spot' );
-                $polls = Spot::GetPolls( $user, 4 );
+                $polls = $finder->FindUserRelated( $user );
             }
             else { // no spot for anonymous
-                $libs->Load( 'poll/poll' );
                 $libs->Load( 'poll/frontpage' );
-			
-                $finder = New PollFinder();
                 $polls = $finder->FindFrontpageLatest( 0 , 4 );
             }
             
