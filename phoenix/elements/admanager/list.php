@@ -15,6 +15,7 @@
             
             $libs->Load( 'admanager' );
             $libs->Load( 'place' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             $adfinder = New AdFinder();
             $ads = $adfinder->FindByUser( $user );

@@ -15,6 +15,7 @@
             $libs->Load( 'journal/journal' );
             $libs->Load( 'user/count' );
             $libs->Load( 'album' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!

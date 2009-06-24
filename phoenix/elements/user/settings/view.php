@@ -10,6 +10,7 @@
             
             $page->SetTitle( 'Ρυθμίσεις' );
             if ( !$user->Exists() ) {
+                $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
             ?><div class="settings">

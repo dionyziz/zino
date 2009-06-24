@@ -4,9 +4,12 @@
             global $user;
             global $rabbit_settings;
             global $page;
+            global $libs;
+            
+            $libs->Load( 'rabbit/helpers/http' );
             
             $page->SetTitle( 'Καλωσήρθες' );
-
+            
             if ( !$user->Exists() ) {
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }

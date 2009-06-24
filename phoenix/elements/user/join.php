@@ -6,7 +6,9 @@
             global $rabbit_settings;
             global $user;
             global $libs;
+
             $libs->Load( 'contacts/contacts' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             $page->SetTitle( 'Γίνε μέλος!' );
             if ( $user->Exists() ) {

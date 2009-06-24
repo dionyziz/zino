@@ -2,6 +2,7 @@
     class ElementUserPasswordRequestSuccess extends Element {
         public function Render( tText $username ) {
             global $page;
+            global $libs;
             
             $page->SetTitle( 'Επαναφορά κωδικού' );
             
@@ -10,6 +11,7 @@
             $userfinder = New UserFinder();
             $user = $userfinder->FindByName( $username );
             if ( $user === false ) {
+                $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( 'forgot/failure' );
             }
             

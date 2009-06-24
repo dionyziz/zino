@@ -12,6 +12,7 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
             $libs->Load( 'album' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             $id = $id->Get();
             $commentid = $commentid->Get();

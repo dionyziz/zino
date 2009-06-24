@@ -35,6 +35,7 @@
                     if ( $comments === false ) {
                         ob_start();
                         Element( 'url', $school );
+                        $libs->Load( 'rabbit/helpers/http' );
                         return Redirect( ob_get_clean() );
                     }
                     $total_pages = $comments[ 0 ];

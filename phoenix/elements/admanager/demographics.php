@@ -7,6 +7,7 @@
             
             $libs->Load( 'admanager' );
             $libs->Load( 'place' );
+            $libs->Load( 'rabbit/helpers/http' );
             
             $page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );
 			$page->AttachInlineScript( 'AdManager.Demographics.OnLoad();' );

@@ -2,7 +2,10 @@
     class ElementContactsMailtosend extends Element{
         function Render(){
             global $user;
+            global $libs;
+            
             if ( !$user->Exists() ){
+                $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( './' );
             }
             ?><p><strong>Από:</strong> inviter@zino.gr</p>

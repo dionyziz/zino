@@ -8,7 +8,8 @@
             
             $libs->Load( 'image/image' );
             $libs->Load( 'admanager' );
-
+            $libs->Load( 'rabbit/helpers/http' );
+            
             $adid = $adid->Get();
             
             $page->AttachInlineScript( 'AdManager.Create.OnLoad();' );

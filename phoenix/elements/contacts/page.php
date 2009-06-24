@@ -8,7 +8,10 @@
             global $user;
             global $page;
             global $rabbit_settings;
+            global $libs;
+            
             if ( !$user->Exists() ) {
+                $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
             $page->AttachInlineScript( '$( function(){ contacts.init(); });' );
