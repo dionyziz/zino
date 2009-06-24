@@ -117,7 +117,9 @@
             return parent::FindByIds( $ids );
         }
         public function FindUserRelated( $user ) {
+            global $libs;
             $libs->Load( 'research/spot' );
+
             $ids = Spot::GetJournals( $user );
             $journals = $this->FindByIds( $ids );
             $journals->PreloadRelation( 'User' );
