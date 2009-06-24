@@ -22,10 +22,10 @@
             if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                 switch ( $album->Ownertype ) {
                     case TYPE_USERPROFILE:
-                        $canupload = $album->Owner->Id == $user->Id;
+                        $canupload = $album->Ownerid == $user->Id;
                         break;
                     case TYPE_SCHOOL:
-                        $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                        $canupload = $user->Profile->Schoolid == $album->Ownerid; 
                         break;
                     default:
                         $canupload = false;

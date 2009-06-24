@@ -82,7 +82,7 @@
                         ?></dt><?php
                     }
                 ?></dl><?php
-                if ( $album->Ownertype == TYPE_USERPROFILE && ( $album->Owner->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) ) {
+                if ( $album->Ownertype == TYPE_USERPROFILE && ( $album->Ownerid == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE_ALL ) ) ) {
                     if ( $album->Id != $user->Egoalbumid ) {
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="return PhotoList.Rename( '<?php
@@ -99,10 +99,10 @@
                 if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                     switch ( $album->Ownertype ) {
                         case TYPE_USERPROFILE:
-                            $canupload = $album->Owner->Id == $user->Id;
+                            $canupload = $album->Ownerid == $user->Id;
                             break;
                         case TYPE_SCHOOL:
-                            $canupload = $user->Profile->Schoolid == $album->Owner->Id; 
+                            $canupload = $user->Profile->Schoolid == $album->Ownerid; 
                             break;
                         default:
                             $canupload = false;

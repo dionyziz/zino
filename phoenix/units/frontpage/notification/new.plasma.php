@@ -7,6 +7,6 @@
         ?> );
         Notification.AddNotif( notifcontent );<?php
  
-        return $notif->ToUser->Id; 
+        return $notif->Touserid; 
     }
 ?>

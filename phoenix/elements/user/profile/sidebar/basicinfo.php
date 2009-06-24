@@ -9,7 +9,7 @@
             
             Element( 'user/profile/sidebar/who', $theuser , $theuserid , $theuser->Avatarid );
             Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );
-            Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Mood->Id, $theuser->Gender );
+            Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Moodid, $theuser->Gender );
             ?><div class="friendedit"><a href=""><span>&nbsp;</span></a></div><?php
             Element( 'user/profile/sidebar/info', $theuser, $schoolexists );
         }

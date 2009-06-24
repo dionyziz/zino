@@ -44,7 +44,7 @@
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'image/view' , $comment->Item->Id , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
+                                Element( 'image/view' , $comment->Itemid , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
 								?></a><?php
                                 break;
                             case TYPE_USERPROFILE:

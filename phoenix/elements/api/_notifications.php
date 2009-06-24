@@ -35,7 +35,7 @@
                         else {
                             $notifarray[ 'fromuser' ][ 'avatar' ][ 'id' ] = $notif->FromUser->Avatarid;
                             ob_start();
-                            Element( 'image/url', $notif->FromUser->Avatarid , $notif->FromUser->Id , IMAGE_CROPPED_150x150 );
+                            Element( 'image/url', $notif->FromUser->Avatarid , $notif->Fromuserid , IMAGE_CROPPED_150x150 );
                             $notifarray[ 'fromuser' ][ 'avatar' ][ 'thumb150' ] = ob_get_clean();
                         }
                         //Type
@@ -53,7 +53,7 @@
                             switch ( $comment->Typeid ) {
                                 case TYPE_USERPROFILE:
                                     $notifarray[ 'comment' ][ 'type' ] = 'profile';
-                                    if ( $comment->Item->Id == $notif->Touserid ) {
+                                    if ( $comment->Itemid == $notif->Touserid ) {
                                         $notifarray[ 'comment' ][ 'you' ] = true;
                                     }
                                     else {
@@ -63,10 +63,10 @@
                                     break;
                                 case TYPE_IMAGE:
                                     $notifarray[ 'comment' ][ 'type' ] = 'photo';
-                                    $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Itemid;
                                     $notifarray[ 'comment' ][ 'photo' ][ 'name' ] = $notif->Item->Item->Name;
                                     ob_start();
-                                    Element( 'image/url', $comment->Item->Id , $comment->Item->Userid , IMAGE_CROPPED_150x150 );
+                                    Element( 'image/url', $comment->Itemid , $comment->Item->Userid , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
                             }
@@ -76,7 +76,7 @@
                             switch ( $notif->Typeid ) {
                                 case EVENT_FRIENDRELATION_CREATED;
                                     ob_start();
-                                    Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                                    Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
                                     $notifarray[ 'url' ] = ob_get_clean();
                                     $notifarray[ 'type' ] = 'friendship';
                                     $finder = New FriendRelationFinder();

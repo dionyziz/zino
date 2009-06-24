@@ -21,7 +21,7 @@
                     ?>">
                         <span class="albummain"><?php
                             if ( $album->Mainimage->Exists() ) {    
-                                Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , false , 0 , 0 , 0 ); // TODO: Optimize
+                                Element( 'image/view', $album->Mainimageid , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , false , 0 , 0 , 0 ); // TODO: Optimize
                             }
                             else {
 								?><img src="<?php

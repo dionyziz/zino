@@ -29,7 +29,7 @@
         if ( $image->Album->Numphotos == 1 ) {
             $image->Album->Mainimageid = $image->Id;
             $image->Album->Save();
-            if ( $image->Album->Id == $user->Egoalbumid ) {
+            if ( $image->Albumid == $user->Egoalbumid ) {
                 if ( $rabbit_settings[ 'production' ] ) {
                     ?>$( 'div.usersections a img' ).attr( {
                         src : ExcaliburSettings.photosurl + '<?php

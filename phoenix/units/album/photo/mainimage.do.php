@@ -16,7 +16,7 @@
         $photo->Album->Mainimageid = $photo->Id;
         $photo->Album->Save();
 
-        if ( $photo->Album->Id != $user->Egoalbumid ) {
+        if ( $photo->Albumid != $user->Egoalbumid ) {
             return;
         }
 

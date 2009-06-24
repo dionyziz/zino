@@ -93,7 +93,7 @@
                     AND `image_delid` = :delid'
             );
             $query->BindTable( 'images' );
-            $query->Bind( 'albumid', $pivot->Album->Id );
+            $query->Bind( 'albumid', $pivot->Albumid );
             $query->Bind( 'delid', 0 );
             $res = $query->Execute();
 

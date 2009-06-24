@@ -24,7 +24,7 @@
 						}
                         if ( $schoolexists ) {
                             ?><a href="?p=school&amp;id=<?php
-                            echo $theuser->Profile->School->Id;
+                            echo $theuser->Profile->Schoolid;
                             ?>"><?php
                         }
 						Element( 'user/trivial/school', $theuser->Profile->School );

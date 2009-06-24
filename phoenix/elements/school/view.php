@@ -63,17 +63,17 @@
                     <div id="schooluploadmodal" style="display:none">
                         <div class="schooluploadcontainer"><?php
                         if ( $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-                            if ( $user->Profile->Schoolid == $school->Album->Owner->Id ) {
+                            if ( $user->Profile->Schoolid == $school->Album->Ownerid ) {
                                 ?><div class="uploaddiv"><?php
                                     if ( UserBrowser() == 'MSIE' ) {
                                         ?><iframe src="?p=upload&amp;albumid=<?php
-                                        echo $school->Album->Id;
+                                        echo $school->Albumid;
                                         ?>&amp;typeid=3" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
                                         </iframe><?php
                                     }
                                     else {
                                         ?><object data="?p=upload&amp;albumid=<?php
-                                        echo $school->Album->Id;
+                                        echo $school->Albumid;
                                         ?>&amp;typeid=3" class="uploadframe" id="uploadframe" type="text/html">
                                         </object><?php
                                     }

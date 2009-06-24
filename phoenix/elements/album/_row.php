@@ -13,8 +13,8 @@
             ?><li id="<?php
             echo $album->Id;
             ?>"><?php
-                    if ( $album->Mainimage->Exists() && $album->Mainimage->Id !== false) {    
-                        Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , true , 50 , 50 , 0 ); 
+                    if ( $album->Mainimage->Exists() && $album->Mainimageid !== false) {    
+                        Element( 'image/view', $album->Mainimageid , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , true , 50 , 50 , 0 ); 
                     }
                     else {
                         ?><span class="imageview"><img src="<?php

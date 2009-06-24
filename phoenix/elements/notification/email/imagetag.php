@@ -27,7 +27,7 @@
                 echo $image->Name;
                 ?>"<?php
             }
-            else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+            else if ( $image->Albumid == $image->User->Egoalbumid ) {
                 ?>στις φωτογραφίες <?php
                 if ( $image->Userid == $user->Id ) {
                     ?>σου<?php

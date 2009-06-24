@@ -19,11 +19,11 @@
                     <ul class="lstimages plist">
                         <?php
                         foreach ( $images as $image ) {
-                            if ( $image->Image->Id != null ) {
+                            if ( $image->Imageid != null ) {
                                 ?><li><a href="?p=photo&amp;id=<?php
-                                echo $image->Image->Id;
+                                echo $image->Imageid;
                                 ?>"><?php
-                                Element( 'image/view' , $image->Image->Id , $image->Image->Userid , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , $image->Image->Numcomments );
+                                Element( 'image/view' , $image->Imageid , $image->Image->Userid , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , $image->Image->Numcomments );
                                 ?></a></li>
                                 <?php
                             }

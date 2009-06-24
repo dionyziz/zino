@@ -11,7 +11,7 @@
         
         $notif = New Notification( $notificationid );
         if ( $notif->Exists() ) {
-            if ( $notif->ToUser->Id == $user->Id ) {
+            if ( $notif->Touserid == $user->Id ) {
                 $theuser = $notif->FromUser;
                 $notif->Delete();
             }

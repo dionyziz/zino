@@ -8,7 +8,7 @@
         $libs->Load( 'album' );
         $albumid = $albumid->Get();
         $album = New Album( $albumid );
-        if ( $album->Ownertype == TYPE_USERPROFILE && $album->Owner->Id == $user->Id ) {
+        if ( $album->Ownertype == TYPE_USERPROFILE && $album->Ownerid == $user->Id ) {
             if ( $album->Id != $user->Egoalbumid ) {
                 $useralbum = $album->Owner->Name;
                 $album->Delete();

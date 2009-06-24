@@ -47,7 +47,7 @@
             else {
                 switch ( $image->Album->Ownertype ) {
                     case TYPE_USERPROFILE:
-                        if ( $image->Album->Owner->Egoalbumid == $image->Album->Id ) {
+                        if ( $image->Album->Owner->Egoalbumid == $image->Albumid ) {
                             if ( strtoupper( substr( $image->Album->Owner->Name, 0, 1 ) ) == substr( $image->Album->Owner->Name, 0, 1 ) ) {
                                 $page->SetTitle( $image->Album->Owner->Name . " Φωτογραφίες" );
                             }
@@ -78,11 +78,11 @@
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
                 <span>στο album</span> <a href="?p=album&amp;id=<?php
-                echo $image->Album->Id;
+                echo $image->Albumid;
                 ?>"><?php
                 switch ( $image->Album->Ownertype ) {
                     case TYPE_USERPROFILE:
-                        if ( $image->Album->Id == $theuser->Egoalbumid ) {
+                        if ( $image->Albumid == $theuser->Egoalbumid ) {
                             ?>Εγώ<?php
                         }
                         else {

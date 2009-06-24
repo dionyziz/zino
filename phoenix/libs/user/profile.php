@@ -192,7 +192,7 @@
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
                     break;
                 case 'School':
-                    $this->School->Id = $value->Id;
+                    $this->School->Id = $value->Id; // $this->Schoolid? -- abresas
                     break;
                 default:
                     parent::__set( $key, $value );

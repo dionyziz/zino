@@ -170,7 +170,7 @@
             $userRelations = $relationfinder->FindByUser( $user );
             $zino_friends = array();
             foreach ( $userRelations as $relation ) {
-                $zino_friends[ $relation->Friend->Id ] = true;
+                $zino_friends[ $relation->Friendid ] = true;
             }
             
             $notzino_friends = array();

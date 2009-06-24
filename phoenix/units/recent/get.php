@@ -99,7 +99,7 @@
                                 'owner' => array(
                                     'id' => $event->Item->Userid
                                 ),
-                                'id' => $event->Item->Id,
+                                'id' => $event->Itemid,
                                 'width' => $width,
                                 'height' => $height
                             );
@@ -128,7 +128,7 @@
                 case 'FriendRelation':
                     list( $width, $height ) = ProportionalSize( 210, 210, $event->Friend->Avatar->Width, $event->Friend->Avatar->Height );
                     $item[ 'target' ] = array(
-                        'id' => $event->Friend->Id,
+                        'id' => $event->Friendid,
                         'avatar' => $event->Friend->Avatarid,
                         'width' => $width,
                         'height' => $height,
