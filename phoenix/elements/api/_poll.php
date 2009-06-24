@@ -18,7 +18,7 @@
                         $votefinder = New PollVoteFinder();
                         //$votes = $votefinder->FindByPollAndUser( $poll, 
                         $apiarray[ 'count' ] = $theuser->Count->Albums;
-                        $apiarray[ 'egoalbum' ] = $theuser->EgoAlbumid;
+                        $apiarray[ 'egoalbum' ] = $theuser->Egoalbumid;
                         $apiarray[ 'albums' ][] = $album->Id;
                     }
                 }

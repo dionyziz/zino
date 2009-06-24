@@ -17,7 +17,7 @@
                 $images = $imagefinder->FindByAlbum( $album, 0, 4000 );
                 
                 if ( !empty( $images ) ) {
-                    if ( $theuser->EgoAlbumid == $album->Id ) {
+                    if ( $theuser->Egoalbumid == $album->Id ) {
                         $apiarray[ 'name' ] = 'Εγώ';
                     }
                     else {

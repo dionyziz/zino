@@ -44,7 +44,7 @@
                         if ( !$album->Numphotos ) {
                             continue;
                         }
-                        if ( $album->Id == $user->EgoAlbumid ) {
+                        if ( $album->Id == $user->Egoalbumid ) {
                             $title = 'Φωτογραφίες μου';
                         }
                         else {

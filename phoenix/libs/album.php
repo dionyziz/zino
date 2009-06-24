@@ -267,7 +267,7 @@
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimageid' ] ) ) {
                 if ( $this->Ownertype == TYPE_USERPROFILE ) {
-                    if ( $this->Owner->EgoAlbumid == $this->Id ) {
+                    if ( $this->Owner->Egoalbumid == $this->Id ) {
                         $this->Owner->Avatarid = $this->Mainimageid;
                         $this->Owner->Save();
                     }
