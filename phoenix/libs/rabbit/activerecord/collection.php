@@ -23,7 +23,8 @@
                 $keys[] = $item->$foreignKey;
             }
 
-            $objects = $finderClass->$finderMethod( $keys ); 
+            $finder = New $finderClass;
+            $objects = $finder->$finderMethod( $keys ); 
             foreach ( $objects as $object ) { 
                 $objectsByKey[ $object->Id ] = $object;
             }
