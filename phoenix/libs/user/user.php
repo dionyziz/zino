@@ -370,10 +370,9 @@
             $libs->Load( 'album' );
             
             $this->Count->Save();
-            
-            die( 'Saved counts' );
-            
             $this->EgoAlbum->Save();
+            
+            die( 'Saved egoalbum' );
             
             $this->Egoalbumid = $this->EgoAlbum->Id;
         }
