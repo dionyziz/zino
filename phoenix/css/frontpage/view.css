@@ -20,6 +20,7 @@
     text-align: center;
     width: 700px;
     height: 170px;
+    top: -8px;
 }
 #frontpage div.ybubble div.body a.delete {
     width: 16px;
