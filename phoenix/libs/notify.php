@@ -117,6 +117,7 @@
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
+                $water->Trace( 'found ' . count( $objects->ToArray() ) . ' number of objects' );
                 foreach ( $objects as $object ) {
                     if ( !isset( $objectsById[ $typeid ] ) ) {
                         $water->Trace( 'Setting ' . $typeid );
