@@ -8,10 +8,12 @@
     class PollFinder extends Finder {
         protected $mModel = 'Poll';
 
-        public function FindByUser( $user, $offset = 0, $limit = 25 ) {
+        public function FindByUser( $user, $offset = 0, $limit = 25, $deleted = false ) {
             $poll = New Poll();
             $poll->Userid = $user->Id;
-            $poll->Delid = 0;
+            if ( !$deleted ) {
+                $poll->Delid = 0;
+            }
 
             return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
         }
@@ -154,7 +156,7 @@
                 $offset = 0;
                 $exists = false;
                 do {
-                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100, true );
                     foreach ( $someOfTheRest as $p ) {
                         if ( strtolower( $p->Url ) == strtolower( $url ) ) {
                             $exists = true;

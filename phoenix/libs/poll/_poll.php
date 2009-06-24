@@ -1,10 +1,4 @@
 <?php
-    /*
-      masked by: Chorvus
-      reason: same url - underscore bug
-      on 6-24-2009
-    */
-    
     global $libs;
 
     $libs->Load( 'poll/option' );
