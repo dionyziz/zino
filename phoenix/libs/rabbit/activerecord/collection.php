@@ -14,7 +14,7 @@
                 $finderClass = 'Finder' . $className;
             }
             if ( $finderMethod === false ) {
-                $finderMethod = 'FindById';
+                $finderMethod = 'FindByIds';
             }
 
             // be ready for MAGIC!
