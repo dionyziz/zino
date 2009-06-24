@@ -16,10 +16,12 @@
 
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByUser( $user, $offset = 0, $limit = 25 ) {
+        public function FindByUser( $user, $offset = 0, $limit = 25, $deleted = false ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
-            $prototype->Delid = 0;
+            if ( !$deleted ) {
+                $prototype->Delid = 0;
+            }
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
@@ -177,7 +179,7 @@
                 $offset = 0;
                 $exists = false;
                 do {
-                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100 );
+                    $someOfTheRest = $finder->FindByUser( $this->User, $offset, 100, true );
                     foreach ( $someOfTheRest as $j ) {
                         if ( strtolower( $j->Url ) == strtolower( $url ) ) {
                             $exists = true;
