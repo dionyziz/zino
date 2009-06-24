@@ -11,7 +11,7 @@
                 $foreignKey = ucfirst( $className . 'id' );
             }
             if ( $finderClass === false ) {
-                $finderClass = 'Finder' . $className;
+                $finderClass = $className . 'Finder';
             }
             if ( $finderMethod === false ) {
                 $finderMethod = 'FindByIds';
