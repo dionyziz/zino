@@ -132,9 +132,11 @@
                 $ids = array( $ids );
             }
 
+            /*
             foreach ( $ids as $id ) {
                 w_assert( is_int( $id ), 'Each item of the array passed to FindByIds() must be an integer' );
             }
+            */
 
             if ( !count( $ids ) ) {
                 return array();
