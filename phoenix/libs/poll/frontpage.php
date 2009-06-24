@@ -22,7 +22,7 @@
             
             $pollfinder = New PollFinder();
             $polls = $pollfinder->FindByIds( $pollids );
-            w_assert( is_array( $polls ) );
+            w_assert( $polls instanceof Collection );
             
             $userbyid = array();
             $pollbyid = array();
