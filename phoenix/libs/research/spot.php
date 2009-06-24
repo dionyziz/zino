@@ -80,6 +80,7 @@
                 if ( empty( $lines[ $i ] ) ) {
                     unset( $lines[ $i ] );
                 }
+                $lines[ $i ] = (int)$lines[ $i ];
             }
 
             $water->ProfileEnd();
