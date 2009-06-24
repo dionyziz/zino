@@ -366,10 +366,10 @@
         protected function OnBeforeCreate() {
             global $libs;
             
-            die( 'Start of OnBeforeCreate' );
-            
             $libs->Load( 'user/count' );
             $libs->Load( 'album' );
+            
+            die( 'OnBeforeCreate libraries loaded' );
             
             $this->Count->Save();
             $this->EgoAlbum->Save();
