@@ -2,7 +2,7 @@
     function UnitUserSettingsUpload( tInteger $imageid ) {
         global $libs;
         
-        $libs->Load( 'image/image' );
+        $libs->Load( 'album' );
         
         $image = New Image( $imageid->Get() );
         
