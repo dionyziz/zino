@@ -381,7 +381,8 @@
             $this->EgoAlbum->Ownerid = $this->Id;
             $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
-
+            $this->Egoalbumid = $this->EgoAlbum->Id;
+            
             $this->OnUpdate();
             PMFolder_PrepareUser( $this );
 
