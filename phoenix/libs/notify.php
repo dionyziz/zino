@@ -124,11 +124,14 @@
                 }
             }
 
+            global $water;
             for ( $i = 0; $i < count( $ret ); ++$i ) {
                 $typeid = $ret[ $i ]->Typeid;
                 if ( !isset( $objectsById[ $typeid ] ) ) {
+                    $water->Trace( 'not set ' . $typeid );
                     continue;
                 }
+                $water->Trace( 'set ' . $typeid . ' ' . $itemid );
                 $itemid = $ret[ i ]->Itemid;
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
             }
