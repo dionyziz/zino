@@ -366,14 +366,14 @@
         protected function OnBeforeCreate() {
             global $libs;
             
+            die( 'Start of OnBeforeCreate' );
+            
             $libs->Load( 'user/count' );
             $libs->Load( 'album' );
             
             $this->Count->Save();
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
-            
-            die( 'End of OnBeforeCreate' );
         }
         protected function OnCreate() {
             global $libs;
