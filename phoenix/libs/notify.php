@@ -87,6 +87,7 @@
             $query->BindTable( 'notify' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
+            /* abresas: +6?! */
             $query->Bind( 'limit', $limit + 6 );
         
             $res = $query->Execute();
@@ -101,6 +102,35 @@
                 ++$i;
             }
 
+            $needed = array();
+            foreach ( $ret as $notif ) {
+                $needed[ $notif->Typeid ][] = $notif->Itemid;
+            }
+    
+            $objectsById = array();
+            foreach ( $needed as $typeid => $itemids ) {
+                if ( count( $itemids ) < 2 ) {
+                    continue;
+                }
+                $model = Event_ModelByType( $this->Typeid );
+                $finderClass = $model . "Finder";
+                $finder = New $finderClass;
+                $objects = $finder->FindByIds( $itemids );
+                foreach ( $objects as $object ) {
+                    $objectsById[ $typeid ][ $object->Id ] = $object;
+                }
+            }
+
+            for ( $i = 0; $i < count( $ret ); ++$i ) {
+                $n = $ret[ $i ];
+                if ( !isset( $objectsById[ $n->Typeid ] ) ) {
+                    continue;
+                }
+                $n->CopyRelationFrom( 'Item', $objectsById[ $n->Typeid ][ $n->Itemid ] );
+                $ret[ $i ] = $n;
+            }
+
+            /* abresas: $i here doesn't seem like totalcount */
             return New Collection( $ret, $i );
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
