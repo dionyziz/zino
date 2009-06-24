@@ -203,7 +203,7 @@
             $this->mLastSQLQueryStart = false;
         }
         public function HandleError( $errno, $errstr ) {
-            $this->ProcessError( $errno, $errstr, debug_backtrace() );
+            $this->ProcessError( $errno, $errstr, array() /* debug_backtrace() */ );
         }
         public function ProcessError( $errno, $errstr, $backtrace ) {
             switch ( $errno ) {
@@ -240,7 +240,7 @@
             $this->AppendAlert( $type, $errstr, microtime( true ) * 1000 - $this->mStartTS, $backtrace );
         }
         public function HandleException( Exception $e ) {
-            w_assert( false, $e->getMessage(), $e->getTrace() );
+            w_assert( false, $e->getMessage(), false );
             // $this->AppendAlert( WATER_ALERTTYPE_ERROR, $e->getMessage(), microtime( true ) * 1000 - $this->mStartTS, $e->getTrace() );
         }
         public function __destruct() {
