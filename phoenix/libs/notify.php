@@ -124,15 +124,13 @@
                 }
             }
 
-            echo '.';
-            var_dump( $objectsById );
-            die( '.' );
             for ( $i = 0; $i < count( $ret ); ++$i ) {
                 $typeid = $ret[ $i ]->Typeid;
                 if ( !isset( $objectsById[ $typeid ] ) ) {
                     continue;
                 }
                 $itemid = $ret[ i ]->Itemid;
+                die( 'needing ' . $typeid . ' ' . $itemid );
                 w_assert( isset( $objectsById[ $typeid ][ $itemid ] ) );
                 w_assert( is_object( $objectsById[ $typeid ][ $itemid ] ) );
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
