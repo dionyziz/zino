@@ -3,7 +3,10 @@
     class ElementUserSettingsPersonalDob extends Element {
         public function Render() {
             global $user;
-
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
+            
             ?><select class="small">
                 <option value="-1"<?php
                 if ( !$user->Profile->Age ) {
