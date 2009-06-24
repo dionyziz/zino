@@ -117,20 +117,19 @@
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
                 foreach ( $objects as $object ) {
+                    if ( !isset( $objectsById[ $typeid ] ) ) {
+                        $objectsById[ $typeid ] = array();
+                    }
                     $objectsById[ $typeid ][ $object->Id ] = $object;
                 }
             }
 
-            global $water;
             for ( $i = 0; $i < count( $ret ); ++$i ) {
                 $typeid = $ret[ $i ]->Typeid;
                 if ( !isset( $objectsById[ $typeid ] ) ) {
-                    $water->Trace( 'not set ' . $typeid );
                     continue;
                 }
                 $itemid = $ret[ i ]->Itemid;
-                $water->Trace( 'set ' . $typeid . ' ' . $itemid );
-                $water->Trace( $typeid . ' ' . $itemid . ' ' . var_dump( $objectsById[ $typeid ][ $itemid ] ) );
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
             }
 
