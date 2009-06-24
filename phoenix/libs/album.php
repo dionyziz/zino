@@ -127,6 +127,10 @@
             return $this->Delid > 0;
         }
         public function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'url' );
+            
             if ( $this->Ownertype == TYPE_USERPROFILE ) {
                 $owner = New User( $this->Ownerid );
             }

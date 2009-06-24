@@ -175,6 +175,10 @@
             return WYSIWYG_PresentAndSubstr( $this->Text, $length );
         }
         public function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'url' );
+            
             $url = URL_Format( $this->Title );
             $length = strlen( $url );
             $finder = New JournalFinder();

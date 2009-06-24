@@ -152,6 +152,10 @@
             return $option;
         }
         public function OnBeforeCreate() {
+            global $libs;
+            
+            $libs->Load( 'url' );
+            
             $url = URL_Format( $this->Question );
             $length = strlen( $url );
             $finder = New PollFinder();
