@@ -372,6 +372,8 @@
             $this->Count->Save();
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
+            
+            die( 'End of OnBeforeCreate' );
         }
         protected function OnCreate() {
             global $libs;
