@@ -46,7 +46,8 @@
                 $page->SetTitle( $title );
             }
             else {
-                die( '.'.$image->Album->Ownertype );
+                var_dump( $image->Album->Ownertype );
+                die( 'break' );
                 switch ( $image->Album->Ownertype ) {
                     case TYPE_USERPROFILE:
                         if ( $image->Album->Owner->Egoalbumid == $image->Albumid ) {
