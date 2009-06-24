@@ -68,6 +68,8 @@
                         break;
                 }
             }
+            var_dump( $title );
+            die( 'Break ' );
             if ( $pageno <= 0 ) {
                 $pageno = 1;
             }
