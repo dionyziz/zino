@@ -228,7 +228,7 @@
 
             $this->OldProfile->Save();
             
-            if ( $updatedAttributes[ 'Email' ] ) {
+            if ( isset( $updatedAttributes[ 'Email' ] ) ) {
                 $this->ChangedEmail( $previousValues[ 'Email' ], $user->Name );
             }
         }
