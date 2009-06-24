@@ -112,7 +112,7 @@
                 if ( count( $itemids ) < 2 ) {
                     continue;
                 }
-                $model = Event_ModelByType( $this->Typeid );
+                $model = Event_ModelByType( $typeid );
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
