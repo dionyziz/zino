@@ -65,12 +65,15 @@
             return New Collection( $ret, $i );
         }
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
+            global $water;
             /*
             $prototype = New Notification();
             $prototype->Touserid = $user->Id;
             
             return $this->FindByPrototype( $prototype, $offset, $limit + 6 );
             */
+
+            $water->Trace( 'Called NotificationFinder::FindByUser' );
             
             $query = $this->mDb->Prepare( 
                 "SELECT
@@ -112,6 +115,7 @@
                 if ( count( $itemids ) < 2 ) {
                     continue;
                 }
+                $water->Trace( 'Preloading typeid ' . $typeid );
                 $model = Event_ModelByType( $typeid );
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
@@ -126,6 +130,7 @@
                 if ( !isset( $objectsById[ $n->Typeid ] ) ) {
                     continue;
                 }
+                $water->Trace( 'Copying relation ' . $n->Typeid . ' ' . $n->Itemid );
                 $n->CopyRelationFrom( 'Item', $objectsById[ $n->Typeid ][ $n->Itemid ] );
                 $ret[ $i ] = $n;
             }
