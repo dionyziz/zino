@@ -124,6 +124,8 @@
                 }
             }
 
+            var_dump( $objectsById );
+            die();
             for ( $i = 0; $i < count( $ret ); ++$i ) {
                 $typeid = $ret[ $i ]->Typeid;
                 if ( !isset( $objectsById[ $typeid ] ) ) {
