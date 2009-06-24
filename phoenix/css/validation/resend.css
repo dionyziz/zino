@@ -16,3 +16,12 @@ div.success h2 {
 	width: 300px;
 	height: 40px;
 }
+
+div.success p {
+	position: absolute;
+	right: 100px;
+	top: 100px;
+	width: 380px;
+	height: 200px;
+	text-align: justify;
+}
