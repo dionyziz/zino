@@ -3,7 +3,8 @@
     class ElementUserSettingsPersonalReligion extends Element {
         public function Render( $selected , $gender ) {
             ?><select><?php
-                $religions = array( '-' , 'christian' , 'muslim' , 'atheist' , 'agnostic' , 'nothing' );
+                $religions = array( '-' , 'christian' , 'muslim' , 'atheist' , 'agnostic' , 'nothing', 'pastafarian',
+                                    'pagan', 'budhist', 'greekpolytheism', 'hindu' );
                 foreach ( $religions as $religion ) {
                     ?><option value="<?php
                     echo $religion;
