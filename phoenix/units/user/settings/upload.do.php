@@ -1,6 +1,9 @@
 <?php
-    
     function UnitUserSettingsUpload( tInteger $imageid ) {
+        global $libs;
+        
+        $libs->Load( 'image/image' );
+        
         $image = New Image( $imageid->Get() );
         
         ?>var inner = <?php
