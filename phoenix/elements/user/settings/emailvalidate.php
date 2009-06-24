@@ -5,7 +5,8 @@
             global $user;
             
             $libs->Load( 'user/profile' );
-            
+            $libs->Load( 'rabbit/helpers/http' );
+
             $userid = $userid->Get();
             $hash = $hash->Get();
             
@@ -15,12 +16,18 @@
                 return;
             }
             
-            $myuser = New User( $userid );
+            $myuser = New $user( $userid );
             $myuser->UpdateLastLogin();
             $myuser->Save();
             $_SESSION[ 's_userid' ] = $myuser->Id;
             $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
+            if ( isset( $_SESSION[ 'destuser_id' ] ) ) { // TODO: maybe change this to a URL?
+                $destuser = new User( $_SESSION[ 'destuser_id' ] );
+                ob_start();
+                Element( 'user/url', $destuser->Id, $destuser->Subdomain );
+                return Redirect( ob_get_clean() );
+            }
             return Redirect( '?p=joined' );
         }
     }
