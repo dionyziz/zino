@@ -55,10 +55,24 @@
 		}
 		$message = '';
 		if ( $friends ){
-			$message .= "<div>Πρόσθεσες $friends φίλους.</div>";
+			$message .= "<div>Πρόσθεσες $friends φίλ";
+            if ( $friends > 1 ) {
+                $message .= 'ους';
+            }
+            else {
+                $message .= 'ο';
+            }
+            $message .= ".</div>";
 		}
 		if ( $invited ){
-			$message .= "<div>Έστειλες $invited προσκλήσεις.</div>";
+			$message .= "<div>Έστειλες $invited ";
+            if ( $invited > 1 ) {
+                $message .= 'προσκλήσεις';
+            }
+            else {
+                $message .= 'πρόσκληση';
+            }
+            $message = ".</div>";
 		}
         ?>contacts.message( "<?php 
 			echo $message;

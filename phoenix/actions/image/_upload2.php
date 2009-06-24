@@ -6,8 +6,7 @@
         global $rabbit_settings;
         global $user;
         
-        //$water->DebugThis();
-        $libs->Load( 'image/image' );
+        $libs->Load( 'album' );
         $libs->Load( 'rabbit/helpers/file' );
 
         $typeid = $typeid->Get(); //look beneath for use of typeid
