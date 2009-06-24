@@ -131,7 +131,7 @@
             
             $libs->Load( 'url' );
             
-            if ( $this->Ownertype == TYPE_USERPROFILE ) {
+            if ( $this->Ownertype == TYPE_USERPROFILE && $this->Ownerid > 0 ) {
                 $owner = New User( $this->Ownerid );
             }
             $url = URL_Format( $this->Name );
@@ -160,8 +160,6 @@
                 } while ( count( $someOfTheRest ) && !$exists );
             }
             $this->Url = $url;
-            
-            die( 'Done egoalbum onbeforecreate' );
         }
         public function OnBeforeDelete() {
             global $water;
