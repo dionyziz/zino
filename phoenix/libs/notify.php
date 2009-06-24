@@ -129,11 +129,7 @@
                 if ( !isset( $objectsById[ $typeid ] ) ) {
                     continue;
                 }
-                $itemid = $ret[ i ]->Itemid;
-                if ( empty( $itemid ) ) {
-                    continue;
-                }
-                die( 'needing ' . $typeid . ' ' . $itemid );
+                $itemid = $ret[ $i ]->Itemid;
                 w_assert( isset( $objectsById[ $typeid ][ $itemid ] ) );
                 w_assert( is_object( $objectsById[ $typeid ][ $itemid ] ) );
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
