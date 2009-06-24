@@ -31,7 +31,7 @@
             return;
         }
 		$mailfinder = New UserProfileFinder();
-		$mailid = $mailfinder->FindAllUsersByEmails( array ( $email ) );
+		$mailid = $mailfinder->FindAllUsersByEmails( array( $email ) );
 		if ( !empty( $mailid ) ){
 			?>Join.emailexists = true;
 			document.body.style.cursor = 'default';
@@ -98,6 +98,7 @@
                     }
                 }
             }
+            die( 'Save the king!' );
             $newuser->Save();
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];

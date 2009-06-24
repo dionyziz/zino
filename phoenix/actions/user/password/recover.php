@@ -18,6 +18,9 @@
         $request->Used = true;
         $request->Save();
         
+        $user->Password = $password;
+        $user->Save();
+        
         return Redirect( '' );
     }
 ?>
