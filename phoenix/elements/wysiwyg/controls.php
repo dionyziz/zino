@@ -2,7 +2,10 @@
     class ElementWYSIWYGControls extends Element {
         public function Render() {
             global $user;
-
+            global $libs;
+            
+            $libs->Load( 'album' );
+            
             ?><div class="wysiwyg-control" id="wysiwyg-controls">
                 <form class="wysiwyg-control-video">
                     <br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:
@@ -40,6 +43,7 @@
                 </form>
                 <form class="wysiwyg-control-image-album">
                     <div class="albumlist"><?php
+                    // TODO: optimize: load these using AJAX
                     foreach ( $user->Albums as $album ) {
                         if ( !$album->Numphotos ) {
                             continue;
