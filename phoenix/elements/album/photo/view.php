@@ -28,6 +28,10 @@
             if( !$image->Exists() ) {
                 return Element( '404', 'Η φωτογραφία δεν υπάρχει' );
             }
+            if ( !$image->Album->Exists() ) {
+                return Element( '404', 'Το album δεν υπάρχει' );
+            }
+            
             switch ( $image->Album->Ownertype ) {
                 case TYPE_USERPROFILE:
                     Element( 'user/sections', 'album' , $theuser );
@@ -46,8 +50,6 @@
                 $page->SetTitle( $title );
             }
             else {
-                var_dump( $image->Album->Id );
-                die( 'break' );
                 switch ( $image->Album->Ownertype ) {
                     case TYPE_USERPROFILE:
                         if ( $image->Album->Owner->Egoalbumid == $image->Albumid ) {
