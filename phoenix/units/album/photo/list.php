@@ -1,5 +1,9 @@
 <?php
     function UnitAlbumPhotoList( tInteger $albumid, tCoalaPointer $callback, tCoalaPointer $location ) {
+        global $libs;
+        
+        $libs->Load( 'album' );
+        
         $albumid = $albumid->Get();
 
         $album = New Album( $albumid );
