@@ -9,28 +9,6 @@
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
         
-		public function FindByIds( $journalids ) {
-            w_assert( is_array( $journalids ), 'JournalFinder->FindByIds() expects an array' );
-            foreach ( $journalids as $journalid ) {
-                w_assert( is_int( $journalid ), 'Each item of the array passed to JournalFinder->FindByIds() must be an integer' );
-            }
-            if ( !count( $journalids ) ) {
-                return array();
-            }
-            
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    *
-                FROM
-                    :journals
-                WHERE
-                    `journal_id` IN :journalids'
-            );
-            $query->BindTable( 'journals' );
-            $query->Bind( 'journalids', $journalids );
-            
-            return $this->FindBySQLResource( $query->Execute() );
-        }
         public function FindById( $id ) {
             $prototype = New Journal();
             $prototype->Id = $id;
@@ -134,6 +112,16 @@
             krsort( $ret );
 
             return $ret;
+        }
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
+        }
+        public function FindUserRelated( $user ) {
+            $libs->Load( 'research/spot' );
+            $ids = Spot::GetJournals( $user );
+            $journals = $this->FindByIds( $ids );
+            $journals->PreloadRelation( 'User' );
+            return $journals;
         }
     }
     

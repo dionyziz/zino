@@ -289,6 +289,9 @@
             
             $this->mCurrentValues[ $name ] = $value;
         }
+        public function CopyRelationFrom( $relation, $object ) {
+            $this->mRelations[ $relation ]->CopyFrom( $object );
+        }
         protected function Relations() {
             // override me
         }

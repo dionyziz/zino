@@ -14,14 +14,15 @@
 
             $sticky = 9105;
             
+            $libs->Load( 'journal/journal' );
+
             if ( $user->Exists() ) {
-                $libs->Load( 'research/spot' );
-                $journals = Spot::GetJournals( $user, 4 );
+                $finder = New JournalFinder();
+                $journals = $finder->FindUserRelated( $user );
             }
 			else {
-                $libs->Load( 'journal/journal' );
                 $libs->Load( 'journal/frontpage' );
-                $finder = New JournalFinder();
+                $finder = New FrontpageJournalFinder();
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
             }
 

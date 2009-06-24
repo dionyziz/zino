@@ -2,7 +2,37 @@
     class Collection extends ArrayIterator {
         protected $mTotalCount;
 
-        // TODO: public function OptimizeRelation( $relationName )
+        public function PreloadRelation( $className, $relationAttribute = false, $foreignKey = false, $finderClass = false, $finderMethod = false ) {
+            /* Defaults */
+            if ( $relationAttribute === false ) {
+                $relationAttribute = $className;
+            }
+            if ( $foreignKey === false ) {
+                $foreignKey = ucfirst( $className . 'id' );
+            }
+            if ( $finderClass === false ) {
+                $finderClass = 'Finder' . $className;
+            }
+            if ( $finderMethod === false ) {
+                $finderMethod = 'FindById';
+            }
+
+            // be ready for MAGIC!
+
+            foreach ( $this as $item ) {
+                $keys[] = $item->$foreignKey;
+            }
+
+            $objects = $finderClass->$finderMethod( $keys ); 
+            foreach ( $objects as $object ) { 
+                $objectsByKey[ $object->Id ] = $object;
+            }
+
+            foreach ( $this as $i => $item ) {
+                $item->CopyRelationFrom( $relationAttribute, $objectsByKey[ $item->$foreignKey ] );
+                $this[ $i ] = $item; // thank god this works
+            }
+        }
         public function TotalCount() {
             return $this->mTotalCount;
         }

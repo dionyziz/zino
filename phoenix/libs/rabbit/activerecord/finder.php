@@ -127,6 +127,43 @@
         protected function FindAll( $offset = 0, $limit = 25, $order = false ) {
             return $this->FindByPrototype( New $this->mModel(), $offset, $limit, $order );
         }
+        protected function FindByIds( $ids ) {
+            if ( !is_array( $ids ) ) {
+                $ids = array( $ids );
+            }
+
+            foreach ( $ids as $id ) {
+                w_assert( is_int( $id ), 'Each item of the array passed to FindByIds() must be an integer' );
+            }
+
+            if ( !count( $ids ) ) {
+                return array();
+            }
+
+            $prototype = New $this->mModel();
+            $primaryFields = $prototype->GetPrimaryKeyFields();
+            w_assert( count( $primaryFields ) == 1 );
+            $id_field = $primaryFields[ 0 ];
+
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :' . $this->mDbTableAlias . '
+                WHERE
+                    `' . $primaryFields . '` IN :ids
+                LIMIT
+                    :limit;'
+            );
+
+            $totalcount = count( $ids );
+
+            $query->BindTable( $this->mDbTableAlias );
+            $query->Bind( 'ids', $ids );
+            $query->Bind( 'limit', $totalcount );
+
+            return $this->FindBySqlResource( $query->Execute(), $totalcount ); // returns collection
+        }
         final public function __construct() {
             global $rabbit_settings;
 
