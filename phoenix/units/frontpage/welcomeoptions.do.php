@@ -32,13 +32,13 @@
             }
             $user->Save();
             $user->Profile->Save();
-            ?>$( 'div.frontpage div.ybubble div.body div.saving' ).animate( { opacity : "0" } , 200 , function() {
-                $( 'div.frontpage div.ybubble div.body div.saving' ).addClass( 'invisible' ).css( "opacity" , "1" );
-                $( 'div.frontpage div.ybubble div.body div.saved' )
+            ?>$( 'div#frontpage div.ybubble div.body div.saving' ).animate( { opacity : "0" } , 200 , function() {
+                $( 'div#frontpage div.ybubble div.body div.saving' ).addClass( 'invisible' ).css( "opacity" , "1" );
+                $( 'div#frontpage div.ybubble div.body div.saved' )
                     .css( "opacity" , "0" )
                     .removeClass( "invisible" )
                     .animate( { opacity : "1" } , 2000 , function() {
-                        $( 'div.frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
+                        $( 'div#frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
                 } );
             } );<?php
             $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
@@ -52,7 +52,7 @@
                     ?> );
                     $( '#selectuni select' ).change( function() {
                         var school = $( '#selectuni select' )[ 0 ].value;
-                        $( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+                        $( 'div#frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
                         Coala.Warm( 'frontpage/welcomeoptions' , { school : school } );
                     });
                     if ( $( '#selectuni' ).hasClass( 'invisible' ) ) {
