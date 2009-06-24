@@ -1,7 +1,11 @@
 <?php
 	function ActionUserRevalidate( tInteger $userid ) {
 		global $user;
-		
+		global $libs;
+        
+        $libs->Load( 'user/profile' );
+        $libs->Load( 'rabbit/helpers/email' );
+        
 		$userid = $userid->Get();
 		$user = New User( $userid );
 		
