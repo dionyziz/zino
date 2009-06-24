@@ -22,7 +22,7 @@
             
             $journalfinder = New JournalFinder();
             $journals = $journalfinder->FindByIds( $journalids );
-            w_assert( is_array( $journals ) );
+            w_assert( $journals instanceof Collection );
             
             $userbyid = array();
             $journalbyid = array();
