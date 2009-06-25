@@ -106,6 +106,11 @@
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
+                switch ( $typeid ) {
+                    case EVENT_COMMENT_CREATED:
+                        $objects->PreloadRelation( 'User' );
+                        break;
+                }
                 if ( count( $objects ) < count( $itemids ) ) {
                     $water->Warning( 'Could not find all notification items' );
                 }
