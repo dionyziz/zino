@@ -317,7 +317,7 @@
             $items = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $items[] = $comment;
+                $items[ $comment->Id ] = $comment;
             }
     
             $collection = New CommentCollection( $items, count( $items ) );
