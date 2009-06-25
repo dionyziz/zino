@@ -22,7 +22,7 @@
                 if ( !isset( $objectsById[ $notif->Typeid ][ $notif->Itemid ] ) ) { // failed finding it from db
                     continue;
                 }
-                $this[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $notif->Typeid ][ $notif->Itmeid ] );
+                $this[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $notif->Typeid ][ $notif->Itemid ] );
             }
         }
         public function PreloadRelationsByType() {
