@@ -21,7 +21,9 @@
                 $favourites = $favfinder->FindByEntity( $image, 100 );
                 if ( !empty( $favourites ) ) {
                     foreach ( $favourites as $favourite ) {
-                        $apiarray[ 'favourites' ][] = $favourite->User->Subdomain;
+                        $apiarray[ 'favourites' ][] = Array(
+                            'subdomain' => $favourite->User->Subdomain,
+                            'name' => $favourite->User->Name );
                     }
                 }
                 $tagfinder = New ImageTagFinder();

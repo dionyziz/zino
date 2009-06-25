@@ -69,6 +69,13 @@
                                     Element( 'image/url', $comment->Itemid , $comment->Item->Userid , IMAGE_CROPPED_150x150 );
                                     $notifarray[ 'comment' ][ 'photo' ][ 'thumb150' ] = ob_get_clean();
                                     break;
+                                case TYPE_JOURNAL:
+                                    $notifarray[ 'comment' ][ 'type' ] = 'journal';
+                                case TYPE_POLL:
+                                    $notifarray[ 'comment' ][ 'type' ] = 'poll';
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'id' ] = $notif->Item->Item->Id;
+                                    $notifarray[ 'comment' ][ 'photo' ][ 'title' ] = $notif->Item->Item->Title;
+                                    break;
                             }
                             $notifarray[ 'comment' ][ 'answer' ] = !( $notif->Item->Parentid == 0 );
                         }
@@ -120,6 +127,9 @@
                         }
                         $apiarray[] = $notifarray;
                     }
+                } else
+                {
+                    $apiarray = false;
                 }
             } else
             {
