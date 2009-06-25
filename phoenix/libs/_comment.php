@@ -493,6 +493,9 @@
             }
             return $ret;
         }
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
+        }
     }
 
     class Comment extends Satori {

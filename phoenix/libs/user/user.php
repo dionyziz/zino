@@ -94,26 +94,7 @@
             return $this->FindByPrototype( $prototype );
         }
         public function FindByIds( $ids ) {
-            if ( !is_array( $ids ) ) {
-                $ids = array( $ids );
-            }
-
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    *
-                FROM
-                    :users
-                WHERE
-                    `user_id` IN :ids
-                LIMIT
-                    :limit;'
-            );
-
-            $query->BindTable( 'users' );
-            $query->Bind( 'ids', $ids );
-            $query->Bind( 'limit', count( $ids ) );
-
-            return $this->FindBySqlResource( $query->Execute() );
+            return parent::FindByIds( $ids );
         }
         public function FindByNames( $names ) {
             if ( !is_array( $names ) ) {

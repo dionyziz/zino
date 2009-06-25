@@ -29,6 +29,9 @@
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
+        }
     }
 
     class Favourite extends Satori {
