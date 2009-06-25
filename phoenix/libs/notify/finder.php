@@ -73,6 +73,7 @@
             $prototype->Touserid = $user->Id;
             $notifications = $this->FindByPrototype( $prototype, $offset, $limit + 6, array( 'Eventid', 'DESC' ), true );
             $notifications->PreloadRelation( 'FromUser', 'User', 'Fromuserid' );
+            $notifications->PreloadUserAvatars();
             $notifications->PreloadItems();
             $notifications->PreloadItemRelations();
             return $notifications;

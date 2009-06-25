@@ -1,6 +1,25 @@
 <?php
 
     class NotificationCollection extends Collection {
+        public function PreloadFromUserAvatars() {
+            $avatarids = array();
+            foreach ( $this as $notif ) {
+                $avatarids[] = $notif->FromUser->Avatarid;
+            }
+            $finder = New ImageFinder();
+            $avatars = $finder->FindByIds( $avatarids );
+            $avatarsById = array();
+            foreach ( $avatars as $avatar ) {
+                $avatarsById[ $avatar->Id ] = $avatar;
+            }
+            foreach ( $this as $i => $notif ) {
+                if ( !isset( $avatarsById[ $notif->FromUser->Avatarid ] ) ) {
+                    continue;
+                }
+                $notif->FromUser->CopyRelationFrom( 'Avatar', $avatarsById[ $notif->FromUser->Avatarid ] );
+                $this[ $i ] = $notif;
+            }
+        }
         public function PreloadItems() {
             $itemidsByType = array();
             foreach ( $this as $notif ) {
@@ -47,7 +66,7 @@
                     case EVENT_FRIENDRELATION_CREATED:
                         $relations = New FriendRelationCollection( $items );
                         $relations->PreloadRelation( 'User' );
-                        $relations->PreloadUserAvatars();
+                        // $relations->PreloadUserAvatars();
                         $items = $relations->ToArrayById();
                 }
                 foreach ( $items as $item ) {
