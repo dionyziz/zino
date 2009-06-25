@@ -48,6 +48,7 @@
                         $relations = New FriendRelationCollection( $items );
                         $relations->PreloadRelation( 'User' );
                         $relations->PreloadUserAvatars();
+                        $items = $relations->ToArrayById();
                 }
                 foreach ( $items as $item ) {
                     $itemsById[ $type ][ $item->Id ] = $item;

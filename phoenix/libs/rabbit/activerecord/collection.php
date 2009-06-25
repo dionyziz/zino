@@ -44,6 +44,13 @@
             }
             return $data;
         }
+        protected function ToArrayById() {
+            $data = array();
+            foreach ( $this as $item ) {
+                $data[ $item->Id ] = $item;
+            }
+            return $data;
+        }
         public function __construct( $data, $totalcount = false ) {
             w_assert( is_array( $data ) );
             if ( $totalcount === false ) {

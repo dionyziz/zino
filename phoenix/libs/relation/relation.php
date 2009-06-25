@@ -156,6 +156,9 @@
                 $this[ $i ] = $relation;
             }
         }
+        public function ToArrayById() {
+            return parent::ToArrayById();
+        }
     }
 
     class FriendRelation extends Satori {
