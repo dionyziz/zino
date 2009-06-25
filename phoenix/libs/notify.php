@@ -108,6 +108,9 @@
                 $objects = $finder->FindByIds( $itemids );
                 switch ( $typeid ) {
                     case EVENT_COMMENT_CREATED: // objects = comments
+                        global $libs;
+                        $libs->Load( 'Bulk' );
+
                         $objects->PreloadRelation( 'User' );
                         $objects->PreloadUserAvatars();
                         $objects->PreloadBulk();
