@@ -107,8 +107,11 @@
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
                 switch ( $typeid ) {
-                    case EVENT_COMMENT_CREATED:
+                    case EVENT_COMMENT_CREATED: // objects = comments
                         $objects->PreloadRelation( 'User' );
+                        $objects->PreloadUserAvatars();
+                        $objects->PreloadBulk();
+                        $objects->PreloadItems();
                         break;
                 }
                 foreach ( $objects as $object ) {
