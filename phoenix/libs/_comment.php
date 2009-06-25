@@ -128,7 +128,7 @@
         }
         public function PreloadItems() {
             $itemidsByType = array();
-            foreach ( $this as $comments ) {
+            foreach ( $this as $comment ) {
                 $itemidsByType[ $comment->Typeid ][] = $comment->Itemid;
             }
 
