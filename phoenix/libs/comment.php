@@ -97,7 +97,7 @@
         public function PreloadUserAvatars() {
             $avatarids = array();
             foreach ( $this as $comment ) {
-                $avatarids = $comment->User->Avatarid;
+                $avatarids[] = $comment->User->Avatarid;
             }
             $finder = New ImageFinder();
             $avatars = $finder->FindByIds( $avatarids );
@@ -106,6 +106,9 @@
                 $avatarsById[ $avatar->Id ] = $avatar;
             }
             foreach ( $this as $i => $comment ) {
+                if ( !isset( $avatarsById[ $comment->User->Avatarid ] ) ) {
+                    continue;
+                }
                 $comment->User->CopyRelationFrom( 'Avatar', $avatarsById[ $comment->User->Avatarid ] );
                 $this[ $i ] = $comment;
             }
@@ -123,21 +126,34 @@
         }
         public function PreloadItems() {
             $itemidsByType = array();
-            foreach ( $this as $comments ) {
+            foreach ( $this as $comment ) {
                 $itemidsByType[ $comment->Typeid ][] = $comment->Itemid;
             }
 
             $finder = New CommentFinder();
 
             $itemsByType = array();
+            global $water;
             foreach ( $itemidsByType as $type => $itemids ) {
+                $itemids = $itemidsByType[ $type ];
+                $water->Trace( 'Find items of type ' . $type );
                 $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
             }
 
             foreach ( $this as $i => $comment ) {
+                if ( !isset( $itemsByType[ $comment->Typeid][ $comment->Itemid ] ) ) {
+                    continue;
+                }
                 $comment->CopyRelationFrom( 'Item', $itemsByType[ $comment->Typeid ][ $comment->Itemid ] );
                 $this[ $i ] = $comment;
             }
+        }
+        public function ToArrayById() {
+            $data = array();
+            foreach ( $this as $comment ) {
+                $data[ $comment->Id ] = $comment;
+            }
+            return $data;
         }
     }
 
@@ -315,7 +331,7 @@
             $collection->PreloadBulk();
             $collection->PreloadItems();
 
-            $comments = $collection->ToArray();
+            $comments = $collection->ToArrayById();
             krsort( $comments );
 
             return $comments;
@@ -356,7 +372,7 @@
                 $query->BindTable( 'users', 'images' );
             }
             
-            $query->Bind( 'itemids', array_keys( $itemids ) );
+            $query->Bind( 'itemids', $itemids );
 
             $res = $query->Execute();
             $items = array();
