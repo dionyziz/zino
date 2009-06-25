@@ -108,6 +108,9 @@
                 $avatarsById[ $avatar->Id ] = $avatar;
             }
             foreach ( $this as $i => $comment ) {
+                if ( !isset( $avatarsById[ $comment->User->Avatarid ] ) ) {
+                    continue;
+                }
                 $comment->User->CopyRelationFrom( 'Avatar', $avatarsById[ $comment->User->Avatarid ] );
                 $this[ $i ] = $comment;
             }
