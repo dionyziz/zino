@@ -140,6 +140,9 @@
             }
 
             foreach ( $this as $i => $comment ) {
+                if ( !isset( $itemsByType[ $comment->Typeid][ $comment->Itemid ] ) ) {
+                    continue;
+                }
                 $comment->CopyRelationFrom( 'Item', $itemsByType[ $comment->Typeid ][ $comment->Itemid ] );
                 $this[ $i ] = $comment;
             }
