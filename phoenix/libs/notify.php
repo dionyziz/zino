@@ -65,13 +65,6 @@
             return New Collection( $ret, $i );
         }
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
-            /*
-            $prototype = New Notification();
-            $prototype->Touserid = $user->Id;
-            
-            return $this->FindByPrototype( $prototype, $offset, $limit + 6 );
-            */
-            
             $query = $this->mDb->Prepare( 
                 "SELECT
                     *
@@ -93,22 +86,17 @@
             $res = $query->Execute();
 
             $ret = array();
+            $needed = array();
             $i = 0;
             while ( $row = $res->FetchArray() ) {
                 if ( $i < $limit ) {
                     $notif = New Notification( $row );
                     $ret[] = $notif;
+                    $needed[ $notif->Typeid ][] = $notif->Itemid;
                 }
                 ++$i;
             }
 
-            $needed = array();
-            foreach ( $ret as $notif ) {
-                $needed[ $notif->Typeid ][] = $notif->Itemid;
-            }
-
-            /* Failed effort to optimize relations..........................
-    
             $objectsById = array();
             foreach ( $needed as $typeid => $itemids ) {
                 if ( count( $itemids ) < 2 ) {
@@ -118,6 +106,9 @@
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
                 $objects = $finder->FindByIds( $itemids );
+                if ( count( $objects ) < count( $itemids ) ) {
+                    $water->Warning( 'Could not find all notification items' );
+                }
                 foreach ( $objects as $object ) {
                     if ( !isset( $objectsById[ $typeid ] ) ) {
                         $objectsById[ $typeid ] = array();
@@ -132,15 +123,11 @@
                     continue;
                 }
                 $itemid = $ret[ $i ]->Itemid;
-                if ( empty( $itemid ) ) {
+                if ( !isset( $objectsById[ $typeid ][ $itemid ] ) ) {
                     continue;
                 }
-                w_assert( isset( $objectsById[ $typeid ][ $itemid ] ) );
-                w_assert( is_object( $objectsById[ $typeid ][ $itemid ] ) );
                 $ret[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $typeid ][ $itemid ] );
             }
-
-            */
 
             /* abresas: $i here doesn't look like totalcount */
             return New Collection( $ret, $i );
