@@ -4,7 +4,7 @@
         global $user;
         global $libs;
 
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
 
         $notifid = $notifid->Get();
         $limit = $limit->Get();

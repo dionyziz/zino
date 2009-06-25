@@ -2,7 +2,7 @@
     function UnitBackendNotificationCommentCreated( Comment $comment ) {
         global $libs;
         
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
         
         $notification = New Notification();
         $notification->Typeid = EVENT_COMMENT_CREATED;

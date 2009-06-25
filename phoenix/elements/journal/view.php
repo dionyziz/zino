@@ -154,7 +154,7 @@
                                 $pageno = $comments[ 1 ];
                                 $comments = $comments[ 2 ];
                                 
-                                $libs->Load( 'notify' );
+                                $libs->Load( 'notify/notify' );
                                 $finder = New NotificationFinder();
                                 $finder->DeleteByCommentAndUser( $speccomment, $user );
                             }       

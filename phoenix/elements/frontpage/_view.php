@@ -11,7 +11,7 @@
             global $libs;
             global $page;
             
-            $libs->Load( 'notify' );
+            $libs->Load( 'notify/notify' );
             $newuser = $newuser->Get();
             $validated = $validated->Get();
             if ( $user->Exists() ) {

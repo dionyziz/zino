@@ -7,7 +7,7 @@
         $notificationid = $notificationid->Get();
         $relationnotif = $relationnotif->Get();
 
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
         
         $notif = New Notification( $notificationid );
         if ( $notif->Exists() ) {

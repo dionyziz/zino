@@ -2,7 +2,7 @@
     function UnitBackendNotificationImageTagCreated( ImageTag $tag ) {
         global $libs;
         
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
 
         $notification = New Notification();
         $notification->Typeid = EVENT_IMAGETAG_CREATED;

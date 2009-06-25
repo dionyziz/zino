@@ -5,7 +5,7 @@
             global $rabbit_settings;
             
             $libs->Load( 'user/user' );
-            $libs->Load( 'notify' );
+            $libs->Load( 'notify/notify' );
             
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindByIdAndAuthtoken( $id->Get(), $authtoken->Get() );

@@ -7,7 +7,7 @@
             global $user;	        
 	        global $rabbit_settings;
             
-            $libs->Load( 'notify' );
+            $libs->Load( 'notify/notify' );
             $newuser = $newuser->Get(); // TODO
             $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user, 0, 5 );

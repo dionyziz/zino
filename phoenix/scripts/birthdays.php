@@ -26,7 +26,7 @@
     echo "Loading user library...\n";
     $libs->Load( 'user/user' );
     echo "Loading notify library...\n";
-    $libs->Load( 'notify' );
+    $libs->Load( 'notify/notify' );
 
     date_default_timezone_set( 'Europe/Athens' );
 

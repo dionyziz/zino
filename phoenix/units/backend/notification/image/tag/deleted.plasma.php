@@ -2,7 +2,7 @@
     function UnitBackendNotificationImageTagDeleted( ImageTag $tag ) {
         global $libs;
         
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
         
         $finder = New NotificationFinder();
         $notif = $finder->FindByImageTags( $tag );

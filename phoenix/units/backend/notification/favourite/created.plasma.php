@@ -2,7 +2,7 @@
     function UnitBackendNotificationFavouriteCreated( Favourite $favourite ) {
         global $libs;
 
-        $libs->Load( 'notify' );
+        $libs->Load( 'notify/notify' );
 
         $notification = New Notification();
         $notification->Typeid = EVENT_FAVOURITE_CREATED;

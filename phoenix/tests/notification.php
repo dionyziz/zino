@@ -26,7 +26,7 @@
         }
         public function SetUp() {
             global $libs;
-            $libs->Load( 'notify' );
+            $libs->Load( 'notify/notify' );
             $libs->Load( 'comment' );
             $libs->Load( 'relation/relation' );
 
