@@ -111,9 +111,6 @@
                         $objects->PreloadRelation( 'User' );
                         break;
                 }
-                if ( count( $objects ) < count( $itemids ) ) {
-                    $water->Warning( 'Could not find all notification items' );
-                }
                 foreach ( $objects as $object ) {
                     if ( !isset( $objectsById[ $typeid ] ) ) {
                         $objectsById[ $typeid ] = array();
