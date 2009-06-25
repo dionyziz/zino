@@ -74,7 +74,7 @@
             $notifications = $this->FindByPrototype( $prototype, $offset, $limit + 6, array( 'Eventid', 'DESC' ), true );
             $notifications->PreloadRelation( 'FromUser', 'User', 'Fromuserid' );
             $notifications->PreloadItems();
-            $notifications->PreloadRelationsByType();
+            $notifications->PreloadItemRelations();
             return $notifications;
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
@@ -189,4 +189,3 @@
     }
 
 ?>
-

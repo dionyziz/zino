@@ -25,7 +25,7 @@
                 $this[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $notif->Typeid ][ $notif->Itemid ] );
             }
         }
-        public function PreloadRelationsByType() {
+        public function PreloadItemRelations() {
             $itemsByType = array();
             foreach ( $this as $notif ) {
                 $itemsByType[ $notif->Typeid ][] = $notif->Item;
@@ -44,6 +44,10 @@
                         $comments->PreloadItems();
                         $items = $comments->ToArrayById();
                         break;
+                    case EVENT_FRIENDRELATION_CREATED:
+                        $relations = New FriendRelationCollection( $items );
+                        $relations->PreloadRelation( 'User' );
+                        $relations->PreloadUserAvatars();
                 }
                 foreach ( $items as $item ) {
                     $itemsById[ $type ][ $item->Id ] = $item;
