@@ -136,8 +136,10 @@
 
             $itemsByType = array();
             global $water;
-            foreach ( $itemidsByType as $type => $itemids ) {
-                $water->Trace( 'Find items of type ' . $type . ' ' . print_r( $itemids ) );
+            $types = array_keys( $itemidsByType );
+            foreach ( $types as $type ) {
+                $itemids = $itemidsByType[ $type ];
+                $water->Trace( 'Find items of type ' . $type );
                 $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
             }
 
