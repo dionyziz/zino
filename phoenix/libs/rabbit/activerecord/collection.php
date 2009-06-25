@@ -2,13 +2,13 @@
     class Collection extends ArrayIterator {
         protected $mTotalCount;
 
-        public function PreloadRelation( $className, $relationAttribute = false, $foreignKey = false, $finderClass = false, $finderMethod = false ) {
+        public function PreloadRelation( $relationAttribute, $className = false, $foreignKey = false, $finderClass = false, $finderMethod = false ) {
             /* Defaults */
-            if ( $relationAttribute === false ) {
-                $relationAttribute = $className;
+            if ( $className === false ) {
+                $className = $relationAttribute;
             }
             if ( $foreignKey === false ) {
-                $foreignKey = ucfirst( $className . 'id' );
+                $foreignKey = ucfirst( $relationAttribute . 'id' );
             }
             if ( $finderClass === false ) {
                 $finderClass = $className . 'Finder';

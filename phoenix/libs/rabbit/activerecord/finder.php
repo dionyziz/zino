@@ -1,6 +1,7 @@
 <?php
     abstract class Finder {
         protected $mModel = '';
+        protected $mCollectionClass = '';
         protected $mDbTableAlias;
         protected $mDbIndexes;
         protected $mAttribute2DbField;
@@ -108,7 +109,8 @@
         }
         protected function FindBySQLResource( DBResource $res, $totalcount = false ) {
             if ( $totalcount !== false ) {
-                return New Collection( $res->ToObjectsArray( $this->mModel ), $totalcount );
+                $class = $this->mCollectionClass;
+                return New $class( $res->ToObjectsArray( $this->mModel ), $totalcount ); // MAGIC!
             }
             return $res->ToObjectsArray( $this->mModel );
         }
@@ -178,6 +180,10 @@
             $this->mDbTableAlias = $dbtable->Alias;
             $this->mDbIndexes = $dbtable->Indexes;
             $this->mAttribute2DbField = array_flip( $prototype->GetDbFields() );
+
+            if ( empty( $this->mCollectionClass ) ) {
+                $this->mCollectionClass = 'Collection';
+            }
         }
     }
 ?>

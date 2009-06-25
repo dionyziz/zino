@@ -93,8 +93,57 @@
         }
     }
 
+    class CommentCollection extends Collection {
+        public function PreloadUserAvatars() {
+            $avatarids = array();
+            foreach ( $this as $comment ) {
+                $avatarids = $comment->User->Avatarid;
+            }
+            $finder = New ImageFinder();
+            $avatars = $finder->FindByIds( $avatarids );
+            $avatarsById = array();
+            foreach ( $avatars as $avatar ) {
+                $avatarsById[ $avatar->Id ] = $avatar;
+            }
+            foreach ( $this as $i => $comment ) {
+                $comment->User->CopyRelationFrom( 'Avatar', $avatarsById[ $comment->User->Avatarid ] );
+                $this[ $i ] = $comment;
+            }
+        }
+        public function PreloadBulk() {
+            $bulkids = array();
+            foreach ( $this as $comment ) {
+                $bulkids[] = $comment->Bulkid;
+            }
+            $bulks = Bulk::FindById( $bulkids );
+            foreach ( $this as $i => $comment ) {
+                $comment->Text = $bulks[ $comment->Bulkid ];
+                $this[ $i ] = $comment;
+            }
+        }
+        public function PreloadItems() {
+            $itemidsByType = array();
+            foreach ( $this as $comments ) {
+                $itemidsByType[ $comment->Typeid ][] = $comment->Itemid;
+            }
+
+            $finder = New CommentFinder();
+
+            $itemsByType = array();
+            foreach ( $itemidsByType as $type => $itemids ) {
+                $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
+            }
+
+            foreach ( $this as $i => $comment ) {
+                $comment->CopyRelationFrom( 'Item', $itemsByType[ $comment->Typeid ][ $comment->Itemid ] );
+                $this[ $i ] = $comment;
+            }
+        }
+    }
+
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
+        protected $mCollectionClass = 'CommentCollection';
 
         public function FindByPage( $entity, $page ) {
             global $user;
@@ -240,10 +289,6 @@
                     *
                 FROM
                     :comments 
-                    LEFT JOIN :users
-                        ON `comment_userid` = `user_id`
-                    LEFT JOIN :images
-                        ON `user_avatarid` = `image_id`
                 WHERE
                     `comment_delid` = '0'
                 ORDER BY
@@ -258,37 +303,25 @@
             $res = $query->Execute();
             $bytype = array();
             $bulkids = array();
+            $items = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $user = New User( $row );
-                $user->CopyAvatarFrom( New Image( $row ) );
-                $comment->CopyUserFrom( $user );
-                $bytype[ $comment->Typeid ][] = $comment;
-                $bulkids[] = $comment->Bulkid;
+                $items[] = $comment;
             }
+    
+            $collection = New CommentCollection( $items, count( $items ) );
+            $collection->PreloadRelation( 'User' );
+            $collection->PreloadUserAvatars();
+            $collection->PreloadBulk();
+            $collection->PreloadItems();
 
-            $bulks = Bulk::FindById( $bulkids );
+            $comments = $collection->ToArray();
+            krsort( $comments );
 
-            $ret = array();
-            foreach ( $bytype as $type => $comments ) {
-                $comments = $this->FindItemsByType( $type, $comments );
-                foreach ( $comments as $comment ) {
-                    $comment->Text = $bulks[ $comment->Bulkid ];
-                    $ret[ $comment->Id ] = $comment;
-                }
-            }
-
-            krsort( $ret );
-
-            return $ret;
+            return $comments;
         }
-        public function FindItemsByType( $type, $comments ) {
+        public function FindItemsByType( $type, $itemids ) {
             Comment_LoadLibraryByType( $type );
-
-            $byitemids = array();
-            foreach ( $comments as $comment ) {
-                $byitemids[ $comment->Itemid ][] = $comment;
-            }
 
             $class = Type_GetClass( $type );
             $obj = New $class();
@@ -323,24 +356,20 @@
                 $query->BindTable( 'users', 'images' );
             }
             
-            $query->Bind( 'itemids', array_keys( $byitemids ) );
+            $query->Bind( 'itemids', array_keys( $itemids ) );
 
             $res = $query->Execute();
-            $ret = array();
+            $items = array();
             while ( $row = $res->FetchArray() ) {
-                $comments = $byitemids[ $row[ $field ] ];
-                foreach ( $comments as $comment ) {
-                    // die( "type: " . $type . " class: " . $class );
-                    $obj = New $class( $row );
-                    if ( $type == TYPE_USERPROFILE ) {
-                        $obj->CopyAvatarFrom( New Image( $row ) );
-                    }
-                    $comment->CopyItemFrom( $obj );
-                    $ret[] = $comment;
+                // die( "type: " . $type . " class: " . $class );
+                $item = New $class( $row );
+                if ( $type == TYPE_USERPROFILE ) {
+                    $item->CopyAvatarFrom( New Image( $row ) );
                 }
+                $items[ $item->Id ] = $item;
             }
 
-            return $ret;
+            return $items;
         }
         public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
             $query = $this->mDb->Prepare( "
