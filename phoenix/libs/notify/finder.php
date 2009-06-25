@@ -4,6 +4,9 @@
         protected $mModel = 'Notification';
         protected $mCollectionClass = 'NotificationCollection';
 
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
+        }
         public function DeleteByEntity( $entity ) {
             $query = $this->mDb->Prepare( 
                 'DELETE 
