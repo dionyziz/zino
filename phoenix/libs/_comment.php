@@ -150,6 +150,13 @@
                 $this[ $i ] = $comment;
             }
         }
+        public function ToArrayById() {
+            $data = array();
+            foreach ( $this as $comment ) {
+                $data[ $comment->Id ] = $comment;
+            }
+            return $data;
+        }
     }
 
     class CommentFinder extends Finder {
@@ -317,7 +324,7 @@
             $items = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $items[ $comment->Id ] = $comment;
+                $items[] = $comment;
             }
     
             $collection = New CommentCollection( $items, count( $items ) );
@@ -326,7 +333,7 @@
             $collection->PreloadBulk();
             $collection->PreloadItems();
 
-            $comments = $collection->ToArray();
+            $comments = $collection->ToArrayById();
             krsort( $comments );
 
             return $comments;
