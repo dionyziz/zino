@@ -10,6 +10,7 @@
 
     class FriendRelationFinder extends Finder {
         protected $mModel = 'FriendRelation';
+        protected $mCollectionClass = 'FriendRelationCollection';
 
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
@@ -132,6 +133,28 @@
         }
         public function FindByIds( $ids ) {
             return parent::FindByIds( $ids );
+        }
+    }
+
+    class FriendRelationCollection extends Collection {
+        public function PreloadUserAvatars() {
+            $avatarids = array();
+            foreach ( $this as $relation ) {
+                $avatarids[] = $relation->User->Avatarid;
+            }
+            $finder = New ImageFinder();
+            $avatars = $finder->FindByIds( $avatarids );
+            $avatarsById = array();
+            foreach ( $avatars as $avatar ) {
+                $avatarsById[ $avatar->Id ] = $avatar;
+            }
+            foreach ( $this as $i => $relation ) {
+                if ( !isset( $avatarsById[ $relation->User->Avatarid ] ) ) {
+                    continue;
+                }
+                $relation->User->CopyRelationFrom( 'Avatar', $avatarsById[ $relation->User->Avatarid ] );
+                $this[ $i ] = $relation;
+            }
         }
     }
 
