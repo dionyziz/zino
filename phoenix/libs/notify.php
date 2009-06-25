@@ -109,7 +109,7 @@
                 switch ( $typeid ) {
                     case EVENT_COMMENT_CREATED: // objects = comments
                         global $libs;
-                        $libs->Load( 'Bulk' );
+                        $libs->Load( 'bulk' );
 
                         $objects->PreloadRelation( 'User' );
                         $objects->PreloadUserAvatars();
