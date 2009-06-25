@@ -91,7 +91,7 @@
                         }
                     }
                     else {
-                        Element( 'user/name', $pm->Senderid , $pm->Sender->Name , $pm->Sender->Subdomain, true );
+                        Element( 'user/name', $pm->Sender->id , $pm->Sender->Name , $pm->Sender->Subdomain, true );
                     }
                     ?></div><div onclick="pms.ExpandPm( this, <?php
                     if ( !$pm->IsRead() ) {
