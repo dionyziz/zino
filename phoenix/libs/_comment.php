@@ -99,7 +99,7 @@
         public function PreloadUserAvatars() {
             $avatarids = array();
             foreach ( $this as $comment ) {
-                $avatarids = $comment->User->Avatarid;
+                $avatarids[] = $comment->User->Avatarid;
             }
             $finder = New ImageFinder();
             $avatars = $finder->FindByIds( $avatarids );
