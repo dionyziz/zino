@@ -136,8 +136,7 @@
 
             $itemsByType = array();
             global $water;
-            $types = array_keys( $itemidsByType );
-            foreach ( $types as $type ) {
+            foreach ( $itemidsByType as $type => $itemids ) {
                 $itemids = $itemidsByType[ $type ];
                 $water->Trace( 'Find items of type ' . $type );
                 $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
@@ -368,7 +367,7 @@
                 $query->BindTable( 'users', 'images' );
             }
             
-            $query->Bind( 'itemids', array_keys( $itemids ) );
+            $query->Bind( 'itemids', $itemids );
 
             $res = $query->Execute();
             $items = array();
