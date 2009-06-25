@@ -99,9 +99,6 @@
 
             $objectsById = array();
             foreach ( $needed as $typeid => $itemids ) {
-                if ( count( $itemids ) < 2 ) {
-                    continue;
-                }
                 $model = Event_ModelByType( $typeid );
                 $finderClass = $model . "Finder";
                 $finder = New $finderClass;
@@ -138,7 +135,9 @@
             }
 
             /* abresas: $i here doesn't look like totalcount */
-            return New Collection( $ret, $i );
+            $notifications = New Collection( $ret, $i );
+            $notifications->PreloadRelation( 'FromUser', 'User', 'Fromuserid' );
+            return $notifications;
         }
         public function DeleteByCommentAndUser( Comment $comment, User $user ) {
             $query = $this->mDb->Prepare(
