@@ -135,7 +135,9 @@
             $finder = New CommentFinder();
 
             $itemsByType = array();
+            global $water;
             foreach ( $itemidsByType as $type => $itemids ) {
+                $water->Trace( 'Find items of type ' . $type . ' ' . print_r( $itemids ) );
                 $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
             }
 
