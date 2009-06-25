@@ -42,7 +42,7 @@
                         $comments->PreloadUserAvatars();
                         $comments->PreloadBulk();
                         $comments->PreloadItems();
-                        $items = $comments->ArrayById();
+                        $items = $comments->ToArrayById();
                         break;
                 }
                 foreach ( $items as $item ) {
