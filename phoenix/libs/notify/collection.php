@@ -68,13 +68,16 @@
                         $relations->PreloadRelation( 'User' );
                         // $relations->PreloadUserAvatars();
                         $items = $relations->ToArrayById();
+                        break;
                 }
                 foreach ( $items as $item ) {
                     $itemsById[ $type ][ $item->Id ] = $item;
                 }
             }
+            global $water;
             foreach ( $this as $i => $notif ) {
                 if ( !isset( $itemsById[ $notif->Typeid ][ $notif->Itemid ] ) ) {
+                    $water->Trace( 'Notify PreloadItemRelations miss ' . $notif->Typeid . ' ' . $notif->Itemid );
                     continue;
                 }
                 $this[ $i ]->CopyRelationFrom( 'Item', $itemsById[ $notif->Typeid ][ $notif->Itemid ] );
