@@ -137,11 +137,17 @@
             foreach ( $itemidsByType as $type => $itemids ) {
                 $itemids = $itemidsByType[ $type ];
                 $water->Trace( 'Find items of type ' . $type );
-                $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
+                $items = $finder->FindItemsByType( $type, $itemids );
+                foreach ( $items as $item ) {
+                    $itemsByType[ $type ][ $item->Id ] = $item;
+                }
             }
+
+            global $water;
 
             foreach ( $this as $i => $comment ) {
                 if ( !isset( $itemsByType[ $comment->Typeid][ $comment->Itemid ] ) ) {
+                    $water->Trace( 'Comment preload items miss ' . $comment->Typeid . ' ' . $comment->Itemid );
                     continue;
                 }
                 $comment->CopyRelationFrom( 'Item', $itemsByType[ $comment->Typeid ][ $comment->Itemid ] );
