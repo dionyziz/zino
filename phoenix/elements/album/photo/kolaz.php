@@ -1,5 +1,5 @@
 <?php    
-    class ElementKolaz extends Element {
+    class Elementalbumphotokolaz extends Element {
         public function Render( tText $personname ) {
 	        global $page;
 	        global $user;
