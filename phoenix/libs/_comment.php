@@ -100,6 +100,7 @@
             $avatarids = array();
             foreach ( $this as $comment ) {
                 w_assert( is_object( $comment->User ) );
+                w_assert( $comment->User->Exists() );
                 w_assert( is_int( $comment->User->Avatarid ), 'Avatarid is not an integer, ' . gettype( $comment->User->Avatarid ) . ' given.' );
                 $avatarids[] = $comment->User->Avatarid;
             }
