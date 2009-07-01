@@ -18,7 +18,7 @@
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
             
-            w_assert( is_array( $users ) );
+            w_assert( $users instanceof Collection );
             
             $journalfinder = New JournalFinder();
             $journals = $journalfinder->FindByIds( $journalids );
