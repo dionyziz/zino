@@ -30,6 +30,10 @@
             }
 
             foreach ( $this as $i => $item ) {
+                if ( !isset( $objectsByKey[ $item->$foreignKey ] ) ) {
+                    continue;
+                }
+                    
                 $item->CopyRelationFrom( $relationAttribute, $objectsByKey[ $item->$foreignKey ] );
                 $this[ $i ] = $item; // thank god this works
             }
