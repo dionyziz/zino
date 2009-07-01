@@ -25,7 +25,7 @@
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
             w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
             $result = socket_connect( $sock, self::$mServerIp, SPOT_PORT );
-            w_assert( $result !== false, "Socket connection failed. Reason: ($result) " . socket_strerror( socket_last_error( $sock ) ) );
+            w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             socket_write( $sock, $request );
 
             $response = socket_read( $sock, 1024 );
