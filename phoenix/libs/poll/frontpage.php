@@ -18,7 +18,7 @@
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
             
-            w_assert( is_array( $users ) );
+            w_assert( $users instanceof Collection );
             
             $pollfinder = New PollFinder();
             $polls = $pollfinder->FindByIds( $pollids );
