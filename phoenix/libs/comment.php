@@ -161,6 +161,9 @@
             }
             return $data;
         }
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
+        }
     }
 
     class CommentFinder extends Finder {
