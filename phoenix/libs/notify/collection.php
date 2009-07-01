@@ -40,7 +40,9 @@
             
             foreach ( $this as $i => $notif ) {
                 if ( !isset( $objectsById[ $notif->Typeid ][ $notif->Itemid ] ) ) { // failed finding it from db
-                    continue;
+                    // notification item not found, notification should be deleted
+                    $notif->Delete();
+                    unset( $this[ $i ] ); // remove from collection
                 }
                 $this[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $notif->Typeid ][ $notif->Itemid ] );
             }
