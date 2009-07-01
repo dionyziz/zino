@@ -125,7 +125,7 @@
             return $target;
         }
         public function CopyFrom( $obj ) {
-            w_assert( is_object( $obj ), 'CopyFrom on HasOne relation of ' . get_class( $this->mQueryModel ) . ' must be an object'  );
+            w_assert( is_object( $obj ), 'CopyFrom on HasOne relation of ' . get_class( $this->mQueryModel ) . ' must be an object, ' . gettype( $obj ) . ' given'  );
             w_assert( $obj instanceof $this->mTargetModelClass, 'CopyFrom on HasOne relation of ' . get_class( $this->mQueryModel ) . ' must be a `' . $this->mTargetModelClass . ' instance, but ' . get_class( $obj ) . ' given'  );
 
             $this->mRetrieved = $obj;
