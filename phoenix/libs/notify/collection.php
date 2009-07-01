@@ -33,6 +33,7 @@
                 $finder = New $finderClass(); // MAGIC!
                 $objects = $finder->FindByIds( $itemids ); 
                 foreach ( $objects as $object ) {
+                    w_assert( $object->Exists(), 'Object of type ' . get_class( $object ) . ' does not exist. Id: ' . $object->Id );
                     $objectsById[ $type ][ $object->Id ] = $object;
                 }
             }
