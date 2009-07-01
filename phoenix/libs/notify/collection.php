@@ -43,6 +43,7 @@
                     // notification item not found, notification should be deleted
                     $notif->Delete();
                     unset( $this[ $i ] ); // remove from collection
+                    continue;
                 }
                 $this[ $i ]->CopyRelationFrom( 'Item', $objectsById[ $notif->Typeid ][ $notif->Itemid ] );
             }
