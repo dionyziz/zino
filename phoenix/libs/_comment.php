@@ -99,6 +99,8 @@
         public function PreloadUserAvatars() {
             $avatarids = array();
             foreach ( $this as $comment ) {
+                w_assert( is_object( $comment->User ) );
+                w_assert( is_int( $comment->User->Avatarid ) );
                 $avatarids[] = $comment->User->Avatarid;
             }
             $finder = New ImageFinder();
