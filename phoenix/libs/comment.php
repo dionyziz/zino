@@ -161,9 +161,6 @@
             }
             return $data;
         }
-        public function FindByIds( $ids ) {
-            return parent::FindByIds( $ids );
-        }
     }
 
     class CommentFinder extends Finder {
@@ -499,6 +496,9 @@
                 $ret[ $comment[ "comment_id" ] ] = ( int )$comment[ "comment_parentid" ];
             }
             return $ret;
+        }
+        public function FindByIds( $ids ) {
+            return parent::FindByIds( $ids );
         }
     }
 
