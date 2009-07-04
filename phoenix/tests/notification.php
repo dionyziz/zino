@@ -1,7 +1,7 @@
 <?php
 
     class TestNotification extends Testcase {
-        protected $mAppliesTo = 'libs/notify';
+        protected $mAppliesTo = 'libs/notify/notify';
         private $mUser;
         private $mUser2;
         private $mJournal;
