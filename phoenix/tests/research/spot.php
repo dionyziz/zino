@@ -128,8 +128,12 @@
             $this->Assert( $are_polls, 'Spot::GetPolls should return array of polls' );
         }
         public function TearDown() {
-            $this->john->Delete();
-            $this->george->Delete();
+            if ( is_object( $this->john ) ) {
+                $this->john->Delete();
+            }
+            if ( is_object( $this->george ) ) {
+                $this->george->Delete();
+            }
         }
     }
 
