@@ -25,11 +25,11 @@
             $userfinder = New UserFinder();
             $users = $userfinder->FindByIds( $userids );
             
-            w_assert( is_array( $users ) );
+            w_assert( $users instanceof Collection );
             
             $imagefinder = New ImageFinder();
             $images = $imagefinder->FindByIds( $imageids );
-            w_assert( is_array( $images ) );
+            w_assert( $images instanceof Collection );
             
             $userbyid = array();
             $imagebyid = array();
