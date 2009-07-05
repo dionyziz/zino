@@ -44,26 +44,7 @@
             return $this->FindByPrototype( $image, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindByIds( $imageids ) {
-            w_assert( is_array( $imageids ), 'ImageFinder->FindByIds() expects an array' );
-            foreach ( $imageids as $imageid ) {
-                w_assert( is_int( $imageid ), 'Each item of the array passed to ImageFinder->FindByIds() must be an integer' );
-            }
-            if ( !count( $imageids ) ) {
-                return array();
-            }
-            
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    *
-                FROM
-                    :images
-                WHERE
-                    `image_id` IN :imageids'
-            );
-            $query->BindTable( 'images' );
-            $query->Bind( 'imageids', $imageids );
-            
-            return $this->FindBySQLResource( $query->Execute() );
+            return parent::FindByIds( $imageids );
         }
         public function FindByUser( User $theuser, $offset = 0, $limit = 15 ) {
             $prototype = New Image();
