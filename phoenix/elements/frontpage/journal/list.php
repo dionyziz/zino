@@ -8,6 +8,7 @@
 
             $sticky = 9105;
             
+            $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
 			
             $finder = New JournalFinder();
