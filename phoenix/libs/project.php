@@ -16,7 +16,7 @@
             else {
                 $this->mKeywords[] = $keyword;
             }
-            parent::AddMeta( 'keywords', $this->mKeywords );
+            parent::AddMeta( 'keywords', implode( ', ', $this->mKeywords ) );
         }
         public function __construct() {
             parent::__construct();
