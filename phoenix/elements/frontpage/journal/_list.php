@@ -24,7 +24,7 @@
                 }
             }
 			
-            if ( !$user->Exists || $journals === false ) { // anonymous or spot failed
+            if ( !$user->Exists() || $journals === false ) { // anonymous or spot failed
                 $libs->Load( 'journal/frontpage' );
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
             }
