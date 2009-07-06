@@ -162,7 +162,6 @@
                             else {
                                 ?>σε μια εικόνα του Album "<?php
                                 $libs->Load( 'album' );
-                                
                                 switch ( $image->Album->Ownertype ) {
                                     case TYPE_USERPROFILE:
                                         echo htmlspecialchars( $image->Album->Name );
@@ -233,6 +232,7 @@
                                     }
                                     break;
                                 case TYPE_JOURNAL:
+                                    $libs->Load( 'journal' );
                                     $journal = $notif->Item->Item;
                                     ?>Το ημερολόγιό σου <a href="<?php
                                     ob_start();
