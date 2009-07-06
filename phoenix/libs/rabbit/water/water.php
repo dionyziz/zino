@@ -217,7 +217,6 @@
                     ++$this->mNumErrors;
                     break;
                 case E_WARNING:
-                    die( 'ERR: ' . $errstr );
                 case E_CORE_WARNING:
                 case E_COMPILE_WARNING:
                 case E_USER_WARNING:
