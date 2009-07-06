@@ -4,7 +4,7 @@
         public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
             global $rabbit_settings, $xc_settings;
             
-            // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
+            // size can either be 150 or 100, which means avatars of size 150x150 or 50x50 respectively
             
             if ( $cssresizable ) {
                 $aviesize = $csswidth;
@@ -16,16 +16,18 @@
                 echo $aviesize;
             ?>">
                 <img src="<?php
+                if ( $size == 150 ) {
+                    $type = IMAGE_CROPPED_150x150;
+                    $width = $height = 150;
+                }
+                else if ( $size == 100 ) {
+                    $type = IMAGE_CROPPED_100x100;
+                    $width = $height = 100;
+                }
+                else {
+                    die( "avatar size must be either 150 or 100" );
+                }
                 if ( $avatarid > 0 ) {
-                    if ( $size == 150 ) {
-                        $type = IMAGE_CROPPED_150x150;
-                    }
-                    else if ( $size == 100 ) {
-                        $type = IMAGE_CROPPED_100x100;
-                    }
-                    else {
-                        die( "avatar size must be either 150 or 100" );
-                    }
                     echo $xc_settings[ 'imagesurl' ] . $avataruserid . '/';
                     if ( !$rabbit_settings[ 'production' ] ) {
                         echo '_';
