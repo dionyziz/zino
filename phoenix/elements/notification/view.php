@@ -7,7 +7,8 @@
             
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
-
+            
+            
             if ( !$notif->Exists() || !$notif->Item->Exists() ) {
                 return;
             }
@@ -31,6 +32,11 @@
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
+                    
+                    //TODO: Optimize
+                    $libs->Load( 'journal' );
+                    
+                    
                     Element( 'url' , $notif->Item );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>' , '<?php
