@@ -35,8 +35,6 @@
 
             $finder = New PollVoteFinder();
             $showresults = $finder->FindByPollAndUser( $poll, $user );
-            var_dump( $showresults );
-            die();
             $theuser = $poll->User;
 
             if ( $pageno <= 0 ) {
