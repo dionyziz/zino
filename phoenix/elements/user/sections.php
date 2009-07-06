@@ -43,7 +43,8 @@
                         ?>journals">Ημερολόγιο</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
-                    if ( $theuser->Count->Favourites > 0 || $theuser->Id == $user->Id ) {
+                    //TODO: run a script to count every user's favourites then remove the true condition
+                    if ( true || $theuser->Count->Favourites > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
                         ?><li<?php
                         if ( $section == 'favourites' ) {
