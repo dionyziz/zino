@@ -13,6 +13,8 @@
             return;
         }
         
+        $libs->Load( 'album' );
+        
         $photo->Album->Mainimageid = $photo->Id;
         $photo->Album->Save();
 
