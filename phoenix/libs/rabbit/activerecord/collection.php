@@ -18,7 +18,7 @@
             }
 
             // be ready for MAGIC!
-
+            $keys = array();
             foreach ( $this as $item ) {
                 $keys[] = $item->$foreignKey;
             }
