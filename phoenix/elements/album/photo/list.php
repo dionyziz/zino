@@ -5,6 +5,9 @@
             global $user;
             global $rabbit_settings; 
             global $water;
+            global $libs;
+            
+            $libs->Load( 'album' );
             
             $album = New Album( $id->Get() );
             $pageno = $pageno->Get();
