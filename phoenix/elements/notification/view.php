@@ -161,6 +161,7 @@
                             }
                             else {
                                 ?>σε μια εικόνα του Album "<?php
+                                $libs->Load( 'album' );
                                 switch ( $image->Album->Ownertype ) {
                                     case TYPE_USERPROFILE:
                                         echo htmlspecialchars( $image->Album->Name );
