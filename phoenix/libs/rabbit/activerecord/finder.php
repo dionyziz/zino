@@ -8,6 +8,8 @@
         protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false, $calcfoundrows = false ) {
+            global $water;
+
             w_assert( $prototype instanceof $this->mModel, 'Prototype specified in FindByPrototype call in finder `' . get_class( $this ) . '\' must be an instance of `' . $this->mModel . '\'' );
             w_assert( is_int( $offset ), 'Offset must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\' ' . gettype( $offset ) . ' given' );
             w_assert( is_int( $limit ), 'Limit must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\', ' . gettype( $limit ) . ' given' );
@@ -37,6 +39,8 @@
                 }
             }
             
+            $water->Trace( 'Finding by a prototype instance of ' . get_class( $prototype ) . '; ' . ( $unique? 'unique': 'not unique' ) );
+
             $sql = 'SELECT ';
             if ( !$unique && $calcfoundrows ) {
                 $sql .= 'SQL_CALC_FOUND_ROWS'; 
