@@ -648,7 +648,7 @@
         public function OnBeforeCreate() {
             global $libs;
             
-            $load->Load( 'bulk' );
+            $libs->Load( 'bulk' );
             if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }
