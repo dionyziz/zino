@@ -22,7 +22,7 @@
 
             $request = self::$mRequestHeader . $requestBody;
             
-            $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
+            $sock = @socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
             // w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
             if ( $sock === false ) {
                 return false;
