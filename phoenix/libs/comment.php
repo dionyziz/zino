@@ -599,6 +599,7 @@
         }
         public function OnCreate() {
             global $mc;
+            global $libs;
             
             Comment_LoadLibraryByType( $this->Typeid );
             
