@@ -16,6 +16,7 @@
             
             $libs->Load( 'journal/journal' );
             $finder = New JournalFinder();
+            $journals = false;
             if ( $user->Exists() ) {
                 $journals = $finder->FindUserRelated( $user );
                 // JUST FOR BETA
@@ -24,7 +25,7 @@
                 }
             }
 			
-            if ( !$user->Exists() || $journals === false ) { // anonymous or spot failed
+            if ( $journals === false ) { // anonymous or spot failed
                 $libs->Load( 'journal/frontpage' );
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
             }
