@@ -23,9 +23,17 @@
             $request = self::$mRequestHeader . $requestBody;
             
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
-            w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
+            // w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
+            if ( $sock === false ) {
+                return false;
+            }
+
             $result = @socket_connect( $sock, self::$mServerIp, SPOT_PORT );
-            w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
+            // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
+            if ( $result === false ) {
+                return false;
+            }
+
             socket_write( $sock, $request );
 
             $response = socket_read( $sock, 1024 );
@@ -76,6 +84,9 @@
             $userid = $user->Id;
             $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
+            if ( $lines === false ) {
+                return $lines;
+            }
 
             $water->ProfileEnd();
 
@@ -91,6 +102,9 @@
             $userid = $user->Id;
             $request = "GET IMAGES\n$userid\n";
             $lines = self::SendRequest( $request );
+            if ( $lines === false ) {
+                return $lines;
+            }
 
             $content = array();
             foreach ( $lines as $id ) {
@@ -111,6 +125,9 @@
             $userid = $user->Id;
             $request = "GET POLLS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
+            if ( $lines === false ) {
+                return $lines;
+            }
 
             $water->ProfileEnd();
 

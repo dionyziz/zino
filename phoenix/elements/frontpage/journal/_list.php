@@ -18,8 +18,13 @@
             $finder = New JournalFinder();
             if ( $user->Exists() ) {
                 $journals = $finder->FindUserRelated( $user );
+                // JUST FOR BETA
+                if ( $journals === false ) {
+                    ?><b>Spot connection failed (start daemon!).</b><?php
+                }
             }
-			else {
+			
+            if ( !$user->Exists || $journals === false ) { // anonymous or spot failed
                 $libs->Load( 'journal/frontpage' );
                 $journals = $finder->FindFrontpageLatest( 0, 4 );
             }
