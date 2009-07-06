@@ -15,10 +15,15 @@
 
             $libs->Load( 'poll/poll' );
             $finder = New PollFinder();
+            $polls = false;
             if ( $user->Exists() ) {
                 $polls = $finder->FindUserRelated( $user );
+                // ONLY FOR BETA
+                if ( $polls === false ) {
+                    ?><b>Spot connection failed (start daemon!).</b><?php
+                }
             }
-            else { // no spot for anonymous
+            if ( $polls === false ) { // anonymous or spot failed
                 $libs->Load( 'poll/frontpage' );
                 $polls = $finder->FindFrontpageLatest( 0 , 4 );
             }
