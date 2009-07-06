@@ -76,6 +76,10 @@
             return $this->Delid == USERPM_DELETED;
         }
         public function Read() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            
             $this->Delid = USERPM_READ;
             $this->Save();
 
