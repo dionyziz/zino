@@ -3,8 +3,6 @@
         public function Render( $poll, $showresults ) {
             global $user;
             
-            var_dump( $showresults );
-            die();
             ?><ul><?php
                 $finder = New PollOptionFinder();
                 $options = $finder->FindByPoll( $poll );
