@@ -6,6 +6,7 @@
         global $rabbit_settings;
         
         $libs->Load( 'image/image' );
+        $libs->Load( 'album' );
         
         $x100 = $x100->Get();
         $image = New Image( $imageid->Get() );
