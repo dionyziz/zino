@@ -123,6 +123,9 @@
             $libs->Load( 'research/spot' );
 
             $ids = Spot::GetJournals( $user );
+            if ( $ids === false ) {
+                return $ids;
+            }
             $journals = $this->FindByIds( $ids );
             $journals->PreloadRelation( 'User' );
             return $journals;

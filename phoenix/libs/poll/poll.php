@@ -101,6 +101,9 @@
             $libs->Load( 'research/spot' );
 
             $ids = Spot::GetPolls( $user );
+            if ( $ids === false ) {
+                return $ids;
+            }
             $polls = $this->FindByIds( $ids );
             $polls->PreloadRelation( 'User' );
             return $polls;
