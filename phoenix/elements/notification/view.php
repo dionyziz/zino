@@ -8,12 +8,7 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'image/tag' );
 
-            if ( !$notif->Exists() ) {
-                return;
-            }
-            if ( !$notif->Item->Exists() ) {
-                // robustness
-                $notif->Delete();
+            if ( !$notif->Exists() || !$notif->Item->Exists() ) {
                 return;
             }
 
@@ -28,7 +23,11 @@
                     echo $notif->Id;
                     ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
-                <div class="who"<?php
+                <a href="<?php
+                ob_start();
+                Element( 'url' , $notif->Item );
+                echo htmlspecialchars( ob_get_clean() );
+                ?>" style="display:block;color:black;"><div class="who"<?php
                 if ( $notif->Typeid == EVENT_COMMENT_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
@@ -43,8 +42,8 @@
                     ?>' );"<?php
                 }
                 ?>><?php
-                    Element( 'user/avatar' , $notif->FromUser->Avatarid , $notif->FromUserid , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
-                    Element( 'user/name' , $notif->FromUserid , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
+                    Element( 'user/avatar' , $notif->FromUser->Avatarid , $notif->Fromuserid , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
+                    Element( 'user/name' , $notif->Fromuserid , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
                             ?> σε πρόσθεσε στους φίλους:<?php
@@ -121,7 +120,7 @@
                                 ?>"><a href="" onclick="return Notification.AddFriend( '<?php
                                 echo $notif->Id;
                                 ?>' , '<?php
-                                echo $notif->FromUserid;
+                                echo $notif->Fromuserid;
                                 ?>' )"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ τ<?php
                                 if ( $notif->FromUser->Gender == 'f' ) {
                                     ?>η<?php
@@ -132,7 +131,7 @@
                                 ?>ν στους φίλους</a></div><?php
                             }
                             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
-                            Element( 'user/url' , $notif->FromUserid , $notif->FromUser->Subdomain );
+                            Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
                             ?>' , '0' , '<?php
                             echo $notif->Id;
                             ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
@@ -300,7 +299,7 @@
                             break;
                     }
                     ?><div class="eof"></div>
-                </div>
+                </div></a>
             </div><?php
         }
     }
