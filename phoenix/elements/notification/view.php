@@ -28,7 +28,7 @@
                 ob_start();
                 
                 //TODO: Optimize
-                $libs->Load( 'journal' );
+                $libs->Load( 'journal/journal' );
                 
                 Element( 'url' , $notif->Item );
                 echo htmlspecialchars( ob_get_clean() );
@@ -237,7 +237,7 @@
                                     }
                                     break;
                                 case TYPE_JOURNAL:
-                                    $libs->Load( 'journal' );
+                                    $libs->Load( 'journal/journal' );
                                     $journal = $notif->Item->Item;
                                     ?>Το ημερολόγιό σου <a href="<?php
                                     ob_start();
