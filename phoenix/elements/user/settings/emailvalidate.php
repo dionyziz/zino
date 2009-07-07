@@ -1,6 +1,6 @@
 <?php
     class ElementUserSettingsEmailValidate extends Element {
-        public function Render( tInteger $userid, tString $hash ) {
+        public function Render( tInteger $userid, tString $hash, tBoolean $revalidate ) {
             global $libs;
             global $user;
             
@@ -9,6 +9,7 @@
 
             $userid = $userid->Get();
             $hash = $hash->Get();
+            $revalidate = $revalidate->Get();
             
             if ( !ValidateEmail( $userid, $hash ) ) {
                 ?><p>Η επιβεβαίωση του e-mail σου δεν ήταν δυνατό να πραγματοποιηθεί.<br />
@@ -28,7 +29,12 @@
                 Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                 return Redirect( ob_get_clean() );
             }
-            return Redirect( '?p=joined' );
+            if ( $revalidate ) {
+                return Redirect( '' );
+            }
+            else {
+                return Redirect( '?p=joined' );
+            }
         }
     }
 ?>
