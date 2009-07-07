@@ -1,6 +1,7 @@
 <?php
     function ActionUserPasswordRecover( tInteger $requestid, tText $hash, tText $password ) {
         global $libs;
+        global $user;
         
         $requestid = $requestid->Get();
         $hash = $hash->Get();
