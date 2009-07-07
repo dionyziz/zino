@@ -5,6 +5,9 @@
             global $user;
             global $rabbit_settings;
             global $xc_settings;
+			global $libs;
+			
+			$libs->Load( 'question/answer' );
             
             Element( 'user/subdomainmatch' );
             
