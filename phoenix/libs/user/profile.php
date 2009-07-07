@@ -263,7 +263,7 @@
                     $this->Emailvalidationhash = GenerateRandomHash();
                     $this->Save();
                     
-                    $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash;                    
+                    $link =  $rabbit_settings[ 'webaddress' ] . '/?p=emailvalidate&userid=' . $this->Userid . '&hash=' . $this->Emailvalidationhash . '&revalidate=true';                    
                     ob_start();
                     $subject = Element( 'email/validate', $username, $link );
                     $message = ob_get_clean();
