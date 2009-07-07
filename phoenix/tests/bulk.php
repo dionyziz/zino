@@ -4,11 +4,6 @@
         protected $mAppliesTo = 'libs/bulk';
         private $mTestId = 0;
 
-        public function SetUp() {
-            global $libs;
-
-            $libs->Load( 'bulk' );
-        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Bulk' ), 'Class Bulk does not exist' );
         }
