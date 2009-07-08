@@ -5,7 +5,10 @@
             global $water;
             global $rabbit_settings;
             global $libs;
+
             $libs->Load( 'favourite' );
+            $libs->Load( 'image/image' );
+
             $image = New Image( $id );
             $theuser = $image->User;
             
