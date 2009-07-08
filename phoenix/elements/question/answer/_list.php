@@ -81,6 +81,7 @@
             ?><ul class="questions"><?php
             if ( $answers !== false && $theuser->Id != $user->Id ) {
                 ?>Ο χρήστης δεν έχει απαντήσει σε καμία ερώτηση.<?php
+                echo $answers;
             }
             else {
                 foreach ( $answers as $answer ) {
