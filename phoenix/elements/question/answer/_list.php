@@ -79,9 +79,8 @@
             }
 
             ?><ul class="questions"><?php
-            if ( $answers !== false && $theuser->Id != $user->Id ) {
+            if ( $answers !== false || $theuser->Id != $user->Id ) {
                 ?>Ο χρήστης δεν έχει απαντήσει σε καμία ερώτηση.<?php
-                var_dump( $answers !== false );
             }
             else {
                 foreach ( $answers as $answer ) {
