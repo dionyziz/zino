@@ -2,6 +2,7 @@
     class ElementSearchView extends Element {
         public function Render( $minage, $maxage, $placeid, $gender, $orientation, $name, $limit, $pageno ) {
             global $xc_settings;
+            global $rabbit_settings;
             global $libs;
 
             $libs->Load( 'user/search' );
@@ -38,7 +39,7 @@
                 foreach ( $args as $key => $arg ) {
                     $searchargs[] = $key . '=' . urlencode( $arg );
                 }
-                $link = $xc_settings[ 'webaddress' ] . "find?" . implode( '&', $searchargs ) . "&pageno=";
+                $link = $rabbit[ 'webaddress' ] . "find?" . implode( '&', $searchargs ) . "&pageno=";
                 $pages = $finder->FoundRows() / $limit;
                 Element( 'pagify', $pageno, $link, $pages );
             }

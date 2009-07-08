@@ -6,7 +6,7 @@
             global $xc_settings;
 			global $libs;
 
-            // $sticky = 157;
+            $sticky = 9433;
 
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
