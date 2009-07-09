@@ -8,7 +8,7 @@
     Developer: abresas
     */
 
-    class PageviewFinder extends Satori {
+    class PageviewFinder extends Finder {
         protected $mModel = 'Pageview';
 
         // returns number of bounces by page and
