@@ -56,7 +56,7 @@
             ob_start();
             $info = Element::MasterElement();
             $res = $info[ 0 ];
-            $elementpath = $info[ 1 ];
+            $masterelement = $info[ 1 ];
             $master = ob_get_clean();
             if ( $res === false ) { //If the page requested is not in the pages available
                 ?><div id="upstrip"><?php
@@ -134,6 +134,8 @@
                     $page->SetTitle( $rabbit_settings[ 'applicationname' ] );
                 }
             }
+
+            Element( 'statistics/log', $masterelement );
 
             // pass
             return $res;

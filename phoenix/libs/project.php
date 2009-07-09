@@ -185,7 +185,7 @@
             'spot'              => 'developer/research/getjournals',
             'about'             => 'about/info/view',
             'happeningadmin'    => 'adminpanel/happenings/view',
-            'statistics'        => 'developer/statistics'
+            'bounces'           => 'statistics/bounces'
         );
     }
     

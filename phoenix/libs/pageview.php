@@ -54,37 +54,16 @@
         }
     }
     
+    function Pageview_LogVisitorOrNot() {
+        $this->mLog = rand( 0, 99 ) == 0; // 1% possibility to keep logs
+    }
+
     class Pageview extends Satori {
         protected $mDbTableAlias = 'pageviews';
-        protected $mLog = false;
 
-        public function OnConstruct() {
-            global $user;
-
-            if ( $this->Exists() ) {
-                return;
-            }
-
-            // new pageview
-
-            if ( $user->Exists() ) { // do not log
-                return;
-            }
-            if ( !isset( $_SESSION[ 'log' ] ) ) { // not yet decided if we will keep logs or not
-                $this->mLog = rand( 0, 1 ) == 0; // 1% possibility to keep logs
-                $_SESSION[ 'log' ] = $this->mLog;
-            }
-            else {
-                $this->mLog = $_SESSION[ 'log' ];
-            }
-        }
-        public function OnBeforeCreate() {
-            return $this->mLog;
-        }
         public function LoadDefaults() {
             $this->Created = NowDate();
             $this->Userip = UserIp(); 
-            $this->Sessionid = session_id();
         }
     }
 
