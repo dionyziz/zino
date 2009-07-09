@@ -123,7 +123,9 @@
                                 }
                                 echo htmlspecialchars( $theuser->Name );
                                 ?> <input type="text" value="<?php
-                                echo htmlspecialchars( $tweet->Message );
+                                if ( $tweet !== false ) {
+                                    echo htmlspecialchars( $tweet->Message );
+                                }
                                 ?>" />
                                 <input type="submit" style="display:none" />
                             </div>
