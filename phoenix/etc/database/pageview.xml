@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
-<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
+<project name="Excalibur" version="Phoenix 7.0">
     <database name="zinophoenix" type="mysql">
         <table name="pageviews">
             <field name="pageview_id" type="int" autoincrement="yes" />
-            <field name="pageview_page" type="text" />
+            <field name="pageview_url" type="text" />
             <field name="pageview_created" type="datetime" />
             <field name="pageview_userip" type="int" />
             <field name="pageview_sessionid" type="int" />
