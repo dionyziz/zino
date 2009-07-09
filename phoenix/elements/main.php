@@ -54,7 +54,9 @@
             $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι η παρέα σου online - είσαι μέσα;' );
             
             ob_start();
-            $res = Element::MasterElement();
+            $info = Element::MasterElement();
+            $res = $info[ 0 ];
+            $elementpath = $info[ 1 ];
             $master = ob_get_clean();
             if ( $res === false ) { //If the page requested is not in the pages available
                 ?><div id="upstrip"><?php
