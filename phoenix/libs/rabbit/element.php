@@ -188,7 +188,7 @@
             
             if ( !isset( $pagesmap[ self::$mMasterElementAlias ] ) ) {
                 //throw New Exception( 'Requested master element alias is not defined in pagesmap: ' . self::$mMasterElementAlias );
-                return false;
+                return array( false, false );
             }
             
             $master = $pagesmap[ self::$mMasterElementAlias ];
@@ -208,10 +208,10 @@
             $water->ProfileEnd();
             
             if ( $ret === false ) { // boolean `false' should only be returned when the element does not exist
-                return 0;
+                return array( 0, $elementid );
             }
             
-            return $ret;
+            return array( $ret, $elementid );
         }
         static public function MainElement( $which, $req ) {
             global $water;

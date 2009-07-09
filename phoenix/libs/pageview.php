@@ -11,23 +11,22 @@
     class PageviewFinder extends Finder {
         protected $mModel = 'Pageview';
 
-        // returns number of bounces by page and
-        // sets $totalbounces parameter to total number of bounces
-        public function FindTopBounces( &$totalbounces, $maxurls = false ) {
+        // returns number of bounces by page and total number of bounces
+        public function FindTopBounces( $maxelements = false ) {
             $query = $this->mDb->Prepare( 
                 'SELECT
-                    pageview_url, COUNT(*) AS bounces
+                    pageview_element, COUNT(*) AS bounces
                 FROM
                     ( SELECT
-                        pageview_url, pageview_sessionid, COUNT(*) AS sessioncount
+                        pageview_element, pageview_sessionid, COUNT(*) AS sessioncount
                     FROM
                         :pageviews
                     GROUP BY
-                        pageview_url, pageview_sessionid ) AS sessioned
+                        pageview_element, pageview_sessionid ) AS sessioned
                 WHERE
                     sessioned.sessioncount = 1
                 GROUP BY
-                    pageview_url
+                    pageview_element
                 ORDER BY
                     bounces DESC;'
             );
@@ -35,23 +34,23 @@
             $query->BindTable( 'pageviews' );
             $res = $query->Execute();
             $totalbounces = 0;
-            $bouncesByUrl = array();
+            $bouncesByElement = array();
             while ( $row = $res->FetchArray() ) {
                 $bounces = $row[ 'bounces' ];
                 $totalbounces += $bounces;
-                if ( $maxurls !== false ) {
-                    if ( $maxurls == 0 ) {
-                        continue; // do not return any other url
+                if ( $maxelements !== false ) {
+                    if ( $maxelements == 0 ) {
+                        continue; // do not return any other element
                     }
-                    --$maxurls;
+                    --$maxelements;
                 }
                 else {
-                    // maxurls is false (default), return all urls
+                    // maxelements is false (default), return all elements
                 }
-                $bouncesByUrl[ $row[ 'pageview_url' ] ] = $bounces;
+                $bouncesByElement[ $row[ 'pageview_element' ] ] = $bounces;
             }
 
-            return $bouncesByUrl;
+            return array( $bouncesByElement, $totalbounces );
         }
     }
     
@@ -84,7 +83,6 @@
             return $this->mLog;
         }
         public function LoadDefaults() {
-            $this->Url = $_SERVER[ 'GET' ][ 'REQUEST_URI' ];
             $this->Created = NowDate();
             $this->Userip = UserIp(); 
             $this->Sessionid = session_id();

@@ -6,16 +6,18 @@
             $libs->Load( 'pageview' );
 
             $finder = New PageviewFinder();
-            $bouncesByUrl = $finder->FindTopBounces( $totalbounces, 20 );
+            $bounces = $finder->FindTopBounces( 20 );
+            $bouncesByElement = $bounces[ 0 ];
+            $totalbounces = $bounces[ 1 ];
             ?><table>
             <thead><tr>
-            <th>URL</th>
+            <th>Element</th>
             <th>Bounce Rate</th>
             <th>Bounces</th>
             </tr></thead><tbody><?php
-            foreach ( $bouncesByUrl as $url => $bounces ) {
+            foreach ( $bouncesByUrl as $element => $bounces ) {
                 ?><tr><td><?php
-                echo $url;
+                echo $element;
                 ?></td><td><?php
                 echo $bounces / $totalbounces * 100;
                 ?>%</td><td><?php
