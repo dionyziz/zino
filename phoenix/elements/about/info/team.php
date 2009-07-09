@@ -336,6 +336,9 @@
                                 ?><a href="http://<?php
                                 echo $member[ 'nickname' ];
                                 ?>.zino.gr/">Πήγαινε στο Zino <?php
+                                if ( !isset( $member[ 'gender' ] ) ) {
+                                    $member[ 'gender' ] = 'm';
+                                }
                                 switch ( $member[ 'gender' ] ) {
                                     case 'f':
                                         ?>της <?php
