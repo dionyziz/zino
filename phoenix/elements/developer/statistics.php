@@ -15,7 +15,7 @@
             <th>Bounce Rate</th>
             <th>Bounces</th>
             </tr></thead><tbody><?php
-            foreach ( $bouncesByUrl as $element => $bounces ) {
+            foreach ( $bouncesByElement as $element => $bounces ) {
                 ?><tr><td><?php
                 echo $element;
                 ?></td><td><?php
