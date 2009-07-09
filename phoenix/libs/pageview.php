@@ -84,7 +84,7 @@
             return $this->mLog;
         }
         public function LoadDefaults() {
-            $this->Url = $_SERVER[ 'SCRIPT_URL' ];
+            $this->Url = $_SERVER[ 'GET' ][ 'REQUEST_URI' ];
             $this->Created = NowDate();
             $this->Userip = UserIp(); 
             $this->Sessionid = session_id();
