@@ -17,7 +17,7 @@
         }
         switch ( $type ) {
             case 'indexes':
-                // if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
+                if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
                     $query = $database->Prepare(
                         'SHOW INDEX FROM :' . $tablealias . ';'
                     );
@@ -32,7 +32,7 @@
                     }
                     $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
                     $mc->set( $key, $cache );
-                // }
+                }
                 $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
                 $indexes = array();
                 foreach ( $indexinfos as $indexinfo ) {

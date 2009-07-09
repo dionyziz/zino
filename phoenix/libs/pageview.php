@@ -60,6 +60,8 @@
         protected $mLog = false;
 
         public function OnConstruct() {
+            global $user;
+
             if ( $this->Exists() ) {
                 return;
             }
