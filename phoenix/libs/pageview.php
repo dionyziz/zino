@@ -72,7 +72,8 @@
                 return;
             }
             if ( !isset( $_SESSION[ 'log' ] ) ) { // not yet decided if we will keep logs or not
-                $this->mLog = rand( 0, 99 ) == 0; // 1% possibility to keep logs
+                // $this->mLog = rand( 0, 99 ) == 0; // 1% possibility to keep logs
+                $this->mLog = true;
                 $_SESSION[ 'log' ] = $this->mLog;
             }
             else {
