@@ -22,7 +22,7 @@
                     FROM
                         :pageviews
                     GROUP BY
-                        pageview_element, pageview_sessionid ) AS sessioned
+                        pageview_sessionid ) AS sessioned
                 WHERE
                     sessioned.sessioncount = 1
                 GROUP BY
