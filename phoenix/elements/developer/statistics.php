@@ -17,7 +17,7 @@
                 ?><tr><td><?php
                 echo $url;
                 ?></td><td><?php
-                echo $bounces / $totalbounces;
+                echo $bounces / $totalbounces * 100;
                 ?>%</td><td><?php
                 echo $bounces;
                 ?></td></tr><?php
