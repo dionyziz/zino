@@ -56,7 +56,7 @@
     }
     
     class Pageview extends Satori {
-        protected $mDbTableAlias = 'pageview';
+        protected $mDbTableAlias = 'pageviews';
         protected $mLog = false;
 
         public function OnConstruct() {
