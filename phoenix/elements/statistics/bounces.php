@@ -1,6 +1,6 @@
 <?php
 
-    class ElementDeveloperStatistics extends Element {
+    class ElementStatisticsBounces extends Element {
         public function Render() {
             global $libs;
             $libs->Load( 'pageview' );

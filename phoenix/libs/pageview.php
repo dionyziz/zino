@@ -56,7 +56,7 @@
     
     function Pageview_LogVisitorOrNot() {
         //$this->mLog = rand( 0, 99 ) == 0; // 1% possibility to keep logs
-        return ( rand(0,99) == 0 );
+        return rand( 0, 99 ) == 0;
     }
 
     class Pageview extends Satori {

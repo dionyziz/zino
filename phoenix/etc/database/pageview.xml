@@ -4,10 +4,10 @@
     <database name="zinophoenix" type="mysql">
         <table name="pageviews">
             <field name="pageview_id" type="int" autoincrement="yes" />
-            <field name="pageview_element" type="text" />
+            <field name="pageview_element" type="varchar" size="256" />
             <field name="pageview_created" type="datetime" />
             <field name="pageview_userip" type="int" />
-            <field name="pageview_sessionid" type="int" />
+            <field name="pageview_sessionid" type="char" size="32" />
             <index type="primary">
                 <indexfield>pageview_id</indexfield>
             </index>
