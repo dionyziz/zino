@@ -2,6 +2,9 @@
     class ElementAboutInfoStatus extends Element {
         public function Render() {
             global $page;
+            global $libs;
+
+            $libs->Load( 'journal/journal' );
             
             $page->SetTitle( 'Κατάσταση' );
             
