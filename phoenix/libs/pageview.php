@@ -57,7 +57,7 @@
                     LEFT JOIN :pageviews AS b
                         ON a.pageview_id > b.pageview_id AND a.pageview_sessionid = b.pageview_sessionid
                 WHERE
-                    a.pageview_element IN :elements
+                    a.pageview_element IN :elements AND
                     b.pageview_id IS NULL
                 GROUP BY
                     a.pageview_element
