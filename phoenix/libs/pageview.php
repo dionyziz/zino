@@ -11,8 +11,7 @@
     class PageviewFinder extends Finder {
         protected $mModel = 'Pageview';
 
-        // returns number of bounces by page and total number of bounces
-        public function FindTopBounces( $maxelements = false ) {
+        public function FindBounceRates() {
             $query = $this->mDb->Prepare( 
                 'SELECT
                     pageview_element, COUNT(*) AS bounces
@@ -28,29 +27,48 @@
                 GROUP BY
                     pageview_element
                 ORDER BY
-                    bounces DESC;'
+                    bounces DESC'
             );
 
             $query->BindTable( 'pageviews' );
+
             $res = $query->Execute();
-            $totalbounces = 0;
             $bouncesByElement = array();
             while ( $row = $res->FetchArray() ) {
-                $bounces = $row[ 'bounces' ];
-                $totalbounces += $bounces;
-                if ( $maxelements !== false ) {
-                    if ( $maxelements == 0 ) {
-                        continue; // do not return any other element
-                    }
-                    --$maxelements;
-                }
-                else {
-                    // maxelements is false (default), return all elements
-                }
-                $bouncesByElement[ $row[ 'pageview_element' ] ] = $bounces;
+                $bouncesByElement[ $row[ 'pageview_element' ] ] = $row[ 'bounces' ];
             }
 
-            return array( $bouncesByElement, $totalbounces );
+            $elements = array_keys( $bouncesByElement );
+            $landingsByElement = $this->FindLandingsByElement( $elements );
+            $bounceRates = array();
+            foreach ( $landingsByElement as $element => $landings ) {
+                $bounces = $bouncesByElement[ $element ];
+                $bouncerates[ $element ] = $bounces / $landings;
+            }
+
+            return array( $bouncerates, $bouncesByElement, $landingsByElement );
+        }
+        public function FindLandingsByElement( $elements ) {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT( a.pageview_id ) AS c, a.pageview_element AS element
+                FROM
+                    :pageviews AS a
+                    LEFT JOIN :pageviews AS b
+                        ON a.pageview_id > b.pageview_id AND a.pageview_sessionid = b.pageview_sessionid
+                WHERE
+                    a.pageview_element IN :elements
+                    b.pageview_id IS NULL
+                GROUP BY
+                    a.pageview_element
+                LIMIT
+                    :maxelements;'
+            );
+            $query->BindTable( 'pageviews' );
+            $query->Bind( 'elements', $elements );
+            $query->Bind( 'maxelements', count( $elements ) );
+
+            return $query->MakeArray(); 
         }
     }
     
