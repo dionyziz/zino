@@ -1,5 +1,5 @@
 <?php
-    class ElementApplicationView extends Element {
+    class ElementApplicationList extends Element {
     
         public function Render() {
             global $libs;
