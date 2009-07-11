@@ -68,7 +68,7 @@
             $query->Bind( 'elements', $elements );
             $query->Bind( 'maxelements', count( $elements ) );
 
-            return $query->Execute->MakeArray(); 
+            return $query->Execute()->MakeArray(); 
         }
     }
     
