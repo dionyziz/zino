@@ -11,7 +11,7 @@
             
             if ( !in_array( $user->Id, $testers ) && !$settings[ 'production' ] ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
-                echo $settings[ 'production' ];
+                var_dump( $settings[ 'production' ] );
             }
             else {
                 
