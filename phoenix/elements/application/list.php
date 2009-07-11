@@ -30,6 +30,7 @@
                             <span class="key"><h3>Κλειδί Εφαρμογής: </h3><?php echo $app->GetToken(); ?></span>
                         </div></li><?php
                     }
+                    ?></ul></div><?php
                 }
                 else {
                     ?>Δεν έχεις καταχωρήσει καμία εφαρμογή. Μπορείς να το κάνεις <a href="/?p=newapp">εδώ</a><?php
