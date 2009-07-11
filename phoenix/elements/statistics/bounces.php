@@ -24,11 +24,11 @@
                 ?><tr><td><?php
                 echo $element;
                 ?></td><td><?php
-                echo $bounceRate * 100;
+                echo $bounceRate * 100; // multiply by 100 to get percentage
                 ?>%</td><td><?php
-                echo $bouncesByElement[ $element ];
+                echo $bouncesByElement[ $element ] * 100; // we log 1% of anonymous
                 ?></td><td><?php
-                echo $landingsByElement[ $element ];
+                echo $landingsByElement[ $element ] * 100;
                 ?></td></tr><?php
             }
             ?></tbody></table><?php
