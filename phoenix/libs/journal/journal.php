@@ -16,7 +16,7 @@
 
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByUser( $user, $offset = 0, $limit = 25, $deleted = false ) {
+        public function FindByUser( User $user, $offset = 0, $limit = 25, $deleted = false ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
             if ( !$deleted ) {

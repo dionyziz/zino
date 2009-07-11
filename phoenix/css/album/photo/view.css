@@ -94,3 +94,8 @@ div#pview div.comments {
 div#pview div.comments div.pagifycomments {
 	text-align: center;
 }
+.s_buy {
+    background-image: url( 'http://static.zino.gr/phoenix/store/basket.png' );
+    background-repeat: no-repeat;
+}
+
