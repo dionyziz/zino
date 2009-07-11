@@ -6,7 +6,7 @@
             $libs->Load( 'pageview' );
 
             $finder = New PageviewFinder();
-            $bounces = $finder->FindTopBounces( 20 );
+            $bounces = $finder->FindBounceRates( 20 );
             $bounceRates = $bounces[ 0 ];
             $bouncesByElement = $bounces[ 1 ];
             $landingsByElement = $bounces[ 2 ];
