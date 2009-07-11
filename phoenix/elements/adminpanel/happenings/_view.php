@@ -6,7 +6,7 @@
             ?>Τρέχουσες Εκδηλώσεις:<?php
             $hapfinder = New HappeningFinder();
             $happenings = $hapfinder->FindAll();
-            ?><table class="happeninglist">
+            ?><table div="happeninglist">
                 <tr>
                     <th>ID</th>
                     <th>Όνομα</th>
@@ -25,7 +25,13 @@
                     ?></td>
                 </tr><?php
             }
-            ?></table><?php
+            ?></table>
+            <div div="participants" class="column">
+                <h3>Αθήνα 25/6: Σύνταγμα</h3>
+                <ul>
+                </ul>
+            </div>
+            <?php
         }
     }
 ?>

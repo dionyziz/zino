@@ -1,15 +1,12 @@
 <?php
-    function UnitHappeningParticipantNew( tInteger $happeningid, tInteger $certainty, tText $mobile, tText $firstname ) {
+    function UnitHappeningParticipantChange( tInteger $happeningid ) {
         global $libs;
         global $user;
         
         $libs->Load( 'happening' );
         
         $happeningid = $happeningid->Get();
-        $mobile = $mobile->Get();
-        $firstname = $firstname->Get();
-        $certainty = $certainty->Get();
-        
+        $certainity = $certainity->Get();
         if ( $certainity < 0 || $certainity > 2 ) {
             ?>alert( 'Certainity number invalid' );<?php
             return;
@@ -25,17 +22,12 @@
         }
         $participant = New HappeningParticipant( $happeningid, $user->Id );
         if ( !$participant->Exists() ) {
-            $participant = New HappeningParticipant();
-            $participant->Happeningid = $happeningid;
-            $participant->Certainty = $certainty;
-        } else
-        {
-            $participant->Certainty = $certainty;
+            ?>alert( 'Participation not found' );<?php
+            return;
         }
+        
+        $participant->Certainty = $certainity;
         $participant->Save();
         
-        $user->Profile->Mobile = $mobile;
-        $user->Profile->Firstname = $firstname;
-        $user->Profile->Save();
     }
 ?>
