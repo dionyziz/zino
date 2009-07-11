@@ -3,7 +3,7 @@
         protected $mDbTableAlias = 'appliactions';
         
         protected function LoadDefaults() {
-            require_once( '/rabbit/helpers/hashstring.php' );
+            require_once( 'rabbit/helpers/hashstring.php' );
             
             $this->Created = NowDate();
             $this->Token = GenerateRandomHash();
