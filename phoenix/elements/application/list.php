@@ -3,15 +3,15 @@
     
         public function Render() {
             global $libs;
-            global $settings;
+            global $rabbit_settings;
             
             $libs->Load( 'application' );
             
             $testers = Array( 5104 );
             
-            if ( !in_array( $user->Id, $testers ) && !$settings[ 'production' ] ) {
+            if ( !in_array( $user->Id, $testers ) && !$rabbit_settings[ 'production' ] ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
-                var_dump( $settings[ 'production' ] );
+                var_dump( $rabbit_settings[ 'production' ] );
             }
             else {
                 
