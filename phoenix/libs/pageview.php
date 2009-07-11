@@ -46,7 +46,9 @@
                 $bouncerates[ $element ] = $bounces / $landings;
             }
 
-            return array( arsort( $bouncerates ), $bouncesByElement, $landingsByElement );
+            arsort( $bouncerates );
+
+            return array( $bouncerates, $bouncesByElement, $landingsByElement );
         }
         public function FindLandingsByElement( $elements ) {
             $query = $this->mDb->Prepare(
