@@ -2,7 +2,10 @@
 
     class ElementStatisticsBounces extends Element {
         public function Render() {
+            global $page;
             global $libs;
+
+            $page->SetTitle( 'Statistics' );
             $libs->Load( 'pageview' );
 
             $finder = New PageviewFinder();
@@ -25,7 +28,7 @@
                 ?>%</td><td><?php
                 echo $bounces;
                 ?></td><td><?php
-                echo $landingsByelement[ $element ];
+                echo $landingsByElement[ $element ];
                 ?></td></tr><?php
             }
             ?></tbody></table><?php
