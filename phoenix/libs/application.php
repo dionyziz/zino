@@ -1,6 +1,6 @@
 <?php
     class Application extends Satori {
-        protected $mDbTableAlias = 'appliactions';
+        protected $mDbTableAlias = 'applications';
         
         protected function LoadDefaults() {
             require_once( 'rabbit/helpers/hashstring.php' );
