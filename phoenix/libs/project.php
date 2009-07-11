@@ -186,7 +186,7 @@
             'about'             => 'about/info/view',
             'happeningadmin'    => 'adminpanel/happenings/view',
             'bounces'           => 'statistics/bounces',
-            'applications'      => 'application/view'
+            'applications'      => 'application/list'
         );
     }
     
