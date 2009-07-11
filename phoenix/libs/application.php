@@ -12,13 +12,17 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
+        
+        public function GetToken() {
+            return $this->Token . '-' . $this->Id;
+        }
     }
     class ApplicationFinder extends Finder {
         protected $mModel = 'appliaction';
         
-        public function FindById( tInteger $id ) {
+        public function FindByUser( $user ) {
             $prototype = New Application;
-            $prototype->Id = $id;
+            $prototype->Id = $user->Id;
             
             return $this->FindByPrototype( $prototype );
         }
