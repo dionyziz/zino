@@ -68,7 +68,13 @@
             $query->Bind( 'elements', $elements );
             $query->Bind( 'maxelements', count( $elements ) );
 
-            return $query->Execute()->MakeArray(); 
+            $res = $query->Execute();
+            $landingsByElement = array();
+            while ( $row = $res->FetchArray() ) {
+                $landingsByElement[ $row[ 'element' ] ] = $row[ 'c' ];
+            }
+
+            return $landingsByElement;
         }
     }
     
