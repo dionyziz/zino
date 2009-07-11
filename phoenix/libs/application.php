@@ -21,8 +21,8 @@
         protected $mModel = 'Appliaction';
         
         public function FindByUser( $user ) {
-            $prototype = New Application;
-            $prototype->Id = $user->Id;
+            $prototype = New Application();
+            $prototype->Userid = $user->Id;
             
             return $this->FindByPrototype( $prototype );
         }
