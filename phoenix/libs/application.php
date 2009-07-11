@@ -18,7 +18,7 @@
         }
     }
     class ApplicationFinder extends Finder {
-        protected $mModel = 'appliaction';
+        protected $mModel = 'Appliaction';
         
         public function FindByUser( $user ) {
             $prototype = New Application;
