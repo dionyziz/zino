@@ -20,13 +20,13 @@
             <th>Bounces</th>
             <th>Landings</th>
             </tr></thead><tbody><?php
-            foreach ( $bouncesByElement as $element => $bounces ) {
+            foreach ( $bounceRates as $element => $bounceRate ) {
                 ?><tr><td><?php
                 echo $element;
                 ?></td><td><?php
-                echo $bounceRates[ $element ] * 100;
+                echo $bounceRate * 100;
                 ?>%</td><td><?php
-                echo $bounces;
+                echo $bouncesByElement[ $element ];
                 ?></td><td><?php
                 echo $landingsByElement[ $element ];
                 ?></td></tr><?php
