@@ -24,7 +24,7 @@
                 ?><tr><td><?php
                 echo $element;
                 ?></td><td><?php
-                echo $bounceRates[ $element ];
+                echo $bounceRates[ $element ] * 100;
                 ?>%</td><td><?php
                 echo $bounces;
                 ?></td><td><?php
