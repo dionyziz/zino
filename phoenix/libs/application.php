@@ -24,7 +24,7 @@
             $prototype = New Application();
             $prototype->Userid = $user->Id;
             
-            return $this->FindByPrototype( $prototype,0 , 1000 );
+            return $this->FindByPrototype( $prototype, 0, 1000 );
         }
     }
 ?>
