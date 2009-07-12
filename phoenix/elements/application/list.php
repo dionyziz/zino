@@ -9,7 +9,7 @@
             $libs->Load( 'application' );
             
             $testers = Array( 5104 );
-            die( $user->Id );
+            die( var_dump( $user->Id ) );
             if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
