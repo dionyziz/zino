@@ -9,8 +9,8 @@
             $libs->Load( 'application' );
             
             $testers = Array( 5104 );
-            die( var_dump( $user->Id ) );
-            if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] ) {
+            
+            if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] && $user == false ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
             else {
