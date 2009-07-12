@@ -20,11 +20,11 @@
     class ApplicationFinder extends Finder {
         protected $mModel = 'Application';
         
-        public function FindByUser( $user ) {
+        public function FindByUser( User $user ) {
             $prototype = New Application();
             $prototype->Userid = $user->Id;
             
-            return $this->FindByPrototype( $prototype ,0 , 1000 );
+            return $this->FindByPrototype( $prototype,0 , 1000 );
         }
     }
 ?>
