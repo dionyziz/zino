@@ -10,7 +10,7 @@
             
             $testers = Array( 5104 );
             
-            if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] && $user == false ) {
+            if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] && $user->Exists() == false ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
             else {
