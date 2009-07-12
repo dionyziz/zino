@@ -3,14 +3,16 @@
     
         public function Render() {
             global $libs;
-            global $rabbit_settings;
             global $user;
             
             $libs->Load( 'application' );
             
-            $testers = Array( 5104 );
+            $testers = Array(
+                                4499, //ch0rvus-beta
+                                5104, //chorvus-live
+                            );
             
-            if ( !in_array( $user->Id, $testers ) && $rabbit_settings[ 'production' ] && $user->Exists() == false ) {
+            if ( !in_array( $user->Id, $testers ) ) {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
             else {
