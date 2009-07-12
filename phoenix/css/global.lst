@@ -10,6 +10,7 @@ album/photo/view.css
 album/photo/recent/list.css
 album/manager.css
 album/small.css
+application.css
 banner.css
 bubbles.css
 comment.css
