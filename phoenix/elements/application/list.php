@@ -41,7 +41,7 @@
                     </ul>
                 </div>
                 <?php
-                var_dump( dateDiff( 0 ) );
+                var_dump( dateDiff( 40 ) );
             }
         }
     }
