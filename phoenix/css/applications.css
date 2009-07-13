@@ -30,3 +30,6 @@ ul#applist li {
 ul#applist {
     padding-top: 30px;
 }
+ul#applist div#newappbubble {
+    display: hidden;
+}
