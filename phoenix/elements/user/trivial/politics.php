@@ -14,7 +14,12 @@
                         'radical right' => 'Ακροδεξιός',
                         'center left' => 'Κεντροαριστερός',
                         'center right' => 'Κεντροδεξιός',
-                        'nothing' => 'Τίποτα'
+                        'nothing' => 'Τίποτα',
+                        'anarchism' => 'Αναρχικός',
+                        'communism' => 'Κομμουνιστής',
+                        'socialism' => 'Σοσιαλιστής',
+                        'liberalism' => 'Φιλελεύθερος',
+                        'green' => 'Πράσινος'
                 );
             }
             else {
@@ -27,7 +32,12 @@
                         'radical right' => 'Ακροδεξιά',
                         'center left' => 'Κεντροαριστερή',
                         'center right' => 'Κεντροδεξιά',
-                        'nothing' => 'Τίποτα'
+                        'nothing' => 'Τίποτα',
+                        'anarchism' => 'Αναρχική',
+                        'communism' => 'Κομμουνίστρια',
+                        'socialism' => 'Σοσιαλίστρια',
+                        'liberalism' => 'Φιλελεύθερη',
+                        'green' => 'Πράσινη'
                 );
             }
             echo htmlspecialchars( $politics[ $politic ] );

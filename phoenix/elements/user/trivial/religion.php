@@ -1,5 +1,6 @@
 <?php
-    
+    // Don't forget to change the dbase ENUM entry if you add/modify entries here
+
     class ElementUserTrivialReligion extends Element {
         protected $mPersistent = array( 'religion', 'gender' );
 

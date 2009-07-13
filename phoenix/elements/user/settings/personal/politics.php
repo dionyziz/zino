@@ -3,7 +3,7 @@
     class ElementUserSettingsPersonalPolitics extends Element {
         public function Render( $selected , $gender ) {
             ?><select><?php
-                $politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'center left', 'center right', 'nothing' );
+                $politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'center left', 'center right', 'nothing', 'anarchism', 'communism', 'socialism', 'liberalism', 'green' );
                 foreach ( $politics as $politic ) {
                     ?><option value="<?php
                     echo $politic;
