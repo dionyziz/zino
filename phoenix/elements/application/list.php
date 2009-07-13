@@ -26,9 +26,18 @@
                         }
                     }
                     else {
-                        ?>Δεν έχεις καταχωρήσει καμία εφαρμογή. Μπορείς να το κάνεις <a href="/?p=newapp">εδώ</a><?php
+                        ?>Δεν έχεις καταχωρήσει καμία εφαρμογή.<?php
                     }
-                    ?></ul>
+                    ?><li><div class="appbubble" id="newappbubble"><form method="POST" action="do/application/new">
+                        <table border="0" padding="0">
+                            <tr><td>Όνομα:</td><td><input type="text" name="name" /></td></tr>
+                            <tr><td>Διέυθυνση:</td><td><input type="text" name="url" /></td></tr>
+                            <tr><td>Περιγραφή:</td><td><input type="textarea" name="description" /></td></tr>
+                            <tr><td>Λογότυπο:</td><td><input type="text" name="logo" /></td></tr>
+                            </table>
+                            <input type="submit" name="newapplication" onclick="Applications.checkValidity()" value="Δημιουργία" />
+                        </form></div></li>
+                    </ul>
                 </div><?php
             }
         }
