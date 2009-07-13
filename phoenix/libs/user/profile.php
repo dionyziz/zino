@@ -145,6 +145,8 @@
 							return array( "name" => "Los Lobos - Cancion del Mariachi", "url" => "http://pagio.kamibu.com/01%20Cancion%20del%20Mariachi.mp3" );
 						case 4047:
 						    return array( "name" => "Fragma - Toca's Miracle", "url" => "http://amikrop.gr/Toca%27s%20Miracle.mp3" );
+						case 5181:
+						    return array( "name" => "The Who - Baba O'Riley", "url" => "http://petros.kamibu.com/babaoriley.mp3" );
 						default:
 							return false;
                     }
