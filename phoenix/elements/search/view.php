@@ -39,7 +39,7 @@
                 foreach ( $args as $key => $arg ) {
                     $searchargs[] = $key . '=' . urlencode( $arg );
                 }
-                $link = $rabbit[ 'webaddress' ] . "find?" . implode( '&', $searchargs ) . "&pageno=";
+                $link = $rabbit_settings[ 'webaddress' ] . "find?" . implode( '&', $searchargs ) . "&pageno=";
                 $pages = $finder->FoundRows() / $limit;
                 Element( 'pagify', $pageno, $link, $pages );
             }
