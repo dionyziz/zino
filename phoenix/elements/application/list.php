@@ -41,7 +41,7 @@
                     </ul>
                 </div>
                 <?php
-                Element( 'date/diff', 0 );
+                var_dump( dateDiff( 0 ) );
             }
         }
     }
