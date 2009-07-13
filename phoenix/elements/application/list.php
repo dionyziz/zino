@@ -29,6 +29,7 @@
                         ?>Δεν έχεις καταχωρήσει καμία εφαρμογή.<?php
                     }
                     ?><li><div class="appbubble" id="newappbubble"><form method="POST" action="do/application/new">
+                        <span id="edittitle"><h3>Δημιουργία</h3></span>
                         <table border="0" padding="0">
                             <tr><td>Όνομα:</td><td><input type="text" name="name" /></td></tr>
                             <tr><td>Διέυθυνση:</td><td><input type="text" name="url" /></td></tr>
