@@ -39,7 +39,9 @@
                             <input type="submit" name="newapplication" onclick="Applications.checkValidity()" value="Δημιουργία" />
                         </form></div></li>
                     </ul>
-                </div><?php
+                </div>
+                <?php
+                Element( 'date/diff', 0 );
             }
         }
     }
