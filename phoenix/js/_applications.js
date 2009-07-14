@@ -13,6 +13,7 @@ Applications = {
     OnLoad: function() {
         $( "a#newapplink" ).click( function() {
             Applications.ShowNew();
+            return false;
         } );
     }
 }
