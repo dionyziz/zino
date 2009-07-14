@@ -7,7 +7,8 @@
             global $page;
 
             $libs->Load( 'comment' );
-			
+			$libs->Load( 'school/school' );
+            
 			$id = $id->Get();
             $pageno = $pageno->Get();
             $commentid = $commentid->Get();
