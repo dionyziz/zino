@@ -4,6 +4,7 @@
         public function Render() {
             global $libs;
             global $user;
+            global $page;
             
             $libs->Load( 'application' );
             
