@@ -9,6 +9,7 @@
             $libs->Load( 'comment' );
 			$libs->Load( 'school/school' );
             $libs->Load( 'user/profile' );
+            $libs->Load( 'album' );
             
 			$id = $id->Get();
             $pageno = $pageno->Get();
