@@ -43,7 +43,7 @@
                     <a id="newapplink" href="">Νέα εφαρμογή</a>
                 </div>
                 <?php
-                $page->AttachInlineScript( "Applications.Load();" );
+                $page->AttachInlineScript( "Applications.OnLoad();" );
             }
         }
     }
