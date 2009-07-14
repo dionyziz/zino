@@ -36,11 +36,13 @@
                             <tr><td>Περιγραφή:</td><td><input type="textarea" name="description" /></td></tr>
                             <tr><td>Λογότυπο:</td><td><input type="text" name="logo" /></td></tr>
                             </table>
-                            <input type="submit" name="newapplication" onclick="Applications.checkValidity()" value="Δημιουργία" />
+                            <input type="submit" name="newapplication" onclick="Applications.CheckValidity()" value="Δημιουργία" />
                         </form></div></li>
                     </ul>
+                    <a id="newapplink" href="">Νέα εφαρμογή</a>
                 </div>
                 <?php
+                $page->AttachInlineScript( "Applications.Load();" );
             }
         }
     }
