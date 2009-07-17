@@ -6,6 +6,7 @@
             
             $libs->Load( 'user/user' );
             $libs->Load( 'image/image' );
+            $libs->Load( 'user/profile' );
             
             $theuserfinder = New UserFinder();
             $theuser = $theuserfinder->FindBySubdomain( $user->Get() );
