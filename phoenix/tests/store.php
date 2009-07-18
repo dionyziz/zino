@@ -79,8 +79,9 @@
 			$this->AssertEquals( NowDate(), $this->mStoretype->Created, 'There was a problem while returning Created date' );
 		}
 		public function TestCreateItem(){
+			$name = "Dragon T-shirt";
 			$this->mStoreitem = New Storeitem();
-			$this->mStoreitem->Name = "Dragon T-shirt";
+			$this->mStoreitem->Name = $name;
 			$this->mStoreitem->Price = '20.00E';
 			$this->mStoreitem->Description = 'A great T-shirt with a dragon on it';
 			$this->mStoreitem->Typeid = $this->mStoretype->Id;
@@ -99,7 +100,7 @@
 			$item = $itemFinder->FindByName( 'Dragon T-shirt' );
 			
 			$this->Assert( is_int( $this->mStoreitem->Id ), 'Item Id sould be an integer after saving' );
-			$this->AssertEquals( 'Dragon T-shirt', $item->Name, 'Item name changed after saving item' );
+			$this->AssertEquals( $name, $item->Name, 'Item name changed after saving item' );
 			$this->AssertEquals( '20.00E', $item->Price, 'Item price changed after saving item' );
 			$this->AssertEquals( 'A great T-shirt with a dragon on it', $item->Description, 'Item Description changed after saving item' );
 			$this->AssertEquals( $this->mStoretype->Id, $item->Typeid, 'Type id changed after saving item' );
