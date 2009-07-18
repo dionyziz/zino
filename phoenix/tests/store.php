@@ -119,12 +119,12 @@
 			$this->mStoreproperty2->Value = "L";
 			$this->mStoreproperty2->Save();
 			
-			$finder = New StorepropertyFinder();
-			$properties = $finder->FindByItemId( $this->mStoreitem->Id );
-				$this->AssertEquals( 'Size', $properties[ 0 ]->Type, 'Property1 Type changed after saving' );
-				$this->AssertEquals( 'L', $properties[ 0 ]->Value, 'Property1 Type changed after saving' );
-				$this->AssertEquals( 'Size', $properties[ 1 ]->Type, 'Property2 Type changed after saving' );
-				$this->AssertEquals( 'S', $properties[ 1 ]->Value, 'Property2 Type changed after saving' );
+			$property1 = New Storeproperty( $this->mStoreproperty1->Id );
+			$property2 = New Storeproperty( $this->mStoreproperty2->Id );
+			$this->AssertEquals( 'Size', $property1->Type, 'Property1 Type changed after saving' );
+			$this->AssertEquals( 'S', $property1->Value, 'Property1 Type changed after saving' );
+			$this->AssertEquals( 'Size', $property2->Type, 'Property2 Type changed after saving' );
+			$this->AssertEquals( 'L', $property2->Value, 'Property2 Type changed after saving' );
 		}
 		
 		public function TestDeletion(){
