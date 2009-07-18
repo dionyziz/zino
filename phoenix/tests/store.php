@@ -13,13 +13,13 @@
 		
 		public function SetUp(){
 			$finder = new UserFinder();
-			$user = $finder->FindByName( 'testStore' );
+			$user = $finder->FindByName( 'testStore2' );
 			if( is_object( $user ) ){
 				$user->Delete();
 			}
             $this->mUser = New User();
-            $this->mUser->Name = 'testStore';
-            $this->mUser->Subdomain = 'teststore';
+            $this->mUser->Name = 'testStore2';
+            $this->mUser->Subdomain = 'teststore2';
             $this->mUser->Save();
 			
 		}
