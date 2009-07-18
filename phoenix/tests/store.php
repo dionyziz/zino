@@ -130,18 +130,32 @@
 		}
 		
 		public function TestDeletion(){
+			$this->AssertTrue( $this->mUser->Exists(), 'Created user does not seem to exist before deleting' );
 			$this->mUser->Delete();
+			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mAlbum->Exists(), 'Created Album does not seem to exist before deleting' );
 			$this->mAlbum->Delete();
+			$this->AssertFalse( $this->mAlbum->Exists(), 'Album deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mStoretype->Exists(), 'Created Storetype does not seem to exist before deleting' );
 			$this->mStoretype->Delete();
+			$this->AssertFalse( $this->mStoretype->Exists(), 'Storetype deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mStoreitem->Exists(), 'Created Storeitem does not seem to exist before deleting' );
 			$this->mStoreitem->Delete();
+			$this->AssertFalse( $this->mStoreitem->Exists(), 'Storeitem deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mStoreproperty1->Exists(), 'Created Storeproperty1 does not seem to exist before deleting' );
 			$this->mStoreproperty1->Delete();
+			$this->AssertFalse( $this->mStoreproperty1->Exists(), 'Storeproperty1 deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mStoreproperty2->Exists(), 'Created Storeproperty2 does not seem to exist before deleting' );
 			$this->mStoreproperty2->Delete();
+			$this->AssertFalse( $this->mStoreproperty2->Exists(), 'Storeproperty2 deleted but he still seems to exist' );
+			
 			//$this->mStorepurchase->Delete();
 			//$this->mStorepurchaseproperty->Delete();
-			$this->AssertTrue( $this->mUser->Exists(), 'User was not deleted');
-			$this->AssertTrue( $this->mAlbum->Exists(), 'Album was not deleted');
-			$this->AssertTrue( $this->mStoretype->Exists(), 'Type was not deleted');
-			$this->AssertTrue( $this->mStoreitem->Exists(), 'Item was not deleted');
 		}
 		
 /*		public function TestFindOne(){
