@@ -23,15 +23,21 @@
 		}
 		
 		public function TestClassesExist(){
-			$this->Assert( class_exists( 'StoreItem' ), 'Class StoreItem does not exist' );
-			$this->Assert( class_exists( 'StorePurchase' ), 'Class StorePurchase does not exist' );
+			$this->Assert( class_exists( 'Storetype' ), 'Class Storetype does not exist' );
+			$this->Assert( class_exists( 'Storeitem' ), 'Class Storeitem does not exist' );
+			$this->Assert( class_exists( 'Storeproperties' ), 'Class Storeproperties does not exist' );
+			$this->Assert( class_exists( 'Storepurchase' ), 'Class Storepurchase does not exist' );
+			$this->Assert( class_exists( 'Storepurchaseproperties' ), 'Class Storepurchaseproperties does not exist' );
+			
 			$this->Assert( class_exists( 'StoreItemFinder' ), 'Class StoreItemFinder does not exist' );
 		}
 		
 		public function TestMethodExist(){
+			
 			$item = New StoreItem();
 			$this->Assert( method_exists( $item, 'Save' ), 'StoreItem::Save method does not exist' );
 			$this->Assert( method_exists( $item, 'Delete' ), 'StoreItem::Delete method does not exist' );
+			$this->Assert( method_exists( $item, 'OnBeforeCreate' ), 'StoreItem::Delete method does not exist' );
 			
 			$finder = New StoreItemFinder();
 			$this->Assert( method_exists( $finder, 'FindById' ), 'StoreItemFinder::FindById method does not exist' );
