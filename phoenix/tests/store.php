@@ -138,10 +138,10 @@
 			$this->mStoreproperty2->Delete();
 			//$this->mStorepurchase->Delete();
 			//$this->mStorepurchaseproperty->Delete();
-			$this->AssertTrue( !$this->mUser->Exists(), 'User was not deleted');
-			$this->AssertTrue( !$this->mAlbum->Exists(), 'Album was not deleted');
-			$this->AssertTrue( !$this->mStoretype->Exists(), 'Type was not deleted');
-			$this->AssertTrue( !$this->mStoreitem->Exists(), 'Item was not deleted');
+			$this->AssertTrue( $this->mUser->Exists(), 'User was not deleted');
+			$this->AssertTrue( $this->mAlbum->Exists(), 'Album was not deleted');
+			$this->AssertTrue( $this->mStoretype->Exists(), 'Type was not deleted');
+			$this->AssertTrue( $this->mStoreitem->Exists(), 'Item was not deleted');
 		}
 		
 /*		public function TestFindOne(){
