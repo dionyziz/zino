@@ -16,6 +16,7 @@
 			$libs->Load( 'album' );
 			$libs->Load( 'user/user' );
 			$libs->Load( 'user/profile' );
+			$libs->Load( 'user/settings' );
 			$libs->Load( 'journal/journal' );
 			
 			$finder = new UserFinder();
