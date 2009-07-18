@@ -15,7 +15,7 @@
 			$finder = new UserFinder();
 			$user = $finder->FindByName( 'testStore' );
 			if( is_object( $user ) ){
-				$user->Delete;
+				$user->Delete();
 			}
             $this->mUser = New User();
             $this->mUser->Name = 'testStore';
