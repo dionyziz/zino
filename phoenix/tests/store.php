@@ -12,6 +12,11 @@
 		private $mStorepurchaseproperty;
 		
 		public function SetUp(){
+			$finder = new UserFinder();
+			$user = $finder->FindByName( 'testStore' );
+			if( is_object( $user ) ){
+				$user->Delete;
+			}
             $this->mUser = New User();
             $this->mUser->Name = 'testStore';
             $this->mUser->Subdomain = 'teststore';
