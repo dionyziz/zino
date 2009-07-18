@@ -14,6 +14,6 @@
         
         $app->Save();
         
-        Redirect( "?p=applications" );
+        return Redirect( "?p=applications" );
     }
 ?>
