@@ -1,7 +1,7 @@
 Applications = {
     CheckValidity: function () {
-        alert ( $( "div#newappbubble input[name=name]" ) );
-        return false;
+        //alert ( $( "div#newappbubble input[name=name]" ) );
+        return true;
     }
     ,
     ShowNew: function() {
