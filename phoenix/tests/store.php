@@ -75,6 +75,7 @@
 			
 			$this->Assert( is_int( $this->mStoretype->Id ), 'Type Id sould be an integer after saving' );
 			$this->AssertEquals( 'T-shirt', $this->mStoretype->Name, 'Type name changed after saving item' );
+			$this->AssertEquals( '2009', Date( 'Y', $this->mStoretype->Created ), 'There was a problem while returning Created date' );
 			
 			$this->mStoretype->Delete();
 		}

@@ -55,14 +55,23 @@
 	
 	class Storetype extends Satori{
 		protected $mDbTableAlias = 'storetypes';
+		protected function onBeforeCreate(){
+			$this->Created = NowDate();
+		}
 	}
 	
 	class Storeitem extends Satori{
 		protected $mDbTableAlias = 'storeitems';
+		protected function onBeforeCreate(){
+			$this->Created = NowDate();
+		}
 	}
 	
 	class Storeproperty extends Satori{
 		protected $mDbTableAlias = 'storeproperties';
+		protected function onBeforeCreate(){
+			$this->Created = NowDate();
+		}
 	}
 	
 	class Storepurchase extends Satori{
@@ -73,11 +82,15 @@
 			if( $purchases >= $this->Total ){
 				return false;
 			}
+			$this->Created = NowDate();
 		}
 	}
 	
 	class Storepurchaseproperty extends Satori{
 		protected $mDbTableAlias = 'storepurchaseproperties';
+		protected function onBeforeCreate(){
+			$this->Created = NowDate();
+		}
 	}
 	
 ?>
