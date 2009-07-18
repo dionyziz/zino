@@ -20,6 +20,7 @@
 		public function FindByName( $name ){
 			$prototype = New Storeitem();
 			$prototype->Name = $name;
+			var_dump( $name ); die();
 			return $this->FindByPrototype( $prototype );
 		}
 	}
@@ -28,6 +29,11 @@
 		protected $mModel = 'Storeproperty';
 		public function FindAll( $offset = 0, $limit = 25 ){
 			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+		}
+		public function FindByItemId( $id ){
+			$prototype = New Storeproperty();
+			$prototype->Itemid = $id;
+			return $this->FindByPrototype( $prototype );
 		}
 	}
 	
