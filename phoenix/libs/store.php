@@ -20,7 +20,6 @@
 		public function FindByName( $name ){
 			$prototype = New Storeitem();
 			$prototype->Name = $name;
-			var_dump( $name ); die();
 			return $this->FindByPrototype( $prototype );
 		}
 	}
