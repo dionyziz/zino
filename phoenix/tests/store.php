@@ -97,7 +97,7 @@
 			$this->mStoreitem->Save();
 			
 			$itemFinder = new StoreitemFinder();
-			$item = $itemFinder->FindByName( 'Dragon T-shirt' );
+			$item = $itemFinder->FindByName( $name );
 			
 			$this->Assert( is_int( $this->mStoreitem->Id ), 'Item Id sould be an integer after saving' );
 			$this->AssertEquals( $name, $item->Name, 'Item name changed after saving item' );
