@@ -77,7 +77,7 @@
             $emailbirthday = $emailbirthday->Get();
             $notifybirthday = $notifybirthday->Get();
 
-            if ( checkdate( $dobm , $dobd , $doby ) ) {
+            if ( checkdate( $dobm , $dobd , $doby ) && $doby >= 1950 ) {
 				$user->Profile->BirthDay = $dobd;
 				$user->Profile->BirthMonth = $dobm;
 				$user->Profile->BirthYear = $doby;                
