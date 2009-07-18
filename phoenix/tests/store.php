@@ -140,6 +140,19 @@
 			$this->Assert( is_int( $purchase->Id ), 'purchase Id sould be an integer after saving' );
 			$this->AssertEquals( $this->mStoreitem->Id, $purchase->Itemid, 'Item id changed after saving item' );
 			$this->AssertEquals( $this->mUser->Id, $purchase->Userid, 'User id changed after saving item' );
+			
+			$this->mStorepurchaseproperty1 = New Storepurchaseproperty();
+			$this->mStorepurchaseproperty1->Propertyid = $this->mStoreproperty1->Id;
+			$this->mStorepurchaseproperty1->Purchaseid = $this->mStorepurchase->Id;
+			$this->mStorepurchaseproperty1->Save();
+			
+			$this->mStorepurchaseproperty2 = New Storepurchaseproperty();
+			$this->mStorepurchaseproperty2->Propertyid = $this->mStoreproperty2->Id;
+			$this->mStorepurchaseproperty2->Purchaseid = $this->mStorepurchase->Id;
+			$this->mStorepurchaseproperty2->Save();
+			
+			Assert( is_int( $this->mStorepurchaseproperty1->Id ), 'purchaseproperty1 id sould be an integer after saving' );
+			Assert( is_int( $this->mStorepurchaseproperty2->Id ), 'purchaseproperty2 id sould be an integer after saving' );
 		}
 		
 		
@@ -171,39 +184,19 @@
 			$this->AssertTrue( $this->mStorepurchase->Exists(), 'Created purchase does not seem to exist before deleting' );
 			$this->mStorepurchase->Delete();
 			$this->AssertFalse( $this->mStorepurchase->Exists(), 'purchase deleted but he still seems to exist' );
-			
-			
-			//$this->mStorepurchase->Delete();
-			//$this->mStorepurchaseproperty->Delete();
+					
+			$this->AssertTrue( $this->mStorepurchaseproperty1->Exists(), 'Created purchaseproperty1 does not seem to exist before deleting' );
+			$this->mStorepurchaseproperty1->Delete();
+			$this->AssertFalse( $this->mStorepurchaseproperty1->Exists(), 'purchaseproperty1 deleted but he still seems to exist' );
+					
+			$this->AssertTrue( $this->mStorepurchaseproperty2->Exists(), 'Created purchaseproperty2 does not seem to exist before deleting' );
+			$this->mStorepurchaseproperty2->Delete();
+			$this->AssertFalse( $this->mStorepurchaseproperty2->Exists(), 'purchaseproperty2 deleted but he still seems to exist' );
+		
+		
 		}
 		
-/*		public function TestFindOne(){
-			$finder = New StoreItemFinder();
-			$item = $finder->FindById( $this->mStoreItem->Id );
-			$this->AssertEquals( "T-shirt", $item->Name, 'There was a problem while finding the item by id' );
-			
-			$item = $finder->FindByName( $this->mStoreItem->Name );
-			$this->AssertEquals( "20.00E", $item->Price, 'There was a problem while Finding the item by name' );
-		}
-		
-		public function TestDelete(){
-			$this->mStoreItem->Delete();
-			$finder = New StoreItemFinder();
-			$item = $finder->FindByName( "T-shirt" );
-			$this->AssertFalse( $item, 'Item seems to exist after deletion' );
-		}
-		
-		public function TestPurchase(){
-			$finder = New StoreItemFinder();
-			$item = $finder->FindByName( "T-shirt" );
-			$purchase = New StorePurchase();
-			$purchase->StoreItemId = $item->Id;
-			$purchase->UserId = $this->mUser->Id;
-			$purchase->Save();
-			$this->Assert( is_int( $purchase->Id ), 'Purchase Id sould be an integer after saving' );
-			$this->AssertEquals( $this->mUser->Id, $purchase->UserId, 'User id changed after saving purchase' );
-			$this->AssertEquals( $this->mStoreItem->Id, $purchase->StoreItemId, 'Item id changed after saving purchase' );
-		}*/
+
 	}
 	
 	return New TestStore;
