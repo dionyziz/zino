@@ -131,7 +131,7 @@
 			$this->mUser->Delete();
 			$this->mAlbum->Delete();
 			$this->mStoretype->Delete();
-			//$this->mStoreitem->Delete();
+			$this->mStoreitem->Delete();
 			$this->mStoreproperty1->Delete();
 			$this->mStoreproperty2->Delete();
 			//$this->mStorepurchase->Delete();
