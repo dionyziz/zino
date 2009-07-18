@@ -47,7 +47,6 @@
 			$this->Assert( class_exists( 'StorepurchasepropertyFinder' ), 'Class StorepurchasepropertyFinder does not exist' );
 			
 		}
-		
 		public function TestMethodExist(){
 			$TypeFinder = New StoretypeFinder();
 			$this->Assert( method_exists( $TypeFinder, 'FindByName' ), 'StoretypeFinder::FindByName method does not exist' );
@@ -92,7 +91,9 @@
 			$this->mAlbum->Ownertype = TYPE_STOREITEM;
 			$this->mAlbum->Ownerid = $this->mStoreitem->Id;
 			$this->mAlbum->Save();
+			
 			var_dump( $this->mAlbum ); die();
+			
 			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
 			
@@ -128,6 +129,21 @@
 			$this->AssertEquals( 'Size', $property2->Type, 'Property2 Type changed after saving' );
 			$this->AssertEquals( 'L', $property2->Value, 'Property2 Type changed after saving' );
 		}
+		public function TestCreatePurchase(){
+			$this->mStorepurchase = New Storepurchase();
+			$this->mStorepurchase->Itemid = $this->mStoreitem->Id;
+			$this->mStorepurchase->Userid = $this->mUser->Id;
+			$this->mStorepurchase->Save();
+			
+			$purchaseFinder = New StorepurchaseFinder();
+			$purchases = $purchaseFinder->FindByItemid( $this->mStoreitem->Id );
+			$purchase = $purchases[ 0 ];
+			
+			$this->Assert( is_int( $purchase->Id ), 'purchase Id sould be an integer after saving' );
+			$this->AssertEquals( $this->mStoreitem->Id, $purchase->Itemid, 'Item id changed after saving item' );
+			$this->AssertEquals( $this->mUser->Id, $purchase->Userid, 'User id changed after saving item' );
+		}
+		
 		
 		public function TestDeletion(){
 			$this->AssertTrue( $this->mUser->Exists(), 'Created user does not seem to exist before deleting' );
@@ -153,6 +169,11 @@
 			$this->AssertTrue( $this->mStoreproperty2->Exists(), 'Created Storeproperty2 does not seem to exist before deleting' );
 			$this->mStoreproperty2->Delete();
 			$this->AssertFalse( $this->mStoreproperty2->Exists(), 'Storeproperty2 deleted but he still seems to exist' );
+			
+			$this->AssertTrue( $this->mStorepurchase->Exists(), 'Created purchase does not seem to exist before deleting' );
+			$this->mStorepurchase->Delete();
+			$this->AssertFalse( $this->mStorepurchase->Exists(), 'purchase deleted but he still seems to exist' );
+			
 			
 			//$this->mStorepurchase->Delete();
 			//$this->mStorepurchaseproperty->Delete();
