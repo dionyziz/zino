@@ -1,5 +1,5 @@
 <?php
-    function ActionApplicationsCreate( tText $name, tText $description, tText $url, tText $logo ) {
+    function ActionApplicationCreate( tText $name, tText $description, tText $url, tText $logo ) {
         global $libs;
         global $user;
         
