@@ -24,6 +24,10 @@
                  !$settings[ 'production' ] ) )
             {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
+                var_dump( $user->Exists() );
+                var_dump( !in_array( $user->Id, $testers ) );
+                var_dump( $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) );
+                var_dump( !$settings[ 'production' ] );
             }
             else {
                 ?><div id="appmanager">
