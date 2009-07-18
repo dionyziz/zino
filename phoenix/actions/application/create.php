@@ -13,5 +13,7 @@
         $app->Logo = $logo->Get();
         
         $app->Save();
+        
+        Redirect( "?p=applications" );
     }
 ?>
