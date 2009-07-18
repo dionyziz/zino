@@ -5,15 +5,24 @@
             global $libs;
             global $user;
             global $page;
+            global $settings;
             
             $libs->Load( 'application' );
             
             $testers = Array(
-                                4499, //ch0rvus-beta
-                                5104, //chorvus-live
+                                18, //feedWARd
+                                3190, //darklord
+                                11637, //mariosal
+                                4060, //gspan
+                                11812, //FakeDrake
+                                5647, //nikos89
+                                5176, //teh-ninja
                             );
             
-            if ( !in_array( $user->Id, $testers ) ) {
+            if ( !in_array( $user->Id, $testers ) ||
+                 $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ||
+                 !$settings[ 'production' ] )
+            {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
             else {
