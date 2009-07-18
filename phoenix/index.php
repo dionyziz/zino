@@ -17,12 +17,6 @@
     
     Rabbit_Construct( 'ExcaliburHTML' );
 
-    global $user;
-
-    if ( $user->Id == 1 ) {
-        restore_error_handler();
-    }
-
     $req = $_GET;
 
     Rabbit_ClearPostGet();
