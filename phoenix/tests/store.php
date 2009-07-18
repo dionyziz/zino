@@ -74,7 +74,7 @@
 			$newType = $finder->FindByName( "T-shirt" );
 			
 			$this->Assert( is_int( $this->mStoretype->Id ), 'Type Id sould be an integer after saving' );
-			$this->AssertEquals( 'Dragon T-shirt', $this->mStoretype->Name, 'Type name changed after saving item' );
+			$this->AssertEquals( 'T-shirt', $this->mStoretype->Name, 'Type name changed after saving item' );
 			
 			$this->mStoretype->Delete();
 		}
