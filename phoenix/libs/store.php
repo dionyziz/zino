@@ -48,6 +48,11 @@
 			$prototype->Itemid = $id;
 			return count( $this->FindByPrototype( $prototype ) );
 		}
+		public function FindByUserid( $id, $offset = 0, $limit = 25 ){
+			$prototype = New Storepurchase();
+			$prototype->Userid = $id;
+			return $this->FindByPrototype(  $prototype );
+		}
 	}
 	
 	class StorepurchasepropertyFinder extends Finder{
@@ -81,7 +86,8 @@
 		protected function OnBeforeCreate(){
 			$purchaseFinder = new StorepurchaseFinder();
 			$purchases = $purchaseFinder->CountByItemid( $this->Itemid );
-			if( $purchases >= $this->Total ){
+			$item = New Storeitem( $this->Itemid );
+			if( $purchases[ 0 ] >= $item->Total ){
 				return false;
 			}
 		}
