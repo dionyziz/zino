@@ -12,6 +12,9 @@
 		private $mStorepurchaseproperty;
 		
 		public function SetUp(){
+			global $libs;
+			$libs->Load( 'album' );
+			
 			$finder = new UserFinder();
 			$user = $finder->FindByName( 'testStore2' );
 			if( is_object( $user ) ){
