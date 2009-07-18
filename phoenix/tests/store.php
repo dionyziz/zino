@@ -123,7 +123,7 @@
 			$properties = $finder->FindByItemId( $this->mStoreitem->Id );
 				$this->AssertEquals( 'Size', $properties[ 0 ]->Type, 'Property1 Type changed after saving' );
 				$this->AssertEquals( 'S', $properties[ 0 ]->Value, 'Property1 Type changed after saving' );
-				$this->AssertEquals( 'Size', $properties[ 1 ]->Value, 'Property2 Type changed after saving' );
+				$this->AssertEquals( 'Size', $properties[ 1 ]->Type, 'Property2 Type changed after saving' );
 				$this->AssertEquals( 'L', $properties[ 1 ]->Value, 'Property2 Type changed after saving' );
 		}
 		
