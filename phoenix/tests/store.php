@@ -134,6 +134,7 @@
 			$this->mUser->Delete();
 			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
 			
+			var_dump( $this->mAlbum ); die();
 			$this->AssertTrue( $this->mAlbum->Exists(), 'Created Album does not seem to exist before deleting' );
 			$this->mAlbum->Delete();
 			$this->AssertFalse( $this->mAlbum->Exists(), 'Album deleted but he still seems to exist' );
