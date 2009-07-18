@@ -148,9 +148,9 @@
 			$this->mUser->Delete();
 			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
 			
-			$this->AssertTrue( $this->mAlbum->IsDeleted(), 'Created Album does not seem to exist before deleting' );
+			$this->AssertFalse( $this->mAlbum->IsDeleted(), 'Created Album does not seem to exist before deleting' );
 			$this->mAlbum->Delete();
-			$this->AssertFalse( $this->mAlbum->IsDeleted(), 'Album deleted but he still seems to exist' );
+			$this->AssertTrue( $this->mAlbum->IsDeleted(), 'Album deleted but he still seems to exist' );
 			
 			$this->AssertTrue( $this->mStoretype->Exists(), 'Created Storetype does not seem to exist before deleting' );
 			$this->mStoretype->Delete();
