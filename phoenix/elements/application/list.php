@@ -19,9 +19,9 @@
                                 5176, //teh-ninja
                             );
             
-            if ( !in_array( $user->Id, $testers ) ||
+            if ( $user->Exists() && ( !in_array( $user->Id, $testers ) ||
                  $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ||
-                 !$settings[ 'production' ] )
+                 !$settings[ 'production' ] ) )
             {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
             }
