@@ -14,6 +14,7 @@
 		public function SetUp(){
 			global $libs;
 			$libs->Load( 'album' );
+			$libs->Load( 'journal' );
 			
 			$finder = new UserFinder();
 			$user = $finder->FindByName( 'testStore2' );
