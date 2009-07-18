@@ -74,7 +74,7 @@
 			$this->mStoretype = New Storetype();
 			$this->mStoretype->Name = "T-shirt";
 			$this->mStoretype->Save();
-			$finder = StoretypeFinder();
+			$finder = New StoretypeFinder();
 			$newType = $finder->FindByName( "T-shirt" );
 			$this->AssertEquals( $this->mStoretype, $newType, 'Types are not equal after creation' );
 		}
