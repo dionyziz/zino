@@ -1,155 +1,240 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="el" xmlns="http://www.w3.org/1999/xhtml" xml:lang="el"><head>
-        <link href="http://static.zino.gr/css/global.css" rel="stylesheet" type="text/css"/><meta name="author" content="Kamibu Development Team"/><meta name="keywords" content="greek, friends, chat, community, greece, meet, people"/><meta name="description" content="Το Zino είναι η παρέα σου online - είσαι μέσα;"/><base href="http://www.zino.gr/" />
-
-        <title>ZinoSTORE</title>
+<html>
+    <head>
+        <title>Necklace Φυσαλίδα - ZinoSTORE</title>
         <style type="text/css">
             body {
-                font-family: Helvetica;
-            }
-            .blue {
+                font-family: Verdana;
+                background-color: black;
                 color: white;
-                font-weight: bold;
-                background-color: #5081ad;
-                padding: 5px;
+                margin: 0;
+                font-size: 90%;
             }
-            p {
-                line-height: 30px;
+            h1 img {
+                float: left;
+                padding-right: 2px;
             }
-            #storemenu {
-                list-style: none;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            a img {
+                border: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            a.back {
+                background-image: url( 'http://static.zino.gr/phoenix/store/arrow_left.png' );
+                background-repeat: no-repeat;
+                background-position: 0px 2px;
+                padding-left: 22px;
                 position: absolute;
-                top: 0;
-                right: 5px;
+                top: 5px;
+                left: 5px;
             }
-            #storemenu li {
-                display: inline;
-                padding: 5px;
-            }
-            div#zinostore div.item {
-                margin-right: 10px;
-                float: left;
-                width: 490px;
-            }
-            img#storeitem {
-                border: 1px solid #444;
-            }
-            div#zinostore div.description {
-                margin-left: 500px;
-            }
-            ul#storetoolbox {
+            ul {
                 list-style: none;
+                padding: 0;
+                margin: 0;
             }
-            div#lbanner h1 {
-                width: 200px;
-            }
-            div#lbanner h1 a img {
+            ul li {
                 float: left;
-                padding-right: 5px;
+                padding: 2px;
             }
-            #zinostore div.description ul.edit span {
-                padding-left: 20px;
+            h1 {
+                width: 100%;
+                height: 212px;
+                background-image: url( 'http://static.zino.gr/phoenix/store/bluesky.jpg' );
+                background-repeat: repeat-x;
+                overflow: hidden;
+                position: relative;
             }
-            #zinostore div.description ul.edit li {
-                font-size: 100%;
+            h1 div.city {
+                background-image: url( 'http://static.zino.gr/phoenix/store/city.png' );
+                background-repeat: no-repeat;
+                height: 201px;
+                width: 100%;
+                margin: auto;
+                position: relative;
+                top: 11px;
+            }
+            h1 div.cityend1 {
+                background-color: black;
+                position: relative;
+                left: 1280px;
+                height: 100px;
+                width: 100%;
+                top: 140px;
+            }
+            h1 span {
+                position: absolute;
+                top: 10px;
+                left: 310px;
+            }
+            h2 {
+                font-weight: normal;
+                letter-spacing: 0.05em;
+                font-size: 150%;
+                position: relative;
+                top: -49px;
+                margin: 0;
+                height: 30px;
+            }
+            div.productimage {
+                float: left;
                 padding-right: 20px;
-                font-weight: bold;
             }
-            .buyicon {
+            ul.toolbox {
+                padding-top: 4px;
+            }
+            ul.toolbox li {
+                padding-right: 15px;
+                float: none;
+                display: inline;
+            }
+            li.lurv a {
+                padding-left: 22px;
+                background-image: url( 'http://static.zino.gr/phoenix/store/heart_add.png' );
+                background-repeat: no-repeat;
+            }
+            li.wantz a {
+                padding-left: 22px;
                 background-image: url( 'http://static.zino.gr/phoenix/store/basket.png' );
                 background-repeat: no-repeat;
-                background-position: left;
+            }
+            h2 img {
+                position: relative;
+                top: 25px;
+                left: 25px;
+            }
+            div.content {
+                width: 800px;
+                margin: auto;
+            }
+            div.eof {
+                clear: both;
+            }
+            div.productdetails {
+                margin-left: 219px;
+                padding-bottom: 40px;
+            }
+            div.description {
+                font-size: 80%;
+                padding-top: 20px;
+            }
+            div.content {
+                position: relative;
+                top: -20px;
+            }
+            p.please {
+                color: #678;
+                font-size: 90%;
+            }
+            p.please strong {
+                color: #955;
+            }
+            p a {
+                text-decoration: underline;
+            }
+            h3.lurv {
+                background-image: url( 'http://static.zino.gr/phoenix/store/lovedby.png' );
+                background-repeat: no-repeat;
+                width: 204px;
+                height: 71px;
+                font-size: 0;
+                color: black;
+                clear: both;
+                margin-left: 30px;
+            }
+            h3.wantz {
+                background-image: url( 'http://static.zino.gr/phoenix/store/boughtby.png' );
+                background-repeat: no-repeat;
+                width: 197px;
+                height: 107px;
+                font-size: 0;
+                color: black;
+                clear: both;
+            }
+            ul.wantz, ul.lurv {
+                margin-left: 90px;
+                position: relative;
+                top: -22px;
+            }
+            ul.wantz {
+                top: -64px;
             }
         </style>
-
-</head><body>
-
-
-            <div id="upstrip">           <div id="lbanner">
-                <h1>
-                    <a href="http://www.zino.gr/">
-                        <img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino"/>
-                    </a>
-                    <a href="http://store.zino.gr/">
-                        <img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" />
-                    </a>
-                </h1>
-           </div>
-           <div id="rbanner">
-           </div>
-           <div id="mbanner">
-                <div id="loggedinmenu">
-                        <ul>
-                            <li>
-                                <a style="top: 25px;position:relative" href="http://www.zino.gr/" class="bannerinlink">Πίσω στο Zino</a>
-                            </li>
-                        </ul></div>
-           </div></div>
-                    <div id="midstrip">
-                        <div id="strip1">
-                            <div id="strip1left">
-                            </div>
-                            <div id="strip1right">
-                            </div>
-                        </div>
-
-                        <div id="strip2"><div id="content">
-        <div id="zinostore">
-            <div class="item">
-                <img id="storeitem" src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace Φυσαλίδα" />
-                <p>Το Necklace Φυσαλίδα αγαπούν ο dionyziz, η Gardy, και ο pagio91.</p>
-            </div>
-            <div class="description">
-                <h2>Necklace Φυσαλίδα</h2>
-                <div id="pview">
-                    <ul class="edit">
-                        <li>
-                            <a href="" title="Το αγαπώ" onclick="return PhotoView.AddFav( '197096' , this )"><span class="s_addfav"> </span>Το αγαπώ</a>
-                        </li>
-                        <li>
-                            <a href="" title="Το θέλω" onclick="return PhotoView.AddFav( '197096' , this )"><span class="buyicon"> </span>Το θέλω</a>
-                        </li>
-                    </ul>
+    </head>
+    <body>
+        <h1>
+            <div class="city">
+                <div class="cityend1">
                 </div>
-                <p>Το επίσημο λογότυπο του Zino - η φυσαλίδα - διατίθεται σε
-                   ένα σχέδιο από πολυεστερικό πηλό για να στολίσεις το λαιμό σου, είτε είσαι αγόρι
-                   είτε κορίτσι, στο αγαπημένο
-                   χρώμα του Zino, το <span class="blue">μπλε royal</span> και με λευκό περίγραμμα.</p>
-                <p>To σχέδιο είναι συλλεκτικό και διατίθεται στον περιορισμένο
-                   αριθμό των <strong>32 κομματιών</strong>. Κάθε ένα από τα 32
-                   κομμάτια είναι χειροποίητο από την καλλιτέχνη <a href="http://gardy.zino.gr/">Gardy</a>.</p>
-                <p><strong>Το Zino σ' αγαπάει:</strong> 
-                    Η προσφορά σου είναι ζωτικής σημασίας για εμάς. Τα έσοδα από την αγορά είναι απαραίτητα για να συνεχίσει
-                    να ζει το Zino. Τα χρήματα θα διατεθούν <a href="http://www.zino.gr/about/costs">για την
-                    βελτίωση και διατήρηση του Zino</a>.</p>
-                <p>Έχουν ήδη αγοραστεί 6 από τα 32:
-                    <ol>
-                        <li><a href="">dionyziz</a></li>
-                        <li><a href="">pagio91</a></li>
-                        <li><a href="">Gardy</a></li>
-                        <li><a href="">finlandos</a></li>
-                        <li><a href="">Bowling</a></li>
-                        <li><a href="">Funeral</a></li>
-                    </ol>
-                </p>
             </div>
+            <span>
+                <img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" />
+                <img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" />
+            <span>
+        </h1>
+        <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
+        <div class="content">
+            <div class="productimage">
+                <img src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace φυσαλίδα" />
+            </div>
+            <div class="productdetails">
+                <h2>Necklace φυσαλίδα <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15€" /></span></h2>
+                <ul class="toolbox">
+                    <li class="lurv"><a href="" onclick="return false;">Το αγαπώ</a></li>
+                    <li class="wantz"><a href="" onclick="return false;">Το θέλω</a></li>
+                </ul>
+                <div class="description">
+                    <p>
+                        Το επίσημο λογότυπο του Zino - η φυσαλίδα - διατίθεται σε 
+                        ένα σχέδιο από πολυεστερικό πηλό για να στολίσεις το λαιμό 
+                        σου, είτε είσαι αγόρι είτε κορίτσι, στο αγαπημένο χρώμα του 
+                        Zino, το μπλε royal και με λευκό περίγραμμα.
+                    </p><p>
+                        To σχέδιο είναι συλλεκτικό και διατίθεται στον περιορισμένο 
+                        αριθμό των <strong>32 κομματιών</strong>. 
+                        Αφού πουληθούν όλα τα κομμάτια, το συγκεκριμένο σχέδιο δεν θα ξαναβγεί.
+                        Κάθε ένα από τα 32 κομμάτια είναι 
+                        χειροποίητο από την καλλιτέχνη <a href="http://gardy.zino.gr/">Gardy</a>.
+                    </p><p class="please">
+                        <strong>Το Zino σ' αγαπάει:</strong> Η προσφορά σου είναι ζωτικής σημασίας 
+                        για εμάς. Τα έσοδα από την αγορά είναι απαραίτητα για να 
+                        συνεχίσει να ζει το Zino. Τα χρήματα θα διατεθούν για την 
+                        βελτίωση και διατήρηση του Zino.
+                    </p>
+                </div>
+            </div>
+            <div class="eof"></div>
+            <h3 class="lurv">Το αγαπάνε:</h3>
+            <ul class="lurv">
+                <li><a href="http://phil-marz.zino.gr/" title="Phil_marz">
+                    <img src="http://images2.zino.gr/media/974/100753/100753_100.jpg" width="50" height="50" alt="Phil_marz" />
+                </a></li>
+                <li><a href="http://maybeshewill.zino.gr/" title="Maybeshewill">
+                    <img src="http://images2.zino.gr/media/10759/198754/198754_100.jpg" width="50" height="50" alt="Maybeshewill" />
+                </a></li>
+                <li><a href="http://mel-theboof.zino.gr/" title="MeL_TheBoof">
+                    <img src="http://images2.zino.gr/media/12124/193844/193844_100.jpg" width="50" height="50" alt="MeL_TheBoof" />
+                </a></li>
+                <li><a href="http://KaptenDiesel.zino.gr/" title="KaptenDiesel">
+                    <img src="http://images2.zino.gr/media/6688/183876/183876_100.jpg" width="50" height="50" alt="KaptenDiesel" />
+                </a></li>
+            </ul>
+            <h3 class="wantz">Το πήραν:</h3>
+            <ul class="wantz">
+                <li><a href="http://Antig0nh.zino.gr/" title="Antig0nh">
+                    <img src="http://images2.zino.gr/media/5003/199204/199204_100.jpg" width="50" height="50" alt="Antig0nh" />
+                </a></li>
+                <li><a href="http://Nefeloumpa.zino.gr/" title="Nefeloumpa">
+                    <img src="http://images2.zino.gr/media/7895/170657/170657_100.jpg" width="50" height="50" alt="Nefeloumpa" />
+                </a></li>
+                <li><a href="http://flame-ody.zino.gr/" title="fLaMe_OdY">
+                    <img src="http://images2.zino.gr/media/6144/165096/165096_100.jpg" width="50" height="50" alt="fLaMe_OdY" />
+                </a></li>
+            </ul>
         </div>
-			</div></div> 
-                    <div id="strip3">
-                        <div id="strip3left">
-                        </div>
-                        <div id="strip3right">
-                        </div>
-                        <div id="strip3middle">
-                        </div>
-                    </div>
-                    </div>    
-                    <div id="downstrip" style="position: relative;"><div>
-                <a class="wlink" href="http://www.zino.gr/contact">Επικοινώνησε</a>
-                <a class="wlink" href="http://www.zino.gr/tos">Όροι χρήσης</a>
-                <a class="wlink" href="http://www.zino.gr/?p=ads">Διαφήμιση</a>
-            </div>
-            <div id="copyleft">
-                <span>© 2009</span> <a class="wlink" href="http://www.kamibu.com/">Kamibu</a>
-            </div></div><script type="text/javascript" src="Zino_files/urchin.js" charset="utf-8"/><script type="text/javascript" src="Zino_files/global.js" charset="utf-8"/><script type="text/javascript">ExcaliburSettings.webaddress = 'http://www.zino.gr';ExcaliburSettings.Production = true;Banner.OnLoad();</script></body></html>
+    </body>
+</html>
