@@ -5,7 +5,7 @@
             global $libs;
             global $user;
             global $page;
-            global $settings;
+            global $rabbit_settings;
             
             $libs->Load( 'application' );
             
@@ -21,7 +21,7 @@
             
             if ( !$user->Exists() && !( in_array( $user->Id, $testers ) ||
                  $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ||
-                 !$settings[ 'production' ] ) )
+                 !$rabbit_settings[ 'production' ] ) )
             {
                 ?>Δεν έχεις πρόσβαση σε αυτήν την σελίδα.<?
                 return;
