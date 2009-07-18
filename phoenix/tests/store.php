@@ -65,7 +65,6 @@
 			$this->Assert( method_exists( $PurchasepropertyFinder, 'FindAll' ), 'StorepurchasepropertyFinder::FindAll method does not exist' );
 		}
 		
-		
 		public function TestCreateType(){
 			$this->mStoretype = New Storetype();
 			$this->mStoretype->Name = "T-shirt";
@@ -76,15 +75,13 @@
 			$this->Assert( is_int( $this->mStoretype->Id ), 'Type Id sould be an integer after saving' );
 			$this->AssertEquals( 'T-shirt', $this->mStoretype->Name, 'Type name changed after saving item' );
 			$this->AssertEquals( NowDate(), $this->mStoretype->Created, 'There was a problem while returning Created date' );
-			
-			$this->mStoretype->Delete();
 		}
 		public function TestCreateItem(){
 			$this->mStoreitem = New Storeitem();
 			$this->mStoreitem->Name = "Dragon T-shirt";
 			$this->mStoreitem->Price = '20.00E';
 			$this->mStoreitem->Description = 'A great T-shirt with a dragon on it';
-			$this->mStoreitem->Typeid = $this->mStoreType->Id;
+			$this->mStoreitem->Typeid = $this->mStoretype->Id;
 			$this->mStoreitem->Total = 50;
 			$this->mStoreitem->Save();
 			
@@ -104,7 +101,16 @@
 			$this->AssertEquals( $this->mAlbum->Id, $this->mStoreitem->Albumid, 'Album id changed after saving item' );
 			$this->AssertEquals( NowDate(), $this->mStoretype->Created, 'There was a problem while returning Created date' );
 			$this->AssertEquals( 50, $this->mStoreitem->Total, 'Item piece count changed after saving item' );
+		}
+		
+		public function TestDeletion(){
+			$this->mUser->Delete();
+			$this->mAlbum->Delete();
+			$this->mStoretype->Delete();
 			$this->mStoreitem->Delete();
+			//$this->mStoreproperty->Delete();
+			//$this->mStorepurchase->Delete();
+			//$this->mStorepurchaseproperty->Delete();
 		}
 		
 /*		public function TestFindOne(){
