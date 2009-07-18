@@ -27,9 +27,9 @@
 		public function TestClassesExist(){
 			$this->Assert( class_exists( 'Storetype' ), 'Class Storetype does not exist' );
 			$this->Assert( class_exists( 'Storeitem' ), 'Class Storeitem does not exist' );
-			$this->Assert( class_exists( 'Storeproperties' ), 'Class Storeproperties does not exist' );
+			$this->Assert( class_exists( 'Storeproperty' ), 'Class Storeproperties does not exist' );
 			$this->Assert( class_exists( 'Storepurchase' ), 'Class Storepurchase does not exist' );
-			$this->Assert( class_exists( 'Storepurchaseproperties' ), 'Class Storepurchaseproperties does not exist' );
+			$this->Assert( class_exists( 'Storepurchaseproperty' ), 'Class Storepurchaseproperties does not exist' );
 			
 			$this->Assert( class_exists( 'StoretypeFinder' ), 'Class StoretypeFinder does not exist' );
 			$this->Assert( class_exists( 'StoreitemFinder' ), 'Class StoreitemFinder does not exist' );
