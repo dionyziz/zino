@@ -72,7 +72,10 @@
 			$this->mStoretype->Save();
 			$finder = New StoretypeFinder();
 			$newType = $finder->FindByName( "T-shirt" );
-			$this->AssertEquals( $this->mStoretype, $newType, 'Types are not equal after creation' );
+			
+			$this->Assert( is_int( $this->mStoretype->Id ), 'Type Id sould be an integer after saving' );
+			$this->AssertEquals( 'Dragon T-shirt', $this->mStoretype->Name, 'Type name changed after saving item' );
+			
 			$this->mStoretype->Delete();
 		}
 		public function TestCreateItem(){
@@ -90,6 +93,7 @@
 			$this->AssertEquals( '20.00E', $this->mStoreitem->Price, 'Item price changed after saving item' );
 			$this->AssertEquals( 50, $this->mStoreitem->Total, 'Item piece count changed after saving item' );
 			$this->AssertEquals( 'A great T-shirt with a dragon on it', $this->mStoreitem->Description, 'Item Description changed after saving item' );
+			$this->mStoreitem->Delete();
 		}
 		
 /*		public function TestFindOne(){
