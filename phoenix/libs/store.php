@@ -1,7 +1,7 @@
 <?php
 	
 	class StoretypeFinder extends Finder{
-		public function FindbByName( $name ){
+		public function FindByName( $name ){
 			$prototype = New Storetype();
 			$prototype->Name = $name;
 			return $this->FindByPrototype( $prototype );
@@ -12,6 +12,17 @@
 	}
 	
 	class StoreitemFinder extends Finder{
+		public function FindAll( $offset = 0, $limit = 25 ){
+			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+		}
+		public function FindByName( $name ){
+			$prototype = New Storeitem();
+			$prototype->Name = $name;
+			return $this->FindByPrototype( $prototype );
+		}
+	}
+	
+	class StorepropertyFinder extends Finder{
 		public function FindAll( $offset = 0, $limit = 25 ){
 			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
 		}
@@ -30,6 +41,13 @@
 		}
 	}
 	
+	class StorepurchasepropertyFinder extends Finder{
+		public function FindAll( $offset = 9, $limit = 25 ){
+			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
+		}
+	}
+	
+	
 	class Storetype extends Satori{
 		protected $mDbTableAlias = 'storetypes';
 	}
@@ -45,7 +63,11 @@
 	class Storepurchase extends Satori{
 		protected $mDbTableAlias = 'storepurchases';
 		protected function OnBeforeCreate(){
-			
+			$purchaseFinder = new StorepurchaseFinder();
+			$purchases = $purchaseFinder->CountByItemid( $this->Itemid );
+			if( $purchases >= $this->Total ){
+				return false;
+			}
 		}
 	}
 	
