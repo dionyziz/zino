@@ -85,15 +85,25 @@
 			$this->mStoreitem->Price = '20.00E';
 			$this->mStoreitem->Description = 'A great T-shirt with a dragon on it';
 			$this->mStoreitem->Typeid = $this->mStoreType->Id;
-			//$this->mStoreitem->Albumid = ;
 			$this->mStoreitem->Total = 50;
+			$this->mStoreitem->Save();
+			
+			$this->mAlbum = New Album();
+			$this->mAlbum->Ownertype = TYPE_STOREITEM;
+			$this->mAlbum->Ownerid = $this->mStoreitem->Id;
+			$this->mAlbum->Save();
+			
+			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
 			
 			$this->Assert( is_int( $this->mStoreitem->Id ), 'Item Id sould be an integer after saving' );
 			$this->AssertEquals( 'Dragon T-shirt', $this->mStoreitem->Name, 'Item name changed after saving item' );
 			$this->AssertEquals( '20.00E', $this->mStoreitem->Price, 'Item price changed after saving item' );
-			$this->AssertEquals( 50, $this->mStoreitem->Total, 'Item piece count changed after saving item' );
 			$this->AssertEquals( 'A great T-shirt with a dragon on it', $this->mStoreitem->Description, 'Item Description changed after saving item' );
+			$this->AssertEquals( $this->mStoretype->Id, $this->mStoreitem->Typeid, 'Type id changed after saving item' );
+			$this->AssertEquals( $this->mAlbum->Id, $this->mStoreitem->Albumid, 'Album id changed after saving item' );
+			$this->AssertEquals( NowDate(), $this->mStoretype->Created, 'There was a problem while returning Created date' );
+			$this->AssertEquals( 50, $this->mStoreitem->Total, 'Item piece count changed after saving item' );
 			$this->mStoreitem->Delete();
 		}
 		
