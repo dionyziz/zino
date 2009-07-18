@@ -92,8 +92,6 @@
 			$this->mAlbum->Ownerid = $this->mStoreitem->Id;
 			$this->mAlbum->Save();
 			
-			var_dump( $this->mAlbum ); die();
-			
 			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
 			
@@ -150,9 +148,9 @@
 			$this->mUser->Delete();
 			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
 			
-			$this->AssertTrue( $this->mAlbum->Exists(), 'Created Album does not seem to exist before deleting' );
+			$this->AssertTrue( $this->mAlbum->IsDeleted(), 'Created Album does not seem to exist before deleting' );
 			$this->mAlbum->Delete();
-			$this->AssertFalse( $this->mAlbum->Exists(), 'Album deleted but he still seems to exist' );
+			$this->AssertFalse( $this->mAlbum->IsDeleted(), 'Album deleted but he still seems to exist' );
 			
 			$this->AssertTrue( $this->mStoretype->Exists(), 'Created Storetype does not seem to exist before deleting' );
 			$this->mStoretype->Delete();
