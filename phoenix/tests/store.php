@@ -47,12 +47,8 @@
 		}
 		
 		public function TestMethodExist(){
-			$purchase = New Storepurchase();
-			$this->Assert( method_exists( $purchase, 'OnBeforeCreate' ), 'Storepurchase::OnBeforeCreate method does not exist' );
-			
-			
 			$TypeFinder = New StoretypeFinder();
-			$this->Assert( method_exists( $TypeFinder, 'FindbByName' ), 'StoretypeFinder::FindbByName method does not exist' );
+			$this->Assert( method_exists( $TypeFinder, 'FindByName' ), 'StoretypeFinder::FindByName method does not exist' );
 			$this->Assert( method_exists( $TypeFinder, 'FindAll' ), 'StoretypeFinder::FindAll method does not exist' );
 			
 			$ItemFinder = New StoreitemFinder();
