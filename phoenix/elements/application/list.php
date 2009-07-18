@@ -47,6 +47,8 @@
                         <tr><td>Περιγραφή:</td><td><input type="textarea" name="description" /></td></tr>
                         <tr><td>Λογότυπο:</td><td><input type="text" name="logo" /></td></tr>
                         </table>
+                        <br />
+                        Η επεξεργασία των εφαρμογών θα είναι διαθέσιμη σε λίγες μέρες
                         <input type="submit" name="newapplication" onclick="Applications.CheckValidity()" value="Δημιουργία" />
                     </form></div></li>
                 </ul>
