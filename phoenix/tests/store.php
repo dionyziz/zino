@@ -111,6 +111,10 @@
 			//$this->mStoreproperty->Delete();
 			//$this->mStorepurchase->Delete();
 			//$this->mStorepurchaseproperty->Delete();
+			$this->AssertNull( $this->mUser, 'User was not deleted');
+			$this->AssertNull( $this->mAlbum, 'Album was not deleted');
+			$this->AssertNull( $this->mStoretype, 'Type was not deleted');
+			$this->AssertNull( $this->mStoreitem, 'Item was not deleted');
 		}
 		
 /*		public function TestFindOne(){
