@@ -7,9 +7,11 @@
 		
 		private $mStoretype;
 		private $mStoreitem;
-		private $mStoreproperty;
+		private $mStoreproperty1;
+		private $mStoreproperty2;
 		private $mStorepurchase;
-		private $mStorepurchaseproperty;
+		private $mStorepurchaseproperty1;
+		private $mStorepurchaseproperty2;
 		
 		public function SetUp(){
 			global $libs;
@@ -93,14 +95,36 @@
 			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
 			
+			$itemFinder = new StoreitemFinder();
+			$item = $itemFinder->FindByName( 'Dragon T-shirt' );
+			
 			$this->Assert( is_int( $this->mStoreitem->Id ), 'Item Id sould be an integer after saving' );
-			$this->AssertEquals( 'Dragon T-shirt', $this->mStoreitem->Name, 'Item name changed after saving item' );
-			$this->AssertEquals( '20.00E', $this->mStoreitem->Price, 'Item price changed after saving item' );
-			$this->AssertEquals( 'A great T-shirt with a dragon on it', $this->mStoreitem->Description, 'Item Description changed after saving item' );
-			$this->AssertEquals( $this->mStoretype->Id, $this->mStoreitem->Typeid, 'Type id changed after saving item' );
-			$this->AssertEquals( $this->mAlbum->Id, $this->mStoreitem->Albumid, 'Album id changed after saving item' );
-			$this->AssertEquals( NowDate(), $this->mStoretype->Created, 'There was a problem while returning Created date' );
-			$this->AssertEquals( 50, $this->mStoreitem->Total, 'Item piece count changed after saving item' );
+			$this->AssertEquals( 'Dragon T-shirt', $item->Name, 'Item name changed after saving item' );
+			$this->AssertEquals( '20.00E', $item->Price, 'Item price changed after saving item' );
+			$this->AssertEquals( 'A great T-shirt with a dragon on it', $item->Description, 'Item Description changed after saving item' );
+			$this->AssertEquals( $this->mStoretype->Id, $item->Typeid, 'Type id changed after saving item' );
+			$this->AssertEquals( $this->mAlbum->Id, $item->Albumid, 'Album id changed after saving item' );
+			$this->AssertEquals( NowDate(), $item->Created, 'There was a problem while returning Created date' );
+			$this->AssertEquals( 50, $item->Total, 'Item piece count changed after saving item' );
+		}
+		public function TestCreateProperties(){
+			$this->mStoreproperty1 = New Storeproperty();
+			$this->mStoreproperty1->Itemid = $this->mStoreitem->Id;
+			$this->mStoreproperty1->Type = "Size";
+			$this->mStoreproperty1->Value = "S";
+			$this->mStoreproperty1->Save();
+			$this->mStoreproperty2 = New Storeproperty();
+			$this->mStoreproperty2->Itemid = $this->mStoreitem->Id;
+			$this->mStoreproperty2->Type = "Size";
+			$this->mStoreproperty2->Value = "L";
+			$this->mStoreproperty2->Save();
+			
+			$finder = New StorepropertyFinder();
+			$properties = $finder->FindByItemId( $this->mStoreitem->Id );
+				$this->AssertEquals( 'Size', $properties[ 0 ]->Type, 'Property1 Type changed after saving' );
+				$this->AssertEquals( 'S', $properties[ 0 ]->Value, 'Property1 Type changed after saving' );
+				$this->AssertEquals( 'Size', $properties[ 1 ]->Value, 'Property2 Type changed after saving' );
+				$this->AssertEquals( 'L', $properties[ 1 ]->Value, 'Property2 Type changed after saving' );
 		}
 		
 		public function TestDeletion(){
@@ -108,7 +132,8 @@
 			$this->mAlbum->Delete();
 			$this->mStoretype->Delete();
 			$this->mStoreitem->Delete();
-			//$this->mStoreproperty->Delete();
+			$this->mStoreproperty1->Delete();
+			$this->mStoreproperty2->Delete();
 			//$this->mStorepurchase->Delete();
 			//$this->mStorepurchaseproperty->Delete();
 			$this->AssertTrue( !$this->mUser->Exists(), 'User was not deleted');
