@@ -6,12 +6,9 @@
 		private $mStorePurchase;
 		
 		public function SetUp(){
-			global $libs;
-			$libs->Load( 'store' );
-			
 			$ufinder = New UserFinder();
 			$user = $ufinder->FindByName( "teststore" );
-			if ( isObject( $user ) ){
+			if ( is_object( $user ) ){
 				$user->Delete();
 			}
 			$user = New User();
@@ -37,7 +34,6 @@
 			$item = New StoreItem();
 			$this->Assert( method_exists( $item, 'Save' ), 'StoreItem::Save method does not exist' );
 			$this->Assert( method_exists( $item, 'Delete' ), 'StoreItem::Delete method does not exist' );
-			$this->Assert( method_exists( $item, 'OnBeforeCreate' ), 'StoreItem::Delete method does not exist' );
 			
 			$finder = New StoreItemFinder();
 			$this->Assert( method_exists( $finder, 'FindById' ), 'StoreItemFinder::FindById method does not exist' );

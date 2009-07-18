@@ -20,8 +20,13 @@
 	class StorepurchaseFinder extends Finder{
 		public function FindByItemid( $id, $offset = 0, $limit = 50 ){
 			$prototype = New Storepurchase();
-			$prototype->Typeid = $id;
+			$prototype->Itemid = $id;
 			return $this->FindByPrototype(  $prototype );
+		}
+		public function CountByItemid( $id ){
+			$prototype = New Storepurchase();
+			$prototype->Itemid = $id;
+			return count( $this->FindByPrototype( $prototype ) );
 		}
 	}
 	
