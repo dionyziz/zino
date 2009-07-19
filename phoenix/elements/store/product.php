@@ -3,6 +3,7 @@
         public function Render( tString $name ) {
             global $libs;
             global $page;
+            global $user;
             
             $page->SetTitle( 'ZinoSTORE' );
             $libs->Load( 'store' );
@@ -29,6 +30,24 @@
             $favouritefinder = New FavouriteFinder();
             $loves = $favouritefinder->FindByEntity( $item );
             
+            $igot = false;
+            $ilove = false;
+            if ( $user->Exists() ) {
+                foreach ( $purchases as $purchase ) {
+                    if ( $purchase->User->Id == $purchase->Id ) {
+                        $igot = true;
+                        break;
+                    }
+                }
+                
+                foreach ( $loves as $love ) {
+                    if ( $love->User->Id == $user->Id ) {
+                        $ilove = true;
+                        break;
+                    }
+                }
+            }
+            
             ?>
             <h1>
                 <div class="city">
@@ -48,8 +67,22 @@
                 <div class="productdetails">
                     <h2>Necklace φυσαλίδα <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15€" /></span></h2>
                     <ul class="toolbox">
-                        <li class="lurv"><a href="" onclick="return false;">Το αγαπώ</a></li>
-                        <li class="wantz"><a href="" onclick="return false;">Το θέλω</a></li>
+                        <?php
+                        if ( $user->Exists() ) {
+                            ?><li class="lurv"><a href="" onclick="return false;"<?php
+                            if ( $ilove ) {
+                                ?> id="luved"<?php
+                            }
+                            ?>>Το αγαπώ</a></li><?php
+                        }
+                        if ( !$igot ) {
+                            ?><li class="wantz"><a href="<?php
+                            if ( !$user->Exists() ) {
+                                ?>http://www.zino.gr/join<?php
+                            }
+                            ?>" onclick="return false;">Το θέλω</a></li><?php
+                        }
+                        ?>
                     </ul>
                     <div class="description">
                         <?php

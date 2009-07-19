@@ -94,6 +94,10 @@ li.lurv a {
     background-image: url( 'http://static.zino.gr/phoenix/store/heart_add.png' );
     background-repeat: no-repeat;
 }
+li.lurv a#luved {
+   background-image: url( 'http://static.zino.gr/phoenix/store/heart.png' );
+   cursor: default;
+}
 li.wantz a {
     padding-left: 22px;
     background-image: url( 'http://static.zino.gr/phoenix/store/basket.png' );
