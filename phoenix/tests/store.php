@@ -11,7 +11,6 @@
 		private $mStoreproperty2;
 		private $mStorepurchase;
 		private $mStorepurchaseproperty1;
-		private $mStorepurchaseproperty2;
 		
 		public function SetUp(){
 			global $libs;
@@ -168,13 +167,10 @@
 			$this->mStorepurchaseproperty1->Purchaseid = $this->mStorepurchase->Id;
 			$this->mStorepurchaseproperty1->Save();
 			
-			$this->mStorepurchaseproperty2 = New Storepurchaseproperty();
-			$this->mStorepurchaseproperty2->Propertyid = $this->mStoreproperty2->Id;
-			$this->mStorepurchaseproperty2->Purchaseid = $this->mStorepurchase->Id;
-			$this->mStorepurchaseproperty2->Save();
-			
 			$this->Assert( is_int( $this->mStorepurchaseproperty1->Id ), 'purchaseproperty1 id sould be an integer after saving' );
-			$this->Assert( is_int( $this->mStorepurchaseproperty2->Id ), 'purchaseproperty2 id sould be an integer after saving' );
+		}
+		public function TestRemaining(){
+			$this->AssertEquals( $this->mStoreitem->Remaining(), 49, "Remaining items sould be Total - 1, after one purchase" );
 		}
 		
 		public function TestRelations(){
@@ -215,6 +211,10 @@
 			$this->mUser->Delete();
 			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
 			
+			$this->AssertTrue( $this->mUser2->Exists(), 'Created user2 does not seem to exist before deleting' );
+			$this->mUser->Delete();
+			$this->AssertFalse( $this->mUser2->Exists(), 'User2 deleted but he still seems to exist' );
+			
 		/*	$this->AssertFalse( $this->mAlbum->IsDeleted(), 'Created Album does not seem to exist before deleting' );
 			$this->mAlbum->Delete();
 			$this->AssertTrue( $this->mAlbum->IsDeleted(), 'Album deleted but he still seems to exist' );
@@ -242,12 +242,6 @@
 			$this->AssertTrue( $this->mStorepurchaseproperty1->Exists(), 'Created purchaseproperty1 does not seem to exist before deleting' );
 			$this->mStorepurchaseproperty1->Delete();
 			$this->AssertFalse( $this->mStorepurchaseproperty1->Exists(), 'purchaseproperty1 deleted but he still seems to exist' );
-					
-			$this->AssertTrue( $this->mStorepurchaseproperty2->Exists(), 'Created purchaseproperty2 does not seem to exist before deleting' );
-			$this->mStorepurchaseproperty2->Delete();
-			$this->AssertFalse( $this->mStorepurchaseproperty2->Exists(), 'purchaseproperty2 deleted but he still seems to exist' );
-		
-		
 		}
 		
 
