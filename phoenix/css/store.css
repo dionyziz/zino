@@ -175,6 +175,7 @@ p.remain {
 #buynow {
     position: absolute;
     top: 150px;
+    width: 99%;
 }
 #buynow form {
     background-color: #333;
