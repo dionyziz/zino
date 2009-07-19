@@ -3,6 +3,9 @@
         public function Render() {
             global $user;
             global $libs;
+            global $page;
+            
+            $page->SetTitle( 'Ευχαριστούμε!' );
             
             $libs->Load( 'user/profile' );
             
