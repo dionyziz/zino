@@ -16,5 +16,21 @@ var Store = {
             this.id = 'luved';
             return false;
         } );
+        $( '#buynow select' ).change( function () {
+            switch ( $( '#buynow select' ).value ) {
+                case 1:
+                case 2:
+                case 102:
+                case 107:
+                    $( '#delivery1' ).hide();
+                    $( '#delivery2' ).show();
+                    $( '#needaddy' ).hide();
+                    break;
+                default:
+                    $( '#delivery1' ).show();
+                    $( '#delivery2' ).hide();
+                    $( '#needaddy' ).show();
+        } );
+        $( '#buynow select' ).change();
     }
 };

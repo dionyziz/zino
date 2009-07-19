@@ -159,31 +159,33 @@
                         ?></select>
                     </div>
                     <div>
-                        <span>Θα σου το αποστείλουμε ταχυδρομικώς. Όλα τα έξοδα μεταφοράς, αποστολής, και αντικαταβολής
+                        <span id="delivery1">Θα σου το αποστείλουμε ταχυδρομικώς. Όλα τα έξοδα μεταφοράς, αποστολής, και αντικαταβολής
                         καλύπτονται δωρεάν από το Zino.</span>
                         
-                        <span>Θα επικοινωνήσουμε μαζί σου τηλεφωνικά μέσα στις επόμενες 2 μέρες για παράδοση 
+                        <span id="delivery2">Θα επικοινωνήσουμε μαζί σου τηλεφωνικά μέσα στις επόμενες 2 μέρες για παράδοση 
                         χέρι-με-χέρι από κάποιον αντιπρόσωπο του Zino στην πόλη σου.</span>
                     </div>
-                    <div>
-                        <label for="address">Οδός:</label><input type="text" name="address" id="address" value="<?php
-                        echo htmlspecialchars( $user->Profile->Address );
-                        ?>" />
-                    </div>
-                    <div>
-                        <label for="addressnum">Αριθμός:</label><input type="text" name="addressnum" id="addressnum" value="<?php
-                        echo htmlspecialchars( $user->Profile->Addressnum );
-                        ?>" />
-                    </div>
-                    <div>
-                        <label for="area">Περιοχή:</label><input type="text" name="area" id="area" value="<?php
-                        echo htmlspecialchars( $user->Profile->Area );
-                        ?>" />
-                    </div>
-                    <div>
-                        <label for="postcode">ΤΚ:</label><input type="text" name="postcode" id="postcode" value="<?php
-                        echo htmlspecialchars( $user->Profile->Postcode );
-                        ?>" />
+                    <div id="needaddy">
+                        <div>
+                            <label for="address">Οδός:</label><input type="text" name="address" id="address" value="<?php
+                            echo htmlspecialchars( $user->Profile->Address );
+                            ?>" />
+                        </div>
+                        <div>
+                            <label for="addressnum">Αριθμός:</label><input type="text" name="addressnum" id="addressnum" value="<?php
+                            echo htmlspecialchars( $user->Profile->Addressnum );
+                            ?>" />
+                        </div>
+                        <div>
+                            <label for="area">Περιοχή:</label><input type="text" name="area" id="area" value="<?php
+                            echo htmlspecialchars( $user->Profile->Area );
+                            ?>" />
+                        </div>
+                        <div>
+                            <label for="postcode">ΤΚ:</label><input type="text" name="postcode" id="postcode" value="<?php
+                            echo htmlspecialchars( $user->Profile->Postcode );
+                            ?>" />
+                        </div>
                     </div>
                     
                     <h3>Επικοινωνία</h3>
