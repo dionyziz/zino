@@ -73,7 +73,14 @@
                             if ( $ilove ) {
                                 ?> id="luved"<?php
                             }
-                            ?>>Το αγαπώ</a></li><?php
+                            ?>><?php
+                            if ( !$ilove ) {
+                                ?>Το αγαπώ<?php
+                            }
+                            else {
+                                ?>&nbsp;<?php
+                            }
+                            ?></a></li><?php
                         }
                         if ( !$igot && $item->Remaining() ) {
                             ?><li class="wantz"><a <?php
