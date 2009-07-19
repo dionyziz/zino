@@ -11,7 +11,7 @@
             
             switch ( $name ) {
                 case 'necklace':
-                    $item = New StoreItem( 1 );
+                    $item = New StoreItem( 20 );
                     break;
                 default:
                     return Element( '404' );
