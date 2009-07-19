@@ -151,8 +151,12 @@
 			$this->mStorepurchaseproperty2->Purchaseid = $this->mStorepurchase->Id;
 			$this->mStorepurchaseproperty2->Save();
 			
-			Assert( is_int( $this->mStorepurchaseproperty1->Id ), 'purchaseproperty1 id sould be an integer after saving' );
-			Assert( is_int( $this->mStorepurchaseproperty2->Id ), 'purchaseproperty2 id sould be an integer after saving' );
+			$this->Assert( is_int( $this->mStorepurchaseproperty1->Id ), 'purchaseproperty1 id sould be an integer after saving' );
+			$this->Assert( is_int( $this->mStorepurchaseproperty2->Id ), 'purchaseproperty2 id sould be an integer after saving' );
+		}
+		
+		public function TestRelations(){
+			$this->AssertEquals( $this->mUser->Id, $this->mStorepurchase->User->id, 'Userid changed after relation with purchase' );
 		}
 		
 		
