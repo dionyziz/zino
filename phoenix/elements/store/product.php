@@ -8,6 +8,7 @@
             
             switch ( $name ) {
                 case 'necklace':
+                    break;
                 default:
                     return Element( '404' );
             }
