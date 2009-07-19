@@ -201,7 +201,7 @@
                         ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (κατάλληλο για κορίτσια)</label>
                     </div>
                     
-                    <input type="submit" value="Αγορά" />
+                    <input type="submit" value="Αγορά" class="buy" />
                 </form>
             </div>
             <?php

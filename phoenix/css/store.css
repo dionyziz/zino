@@ -181,6 +181,9 @@ p.remain {
     left: 50px;
     right: 50px;
 }
+#buynow h3 {
+    padding: 5px;
+}
 #buynow div {
     padding: 5px;
 }
@@ -190,6 +193,7 @@ p.remain {
 }
 #buynow label {
     float: left;
+    width: 150px;
     clear: both;
 }
 #buynow input.buy {
@@ -197,4 +201,5 @@ p.remain {
     font-size: 110%;
     background-color: #3a5d89;
     color: white;
+    margin: 20px;
 }
