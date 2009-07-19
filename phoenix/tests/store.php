@@ -188,7 +188,7 @@
 			$favourite1 = new Favourite();
 			$favourite1->Itemid = $this->mStoreitem->Id;
 			$favourite1->Userid = $this->mUser->Id;
-			$favourite1->Typeid = 8;
+			$favourite1->Typeid = TYPE_STOREITEM;
 			$favourite1->Save();
 			$favourites = $finder->FindByEntity( $this->mStoreitem );
 			$this->AssertEquals( count( $favourites ), 1, 'the number of favourites is wrong, after creating one favourite for Storeitem' );
@@ -197,7 +197,7 @@
 			$favourite2 = new Favourite();
 			$favourite2->Itemid = $this->mStoreitem->Id;
 			$favourite2->Userid = $this->mUser2->Id;
-			$favourite2->Typeid = 8;
+			$favourite2->Typeid = TYPE_STOREITEM;
 			$favourite2->Save();
 			$favourites = $finder->FindByEntity( $this->mStoreitem );
 			$this->AssertEquals( count( $favourites ), 2, 'the number of favourites is wrong, after creating second favourite for Storeitem' );
