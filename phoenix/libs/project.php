@@ -179,6 +179,7 @@
             'api/status'        => 'api/status',
             'api/notifications' => 'api/notifications',
             'store/product'     => 'store/product',
+            'store/thanks'      => 'store/thanks',
             'forgot'            => 'user/passwordrequest/view',
             'forgot/success'    => 'user/passwordrequest/success',
             'forgot/failure'    => 'user/passwordrequest/failure',

@@ -11,6 +11,7 @@
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             $page->AttachStylesheet( 'css/store.css?' . $xc_settings[ 'cssversion' ] );
+            $page->AttachStylesheet( 'css/emoticons.css?' . $xc_settings[ 'cssversion' ] );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people', 'store' ) );
             $page->AddMeta( 'description', 'Το Zino είναι η παρέα σου online - είσαι μέσα;' );

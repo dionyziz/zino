@@ -138,7 +138,7 @@
                     ?> συλλεκτικά κομμάτια.
                 </p>
             </div>
-            <div id="buynow">
+            <div id="buynow" style="display:none">
                 <form action="do/store/purchase" method="post">
                     <a class="close" onclick="$('#buynow').fadeOut();return false;" href="">X</a>
                     <h3>Η διεύθυνσή σου</h3>
