@@ -11,9 +11,11 @@
             
             $page->AttachScript( 'js/store.js' );
             
+            $storefinder = New StoreItemFinder();
+            
             switch ( $name ) {
                 case 'necklace':
-                    $item = New StoreItem( 20 );
+                    $item = $storefinder->FindByName( 'necklace' );
                     break;
                 default:
                     return Element( '404' );
@@ -48,23 +50,9 @@
                         <li class="wantz"><a href="" onclick="return false;">Το θέλω</a></li>
                     </ul>
                     <div class="description">
-                        <p>
-                            Η φυσαλίδα του Zino διατίθεται σε 
-                            ένα σχέδιο από πολυμορφικό πηλό για το λαιμό, 
-                            είτε είσαι αγόρι είτε κορίτσι, στο χρώμα του 
-                            Zino και με λευκό περίγραμμα.
-                        </p><p>
-                            To σχέδιο είναι συλλεκτικό και διατίθεται στον περιορισμένο 
-                            αριθμό των <strong>32 κομματιών</strong>.
-                            Αφού πουληθούν όλα τα κομμάτια, το συγκεκριμένο σχέδιο δεν θα ξαναβγεί.
-                            Κάθε ένα από τα 32 κομμάτια είναι 
-                            χειροποίητο από την καλλιτέχνιδα <a href="http://toothfairy-creations.zino.gr/">Gardy</a>.
-                        </p><p class="please">
-                            <strong>Το Zino σ' αγαπάει:</strong> Η προσφορά σου είναι ζωτικής σημασίας 
-                            για εμάς. Τα έσοδα από την αγορά είναι απαραίτητα για να 
-                            συνεχίσει να ζει το Zino. Τα χρήματα θα διατεθούν για την 
-                            βελτίωση και διατήρηση του Zino.
-                        </p>
+                        <?php
+                        echo $item->Description; // no escaping here
+                        ?>
                     </div>
                 </div>
                 <div class="eof"></div>
