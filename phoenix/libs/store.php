@@ -90,8 +90,7 @@
 		public function Remaining(){
 			$finder = new StorepurchaseFinder();
 			$sold = $finder->CountByItemid( $this->Id );
-			var_dump( $sold ); die();
-			return $this->Total - $sold[ 0 ];
+			return $this->Total - $sold;
 		}
 		public function LoadDefaults() {
 			$this->Created = NowDate();
