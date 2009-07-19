@@ -24,39 +24,39 @@
                 <img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" />
             </span>
         </h1>
-        <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
+        <a class="back" href="http://www.zino.gr/">Ο€Ξ―ΟƒΟ‰ ΟƒΟ„ΞΏ zino</a>
         <div class="content">
             <div class="productimage">
-                <img src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace φυσαλίδα" />
+                <img src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace Ο†Ο…ΟƒΞ±Ξ»Ξ―Ξ΄Ξ±" />
             </div>
             <div class="productdetails">
-                <h2>Necklace φυσαλίδα <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15€" /></span></h2>
+                <h2>Necklace Ο†Ο…ΟƒΞ±Ξ»Ξ―Ξ΄Ξ± <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15β‚¬" /></span></h2>
                 <ul class="toolbox">
-                    <li class="lurv"><a href="" onclick="return false;">Το αγαπώ</a></li>
-                    <li class="wantz"><a href="" onclick="return false;">Το θέλω</a></li>
+                    <li class="lurv"><a href="" onclick="return false;">Ξ¤ΞΏ Ξ±Ξ³Ξ±Ο€Ο</a></li>
+                    <li class="wantz"><a href="" onclick="return false;">Ξ¤ΞΏ ΞΈΞ­Ξ»Ο‰</a></li>
                 </ul>
                 <div class="description">
                     <p>
-                        Η φυσαλίδα του Zino διατίθεται σε 
-                        ένα σχέδιο από πολυμορφικό πηλό για το λαιμό, 
-                        είτε είσαι αγόρι είτε κορίτσι, στο χρώμα του 
-                        Zino και με λευκό περίγραμμα.
+                        Ξ— Ο†Ο…ΟƒΞ±Ξ»Ξ―Ξ΄Ξ± Ο„ΞΏΟ… Zino Ξ΄ΞΉΞ±Ο„Ξ―ΞΈΞµΟ„Ξ±ΞΉ ΟƒΞµ 
+                        Ξ­Ξ½Ξ± ΟƒΟ‡Ξ­Ξ΄ΞΉΞΏ Ξ±Ο€Ο Ο€ΞΏΞ»Ο…ΞΌΞΏΟΟ†ΞΉΞΊΟ Ο€Ξ·Ξ»Ο Ξ³ΞΉΞ± Ο„ΞΏ Ξ»Ξ±ΞΉΞΌΟ, 
+                        ΞµΞ―Ο„Ξµ ΞµΞ―ΟƒΞ±ΞΉ Ξ±Ξ³ΟΟΞΉ ΞµΞ―Ο„Ξµ ΞΊΞΏΟΞ―Ο„ΟƒΞΉ, ΟƒΟ„ΞΏ Ο‡ΟΟΞΌΞ± Ο„ΞΏΟ… 
+                        Zino ΞΊΞ±ΞΉ ΞΌΞµ Ξ»ΞµΟ…ΞΊΟ Ο€ΞµΟΞ―Ξ³ΟΞ±ΞΌΞΌΞ±.
                     </p><p>
-                        To σχέδιο είναι συλλεκτικό και διατίθεται στον περιορισμένο 
-                        αριθμό των <strong>32 κομματιών</strong>.
-                        Αφού πουληθούν όλα τα κομμάτια, το συγκεκριμένο σχέδιο δεν θα ξαναβγεί.
-                        Κάθε ένα από τα 32 κομμάτια είναι 
-                        χειροποίητο από την καλλιτέχνιδα <a href="http://toothfairy-creations.zino.gr/">Gardy</a>.
+                        To ΟƒΟ‡Ξ­Ξ΄ΞΉΞΏ ΞµΞ―Ξ½Ξ±ΞΉ ΟƒΟ…Ξ»Ξ»ΞµΞΊΟ„ΞΉΞΊΟ ΞΊΞ±ΞΉ Ξ΄ΞΉΞ±Ο„Ξ―ΞΈΞµΟ„Ξ±ΞΉ ΟƒΟ„ΞΏΞ½ Ο€ΞµΟΞΉΞΏΟΞΉΟƒΞΌΞ­Ξ½ΞΏ 
+                        Ξ±ΟΞΉΞΈΞΌΟ Ο„Ο‰Ξ½ <strong>32 ΞΊΞΏΞΌΞΌΞ±Ο„ΞΉΟΞ½</strong>.
+                        Ξ‘Ο†ΞΏΟ Ο€ΞΏΟ…Ξ»Ξ·ΞΈΞΏΟΞ½ ΟΞ»Ξ± Ο„Ξ± ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉΞ±, Ο„ΞΏ ΟƒΟ…Ξ³ΞΊΞµΞΊΟΞΉΞΌΞ­Ξ½ΞΏ ΟƒΟ‡Ξ­Ξ΄ΞΉΞΏ Ξ΄ΞµΞ½ ΞΈΞ± ΞΎΞ±Ξ½Ξ±Ξ²Ξ³ΞµΞ―.
+                        ΞΞ¬ΞΈΞµ Ξ­Ξ½Ξ± Ξ±Ο€Ο Ο„Ξ± 32 ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉΞ± ΞµΞ―Ξ½Ξ±ΞΉ 
+                        Ο‡ΞµΞΉΟΞΏΟ€ΞΏΞ―Ξ·Ο„ΞΏ Ξ±Ο€Ο Ο„Ξ·Ξ½ ΞΊΞ±Ξ»Ξ»ΞΉΟ„Ξ­Ο‡Ξ½ΞΉΞ΄Ξ± <a href="http://toothfairy-creations.zino.gr/">Gardy</a>.
                     </p><p class="please">
-                        <strong>Το Zino σ' αγαπάει:</strong> Η προσφορά σου είναι ζωτικής σημασίας 
-                        για εμάς. Τα έσοδα από την αγορά είναι απαραίτητα για να 
-                        συνεχίσει να ζει το Zino. Τα χρήματα θα διατεθούν για την 
-                        βελτίωση και διατήρηση του Zino.
+                        <strong>Ξ¤ΞΏ Zino Οƒ' Ξ±Ξ³Ξ±Ο€Ξ¬ΞµΞΉ:</strong> Ξ— Ο€ΟΞΏΟƒΟ†ΞΏΟΞ¬ ΟƒΞΏΟ… ΞµΞ―Ξ½Ξ±ΞΉ Ξ¶Ο‰Ο„ΞΉΞΊΞ®Ο‚ ΟƒΞ·ΞΌΞ±ΟƒΞ―Ξ±Ο‚ 
+                        Ξ³ΞΉΞ± ΞµΞΌΞ¬Ο‚. Ξ¤Ξ± Ξ­ΟƒΞΏΞ΄Ξ± Ξ±Ο€Ο Ο„Ξ·Ξ½ Ξ±Ξ³ΞΏΟΞ¬ ΞµΞ―Ξ½Ξ±ΞΉ Ξ±Ο€Ξ±ΟΞ±Ξ―Ο„Ξ·Ο„Ξ± Ξ³ΞΉΞ± Ξ½Ξ± 
+                        ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ Ξ½Ξ± Ξ¶ΞµΞΉ Ο„ΞΏ Zino. Ξ¤Ξ± Ο‡ΟΞ®ΞΌΞ±Ο„Ξ± ΞΈΞ± Ξ΄ΞΉΞ±Ο„ΞµΞΈΞΏΟΞ½ Ξ³ΞΉΞ± Ο„Ξ·Ξ½ 
+                        Ξ²ΞµΞ»Ο„Ξ―Ο‰ΟƒΞ· ΞΊΞ±ΞΉ Ξ΄ΞΉΞ±Ο„Ξ®ΟΞ·ΟƒΞ· Ο„ΞΏΟ… Zino.
                     </p>
                 </div>
             </div>
             <div class="eof"></div>
-            <h3 class="lurv">Το αγαπάνε:</h3>
+            <h3 class="lurv">Ξ¤ΞΏ Ξ±Ξ³Ξ±Ο€Ξ¬Ξ½Ξµ:</h3>
             <ul class="lurv">
                 <li><a href="http://phil-marz.zino.gr/" title="Phil_marz">
                     <img src="http://images2.zino.gr/media/974/100753/100753_100.jpg" width="50" height="50" alt="Phil_marz" />
@@ -71,7 +71,7 @@
                     <img src="http://images2.zino.gr/media/6688/183876/183876_100.jpg" width="50" height="50" alt="KaptenDiesel" />
                 </a></li>
             </ul>
-            <h3 class="wantz">Το έχουν:</h3>
+            <h3 class="wantz">Ξ¤ΞΏ Ξ­Ο‡ΞΏΟ…Ξ½:</h3>
             <ul class="wantz">
                 <li><a href="http://Antig0nh.zino.gr/" title="Antig0nh">
                     <img src="http://images2.zino.gr/media/5003/199204/199204_100.jpg" width="50" height="50" alt="Antig0nh" />
@@ -84,7 +84,7 @@
                 </a></li>
             </ul>
             <p class="remain">
-                ...απομένουν 29 συλλεκτικά κομμάτια.
+                ...Ξ±Ο€ΞΏΞΌΞ­Ξ½ΞΏΟ…Ξ½ 29 ΟƒΟ…Ξ»Ξ»ΞµΞΊΟ„ΞΉΞΊΞ¬ ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉΞ±.
             </p>
         </div>
             <?php
