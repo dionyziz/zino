@@ -8,6 +8,7 @@
         }
         
         $libs->Load( 'favourite' );
+        $libs->Load( 'image/image' );
         
         $favourite = New Favourite();
         $favourite->Itemid = $itemid->Get();
