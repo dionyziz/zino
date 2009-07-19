@@ -9,6 +9,7 @@
         
         $libs->Load( 'store' );
         $libs->Load( 'user/profile' );
+        $libs->Load( 'rabbit/helpers/email' );
         
         if ( !$user->Exists() ) {
             ?>Please login first.<?php
