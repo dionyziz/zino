@@ -20,6 +20,7 @@
 			$libs->Load( 'user/profile' );
 			$libs->Load( 'user/settings' );
 			$libs->Load( 'journal/journal' );
+			$libs->Load( 'favourite' );
 			
 			$finder = new UserFinder();
 			$user = $finder->FindByName( 'testStore1' );
