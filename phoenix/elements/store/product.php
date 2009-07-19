@@ -188,6 +188,16 @@
                     
                     <h3>Επικοινωνία</h3>
                     <div>
+                        <label for="firstname">Όνομα:</label><input type="text" name="firstname" id="firstname" value="<?php
+                        echo htmlspecialchars( $user->Profile->Firstname );
+                        ?>" />
+                    </div>
+                    <div>
+                        <label for="firstname">Επώνυμο:</label><input type="text" name="lastname" id="lastname" value="<?php
+                        echo htmlspecialchars( $user->Profile->Lastname );
+                        ?>" />
+                    </div>
+                    <div>
                         <label for="mobile">Το κινητό σου:</label><input type="text" name="mobile" id="mobile" value="<?php
                         echo htmlspecialchars( $user->Profile->Mobile );
                         ?>" />
