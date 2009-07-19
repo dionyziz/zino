@@ -9,6 +9,13 @@
 
     Rabbit_ClearPostGet();
     
+    if ( isset( $req[ p ] ) ) {
+        $req[ 'p' ] = 'store/' . $req[ 'p' ];
+    }
+    else {
+        $req[ 'p' ] = 'store';
+    }
+    
     $page->AttachMainElement( 'store/main', $req );
     $page->Output();
 
