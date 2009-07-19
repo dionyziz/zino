@@ -208,6 +208,8 @@ p.remain {
     margin: 20px auto 20px auto;
     font-weight: bold;
     letter-spacing: 0.1em;
+    border: 2px solid white;
+    cursor: pointer;
 }
 #buynow div.property label {
     float: none;

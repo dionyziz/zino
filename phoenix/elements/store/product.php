@@ -139,8 +139,8 @@
                 </p>
             </div>
             <div id="buynow">
-                <a class="close" onclick="parent.style.display='none';return false;" href="">X</a>
-                <form>
+                <form action="do/store/purchase" method="post">
+                    <a class="close" onclick="parent.style.display='none';return false;" href="">X</a>
                     <h3>Η διεύθυνσή σου</h3>
                     <div>
                         <label for="city">Πόλη:</label>
