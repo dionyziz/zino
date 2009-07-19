@@ -34,6 +34,7 @@
         
         $item = New StoreItem( $itemid );
         if ( !$item->Exists() ) {
+            ?>Store item does not exist.<?php
             return;
         }
         
