@@ -77,9 +77,6 @@
                             if ( !$ilove ) {
                                 ?>Το αγαπώ<?php
                             }
-                            else {
-                                ?>&nbsp;<?php
-                            }
                             ?></a></li><?php
                         }
                         if ( !$igot && $item->Remaining() ) {
