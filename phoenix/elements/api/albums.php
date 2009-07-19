@@ -5,6 +5,7 @@
             global $page;
             
             $libs->Load( 'user/user' );
+            $libs->Load( 'user/count' );
             $libs->Load( 'album' );
             
             $userfinder = New UserFinder();
