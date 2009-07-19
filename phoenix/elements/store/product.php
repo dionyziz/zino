@@ -10,6 +10,7 @@
             $libs->Load( 'store' );
             $libs->Load( 'favourite' );
             $libs->Load( 'image/image' );
+            $libs->Load( 'place' );
             
             $name = $name->Get();
             
@@ -50,6 +51,9 @@
                     }
                 }
             }
+            
+            $placefinder = New PlaceFinder();
+            $places = $placefinder->FindAll();
             
             ?>
             <h1>
@@ -132,6 +136,66 @@
                     echo $item->Remaining();
                     ?> συλλεκτικά κομμάτια.
                 </p>
+            </div>
+            <div id="buynow">
+                <form>
+                    <h2>Αγορά Necklace Φυσαλίδα</h2>
+                    
+                    Η διεύθυνσή σου:
+                    <div>
+                        <label for="city">Πόλη:</label>
+                        <select name="city" id="city"><?php
+                        foreach ( $places as $place ) {
+                            ?><option value="<?php
+                            echo $place->Id;
+                            if ( $user->Profile->Placeid == $place->Id ) {
+                                ?> seleced="selected"<?php
+                            }
+                            ?>><?php
+                            echo htmlspecialchars( $place->Name );
+                            ?></option><?php
+                        }
+                        ?></select>
+                    </div>
+                    <div>
+                        <label for="address">Οδός:</label><input type="text" name="address" id="address" value="<?php
+                        echo htmlspecialchars( $user->Profile->Address );
+                        ?>" />
+                    </div>
+                    <div>
+                        <label for="addressnum">Αριθμός:</label><input type="text" name="addressnum" id="addressnum" value="<?php
+                        echo htmlspecialchars( $user->Profile->Addressnum );
+                        ?>" />
+                    </div>
+                    <div>
+                        <label for="area">Περιοχή:</label><input type="text" name="area" id="area" value="<?php
+                        echo htmlspecialchars( $user->Profile->Area );
+                        ?>" />
+                    </div>
+                    <div>
+                        <label for="postcode">ΤΚ:</label><input type="text" name="postcode" id="postcode" value="<?php
+                        echo htmlspecialchars( $user->Profile->Postcode );
+                        ?>" />
+                    </div>
+                    
+                    Επικοινωνία
+                    <div>
+                        <label for="mobile">Το κινητό σου:</label><input type="text" name="mobile" id="mobile" value="<?php
+                        echo htmlspecialchars( $user->Profile->Mobile );
+                        ?>" />
+                    </div>
+                    
+                    
+                    <div>
+                        <input type="checkbox" name="glossy" id="glossy" value="1"<?php
+                        if ( $user->Gender == 'f' ) {
+                            ?>checked="checked"<?php
+                        }
+                        ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (κατάλληλο για κορίτσια)</label>
+                    </div>
+                    
+                    <input type="submit" value="Αγορά" />
+                </form>
             </div>
             <?php
         }
