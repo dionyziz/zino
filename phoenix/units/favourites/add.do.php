@@ -1,7 +1,11 @@
 <?php
-    
     function UnitFavouritesAdd( tInteger $itemid , tInteger $typeid ) {
         global $libs;
+        global $user;
+        
+        if ( !$user->Exists() ) {
+            return;
+        }
         
         $libs->Load( 'favourite' );
         

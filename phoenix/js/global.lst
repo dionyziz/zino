@@ -37,6 +37,7 @@ contacts/view.js
 search/search.js
 search/im.js
 schools.js
+store.js
 meteor.js
 comet.js
 applications.js

@@ -9,11 +9,11 @@
             global $xc_settings;
             
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
-            $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'analytics.js?' . $xc_settings[ 'jsversion' ] );
+            $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             $page->AttachStylesheet( 'css/store.css?' . $xc_settings[ 'cssversion' ] );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people', 'store' ) );
-            $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι η παρέα σου online - είσαι μέσα;' );
+            $page->AddMeta( 'description', 'Το Zino είναι η παρέα σου online - είσαι μέσα;' );
             
             ob_start();
             $info = Element::MasterElement();
