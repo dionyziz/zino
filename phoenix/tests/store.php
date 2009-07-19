@@ -68,8 +68,7 @@
 		
 		public function TestCreateType(){
 			$finder = New StoretypeFinder();
-			$types = $finder->FindByName( "T-shirt" );
-			$type = $types[ 0 ];
+			$type = $finder->FindByName( "T-shirt" );
 			if( is_object( $type ) ){
 				$type->Delete();
 			}
