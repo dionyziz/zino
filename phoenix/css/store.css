@@ -174,7 +174,7 @@ p.remain {
 }
 #buynow {
     position: absolute;
-    top: 150px;
+    top: 70px;
     width: 99%;
 }
 #buynow form {
@@ -200,13 +200,13 @@ p.remain {
     clear: both;
 }
 #buynow input.buy {
-    padding: 10px;
+    padding: 12px;
     font-size: 110%;
     background-color: #3a5d89;
     color: white;
     margin: 20px auto 20px auto;
     font-weight: bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
 }
 #buynow div.property label {
     float: none;
@@ -216,4 +216,7 @@ p.remain {
 }
 #buynow span {
     display: none;
+}
+#buynow div.details {
+    font-size: 90%;
 }
