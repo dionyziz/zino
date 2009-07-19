@@ -176,10 +176,10 @@ p.remain {
     background-color: #333;
     border: 1px solid #aaa;
     position: absolute;
-    top: 150px;
-    left: 50px;
     right: 50px;
     padding: 20px;
+    margin: auto;
+    width: 500px;
 }
 #buynow h3 {
     padding: 5px;
@@ -201,7 +201,7 @@ p.remain {
     font-size: 110%;
     background-color: #3a5d89;
     color: white;
-    margin: 20px margin 20px margin;
+    margin: 20px auto 20px auto;
     font-weight: bold;
 }
 #buynow div.property label {
