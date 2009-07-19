@@ -192,7 +192,7 @@
 			$favourite1->Save();
 			$favourites = $finder->FindByEntity( $this->mStoreitem );
 			$this->AssertEquals( count( $favourites ), 1, 'the number of favourites is wrong, after creating one favourite for Storeitem' );
-			$this->AssertEquals( $favourites[ 0 ]->Userid, $this->mUser, 'Userid changed after saving' );
+			$this->AssertEquals( $favourites[ 0 ]->Userid, $this->mUser->Id, 'Userid changed after saving' );
 			
 			$favourite2 = new Favourite();
 			$favourite2->Itemid = $this->mStoreitem->Id;
