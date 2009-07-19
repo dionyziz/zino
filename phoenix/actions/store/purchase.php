@@ -1,7 +1,7 @@
 <?php
     function ActionStorePurchase( 
         tInteger $itemid, tBoolean $glossy,
-        tText $mobile, 
+        tText $mobile, tText $firstname, tText $lastname,
         tText $postcode, tText $address, tText $addressnum, tText $area,
         tInteger $placeid ) {
         global $user;
@@ -23,6 +23,8 @@
         $addressnum = $addressnum->Get();
         $area = $area->Get();
         $placeid = $placeid->Get();
+        $firstname = $firstname->Get();
+        $lastname = $lastname->Get();
         
         $user->Profile->Area = $area;
         $user->Profile->Address = $address;
@@ -30,6 +32,8 @@
         $user->Profile->Postcode = $postcode;
         $user->Profile->Mobile = $mobile;
         $user->Profile->Placeid = $placeid;
+        $user->Profile->Firstname = $firstname;
+        $user->Profile->Lastname = $lastname;
         $user->Profile->Save();
         
         $item = New StoreItem( $itemid );
