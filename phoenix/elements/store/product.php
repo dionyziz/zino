@@ -22,7 +22,7 @@
             <span>
                 <img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" />
                 <img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" />
-            <span>
+            </span>
         </h1>
         <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
         <div class="content">
