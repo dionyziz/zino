@@ -149,6 +149,7 @@
                         foreach ( $places as $place ) {
                             ?><option value="<?php
                             echo $place->Id;
+                            ?>"<?php
                             if ( $user->Profile->Placeid == $place->Id ) {
                                 ?> seleced="selected"<?php
                             }
