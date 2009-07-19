@@ -16,6 +16,7 @@
             switch ( $name ) {
                 case 'necklace':
                     $item = $storefinder->FindByName( 'necklace' );
+                    w_assert( $item instanceof StoreItem );
                     break;
                 default:
                     return Element( '404' );
