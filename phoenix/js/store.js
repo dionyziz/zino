@@ -17,7 +17,7 @@ var Store = {
             return false;
         } );
         $( '#buynow select' ).change( function () {
-            switch ( $( '#buynow select' ).value ) {
+            switch ( $( '#buynow select' )[ 0 ].value ) {
                 case 1:
                 case 2:
                 case 102:
