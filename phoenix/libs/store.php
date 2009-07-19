@@ -41,7 +41,22 @@
 		public function FindByItemid( $id, $offset = 0, $limit = 25 ){
 			$prototype = New Storepurchase();
 			$prototype->Itemid = $id;
-			return $this->FindByPrototype(  $prototype );
+			$purchases = $this->FindByPrototype(  $prototype );
+			$userids = array();
+			foreach ( $purchases as $purchase ){
+				$userids[] = $purchase->Userid;
+			}
+			$finder = new UserFinder();
+			$users = $finder->FindByIds( $userids );
+			
+			$userbyid = array();
+			foreach ( $users as $user ){
+				$userbyid[ $user->Id ] = $user;
+			}
+			foreach ( $purchases as $i => $purchase ){
+				$purchase->CopyRelationFrom( 'User', $userbyid[ $purchase->Userid ] );
+			}
+			return  $purchases;
 		}
 		public function CountByItemid( $id ){
 			$prototype = New Storepurchase();
