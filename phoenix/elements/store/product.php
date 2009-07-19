@@ -10,6 +10,7 @@
             $name = $name->Get();
             
             $page->AttachScript( 'js/store.js' );
+            $page->AttachInlineScript( 'Store.OnLoad();' );
             
             $storefinder = New StoreItemFinder();
             
