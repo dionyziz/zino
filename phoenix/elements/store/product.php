@@ -139,6 +139,7 @@
                 </p>
             </div>
             <div id="buynow">
+                <a class="close" onclick="parent.style.display='none';return false;" href="">X</a>
                 <form>
                     <h3>Η διεύθυνσή σου</h3>
                     <div>

@@ -183,6 +183,7 @@ p.remain {
     margin: auto;
     width: 500px;
     padding: 20px;
+    position: relative;
 }
 #buynow h3 {
     padding: 5px;
@@ -219,4 +220,10 @@ p.remain {
 }
 #buynow div.details {
     font-size: 90%;
+}
+#buynow .close {
+    font-weight: bold;
+    position: absolute;
+    right: 3px;
+    top: 3px;
 }
