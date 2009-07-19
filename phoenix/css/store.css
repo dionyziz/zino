@@ -175,7 +175,6 @@ p.remain {
 #buynow {
     background-color: #333;
     border: 1px solid #aaa;
-    opacity: 0.9;
     position: absolute;
     top: 150px;
     left: 50px;
@@ -197,9 +196,16 @@ p.remain {
     clear: both;
 }
 #buynow input.buy {
-    padding: 5px;
+    padding: 15px;
     font-size: 110%;
     background-color: #3a5d89;
     color: white;
-    margin: 20px;
+    margin: 20px margin 20px margin;
+    font-weight: bold;
+}
+#buynow div.property label {
+    float: none;
+}
+#buynow span {
+    display: none;
 }

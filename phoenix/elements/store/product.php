@@ -161,8 +161,8 @@
                         <span>Θα σου το αποστείλουμε ταχυδρομικώς. Όλα τα έξοδα μεταφοράς, αποστολής, και αντικαταβολής
                         καλύπτονται δωρεάν από το Zino.</span>
                         
-                        <span>Θα επικοινωνήσουμε μαζί σου τηλεφωνικά μέσα στις επόμενες 2 μέρες για την παράδοση από
-                        κοντά στην πόλη σου.</span>
+                        <span>Θα επικοινωνήσουμε μαζί σου τηλεφωνικά μέσα στις επόμενες 2 μέρες για παράδοση 
+                        χέρι-με-χέρι από κάποιον αντιπρόσωπο του Zino στην πόλη σου.</span>
                     </div>
                     <div>
                         <label for="address">Οδός:</label><input type="text" name="address" id="address" value="<?php
@@ -193,7 +193,7 @@
                     </div>
                     
                     
-                    <div>
+                    <div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
                         if ( $user->Gender == 'f' ) {
                             ?> checked="checked"<?php
