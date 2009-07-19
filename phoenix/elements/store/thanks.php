@@ -58,7 +58,7 @@
             <p>Σ' ευχαριστούμε για άλλη μία φορά για την αγορά σου! Οι αγορές βοηθούν πολύ το Zino να αναπτυχθεί και 
             να συνεχίσει να υπάρχει <span class="emoticon-smile">.</span></p>
             
-            <p>Πίσω στο <a href="store.php?p=product&name=necklace">Zino Necklace Φυσαλίδα</a></p><?php
+            <p>Πίσω στο <a href="store.php?p=product&amp;name=necklace">Zino Necklace Φυσαλίδα</a></p><?php
         }
     }
 ?>
