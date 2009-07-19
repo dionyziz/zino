@@ -11,6 +11,7 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'image/image' );
             $libs->Load( 'place' );
+            $libs->Load( 'user/profile' );
             
             $name = $name->Get();
             
