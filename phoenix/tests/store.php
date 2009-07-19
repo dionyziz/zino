@@ -212,7 +212,7 @@
 			$this->AssertFalse( $this->mUser->Exists(), 'User deleted but he still seems to exist' );
 			
 			$this->AssertTrue( $this->mUser2->Exists(), 'Created user2 does not seem to exist before deleting' );
-			$this->mUser->Delete();
+			$this->mUser2->Delete();
 			$this->AssertFalse( $this->mUser2->Exists(), 'User2 deleted but he still seems to exist' );
 			
 		/*	$this->AssertFalse( $this->mAlbum->IsDeleted(), 'Created Album does not seem to exist before deleting' );
