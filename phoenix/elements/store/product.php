@@ -6,8 +6,11 @@
             global $user;
             
             $page->SetTitle( 'ZinoSTORE' );
+            
             $libs->Load( 'store' );
             $libs->Load( 'favourite' );
+            $libs->Load( 'image/image' );
+            
             $name = $name->Get();
             
             $page->AttachScript( 'js/store.js' );
