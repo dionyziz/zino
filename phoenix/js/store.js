@@ -17,18 +17,17 @@ var Store = {
             return false;
         } );
         $( '#buynow select' ).change( function () {
+            alert( $( '#buynow select' )[ 0 ].value );
             switch ( $( '#buynow select' )[ 0 ].value ) {
                 case 1:
                 case 2:
                 case 102:
                 case 107:
-                    alert( 'xeri me xeri' );
                     $( '#delivery1' ).hide();
                     $( '#delivery2' ).show();
                     $( '#needaddy' ).hide();
                     break;
                 default:
-                    alert( 'taxubromeio' );
                     $( '#delivery1' ).show();
                     $( '#delivery2' ).hide();
                     $( '#needaddy' ).show();
