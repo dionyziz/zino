@@ -11,7 +11,7 @@
         
         $favourite = New Favourite();
         $favourite->Itemid = $itemid->Get();
-        $favourite->Typeid = $typeid->Get();
+        $favourite->Typeid = TYPE_STOREITEM;
         $favourite->Save();
         
         echo $f;
