@@ -19,10 +19,10 @@ var Store = {
         $( '#buynow select' ).change( function () {
             alert( $( '#buynow select' )[ 0 ].value );
             switch ( $( '#buynow select' )[ 0 ].value ) {
-                case 1:
-                case 2:
-                case 102:
-                case 107:
+                case '1':
+                case '2':
+                case '102':
+                case '107':
                     $( '#delivery1' ).hide();
                     $( '#delivery2' ).show();
                     $( '#needaddy' ).hide();
