@@ -22,11 +22,13 @@ var Store = {
                 case 2:
                 case 102:
                 case 107:
+                    alert( 'xeri me xeri' );
                     $( '#delivery1' ).hide();
                     $( '#delivery2' ).show();
                     $( '#needaddy' ).hide();
                     break;
                 default:
+                    alert( 'taxubromeio' );
                     $( '#delivery1' ).show();
                     $( '#delivery2' ).hide();
                     $( '#needaddy' ).show();
