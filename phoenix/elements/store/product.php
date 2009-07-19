@@ -191,7 +191,7 @@
                     <div>
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
                         if ( $user->Gender == 'f' ) {
-                            ?>checked="checked"<?php
+                            ?> checked="checked"<?php
                         }
                         ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (κατάλληλο για κορίτσια)</label>
                     </div>
