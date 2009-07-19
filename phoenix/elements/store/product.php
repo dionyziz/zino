@@ -110,7 +110,7 @@
                             echo $love->User->Name;
                             ?>">
                             <?php
-                            Element( 'image/view', $love->User->Avatarid, $love->Userid, 50, 50, IMAGE_CROPPED_100x100, '', $love->User->Name, '', false, 0, 0, 0 );
+                            Element( 'image/view', $love->User->Avatarid, $love->Userid, 50, 50, IMAGE_CROPPED_100x100, '', $love->User->Name, '', true, 50, 50, 0 );
                         ?></a></li><?php
                     }
                 ?></ul>
