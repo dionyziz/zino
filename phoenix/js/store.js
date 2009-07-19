@@ -7,7 +7,7 @@ var Store = {
             
             Coala.Warm(
                 'favourites/addstore', {
-                    itemid: 20, function ( html ) {
+                    itemid: 20, f: function ( html ) {
                         $( 'ul.wantz' )[ 0 ].innerHTML += '<li>' + html + '</li>';
                     }
                 }
