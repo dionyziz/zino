@@ -11,6 +11,7 @@
         $libs->Load( 'user/profile' );
         
         if ( !$user->Exists() ) {
+            ?>Please login first.<?php
             return; // require login
         }
         
