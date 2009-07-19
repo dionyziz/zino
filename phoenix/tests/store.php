@@ -67,6 +67,12 @@
 		}
 		
 		public function TestCreateType(){
+			$finder = New StoretypeFinder();
+			$types = $finder->FindByName( "T-shirt" );
+			$type = $tupes[ 0 ];
+			if( is_object( $type ) ){
+				$type->Delete();
+			}
 			$this->mStoretype = New Storetype();
 			$this->mStoretype->Name = "T-shirt";
 			$this->mStoretype->Save();
@@ -79,6 +85,12 @@
 		}
 		public function TestCreateItem(){
 			$name = "Dragon T-shirt";
+			$finder = new StoreitemFinder();
+			$items = $finder->FindByName( $name );
+			$item = $items[ 0 ];
+			if( is_object( $item ) ){
+				$item->Delete();
+			}
 			$this->mStoreitem = New Storeitem();
 			$this->mStoreitem->Name = $name;
 			$this->mStoreitem->Price = '20.00E';
