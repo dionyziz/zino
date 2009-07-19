@@ -9,6 +9,8 @@
             $libs->Load( 'favourite' );
             $name = $name->Get();
             
+            $page->AttachScript( 'js/store.js' );
+            
             switch ( $name ) {
                 case 'necklace':
                     $item = New StoreItem( 20 );
