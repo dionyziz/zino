@@ -38,7 +38,7 @@
 	
 	class StorepurchaseFinder extends Finder{
 		protected $mModel = 'Storepurchase';
-		public function FindByItemid( $id, $offset = 0, $limit = 50 ){
+		public function FindByItemid( $id, $offset = 0, $limit = 25 ){
 			$prototype = New Storepurchase();
 			$prototype->Itemid = $id;
 			return $this->FindByPrototype(  $prototype );
@@ -72,6 +72,11 @@
 	
 	class Storeitem extends Satori{
 		protected $mDbTableAlias = 'storeitems';
+		public function remaining(){
+			$finder = new StorepurchaseFinder();
+			$sold = $finder->CoutByItemid( $this->Id );
+			return $this->Total - $sold[ 0 ];
+		}
 		public function LoadDefaults() {
 			$this->Created = NowDate();
 		}
