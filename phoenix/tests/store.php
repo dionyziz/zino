@@ -99,6 +99,8 @@
 			$this->mStoreitem->Total = 50;
 			$this->mStoreitem->Save();
 			
+			
+		/*
 			$this->mAlbum = New Album();
 			$this->mAlbum->Ownertype = TYPE_STOREITEM;
 			$this->mAlbum->Ownerid = $this->mStoreitem->Id;
@@ -106,7 +108,7 @@
 			
 			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
-			
+			*/
 			$itemFinder = new StoreitemFinder();
 			$items = $itemFinder->FindByName( $name );
 			$item = $items[ 0 ];
@@ -116,7 +118,7 @@
 			$this->AssertEquals( '20.00E', $item->Price, 'Item price changed after saving item' );
 			$this->AssertEquals( 'A great T-shirt with a dragon on it', $item->Description, 'Item Description changed after saving item' );
 			$this->AssertEquals( $this->mStoretype->Id, $item->Typeid, 'Type id changed after saving item' );
-			$this->AssertEquals( $this->mAlbum->Id, $item->Albumid, 'Album id changed after saving item' );
+		//	$this->AssertEquals( $this->mAlbum->Id, $item->Albumid, 'Album id changed after saving item' );
 			$this->AssertEquals( NowDate(), $item->Created, 'There was a problem while returning Created date' );
 			$this->AssertEquals( 50, $item->Total, 'Item piece count changed after saving item' );
 		}
