@@ -31,22 +31,22 @@
                         echo $user->Profile->Email;
             ?>, με τις λεπτομέρειες σχετικά με την παραγγελία σου.</p>
 
-            <ul>
-            <li><strong>Προϊόν:</strong> Zino Necklace Φυσαλίδα</li>
-            <li><strong>Τιμή:</strong> 15€</li>
-            <li><strong>Μεταφορικά/έξοδα αντικαταβολής:</strong> 0€ (καλύπτονται από το Zino)</li>
-            <li><strong>Παράδοση:</strong> <?php
+            <dl>
+            <dt>Προϊόν:</dt><dd>Zino Necklace Φυσαλίδα</dd>
+            <dt>Τιμή:</dt><dd>15€</dd>
+            <dt>Μεταφορικά/έξοδα αντικαταβολής:</dt><dd>0€ (καλύπτονται από το Zino)</dd>
+            <dt>Παράδοση:</dt><dd><?php
             switch ( $user->Profile->Placeid ) {
                 case 1:
                 case 2:
                 case 102:
                 case 107:
-                    ?>Χέρι-με-χέρι (από αντιπρόσωπό μας)</li></ul>
+                    ?>Χέρι-με-χέρι (από αντιπρόσωπό μας)</dd></dl>
                     
                     <p>Θα επικοινωνήσουμε σύντομα μαζί σου τηλεφωνικά για την παράδοση του προϊόντος.</p><?php
                     break;
                 default:
-                    ?>Ταχυδρομικά (με αντικαταβολή)</li></ul>
+                    ?>Ταχυδρομικά (με αντικαταβολή)</dd></dl>
                     
                     <p>Τα Ελληνικά Ταχυδρομεία θα επικοινωνήσουν σύντομα μαζί σου γραπτά για την παράδοση του προϊόντος.</p><?php
             }
@@ -58,7 +58,7 @@
             <p>Σ' ευχαριστούμε για άλλη μία φορά για την αγορά σου! Οι αγορές βοηθούν πολύ το Zino να αναπτυχθεί και 
             να συνεχίσει να υπάρχει <span class="emoticon-smile">.</span></p>
             
-            <p>Πίσω στο <a href="store.php?p=product&amp;name=necklace">Zino Necklace Φυσαλίδα</a></p>
+            <p style="font-size: 120%">Πίσω στο <a href="store.php?p=product&amp;name=necklace">Zino Necklace Φυσαλίδα</a></p>
             </div><?php
         }
     }
