@@ -173,13 +173,15 @@ p.remain {
     color: #ccc;
 }
 #buynow {
-    background-color: #333;
-    border: 1px solid #aaa;
     position: absolute;
     top: 150px;
-    padding: 20px;
+}
+#buynow form {
+    background-color: #333;
+    border: 1px solid #aaa;
     margin: auto;
     width: 500px;
+    padding: 20px;
 }
 #buynow h3 {
     padding: 5px;

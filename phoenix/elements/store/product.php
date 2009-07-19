@@ -192,8 +192,6 @@
                         ?>" />
                     </div>
                     
-                    <h3>Necklace Φυσαλίδα - 15€</h3>
-                    
                     <div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
                         if ( $user->Gender == 'f' ) {
@@ -202,10 +200,12 @@
                         ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (για κορίτσια)</label>
                     </div>
                     
-                    <input type="submit" value="Αγορά" class="buy" />
+                    <h3>Necklace Φυσαλίδα - 15€</h3>
+                    
+                    <input type="submit" value="Αγορά τώρα" class="buy" />
                     
                     <div class="details">
-                        Η πληρωμή θα γίνει κατά την παραλαβή του προϊόντoς.
+                        Η πληρωμή θα γίνει κατά την παράδοση του προϊόντoς.
                     </div>
                 </form>
             </div>
