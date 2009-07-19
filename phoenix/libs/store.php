@@ -88,6 +88,9 @@
 	
 	class Storepurchase extends Satori{
 		protected $mDbTableAlias = 'storepurchases';
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+        }
 		protected function OnBeforeCreate(){
 			$purchaseFinder = new StorepurchaseFinder();
 			$purchases = $purchaseFinder->CountByItemid( $this->Itemid );
