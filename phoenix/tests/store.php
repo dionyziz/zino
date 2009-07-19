@@ -3,7 +3,7 @@
 		protected $mAppliesTo = 'libs/store';
 		
 		private $mUser;
-		private $mAlbum;
+		private $mUser2;
 		
 		private $mStoretype;
 		private $mStoreitem;
@@ -22,15 +22,23 @@
 			$libs->Load( 'journal/journal' );
 			
 			$finder = new UserFinder();
-			$user = $finder->FindByName( 'testStore2' );
+			$user = $finder->FindByName( 'testStore1' );
+			if( is_object( $user ) ){
+				$user->Delete();
+			}
+ 			$user = $finder->FindByName( 'testStore2' );
 			if( is_object( $user ) ){
 				$user->Delete();
 			}
             $this->mUser = New User();
-            $this->mUser->Name = 'testStore2';
-            $this->mUser->Subdomain = 'teststore2';
+            $this->mUser->Name = 'testStore1';
+            $this->mUser->Subdomain = 'teststore1';
             $this->mUser->Save();
 			
+            $this->mUser2 = New User();
+            $this->mUser2->Name = 'testStore2';
+            $this->mUser2->Subdomain = 'teststore2';
+            $this->mUser2->Save();
 		}
 		
 		public function TestClassesExist(){
@@ -172,6 +180,34 @@
 			$this->AssertEquals( $this->mUser->Id, $this->mStorepurchase->User->id, 'Userid changed after relation with purchase' );
 		}
 		
+		public function TestFavourites(){
+			$finder = new FavouriteFinder();
+			$favourites = $finder->FindByEntity( $this->mStoreitem );
+			$this->AssertEquals( count( $favourites ), 0, 'there are favourite entries after creation of the item' );
+			$favourite1 = new Favourite();
+			$favourite1->Itemid = $this->mStoreitem->Id;
+			$favourite1->Userid = $this->mUser->Id;
+			$favourite1->Typeid = 8;
+			$favourite1->Save();
+			$favourites = $finder->FindByEntity( $this->mStoreitem );
+			$this->AssertEquals( count( $favourites ), 1, 'the number of favourites is wrong, after creating one favourite for Storeitem' );
+			$this->AssertEquals( $faviurutes[ 0 ]->Userid, $this->mUser, 'Userid changed after saving' );
+			
+			$favourite2 = new Favourite();
+			$favourite2->Itemid = $this->mStoreitem->Id;
+			$favourite2->Userid = $this->mUser2->Id;
+			$favourite2->Typeid = 8;
+			$favourite2->Save();
+			$favourites = $finder->FindByEntity( $this->mStoreitem );
+			$this->AssertEquals( count( $favourites ), 2, 'the number of favourites is wrong, after creating second favourite for Storeitem' );
+			$ret1 = ( $favourites[ 0 ]->Userid == $this->mUser->Id && $favourites[ 1 ]->Userid == $this->mUser2->Id );
+			$ret2 = ( $favourites[ 1 ]->Userid == $this->mUser->Id && $favourites[ 0 ]->Userid == $this->mUser2->Id );
+			$this->Assert( $ret1 || $ret2, 'Favourites changed after saving the second' );
+			$favourite1->Delete();
+			$favourite2->Delete();
+			$favourites = $finder->FindByEntity( $this->mStoreitem );
+			$this->AssertEquals( count( $favourites ), 0, 'Favourites still exist, after deletion' );
+		}
 		
 		public function TestDeletion(){
 			$this->AssertTrue( $this->mUser->Exists(), 'Created user does not seem to exist before deleting' );
