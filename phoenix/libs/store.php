@@ -20,11 +20,7 @@
 		public function FindByName( $name ){
 			$prototype = New Storeitem();
 			$prototype->Name = $name;
-			$items = $this->FindByPrototype( $prototype );
-			if( count( $items ) != 1 ){
-				return false;
-			}
-			return $items[ 0 ];
+			return $this->FindByPrototype( $prototype );
 		}
 	}
 	
