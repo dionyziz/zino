@@ -89,7 +89,7 @@
 		protected $mDbTableAlias = 'storeitems';
 		public function Remaining(){
 			$finder = new StorepurchaseFinder();
-			$sold = $finder->CoutByItemid( $this->Id );
+			$sold = $finder->CountByItemid( $this->Id );
 			return $this->Total - $sold[ 0 ];
 		}
 		public function LoadDefaults() {
