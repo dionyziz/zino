@@ -214,6 +214,9 @@
                         ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label>
                     </div>
                     
+                    <input type="hidden" name="itemid" value="<?php
+                    echo $item->Id;
+                    ?>" />
                     <input type="submit" value="Αγορά τώρα" class="buy" />
                     
                     <div class="details">
