@@ -72,7 +72,7 @@
 	
 	class Storeitem extends Satori{
 		protected $mDbTableAlias = 'storeitems';
-		public function remaining(){
+		public function Remaining(){
 			$finder = new StorepurchaseFinder();
 			$sold = $finder->CoutByItemid( $this->Id );
 			return $this->Total - $sold[ 0 ];
