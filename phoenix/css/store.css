@@ -44,6 +44,7 @@ h1 {
     background-repeat: repeat-x;
     overflow: hidden;
     position: relative;
+    margin-top: 0;
 }
 h1 div.city {
     background-image: url( 'http://static.zino.gr/phoenix/store/city.png' );
