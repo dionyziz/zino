@@ -75,12 +75,15 @@
                             }
                             ?>>Το αγαπώ</a></li><?php
                         }
-                        if ( !$igot ) {
-                            ?><li class="wantz"><a href="<?php
+                        if ( !$igot && $item->Remaining() ) {
+                            ?><li class="wantz"><a <?php
                             if ( !$user->Exists() ) {
-                                ?>http://www.zino.gr/join<?php
+                                ?>href="http://www.zino.gr/join"<?php
                             }
-                            ?>" onclick="return false;">Το θέλω</a></li><?php
+                            else {
+                                ?>href="" onclick="return false;"<?php
+                            }
+                            ?>>Το θέλω</a></li><?php
                         }
                         ?>
                     </ul>
