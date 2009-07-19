@@ -174,22 +174,27 @@ p.remain {
 }
 #buynow {
     background-color: #333;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
-    opacity: 0.8;
+    border: 1px solid #aaa;
+    opacity: 0.9;
     position: absolute;
     top: 150px;
-    left: 0;
-    right: 0;
+    left: 50px;
+    right: 50px;
 }
 #buynow div {
-    padding: 3px;
+    padding: 5px;
 }
-#buynow input {
+#buynow input, #buynow select {
     margin-left: 150px;
     border: 1px solid black;
 }
 #buynow label {
     float: left;
     clear: both;
+}
+#buynow input.buy {
+    padding: 5px;
+    font-size: 110%;
+    background-color: #3a5d89;
+    color: white;
 }

@@ -140,9 +140,7 @@
             </div>
             <div id="buynow">
                 <form>
-                    <h2>Αγορά Necklace Φυσαλίδα</h2>
-                    
-                    Η διεύθυνσή σου:
+                    <h3>Η διεύθυνσή σου</h3>
                     <div>
                         <label for="city">Πόλη:</label>
                         <select name="city" id="city"><?php
@@ -187,7 +185,7 @@
                         ?>" />
                     </div>
                     
-                    Επικοινωνία
+                    <h3>Επικοινωνία</h3>
                     <div>
                         <label for="mobile">Το κινητό σου:</label><input type="text" name="mobile" id="mobile" value="<?php
                         echo htmlspecialchars( $user->Profile->Mobile );
