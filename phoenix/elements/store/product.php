@@ -192,16 +192,21 @@
                         ?>" />
                     </div>
                     
+                    <h3>Necklace Φυσαλίδα - 15€</h3>
                     
                     <div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
                         if ( $user->Gender == 'f' ) {
                             ?> checked="checked"<?php
                         }
-                        ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (κατάλληλο για κορίτσια)</label>
+                        ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (για κορίτσια)</label>
                     </div>
                     
                     <input type="submit" value="Αγορά" class="buy" />
+                    
+                    <div class="details">
+                        Η πληρωμή θα γίνει κατά την παραλαβή του προϊόντoς.
+                    </div>
                 </form>
             </div>
             <?php
