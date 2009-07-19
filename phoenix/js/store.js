@@ -30,6 +30,7 @@ var Store = {
                     $( '#delivery1' ).show();
                     $( '#delivery2' ).hide();
                     $( '#needaddy' ).show();
+            }
         } );
         $( '#buynow select' ).change();
     }
