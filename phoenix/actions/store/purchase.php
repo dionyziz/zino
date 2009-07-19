@@ -59,7 +59,7 @@
             if ( $property->Value = $desired ) {
                 $purchaseproperty = New StorePurchaseProperty();
                 $purchaseproperty->Propertyid = $property->Id;
-                $purchaseproperty->Purchaesid = $purchase->Id;
+                $purchaseproperty->Purchaseid = $purchase->Id;
                 $purchaseproperty->Save();
                 break;
             }
