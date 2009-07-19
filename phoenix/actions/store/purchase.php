@@ -8,6 +8,7 @@
         global $libs;
         
         $libs->Load( 'store' );
+        $libs->Load( 'user/profile' );
         
         if ( !$user->Exists() ) {
             return; // require login
