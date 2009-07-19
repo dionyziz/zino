@@ -16,7 +16,7 @@
             switch ( $name ) {
                 case 'necklace':
                     $item = $storefinder->FindByName( 'necklace' );
-                    w_assert( $item instanceof StoreItem );
+                    w_assert( 'StoreFinder returned a ' . gettype( $item ) . ', but StoreItem instance was expected', $item instanceof StoreItem );
                     break;
                 default:
                     return Element( '404' );
