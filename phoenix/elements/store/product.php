@@ -151,13 +151,20 @@
                             echo $place->Id;
                             ?>"<?php
                             if ( $user->Profile->Placeid == $place->Id ) {
-                                ?> seleced="selected"<?php
+                                ?> selected="selected"<?php
                             }
                             ?>><?php
                             echo htmlspecialchars( $place->Name );
                             ?></option><?php
                         }
                         ?></select>
+                    </div>
+                    <div>
+                        <span>Θα σου το αποστείλουμε ταχυδρομικώς. Όλα τα έξοδα μεταφοράς, αποστολής, και αντικαταβολής
+                        καλύπτονται δωρεάν από το Zino.</span>
+                        
+                        <span>Θα επικοινωνήσουμε μαζί σου τηλεφωνικά μέσα στις επόμενες 2 μέρες για την παράδοση από
+                        κοντά στην πόλη σου.</span>
                     </div>
                     <div>
                         <label for="address">Οδός:</label><input type="text" name="address" id="address" value="<?php

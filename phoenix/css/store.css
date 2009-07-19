@@ -172,3 +172,24 @@ p.remain {
     padding-left: 92px;
     color: #ccc;
 }
+#buynow {
+    background-color: #333;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    opacity: 0.8;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+}
+#buynow div {
+    padding: 3px;
+}
+#buynow input {
+    margin-left: 150px;
+    border: 1px solid black;
+}
+#buynow label {
+    float: left;
+    clear: both;
+}
