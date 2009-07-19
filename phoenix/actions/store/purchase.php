@@ -32,6 +32,8 @@
         $user->Profile->Placeid = $placeid;
         $user->Profile->Save();
         
+        die( 'Updated profile' );
+        
         $item = New StoreItem( $itemid );
         if ( !$item->Exists() ) {
             return;
