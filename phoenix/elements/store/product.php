@@ -93,7 +93,7 @@
                                 ?>href="http://www.zino.gr/join"<?php
                             }
                             else {
-                                ?>href="" onclick="return false;"<?php
+                                ?>href="" onclick="$('#buynow').fadeIn();return false;"<?php
                             }
                             ?>>Το θέλω</a></li><?php
                         }
@@ -140,7 +140,7 @@
             </div>
             <div id="buynow">
                 <form action="do/store/purchase" method="post">
-                    <a class="close" onclick="$('#buynow').hide();return false;" href="">X</a>
+                    <a class="close" onclick="$('#buynow').fadeOut();return false;" href="">X</a>
                     <h3>Η διεύθυνσή σου</h3>
                     <div>
                         <label for="city">Πόλη:</label>
