@@ -21,8 +21,8 @@
         
         foreach ( $purchases as $purchase ) {
             if ( $purchase->User->Id == $user->Id ) {
-                ?>Ευχαριστούμε! Η παραγγελία σου έχει ολοκληρωθεί.<?php
-                return; // require login
+                ?>Ξ•Ο…Ο‡Ξ±ΟΞΉΟƒΟ„ΞΏΟΞΌΞµ! Ξ— Ο€Ξ±ΟΞ±Ξ³Ξ³ΞµΞ»Ξ―Ξ± ΟƒΞΏΟ… Ξ­Ο‡ΞµΞΉ ΞΏΞ»ΞΏΞΊΞ»Ξ·ΟΟ‰ΞΈΞµΞ―.<?php
+                return; // only one per user
             }
         }
         
