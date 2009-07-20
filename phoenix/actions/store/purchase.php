@@ -79,7 +79,9 @@
         ob_start();
         $subject = Element( 'store/mail/purchased', $purchase );
         $text = ob_get_clean();
-        Email( $user->Name, $user->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
+        if ( !empty( $user->Profile->Email ) ) {
+            Email( $user->Name, $user->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
+        }
         
         return Redirect( 'store.php?p=thanks' );
     }
