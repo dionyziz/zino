@@ -63,7 +63,7 @@
 			$prototype->Itemid = $id;
 			return count( $this->FindByPrototype( $prototype ) );
 		}
-		public function FindByUserid( $id, $offset = 0, $limit = 25 ){
+		public function FindByUserid( $id, $offset = 0, $limit = 200 ){
 			$prototype = New Storepurchase();
 			$prototype->Userid = $id;
 			return $this->FindByPrototype(  $prototype );
