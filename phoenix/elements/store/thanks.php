@@ -29,10 +29,14 @@
             <h3>Σ' ευχαριστούμε για την αγορά σου, <?php
             echo $user->Name;
             ?>!</h3>
-
-            <p>Στείλαμε ένα e-mail στην διεύθυνσή σου, <?php
-                        echo $user->Profile->Email;
-            ?>, με λεπτομέρειες για την παραγγελία σου.</p>
+            
+            <?php
+            if ( !empty( $user->Profile->Email ) ) {
+                ?><p>Στείλαμε ένα e-mail στην διεύθυνσή σου, <?php
+                            echo $user->Profile->Email;
+                ?>, με λεπτομέρειες για την παραγγελία σου.</p><?php
+            }
+            ?>
 
             <dl>
             <dt>Προϊόν:</dt><dd>Zino Necklace Φυσαλίδα</dd>
