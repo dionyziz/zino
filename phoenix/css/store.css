@@ -229,3 +229,14 @@ p.remain {
     right: 5px;
     top: 3px;
 }
+a.goback {
+    background-color:#3A5D89;
+    border: 1px solid white;
+    font-size: 120%;
+    padding: 5px;
+    text-align: center;
+    width: 400px;
+    margin: auto;
+    text-decoration: none;
+    display: block;
+}
