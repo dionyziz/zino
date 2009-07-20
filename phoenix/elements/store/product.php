@@ -56,6 +56,8 @@
             $placefinder = New PlaceFinder();
             $places = $placefinder->FindAll();
             
+            Element( 'user/subdomainmatch' );
+            
             ?>
             <h1>
                 <div class="city">
