@@ -38,10 +38,11 @@
 	
 	class StorepurchaseFinder extends Finder{
 		protected $mModel = 'Storepurchase';
+        
 		public function FindByItemid( $id, $offset = 0, $limit = 200 ){
 			$prototype = New Storepurchase();
 			$prototype->Itemid = $id;
-			$purchases = $this->FindByPrototype(  $prototype );
+			$purchases = $this->FindByPrototype( $prototype, $offset, $limit );
 			$userids = array();
 			foreach ( $purchases as $purchase ){
 				$userids[] = $purchase->Userid;
@@ -56,17 +57,17 @@
 			foreach ( $purchases as $i => $purchase ){
 				$purchase->CopyRelationFrom( 'User', $userbyid[ $purchase->Userid ] );
 			}
-			return  $purchases;
+			return $purchases;
 		}
 		public function CountByItemid( $id ){
 			$prototype = New Storepurchase();
 			$prototype->Itemid = $id;
-			return count( $this->FindByPrototype( $prototype ) );
+			return count( $this->FindByPrototype( $prototype, 0, 200 ) );
 		}
 		public function FindByUserid( $id, $offset = 0, $limit = 200 ){
 			$prototype = New Storepurchase();
 			$prototype->Userid = $id;
-			return $this->FindByPrototype(  $prototype );
+			return $this->FindByPrototype( $prototype, $offset, $limit );
 		}
 	}
 	
