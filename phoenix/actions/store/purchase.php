@@ -16,6 +16,16 @@
             return; // require login
         }
         
+        $purchasefinder = New StorePurchaseFinder();
+        $purchases = $purchasefinder->FindByItemId( $item->Id );
+        
+        foreach ( $purchases as $purchase ) {
+            if ( $purchase->User->Id == $user->Id ) {
+                ?>Ευχαριστούμε! Η παραγγελία σου έχει ολοκληρωθεί.<?php
+                return; // require login
+            }
+        }
+        
         $itemid = $itemid->Get();
         $glossy = $glossy->Get(); // TODO: get other properties
         $mobile = $mobile->Get();
