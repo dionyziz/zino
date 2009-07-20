@@ -72,6 +72,16 @@
 	
 	class StorepurchasepropertyFinder extends Finder{
 		protected $mModel = 'Storepurchaseproperty';
+        
+        public function FindByPurchaseId( $purchaseid ) {
+            $prototype = New StorePurchaeProperty();
+            $prototype->Purchaseid = $purchaseid;
+            return $this->FindByPrototype( $prototype );
+        }
+        protected function Relations() {
+            $this->Purchase = $this->HasOne( 'StorePurchase', 'Purchaseid' );
+            $this->Property = $this->HasOne( 'StoreProperty', 'Propertyid' );
+        }
 		public function FindAll( $offset = 9, $limit = 25 ){
 			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
 		}
