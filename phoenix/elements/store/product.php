@@ -144,7 +144,8 @@
                     <h3>Η διεύθυνσή σου</h3>
                     <div>
                         <label for="placeid">Πόλη:</label>
-                        <select name="placeid" id="placeid"><?php
+                        <select name="placeid" id="placeid">
+                        <option value="0"></option><?php
                         foreach ( $places as $place ) {
                             ?><option value="<?php
                             echo $place->Id;
