@@ -19,7 +19,7 @@
 
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByEntity( $entity, $limit = 25 ) {
+        public function FindByEntity( $entity, $limit = 200 ) {
             $prototype = New Favourite();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
