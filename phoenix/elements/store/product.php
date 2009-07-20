@@ -143,8 +143,8 @@
                     <a class="close" onclick="$('#buynow').fadeOut();return false;" href="">X</a>
                     <h3>Η διεύθυνσή σου</h3>
                     <div>
-                        <label for="city">Πόλη:</label>
-                        <select name="city" id="city"><?php
+                        <label for="placeid">Πόλη:</label>
+                        <select name="placeid" id="placeid"><?php
                         foreach ( $places as $place ) {
                             ?><option value="<?php
                             echo $place->Id;
