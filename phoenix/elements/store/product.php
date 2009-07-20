@@ -134,10 +134,25 @@
                         ?></a></li><?php
                     }
                 ?></ul>
-                <p class="remain">
-                    ...απομένουν <?php
-                    echo $item->Remaining();
-                    ?> συλλεκτικά κομμάτια.
+                <p class="remain"><?php
+                    $remaining = $item->Remaining();
+                    if ( $remaining ) {
+                        ?>...απομέν<?php
+                        if ( $remaining == 1 ) {
+                            ?>ει 1 συλλεκτικό κομμάτι.<?php
+                        }
+                        else {
+                            ?>ουν <?php
+                            echo $remaining;
+                            ?> συλλεκτικά κομμάτια.<?php
+                        }
+                    }
+                    else {
+                        ?>Και τα <?php
+                        echo $item->Total;
+                        ?> συλλεκτικά κομμάτια έχουν πουληθεί.<?php
+                    }
+                    ?>
                 </p>
             </div>
             <div id="buynow" style="display:none">
