@@ -39,7 +39,7 @@
             $ilove = false;
             if ( $user->Exists() ) {
                 foreach ( $purchases as $purchase ) {
-                    if ( $purchase->User->Id == $purchase->Id ) {
+                    if ( $purchase->User->Id == $user->Id ) {
                         $igot = true;
                         break;
                     }
