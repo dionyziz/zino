@@ -101,5 +101,31 @@ var PhotoManager = {
             PhotoManager.checkEnabledAlbumbs();
             $( "ul.photolist" ).empty();
         } );
+        
+        //Albums Droppable
+        $( "div.albumlist li" ).droppable({
+            //hoverClass: 'ui-state-active',	
+            accept: ".photo > img",
+            tolerance: "pointer",
+            areabound: $("div.albumlist"),
+            drop: function(event, ui) {
+                $(this).removeClass( "dropover");
+                ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
+                    function() {
+                        $(this).remove(); 
+                        updatePaginationPage();
+                    }) //animate photo shrink and remove
+            },
+            over: function(event, ui) {
+                if ( !$(this).hasClass( "selected" ) ) {
+                    $(this).addClass("dropover");
+                }
+            },
+            out: function(event, ui) {
+                if ( $(this).hasClass( "dropover" ) ) {
+                    $(this).removeClass( "dropover");
+                }
+            }
+        });
     }
 }
