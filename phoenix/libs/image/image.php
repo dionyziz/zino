@@ -1,9 +1,4 @@
 <?php
-    /*
-        MASKED
-        By: Chorvus
-        Reason: Move images between albums
-    */
     
     global $libs;
     
@@ -404,10 +399,17 @@
 			w_assert( $this->Userid == $user->Id );
 			
 			--$this->Album->Numphotos;
+            ++$album->Numphotos;
+            
+            $this->Album->Numcomments -= $this->Numcomments;
+            $album->Numcomments += $this->Numcomments;
+            
 			$this->Albumid = $album->Albumid;
-			++$album->Numphotos;
+			
 			$this->Save();
 			$album->Save();
+            
+            //TODO: Avatarid, Mainimageid handling
 		}
     }
 ?>

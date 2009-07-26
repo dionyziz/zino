@@ -99,7 +99,6 @@ var PhotoManager = {
             $( this ).addClass( "selected" ).siblings().removeClass( "selected" ).droppable( "enable" );
             Coala.Warm( "album/manager/enumphotos", { albumid: $( this ).attr( "id" ) } );
             PhotoManager.checkEnabledAlbumbs();
-            $( "ul.photolist" ).empty();
         } );
         
         //Albums Droppable
@@ -114,7 +113,7 @@ var PhotoManager = {
                     function() {
                         $(this).closest( "li" ).remove(); 
                         //$( Coala.Cold( "album/manager/move", { $
-                        alert( $( this ).closest( "li" ).attr( "id" ) );
+                        alert( $( this ).closest( "li" ).attr( "id" ) + '->' + ui.draggable.closest( "li" ).attr( "id" ) );
                         //TODO:
                         //updatePaginationPage();
                         //animate photo shrink and remove
