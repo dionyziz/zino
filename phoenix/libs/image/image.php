@@ -403,7 +403,7 @@
             $this->Album->Numcomments -= $this->Numcomments;
             $album->Numcomments += $this->Numcomments;
             
-			$this->Albumid = $album->Albumid;
+			$this->Albumid = $album->Id;
 			
 			$this->Save();
 			$album->Save();
