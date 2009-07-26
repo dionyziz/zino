@@ -121,7 +121,7 @@ var Suggest = {
         }
         else if ( event.keyCode == 13 ) { // enter
 			Suggest.over[ type ] = false;
-			if ( lis.length !== 0 ) {
+			if ( lis.text().length != 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
 			}
 			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
