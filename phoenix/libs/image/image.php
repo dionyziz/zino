@@ -402,8 +402,6 @@
             
             $this->Album->Numcomments -= $this->Numcomments;
             $album->Numcomments += $this->Numcomments;
-            
-			$this->Albumid = $album->Id;
 			
             if ( $this->Album->Mainimageid == $this->Id ) {
                 $imagefinder = New ImageFinder();
@@ -419,6 +417,8 @@
             if ( $album->Mainimageid == 0 ) {
                 $album->Mainimageid = $this->Id;
             }
+            
+            $this->Albumid = $album->Id;
             
             $this->Album->Save();
 			$this->Save();
