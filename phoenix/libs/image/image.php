@@ -396,7 +396,6 @@
 			w_assert( $album instanceof Album );
 			w_assert( $album->Exists() );
 			w_assert( $this->Album->Numphotos > 0 );
-			w_assert( $this->Userid == $user->Id );
 			
 			--$this->Album->Numphotos;
             ++$album->Numphotos;
