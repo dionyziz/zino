@@ -112,7 +112,7 @@ var PhotoManager = {
                 $(this).removeClass( "dropover");
                 ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
                     function() {
-                        $(this).remove(); 
+                        $(this).closest( "li" ).remove(); 
                         //TODO:
                         //updatePaginationPage();
                         //animate photo shrink and remove
