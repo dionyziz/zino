@@ -15,7 +15,6 @@
         
         if ( $album->Ownerid == $user->Id && $photo->Userid == $user->Id ) {
             $photo->MoveTo( $album );
-            ?>alert( "Moved" );<?php
         }
         else {
             ?>alert( "You do not own either the Album or the Photo" );<?php
