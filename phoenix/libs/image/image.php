@@ -405,10 +405,25 @@
             
 			$this->Albumid = $album->Id;
 			
+            if ( $this->Album->Mainimageid == $image->Id ) {
+                $imagefinder = New ImageFinder();
+                $images = $imagefinder->FindByAlbum( $this, 0, 1 );
+                if ( !empty( $images ) ) {
+                    $this->Album->Mainimageid = $images[ 0 ]->Id;
+                }
+                else {
+                    $this->Album->Mainimageid = 0;
+                }
+            }
+            
+            if ( $album->Mainimageid == 0 ) {
+                $album->Mainimageid = $this->Id;
+            }
+            
+            $this->Album->Save();
 			$this->Save();
 			$album->Save();
             
-            //TODO: Avatarid, Mainimageid handling
 		}
     }
 ?>
