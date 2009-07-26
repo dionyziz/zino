@@ -27,6 +27,7 @@
                     <div class="albums" id="albums">
                         <h2>Albums</h2>
                         <div class="albumlist">
+                            <div class="fadetop" />
                             <ul style="height: 400px; position: relative;"><?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user, 0, 100 );
@@ -37,6 +38,7 @@
                                 }
                             }
                             ?></ul>
+                            <div class="fadebot" />
                         </div>
                     </div>
                     <div class="photos" id="photos">
