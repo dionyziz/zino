@@ -405,9 +405,9 @@
             
 			$this->Albumid = $album->Id;
 			
-            if ( $this->Album->Mainimageid == $image->Id ) {
+            if ( $this->Album->Mainimageid == $this->Id ) {
                 $imagefinder = New ImageFinder();
-                $images = $imagefinder->FindByAlbum( $this, 0, 1 );
+                $images = $imagefinder->FindByAlbum( $this->Album, 0, 1 );
                 if ( !empty( $images ) ) {
                     $this->Album->Mainimageid = $images[ 0 ]->Id;
                 }
