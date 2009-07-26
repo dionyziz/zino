@@ -209,7 +209,7 @@
                         }
                     ?></ul>
                     <div class="add artists">
-                        <input type="text" onclick="$( 'div.artists ul' ).show();" onkeyup="Suggest.inputMove( 'artists' );" onblur="Suggest.hideBlur( event, 'artists' );" onfocus="$( 'div.artists ul').show();"/>
+                        <input type="text" onclick="$( 'div.artists ul' ).show();" onkeyup="Suggest.inputMove( event, 'artists' );" onblur="Suggest.hideBlur( 'artists' );" onfocus="$( 'div.artists ul').show();"/>
                         <a href="" onclick="return false" title="Προσθήκη" class="s_add"></a><br />
                         <ul onmouseover="Suggest.over.artists = true;" onmouseout="Suggest.over.artists = false;">
                             <li></li>
