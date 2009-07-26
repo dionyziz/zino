@@ -403,17 +403,19 @@
             $this->Album->Numcomments -= $this->Numcomments;
             $album->Numcomments += $this->Numcomments;
 			
-            if ( $this->Album->Mainimageid == $this->Id ) {
-                echo 'in';
+            $oldalbum = $this->Album;
+            
+            $this->Albumid = $album->Id;
+            $this->Save();
+            
+            if ( $oldalbum->Mainimageid == $this->Id ) {
                 $imagefinder = New ImageFinder();
-                $images = $imagefinder->FindByAlbum( $this->Album, 0, 1 );
+                $images = $imagefinder->FindByAlbum( $oldalbum, 0, 1 );
                 if ( !empty( $images ) ) {
-                    die( '2' );
-                    $this->Album->Mainimageid = $images[ 0 ]->Id;
+                    $oldalbum->Mainimageid = $images[ 0 ]->Id;
                 }
                 else {
-                    die( '3' );
-                    $this->Album->Mainimageid = 0;
+                    $oldalbum->Mainimageid = 0;
                 }
             }
             
@@ -421,10 +423,7 @@
                 $album->Mainimageid = $this->Id;
             }
             
-            $this->Albumid = $album->Id;
-            
             $this->Album->Save();
-			$this->Save();
 			$album->Save();
             
 		}
