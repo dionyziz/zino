@@ -397,13 +397,14 @@
 			w_assert( $album->Exists() );
 			w_assert( $this->Album->Numphotos > 0 );
 			
-			--$this->Album->Numphotos;
+            
+            $oldalbum = $this->Album;
+            
+			--$oldalbum->Numphotos;
             ++$album->Numphotos;
             
-            $this->Album->Numcomments -= $this->Numcomments;
+            $oldalbum->Numcomments -= $this->Numcomments;
             $album->Numcomments += $this->Numcomments;
-			
-            $oldalbum = $this->Album;
             
             $this->Albumid = $album->Id;
             $this->Save();
@@ -426,7 +427,7 @@
                 $album->Mainimageid = $this->Id;
             }
             
-            $this->Album->Save();
+            $oldalbum->Save();
 			$album->Save();
             
 		}
