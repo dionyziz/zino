@@ -112,8 +112,8 @@ var PhotoManager = {
                 ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
                     function() {
                         $(this).closest( "li" ).remove(); 
-                        //$( Coala.Cold( "album/manager/move", { $
-                        alert( $( this ).closest( "li" ).attr( "id" ) + '->' + ui.draggable.closest( "li" ).attr( "id" ) );
+                        Coala.Cold( "album/manager/move", { 'photoid': $( this ).closest( "li" ).attr( "id" ), 'albumid': ui.draggable.closest( "li" ).attr( "id" ) } );
+                        //alert(  + '->' + ui.draggable.closest( "li" ).attr( "id" ) );
                         //TODO:
                         //updatePaginationPage();
                         //animate photo shrink and remove
