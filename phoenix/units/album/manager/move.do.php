@@ -6,7 +6,7 @@
         $libs->Load( 'album' );
     
         $album = New Album( $albumid->Get() );
-        $photo = New Photo( $photoid->Get() );
+        $photo = New Image( $photoid->Get() );
         
         if ( !$album->Exists() || !$photo->Exists() ) {
             return;
