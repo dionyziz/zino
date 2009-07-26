@@ -14,7 +14,23 @@
         }
         
         if ( $album->Ownerid == $user->Id && $photo->Userid == $user->Id ) {
+            $oldalbum = $photo->Album;
+            $oldalbummainimageid = $photo->Album->Mainimageid;
+            $newalbummainimageid = $album->Mainimageid;
+            
             $photo->MoveTo( $album );
+
+            //Check for Mainimageid changes from moving
+            if ( $oldalbummainimageid != $oldalbum->Mainimageid ) {
+                ?>var oldmain = $( "div.albumlist li#<?php echo $oldalbum->Id; ?> span.imageview img" );
+                oldmain.fadeOut( "fast" , function() {
+                    oldmain.attr( "src", "<?php Element( "image/url", $oldalbum->Mainimage->Id, $user->Id, IMAGE_CROPPED_100x100 ); ?>" );
+                    oldmain.fadeIn( "fast" );
+                } ); <?php
+            }
+            if ( $newalbummainimageid != $album->Mainimageid ) {
+                ;
+            }
         }
         else {
             ?>alert( "You do not own either the Album or the Photo" );<?php
