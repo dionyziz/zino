@@ -113,8 +113,10 @@ var PhotoManager = {
                 ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
                     function() {
                         $(this).remove(); 
-                        updatePaginationPage();
-                    }) //animate photo shrink and remove
+                        //TODO:
+                        //updatePaginationPage();
+                        //animate photo shrink and remove
+                    }) 
             },
             over: function(event, ui) {
                 if ( !$(this).hasClass( "selected" ) ) {
