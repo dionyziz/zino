@@ -26,7 +26,7 @@
                 ?>var oldmain = $( "div.albumlist li#<?php echo $oldalbum->Id; ?> span.imageview img" );
                 oldmain.fadeOut( "fast" , function() {
                     oldmain.attr( "src", "<?php
-                        if ( $oldalbum->Mainimageid != 0 ) {
+                        if ( $oldalbum->Mainimage->Id != 0 ) {
                             Element( "image/url", $oldalbum->Mainimage->Id, $user->Id, IMAGE_CROPPED_100x100 );
                         }
                         else {
