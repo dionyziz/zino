@@ -110,7 +110,7 @@
                 ?><div class="eof"></div><ul><?php
                     foreach( $images as $image ) {
                         ?><li><?php
-                        Element( 'album/photo/small' , $image , false , true );
+                        Element( 'album/photo/small', $image, false, true );
                         ?></li><?php
                     }
                 ?></ul>
