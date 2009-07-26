@@ -13,6 +13,7 @@
             $images = $finder->FindByAlbum( $album, 0, 400 );
             foreach( $images as $image ) {
                 ?>var newli = document.createElement( 'li' );
+                newli.attr( "id", <?php echo $image->Id; ?> );
                 var newdiv = document.createElement( 'div' );
                 $( newdiv ).html( <?php
                 ob_start();
