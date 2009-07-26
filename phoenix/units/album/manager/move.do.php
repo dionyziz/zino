@@ -29,7 +29,11 @@
                 } ); <?php
             }
             if ( $newalbummainimageid != $album->Mainimageid ) {
-                ;
+                ?>var newmain = $( "div.albumlist li#<?php echo $albumid; ?> span.imageview img" );
+                newmain.fadeOut( "fast" , function() {
+                    newmain.attr( "src", "<?php Element( "image/url", $photo->Album->Mainimage->Id, $user->Id, IMAGE_CROPPED_100x100 ); ?>" );
+                    newmain.fadeIn( "fast" );
+                } ); <?php
             }
         }
         else {
