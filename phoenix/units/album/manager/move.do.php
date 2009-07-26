@@ -13,7 +13,7 @@
             return;
         }
         
-        if ( $album->Ownerid == $user->Id && $photo->Ownerid == $user->Id ) {
+        if ( $album->Ownerid == $user->Id && $photo->Userid == $user->Id ) {
             $photo->MoveTo( $album );
             ?>alert( "Moved" );<?php
         }
