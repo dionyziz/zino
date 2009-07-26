@@ -67,17 +67,14 @@ div#photomanager div div div.albumlist ul li.selected div.fade {
 }
 div#photomanager div div div.albumlist ul li span.imageview  {
     float: left;
-    padding: 2px;
-    padding-right: 6px;
+    margin-right: 10px;
     position: relative;
+    border: 1px solid #ADD8E6;
 }
 div#photomanager div div div.albumlist ul li span.albumname {
     vertical-align:middle;
     width: 20px;
     white-space: nowrap;
-}
-div#photomanager div div div.albumlist ul li span.imageview img{
-    border: 1px solid #ADD8E6;
 }
 div#photomanager div div div ul {
     clear: none;
