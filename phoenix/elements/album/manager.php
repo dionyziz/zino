@@ -12,6 +12,8 @@
             $page->AttachScript( 'js/ui.droppable.js' );
             $page->AttachScript( 'js/jquery.pagination.js' );
             
+            $page->SetTitle( "Διαχείριση Φωτογραφιών" );
+            
             if ( !$user->Exists() ) { 
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
                 return;
