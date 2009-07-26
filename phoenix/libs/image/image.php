@@ -414,11 +414,10 @@
                 $imagefinder = New ImageFinder();
                 $images = $imagefinder->FindByAlbum( $oldalbum, 0, 1 );
                 if ( !empty( $images ) ) {
-                    die( '1');
                     $oldalbum->Mainimageid = $images[ 0 ]->Id;
+                    die( $images[ 0 ]->Id );
                 }
                 else {
-                    die( '2');
                     $oldalbum->Mainimageid = 0;
                 }
             }
