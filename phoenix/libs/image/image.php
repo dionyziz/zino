@@ -410,14 +410,12 @@
             $this->Save();
             
             if ( $oldalbum->Mainimageid == $this->Id ) {
-                echo "in";
                 $imagefinder = New ImageFinder();
                 $images = $imagefinder->FindByAlbum( $oldalbum, 0, 1 );
                 if ( !empty( $images ) ) {
                     $oldalbum->Mainimageid = $images[ 0 ]->Id;
-                    die( $images[ 0 ]->Id );
                 }
-                else {
+                else {  
                     $oldalbum->Mainimageid = 0;
                 }
             }
