@@ -14,7 +14,7 @@
                 return;
             }
             
-            $libs->Load( 'album ');
+            $libs->Load( 'album' );
             
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.base.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.draggable.js' );
