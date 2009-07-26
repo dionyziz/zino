@@ -132,6 +132,6 @@ var PhotoManager = {
         });
         
         //This prevents dropping to scrolled-out albums (droppables bug)
-        $("div.albumlist").scroll( function() { checkEnabledAlbumbs(); } );
+        $("div.albumlist").scroll( function() { PhotoManager.checkEnabledAlbumbs(); } );
     }
 }
