@@ -5,11 +5,17 @@
             global $user;
             global $rabbit_settings;
             global $xc_settings;
+            global $libs;
+            
+            
             
             if ( !$user->Exists() ) { 
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
                 return;
             }
+            
+            $libs->Load( 'album ');
+            
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.base.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.draggable.js' );
             $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.droppable.js' );
