@@ -96,7 +96,7 @@ var PhotoManager = {
     OnLoad: function () {
         //Album selection
         $( "div.albumlist ul li" ).click( function () {
-            $( this ).addClass( "selected" ).siblings().removeClass( "selected" );
+            $( this ).addClass( "selected" ).siblings().removeClass( "selected" ).droppable( "enable" );
             Coala.Warm( "album/manager/enumphotos", { albumid: $( this ).attr( "id" ) } );
             PhotoManager.checkEnabledAlbumbs();
             $( "ul.photolist" ).empty();
