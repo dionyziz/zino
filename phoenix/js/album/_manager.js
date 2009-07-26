@@ -112,7 +112,7 @@ var PhotoManager = {
                 ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
                     function() {
                         $(this).closest( "li" ).remove(); 
-                        Coala.Warm( "album/manager/move", { 'photoid': $( this ).closest( "li" ).attr( "id" ), 'albumid': ui.draggable.closest( "li" ).attr( "id" ) } );
+                        Coala.Warm( "album/manager/move", { 'photoid': $( this ).closest( "li" ).attr( "id" ), 'albumid': ui.droppable.closest( "li" ).attr( "id" ) } );
                         //alert(  + '->' + ui.draggable.closest( "li" ).attr( "id" ) );
                         //TODO:
                         //updatePaginationPage();
