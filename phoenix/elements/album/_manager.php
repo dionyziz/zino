@@ -7,7 +7,10 @@
             global $xc_settings;
             global $libs;
             
-            
+            $page->AttachScript( 'js/ui.base.js' );
+            $page->AttachScript( 'js/ui.draggable.js' );
+            $page->AttachScript( 'js/ui.droppable.js' );
+            $page->AttachScript( 'js/jquery.pagination.js' );
             
             if ( !$user->Exists() ) { 
                 ?>Πρέπει να είσαι συνδεδεμένος για να χρησιμοποιήσεις αυτήν την λειτουργία<?php
@@ -16,11 +19,6 @@
             
             $libs->Load( 'album' );
             
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.base.js' );
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.draggable.js' );
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/ui.droppable.js' );
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/jquery.pagination.js' );
-            $page->AttachScript( 'http://beta.zino.gr/phoenix/js/album/manager.js' );
             ?><div class="photomanager" id="photomanager">
                 <h2>Διαχείριση Φωτογραφιών</h2>
                 <div class="manager" id="manager">
