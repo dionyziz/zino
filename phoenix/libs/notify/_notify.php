@@ -65,7 +65,7 @@
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $target = 'notification/email/comment';
-					$fromaddress = 'teras' . $this->Item->Id . substr( md5( 'beast' . $this->Item->Created . $this->Item->Id ), 0, 10 ) . '@' . $rabbit_settings[ 'hostname' ];
+					$fromaddress = 'teras' . $this->Item->Id . '-' .  substr( md5( 'beast' . $this->Item->Created . $this->Item->Id ), 0, 10 ) . '@' . $rabbit_settings[ 'hostname' ];
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
                     $target = 'notification/email/friend';
