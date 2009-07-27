@@ -1,6 +1,7 @@
 <?php
 	function Notify_EmailReplyHandler( $body, $email ) {
 		global $libs;
+        
 		$libs->Load( 'comment' );
 		$libs->Load( 'wysiwyg' );
 		
@@ -64,4 +65,54 @@
         $comment->Save();
 	}
 
+    function Notify_EmailReplyFilterRecipients( $from ) {
+        $rec = explode( ',', $conf[ 'to' ] ); // multiple recipients separated using commas
+        foreach ( $rec as $recipient ) {
+            $recipient = trim( $recipient );
+            if ( strpos( $recipient, '<' ) !== false ) { // Dionysis Zindros <dionyziz@zino.gr>
+                $address = explode( '<', $recipient );
+                $email = array_shift( explode( '>', $address[ 0 ] ) );
+            }
+            else { // dionyziz@zino.gr
+                $email = $recipient;
+            }
+            $parts = explode( '@', $email, 2 );
+            $name = $parts[ 0 ];
+            $domain = $parts[ 1 ];
+            if ( $domain == 'zino.gr' ) {
+                return $target;
+            }
+        }
+        return false;
+    }
+    
+    function Notify_EmailReplyParse( $email ) {
+        $parts = explode( "\n\n", $email, 2 );
+        $header = $parts[ 0 ];
+        $body = $parts[ 1 ];
+        $lines = explode( "\n", $header );
+        $conf = array();
+        foreach ( $lines as $line ) {
+            switch ( $line[ 0 ] ) {
+                case ' ':
+                case "\t":
+                    // ignore
+                    break;
+                default:
+                    $parts = explode( ": ", $line, 2 );
+                    $key = strtolower( $parts[ 0 ] );
+                    $value = $parts[ 1 ];
+                    $conf[ $key ] = $value;
+            }
+        }
+        
+        if ( $conf[ 'content-transfer-encoding' ] == 'base64' ) {
+            $body = base64_decode( $body );
+        }
+        $target = Notify_EmailReplyFilterRecipients( $conf[ 'to' ] );
+        
+        if ( $target !== false ) {
+            return Notify_EmailReplyHandler( $body, $target );
+        }
+    }
 ?>
