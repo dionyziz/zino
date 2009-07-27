@@ -125,6 +125,7 @@
     
     function Notify_EmailReplyReceived( $rawdata ) {
         $data = Notify_EmailReplyParse( $rawdata );
+        file_put_contents( '/tmp/beast-data', $data[ 'target' ] . ' /// ' . $data[ 'body' ] );
         Notify_EmailReplyHandler( $data[ 'body' ], $data[ 'target' ] );
     }
 ?>
