@@ -48,7 +48,7 @@ var PhotoManager = {
     }
     ,
     postEnumphotos: function() {
-        $( 'ul#photolist li' ).load( function( event ) {
+        $( 'ul#photolist li img' ).load( function( event ) {
             event.target.fadeIn( "normal" );
             event.target.unbind( "load" );
             alert( event.target.attr( "src" ) );
