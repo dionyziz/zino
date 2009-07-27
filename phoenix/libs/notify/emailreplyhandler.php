@@ -102,7 +102,7 @@
                 default:
                     $parts = explode( ": ", $line, 2 );
                     $key = strtolower( $parts[ 0 ] );
-                    $value = $parts[ 1 ];
+                    $value = trim( $parts[ 1 ] );
                     $conf[ $key ] = $value;
             }
         }
