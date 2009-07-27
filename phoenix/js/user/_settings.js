@@ -26,8 +26,9 @@ var Settings = {
 	FocusSettingLink : function( li, focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-				$( li ).addClass( 's1_0049' );
-				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
+                var classname = li.className;
+				$( li ).removeClass( classname ).addClass( 's1_0049' ).addClass( classname );
+				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#fff';
 			}
 			else {
 				$( li ).removeClass( 's1_0049' );
