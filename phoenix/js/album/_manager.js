@@ -48,7 +48,7 @@ var PhotoManager = {
     }
     ,
     postEnumphotos: function() {
-        $( 'ul#photolist li' ).fadeIn( "normal" );
+        $( 'ul#photolist li' ).load( function( event ) { event.target.fadeIn( "normal" ); )
         $( 'div.photo img' ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
             stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
@@ -105,7 +105,7 @@ var PhotoManager = {
         } ); 
         //Albums Droppable
         $( "div.albumlist li" ).droppable( {
-            //hoverClass: 'ui-state-active',	
+            //hoverClass: 'ui-state-active',
             accept: "ul#photolist li div span.imageview img",
             tolerance: "pointer",
             areabound: $("div.albumlist"),
