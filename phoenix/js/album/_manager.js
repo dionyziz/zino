@@ -49,9 +49,8 @@ var PhotoManager = {
     ,
     postEnumphotos: function() {
         $( 'ul#photolist li img' ).load( function( event ) {
-            event.target.fadeIn( "normal" );
-            event.target.unbind( "load" );
-            alert( event.target.attr( "src" ) );
+            $(this).fadeIn( "normal" );
+            $(this).unbind( "load" );
         } );
         $( 'div.photo img' ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
