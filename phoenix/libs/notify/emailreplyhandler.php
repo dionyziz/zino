@@ -72,7 +72,7 @@
             $recipient = trim( $recipient );
             if ( strpos( $recipient, '<' ) !== false ) { // Dionysis Zindros <dionyziz@zino.gr>
                 $address = explode( '<', $recipient );
-                $email = array_shift( explode( '>', $address[ 0 ] ) );
+                $email = array_shift( explode( '>', $address[ 1 ] ) );
             }
             else { // dionyziz@zino.gr
                 $email = $recipient;
