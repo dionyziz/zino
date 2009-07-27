@@ -16,7 +16,7 @@ function lowerOffset( jqelement ) {
     }
     return parseInt(jqelement.position().top) + parseInt(jqelement.css("marginTop")) + jqelement.outerHeight() - 1;
 }
-function isScrollingElementVisible( eltVisible, eltScrolling, pixelsTollerable) {
+function isScrollingElementVisible( eltVisible, eltScrolling, tollerablePixels ) {
     //Returns true only if the WHOLE element is visible (accepts a DOM element and the scrolling container
     //WARNING: Usable only for vertical scrolling
     if ( !eltVisible || !eltScrolling ) {
@@ -24,7 +24,7 @@ function isScrollingElementVisible( eltVisible, eltScrolling, pixelsTollerable) 
     }
     var scrollPos = eltScrolling.scrollTop;
     var scrollHeight = $( eltScrolling ).height();
-    return ( ( upperOffset( $(eltVisible) ) - pixelsTollerable ) > scrollPos ) && ( ( lowerOffset( $(eltVisible) ) + pixelsTollerable ) < scrollPos + scrollHeight );
+    return ( upperOffset( $(eltVisible) ) > scrollPos ) && ( lowerOffset( $(eltVisible) ) < scrollPos + scrollHeight );
 }
 
 var PhotoManager = {
@@ -34,7 +34,7 @@ var PhotoManager = {
     
     checkEnabledAlbumbs: function() {
         jQuery.each( $("div.albumlist li"), function() {
-            if (isScrollingElementVisible( this, $("div.albumlist").get()[0]), 0) {
+            if ( isScrollingElementVisible( this, $("div.albumlist").get()[0]), 0 ) {
                 if (  $(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'enable' ); }
             } else {
                 if ( !$(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'disable' ); }
