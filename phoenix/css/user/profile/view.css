@@ -1,9 +1,9 @@
-#profile {
+div#profile {
 	margin: 0;
     position: relative;
     top: -8px;
 }
-.sidebar {
+div#profile div.sidebar {
 	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
 	float: left;
 	position: relative;
@@ -11,80 +11,78 @@
 	padding: 14px 0 0 0;
 	overflow: hidden;
 }
-.sidebar .basicinfo dl dt {
+div#profile div.sidebar div.basicinfo dl dt {
     clear: both;
 }
-.sidebar .basicinfo {
+div#profile div.sidebar div.basicinfo {
 	padding: 4px;
 	margin-bottom: 20px;
 }
-#birthday img {
+div#profile div.sidebar div.basicinfo #birthday img {
     float: left;
     padding-right: 5px;
 }
-.sidebar .basicinfo h2 img {
-	margin-bottom: 5px;
-}
-.sidebar .basicinfo div.mood {
+div#profile div.sidebar div.basicinfo div.mood {
 	padding-top: 5px;
 	margin-top: 5px;
 }
-.sidebar .basicinfo div.mood img {
+div#profile div.sidebar div.basicinfo div.mood img {
 	display: block; 
 	margin-top: 3px;
 }
-.sidebar .bacicinfo div.friendedit {
+div#profile div.sidebar div.bacicinfo div.friendedit {
     display: none;
 }
-.basicinfo div.common {
+div#profile div.sidebar div.basicinfo div.common {
     clear: left;
     margin-bottom: 15px;
     height: 20px;
 }
-.basicinfo div.info {
+div#profile div.sidebar div.basicinfo div.info {
 	clear: left;
 }
-.basicinfo dl dt {
+div#profile div.sidebar div.basicinfo dl dt {
 	float: left;
 	width: 12em;
 	padding: 3px 0;
 }
-.basicinfo dl dd {
+div#profile div.sidebar div.basicinfo dl dd {
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.basicinfo h2 {
+div#profile div.sidebar div.basicinfo h2 {
 	padding: 0;
 	margin: 0;
 	font-size: 120%;
 	color: #105cb6;
 }
-.basicinfo h2 a span.vavie150 {
+div.sidebar div.basicinfo h2 a span.vavie150 {
     padding: 0 4px 0 0;
+    cursor: pointer;
 }
-.basicinfo h2 img {
+div#profile div.sidebar div.basicinfo h2 img {
 	float: left;
 }
-.basicinfo h2 span.name {
+div#profile div.sidebar div.basicinfo h2 span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
 }
-.sidebar dl.online dt{
+div#profile div.sidebar dl.online dt{
 	display: block;
 	float: left;
 	padding: 3px 0;
 }
-.sidebar dl.online dd {
+div#profile div.sidebar dl.online dd {
 	display: block;
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.sidebar div.look {
+div#profile div.sidebar div.look {
 	clear: both;
 	padding: 0 10px 10px 10px;
 	border-top: 1px solid #ccc;
@@ -92,177 +90,177 @@
 	background: #fff;
 	height: 30px;
 }
-.sidebar div.look span.malebody {
+div#profile div.sidebar div.look span.malebody {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1900px; 
 	padding: 0 0 50px 16px;
 	position: relative;
 }
-.sidebar div.look ul li.dot {
+div#profile div.sidebar div.look ul li.dot {
 	color: #999;
 	font-size: 100%;
 }
-.sidebar div.look img {
+div#profile div.sidebar div.look img {
 	float: left;
 }
-.sidebar div.look ul {
+div#profile div.sidebar div.look ul {
 	margin: 0 0 0 30px;
 }
-.sidebar div.look ul li {
+div#profile div.sidebar div.look ul li {
 	font-weight: bold;
 	padding: 1px;
 	display: inline;
 }
-.sidebar div.social {
+div#profile div.sidebar div.social {
 	padding: 4px;
 	clear: both;
 	margin-top: 10px;
 }
-.sidebar div.social dl dt {
+div#profile div.sidebar div.social dl dt {
 	float: left;
 	width: 170px;
 	padding: 3px 0;
 }
-.sidebar div.social dl dd {
+div#profile div.sidebar div.social dl dd {
 	text-align: left;
 	margin: 0 0 0 170px;
 	padding: 3px 0;
 	width: 100px;
 }
-.sidebar div.social ul {
+div#profile div.sidebar div.social ul {
 	float:left;
 	padding:3px 0;
 	margin: 10px 0 0 0;
 }
-.sidebar div.social li {
+div#profile div.sidebar div.social li {
 	clear: both;
 	margin: 0 0 4px 0;
 }
-.sidebar div.social li strong {
+div#profile div.sidebar div.social li strong {
 	display:block;
 	width: 170px;
 	float:left;
 }
-.sidebar div.aboutme {
+div#profile div.sidebar div.aboutme {
 	padding: 4px;
 	clear: both;
 }
-.sidebar div.aboutme dl {
+div#profile div.sidebar div.aboutme dl {
 	padding: 7px 0 0 0;
 }
-.sidebar div.aboutme dl dt {
+div#profile div.sidebar div.aboutme dl dt {
 	padding: 3px 0 1px 0;
 }
-.sidebar div.aboutme dl dd {
+div#profile div.sidebar div.aboutme dl dd {
 	padding: 1px 0 0 0;
 }
-.sidebar div.interests {
+div#profile div.sidebar div.interests {
 	padding: 4px;
 	clear: both;
 }
-.sidebar div.interests dl dt {
+div#profile div.sidebar div.interests dl dt {
 	padding: 3px 0 1px 0;
 }
-.sidebar div.interests dl dd {
+div#profile div.sidebar div.interests dl dd {
 	padding: 1px 0 5px 0;
 }
-.sidebar div.contacts {
+div#profile div.sidebar div.contacts {
 	padding: 4px;
 }
-.sidebar div.contacts dt {
+div#profile div.sidebar div.contacts dt {
 	float: left;
 	height: 18px;
 	width: 18px;
 }
-.sidebar div.ads {
+div#profile div.sidebar div.ads {
     border-top: 1px solid #ccc;
     padding: 10px 0 10px 0;
     margin: 0 0 0 10px;
 }
-.sidebar div.ads div.ad {
+div#profile div.sidebar div.ads div.ad {
     margin: 20px auto 0 0;
 }
-.contacts dl dt {
+div.contacts dl dt {
 	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
 	background-repeat: no-repeat;
 }
-.contacts dl dt.skype {
+div.contacts dl dt.skype {
 	background-position: -739px -578px;
 }
-.contacts dl dt.msn {
+div.contacts dl dt.msn {
 	background-position: -739px -1490px;
 }
-.contacts dl dt.gtalk {
+div.contacts dl dt.gtalk {
 	background-position: -739px -248px;
 }
-.contacts dl dt.yim {
+div.contacts dl dt.yim {
 	background-position: 0 -116px;
 }
-.sidebar div.contacts dd {
+div#profile div.sidebar div.contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
 }
-.sidebar div.notice {
+div#profile div.sidebar div.notice {
 	margin: 10px 0 20px 0;
 	text-align: left;
 }
-#antisocial {
+div#profile div#antisocial {
     background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
     padding: 10px;
     margin: 0 20px 10px 330px;
     height: 40px;
 }
-#antisocial div {
+div#profile div#antisocial div {
     padding: 10px 5px 0 0px;
     width: 100%;
     height: 20px;
 }
-.main {
+div#profile div.main {
 	padding: 14px 0 0 25px;
 	margin-left: 330px;
 	position: relative;
 }
-.main div.ybubble {
+div#profile div.main div.ybubble {
 	margin: -28px 0 20px 50px;
 	width: 500px;
 	height: 85px;
 }
-.main div.ybubble div.body h3 {
+div#profile div.main div.ybubble div.body h3 {
 	padding: 5px 0 0 5px;
 }	
-.main div.ybubble div.body div.uploaddiv {
+div#profile div.main div.ybubble div.body div.uploaddiv {
 	margin: 0 0 5px 0px;
 }
-.uploaddiv object.uploadframe {
+div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 	height: 40px;
 }
-.uploaddiv iframe.uploadframe {
+div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
     height: 40px;
     margin: 0 0 0 30px;
 }
-.main .photos {
+div#profile div.main div.photos {
 	height: 115px;
 }
-.main .photos .more {
+div#profile div.main div.photos div.more {
 	float: right;
 	margin: 5px 0 0 0;
 }
 div.morealbums {
 	margin: 0 0 10px 0;
 }
-.main .photos .viewalbums {
+div#profile div.main div.photos div.viewalbums {
 	margin: 20px 0 0 0;
 }
-.main .photos ul {
+div#profile div.main div.photos ul {
 	height: 100px;
 }
-.main .photos ul li {
+div#profile div.main div.photos ul li {
 	padding: 0 3px;
 	float: left;
 }
-.main .photos ul li.addphoto {
+div#profile div.main div.photos ul li.addphoto {
     padding: 43px 10px 0 5px;
 }
-#easyphotoupload {
+div#easyphotoupload {
 	display: none;
 	top: 15%;
 	left: 37%;
@@ -272,137 +270,136 @@ div.morealbums {
     width: 450px;
     height: 225px;
 }
-#easyphotoupload div.modalcontent {
+div#easyphotoupload div.modalcontent {
     padding: 80px 0 0 140px; 
 }
-#easyphotoupload div.modalcontent span.plswait {
+div#easyphotoupload div.modalcontent span.plswait {
     padding: 0 0 0 5px;
     vertical-align: 3px;
 }
-#easyphotoupload div {
+div#easyphotoupload div {
     padding: 5px 0 0 0;
 }
-#easyphotoupload div span.inalb {
+div#easyphotoupload div span.inalb {
     padding: 0 0 0 10px;
 }
-#easyphotoupload div div.ulcontainer {
+div#easyphotoupload div div.ulcontainer {
     overflow: auto;
     height: 80px;
     padding: 0 0 0 5px;
 }
-#easyphotoupload div ul li {
+div#easyphotoupload div ul li {
     margin: 3px 5px; 
     float: left;
     cursor: pointer;
     background: #e0ffff;
 }
-#easyphotoupload div ul li.selected span img {
+div#easyphotoupload div ul li.selected span img {
     border: 1px solid #4682b4;
     padding: 1px;
 }
-#easyphotoupload div ul li span img {
+div#easyphotoupload div ul li span img {
     border: 1px solid #add8e6;
     padding: 1px; 
 }
-#easyphotoupload div.uploadsuccess {
+div#easyphotoupload div.uploadsuccess {
     padding: 0 0 0 30px;
     height: 20px;
 }
-#easyphotoupload div.uploadsuccess div {
+div#easyphotoupload div.uploadsuccess div {
     font-weight: 700;
     display: none;
 }
-.main .friends h3 {
+div#profile div.main div.friends h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
-.main .friends a.button {
+div#profile div.main div.friends a.button {
 	margin-left: 0;
 }
-.main .questions h3 {
+div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
-.main div.questions ul {
+div#profile div.main div.questions ul {
 	width: 70%;
 }
-.main .questions ul li {
+div#profile div.main div.questions ul li {
 	padding: 5px 0 5px 0;
 	overflow: hidden;
 }
-.main .questions ul li p.question {
+div#profile div.main div.questions ul li p.question {
 	padding: 0 0 2px 0;
 	margin: 0;
 	font-weight: bold;
 }
-.main .questions ul li p.answer {
+div#profile div.main div.questions ul li p.answer {
 	padding: 0;
 	margin: 0;
 }
-.main .lastpoll {
+div#profile div.main div.lastpoll {
 	float: right;
 	padding: 0 0 20px 0;
     margin: 0 50px;
 }
 
-.main .lastpoll h3 {
+div#profile div.main div.lastpoll h3 {
 	padding: 5px 0;
 	margin: 0;
 }
-.main .lastpoll h4 {
+div#profile div.main div.lastpoll h4 {
 	padding: 2px 0 0 0;
 	margin: 0;
 }
-.main .lastpoll .container {
+div#profile div.main div.lastpoll div.container {
 	margin-bottom: 10px;
 }
-.main .lastpoll a.button {
+div#profile div.main div.lastpoll a.button {
 	margin-left: 0;
 }
-.main .lastpoll .nopolls {
+div#profile div.main div.lastpoll div.nopolls {
 	width: 400px;
 }	
-.main .lastpoll .nopolls div {
+div#profile div.main div.lastpoll div.nopolls div {
 	margin: 5px 0 0 0;
 	font-weight: bold;
 }
-.main .lastjournal .jsmall {
+div#profile div.main div.lastjournal div.jsmall {
 	margin: 0 0 10px 0;
 }
-.main .lastjournal h3 {
+div#profile div.main div.lastjournal h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-.main .lastjournal .nojournals div {
+div#profile div.main div.lastjournal div.nojournals div {
 	font-weight: bold;
 	margin: 5px 0 0 0;
 }
-.main .space {
+div#profile div.main div.space {
 	margin: 0 0 20px 0;
 }
-.main .space div {
+div#profile div.main div.space div {
 	margin: 0  0 20px 0;
 }
-.main .space h3 {
+div#profile div.main div.space h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-.main .space a.button {
+div#profile div.main div.space a.button {
 	margin-left: 0;
 }
-.comments {
-	float: left;
+div.comments {
 	width: 90%;
-	overflow: hidden;
+	overflow:hidden;
 }
-.comments h3 {
+div.comments h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-.comments div.pagifycomments {
+div.comments div.pagifycomments {
 	text-align: center;
 }
-.friends .people {
+div#profile div.friends div.people {
     overflow: hidden;
     height: 110px;
 	position: relative;
