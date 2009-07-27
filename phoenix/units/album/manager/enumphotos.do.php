@@ -7,7 +7,8 @@
         $libs->Load( 'album' );
         $albumid->Get();
         $album = New Album( $albumid );
-        if ( $album->Ownerid == $user->Id ) {
+        if ( $album->Ownerid == $user->Id ) { ?>
+            PhotoManager.preEnumphotos();<?php
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album, 0, 400 );
             foreach( $images as $image ) {
