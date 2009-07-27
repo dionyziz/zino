@@ -34,16 +34,13 @@ var PhotoManager = {
     
     checkEnabledAlbumbs: function() {
         jQuery.each( $("div.albumlist li"), function() {
-            if ( isScrollingElementVisible( this, $("div.albumlist").get()[0], 15 ) ) {
+            if ( isScrollingElementVisible( this, $("div.albumlist").get()[0], 25 ) ) {
                 if (  $(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'enable' ); }
             } else {
                 if ( !$(this).hasClass( "ui-droppable-disabled" ) ) { $(this).droppable( 'disable' ); }
             }
         });
         if ( !$( "div.albumlist li.selected" ).hasClass( "ui-droppable-disabled" ) ) { $( "div.albumlist li.selected" ).droppable( 'disable' ); }
-    }
-    ,
-    preEnumphotos: function() {
     }
     ,
     postEnumphotos: function() {
@@ -99,8 +96,7 @@ var PhotoManager = {
             $( this ).addClass( "selected" ).siblings().removeClass( "selected" ).droppable( "enable" );
             Coala.Warm( "album/manager/enumphotos", { albumid: $( this ).attr( "id" ) } );
             PhotoManager.checkEnabledAlbumbs();
-        } );
-        
+        } ); 
         //Albums Droppable
         $( "div.albumlist li" ).droppable({
             //hoverClass: 'ui-state-active',	
@@ -133,5 +129,7 @@ var PhotoManager = {
         
         //This prevents dropping to scrolled-out albums (droppables bug)
         $("div.albumlist").scroll( function() { PhotoManager.checkEnabledAlbumbs(); } );
+        
+        //Autoscrolling
     }
 }
