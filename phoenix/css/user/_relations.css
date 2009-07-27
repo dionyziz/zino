@@ -1,0 +1,9 @@
+div#relations {
+	padding-bottom: 20px;
+}
+div#relations div.people {
+	margin: 0 0 0 170px;
+}
+div#relations div.pagifyrelations {
+	text-align: center;
+}

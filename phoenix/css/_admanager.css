@@ -1,0 +1,333 @@
+div.buyad h2 {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 170%;
+    color: #105090;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+div.buyad h2.smaller {
+    font-size: 150%;
+}
+div.buyad h3 {
+    text-align: center;
+}
+div.buyad p {
+    text-align: center;
+    color: #666;
+}
+div.buyad ol li {
+    list-style: none;
+    padding: 5px;
+}
+div.buyad div.beautiful {
+    width: 100%;
+}
+div.buyad div.beautiful img {
+    border: 1px solid #999;
+    padding: 1px;
+    margin: auto;
+    display: block;
+    width: 140px;
+    height: 150px;
+}
+div.buyad ol li ul li {
+    list-style: square outside;
+    color: #345;
+}
+div.buyad ol li ul {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+div.buyad ol li h3 {
+    color: #333;
+}
+div.buyad ol li.l1 {
+    float: left;
+    width: 33%;
+}
+div.buyad ol li.l3 {
+    float: right;
+    width: 33%;
+}
+div.buyad ol li.l2 {
+    border: 1px solid transparent;
+    margin-left: 34%;
+    margin-right: 34%;
+}
+div.buyad ol.footnotes {
+    margin: 0;
+    padding: 0 0 20px 0;
+}
+div.buyad ol.footnotes li {
+    font-size: 90%;
+}
+div.buyad ol li.creativecommons {
+    font-size: 80%;
+    color: #666;
+}
+div.buyad a.start, div.buyad input.submit {
+    margin: 20px auto 10px auto;
+    display: block;
+    width: 200px;
+    font-size: 110%;
+    color: white;
+    background-color: #70c0ff;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #68c;
+    outline-color: red;
+    background-image: url( 'http://static.zino.gr/phoenix/dark-blue-button.jpg' );
+    background-repeat: repeat-x;
+    cursor: pointer;
+}
+div.buyad div.create {
+    background-color: #f6f6f4;
+    border: 1px solid #ccc;
+    width: 800px;
+    margin: 0 auto 0 auto;
+    padding: 10px 0;
+    padding: 10px;
+}
+div.buyad div.create div.left {
+    width: 500px;
+    float: left;
+}
+div.buyad div.create div.right {
+    padding-left: 510px;
+}
+div.buyad div.create div.right p {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad div.status div.right h3 {
+	width: 585px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+div.buyad div.status div.left {
+    width: 100px;
+    float: left;
+}
+div.buyad div.status div.right {
+    padding-left: 110px;
+}
+div.buyad div.status div.left img {
+    padding: 10px;
+}
+div.buyad input, div.buyad textarea {
+    border: 1px solid #b0b5c5;
+    width: 100%;
+}
+div.buyad label span {
+    font-weight: normal
+}
+div.buyad label {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    display: block;
+    font-size: 90%;
+    font-weight: bold;
+    color: #345;
+    padding: 15px 5px 3px 0;
+}
+div.buyad div.create h3 {
+    margin: 10px;
+    padding: 10px;
+    font-size: 120%;
+}
+div.buyad div.create div.url input {
+    width: 300px;
+}
+div.buyad div.create h3.preview {
+    margin-bottom: 0;
+}
+div.ads {
+    font-size: 90%;
+    background-color: white;
+    border-bottom: 1px solid transparent;
+}
+div.ad {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+	overflow: hidden;
+}
+div.buyad div.ads {
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+}
+div.buyad div.ads div.ad {
+    margin: auto;
+}
+div.ads div.ad h3 {
+    width: 200px;
+    text-align: left;
+    margin: 5px auto 5px 0;
+    font-weight: bold;
+}
+div.ads div.ad h3 a {
+    color: #357;
+    font-size: 90%;
+}
+div.ads div.ad h4 {
+    margin: 5px 0 5px 0;
+}
+div.ads div.ad h4 a {
+    color: #357;
+}
+div.ads div.ad img {
+    display: block;
+    margin: auto;
+}
+div.ads div.ad p a {
+    color: black;
+}
+
+div.buyad table {
+    background-color: #f7f7f7;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #789;
+    margin: 0 0 50px 0;
+}
+div.buyad table thead {
+    background-image: url( 'file:///C:/blue.jpg' );
+    background-repeat: repeat-x;
+    background-color: #567;
+    color: white;
+}
+div.buyad table thead tr th {
+    border-right: 1px solid transparent;
+}
+div.buyad table td, div.buyad table thead tr th {
+    padding: 5px;
+    text-align: left;
+}
+div.buyad table td {
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #ccc;
+}
+div.buyad table td.last {
+    border-right-style: none;
+}
+div.buyad table div.ads {
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table div.ad {
+    border-color: transparent;
+    background-color: white;
+    text-align: left;
+}
+div.buyad table div.ad p {
+    text-align: left;
+}
+div.buyad table tr.create {
+    background-color: white;
+}
+div.buyad table tr.create div {
+    margin: auto;
+    width: 300px;
+    display: block;
+    text-align: center;
+    border-color: transparent;
+    background-color: transparent;
+}
+div.buyad table tr.create div a {
+    padding: 5px 5px 5px 25px;
+    font-size: 110%;
+    font-weight: bold;
+    background: url( 'http://static.zino.gr/phoenix/add.png' ) 0 5px no-repeat;
+}
+div.buyad table a.edit {
+    display: block;
+    font-weight: bold;
+    margin: auto;
+    width: 100px;
+    text-align: center;
+}
+div.buyad table a.renew {
+    font-weight: bold;
+}
+div.buyad table td.soon {
+    font-weight: bold;
+}
+div.buyad table td.soon a {
+    color: red;
+}
+div.buyad h2.ad {
+    font-size: 150%;
+    margin: 20px;
+}
+div.buyad a.manageads {
+    margin: auto;
+    display: block;
+    text-align: center; 
+    width: 210px;
+    padding: 5px;
+    font-size: 90%;
+}
+div.buyad div.create div.buttons {
+    width: 500px;
+    margin: auto;
+}
+div.buyad div.create div.buttons a.left, div.buyad div.create div.buttons input.left {
+    float: left;
+}
+div.buyad div.create div.buttons a.right, div.buyad div.create div.buttons input.right {
+    float: right;
+}
+div.buyad a.skip {
+    width: 250px;
+    display: block;
+    padding-top: 5px;
+    margin: auto;
+    text-align: center;
+    font-size: 90%;
+}
+div.buyad ul.distinguished li {
+    padding-top: 5px;
+    height: 60px;
+}
+div.buyad ul li.small {
+    height: 35px;
+}
+div.buyad ul.credit li {
+    display: inline;
+}
+div.buyad ul.credit li img {
+    padding: 5px 5px 0 5px;
+}
+div.buyad table tbody tr td input.radio, div.buyad ul li input.radio {
+    width: 20px;
+    float: left;
+}
+div.buyad table tr td label, div.buyad ul li label {
+    padding: 1px 0 0 0;
+    margin: 0 0 0 20px;
+}
+div.buyad p.more {
+    font-size: 90%;
+    text-align: left;
+}
+div.buyad table.adpackages {
+    margin: 10px 0 10px 0;
+}
+div.buyad form.paypal {
+    text-align: center;
+}
+div.buyad p.confirm {
+    font-size: 80%;
+}
+div.buyad label.disabled {
+    color: #999;
+}
+div.buyad span.vital {
+    display:block;
+    font-size:110%;
+    font-weight:bold;
+    margin:10px 0 10px 40px;
+}

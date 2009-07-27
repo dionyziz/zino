@@ -1,0 +1,61 @@
+div#journalview {
+	margin: 0 0 20px 0;
+}
+div#journalview div.ads {
+    position: absolute;
+    right: 23px;
+    top: 138px;
+}
+div#journalview h2 {
+	margin: 0;
+	padding: 0 0 3px 0;
+    overflow: hidden;
+}
+div#journalview dl {
+	margin: 2px 0 0 0;
+}
+div#journalview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}
+div#journalview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+div#journalview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+div#journalview ul.edit {
+	margin: 25px 0 0 0;
+}
+div#journalview ul.edit li {
+	display: inline;
+	margin: 0 0 0 2px;
+}
+div#journalview ul.edit li:first {
+	margin: 0;
+}
+div#journalview div.journal p {
+	text-align: left;
+	width: 70%;
+	margin: 0 0 20px 10px;
+    overflow: hidden;
+}
+div#journalview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
+div#journalview div.comments {
+	margin-top: 50px;
+}
+div#journalview div.comments div.pagifycomments {
+	text-align: center;
+}
+div#journalview div.journal div.b300x250 {
+	margin: -35px 0 0 20px;
+}
+div#journalview div.b728x90 {
+	margin: 110px auto 0 auto;
+}

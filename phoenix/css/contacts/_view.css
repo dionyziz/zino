@@ -1,0 +1,308 @@
+.invite_contacts {
+    margin: 0 auto;
+    padding: 30px 0;
+    display: block;
+	width: 99%;
+    overflow: hidden;
+}
+
+.invite_contacts #top_tabs {
+	width: 530px;
+    margin: auto;
+	position: relative;
+	top: 1px;
+    display: block;
+    height: 24px;
+    z-index: 500;
+}
+.invite_contacts #top_tabs li {
+	float: left;
+	display: block;
+	padding: 3px 10px;
+	border: 1px #ccc solid;
+	border-bottom-width: 0;
+	border-left-width: 0;
+	background: #eee;
+    cursor: pointer;
+}
+.invite_contacts #top_tabs li:first-child{
+	border-left-width: 1px;
+}
+.invite_contacts #top_tabs li.selected {
+	background: white;
+	position: relative;
+	height: 17px;
+	z-index: 100;
+}
+
+.invite_contacts #body {
+	border: 1px solid #ccc;
+	border-width: 1px 0 0 0;
+	position: relative;
+    padding-top: 30px;
+	color: #777;
+    margin: auto;
+    width: 99%;
+    /*max-width: 950px;  starting */
+    min-height: 560px; /* starting */
+}
+
+.invite_contacts #login {
+	width: 600px;
+    display: none;
+}
+.invite_contacts #login #left_tabs {
+    display: block;
+    width: 101px;
+    z-index: 500;
+    position: absolute;
+    top: -1px;
+    left: -102px;
+}
+.invite_contacts #login #left_tabs li {
+	display: block;
+	width: 90px;
+	padding: 10px 10px 10px 0;
+	background: #f5f5f5 no-repeat 7px 10px;
+	border: 1px solid #ccc;
+	border-right-width: 0;
+	border-top-width: 0;
+    cursor: pointer;
+	height: 16px;
+}
+.invite_contacts #login #left_tabs li:first-child{
+	border-top-width: 1px;
+}
+.invite_contacts #login #left_tabs li.selected {
+	background-color: white;
+	position: relative;
+	width: 91px;
+	z-index: 100;
+}
+.invite_contacts #login #left_tabs li span {
+	padding-left: 30px;
+	background: no-repeat 7px 0;
+}
+.invite_contacts #login #left_tabs #hotmail{
+    background-image: url("http://static.zino.gr/phoenix/contacts/msn-icon.gif");
+}
+.invite_contacts #login #left_tabs #yahoo{
+    background-image: url("http://static.zino.gr/phoenix/contacts/yahoo-icon.gif");
+}
+.invite_contacts #login #left_tabs #gmail{
+    background-image: url("http://static.zino.gr/phoenix/contacts/gmail-icon.gif");
+}
+.invite_contacts #login #left_tabs #hi5{
+    background-image: url("http://static.zino.gr/phoenix/contacts/hi5-icon.png");
+}
+.invite_contacts #login .inputs {
+	height: 40px;
+	padding: 8px 10px;
+}
+.invite_contacts #login .inputs div {
+	float: left;
+	display: block;
+	width: 140px;
+	text-align: right;
+	padding-right:15px;
+	padding-top: 10px;
+	height: 30px;
+}
+.invite_contacts #login .inputs input.text{
+	display: block;
+	height: 30px;
+	padding: 5px;
+	width: 190px;
+	font-size: 20px;
+	border: 0;
+	background: url('http://static.zino.gr/phoenix/contacts/input.png') no-repeat;
+}
+.invite_contacts #login .inputs input.text:hover{
+	background-position: 0 -40px;
+}
+.invite_contacts #login .inputs input.text:focus{
+	background-position: 0 -80px;
+}
+.invite_contacts #login #security {
+	position: absolute;
+	left: 400px;
+	top: 40px;
+	width: 150px;
+	font-size: 12px;
+}
+
+.invite_contacts #loading {
+	display: none;
+	position: absolute;
+	width: 700px;
+    padding-top: 30px;
+}
+.invite_contacts #loading h1{
+	margin: 60px 0;
+	text-align: center;
+    font-size: 25px;
+}
+.invite_contacts #loading h2 {
+	margin: 60px 0;
+	text-align: center;
+}
+.invite_contacts #loading h2 {
+	font-size: 0.8em;
+}
+.invite_contacts #loading img {
+	display: block;
+	margin: auto;
+	width: 30px;
+}
+
+.invite_contacts #message {
+    padding: 70px 20px;
+	display: none;
+}
+.invite_contacts #message h1 {
+	font-size: 22px;
+}
+.invite_contacts #message a {
+	display: block;
+}
+
+
+.invite_contacts #body .networks {
+	display: none;
+    margin-top: 17px;
+}
+.invite_contacts #body .networks h3 {
+	margin-left: 20px;
+}
+.invite_contacts #body .networks .selectAll{
+	padding: 0 0 5px 0;
+	font-size: 13px;
+	color: #114779;
+}
+.invite_contacts #body .networks .selectAll span{
+	margin-left: 16px;
+	cursor: pointer;
+}
+.invite_contacts #body .networks .contacts{
+	padding: 0;
+	margin: 20px;
+	border: 1px solid #ccc;
+	overflow: auto;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height: 271px;
+}
+.invite_contacts #body .networks .contact{
+	height: 60px;
+	padding: 0 20px;
+	font-size: 12px;
+	margin-left: 0;
+}
+.invite_contacts #body .networks .contact:first-child{
+	margin-top: 0;
+	border-top: 0;
+}
+
+.invite_contacts #contactsInZino {
+    width: 700px;
+}
+.invite_contacts #contactsInZino .contact .contactName {
+    float: left;
+    width: 80%;
+}
+.invite_contacts #contactsInZino .contact .location {
+    float: left;
+    width: 20%;
+    padding-top: 20px;
+}
+.invite_contacts #contactsInZino .contact input{
+	float: left;
+	margin: 20px;
+}
+.invite_contacts #contactsInZino .contact span {
+	font-weight: bold;
+}
+.invite_contacts #contactsInZino .contact span span {
+    margin-right: 20px;
+}
+
+.invite_contacts #contactsNotZino {
+    width: 570px;
+}
+.invite_contacts #body #contactsNotZino.networks .contacts{
+	height: 300px;
+}
+.invite_contacts #body #contactsNotZino.networks .contact{
+	border-top: 1px solid #ccc;
+	padding: 10px 0;
+	height: 40px;
+}
+.invite_contacts #body #contactsNotZino.networks .contact:first-child{
+	border-top: 0;
+}
+.invite_contacts #contactsNotZino .contact input{
+	float: left;
+	margin: 12px;
+}
+
+.invite_contacts #inviteByEmail{
+    display: none;
+    margin: auto;
+    width: 450px;
+}
+.invite_contacts #inviteByEmail #contactMail div.example {
+    font-size: 12px;
+}
+.invite_contacts #inviteByEmail #contactMail textarea {
+    width: 440px;
+    height: 150px;
+    background-image: url('http://static.zino.gr/phoenix/inputBig.png');
+    padding: 5px;
+    font-size: 20px;
+    border: 0;
+}
+.invite_contacts #inviteByEmail #contactMail textarea:hover{
+    background-position: 0 -160px;
+}
+.invite_contacts #inviteByEmail #contactMail textarea:focus{
+    background-position: 0 -320px;
+}
+
+.invite_contacts  #foot {
+	background: #eee;
+	padding: 20px 0;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+    display: none;
+}
+.invite_contacts  #foot input {
+	width: 120px;
+	height: 40px;
+	display: block;
+	margin: auto;
+	border: 0;
+	background: transparent url('http://static.zino.gr/phoenix/buttons.png') no-repeat;
+	cursor: pointer;
+}
+.invite_contacts  #foot input:active{
+	background-position: -120px 0;
+}
+.invite_contacts  #foot input.add{
+	background-position: 0 -40px;
+}
+.invite_contacts  #foot input.add:active{
+	background-position: -120px -40px;
+}
+.invite_contacts  #foot input.invite{
+	background-position: 0 -80px;
+}
+.invite_contacts  #foot input.invite:active{
+	background-position: -120px -80px;
+}
+.invite_contacts  #foot input.finish{
+	background-position: 0 -120px;
+}
+.invite_contacts  #foot input.finish:active{
+	background-position: -120px -120px;
+}

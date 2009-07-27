@@ -1,0 +1,38 @@
+div.usersections {
+	padding: 8px 0 5px 0;
+    height: 30px;
+    margin: 0 0 0 2px;
+    /* copybg_rev file*/
+    background: #fff url( 'http://static.zino.gr/phoenix/sprite_x.png' ) repeat-x 0 -951px;
+}
+div.usersections a span.vavie150 {
+    cursor: pointer;
+}
+div.usersections a img {
+	float: left;
+}
+div.usersections a span.name {
+	font-size: 120%;
+	display: inline;
+	font-weight: bold;
+}
+div.usersections ul {
+	margin: 0 0 0 160px;
+	padding: 3px 10px 0 0;
+	text-align: right;
+	height: 30px;
+	vertical-align: bottom;
+    float: right;
+}
+div.usersections ul li {
+	padding: 0 5px 0 5px;
+	font-size: 105%;
+	display: inline;
+}
+div.usersections ul li.selected a {
+	font-weight: 700;
+    color: #4a7aab;
+}
+div.usersections div {
+	clear: both;
+}

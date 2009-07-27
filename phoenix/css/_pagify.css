@@ -1,0 +1,19 @@
+div.pagify a.next {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1907px;
+	padding: 0 0 0 16px;
+}
+div.pagify a.previous {
+	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -116px;
+	padding: 0 0 0 16px;
+}
+div.pagify a.nextbacklinks, div.pagify strong {
+	padding: 0 4px;
+}
+div.pagify div.pagifycount {
+    color: #aaa;
+    font-size: small;
+}
+div.pagify {
+	font-size: 11pt;
+	text-align: center;
+}

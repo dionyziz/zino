@@ -1,0 +1,68 @@
+#poview {
+    margin-bottom: 20px;
+}
+#poview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
+#poview h2 {
+	padding: 0 0 3px 0;
+    overflow: hidden;
+}
+#poview dl {
+	margin: 2px 0 0 0;
+}
+#poview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}
+#poview dl dd.time {
+	display: inline;
+	font-size: 85%;
+}
+#poview dl dd.time span {
+	padding: 2px 0 2px 17px;
+}
+#poview ul.edit {
+	margin: 25px 0 0 0;
+}
+#poview ul.edit li {
+	display: inline;
+	margin: 0 0 0 2px;
+}
+#poview ul.edit li:first {
+	margin: 0;
+}
+#poview div.posmall {
+	margin-left: 165px;
+    overflow: hidden;
+}
+#poview div.posmall div.results {
+	margin-bottom: 30px;
+}
+#poview div.comments {
+	margin-top: 50px;
+}	
+#poview div.comments div.pagifycomments {
+	text-align: center;
+}
+#poview dl {
+	text-align: left;
+}
+div#poview dl.toolbar {
+    margin: 0 0 0 167px;
+}
+div#poview dd.delete {
+    display: inline;
+    padding: 0 0 0 2px;
+}
+div#poview dl dd.createdate {
+    margin: 0 0 10px 0;
+}
+div#poview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	display: inline;
+	font-size: 85%;
+}

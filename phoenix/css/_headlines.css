@@ -1,0 +1,20 @@
+h2 {
+	font-size: 130%;
+	color: #666;
+    text-align: left;
+}
+h2.sweet {
+    color: #105090;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 170%;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+h3 {
+	font-size: 105%;
+	color: #666;
+	text-align: left;
+}
+h2>span, h3>span {
+    font-size: 90%;
+}

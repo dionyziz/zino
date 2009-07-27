@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Helvetica;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+}
+h3 {
+	font-size: 105%;
+	color: #666;
+	text-align: left;
+    margin: 10px 5px;
+}
+div.eof {
+    clear: both;
+}
+img {
+    overflow: hidden;
+}
+div.banner {
+    width: 100%;
+    height: 40px;
+    background-image: url( 'http://static.zino.gr/phoenix/iphone/bannerbg.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+    text-align: center;
+}
+div.banner img.logo {
+    padding: 7px;
+}
+div.banner img.avatar {
+    float: right;
+    margin: 2px;
+}
+form {
+    padding: 10px 15px 15px 10px;
+}
+form div.input {
+    margin-right: 10px;
+}
+textarea {
+    color: #999;
+    text-align: center;
+}
+input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 3px;
+}
+input[type="submit"], input[type="button"] {
+    font-weight: bold;
+    margin: 3px 0;
+    font-size: 16px;
+    width: 100%;
+}
+form label {
+    margin: 2px 0 2px 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.6) 0 1px 0;
+    display: block;
+}
+div.footer {
+    clear: both;
+    padding: 10px 10px 5px 10px;
+    margin: 10px 0;
+    background-image: url( 'http://static.zino.gr/phoenix/copybg.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+}
+div.footer form {
+    display: inline;
+    padding: 0;
+}
+div.footer div.toolbar {
+    float: right;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    border-top: 1px solid #ccc;
+    clear: both;
+    padding: 0;
+    margin: 0;
+}
+a img {
+    border-style: none;
+}
+span.who {
+    display: block;
+    float: left;
+    padding: 0 5px 3px 3px;
+}
+div.shoutbox a {
+    display: block;
+    -webkit-tap-highlight-color: #009cff;
+    min-height: 55px;
+    text-decoration: none;
+    color: #333;
+}
+div.shoutbox a strong {
+    font-size: 16px;
+    padding-bottom: 5px;
+    color: black;
+    font-weight: normal;
+}
+div.shoutbox textarea {
+    border-style: none;
+    clear: both;
+}
+div.shoutbox input[type="submit"] {
+    width: inherit;
+    float: right;
+}
+div.profile div.tweet {
+    padding: 0 0 0 10px;
+}
+div.profile img.avatar {
+    float: left;
+    padding: 5px;
+}
+div.profile {
+    padding-top: 5px;
+}
+h2 {
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 0;
+}
+dl {
+    padding: 4px;
+}
+dl dt {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+dl dt:after {
+    content: ": ";
+}
+dl dd {
+    font-weight: normal;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+div.profile div.details ul {
+    padding: 4px;
+    clear: both;
+}
+div.profile div.details ul li {
+    border: transparent;
+}
+div.profile div.details ul li strong {
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+div.profile div.details img {
+    float: left;
+    padding: 10px;
+}
+div.profile div.details div.look ul {
+    clear: none;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-image: url( 'http://static.zino.gr/phoenix/copybg.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+    border-bottom: 1px #ccc solid;
+}
+div.profile div.details li {
+    display: inline;
+}
+div.profile div.details li.dot {
+    padding: 5px;
+    color: #999;
+}
+div.barfade {
+	background: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
+	height: 1px;
+}
+div.barfade div.leftbar {
+	float: left;
+	background: url('http://static.zino.gr/phoenix/barfade-left.jpg') no-repeat;
+	height: 1px;
+	width: 153px;
+}
+div.barfade div.rightbar {
+	float: right;
+	background: url('http://static.zino.gr/phoenix/barfade-right.jpg') no-repeat;
+	height: 1px;
+	width: 153px;
+}
+ul.userlist li a {
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    min-height: 60px;
+}
+ul.userlist li strong {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: black;
+}
+a.loadable img.loader {
+    float: right;
+}
+

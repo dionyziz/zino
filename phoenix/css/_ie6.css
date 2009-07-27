@@ -1,0 +1,22 @@
+div#lbanner {
+	overflow: hidden;
+	margin-right: -3px;
+}
+div#rbanner {
+	margin-left: -3px;
+}
+div#upstrip{
+	overflow: hidden;
+}
+div#midstrip {
+    background: url( 'http://beta.zino.gr/phoenix/js/blank.gif' ) #fffff;
+}
+div#strip1 {
+	height: 8px;
+	background-color: #fff;
+	overflow: hidden;
+}
+div#mbanner div form input#loginbutton {
+	position: relative;
+	top: 4px;
+}
