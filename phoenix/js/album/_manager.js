@@ -62,7 +62,7 @@ var PhotoManager = {
         //Albums Droppable
         $( "div.albumlist li" ).droppable( {
             //hoverClass: 'ui-state-active',
-            accept: "ul#photolist li div img",
+            accept: "ul#photolist > li > img",
             tolerance: "pointer",
             areabound: $("div.albumlist"),
             drop: function(event, ui) {
