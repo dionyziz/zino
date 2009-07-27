@@ -107,7 +107,7 @@ var PhotoManager = {
                 Coala.Warm( "album/manager/move", { 'photoid': ui.draggable.closest( "li" ).attr( "id" ), 'albumid': $( this ).closest( "li" ).attr( "id" ) } );
                 $(this).removeClass( "dropover");
                 
-                ui.draggable.animate( { width: 0, height: 0, margin-left: "25px", margin-top: "25px" } );
+                ui.draggable.animate( { width: 0, height: 0, "margin-left": "25px", "margin-top": "25px" } );
                 
                 ui.draggable.closest( "li" ).fadeOut( "fast" ).animate( { width: "0" },
                 function( albumid ) {
