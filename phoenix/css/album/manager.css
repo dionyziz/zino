@@ -121,7 +121,7 @@ div#photomanager div#photos ul li div {
     /*font-size: 90%;
     border: #444 1px solid;
     background: #eee;*/
-    display: none;
+    
     width: 115px;
     height: 16px;
     background: transparent url('http://static.zino.gr/phoenix/photomanager/dragndrop.png');
