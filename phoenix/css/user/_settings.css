@@ -28,10 +28,6 @@
     padding: 0 0 0 5px;
     vertical-align: 3px;
 }
-.sidebar .savesettings .saved span span {
-    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -440px;
-    padding: 1px 20px 0 0;
-}
 .sidebar .disabled {
     opacity: 0.3;
 	filter: alpha(opacity = 30);
@@ -50,9 +46,9 @@
     margin: 0 0 0 22px;
     background: #fff none no-repeat left;
 }
-.sidebar ol li.selected {
+.sidebar ol li.s1_0049 {
 	font-weight: bold;
-	background: #047cbb url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -112px;
+	background: #047cbb;
 }
 .sidebar ol li a {
     height: 25px;
@@ -326,4 +322,3 @@ form div .setting ul.interesttags li {
     font-size: 90%;
     margin-top: 10px;
 }
-
