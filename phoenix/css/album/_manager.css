@@ -51,7 +51,7 @@ div#photomanager div div#albums div.fadebot {
     height: 30px;
     width: 180px;
     position: absolute;
-    bottom: 55px;
+    bottom: 20px;
     left: 20px;
     z-index: 1;
 }
