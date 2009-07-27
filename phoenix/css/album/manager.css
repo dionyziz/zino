@@ -114,11 +114,7 @@ div#photomanager div#photos ul li {
     text-align: center;
     display: none;
 }
-div#photomanager div#photos ul li {
-    cursor: size;
-}
-div#photomanager div#photos ul li {
-
+div#photomanager div#photos ul li img {
     background-color: red;
     border: 5px solid green;
 }
