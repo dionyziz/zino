@@ -114,7 +114,7 @@ div#photomanager div#photos ul li {
     text-align: center;
     display: none;
 }
-div#photomanager div#photos ul li div span.imageview img {
+div#photomanager div#photos ul li div img {
     cursor: size;
 }
 div#photomanager div#photos ul li div div {

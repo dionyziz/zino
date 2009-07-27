@@ -14,13 +14,15 @@
                 ?>var newli = document.createElement( 'li' );
                 $( newli ).attr( "id", <?php echo $image->Id; ?> );
                 var newdiv = document.createElement( 'div' );
-                $( newdiv ).html( <?php
-                ob_start();
-                Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , '' , '' , false , 0 , 0 , 0 );
-                echo w_json_encode( ob_get_clean() );
-                ?> );
+                var newimg = document.createElement( 'img' );
+                $( newimg ).load( function( event ) {
+                    $(this).fadeIn( "normal" );
+                    $(this).unbind( "load" );
+                } );
+                $( newimg ).attr( "src", <?php Element( 'image/url' , $image->Id , $image->Userid , IMAGE_CROPPED_100x100 ); ?> );
                 var dragdiv = document.createElement( 'div' );
                 $( dragdiv ).addClass( 'draginfo' );
+                $( newimg ).append( newdiv );
                 $( newdiv ).append( dragdiv ).addClass( "photo" );
                 $( newli ).append( newdiv ).css( "display", "list-item" );
                 $( "ul.photolist" ).append( newli );
