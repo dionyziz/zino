@@ -128,8 +128,8 @@ div#photomanager div#photos ul li div div {
 }
 /*PAGINATION*/
 .pagination {
-            font-size: 80%;
-        }
+    font-size: 80%;
+}
         
 .pagination a {
     text-decoration: none;
