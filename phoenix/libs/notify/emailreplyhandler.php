@@ -65,8 +65,9 @@
         $comment->Save();
 	}
 
-    function Notify_EmailReplyFilterRecipients( $from ) {
-        $rec = explode( ',', $conf[ 'to' ] ); // multiple recipients separated using commas
+    function Notify_EmailReplyFilterRecipients( $to ) {
+        file_put_contents( '/tmp/beast-to', $to );
+        $rec = explode( ',', $to ); // multiple recipients separated using commas
         foreach ( $rec as $recipient ) {
             $recipient = trim( $recipient );
             if ( strpos( $recipient, '<' ) !== false ) { // Dionysis Zindros <dionyziz@zino.gr>
