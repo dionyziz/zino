@@ -178,22 +178,6 @@ div#profile div.sidebar div.ads {
 div#profile div.sidebar div.ads div.ad {
     margin: 20px auto 0 0;
 }
-div.contacts dl dt {
-	background-image: url( 'http://static.zino.gr/phoenix/icons2.png' );
-	background-repeat: no-repeat;
-}
-div.contacts dl dt.skype {
-	background-position: -739px -578px;
-}
-div.contacts dl dt.msn {
-	background-position: -739px -1490px;
-}
-div.contacts dl dt.gtalk {
-	background-position: -739px -248px;
-}
-div.contacts dl dt.yim {
-	background-position: 0 -116px;
-}
 div#profile div.sidebar div.contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
