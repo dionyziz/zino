@@ -97,8 +97,8 @@ var PhotoManager = {
     ,
     addNewPhoto: function ( id, url ) {
         var newli = document.createElement( 'li' );
-        $( newli ).attr( "id", id );
-        var newdiv = document.createElement( 'div' );
+        $( newli ).attr( "id", id ).css( "display", "list-item" );
+        
         var newimg = document.createElement( 'img' );
         $( newimg ).load( function( event ) {
             $(this).fadeIn( "normal" );
@@ -106,12 +106,14 @@ var PhotoManager = {
         } );
         $( newimg ).attr( "src", url );
         $( newimg ).hide();
+        
         var dragdiv = document.createElement( 'div' );
         $( dragdiv ).addClass( 'draginfo' );
-        $( newli ).append( newimg );
-        //$( newdiv ).append( dragdiv ).addClass( "photo" );
-        $( newli ).append( newdiv ).css( "display", "list-item" );
+        
         $( "ul.photolist" ).append( newli );
+        
+        $( newli ).append( dragdiv );
+        $( newli ).append( newimg );
         
         $( newimg ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },

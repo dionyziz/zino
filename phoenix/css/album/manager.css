@@ -115,8 +115,13 @@ div#photomanager div#photos ul li {
     display: none;
 }
 div#photomanager div#photos ul li img {
-    background-color: red;
-    border: 5px solid green;
+    cursor: size;
+}
+div#photomanager div#photos ul li div {
+    display: none;
+    width: 115px;
+    height: 16px;
+    background: transparent url('http://static.zino.gr/phoenix/photomanager/dragndrop.png');
 }
 /*PAGINATION*/
 .pagination {
