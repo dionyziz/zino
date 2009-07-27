@@ -13,13 +13,16 @@
 		$commentid = preg_grep( "\d+", $email );
 		$commentid = $commentid[ 0 ];
 		$hash = preg_grep( "(?<=-)[1-9a-f]+", $email );
-		$hash = $hash[ 0 ];
+		$hash = $hash[ 0 ];\
 		
 		$comment = New Comment( $commentid );
+		$calculatedhash = substr( md5( 'beast' . $comment->Created . $comment->Id ), 0, 10 );
 		
 		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
 		
-		if ( substr( md5( 'beast' . $comment->Created . $comment->Id ), 0, 10 ) != $hash ) {
+		$message = "Commentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash";
+		file_put_contents( "/tmp/beast-main", $body );
+		if ( $calculatedhash != $hash ) {
 			return;
 		}
 		
@@ -63,6 +66,7 @@
         $comment->Typeid = $comment->Typeid;
         $comment->Itemid = $commment->Itemid;
         $comment->Save();
+		
 	}
 
     function Notify_EmailReplyFilterRecipients( $to ) {
