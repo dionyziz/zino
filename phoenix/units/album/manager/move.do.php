@@ -47,7 +47,7 @@
                             echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
                         }
                     ?>" );
-                    oldmain.load( function() { newmain.fadeIn( "normal" ); } );
+                    newmain.load( function() { newmain.fadeIn( "normal" ); } );
                 } ); <?php
             }
         }
