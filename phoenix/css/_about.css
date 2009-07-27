@@ -4,10 +4,10 @@
     color: #345;
 }
 #aboutsection input, #aboutsection select {
-    border: 1px solid #666;
+    border: 1px solid #aaa;
 }
 #aboutsection label {
-    width: 100px;
+    width: 200px;
     float: left;
 }
 #aboutsection .blog p {
