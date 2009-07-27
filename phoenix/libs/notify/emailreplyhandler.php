@@ -70,7 +70,6 @@
 	}
 
     function Notify_EmailReplyFilterRecipients( $to ) {
-        file_put_contents( '/tmp/beast-to', $to );
         $rec = explode( ',', $to ); // multiple recipients separated using commas
         foreach ( $rec as $recipient ) {
             $recipient = trim( $recipient );
@@ -117,9 +116,15 @@
         $target = Notify_EmailReplyFilterRecipients( $conf[ 'to' ] );
         
         if ( $target !== false ) {
-            file_put_contents( "/tmp/beast-body", $body );
-            file_put_contents( "/tmp/beast-target", $target );
-            return Notify_EmailReplyHandler( $body, $target );
+            return array(
+                'body' => $body,
+                'target' => $target
+            );
         }
+    }
+    
+    function Notify_EmailReplyReceived( $rawdata ) {
+        $data = Notify_EmailReplyParse( $rawdata );
+        Notify_EmailReplyHandler( $data[ 'body' ], $data[ 'target' ] );
     }
 ?>

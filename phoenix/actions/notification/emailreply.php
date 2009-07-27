@@ -2,8 +2,6 @@
     function ActionNotificationEmailReply( tText $rawdata ) {
         global $libs;
         
-        file_put_contents( "/tmp/beast", $rawdata );
-        
         $libs->Load( 'notify/emailreplyhandler' );
         
         echo "Calling Notify_EmailReplyParse()...\n";
