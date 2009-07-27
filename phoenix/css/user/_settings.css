@@ -44,11 +44,12 @@
 .sidebar ol li {
     padding: 0 0 0 18px;
     margin: 0 0 0 22px;
-    background: #fff none no-repeat left;
+    background: #fff;
 }
 .sidebar ol li.s1_selected {
 	font-weight: bold;
     background-position: -71px -334px;
+    background-color: #047cbb;
 }
 .sidebar ol li a {
     height: 25px;
