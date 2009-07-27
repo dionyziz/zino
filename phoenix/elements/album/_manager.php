@@ -42,9 +42,9 @@
                         <div class="fadebot" />
                     </div>
                     <div class="photos" id="photos">
-                    <div id="pages" class="pagination" ></div>
-                        <ul class="photolist" id="photolist">
-                        </ul>
+                        <div class="enumloading" />
+                        <div id="pages" class="pagination" />
+                        <ul class="photolist" id="photolist" />
                     </div>
                 </div>
                 <div class="eof"/>

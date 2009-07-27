@@ -42,6 +42,10 @@ var PhotoManager = {
         });
         if ( !$( "div.albumlist li.selected" ).hasClass( "ui-droppable-disabled" ) ) { $( "div.albumlist li.selected" ).droppable( 'disable' ); }
     }
+    preEnumphotos: function() {
+        $( 'ul#photolist' ).fadeOut( "fast", function() { $this.empty(); } );
+        $( 'div.enumloading' ).fadeIn( "fast" );
+    }
     ,
     postEnumphotos: function() {
         $( 'div.photo img' ).draggable( { 
@@ -94,6 +98,7 @@ var PhotoManager = {
         //Album selection
         $( "div.albumlist ul li" ).click( function () {
             $( this ).addClass( "selected" ).siblings().removeClass( "selected" ).droppable( "enable" );
+            PhotoManager.preEnumphotos;
             Coala.Warm( "album/manager/enumphotos", { albumid: $( this ).attr( "id" ) } );
             PhotoManager.checkEnabledAlbumbs();
         } ); 

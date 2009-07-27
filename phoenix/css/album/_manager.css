@@ -128,7 +128,10 @@ div#photomanager div.photos ul li div div {
 div#photomanager div.photos ul li a {
     position: relative;    
 }
-
+div#photomanager div.photos div.enumloading {
+    background: transparent url( 'http://static.zino.gr/phoenix/contacts/loader.gif' ) center center no-repeat;
+    display: none;
+}
 /*PAGINATION*/
 .pagination {
             font-size: 80%;
