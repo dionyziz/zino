@@ -17,6 +17,8 @@
 		
 		$comment = New Comment( $commentid );
 		
+		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
+		
 		if ( substr( md5( 'beast' . $comment->Created . $comment->Id ), 0, 10 ) != $hash ) {
 			return;
 		}
