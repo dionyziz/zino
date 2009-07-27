@@ -3,6 +3,13 @@
     padding: 20px;
     color: #345;
 }
+#aboutsection input, #aboutsection select {
+    border: 1px solid #666;
+}
+#aboutsection label {
+    width: 100px;
+    float: left;
+}
 #aboutsection .blog p {
     padding: 0 0 1em 2em;
     color: #666;
