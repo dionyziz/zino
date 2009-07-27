@@ -337,52 +337,52 @@
 .main .lastpoll .container {
 	margin-bottom: 10px;
 }
-div#profile div.main div.lastpoll a.button {
+.main .lastpoll a.button {
 	margin-left: 0;
 }
-div#profile div.main div.lastpoll div.nopolls {
+.main .lastpoll .nopolls {
 	width: 400px;
 }	
-div#profile div.main div.lastpoll div.nopolls div {
+.main .lastpoll .nopolls div {
 	margin: 5px 0 0 0;
 	font-weight: bold;
 }
-div#profile div.main div.lastjournal div.jsmall {
+.main .lastjournal .jsmall {
 	margin: 0 0 10px 0;
 }
-div#profile div.main div.lastjournal h3 {
+.main .lastjournal h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-div#profile div.main div.lastjournal div.nojournals div {
+.main .lastjournal .nojournals div {
 	font-weight: bold;
 	margin: 5px 0 0 0;
 }
-div#profile div.main div.space {
+.main .space {
 	margin: 0 0 20px 0;
 }
-div#profile div.main div.space div {
+.main .space div {
 	margin: 0  0 20px 0;
 }
-div#profile div.main div.space h3 {
+.main .space h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-div#profile div.main div.space a.button {
+.main .space a.button {
 	margin-left: 0;
 }
-div.comments {
+.comments {
 	width: 90%;
 	overflow:hidden;
 }
-div.comments h3 {
+.comments h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-div.comments div.pagifycomments {
+.comments .pagifycomments {
 	text-align: center;
 }
-div#profile div.friends div.people {
+#profile .friends .people {
     overflow: hidden;
     height: 110px;
 	position: relative;
