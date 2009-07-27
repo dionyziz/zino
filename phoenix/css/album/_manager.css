@@ -106,17 +106,17 @@ div#photomanager div div div ul li {
     float:left;
     padding: 5px;
 }
-div#photomanager div.photos ul li {
+div#photomanager div#photos ul li {
     float: left;
     width: 115px;
     height: 130px;
     padding: 5px;
     text-align: center;
 }
-div#photomanager div.photos ul li div span.imageview img {
+div#photomanager div#photos ul li div span.imageview img {
     cursor: size;
 }
-div#photomanager div.photos ul li div div {
+div#photomanager div#photos ul li div div {
     /*font-size: 90%;
     border: #444 1px solid;
     background: #eee;*/
@@ -125,10 +125,7 @@ div#photomanager div.photos ul li div div {
     height: 16px;
     background: transparent url('http://static.zino.gr/phoenix/photomanager/dragndrop.png');
 }
-div#photomanager div.photos ul li a {
-    position: relative;    
-}
-div#photomanager div.photos div.enumloading {
+div#photomanager div#photos div.enumloading {
     background: transparent url( 'http://static.zino.gr/phoenix/contacts/loader.gif' ) center center no-repeat;
     display: none;
 }
