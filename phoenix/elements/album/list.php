@@ -97,8 +97,8 @@
             }
             $text .= " )";
             Element( 'pagify', $pageno, $link, $total_pages, $text );
-            ?><a href="/?p=photomanager">Διαχείριση Φωτογραφιών</a>
-            </div><?php
+            ?></div>
+            <a href="/?p=photomanager">Διαχείριση Φωτογραφιών</a><?php
             $page->AttachInlineScript( 'AlbumList.OnLoad();' );
         }
     }
