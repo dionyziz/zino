@@ -426,7 +426,6 @@
             
             $oldalbum->Save();
 			$album->Save();
-            
 		}
     }
 ?>

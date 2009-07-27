@@ -57,6 +57,9 @@
                     } );
                 } ); <?php
             }
+            
+            $user = New User( $user->Id );
+            
             if ( $oldavatarid != $user->Avatarid ) {
                 ?>var newavatar = $( "div#loggedinmenu > span > img" );
                 newavatar.fadeOut( "fast" , function() {
