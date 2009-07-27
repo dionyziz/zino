@@ -126,7 +126,7 @@ div.bbbl {
 	height: 19px;
 	margin-right: 10px;
 }
-div.bbbl span.bbblleft {
+/*div.bbbl span.bbblleft {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -299px;
 	padding: 0 0 3px 10px;
 }
@@ -134,6 +134,7 @@ div.bbbl span.bbblright {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -735px -1229px;
 	padding: 0 0 3px 19px;
 }
+*/
 div.bbbl span.bbblmiddle {
 	margin: 0 0 0 -7px;
 	vertical-align: -1px;
