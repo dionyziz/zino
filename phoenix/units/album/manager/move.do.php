@@ -33,8 +33,10 @@
                             echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
                         }
                     ?>" );
-                    oldmain.load( function() { oldmain.fadeIn( "normal" ); } );
-                } ); <?php
+                    oldmain.load( function() {
+                        oldmain.fadeIn( "normal" );
+                        oldmain.unbind( "load");
+                    } );                } ); <?php
             }
             if ( $newalbummainimageid != $album->Mainimageid ) {
                 ?>var newmain = $( "div.albumlist li#<?php echo $albumid; ?> span.imageview img" );
@@ -47,7 +49,10 @@
                             echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
                         }
                     ?>" );
-                    newmain.load( function() { newmain.fadeIn( "normal" ); } );
+                    newmain.load( function() {
+                        newmain.fadeIn( "normal" );
+                        newmain.unbind( "load");
+                    } );
                 } ); <?php
             }
         }
