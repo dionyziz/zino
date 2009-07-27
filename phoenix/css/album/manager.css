@@ -117,7 +117,7 @@ div#photomanager div#photos ul li {
 div#photomanager div#photos ul li img {
     cursor: size;
 }
-div#photomanager div#photos ul li div {
+div#photomanager div#photos ul li div.draginfo {
     display: none;
     width: 115px;
     height: 16px;
