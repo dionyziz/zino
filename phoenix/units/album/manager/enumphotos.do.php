@@ -23,7 +23,7 @@
                 var dragdiv = document.createElement( 'div' );
                 $( dragdiv ).addClass( 'draginfo' );
                 
-                $( newimg ).append( newdiv );
+                $( newdiv ).append( newimg );
                 $( newdiv ).append( dragdiv ).addClass( "photo" );
                 $( newli ).append( newdiv ).css( "display", "list-item" );
                 $( "ul.photolist" ).append( newli );
