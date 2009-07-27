@@ -88,3 +88,8 @@ div.pagifyalbums {
 	text-align: center;
 	padding-bottom: 20px;
 }
+div.managerlink {
+    text-align: center;
+    font-weight: bold;
+    padding: 2em;
+}
