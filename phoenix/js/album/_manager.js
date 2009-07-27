@@ -98,7 +98,7 @@ var PhotoManager = {
             PhotoManager.checkEnabledAlbumbs();
         } ); 
         //Albums Droppable
-        $( "div.albumlist li" ).droppable({
+        $( "div.albumlist li" ).droppable( {
             //hoverClass: 'ui-state-active',	
             accept: "ul#photolist li div span.imageview img",
             tolerance: "pointer",
@@ -108,8 +108,7 @@ var PhotoManager = {
                 $(this).removeClass( "dropover");
                 ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
                     function( albumid ) {
-                        $( this ).closest( "li" ).remove(); 
-                        //alert(  + '->' + ui.draggable.closest( "li" ).attr( "id" ) );
+                        $( this ).closest( "li" ).remove();
                         //TODO:
                         //updatePaginationPage();
                         //animate photo shrink and remove
@@ -131,5 +130,7 @@ var PhotoManager = {
         $("div.albumlist").scroll( function() { PhotoManager.checkEnabledAlbumbs(); } );
         
         //Autoscrolling
-    }
+
+        
+        }
 }
