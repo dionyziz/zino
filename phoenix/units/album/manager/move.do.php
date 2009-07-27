@@ -19,6 +19,8 @@
             $oldalbummainimageid = $photo->Album->Mainimageid;
             $newalbummainimageid = $album->Mainimageid;
             
+            $oldavatarid = $user->Avatarid;
+            
             $photo->MoveTo( $album );
             
             //Check for Mainimageid changes from moving
@@ -52,6 +54,23 @@
                     newmain.load( function() {
                         newmain.fadeIn( "normal" );
                         newmain.unbind( "load");
+                    } );
+                } ); <?php
+            }
+            if ( $oldavatarid != $user->Avatarid ) {
+                ?>var newavatar = $( "div#loggedinmenu > span > img" );
+                newavatar.fadeOut( "fast" , function() {
+                    newavatar.attr( "src", "<?php
+                        if ( $user->Avatarid != 0 ) {
+                            Element( "image/url", $user->Avatarid, $user->Id, IMAGE_CROPPED_100x100 );
+                        }
+                        else {
+                            echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
+                        }
+                    ?>" );
+                    newavatar.load( function() {
+                        newavatar.fadeIn( "normal" );
+                        newavatar.unbind( "load");
                     } );
                 } ); <?php
             }
