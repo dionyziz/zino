@@ -45,10 +45,10 @@
                         <div class="enumloading" />
                         <div id="pages" class="pagination" />
                         <ul class="photolist" id="photolist" />
+                        <div class="eof"/>
                     </div>
                 </div>
-            </div>
-            <div class="eof"/><?php
+            </div><?php
             $page->AttachInlineScript( 'PhotoManager.OnLoad();' );
         }
     }
