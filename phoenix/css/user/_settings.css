@@ -243,85 +243,85 @@ form div .setting ul.interesttags li {
 	height: 20px;
 	margin-top: 3px;
 }
-div.oldpassword div div.wrongpwd span {
+.oldpassword div .wrongpwd span {
 	display: none;
 }
-div.oldpassword div div.wrongpwd span img {
+.oldpassword div .wrongpwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.newpassword div div.shortpwd {
+.newpassword div .shortpwd {
 	font-size: 80%;
 	font-weight: bold;
 	height: 20px;
 	margin-top: 3px;
 }
-div.newpassword div div.shortpwd span {
+.newpassword div .shortpwd span {
 	display: none;
 }
-div.newpassword div div.shortpwd span img {
+.newpassword div .shortpwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.renewpassword div div.wrongrepwd {
+.renewpassword div .wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
 	height: 20px;
 	margin-top: 3px;
 }
-div.renewpassword div div.wrongrepwd span {
+.renewpassword div .wrongrepwd span {
 	display: none;
 }
-div.renewpassword div div.wrongrepwd span img {
+.renewpassword div .wrongrepwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
-div#pwdmodal div.save {
+#pwdmodal .save {
     margin: 0 0 20px 0;
 	text-align: center;
 }
-form#settingsinfo label { 
+#settingsinfo label { 
 	font-weight: bold;
 }
-form#settingsinfo div.email label {
+#settingsinfo .email label {
     font-weight: normal;
     float: none;
     margin: 2px 0;
 }
-div#email span span.s_invalid {
+#email span span.s_invalid {
 	vertical-align: 3px;
 	padding-top: 3px;
 }
-form#settingsinfo div.changepwdl {
+#settingsinfo .changepwdl {
     display:block;
 }
-form#settingsinfo div.changepwdl label {
+#settingsinfo .changepwdl label {
     width: 400px;
     text-align: center;
 }
-form#settingsinfo div.barfade {
+#settingsinfo .barfade {
     width: 400px;
     clear: left;
 }
-form#settingsinfo div.emailbarfade { 
+#settingsinfo .emailbarfade { 
     margin: 10px 0;
 }
-form#settingsinfo div.pwdbarfade {
+#settingsinfo .pwdbarfade {
     margin: 35px 0 0 0;
 }
-form#settingsinfo span.notifyme {
+#settingsinfo .notifyme {
 	font-weight: bold;
 	clear: left;
 	padding-top: 30px;
 	display: block;
 }
-form#settingsinfo div.setting table thead tr th {
+#settingsinfo .setting table thead tr th {
 	font-weight: 400;
 }
-form#settingsinfo div.setting table tbody tr th {
+#settingsinfo .setting table tbody tr th {
 	font-weight: 400;
 }
-div.settings div.explanation {
+.settings .explanation {
     color: #aaa;
     font-size: 90%;
     margin-top: 10px;
