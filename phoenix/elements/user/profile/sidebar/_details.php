@@ -5,7 +5,7 @@
         public function Render( $theuser, $theuserid, $lastupdated ) {
             $profile = $theuser->Profile;
             ?><div class="look">
-				<span class="malebody">&nbsp;</span><?php
+				<span class="s1_0059">&nbsp;</span><?php
                 Element( 'user/profile/sidebar/look', $profile->Height, $profile->Weight,  $theuser->Gender );
             ?></div>
             <div class="social"><?php
