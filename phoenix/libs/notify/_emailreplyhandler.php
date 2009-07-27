@@ -4,9 +4,15 @@
 		$libs->Load( 'comment' );
 		$libs->Load( 'wysiwyg' );
 		
+		define( 'TYPE_POLL', 1 );
+        define( 'TYPE_IMAGE', 2 );
+        define( 'TYPE_USERPROFILE', 3 );
+        define( 'TYPE_JOURNAL', 4 );
+		
 		$commentid = preg_grep( "\d+", $email );
 		$commentid = $commentid[ 0 ];
 		$hash = preg_grep( "(?<=-)[1-9a-f]+(?=@)", $email );
+		$hash = $hash[ 0 ];
 		
 		$comment = New Comment( $commentid );
 		
@@ -16,22 +22,22 @@
 		
 		if( $comment->Parentid == 0 ) {
 			switch( $comment->Typeid ) {
-				case 1:
+				case TYPE_POLL:
 					$libs->Load( 'poll/poll' );
 					$entity = New Poll( $comment->Itemid );
 					$userid = $entity->Userid;
 					break;
-				case 2:
+				case TYPE_IMAGE:
 					$libs->Load( 'image/image' );
 					$entity = New Image( $comment->Itemid );
 					$userid = $entity->Userid;
 					break;
-				case 3:
+				case TYPE_USERPROFILE:
 					$libs->Load( 'user/user' );
 					$entity = New User( $comment->Itemid );
 					$userid = $entity->Userid;
 					break;
-				case 4:
+				case TYPE_JOURNAL:
 					$libs->Load( 'journal/journal' );	
 					$entity = New Journal( $comment->Itemid );
 					$userid = $entity->Userid;
@@ -45,7 +51,7 @@
 		
 		
 		$pattern = "^.+\n?";
-		$text = preg_replace( $pattern, '', $input );
+		$text = preg_replace( $pattern, '', $body );
         
         $comment = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
