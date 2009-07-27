@@ -1,5 +1,5 @@
 <?php
-    class TestNotification extends Testcase {
+    class TestNotificationEmailReply extends Testcase {
         protected $mAppliesTo = 'libs/notify/emailreplyhandler';
         public function SetUp() {
         }
@@ -42,5 +42,5 @@
         }
     }
     
-    return New TestNotification();
+    return New TestNotificationEmailReply();
 ?>
