@@ -33,7 +33,7 @@
                             echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
                         }
                     ?>" );
-                    oldmain.fadeIn( "normal" );
+                    oldmain.load( function() { oldmain.fadeIn( "normal" ); } );
                 } ); <?php
             }
             if ( $newalbummainimageid != $album->Mainimageid ) {
@@ -47,7 +47,7 @@
                             echo $rabbit_settings[ 'imagesurl' ] . 'anonymous100.jpg';
                         }
                     ?>" );
-                    newmain.fadeIn( "normal" );
+                    oldmain.load( function() { newmain.fadeIn( "normal" ); } );
                 } ); <?php
             }
         }
