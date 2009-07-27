@@ -61,10 +61,11 @@
             global $libs;
 
             $libs->Load( 'rabbit/helpers/email' );
-            
+            $fromaddress = 'noreply@' . $rabbit_settings[ 'hostname' ];
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $target = 'notification/email/comment';
+					$fromaddress = 'teras' . $this->Item->Id . '-' .  substr( md5( 'beast' . $this->Item->Created . $this->Item->Id ), 0, 10 ) . '@' . $rabbit_settings[ 'hostname' ];
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
                     $target = 'notification/email/friend';
@@ -87,7 +88,7 @@
             $message = ob_get_clean();
 
             // send an email
-            Email( $this->ToUser->Name, $this->ToUser->Profile->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
+            Email( $this->ToUser->Name, $this->ToUser->Profile->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], $fromaddress );
         }
         public function OnBeforeCreate() {
             global $water;
