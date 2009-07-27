@@ -1,27 +1,22 @@
 <?php
 	function Notify_EmailReplyHandler( $body, $email ) {
 		global $libs;
-        
+		file_put_contents( "/tmp/beast-main", "Starting..\n" );
 		$libs->Load( 'comment' );
 		$libs->Load( 'wysiwyg' );
 		
-		define( 'TYPE_POLL', 1 );
-        define( 'TYPE_IMAGE', 2 );
-        define( 'TYPE_USERPROFILE', 3 );
-        define( 'TYPE_JOURNAL', 4 );
-		
-		$commentid = preg_grep( "\d+", $email );
+		$commentid = preg_grep( "/\d+/", $email );
 		$commentid = $commentid[ 0 ];
-		$hash = preg_grep( "(?<=-)[1-9a-f]+", $email );
+		$hash = preg_grep( "/(?<=-)[0-9a-f]+/", $email );
 		$hash = $hash[ 0 ];
-		
+		file_put_contents( "/tmp/beast-main", "Regular Expressions..\n", FILE_APPEND );
 		$comment = New Comment( $commentid );
 		$calculatedhash = substr( md5( 'beast' . $comment->Created . $comment->Id ), 0, 10 );
 		
 		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
 		
-		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash\nBody: $body";
-		file_put_contents( "/tmp/beast-main", $message );
+		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash";
+		file_put_contents( "/tmp/beast-main", $message, FILE_APPEND );
 		if ( $calculatedhash != $hash ) {
 			return;
 		}
