@@ -24,7 +24,7 @@ function isScrollingElementVisible( eltVisible, eltScrolling, tollerablePixels )
     }
     var scrollPos = eltScrolling.scrollTop;
     var scrollHeight = $( eltScrolling ).height();
-    return ( upperOffset( $(eltVisible) ) + tollerablePixels > scrollPos ) && ( lowerOffset( $(eltVisible) ) < scrollPos + scrollHeight );
+    return ( upperOffset( $(eltVisible) ) + tollerablePixels > scrollPos ) && ( lowerOffset( $(eltVisible) ) - tollerablePixels < scrollPos + scrollHeight );
 }
 
 var PhotoManager = {
