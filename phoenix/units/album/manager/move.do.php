@@ -77,10 +77,6 @@
                     } );
                 } ); <?php
             }
-            else {
-                ?>alert( "<?php echo $oldavatarid; ?>" );
-                alert( "<?php echo $user->Avatarid; ?>" );<?php
-            }
         }
         else {
             ?>alert( "You do not own either the Album or the Photo" );<?php
