@@ -44,7 +44,7 @@ var PhotoManager = {
     }
     ,
     preEnumphotos: function() {
-        $( 'ul#photolist' ).fadeOut( "fast", function() { $this.empty(); } );
+        $( 'ul#photolist li' ).fadeOut( "fast", function() { $( 'ul#photolist' ).empty(); } );
         $( 'div.enumloading' ).fadeIn( "fast" );
     }
     ,

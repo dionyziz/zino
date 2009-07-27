@@ -47,8 +47,8 @@
                         <ul class="photolist" id="photolist" />
                     </div>
                 </div>
-                <div class="eof"/>
-            </div><?php
+            </div>
+            <div class="eof"/><?php
             $page->AttachInlineScript( 'PhotoManager.OnLoad();' );
         }
     }
