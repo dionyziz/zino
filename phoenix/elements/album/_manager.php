@@ -26,8 +26,8 @@
                 <div class="manager" id="manager">
                     <div class="albums" id="albums">
                         <h2>Albums</h2>
+                        <div class="fadetop" />
                         <div class="albumlist">
-                            <div class="fadetop" />
                             <ul style="height: 400px; position: relative;"><?php
                             $finder = New AlbumFinder();
                             $albums = $finder->FindByUser( $user, 0, 100 );
@@ -38,8 +38,8 @@
                                 }
                             }
                             ?></ul>
-                            <div class="fadebot" />
                         </div>
+                        <div class="fadebot" />
                     </div>
                     <div class="photos" id="photos">
                     <div id="pages" class="pagination" ></div>
