@@ -118,7 +118,7 @@ var PhotoManager = {
         $( newimg ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
             stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
-            handle : 'div.photo > img',
+            //handle : 'div.photo > img',
             helper : 'original',
             revert :  'invalid',
             cursor : 'move',
@@ -127,7 +127,7 @@ var PhotoManager = {
             cursorAt: { cursor: 'move', bottom: 50, left: 50 }
         } );
         //Fade out the helper (or cancel the hover timer) when the drag starts
-        $( newdiv ).bind( "dragstart", function(event, ui) {
+        $( newimg ).bind( "dragstart", function(event, ui) {
             if (PhotoManager.fade) {
                 clearTimeout( PhotoManager.fade ); 
             } else {
