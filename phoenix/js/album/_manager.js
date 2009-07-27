@@ -16,7 +16,7 @@ function lowerOffset( jqelement ) {
     }
     return parseInt(jqelement.position().top) + parseInt(jqelement.css("marginTop")) + jqelement.outerHeight() - 1;
 }
-function isScrollingElementVisible( eltVisible, eltScrolling ) {
+function isScrollingElementVisible( eltVisible, eltScrolling, tollerablePixels ) {
     //Returns true only if the WHOLE element is visible (accepts a DOM element and the scrolling container
     //WARNING: Usable only for vertical scrolling
     if ( !eltVisible || !eltScrolling ) {
