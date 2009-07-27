@@ -38,10 +38,10 @@ div#photomanager div div div.albumlist {
     padding-bottom: 30px;
 }
 div#photomanager div div div.albumlist div.fadetop {
-    background: url( 'http://static.zino.gr/phoenix/photomanager/albumsfadeup.png' ) repeat-y;
+    background: url( 'http://static.zino.gr/phoenix/photomanager/albumsfadetop.png' ) repeat-y;
 }
 div#photomanager div div div.albumlist div.fadebot {
-    background: url( 'http://static.zino.gr/phoenix/photomanager/albumsfadedown.png' ) repeat-y;
+    background: url( 'http://static.zino.gr/phoenix/photomanager/albumsfadebot.png' ) repeat-y;
 }
 div#photomanager div div div.albumlist ul li {
     border: 1px solid #ADD8E6;
