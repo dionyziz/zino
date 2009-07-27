@@ -24,7 +24,7 @@
                         ?></dd><?php
                     }
                     if ( $yim != '' ) {
-                        ?><dt class="yim"></dt>
+                        ?><dt class="s1_0062"></dt>
                         <dd><?php
                         echo htmlspecialchars( $yim );
                         ?></dd><?php
