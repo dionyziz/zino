@@ -137,7 +137,7 @@ var PhotoManager = {
         $( newimg ).hover(
             //MouseEnter Event
             function () {
-                PhotoManager.draginfo = $("div", $(this).parent().parent());
+                PhotoManager.draginfo = $( "div", $(this).siblings() );
                 if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
                     PhotoManager.fade = setTimeout( function() {
                         if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
