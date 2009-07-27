@@ -12,7 +12,7 @@
 		
 		$commentid = preg_grep( "\d+", $email );
 		$commentid = $commentid[ 0 ];
-		$hash = preg_grep( "(?<=-)[1-9a-f]+(?=@)", $email );
+		$hash = preg_grep( "(?<=-)[1-9a-f]+", $email );
 		$hash = $hash[ 0 ];
 		
 		$comment = New Comment( $commentid );
