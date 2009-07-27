@@ -7,8 +7,8 @@
     border: 1px solid #aaa;
 }
 #aboutsection label {
-    width: 200px;
-    float: left;
+    padding: 5px 0;
+    display: block;
 }
 #aboutsection .blog p {
     padding: 0 0 1em 2em;
