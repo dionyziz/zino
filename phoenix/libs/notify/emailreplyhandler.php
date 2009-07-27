@@ -112,6 +112,8 @@
         $target = Notify_EmailReplyFilterRecipients( $conf[ 'to' ] );
         
         if ( $target !== false ) {
+            file_put_contents( "/tmp/beast-body", $body );
+            file_put_contents( "/tmp/beast-target", $target );
             return Notify_EmailReplyHandler( $body, $target );
         }
     }
