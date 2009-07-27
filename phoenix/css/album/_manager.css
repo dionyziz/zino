@@ -38,15 +38,22 @@ div#photomanager div div div.albumlist {
     padding-bottom: 30px;
 }
 div#photomanager div div#albums div.fadetop {
-    background: transparent url( 'http://static.zino.gr/images/photomanager/albumsfadetop.png' ) repeat-y;
+    background: transparent url( 'http://static.zino.gr/images/photomanager/albumsfadetop.png' ) repeat-x;
     height: 30px;
-    left: 0;
+    width: 180px;
     position: absolute;
     top: 55px;
+    left: 20px;
+    z-index: 1;
 }
 div#photomanager div div#albums div.fadebot {
-    background: transparent url( 'http://static.zino.gr/images/photomanager/albumsfadebot.png' ) repeat-y;
+    background: transparent url( 'http://static.zino.gr/images/photomanager/albumsfadebot.png' ) repeat-x;
     height: 30px;
+    width: 180px;
+    position: absolute;
+    bottom: 55px;
+    left: 20px;
+    z-index: 1;
 }
 div#photomanager div div div.albumlist ul li {
     border: 1px solid #ADD8E6;
