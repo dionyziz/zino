@@ -98,7 +98,9 @@
             $text .= " )";
             Element( 'pagify', $pageno, $link, $total_pages, $text );
             ?></div>
-            <div class="managerlink"><a href="?p=photomanager"  >Διαχείριση Φωτογραφιών</a></div><?php
+            <?php if ( $user->Id == $theuser->Id ) {
+                ?><div class="managerlink"><a href="?p=photomanager"  >Διαχείριση Φωτογραφιών</a></div><?php
+            }
             $page->AttachInlineScript( 'AlbumList.OnLoad();' );
         }
     }
