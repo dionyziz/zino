@@ -112,6 +112,7 @@ div#photomanager div#photos ul li {
     height: 130px;
     padding: 5px;
     text-align: center;
+    display: none;
 }
 div#photomanager div#photos ul li div span.imageview img {
     cursor: size;
@@ -124,10 +125,6 @@ div#photomanager div#photos ul li div div {
     width: 115px;
     height: 16px;
     background: transparent url('http://static.zino.gr/phoenix/photomanager/dragndrop.png');
-}
-div#photomanager div#photos div.enumloading {
-    background: transparent url( 'http://static.zino.gr/phoenix/contacts/loader.gif' ) center center no-repeat;
-    display: none;
 }
 /*PAGINATION*/
 .pagination {

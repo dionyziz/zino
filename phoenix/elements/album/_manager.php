@@ -42,13 +42,12 @@
                         <div class="fadebot" />
                     </div>
                     <div class="photos" id="photos">
-                        <div class="enumloading">Φόρτωση εικόνων του Album</div>
                         <div id="pages" class="pagination" />
                         <ul class="photolist" id="photolist" />
-                        <div class="eof"/>
                     </div>
                 </div>
-            </div><?php
+            </div>
+            <div class="eof"/><?php
             $page->AttachInlineScript( 'PhotoManager.OnLoad();' );
         }
     }

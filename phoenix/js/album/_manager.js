@@ -45,10 +45,10 @@ var PhotoManager = {
     ,
     preEnumphotos: function() {
         $( 'ul#photolist li' ).fadeOut( "fast", function() { $( 'ul#photolist' ).empty(); } );
-        $( 'div.enumloading' ).fadeIn( "fast" );
     }
     ,
     postEnumphotos: function() {
+        $( 'ul#photolist li' ).fadeIn( "normal" );
         $( 'div.photo img' ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
             stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
