@@ -20,9 +20,9 @@
                     $(this).unbind( "load" );
                 } );
                 $( newimg ).attr( "src", "<?php Element( 'image/url' , $image->Id , $image->Userid , IMAGE_CROPPED_100x100 ); ?>" );
+                $( newimg ).hide();
                 var dragdiv = document.createElement( 'div' );
                 $( dragdiv ).addClass( 'draginfo' );
-                
                 $( newdiv ).append( newimg );
                 $( newdiv ).append( dragdiv ).addClass( "photo" );
                 $( newli ).append( newdiv ).css( "display", "list-item" );
