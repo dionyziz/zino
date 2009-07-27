@@ -5,6 +5,6 @@
         $libs->Load( 'notify/emailreplyhandler' );
         
         $rawdata = $rawdata->Get();
-        Notify_ReplyParse( $rawdata );
+        Notify_EmailReplyParse( $rawdata );
     }
 ?>

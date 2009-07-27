@@ -86,8 +86,8 @@
         return false;
     }
     
-    function Notify_EmailReplyParse( $email ) {
-        $parts = explode( "\n\n", $email, 2 );
+    function Notify_EmailReplyParse( $rawdata ) {
+        $parts = explode( "\n\n", $rawdata, 2 );
         $header = $parts[ 0 ];
         $body = $parts[ 1 ];
         $lines = explode( "\n", $header );
