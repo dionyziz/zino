@@ -106,13 +106,16 @@ var PhotoManager = {
             drop: function(event, ui) {
                 Coala.Warm( "album/manager/move", { 'photoid': ui.draggable.closest( "li" ).attr( "id" ), 'albumid': $( this ).closest( "li" ).attr( "id" ) } );
                 $(this).removeClass( "dropover");
-                ui.draggable.parent().parent().fadeOut( "fast" ).animate( { width: "0" },
-                    function( albumid ) {
-                        $( this ).closest( "li" ).remove();
-                        //TODO:
-                        //updatePaginationPage();
-                        //animate photo shrink and remove
-                    }) 
+                
+                ui.draggable.animate( { width: 0, height: 0 } );
+                
+                ui.draggable.closest( "li" ).fadeOut( "fast" ).animate( { width: "0" },
+                function( albumid ) {
+                    $( this ).closest( "li" ).remove();
+                    //TODO:
+                    //updatePaginationPage();
+                    //animate photo shrink and remove
+                }) 
             },
             over: function(event, ui) {
                 if ( !$(this).hasClass( "selected" ) ) {
@@ -128,9 +131,5 @@ var PhotoManager = {
         
         //This prevents dropping to scrolled-out albums (droppables bug)
         $("div.albumlist").scroll( function() { PhotoManager.checkEnabledAlbumbs(); } );
-        
-        //Autoscrolling
-
-        
-        }
+    }
 }
