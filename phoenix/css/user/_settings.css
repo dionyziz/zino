@@ -46,9 +46,9 @@
     margin: 0 0 0 22px;
     background: #fff none no-repeat left;
 }
-.sidebar ol li.s1_0049 {
+.sidebar ol li.s1_selected {
 	font-weight: bold;
-	background: #047cbb;
+    background-position: -71px -334px;
 }
 .sidebar ol li a {
     height: 25px;

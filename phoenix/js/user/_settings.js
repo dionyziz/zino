@@ -27,11 +27,11 @@ var Settings = {
 		if ( li ) {
 			if ( focus ) {
                 var classname = li.className;
-				$( li ).removeClass( classname ).addClass( 's1_0049' ).addClass( classname );
+				$( li ).removeClass( classname ).addClass( 's1_selected' ).addClass( classname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#fff';
 			}
 			else {
-				$( li ).removeClass( 's1_0049' );
+				$( li ).removeClass( 's1_selected' );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
