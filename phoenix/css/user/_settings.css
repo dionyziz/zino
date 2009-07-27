@@ -44,7 +44,7 @@
 .sidebar ol li {
     padding: 0 0 0 18px;
     margin: 0 0 0 22px;
-    background: #fff;
+    background-color: #fff;
 }
 .sidebar ol li.s1_selected {
 	font-weight: bold;
