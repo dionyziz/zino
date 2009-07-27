@@ -68,14 +68,14 @@
                         foreach ( $songs as $song ) {
                             ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $song->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $song->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -100,14 +100,14 @@
                         foreach ( $movies as $movie ) {
                             ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $movie->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $movie->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -132,14 +132,14 @@
                         foreach ( $shows as $show) {
                             ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $show->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $show->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -164,14 +164,14 @@
                         foreach ( $books as $book ) {
                             ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $book->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $book->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -196,14 +196,14 @@
                         foreach ( $artists as $artist ) {
 	                        ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $artist->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $artist->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -228,14 +228,14 @@
                         foreach ( $games as $game ) {
                             ?><li>
                                 <div class="bbbl">
-									<span class="bbblleft">&nbsp;</span>
+									<span class="s1_0043">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
-                                    echo htmlspecialchars( $game->Text );
+                                    echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
-                                    echo $game->Id;
+                                    echo $hobbie->Id;
                                     ?>' , this );" class="s_delete">&nbsp;</a>
-                                    <span class="bbblright">&nbsp;</span>
+                                    <span class="s1_0044">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
