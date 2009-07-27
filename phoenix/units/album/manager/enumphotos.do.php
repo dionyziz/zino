@@ -19,9 +19,10 @@
                     $(this).fadeIn( "normal" );
                     $(this).unbind( "load" );
                 } );
-                $( newimg ).attr( "src", <?php Element( 'image/url' , $image->Id , $image->Userid , IMAGE_CROPPED_100x100 ); ?> );
+                $( newimg ).attr( "src", "<?php Element( 'image/url' , $image->Id , $image->Userid , IMAGE_CROPPED_100x100 ); ?>" );
                 var dragdiv = document.createElement( 'div' );
                 $( dragdiv ).addClass( 'draginfo' );
+                
                 $( newimg ).append( newdiv );
                 $( newdiv ).append( dragdiv ).addClass( "photo" );
                 $( newli ).append( newdiv ).css( "display", "list-item" );
