@@ -20,8 +20,8 @@
 		
 		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
 		
-		$message = "Commentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash";
-		file_put_contents( "/tmp/beast-main", $body );
+		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash\nBody: $body";
+		file_put_contents( "/tmp/beast-main", $message );
 		if ( $calculatedhash != $hash ) {
 			return;
 		}
