@@ -48,50 +48,7 @@ var PhotoManager = {
     }
     ,
     postEnumphotos: function() {
-        $( 'div.photo img' ).draggable( { 
-            //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
-            stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
-            handle : 'div.photo > img',
-            helper : 'original',
-            revert :  'invalid',
-            cursor : 'move',
-            zIndex : 500,
-            scroll: false,
-            cursorAt: { cursor: 'move', bottom: 50, left: 50 }
-        } );
-        //Fade out the helper (or cancel the hover timer) when the drag starts
-        $( "div.photo" ).bind( "dragstart", function(event, ui) {
-            if (PhotoManager.fade) {
-                clearTimeout( PhotoManager.fade ); 
-            } else {
-                PhotoManager.draginfo.stop();
-                PhotoManager.draginfo.fadeOut(100);
-            }
-        } );
-        //Helper Bubble
-        $("div.photo img").hover(
-            //MouseEnter Event
-            function () {
-                PhotoManager.draginfo = $("div", $(this).parent().parent());
-                if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
-                    PhotoManager.fade = setTimeout( function() {
-                        if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
-                            PhotoManager.draginfo.fadeIn( "fast" );
-                        }
-                        PhotoManager.fade=false;
-                    }, 600 );
-                }
-            }
-            ,
-            //MouseOut Event
-            function () {
-                if (PhotoManager.fade) {
-                    clearTimeout( PhotoManager.fade ); 
-                } else {
-                    PhotoManager.draginfo.fadeOut( "fast" );
-                }
-            }
-        );
+        //ommit this
     }
     ,
     OnLoad: function () {
@@ -136,5 +93,69 @@ var PhotoManager = {
         
         //This prevents dropping to scrolled-out albums (droppables bug)
         $("div.albumlist").scroll( function() { PhotoManager.checkEnabledAlbumbs(); } );
+    }
+    ,
+    addNewPhoto: function ( id, url ) {
+        var newli = document.createElement( 'li' );
+        $( newli ).attr( "id", id );
+        var newdiv = document.createElement( 'div' );
+        var newimg = document.createElement( 'img' );
+        $( newimg ).load( function( event ) {
+            $(this).fadeIn( "normal" );
+            $(this).unbind( "load" );
+        } );
+        $( newimg ).attr( "src", url );
+        $( newimg ).hide();
+        var dragdiv = document.createElement( 'div' );
+        $( dragdiv ).addClass( 'draginfo' );
+        $( newdiv ).append( newimg );
+        //$( newdiv ).append( dragdiv ).addClass( "photo" );
+        $( newli ).append( newdiv ).css( "display", "list-item" );
+        $( "ul.photolist" ).append( newli );
+        
+        $( newimg ).draggable( { 
+            //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
+            stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
+            handle : 'div.photo > img',
+            helper : 'original',
+            revert :  'invalid',
+            cursor : 'move',
+            zIndex : 500,
+            scroll: false,
+            cursorAt: { cursor: 'move', bottom: 50, left: 50 }
+        } );
+        //Fade out the helper (or cancel the hover timer) when the drag starts
+        $( newdiv ).bind( "dragstart", function(event, ui) {
+            if (PhotoManager.fade) {
+                clearTimeout( PhotoManager.fade ); 
+            } else {
+                PhotoManager.draginfo.stop();
+                PhotoManager.draginfo.fadeOut(100);
+            }
+        } );
+        //Helper Bubble
+        $( newimg ).hover(
+            //MouseEnter Event
+            function () {
+                PhotoManager.draginfo = $("div", $(this).parent().parent());
+                if ( !$("img", PhotoManager.draginfo.parent()).hasClass( "ui-draggable-dragging" )) {
+                    PhotoManager.fade = setTimeout( function() {
+                        if (!PhotoManager.draginfo.parent().hasClass( "ui-draggable-dragging" )) {
+                            PhotoManager.draginfo.fadeIn( "fast" );
+                        }
+                        PhotoManager.fade=false;
+                    }, 600 );
+                }
+            }
+            ,
+            //MouseOut Event
+            function () {
+                if (PhotoManager.fade) {
+                    clearTimeout( PhotoManager.fade ); 
+                } else {
+                    PhotoManager.draginfo.fadeOut( "fast" );
+                }
+            }
+        );
     }
 }
