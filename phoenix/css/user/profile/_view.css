@@ -90,9 +90,8 @@ div#profile div.sidebar div.look {
 	background: #fff;
 	height: 30px;
 }
-div#profile div.sidebar div.look span.malebody {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1900px; 
-	padding: 0 0 50px 16px;
+.look .s1_0054 {
+	padding: 0 0 46px 15px;
 	position: relative;
 }
 div#profile div.sidebar div.look ul li.dot {
