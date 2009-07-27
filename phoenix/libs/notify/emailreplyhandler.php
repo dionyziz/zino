@@ -81,7 +81,7 @@
             $name = $parts[ 0 ];
             $domain = $parts[ 1 ];
             if ( $domain == 'zino.gr' ) {
-                return $target;
+                return $name;
             }
         }
         return false;
