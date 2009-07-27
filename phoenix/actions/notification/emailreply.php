@@ -7,7 +7,7 @@
         echo "Calling Notify_EmailReplyParse()...\n";
         
         $rawdata = $rawdata->Get();
-        Notify_EmailReplyParse( $rawdata );
+        Notify_EmailReplyReceived( $rawdata );
 
         echo "Called Notify_EmailReplyParse()...\n";
     }
