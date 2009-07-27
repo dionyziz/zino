@@ -48,7 +48,10 @@ var PhotoManager = {
     }
     ,
     postEnumphotos: function() {
-        $( 'ul#photolist li' ).load( function( event ) { event.target.fadeIn( "normal" ); )
+        $( 'ul#photolist li' ).load( function( event ) {
+            event.target.fadeIn( "normal" );
+            event.target.unbind( "load" );
+        } );
         $( 'div.photo img' ).draggable( { 
             //start: function ( event, ui ) { $("img", this).addClass( "dragging" ); },
             stop: function ( event, ui ) { $("body").css( "cursor", "normal" ); }, //avoid  a common jquery glitch
