@@ -37,11 +37,13 @@ div#photomanager div div div.albumlist {
     padding-top: 30px;
     padding-bottom: 30px;
 }
-div#photomanager div div div.albumlist div.fadetop {
+div#photomanager div div#albums div.fadetop {
     background: url( 'http://static.zino.gr/images/photomanager/albumsfadetop.png' ) repeat-y;
+    height: 30px;
 }
-div#photomanager div div div.albumlist div.fadebot {
+div#photomanager div div#albums div.fadebot {
     background: url( 'http://static.zino.gr/images/photomanager/albumsfadebot.png' ) repeat-y;
+    height: 30px;
 }
 div#photomanager div div div.albumlist ul li {
     border: 1px solid #ADD8E6;
