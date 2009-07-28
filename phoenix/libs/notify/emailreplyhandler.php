@@ -47,7 +47,7 @@
 		}
 		
 		
-		$pattern = "/^>.+\n?/";
+		$pattern = '/.+teras' . $email . '[\w\W]*/';
 		$text = preg_replace( $pattern, '', $body );
         
         $reply = New Comment();
