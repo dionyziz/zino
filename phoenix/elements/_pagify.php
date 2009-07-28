@@ -58,7 +58,7 @@
             if ( $pageno + 1 <= $total_pages ) { /* right arrow */
                 ?><span class="rightpage"><a href="<?php
                 echo htmlspecialchars( $link . ( $pageno + 1 ) );
-                ?>" class="next" title="Επόμενη"><span class="s1_0019">&nbsp;</span></a></span><?php
+                ?>" class="next" title="Επόμενη"><span class="s1_0017">&nbsp;</span></a></span><?php
             }
             
             if ( $text != '' ) {
