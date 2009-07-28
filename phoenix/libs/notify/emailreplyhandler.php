@@ -13,8 +13,6 @@
 		
 		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
 		
-		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash\nCommentCreated: $comment->Created\nCommentID: $comment->Id";
-		file_put_contents( "/tmp/beast-main", $message );
 		if ( $calculatedhash != $hash ) {
 			return;
 		}
@@ -47,9 +45,11 @@
 		}
 		
 		
-		$pattern = '/.+teras' . $email . '[\w\W]*/';
+		$pattern = '/.+teras' . $email . '[\\w\\W]*/';
 		$text = preg_replace( $pattern, '', $body );
-        
+        $message = "Passed Email: $email\nPattern: $pattern";
+		file_put_contents( "/tmp/beast-main", $message );
+		die();
         $reply = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
         $text = WYSIWYG_PostProcess( $text );
