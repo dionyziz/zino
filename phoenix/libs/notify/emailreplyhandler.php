@@ -50,15 +50,15 @@
 		$pattern = "^>.+\n?";
 		$text = preg_replace( $pattern, '', $body );
         
-        $comment = New Comment();
+        $reply = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
         $text = WYSIWYG_PostProcess( $text );
-        $comment->Text = $text;
-        $comment->Userid = $userid;
-        $comment->Parentid = $commentid;
-        $comment->Typeid = $comment->Typeid;
-        $comment->Itemid = $commment->Itemid;
-        $comment->Save();
+        $reply->Text = $text;
+        $reply->Userid = $userid;
+        $reply->Parentid = $commentid;
+        $reply->Typeid = $comment->Typeid;
+        $reply->Itemid = $comment->Itemid;
+        $reply->Save();
 		
 	}
 
