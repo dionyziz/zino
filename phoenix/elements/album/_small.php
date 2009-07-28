@@ -1,9 +1,5 @@
 <?php
-    /*
-      MASKED
-      By: chorvus
-      Reason: Testing a fix for the $album->Mainimage existance
-    */
+    
     class ElementAlbumSmall extends Element {
         public function Render( $album , $creationmockup = false ) {
             global $water;
@@ -23,8 +19,8 @@
                     <a href="?p=album&amp;id=<?php
                     echo $album->Id;
                     ?>">
-                        <span class="albummain"><?php
-                            if ( $album->Mainimage->Exists() && $album->Mainimageid !== false ) {    
+                        <span class="s1_0059 albummain"><?php
+                            if ( $album->Mainimage->Exists() ) {    
                                 Element( 'image/view', $album->Mainimageid , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , false , 0 , 0 , 0 ); // TODO: Optimize
                             }
                             else {
