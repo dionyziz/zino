@@ -47,6 +47,7 @@
 		
 		$pattern = '/.+' . $email . '[\\w\\W]*/';
 		$text = preg_replace( $pattern, '', $body );
+		$text = trim( $text );
 		
         $reply = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
