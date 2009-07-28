@@ -26,7 +26,7 @@
                             ob_start();
                             Element( 'url', $journal );
                             echo htmlspecialchars( ob_get_clean() );
-                            ?>"><span class="s_commnum">&nbsp;</span><?php
+                            ?>"><span class="s1_0027">&nbsp;</span><?php
                             echo $journal->Numcomments;
                             ?> σχόλι<?php
                             if ( $journal->Numcomments == 1 ) {
