@@ -39,12 +39,12 @@
                     </a>
                     <dl><?php
                         if ( $photonum > 0 ) {
-                            ?><dd><span class="s_photonum">&nbsp;</span><?php
+                            ?><dd><span class="s1_0006">&nbsp;</span><?php
                             echo $photonum;
                             ?></dd><?php
                         }
                         if ( $commentsnum > 0 ) {
-                            ?><dd><span class="s_commnum">&nbsp;</span><?php
+                            ?><dd><span class="s1_0027">&nbsp;</span><?php
                             echo $commentsnum;
                             ?></dd><?php
                         }
