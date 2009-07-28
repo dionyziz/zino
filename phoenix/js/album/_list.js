@@ -42,7 +42,6 @@ var AlbumList = {
 			$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
 			$( elem ).parent().parent().find( "a" ).append( spandesc );
 			$( elem ).parent().remove();
-			//$( 'li.create' ).html( $( 'div.creating' ).html() );
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
 		}
