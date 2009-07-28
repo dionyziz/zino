@@ -48,7 +48,7 @@ div.creationmockup div a.createpoll {
 }
 #polist div.tip2 {
 	display: none;
-	margin-bottom: 25px;
+    margin: 5px 0 25px 0;
 }
 div.creationmockup div.newoption {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -379px; 	
