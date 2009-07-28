@@ -43,11 +43,11 @@ div.creationmockup div a.createpoll {
 	margin-left: 3px;
 	padding-left: 12px;
 }
-div.creationmockup div.tip , div#polllist div.tip2 {
+.creationmockup div.tip , #polllist div.tip2 {
 	font-size: 90%;
 	margin-top: 5px;
 }
-div.creationmockup div.tip span , div#polist div.tip2 span {
+#polist div.tip2 span {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -710px;
 	padding: 0 5px 0 12px;
 }
