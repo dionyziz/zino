@@ -28,7 +28,7 @@ var AlbumList = {
         var span = document.createElement( "span" );
 
         $( span ).append( document.createTextNode( ' ' ) )
-        .addClass( "s1_0059" );
+        .addClass( "s1_0048" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( span ).append( document.createTextNode( "Δημιουργία album" ) ).click( function() {
 			AlbumList.Create();
 			return false;
