@@ -1,22 +1,20 @@
 <?php
 	function Notify_EmailReplyHandler( $body, $email ) {
 		global $libs;
-		file_put_contents( "/tmp/beast-main", "Starting..\n" );
 		$libs->Load( 'comment' );
 		$libs->Load( 'wysiwyg' );
 		
-		$commentid = preg_grep( "/\d+/", $email );
+		preg_match( "/\d+/", $email, $commentid );
 		$commentid = $commentid[ 0 ];
-		$hash = preg_grep( "/(?<=-)[0-9a-f]+/", $email );
+		preg_match( "/(?<=-)[0-9a-f]+/", $email, $hash );
 		$hash = $hash[ 0 ];
-		file_put_contents( "/tmp/beast-main", "Regular Expressions..\n", FILE_APPEND );
 		$comment = New Comment( $commentid );
 		$calculatedhash = substr( md5( 'beast' . $comment->Created . $comment->Id ), 0, 10 );
 		
 		w_assert( $comment->Exists(), "Comment with id $commentid does not exist" );
 		
-		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash";
-		file_put_contents( "/tmp/beast-main", $message, FILE_APPEND );
+		$message = "Passed Email: $email\nCommentid: $commentid\nHash: $hash\nCalculated hash: $calculatedhash\nCommentCreated: $comment->Created\nCommentID: $comment->Id";
+		file_put_contents( "/tmp/beast-main", $message );
 		if ( $calculatedhash != $hash ) {
 			return;
 		}
