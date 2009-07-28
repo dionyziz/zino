@@ -45,11 +45,9 @@
 		}
 		
 		
-		$pattern = '/.+teras' . $email . '[\\w\\W]*/';
+		$pattern = '/.+' . $email . '[\\w\\W]*/';
 		$text = preg_replace( $pattern, '', $body );
-        $message = "Passed Email: $email\nPattern: $pattern";
-		file_put_contents( "/tmp/beast-main", $message );
-		die();
+		
         $reply = New Comment();
         $text = nl2br( htmlspecialchars( $text ) );
         $text = WYSIWYG_PostProcess( $text );
