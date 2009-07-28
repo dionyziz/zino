@@ -111,7 +111,7 @@ var PollList = {
 
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( container, $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
-		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( node ) {
+		$( acceptlink ).attr( { 'href' : '' } ).click( function( node ) {
 			PollList.CreateOption( newoption );
 			return false;
 		} );
