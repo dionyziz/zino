@@ -1,7 +1,7 @@
-span.imageview {
+.imageview {
     position: relative;
 }
-span.imageview > span {
+.imageview > span {
     background: #d8d8d8;
     font-weight: bold;
     opacity: 0.8;
@@ -13,7 +13,7 @@ span.imageview > span {
     border-left: 1px solid #ccccee;
     color: #000;
 }
-span.imageview span > span {
+.imageview span .s1_0027 {
 	vertical-align: -1px;
 }
 .vavie50 {
