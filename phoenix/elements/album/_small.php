@@ -54,7 +54,7 @@
             else {
                 ?><div class="album createalbum">
                     <a href="">
-                        <span class="albummain"><img src="<?php
+                        <span class="s1_0059 albummain"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>anonymous100.jpg" alt="Νέο album" title="Νέο album" /></span>
                     </a>
