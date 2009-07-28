@@ -16,7 +16,7 @@ var PollList = {
 	CreateOption : function( newoption ) {
 		if ( newoption.value !== '' ) {
 			var option = document.createElement( 'div' );
-			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
+			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 's1_0026' ).addClass( 'newoption' );
 			$( $( newoption )[ 0 ].parentNode ).remove();
 			$( 'div#polist ul li div.creationmockup')[ 0 ].insertBefore( option, $( 'div#polist ul li div.creationmockup div.tip2' )[ 0 ] );
 			if ( PollList.numoptions === 0 ) {
