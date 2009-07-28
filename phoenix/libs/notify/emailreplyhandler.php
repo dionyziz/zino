@@ -47,7 +47,7 @@
 		}
 		
 		
-		$pattern = "^>.+\n?";
+		$pattern = "/^>.+\n?/";
 		$text = preg_replace( $pattern, '', $body );
         
         $reply = New Comment();
