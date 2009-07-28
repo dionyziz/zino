@@ -58,7 +58,7 @@
                 <ul><?php
                     if ( $theuser->Id == $user->Id ) {
                         ?><li class="create">
-                            <a href="?p=addjournal" class="s1_0048 new">Δημιουργία καταχώρησης</a>
+                            <a href="?p=addjournal" class="new"><span class="s1_0048">Δημιουργία καταχώρησης</span></a>
                         </li><?php
                     }
                     if ( !empty( $journals ) ) {
