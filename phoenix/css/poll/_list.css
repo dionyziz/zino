@@ -1,30 +1,30 @@
-div#polist div.ads {
+#polist div.ads {
     position: absolute;
     right: 23px;
     top: 138px;
 }
-div#polist ul li h3 {
+#polist ul li h3 {
 	margin: 0;
 	padding: 0;
 }
-div#polist > ul {
+#polist > ul {
 	margin: 0 0 0 170px;
 }
-div#polist ul li {
+#polist ul li {
 	padding: 10px 0;
 }
-div#polist ul li div.results {
+#polist ul li div.results {
 	width: 100%;
 	padding-top: 10px;
 }
-div#polist ul li div.results dl.pollinfo {
+#polist ul li div.results dl.pollinfo {
 	text-align: left;
 }
-div#polist ul li div.results dl.pollinfo dd {
+#polist ul li div.results dl.pollinfo dd {
 	display: inline;
 	font-size: 80%;
 }
-div#polist ul li div.results ul li {
+#polist ul li div.results ul li {
 	padding: 5px 0 1px 0;
     clear: both;
 }
@@ -52,7 +52,7 @@ div.creationmockup div.tip span , div#polist div.tip2 span {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -710px;
 	padding: 0 5px 0 12px;
 }
-div#polist div.tip2 {
+#polist div.tip2 {
 	display: none;
 	margin-bottom: 25px;
 }
