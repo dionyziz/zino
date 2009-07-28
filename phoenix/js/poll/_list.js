@@ -81,13 +81,9 @@ var PollList = {
 		PollList.numoptions = 0;
 		PollList.OptionsText = '';
 		var link = document.createElement( "a" );
-		var createimg = document.createElement( "img" );
-		$( createimg ).attr( {
-			src: ExcaliburSettings.imagesurl + "add3.png",
-			alt: "Δημιουργία δημοσκόπησης",
-			title: "Δημιουργία δημοσκόπησης"
-		} );
-		$( link ).attr( { href: "" } ).append( createimg ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
+        var span = document.createElement( 'span' );
+        $( span ).append( document.createTextNode( ' ' ) ).addClass( 's_0048' );
+		$( link ).attr( { href: "" } ).append( span ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
 			PollList.Create();
 			return false;
 		} );
