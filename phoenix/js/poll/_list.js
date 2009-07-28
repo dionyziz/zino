@@ -82,7 +82,7 @@ var PollList = {
 		PollList.OptionsText = '';
 		var link = document.createElement( "a" );
         var span = document.createElement( 'span' );
-        $( span ).append( document.createTextNode( ' ' ) ).addClass( 's_0048' );
+        $( span ).append( document.createTextNode( ' ' ) ).addClass( 's1_0048' );
 		$( link ).attr( { href: "" } ).append( span ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
 			PollList.Create();
 			return false;
