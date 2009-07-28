@@ -126,10 +126,10 @@
                                 ?>"><span class="<?php
 								switch ( $favourite->Typeid ) {
                                     case TYPE_IMAGE:
-                                        ?>s_photo<?php
+                                        ?>s1_0012<?php
                                         break;
                                     case TYPE_JOURNAL
-                                        ?>s_book<?php
+                                        ?>s1_0025<?php
                                         break;
                                 }
 								?>">&nbsp;</span><?php
