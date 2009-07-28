@@ -78,7 +78,7 @@
                             <input type="text" /><a href="" title="Δημιουργία" class="s1_0065 createpoll">&nbsp;</a>
                         </div>
                         <div class="tip">
-                            <span class="s1_0065">&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου
+                            <span class="s1_0033">&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου
                         </div>
                     </div>
                     <div class="tip2">
