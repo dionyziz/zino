@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="tip2">
-						<span>&nbsp;</span>Γράψε μια επιλογή για τη δημοσκόπησή σου
+						<span class="s1_0033">&nbsp;</span>Γράψε μια επιλογή για τη δημοσκόπησή σου
                     </div>
                     <div class="creatingpoll">
                         <img src="<?php
