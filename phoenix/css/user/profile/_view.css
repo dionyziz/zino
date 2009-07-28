@@ -3,7 +3,7 @@
     position: relative;
     top: -8px;
 }
-#profile div.sidebar {
+#profile .usidebar {
 	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
 	float: left;
 	position: relative;
@@ -11,10 +11,10 @@
 	padding: 14px 0 0 0;
 	overflow: hidden;
 }
-.sidebar .basicinfo dl dt {
+.usidebar .basicinfo dl dt {
     clear: both;
 }
-.sidebar .basicinfo {
+.usidebar .basicinfo {
 	padding: 4px;
 	margin-bottom: 20px;
 }
@@ -22,67 +22,67 @@
     float: left;
     padding-right: 5px;
 }
-.sidebar .basicinfo .mood {
+.usidebar .basicinfo .mood {
 	padding-top: 5px;
 	margin-top: 5px;
 }
-.sidebar .basicinfo .mood img {
+.usidebar .basicinfo .mood img {
 	display: block; 
 	margin-top: 3px;
 }
-.sidebar .bacicinfo .friendedit {
+.usidebar .bacicinfo .friendedit {
     display: none;
 }
-.sidebar .basicinfo .common {
+.usidebar .basicinfo .common {
     clear: left;
     margin-bottom: 15px;
     height: 20px;
 }
-.sidebar .basicinfo .info {
+.usidebar .basicinfo .info {
 	clear: left;
 }
-.sidebar .basicinfo dl dt {
+.usidebar .basicinfo dl dt {
 	float: left;
 	width: 12em;
 	padding: 3px 0;
 }
-.sidebar .basicinfo dl dd {
+.usidebar .basicinfo dl dd {
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.sidebar .basicinfo h2 {
+.usidebar .basicinfo h2 {
 	padding: 0;
 	margin: 0;
 	font-size: 120%;
 	color: #105cb6;
 }
-.sidebar .basicinfo h2 a span.vavie150 {
+.usidebar .basicinfo h2 a span.vavie150 {
     padding: 0 4px 0 0;
     cursor: pointer;
 }
-.sidebar .basicinfo h2 img {
+.usidebar .basicinfo h2 img {
 	float: left;
 }
-.sidebar .basicinfo h2 span.name {
+.usidebar .basicinfo h2 span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
 }
-.sidebar dl.online dt{
+.usidebar dl.online dt{
 	display: block;
 	float: left;
 	padding: 3px 0;
 }
-.sidebar dl.online dd {
+.usidebar dl.online dd {
 	display: block;
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.sidebar .look {
+.usidebar .look {
 	clear: both;
 	padding: 0 10px 10px 10px;
 	border-top: 1px solid #ccc;
@@ -94,95 +94,95 @@
 	padding: 0 0 46px 15px;
 	position: relative;
 }
-.sidebar .look ul li.dot {
+.usidebar .look ul li.dot {
 	color: #999;
 	font-size: 100%;
 }
-.sidebar .look img {
+.usidebar .look img {
 	float: left;
 }
-.sidebar .look ul {
+.usidebar .look ul {
 	margin: 0 0 0 30px;
 }
-.sidebar .look ul li {
+.usidebar .look ul li {
 	font-weight: bold;
 	padding: 1px;
 	display: inline;
 }
-.sidebar .social {
+.usidebar .social {
 	padding: 4px;
 	clear: both;
 	margin-top: 10px;
 }
-.sidebar .social dl dt {
+.usidebar .social dl dt {
 	float: left;
 	width: 170px;
 	padding: 3px 0;
 }
-.sidebar .social dl dd {
+.usidebar .social dl dd {
 	text-align: left;
 	margin: 0 0 0 170px;
 	padding: 3px 0;
 	width: 100px;
 }
-.sidebar .social ul {
+.usidebar .social ul {
 	float:left;
 	padding:3px 0;
 	margin: 10px 0 0 0;
 }
-.sidebar .social li {
+.usidebar .social li {
 	clear: both;
 	margin: 0 0 4px 0;
 }
-.sidebar .social li strong {
+.usidebar .social li strong {
 	display:block;
 	width: 170px;
 	float:left;
 }
-.sidebar .aboutme {
+.usidebar .aboutme {
 	padding: 4px;
 	clear: both;
 }
-.sidebar .aboutme dl {
+.usidebar .aboutme dl {
 	padding: 7px 0 0 0;
 }
-.sidebar .aboutme dl dt {
+.usidebar .aboutme dl dt {
 	padding: 3px 0 1px 0;
 }
-.sidebar .aboutme dl dd {
+.usidebar .aboutme dl dd {
 	padding: 1px 0 0 0;
 }
-.sidebar .interests {
+.usidebar .interests {
 	padding: 4px;
 	clear: both;
 }
-.sidebar .interests dl dt {
+.usidebar .interests dl dt {
 	padding: 3px 0 1px 0;
 }
-.sidebar .interests dl dd {
+.usidebar .interests dl dd {
 	padding: 1px 0 5px 0;
 }
-.sidebar .contacts {
+.usidebar .contacts {
 	padding: 4px;
 }
-.sidebar .contacts dt {
+.usidebar .contacts dt {
 	float: left;
 	height: 18px;
 	width: 18px;
 }
-.sidebar .ads {
+.usidebar .ads {
     border-top: 1px solid #ccc;
     padding: 10px 0 10px 0;
     margin: 0 0 0 10px;
 }
-.sidebar .ads .ad {
+.usidebar .ads .ad {
     margin: 20px auto 0 0;
 }
-.sidebar .contacts dd {
+.usidebar .contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
 }
-.sidebar .notice {
+.usidebar .notice {
 	margin: 10px 0 20px 0;
 	text-align: left;
 }
