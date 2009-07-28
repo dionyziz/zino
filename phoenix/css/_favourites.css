@@ -1,27 +1,23 @@
-div#fav {
+#fav {
 	margin: 0 auto;
 	text-align: center;
 	padding: 20px 0;
 }
-div#fav h2 {
+#fav h2 {
 	margin: 0;
 	padding: 0;
 }
-/*
-div#fav div {
-	text-align: left;
-}*/
-div#fav div.list {
+#fav .list {
 	width: 40%;
 	margin: 0 auto;
 }
-div#fav div.list ul.favcategories {
+#fav .list .favcategories {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	float: right;
 }
-div#fav div.list ul.favcategories li {
+#fav .list .favcategories li {
 	margin: 0 0 0 5px;
 	padding: 5px 0 0 0;
 	float: right;
@@ -33,14 +29,14 @@ div#fav div.list ul.favcategories li {
 	font-size: 105%;
 	cursor: pointer;
 }
-div#fav div.list ul.favcategories li a {
+#fav .list .favcategories li a {
 	display: block;
-	margin: 0 0 0 9px;
+	margin: 0 0 0 6px;
 }
-div#fav div.list ul.favcategories li.selected {
+#fav .list .favcategories li.selected {
 	background: #e5f0ff;
 }
-div#fav ul.events {
+#fav .events {
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -48,25 +44,25 @@ div#fav ul.events {
     position: relative;
     top: -1px;
 }
-div#fav ul.events li.last {
+#fav .events li.last {
 	border-bottom: 1px solid #d7d7d7;
 }
-div#fav ul.events li {
+#fav .events li {
 	padding: 5px 0 5px 5px;
 	margin: 0;
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
-div#fav ul.events li div {
+#fav .events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
 
-div#fav ul.events li.photo img {
+#fav .events li.photo img {
 	padding: 3px 3px 3px 0px;
 }
 
-div#fav div.pagify {
+#fav .pagify {
 	margin: 20px 0 0 0;
 	text-align: center;
 }
