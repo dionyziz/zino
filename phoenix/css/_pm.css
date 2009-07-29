@@ -1,58 +1,58 @@
-div.body {
+.body {
 	width: 100%;
 }
-div.body div.upper {
+.body .upper {
 	border-bottom: 1px solid #c7c7c7;
 	margin-bottom: 1px;
 }
-div.body div.upper span.title {
+.body .upper .title {
 	font: 14pt arial;
 	color: #9b9696;
 }
-div.body div.upper div.subheading {
+.body .upper .subheading {
 	font: 10pt arial bold;
 	float: right;
 	color: #838080;
 	position: relative;
 	bottom: 15px;
 }
-div.body div.leftbar {
+.body .leftbar {
 	padding: 10px 30px 20px 0;
 	float: left;
 	font: 10pt tahoma;
 }
-div.body div.rightbar {
+.body .rightbar {
 	padding: 10px 0 0 10px;
 }
-div.body div.leftbar div.folders {
+.body .leftbar .folders {
 	border: 1px solid #838080;
 	max-width: 400px;
 }
-div.top {
+.top {
 	border-top: 1px solid #d7d7d7;
 }
-div.folder {	
+.folder {	
 	padding: 3px 3px 3px 0;
 	min-width: 108px;
 }
-div.folder span.s1_0031 {
+.folder .s1_0031 {
 	margin: 0 2px;
 }
-div.activefolder {
+.activefolder {
 	font-weight: bold;
 	background: #d6e6f7;
 }
-div.newfolderactive {
+.newfolderactive {
 	font-weight: bold;
 	background: #d6e6f7;
 }
-div.leftbar a.newpm span.s1_0032 {
+.leftbar .newpm .s1_0032 {
 	margin-right: 2px;
 }
-div.leftbar a.deletefolder span.s1_0029 {
+.leftbar .deletefolder .s1_0029 {
 	margin-right: 2px;
 }
-div.leftbar a.renamefolder span.s1_0030 {
+.leftbar .renamefolder .s1_0030 {
 	margin-right: 2px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
@@ -65,63 +65,63 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
 	color: #d0cfcf;
 	text-decoration: none;
 }
-div.messages {
+.messages {
     position: relative;
 }
-div.messages div.message {
+.messages .message {
 	position: relative; 
 	margin-bottom: 15px;
 }
-div.message div.infobar {
+.message .infobar {
 	height: 21px;
 	border: 1px solid #cdcdcb;
 	padding: 3px 3px 0px 3px;
     cursor: move;
     background: #fff;
 }
-div.message div.infobar a.s_delete {
+.message .infobar a.s_delete {
 	float: right;
 	margin: 1px 0 0 0;
 	color: transparent;
 }
-div.message div.infobar div.infobar_info {
+.message .infobar .infobar_info {
 	padding: 1px;
 	display: inline;
 	height: 21px;
 	cursor: pointer;
 }
-div.message div.text {
+.message .text {
 	background: #f8f8f6;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
     padding: 0 60px 0 0;
 	overflow: auto;
 }
-div.message div.text div {
+.message .text div {
 	padding: 10px 5px 0px 5px;
 }
-div.message div.lowerline {
+.message .lowerline {
 	height: 13px;
 	position: relative;
 }
-div.message div.lowerline div.leftcorner {
+.message .lowerline .leftcorner {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1275px -122px;
 	height: 13px;
 	width: 10px;
 	float: left;
 }
-div.message div.lowerline div.middle {
+.message .lowerline .middle {
 	background: url( 'http://static.zino.gr/images/pm-downfade.jpg' ) repeat-x bottom;
 	height: 13px;
 }
 
-div.message div.lowerline div.rightcorner {
+.message .lowerline .rightcorner {
 	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1276px -186px;
 	height: 13px;
 	width: 10px;
 	float: right;
 }
-div.message div.toolbar {
+.message .toolbar {
 	position: absolute;
 	right: 9px;
 	bottom: 3px;
@@ -130,6 +130,6 @@ a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:ho
 	text-decoration: none;
 	padding-top: 5px;
 }
-div.hoverfolder {
+.hoverfolder {
 	background: #f4f5f7;
 }
