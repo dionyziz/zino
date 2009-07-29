@@ -135,7 +135,7 @@
                     ?></select>
                 </div>
                 
-                <div><input type="s1_0070 submit" value="Ψάξε!" class="submit" /></div>
+                <div><input type="submit" value="Ψάξε!" class="s1_0070 submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
