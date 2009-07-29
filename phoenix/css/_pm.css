@@ -49,10 +49,8 @@ div.newfolderactive {
 div.leftbar a.newpm span.s1_0032 {
 	margin-right: 2px;
 }
-div.leftbar a.deletefolder span {
+div.leftbar a.deletefolder span.s1_0029 {
 	margin-right: 2px;
-	padding: 2px 0 2px 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -914px;
 }
 div.leftbar a.renamefolder span {
 	margin-right: 2px;

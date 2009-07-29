@@ -51,8 +51,8 @@
                         ?><div class="newfolder top folder" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false"><a href="" class="folderlinksnew"><span class="s1_0028">&nbsp;</span>Νέος Φάκελος</a></div>
                     </div><br />
                     <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span class="s1_0032">&nbsp;</span>Νέο μήνυμα</a><br />
-                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false" style="display:none"><span>&nbsp;</span>Διαγραφή φακέλου</a>
-                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false" style="display:none"><span>&nbsp;</span>Μετονομασία φακέλου</a>
+                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false" style="display:none"><span class="s1_0029">&nbsp;</span>Διαγραφή φακέλου</a>
+                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false" style="display:none"><span class="s1_0030">&nbsp;</span>Μετονομασία φακέλου</a>
                 </div>
                 <div class="rightbar" style="float:left">
                     <div class="messages" id="messages"><?php
