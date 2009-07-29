@@ -287,7 +287,7 @@ var pms = {
 		}
 		var folderspan = document.createElement( 'span' );
 		//var bannerspan = document.createElement( 'span' );
-        $( folderspan ).append( document.createTextNode( ' ' ) ).addClass( 's1_0031' );
+        $( folderspan ).append( document.createTextNode( ' ' ) ).addClass( 's1_0031' ).css( 'padding-left' , '18px' );
 		$( incominglink ).append( folderspan );
 		$( incominglink ).append( newtext );
 		/*$( unreadmsgbanner ).append( bannerspan );*/
