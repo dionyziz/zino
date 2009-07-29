@@ -58,8 +58,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένα τραγούδια:</label>
@@ -90,8 +90,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένες ταινίες:</label>
@@ -122,8 +122,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένες σειρές:</label>
@@ -154,8 +154,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένα βιβλία:</label>
@@ -186,8 +186,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένοι καλλιτέχνες:</label>
@@ -218,8 +218,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Αγαπημένα παιχνίδια:</label>

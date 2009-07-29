@@ -18,8 +18,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Gtalk:</label>
@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Skype:</label>
@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Yahoo:</label>
@@ -54,8 +54,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label>Ιστοσελίδα:</label>
@@ -66,8 +66,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div><?php
         }
     }

@@ -202,8 +202,8 @@
                         }
                         Element( 'user/profile/main/friends' , $friends , $theuser->Count->Relations , $theuser->Id , $theuser->Subdomain , $usernorel );
                     ?><div class="barfade">
-                        <div class="leftbar"></div>
-                        <div class="rightbar"></div>
+                        <div class="s1_0070 leftbar"></div>
+                        <div class="s1_0071 rightbar"></div>
                     </div><?php
                 }
                 if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
@@ -235,8 +235,8 @@
                 Element( 'user/profile/main/questions' , $theuser );
                 if ( !empty( $polls ) /*or not empty questions*/ ) {
                     ?><div class="barfade" style="margin-top:20px;clear:right">
-                        <div class="leftbar"></div>
-                        <div class="rightbar"></div>
+                        <div class="s1_0070 leftbar"></div>
+                        <div class="s1_0071 rightbar"></div>
                     </div><?php
                 }
                 ?><div style="clear:right"></div><?php
