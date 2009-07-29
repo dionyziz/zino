@@ -124,16 +124,16 @@
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
-                                <div class="leftbar"></div>
-                                <div class="rightbar"></div>
+                                <div class="s1_0070 leftbar"></div>
+                                <div class="s1_0071 rightbar"></div>
                             </div>
                         <div class="journals"><?php
                             Element( 'frontpage/journal/list' , $sequences[ SEQUENCE_JOURNAL ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
-                                <div class="leftbar"></div>
-                                <div class="rightbar"></div>
+                                <div class="s1_0070 leftbar"></div>
+                                <div class="s1_0071 rightbar"></div>
                             </div>
                         <div class="polls"><?php
                             Element( 'frontpage/poll/list' , $sequences[ SEQUENCE_POLL ] );
