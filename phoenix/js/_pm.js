@@ -42,9 +42,9 @@ var pms = {
 	ExpandPm : function( pmdiv , notread , pmid, folderid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
-		var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
-		var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
-		var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
+		//var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
+		//var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
+		//var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
 		//$( textpm ).toggle();
 		//$( lowerlinepm ).toggle();
 		
