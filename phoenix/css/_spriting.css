@@ -92,7 +92,7 @@
 } 
 .s1_0028 { 
     background-position: 0 -1197px; 
-    padding: 0 0 0 12px;
+    padding: 0 0 0 14px;
 }
 .s1_0029 { 
     background-position: 0 -1243px; 
@@ -213,4 +213,6 @@
     background-position: -71px -1732px;
     padding: 0 0 0 16px;
 }
-
+.s1_0066 {
+    background-position: -71px -1778px;
+}

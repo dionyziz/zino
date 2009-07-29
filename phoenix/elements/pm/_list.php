@@ -64,7 +64,7 @@
                     Δώσε ένα όνομα για τον φάκελό σου<br /><br />
                     <form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false" action="" method="">
                         <input type="textbox" style="width:130px" /> 
-                        <a href="" class="acceptcreate" onclick="pms.CreateNewFolder( this.parentNode );return false">&nbsp;</a>
+                        <a href="" class="s1_0065" onclick="pms.CreateNewFolder( this.parentNode );return false">&nbsp;</a>
                         <a href="" class="cancelcreate" onclick="pms.CancelNewFolder();return false">&nbsp;</a>
                     </form>
                 </div>
