@@ -103,8 +103,7 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
 	height: 13px;
 	position: relative;
 }
-.message .lowerline .leftcorner {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1275px -122px;
+.message .lowerline .s1_0068 {
 	height: 13px;
 	width: 10px;
 	float: left;
@@ -114,8 +113,7 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
 	height: 13px;
 }
 
-.message .lowerline .rightcorner {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -1276px -186px;
+.message .lowerline .s1_0069 {
 	height: 13px;
 	width: 10px;
 	float: right;

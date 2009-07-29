@@ -116,8 +116,8 @@
                     </div>
                 </div>
                 <div class="lowerline" style="background-color: #f8f8f6;display:none">
-                    <div class="leftcorner"></div>
-                    <div class="rightcorner"></div>
+                    <div class="s1_0068"></div>
+                    <div class="s1_0069"></div>
                     <div class="middle"></div>
                     <div class="toolbar"><?php
                         if ( !$pm->IsSender( $user ) ) {
