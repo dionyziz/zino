@@ -1,9 +1,9 @@
-div.tweetbox {
+.tweetbox {
     position: absolute;
     top: -25px;
     left: 120px;
 }
-div.tweet {
+.tweet {
     /*background: url( 'http://static.zino.gr/phoenix/tweet-mid.png' ) repeat-x top;*/
     /* tweet-mid */
     background: transparent url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -835px;
@@ -11,23 +11,17 @@ div.tweet {
     float: left;
     padding: 0;
 }
-div.tweetbox i.corner {
-    display: block;
-    width: 40px;
-    height: 55px;
-    background-repeat: no-repeat;
-    background-position: top;
-}
-div.tweetbox i.left {
+.tweetbox i.corner {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -812px;
+    height: 55px;
 }
-div.tweetbox i.right {
-    float: right;
+.tweetbox .s1_0042 {
+    width: 40px;
+}
+.tweetbox .s1_0041 {
     width: 27px;
-    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -642px;
 }
-div.tweet div {
+.tweet div {
     padding-top: 19px;
     display: block;
     float: left;
@@ -37,16 +31,16 @@ div.tweet div {
     overflow: hidden;
     max-width: 1000px;
 }
-div.tweetbox {
+.tweetbox {
     float: left;
     padding-right: 25px;
     z-index: 2;
 }
-div.tweetactive div.tweet a:hover {
+.tweetactive div.tweet a:hover {
     text-decoration: underline;
     color: #149;
 }
-div#tweetedit {
+#tweetedit {
 	display: none;
 	top: 25%;
 	left: 40%;
@@ -55,20 +49,20 @@ div#tweetedit {
 	border: 1px solid #284659;
     height: 120px;
 }
-div#tweetedit form {
+#tweetedit form {
     margin: 20px 15px 0 15px;
     text-align: center;
 }
-div#tweetedit ul li {
+#tweetedit ul li {
     display: inline;
     margin: 10px;
 }
-div#tweetedit h5 {
+#tweetedit h5 {
     margin: 0 0 30px 0;
 }
-div#tweetedit div.input {
+#tweetedit div.input {
     padding: 0 0 30px 0;
 }
-div#tweetedit input {
+#tweetedit input {
     width: 200px;
 }
