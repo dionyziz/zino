@@ -79,9 +79,8 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
     cursor: move;
     background: #fff;
 }
-.message .infobar a.s_delete {
+.message .infobar .s1_0007 {
 	float: right;
-	margin: 1px 0 0 0;
 	color: transparent;
 }
 .message .infobar .infobar_info {

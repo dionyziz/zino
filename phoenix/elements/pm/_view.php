@@ -20,7 +20,7 @@
                 }
                 ?>><?php
                     if ( !$pm->IsSender( $user ) ) {
-                        ?><a href="" class="s_delete" title="Διαγραφή" onclick="return pms.DeletePm( this.parentNode.parentNode, '<?php
+                        ?><a href="" class="s1_0007" title="Διαγραφή" onclick="return pms.DeletePm( this.parentNode.parentNode, '<?php
                         echo $pm->Pmid;
                         ?>', <?php
                         echo $folder->Id;
