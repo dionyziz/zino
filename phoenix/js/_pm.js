@@ -42,18 +42,18 @@ var pms = {
 	ExpandPm : function( pmdiv , notread , pmid, folderid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
-		//var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
-		//var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
-		//var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
-		//$( textpm ).toggle();
-		//$( lowerlinepm ).toggle();
+		var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
+		var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
+		var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
+		$( textpm ).toggle();
+		$( lowerlinepm ).toggle();
 		
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
 			$( '#pm_' + pmid + ' div.infobar span.s1_0067' ).hide();
 			//Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
-			pms.UpdateUnreadPms( -1 );
+			//pms.UpdateUnreadPms( -1 );
 		}
 		return false;
 	}
