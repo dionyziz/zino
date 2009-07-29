@@ -26,6 +26,7 @@ div.eof {
 }
 .barfade {
 	background: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
+    height: 1px;
 }
 .barfade .leftbar {
 	float: left;
