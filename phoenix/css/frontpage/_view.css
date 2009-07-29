@@ -145,7 +145,7 @@
 .members form label {
     margin-right: 5px;
 }
-.members div.login {
+/*.members div.login {
     background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1150px;
     text-align: left;
     height: 129px;
@@ -153,6 +153,7 @@
     float: left;
     padding: 20px 0 0 10px;
 }
+*/
 .members div.login form div {
     margin: 5px; 
 }
