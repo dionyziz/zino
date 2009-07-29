@@ -17,13 +17,13 @@
                 </div>
             </div>
             <div class="barfade emailbarfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
                 <div class="changepwdl"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
             <div class="barfade pwdbarfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div id="live" style="position: relative;margin-top: 30px;">
                 <span>Άμεση ενημέρωση σελίδων:</span>

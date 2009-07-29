@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="gender">Φύλο:</label>
@@ -29,8 +29,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="place">Περιοχή:</label>
@@ -39,8 +39,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="education">Εκπαίδευση:</label>
@@ -54,8 +54,8 @@
                 </div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option<?php
             if ( !$showschool ) {
@@ -74,8 +74,8 @@
                 ?> invisible<?php
             }
             ?>">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="photo">Φωτογραφία:</label>
@@ -84,8 +84,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="mood">Διάθεση:</label>
@@ -94,8 +94,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
@@ -104,8 +104,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="relationship">Σχέση:</label>
@@ -115,8 +115,8 @@
             </div>
             
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="religion">Θρήσκευμα:</label>
@@ -125,8 +125,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="politics">Πολιτικές πεποιθήσεις:</label>
@@ -135,8 +135,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="slogan">Slogan:</label>
@@ -145,8 +145,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="aboutme">Λίγα λόγια για μένα:</label>
@@ -155,8 +155,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div>
             <div class="option">
                 <label for="favquote">Αγαπημένο ρητό:</label>
@@ -165,8 +165,8 @@
                 ?></div>
             </div>
             <div class="barfade">
-                <div class="leftbar"></div>
-                <div class="rightbar"></div>
+                <div class="s1_0070 leftbar"></div>
+                <div class="s1_0071 rightbar"></div>
             </div><?php
         }
     }
