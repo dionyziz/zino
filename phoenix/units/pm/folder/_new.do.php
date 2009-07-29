@@ -23,7 +23,7 @@
         ?> } ).addClass( 'folder' ).addClass( 'top' ).append( spannewfolder );
         var newfolderhref = document.createElement( 'a' );
         var span = document.createElement( 'span' );
-        $( span ).append( document.createTextNode( ' ' ) ).addClass( 's1_0031' );
+        $( span ).append( document.createTextNode( ' ' ) ).addClass( 's1_0031' ).css( 'padding-left' , '18px' );
         $( newfolderhref ).append( span ).attr( { href : '' } ).addClass( 'folderlinks' ).click( function( folder , folderid ) {
             pms.ShowFolderPm( newfolder , <?php
             echo $folderid;
