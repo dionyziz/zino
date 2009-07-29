@@ -5,6 +5,7 @@
     $libs->Load( 'image/server' );
     $libs->Load( 'image/frontpage' );
     $libs->Load( 'rabbit/helpers/file' );
+    $libs->Load( 'album' );
 
     define( 'IMAGE_PROPORTIONAL_210x210', '210' );
     define( 'IMAGE_CROPPED_100x100', '100' );
