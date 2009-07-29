@@ -108,14 +108,14 @@ var Notification = {
 			} ).append( document.createTextNode( ' ' ) )
 			.click( function() {
                 if ( !Notification.Expanded ) {
-                    $( this ).removeClass( "s1_0023" ).addClass( "s1_0024" )
+                    $( this ).removeClass( "s1_0024" ).addClass( "s1_0023" )
                     .attr( {
                         title : 'Απόκρυψη'
                     } );
                     Notification.Expanded = true;
                 }
                 else {  
-                    $( this ).css( "background-position" , "4px -1252px" )
+                    $( this ).removeClass( "s1_0023" ).addClass( "s1_0024" )
                     .attr( {
                         title : 'Εμφάνιση:'
                     } );
