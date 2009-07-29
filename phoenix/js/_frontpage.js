@@ -44,14 +44,14 @@ var Frontpage = {
         
             $( '#notifexpand' ).click( function() {
                 if ( !Notification.Expanded ) {
-                    $( this ).removeClass( 's1_0024' ).addClass( 's1_0023' )
+                    $( this ).removeClass( 's1_0023' ).addClass( 's1_0024' )
                     .attr( {
                         title : 'Απόκρυψη'
                     } );
                     Notification.Expanded = true;
                 }
                 else {  
-                    $( this ).removeClass( 's1_0023' ).addClass( 's1_0024' )
+                    $( this ).removeClass( 's1_0024' ).addClass( 's1_0023' )
                     .attr( {
                         title : 'Εμφάνιση:'
                     } );
