@@ -20,8 +20,8 @@
                 ?><li><?php
                     Element( 'journal/small' , $journal );
                     ?><div class="barfade">
-                        <div class="leftbar"></div>
-                        <div class="rightbar"></div>
+                        <div class="s1_0070 leftbar"></div>
+                        <div class="s1_0071 rightbar"></div>
                     </div>
                 </li><?php
             }
