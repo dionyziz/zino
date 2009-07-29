@@ -52,10 +52,8 @@ div.leftbar a.newpm span.s1_0032 {
 div.leftbar a.deletefolder span.s1_0029 {
 	margin-right: 2px;
 }
-div.leftbar a.renamefolder span {
+div.leftbar a.renamefolder span.s1_0030 {
 	margin-right: 2px;
-	padding: 2px 0 2px 14px;
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1762px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
