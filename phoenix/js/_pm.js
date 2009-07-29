@@ -53,7 +53,7 @@ var pms = {
 			//remove the unread icon
 			$( '#pm_' + pmid + ' div.infobar span.s1_0067' ).hide();
 			//Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
-			//pms.UpdateUnreadPms( -1 );
+			pms.UpdateUnreadPms( -1 );
 		}
 		return false;
 	}
@@ -287,6 +287,7 @@ var pms = {
 		}
 		var folderspan = document.createElement( 'span' );
 		//var bannerspan = document.createElement( 'span' );
+        $( folderspan ).append( document.createTextNode( ' ' ) ).addClass( 's1_0031' );
 		$( incominglink ).append( folderspan );
 		$( incominglink ).append( newtext );
 		/*$( unreadmsgbanner ).append( bannerspan );*/
