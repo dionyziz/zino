@@ -22,7 +22,7 @@
                     ?></span>
                     <a href="" onclick="return Notification.Delete( '<?php
                     echo $notif->Id;
-                    ?>' )" title="Διαγραφή" class="s1_0007">.</a>
+                    ?>' )" title="Διαγραφή" class="s_delete">.</a>
                 </div>
                 <a href="<?php
                 ob_start();

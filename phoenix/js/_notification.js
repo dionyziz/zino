@@ -3,10 +3,14 @@ var Notification = {
     TraversedAll : false,
 	Visit : function( url , typeid , eventid , commentid ) {
         //Notification.DecrementCount();
-		if ( !typeid == 3 ) {
+		if ( typeid == 3 ) {
+			document.location.href = url;
+		} 
+		else {
 			Coala.Warm( 'notification/delete' , { notificationid: eventid , relationnotif : false } );
+			document.location.href = url;
 		}
-		return true;
+		return false;
 	},
 	Delete : function( eventid ) {
         if ( Notification.INotifs === 0 && Notification.VNotifs <= 5 ) {
@@ -92,21 +96,19 @@ var Notification = {
             $( inotifsdiv ).attr( "id" , "inotifs" ).addClass( "invisible" );
 			$( expand ).addClass( "expand" ).append( link );
 			$( h3 ).append( document.createTextNode( "Ενημερώσεις" ) );
-			$( list ).addClass( "list" );
-			$( notifscontainer ).addClass( "notifications" )
+			$( list ).attr( "id" , "notiflist" );
+			$( notifscontainer ).attr( 'id' , 'notifications')
 			.append( h3 ).append( list ).append( inotifsdiv ).append( expand );
 			$( '#frontpage' ).prepend( notifscontainer );
 			//var notiflistheight = $( notiflist )[ 0 ].offsetHeight;
-			$( link ).css( {
-                "background-position" : "4px -1440px",
-                "cursor" : "pointer"
-            } ).attr( {
+			$( link ).css("cursor" ,  "pointer" ).addClass( 's1_0023' )
+            .attr( {
 				title : "Απόκρυψη",
 				href : ""
 			} ).append( document.createTextNode( ' ' ) )
 			.click( function() {
                 if ( !Notification.Expanded ) {
-                    $( this ).css( "background-position" , "4px -1440px" )
+                    $( this ).removeClass( "s1_0023" ).addClass( "s1_0024" )
                     .attr( {
                         title : 'Απόκρυψη'
                     } );
@@ -128,7 +130,7 @@ var Notification = {
 			Notification.VNotifs++;
 		}
 		else {
-			$( '#notiflist > div:last-child' ).animate( {
+			$( '#notiflist>div:last-child' ).animate( {
 				opacity : "0",
 				height: "0"
 			} , 400 , "linear" , function() {
