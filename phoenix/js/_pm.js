@@ -52,7 +52,7 @@ var pms = {
 		if ( notread ) {
 			//remove the unread icon
 			$( '#pm_' + pmid + ' div.infobar span.s1_0067' ).hide();
-			Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
+			//Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
 			pms.UpdateUnreadPms( -1 );
 		}
 		return false;
