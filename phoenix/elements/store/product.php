@@ -1,6 +1,6 @@
 <?php
     class ElementStoreProduct extends Element {
-        public function Render( tString $name ) {
+        public function Render( tString $name, tInteger $id ) {
             global $libs;
             global $page;
             global $user;
@@ -13,6 +13,7 @@
             $libs->Load( 'place' );
             $libs->Load( 'user/profile' );
             
+            $id = $id->Get();
             $name = $name->Get();
             
             $page->AttachScript( 'js/store.js' );

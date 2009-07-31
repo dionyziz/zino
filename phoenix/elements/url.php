@@ -68,13 +68,13 @@
                     if ( $rabbit_settings[ 'production' ] ) {
                         ?>http://store.<?php
                         echo $rabbit_settings[ 'hostname' ];
-                        ?>/?id=<?php
-                        echo $target->Id;
+                        ?>/?name=<?php
+                        echo strtolower( $target->Name );
                     } else
                     {
                         echo $rabbit_settings[ 'webaddress' ]
-                        ?>/store.php?p=product&id=<?php
-                        echo $target->Id;
+                        ?>/store.php?p=product&name=<?php
+                        echo strtolower( $target->Name );
                     }
                     return;
                 default:
