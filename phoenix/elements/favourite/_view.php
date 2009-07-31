@@ -131,6 +131,9 @@
                                     case TYPE_JOURNAL
                                         ?>s1_0025<?php
                                         break;
+                                    case TYPE_STOREITEM:
+                                        //TODO: Style
+                                        break;
                                 }
 								?>">&nbsp;</span><?php
                                 switch ( $favourite->Typeid ) {
@@ -168,6 +171,15 @@
                                         ?><br /><?php
                                             Element( 'image/view' , $favourite->Itemid , $favourite->Item->Userid , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 , 0 );
                                             ?>
+                                        </a><?php
+                                        break;
+                                    case TYPE_STOREITEM:
+                                        if ( $favourite->Item->Name != '' ) {
+                                            ?>"<?php
+                                            echo htmlspecialchars( $favourite->Item->Name );
+                                            ?>"<?php
+                                        }
+                                        ?><br />
                                         </a><?php
                                         break;
                                 }
