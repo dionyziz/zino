@@ -41,7 +41,10 @@
                     break;
             }
             if ( $image->IsDeleted() ) {
+                Element( 'album/photo/deleted', $theuser );
+                /*
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
+                */
                 return;
             }
 
