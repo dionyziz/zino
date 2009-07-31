@@ -86,7 +86,7 @@ div#photomanager div div div.albumlist ul li.selected div.fade {
     background: transparent url('http://static.zino.gr/phoenix/photomanager/overlay-selected.png');
 }
 div#photomanager div div div.albumlist ul li span.imageview  {
-    float: left;
+    
     margin-right: 10px;
     position: relative;
     border: 1px solid #ADD8E6;

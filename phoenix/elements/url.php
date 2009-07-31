@@ -64,6 +64,20 @@
                     $url = ob_get_clean();
                     echo $url;
                     return;
+                case 'Storeitem':
+                    if ( $rabbit_settings[ 'production' ] ) {
+                        ?>http://store.<?php
+                        echo $rabbit_settings[ 'hostname' ];
+                        ?>/?id=<?php
+                        echo $target->Id;
+                    } else
+                    {
+                        ?>http://<?php
+                        echo $rabbit_settings[ 'webaddress' ]
+                        ?>/store.php?p=product&id=<?php
+                        echo $target->Id;
+                    }
+                    return;
                 default:
                     throw New Exception( 'Unknown comment target item "' . get_class( $target ) . '"' );
             }
