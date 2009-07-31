@@ -118,7 +118,7 @@
                                     case TYPE_JOURNAL
                                         ?>journal<?php
                                         break;
-                                }
+                                    }
                                 ?>"><div><a href="<?php
                                 ob_start();
                                 Element( 'url', $favourite->Item );
@@ -130,6 +130,9 @@
                                         break;
                                     case TYPE_JOURNAL
                                         ?>s_book<?php
+                                        break;
+                                    case TYPE_STOREITEM:
+                                        //TODO: Style
                                         break;
                                 }
 								?>">&nbsp;</span><?php
@@ -168,6 +171,14 @@
                                         ?><br /><?php
                                             Element( 'image/view' , $favourite->Itemid , $favourite->Item->Userid , $favourite->Item->Width , $favourite->Item->Height , IMAGE_PROPORTIONAL_210x210, '' , $favourite->Item->Name , $favourite->Item->Name , '' , false, 0, 0 , 0 );
                                             ?>
+                                        </a><?php
+                                        break;
+                                    case TYPE_STOREITEM:
+                                        if ( $favourite->Item->Name != '' ) {
+                                            ?>ZinoSTORE <?php
+                                            echo htmlspecialchars( $favourite->Item->Name );
+                                        }
+                                        ?><br />
                                         </a><?php
                                         break;
                                 }
