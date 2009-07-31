@@ -72,7 +72,6 @@
                         echo $target->Id;
                     } else
                     {
-                        ?>http://<?php
                         echo $rabbit_settings[ 'webaddress' ]
                         ?>/store.php?p=product&id=<?php
                         echo $target->Id;

@@ -175,9 +175,8 @@
                                         break;
                                     case TYPE_STOREITEM:
                                         if ( $favourite->Item->Name != '' ) {
-                                            ?>"<?php
+                                            ?>ZinoSTORE <?php
                                             echo htmlspecialchars( $favourite->Item->Name );
-                                            ?>"<?php
                                         }
                                         ?><br />
                                         </a><?php
