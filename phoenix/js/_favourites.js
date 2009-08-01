@@ -5,4 +5,4 @@ var Favourites = {
         fav.fadeTo( 300, 0 ).slideUp( 500, function() { fav.remove(); } );
         return false;
     }
-}
+};
