@@ -23,6 +23,5 @@
         }
         
         $favourite->Delete();
-        ?>alert( "deleted!");<?php
     }
 ?>
