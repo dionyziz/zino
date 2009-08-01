@@ -9,6 +9,8 @@
         
         $libs->Load( 'favourite' );
         
+        $favid->Get();
+        
         $favourite = New Favourite( $favid );
         
         if ( $favourite->Exists() ) {
