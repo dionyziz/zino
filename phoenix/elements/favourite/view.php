@@ -128,7 +128,7 @@
                                     if( $theuser->Id == $user->Id ) {
                                         ?><a class="fav_delete" href="" onclick="return Favourites.Delete( <?php
                                             echo $favourite->Id;
-                                        ?> )"><span class="s_delete"> </span>Διαγραφή</a> <?php
+                                        ?> )"><span class="s_delete"> </span> Διαγραφή</a> <?php
                                     }
                                 ?>
                                 <a href="<?php
