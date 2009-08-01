@@ -15,6 +15,8 @@
             $type = $type->Get();
             $pageno = $pageno->Get();
 
+            Element( 'user/subdomainmatch' );
+            
             if ( $pageno < 1 ) {
                 $pageno = 1;
             }
