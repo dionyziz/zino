@@ -56,6 +56,7 @@
 #fav .events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
+    position: relative;
 }
 
 #fav .events li.photo img {
