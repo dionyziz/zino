@@ -42,3 +42,4 @@ meteor.js
 comet.js
 applications.js
 album/manager.js
+favourites.js
