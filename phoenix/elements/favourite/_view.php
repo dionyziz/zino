@@ -55,14 +55,14 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/journals"><span class="s1_0025">&nbsp;</span></a></li>
+                        ?>favourites/journals" class="s_book">&nbsp;</a></li>
                         <li<?php
                         if ( $type === TYPE_IMAGE ) {
                             ?> class="selected"<?php
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/photos"><span class="s1_0012">&nbsp;</span></a></li>
+                        ?>favourites/photos" class="s_photo">&nbsp;</a></li>
                         <li<?php
                         if ( $type === false ) {
                             ?> class="selected"<?php
@@ -118,18 +118,26 @@
                                     case TYPE_JOURNAL
                                         ?>journal<?php
                                         break;
-                                }
-                                ?>"><div><a href="<?php
+                                    }
+                                ?>" id="favourite_<?php
+									echo $favourite->Id;
+								?>"><div><a href="<?php
                                 ob_start();
                                 Element( 'url', $favourite->Item );
                                 echo htmlspecialchars( ob_get_clean() );
-                                ?>"><span class="<?php
+                                ?>"><?php
+									if( $theuser->Id == $user->Id ) {
+										?><a href="" onclick="return Favourites.Delete( <?php
+											echo $favourite->Id;
+										?> )"><span class="s_delete"> </span>Διαγραφή</a> <?php
+									}
+								?><span class="<?php
 								switch ( $favourite->Typeid ) {
                                     case TYPE_IMAGE:
-                                        ?>s1_0012<?php
+                                        ?>s_photo<?php
                                         break;
                                     case TYPE_JOURNAL
-                                        ?>s1_0025<?php
+                                        ?>s_book<?php
                                         break;
                                     case TYPE_STOREITEM:
                                         //TODO: Style
