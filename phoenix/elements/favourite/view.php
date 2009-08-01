@@ -119,11 +119,19 @@
                                         ?>journal<?php
                                         break;
                                     }
-                                ?>"><div><a href="<?php
+                                ?>" id="favourite_<?php
+									echo $favourite->Id;
+								?>"><div><a href="<?php
                                 ob_start();
                                 Element( 'url', $favourite->Item );
                                 echo htmlspecialchars( ob_get_clean() );
-                                ?>"><span class="<?php
+                                ?>"><?php
+									if( $theuser->Id == $user->Id ) {
+										?><a href="" onclick="return Favourites.Delete( <?php
+											echo $favourite->Id;
+										?> )"><span class="s_delete"> </span>Διαγραφή</a> <?php
+									}
+								?><span class="<?php
 								switch ( $favourite->Typeid ) {
                                     case TYPE_IMAGE:
                                         ?>s_photo<?php

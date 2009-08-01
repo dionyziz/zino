@@ -37,23 +37,38 @@
     class Favourite extends Satori {
         protected $mDbTableAlias = 'favourites';
 
-        public function Relations() {
+        protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
             }
         }
-        public function LoadDefaults() {
+        protected function LoadDefaults() {
             global $user;
 
             $this->Userid = $user->Id;
             $this->Created = NowDate();
         }
-        public function OnCreate() {
+        protected function OnCreate() {
             global $libs;
             
+            $libs->Load( 'user/count' );
             $libs->Load( 'rabbit/event' );
+            
             FireEvent( 'FavouriteCreated', $this );
+            ++$this->User->Count->Favourites;
+            $this->User->Count->Save();
+        }
+        protected function OnDelete() {
+            global $libs;
+            
+            $libs->Load( 'user/count' );
+            $libs->Load( 'rabbit/event' );
+            
+            FireEvent( 'FavouriteDeleted', $this );
+            
+            --$this->User->Count->Favourites;
+            $this->User->Count->Save();
         }
     }
 ?>
