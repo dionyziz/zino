@@ -13,11 +13,11 @@
         
         $favourite = New Favourite( $favid );
         
-        if ( $favourite->Exists() ) {
+        if ( !$favourite->Exists() ) {
             ?>alert( "Favourite with id:<?php echo $favourite->Id; ?> does not exists" );<?php
             return;
         }
-        if ( $favourite->Userid == $user->Id ) {
+        if ( $favourite->Userid != $user->Id ) {
             ?>alert( "You cannot delete a favourite you do not own" );<?php
             return;
         }
