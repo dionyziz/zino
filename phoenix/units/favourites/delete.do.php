@@ -14,7 +14,7 @@
         $favourite = New Favourite( $favid );
         
         if ( $favourite->Exists() ) {
-            ?>alert( "Favourite does not exists" );<?php
+            ?>alert( "Favourite with id <?php echo $favid; ?>does not exists" );<?php
             return;
         }
         if ( $favourite->Userid == $user->Id ) {
