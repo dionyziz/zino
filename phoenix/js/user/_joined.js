@@ -9,7 +9,7 @@ var Joined = {
         Joined.invaliddob = false;
         $( 'div.profinfo form div select' ).change( function() {
             if ( Joined.invaliddob ) {
-                $( 'div.profinfo form span.s1_0034' ).animate( { opacity : "0" } , 200 , function() {
+                $( 'div.profinfo form span.invaliddob' ).animate( { opacity : "0" } , 200 , function() {
                     $( this ).hide();
                 } );
                 Joined.invaliddob = false;
@@ -17,7 +17,7 @@ var Joined = {
             else {
                 if ( Joined.doby.options[ Joined.doby.selectedIndex ].value != -1 && Joined.dobm.options[ Joined.dobm.selectedIndex ].value != -1 && Joined.dobd.options[ Joined.dobd.selectedIndex ].value != -1 ) {
                     if ( !Dates.ValidDate( Joined.dobd.options[ Joined.dobd.selectedIndex ].value , Joined.dobm.options[ Joined.dobm.selectedIndex ].value , Joined.doby.options[ Joined.doby.selectedIndex ].value ) ) {
-                        $( 'div.profinfo form span.s1_0034' ).css( 'opacity' , '0' ).css( 'padding-left' , '16px' ).show().animate( { opacity : "1" } , 200 ) ;
+                        $( 'div.profinfo form span.invaliddob' ).css( 'opacity' , '0' ).show().animate( { opacity : "1" } , 200 ) ;
                         Joined.invaliddob = true;
                     }
                 }
