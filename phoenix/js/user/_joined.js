@@ -18,7 +18,7 @@ var Joined = {
                 if ( Joined.doby.options[ Joined.doby.selectedIndex ].value != -1 && Joined.dobm.options[ Joined.dobm.selectedIndex ].value != -1 && Joined.dobd.options[ Joined.dobd.selectedIndex ].value != -1 ) {
                     if ( !Dates.ValidDate( Joined.dobd.options[ Joined.dobd.selectedIndex ].value , Joined.dobm.options[ Joined.dobm.selectedIndex ].value , Joined.doby.options[ Joined.doby.selectedIndex ].value ) ) {
                         $( 'div.profinfo form span.invaliddob' ).css( 'opacity' , '0' ).show().animate( { opacity : "1" } , 200 ) ;
-                        $( 'div.profinfo form span.invaliddob span.s1_0034' ).css( 'padding-left' , '14px' );
+                        $( 'div.profinfo form span.invaliddob span.s1_0034' ).css( 'padding-left' , '16px' );
                         Joined.invaliddob = true;
                     }
                 }
