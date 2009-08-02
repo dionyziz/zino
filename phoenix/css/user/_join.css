@@ -33,7 +33,6 @@
 .join .bubble form.joinform div > span 	{
 	vertical-align: bottom;
 	display: none;
-	padding: 5px 0 0 0;
 }
 .join .bubble form.joinform div span span {
 	font-size: 80%;
@@ -51,7 +50,6 @@
 	font-size: 80%;
 	font-weight: bold;
 	vertical-align: 3px;
-	padding: 5px 0 0 0;
 }
 .join .bubble form.joinform div p {
 	padding: 3px 0 0 0;
