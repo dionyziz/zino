@@ -63,18 +63,16 @@
                         <div>
                             <label for="join_pwd">Κωδικός πρόσβασης:</label>
                             <input type="password" value="" id="join_pwd" />
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
                             </span>
                             <div>
                                 <label for="join_repwd" style="padding-top: 5px">Πληκτρολόγησε τον ξανά:</label>
                                 <input type="password" value="" id="join_repwd" />
-                                <span><img src="<?php
-                                echo $rabbit_settings[ 'imagesurl' ];
-                                ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                                <span>Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+                                <span>
+                                    <span class="s1_0034">&nbsp;</span>
+                                    <span>Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
                                 </span>
                             </div>
                         </div>
@@ -83,15 +81,13 @@
                             <input type="text" value="<?php
                             echo $email;
                             ?>" style="width:200px" id="join_email" />
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Το email που έχεις γράψει δεν είναι έγκυρο!</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Το email που έχεις γράψει δεν είναι έγκυρο!</span>
                             </span>
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Το e-mail που διάλεξες υπάρχει ήδη!</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Το e-mail που διάλεξες υπάρχει ήδη!</span>
                             </span>
                             <p>Η διεύθυνση e-mail που θα δηλώσεις πρέπει να είναι έγκυρη για να μπορέσεις να επιβεβαιώσεις τον λογαριασμό σου.</p>
                         </div>
