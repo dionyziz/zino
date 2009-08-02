@@ -96,9 +96,9 @@
                     ?></div>
                     <div id="midstrip">
                         <div id="strip1">
-                            <div id="strip1left">
+                            <div id="strip1left" class="s1_0013">
                             </div>
-                            <div id="strip1right">
+                            <div id="strip1right" class="s1_0014">
                             </div>
                         </div>
 
@@ -112,9 +112,9 @@
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                     ?></div> 
                     <div id="strip3">
-                        <div id="strip3left">
+                        <div id="strip3left" class="s1_0015">
                         </div>
-                        <div id="strip3right">
+                        <div id="strip3right" class="s1_0016">
                         </div>
                         <div id="strip3middle">
                         </div>
