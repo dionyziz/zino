@@ -106,9 +106,9 @@
                             </noscript>
                         </div>
                     </form>    
-                    <i class="s2_0012 qleft"></i><i class="s2_0013 qright"></i>
+                    <i class="qleft"></i><i class="qright"></i>
                     <i class="qbottom"></i>
-                    <i class="bl"></i><i class="br"></i>
+                    <i class="s2_0012 bl"></i><i class="s2_0013 br"></i>
                 </div>
                 <img src="images/button_ok_16.png" alt="Σωστή επαλήθευση" title="Σωστή επαλήθευση" style="display:none" />
             </div>

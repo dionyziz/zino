@@ -25,7 +25,7 @@
     top: 21px;
     right: 29px;
 }
-#loggedinmenu {
+#mbanner > #loggedinmenu {
     top: 3px;
 }
 #loggedinmenu  {
@@ -64,6 +64,7 @@ img.banneravatar {
     border: 1px solid #b4b4b4;
 }
 #mbanner > div > form input {
+    background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
     border: 0;
     width: 104px;
     height: 18px;
@@ -73,11 +74,11 @@ img.banneravatar {
     padding: 3px 0 0 0;
     margin: 1px 0 0 0;
 }
-#loginbutton {
+#mbanner > div > form input#loginbutton {
     width: 68px;
     height: 23px;
     border: 0;
-    background-color: transparent;
+    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
     color: #fff;
     padding: 0 0 4px 0;
     margin: 0 12px 0 0;
@@ -90,6 +91,7 @@ img.banneravatar {
     vertical-align: 21px;
 }
 #rbanner {
+    background: url( 'http://static.zino.gr/phoenix/rbanner.png' ) no-repeat;
     width: 101px;
     height: 65px;
     float: right;
