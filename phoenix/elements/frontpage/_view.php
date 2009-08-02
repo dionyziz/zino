@@ -131,7 +131,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
 
             if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
-                    <div class="planet">
+                    <div class="s2_0012 planet">
                         <form action="" method="get">
                             <div>
                                 <input type="hidden" name="p" value="join" />
