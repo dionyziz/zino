@@ -64,7 +64,6 @@ img.banneravatar {
     border: 1px solid #b4b4b4;
 }
 #mbanner > div > form input {
-    background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
     border: 0;
     width: 104px;
     height: 18px;
@@ -74,11 +73,11 @@ img.banneravatar {
     padding: 3px 0 0 0;
     margin: 1px 0 0 0;
 }
-#mbanner > div > form input#loginbutton {
+#loginbutton {
     width: 68px;
     height: 23px;
     border: 0;
-    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
+    background-color: transparent;
     color: #fff;
     padding: 0 0 4px 0;
     margin: 0 12px 0 0;
