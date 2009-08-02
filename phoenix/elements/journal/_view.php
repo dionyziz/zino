@@ -182,7 +182,7 @@
                 return Element( '404', "Η καταχώρηση δεν υπάρχει" );
             }
             ?><div class="eof"></div><?php
-            $page->AttachInlineScript( "JournalView.OnLoad();" );
+            //$page->AttachInlineScript( "JournalView.OnLoad();" );
         }
     }
 ?>
