@@ -27,7 +27,7 @@
             ?><div id="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <a class="s1_0009 delete" href="" onclick="Frontpage.Closenewuser();return false;" style="margin:3px"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+                <a class="s1_0005 delete" href="" onclick="Frontpage.Closenewuser();return false;" style="margin:3px">&nbsp;</a>
                 <p>
                 <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong> 
                 <br /><br />
