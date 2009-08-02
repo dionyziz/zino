@@ -78,7 +78,6 @@ img.banneravatar {
     width: 68px;
     height: 23px;
     border: 0;
-    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
     color: #fff;
     padding: 0 0 4px 0;
     margin: 0 12px 0 0;
@@ -91,7 +90,6 @@ img.banneravatar {
     vertical-align: 21px;
 }
 #rbanner {
-    background: url( 'http://static.zino.gr/phoenix/rbanner.png' ) no-repeat;
     width: 101px;
     height: 65px;
     float: right;
