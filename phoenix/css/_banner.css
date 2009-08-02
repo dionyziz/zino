@@ -64,7 +64,7 @@ img.banneravatar {
     border: 1px solid #b4b4b4;
 }
 #mbanner > div > form input {
-    background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
+    background-color: transparent;
     border: 0;
     width: 104px;
     height: 18px;
