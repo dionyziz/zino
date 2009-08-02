@@ -25,7 +25,7 @@
     top: 21px;
     right: 29px;
 }
-#mbanner > #loggedinmenu {
+#loggedinmenu {
     top: 3px;
 }
 #loggedinmenu  {
@@ -73,7 +73,7 @@ img.banneravatar {
     padding: 3px 0 0 0;
     margin: 1px 0 0 0;
 }
-#mbanner > div > form input#loginbutton {
+#loginbutton {
     width: 68px;
     height: 23px;
     border: 0;
@@ -90,7 +90,6 @@ img.banneravatar {
     vertical-align: 21px;
 }
 #rbanner {
-    background: url( 'http://static.zino.gr/phoenix/rbanner.png' ) no-repeat;
     width: 101px;
     height: 65px;
     float: right;

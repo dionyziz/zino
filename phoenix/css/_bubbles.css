@@ -35,22 +35,6 @@ i.br {
     height: 10px;
     display: block;
 }
-.bubble i.tl {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat 0 -1117px;
-    /*background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );*/
-}
-.bubble i.tr {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -507px;
-    /*background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );*/
-}
-.bubble i.bl {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1169px;
-    /*background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );*/
-}
-.bubble i.br {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1090px;
-    /*background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );*/
-}
 .bubble i.qleft {
     background: url( 'http://static.zino.gr/phoenix/q_left.jpg' ) repeat-y left;
     width: 10px;
