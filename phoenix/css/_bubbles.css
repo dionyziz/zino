@@ -72,23 +72,6 @@ i.br {
 	background: #ffda74; 
 	height: 100%;
 }
-.ybubble i {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat;
-}
-.ybubble i.tl {
-	background-position: -739px -1430px;
-}
-.ybubble i.tr {
-	background-position: -203px -847px;
-}
-.ybubble i.bl {
-	background-position: -739px -1109px;
-	left: 0;
-}
-.ybubble i.br {
-	background-position: -203px -198px;
-	right: 0;
-}
 .ybubble form {
     text-align: center;
 }
