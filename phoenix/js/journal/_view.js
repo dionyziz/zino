@@ -16,6 +16,7 @@ var JournalView = {
 				} )
 				.removeClass( 's1_0019' )
 				.addClass( 's1_0020' )
+                .css( 'padding-left' , '18px' )
 				.empty()
 				.fadeIn( 800 );
 			} );

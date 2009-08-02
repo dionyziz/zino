@@ -41,6 +41,7 @@ var PhotoView = {
 				} )
 				.removeClass( 's1_0019' )
 				.addClass( 's1_0020' )
+                .style( 'padding-left' , '18px' )
 				.empty()
 				.fadeIn( 800 );
 			} );
