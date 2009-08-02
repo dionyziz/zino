@@ -77,7 +77,7 @@
 										?>s1_0019<?php
 									}
 									else {
-										?>s_isaddedfav<?php
+										?>s1_0020<?php
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
@@ -103,7 +103,7 @@
 											?>s1_0019<?php
 										}
 										else {
-											?>s_isaddedfav<?php
+											?>s1_0020<?php
 										}
 										?>">&nbsp;</span><?php
 										if ( !$fav ) {
