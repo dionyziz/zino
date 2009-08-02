@@ -60,13 +60,11 @@ h3.modaltitle {
 }
 #strip1left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
 #strip1right {
     float: right;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content2.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
@@ -85,7 +83,6 @@ h3.modaltitle {
 }
 #strip3left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content3.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
@@ -96,7 +93,6 @@ h3.modaltitle {
 }
 #strip3right {
     float: right;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content4.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
