@@ -44,8 +44,7 @@
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
-                            <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" 
-alt="Ακύρωση" title="Ακύρωση" /></a>
+                            <a class="s1_0005 delete" href="" onclick="Frontpage.Closenewuser();return false">&nbsp;</a>
                             <form>
                                 <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
                                 <div>
