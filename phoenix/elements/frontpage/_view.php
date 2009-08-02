@@ -27,7 +27,7 @@
             ?><div id="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+                <a class="s1_0009 delete" href="" onclick="Frontpage.Closenewuser();return false;" style="margin:3px"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
                 <p>
                 <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong> 
                 <br /><br />
@@ -84,8 +84,8 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                                 <p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
                             </form>
                         </div>
-                        <i class="bl"></i>
-                        <i class="br"></i>
+                        <i class="s2_0004 bl"></i>
+                        <i class="s2_0003 br"></i>
                     </div><?php
                 }
             }
