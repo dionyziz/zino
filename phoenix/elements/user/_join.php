@@ -46,20 +46,17 @@
                             <input type="text" value="<?php
                             echo htmlspecialchars( $username );
                             ?>" id="join_name" />
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Πρέπει να δώσεις ένα όνομα χρήστη μεταξύ 4 και 20 χαρακτήρων!</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Πρέπει να δώσεις ένα όνομα χρήστη μεταξύ 4 και 20 χαρακτήρων!</span>
                             </span>
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Το όνομα που διάλεξες υπάρχει ήδη!</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Το όνομα που διάλεξες υπάρχει ήδη!</span>
                             </span>
-                            <span><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-                            <span>Το όνομα πρέπει να ξεκινάει από γράμμα και μπορεί να περιέχει μόνο γράμματα, αριθμούς, και τα σύμβολα - και _</span>
+                            <span>
+                                <span class="s1_0034">&nbsp;</span>
+                                <span>Το όνομα πρέπει να ξεκινάει από γράμμα και μπορεί να περιέχει μόνο γράμματα, αριθμούς, και τα σύμβολα - και _</span>
                             </span>
                             <p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>
                         </div>
