@@ -89,7 +89,6 @@
     width: 550px;
     margin: 0 auto;
     position: relative;
-    background: url( 'http://static.zino.gr/phoenix/zinoplanet.png' ) no-repeat 0 3px;
 }
 .frontpagejoin > div.planet > form > div {
     position: absolute;
