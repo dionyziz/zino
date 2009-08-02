@@ -55,7 +55,7 @@
 		                        }
 		                        ?></dd><?php
 		                    }
-							?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+							?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
 							Element( 'date/diff', $journal->Created );
 							?></dd>
 						</dl><?php
@@ -123,7 +123,7 @@
 								?><li>
 									<a href="" onclick="return JournalView.Delete( '<?php
 									echo $journal->Id;
-									?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+									?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a>
 								</li><?php
 							}
 							?></ul><?php
