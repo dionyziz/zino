@@ -62,11 +62,12 @@
                 ?><div id="upstrip"><?php
                     Element( 'banner' );
                 ?></div>
+               
                 <div id="midstrip">
                     <div id="strip1">
-                        <div id="strip1left" class="s1_0013">
+                        <div id="strip1left">
                         </div>
-                        <div id="strip1right" class="s1_0014">
+                        <div id="strip1right">
                         </div>
                     </div>
                     <div id="strip2">
@@ -75,9 +76,9 @@
                         ?></div> 
                     </div>
                     <div id="strip3">
-                        <div id="strip3left" class="s1_0015">
+                        <div id="strip3left">
                         </div>
-                        <div id="strip3right" class="s1_0016">
+                        <div id="strip3right">
                         </div>
                         <div id="strip3middle">
                         </div>
