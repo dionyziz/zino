@@ -116,7 +116,7 @@
 									?><li>
 										<a href="?p=addjournal&amp;id=<?php
 										echo $journal->Id;
-                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
+                                        ?>"><span class="s1_0011">&nbsp;</span>Επεξεργασία
 										</a>
 									</li><?php
 								}
