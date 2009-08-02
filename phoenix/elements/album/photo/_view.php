@@ -361,7 +361,7 @@
                         echo $unames[ $i ]->Name;
                         ?></a><?php
                         if ( $tags[ $i ]->Ownerid == $user->Id || $image->Userid == $user->Id ) {
-                            ?><a class="tag_del" href="" onclick="Tag.del( <?php
+                            ?><a class="s1_0007 tag_del" href="" onclick="Tag.del( <?php
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
