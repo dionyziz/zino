@@ -136,7 +136,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                             <div>
                                 <input type="hidden" name="p" value="join" />
                                 <input id="s2_0011 newusername" type="text" name="username" value="ψευδώνυμο" />
-                                <input id="snewusername" type="submit" value="&nbsp;" />
+                                <input id="s2_0010 snewusername" type="submit" value="&nbsp;" />
                             </div>
                         </form>
                     </div>
