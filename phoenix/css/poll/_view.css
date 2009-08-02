@@ -22,9 +22,6 @@
 	display: inline;
 	font-size: 85%;
 }
-#poview dl dd.time span {
-	padding: 2px 0 2px 17px;
-}
 #poview ul.edit {
 	margin: 25px 0 0 0;
 }
