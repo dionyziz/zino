@@ -14,17 +14,17 @@ var Profile = {
         if ( !this.AntisocialCalled ) {
             return this.AntisocialAddFriend( userid );
         }
-		$( 'div.usidebar div.basicinfo div a' ).parent().fadeOut( 400 , function() {
+		$( 'div.usidebar div.basicinfo div a span.s1_0050' ).parent().fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
-			$( this ).css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
+			$( this ).removeClass( 's1_0050' ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
 			
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 		return false;
 	},
 	DeleteFriend : function( relationid ) {
-		$( 'div.usidebar div.basicinfo div a' ).parent().fadeOut( 400 , function() {
-			$( this ).css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
+		$( 'div.usidebar div.basicinfo div a span.s1_0051' ).parent().fadeOut( 400 , function() {
+			$( this ).removeClass( 's1_0051' ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
 		return false;
