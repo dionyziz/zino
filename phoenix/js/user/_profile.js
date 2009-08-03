@@ -14,7 +14,7 @@ var Profile = {
         if ( !this.AntisocialCalled ) {
             return this.AntisocialAddFriend( userid );
         }
-		$( 'div.usidebar div.basicinfo div a span.s_addfriend' ).parent().fadeOut( 400 , function() {
+		$( 'div.usidebar div.basicinfo div a span.s1_0050' ).parent().fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
 			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
 			
@@ -23,7 +23,7 @@ var Profile = {
 		return false;
 	},
 	DeleteFriend : function( relationid ) {
-		$( 'div.usidebar div.basicinfo div a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
+		$( 'div.usidebar div.basicinfo div a span.s1_0051' ).parent().fadeOut( 400 , function() {
 			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
@@ -41,7 +41,7 @@ var Profile = {
                 return false;
             } )
             .append( text )
-			.find( 'span' ).addClass( 's_addfriend' );
+			.find( 'span' ).addClass( 's1_0050' );
         }
         else {
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
@@ -53,7 +53,7 @@ var Profile = {
                 return false;
             } )
             .append( text )
-			.find( 'span' ).addClass( 's_deletefriend' );
+			.find( 'span' ).addClass( 's1_0051' );
         }
         //if relationstatus is anything else don't do something, user views his own profile
     },
