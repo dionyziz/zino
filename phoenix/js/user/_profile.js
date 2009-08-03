@@ -32,7 +32,6 @@ var Profile = {
     ShowFriendLinks : function( relationstatus , id ) {
     	var text;
         if ( relationstatus ) {
-            text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.usidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )
@@ -40,11 +39,9 @@ var Profile = {
                 Profile.AddFriend( id );
                 return false;
             } )
-            .append( text )
 			.find( 'span' ).addClass( 's1_0050' );
         }
         else {
-            text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.usidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )
@@ -52,7 +49,6 @@ var Profile = {
                 Profile.DeleteFriend( id );
                 return false;
             } )
-            .append( text )
 			.find( 'span' ).addClass( 's1_0051' );
         }
         //if relationstatus is anything else don't do something, user views his own profile
