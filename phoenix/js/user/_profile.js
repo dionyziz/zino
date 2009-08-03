@@ -16,7 +16,8 @@ var Profile = {
         }
 		$( 'div.usidebar div.basicinfo div' ).fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
-			$( this ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
+			$( this ).empty()
+            .append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
 			
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
@@ -24,7 +25,8 @@ var Profile = {
 	},
 	DeleteFriend : function( relationid ) {
 		$( 'div.usidebar div.basicinfo div' ).fadeOut( 400 , function() {
-			$( this ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
+            $( this ).empty()
+            .append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
 		return false;
