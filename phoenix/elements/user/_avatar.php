@@ -12,7 +12,7 @@
             else {
                 $aviesize = $size;
             }
-            ?><span class="vavie<?php
+            ?><span class="rn vavie<?php
                 echo $aviesize;
             ?>">
                 <img src="<?php
