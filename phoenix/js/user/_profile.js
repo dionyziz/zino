@@ -14,7 +14,7 @@ var Profile = {
         if ( !this.AntisocialCalled ) {
             return this.AntisocialAddFriend( userid );
         }
-		$( 'div.usidebar div.basicinfo div' ).fadeOut( 400 , function() {
+		$( 'div.usidebar div.basicinfo div.common' ).fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
 			$( this ).empty()
             .append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
@@ -24,7 +24,7 @@ var Profile = {
 		return false;
 	},
 	DeleteFriend : function( relationid ) {
-		$( 'div.usidebar div.basicinfo div' ).fadeOut( 400 , function() {
+		$( 'div.usidebar div.basicinfo div.common' ).fadeOut( 400 , function() {
             $( this ).empty()
             .append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
