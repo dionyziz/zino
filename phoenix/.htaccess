@@ -60,33 +60,33 @@ RewriteRule ^live$ /index.php?p=recent [L,QSA]
 # api.zino.gr
 # # #
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/user/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/user&user=$1 [L,QSA]
+RewriteRule ^user/([a-zA-Z0-9/_-]+) /api.php?p=api/user&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/status/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/status&user=$1 [L,QSA]
+RewriteRule ^status/([a-zA-Z0-9/_-]+) /api.php?p=api/status&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/avatar/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/avatar&user=$1 [L,QSA]
+RewriteRule ^avatar/([a-zA-Z0-9/_-]+) /api.php?p=api/avatar&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/friends/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/friends&user=$1 [L,QSA]
+RewriteRule ^friends/([a-zA-Z0-9/_-]+) /api.php?p=api/friends&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/journal/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /phoenix/api.php?p=api/friends&user=$1&j=$2 [L,QSA]
+RewriteRule ^journal/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /api.php?p=api/friends&user=$1&j=$2 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/poll/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /phoenix/api.php?p=api/poll&user=$1&j=$2 [L,QSA]
+RewriteRule ^poll/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /api.php?p=api/poll&user=$1&j=$2 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/image/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/image&user=$1&imageid=$2 [L,QSA]
+RewriteRule ^image/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9/_-]+) /api.php?p=api/image&user=$1&imageid=$2 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/album/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/album&user=$1&albumid=$2 [L,QSA]
+RewriteRule ^album/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9/_-]+) /api.php?p=api/album&user=$1&albumid=$2 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/albums/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/albums&user=$1 [L,QSA]
+RewriteRule ^albums/([a-zA-Z0-9/_-]+) /api.php?p=api/albums&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/health /phoenix/api.php?p=api/health [L,QSA]
+RewriteRule ^health /api.php?p=api/health [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/poll/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /phoenix/api.php?p=api/poll&user=$1&poll=$2 [L,QSA]
+RewriteRule ^poll/([a-zA-Z0-9/_-]+)/([a-zA-Z0-9.,:()_-]+) /api.php?p=api/poll&user=$1&poll=$2 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/status/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/status&user=$1 [L,QSA]
+RewriteRule ^status/([a-zA-Z0-9/_-]+) /api.php?p=api/status&user=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/auth/([a-zA-Z0-9/_-]+) /phoenix/api.php?p=api/auth&username=$1 [L,QSA]
+RewriteRule ^auth/([a-zA-Z0-9/_-]+) /api.php?p=api/auth&username=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
-RewriteRule ^phoenix/notifications /phoenix/api.php?p=api/notifications [L,QSA]
+RewriteRule ^notifications /api.php?p=api/notifications [L,QSA]
 
 
 # # #
@@ -96,43 +96,43 @@ RewriteRule ^phoenix/notifications /phoenix/api.php?p=api/notifications [L,QSA]
 # # #
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^(www)?([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/$ /phoenix/index.php?p=user&subdomain=%2 [L,QSA]
+RewriteRule ^$ /index.php?p=user&subdomain=%2 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/albums$ /phoenix/index.php?p=albums&subdomain=%1 [L,QSA]
+RewriteRule ^albums$ /index.php?p=albums&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/polls$ /phoenix/index.php?p=polls&subdomain=%1 [L,QSA]
+RewriteRule ^polls$ /index.php?p=polls&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/journals$ /phoenix/index.php?p=journals&subdomain=%1 [L,QSA]
+RewriteRule ^journals$ /index.php?p=journals&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/favourites$ /phoenix/index.php?p=favourites&subdomain=%1 [L,QSA]
+RewriteRule ^favourites$ /index.php?p=favourites&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/favourites/([a-z]*)$ /phoenix/index.php?p=favourites&subdomain=%1&type=$1 [L,QSA]
+RewriteRule ^favourites/([a-z]*)$ /index.php?p=favourites&subdomain=%1&type=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/space$ /phoenix/index.php?p=space&subdomain=%1 [L,QSA]
+RewriteRule ^space$ /index.php?p=space&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/friends$ /phoenix/index.php?p=friends&subdomain=%1 [L,QSA]
+RewriteRule ^friends$ /index.php?p=friends&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/questions$ /phoenix/index.php?p=answers&subdomain=%1 [L,QSA]
+RewriteRule ^questions$ /index.php?p=answers&subdomain=%1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/journals/([a-zA-Z0-9.,:()_-]+)$ /phoenix/index.php?p=journal&subdomain=%1&url=$1 [L,QSA]
+RewriteRule ^journals/([a-zA-Z0-9.,:()_-]+)$ /index.php?p=journal&subdomain=%1&url=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/polls/([a-zA-Z0-9.,:()_-]+)$ /phoenix/index.php?p=poll&subdomain=%1&url=$1 [L,QSA]
+RewriteRule ^polls/([a-zA-Z0-9.,:()_-]+)$ /index.php?p=poll&subdomain=%1&url=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/albums/([a-zA-Z0-9.,:()_-]+)$ /phoenix/index.php?p=album&subdomain=%1&url=$1 [L,QSA]
+RewriteRule ^albums/([a-zA-Z0-9.,:()_-]+)$ /index.php?p=album&subdomain=%1&url=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/photos$ /phoenix/index.php?p=album&subdomain=%1&url=egw [L,QSA]
+RewriteRule ^photos$ /index.php?p=album&subdomain=%1&url=egw [L,QSA]
 RewriteCond %{SERVER_NAME} !^beta\.zino\.gr
 RewriteCond %{SERVER_NAME} ^([^.]+)\.beta\.zino\.gr
-RewriteRule ^phoenix/do/image/upload2 /phoenix/action.php?p=image/upload2 [L,QSA]
+RewriteRule ^do/image/upload2 /action.php?p=image/upload2 [L,QSA]
