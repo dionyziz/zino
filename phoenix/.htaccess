@@ -1,3 +1,5 @@
+test
+
         RewriteEngine On
         RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
         RewriteRule ^/forgot$ /index.php?p=forgot [L,QSA]
