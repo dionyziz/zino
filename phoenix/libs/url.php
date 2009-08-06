@@ -70,12 +70,7 @@
             'Ώ' => 'W',
             'ς' => 's'
         );
-        static $punctuation = array(
-            ':',
-            '-',
-            '(',
-            ')'
-        );
+        static $punctuation = array();
         $new = '';
         $putUnderscore = false;
         for ( $i = 0; $i < mb_strlen( $string ); ++$i ) {
