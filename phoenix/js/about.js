@@ -37,10 +37,10 @@ var About = {
                     var option = options[ i ].value;
                     
                     if ( option.selected ) {
-                        document.getElementById( 'contact_' + option ).style.display = '';
+                        document.getElementById( 'contact_' + option.value ).style.display = '';
                     }
                     else {
-                        document.getElementById( 'contact_' + option ).style.display = 'none';
+                        document.getElementById( 'contact_' + option.value ).style.display = 'none';
                     }
                 }
             } );
