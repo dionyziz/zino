@@ -34,7 +34,7 @@ var About = {
                 var options = document.getElementById( 'reason' ).options;
                 
                 for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
-                    var option = options[ i ].value;
+                    var option = options[ i ];
                     
                     if ( option.selected ) {
                         document.getElementById( 'contact_' + option.value ).style.display = '';
