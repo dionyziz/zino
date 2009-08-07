@@ -36,7 +36,7 @@
                     <option value="purge">Θέλω να διαγράψω το λογαριασμό μου</option>
                    </select>
                 </div>
-                <div id="contact_support">
+                <div id="contact_support" style="display:none">
                     <div>
                         <label>Σε ποια σελίδα συνέβη το πρόβλημα; (διεύθυνση)</label>
                         <input type="text" name="url" style="width:100%" />
@@ -68,7 +68,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div>
+                    <div id="winversion" style="display:none">
                         <label>Ποια έκδοση των Windows χρησιμοποιείς;</label>
                         <select name="winversion">
                          <option></option>
@@ -82,7 +82,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div>
+                    <div id="linuxdistro" style="display:none">
                         <label>Ποια διανομή του Linux χρησιμοποιείς;</label>
                         <select name="linuxdistro">
                          <option></option>
@@ -113,7 +113,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="ieversion">
+                    <div id="ieversion" style="display:none">
                         <label>Ποια έκδοση του Internet Explorer χρησιμοποιείς;</label>
                         <select name="ieversion">
                          <option></option>
@@ -124,14 +124,53 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="ffversion">
+                    <div id="ffversion" style="display:none">
                         <label>Ποια έκδοση του Mozilla Firefox χρησιμοποιείς;</label>
                         <select name="ffversion">
                          <option></option>
                          <option value="1">Firefox 1</option>
+                         <option value="1.5">Firefox 1.5</option>
                          <option value="2">Firefox 2</option>
                          <option value="3">Firefox 3</option>
                          <option value="3.5">Firefox 3.5</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="operaversion" style="display:none">
+                        <label>Ποια έκδοση του Opera χρησιμοποιείς;</label>
+                        <select name="operaversion">
+                         <option></option>
+                         <option value="8.5">Opera 8.5</option>
+                         <option value="9.0">Opera 9.0</option>
+                         <option value="9.1">Opera 9.1</option>
+                         <option value="9.2">Opera 9.2</option>
+                         <option value="9.5">Opera 9.5</option>
+                         <option value="9.6">Opera 9.6</option>
+                         <option value="10">Opera 10</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="chromeversion" style="display:none">
+                        <label>Ποια έκδοση του Google Chrome χρησιμοποιείς;</label>
+                        <select name="chromeversion">
+                         <option></option>
+                         <option value="1.0">Chrome 1.0</option>
+                         <option value="2.0">Chrome 2.0</option>
+                         <option value="3.0">Chrome 3.0</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="safariversion" style="display:none">
+                        <label>Ποια έκδοση του Safari χρησιμοποιείς;</label>
+                        <select name="safariversion">
+                         <option></option>
+                         <option value="2.0">Safari 2.0</option>
+                         <option value="3.0">Safari 3.0</option>
+                         <option value="3.1">Safari 3.1</option>
+                         <option value="4.0">Safari 4.0</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
