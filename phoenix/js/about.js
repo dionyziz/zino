@@ -123,7 +123,9 @@ var About = {
                 }
                 document.getElementById( 'buglinuxdistro' ).value = linuxdistro;
             }
-            else if ( navigator
+            else if ( navigator.platform.indexOf( 'Mac' ) > -1 ) {
+                os = 'mac';
+            }
             document.getElementById( 'bugos' ).value = os;
         }
     },
