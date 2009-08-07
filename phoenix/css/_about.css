@@ -147,3 +147,9 @@ ul#aboutpeople li.selected img {
 #aboutperson img {
     float: right;
 }
+#aboutcontact input.submit {
+    margin: 20px auto 20px auto;
+    padding: 5px;
+    font-weight: bold;
+    display: block;
+}

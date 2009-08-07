@@ -38,6 +38,14 @@ var About = {
                     
                     if ( option.selected ) {
                         document.getElementById( 'contact_' + option.value ).style.display = '';
+                        switch ( option.value ) {
+                            case '':
+                            case 'purge':
+                                document.getElementById( 'submit' ).style.display = 'none';
+                                break;
+                            default:
+                                document.getElementById( 'submit' ).style.display = '';
+                        }
                     }
                     else {
                         document.getElementById( 'contact_' + option.value ).style.display = 'none';
