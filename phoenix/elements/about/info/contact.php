@@ -58,7 +58,7 @@
                     </div>
                     <div id="computeros">
                         <label>Τι λειτουργικό σύστημα χρησιμοποιείς;</label>
-                        <select name="bugos">
+                        <select name="bugos" id="bugos">
                          <option></option>
                          <option value="windows">Windows</option>
                          <option value="linux">Linux</option>
@@ -68,9 +68,9 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="winversion" style="display:none">
+                    <div id="bug_osinfo_windows" style="display:none">
                         <label>Ποια έκδοση των Windows χρησιμοποιείς;</label>
-                        <select name="bugwinversion">
+                        <select name="bugwinversion" id="bugwinversion">
                          <option></option>
                          <option value="98">Windows 98</option>
                          <option value="me">Windows Millenium</option>
@@ -82,9 +82,9 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="linuxdistro" style="display:none">
+                    <div id="bug_osinfo_linux" style="display:none">
                         <label>Ποια διανομή του Linux χρησιμοποιείς;</label>
-                        <select name="buglinuxdistro">
+                        <select name="buglinuxdistro" id="buglinuxdistro">
                          <option></option>
                          <option value="ubuntu">Ubuntu</option>
                          <option value="opensuse">OpenSUSE</option>
@@ -96,6 +96,17 @@
                          <option value="slackware">Slackware</option>
                          <option value="gentoo">Gentoo</option>
                          <option value="centos">CentOS</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="bug_osinfo_bsd" style="display:none">
+                        <label>Ποια διανομή του BSD χρησιμοποιείς;</label>
+                        <select name="bugbsddistro">
+                         <option></option>
+                         <option value="freebsd">FreeBSD</option>
+                         <option value="openbsd">OpenBSD</option>
+                         <option value="netbsd">NetBSD</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
