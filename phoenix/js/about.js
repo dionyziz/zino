@@ -29,5 +29,23 @@ var About = {
                 return false;
             } );
         }
+        if ( $( '#aboutcontact' ).length ) {
+            $( '#aboutcontact select#reason' ).change( function () {
+                var options = $( '#aboutcontact select#reason' )[ 0 ].options;
+                
+                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                    var option = options[ i ].value;
+                    
+                    if ( option.selected ) {
+                        $( '#contact_' + option ).style.display = '';
+                    }
+                    else {
+                        $( '#contact_' + option ).style.display = 'none';
+                    }
+                }
+            } );
+        }
+    },
+    Contact: function() {
     }
 };
