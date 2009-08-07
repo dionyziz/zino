@@ -6,7 +6,7 @@
             
             $page->SetTitle( 'Επικοινωνία' );
             
-            ?><form>
+            ?><form id="aboutcontact">
                 <div><?php
                     if ( $user->Exists() ) {
                         ?><label>Το ψευδώνυμό σου:</label>
@@ -26,7 +26,7 @@
                </p>
                 <div>
                    <label>Επικοινωνώ επειδή:</label>
-                   <select name="reason">
+                   <select name="reason" id="reason">
                     <option></option>
                     <option value="support">Έχω τεχνικό πρόβλημα στο Zino</option>
                     <option value="feature">Έχω μία ιδέα για το Zino</option>
