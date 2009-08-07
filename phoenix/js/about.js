@@ -31,16 +31,16 @@ var About = {
         }
         if ( $( '#aboutcontact' ).length ) {
             $( '#aboutcontact select#reason' ).change( function () {
-                var options = $( '#aboutcontact select#reason' )[ 0 ].options;
+                var options = document.getElementById( 'reason' ).options;
                 
                 for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
                     var option = options[ i ].value;
                     
                     if ( option.selected ) {
-                        $( '#contact_' + option ).style.display = '';
+                        document.getElementById( 'contact_' + option ).style.display = '';
                     }
                     else {
-                        $( '#contact_' + option ).style.display = 'none';
+                        document.getElementById( 'contact_' + option ).style.display = 'none';
                     }
                 }
             } );
