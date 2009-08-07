@@ -52,7 +52,19 @@ var About = {
                     }
                 }
             } );
-            $( '#aboutcontact select#' ).change( function () {
+            $( '#aboutcontact select#bugos' ).change( function () {
+                var options = document.getElementById( 'bugos' ).options;
+                
+                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                    var option = options[ i ];
+                    
+                    if ( option.selected ) {
+                        $( '#bug_osinfo_' + option.value ).css( { 'display': '' } );
+                    }
+                    else {
+                        $( '#bug_osinfo_' + option.value ).css( { 'display': 'none' } );
+                    }
+                }
             } );
             // try to detect browser and set that as the default for the user in the bug reporting page
             var browser = '';
@@ -81,7 +93,7 @@ var About = {
                 if ( navigator.userAgent.indexOf( 'Windows NT 6.1' ) > -1 ) {
                     winver = '7';
                 }
-                else if ( navigator.userAgent.indexOf( 'Windows NT 6.0' ) > -1 ) ) {
+                else if ( navigator.userAgent.indexOf( 'Windows NT 6.0' ) > -1 ) {
                     winver = 'vista';
                 }
                 else if ( navigator.userAgent.indexOf( 'Windows NT 5.1' ) > -1 
