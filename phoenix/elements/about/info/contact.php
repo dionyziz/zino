@@ -176,7 +176,7 @@
                         </select>
                     </div>
                 </div>
-                <div id="contact_feature">
+                <div id="contact_feature" style="display:none">
                     <p>Ευχαριστούμε που θέλεις να μοιραστείς την ιδέα σου μαζί μας!</p>
                     <div>
                         <label>Τι είναι αυτό που θα σου άρεσε να γίνει στο Zino?</label>
