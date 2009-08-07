@@ -305,7 +305,7 @@
                         πρόβλημα αντιμετώπισες.
                     </p>
                 </div>
-                <input type="submit" value="Αποθήκευση" />
+                <input type="submit" value="Αποστολή" class="submit" id="submit" style="display:none" />
             </form><?php
         }
     }
