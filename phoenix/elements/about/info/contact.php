@@ -102,7 +102,7 @@
                     </div>
                     <div>
                         <label>Ποιο browser χρησιμοποιείς;</label>
-                        <select name="bugbrowser">
+                        <select name="bugbrowser" id="bugbrowser">
                          <option></option>
                          <option value="ie">Internet Explorer</option>
                          <option value="ff">Mozilla Firefox</option>
@@ -115,7 +115,7 @@
                     </div>
                     <div id="ieversion" style="display:none">
                         <label>Ποια έκδοση του Internet Explorer χρησιμοποιείς;</label>
-                        <select name="bugieversion">
+                        <select name="bugieversion" id="bugieversion">
                          <option></option>
                          <option value="6">Internet Explorer 6</option>
                          <option value="7">Internet Explorer 7</option>
@@ -126,7 +126,7 @@
                     </div>
                     <div id="ffversion" style="display:none">
                         <label>Ποια έκδοση του Mozilla Firefox χρησιμοποιείς;</label>
-                        <select name="bugffversion">
+                        <select name="bugffversion" id="bugffversion">
                          <option></option>
                          <option value="1">Firefox 1</option>
                          <option value="1.5">Firefox 1.5</option>
@@ -139,7 +139,7 @@
                     </div>
                     <div id="operaversion" style="display:none">
                         <label>Ποια έκδοση του Opera χρησιμοποιείς;</label>
-                        <select name="bugoperaversion">
+                        <select name="bugoperaversion" id="bugoperaversion">
                          <option></option>
                          <option value="8.5">Opera 8.5</option>
                          <option value="9.0">Opera 9.0</option>
@@ -154,7 +154,7 @@
                     </div>
                     <div id="chromeversion" style="display:none">
                         <label>Ποια έκδοση του Google Chrome χρησιμοποιείς;</label>
-                        <select name="bugchromeversion">
+                        <select name="bugchromeversion" id="bugchromeversion">
                          <option></option>
                          <option value="1.0">Chrome 1.0</option>
                          <option value="2.0">Chrome 2.0</option>
@@ -165,7 +165,7 @@
                     </div>
                     <div id="safariversion" style="display:none">
                         <label>Ποια έκδοση του Safari χρησιμοποιείς;</label>
-                        <select name="bugsafariversion">
+                        <select name="bugsafariversion" id="bugsafariversion">
                          <option></option>
                          <option value="2.0">Safari 2.0</option>
                          <option value="3.0">Safari 3.0</option>
