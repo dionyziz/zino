@@ -46,12 +46,24 @@
                         <textarea cols="70" rows="10" name="description" style="width:100%"></textarea>
                     </div>
                     <div>
+                        <label>Τι συσκευή χρησιμοποιείς;</label>
+                        <select name="device">
+                         <option></option>
+                         <option>Υπολογιστή Desktop</option>
+                         <option>Υπολογιστή Laptop</option>
+                         <option>Palmtop</option>
+                         <option>Κινητό τηλέφωνο</option>
+                         <option>Παιχνιδομηχανή</option>
+                        </select>
+                    </div>
+                    <div id="computeros">
                         <label>Τι λειτουργικό σύστημα χρησιμοποιείς;</label>
                         <select name="os">
                          <option></option>
                          <option value="windows">Windows</option>
                          <option value="linux">Linux</option>
                          <option value="mac">Mac OS</option>
+                         <option value="bsd">BSD</option>
                          <option value="other">Κάποιο άλλο</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
@@ -74,18 +86,18 @@
                         <label>Ποια διανομή του Linux χρησιμοποιείς;</label>
                         <select name="linuxdistro">
                          <option></option>
-                         <option>Ubuntu</option>
-                         <option>OpenSUSE</option>
-                         <option>Fedora</option>
-                         <option>Debian</option>
-                         <option>Mandriva</option>
-                         <option>LinuxMint</option>
-                         <option>PCLinuxOS</option>
-                         <option>Slackware</option>
-                         <option>Gentoo</option>
-                         <option>CentOS</option>
-                         <option>Κάποια άλλη</option>
-                         <option>Δεν ξέρω</option>
+                         <option value="ubuntu">Ubuntu</option>
+                         <option value="opensuse">OpenSUSE</option>
+                         <option value="fedora">Fedora</option>
+                         <option value="debian">Debian</option>
+                         <option value="mandriva">Mandriva</option>
+                         <option value="linuxmint">LinuxMint</option>
+                         <option value="pclinuxos">PCLinuxOS</option>
+                         <option value="slackware">Slackware</option>
+                         <option value="gentoo">Gentoo</option>
+                         <option value="centos">CentOS</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
                     <div>
@@ -98,6 +110,29 @@
                          <option value="opera">Opera</option>
                          <option value="safari">Safari</option>
                          <option value="other">Κάποιο άλλο</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="ieversion">
+                        <label>Ποια έκδοση του Internet Explorer χρησιμοποιείς;</label>
+                        <select name="ieversion">
+                         <option></option>
+                         <option value="6">Internet Explorer 6</option>
+                         <option value="7">Internet Explorer 7</option>
+                         <option value="8">Internet Explorer 8</option>
+                         <option value="other">Κάποια άλλη</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="ffversion">
+                        <label>Ποια έκδοση του Mozilla Firefox χρησιμοποιείς;</label>
+                        <select name="ffversion">
+                         <option></option>
+                         <option value="1">Firefox 1</option>
+                         <option value="2">Firefox 2</option>
+                         <option value="3">Firefox 3</option>
+                         <option value="3.5">Firefox 3.5</option>
+                         <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
