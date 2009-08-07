@@ -66,6 +66,46 @@ var About = {
                     }
                 }
             } );
+            $( '#aboutcontact select#bugdevice' ).change( function () {
+                var options = document.getElementById( 'bugdevice' ).options;
+                
+                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                    var option = options[ i ];
+                    
+                    if ( option.selected ) {
+                        $( '#bug_deviceinfo_' + option.value ).css( { 'display': '' } );
+                    }
+                    else {
+                        $( '#bug_deviceinfo_' + option.value ).css( { 'display': 'none' } );
+                    }
+                }
+                switch ( document.getElementById( 'bugdevice' ).value ) {
+                    case 'computer':
+                        $( '#bugcomputeros' ).change();
+                        break;
+                    default:
+                        var options = document.getElementById( 'bugcomputeros' ).options;
+                        
+                        for ( var i = 1; i < options.length; ++i ) {
+                            $( '#bug_osinfo_' + options[ i ].value ).css( { 'display': 'none' } );
+                        }
+                        break;
+                }
+            } );
+            $( '#aboutcontact select#bugcomputeros' ).change( function () {
+                var options = document.getElementById( 'bugcomputeros' ).options;
+                
+                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                    var option = options[ i ];
+                    
+                    if ( option.selected ) {
+                        $( '#bug_osinfo_' + option.value ).css( { 'display': '' } );
+                    }
+                    else {
+                        $( '#bug_osinfo_' + option.value ).css( { 'display': 'none' } );
+                    }
+                }
+            } );
             // try to detect browser and set that as the default for the user in the bug reporting page
             var browser = '';
             if ( navigator.userAgent.indexOf( "Chrome" ) > -1 ) { // it's Chrome
