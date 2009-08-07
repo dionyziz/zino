@@ -52,8 +52,67 @@ var About = {
                     }
                 }
             } );
+            $( '#aboutcontact select#' ).change( function () {
+            } );
+            // try to detect browser and set that as the default for the user in the bug reporting page
+            var browser = '';
+            if ( navigator.userAgent.indexOf( "Chrome" ) > -1 ) { // it's Chrome
+                browser = 'chrome';
+            }
+            else if ( navigator.userAgent.indexOf( "Firefox" ) > -1 ) { // it's Firefox
+                browser = 'ff';
+            }
+            else if ( navigator.userAgent.indexOf( "MSIE" ) > -1 ) { // it's Internet Explorer
+                browser = 'ie';
+            }
+            else if ( navigator.userAgent.indexOf( "Opera" ) > -1 ) { // it's Opera
+                browser = 'opera';
+            }
+            else if ( navigator.userAgent.indexOf( "Safari" ) > -1 ) { // it's Opera
+                browser = 'safari';
+            }
+            document.getElementById( 'bugbrowser' ).value = browser;
+            
+            // try to detect the OS and set it as default in the bug reporting page
+            var os = '';
+            if ( navigator.platform.indexOf( 'Win' ) > -1 ) {
+                os = 'windows';
+                var winver = '';
+                if ( navigator.userAgent.indexOf( 'Windows NT 6.1' ) > -1 ) {
+                    winver = '7';
+                }
+                else if ( navigator.userAgent.indexOf( 'Windows NT 6.0' ) > -1 ) ) {
+                    winver = 'vista';
+                }
+                else if ( navigator.userAgent.indexOf( 'Windows NT 5.1' ) > -1 
+                          || navigator.userAgent.indexOf( 'Windows XP' ) > -1 ) {
+                    winver = 'xp';
+                }
+                else if ( navigator.userAgent.indexOf( 'Windows NT 5.0' ) > -1 ) {
+                    winver = '2000';
+                }
+                else if ( navigator.userAgent.indexOf( 'Windows ME' ) > -1 
+                          || navigator.userAgent.indexOf( 'Win 9x 4.90' ) > -1 ) {
+                    winver = 'me';
+                }
+                else if ( navigator.userAgent.indexOf( 'Win98' ) > -1 ) {
+                    winver = '98';
+                }
+                document.getElementById( 'bugwinversion' ).value = winver;
+            }
+            else if ( navigator.platform.indexOf( 'Linux' ) > -1 ) {
+                os = 'linux';
+                var linuxdistro = '';
+                if ( navigator.userAgent.indexOf( 'Ubuntu' ) > -1 ) {
+                    linuxdistro = 'ubuntu';
+                }
+                else if ( navigator.userAgent.indexOf( 'Debian' ) > -1 ) {
+                    linuxdistro = 'debian';
+                }
+                document.getElementById( 'buglinuxdistro' ).value = linuxdistro;
+            }
+            else if ( navigator
+            document.getElementById( 'bugos' ).value = os;
         }
     },
-    Contact: function() {
-    }
 };
