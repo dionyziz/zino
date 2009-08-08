@@ -3,16 +3,17 @@ var Banner = {
         Kamibu.ClickableTextbox( 'lusername' , false , '#000' );
         Banner.Lpassword = false;
         Kamibu.ClickableTextbox( 'lpassword' , false , '#000' , '' , function() {
-            $( '#lpassword' ).remove();
-            var newinput = document.createElement( 'input' );
-            $( newinput ).addClass( 's2_0008' ).css( 'margin-left' , '3px' ).attr( 
-                { 
-                type : 'password',
-                name : 'password'
+            $( '#lpassword' ).focus( function() {
+                $( this ).remove();
+                var newinput = document.createElement( 'input' );
+                $( newinput ).addClass( 's2_0008' ).css( 'margin-left' , '3px' ).attr( 
+                    { 
+                    type : 'password',
+                    name : 'password'
+                } );
+                $( "#lusername" ).after( newinput ); 
+                newinput.focus();
             } );
-            $( "#lusername" ).after( newinput ); 
-            newinput.focus();
-
 
         } );
         /*$( "#lpassword" ).focus( function() {
