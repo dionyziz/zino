@@ -13,9 +13,9 @@
                                     <div class="percentagebar" style="width:<?php
                                     echo 24 + round( $option->Percentage * 196 );
                                     ?>px;">
-                                        <div class="s1_0063 leftrounded"></div>
-                                        <div class="s1_0064 rightrounded"></div>
-                                        <div class="middlerounded"></div>
+                                        <div class="s1_0063"></div>
+                                        <div class="s1_0064"></div>
+                                        <div class="sx_0024"></div>
                                     </div>
                                 </div><?php
                                     echo round( $option->Percentage * 100, 0 );
