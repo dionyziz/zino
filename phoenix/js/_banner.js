@@ -1,14 +1,6 @@
 var Banner = {
     OnLoad : function() {
-        Banner.Lusername = false;
         Banner.Lpassword = false;
-        /*$( "#lusername" ).focus( function() {
-            if ( !Banner.Lusername ) {
-                $( this ).css( 'color' , '#000' ).attr( 'value' , '' );
-                Banner.Lusername = true;
-            }
-        } );
-        */
         Kamibu.ClickableTextbox( 'lusername' , false , function() {
                 $( '#lusername' ).focus( function() {
                     $( this ).css( 'color' , '#000' );
