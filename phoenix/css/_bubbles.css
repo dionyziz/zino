@@ -1,11 +1,13 @@
 .bubble {
     position: relative;
-    background: #f6f6f6 url( 'http://static.zino.gr/phoenix/q_top.jpg' ) repeat-x top;
     padding: 10px;
 }
 i.qtop {
     height: 10px;
-
+    border-top: 1px solid #e4e4e4;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 i.tl {
     top: 0;
