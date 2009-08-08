@@ -88,8 +88,6 @@ h3.modaltitle {
 }
 #strip3middle {
     height: 17px;
-    /* content_fade */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -814px;
 }
 #strip3right {
     float: right;

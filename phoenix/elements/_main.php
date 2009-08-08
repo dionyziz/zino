@@ -116,7 +116,7 @@
                         </div>
                         <div id="strip3right" class="s1_0016">
                         </div>
-                        <div id="strip3middle">
+                        <div id="strip3middle" class="sx_0003">
                         </div>
                     </div>
                     </div>    
