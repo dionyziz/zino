@@ -12,6 +12,7 @@ album/photo/list.js
 album/photo/view.js
 album/photo/tag.js
 notification.js
+kamibu.js
 poll/list.js
 poll/view.js
 journal/view.js

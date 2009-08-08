@@ -2,12 +2,14 @@ var Banner = {
     OnLoad : function() {
         Banner.Lusername = false;
         Banner.Lpassword = false;
-        $( "#lusername" ).focus( function() {
+        /*$( "#lusername" ).focus( function() {
             if ( !Banner.Lusername ) {
                 $( this ).css( 'color' , '#000' ).attr( 'value' , '' );
                 Banner.Lusername = true;
             }
         } );
+        */
+        Kamibu.Clickabletextbox( 'lusername' , false );
         $( "#lpassword" ).focus( function() {
             if ( !Banner.Lpassword ) {
                 $( "#lpassword" ).remove();
