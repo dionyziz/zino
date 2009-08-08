@@ -15,7 +15,7 @@
                                     ?>px;">
                                         <div class="s1_0063"></div>
                                         <div class="s1_0064"></div>
-                                        <div class="sx_0024"></div>
+                                        <div class="sx_0004"></div>
                                     </div>
                                 </div><?php
                                     echo round( $option->Percentage * 100, 0 );
