@@ -13,7 +13,7 @@ var Kamibu = {
                     if ( !clicked ) {
                         alert( 'removing value' );
                         clicked = true;
-                        $( this ).attr( 'value' , '' );
+                        $( element ).attr( 'value' , '' );
                     }
             } );
             if ( reshowtext ) {
