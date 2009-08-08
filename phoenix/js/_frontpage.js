@@ -75,7 +75,7 @@ var Frontpage = {
             Frontpage.Comment.MouseOver = false;
             Frontpage.Comment.NextComment();
         } );
-        Kamibu.ClickableTextbox( 'newusername' , false , '#000' );
+        Kamibu.ClickableTextbox( 'newusername' , false , '#000' , '' , function() { } );
         Frontpage.Shoutbox.OnLoad();
 	},
     Shoutbox: {
