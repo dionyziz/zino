@@ -70,7 +70,7 @@
                         <div id="strip1right" class="s1_0014">
                         </div>
                     </div>
-                    <div id="strip2">
+                    <div id="strip2" class="sx_0010">
                         <div id="content"><?php
                             Element( '404' );
                         ?></div> 
@@ -102,7 +102,7 @@
                             </div>
                         </div>
 
-                        <div id="strip2"><?php
+                        <div id="strip2" class="sx_0010"><?php
                 }
 
                 ?><div id="content"><?php

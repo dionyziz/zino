@@ -69,7 +69,7 @@ h3.modaltitle {
     height: 8px;
 }
 #strip2 {
-    background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) repeat-x;
+    background-color: #639dce;
     /* siderfade */
     clear: both;
 }
