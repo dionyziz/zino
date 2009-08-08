@@ -35,7 +35,7 @@
                     <ul class="interesttags hobbies"><?php
                         foreach ( $hobbies as $hobbie ) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
@@ -67,7 +67,7 @@
                     <ul class="interesttags songs"><?php
                         foreach ( $songs as $song ) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $song->Text );
@@ -99,7 +99,7 @@
                     <ul class="interesttags movies"><?php
                         foreach ( $movies as $movie ) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
@@ -131,7 +131,7 @@
                     <ul class="interesttags shows"><?php
                         foreach ( $shows as $show) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $show->Text );
@@ -163,7 +163,7 @@
                     <ul class="interesttags books"><?php
                         foreach ( $books as $book ) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $book->Text );
@@ -195,7 +195,7 @@
                     <ul class="interesttags artists"><?php
                         foreach ( $artists as $artist ) {
 	                        ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
@@ -227,7 +227,7 @@
                     <ul class="interesttags games"><?php
                         foreach ( $games as $game ) {
                             ?><li>
-                                <div class="bbbl">
+                                <div class="sx_0001">
 									<span class="s1_0043 bbblleft">&nbsp;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $game->Text );
@@ -249,7 +249,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bbbl creation">
+            <div class="sx_0001 creation">
 				<span class="s1_0043 bbblleft">&nbsp;</span>
 				<span class="bbblmiddle"></span>
 				<a href="" class="s1_0007">&nbsp;</a>

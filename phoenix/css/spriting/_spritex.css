@@ -1,6 +1,6 @@
 [class^="sx_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/spriting/spritex/spritex_1.png' );
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 }
 .sx_0001 { 
 	background-position: 0 0; 

@@ -93,16 +93,16 @@ i.br {
     padding: 5px;
     font-size: 100%;
 }
-.bbbl {
+.sx_0001 {
     /* aplbubble_repeat */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -892px;
 	height: 19px;
 	margin-right: 10px;
 }
-.bbbl .bbblmiddle {
+.sx_0001 .bbblmiddle {
 	margin: 0 0 0 -7px;
 	vertical-align: -1px;
 }
-.bbbl .s1_0007 {
+.sx_0001 .s1_0007 {
+    margin: 1px 0 0 0;
 	position: absolute;
 }
