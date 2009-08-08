@@ -26,7 +26,9 @@ var Kamibu = {
                     }
                 } );
             }
-            callback();
+            if ( typeof( callback ) == 'function' ) ) {
+                callback();
+            }
         }
 
         return;
