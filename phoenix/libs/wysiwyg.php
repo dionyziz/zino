@@ -118,7 +118,7 @@
             '#\bhttp\://www.youtube.com/watch\?v=([a-zA-Z0-9_-]+)[a-zA-Z0-9./+?=&\(\)_;\#~%-]*\b#',
             '<div class="wysiwyg-youtube-preview">
                 <img src="http://img.youtube.com/vi/\\1/2.jpg" alt="YouTube Video Preview" />
-                <span onclick="WYSIWYG.VideoPlay( \'\\1\', this.parent )"></span>
+                <span onclick="WYSIWYG.VideoPlay( \'\\1\', this.parentNode )"></span>
             </div>',
             $text
         );
