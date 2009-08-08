@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     </div>    
-                    <div id="downstrip" style="position:relative"><?php
+                    <div id="downstrip" class="sx_0002" style="position:relative"><?php
                         Element( 'footer' );
                     ?></div><?php
                 }
