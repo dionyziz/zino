@@ -5,7 +5,7 @@ var Banner = {
         Kamibu.ClickableTextbox( 'lpassword' , false , '#000' , '' , function() {
             $( '#lpassword' ).remove();
             var newinput = document.createElement( 'input' );
-            $( newinput ).addClass( 's2_0008' ).css( 'margin-left' : '3px' ).attr( 
+            $( newinput ).addClass( 's2_0008' ).css( 'margin-left' , '3px' ).attr( 
                 { 
                 type : 'password',
                 name : 'password'
