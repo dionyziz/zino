@@ -132,7 +132,7 @@
                 ?><div class="sx_0008">
                     <div class="s2_0006 planet">
                         <form action="" method="get">
-                            <div>
+                            <div class="s2_0014">
                                 <input type="hidden" name="p" value="join" />
                                 <input id="newusername" class="s2_0005" type="text" name="username" value="ψευδώνυμο" />
                                 <input id="snewusername" class="s2_0009" type="submit" value="&nbsp;" />
