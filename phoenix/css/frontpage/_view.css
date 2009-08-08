@@ -202,8 +202,7 @@
     font-size: 90%;
 }
 #fp_latest div.barfade {
-    margin-top: 10px;
-    padding-bottom: 10px;
+    margin: 10px 0 10px 0;
 }
 #fp_latest div.comments {
     width: 100%;
