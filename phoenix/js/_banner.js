@@ -9,7 +9,7 @@ var Banner = {
             }
         } );
         */
-        Kamibu.Clickabletextbox( 'lusername' , false );
+        Kamibu.ClickableTextbox( 'lusername' , false );
         $( "#lpassword" ).focus( function() {
             if ( !Banner.Lpassword ) {
                 $( "#lpassword" ).remove();
