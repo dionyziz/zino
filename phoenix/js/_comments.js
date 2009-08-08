@@ -131,7 +131,7 @@ var Comments = {
 		}
 		var node = $( "dl dd.commentsnum" );
         var icon = document.createElement( "span" );
-        $( icon ).addClass( 's_commnum' ).css( 'padding-left' , '19px' ).append( document.createTextNode( ' ' ) );
+        $( icon ).addClass( 's1_0027' ).css( 'padding-left' , '19px' ).append( document.createTextNode( ' ' ) );
 		if ( node.length !== 0 ) {
 			var commentsnum = parseInt( node.text(), 10 );
 			commentsnum = (inc)?commentsnum+1:commentsnum-1;
@@ -244,7 +244,20 @@ var Comments = {
     NewCommentOnLoad : function() {
         Comments[ "Changed0" ] = false;
         $( "#newcom div.toolbox" ).hide();
-        $( "#newcom div.text textarea" ).css( "color" , "#666" ).focus( function() {
+        $( "#newcom div.text textarea" ).css( "color" , "#666" );
+        
+        Kamibu.ClickableTextbox( $( "#newcom div.text textarea" )[ 0 ] , '#000' , '#666' , function() {
+            $( "#newcom div.text textarea" ).focus( function() {
+                Comments.typing = true;
+            } ).blur( function() {
+                setTimeout( function() {
+                   Comments.typing = false;
+                   Comments.Page.NextComment();
+                } , 2000 );
+            } );
+
+        } );
+        /*.focus( function() {
             if ( !Comments[ "Changed0" ] ) {
                 this.value = "";
                 $( this ).css( "color" , "#000" );
@@ -265,6 +278,7 @@ var Comments = {
                 Comments.Page.NextComment();
             } , 2000 );
         } );
+        */
     },
     Page : {
         Queue : [],

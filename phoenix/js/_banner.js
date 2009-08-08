@@ -5,7 +5,10 @@ var Banner = {
             $( '#lpassword' ).focus( function() {
                 $( this ).remove();
                 var newinput = document.createElement( 'input' );
-                $( newinput ).addClass( 's2_0008' ).css( 'margin-left' , '3px' ).attr( 
+                $( newinput ).addClass( 's2_0008' ).css( {
+                    'margin-left' : '3px',
+                    'color' : '#000'
+                    } ).attr( 
                     { 
                     type : 'password',
                     name : 'password'
