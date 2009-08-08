@@ -17,7 +17,7 @@
            </div>
            <div id="rbanner" class="s1_0056">
            </div>
-           <div id="mbanner">
+           <div id="mbanner" class="sx_0006">
                 <div<?php
                 if ( $user->Exists() ) {
                     ?> id="loggedinmenu"<?php   
