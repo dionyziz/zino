@@ -9,7 +9,10 @@ var Banner = {
             }
         } );
         */
-        Kamibu.ClickableTextbox( 'lusername' , true , function() {
+        Kamibu.ClickableTextbox( 'lusername' , false , function() {
+                $( '#lusername' ).focus( function() {
+                    $( this ).css( 'color' , '#000' );
+                } );
         } );
         $( "#lpassword" ).focus( function() {
             if ( !Banner.Lpassword ) {
