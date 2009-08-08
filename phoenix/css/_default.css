@@ -25,6 +25,7 @@ div.eof {
 	display: none;
 }
 .barfade {
+	background: #ccc;
     height: 1px;
 }
 .barfade .leftbar {
