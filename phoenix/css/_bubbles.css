@@ -3,6 +3,10 @@
     background: #f6f6f6 url( 'http://static.zino.gr/phoenix/q_top.jpg' ) repeat-x top;
     padding: 10px;
 }
+i.qtop {
+    height: 10px;
+
+}
 i.tl {
     top: 0;
     left: 0;
