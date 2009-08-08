@@ -12,7 +12,7 @@ var Kamibu = {
             $( element ).focus( function() {
                     if ( !clicked ) {
                         clicked = true;
-                        $( element ).attr( 'value' , '' );
+                        element.value = '';
                     }
             } );
             if ( reshowtext ) {
