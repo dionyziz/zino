@@ -12,6 +12,7 @@ var Kamibu = {
             var clicked = false; 
             
             $( element ).focus( function() {
+                    alert( clicked );
                     if ( !clicked ) {
                         clicked = true;
                         $( this ).attr( 'value' , '' );
