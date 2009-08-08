@@ -116,7 +116,10 @@
         );
         $text = preg_replace(
             '#\bhttp\://www.youtube.com/watch\?v=([a-zA-Z0-9_-]+)[a-zA-Z0-9./+?=&\(\)_;\#~%-]*\b#',
-            '<object type="application/x-shockwave-flash" style="width:297px; height:240px;" data="http://www.youtube.com/v/\1"><param name="movie" value="http://www.youtube.com/v/\1" /></object>',
+            '<div class="wysiwyg-youtube-preview">
+                <img src="http://img.youtube.com/vi/\\1/2.jpg" alt="YouTube Video Preview" />
+                <span onclick="WYSIWYG.VideoPlay( \'\\1\', this.parent )"></span>
+            </div>',
             $text
         );
         return $text;
