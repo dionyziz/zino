@@ -89,7 +89,6 @@ var Comments = {
 				} ;
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-        Comments[ "Changed" + nodeid ] = false;
         Kamibu.ClickableTextbox( $( temp ).find( "div.text textarea" )[ 0 ] , true , '#000' , '#666' , function() {
             $( temp ).find( "div.text textarea" ).focus( function() {
                 Comments.typing = true;
@@ -100,30 +99,6 @@ var Comments = {
                 } , 2000 );
             } );
         } );
-        /*$( temp ).find( "div.text textarea" ).focus( function() {
-            if ( !Comments[ "Changed" + nodeid ] ) {
-                this.value = "";
-                $( this ).css( "color" , "#000" );
-                Comments.typing = true;
-            }
-        
-        } ) 
-        .blur( function() {
-            $( "#comment_" + nodeid + " div.text" ).css( "font-weight" , "400" );
-            if ( this.value  === '' ) {
-                this.value = "Πρόσθεσε ένα σχόλιο..."; 
-                $( this ).css( "color" , "#666" );
-                Comments[ "Changed" + nodeid ] = false;
-            }
-            else {
-                Comments[ "Changed" + nodeid ] = true;
-            }
-            setTimeout( function() {
-                Comments.typing = false;
-                Comments.Page.NextComment();
-            } , 2000 );
-        } ).get( 0 ).focus();
-        */
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
@@ -257,28 +232,6 @@ var Comments = {
             } );
 
         } );
-        /*.focus( function() {
-            if ( !Comments[ "Changed0" ] ) {
-                this.value = "";
-                $( this ).css( "color" , "#000" );
-            }
-            Comments.typing = true; 
-        } )
-        .blur( function() {
-            if ( this.value  === '' ) {
-                this.value = "Πρόσθεσε ένα σχόλιο..."; 
-                $( this ).css( "color" , "#666" );
-                Comments[ "Changed0"] = false;
-            }
-            else {
-                Comments[ "Changed0"] = true;
-            }
-            setTimeout( function() {
-                Comments.typing = false;
-                Comments.Page.NextComment();
-            } , 2000 );
-        } );
-        */
     },
     Page : {
         Queue : [],
