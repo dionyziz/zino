@@ -12,7 +12,7 @@
             
             $id = $id->Get();
             
-            $page->AttachScript( 'js/wysiwyg.js' ); // TODO
+            // $page->AttachScript( 'js/wysiwyg.js' ); // TODO
             if ( $id > 0 ) {
                 $journal = New Journal( $id );
                 $page->SetTitle( $journal->Title );
