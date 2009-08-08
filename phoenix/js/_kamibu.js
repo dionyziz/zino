@@ -13,7 +13,7 @@ var Kamibu = {
                     if ( !clicked ) {
                         clicked = true;
                         element.value = '';
-                        $( this ).css( 'color' , aftercolor );
+                        $( element ).css( 'color' , aftercolor );
                     }
             } );
             if ( reshowtext ) {

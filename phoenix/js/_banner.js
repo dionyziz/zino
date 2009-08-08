@@ -1,7 +1,7 @@
 var Banner = {
     OnLoad : function() {
-        Banner.Lpassword = false;
         Kamibu.ClickableTextbox( 'lusername' , false , '#000' );
+        Banner.Lpassword = false;
         $( "#lpassword" ).focus( function() {
             if ( !Banner.Lpassword ) {
                 $( "#lpassword" ).remove();
