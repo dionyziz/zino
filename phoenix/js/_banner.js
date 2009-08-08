@@ -2,7 +2,20 @@ var Banner = {
     OnLoad : function() {
         Kamibu.ClickableTextbox( 'lusername' , false , '#000' );
         Banner.Lpassword = false;
-        $( "#lpassword" ).focus( function() {
+        Kamibu.ClickableTextbox( 'lpassword' , false , '#000' , '' , function() {
+            $( '#lpassword' ).remove();
+            var newinput = document.createElement( 'input' );
+            $( newinput ).addClass( 's2_0008' ).css( 'margin-left' : '3px' ).attr( 
+                { 
+                type : 'password',
+                name : 'password'
+            } );
+            $( "#lusername" ).after( newinput ); 
+            newinput.focus();
+
+
+        } );
+        /*$( "#lpassword" ).focus( function() {
             if ( !Banner.Lpassword ) {
                 $( "#lpassword" ).remove();
                 var newinput = document.createElement( 'input' );
@@ -18,7 +31,7 @@ var Banner = {
                 newinput.focus();
                 Banner.Lpassword = true; 
             }
-
         } );
+        */
     }
 };
