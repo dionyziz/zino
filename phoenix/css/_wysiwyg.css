@@ -61,4 +61,17 @@ form.wysiwyg-control-image-album input {
     top: 5px;
     right: 5px;
 }
-
+.wysiwyg-youtube-preview {
+    position: relative;
+}
+.wysiwyg-youtube-preview span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 90px;
+    opacity: 0.7;
+	background-image: url( 'http://static.zino.gr/phoenix/wysiwyg-play-video.png' );
+	background-position: center center;
+	cursor: pointer;
+}

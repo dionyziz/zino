@@ -1,4 +1,7 @@
 var WYSIWYG = {
+    VideoPlay: function ( id, node ) {
+        node.innerHTML = '<object type="application/x-shockwave-flash" style="width:297px; height:240px;" data="http://www.youtube.com/v/' + id + '&amp;autoplay=1"><param name="movie" value="http://www.youtube.com/v/' + node + '&amp;autoplay=1" /></object>';
+    },
     CurrentTarget: 0,
     Create: function ( where, fieldname, buttons, tabindex ) {
         setTimeout( function () {
