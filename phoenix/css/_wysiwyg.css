@@ -63,6 +63,8 @@ form.wysiwyg-control-image-album input {
 }
 .wysiwyg-youtube-preview {
     position: relative;
+    width: 120px;
+    height: 90px;
 }
 .wysiwyg-youtube-preview span {
     position: absolute;
