@@ -1,5 +1,5 @@
 var Kamibu = {
-    ClickableTextbox : function( element , reshowtext , callback ) {
+    ClickableTextbox : function( element , reshowtext , aftercolor , beforecolor ,  callback ) {
         //element is the input on which the function executes
         //callback is a function that will be executed at the end of the function
         
@@ -13,6 +13,7 @@ var Kamibu = {
                     if ( !clicked ) {
                         clicked = true;
                         element.value = '';
+                        $( this ).css( 'color' , aftercolor );
                     }
             } );
             if ( reshowtext ) {
@@ -21,6 +22,7 @@ var Kamibu = {
                     if ( element.value == '' ) {
                         element.value = text;
                         clicked = false;
+                        $( this ).css( 'color' , beforecolor );
                     }
                 } );
             }
