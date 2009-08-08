@@ -100,8 +100,6 @@ h3.modaltitle {
     text-align: center;
     color: #fff;
     height: 87px;
-    /* footerfade */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -400px;
 }
 div.objectinfo {
     margin: 0 0 0 0px;
