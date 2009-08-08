@@ -80,7 +80,7 @@
                     }
                     ?>>
 					<i class="s1_0042 corner">&nbsp;</i>
-                    <div class="tweet">
+                    <div class="sx_0005 tweet">
                         <div><?php
                         if ( $theuser->Id == $user->Id ) {
                             ?><a href=""><?php
