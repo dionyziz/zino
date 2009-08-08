@@ -8,7 +8,7 @@
             $libs->Load( 'user/count' );
             $libs->Load( 'image/image' );
             
-            ?><div class="usersections">
+            ?><div class="sx_0009 usersections">
                 <ul><?php
                     if ( $theuser->Count->Images > 0 || $theuser->Id == $user->Id ) {
                         ob_start();
