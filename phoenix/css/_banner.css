@@ -13,8 +13,6 @@
     width: 95px;
 }
 #mbanner {
-    /* mbanner */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -743px;
     height: 65px;
 }
 #mbanner > div {
