@@ -36,7 +36,7 @@ i.br {
     display: block;
 }
 .bubble i.qleft {
-    background: url( 'http://static.zino.gr/phoenix/q_left.jpg' ) repeat-y left;
+    border-left: 1px solid #e4e4e4;
     width: 10px;
     display: block;
     position: absolute;
@@ -45,7 +45,7 @@ i.br {
     bottom: 10px;
 }
 .bubble i.qright {
-    background: url( 'http://static.zino.gr/phoenix/q_right.jpg' ) repeat-y left;
+    border-right: 1px solid #e4e4e4;
     width: 10px;
     display: block;
     position: absolute;
