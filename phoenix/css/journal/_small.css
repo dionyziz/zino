@@ -28,9 +28,6 @@ div.jsmall ul li dl {
 div.jsmall ul li dt {
 	display: inline;
 }
-div.jsmall ul li dl dt.commentsnum {
-	vertical-align: 3px;
-}
 div.jsmall ul li dl dt.commentsnum a {
 	font-size: 85%;
 }
