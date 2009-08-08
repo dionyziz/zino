@@ -54,7 +54,6 @@ i.br {
     bottom: 10px;
 }
 .bubble i.qbottom {
-    /* q_bottom */
     display: block;
     position: absolute;
     height: 10px;
