@@ -159,7 +159,7 @@
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>
                         <div class="eof"></div>
-                        <div class="commfading"></div>
+                        <div class="sx_0007"></div>
                         <div class="barfade">
                                 <div class="s1_0070 leftbar"></div>
                                 <div class="s1_0071 rightbar"></div>

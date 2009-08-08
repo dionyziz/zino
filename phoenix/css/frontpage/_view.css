@@ -206,10 +206,8 @@
     overflow: hidden;
     height: 780px;
 }
-.commfading {
+.sx_0007 {
     height: 24px;
-    /* frontpagecommfade */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -995px;
     margin-top: -20px;
     position: relative;
 }
