@@ -1,6 +1,7 @@
 .bubble {
     position: relative;
     padding: 10px;
+    background-color: #f6f6f6;
 }
 i.qtop {
     height: 10px;
