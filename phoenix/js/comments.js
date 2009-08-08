@@ -90,7 +90,6 @@ var Comments = {
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
         Comments[ "Changed" + nodeid ] = false;
-        Kamibu.ClickableTextbox( $( temp ).find( "div.text textarea" )[ 0 ] , true
         $( temp ).find( "div.text textarea" ).focus( function() {
             if ( !Comments[ "Changed" + nodeid ] ) {
                 this.value = "";
