@@ -4,15 +4,12 @@ var Kamibu = {
         //callback is a function that will be executed at the end of the function
         
         if ( typeof( element ) == 'string' ) {
-            alert( 'element is string' );
             element = $( '#' + element )[ 0 ];
         }
         if ( element.nodeType == 1 ) {
-            alert( 'element is element' );
             var clicked = false; 
             
             $( element ).focus( function() {
-                    alert( clicked );
                     if ( !clicked ) {
                         clicked = true;
                         $( this ).attr( 'value' , '' );
