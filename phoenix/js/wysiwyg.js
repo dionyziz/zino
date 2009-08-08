@@ -1,8 +1,8 @@
 var WYSIWYG = {
     VideoPlay: function ( id, node ) {
-        node.innerHTML = '<object type="application/x-shockwave-flash" style="width:297px; height:240px;" data="http://www.youtube.com/v/' + id + '&amp;autoplay=1"><param name="movie" value="http://www.youtube.com/v/' + node + '&amp;autoplay=1" /></object>';
-		node.style.height = '240px';
-		node.style.width = '297px';
+        node.innerHTML = '<object type="application/x-shockwave-flash" style="width:425px; height:344px;" data="http://www.youtube.com/v/' + id + '&amp;autoplay=1"><param name="movie" value="http://www.youtube.com/v/' + node + '&amp;autoplay=1" /></object>';
+		node.style.height = '425px';
+		node.style.width = '344px';
 		node.style.backgroundColor = 'black';
     },
     CurrentTarget: 0,
