@@ -38,6 +38,7 @@
             }
             ?><div class="join">
                 <div class="bubble">
+                    <i class="qtop" />
                     <i class="s2_0010 tl"></i><i class="s2_0011 tr"></i>
                     <h2>Γίνε μέλος!</h2>
                     <form class="joinform">
