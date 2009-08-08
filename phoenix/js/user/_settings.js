@@ -55,7 +55,7 @@ var Settings = {
 	},
 	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
-		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
+		var intervalue = $( '#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( $.trim( intervalue ) !== '' ) {
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
@@ -411,7 +411,7 @@ var Settings = {
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
         var interesttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
 		for( var i in interesttagtypes ) {
-			$( 'form#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
+			$( '#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
 				return function() {
 					Settings.AddInterest( interesttagtypes[ i ] , Suggest.type2int( interesttagtypes[ i ] ) );
 					$( 'div.' + interesttagtypes[ i ] + ' ul' ).hide();
