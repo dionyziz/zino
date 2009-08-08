@@ -78,19 +78,19 @@
 .members {
 	z-index: 999;
 }
-.frontpagejoin {
+.sx_0008 {
     /* joinfade */
     background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -493px;
     height: 244px;
     margin: 0 -12px 0 -7px;
 }
-.frontpagejoin > div.planet {
+.sx_0008 > div.planet {
     height: 236px;
     width: 550px;
     margin: 0 auto;
     position: relative;
 }
-.frontpagejoin > div.planet > form > div {
+.sx_0008 > div.planet > form > div {
     position: absolute;
     top: 136px;
     left: 240px;

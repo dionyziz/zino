@@ -129,7 +129,7 @@
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             if ( !$user->Exists() ) {
-                ?><div class="frontpagejoin">
+                ?><div class="sx_0008">
                     <div class="s2_0006 planet">
                         <form action="" method="get">
                             <div>
