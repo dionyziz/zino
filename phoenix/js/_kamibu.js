@@ -10,10 +10,10 @@ var Kamibu = {
             var clicked = false; 
             
             $( element ).focus( function() {
-                    if ( !clicked ) {
+                    //if ( !clicked ) {
                         clicked = true;
                         $( this ).attr( 'value' , '' );
-                    }
+                   // }
             } );
             if ( reshowtext ) {
                 var text = element.value;
