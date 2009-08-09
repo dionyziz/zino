@@ -33,8 +33,5 @@ var Kamibu = {
         }
 
         return;
-    },
-	ErrorHandler: function( e ){
-		
-	}
+    }
 }
