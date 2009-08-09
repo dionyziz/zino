@@ -111,14 +111,18 @@ var WYSIWYG = {
         return function () {
             var vid = $( '.wysiwyg-control-video' )[ 0 ].cloneNode( true );
             Modals.Create( vid, 500, 150 );
-            $( vid ).find( 'input' )[ 0 ].focus();
+            setTimeout( function () {
+                $( vid ).find( 'input' )[ 0 ].focus();
+            }, 20 );
         };
     },
     CommandImage: function ( target ) {
         return function () {
             var pic = $( '.wysiwyg-control-image-start' )[ 0 ].cloneNode( true );
             Modals.Create( pic, 500, 250 );
-            $( pic ).find( 'input' )[ 0 ].focus();
+            setTimeout( function () {
+                $( pic ).find( 'input' )[ 0 ].focus();
+            }, 20 );
         };
     },
     CommandLink: function ( target ) {
