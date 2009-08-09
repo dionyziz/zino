@@ -150,10 +150,10 @@
         
 		$libs->load( 'rabbit/helpers/email' );
 
-        $subject = "Zino: " . $title;
-        if ( $user->exists() ) {
-            $text = "This user is logged in: http://" . $user->subdomain . ".zino.gr/\n\n" . $text;
-            $from = $user->subdomain . "@users.zino.gr";
+        $subject = "[Zino-contact] " . $title;
+        if ( $user->Exists() ) {
+            $text = "This user is logged in: http://" . $user->Subdomain . ".zino.gr/\n\n" . $text;
+            $from = $user->Subdomain . "@users.zino.gr";
         }
         else {
             $from = $email;
