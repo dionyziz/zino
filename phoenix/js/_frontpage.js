@@ -168,15 +168,13 @@ var Frontpage = {
                     Frontpage.Shoutbox.TypingUpdated = false;
                 }, 10000 );
                 Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request
-            } ).change( q );
-            Kamibu.ClickableTextbox( 'shoutbox_text' , false , '#000' );
-            /*.focus( function() {
+            } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].style.color = '#000';
                 }
             } ).blur( function () {
-                // q();
+                q();
                 if ( textarea[ 0 ].value === '' ) {
                     textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
                     textarea[ 0 ].style.color = '#666';
@@ -186,12 +184,7 @@ var Frontpage = {
                     Frontpage.Shoutbox.Changed = true;
                 }
             } ).blur();
-            /*Kamibu.ClickableTextbox( textarea , true , '#000' , '#666' , function() {
-                /*$( textarea ).blur( function() {
-                    q();
-                } );
-            } );
-            */
+           
             if ( textarea[ 0 ] ) {
                 textarea[ 0 ].disabled = false;
             }
