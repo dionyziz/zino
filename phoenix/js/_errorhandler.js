@@ -1,3 +1,3 @@
 window.onerror = function( msg, url, linenumber ){
-	alert( "msg = " + "/n url = " + url + "/n line = " + linenumber );
+	alert( "msg = " + msg + "/n url = " + url + "/n line = " + linenumber );
 };
