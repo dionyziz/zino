@@ -1,5 +1,3 @@
-$( function(){
-	window.onerror = function( e ){
-		alert( e );
-	}
-});
+window.onerror = function( e ){
+	alert( e );
+}
