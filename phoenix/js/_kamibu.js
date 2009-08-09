@@ -2,7 +2,6 @@ var Kamibu = {
     ClickableTextbox : function( element , reshowtext , aftercolor , beforecolor ,  callback ) {
         //element is the input on which the function executes
         //callback is a function that will be executed at the end of the function
-        alert( 'called' ); 
         if ( typeof( element ) == 'string' ) {
             element = document.getElementById( element );
         }
