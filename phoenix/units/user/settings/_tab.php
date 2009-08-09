@@ -3,7 +3,7 @@
 	Masked by: Rhapsody
 	Reason: new ajax loading tabs for settings testing
 */
-	function UnitUserSettingsTab( tString $tab, tCoalaPointer $f ) {
+	function UnitUserSettingsTab( tString $tab ) {
 		ob_start();
 		switch( $tab ) {
 			case 'personal':
