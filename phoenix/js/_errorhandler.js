@@ -4,7 +4,6 @@ window.onerror = function( msg, url, linenumber ){
 			'url': url,
 			'linenumber': linenumber
 		} );
-		alert( 'coala sent' );
+	alert( 'coala sent' );
 	return false;
-	);
 };
