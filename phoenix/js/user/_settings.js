@@ -246,23 +246,7 @@ var Settings = {
             Settings.Enqueue( 'drinker' , this.value );
         });
         
-        /*$( '#slogan input' ).change( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'slogan' , text );
-        }).keyup( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'slogan' , text );
-            if ( Settings.slogan ) {
-                Settings.slogan = this.value;
-            }
-        });
-        */ 
+        Settings.ControlInput( 'slogan' );
         $( '#aboutme textarea' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -281,7 +265,6 @@ var Settings = {
                 }
             }
         } );
-        Settings.ControlInput( 'slogan' );
         $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -354,74 +337,6 @@ var Settings = {
                 Settings.msn = this.value;
             }
         });
-        
-        /*$( '#gtalk input' ).change( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'gtalk' , text );
-        }).keyup( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'gtalk' , text );
-            if ( Settings.gtalk ) {
-                Settings.gtalk = this.value;
-            }
-        });
-        
-        $( '#skype input' ).change( function() { var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'skype' , text );
-        }).keyup( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'skype' , text );
-            if ( Settings.skype ) {
-                Settings.skype = this.value;
-            }
-        });
-        
-        $( '#yahoo input' ).change( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'yahoo' , text );
-        }).keyup( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'yahoo' , text );
-            if ( Settings.yahoo ) {
-                Settings.yahoo = this.value;
-            }
-        });
-        
-        $( '#web input' ).change( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'web' , text );
-        }).keyup( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
-                text = '-1';
-            }
-            Settings.Enqueue( 'web' , text );
-            if ( Settings.skype ) {
-                Settings.skype = this.value;
-            }
-        });
-        */
         Settings.ControlInput( 'gtalk' );
         Settings.ControlInput( 'skype' );
         Settings.ControlInput( 'yahoo' );
