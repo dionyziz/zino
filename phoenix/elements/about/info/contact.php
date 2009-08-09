@@ -149,7 +149,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="bug_browsersinfo_ie" style="display:none">
+                    <div id="bug_browserinfo_ie" style="display:none">
                         <label>Ποια έκδοση του Internet Explorer χρησιμοποιείς;</label>
                         <select name="bugieversion" id="bugieversion">
                          <option></option>
