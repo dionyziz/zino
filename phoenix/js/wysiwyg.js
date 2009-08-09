@@ -109,12 +109,16 @@ var WYSIWYG = {
     },
     CommandVideo: function ( target ) {
         return function () {
-            Modals.Create( $( '.wysiwyg-control-video' )[ 0 ].cloneNode( true ), 500, 150 );
+            var vid = $( '.wysiwyg-control-video' )[ 0 ].cloneNode( true );
+            Modals.Create( vid, 500, 150 );
+            $( vid ).find( 'input' )[ 0 ].focus();
         };
     },
     CommandImage: function ( target ) {
         return function () {
-            Modals.Create( $( '.wysiwyg-control-image-start' )[ 0 ].cloneNode( true ), 500, 250 );
+            var pic = $( '.wysiwyg-control-image-start' )[ 0 ].cloneNode( true );
+            Modals.Create( pic, 500, 250 );
+            $( pic ).find( 'input' )[ 0 ].focus();
         };
     },
     CommandLink: function ( target ) {
