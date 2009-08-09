@@ -156,6 +156,7 @@ ul#aboutpeople li.selected img {
 #aboutcontact #bugbrowser {
     background-repeat: no-repeat;
     padding: 2px 0 2px 20px;
+    background-position: 4px 4px;
 }
 #aboutcontact #bugbrowser option {
     background-repeat: no-repeat;
