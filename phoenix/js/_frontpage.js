@@ -174,7 +174,6 @@ var Frontpage = {
                     textarea[ 0 ].style.color = '#000';
                 }
             } ).blur( function () {
-                q();
                 if ( textarea[ 0 ].value === '' ) {
                     textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
                     textarea[ 0 ].style.color = '#666';
