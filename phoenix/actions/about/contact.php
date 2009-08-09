@@ -152,7 +152,7 @@
 
         $subject = "Zino: " . $title;
         if ( $user->exists() ) {
-            $text = "This user is logged in: http://" . $user->subdomain . ".zino.gr/\n\n";
+            $text = "This user is logged in: http://" . $user->subdomain . ".zino.gr/\n\n" . $text;
             $from = $user->subdomain . "@users.zino.gr";
         }
         else {
