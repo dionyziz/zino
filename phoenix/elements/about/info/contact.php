@@ -1,11 +1,18 @@
 <?php
     class ElementAboutInfoContact extends Element {
-        public function Render() {
+        public function Render( $status ) {
             global $page;
             global $user;
             
             $page->SetTitle( 'Επικοινωνία' );
             
+            if ( $status ) { // sent
+                ?><h2>Ευχαριστούμε!</h2>
+
+                <p>Ευχαριστούμε που αφιέρωσες το χρόνο να επικοινωνήσεις μαζί μας. Θα διαβάσουμε το μήνυμά σου προσεκτικά.</p><?php
+                return;
+            }
+
             ?><form id="aboutcontact">
                 <div><?php
                     if ( $user->Exists() ) {
@@ -246,13 +253,13 @@
                         <label>Τι είδους παραβίαση των όρων χρήσης έγινε;</label>
                         <select name="abusetype">
                             <option></option>
-                            <option name="porn">Πορνογραφικό υλικό</option>
-                            <option name="imitation">Χρήση φωτογραφίας μου χωρίς να το θέλω</option>
-                            <option name="fake">Fake λογαριασμός</option>
-                            <option name="spam">Spam</option>
-                            <option name="racism">Ρατσιστικό περιεχόμενο</option>
-                            <option name="copyright">Παραβίαση πνευματικών δικαιωμάτων</option>
-                            <option name="drugs">Απαγορευμένες ουσίες</option>
+                            <option value="porn">Πορνογραφικό υλικό</option>
+                            <option value="imitation">Χρήση φωτογραφίας μου χωρίς να το θέλω</option>
+                            <option value="fake">Fake λογαριασμός</option>
+                            <option value="spam">Spam</option>
+                            <option value="racism">Ρατσιστικό περιεχόμενο</option>
+                            <option value="copyright">Παραβίαση πνευματικών δικαιωμάτων</option>
+                            <option value="drugs">Απαγορευμένες ουσίες</option>
                         </select>
                     </div>
                     <div>
