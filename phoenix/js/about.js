@@ -199,6 +199,24 @@ var About = {
             }
             else if ( navigator.userAgent.indexOf( "Safari" ) > -1 ) { // it's Opera
                 browser = 'safari';
+
+                var safariversion = '';
+                if ( navigator.userAgent.indexOf( 'Version/4' ) > -1 ) {
+                    safariversion = '4';
+                }
+                else if ( navigator.userAgent.indexOf( 'Version/3.2' ) > -1 ) {
+                    safariversion = '3.1';
+                }
+                else if ( navigator.userAgent.indexOf( 'Version/3.1' ) > -1 ) {
+                    safariversion = '3.1';
+                }
+                else if ( navigator.userAgent.indexOf( 'Version/3' ) > -1 ) {
+                    safariversion = '3';
+                }
+                else if ( navigator.userAgent.indexOf( 'Version/2' ) > -1 ) {
+                    safariversion = '2';
+                }
+                $( '#bugsafariversion' )[ 0 ].value = safariversion;
             }
             document.getElementById( 'bugbrowser' ).value = browser;
             $( '#bugbrowser' ).change();

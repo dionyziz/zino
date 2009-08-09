@@ -203,10 +203,11 @@
                         <label>Ποια έκδοση του Safari χρησιμοποιείς;</label>
                         <select name="bugsafariversion" id="bugsafariversion">
                          <option></option>
-                         <option value="2.0">Safari 2.0</option>
-                         <option value="3.0">Safari 3.0</option>
+                         <option value="2">Safari 2.0</option>
+                         <option value="3">Safari 3.0</option>
                          <option value="3.1">Safari 3.1</option>
-                         <option value="4.0">Safari 4.0</option>
+                         <option value="3.2">Safari 3.2</option>
+                         <option value="4">Safari 4.0</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
