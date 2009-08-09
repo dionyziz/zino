@@ -1,4 +1,10 @@
 <?php
+/*
+	Masked by: Rhapsody
+	Reason: new ajax loading tabs for settings testing
+			replacing &nbsp; with &#160;
+	STOP! was masked
+*/
     class ElementUserSettingsInterests extends Element {
         public function Render() {
             global $rabbit_settings;
@@ -36,14 +42,14 @@
                         foreach ( $hobbies as $hobbie ) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -68,14 +74,14 @@
                         foreach ( $songs as $song ) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -100,14 +106,14 @@
                         foreach ( $movies as $movie ) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -132,14 +138,14 @@
                         foreach ( $shows as $show) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -164,14 +170,14 @@
                         foreach ( $books as $book ) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -196,14 +202,14 @@
                         foreach ( $artists as $artist ) {
 	                        ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -228,14 +234,14 @@
                         foreach ( $games as $game ) {
                             ?><li>
                                 <div class="sx_0001">
-									<span class="s1_0043 bbblleft">&nbsp;</span>
+									<span class="s1_0043 bbblleft">&#160;</span>
                                     <span class="bbblmiddle"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
 									<a href="" onclick="return Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );" class="s1_0007">&nbsp;</a>
-                                    <span class="s1_0044 bbblright">&nbsp;</span>
+                                    ?>' , this );" class="s1_0007">&#160;</a>
+                                    <span class="s1_0044 bbblright">&#160;</span>
                                 </div>
                             </li><?php
                         }
@@ -250,10 +256,10 @@
                 </div>
             </div>
             <div class="sx_0001 creation">
-				<span class="s1_0043 bbblleft">&nbsp;</span>
+				<span class="s1_0043 bbblleft">&#160;</span>
 				<span class="bbblmiddle"></span>
-				<a href="" class="s1_0007">&nbsp;</a>
-				<span class="s1_0044 bbblright">&nbsp;</span>
+				<a href="" class="s1_0007">&#160;</a>
+				<span class="s1_0044 bbblright">&#160;</span>
             </div><?php
         }
     }

@@ -1,5 +1,10 @@
 <?php
-
+/*
+	Masked by: Rhapsody
+	Reason: new ajax loading tabs for settings testing
+			replacing &nbsp; with &#160;
+	STOP! was masked
+*/
     class ElementUserSettingsPersonalView extends Element {
         public function Render() {
             global $water;
@@ -14,7 +19,7 @@
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth"><?php
                     Element( 'user/settings/personal/dob' );
-                ?><span class="invaliddob"><span class="s_invalid">&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη
+                ?><span class="invaliddob"><span class="s_invalid">&#160;</span>Η ημερομηνία δεν είναι έγκυρη
                 </span>
                 </div>
             </div>

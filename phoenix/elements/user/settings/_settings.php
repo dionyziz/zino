@@ -1,4 +1,10 @@
 <?php
+/*
+	Masked by: Rhapsody
+	Reason: new ajax loading tabs for settings testing
+			replacing &nbsp; with &#160;
+	STOP! was masked
+*/
     class ElementUserSettingsSettings extends Element {
         public function Render() {
             global $rabbit_settings;
@@ -11,7 +17,7 @@
                     echo htmlspecialchars( $user->Profile->Email );
                     ?>" />
                     <span>
-                       <span class="s_invalid">&nbsp;</span>Το email δεν είναι έγκυρο
+                       <span class="s_invalid">&#160;</span>Το email δεν είναι έγκυρο
                     </span>
                     <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
                 </div>
