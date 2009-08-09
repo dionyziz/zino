@@ -192,9 +192,9 @@
                         <label>Ποια έκδοση του Google Chrome χρησιμοποιείς;</label>
                         <select name="bugchromeversion" id="bugchromeversion">
                          <option></option>
-                         <option value="1.0">Chrome 1.0</option>
-                         <option value="2.0">Chrome 2.0</option>
-                         <option value="3.0">Chrome 3.0</option>
+                         <option value="1">Chrome 1.0</option>
+                         <option value="2">Chrome 2.0</option>
+                         <option value="3">Chrome 3.0</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>

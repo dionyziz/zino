@@ -124,6 +124,15 @@ var About = {
             var browser = '';
             if ( navigator.userAgent.indexOf( "Chrome" ) > -1 ) { // it's Chrome
                 browser = 'chrome';
+                if ( navigator.userAgent.indexOf( 'Chrome/1' > -1 ) { // Chrome 1.0
+                    $( 'bugchromeversion' )[ 0 ].value = '1';
+                }
+                else if ( navigator.userAgent.indexOf( 'Chrome/2' > -1 ) { // Chrome 2.0
+                    $( 'bugchromeversion' )[ 0 ].value = '2';
+                }
+                else if ( navigator.userAgent.indexOf( 'Chrome/3' > -1 ) { // Chrome 3.0
+                    $( 'bugchromeversion' )[ 0 ].value = '3';
+                }
             }
             else if ( navigator.userAgent.indexOf( "Firefox" ) > -1 ) { // it's Firefox
                 browser = 'ff';
