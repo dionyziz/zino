@@ -120,7 +120,7 @@ var Settings = {
 		}
 	},
     ControlInput : function( id ) {
-        $( '#' + id + ' input' ).change( function() {
+        $( id ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -283,8 +283,8 @@ var Settings = {
             }
         } );
         */ 
-        Settings.ControlInput( 'slogan' );
-        Settings.ControlInput( 'aboutme' );
+        Settings.ControlInput( '#slogan input' );
+        Settings.ControlInput( '#aboutme textarea' );
         $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
