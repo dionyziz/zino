@@ -1,5 +1,6 @@
 <?php
 	function UnitErrorhandler( tText $msg, tText $url, tInteger $linenumber ){
+		global $libs;
 		$libs->Load( 'rabbit/helpers/email' );
 		global $user;
 		$toname = "team";
