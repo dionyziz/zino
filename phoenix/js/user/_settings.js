@@ -132,8 +132,8 @@ var Settings = {
                 text = '-1';
             }
             Settings.Enqueue( id , text );
-            if ( Settings.slogan ) {
-                Settings.slogan = this.value;
+            if ( Settings[ id ] ) {
+                Settings[ id ] = this.value;
             }
         });
     },
