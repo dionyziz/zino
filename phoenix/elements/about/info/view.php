@@ -17,6 +17,7 @@
             
             $page->AttachInlineScript( 'About.OnLoad();' );
             $section = $section->Get();
+            $status = $status->Get();
             if ( !isset( $sections[ $section ] ) ) {
                 $section = 'summary';
             }
