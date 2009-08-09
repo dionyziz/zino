@@ -173,7 +173,8 @@ var About = {
             else if ( navigator.userAgent.indexOf( "Opera" ) > -1 ) { // it's Opera
                 browser = 'opera';
                 var operaversion = '';
-                if ( navigator.userAgent.indexOf( 'Opera/10' ) > -1 ) {
+                if (    navigator.userAgent.indexOf( 'Opera/10' ) > -1
+                     || navigator.userAgent.indexOf( 'Opera/9.8' ) > -1 ) {
                     operaversion = '10';
                 }
                 else if ( navigator.userAgent.indexOf( 'Opera/9.6' ) > -1 ) {
@@ -189,7 +190,7 @@ var About = {
                     operaversion = '9.6';
                 }
                 else if ( navigator.userAgent.indexOf( 'Opera/9' ) > -1 ) {
-                    operaversion = '9.0';
+                    operaversion = '9';
                 }
                 else if ( navigator.userAgent.indexOf( 'Opera/8' ) > -1 ) {
                     operaversion = '8.5';
