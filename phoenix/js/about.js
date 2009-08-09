@@ -241,18 +241,18 @@ var About = {
                     winver = '7';
                 }
                 else if ( navigator.userAgent.indexOf( 'Windows NT 6.0' ) > -1 ) {
-                    winver = 'vista';
+                    winver = 'Vista';
                 }
                 else if ( navigator.userAgent.indexOf( 'Windows NT 5.1' ) > -1 
                           || navigator.userAgent.indexOf( 'Windows XP' ) > -1 ) {
-                    winver = 'xp';
+                    winver = 'XP';
                 }
                 else if ( navigator.userAgent.indexOf( 'Windows NT 5.0' ) > -1 ) {
                     winver = '2000';
                 }
                 else if ( navigator.userAgent.indexOf( 'Windows ME' ) > -1 
                           || navigator.userAgent.indexOf( 'Win 9x 4.90' ) > -1 ) {
-                    winver = 'me';
+                    winver = 'Me';
                 }
                 else if ( navigator.userAgent.indexOf( 'Win98' ) > -1 ) {
                     winver = '98';
@@ -263,13 +263,13 @@ var About = {
                 os = 'linux';
                 var linuxdistro = '';
                 if ( navigator.userAgent.indexOf( 'Ubuntu' ) > -1 ) {
-                    linuxdistro = 'ubuntu';
+                    linuxdistro = 'Ubuntu';
                 }
                 else if ( navigator.userAgent.indexOf( 'Debian' ) > -1 ) {
-                    linuxdistro = 'debian';
+                    linuxdistro = 'Debian';
                 }
                 else if ( navigator.userAgent.indexOf( 'Gentoo' ) > -1 ) {
-                    linuxdistro = 'gentoo';
+                    linuxdistro = 'Gentoo';
                 }
                 document.getElementById( 'buglinuxdistro' ).value = linuxdistro;
             }
