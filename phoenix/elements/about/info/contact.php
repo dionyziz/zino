@@ -178,7 +178,7 @@
                         <select name="bugoperaversion" id="bugoperaversion">
                          <option></option>
                          <option value="8.5">Opera 8.5</option>
-                         <option value="9.0">Opera 9.0</option>
+                         <option value="9">Opera 9.0</option>
                          <option value="9.1">Opera 9.1</option>
                          <option value="9.2">Opera 9.2</option>
                          <option value="9.5">Opera 9.5</option>

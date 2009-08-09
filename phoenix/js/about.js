@@ -172,6 +172,29 @@ var About = {
             }
             else if ( navigator.userAgent.indexOf( "Opera" ) > -1 ) { // it's Opera
                 browser = 'opera';
+                var operaversion = '';
+                if ( navigator.userAgent.indexOf( 'Opera/10' ) > -1 ) {
+                    operaversion = '10';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/9.6' ) > -1 ) {
+                    operaversion = '9.6';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/9.5' ) > -1 ) {
+                    operaversion = '9.6';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/9.2' ) > -1 ) {
+                    operaversion = '9.6';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/9.1' ) > -1 ) {
+                    operaversion = '9.6';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/9' ) > -1 ) {
+                    operaversion = '9.0';
+                }
+                else if ( navigator.userAgent.indexOf( 'Opera/8' ) > -1 ) {
+                    operaversion = '8.5';
+                }
+                $( '#bugoperaversion' )[ 0 ].value = operaversion;
             }
             else if ( navigator.userAgent.indexOf( "Safari" ) > -1 ) { // it's Opera
                 browser = 'safari';
