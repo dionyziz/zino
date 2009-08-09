@@ -140,11 +140,11 @@
                         <label>Ποιο browser χρησιμοποιείς;</label>
                         <select name="bugbrowser" id="bugbrowser">
                          <option></option>
-                         <option value="ie">Internet Explorer</option>
-                         <option value="ff" style="background-image: url('http://www.noonnoo.com/downloads/browsers/mfirefox(16x16).png'; padding-left: 18px">Mozilla Firefox</option>
-                         <option value="chrome">Google Chrome</option>
-                         <option value="opera">Opera</option>
-                         <option value="safari">Safari</option>
+                         <option class="ie" value="ie">Internet Explorer</option>
+                         <option class="ff" value="ff" style="">Mozilla Firefox</option>
+                         <option class="chrome" value="chrome">Google Chrome</option>
+                         <option class="opera" value="opera">Opera</option>
+                         <option class="safari" value="safari">Safari</option>
                          <option value="other">Κάποιο άλλο</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>

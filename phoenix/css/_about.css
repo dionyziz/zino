@@ -153,3 +153,23 @@ ul#aboutpeople li.selected img {
     font-weight: bold;
     display: block;
 }
+#aboutcontact #bugbrowser option {
+    background-repeat: no-repeat;
+    padding-left: 18px;
+}
+#aboutcontact #bugbrowser .ff {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/firefox.png' );
+}
+#aboutcontact #bugbrowser .ie {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/ie.png' );
+}
+#aboutcontact #bugbrowser .opera {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/opera.png' );
+}
+#aboutcontact #bugbrowser .safari {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/safari.png' );
+}
+#aboutcontact #bugbrowser .chrome {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/chrome.png' );
+}
+
