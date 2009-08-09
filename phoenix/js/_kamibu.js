@@ -11,7 +11,7 @@ var Kamibu = {
         }
         if ( element.nodeType == 1 ) {
             var clicked = false; 
-            
+            alert( 'called' ); 
             element.onfocus = function() {
                 alert( 'focused' );
                 if ( !clicked ) {
