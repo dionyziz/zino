@@ -122,12 +122,12 @@ var About = {
             } );
             $( '#featurechoice' ).change( function () {
                 if ( $( '#featurechoice' )[ 0 ].value == 'newidea' ) {
-                    $( '#featureextensive' ).show();
-                    $( '#featuresimple' ).hide();
+                    $( '#feature_extensive' ).show();
+                    $( '#feature_simple' ).hide();
                 }
                 else {
-                    $( '#featureextensive' ).hide();
-                    $( '#featuresimple' ).show();
+                    $( '#feature_extensive' ).hide();
+                    $( '#feature_simple' ).show();
                 }
             } );
             // try to detect browser and set that as the default for the user in the bug reporting page
