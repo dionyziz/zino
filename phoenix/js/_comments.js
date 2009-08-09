@@ -39,7 +39,7 @@ var Comments = {
             var hrefs = "http://" + username + ".zino.gr/";
         }
         else {
-            var hrefs = "http://" + username + ".beta.zino.gr/phoenix/";
+            var hrefs = "http://" + username + ".beta.zino.gr/";
         }
         var avatarview = $( daddy ).find( "div.who span" );
         var avatar = $( avatarview ).clone( true );
