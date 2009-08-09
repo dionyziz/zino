@@ -13,7 +13,7 @@
                 return;
             }
 
-            ?><form id="aboutcontact">
+            ?><form id="aboutcontact" action="do/about/contact" method="post">
                 <div><?php
                     if ( $user->Exists() ) {
                         ?><label>Το ψευδώνυμό σου:</label>
