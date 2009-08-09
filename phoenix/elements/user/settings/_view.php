@@ -25,6 +25,9 @@
                 ?></div>
                 <div class="tabs">
                 </div>
+				<div id="test" >
+				
+				</div>
             </div>
             <div class="eof"></div><?php
             $page->AttachInlineScript( 'Settings.SettingsOnLoad();' );

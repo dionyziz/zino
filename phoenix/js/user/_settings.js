@@ -444,5 +444,7 @@ var Settings = {
         Settings.queue = {};
         Settings.showsaving = $( 'div.settings div.sidebar div.saving' );        
         Settings.SwitchSettings( window.location.hash.substr( 1 ) );
+		
+		$( '#test' ).html( "test &amp; test" );
     }
 };
