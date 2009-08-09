@@ -47,18 +47,17 @@
                     </div>
                     <div>
                         <label>Τι συσκευή χρησιμοποιείς;</label>
-                        <select name="bugdevice">
-                         <option></option>
-                         <option>Υπολογιστή Desktop</option>
-                         <option>Υπολογιστή Laptop</option>
-                         <option>Palmtop</option>
-                         <option>Κινητό τηλέφωνο</option>
-                         <option>Παιχνιδομηχανή</option>
+                        <select name="bugdevice" id="bugdevice">
+                         <option value="computer" selected="selected">Υπολογιστή</option>
+                         <option value="palmtop">Palmtop ή iPod</option>
+                         <option value="mobile">Κινητό τηλέφωνο</option>
+                         <option value="console">Παιχνιδομηχανή</option>
+                         <option value="other">Άλλη συσκευή</option>
                         </select>
                     </div>
-                    <div id="computeros">
+                    <div id="bug_deviceinfo_computer">
                         <label>Τι λειτουργικό σύστημα χρησιμοποιείς;</label>
-                        <select name="bugos" id="bugos">
+                        <select name="bugcomputeros" id="bugcomputeros">
                          <option></option>
                          <option value="windows">Windows</option>
                          <option value="linux">Linux</option>
@@ -66,6 +65,32 @@
                          <option value="bsd">BSD</option>
                          <option value="other">Κάποιο άλλο</option>
                          <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="bug_deviceinfo_palmtop">
+                        <label>Τι λειτουργικό σύστημα χρησιμοποιείς;</label>
+                        <select name="bugpalmos">
+                         <option></option>
+                         <option value="symbian">SymbianOS</option>
+                         <option value="iphone">iPhone/iPod OS</option>
+                         <option value="blackberry">RIM Blackberry</option>
+                         <option value="windows">Windows Mobile</option>
+                         <option value="linux">Linux</option>
+                         <option value="palmos">Palm OS</option>
+                         <option value="android">Android</option>
+                         <option value="other">Κάποιο άλλο</option>
+                         <option value="dontknow">Δεν ξέρω</option>
+                        </select>
+                    </div>
+                    <div id="bug_deviceinfo_console">
+                        <label>Ποια παιχνιδομηχανή χρησιμοποιείς;</label>
+                        <select name="bugconsole" id="bugconsole">
+                            <option></option>
+                            <option value="ps3">Playstation 3</option>
+                            <option value="psp">PSP</option>
+                            <option value="xbox360">Xbox 360</option>
+                            <option value="wii">Wii</option>
+                            <option value="other">Κάποια άλλη</option>
                         </select>
                     </div>
                     <div id="bug_osinfo_windows" style="display:none">
