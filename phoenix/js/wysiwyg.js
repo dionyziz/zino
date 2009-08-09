@@ -155,7 +155,7 @@ var WYSIWYG = {
                     else {
                         WYSIWYG.ExecCommand( fieldname, command, parameters );
                     }
-                    if ( typeof textfocus == 'undefined' || !textfocus ) {
+                    if ( textfocus ) {
                         alert( 'Taking focus' );
                         WYSIWYG.Focus( which );
                     }
