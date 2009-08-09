@@ -111,18 +111,12 @@ var WYSIWYG = {
         return function () {
             var vid = $( '.wysiwyg-control-video' )[ 0 ].cloneNode( true );
             Modals.Create( vid, 500, 150 );
-            setTimeout( function () {
-                $( vid ).find( 'input' )[ 0 ].focus();
-            }, 100 );
         };
     },
     CommandImage: function ( target ) {
         return function () {
             var pic = $( '.wysiwyg-control-image-start' )[ 0 ].cloneNode( true );
             Modals.Create( pic, 500, 250 );
-            setTimeout( function () {
-                $( pic ).find( 'a' )[ 0 ].focus();
-            }, 100 );
         };
     },
     CommandLink: function ( target ) {
@@ -145,7 +139,7 @@ var WYSIWYG = {
         for ( i = 0; i < buttons.length; ++i ) {
             var link = document.createElement( 'a' );
             link.href = '';
-            link.onclick = function ( command, parameters ) {
+            link.onclick = function ( command, parameters, textfocus ) {
                 return function () {
                     link.blur();
                     WYSIWYG.CurrentTarget = fieldname;
@@ -155,10 +149,12 @@ var WYSIWYG = {
                     else {
                         WYSIWYG.ExecCommand( fieldname, command, parameters );
                     }
-                    WYSIWYG.Focus( which );
+                    if ( typeof textfocus == 'undefined' || !textfocus ) {
+                        WYSIWYG.Focus( which );
+                    }
                     return false;
                 };
-            }( buttons[ i ].command, buttons[ i ].parameters );
+            }( buttons[ i ].command, buttons[ i ].parameters, buttons[ i ].textfocus );
             var tooltip = document.createElement( 'span' );
             var img = document.createElement( 'img' );
             img.src = buttons[ i ].image;

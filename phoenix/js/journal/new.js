@@ -35,12 +35,14 @@ var JournalNew = {
             {
                 'tooltip': 'Εισαγωγή Εικόνας',
                 'image': ExcaliburSettings.imagesurl + 'picture.png',
-                'command': WYSIWYG.CommandImage( 'text' )
+                'command': WYSIWYG.CommandImage( 'text' ),
+                'textfocus': false
             },
             {
                 'tooltip': 'Εισαγωγή Video',
                 'image': ExcaliburSettings.imagesurl + 'television.png',
-                'command': WYSIWYG.CommandVideo( 'text' )
+                'command': WYSIWYG.CommandVideo( 'text' ),
+                'textfocus': false
             }
         ], 2 );
     }
