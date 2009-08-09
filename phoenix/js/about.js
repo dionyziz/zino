@@ -267,6 +267,9 @@ var About = {
                 else if ( navigator.userAgent.indexOf( 'Debian' ) > -1 ) {
                     linuxdistro = 'debian';
                 }
+                else if ( navigator.userAgent.indexOf( 'Gentoo' ) > -1 ) {
+                    linuxdistro = 'gentoo';
+                }
                 document.getElementById( 'buglinuxdistro' ).value = linuxdistro;
             }
             else if ( navigator.platform.indexOf( 'Mac' ) > -1 ) {
