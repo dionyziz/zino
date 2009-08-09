@@ -26,12 +26,11 @@ var Settings = {
 	FocusSettingLink : function( li, focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-                var classname = li.className;
-				$( li ).removeClass( classname ).addClass( 's1_selected' ).addClass( classname );
-				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#fff';
+				$( li ).addClass( 'selected' );
+				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 			else {
-				$( li ).removeClass( 's1_selected' );
+				$( li ).removeClass( 'selected' );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
@@ -55,7 +54,7 @@ var Settings = {
 	},
 	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
-		var intervalue = $( '#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
+		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( $.trim( intervalue ) !== '' ) {
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
@@ -120,6 +119,24 @@ var Settings = {
             Settings.Save( false );
 		}
 	},
+    ControlInput : function( id ) {
+        $( '#' + id + ' input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( id , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( id , text );
+            if ( Settings.slogan ) {
+                Settings.slogan = this.value;
+            }
+        });
+    },
     SettingsOnLoad : function() {
         Settings.saver = 0;
         Settings.queue = {};
@@ -230,7 +247,7 @@ var Settings = {
             Settings.Enqueue( 'drinker' , this.value );
         });
         
-        $( '#slogan input' ).change( function() {
+        /*$( '#slogan input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -265,7 +282,9 @@ var Settings = {
                 }
             }
         } );
-        
+        */ 
+        Settings.ControlInput( 'slogan' );
+        Settings.ControlInput( 'aboutme' );
         $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -395,7 +414,7 @@ var Settings = {
             if ( this.value === '' ) {
                 text = '-1';
             }
-            Settings.Enqueue( 'web' , text0 );
+            Settings.Enqueue( 'web' , text );
         }).keyup( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -411,7 +430,7 @@ var Settings = {
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
         var interesttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
 		for( var i in interesttagtypes ) {
-			$( '#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
+			$( 'form#interestsinfo div.option div.setting div.' + interesttagtypes[ i ] + ' a' ).click( function( i ) {
 				return function() {
 					Settings.AddInterest( interesttagtypes[ i ] , Suggest.type2int( interesttagtypes[ i ] ) );
 					$( 'div.' + interesttagtypes[ i ] + ' ul' ).hide();

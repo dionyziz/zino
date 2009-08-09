@@ -119,6 +119,24 @@ var Settings = {
             Settings.Save( false );
 		}
 	},
+    ControlInput : function( id ) {
+        $( '#' + id + ' input' ).change( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( id , text );
+        }).keyup( function() {
+            var text = this.value;
+            if ( this.value === '' ) {
+                text = '-1';
+            }
+            Settings.Enqueue( id , text );
+            if ( Settings.slogan ) {
+                Settings.slogan = this.value;
+            }
+        });
+    },
     SettingsOnLoad : function() {
         Settings.saver = 0;
         Settings.queue = {};
@@ -229,7 +247,7 @@ var Settings = {
             Settings.Enqueue( 'drinker' , this.value );
         });
         
-        $( '#slogan input' ).change( function() {
+        /*$( '#slogan input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -264,7 +282,9 @@ var Settings = {
                 }
             }
         } );
-        
+        */ 
+        Settings.ControlInput( 'slogan' );
+        Settings.ControlInput( 'aboutme' );
         $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -394,7 +414,7 @@ var Settings = {
             if ( this.value === '' ) {
                 text = '-1';
             }
-            Settings.Enqueue( 'web' , text0 );
+            Settings.Enqueue( 'web' , text );
         }).keyup( function() {
             var text = this.value;
             if ( this.value === '' ) {
