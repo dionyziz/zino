@@ -10,7 +10,6 @@ var Kamibu = {
             return;
         }
         if ( element.nodeType == 1 ) {
-            alert( 'called' );
             var clicked = false; 
             element.onfocus = function() {
                 if ( !clicked ) {
