@@ -113,7 +113,7 @@ var WYSIWYG = {
             Modals.Create( vid, 500, 150 );
             setTimeout( function () {
                 $( vid ).find( 'input' )[ 0 ].focus();
-            }, 20 );
+            }, 100 );
         };
     },
     CommandImage: function ( target ) {
@@ -121,8 +121,8 @@ var WYSIWYG = {
             var pic = $( '.wysiwyg-control-image-start' )[ 0 ].cloneNode( true );
             Modals.Create( pic, 500, 250 );
             setTimeout( function () {
-                $( pic ).find( 'input' )[ 0 ].focus();
-            }, 20 );
+                $( pic ).find( 'a' )[ 0 ].focus();
+            }, 100 );
         };
     },
     CommandLink: function ( target ) {
