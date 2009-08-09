@@ -67,7 +67,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="bug_deviceinfo_palmtop">
+                    <div id="bug_deviceinfo_palmtop" style="display:none">
                         <label>Τι λειτουργικό σύστημα χρησιμοποιείς;</label>
                         <select name="bugpalmos">
                          <option></option>
@@ -82,7 +82,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="bug_deviceinfo_console">
+                    <div id="bug_deviceinfo_console" style="display:none">
                         <label>Ποια παιχνιδομηχανή χρησιμοποιείς;</label>
                         <select name="bugconsole" id="bugconsole">
                             <option></option>
