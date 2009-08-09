@@ -22,7 +22,7 @@ var Kamibu = {
             if ( reshowtext ) {
                 var text = element.value;
                 $( element ).blur( function() {
-                    if ( element.value == '' ) {
+                    if ( element.value === '' ) {
                         element.value = text;
                         clicked = false;
                         $( this ).css( 'color' , beforecolor );

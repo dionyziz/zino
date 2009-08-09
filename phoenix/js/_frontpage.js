@@ -168,12 +168,15 @@ var Frontpage = {
                     Frontpage.Shoutbox.TypingUpdated = false;
                 }, 10000 );
                 Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request
-            } ).change( q ).focus( function() {
+            } ).change( q );
+            Kamibu.ClickableTextbox( textarea , false , '#000' );
+            /*.focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
                     textarea[ 0 ].style.color = '#000';
                 }
             } ).blur( function () {
+                // q();
                 if ( textarea[ 0 ].value === '' ) {
                     textarea[ 0 ].value = 'Πρόσθεσε ένα σχόλιο στη συζήτηση...';
                     textarea[ 0 ].style.color = '#666';
