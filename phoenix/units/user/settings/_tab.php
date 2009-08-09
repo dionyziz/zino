@@ -4,6 +4,11 @@
 	Reason: new ajax loading tabs for settings testing
 */
 	function UnitUserSettingsTab( tString $tab ) {
+		global $user;
+		global $rabbit_settings;
+		global $page;
+		global $libs;
+		
 		ob_start();
 		switch( $tab ) {
 			case 'personal':
