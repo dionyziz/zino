@@ -38,122 +38,122 @@
 
         $email = $email->get();
         $reason = $reason->get();
-        $bugURL = $bugURL->get();
-        $bugDescription = $bugDescription->get();
-        $bugDevice = $bugDevice->Get();
-        $bugComputerOS = $bugComputerOS->Get();
-        $bugPalmOS = $bugPalmOS->Get();
-        $bugConsole = $bugConsole->Get();
-        $bugWinVersion = $bugWinVersion->Get();
-        $bugLinuxDistro = $bugLinuxDistro->Get();
-        $bugBSDDistro = $bugBSDDistro->Get();
-        $bugBrowser = $bugBrowser->Get();
-        $bugIEVersion = $bugIEVersion->Get();
-        $bugFFVersion = $bugFFVersion->Get();
-        $bugOperaVersion = $bugOperaVersion->Get();
-        $bugChromeVersion = $bugChromeVersion->Get();
-        $bugSafariVersion = $bugSafariVersion->Get();
-        $featureChoice = $featureChoice->Get();
-        $featureDescription = $featureDescription->Get();
-        $abuseType = $abuseType->Get();
-        $abuseUsername = $abuseUsername->Get();
-        $abuseDescription = $abuseDescription->Get();
-        $pressFullname = $pressFullname->Get();
-        $pressType = $pressType->Get();
-        $pressCompany = $pressCompany->Get();
-        $pressPhone = $pressPhone->Get();
-        $pressDescription = $pressDescription->Get();
-        $bizFullname = $bizFullname->Get();
-        $bizCompany = $bizCompany->Get();
-        $bizPosition = $bizPosition->Get();
-        $bizPhone = $bizPhone->Get();
-        $bizDescription = $bizDescription->Get();
+        $bugurl = $bugurl->get();
+        $bugdescription = $bugdescription->get();
+        $bugdevice = $bugdevice->get();
+        $bugcomputeros = $bugcomputeros->get();
+        $bugpalmos = $bugpalmos->get();
+        $bugconsole = $bugconsole->get();
+        $bugwinversion = $bugwinversion->get();
+        $buglinuxdistro = $buglinuxdistro->get();
+        $bugbsddistro = $bugbsddistro->get();
+        $bugbrowser = $bugbrowser->get();
+        $bugieversion = $bugieversion->get();
+        $bugffversion = $bugffversion->get();
+        $bugoperaversion = $bugoperaversion->get();
+        $bugchromeversion = $bugchromeversion->get();
+        $bugsafariversion = $bugsafariversion->get();
+        $featurechoice = $featurechoice->get();
+        $featuredescription = $featuredescription->get();
+        $abusetype = $abusetype->get();
+        $abuseusername = $abuseusername->get();
+        $abusedescription = $abusedescription->get();
+        $pressfullname = $pressfullname->get();
+        $presstype = $presstype->get();
+        $presscompany = $presscompany->get();
+        $pressphone = $pressphone->get();
+        $pressdescription = $pressdescription->get();
+        $bizfullname = $bizfullname->get();
+        $bizcompany = $bizcompany->get();
+        $bizposition = $bizposition->get();
+        $bizphone = $bizphone->get();
+        $bizdescription = $bizdescription->get();
 
         $text = '';
         switch ( $reason ) {
             case "support":
                 $text .= "== Bug Report ==\n\n";
-                $text .= "Device: " . $bugDevice;
-                switch ( $bugDevice ) {
+                $text .= "Device: " . $bugdevice;
+                switch ( $bugdevice ) {
                     case 'computer':
-                        $text .= "running: " . $bugComputerOS . ' ';
-                        switch ( $bugComputerOS ) {
+                        $text .= "running: " . $bugcomputeros . ' ';
+                        switch ( $bugcomputeros ) {
                             case 'windows':
-                                $text .= $bugWinVersion;
+                                $text .= $bugwinversion;
                                 break;
                             case 'linux':
-                                $text .= $bugLinuxDistro;
+                                $text .= $buglinuxdistro;
                                 break;
                             case 'mac':
                                 break;
                             case 'bsd':
-                                $text .= $bugBSDDistro;
+                                $text .= $bugbsddistro;
                                 break;
                         }
                         $text .= "\n";
                         break;
                     case 'palmtop':
-                        $text .= "running: " . $bugPalmOS . "\n";
+                        $text .= "running: " . $bugpalmos . "\n";
                         break;
                     case 'console':
-                        $text .= " (" . $bugConsole . ")\n";
+                        $text .= " (" . $bugconsole . ")\n";
                 }
-                $text .= "Browser: " . $bugBrowser . " ";
-                switch ( $bugBrowser ) {
+                $text .= "Browser: " . $bugbrowser . " ";
+                switch ( $bugbrowser ) {
                     case 'ie':
-                        $text .= $bugIEVersion;
+                        $text .= $bugieversion;
                         break;
                     case 'ff':
-                        $text .= $bugFFVersion;
+                        $text .= $bugffversion;
                         break;
                     case 'chrome':
-                        $text .= $bugChromeVersion;
+                        $text .= $bugchromeversion;
                         break;
                     case 'opera':
-                        $text .= $bugOperaVersion;
+                        $text .= $bugoperaversion;
                         break;
                     case 'safari':
-                        $text .= $bugSafariVersion;
+                        $text .= $bugsafariversion;
                         break;
                 }
                 $text .= "\n";
-                $text .= "\n\n" . $bugDescription . "\n";
+                $text .= "\n\n" . $bugdescription . "\n";
                 break;
             case "feature":
                 $title = "Feature Request";
-                $text .= "Feature: " . $featureChoice . "\n";
-                $text .= "\n\n" . $featureDescription . "\n";
+                $text .= "Feature: " . $featurechoice . "\n";
+                $text .= "\n\n" . $featuredescription . "\n";
                 break;
             case "abuse":
                 $title = "Abuse Report";
-                $text .= "Type of abuse: " . $abuseType . "\n";
-                $text .= "Abuser: " . $abuseUsername . "\n";
-                $text .= "\n\n" . $abuseDescription . "\n";
+                $text .= "Type of abuse: " . $abusetype . "\n";
+                $text .= "Abuser: " . $abuseusername . "\n";
+                $text .= "\n\n" . $abusedescription . "\n";
                 break;
             case "biz":
                 $title = "Business Inquiry";
-                $text .= 'Full name: ' . $bizFullname . "\n";
-                $text .= 'Company: ' . $bizCompany . "\n";
-                $text .= 'Phone: ' . $bizPhone . "\n";
-                $text .= "\n\n" . $bizDescription . "\n";
+                $text .= 'Full name: ' . $bizfullname . "\n";
+                $text .= 'Company: ' . $bizcompany . "\n";
+                $text .= 'Phone: ' . $bizphone . "\n";
+                $text .= "\n\n" . $bizdescription . "\n";
                 break;
             case "press":
                 $title = "Press Inquiry";
-                $text .= 'Full name: ' . $pressFullname . "\n";
-                $text .= 'Journalism form: ' . $pressType . "\n";
-                $text .= 'Company: ' . $pressCompany . "\n";
-                $text .= 'Phone: ' . $pressPhone . "\n";
-                $text .= "\n\n" . $pressDescription . "\n";
+                $text .= 'Full name: ' . $pressfullname . "\n";
+                $text .= 'Journalism form: ' . $presstype . "\n";
+                $text .= 'Company: ' . $presscompany . "\n";
+                $text .= 'Phone: ' . $pressphone . "\n";
+                $text .= "\n\n" . $pressdescription . "\n";
                 break;
         }
         $text = "== $title ==\n\n" . $text;
         
-		$libs->Load( 'rabbit/helpers/email' );
+		$libs->load( 'rabbit/helpers/email' );
 
         $subject = "Zino: " . $title;
-        if ( $user->Exists() ) {
-            $text = "This user is logged in: http://" . $user->Subdomain . ".zino.gr/\n\n";
-            $from = $user->Subdomain . "@users.zino.gr";
+        if ( $user->exists() ) {
+            $text = "This user is logged in: http://" . $user->subdomain . ".zino.gr/\n\n";
+            $from = $user->subdomain . "@users.zino.gr";
         }
         else {
             $from = $email;
