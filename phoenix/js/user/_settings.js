@@ -21,10 +21,12 @@ var Settings = {
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
+			/*
 			else {
 				$( '#' + validtabs[ i ] + 'info' ).hide();
 				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );		
 			}
+			*/
 		}
 		if ( !found ) {
 			Coala.Cold( 'user/settings/tab',  { 
