@@ -20,17 +20,20 @@ var JournalNew = {
             {
                 'tooltip': 'Έντονη Γραφή',
                 'image': ExcaliburSettings.imagesurl + 'text_bold.png',
-                'command': 'bold'
+                'command': 'bold',
+                'textfocus': true
             },
             {
                 'tooltip': 'Πλάγια Γραφή',
                 'image': ExcaliburSettings.imagesurl + 'text_italic.png',
-                'command': 'italic'
+                'command': 'italic',
+                'textfocus': true
             },
             {
                 'tooltip': 'Εισαγωγή Link',
                 'image': ExcaliburSettings.imagesurl + 'world.png',
-                'command': WYSIWYG.CommandLink( 'text' )
+                'command': WYSIWYG.CommandLink( 'text' ),
+                'textfocus': true
             },
             {
                 'tooltip': 'Εισαγωγή Εικόνας',
