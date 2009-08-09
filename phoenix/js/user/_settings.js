@@ -282,7 +282,6 @@ var Settings = {
             }
         } );
         Settings.ControlInput( 'slogan' );
-        //Settings.ControlInput( '#aboutme textarea' );
         $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -425,7 +424,7 @@ var Settings = {
         */
         Settings.ControlInput( 'gtalk' );
         Settings.ControlInput( 'skype' );
-        Settings.ControlIput( 'yahoo' );
+        Settings.ControlInput( 'yahoo' );
         Settings.ControlInput( 'web' );
         //interesttags
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
