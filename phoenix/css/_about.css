@@ -153,9 +153,13 @@ ul#aboutpeople li.selected img {
     font-weight: bold;
     display: block;
 }
+#aboutcontact #bugbrowser {
+    background-repeat: no-repeat;
+    padding: 2px 0 2px 20px;
+}
 #aboutcontact #bugbrowser option {
     background-repeat: no-repeat;
-    padding-left: 18px;
+    padding: 2px 0 2px 20px;
 }
 #aboutcontact #bugbrowser .ff {
     background-image: url( 'http://static.zino.gr/phoenix/browsers/firefox.png' );
