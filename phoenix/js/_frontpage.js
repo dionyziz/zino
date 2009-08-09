@@ -169,7 +169,7 @@ var Frontpage = {
                 }, 10000 );
                 Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request
             } ).change( q );
-            Kamibu.ClickableTextbox( textarea , false , '#000' );
+            Kamibu.ClickableTextbox( 'shoutbox_text' , false , '#000' );
             /*.focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
