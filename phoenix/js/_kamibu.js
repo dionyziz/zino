@@ -4,7 +4,7 @@ var Kamibu = {
         //callback is a function that will be executed at the end of the function
         
         if ( typeof( element ) == 'string' ) {
-            element = $( '#' + element )[ 0 ];
+            element = document.getElementById( element );
         }
         if ( !element ) {
             return;
@@ -12,22 +12,28 @@ var Kamibu = {
         if ( element.nodeType == 1 ) {
             var clicked = false; 
             
-            $( element ).focus( function() {
+            element.onfocus = function() {
+            //$( element ).focus( function() {
                     if ( !clicked ) {
                         clicked = true;
                         element.value = '';
-                        $( element ).css( 'color' , aftercolor );
+                        // $( element ).css( 'color' , aftercolor );
+                        element.style.color = aftercolor;
                     }
-            } );
+            //} );
+            };
             if ( reshowtext ) {
                 var text = element.value;
-                $( element ).blur( function() {
+                element.onblur = function() { 
+                //$( element ).blur( function() {
                     if ( element.value === '' ) {
                         element.value = text;
                         clicked = false;
-                        $( this ).css( 'color' , beforecolor );
+                        //$( this ).css( 'color' , beforecolor );
+                        element.style.color = beforecolor;
                     }
-                } );
+                //} );
+                }
             }
             if ( typeof( callback ) == 'function' ) {
                 callback();
