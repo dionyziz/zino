@@ -13,26 +13,20 @@ var Kamibu = {
             var clicked = false; 
             
             element.onfocus = function() {
-            //$( element ).focus( function() {
-                    if ( !clicked ) {
-                        clicked = true;
-                        element.value = '';
-                        // $( element ).css( 'color' , aftercolor );
-                        element.style.color = aftercolor;
-                    }
-            //} );
+                if ( !clicked ) {
+                    clicked = true;
+                    element.value = '';
+                    element.style.color = aftercolor;
+                }
             };
             if ( reshowtext ) {
                 var text = element.value;
                 element.onblur = function() { 
-                //$( element ).blur( function() {
                     if ( element.value === '' ) {
                         element.value = text;
                         clicked = false;
-                        //$( this ).css( 'color' , beforecolor );
                         element.style.color = beforecolor;
                     }
-                //} );
                 }
             }
             if ( typeof( callback ) == 'function' ) {
