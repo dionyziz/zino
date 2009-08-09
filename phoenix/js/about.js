@@ -69,7 +69,7 @@ var About = {
             $( '#aboutcontact select#bugdevice' ).change( function () {
                 var options = document.getElementById( 'bugdevice' ).options;
                 
-                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                for ( var i = 0; i < options.length; ++i ) {
                     var option = options[ i ];
                     
                     if ( option.selected ) {
@@ -166,7 +166,7 @@ var About = {
             else if ( navigator.platform.indexOf( 'Mac' ) > -1 ) {
                 os = 'mac';
             }
-            document.getElementById( 'bugos' ).value = os;
+            document.getElementById( 'bugcomputeros' ).value = os;
         }
     },
 };
