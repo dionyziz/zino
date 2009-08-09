@@ -4,7 +4,7 @@
             global $user;
             
             ?><div>
-                <a class="wlink" href="contact">Επικοινώνησε</a>
+                <a class="wlink" href="about">Πληροφορίες</a>
                 <a class="wlink" href="tos">Όροι χρήσης</a>
                 <a class="wlink" href="?p=ads">Διαφήμιση</a>
             </div>

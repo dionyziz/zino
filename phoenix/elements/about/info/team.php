@@ -262,7 +262,7 @@
                     'byday' => 'Φοιτητής Πληροφορικής στο ΑΤΕΙ Πληροφορικής, Web Developer',
 					'bynight' => 'Software engineer and pet, Kamibu',
                     'thumbnail' => 'http://images2.zino.gr/media/872/166823/166823_100.jpg',
-                    'image' => 'http://images2.zino.gr/media/872/166820/166820_full.jpg',
+                    'image' => 'http://static.zino.gr/phoenix/about/gatoni.jpg',
                     'about' => array(
                         'Ο Δημήτρης σπουδάζει πληροφορική και παράλληλα εργάζεται ως Web Developer σε εταιρεία ανάπτυξης λογισμικού.',
                         
