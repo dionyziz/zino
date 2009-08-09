@@ -72,11 +72,11 @@
         $text = '';
         switch ( $reason ) {
             case "support":
-                $text .= "== Bug Report ==\n\n";
+                $title = 'Bug Report';
                 $text .= "Device: " . $bugdevice;
                 switch ( $bugdevice ) {
                     case 'computer':
-                        $text .= "running: " . $bugcomputeros . ' ';
+                        $text .= " running: " . $bugcomputeros . ' ';
                         switch ( $bugcomputeros ) {
                             case 'windows':
                                 $text .= $bugwinversion;
