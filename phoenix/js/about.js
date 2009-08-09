@@ -138,9 +138,37 @@ var About = {
             }
             else if ( navigator.userAgent.indexOf( "Firefox" ) > -1 ) { // it's Firefox
                 browser = 'ff';
+                var ffversion = '';
+                if ( navigator.userAgent.indexOf( 'Firefox/3.5' ) > -1 ) {
+                    ffversion = '3.5';
+                }
+                else if ( navigator.userAgent.indexOf( 'Firefox/3' ) > -1 ) {
+                    ffversion = '3';
+                }
+                else if ( navigator.userAgent.indexOf( 'Firefox/2' ) > -1 ) {
+                    ffversion = '2';
+                }
+                else if ( navigator.userAgent.indexOf( 'Firefox/1.5' ) > -1 ) {
+                    ffversion = '1.5';
+                }
+                else if ( navigator.userAgent.indexOf( 'Firefox/1' ) > -1 ) {
+                    ffversion = '1';
+                }
+                $( '#bugffversion' )[ 0 ].value = ffversion;
             }
             else if ( navigator.userAgent.indexOf( "MSIE" ) > -1 ) { // it's Internet Explorer
                 browser = 'ie';
+                var ieversion = '';
+                if ( navigator.userAgent.indexOf( 'MSIE 8.0' ) > -1 ) {
+                    ieversion = '8';
+                }
+                else if ( navigator.userAgent.indexOf( 'MSIE 7.0' ) > -1 ) {
+                    ieversion = '7';
+                }
+                else if ( navigator.userAgent.indexOf( 'MSIE 6.0' ) > -1 ) {
+                    ieversion = '6';
+                }
+                $( '#bugieversion' )[ 0 ].value = ieversion;
             }
             else if ( navigator.userAgent.indexOf( "Opera" ) > -1 ) { // it's Opera
                 browser = 'opera';
