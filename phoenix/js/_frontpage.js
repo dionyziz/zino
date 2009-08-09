@@ -185,8 +185,12 @@ var Frontpage = {
                 }
             } ).blur();
             */
-            alert( 'onload' );
-            Kamibu.ClickableTextbox( textarea , true , '#000' , '#666' );
+            Kamibu.ClickableTextbox( textarea , true , '#000' , '#666' , function() {
+                $( textarea ).blur( function() {
+                    q();
+                    alert( 'blurred' );
+                } );
+            } );
             textarea.blur();
             if ( textarea[ 0 ] ) {
                 textarea[ 0 ].disabled = false;
