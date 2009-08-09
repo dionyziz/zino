@@ -356,7 +356,7 @@ var Settings = {
             }
         });
         
-        $( '#gtalk input' ).change( function() {
+        /*$( '#gtalk input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -422,7 +422,11 @@ var Settings = {
                 Settings.skype = this.value;
             }
         });
-        
+        */
+        Settings.ControlInput( 'gtalk' );
+        Settings.ControlInput( 'skype' );
+        Settings.ControlIput( 'yahoo' );
+        Settings.ControlInput( 'web' );
         //interesttags
         // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
         var interesttagtypes = [ 'hobbies', 'movies', 'books', 'songs', 'artists', 'games', 'shows' ];
