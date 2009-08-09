@@ -190,7 +190,6 @@ var Frontpage = {
                 } );
             } );
             */
-            textarea.blur();
             if ( textarea[ 0 ] ) {
                 textarea[ 0 ].disabled = false;
             }
