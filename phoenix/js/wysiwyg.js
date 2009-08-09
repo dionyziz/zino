@@ -156,7 +156,6 @@ var WYSIWYG = {
                         WYSIWYG.ExecCommand( fieldname, command, parameters );
                     }
                     if ( textfocus ) {
-                        alert( 'Taking focus' );
                         WYSIWYG.Focus( which );
                     }
                     return false;
