@@ -105,10 +105,10 @@
                         <select name="bugwinversion" id="bugwinversion">
                          <option></option>
                          <option value="98">Windows 98</option>
-                         <option value="me">Windows Millenium</option>
+                         <option value="Me">Windows Millenium</option>
                          <option value="2000">Windows 2000</option>
-                         <option value="xp">Windows XP</option>
-                         <option value="vista">Windows Vista</option>
+                         <option value="XP">Windows XP</option>
+                         <option value="Vista">Windows Vista</option>
                          <option value="7">Windows 7</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
@@ -118,16 +118,16 @@
                         <label>Ποια διανομή του Linux χρησιμοποιείς;</label>
                         <select name="buglinuxdistro" id="buglinuxdistro">
                          <option></option>
-                         <option value="ubuntu">Ubuntu</option>
-                         <option value="opensuse">OpenSUSE</option>
-                         <option value="fedora">Fedora</option>
-                         <option value="debian">Debian</option>
-                         <option value="mandriva">Mandriva</option>
-                         <option value="linuxmint">LinuxMint</option>
-                         <option value="pclinuxos">PCLinuxOS</option>
-                         <option value="slackware">Slackware</option>
-                         <option value="gentoo">Gentoo</option>
-                         <option value="centos">CentOS</option>
+                         <option value="Ubuntu">Ubuntu</option>
+                         <option value="OpenSUSE">OpenSUSE</option>
+                         <option value="Fedora">Fedora</option>
+                         <option value="Debian">Debian</option>
+                         <option value="Mandriva">Mandriva</option>
+                         <option value="LinuxMint">LinuxMint</option>
+                         <option value="PCLinuxOS">PCLinuxOS</option>
+                         <option value="Slackware">Slackware</option>
+                         <option value="Gentoo">Gentoo</option>
+                         <option value="CentOS">CentOS</option>
                          <option value="other">Κάποια άλλη</option>
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>

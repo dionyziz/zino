@@ -73,21 +73,21 @@
         switch ( $reason ) {
             case "support":
                 $title = 'Bug Report';
-                $text .= "Device: " . $bugdevice;
+                $text .= "Device: " . ucfirst( $bugdevice );
                 switch ( $bugdevice ) {
                     case 'computer':
-                        $text .= " running: " . $bugcomputeros . ' ';
+                        $text .= " running " . ucfirst( $bugcomputeros ) . ' ';
                         switch ( $bugcomputeros ) {
                             case 'windows':
-                                $text .= $bugwinversion;
+                                $text .= ucfirst( $bugwinversion );
                                 break;
                             case 'linux':
-                                $text .= $buglinuxdistro;
+                                $text .= ucfirst( $buglinuxdistro );
                                 break;
                             case 'mac':
                                 break;
                             case 'bsd':
-                                $text .= $bugbsddistro;
+                                $text .= ucfirst( $bugbsddistro );
                                 break;
                         }
                         $text .= "\n";
