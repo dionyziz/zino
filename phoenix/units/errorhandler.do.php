@@ -8,7 +8,7 @@
 		if( $user->Exists() ){
 			$subject = "[Zino-jsDebug]Error from user " . $user->Name;
 			$fromname = $user->Name;
-			$fromemail = $user->Profile->Email;
+			$fromemail = "";
 		}
 		else{
 			$subject = "[Zino-jsDebug]Error from a user";
