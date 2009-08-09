@@ -13,6 +13,7 @@ var Kamibu = {
             var clicked = false; 
             
             $( element ).focus( function() {
+                    alert( 'focused' );
                     if ( !clicked ) {
                         clicked = true;
                         element.value = '';
@@ -22,6 +23,7 @@ var Kamibu = {
             if ( reshowtext ) {
                 var text = element.value;
                 $( element ).blur( function() {
+                    alert( 'blurred' );
                     if ( element.value === '' ) {
                         element.value = text;
                         clicked = false;
