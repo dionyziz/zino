@@ -120,7 +120,7 @@ var About = {
                     }
                 }
             } );
-            $( '#featurechoice' ).choice( function () {
+            $( '#featurechoice' ).change( function () {
                 if ( $( '#featurechoice' )[ 0 ].value == 'newidea' ) {
                     $( '#featureextensive' ).show();
                     $( '#featuresimple' ).hide();
