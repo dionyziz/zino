@@ -263,7 +263,7 @@ var Settings = {
                 Settings.slogan = this.value;
             }
         });
-        
+        */ 
         $( '#aboutme textarea' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -282,10 +282,9 @@ var Settings = {
                 }
             }
         } );
-        */ 
         Settings.ControlInput( '#slogan input' );
-        Settings.ControlInput( '#aboutme textarea' );
-        $( '#favquote input' ).change( function() {
+        //Settings.ControlInput( '#aboutme textarea' );
+        /*$( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -301,7 +300,8 @@ var Settings = {
                 Settings.favquote = this.value;
             }
         });
-        
+        */
+        Settings.ControlInput( '#favquote input' );
         $( '#email input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
