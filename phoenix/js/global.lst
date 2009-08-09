@@ -1,4 +1,3 @@
-errorhandler.js
 jquery.js
 #jquery.lazyload.js
 jquery.modal.js
@@ -6,6 +5,7 @@ about.js
 modal.js
 trivial/dates.js
 coala.js
+errorhandler.js
 places.js
 admanager.js
 album/list.js
