@@ -100,7 +100,7 @@ var About = {
                     
                     if ( option.selected ) {
                         $( '#bug_browserinfo_' + option.value ).css( { 'display': '' } );
-                        $( '#bugbrowser' ).css( { 'background-image': option.style.backgroundImage } );
+                        $( '#bugbrowser' ).css( { 'background-image': $( option ).css( 'background-image' ) } );
                     }
                     else {
                         $( '#bug_browserinfo_' + option.value ).css( { 'display': 'none' } );
