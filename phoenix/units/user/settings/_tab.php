@@ -40,7 +40,8 @@
 		}
 		$html = w_json_encode( ob_get_clean() );
 		
-		?>$( 'div.settings div.tabs' ).html( <?php
+	  ?>$( '#settingsloader' ).fadeOut();
+		$( 'div.settings div.tabs' ).html( <?php
 			echo $html;
 		?> );
 		Settings.LoadProperties( '<?php

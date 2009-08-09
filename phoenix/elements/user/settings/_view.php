@@ -25,9 +25,11 @@
                 ?></div>
                 <div class="tabs">
                 </div>
-				<div id="test" >
-				
-				</div>
+				<div id="settingsloader">
+                    <img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Φόρτωση Ρυθμίσεων...
+                </div>
             </div>
             <div class="eof"></div><?php
             $page->AttachInlineScript( 'Settings.SettingsOnLoad();' );
