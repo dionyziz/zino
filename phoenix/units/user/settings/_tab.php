@@ -5,9 +5,10 @@
 */
 	function UnitUserSettingsTab( tString $tab ) {
 		global $user;
-		global $rabbit_settings;
-		global $page;
-		global $libs;
+        global $libs;
+        
+        $libs->Load( 'user/profile' );
+        $libs->Load( 'user/settings' );
 		
 		ob_start();
 		switch( $tab ) {
