@@ -1,5 +1,7 @@
 RewriteEngine On
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
+RewriteRule ^about$ /index.php?p=about [L,QSA]
+RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^forgot$ /index.php?p=forgot [L,QSA]
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^forgot/success$ /index.php?p=forgot/success [L,QSA]
@@ -55,8 +57,6 @@ RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^advertise$ /index.php?p=advertise [L,QSA]
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^live$ /index.php?p=recent [L,QSA]
-RewriteCond %{SERVER_NAME) ^beta\.zino\.gr
-RewriteRule ^about$ /index.php?p=about [L,QSA]
 
 # # #
 # api.zino.gr
