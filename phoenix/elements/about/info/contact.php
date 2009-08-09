@@ -141,7 +141,7 @@
                         <select name="bugbrowser" id="bugbrowser">
                          <option></option>
                          <option value="ie">Internet Explorer</option>
-                         <option value="ff">Mozilla Firefox</option>
+                         <option value="ff" style="background-image: url('http://www.noonnoo.com/downloads/browsers/mfirefox(16x16).png'; padding-left: 18px">Mozilla Firefox</option>
                          <option value="chrome">Google Chrome</option>
                          <option value="opera">Opera</option>
                          <option value="safari">Safari</option>
