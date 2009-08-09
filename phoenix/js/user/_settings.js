@@ -6,6 +6,7 @@
 */
 var Settings = {
 	SwitchSettings : function( divtoshow ) {
+		$( '#settingsloader' ).fadeIn( 'fast' );
 		//hack so that it is executed only when it is loaded
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
