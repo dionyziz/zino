@@ -217,7 +217,7 @@
                     <p>Ευχαριστούμε που θέλεις να μοιραστείς την ιδέα σου μαζί μας!</p>
                     <div>
                         <label>Τι είναι αυτό που θα σου άρεσε να γίνει στο Zino?</label>
-                        <select name="featurechoice">
+                        <select name="featurechoice" id="featurechoice">
                             <option></option>
                             <option value="customization">Χρωματικοί συνδιασμοί στο προφίλ μου</option>
                             <option value="sms">Ενημέρωση μέσω SMS</option>
@@ -227,7 +227,10 @@
                             <option value="newidea">Κάποια άλλη ιδέα (προσδιόρισε)</option>
                         </select>
                     </div>
-                    <div>
+                    <div id="feature_simple" style="display:none">
+                        <p>Ευχαριστούμε! Θα λάβουμε υπ' όψιν μας την ψήφο σου.</p>
+                    </div>
+                    <div id="feature_extensive" style="display:none">
                         <label>Γράψε μας την ιδέα σου που θα ήθελες να δεις στο Zino:</label>
                         <textarea cols="70" rows="10" name="featuredescription" style="width:100%"></textarea>
                     </div>

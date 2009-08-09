@@ -120,6 +120,16 @@ var About = {
                     }
                 }
             } );
+            $( '#featurechoice' ).choice( function () {
+                if ( $( '#featurechoice' )[ 0 ].value == 'newidea' ) {
+                    $( '#featureextensive' ).show();
+                    $( '#featuresimple' ).hide();
+                }
+                else {
+                    $( '#featureextensive' ).hide();
+                    $( '#featuresimple' ).show();
+                }
+            } );
             // try to detect browser and set that as the default for the user in the bug reporting page
             var browser = '';
             if ( navigator.userAgent.indexOf( "Chrome" ) > -1 ) { // it's Chrome
