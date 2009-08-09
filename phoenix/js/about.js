@@ -124,6 +124,7 @@ var About = {
                 browser = 'safari';
             }
             document.getElementById( 'bugbrowser' ).value = browser;
+            $( '#bugbrowser' ).change();
             
             // try to detect the OS and set it as default in the bug reporting page
             var os = '';
@@ -167,6 +168,7 @@ var About = {
                 os = 'mac';
             }
             document.getElementById( 'bugcomputeros' ).value = os;
+            $( '#bugcomputeros' ).change();
         }
     },
 };
