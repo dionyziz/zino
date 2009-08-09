@@ -8,12 +8,12 @@
 		if( $user->Exists() ){
 			$subject = "[Zino-jsDebug]Error from user " . $user->Name;
 			$fromname = $user->Name;
-			$fromemail = "";
+			$fromemail = "debug@zino.gr";
 		}
 		else{
 			$subject = "[Zino-jsDebug]Error from a user";
 			$fromname = "guest";
-			$fromemail = "";
+			$fromemail = "debug@zino.gr";
 		}
 		$message = " Error on global.js, line $linenumber.
 
