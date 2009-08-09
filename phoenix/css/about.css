@@ -3,6 +3,13 @@
     padding: 20px;
     color: #345;
 }
+#aboutsection input, #aboutsection select {
+    border: 1px solid #aaa;
+}
+#aboutsection label {
+    padding: 5px 0;
+    display: block;
+}
 #aboutsection .blog p {
     padding: 0 0 1em 2em;
     color: #666;
@@ -140,3 +147,34 @@ ul#aboutpeople li.selected img {
 #aboutperson img {
     float: right;
 }
+#aboutcontact input.submit {
+    margin: 20px auto 20px auto;
+    padding: 5px;
+    font-weight: bold;
+    display: block;
+}
+#aboutcontact #bugbrowser {
+    background-repeat: no-repeat;
+    padding: 2px 0 2px 20px;
+    background-position: 4px 4px;
+}
+#aboutcontact #bugbrowser option {
+    background-repeat: no-repeat;
+    padding: 2px 0 2px 20px;
+}
+#aboutcontact #bugbrowser .ff {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/ff.png' );
+}
+#aboutcontact #bugbrowser .ie {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/ie.png' );
+}
+#aboutcontact #bugbrowser .opera {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/opera.png' );
+}
+#aboutcontact #bugbrowser .safari {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/safari.png' );
+}
+#aboutcontact #bugbrowser .chrome {
+    background-image: url( 'http://static.zino.gr/phoenix/browsers/chrome.png' );
+}
+
