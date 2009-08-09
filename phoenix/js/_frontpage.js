@@ -186,9 +186,10 @@ var Frontpage = {
             } ).blur();
             */
             Kamibu.ClickableTextbox( textarea , true , '#000' , '#666' , function() {
-                $( textarea ).blur( function() {
+                /*$( textarea ).blur( function() {
                     q();
                 } );
+                */
             } );
             if ( textarea[ 0 ] ) {
                 textarea[ 0 ].disabled = false;
