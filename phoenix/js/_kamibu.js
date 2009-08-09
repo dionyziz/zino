@@ -13,6 +13,7 @@ var Kamibu = {
             var clicked = false; 
             
             element.onfocus = function() {
+                alert( 'focused' );
                 if ( !clicked ) {
                     clicked = true;
                     element.value = '';
