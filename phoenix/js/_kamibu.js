@@ -6,6 +6,9 @@ var Kamibu = {
         if ( typeof( element ) == 'string' ) {
             element = $( '#' + element )[ 0 ];
         }
+        if ( !element ) {
+            return;
+        }
         if ( element.nodeType == 1 ) {
             var clicked = false; 
             
