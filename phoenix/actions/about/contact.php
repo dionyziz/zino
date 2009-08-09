@@ -2,44 +2,44 @@
     function ActionAboutContact(
           tText $email,
           tText $reason,
-          tText $bugURL,
-          tText $bugDescription,
-          tText $bugDevice,
-          tText $bugComputerOS,
-          tText $bugPalmOS,
-          tText $bugConsole,
-          tText $bugWinVersion,
-          tText $bugLinuxDistro,
-          tText $bugBSDDistro,
-          tText $bugBrowser,
-          tText $bugIEVersion,
-          tText $bugFFVersion,
-          tText $bugOperaVersion,
-          tText $bugChromeVersion,
-          tText $bugSafariVersion,
-          tText $featureChoice,
-          tText $featureDescription,
-          tText $abuseType,
-          tText $abuseUsername,
-          tText $abuseDescription,
-          tText $pressFullname,
-          tText $pressType,
-          tText $pressCompany,
-          tText $pressPhone,
-          tText $pressDescription,
-          tText $bizFullname,
-          tText $bizCompany,
-          tText $bizPosition,
-          tText $bizPhone,
-          tText $bizDescription
+          tText $bugurl,
+          tText $bugdescription,
+          tText $bugdevice,
+          tText $bugcomputeros,
+          tText $bugpalmos,
+          tText $bugconsole,
+          tText $bugwinversion,
+          tText $buglinuxdistro,
+          tText $bugbsddistro,
+          tText $bugbrowser,
+          tText $bugieversion,
+          tText $bugffversion,
+          tText $bugoperaversion,
+          tText $bugchromeversion,
+          tText $bugsafariversion,
+          tText $featurechoice,
+          tText $featuredescription,
+          tText $abusetype,
+          tText $abuseusername,
+          tText $abusedescription,
+          tText $pressfullname,
+          tText $presstype,
+          tText $presscompany,
+          tText $pressphone,
+          tText $pressdescription,
+          tText $bizfullname,
+          tText $bizcompany,
+          tText $bizposition,
+          tText $bizphone,
+          tText $bizdescription
         ) {
         global $libs;
         global $user;
 
-        $email = $email->Get();
-        $reason = $reason->Get();
-        $bugURL = $bugURL->Get();
-        $bugDescription = $bugDescription->Get();
+        $email = $email->get();
+        $reason = $reason->get();
+        $bugURL = $bugURL->get();
+        $bugDescription = $bugDescription->get();
         $bugDevice = $bugDevice->Get();
         $bugComputerOS = $bugComputerOS->Get();
         $bugPalmOS = $bugPalmOS->Get();
