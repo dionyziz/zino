@@ -1,4 +1,9 @@
 <?php
+/*
+	Masked by: Rhapsody
+	Reason: replacing &nbsp; with &#160;
+	STOP! was masked
+*/
     class ElementUserAvatar extends Element {
 
         public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
@@ -77,7 +82,7 @@
                     echo $theusername;
                     ?>" alt="<?php
                     echo $theusername;
-                    ?>">&nbsp;</span><?php
+                    ?>">&#160;</span><?php
                 }
                 ?></span><?php
         }
