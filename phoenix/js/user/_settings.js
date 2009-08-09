@@ -120,9 +120,8 @@ var Settings = {
 		}
 	},
     ControlInput : function( id ) {
-        $( id ).change( function() {
-            var text = this.value;
-            if ( this.value === '' ) {
+        $('#' +  id + ' input' ).change( function() {
+            var text = this.value; if ( this.value === '' ) {
                 text = '-1';
             }
             Settings.Enqueue( id , text );
@@ -282,9 +281,9 @@ var Settings = {
                 }
             }
         } );
-        Settings.ControlInput( '#slogan input' );
+        Settings.ControlInput( 'slogan' );
         //Settings.ControlInput( '#aboutme textarea' );
-        /*$( '#favquote input' ).change( function() {
+        $( '#favquote input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
@@ -296,12 +295,11 @@ var Settings = {
                 text = '-1';
             }
             Settings.Enqueue( 'favquote' , text );
-            if ( Settings.favquote ) {
-                Settings.favquote = this.value;
+            if ( Settings.aboutme ) {
+                Settings.aboutme = this.value;
             }
         });
-        */
-        Settings.ControlInput( '#favquote input' );
+        Settings.ControlInput( 'favquote' );
         $( '#email input' ).change( function() {
             var text = this.value;
             if ( this.value === '' ) {
@@ -375,8 +373,7 @@ var Settings = {
             }
         });
         
-        $( '#skype input' ).change( function() {
-            var text = this.value;
+        $( '#skype input' ).change( function() { var text = this.value;
             if ( this.value === '' ) {
                 text = '-1';
             }
