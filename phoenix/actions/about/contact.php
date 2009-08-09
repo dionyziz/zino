@@ -98,7 +98,7 @@
                     case 'console':
                         $text .= " (" . $bugconsole . ")\n";
                 }
-                $text .= "Browser: " . $bugbrowser . " ";
+                $text .= "Browser: " . ucfirst( $bugbrowser ) . " ";
                 switch ( $bugbrowser ) {
                     case 'ie':
                         $text .= $bugieversion;
@@ -163,6 +163,6 @@
 
         Email( '', 'oniz@kamibu.com', $subject, $text, '', $from );
 
-        return Redirect( '?p=about&section=contact&status' );
+        return Redirect( '?p=about&section=contact&status=1' );
     }
 ?>
