@@ -185,6 +185,7 @@ var Frontpage = {
                 }
             } ).blur();
             */
+            alert( 'onload' );
             Kamibu.ClickableTextbox( textarea , true , '#000' , '#666' );
             textarea.blur();
             if ( textarea[ 0 ] ) {
