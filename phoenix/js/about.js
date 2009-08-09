@@ -92,6 +92,20 @@ var About = {
                         break;
                 }
             } );
+            $( '#bugbrowser' ).change( function () {
+                var options = document.getElementById( 'bugbrowser' ).options;
+                
+                for ( var i = 1; i < options.length; ++i ) {
+                    var option = options[ i ];
+                    
+                    if ( option.selected ) {
+                        $( '#bug_browserinfo_' + option.value ).css( { 'display': '' } );
+                    }
+                    else {
+                        $( '#bug_browserinfo_' + option.value ).css( { 'display': 'none' } );
+                    }
+                }
+            } );
             $( '#aboutcontact select#bugcomputeros' ).change( function () {
                 var options = document.getElementById( 'bugcomputeros' ).options;
                 

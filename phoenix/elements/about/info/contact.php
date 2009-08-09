@@ -149,7 +149,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="ieversion" style="display:none">
+                    <div id="bug_browsersinfo_ie" style="display:none">
                         <label>Ποια έκδοση του Internet Explorer χρησιμοποιείς;</label>
                         <select name="bugieversion" id="bugieversion">
                          <option></option>
@@ -160,7 +160,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="ffversion" style="display:none">
+                    <div id="bug_browserinfo_ff" style="display:none">
                         <label>Ποια έκδοση του Mozilla Firefox χρησιμοποιείς;</label>
                         <select name="bugffversion" id="bugffversion">
                          <option></option>
@@ -173,7 +173,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="operaversion" style="display:none">
+                    <div id="bug_browserinfo_opera" style="display:none">
                         <label>Ποια έκδοση του Opera χρησιμοποιείς;</label>
                         <select name="bugoperaversion" id="bugoperaversion">
                          <option></option>
@@ -188,7 +188,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="chromeversion" style="display:none">
+                    <div id="bug_browserinfo_chrome" style="display:none">
                         <label>Ποια έκδοση του Google Chrome χρησιμοποιείς;</label>
                         <select name="bugchromeversion" id="bugchromeversion">
                          <option></option>
@@ -199,7 +199,7 @@
                          <option value="dontknow">Δεν ξέρω</option>
                         </select>
                     </div>
-                    <div id="safariversion" style="display:none">
+                    <div id="bug_browserinfo_safari" style="display:none">
                         <label>Ποια έκδοση του Safari χρησιμοποιείς;</label>
                         <select name="bugsafariversion" id="bugsafariversion">
                          <option></option>
