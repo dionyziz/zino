@@ -57,8 +57,6 @@ RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^live$ /index.php?p=recent [L,QSA]
 RewriteCond %{SERVER_NAME) ^beta\.zino\.gr
 RewriteRule ^about$ /index.php?p=about [L,QSA]
-RewriteCond %{SERVER_NAME) ^beta\.zino\.gr
-RewriteRule ^about/([a-zA-Z0-9]*)$ /index.php?p=about&section=$1 [L,QSA]
 
 # # #
 # api.zino.gr
