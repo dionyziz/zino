@@ -6,7 +6,7 @@ var JournalView = {
 		}
 		return false;
 	},
-	AddFav : function( journalid , linknode ) {
+	/*AddFav : function( journalid , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
 			$( linknode ).fadeOut( 800 , function() {
 				$( linknode )
@@ -24,6 +24,7 @@ var JournalView = {
 		}
 		return false;
 	},
+    */
     OnLoad : function() {
         Coala.Cold( 'admanager/showad', { f: function ( html ) {
             var ads = $( 'div.ads' )[ 0 ];

@@ -70,9 +70,9 @@
 									else {
 										?>Αγαπημένο<?php
 									}
-									?>" onclick="return JournalView.AddFav( '<?php
+									?>" onclick="return Favourites.Add( '<?php
 									echo $journal->Id;
-									?>' , this )"><span class="<?php
+									?>' , 'Journal' , this )"><span class="<?php
 									if ( !$fav ) {
 										?>s1_0019<?php
 									}
@@ -96,9 +96,9 @@
 										else {
 											?>Αγαπημένο<?php
 										}
-										?>" onclick="return JournalView.AddFav( '<?php
+										?>" onclick="return Favourites.Add( '<?php
 										echo $journal->Id;
-										?>' , this )"><span class="<?php
+										?>' , 'Journal' , this )"><span class="<?php
 										if ( !$fav ) {
 											?>s1_0019<?php
 										}

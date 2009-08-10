@@ -32,24 +32,6 @@ var PhotoView = {
 		} );
 		return false;
 	},
-	/*AddFav : function( photoid , linknode ) {
-		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
-			$( linknode ).fadeOut( 800 , function() {
-				$( linknode ).attr( {
-					href : '',
-					title : 'Αγαπημένο'
-				} )
-				.removeClass( 's1_0019' )
-				.addClass( 's1_0020' )
-                .style( 'padding-left' , '18px' )
-				.empty()
-				.fadeIn( 800 );
-			} );
-			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
-		}
-		return false;
-	},
-    */
     completeFav : function( photoid ) {
         Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
         return false;

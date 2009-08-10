@@ -23,5 +23,7 @@ var Favourites = {
 			} );
 			Coala.Warm( 'favourites/add' , { itemid : id , typeid : Types[ type ] } );
         }
+
+        return false;
     }
 };
