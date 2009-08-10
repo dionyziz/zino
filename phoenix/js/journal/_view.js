@@ -6,25 +6,6 @@ var JournalView = {
 		}
 		return false;
 	},
-	/*AddFav : function( journalid , linknode ) {
-		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
-			$( linknode ).fadeOut( 800 , function() {
-				$( linknode )
-				.attr( {
-					href : '',
-					title : 'Αγαπημένο'
-				} )
-				.removeClass( 's1_0019' )
-				.addClass( 's1_0020' )
-                .css( 'padding-left' , '18px' )
-				.empty()
-				.fadeIn( 800 );
-			} );
-			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
-		}
-		return false;
-	},
-    */
     OnLoad : function() {
         Coala.Cold( 'admanager/showad', { f: function ( html ) {
             var ads = $( 'div.ads' )[ 0 ];
