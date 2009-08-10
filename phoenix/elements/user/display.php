@@ -2,6 +2,7 @@
     class ElementUserDisplay extends Element {
         protected $mPersistent = array( 'theuserid' , 'avatarid', 'islink' );
 
+        
         public function Render( $theuserid , $avatarid , $theuser, $islink = true ) {
             global $libs;
             $libs->Load( 'image/image' ); // user->Avatar
