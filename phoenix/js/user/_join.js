@@ -141,18 +141,22 @@ var Join = {
         $( 'div a.button' ).click( function() {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
-                if ( !Join.usernameerror ) {
+                Settings.HandleError( 'usernameerror' , $( 'form.joinform div > span' )[ 0 ] );
+                /*if ( !Join.usernameerror ) {
                     Join.usernameerror = true;
                     $( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
+                */
                 Join.username.focus();
                 create = false;
             }
             if ( Join.username.value.length >= 4 && !Kamibu.ValidEmail( Join.username.value ) ) {
-                if ( !Join.invalidusername ) {
+                Settings.HandleError( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
+                /*if ( !Join.invalidusername ) {
                     Join.invalidusername = true;
                     $( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
+                */
                 Join.username.focus();
                 create = false;
             }
