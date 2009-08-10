@@ -38,15 +38,15 @@
                 <div class="leftbar">
                     <div class="folders" id="folders"><?php
                         $inbox = false;
-                        $outbox = false;
                         foreach ( $folders as $folder ) {
-                            if ( $folder->Typeid == PMFOLDER_INBOX || $folder->Typeid == PMFOLDER_OUTBOX ) {
+                            if ( $folder->Typeid == PMFOLDER_INBOX ) {
                                 $inbox = $folder;
-                                Element( 'pm/folder/link', $folder );
                             }
+                            Element( 'pm/folder/link', $folder );
                         }
-                    ?></div><br />
-                    <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span>&nbsp;</span>Νέο μήνυμα</a><br />
+
+                        ?><br />
+                    <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span class="s1_0032">&nbsp;</span>Νέο μήνυμα</a><br />
                 </div>
                 <div class="rightbar" style="float:left">
                     <div class="messages" id="messages"><?php
@@ -54,6 +54,14 @@
                     ?></div>
                 </div>
                 <div style="clear:left"></div>
+                <div class="newfoldermodal" id="newfoldermodal" style="display:none">
+                    Δώσε ένα όνομα για τον φάκελό σου<br /><br />
+                    <form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false" action="" method="">
+                        <input type="textbox" style="width:130px" /> 
+                        <a href="" class="s1_0065" onclick="pms.CreateNewFolder( this.parentNode );return false">&nbsp;</a>
+                        <a href="" class="s1_0066" onclick="pms.CancelNewFolder();return false">&nbsp;</a>
+                    </form>
+                </div>
             </div>
             </div><?php
             $page->AttachInlineScript( 'pms.OnLoad();' );
