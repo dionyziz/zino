@@ -33,5 +33,12 @@ var Kamibu = {
         }
 
         return;
+    }, 
+    ValidEmail : function( email ) {
+        if ( typeof( email ) == 'string' ) {
+            return /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( email );
+        }
+
+        return;
     }
 }
