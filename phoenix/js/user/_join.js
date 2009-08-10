@@ -161,10 +161,13 @@ var Join = {
                 create = false;
             }
             if ( Join.password.value.length < 4 ) {
+                Join.ErrorHandler( 'pwderror' , $( 'form.joinform div > span' )[ 3 ] );
+                /*
                 if ( !Join.pwderror ) {
                     Join.pwderror = true;
                     $( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
                 }
+                */
                 if ( !Join.usernamerror && !Join.invalidusername && !Join.usernameexists ) {
                     //if the username and password are empty then focus the username inputbox
                     Join.password.focus();
@@ -172,10 +175,12 @@ var Join = {
                 create = false;
             }
             if ( Join.password.value != Join.repassword.value && !Join.pwderror ) {
-                if ( !Join.repwderror ) {
+                Join.ErrorHandler( 'repwderror' , $( 'form.joinform div div > span' )[ 0 ] );
+                /*if ( !Join.repwderror ) {
                     Join.repwderror = true;
                     $( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
                 }
+                */
                 if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists ) {
                     Join.repassword.focus();
                 }
