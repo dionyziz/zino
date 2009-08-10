@@ -51,8 +51,6 @@
                         Element( 'pm/folder/link' , $outbox );
                         ?></div><br />
                     <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span class="s1_0032">&nbsp;</span>Νέο μήνυμα</a><br />
-                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false" style="display:none"><span class="s1_0029">&nbsp;</span>Διαγραφή φακέλου</a>
-                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false" style="display:none"><span class="s1_0030">&nbsp;</span>Μετονομασία φακέλου</a>
                 </div>
                 <div class="rightbar" style="float:left">
                     <div class="messages" id="messages"><?php
