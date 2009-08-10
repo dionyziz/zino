@@ -5,7 +5,6 @@
             global $user;
             global $libs;
             
-        
             $libs->Load( 'image/image' );
 
             $finder = New ImageFinder();
