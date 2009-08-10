@@ -4,5 +4,4 @@ window.onerror = function( msg, url, linenumber ){
 			'url': url,
 			'linenumber': linenumber
 		} );
-	return false;
 };
