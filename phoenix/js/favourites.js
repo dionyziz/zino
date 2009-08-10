@@ -8,7 +8,7 @@ var Favourites = {
         } );
         return false;
     },
-    Add : function( id , type ) {
+    Add : function( id , type , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
 			$( linknode ).fadeOut( 800 , function() {
 				$( linknode ).attr( {

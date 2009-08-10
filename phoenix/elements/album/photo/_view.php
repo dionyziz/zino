@@ -132,7 +132,7 @@
 	                        }
 	                        ?>" onclick="return Favourites.Add( '<?php
 	                        echo $image->Id;
-	                        ?>' , this )"><span class="<?php
+	                        ?>' , 'Image' , this )"><span class="<?php
 	                        if ( !$fav ) {
 	                            ?>s1_0019<?php
 	                        }
