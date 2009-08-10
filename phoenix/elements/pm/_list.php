@@ -58,14 +58,6 @@
                     ?></div>
                 </div>
                 <div style="clear:left"></div>
-                <div class="newfoldermodal" id="newfoldermodal" style="display:none">
-                    Δώσε ένα όνομα για τον φάκελό σου<br /><br />
-                    <form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false" action="" method="">
-                        <input type="textbox" style="width:130px" /> 
-                        <a href="" class="s1_0065" onclick="pms.CreateNewFolder( this.parentNode );return false">&nbsp;</a>
-                        <a href="" class="s1_0066" onclick="pms.CancelNewFolder();return false">&nbsp;</a>
-                    </form>
-                </div>
             </div>
             </div><?php
             $page->AttachInlineScript( 'pms.OnLoad();' );
