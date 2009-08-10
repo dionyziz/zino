@@ -32,7 +32,7 @@ var PhotoView = {
 		} );
 		return false;
 	},
-	AddFav : function( photoid , linknode ) {
+	/*AddFav : function( photoid , linknode ) {
 		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
 			$( linknode ).fadeOut( 800 , function() {
 				$( linknode ).attr( {
@@ -49,6 +49,7 @@ var PhotoView = {
 		}
 		return false;
 	},
+    */
     completeFav : function( photoid ) {
         Coala.Cold( 'album/photo/getfavs', { 'id' : photoid } );
         return false;

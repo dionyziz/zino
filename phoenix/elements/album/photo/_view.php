@@ -130,7 +130,7 @@
 	                        else {
 	                            ?>Αγαπημένο<?php
 	                        }
-	                        ?>" onclick="return PhotoView.AddFav( '<?php
+	                        ?>" onclick="return Favourites.Add( '<?php
 	                        echo $image->Id;
 	                        ?>' , this )"><span class="<?php
 	                        if ( !$fav ) {
