@@ -247,22 +247,6 @@ var Settings = {
 						}
 					}
 				} );
-				$( '#favquote input' ).change( function() {
-					var text = this.value;
-					if ( this.value === '' ) {
-						text = '-1';
-					}
-					Settings.Enqueue( 'favquote' , text );
-				}).keyup( function() {
-					var text = this.value;
-					if ( this.value === '' ) {
-						text = '-1';
-					}
-					Settings.Enqueue( 'favquote' , text );
-					if ( Settings.aboutme ) {
-						Settings.aboutme = this.value;
-					}
-				});
 				Settings.ControlInput( 'favquote' );		
 				break;
 			case 'characteristics':
@@ -314,7 +298,7 @@ var Settings = {
 				}).keyup( function() {
 					var text = this.value;
 					if ( Settings.invalidmsn ) {
-						if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+						if ( Kamibu.ValidEmail( text ) ) {
 							$( 'div#msn span' ).animate( { opacity: "0" } , 1000 , function() {
 								$( 'div#msn span' ).css( "display" , "none" );
 							});
@@ -359,7 +343,7 @@ var Settings = {
 				}).keyup( function() {
 					var text = this.value;
 					if ( Settings.invalidemail ) {
-						if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+						if ( Kamibu.ValidEmail( text ) ) {
 							$( 'div#email span' ).animate( { opacity: "0" } , 1000 , function() {
 								$( 'div#email span' ).css( "display" , "none" );
 							});
