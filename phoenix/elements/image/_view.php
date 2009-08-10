@@ -5,7 +5,6 @@
             //imageid  , imageuserid, imagewidth, imageheight
 			global $xc_settings;
             global $rabbit_settings;
-
             
 			switch ( $type ) {
 				case IMAGE_PROPORTIONAL_210x210:
