@@ -17,7 +17,11 @@
             else {
                 $aviesize = $size;
             }
-            ?><span class="rn vavie<?php
+            ?><span class="<?php
+                if ( $csswidth != 50 ) {
+                    ?>rn <?php
+                }
+                ?>vavie<?php
                 echo $aviesize;
             ?>">
                 <img src="<?php
