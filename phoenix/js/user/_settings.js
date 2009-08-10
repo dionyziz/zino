@@ -62,7 +62,6 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function( visual ) {
-        alert( 'saving' );
         if ( visual ) {
 			$( 'div.savebutton a' ).html( $( Settings.showsaving ).html() );
 		}
@@ -391,11 +390,9 @@ var Settings = {
 					Settings.Enqueue( $( this )[ 0 ].id , value );
 				} );
 				$( 'div.savebutton a' ).click( function() {
-                    alert( 'click' );
 					if ( !$( this ).hasClass( 'disabled' ) ) {
 						Settings.Save( true );
 					}
-                    alert( 'save button clicked' );
 					return false;
 				} );
 				$( '#avatarlist' ).jqm( {
