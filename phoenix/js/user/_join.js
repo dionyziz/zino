@@ -113,7 +113,7 @@ var Join = {
         
         $( Join.email ).keyup( function() {
             if ( Join.emailerror ) {
-                if ( Join.email.value === '' || /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
+                if ( Join.email.value === '' || Kamibu.ValidEmail( Join.email.value ) ) {
                     Join.emailerror = false;
                     $( $( 'form.joinform div > span' )[ 5 ] ).animate( { opacity: "0" } , 700 , function() {
                         $( this ).css( "display" , "none" );
@@ -142,21 +142,11 @@ var Join = {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
                 Join.ErrorHandler( 'usernameerror' , $( 'form.joinform div > span' )[ 0 ] );
-                /*if ( !Join.usernameerror ) {
-                    Join.usernameerror = true;
-                    $( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
-                }
-                */
                 Join.username.focus();
                 create = false;
             }
-            if ( Join.username.value.length >= 4 && !/^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
+            if ( Join.username.value.length >= 4 && !Kamibu.ValidEmail( Join.username.value ) ) {
                 Join.ErrorHandler( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
-                /*kif ( !Join.invalidusername ) {
-                    Join.invalidusername = true;
-                    $( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
-                }
-                */
                 Join.username.focus();
                 create = false;
             }
@@ -175,14 +165,8 @@ var Join = {
                 }
                 create = false;
             }
-            if ( !/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
+            if ( !Kamibu.ValidEmail( Join.email.value ) ) {
                 Join.ErrorHandler( 'emailerror' , $( 'form.joinform div > span' )[ 5 ] );
-                /*
-                if ( !Join.emailerror ) {
-                    Join.emailerror = true;
-                    $( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
-                }
-                */
                 if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists && !Join.pwderror && !Join.repwderror ) {
                     Join.email.focus();
                 }
