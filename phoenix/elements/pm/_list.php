@@ -52,6 +52,7 @@
                         Element( 'pm/folder/view', $inbox );
                     ?></div>
                 </div>
+                <div style="clear:left"></div>
             </div>
             </div><?php
             $page->AttachInlineScript( 'pms.OnLoad();' );
