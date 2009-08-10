@@ -18,7 +18,7 @@
                 $aviesize = $size;
             }
             ?><span class="<?php
-                if ( $csswidth != 50 ) {
+                if ( $aviesize != 50 ) {
                     ?>rn <?php
                 }
                 ?>vavie<?php
