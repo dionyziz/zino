@@ -24,9 +24,6 @@
             foreach ( $folders as $folder ) {
                 $folder_dump[] = array( $folder->Userid, $folder->Name, $folder->Typeid );
             }
-            $page->AttachScript( 'js/ui.base.js' );
-            $page->AttachScript( 'js/ui.draggable.js' );
-            $page->AttachScript( 'js/ui.droppable.js' );
             ?><script type="text/javascript">
             var unreadpms = <?php
             echo $unreadCount;
