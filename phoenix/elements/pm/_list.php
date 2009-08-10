@@ -42,7 +42,7 @@
                             if ( $folder->Typeid == PMFOLDER_INBOX ) {
                                 $inbox = $folder;
                             }
-                            Element( 'pm/folder/link', $folder );
+                            //Element( 'pm/folder/link', $folder );
                         }
                     ?></div><br />
                     <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span>&nbsp;</span>Νέο μήνυμα</a><br />
