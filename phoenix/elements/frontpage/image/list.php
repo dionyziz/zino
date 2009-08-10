@@ -4,7 +4,6 @@
         public function Render( $imageseq ) {
             global $user;
             global $libs;
-
             
             $libs->Load( 'image/image' );
 
