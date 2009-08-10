@@ -391,6 +391,7 @@ var Settings = {
 					Settings.Enqueue( $( this )[ 0 ].id , value );
 				} );
 				$( 'div.savebutton a' ).click( function() {
+                    alert( 'click' );
 					if ( !$( this ).hasClass( 'disabled' ) ) {
 						Settings.Save( true );
 					}
