@@ -18,7 +18,7 @@
                 $aviesize = $size;
             }
             ?><span class="<?php
-                die( $aviesize );
+                die( "test: ". $csswidth );
                 if ( $csswidth != 50 ) {
                     ?>rn <?php
                 }
