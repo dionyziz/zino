@@ -142,29 +142,16 @@ var Join = {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
                 Join.HandleError( 'usernameerror' , $( 'form.joinform div > span' )[ 0 ] );
-                /*if ( !Join.usernameerror ) {
-                    Join.usernameerror = true;
-                    $( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
-                }
-                */
                 Join.username.focus();
                 create = false;
             }
             if ( Join.username.value.length >= 4 && !Kamibu.ValidEmail( Join.username.value ) ) {
                 Join.HandleError( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
-                /*if ( !Join.invalidusername ) {
-                    Join.invalidusername = true;
-                    $( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
-                }
-                */
                 Join.username.focus();
                 create = false;
             }
             if ( Join.password.value.length < 4 ) {
-                if ( !Join.pwderror ) {
-                    Join.pwderror = true;
-                    $( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
-                }
+                Join.HandleError( 'pwderror' , $( 'form.joinform div > span' )[ 3 ] );
                 if ( !Join.usernamerror && !Join.invalidusername && !Join.usernameexists ) {
                     //if the username and password are empty then focus the username inputbox
                     Join.password.focus();
@@ -172,20 +159,14 @@ var Join = {
                 create = false;
             }
             if ( Join.password.value != Join.repassword.value && !Join.pwderror ) {
-                if ( !Join.repwderror ) {
-                    Join.repwderror = true;
-                    $( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
-                }
+                Join.HandleError( 'repwderror' , $( 'form.joinform div div > span' )[ 0 ] );
                 if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists ) {
                     Join.repassword.focus();
                 }
                 create = false;
             }
             if ( Kamibu.ValidEmail( Join.email.value ) ) {
-                if ( !Join.emailerror ) {
-                    Join.emailerror = true;
-                    $( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
-                }
+                Join.HandleError( 'emailerror' , $( 'form.joinform div > span' )[ 5 ] );
                 if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists && !Join.pwderror && !Join.repwderror ) {
                     Join.email.focus();
                 }
