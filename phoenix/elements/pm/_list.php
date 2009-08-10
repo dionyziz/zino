@@ -38,11 +38,16 @@
                 <div class="leftbar">
                     <div class="folders" id="folders"><?php
                         $inbox = false;
+                        $outbox = false;
                         foreach ( $folders as $folder ) {
                             if ( $folder->Typeid == PMFOLDER_INBOX ) {
                                 $inbox = $folder;
                             }
-                            Element( 'pm/folder/link', $folder );
+                            if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
+                                $outbox = $folder;
+                            }
+                            Element( 'pm/folder/link', $inbox );
+                            Element( 'pm/folder/link' , $outbox );
                         }
 
                         ?></div><br />
