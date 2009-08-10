@@ -38,11 +38,12 @@
                 <div class="leftbar">
                     <div class="folders" id="folders"><?php
                         $inbox = false;
+                        $outbox = false;
                         foreach ( $folders as $folder ) {
-                            if ( $folder->Typeid == PMFOLDER_INBOX ) {
+                            if ( $folder->Typeid == PMFOLDER_INBOX || $folder->Typeid == PMFOLDER_OUTBOX ) {
                                 $inbox = $folder;
+                                Element( 'pm/folder/link', $folder );
                             }
-                            //Element( 'pm/folder/link', $folder );
                         }
                     ?></div><br />
                     <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span>&nbsp;</span>Νέο μήνυμα</a><br />
