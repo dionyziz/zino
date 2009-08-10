@@ -1,6 +1,6 @@
 var Join = {
 	ShowTos : function () {
-		var area = $( '#join_tos' )[ 0 ].cloneNode( true );
+		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
 	},
@@ -11,12 +11,6 @@ var Join = {
             Join.username.focus();
             Join.username.select();
             document.body.style.cursor = 'default';
-        }
-    },
-    HandleError : function( varname , node ) {
-        if ( !Join[ varname ] ) {
-            Join[ varname ] = true;
-            $( node ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
         }
     },
     JoinOnLoad : function() {
@@ -113,7 +107,7 @@ var Join = {
         
         $( Join.email ).keyup( function() {
             if ( Join.emailerror ) {
-                if ( Join.email.value === '' || Kamibu.ValidEmail( Join.email.value ) ) {
+                if ( Join.email.value === '' || /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
                     Join.emailerror = false;
                     $( $( 'form.joinform div > span' )[ 5 ] ).animate( { opacity: "0" } , 700 , function() {
                         $( this ).css( "display" , "none" );
@@ -141,22 +135,18 @@ var Join = {
         $( 'div a.button' ).click( function() {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
-                Join.HandleError( 'usernameerror' , $( 'form.joinform div > span' )[ 0 ] );
-                /*if ( !Join.usernameerror ) {
+                if ( !Join.usernameerror ) {
                     Join.usernameerror = true;
                     $( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
-                */
                 Join.username.focus();
                 create = false;
             }
-            if ( Join.username.value.length >= 4 && !Kamibu.ValidEmail( Join.username.value ) ) {
-                Join.HandleError( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
-                /*if ( !Join.invalidusername ) {
+            if ( Join.username.value.length >= 4 && !/^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
+                if ( !Join.invalidusername ) {
                     Join.invalidusername = true;
                     $( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
-                */
                 Join.username.focus();
                 create = false;
             }
@@ -181,7 +171,7 @@ var Join = {
                 }
                 create = false;
             }
-            if ( Kamibu.ValidEmail( Join.email.value ) ) {
+            if ( !/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
                 if ( !Join.emailerror ) {
                     Join.emailerror = true;
                     $( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
