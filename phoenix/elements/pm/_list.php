@@ -46,10 +46,9 @@
                             if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
                                 $outbox = $folder;
                             }
-                            Element( 'pm/folder/link', $inbox );
-                            Element( 'pm/folder/link' , $outbox );
                         }
-
+                        Element( 'pm/folder/link', $inbox );
+                        Element( 'pm/folder/link' , $outbox );
                         ?></div><br />
                     <a href="" class="folder_links newpm" onclick="return pms.NewMessage( '' , '' )"><span class="s1_0032">&nbsp;</span>Νέο μήνυμα</a><br />
                     <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false" style="display:none"><span class="s1_0029">&nbsp;</span>Διαγραφή φακέλου</a>
