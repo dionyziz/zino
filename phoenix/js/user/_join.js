@@ -13,6 +13,12 @@ var Join = {
             document.body.style.cursor = 'default';
         }
     },
+    ErrorHandler : function( varname , node ) {
+        if ( !Join[ varname ] ) {
+            Join[ varname ] = true;
+            $( node ).css( 'opacity' , '0' ).css( 'display' , 'inline' ).animate( { opacity : "1" } , 400 );
+        }
+    },
     JoinOnLoad : function() {
         Join.timervar = 0;
         Join.hadcorrect = false;
@@ -135,18 +141,22 @@ var Join = {
         $( 'div a.button' ).click( function() {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
-                if ( !Join.usernameerror ) {
+                Join.ErrorHandler( 'usernameerror' , $( 'form.joinform div > span' )[ 0 ] );
+                /*if ( !Join.usernameerror ) {
                     Join.usernameerror = true;
                     $( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
+                */
                 Join.username.focus();
                 create = false;
             }
             if ( Join.username.value.length >= 4 && !/^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
-                if ( !Join.invalidusername ) {
+                Join.ErrorHandler( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
+                /*kif ( !Join.invalidusername ) {
                     Join.invalidusername = true;
                     $( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
                 }
+                */
                 Join.username.focus();
                 create = false;
             }
