@@ -5,7 +5,7 @@
             global $water;
             global $user;
           
-            ?><ul class="plist"><?php
+            ?><ul class="lst ul1 border"><?php
                 if ( $user->Id == $theuserid && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                    ?><li class="addphoto"><a href="" class="s1_0048" title="Ανέβασε μια φωτογραφία">&nbsp;</a></li><?php
                 }

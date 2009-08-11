@@ -238,15 +238,8 @@
 .main .photos .viewalbums {
 	margin: 20px 0 0 0;
 }
-.main .photos ul {
-	height: 100px;
-}
-.main .photos ul li {
-	padding: 0 3px;
-	float: left;
-}
 .main .photos ul li.addphoto {
-    padding: 43px 10px 0 5px;
+    padding: 43px 0 0 0;
 }
 #easyphotoupload {
 	display: none;
