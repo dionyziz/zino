@@ -1,5 +1,6 @@
 <?php
     class ElementUserProfileMainLastjournal extends Element {
+
         protected $mPersistent = array( 'journalid' , 'numcomments' , 'numjournals' , 'sameuser' );
         public function Render( $journal , $theuser , $journalid , $numcomments , $numjournals , $sameuser ) {
             ?><div class="lastjournal">
