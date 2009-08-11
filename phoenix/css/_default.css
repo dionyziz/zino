@@ -49,6 +49,7 @@ div.eof {
 .barfade {
 	background: #ccc;
    	height: 1px;
+    margin: 10px 0;
 }
 .barfade .leftbar {
 	float: left;
