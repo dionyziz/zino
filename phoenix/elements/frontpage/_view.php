@@ -154,7 +154,7 @@
                 ?></div>
                 <div id="fp_right">
                     <div id="fp_latest">
-                        <h2>Πρόσφατα γεγονότα</h2>
+                        <h2 class="subheading">Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>

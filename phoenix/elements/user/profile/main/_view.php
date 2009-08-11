@@ -208,13 +208,13 @@
                 }
                 if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
                     ?><div class="lastpoll">
-                        <h3>Δημοσκοπήσεις<?php
+                        <h2 class="pheading">Δημοσκοπήσεις<?php
                         if ( $theuser->Count->Polls > 0 ) {
-                            ?> <span>(<a href="<?php
+                            ?> <span class="small1">(<a href="<?php
                             Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                             ?>polls">προβολή όλων</a>)</span><?php
                         }
-                        ?></h3><?php
+                        ?></h2><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) {
                             ?><div class="nopolls">
                             Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
