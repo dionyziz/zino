@@ -40,7 +40,7 @@
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>"><?php
                                 Element( 'user/avatar' , $onuser->Avatarid , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , 'nolazy' , '' , false , 0 , 0 );
-                                ?></li></a><?php
+                                ?></a></li><?php
                             }    
                         ?></div><?php
                 ?></div><?php
