@@ -23,15 +23,13 @@ ul.lst > li {
 	float: left;
 }
 ul.ul1 {
-	height: 100px;
+	height: 110px;
 }
 ul.ul1 > li {
-	width: 100px;
-	height: 100px;
-	margin: 0 8px 0 0; 
+	height: 105px;
+	margin: 0 8px 20px 0; 
 }
 ul.ul2 > li {
-	width: 100px;
 	height: 100px;
 	margin: 0 8px 8px 0; 
 }
@@ -50,7 +48,7 @@ div.eof {
 }
 .barfade {
 	background: #ccc;
-    height: 1px;
+   	height: 1px;
 }
 .barfade .leftbar {
 	float: left;
