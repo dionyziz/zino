@@ -42,7 +42,7 @@
                                 Element( 'user/avatar' , $onuser->Avatarid , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , 'nolazy' , '' , false , 0 , 0 );
                                 ?></a></li><?php
                             }    
-                        ?></div><?php
+                        ?></ul><?php
                 ?></div><?php
             }
         }
