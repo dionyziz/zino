@@ -152,6 +152,9 @@
 .onlineusers .list a span.vavie100 {
     cursor: pointer;
 }
+.onlineusers ul.ul2 li {
+    width: 103px;
+}
 .onlinenow a img {
     border: 1px solid #666;
     margin: 0 10px 10px 0;
