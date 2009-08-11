@@ -3,6 +3,12 @@ h2 {
 	color: #666;
     text-align: left;
 }
+h2.subheading {
+    font-size: 120%;
+}
+h2.pheading {
+    font-size: 80%;
+}
 h2.sweet {
     color: #105090;
     font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
