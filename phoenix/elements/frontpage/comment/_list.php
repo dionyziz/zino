@@ -4,7 +4,6 @@
         public function Render( $commentseq ) {
             global $libs;
 
-
             $libs->Load( 'comment' );
             
             $finder = New CommentFinder();
