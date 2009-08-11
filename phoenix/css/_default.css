@@ -14,6 +14,30 @@ ul , li {
 	margin: 0;
 	padding: 0;
 }
+ul.lst { 
+	overflow: hidden; 
+	position: relative;
+	margin: 2px 0;
+}
+ul.lst > li {
+	float: left;
+}
+ul.ul1 {
+	height: 100px;
+}
+ul.ul1 > li {
+	width: 100px;
+	height: 100px;
+	margin: 0 8px 0 0; 
+}
+ul.ul2 > li {
+	width: 100px;
+	height: 100px;
+	margin: 0 8px 8px 0; 
+}
+ul.border > li img {
+	border: 1px solid #ccccee;
+}
 dl, dd {
 	padding: 0;
 	margin: 0;
