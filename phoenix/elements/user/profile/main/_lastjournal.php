@@ -3,13 +3,13 @@
         protected $mPersistent = array( 'journalid' , 'numcomments' , 'numjournals' , 'sameuser' );
         public function Render( $journal , $theuser , $journalid , $numcomments , $numjournals , $sameuser ) {
             ?><div class="lastjournal">
-                <h3>Ημερολόγιο <?php
+                <h2 class="pheading">Ημερολόγιο <?php
                 if ( $numjournals > 1 ) {
-                    ?><span>(<a href="<?php
+                    ?><span class="small1">(<a href="<?php
                     Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>journals">προβολή όλων</a>)</span><?php
                 }
-                ?></h3><?php
+                ?></h2><?php
                 if ( $sameuser ) {
                     ?><div class="nojournals">
                     Δεν έχεις καμία καταχώρηση.<br />
