@@ -1,43 +1,37 @@
-div#shoutbox div.newcomment div.text input {
+#shoutbox .newcomment div.text input {
     border: 1px solid #999;
     width: 100%;
     height: 100%;
     vertical-align: top;
 }
-div#shoutbox div.newcomment div.text {
+#shoutbox .newcomment div.text {
     height: 49px;
 }
-div#shoutbox div.newcomment div.bottom {
+#shoutbox .newcomment div.bottom {
     text-align: right;
 }
-div#shoutbox div.newcomment div.bottom input#shoutbox_submit {
+#shoutbox .newcomment div.bottom input#shoutbox_submit {
     margin: 5px 3px 0;
 }
-div#shoutbox div.newcomment div.bottom div.typing {
+#shoutbox .newcomment div.bottom div.typing {
     margin: 5px 0 0 0;
     float: left;
 }
-div#shoutbox div.newcomment div.who {
+#shoutbox .newcomment div.who {
     float: left;
     width: 50px;
 }
-div#shoutbox div.comments {
+#shoutbox .comments {
 	width: 100%;
 }
-div#shoutbox div.comments div.comment {
+#shoutbox .comments div.comment {
     max-height: 300px;
     overflow: hidden;
 }
-div#shoutbox h2 {	
-	margin-bottom: 10px;
-}
-div#shoutbox h2 span {
-    font-size: 70%;
-}
-div#shoutbox div.more {
+#shoutbox div.more {
 	margin: 10px 0;
 }
-div.outshoutbox {
+.outshoutbox {
 	float: left;
 	width: 95%;
 }
