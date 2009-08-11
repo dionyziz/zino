@@ -54,23 +54,6 @@
 #frontpage .lstimages{
     height: 115px;
 }
-.lstimages {
-    margin: 0 4px 20px 4px;
-}
-.lstimages ul {
-    height: 110px;
-    position: relative;
-	margin: 0 25px 0 0;
-}
-.lstimages ul li {
-    float: left;
-    margin: 2px 8px 20px 0;
-    height: 110px;
-    text-align: center;
-}
-.lstimages ul li img {
-    border: 1px solid #cce;
-}
 #frontpage div.more {
     float: right;
     margin: 30px 0 0;
