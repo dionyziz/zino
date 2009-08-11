@@ -13,7 +13,7 @@
                     echo str_replace( '*', urlencode( $subdomain  ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
                     ?>">προβολή όλων</a>)</span><?php
                 }
-                ?></h3><?php
+                ?></h2><?php
                 if ( $usernorel ) {
                     ?>Δεν έχεις προσθέσει κανέναν φίλο. Μπορείς να προσθέσεις φίλους από το προφίλ τους.<?php
                 }
