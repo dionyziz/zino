@@ -31,7 +31,7 @@
             }
 
             ?><div class="list">
-                <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
+                <h2 class="pheading">Ημερολόγια <span class="small1">(<a href="journals">προβολή όλων</a>)</span></h2><?php
                 foreach ( $journals as $journal ) {
                     $water->Trace( 'Journal ID ' . $journal->Id . ' UserID ' . $journal->Userid );
                     if ( isset( $sticky ) && $journal->Id == $sticky ) {
