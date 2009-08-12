@@ -8,6 +8,7 @@ h2.subheading {
 }
 h2.pheading {
     font-size: 100%;
+    margin: 2px 0 5px 0;
 }
 h2.sweet {
     color: #105090;
