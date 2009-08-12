@@ -72,12 +72,12 @@
                 ?></h2>
                 <dl><?php
                     if ( $album->Numphotos > 0 ) {
-                        ?><dt class="photonum"><span class="s_photonum">&nbsp;</span><?php
+                        ?><dt class="photonum small"><span class="s1_0006">&nbsp;</span><?php
                         echo $album->Numphotos;
                         ?></dt><?php
                     }
                     if ( $album->Numcomments > 0 ) {
-                        ?><dt class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+                        ?><dt class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
                         echo $album->Numcomments;
                         ?></dt><?php
                     }
@@ -87,11 +87,11 @@
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="return PhotoList.Rename( '<?php
                             echo $album->Id;
-                            ?>' )"><span class="s_edit">&nbsp;</span>Μετονομασία</a>
+                            ?>' )"><span class="s1_0011">&nbsp;</span>Μετονομασία</a>
                             </div>
                             <div class="delete"><a href="" onclick="return PhotoList.Delete( '<?php
                             echo $album->Id;
-                            ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a></div>
+                            ?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a></div>
                         </div><?php
                     }
                 }

@@ -17,11 +17,9 @@ div#photolist div.owner div.delete {
 }
 div#photolist dl dt.photonum {
 	display: inline;
-	font-size: 90%;
 }
 div#photolist dl dt.commentsnum {
 	margin: 0 5px 2px 3px;
-	font-size: 85%;
 	display: inline;
 }
 div#photolist ul {
