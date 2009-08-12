@@ -14,27 +14,18 @@ var Settings = {
 		var settingslis = $( 'div.settings div.sidebar ol li' );
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
-				//TODO: add some loader
 				Coala.Cold( 'user/settings/tab', { 
 					tab : divtoshow
 				} );
-				//$( '#' + divtoshow + 'info' ).show();
 				Settings.FocusSettingLink( settingslis[ i ], true , validtabs[ i ] );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
-			/*
-			else {
-				$( '#' + validtabs[ i ] + 'info' ).hide();
-				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );		
-			}
-			*/
 		}
 		if ( !found ) {
 			Coala.Cold( 'user/settings/tab',  { 
 				tab : validtabs[ 0 ]
 			} );
-			//$( '#' + validtabs[ 0 ] + 'info' ).show();
 			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 			Settings.FocusSettingLink( settingslis[ 0 ] , true , validtabs[ 0 ] );
 		}
@@ -197,7 +188,7 @@ var Settings = {
 						}
 						else {
 							if ( !Settings.invaliddob ) {
-								$( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
+								$( 'form#personalinfo div span.invaliddob' )
 									.css( "display" , "inline" )
 									.animate( { opacity: "1" } , 200 );	
 								Settings.invaliddob = true;
