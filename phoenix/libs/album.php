@@ -53,12 +53,17 @@
 
             $res = $query->Execute();
 			
-            $totalcount = ( int )array_shift(
-                $this->mDb->Prepare(
-                    'SELECT FOUND_ROWS();'
-                )->Execute()->FetchArray()
-            );
+			$frquery = $this->mDb->Prepare( 'SELECT FOUND_ROWS();' );
+			$frres = $frquery->Execute();
+			$frrow = $frres->FetchArray();
+        		
+			if ( $user->Id == 1 ) {
+				var_dump( $frrow );
+				die( '!' );
+			}
 			
+			$totalcount = ( int )array_shift( $frrow );
+        		
             $ret = array();
             while ( $row = $res->FetchArray() ) {
                 $album = New Album( $row );
@@ -66,10 +71,6 @@
                 $album->CopyUserFrom( $theuser );
                 $ret[] = $album;
             }
-        		
-			if ( $user->Id == 1 ) {
-				die( 'FindByUser totalcount = ' . $totalcount );
-			}
 
             return New Collection( $ret, $totalcount );
         }
