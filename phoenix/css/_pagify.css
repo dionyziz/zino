@@ -1,3 +1,6 @@
+.pagify {
+    height: 25px;
+}
 .pagify a.nextbacklinks {  
 	padding: 3px 4px;
     border: 1px solid #9aafe5;
