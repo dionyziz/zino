@@ -173,6 +173,7 @@
                         <i class="br"></i>
                     </div><?php
                 }
+                ?><div><?php
                 if ( $egoalbum->Numphotos > 0 ) {
                     ?><div class="photos"><?php
                         if ( $egoalbum->Numphotos > 5 ) {
@@ -184,6 +185,7 @@
                         ?></div><?php
                 }
                 ?>
+                </div>
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php
