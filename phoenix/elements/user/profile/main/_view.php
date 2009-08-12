@@ -185,14 +185,14 @@
                         ?></div><?php
                 }
                 ?>
-                </div>
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                         ?>albums" class="button">Προβολή albums&raquo;</a></div><?php
                     }
-                ?></div><?php
+                ?></div>
+                </div><?php
                 $finder = New FriendRelationFinder();
                 $friends = $finder->FindByUser( $theuser , 0 , 12 );  
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
