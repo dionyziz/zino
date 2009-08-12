@@ -26,7 +26,7 @@
                         ?>pollinfo2<?php
                     }
                     ?>">
-                        <dd><a href="<?php
+                        <dd class="small"><a href="<?php
                         echo $url;
                         ?>"><span class="s1_0027">&nbsp;</span><?php
                         echo $poll->Numcomments;

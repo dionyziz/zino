@@ -66,7 +66,10 @@
 	text-align: left;
 	margin: 5px 0 0 0;
 }
-.posmall .results dl.pollinfo dd, .pollsmall .results dl.pollinfo2 dd {
+.posmall .results dl.pollinfo dd {
+	display: inline;
+}
+.posmall .results dl.pollinfo2 dd {
 	display: inline;
 	font-size: 80%;
 }
