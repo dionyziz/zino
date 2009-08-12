@@ -9,7 +9,7 @@ div#photomanager div.albums {
     float: left;
     position: relative;
     width: 240px;
-    background: #fff url('http://static.zino.gr/phoenix/sidebarbg.jpg') repeat-y right;
+    background: #fff url('http://static.zino.gr/phoenix/sidebarbg.png') repeat-y right;
     overflow: hidden;
     border-bottom: 1px solid #CCCCCC;
     border-top: 1px solid #CCCCCC;
