@@ -45,7 +45,6 @@
                         :offset, :limit;" );
             }
             
-            
             $query->BindTable( 'albums', 'images' );
             $query->Bind( 'userid', $theuser->Id );
             $query->Bind( 'user', TYPE_USERPROFILE );
@@ -53,6 +52,13 @@
             $query->Bind( 'limit', $limit );
 
             $res = $query->Execute();
+			
+            $totalcount = ( int )array_shift(
+                $this->mDb->Prepare(
+                    'SELECT FOUND_ROWS();'
+                )->Execute()->FetchArray()
+            );
+			
             $ret = array();
             while ( $row = $res->FetchArray() ) {
                 $album = New Album( $row );
@@ -60,13 +66,7 @@
                 $album->CopyUserFrom( $theuser );
                 $ret[] = $album;
             }
-        
-            $totalcount = ( int )array_shift(
-                $this->mDb->Prepare(
-                    'SELECT FOUND_ROWS();'
-                )->Execute()->FetchArray()
-            );
-			
+        		
 			if ( $user->Id == 1 ) {
 				die( 'FindByUser totalcount = ' . $totalcount );
 			}
