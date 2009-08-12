@@ -53,15 +53,9 @@
 
             $res = $query->Execute();
 			
-			$frquery = $this->mDb->Prepare( 'SELECT FOUND_ROWS();' );
+			$frquery = $this->mDb->Prepare( 'SELECT FOUND_ROWS() AS fr;' );
 			$frres = $frquery->Execute();
 			$frrow = $frres->FetchArray();
-        		
-			if ( $user->Id == 1 ) {
-				var_dump( $frrow );
-				die( '!' );
-			}
-			
 			$totalcount = ( int )array_shift( $frrow );
         		
             $ret = array();
