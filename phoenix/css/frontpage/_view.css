@@ -188,9 +188,9 @@
     position: relative;
 }
 
-#fp_latest div.journals {
+#fp_latest .journals {
     width: 100%;
 }
-#fp_latest div.polls {
+#fp_latest .polls {
     width: 100%;
 }
