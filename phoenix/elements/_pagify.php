@@ -31,9 +31,9 @@
             if ( $endpage - $startpage > 0 ) {
                 for ( $p = $startpage; $p <= $endpage; ++$p ) {
                     if ( $p == $pageno ) {
-                        ?><strong><?php
+                        ?><span class="current"><?php
                         echo $p;
-                        ?></strong><?php
+                        ?></span><?php
                     }
                     else {
                         ?><a href="<?php

@@ -1,11 +1,22 @@
-div.pagify a.nextbacklinks, div.pagify strong {
+.pagify a.nextbacklinks {  
 	padding: 0 4px;
+    border: 1px solid #9aafe5;
+    color: #105cb6;
 }
-div.pagify div.pagifycount {
+.pagify a.nextbacklinks:hover {
+    border: 1px solid #2e6ab1;
+}
+.pagify .current {
+    padding: 0 4px;
+    background: #2e6ab1;
+    font-weight: 700;
+    border: 1px solid #2e6ab1;
+}
+.pagify .pagifycount {
     color: #aaa;
     font-size: small;
 }
-div.pagify {
+.pagify {
 	font-size: 11pt;
 	text-align: center;
 }
