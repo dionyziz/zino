@@ -70,28 +70,28 @@ var Settings = {
 	},
 	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
-		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
+		var intervalue = $( 'form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( $.trim( intervalue ) !== '' ) {
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
-				var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
+				var newspan = $( 'form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
 				$( newspan ).removeClass( 'creation' ).find( 'span.bbblmiddle' ).append( document.createTextNode( intervalue ) );
 				var link = newspan.getElementsByTagName( 'a' )[ 0 ];
 				$( newli ).append( newspan );
-				$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
+				$( 'form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
 				Suggest.added[ type ].push( intervalue );
 				Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			}
 			else {
 				alert( 'Το κείμενό σου μπορεί να έχει 32 χαρακτήρες το πολύ' );
 			}
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
+			$( 'form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+			$( 'form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 		else {
 			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
+			$( 'form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+			$( 'form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 	},
 	RemoveInterest : function( tagid , node ) {
