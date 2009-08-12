@@ -7,6 +7,8 @@
         protected $mModel = 'Album';
         
         public function FindByUser( User $theuser, $offset = 0, $limit = 25, $emptyalbums = true ) {
+			global $user;
+			
             if ( $emptyalbums ) {
                 $query = $this->mDb->Prepare( "
                     SELECT
@@ -64,6 +66,10 @@
                     'SELECT FOUND_ROWS();'
                 )->Execute()->FetchArray()
             );
+			
+			if ( $user->Id == 1 ) {
+				die( 'FindByUser totalcount = ' . $totalcount );
+			}
 
             return New Collection( $ret, $totalcount );
         }
