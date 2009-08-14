@@ -7,7 +7,7 @@
 */
 
 ( function($) {
-    $.fn.modal = function( config, trigger ) {
+    $.fn.modal = function( trigger, config ) {
         var defconfig = {
             overlayClass : 'mdloverlay1'
             
