@@ -33,7 +33,7 @@ var About = {
             $( '#aboutcontact select#reason' ).change( function () {
                 var options = document.getElementById( 'reason' ).options;
                 
-                for ( var i = 1; i < options.length; ++i ) { // skip the first empty item
+                for ( var i = 0; i < options.length; ++i ) { // skip the first empty item
                     var option = options[ i ];
                     
                     if ( option.selected ) {
@@ -48,7 +48,7 @@ var About = {
                         }
                     }
                     else {
-                        document.getElementById( 'contact_' + option.value ).style.display = 'none';
+                        $( '#contact_' + option.value ).hide();
                     }
                 }
             } );
