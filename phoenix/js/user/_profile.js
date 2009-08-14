@@ -126,10 +126,12 @@ var Profile = {
             trigger : '#reportabuse a.report',
             overlayClass : 'mdloverlay1'
         } );
-        $( '#tweetedit' ).jqm( {
+        //chorvus edits here D:
+        /*$( '#tweetedit' ).jqm( {
             trigger : 'div.tweetbox div.tweet div a',
             overlayClass : 'mdloverlay1'
-        } );
+        } );*/
+        $( '#tweetedit' ).modal( 'div.tweetbox div.tweet div a' );
         $( '#easyphotoupload' ).jqm( {
             trigger : 'div#profile div.main div.photos ul li.addphoto a',
             overlayClass : 'mdloverlay1'
