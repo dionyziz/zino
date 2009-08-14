@@ -37,7 +37,7 @@ var About = {
                     var option = options[ i ];
                     
                     if ( option.selected ) {
-                        document.getElementById( 'contact_' + option.value ).style.display = '';
+                        $( '#contact_' + option.value ).show();
                         switch ( option.value ) {
                             case '':
                             case 'purge':
