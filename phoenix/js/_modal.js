@@ -10,13 +10,8 @@
     $.fn.modal = function( trigger, config ) {
         var defconfig = {
             overlayClass : 'mdloverlay1'
-            
         };
-        if ( typeof( trigger ) != 'undefined' ) {
-            defconfig.trigger = trigger;
-        } else {
-            alert( typeof( trigger ) );
-        }
+        defconfig.trigger = trigger;
         return this.jqm( $.extend( config, defconfig ) );
     }
 } ) ( jQuery );
