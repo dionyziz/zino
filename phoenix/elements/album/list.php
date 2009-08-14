@@ -93,13 +93,14 @@
             $total_pages = ceil( $total_albums / $limit );
             $text = "( " . $total_albums . " Album";
             if ( $total_albums > 1 ) {
-            $text .= "s";
+				$text .= "s";
             }
             $text .= " )";
             Element( 'pagify', $pageno, $link, $total_pages, $text );
             ?></div>
-            <?php if ( $user->Id == $theuser->Id ) {
-                ?><div class="managerlink"><a href="?p=photomanager"  >Διαχείριση Φωτογραφιών</a></div><?php
+            <?php
+			if ( $user->Id == $theuser->Id ) {
+                ?><div class="managerlink"><a href="?p=photomanager">Διαχείριση Φωτογραφιών</a></div><?php
             }
             $page->AttachInlineScript( 'AlbumList.OnLoad();' );
         }
