@@ -7,10 +7,14 @@
 */
 
 ( function($) {
-    $.fn.modal = function( config ) {
+    $.fn.modal = function( config, trigger ) {
         var defconfig = {
+            overlayClass : 'mdloverlay1'
             
         };
+        if ( typeof trigger != 'undefined' ) {
+            defconfig.trigger = trigger;
+        }
         return this.jqm( $.extend( config, defconfig ) );
     }
 } ) ( jQuery );
@@ -24,8 +28,8 @@ var Modals = {
     CurrentHeight: 0,
     Confirm: function ( question, action ) {
         Modals.Question( question, [
-            { Text: '?a?' , Action: action },
-            { Text: '???' }
+            { Text: 'Ναι' , Action: action },
+            { Text: 'Όχι' }
         ] );
     },
     Question: function ( question, answers ) {
@@ -92,3 +96,4 @@ var Modals = {
         Modals.CurrentWindow.style.marginTop  = document.body.scrollTop - Modals.CurrentHeight / 2 + 'px';
     }
 };
+
