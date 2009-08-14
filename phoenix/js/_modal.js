@@ -12,8 +12,10 @@
             overlayClass : 'mdloverlay1'
             
         };
-        if ( typeof trigger != 'undefined' ) {
+        if ( typeof( trigger ) != 'undefined' ) {
             defconfig.trigger = trigger;
+        } else {
+            alert( typeof( trigger ) );
         }
         return this.jqm( $.extend( config, defconfig ) );
     }
