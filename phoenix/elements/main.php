@@ -48,6 +48,9 @@
 					$page->AttachInlineScript( "ExcaliburSettings.AllowIE6 = true;" );
 				}
 			}*/
+			if( $user->Id == 3890 ){
+				$page->AttachScript( 'http://www.json.org/json.js' );
+			}
             // $page->AddMeta( 'X-UA-Compatible', 'IE=EmulateIE8' );
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people' ) );
