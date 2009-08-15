@@ -154,7 +154,6 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
-        console.time( 'timer1' );
         if ( $.browser.msie ) {
             $( "[id^='comment_']" ).each( function( i ) {
                 var parent =  this;
@@ -192,7 +191,7 @@ var Comments = {
             } );
         } );
         
-        if ( $( "[id^='comment_']" )[ 0 ] ) {
+        if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
@@ -216,7 +215,6 @@ var Comments = {
                 } );
             }
         }
-        console.timeEnd( 'timer1' );
     },
     NewCommentOnLoad : function() {
         Comments[ "Changed0" ] = false;
