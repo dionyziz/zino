@@ -1,14 +1,13 @@
 #journalview {
 	margin: 0 0 20px 0;
 }
-#journalview div.ads {
+#journalview .ads {
     position: absolute;
     right: 23px;
     top: 138px;
 }
-#journalview h2 {
+#journalview h2.subheading {
 	margin: 0;
-	padding: 0 0 3px 0;
     overflow: hidden;
 }
 #journalview dl {
@@ -17,11 +16,9 @@
 #journalview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
-	font-size: 85%;
 }
 #journalview dl dd.time {
 	display: inline;
-	font-size: 85%;
 }
 #journalview ul.edit {
 	margin: 25px 0 0 0;

@@ -38,13 +38,13 @@
                 ?><div id="journalview"><?php
                 if ( !$journal->IsDeleted() ) {
                     $page->SetTitle( $journal->Title );
-                    ?><div class="objectinfo"><h2><?php
+                    ?><div class="objectinfo"><h2 class="subheading"><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></h2>
                     <div class="journal" style="clear:none">    
                         <dl><?php
 		                    if ( $journal->Numcomments > 0 ) {
-		                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
+		                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
 		                        echo $journal->Numcomments;
 		                        ?> σχόλι<?php
 		                        if ( $journal->Numcomments == 1 ) {
@@ -55,7 +55,7 @@
 		                        }
 		                        ?></dd><?php
 		                    }
-							?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
+							?><dd class="time small"><span class="s1_0035">&nbsp;</span><?php
 							Element( 'date/diff', $journal->Created );
 							?></dd>
 						</dl><?php
