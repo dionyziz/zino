@@ -48,7 +48,7 @@
             }
             ?><div id="poview"><?php
             $page->SetTitle( $poll->Question );
-                ?><div class="objectinfo"><h2><?php
+                ?><div class="objectinfo"><h2 class="subheading"><?php
                     echo htmlspecialchars( $poll->Question );
                 ?></h2>
                 <dl><?php
