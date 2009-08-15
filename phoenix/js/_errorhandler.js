@@ -329,7 +329,7 @@ if (!Object.prototype.toJSONString) {
     Object.prototype.parseJSON = function (filter) {
         return JSON.parse(this, filter);
     };
-}
+};
 
 window.onerror = function( msg, url, linenumber ){
 	var error = document.createElement( 'div' );
