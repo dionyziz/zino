@@ -154,6 +154,7 @@ var Comments = {
     ids     : [],
     lpadd   : [],
     OnLoad : function() {
+        console.time( 'timer1' );
         if ( $.browser.msie ) {
             $( "[id^='comment_']" ).each( function( i ) {
                 var parent =  this;
@@ -215,6 +216,7 @@ var Comments = {
                 } );
             }
         }
+        console.timeEnd( 'timer1' );
     },
     NewCommentOnLoad : function() {
         Comments[ "Changed0" ] = false;
