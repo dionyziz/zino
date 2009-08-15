@@ -192,7 +192,7 @@ var Comments = {
             } );
         } );
         
-        if ( $( "div.comments div[id^='comment_']" )[ 0 ] ) {
+        if ( $( "[id^='comment_']" )[ 0 ] ) {
             var username = GetUsername();
             $( "[id^='comment_'] > div.toolbox > span.time" ).each( function( i ) {
                 var commdate = $( this ).text();
