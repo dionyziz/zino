@@ -7,7 +7,7 @@
 	overflow: hidden;
 }
 #poview h2 {
-	padding: 0 0 3px 0;
+    margin: 0;
     overflow: hidden;
 }
 #poview dl {
@@ -16,11 +16,9 @@
 #poview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
-	font-size: 85%;
 }
 #poview dl dd.time {
 	display: inline;
-	font-size: 85%;
 }
 #poview ul.edit {
 	margin: 25px 0 0 0;

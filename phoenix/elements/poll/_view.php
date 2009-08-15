@@ -53,7 +53,7 @@
                 ?></h2>
                 <dl><?php
                     if ( $poll->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
+                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
                         echo $poll->Numcomments;
                         ?> σχόλι<?php
                         if ( $poll->Numcomments == 1 ) {
@@ -64,7 +64,7 @@
                         }
                         ?></dd><?php
                     }
-                    ?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
+                    ?><dd class="time small"><span class="s1_0035">&nbsp;</span><?php
                     Element( 'date/diff', $poll->Created );
                     ?></dd><?php
                 ?></dl><?php
