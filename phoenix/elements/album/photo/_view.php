@@ -104,7 +104,7 @@
                 ?></a>
                 <dl><?php
                     if ( $image->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
+                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
                         echo $image->Numcomments;
                         ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
@@ -115,7 +115,7 @@
                         }
                         ?></dd><?php
                     }
-					?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
+					?><dd class="time small"><span class="s1_0035">&nbsp;</span><?php
 					Element( 'date/diff', $image->Created );
 					?></dd><?php
                  ?></dl><?php

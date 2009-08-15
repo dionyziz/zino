@@ -22,16 +22,10 @@
 #pview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
-	font-size: 85%;
 }
 #pview dl dd.time {
 	display: inline;
-	font-size: 85%;
 }
-/*#pview dl dd.time span {
-	padding: 2px 0 2px 17px;
-}
-*/
 #pview ul.edit {
 	margin: 25px 0 0 0;
 }
