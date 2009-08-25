@@ -134,7 +134,7 @@
                 case 'Song':
                     switch ( $this->Userid ) {
                         case 1:
-							return array( "name" => "The nutcracker", "url" => "http://www3.hi.is/~lobbi/hljod/Tonlist/Bl%F3mavalsinn%20-%20Hnotubrj%F3turinn.mp3" );		
+							return array( "name" => "Green Day - 21 Guns", "url" => "http://www.dionyziz.com/files/21guns.mp3" );		
 						case 58:
 							return array( "name" => "Blank & Jones ft Elles -  Mind of the wonderful" , "url" => "http://izual.kamibu.com/song.mp3" );
 						case 872:
