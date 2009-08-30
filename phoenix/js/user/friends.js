@@ -1,4 +1,5 @@
 var Friends = {
+    OwnSubdomain: false,
     Add: function( listitem ) {
         var already;
         var img;
@@ -31,7 +32,9 @@ var Friends = {
                 } );
             }, 3000 );
         } );
-        
+        if ( Friends.OwnSubdomain ) {
+            $( "span.totalfriends" ).text( ( $( "span.totalfriends" ).text().split( ' ' ) * 1 + 1 ) + 'φίλοι' );
+        }
         Coala.Warm( 'user/relations/new', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
     }
