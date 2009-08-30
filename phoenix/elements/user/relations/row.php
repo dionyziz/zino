@@ -25,7 +25,7 @@
                         <i class="bl corner"></i>
                     </span>
                 </a>
-                <span><?php
+                <?php
                     if ( $relation->Friend->Gender == 'f' ) {
                         $datalist[] = "Κορίτσι";
                     }
