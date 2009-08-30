@@ -4,6 +4,9 @@
             global $user;
             global $libs;
             
+            w_assert( is_array( $friendarray ) );
+            w_assert( is_int( $friendarray[ 'user_id' ] ) );
+            
             $libs->Load( 'image/image' ); // user->Avatar
 
             ?><li id="user_<?php
@@ -30,7 +33,7 @@
                 ?><div class="who"><?php
                 ?><a href="<?php
                 ob_start();
-                Element( 'user/url' , $friendarray[ 'user_id' ],  $friendarray[ 'user_subdomain' ] );
+                Element( 'user/url', $friendarray[ 'user_id' ], $friendarray[ 'user_subdomain' ] );
                 echo htmlspecialchars( ob_get_clean() );
                 ?>"><?php
                 Element( 'user/avatar' , $friendarray[ 'user_avatarid' ], $friendarray[ 'user_id' ], 100, 100, $friendarray[ 'user_name' ], 100 , 'avatar' , '' , true , 50 , 50 );
