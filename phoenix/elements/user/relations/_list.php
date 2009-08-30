@@ -58,7 +58,7 @@
                 if ( !empty( $friends ) ) {
                     ?><ul class="friendlist"><?php
                     foreach ( $friends as $friend ) {
-                        Element( 'user/relation/row', $friend, $myfriends[ $friend->User->Id ] );
+                        Element( 'user/relations/row', $friend, $myfriends[ $friend->User->Id ] );
                     }
                 }
                 else {
