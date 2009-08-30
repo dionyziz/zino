@@ -26,6 +26,7 @@ user/joined.js
 user/settings.js
 user/profile.js
 user/suggest.js
+user/friends.js
 banner.js
 date.js
 pm.js
