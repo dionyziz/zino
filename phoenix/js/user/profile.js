@@ -44,7 +44,6 @@ var Profile = {
 			.find( 'span' ).addClass( 's_addfriend' );
         }
         else {
-            alert( 'Is friend' );
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
