@@ -7,7 +7,7 @@
                     Element( 'url', $relation->Friend );
                 ?>">
                 <?php
-                Element( 'user/avatar', $relation->Friend->Avatarid, $relation->Friend->Id, 50, 50, $relation->Friend->Name, 100, '', '', true, 50, 50 );
+                Element( 'user/avatar', $relation->Friend->Avatarid, $relation->Friend->Id, 50, 50, $relation->Friend->Name, 100, 'avatar', '', true, 50, 50 );
                 echo htmlspecialchars( $relation->Friend->Name );
                 ?>
                 </a>
