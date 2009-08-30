@@ -52,6 +52,8 @@
                 $userids[] = $friend->Friend->Id;
             }
             $myfriends = $finder->AreFriends( $user, $userids );
+            var_dump( $myfriends );
+            die();
             
             Element( 'user/sections', 'relations' , $theuser );
             ?><div id="friends"><?php
