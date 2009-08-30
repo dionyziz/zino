@@ -7,6 +7,8 @@
             global $page;
             global $xc_settings;
             
+            Element( 'user/subdomainmatch' );
+            
             $libs->Load( 'relation/relation' );
             
             $username = $username->Get();
