@@ -1,12 +1,15 @@
 <?php
     class ElementUserRelationsRow extends Element {
-        public function Render( $relation, $isfriend ) {
+        public function Render( $friendarray, $isfriend ) {
             global $user;
-        
+            global $libs;
+            
+            $libs->Load( 'image/image' ); // user->Avatar
+
             ?><li id="user_<?php
-                echo $relation->Friend->Id;
+                echo $friendarray[ 'user_id' ];
                 ?>"><?php
-                if ( $relation->Friend->Id != $user->Id && $user->Id != 0 ) {
+                if ( $friendarray[ 'user_id' ] != $user->Id && $user->Id != 0 ) {
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
@@ -25,25 +28,35 @@
                 <?php
                 }
                 ?><div class="who"><?php
-                Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
+                ?><a href="<?php
+                ob_start();
+                Element( 'user/url' , $friendarray[ 'user_id' ],  $friendarray[ 'user_subdomain' ] );
+                echo htmlspecialchars( ob_get_clean() );
+                ?>"><?php
+                Element( 'user/avatar' , $friendarray[ 'user_avatarid' ], $friendarray[ 'user_id' ], 100, 100, $friendarray[ 'user_name' ], 100 , 'avatar' , '' , true , 50 , 50 );
+                Element( 'user/name' , $friendarray[ 'user_id' ], $friendarray[ 'user_name' ], $friendarray[ 'user_subdomain' ], false );
+                ?></a><?php
                 ?></div>
                 <?php
-                    if ( $relation->Friend->Gender == 'f' ) {
+                    if ( $friendarray[ 'user_gender' ] == 'f' ) {
                         $datalist[] = "Κορίτσι";
                     }
                     else {
                         $datalist[] = "Αγόρι";
                     }
-                    if ( $relation->Friend->Profile->Age ) {
-                        $datalist[] = $relation->Friend->Profile->Age;
+                    if ( $friendarray[ 'profile_dob' ] != '0000-00-00' ) {
+                        $dob = Profile_Dob2Age( $friendarray[ 'profile_dob' ] );
+                        if ( $dob !== false ) {
+                            $datalist[] = $dob;
+                        }
                     }
-                    if ( $relation->Friend->Profile->Placeid > 0 ) {
-                        $datalist[] = htmlspecialchars(  $relation->Friend->Profile->Location->Name );
+                    if ( !empty( $friendarray[ 'place_name' ] ) ) {
+                        $datalist[] = $friendarray[ 'place_name' ];
                     }
                     if ( !empty( $datalist ) ) {
                         ?><span><?php
                         while ( $data = array_shift( $datalist ) ) {
-                            echo $data;
+                            echo htmlspecialchars( $data );
                             if ( !empty( $datalist ) ) {
                                 ?><span> · </span><?php
                             }

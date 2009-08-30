@@ -48,10 +48,10 @@
             }
             
             $finder = New FriendRelationFinder();
-            $friends = $finder->FindByUser( $theuser , 0 , 1024 );
+            $friends = $finder->FindArrayByUser( $theuser , 0 , 1024 );
             $userids = array();
             foreach ( $friends as $friend ) {
-                $userids[] = $friend->Friend->Id;
+                $userids[] = $friend[ 'user_id' ];
             }
             $myfriends = $finder->AreFriends( $user, $userids );
             
@@ -60,7 +60,7 @@
                 if ( !empty( $friends ) ) {
                     ?><ul class="friendlist"><?php
                     foreach ( $friends as $friend ) {
-                        Element( 'user/relations/row', $friend, $myfriends[ $friend->Friend->Id ] );
+                        Element( 'user/relations/row', $friend, $myfriends[ $friend[ 'user_id' ] ] );
                     }
                     ?></ul><?php
                 }

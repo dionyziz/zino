@@ -5,6 +5,40 @@
     $libs->Load( 'school/school' );
     $libs->Load( 'user/oldprofile' );
     
+    function Profile_Dob2Age( $dob ) {
+        if ( $dob != "0000-00-00" ) {
+            $validdob = true;
+            $birthday = ( int )date( 'j', strtotime( $this->Dob ) );
+            $birthmonth = ( int )date( 'n', strtotime( $this->Dob ) );
+            $birthyear = ( int )date( 'Y', strtotime( $this->Dob ) );
+            $nowdate = GetDate();
+            $nowyear = $nowdate[ "year" ];
+            $ageyear = $nowyear - $birthyear;
+            $nowmonth = $nowdate[ "mon" ];
+            $nowday = $nowdate[ "mday" ];
+            $hasbirthday = false;
+            if ( $nowmonth < $birthmonth ) {
+                --$ageyear;
+            }
+            else {
+                if ( $nowmonth == $birthmonth ) {
+                    if ( $nowday < $birthday ) {
+                        --$ageyear;
+                    }
+                    else {
+                        if ( $nowday == $birthday ) {
+                            $hasbirthday = true;
+                        }
+                    }
+                }
+            }
+        }
+        if ( isset( $ageyear ) && $ageyear > 5 ) {
+            return $ageyear;
+        }
+        return false;
+    }
+    
     function ValidateEmail( $id, $hash ) {
         global $libs;
         
@@ -73,36 +107,6 @@
         }
         public function __get( $key ) {
             switch ( $key ) {
-                case 'Age':
-                    $validdob = false;
-                    if ( $this->Dob != "0000-00-00" ) {
-                        $validdob = true;
-                        $nowdate = getdate();
-                        $nowyear = $nowdate[ "year" ];
-                        $ageyear = $nowyear - $this->BirthYear;
-                        $nowmonth = $nowdate[ "mon" ];
-                        $nowday = $nowdate[ "mday" ];
-                        $hasbirthday = false;
-                        if ( $nowmonth < $this->BirthMonth ) {
-                            --$ageyear;
-                        }
-                        else {
-                            if ( $nowmonth == $this->BirthMonth ) {
-                                if ( $nowday < $this->BirthDay ) {
-                                    --$ageyear;
-                                }
-                                else {
-                                    if ( $nowday == $this->BirthDay ) {
-                                        $hasbirthday = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if ( isset( $ageyear ) && $ageyear > 5 ) {
-                        return $ageyear;
-                    }
-                    return false;
                 case 'BirthDay':
                     if ( $this->Dob == '0000-00-00' ) {
                         return 0;
@@ -118,6 +122,9 @@
                         return 0;
                     }
                     return ( int )date( 'Y', strtotime( $this->Dob ) );
+                case 'Age':
+                    $validdob = false;
+                    return Profile_Dob2Age( $this->Dob );
                 case 'HasBirthday':
                     if ( $this->Dob != "0000-00-00" ) {
                         $nowdate = getdate();

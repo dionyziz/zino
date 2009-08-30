@@ -15,6 +15,48 @@
         public function FindAll( $offset = 0, $limit = 25 ) {
             return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindArrayByUser( User $user, $offset = 0, $limit = 10000 ) {
+            global $libs;
+            
+            $libs->Load( 'user/profile' );
+            $libs->Load( 'image/image' );
+            
+            w_assert( $user instanceof User );
+            w_assert( $user->Exists() );
+            
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    `user_id`, `user_name`, `user_subdomain`, `user_avatarid`, `user_gender`, 
+                    `place_name`, `profile_dob`
+                FROM
+                    :relations
+                    LEFT JOIN :users ON
+                        `relation_friendid` = `user_id`
+                    LEFT JOIN :userprofiles ON
+                        `user_id` = `profile_userid`
+                    LEFT JOIN :places ON
+                        `profile_placeid` = `place_id`
+                WHERE
+                    `relation_userid` = :userid
+                ORDER BY
+                    `relation_id` DESC
+                LIMIT
+                    :offset, :limit
+                ;' );
+
+            $query->BindTable( 'relations', 'users', 'userprofiles', 'places' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $ret[] = $row;
+            }
+
+            return $ret;
+        }
         public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
             global $libs;
             
