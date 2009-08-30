@@ -125,3 +125,6 @@ ul.friendlist img.done {
     position: relative;
     top: -20px;
 }
+div#friends .vavie50:after {
+    content: '';
+}
