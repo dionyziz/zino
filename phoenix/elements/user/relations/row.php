@@ -71,10 +71,10 @@
                     }
                 ?><span class="lastactive"><?php
                     if ( $friendarray[ 'user_gender' ] == 'f' ) {
-                        echo "Ενεργή ";
+                        echo "ενεργή ";
                     }
                     else {
-                        echo "Ενεργός ";
+                        echo "ενεργός ";
                     }
                     Element( 'date/diff', $friendarray[ 'lastactive_updated' ] );
                 ?></span>
