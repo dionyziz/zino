@@ -8,9 +8,9 @@
     function Profile_Dob2Age( $dob ) {
         if ( $dob != "0000-00-00" ) {
             $validdob = true;
-            $birthday = ( int )date( 'j', strtotime( $this->Dob ) );
-            $birthmonth = ( int )date( 'n', strtotime( $this->Dob ) );
-            $birthyear = ( int )date( 'Y', strtotime( $this->Dob ) );
+            $birthday = ( int )date( 'j', strtotime( $dob ) );
+            $birthmonth = ( int )date( 'n', strtotime( $dob ) );
+            $birthyear = ( int )date( 'Y', strtotime( $dob ) );
             $nowdate = GetDate();
             $nowyear = $nowdate[ "year" ];
             $ageyear = $nowyear - $birthyear;
