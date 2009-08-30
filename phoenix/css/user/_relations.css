@@ -127,6 +127,7 @@ ul.friendlist img.done {
 }
 div#friends .vavie50:after {
     content: '';
+    margin-left: 0;
 }
 div#friends img.avatar {
     margin: -3px 75px 0 0;
