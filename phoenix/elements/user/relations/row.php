@@ -1,6 +1,8 @@
 <?php
     class ElementUserRelationsRow extends Element {
         public function Render( $relation, $isfriend ) {
+            global $user;
+        
             ?><li id="user_<?php
                 echo $relation->Friend->Id;
                 ?>"><?php
