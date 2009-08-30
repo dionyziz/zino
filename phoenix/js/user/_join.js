@@ -145,7 +145,7 @@ var Join = {
                 Join.username.focus();
                 create = false;
             }
-            if ( Join.username.value.length >= 4 && !Kamibu.ValidEmail( Join.username.value ) ) {
+            if ( Join.username.value.length >= 4 ) { 
                 Join.ErrorHandler( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
                 Join.username.focus();
                 create = false;
