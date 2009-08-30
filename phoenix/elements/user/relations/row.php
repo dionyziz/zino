@@ -43,7 +43,7 @@
                         echo $data;
                         ?></span><?php
                         if ( !empty( $datalist ) ) {
-                            ?>·<?php
+                            ?> · <?php
                         }
                     }
                 ?><div class="barfade">

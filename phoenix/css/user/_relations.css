@@ -84,6 +84,9 @@ ul.friendlist li span i.bl {
 ul.friendlist li a.add:hover span, ul.friendlist li a.remove:hover span {
     display: block;
 }
+ul.friendlist li span.imageview {
+    padding: 0;
+}
 ul.friendlist li span {
     display: block;
     color: #778;
