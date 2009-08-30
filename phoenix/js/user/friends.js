@@ -3,7 +3,7 @@ var Friends = {
         var already;
         var img;
         img = document.createElement( 'img' );
-        img.src = 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/accept.png';
+        img.src = 'http://static.zino.gr/phoenix/accept.png';
         img.alt = 'Έγινε';
         img.className = 'done';
         
@@ -40,7 +40,7 @@ var Friends = {
         var already = $( "span.already", listitem )[0];
         var img;
         img = document.createElement( 'img' );
-        img.src = 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/accept.png';
+        img.src = 'http://static.zino.gr/phoenix/accept.png';
         img.alt = 'Έγινε';
         img.className = 'done';
         
