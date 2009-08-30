@@ -3,10 +3,7 @@
         public function Render( $relation, $isfriend ) {
             ?><li id="user_<?php
                 echo $relation->Friend->Id;
-                ?>">
-                    <div class="who"><?php
-                    Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
-                    ?></div><?php
+                ?>"><?php
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
@@ -21,6 +18,9 @@
                         <i class="br corner"></i>
                         <i class="bl corner"></i>
                     </span>
+                    <div class="who"><?php
+                    Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
+                    ?></div>
                 </a>
                 <?php
                     if ( $relation->Friend->Gender == 'f' ) {
