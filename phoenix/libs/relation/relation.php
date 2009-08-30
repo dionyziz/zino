@@ -35,6 +35,8 @@
                         `user_id` = `profile_userid`
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
+                    LEFT JOIN :places ON
+                        `user_placeid` = `place_id`
                 WHERE
                     `relation_userid` = :userid
                 ORDER BY
@@ -43,7 +45,7 @@
                     :offset, :limit
                 ;' );
 
-            $query->BindTable( 'relations', 'users', 'images', 'userprofiles' );
+            $query->BindTable( 'relations', 'users', 'images', 'userprofiles', 'places' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
@@ -55,6 +57,7 @@
                 $friend = New User( $row );
                 $friend->CopyProfileFrom( New UserProfile( $row ) );
                 $friend->CopyAvatarFrom( New Image( $row ) );
+                $friend->Profile->CopyLocationFrom( New Place( $row ) );
                 $relation->CopyFriendFrom( $friend );
                 $ret[] = $relation;
             }
