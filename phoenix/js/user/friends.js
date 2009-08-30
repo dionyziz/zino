@@ -4,17 +4,17 @@ var Friends = {
         var img;
         img = document.createElement( 'img' );
         img.src = 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/accept.png';
-        img.alt = 'Έγινε';
+        img.alt = 'ΞΞ³ΞΉΞ½Ξµ';
         img.className = 'done';
         
         already = document.createElement( "span" );
         already.appendChild( img );
-        already.appendChild( document.createTextNode( "φίλος" ) );
+        already.appendChild( document.createTextNode( "Ο†Ξ―Ξ»ΞΏΟ‚" ) );
         already.className = "already";
         
         var anchor = $( "a.add", listitem ).unbind( "click" ).blur().fadeOut( 100, function() {
             anchor.removeClass( "add" ).addClass( "remove" ).contents()[ 0 ].nodeValue = "-";
-            anchor.find( "span" ).contents()[ 0 ].nodeValue = "Διαγραφή φίλου";
+            anchor.find( "span" ).contents()[ 0 ].nodeValue = "Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ® Ο†Ξ―Ξ»ΞΏΟ…";
             listitem.appendChild( already );
             $( anchor ).css( { 'z-index': 2 } );
             $( already ).hide().fadeIn( 300 );
@@ -24,7 +24,7 @@ var Friends = {
                 opacity: 1
             }, { queue: false, duration: 800, easing: 'swing' } );
             setTimeout( function() {
-                already.lastChild.nodeValue = 'φίλος';
+                already.lastChild.nodeValue = 'Ο†Ξ―Ξ»ΞΏΟ‚';
                 $( already ).css( { 'z-index': 0 } ).find( 'img' ).fadeOut( 200, function() { $( this ).remove() } );
                 $( anchor ).show().click( function() {
                     return Friends.Remove( $( this ).closest( "li" )[0] );
@@ -41,17 +41,17 @@ var Friends = {
         var img;
         img = document.createElement( 'img' );
         img.src = 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/accept.png';
-        img.alt = 'Έγινε';
+        img.alt = 'ΞΞ³ΞΉΞ½Ξµ';
         img.className = 'done';
         
         already.lastChild.nodeValue = "";
         already.appendChild( img );
-        already.appendChild( document.createTextNode( "διαγράφηκε" ) );
+        already.appendChild( document.createTextNode( "Ξ΄ΞΉΞ±Ξ³ΟΞ¬Ο†Ξ·ΞΊΞµ" ) );
         $( already ).hide();
         
         var anchor = $( "a.remove", listitem ).unbind( "click" ).blur().fadeOut( 100, function() {
             anchor.removeClass( "remove" ).addClass( "add" ).contents()[ 0 ].nodeValue = "+";
-            anchor.find( "span" ).contents()[ 0 ].nodeValue = "Γίνε φίλος";
+            anchor.find( "span" ).contents()[ 0 ].nodeValue = "Ξ“Ξ―Ξ½Ξµ Ο†Ξ―Ξ»ΞΏΟ‚";
             listitem.appendChild( already );
             $( already ).hide().fadeIn( 300 );
             $( img ).css( { opacity: 0 } ).animate( {
