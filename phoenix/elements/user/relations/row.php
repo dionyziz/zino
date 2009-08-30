@@ -71,7 +71,7 @@
                     }
                 ?><span class="lastactive"><?php
                     if ( $friendarray[ 'user_gender' ] == 'f' ) {
-                        echo "Ενεργή "; 
+                        echo "Ενεργή ";
                     }
                     else {
                         echo "Ενεργός ";
