@@ -37,8 +37,8 @@
                     if ( $relation->Friend->Profile->Age ) {
                         $datalist[] = $relation->Friend->Profile->Age;
                     }
-                    if ( $theuser->Profile->Placeid > 0 ) {
-                        $datalist[] = htmlspecialchars( $theuser->Profile->Location->Name );
+                    if ( $relation->Friend->Profile->Placeid > 0 ) {
+                        $datalist[] = htmlspecialchars(  $relation->Friend->Profile->Location->Name );
                     }
                     if ( !empty( $datalist ) ) {
                         ?><span><?php
