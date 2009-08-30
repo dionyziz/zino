@@ -40,7 +40,6 @@
                 else {
                     $isfriend = 'true';
                 }
-                var_dump( $isfriend ); die();
                 $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . $isfriend . ' , " ' .$theuser->Id . ' " );' );
             }
             if ( $user->Id == $theuser->Id ) {
