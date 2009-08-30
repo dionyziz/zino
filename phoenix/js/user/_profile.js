@@ -18,27 +18,28 @@ var Profile = {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
 			$( this ).empty().css( 'padding-left' , '6px' )
             .append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 150 );
-			
 		} );
-		Coala.Warm( 'user/relations/new' , { userid : userid } );
+		Coala.Warm( 'user/relations/new' , { userid: userid } );
 		return false;
 	},
-	DeleteFriend : function( relationid ) {
+	DeleteFriend : function( userid ) {
 		$( 'div.usidebar div.basicinfo div.common' ).fadeOut( 150 , function() {
             $( this ).empty().css( 'padding-left' , '6px' )
             .append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 150 );
 		} );
-		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
+		Coala.Warm( 'user/relations/delete' , { userid: userid } );		
 		return false;
 	},
-    ShowFriendLinks : function( relationstatus , id ) {
+    ShowFriendLinks : function( isfriend, userid ) { // only called when viewing others' profiles
     	var text;
-        if ( relationstatus ) {
+        
+        if ( !isfriend ) {
+            alert( 'Is not friend' );
             $( 'div.usidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
-                Profile.AddFriend( id );
+                Profile.AddFriend( userid );
                 return false;
             } )
 			.find( 'span' ).addClass( 's1_0050' );
@@ -48,12 +49,11 @@ var Profile = {
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
-                Profile.DeleteFriend( id );
+                Profile.DeleteFriend( userid );
                 return false;
             } )
 			.find( 'span' ).addClass( 's1_0051' );
         }
-        //if relationstatus is anything else don't do something, user views his own profile
     },
     ShowOnlineSince : function( lastonline ) {
         if ( lastonline ) {
