@@ -125,6 +125,10 @@
             return $status;
         }
         public function AreFriends( User $user, Array $potentialfriendids ) {
+            if ( empty( $potentialfriendids ) ) {
+                return array();
+            }
+            
             $query = $this->mDb->Prepare(
                 'SELECT 
                     `relation_friendid`
