@@ -5,7 +5,7 @@
         
         $libs->Load( 'relation/relation' );
         $finder = New FriendRelationFinder;
-        $relation = $finder->FindFriendship( $user->Id, $userid );
+        $relation = $finder->FindFriendship( $user, New User( $userid ) );
         
         if ( $relation !== false ) {
             die( '.' . gettype( $relation ) );
