@@ -76,7 +76,7 @@
                     else {
                         echo "Ενεργός: ";
                     }
-                    Element( 'date/diff', $friendarray[ 'lastactive_created' ] );
+                    Element( 'date/diff', $friendarray[ 'lastactive_updated' ] );
                 ?></span>
                 <div class="barfade">
                     <div class="leftbar"></div>

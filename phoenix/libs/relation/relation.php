@@ -27,7 +27,7 @@
             $query = $this->mDb->Prepare(
                 'SELECT
                     `user_id`, `user_name`, `user_subdomain`, `user_avatarid`, `user_gender`, 
-                    `place_name`, `profile_dob`, `lastactive_created`
+                    `place_name`, `profile_dob`, `lastactive_updated`
                 FROM
                     :relations
                     CROSS JOIN :users ON
