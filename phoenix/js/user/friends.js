@@ -19,7 +19,7 @@ var Friends = {
             $( anchor ).css( { 'z-index': 2 } );
             $( already ).hide().fadeIn( 300 );
             $( img ).css( { opacity: 0 } ).animate( {
-                top: -1
+                top: -10
             }, { queue: false, duration: 1000, easing: 'easeOutBounce' } ).animate( {
                 opacity: 1
             }, { queue: false, duration: 800, easing: 'swing' } );
@@ -55,7 +55,7 @@ var Friends = {
             listitem.appendChild( already );
             $( already ).hide().fadeIn( 300 );
             $( img ).css( { opacity: 0 } ).animate( {
-                top: -1
+                top: -10
             }, { queue: false, duration: 1000, easing: 'easeOutBounce' } ).animate( {
                 opacity: 1
             }, { queue: false, duration: 800, easing: 'swing' } );
