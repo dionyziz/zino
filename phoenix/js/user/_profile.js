@@ -34,7 +34,6 @@ var Profile = {
     	var text;
         
         if ( !isfriend ) {
-            alert( 'Is not friend' );
             $( 'div.usidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
             .removeClass( 'friendedit' )

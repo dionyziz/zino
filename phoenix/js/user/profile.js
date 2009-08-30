@@ -32,7 +32,6 @@ var Profile = {
     	var text;
         
         if ( !isfriend ) {
-            alert( 'Is not friend' );
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
