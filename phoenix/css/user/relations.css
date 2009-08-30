@@ -22,6 +22,7 @@ ul.friendlist li a {
 }
 ul.friendlist li a.add span, ul.friendlist li a.remove span {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    white-space: nowrap;;
     border: 1px solid #ccc;
     border-right: 1px solid #999;
     border-left: 1px solid #ccc;
