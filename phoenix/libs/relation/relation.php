@@ -134,6 +134,7 @@
                     `relation_userid` = :userid
                     AND `relation_friendid` IN :friendids;'
             );
+            $query->BindTable( 'relations', 'users' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'friendids', $potentialfriendids );
             $res = $query->Execute();
