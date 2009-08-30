@@ -29,7 +29,7 @@ ul.friendlist li a.add span, ul.friendlist li a.remove span {
     display: none;
     padding: 3px;
     background-color: #eee;
-    background-image: url( 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/tooltip-bg.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/tooltip-bg.png' );
     background-repeat: repeat-x;
     color: #333;
     margin: 5px -15px 0 0;
@@ -117,7 +117,7 @@ div#friends input {
     font-size: 90%;
     margin: 10px 0 0 5px;
     width: 200px;
-    background: url('http://static.zino.gr/phoenix/tooltip-bg.png') no-repeat 3px 3px;
+    background: url('file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/magnifier.png') no-repeat 3px 3px;
     display: none;
 }
 ul.friendlist img.done {
