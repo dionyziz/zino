@@ -60,6 +60,7 @@
                     foreach ( $friends as $friend ) {
                         Element( 'user/relations/row', $friend, $myfriends[ $friend->User->Id ] );
                     }
+                    ?></ul><?php
                 }
                 else {
                     ?>Δεν έχουν προστεθεί φίλοι<?php

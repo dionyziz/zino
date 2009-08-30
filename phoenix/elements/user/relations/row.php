@@ -46,7 +46,10 @@
                             ?>·<?php
                         }
                     }
-                ?><div class="barfade"><div class="leftbar"></div><div class="rightbar"></div></div>
+                ?><div class="barfade">
+                    <div class="leftbar"></div>
+                    <div class="rightbar"></div>
+                </div>
             </li><?php
         }
     }
