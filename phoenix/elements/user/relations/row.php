@@ -4,6 +4,7 @@
             ?><li id="user_<?php
                 echo $relation->Friend->Id;
                 ?>"><?php
+                if ( $relation->Friend->Id != $user->Id && $user->Id != 0 ) {
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
@@ -19,9 +20,11 @@
                             <i class="bl corner"></i>
                         </span>
                     </a>
-                    <div class="who"><?php
-                    Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
-                    ?></div>
+                <?php
+                }
+                ?><div class="who"><?php
+                Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
+                ?></div>
                 <?php
                     if ( $relation->Friend->Gender == 'f' ) {
                         $datalist[] = "Κορίτσι";
@@ -49,7 +52,7 @@
                     <div class="leftbar"></div>
                     <div class="rightbar"></div>
                 </div><?php
-                if ( $isfriend ) {
+                if ( $isfriend && $user->Id != 0 ) {
                     ?><span class="already">φίλος</span><?php
                 }
                 ?>
