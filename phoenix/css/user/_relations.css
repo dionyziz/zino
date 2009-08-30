@@ -117,7 +117,7 @@ div#friends input {
     font-size: 90%;
     margin: 10px 0 0 5px;
     width: 200px;
-    background: url('file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/magnifier.png') no-repeat 3px 3px;
+    background: url('http://static.zino.gr/phoenix/tooltip-bg.png') no-repeat 3px 3px;
     display: none;
 }
 ul.friendlist img.done {
