@@ -6,7 +6,6 @@
                 ?>">
                 <?php
                     Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $user, true );
-                    echo htmlspecialchars( $relation->Friend->Name );
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
