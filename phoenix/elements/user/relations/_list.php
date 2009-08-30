@@ -67,7 +67,7 @@
                 }
                 ?><div class="eof"></div>
             </div><?php
-        
+            $page->AttachInlineScript( 'Friends.Load();' );
         }
     }
 ?>

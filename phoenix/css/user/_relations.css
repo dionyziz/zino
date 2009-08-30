@@ -18,6 +18,10 @@ ul.friendlist li {
     margin: 8px auto 0 4px;
     overflow: hidden;
 }
+ul.friendlist li span.imageview img {
+    height: 50px;
+    width: 50px;
+}
 ul.friendlist li a {
     font-size: 110%;
     font-weight: bold;
