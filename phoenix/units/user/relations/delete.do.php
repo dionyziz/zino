@@ -8,7 +8,6 @@
         $relation = $finder->FindFriendship( $user, New User( $userid ) );
         
         if ( $relation !== false ) {
-            die( '.' . gettype( $relation ) );
             $relation->Delete();
             Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
         }
