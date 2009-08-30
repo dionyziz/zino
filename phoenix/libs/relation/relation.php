@@ -27,7 +27,7 @@
             $query = $this->mDb->Prepare(
                 'SELECT
                     `user_id`, `user_name`, `user_subdomain`, `user_avatarid`, `user_gender`, 
-                    `place_name`, `profile_dob`
+                    `place_name`, `profile_dob`, `lastactive_created`
                 FROM
                     :relations
                     CROSS JOIN :users ON
@@ -36,6 +36,8 @@
                         `user_id` = `profile_userid`
                     LEFT JOIN :places ON
                         `profile_placeid` = `place_id`
+                    LEFT JOIN :lastacive ON
+                        `lastactive_userid` = `user_id`
                 WHERE
                     `relation_userid` = :userid
                 ORDER BY
@@ -44,7 +46,7 @@
                     :offset, :limit
                 ;' );
 
-            $query->BindTable( 'relations', 'users', 'userprofiles', 'places' );
+            $query->BindTable( 'relations', 'users', 'userprofiles', 'places', 'lastactive' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );

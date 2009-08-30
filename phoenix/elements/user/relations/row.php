@@ -47,7 +47,7 @@
                     if ( $friendarray[ 'user_gender' ] == 'f' ) {
                         $datalist[] = "Κορίτσι";
                     }
-                    else {
+                    elseif ( $friendarray[ 'user_gender' ] == 'm') {
                         $datalist[] = "Αγόρι";
                     }
                     if ( $friendarray[ 'profile_dob' ] != '0000-00-00' ) {
@@ -69,7 +69,16 @@
                         }
                         ?></span><?php
                     }
-                ?><div class="barfade">
+                ?><span class="lastactive"><?php
+                    if ( $friendarray[ 'user_gender' ] == 'f' ) {
+                        echo "Ενεργή: ";
+                    }
+                    else {
+                        echo "Ενεργός: ";
+                    }
+                    Element( 'date/diff', $friendarray[ 'lastactive_created' ] );
+                ?></span>
+                <div class="barfade">
                     <div class="leftbar"></div>
                     <div class="rightbar"></div>
                 </div><?php
