@@ -145,7 +145,7 @@ var Join = {
                 Join.username.focus();
                 create = false;
             }
-            if ( Join.username.value.length >= 4 ) { 
+            if ( Join.username.value.length >= 4 && !/^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) { 
                 Join.ErrorHandler( 'invalidusername' , $( 'form.joinform div > span' )[ 2 ] );
                 Join.username.focus();
                 create = false;
