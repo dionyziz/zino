@@ -1,7 +1,9 @@
 <?php
     class ElementUserRelationsRow extends Element {
         public function Render( $relation, $isfriend ) {
-            ?><li><a href="<?php
+            ?><li id="user_<?php
+                echo $relation->Friend->Id;
+                ?>"><a href="<?php
                     Element( 'url', $relation->Friend );
                 ?>">
                 <?php
@@ -39,7 +41,6 @@
                         $datalist[] = htmlspecialchars( $theuser->Profile->Location->Name );
                     }
                     if ( !Empty( $data ) ) {
-                        ?><span><?php
                         while ( $data = array_shift( $datalist ) ) {
                             ?><span><?php
                             echo $data;
@@ -48,12 +49,15 @@
                                 ?> · <?php
                             }
                         }
-                        ?></span><?php
                     }
                 ?><div class="barfade">
                     <div class="leftbar"></div>
                     <div class="rightbar"></div>
-                </div>
+                </div><?php
+                if ( $isfriend ) {
+                    ?><span class="already">φίλος</span><?php
+                }
+                ?>
             </li><?php
         }
     }

@@ -31,6 +31,8 @@ var Friends = {
                 } );
             }, 3000 );
         } );
+        
+        Coala.Warm( 'user/relations/new', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
     }
     ,
@@ -65,6 +67,7 @@ var Friends = {
                 } );
             }, 3000 );
         } );
+        Coala.Warm( 'user/relations/delete', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
     }
     ,
