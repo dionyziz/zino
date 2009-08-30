@@ -18,6 +18,7 @@ span.imageview span > span {
 }
 .vavie50 {
     float: left;
+    padding: 0;
 }
 .vavie50:after {
     content: url( 'http://static.zino.gr/phoenix/shadow.png' );
