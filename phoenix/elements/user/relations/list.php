@@ -75,7 +75,9 @@
                 ?><div class="eof"></div>
             </div><?php
             $page->AttachInlineScript( 'Friends.Load();' );
-            $page->AttachInlineScript( 'Friends.OwnSubdomain = false;' );
+            if ( $user->Id == $theuser->Id ) {
+                $page->AttachInlineScript( 'Friends.OwnSubdomain = true;' );
+            }
         }
     }
 ?>
