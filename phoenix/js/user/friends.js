@@ -33,7 +33,7 @@ var Friends = {
             }, 3000 );
         } );
         if ( Friends.OwnSubdomain ) {
-            $( "span.totalfriends" ).text( ( $( "span.totalfriends" ).text().split( ' ' ) * 1 + 1 ) + 'φίλοι' );
+            $( "span.friendscount" ).text( ( $( "span.friendscount" ).text() * 1 + 1 ) );
         }
         Coala.Warm( 'user/relations/new', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
@@ -70,6 +70,10 @@ var Friends = {
                 } );
             }, 3000 );
         } );
+        if ( Friends.OwnSubdomain ) {
+            alert( 'noob' );
+            $( "span.friendscount" ).text( ( $( "span.friendscount" ).text() * 1 - 1 ) );
+        }
         Coala.Warm( 'user/relations/delete', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
     }
