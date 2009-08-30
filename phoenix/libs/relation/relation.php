@@ -52,6 +52,8 @@
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
+                $row[ 'user_id' ] = ( int )$row[ 'user_id' ];
+                $row[ 'user_avatarid' ] = ( int )$row[ 'user_avatarid' ];
                 $ret[] = $row;
             }
 
