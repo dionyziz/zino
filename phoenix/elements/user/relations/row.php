@@ -4,7 +4,8 @@
             ?><li><a href="<?php
                     Element( 'url', $relation->Friend );
                 ?>">
-                <?php Element( "image/view", $relation->Friend->Avatarid, $relation->Friend->Id, 50, 50, IMAGE_CROPPED_100x100, '', $relation->Friend->Name );
+                <?php
+                Element( "image/view", $relation->Friend->Avatarid, $relation->Friend->Id, 50, 50, IMAGE_CROPPED_100x100, '', $relation->Friend->Name, '', false, 0, 0, 0 );
                 echo htmlspecialchars( $relation->Friend->Name );
                 ?>
                 </a>
