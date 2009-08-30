@@ -34,7 +34,13 @@
             if ( $user->Id != $theuser->Id && $user->Exists() ) {
                 $finder = New FriendRelationFinder();
                 $res = $finder->FindFriendship( $user , $theuser );
-                $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . !$res . ' , " ' .$theuser->Id . ' " );' );
+                if ( $res === false ) {
+                    $isfriend = 'false';
+                }
+                else {
+                    $isfriend = 'true';
+                }
+                $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . $isfriend . ' , " ' .$theuser->Id . ' " );' );
             }
             if ( $user->Id == $theuser->Id ) {
                 $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );

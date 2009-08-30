@@ -28,9 +28,10 @@ var Profile = {
 		Coala.Warm( 'user/relations/delete' , { userid: userid } );		
 		return false;
 	},
-    ShowFriendLinks : function( relationstatus, userid ) {
+    ShowFriendLinks : function( isfriend, userid ) {
     	var text;
-        if ( relationstatus ) {
+        
+        if ( !isfriend ) {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
