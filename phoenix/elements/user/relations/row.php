@@ -13,15 +13,15 @@
                         <span>Διαγραφή φίλου<?php
                     }
                     ?>
-                        <i class="tr corner"></i>
-                        <i class="tl corner"></i>
-                        <i class="br corner"></i>
-                        <i class="bl corner"></i>
-                    </span>
+                            <i class="tr corner"></i>
+                            <i class="tl corner"></i>
+                            <i class="br corner"></i>
+                            <i class="bl corner"></i>
+                        </span>
+                    </a>
                     <div class="who"><?php
                     Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
                     ?></div>
-                </a>
                 <?php
                     if ( $relation->Friend->Gender == 'f' ) {
                         $datalist[] = "Κορίτσι";
