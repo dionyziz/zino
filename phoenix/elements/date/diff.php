@@ -4,6 +4,11 @@
 
         public function Render( $date ) {
             $diff = dateDiff( $date );
+            
+            if ( $diff === false ) {
+                ?>ποτέ<?php
+                return;
+            }
 
             $years = $diff[ 'years' ];
             $months = $diff[ 'months' ];
