@@ -28,10 +28,11 @@ var Profile = {
 		Coala.Warm( 'user/relations/delete' , { userid: userid } );		
 		return false;
 	},
-    ShowFriendLinks : function( isfriend, userid ) {
+    ShowFriendLinks : function( isfriend, userid ) { // only called when viewing others' profiles
     	var text;
         
         if ( !isfriend ) {
+            alert( 'Is not friend' );
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
@@ -44,6 +45,7 @@ var Profile = {
 			.find( 'span' ).addClass( 's_addfriend' );
         }
         else {
+            alert( 'Is friend' );
             text = document.createTextNode( 'Διαγραφή από τους φίλους' );
             $( 'div.sidebar div.basicinfo div.friendedit' )
             .addClass( 'common' )
@@ -55,7 +57,6 @@ var Profile = {
             .append( text )
 			.find( 'span' ).addClass( 's_deletefriend' );
         }
-        //if relationstatus is anything else don't do something, user views his own profile
     },
     ShowOnlineSince : function( lastonline ) {
         if ( lastonline ) {
