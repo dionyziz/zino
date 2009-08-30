@@ -36,7 +36,7 @@
                         `user_id` = `profile_userid`
                     LEFT JOIN :places ON
                         `profile_placeid` = `place_id`
-                    LEFT JOIN :lastacive ON
+                    LEFT JOIN :lastactive ON
                         `lastactive_userid` = `user_id`
                 WHERE
                     `relation_userid` = :userid
