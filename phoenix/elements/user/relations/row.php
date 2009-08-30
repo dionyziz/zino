@@ -40,7 +40,7 @@
                     if ( $theuser->Profile->Placeid > 0 ) {
                         $datalist[] = htmlspecialchars( $theuser->Profile->Location->Name );
                     }
-                    if ( !Empty( $data ) ) {
+                    if ( !Empty( $datalist ) ) {
                         while ( $data = array_shift( $datalist ) ) {
                             ?><span><?php
                             echo $data;
