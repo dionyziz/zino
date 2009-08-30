@@ -46,26 +46,28 @@
             }
             
             $finder = New FriendRelationFinder();
-            $friends = $finder->FindByUser( $theuser , ( $pageno - 1 )*24 , 24 );
+            $friends = $finder->FindByUser( $theuser , 0 , 1024 );
+            $userids = array();
+            foreach ( $friends as $friend ) {
+                $userids[] = $friend->Friend->Id;
+            }
+            $myfriends = $finder->AreFriends( $user, $userids );
+            
             Element( 'user/sections', 'relations' , $theuser );
-            ?><div id="relations"><?php
+            ?><div id="friends"><?php
                 if ( !empty( $friends ) ) {
-                    Element( 'user/list' , $friends );
+                    ?><ul class="friendlist"><?php
+                    foreach ( $friends as $friend ) {
+                        Element( 'user/relations/row', $friend, $myfriends[ $friend->Friend->Id ] );
+                    }
+                    ?></ul><?php
                 }
                 else {
                     ?>Δεν έχουν προστεθεί φίλοι<?php
                 }
-                ?><div class="pagifyrelations"><?php
-                
-                $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends?pageno=';
-                $total_friends = $theuser->Count->Relations;
-                $total_pages = ceil( $total_friends / 24 );
-                Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_friends . " Φίλοι )" );
-
-                ?></div>
-                <div class="eof"></div>
+                ?><div class="eof"></div>
             </div><?php
-        
+            $page->AttachInlineScript( 'Friends.Load();' );
         }
     }
 ?>

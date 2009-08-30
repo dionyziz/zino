@@ -1,12 +1,9 @@
-ul.friendlist li img {
-    float: left;
-    padding-right: 15px;
-}
 ul.friendlist li div.barfade {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    margin: 0;
 }
 ul.friendlist li {
     position: relative;
@@ -32,7 +29,7 @@ ul.friendlist li a.add span, ul.friendlist li a.remove span {
     display: none;
     padding: 3px;
     background-color: #eee;
-    background-image: url( 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/tooltip-bg.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/tooltip-bg.png' );
     background-repeat: repeat-x;
     color: #333;
     margin: 5px -15px 0 0;
@@ -80,6 +77,9 @@ ul.friendlist li span i.bl {
 ul.friendlist li a.add:hover span, ul.friendlist li a.remove:hover span {
     display: block;
 }
+ul.friendlist li span.imageview {
+    padding: 0;
+}
 ul.friendlist li span {
     display: block;
     color: #778;
@@ -124,4 +124,11 @@ ul.friendlist img.done {
     padding: 0 4px;
     position: relative;
     top: -20px;
+}
+div#friends .vavie50:after {
+    content: '';
+    margin-left: 0;
+}
+div#friends img.avatar {
+    margin: -3px 15px 0 0;
 }
