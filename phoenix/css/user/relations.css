@@ -87,6 +87,10 @@ ul.friendlist li span {
     font-size: 90%;
     font-weight: bold;
 }
+ul.friendlist li span.lastactive {
+    color: #889;
+    font-weight: bold;
+}
 ul.friendlist li span.already {
     bottom: 4px;
     color: #555555;
@@ -124,10 +128,6 @@ ul.friendlist img.done {
     padding: 0 4px;
     position: relative;
     top: -20px;
-}
-ul.friendlist span.lastactive {
-    color: #889;
-    font-weight: bold;
 }
 div#friends .vavie50:after {
     content: '';
