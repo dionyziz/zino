@@ -60,14 +60,36 @@
             Element( 'user/sections', 'relations' , $theuser );
             ?><div id="friends"><?php
                 if ( !empty( $friends ) ) {
-                    ?><ul class="friendlist"><?php
+                    ?><span class="totalfriends"><?php
+                    if ( $user->Id == $theuser->Id ) {
+                        ?>Έχεις<?php
+                    }
+                    else {
+                        if ( $theuser->Gender == 'f' ) {
+                            ?>Η<?php
+                        }
+                        else {
+                            ?>O<?php
+                        }
+                        ?> <?php
+                        echo $theuser->Name;
+                        ?> έχει<?php
+                    }
+                    ?> <span id="friendscount"><?php
+                    echo count( $friends );
+                    ?></span> <?php
+                    if ( count( $friends ) ) {
+                        ?> φίλους<?php
+                    }
+                    else {
+                        ?> φίλο<?php
+                    }
+                    ?></span>
+                    <ul class="friendlist"><?php
                     foreach ( $friends as $friend ) {
                         Element( 'user/relations/row', $friend, $myfriends[ $friend[ 'user_id' ] ] );
                     }
-                    ?></ul>
-                        <span class="totalfriends"><?php
-                        echo count( $friends );
-                        ?> φίλοι</span><?php
+                    ?></ul><?php
                 }
                 else {
                     ?>Δεν έχουν προστεθεί φίλοι<?php

@@ -138,3 +138,9 @@ div#friends .vavie50:after {
 div#friends img.avatar {
     margin: -3px 15px 0 0;
 }
+span.totalfriends {
+    font-weight: bold;
+    padding: 5px;
+    display: block;
+    font-size: 110%;
+}
