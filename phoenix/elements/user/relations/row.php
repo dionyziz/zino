@@ -4,8 +4,9 @@
             ?><li id="user_<?php
                 echo $relation->Friend->Id;
                 ?>">
-                <?php
+                    <div class="who"><?php
                     Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
+                    ?></div><?php
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
