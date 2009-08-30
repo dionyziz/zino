@@ -36,7 +36,7 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                     LEFT JOIN :places ON
-                        `user_placeid` = `place_id`
+                        `profile_placeid` = `place_id`
                 WHERE
                     `relation_userid` = :userid
                 ORDER BY
