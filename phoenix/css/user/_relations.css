@@ -1,9 +1,127 @@
-div#relations {
-	padding-bottom: 20px;
+ul.friendlist li img {
+    float: left;
+    padding-right: 15px;
 }
-div#relations div.people {
-	margin: 0 0 0 170px;
+ul.friendlist li div.barfade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
-div#relations div.pagifyrelations {
-	text-align: center;
+ul.friendlist li {
+    position: relative;
+    height: 50px;
+    width: 500px;
+    padding: 15px;
+    background-color: #fafafa;
+    border-top: 1px solid #f0f0f0;
+    margin: 8px auto 0 4px;
+    overflow: hidden;
+}
+ul.friendlist li a {
+    font-size: 110%;
+    font-weight: bold;
+    text-align: right;
+}
+ul.friendlist li a.add span, ul.friendlist li a.remove span {
+    font-family: "Trebuchet MS";
+    border: 1px solid #ccc;
+    border-right: 1px solid #999;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #999;
+    display: none;
+    padding: 3px;
+    background-color: #eee;
+    background-image: url( 'file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/tooltip-bg.png' );
+    background-repeat: repeat-x;
+    color: #333;
+    margin: 5px -15px 0 0;
+    width: 100px;
+    text-align: center;
+    font-size: 60%;
+    position: relative;
+    z-index: 1;
+}
+ul.friendlist li a.add span {
+    width: 65px;
+}
+ul.friendlist li span i.corner {
+    position: absolute;
+    border: 1px solid #999;
+    width: 0px;
+    height: 0px;
+}
+ul.friendlist li span i.tr {
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    top: -1px;
+    right: -1px;
+}
+ul.friendlist li span i.tl {
+    border: 1px solid #ccc;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    top: -1px;
+    left: -1px;
+}
+ul.friendlist li span i.br {
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    bottom: -1px;
+    right: -1px;
+}
+ul.friendlist li span i.bl {
+    border: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    bottom: -1px;
+    left: -1px;
+}
+ul.friendlist li a.add:hover span, ul.friendlist li a.remove:hover span {
+    display: block;
+}
+ul.friendlist li span {
+    display: block;
+    color: #778;
+    padding: 5px 0 5px 0;
+    font-size: 90%;
+    font-weight: bold;
+}
+ul.friendlist li span.already {
+    bottom: 4px;
+    color: #555555;
+    font-family: "Trebuchet MS";
+    font-size: 85%;
+    position: absolute;
+    right: 10px;
+}
+ul.friendlist li span span {
+    display: inline;
+    padding: 0 2px 0 2px;
+}
+ul.friendlist li a.add, ul.friendlist li a.remove {
+    float: right;
+    font-size: 150%;
+    font-family: 'Courier New';
+    padding: 5px;
+}
+div#friends {
+    width: 550px;
+    margin: auto;
+}
+div#friends input {
+    border: 1px solid #ccc;
+    color: #aaa;
+    padding: 0.2em 0.2em 0.3em 0.2em;
+    padding-left: 22px;
+    font-size: 90%;
+    margin: 10px 0 0 5px;
+    width: 200px;
+    background: url('file:///E:/work/kamibu/excalibur/phoenix/etc/mockups/friends/magnifier.png') no-repeat 3px 3px;
+    display: none;
+}
+ul.friendlist img.done {
+    padding: 0 4px;
+    position: relative;
+    top: -20px;
 }
