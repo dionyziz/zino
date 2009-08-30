@@ -52,15 +52,13 @@
                 $userids[] = $friend->Friend->Id;
             }
             $myfriends = $finder->AreFriends( $user, $userids );
-            var_dump( $myfriends );
-            die();
             
             Element( 'user/sections', 'relations' , $theuser );
             ?><div id="friends"><?php
                 if ( !empty( $friends ) ) {
                     ?><ul class="friendlist"><?php
                     foreach ( $friends as $friend ) {
-                        Element( 'user/relations/row', $friend, $myfriends[ $friend->User->Id ] );
+                        Element( 'user/relations/row', $friend, $myfriends[ $friend->Friend->Id ] );
                     }
                     ?></ul><?php
                 }
