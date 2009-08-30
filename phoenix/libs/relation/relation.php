@@ -30,9 +30,9 @@
                     `place_name`, `profile_dob`
                 FROM
                     :relations
-                    LEFT JOIN :users ON
+                    CROSS JOIN :users ON
                         `relation_friendid` = `user_id`
-                    LEFT JOIN :userprofiles ON
+                    CROSS JOIN :userprofiles ON
                         `user_id` = `profile_userid`
                     LEFT JOIN :places ON
                         `profile_placeid` = `place_id`
