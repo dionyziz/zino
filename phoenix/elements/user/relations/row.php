@@ -5,7 +5,7 @@
                 echo $relation->Friend->Id;
                 ?>">
                 <?php
-                    Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $user, true );
+                    Element( 'user/display', $relation->Friend->Id, $relation->Friend->Avatarid, $relation->Friend, true );
                     if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
