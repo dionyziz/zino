@@ -33,13 +33,14 @@
 
             if ( $user->Id != $theuser->Id && $user->Exists() ) {
                 $finder = New FriendRelationFinder();
-                $res = $finder->FindFriendship( $user , $theuser );
+                $res = $finder->FindFriendship( $user, $theuser );
                 if ( $res === false ) {
                     $isfriend = 'false';
                 }
                 else {
                     $isfriend = 'true';
                 }
+                var_dump( $isfriend ); die();
                 $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . $isfriend . ' , " ' .$theuser->Id . ' " );' );
             }
             if ( $user->Id == $theuser->Id ) {
