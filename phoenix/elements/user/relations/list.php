@@ -10,6 +10,7 @@
             Element( 'user/subdomainmatch' );
             
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'user/profile' );
             
             $username = $username->Get();
             $subdomain = $subdomain->Get();
