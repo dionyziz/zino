@@ -55,7 +55,7 @@ var Friends = {
             listitem.appendChild( already );
             $( already ).hide().fadeIn( 300 );
             $( img ).css( { opacity: 0 } ).animate( {
-                top: -10
+                top: 3
             }, { queue: false, duration: 1000, easing: 'easeOutBounce' } ).animate( {
                 opacity: 1
             }, { queue: false, duration: 800, easing: 'swing' } );
