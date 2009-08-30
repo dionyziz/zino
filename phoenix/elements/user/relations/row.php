@@ -38,13 +38,17 @@
                     if ( $theuser->Profile->Placeid > 0 ) {
                         $datalist[] = htmlspecialchars( $theuser->Profile->Location->Name );
                     }
-                    while ( $data = array_shift( $datalist ) ) {
+                    if ( !Empty( $data ) ) {
                         ?><span><?php
-                        echo $data;
-                        ?></span><?php
-                        if ( !empty( $datalist ) ) {
-                            ?> · <?php
+                        while ( $data = array_shift( $datalist ) ) {
+                            ?><span><?php
+                            echo $data;
+                            ?></span><?php
+                            if ( !empty( $datalist ) ) {
+                                ?> · <?php
+                            }
                         }
+                        ?></span><?php
                     }
                 ?><div class="barfade">
                     <div class="leftbar"></div>
