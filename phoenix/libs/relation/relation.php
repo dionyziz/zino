@@ -124,6 +124,31 @@
 
             return $status;
         }
+        public function AreFriends( User $user, Array $potentialfriendids ) {
+            $query = $this->mDb->Prepare(
+                'SELECT 
+                    `relation_friendid`
+                FROM
+                    :relations
+                WHERE
+                    `relation_userid` = :userid
+                    AND `relation_friendid` IN :friendids;'
+            );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'friendids', $potentialfriendids );
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $ret[ $row[ 'relation_friendid' ] ] = true;
+            }
+            foreach ( $potentialfriendids as $friendid ) {
+                if ( !isset( $ret[ $friendid ] ) ) {
+                    $ret[ $friendid ] = false;
+                }
+            }
+            
+            return $ret;
+        }
         public function FindFriendship( User $a, User $b ) {
             $prototype = New FriendRelation();
             $prototype->Userid = $a->Id;
