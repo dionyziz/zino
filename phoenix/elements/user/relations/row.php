@@ -6,7 +6,11 @@
             
             w_assert( is_array( $friendarray ) );
             w_assert( is_int( $friendarray[ 'user_id' ] ) );
-            w_assert( $friendarray[ 'user_id' ] > 0 );
+            // w_assert( $friendarray[ 'user_id' ] > 0 );
+            if ( !( $friendarray[ 'user_id' ] > 0 ) ) {
+                var_dump( $friendarray );
+                die();
+            }
             w_assert( is_int( $friendarray[ 'user_avatarid' ] ) );
             
             $libs->Load( 'image/image' ); // user->Avatar
