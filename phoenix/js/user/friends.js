@@ -73,4 +73,4 @@ var Friends = {
         $( "a.remove" ).click( function() { return Friends.Remove( $( this ).closest( "li" )[0] ); } );
         Kamibu.ClickableTextbox( $( '#friends input' )[ 0 ], true, 'black', '#aaa', function () {} );
     }
-}
+};
