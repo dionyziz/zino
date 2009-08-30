@@ -10,7 +10,7 @@
                 ?>
                 </a>
                     <?php
-                    if ( $isfriend ) {
+                    if ( !$isfriend ) {
                         ?><a class="add" href="">+
                          <span>Γίνε φίλος<?php
                     }
