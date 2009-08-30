@@ -1,4 +1,5 @@
 <?php
+
     
     class ElementUserRelationsList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
@@ -63,7 +64,10 @@
                     foreach ( $friends as $friend ) {
                         Element( 'user/relations/row', $friend, $myfriends[ $friend[ 'user_id' ] ] );
                     }
-                    ?></ul><?php
+                    ?></ul>
+                        <span class="totalfriends"><?php
+                        echo count( $friends );
+                        ?> φίλοι</span><?php
                 }
                 else {
                     ?>Δεν έχουν προστεθεί φίλοι<?php
