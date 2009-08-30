@@ -17,19 +17,18 @@ var Profile = {
 		$( 'div.sidebar div.basicinfo div a span.s_addfriend' ).parent().fadeOut( 400 , function() {
 			// I KILL you! Write normal code! ...And there is no fucking "display:hidden".
 			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε προσθήκη' ) ).fadeIn( 400 );
-			
 		} );
-		Coala.Warm( 'user/relations/new' , { userid : userid } );
+		Coala.Warm( 'user/relations/new' , { userid: userid } );
 		return false;
 	},
-	DeleteFriend : function( relationid ) {
+	DeleteFriend : function( userid ) {
 		$( 'div.sidebar div.basicinfo div a span.s_deletefriend' ).parent().fadeOut( 400 , function() {
 			$( this ).parent().css( 'display' , 'none' ).append( document.createTextNode( 'Έγινε διαγραφή' ) ).fadeIn( 400 );
 		} );
-		Coala.Warm( 'user/relations/delete' , { relationid : relationid } );		
+		Coala.Warm( 'user/relations/delete' , { userid: userid } );		
 		return false;
 	},
-    ShowFriendLinks : function( relationstatus , id ) {
+    ShowFriendLinks : function( relationstatus, userid ) {
     	var text;
         if ( relationstatus ) {
             text = document.createTextNode( 'Προσθήκη στους φίλους' );
@@ -37,7 +36,7 @@ var Profile = {
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
-                Profile.AddFriend( id );
+                Profile.AddFriend( userid );
                 return false;
             } )
             .append( text )
@@ -49,7 +48,7 @@ var Profile = {
             .addClass( 'common' )
             .removeClass( 'friendedit' )
             .find( 'a' ).click( function() {
-                Profile.DeleteFriend( id );
+                Profile.DeleteFriend( userid );
                 return false;
             } )
             .append( text )

@@ -1,28 +1,15 @@
 <?php
-    
-    function UnitUserRelationsDelete( tInteger $relationid ) {
+    function UnitUserRelationsDelete( tInteger $userid ) {
         global $user;
         global $libs;
         
         $libs->Load( 'relation/relation' );
-        $relation = New FriendRelation( $relationid->Get() );
+        $finder = New FriendRelationFinder;
+        $relation = $finder->FindFriendship( $user->Id, $userid );
         
-        if ( $relation->Exists() ) {
-            if ( $relation->Userid == $user->Id ) {
-                $relation->Delete();
-                Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
-                /*
-                ?>$( 'div.sidebar div.basicinfo div.addfriend a' )
-                .css( 'display' , 'block' )
-                .animate( { opacity : "1" } , 400 )
-                .click( function() {
-                    Profile.AddFriend( '<?php
-                    echo $theuserid->Get();
-                    ?>' );
-                    return false;
-                } );<?php
-                */
-            }
+        if ( $relation !== false ) {
+            $relation->Delete();
+            Element::ClearFromCache( 'user/profile/main/friends' , $user->Id );
         }
     }
 ?>
