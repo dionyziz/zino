@@ -71,7 +71,7 @@ var Friends = {
             }, 3000 );
         } );
         if ( Friends.OwnSubdomain ) {
-            $( "span#friendscount" ).text( ( $( "span#friendscount" ).text() - 1 ) );
+            $( "span#friendscount" ).text( ( $( "span#friendscount" ).text() * 1 - 1 ) );
         }
         Coala.Warm( 'user/relations/delete', { userid: $( listitem ).attr( "id" ).split( '_' )[1] } );
         return false;
