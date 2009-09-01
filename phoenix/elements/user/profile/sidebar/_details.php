@@ -15,6 +15,10 @@
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
         public function Render( $theuser, $theuserid, $lastupdated ) {
+            global $libs;
+
+            $libs->Load( 'store' );
+
             $profile = $theuser->Profile;
             ?><div class="look">
 				<span class="s1_0054">&nbsp;</span><?php
