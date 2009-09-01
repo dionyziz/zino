@@ -24,6 +24,13 @@
                   Reason: to counter web-crawlers searching for IMs
                   Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
             ?></div><?php
+            $purchases = StorepurchaseFinder( $theuserid );
+            if ( !empty( $purchases ) ) {
+                ?><div class="supporter">
+                    <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Πορτοκαλί τελίτσα" />
+                    Υποστηρικτής Zino Καλοκαίρι 2009
+                </div><?php
+            }
         } 
     }
 ?>

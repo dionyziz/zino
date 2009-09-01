@@ -10,7 +10,7 @@
                 ?></div><?php
                 Element( 'user/profile/sidebar/details' , $theuser , $theuserid , $updated );
             ?>
-           <div class="ads"></div>
+            <div class="ads"></div>
             </div><?php
        }
     } 
