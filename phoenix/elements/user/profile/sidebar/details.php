@@ -3,6 +3,10 @@
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
         public function Render( $theuser, $theuserid, $lastupdated ) { 
+            global $libs;
+
+            $libs->Load( 'store' );
+
             $profile = $theuser->Profile;
             ?><div class="look">
 				<span class="malebody">&nbsp;</span><?php
@@ -24,11 +28,13 @@
                   Reason: to counter web-crawlers searching for IMs
                   Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
             ?></div><?php
-            $purchases = StorepurchaseFinder( $theuserid );
+            $finder = New StorepurchaseFinder();
+            $purchases = $finder->FindByUserid( $theuserid );
+
             if ( !empty( $purchases ) ) {
-                ?><div class="supporter">
-                    <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Πορτοκαλί τελίτσα" />
-                    Υποστηρικτής Zino Καλοκαίρι 2009
+                ?><div class="supporter" style="padding: 5px 0">
+                    <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="ΓΓ―Γ±Γ΄Γ―ΓªΓ΅Γ«Γ Γ΄Γ¥Γ«ΓΓ΄Γ³Γ΅" />
+                    Ξ¥Ο€ΞΏΟƒΟ„Ξ·ΟΞΉΞΊΟ„Ξ®Ο‚ Zino ΞΞ±Ξ»ΞΏΞΊΞ±Ξ―ΟΞΉ 2009
                 </div><?php
             }
         } 
