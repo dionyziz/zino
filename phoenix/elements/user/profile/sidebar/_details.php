@@ -40,8 +40,8 @@
                   Reason: to counter web-crawlers searching for IMs
                   Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
             ?></div><?php
-            // $finder = New StorepurchaseFinder();
-            // $purchases = $finder->FindByUserid( $theuserid );
+            $finder = New StorepurchaseFinder();
+            $purchases = $finder->FindByUserid( $theuserid );
             // var_dump( $purchases );
             // die();
 
