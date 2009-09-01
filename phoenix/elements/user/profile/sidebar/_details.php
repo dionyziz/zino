@@ -37,6 +37,8 @@
                   Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
             ?></div><?php
             $purchases = StorepurchaseFinder( $theuserid );
+            var_dump( $purchases );
+            die();
             if ( !empty( $purchases ) ) {
                 ?><div class="supporter">
                     <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
