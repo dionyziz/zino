@@ -1,4 +1,16 @@
 <?php
+    /*
+        MASKED
+        By: Izual
+        Reason: Spriting
+
+        By: Dionyziz
+        Reason: Report abuse
+
+        By: Dionyziz
+        Reason: Emblems
+    */
+
     class ElementUserProfileSidebarDetails extends Element {
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
@@ -23,7 +35,15 @@
                 /*Removed by: Chorvus
                   Reason: to counter web-crawlers searching for IMs
                   Element( 'user/profile/sidebar/contacts' , $profile->Skype , $profile->Msn , $profile->Gtalk , $profile->Yim ); */
-            ?></div>
+            ?></div><?php
+            $purchases = StorepurchaseFinder( $theuserid );
+            if ( !empty( $purchases ) ) {
+                ?><div class="supporter">
+                    <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
+                    ÕðïóôçñéêôÞò Zino Êáëïêáßñé 2009
+                </div><?php
+            }
+            ?>
             <div id="reportabuse"><?php
                 Element( 'user/profile/sidebar/abuse', $theuser->Id );
             ?></div><?php
