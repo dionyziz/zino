@@ -46,7 +46,7 @@
             if ( !empty( $purchases ) ) {
                 ?><div class="supporter">
                     <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
-                    ÕðïóôçñéêôÞò Zino Êáëïêáßñé 2009
+                    Υποστηρικτής Zino Καλοκαίρι 2009
                 </div><?php
             }
             ?>
