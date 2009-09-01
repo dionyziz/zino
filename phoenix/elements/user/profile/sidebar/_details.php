@@ -42,8 +42,6 @@
             ?></div><?php
             $finder = New StorepurchaseFinder();
             $purchases = $finder->FindByUserid( $theuserid );
-            // var_dump( $purchases );
-            // die();
 
             if ( !empty( $purchases ) ) {
                 ?><div class="supporter">
