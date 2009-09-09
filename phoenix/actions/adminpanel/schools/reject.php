@@ -6,7 +6,7 @@
         
         $libs->Load( 'school/school' );
         
-        $school = new School( $schoolid );        
+        $school = New School( $schoolid );        
         if ( $school->Exists() ) {
             $school->Delete();  
         }

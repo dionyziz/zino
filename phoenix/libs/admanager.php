@@ -66,7 +66,7 @@
             
             $ads = array();
             while( $ad = $res->FetchArray() ) {
-                $ads[] = new Ad( $ad );
+                $ads[] = New Ad( $ad );
             }
             return $ads;
         }

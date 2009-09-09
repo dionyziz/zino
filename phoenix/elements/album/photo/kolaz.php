@@ -13,7 +13,7 @@
 	        
 	        $personname = $personname->Get();
 	        
-	        $userFinder = new UserFinder();
+	        $userFinder = New UserFinder();
 	        $_user = $userFinder->FindByName( $personname );	        	        
 	        if ( $_user == NULL || $personname == "" ) {
 	            ?><p>Δεν υπάρχει χρήστης με αυτό το όνομα.</p><?php
@@ -23,7 +23,7 @@
 	            $personid = $_user->Id;
 	        }
 	        
-	        $Tagfinder = new ImageTagFinder();
+	        $Tagfinder = New ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $personid );
             
             if ( count( $tags ) == 0 ) {
@@ -40,13 +40,13 @@
                 $ids[] = $tag->Imageid;
             }
             
-            $kolaz = new KolazCreator;
+            $kolaz = New KolazCreator;
             if ( $kolaz->RetrievePositions( $input ) == false ) {
                 ?><p>Υπήρξε ένα πρόβλημα με αυτήν την σελίδα!</p><?php
                 return;
             }
             
-            $imageFinder = new ImageFinder();//Find image owners ids
+            $imageFinder = New ImageFinder();//Find image owners ids
             $images = $imageFinder->FindByIds( $ids );
             $owners = array();
             foreach ( $images as $image ) {

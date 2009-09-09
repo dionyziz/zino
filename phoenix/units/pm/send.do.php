@@ -23,7 +23,7 @@
             ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
         }
         else {
-            $pm = new PM();
+            $pm = New PM();
             $pm->Senderid = $user->Id;
             $pmtext = nl2br( htmlspecialchars( $pmtext ) );
             $pmtext = WYSIWYG_PostProcess( $pmtext );

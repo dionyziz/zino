@@ -148,7 +148,7 @@
 	        /*$libs->Load( 'user/user' );
 	        $libs->Load( 'bennu/bennu' );
 	        
-	        $userFinder = new UserFinder();
+	        $userFinder = New UserFinder();
 	        $input = array();
 	        $input = $userFinder->FindOnline();
 	        $input = $input[ 0 ];

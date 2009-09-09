@@ -808,5 +808,5 @@
         }
     }
     
-    return new TestXHTMLSanitizer();
+    return New TestXHTMLSanitizer();
 ?>

@@ -30,7 +30,7 @@
 
     date_default_timezone_set( 'Europe/Athens' );
 
-    $finder = new UserFinder();
+    $finder = New UserFinder();
     echo "Finding users...\n";
     $arr =  $finder->FindByBirthday( ( int )date( 'm' ), ( int )date( 'd' ), 0, 5000 );
     echo "Found " . count( $arr ) . " users to inform.\n";

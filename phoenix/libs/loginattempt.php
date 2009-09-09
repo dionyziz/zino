@@ -50,7 +50,7 @@
         protected $mModel = 'LoginAttempt';
         
         public function FindByUserName( $username ) {
-            $prototype = new LoginAttempt();
+            $prototype = New LoginAttempt();
             $prototype->Username = $username;
             
             $found = $this->FindByPrototype( $prototype );            

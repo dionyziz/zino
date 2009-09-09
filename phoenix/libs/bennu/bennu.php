@@ -300,7 +300,7 @@
         //        
     
             
-        $bennu = new Bennu(); 
+        $bennu = New Bennu(); 
         $bennu->SetData( $input, $target );
         
         $bennu->AddRuleInArray( 'Image->Userid', $friends, 'IN', 15 );

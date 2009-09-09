@@ -21,7 +21,7 @@
             $loginattempt->Save();
             
             /*if ( LoginAttempt_checkBot( UserIp() ) ) {
-                $ban = new Ban();
+                $ban = New Ban();
                 $ban->BanIp( UserIp(), 15*60 );
             }*///TODO<--reconsider this
 

@@ -25,12 +25,12 @@
             }
             else if ( $rabbit_settings[ 'legalreferers' ] === false ) {
                 // all referers are illegal
-                throw new Exception( 'All referers are illegal' );
+                throw New Exception( 'All referers are illegal' );
             }
             else {
                 w_assert( is_string( $rabbit_settings[ 'legalreferers' ] ) );
                 if ( !preg_match( $rabbit_settings[ 'legalreferers' ], $_SERVER[ 'HTTP_REFERER' ] ) ) {
-                    throw new Exception( $_SERVER[ 'HTTP_REFERER' ] . ' is not a valid HTTP referer' );
+                    throw New Exception( $_SERVER[ 'HTTP_REFERER' ] . ' is not a valid HTTP referer' );
                 }
             }
         }

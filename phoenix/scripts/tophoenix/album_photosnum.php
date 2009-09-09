@@ -51,7 +51,7 @@
             echo $id;
             ?>....<?php
 
-            $album = new Album( $id );
+            $album = New Album( $id );
             $album->PhotosNum = $num;
             $album->Save();
 

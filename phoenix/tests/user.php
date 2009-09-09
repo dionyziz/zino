@@ -140,9 +140,9 @@
             $oldAuth = $this->mUser->Authtoken;
 
             $this->Assert( User_Authenticate( 'usertest', 'secret' ) instanceof User, 'User_Authenticate did not return a User instance after successful authentication' );
-            $this->Assert( User_Authenticate( 'usertest', 'secret' ) == new User( 'usertest' ), 'User_Authenticate did not return the right User object after successful authentication' );
+            $this->Assert( User_Authenticate( 'usertest', 'secret' ) == New User( 'usertest' ), 'User_Authenticate did not return the right User object after successful authentication' );
 
-            $this->mUser = new User( 'usertest' );
+            $this->mUser = New User( 'usertest' );
             $newAuth = $this->mUser->Authtoken;
             $this->AssertNotEquals( $newAuth, $oldAuth, 'User_Authenticate did not change the authtoken of the user' );
             
@@ -153,13 +153,13 @@
             $user = User_Login();
             $this->Assert( $user instanceof User, 'User_Login did not return a user object after successful Authentication' ); 
             $this->AssertTrue( $user->Exists(), 'User returned by User_Login after successful Authentication does not seem to exist' );
-            $this->AssertEquals( $user, new User( 'usertest' ), 'User_Login did not return the logged in user' );
+            $this->AssertEquals( $user, New User( 'usertest' ), 'User_Login did not return the logged in user' );
 
             User_Authenticate( 'donotcreatethisuser', 'atleastnotwiththispassword' );
             $user = User_Login();
             $this->Assert( $user instanceof User, 'User_Login did not return a user object after failed Authentication' ); 
             $this->AssertTrue( $user->Exists(), 'User returned by User_Login after failed Authentication does not seem to exist' );
-            $this->AssertEquals( $user, new User( 'usertest' ), 'User_Login did not return the logged in user' );
+            $this->AssertEquals( $user, New User( 'usertest' ), 'User_Login did not return the logged in user' );
         }
         public function TestLogout() {
             User_Logout();
@@ -179,7 +179,7 @@
             $this->mUser->Profile->Email = 'usertest@kamibu.com';
             $this->mUser->Gender = 'female';
             $this->mUser->Rights = 20;
-            $this->mUser->Avatar = new Image( 2 );
+            $this->mUser->Avatar = New Image( 2 );
             $this->mUser->Save();
 
             $this->AssertEquals( $this->mUser->Name, 'testuser', 'Name changed after saving changes' );
@@ -189,7 +189,7 @@
             $this->AssertEquals( $this->mUser->Profile->Email, 'usertest@kamibu.com', 'Email changed after saving changes' );
             $this->AssertEquals( $this->mUser->Gender, 'female', 'Gender changed after saving changes' );
             $this->AssertEquals( $this->mUser->Rights, 20, 'Rights changed after saving changes' );
-            $this->AssertEquals( $this->mUser->Avatar, new Image( 2 ) );
+            $this->AssertEquals( $this->mUser->Avatar, New Image( 2 ) );
         }
         public function TestInvalidName() {
             $this->mUser->Name = 'bl4c_C123/z';
@@ -227,7 +227,7 @@
         public function TestInvalidAvatar() {
             $this->mUser->Avatar = 2;
             $this->mUser->Avatar = false;
-            $this->AssertEquals( $this->mUser->Avatar, new Image( 2 ), 'Avatar should not change when an invalid value is set' );
+            $this->AssertEquals( $this->mUser->Avatar, New Image( 2 ), 'Avatar should not change when an invalid value is set' );
 
             $this->mUser->Save();
         }
@@ -267,7 +267,7 @@
             $this->AssertEquals( $profile->SexualOrientation, 'bi', 'Sexual orientation changed after saving changes' );
             $this->AssertEquals( $profile->Smoker, 'no', 'Smoker changed after saving changes' );
             $this->AssertEquals( $profile->Drinker, 'no', 'Drinker changed after saving changes' );
-            $this->AssertEquals( $profile->Mood, new Mood( 'Happy' ), 'Mood changed after saving changes' );
+            $this->AssertEquals( $profile->Mood, New Mood( 'Happy' ), 'Mood changed after saving changes' );
             $this->AssertEquals( $profile->Skype, 'usertest', 'Skype changed after saving changes' );
             $this->AssertEquals( $profile->MSN, 'usertest@hotmail.com', 'MSN changed after saving changes' );
             $this->AssertEquals( $profile->GTalk, 'usertest@gmail.com', 'GTalk changed after saving changes' );
@@ -352,9 +352,9 @@
             $profile = $this->mUser->Profile;
 
             $profile->Mood = 'sad';
-            $profile->Mood = new Mood( 'nomood' );
+            $profile->Mood = New Mood( 'nomood' );
             $profile->Save();
-            $this->AssertEquals( $profile->Mood, new Mood( 'Happy' ), 'Mood changed after saving changes' );
+            $this->AssertEquals( $profile->Mood, New Mood( 'Happy' ), 'Mood changed after saving changes' );
         }
         public function TestEditSettings() {
             $settings = $this->mUser->Preferences;

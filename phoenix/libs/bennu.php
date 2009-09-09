@@ -84,7 +84,7 @@
             $ret = array();
             for ( $i = 0; $i < $limit; ++$i ) {
                 $uid = $this->mUids[ $i ];
-                $ret[] = new User( $this->mUsers[ $uid ] );
+                $ret[] = New User( $this->mUsers[ $uid ] );
             }
 
             return $ret;

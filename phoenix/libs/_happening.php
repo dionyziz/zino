@@ -15,7 +15,7 @@
         protected $mModel = 'Happening';
         
         public function FindAll( $offset = 0, $limit = 100 ) {
-            $happening = new Happening();
+            $happening = New Happening();
             return $this->FindByPrototype( $happening, $offset, $limit );
         }
     }

@@ -35,7 +35,7 @@
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
         public function FindNotApproved( $offset = 0, $limit = 10000 ) {
-            $prototype = new School();            
+            $prototype = New School();            
             $prototype->Approved = 0;            
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }

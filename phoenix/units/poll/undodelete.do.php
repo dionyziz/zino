@@ -6,7 +6,7 @@
 
         $libs->Load( 'poll' );
 
-        $poll = new Poll( $pollid->Get() );
+        $poll = New Poll( $pollid->Get() );
         if ( !$poll->Exists() || $user->IsAnonymous() || $poll->UserId != $user->Id() ) {
             return;
         }

@@ -15,7 +15,7 @@
         if ( strlen( $ids ) != 0 ){
             $contact_ids = explode( ",", $ids );
             foreach ( $contact_ids as $contact_id ){
-                $finder = new ContactFinder();
+                $finder = New ContactFinder();
                 $contact = $finder->FindById( $contact_id );
                 if ( $contact->Mail == $user->Profile->Email ){
                     continue;

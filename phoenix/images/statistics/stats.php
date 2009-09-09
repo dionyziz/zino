@@ -29,40 +29,40 @@
 	$stat = Statistics_Get($_GET[ 'name' ],$_GET['days']);
 	$title = 'new '.$_GET[ 'name' ].' per day';	
 
-	$chart=new LineChart( $x, $x-250 );	//1000 for 90 days,750 for 60 days 500 for 30 days		
-	$dataSet=new XYDataSet();	
+	$chart = New LineChart( $x, $x-250 );	//1000 for 90 days,750 for 60 days 500 for 30 days		
+	$dataSet = New XYDataSet();	
 	
-	$i=0;
-	$lastday="";
+	$i = 0;
+	$lastday = "";
 	$lastmonth;
 	foreach ( $stat as $row ) {	
 		if ( $i % 10 == 0 ) {
-			$date=new DateTime( $row[ 'day' ] );
-			$label=$date->format( 'm-d' );
+			$date = New DateTime( $row[ 'day' ] );
+			$label = $date->format( 'm-d' );
 		}
 		else {
-			$label="";
-			$date=new DateTime( $row[ 'day' ] );
+			$label = "";
+			$date = New DateTime( $row[ 'day' ] );
 		}
 
 		if ( $lastday != "")
 		{
-			$empty_days=(int)$date->format( 'd' ) - $lastday + ( (int)$date->format( 'm' ) - $lastmonth ) * 30 - 1;
-			for( $e=0; $e<$empty_days; $e++)
-			$dataSet->addPoint( new Point( "", 0 ) ); 
+			$empty_days = (int) $date->format( 'd' ) - $lastday + ( (int) $date->format( 'm' ) - $lastmonth ) * 30 - 1;
+			for( $e = 0; $e < $empty_days; $e++)
+			$dataSet->addPoint( New Point( "", 0 ) ); 
 
 		}
 		
-		$dataSet->addPoint( new Point( $label, $row[ 'count' ] ) ); 
+		$dataSet->addPoint( New Point( $label, $row[ 'count' ] ) ); 
 
 		++$i;
 	
-		$lastday = (int)$date->format( 'd' );
-		$lastmonth = (int)$date->format( 'm' );
+		$lastday = (int) $date->format( 'd' );
+		$lastmonth = (int) $date->format( 'm' );
 	}
-	$empty_days = (int)date( 'd' ) - $lastday + ( (int)date( 'm' ) - $lastmonth ) * 30 - 1;
-	for ( $e=0; $e<$empty_days; $e++)
-	$dataSet->addPoint( new Point( "", 0 ) ); 
+	$empty_days = (int) date( 'd' ) - $lastday + ( (int) date( 'm' ) - $lastmonth ) * 30 - 1;
+	for ( $e = 0; $e<$empty_days; $e++)
+	$dataSet->addPoint( New Point( "", 0 ) ); 
 	
 
 	$chart->setDataSet( $dataSet );

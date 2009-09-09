@@ -138,7 +138,7 @@
                 $database[ 'name' ] = false;
             }
             
-            $GLOBALS[ $dbname ] = new Database( $database[ 'name' ], $driver );
+            $GLOBALS[ $dbname ] = New Database( $database[ 'name' ], $driver );
             $GLOBALS[ $dbname ]->Connect( $database[ 'hostname' ] );
             $GLOBALS[ $dbname ]->Authenticate( $database[ 'username' ] , $database[ 'password' ] );
             $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] ); 

@@ -60,14 +60,14 @@
         }
         $contactsInZino = 0;
         $contactsNotZino = 0;
-        $mailfinder = new UserProfileFinder();
+        $mailfinder = New UserProfileFinder();
         $members = $mailfinder->FindAllUsersByEmails( $mails );
         foreach( $ret as $nickname => $contact ){
 			if ( $contact->Mail == $user->Profile->Email || $contact->Mail == $email ){
 				continue;
 			}
             if ( $members[ $contact->Mail ] != "" ){
-                $theuser = new User( $members[ $contact->Mail ] );
+                $theuser = New User( $members[ $contact->Mail ] );
                 $finder = New FriendRelationFinder();
 				$friendship = $finder->IsFriend( $user, $theuser );
                 if ( $friendship == 1 || $friendship == 3 ){

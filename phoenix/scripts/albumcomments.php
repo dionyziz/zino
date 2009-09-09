@@ -27,7 +27,7 @@
         $res = $db->Query( $sql );
         $ret = array();
         while ( $row = $res->FetchArray() ) {
-            $ret[] = new Album( $row );
+            $ret[] = New Album( $row );
         }
 
         return $ret;

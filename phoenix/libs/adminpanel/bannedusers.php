@@ -7,7 +7,7 @@
         protected $mModel = 'BannedUser';
         
         public function FindAll( $offset, $limit ) {
-            $prototype = new BannedUser();
+            $prototype = New BannedUser();
             $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
             return $found;
@@ -29,7 +29,7 @@
             
             $users = array();
             while ( $row = $res->FetchArray() ) {
-                $users[] = new BannedUser( $row );
+                $users[] = New BannedUser( $row );
             }
             
             if ( empty( $users ) ) {
@@ -53,7 +53,7 @@
             
             $real_users = array();
             while ( $row = $res->FetchArray() ) {
-                $real_users[ $row[ 'user_id' ] ] = new User( $row );
+                $real_users[ $row[ 'user_id' ] ] = New User( $row );
             }
             
             foreach ( $users as $xrhsths ) {
@@ -64,7 +64,7 @@
         }
         
         public function FindByUserId( $userid ) {
-            $prototype = new BannedUser();
+            $prototype = New BannedUser();
             $prototype->Userid = $userid;
             
             $res = $this->FindByPrototype( $prototype );

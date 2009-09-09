@@ -559,7 +559,7 @@
             
 			
             if ( $user->id != $this->userid ) {
-                $adminaction = new AdminAction();
+                $adminaction = New AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , OPERATION_DELETE , TYPE_COMMENT, $this->id );
             }
             
@@ -640,7 +640,7 @@
             $libs->Load( 'bulk' );
             
             if ( $user->id != $this->userid && $this->Delid == 0 ) {
-                $adminaction = new AdminAction();
+                $adminaction = New AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , OPERATION_EDIT, TYPE_COMMENT, $this->id );
             }
             

@@ -17,7 +17,7 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php
             
-            $bannedUserFinder = new BannedUserFinder();
+            $bannedUserFinder = New BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
             ?><table class="stats">

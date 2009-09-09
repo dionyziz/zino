@@ -52,13 +52,13 @@
             $user = $finder->FindByIdAndAuthtoken( $_SESSION[ 's_userid' ] , $_SESSION[ 's_authtoken' ] );
             if ( $user === false ) {
                 // userid/authtoken combination in session is invalid
-                $user = new User( array() );
+                $user = New User( array() );
             }
         }
         else {
             $cookie = User_GetCookie();
             if ( $cookie === false ) {
-                $user = new User( array() );
+                $user = New User( array() );
             }
             else {
                 $userid = $cookie[ 'userid' ];
@@ -67,12 +67,12 @@
                 if ( $user === false ) {
                     // not found
                     $water->Trace( 'No such user ' . $userid . ':' . $userauth );
-                    $user = new User( array() );
+                    $user = New User( array() );
                 }
             }
         }
         
-        $banChecker = new Ban();
+        $banChecker = New Ban();
         
         if ( ( $user->Exists() && $banChecker->isBannedUser( $user->Id ) ) 
             || $banChecker->isBannedIp( UserIp() )  

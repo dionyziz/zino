@@ -255,7 +255,7 @@
             $libs->Load( 'user/count' );
             
             if ( $user->id != $this->userid ) {
-                $adminaction = new AdminAction();
+                $adminaction = New AdminAction();
                 $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_JOURNAL, $this->id );
             }
 

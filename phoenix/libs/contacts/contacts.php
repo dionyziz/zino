@@ -19,7 +19,7 @@
             return 'ERROR_EMPTYCREDENTIALS';
         }
 
-        $inviter = new OpenInviter();
+        $inviter = New OpenInviter();
         $inviter->getPlugins();
         $state = $inviter->startPlugin( $provider );
         if( $state == false ) {
@@ -39,7 +39,7 @@
         $inviter->logout();
         $inviter->stopPlugin();
         
-        $contact = new Contact();
+        $contact = New Contact();
         $ret = array();
         foreach ( $contacts as $key=>$val ) {
             $contact = $contact->AddContact( $key, $username );
@@ -107,13 +107,13 @@
             
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $contact = new Contact( $row );
+                $contact = New Contact( $row );
                 $ret []  = $contact;
             }
             
             return $ret;
         
-            /*$prototype = new Contact();//<---TESTING NEW
+            /*$prototype = New Contact();//<---TESTING NEW
             $prototype->Usermail = $email;
             $prototype->Userid = $userid;
             
@@ -131,7 +131,7 @@
             foreach ( $all as $contact ) {
                 $all_emails[] = $contact->Mail;
             }
-            $mailfinder = new UserProfileFinder();
+            $mailfinder = New UserProfileFinder();
             $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
             
             $not_members = array();
@@ -153,7 +153,7 @@
             foreach ( $all as $contact ) {
                 $all_emails[] = $contact->Mail;
             }
-            $mailfinder = new UserProfileFinder();
+            $mailfinder = New UserProfileFinder();
             $members = $mailfinder->FindAllUsersByEmails( $all_emails );//Get members ids and emails
             return $members;//<-RETURN array[ 'profile_email' ] = 'profile_userid'
         }
@@ -166,7 +166,7 @@
             
             $members = $this->FindAllZinoMembersByUseridAndMail( $userid, $email );//Get zino members
             
-            $relationfinder = new FriendRelationFinder();//find already zino friends
+            $relationfinder = New FriendRelationFinder();//find already zino friends
             $userRelations = $relationfinder->FindByUser( $user );
             $zino_friends = array();
             foreach ( $userRelations as $relation ) {
@@ -194,7 +194,7 @@
             $res = $query->Execute();
             
             $row = $res->FetchArray();
-            return new Contact( $row );
+            return New Contact( $row );
         }
 
         public function FindByMail( $contact_mail ){
@@ -213,7 +213,7 @@
             
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $contact = new Contact( $row );
+                $contact = New Contact( $row );
                 $ret []  = $contact;
             }
             
@@ -226,7 +226,7 @@
         
         public function AddContact( $mail, $usermail ) {
             global $user;
-            $contact = new Contact();
+            $contact = New Contact();
             $contact->Mail = $mail;
             $contact->Usermail = $usermail;
             $contact->Userid = $user->Id;

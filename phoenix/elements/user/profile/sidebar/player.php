@@ -23,7 +23,7 @@
  width="0" height="0" />
 			</div>
 			<script type="text/javascript">
-				var playlist = new Array();
+				var playlist = New Array();
 				var totalSongs = 0; var nextSong = 0;
 				var playing = false;
 				var zplayer = document.getElementById('playerObject');

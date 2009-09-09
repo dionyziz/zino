@@ -15,18 +15,18 @@
         $mails = $mails->Get();
         if ( strlen( $mails ) != 0 ){
             $emails = explode( ';', $mails );
-            $contact = new Contact();
+            $contact = New Contact();
 			$friends = 0;
 			$invited = 0;
             foreach ( $emails as $email ){
 				if ( $email == $user->Profile->Email || !ValidEmail( $email ) ){
 					continue;
 				}
-                $finder = new UserProfileFinder();
+                $finder = New UserProfileFinder();
                 $mailid = $finder->FindAllUsersByEmails( array ( $email ) );
 				if ( count( $mailid ) != 0 ){
-                    $newUser = new User( $mailid[ $email ] );
-					$friendFinder = new FriendRelationFinder();
+                    $newUser = New User( $mailid[ $email ] );
+					$friendFinder = New FriendRelationFinder();
 					$friendship = $friendFinder->IsFriend( $user, $newUser );
 					if ( $friendship == 1 || $friendship == 3 ){
 						continue;

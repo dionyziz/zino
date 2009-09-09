@@ -48,7 +48,7 @@
 		 */
 		protected function Chart($width, $height) {
 			// Creates the plot
-			$this->plot = new Plot($width, $height);
+			$this->plot = New Plot($width, $height);
 			$this->plot->setTitle("Untitled chart");
 			$this->plot->setLogoFileName(dirname(__FILE__) . "/../../../images/PoweredBy.png");
 		}

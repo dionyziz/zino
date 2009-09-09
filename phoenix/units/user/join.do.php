@@ -85,7 +85,7 @@
                     //$current_contact->Save();
                     $_SESSION[ 'destuser_id' ] = $current_contact->Userid;
                     if ( $current_contact->Mail == $email ){
-                        $destuser = new User( $current_contact->Userid );
+                        $destuser = New User( $current_contact->Userid );
                         //user login
                         $_SESSION[ 's_userid' ] = $newuser->Id;
                         $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;

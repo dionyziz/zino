@@ -5,7 +5,7 @@
 
         $libs->Load( 'pm/pm' );
         $folderid = $folderid->Get();
-        $folder = new PMFolder( $folderid );
+        $folder = New PMFolder( $folderid );
         if ( $folder->Userid != $user->Id ) {
             return;
         }

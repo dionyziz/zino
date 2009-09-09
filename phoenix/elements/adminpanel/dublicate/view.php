@@ -17,7 +17,7 @@
             
             ?><h2>Dublicate Accounts</h2><?php
             
-            $dub = new DublicateAccount();
+            $dub = New DublicateAccount();
             $res = $dub->getDublicateAccountsByUserName( 'pagio91' );
             
             foreach ( $res as $dub ) {

@@ -18,18 +18,18 @@
             $id = $id->Get();
             $validtoken = $validtoken->Get();
             if( $id != "" ){
-                $finder = new ContactFinder();
+                $finder = New ContactFinder();
                 $contact = $finder->FindById( $id );
                 if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
                     $email = $contact->Mail;
-                    $mailfinder = new UserProfileFinder();
+                    $mailfinder = New UserProfileFinder();
                     $userprofiles = $mailfinder->FindAllUsersByEmails( array( $email ) );
                     if ( count( $userprofiles ) != 0 ){
                         $email = '';
                     }
                     $parts = explode( '@', $contact->Mail );
                     $username = $parts[ 0 ];
-                    $finder = new UserFinder();
+                    $finder = New UserFinder();
                     $_SESSION[ 'contact_id' ] = $id;
                     if ( $finder->IsTaken( $username ) ){
                         $username = "";

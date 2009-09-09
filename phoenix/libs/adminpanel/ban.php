@@ -11,12 +11,12 @@
             $libs->Load( 'adminpanel/bannedusers' );    
             $libs->Load( 'user/user' );     
             
-            $bannedUserFinder = new BanneduserFinder();//delete banneduser
+            $bannedUserFinder = New BanneduserFinder();//delete banneduser
             $bannedUsers = $bannedUserFinder->FindByUserId( $userid );
             
             if ( count( $bannedUsers ) == 1 ) {
                 $cur_user = current( $bannedUsers );
-                $user_d = new BannedUser( $cur_user->Id );
+                $user_d = New BannedUser( $cur_user->Id );
                 $rights = $user_d->Rights;
                 $user_d->Delete();                
             }
@@ -24,16 +24,16 @@
                 return;
             }
                 
-            $userFinder = new UserFinder();//restore user rights
+            $userFinder = New UserFinder();//restore user rights
             $user = $userFinder->FindById( $userid );
             $user->Rights = $rights;
             $user->Save();   
             
-            $ipFinder = new BannedIpFinder();//delete related ips
+            $ipFinder = New BannedIpFinder();//delete related ips
             $ips = $ipFinder->FindByUserId( $userid );            
             
             foreach ( $ips as $ip ) {
-                $ip_d = new BannedIp( $ip->Id );
+                $ip_d = New BannedIp( $ip->Id );
                 $ip_d->Delete();
             }
                           
@@ -45,7 +45,7 @@
                
             $libs->Load( 'adminpanel/bannedips' );
                
-            $ipFinder = new BannedIpFinder();
+            $ipFinder = New BannedIpFinder();
             $res = $ipFinder->FindActiveByIp( $ip );
                
             if ( empty( $res ) ) {               
@@ -61,7 +61,7 @@
             
             $libs->Load( 'adminpanel/bannedusers' );
             
-            $userFinder = new BannedUserFinder();
+            $userFinder = New BannedUserFinder();
             $res = $userFinder->FindByUserId( $userid );
             
             if ( !$res ) {
@@ -102,14 +102,14 @@
             
             
             //check if the user doesn't exist or if he is already banned
-            $userFinder = new UserFinder();
+            $userFinder = New UserFinder();
             $b_user = $userFinder->FindByName( $user_name );
             
             if ( !$b_user ) {
                 return false;
             }
             
-            $bannedUserFinder = new BannedUserFinder();
+            $bannedUserFinder = New BannedUserFinder();
             $exists = $bannedUserFinder->FindByUserId( $b_user->Id );
             
             if ( $exists ) {
@@ -118,7 +118,7 @@
             //
             
             //trace relevant ips from login attempts            
-            $loginAttemptFinder = new LoginAttemptFinder();
+            $loginAttemptFinder = New LoginAttemptFinder();
             $res = $loginAttemptFinder->FindByUserName( $user_name );
             
             $logs = array();
@@ -143,7 +143,7 @@
             
             $libs->Load( 'adminpanel/bannedusers' );
             
-            $banneduser = new BannedUser();
+            $banneduser = New BannedUser();
             $banneduser->Userid = $b_user->Id;
             $banneduser->Rights = $b_user->Rights;
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
@@ -162,7 +162,7 @@
             $started = date( 'Y-m-d H:i:s', time() );
             $expire = date( 'Y-m-d H:i:s', time() + $time_banned );
             foreach ( $ips as $ip ) {
-                $banip = new BannedIp();
+                $banip = New BannedIp();
                 $banip->Ip = $ip;
                 $banip->Userid = $user_id;
                 $banip->Started = $started;

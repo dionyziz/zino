@@ -21,7 +21,7 @@
 			$libs->Load( 'journal/journal' );
 			$libs->Load( 'favourite' );
 			
-			$finder = new UserFinder();
+			$finder = New UserFinder();
 			$user = $finder->FindByName( 'testStore1' );
 			if( is_object( $user ) ){
 				$user->Delete();
@@ -92,7 +92,7 @@
 		}
 		public function TestCreateItem(){
 			$name = "Dragon T-shirt";
-			$finder = new StoreitemFinder();
+			$finder = New StoreitemFinder();
 			$items = $finder->FindByName( $name );
 			$item = $items[ 0 ];
 			if( is_object( $item ) ){
@@ -116,7 +116,7 @@
 			$this->mStoreitem->Albumid = $this->mAlbum->Id;
 			$this->mStoreitem->Save();
 			*/
-			$itemFinder = new StoreitemFinder();
+			$itemFinder = New StoreitemFinder();
 			$items = $itemFinder->FindByName( $name );
 			$item = $items[ 0 ];
 			
@@ -178,10 +178,10 @@
 		}
 		
 		public function TestFavourites(){
-			$finder = new FavouriteFinder();
+			$finder = New FavouriteFinder();
 			$favourites = $finder->FindByEntity( $this->mStoreitem );
 			$this->AssertEquals( count( $favourites ), 0, 'there are favourite entries after creation of the item' );
-			$favourite1 = new Favourite();
+			$favourite1 = New Favourite();
 			$favourite1->Itemid = $this->mStoreitem->Id;
 			$favourite1->Userid = $this->mUser->Id;
 			$favourite1->Typeid = TYPE_STOREITEM;
@@ -190,7 +190,7 @@
 			$this->AssertEquals( count( $favourites ), 1, 'the number of favourites is wrong, after creating one favourite for Storeitem' );
 			$this->AssertEquals( $favourites[ 0 ]->Userid, $this->mUser->Id, 'Userid changed after saving' );
 			
-			$favourite2 = new Favourite();
+			$favourite2 = New Favourite();
 			$favourite2->Itemid = $this->mStoreitem->Id;
 			$favourite2->Userid = $this->mUser2->Id;
 			$favourite2->Typeid = TYPE_STOREITEM;

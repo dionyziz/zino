@@ -37,7 +37,7 @@
 			parent::Chart($width, $height);
 
 			// Initialize the bounds
-			$this->bound = new Bound();
+			$this->bound = New Bound();
 			$this->bound->setLowerBound(0);
 		}
 
@@ -45,7 +45,7 @@
 		 * Compute the axis.
 		 */
 		protected function computeAxis() {
-			$this->axis = new Axis($this->bound->getYMinValue(), $this->bound->getYMaxValue());
+			$this->axis = New Axis($this->bound->getYMinValue(), $this->bound->getYMaxValue());
 			$this->axis->computeBoundaries();
 		}
 

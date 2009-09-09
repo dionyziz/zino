@@ -18,7 +18,7 @@
                 $step = 0;
             }
             
-            $finder = new ContactFinder();
+            $finder = New ContactFinder();
             $contactsLoaded = $finder->FindByUseridAndMail( $user->Id, $email );
             
             if( count( $contactsLoaded ) == 0 ) {
@@ -27,13 +27,13 @@
             }
             
             if ( $step == 1 ) { //step 1:send invites to user that are already in zino
-                $findemall  = new ContactFinder();//<-TODO check if none
+                $findemall  = New ContactFinder();//<-TODO check if none
                 $NotZinoFriends = $findemall->FindNotFriendsZinoMembersByUseridAndMail( $user->Id, $email );
                        
                 ?><h3>Αυτοί οι φίλοι σου είναι ήδη στο zino!</h3><?php
                 ?><form method="post" action="do/contacts/addfriends"><?php
                 foreach ( $NotZinoFriends as $key=>$val ) {
-                    $friend = new User( $val );                 
+                    $friend = New User( $val );                 
                     ?><p><?php
                     ?><input type="checkbox" name="approved[]" value="<?php echo $friend->Id; ?>" /> <?php 
                     echo $friend->Name . " - " . $friend->Profile->Email;                    
@@ -46,7 +46,7 @@
             }
             
             if ( $step == 2 ) { //step 2 - send invites to non zino users    
-                $findemall  = new ContactFinder();
+                $findemall  = New ContactFinder();
                 $NotZinoMembers = $findemall->FindNotZinoMembersByUseridAndMail( $user->Id, $email );
                 
                 ?><h3>Στείλε προσκλήσεις στους φίλους σου που δεν είναι μέλη στο Ζινο.</h3><?php

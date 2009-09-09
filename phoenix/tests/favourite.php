@@ -97,10 +97,10 @@
         }
         /*
         public function TestDeletion() {
-            $test = new User( 'test' );
-            $journal = new Journal( 2 );
+            $test = New User( 'test' );
+            $journal = New Journal( 2 );
                 
-            $favourite = new Favourite;
+            $favourite = New Favourite;
             $favourite->Item = $journal;
             $favourite->User = $test;
 
@@ -109,10 +109,10 @@
             $this->AssertFalse( $favourite->Exists(), 'Favourite exists after deletion' );
         }
         public function TestCheckDeleted() {
-            $test = new User( 'test' );
-            $journal = new Journal( 2 );
+            $test = New User( 'test' );
+            $journal = New Journal( 2 );
 
-            $journal2 = new Journal( 3 );
+            $journal2 = New Journal( 3 );
 
             $this->AssertFalse( Favourite_Check( $test, $journal ), 'Favourite deleted but Favourite_Check still returned true' );
             $this->AssertTrue( Favourite_Check( $test, $journal2 ), 'Favourite_Check returned wrong value after deleting another favourite' );
@@ -134,6 +134,6 @@
         }
     }
 
-    return new TestFavourites();
+    return New TestFavourites();
 
 ?>

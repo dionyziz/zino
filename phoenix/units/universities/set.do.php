@@ -9,7 +9,7 @@
         $uniid = $uniid->Get();
         $unset = $unset->Get();
         if ( !$unset ) {
-            $uni = new Uni( $uniid );
+            $uni = New Uni( $uniid );
         }
         if ( $unset ) {
             $user->SetUni( 0 );

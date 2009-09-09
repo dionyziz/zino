@@ -60,7 +60,7 @@ class JSMin {
   // -- Public Static Methods --------------------------------------------------
 
   public static function minify($js) {
-    $jsmin = new JSMin($js);
+    $jsmin = New JSMin($js);
     return $jsmin->min();
   }
 
@@ -91,7 +91,7 @@ class JSMin {
             }
 
             if (ord($this->a) <= self::ORD_LF) {
-              throw new JSMinException('Unterminated string literal.');
+              throw New JSMinException('Unterminated string literal.');
             }
 
             if ($this->a === '\\') {
@@ -123,7 +123,7 @@ class JSMin {
               $this->a        = $this->get();
             }
             elseif (ord($this->a) <= self::ORD_LF) {
-              throw new JSMinException('Unterminated regular expression '.
+              throw New JSMinException('Unterminated regular expression '.
                   'literal.');
             }
 
@@ -273,7 +273,7 @@ class JSMin {
                 break;
 
               case null:
-                throw new JSMinException('Unterminated comment.');
+                throw New JSMinException('Unterminated comment.');
             }
           }
 

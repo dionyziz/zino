@@ -20,7 +20,7 @@
             
             ?><h2>Ενέργειες διαχειριστών</h2><?php 
             
-            $adminFinder = new AdminActionFinder();
+            $adminFinder = New AdminActionFinder();
             $offset = ( $pageno - 1 ) * $limit;
             $admins = $adminFinder->FindAll( $offset, 20 );   
             

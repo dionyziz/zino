@@ -47,7 +47,7 @@
 			foreach ( $purchases as $purchase ){
 				$userids[] = $purchase->Userid;
 			}
-			$finder = new UserFinder();
+			$finder = New UserFinder();
 			$users = $finder->FindByIds( $userids );
 			
 			$userbyid = array();
@@ -99,7 +99,7 @@
 	class Storeitem extends Satori{
 		protected $mDbTableAlias = 'storeitems';
 		public function Remaining(){
-			$finder = new StorepurchaseFinder();
+			$finder = New StorepurchaseFinder();
 			$sold = $finder->CountByItemid( $this->Id );
 			return $this->Total - $sold;
 		}
@@ -118,7 +118,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
 		protected function OnBeforeCreate(){
-			$purchaseFinder = new StorepurchaseFinder();
+			$purchaseFinder = New StorepurchaseFinder();
 			$purchases = $purchaseFinder->CountByItemid( $this->Itemid );
 			$item = New Storeitem( $this->Itemid );
 			if( $purchases[ 0 ] >= $item->Total ){

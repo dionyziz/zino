@@ -185,7 +185,7 @@
             $libs->Load( 'adminpanel/adminaction' );
                         
             if ( $user->id != $this->userid ) {
-                $adminaction = new AdminAction();
+                $adminaction = New AdminAction();
                 $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_POLL, $this->id );
             }
             

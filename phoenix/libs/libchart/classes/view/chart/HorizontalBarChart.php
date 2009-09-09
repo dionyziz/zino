@@ -38,7 +38,7 @@
 			parent::BarChart($width, $height);
 
 			$this->emptyToFullRatio = 1 / 5;
-			$this->plot->setGraphPadding(new Padding(5, 30, 30, 50));
+			$this->plot->setGraphPadding( New Padding(5, 30, 30, 50) );
 		}
 
 		/**
@@ -176,7 +176,7 @@
 			$labelList = $this->dataSet->getTitleList();
 			
 			// Create the caption
-			$caption = new Caption();
+			$caption = New Caption();
 			$caption->setPlot($this->plot);
 			$caption->setLabelList($labelList);
 			

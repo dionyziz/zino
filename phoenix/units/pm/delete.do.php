@@ -5,7 +5,7 @@
         global $libs;
         
         $libs->Load( 'pm/pm' );
-        $pm = new UserPM( $pmid->Get(), $folderid->Get() );
+        $pm = New UserPM( $pmid->Get(), $folderid->Get() );
 
         $pm->Delete();
     }

@@ -16,7 +16,7 @@
 	        
 	        $libs->Load( 'school/school' );
 	        
-	        $schoolFinder = new SchoolFinder();
+	        $schoolFinder = New SchoolFinder();
 	        $notapproved = $schoolFinder->FindNotApproved();
 	        
 	        

@@ -25,14 +25,14 @@
             
             $ips = array();
             while ( $row = $res->FetchArray() ) {
-                $ips[] = new BannedIp( $row );
+                $ips[] = New BannedIp( $row );
             }
             
             return $ips;
         }
         
         public function FindByIp( $ip ) {
-            $prototype = new BannedIp();
+            $prototype = New BannedIp();
             $prototype->Ip = $ip;
             
             $res = $this->FindByPrototype( $prototype );
@@ -40,7 +40,7 @@
         }
         
         public function FindByUserId( $userid ) {
-            $prototype = new BannedIp();
+            $prototype = New BannedIp();
             $prototype->Userid = $userid;
             
             $res = $this->FindByPrototype( $prototype );

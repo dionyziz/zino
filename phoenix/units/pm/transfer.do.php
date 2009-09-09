@@ -10,7 +10,7 @@
         $folderid = $folderid->Get();
         $targetfolderid = $targetfolderid->Get();
 
-        $pm = new UserPM( $pmid, $folderid );
+        $pm = New UserPM( $pmid, $folderid );
         w_assert( $pm->Exists() );
         $pm->Folderid = $targetfolderid;
         $pm->Save();

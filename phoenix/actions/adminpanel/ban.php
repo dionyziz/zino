@@ -21,13 +21,13 @@
         $libs->Load( 'album' );
         $libs->Load( 'image/frontpage' );
         
-        $userfinder = new UserFinder();
+        $userfinder = New UserFinder();
         $user2ban = $userfinder->FindByName( $username );
         if ( $user2ban == false ) {
             return Redirect( '?p=banlist&errormessage=nouserwiththisname' );
         }
        
-        $ban = new Ban();
+        $ban = New Ban();
         $res = $ban->BanUser( $username, $reason, $time_banned );
         
         if ( $delete_images == "yes" ) {
@@ -35,7 +35,7 @@
                 $album->Delete();
             }
             
-            $frontpageimagefinder = new FrontpageImageFinder();
+            $frontpageimagefinder = New FrontpageImageFinder();
             $frontpageimg =  $frontpageimagefinder->FindByUserid( $user2ban->Id );
             $frontpageimg->Delete();
             Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );*/

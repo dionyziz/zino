@@ -11,7 +11,7 @@
 	        $libs->Load("kolaz/kolaz");	        
 	        $libs->Load("user/user");
             
-            $newuser = new User( $id->Get() );
+            $newuser = New User( $id->Get() );
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {
                 $pageno = 1;
@@ -26,7 +26,7 @@
             
             ?><div id="photolist"><?php
             
-            $Tagfinder = new ImageTagFinder();
+            $Tagfinder = New ImageTagFinder();
             $tags = $Tagfinder->FindByPersonId( $newuser->Id, ( $pageno - 1 ) * 20 , 20 ); 
             $alltags = $Tagfinder->FindByPersonId( $newuser->Id ); 
             $Numphotos = count( $alltags );
@@ -36,7 +36,7 @@
                 $ids[] = $tag->Imageid;
             }             
             
-            $imageFinder = new ImageFinder();//Find image owners ids
+            $imageFinder = New ImageFinder();//Find image owners ids
             $images = $imageFinder->FindByIds( $ids );
                    
             ?><ul><?php

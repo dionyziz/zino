@@ -249,7 +249,7 @@
             $libs->Load( 'image/tag' );
                         
             if ( $user->Id != $this->Userid ) {
-                $adminaction = new AdminAction();
+                $adminaction = New AdminAction();
                 $adminaction->saveAdminAction( $user->Id, UserIp(), OPERATION_DELETE, TYPE_IMAGE, $this->Id );
             }
             

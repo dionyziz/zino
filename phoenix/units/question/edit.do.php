@@ -7,7 +7,7 @@
         $answer = $answer->Get();
         
         $libs->Load( 'question' );
-        $question = new Question( $id );
+        $question = New Question( $id );
         if ( trim( $answer ) == '' || !$question->Exists() ) {
             return;
         }

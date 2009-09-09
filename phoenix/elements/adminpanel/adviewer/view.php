@@ -16,7 +16,7 @@
 	        
 	        ?><h2>Ενεργές Διαφημίσεις</h2><?php
             
-            $adfinder = new AdFinder();
+            $adfinder = New AdFinder();
             $ads = $adfinder->FindAllActive();
             
             if ( count ( $ads ) == 0 )  {

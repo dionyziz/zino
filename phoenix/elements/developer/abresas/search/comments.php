@@ -38,7 +38,7 @@
 
             $image = New ImagePrototype();
 
-            $search = new Search();
+            $search = New Search();
             $search->AddPrototype( $comment );
             $search->AddPrototype( $user );
             $search->AddPrototype( $image );

@@ -7,7 +7,7 @@
         $libs->Load( 'pm/pm' );
         $pmid = $pmid->Get();
         $folderid = $folderid->Get();
-        $pm = new UserPM( $pmid, $folderid );
+        $pm = New UserPM( $pmid, $folderid );
         if ( !$pm->IsRead() ) {    
             $pm->Read();
         }

@@ -24,7 +24,7 @@
             $_SESSION[ 's_authtoken' ] = $myuser->Authtoken;
             User_SetCookie( $myuser->Id, $myuser->Authtoken );
             if ( isset( $_SESSION[ 'destuser_id' ] ) ) { // TODO: maybe change this to a URL?
-                $destuser = new User( $_SESSION[ 'destuser_id' ] );
+                $destuser = New User( $_SESSION[ 'destuser_id' ] );
                 ob_start();
                 Element( 'user/url', $destuser->Id, $destuser->Subdomain );
                 return Redirect( ob_get_clean() );

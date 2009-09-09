@@ -28,7 +28,7 @@
 
             /* methods for extending bennu rule */
 
-            $rule = new ReflectionClass( 'BennuRule' );
+            $rule = New ReflectionClass( 'BennuRule' );
 
             $this->Assert( $rule->HasMethod( 'NormalDistribution' ), 'BennuRule::NormalDistribution method does not exist' );
             $this->Assert( $rule->HasMethod( 'Random' ), 'BennuRule::Random method does not exist' );
@@ -52,10 +52,10 @@
         public function TestExclude() {
             $bennu = New Bennu();
 
-            $bennu->Exclude( new User( 865 ) );
-            $bennu->Exclude( new User( 837 ) );
-            $bennu->Exclude( new User( 834 ) );
-            $bennu->Exclude( new User( 854 ) );
+            $bennu->Exclude( New User( 865 ) );
+            $bennu->Exclude( New User( 837 ) );
+            $bennu->Exclude( New User( 834 ) );
+            $bennu->Exclude( New User( 854 ) );
 
             $excluded = array( 865, 837, 834, 854 );
 
@@ -121,6 +121,6 @@
         }
     }
 
-    return new TestBennu();
+    return New TestBennu();
 
 ?>

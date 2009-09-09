@@ -160,7 +160,7 @@
                 return true;
             }
             else {
-                throw new Exception( "No permissions to edit shout" );
+                throw New Exception( "No permissions to edit shout" );
             }
         }
         

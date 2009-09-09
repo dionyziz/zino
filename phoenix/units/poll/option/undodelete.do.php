@@ -6,7 +6,7 @@
 
         $libs->Load( 'poll' );
     
-        $option = new PollOption( $id->Get() );
+        $option = New PollOption( $id->Get() );
         $poll   = $option->Poll;
 
         if ( !$poll->Exists() || $user->IsAnonymous() || $poll->UserId != $user->Id() ) {

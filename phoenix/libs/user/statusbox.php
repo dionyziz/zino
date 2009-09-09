@@ -3,7 +3,7 @@
         protected $mModel = 'StatusBox';
         
         function FindLastByUserId( $userid ) {
-            $prototype = new StatusBox();
+            $prototype = New StatusBox();
             $prototype->Userid = $userid;
             $res = $this->FindByPrototype( $prototype, 0, 1, array( 'Id', 'DESC' ) );
             if ( empty( $res ) || $res[ 0 ]->Message == "" ) {

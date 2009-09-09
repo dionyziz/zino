@@ -7,7 +7,7 @@
         protected $mModel = 'ReportUser';
             
         public function FindAll( $offset, $limit ) {
-            $prototype = new ReportUser();
+            $prototype = New ReportUser();
             $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
             return $found;

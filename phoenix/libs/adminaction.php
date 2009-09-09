@@ -36,7 +36,7 @@
         
         $actions    = array();
         while ( $row = $res->FetchArray() ) {
-            $actions[] = new AdminAction( $row );
+            $actions[] = New AdminAction( $row );
         }
 
         return $actions;
@@ -95,7 +95,7 @@
 
             $this->Satori( $construct );
 
-            $this->mAdmin = new User( $construct );
+            $this->mAdmin = New User( $construct );
         }
     }
 */

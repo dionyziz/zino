@@ -19,7 +19,7 @@
     /*Proccess : Find tags , allocate new image , find positions invoking cpp prog, load and copy its image to kollaz*/    
     /*echo Element( 'image/url', $tags[0]->Imageid, $tags[0]->Personid,  IMAGE_FULLVIEW );*/
     
-    $Tagfinder = new ImageTagFinder();
+    $Tagfinder = New ImageTagFinder();
     $tags = $Tagfinder->FindByPersonId( $userid );
     
     $input = array();
@@ -31,12 +31,12 @@
         $ids[] = $tag->Imageid;
     }
     
-    $kolaz = new KolazCreator;
+    $kolaz = New KolazCreator;
     if ( $kolaz->RetrievePositions( $input ) == false ) {
         die("kolaz was fucked up");
     }
     
-    $imageFinder = new ImageFinder();
+    $imageFinder = New ImageFinder();
     $images = $imageFinder->FindByIds( $ids );
     $owners = array();
     foreach ( $images as $image ) {

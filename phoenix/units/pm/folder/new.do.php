@@ -5,7 +5,7 @@
         
         $libs->Load( 'pm/pm' );
         $foldername = $foldername->Get();
-        $folder = new PMFolder();
+        $folder = New PMFolder();
         $folder->Name = $foldername;
         $folder->Userid = $user->Id;
         $folder->Save();

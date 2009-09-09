@@ -14,7 +14,7 @@
         protected $mModel = 'AdminAction';
             
         public function FindAll( $offset, $limit ) {
-            $prototype = new AdminAction();
+            $prototype = New AdminAction();
             $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
             $userids = array();
@@ -32,7 +32,7 @@
             $res = $query->Execute();
             $users = array();
             while ( $row = $res->FetchArray() ) {
-                $users[ $row[ 'user_id' ] ] = new User( $row );
+                $users[ $row[ 'user_id' ] ] = New User( $row );
             }
             
             foreach ( $found as $action ) {
