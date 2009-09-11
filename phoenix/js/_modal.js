@@ -16,8 +16,6 @@
     }
 } ) ( jQuery );
 
-
-
 var Modals = {
     ModalBG: false,
     CurrentWindow: false,
@@ -59,7 +57,9 @@ var Modals = {
         qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( options );
-        Modals.Create( qq , 250 , 100 );
+        qq.style.height = "100px";
+        qq.style.width = "250px";
+        qq.modal();
     },
     Create: function ( node, width, height ) {
         if ( !width ) {
