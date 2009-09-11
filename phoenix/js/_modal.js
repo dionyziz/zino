@@ -59,7 +59,7 @@ var Modals = {
         qq.appendChild( options );
         qq.style.height = "100px";
         qq.style.width = "250px";
-        $( qq ).modal();
+        $( qq ).modal().jqmShow();
     },
     Create: function ( node, width, height ) {
         if ( !width ) {
