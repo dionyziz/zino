@@ -19,7 +19,7 @@
 var Modals = {
     Confirm: function ( question, action ) {
         Modals.Question( question, [
-            { Text: 'Ναι' , Action: action },
+            { Text: 'Ναι' , Callback: action },
             { Text: 'Όχι' }
         ] );
     },
