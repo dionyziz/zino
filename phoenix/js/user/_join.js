@@ -1,8 +1,6 @@
 var Join = {
 	ShowTos : function () {
-		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
-		$( area ).css( "display" , "block" );
-		Modals.Create( area, 620, 520 );
+        var area = $( 'div#join_tos' )[ 0 ].cloneNode( true ).show().modal();
 	},
     UserExists : function() {
         if ( !Join.usernameexists ) {

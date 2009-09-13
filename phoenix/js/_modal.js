@@ -17,82 +17,57 @@
 } ) ( jQuery );
 
 var Modals = {
-    ModalBG: false,
-    CurrentWindow: false,
-    CurrentWidth: 0,
-    CurrentHeight: 0,
     Confirm: function ( question, action ) {
         Modals.Question( question, [
             { Text: 'Ναι' , Action: action },
             { Text: 'Όχι' }
         ] );
     },
-    Question: function ( question, answers ) {
+    Question: function ( question, answers, callback ) {
         qq = document.createElement( 'div' );
-        qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( document.createTextNode( question ) );
+        optionsdiv = document.createElement( 'div' );
         options = document.createElement( 'ul' );
-        options.style.display = 'inline';
-        options.style.margin = '0px';
-        options.style.padding = '0px';
+        if ( typeof( answers ) == 'string' ) {
+            answers = [ answers ];
+        }
+        else if ( typeof( answers ) == 'undefined' ) {
+            answers = [ "OK" ];
+        }
         for ( i in answers ) {
             answer = answers[ i ];
             li = document.createElement( 'li' );
-            li.style.display = 'inline';
-            li.style.padding = '5px';
-            btn = document.createElement( 'input' );
-            btn.type = 'button';
-            btn.value = answer.Text;
-            btn.onclick = function ( act ) {
-                return function () {
-                    if ( act ) {
-                        act();
+            btn = document.createElement( 'a' );
+            btn.href = '';
+            if ( typeof( answer ) == 'object' ) {
+                    btn.appendChild( document.createTextNode( answer.Text ) );
+            }
+            else {
+                btn.appendChild( document.createTextNode( answer ) );
+            }
+            $( btn ).click( function( j, a, w ) {
+                return function() {
+                    $( w ).jqmHide().remove();
+                    if ( a.Callback ) {
+                        a.Callback.call( this );
                     }
-                    Modals.Destroy();
+                    if ( callback ) {
+                        callback.call( this, j );
+                    }
+                    return false;
                 };
-            }( answer.Action );
+            } ( i, answer, qq ) );
+            
             li.appendChild( btn );
             options.appendChild( li );
         }
-        qq.appendChild( document.createElement( 'br' ) );
-        qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( options );
-        qq.style.height = "100px";
-        qq.style.width = "250px";
         document.body.appendChild( qq );
+        qq.className = "modal";
+        if ( $( qq ).width() > $( "body" ).width() * 0.6 ) {
+            $( qq ).css( "width", $( "body" ).width() * 0.6 );
+        }
+        $( qq ).center().modal().jqmShow();
         return;
-        $( qq ).modal().jqmShow();
-    },
-    Create: function ( node, width, height ) {
-        if ( !width ) {
-            width = 500;
-        }
-        if ( !height ) {
-            height = 300;
-        }
-        Modals.ModalBG = bg = document.createElement( 'div' );
-        bg.className = 'modalbg';
-        Modals.CurrentWindow = modal = document.createElement( 'div' );
-        modal.className = 'modal';
-        modal.appendChild( node );
-        modal.style.width  = width + 'px';
-        modal.style.height = height + 'px';
-        document.body.appendChild( bg );
-        document.body.appendChild( modal );
-        document.body.onscroll = Modals.Scrolled;
-        Modals.CurrentWidth = width;
-        Modals.CurrentHeight = height;
-        Modals.Scrolled();
-    },
-    Destroy: function () {
-        document.body.removeChild( Modals.CurrentWindow );
-        document.body.removeChild( Modals.ModalBG );
-    },
-    Scrolled: function () {
-        Modals.ModalBG.style.top = document.body.scrollTop + 'px';
-        Modals.ModalBG.style.left = document.body.scrollLeft + 'px';
-        Modals.CurrentWindow.style.marginLeft = document.body.scrollLeft - Modals.CurrentWidth / 2 + 'px'; // document.body.scrollTop + 'px';
-        Modals.CurrentWindow.style.marginTop  = document.body.scrollTop - Modals.CurrentHeight / 2 + 'px';
     }
 };
-
