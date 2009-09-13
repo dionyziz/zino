@@ -1,6 +1,11 @@
 var Join = {
 	ShowTos : function () {
-        var area = $( 'div#join_tos' )[ 0 ].cloneNode( true ).show().modal();
+        var area = $( 'div#join_tos' ).clone().show().modal();
+        $( "a", area ).click( function( a ) {
+            return function() {
+                a.jqmHide();
+            }
+        } ( area ) );
 	},
     UserExists : function() {
         if ( !Join.usernameexists ) {
