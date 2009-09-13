@@ -1,7 +1,6 @@
 var Join = {
 	ShowTos : function () {
-        alert( 'asd' );
-        var area = $( 'div#join_tos' ).clone().appendTo( document ).modal().jqmShow();
+        var area = $( 'div#join_tos' ).clone().appendTo( document ).show().modal().jqmShow();
         $( "a", area ).click( function( a ) {
             return function() {
                 a.jqmHide();
