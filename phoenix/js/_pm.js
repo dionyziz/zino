@@ -227,7 +227,6 @@ var pms = {
 	,
 	DeletePm : function( msgnode, pmid, folderid, read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
-            alert( 'yo' );
 			pms.activepms = 0;
 			var delimg2 = $( '#pm_' + pmid + ' div.infobar span.unreadpm' )[ 1 ];
 			$( '#pm_' + pmid + ' div.lowerline' ).hide();
