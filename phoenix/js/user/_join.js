@@ -1,5 +1,6 @@
 var Join = {
 	ShowTos : function () {
+        alert( 'asd' );
         var area = $( 'div#join_tos' ).clone().show().modal();
         $( "a", area ).click( function( a ) {
             return function() {
