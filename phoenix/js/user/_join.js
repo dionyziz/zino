@@ -4,6 +4,7 @@ var Join = {
         $( "a", area ).click( function( a ) {
             return function() {
                 a.jqmHide();
+                return false;
             }
         } ( area ) );
 	},
