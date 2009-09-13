@@ -110,7 +110,7 @@
                 <div><?php
                 Element( 'about/tos/text' );
                 ?></div>
-                <a href="" class="button" onclick="Modals.Destroy();return false">Κλείσιμο</a>
+                <a href="" class="button" onclick="">Κλείσιμο</a>
             </div><?php
             $page->AttachInlineScript( 'Join.JoinOnLoad();' );
             $finder = New UserFinder();
