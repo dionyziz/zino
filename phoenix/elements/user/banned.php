@@ -18,7 +18,7 @@
                     echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
                     ?> από την ενδεχομένως επιβλαβή χρήση του <?php
                     echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
-                    ?>, αυτός ο λογαριασμό έχει τεθεί εκτός λειτουργίας για μερικές ώρες. Εάν χρησιμοποιείς οποιοδήποτε λογισμικό τρίτων που αλληλεπιδρά με τον λογαριασμό σου στο <?php 
+                    ?>, αυτός ο λογαριασμός έχει τεθεί εκτός λειτουργίας για μερικές ώρες. Εάν χρησιμοποιείς οποιοδήποτε λογισμικό τρίτων που αλληλεπιδρά με τον λογαριασμό σου στο <?php 
                     echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
                     ?>, παρακαλούμε απενεργοποίησέ το ή ρυθμισέ το έτσι ώστε η λειτουργία του να συμμορφώνεται με τους Όρους Χρήσης των υπηρεσιών του <?php 
                     echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
