@@ -77,9 +77,13 @@
             return $this->FindByPrototype( $prototype );
         }
         public function FindByIdAndAuthtoken( $userid, $authtoken ) {
+			if ( strlen( $authtoken ) != 32 ) {
+				return false;
+			}
             $prototype = New User();
             $prototype->Id = $userid;
             $prototype->Authtoken = $authtoken;
+			
 
             return $this->FindByPrototype( $prototype );
         }
