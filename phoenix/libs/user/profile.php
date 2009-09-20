@@ -46,7 +46,7 @@
     
         $_user = New User( $id );
         if( $_user->Exists() 
-            && ($_user->Profile->emailvalidationhash != "") && ( $_user->Profile->emailvalidationhash == $hash ) ) {
+            && ($_user->Profile->emailvalidated == false) && ($_user->Profile->emailvalidationhash != "") && ( $_user->Profile->emailvalidationhash == $hash ) ) {
             $_user->Profile->emailvalidated = true;
             $_user->Save();
             return true;
