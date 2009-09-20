@@ -1,33 +1,28 @@
 <?php
-//placeholder.html
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
-    <head>
-        <title>Zino - Εργασίες Αναβάθμισης</title>
-        <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
-		<!--link href="css/placeholder.css" rel="stylesheet" type="text/css" /-->
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    </head>
-	<body>
-		<div class="header">&nbsp;</div>
-        <div class="content">
-			<div class="imag">
-				<!-- <img src="http://static.zino.gr/phoenix/zino-150-reflection.jpg" title="Zino" alt="Zino" /-->
-			</div>
-            <div class="other">
-                <h2>Προγραμματισμένη Εργασία Αναβάθμισης</h2>
-                To <a href="http://www.zino.gr">Zino</a> θα είναι ξανά διαθέσιμο σε λίγα λεπτά.<br /><br />
-				Αυτή τη στιγμή διενεργούνται απαραίτητες εργασίες αναβάθμισης, ώστε το site να είναι <span>ταχύτερο</span>,<br />
-				<span>ασφαλέστερο</span> και πιο <span>λειτουργικό</span>, προσφέρoντας έτσι τη βέλτιστη δυνατή εμπειρία στους χρήστες του.<br />
-                Ζητούμε συγγνώμη για την αναστάτωση.
-            </div>
-		</div>
-		<div class="footer">
-			<div class="copy">
+    /*
+    This source code and all other source code files in
+    this repository, unless otherwise stated, are
 
-				© 2009 
-				<a href="http://www.kamibu.com/">Kamibu</a>
-			</div>
-		</div>
-    </body>
-</html>
+    Copyright (c) 2005 - 2008, Kamibu Development Group.
+    
+    More information can be found at /etc/legal.txt.
+    
+    Please leave this notice only in index.php and do not
+    paste it in other files of the source code repository.
+    */
+
+    global $page;
+
+    require_once 'libs/rabbit/rabbit.php';
+    
+    Rabbit_Construct( 'ExcaliburHTML' );
+
+    $req = $_GET;
+
+    Rabbit_ClearPostGet();
+    
+    $page->AttachMainElement( 'main', $req );
+    $page->Output();
+
+    Rabbit_Destruct();
+?>
