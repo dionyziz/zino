@@ -3,8 +3,8 @@
 		global $user;
 		global $settings;
 
-		$memorySize = memory_get_usage( TRUE );
-		if( $memorySize > 20*1024*1024 ) {
+		$memorySize = memory_get_peak_usage( TRUE );
+		if( $memorySize > 25*1024*1024 ) {
 			$mem = new MemoryUsage();
 			$mem->Size = $memorySize;
 			if( $user->Exists() ) {
