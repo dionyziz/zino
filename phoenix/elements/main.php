@@ -136,6 +136,8 @@
             }
 
             Element( 'statistics/log', $masterelement );
+            $libs->Load( 'memoryusage' );//<collecting memory usage information
+            CheckMemoryUsage();
 
             // pass
             return $res;
