@@ -25,9 +25,6 @@
     Rabbit_ClearPostGet();
     
     $page->AttachMainElement( 'main', $req );
-    $libs->Load( 'memoryusage' );
-    CheckMemoryUsage();
-
     $page->Output();    
 
     
