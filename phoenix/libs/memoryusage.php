@@ -4,7 +4,7 @@
 		global $settings;
 
 		$memorySize = memory_get_usage( TRUE );
-		if( $memorySize > 3*1024*1024 ) {
+		if( $memorySize > 0*1024*1024 ) {
 			$mem = new MemoryUsage();
 			$mem->Size = $memorySize;
 			if( $user->Exists() ) {
