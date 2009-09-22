@@ -13,6 +13,7 @@
 	   $libs->Load( 'memoryusage' );
 	   echo "<p>memory   -   " . (memory_get_usage( TRUE )/(1024*1024)) . "mb</p>";
 	   CheckMemoryUsage();
+                var_dump( $_SERVER );
 	   /*end test*/
 
 
