@@ -13,7 +13,7 @@
 			else {
 				$mem->Userid = -1;
 			}
-			$mem->Url = $settings[ 'url' ];
+			$mem->Url = $HTTP_SERVER_VARS[ 'REQUEST_URI' ];
 			$mem->Save();			
 		}
 		return;
