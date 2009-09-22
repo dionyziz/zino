@@ -25,7 +25,7 @@
     
     $page->AttachMainElement( 'main', $req );
     $page->Output();
-    echo "<p>" . memory_get_usage( TRUE ) . "</p>";
+    echo "<p>memory - " . memory_get_usage( TRUE ) . "</p>";
 
     Rabbit_Destruct();
 ?>
