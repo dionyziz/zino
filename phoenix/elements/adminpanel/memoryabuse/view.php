@@ -1,5 +1,5 @@
 <?php    
-    class ElementAdminpanelView extends Element {
+    class ElementAdminpanelMemoryabuseView extends Element {
         public function Render() {
 	        global $page;
 	        global $user;
