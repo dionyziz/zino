@@ -3,6 +3,10 @@
         public function Render() {
             global $libs;
             global $user;
+
+	   /*testing dev pagio*/
+	   echo "<p>memory - " . memory_get_usage( TRUE ) . "</p>";
+		/*end test*/
             
             $libs->Load( 'user/user' );
 	        $libs->Load( 'bennu/bennu' );
