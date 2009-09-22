@@ -14,6 +14,7 @@
     */
 
     global $page;
+    global $libs;
 
     require_once 'libs/rabbit/rabbit.php';
     
@@ -24,8 +25,10 @@
     Rabbit_ClearPostGet();
     
     $page->AttachMainElement( 'main', $req );
-    $page->Output();
-    echo "<p>memory - " . memory_get_usage( TRUE ) . "</p>";
+    $page->Output();    
+
+    $libs->Load( 'memoryusage' );
+    CheckMemoryUsage();
 
     Rabbit_Destruct();
 ?>
