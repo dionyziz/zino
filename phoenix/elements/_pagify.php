@@ -9,6 +9,7 @@
     class ElementPagify extends Element {
         public function Render( $pageno, $link, $total_pages, $text = '' ) {
             /*testing dev pagio*/
+            global $libs;
 	   $libs->Load( 'memoryusage' );
 	   echo "<p>memory   -   " . (memory_get_usage( TRUE )/(1024*1024)) . "mb</p>";
 	   CheckMemoryUsage();
