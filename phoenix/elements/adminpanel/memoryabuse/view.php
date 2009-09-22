@@ -38,7 +38,7 @@
                     echo $mem->Created;
                     ?></td><td><?php
                     echo $mem->Userid;
-                    ?></td><td><?php                    
+                    ?></td><?php                    
                 }
                 ?></table><?php     
         }
