@@ -19,11 +19,22 @@
 		return;
 	}
 
+        class MemoryUsageFinder extends Finder {
+                protected $mModel = 'MemoryUsage';
+                    
+                public function FindAll( $offset, $limit ) {
+                    $prototype = New MemoryUsage();
+                    $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+                    return $found;
+                }
+        }
+                    
+
 	class MemoryUsage extends Satori {
 		protected $mDbTableAlias = 'memoryusage';
 
 		protected function LoadDefaults() {
 		    $this->Created = NowDate();
 		}	
-    }
+        }
 ?>

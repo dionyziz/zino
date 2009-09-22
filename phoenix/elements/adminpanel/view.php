@@ -18,8 +18,9 @@
 		        ?><li><a href="?p=banlist" >Αποκλεισμένοι χρήστες</a></li><?php
 		        ?><li><a href="?p=adminlog" >Ενέργειες διαχειριστών</a></li><?php
 		        ?><li><a href="?p=adviewer" >Ενεργές διαφημίσεις</a></li><?php
-                ?><li><a href="?p=happeningadmin" >Εκδηλώσεις</a></li><?php
+                        ?><li><a href="?p=happeningadmin" >Εκδηλώσεις</a></li><?php
 		        ?><li><a href="?p=statistics" >Στατιστικά( νέα σχόλια, δημοσκοπήσεις, χρήστες... )</a></li><?php
+                        ?><li><a href="?p=memorystats" >Στατιστικά σχετικά με την χρήση μνήμης απο τα διάφορα scripts</a></li><?php
 	        ?></ul><?php
 	        
 	        /*
