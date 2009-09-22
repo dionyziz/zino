@@ -37,7 +37,12 @@
                     ?></td><td><?php                    
                     echo $mem->Created;
                     ?></td><td><?php
-                    echo $mem->Userid;
+                    if( $mem->Userid == -1 ) {
+                        echo "Άγνωστος";
+                    }        
+                    else {
+                        echo $mem->Userid;
+                    }       
                     ?></td></tr><?php                    
                 }
                 ?></table><?php     
