@@ -1,10 +1,13 @@
 <?php
+        /*Developer : Pagio 
+          Parts used from code of : Abresas */
+
 	function CheckMemoryUsage() {
 		global $user;
 		global $settings;
 
 		$memorySize = memory_get_peak_usage( TRUE );
-		if( $memorySize > 25*1024*1024 ) {
+		if( $memorySize > 25*1024*1024 && MemoryUsage_LogVisitorOrNot() ) {
 			$mem = new MemoryUsage();
 			$mem->Size = $memorySize;
 			if( $user->Exists() ) {
@@ -18,6 +21,10 @@
 		}
 		return;
 	}
+
+        function MemoryUsage_LogVisitorOrNot() {
+                return rand( 0, 99 ) == 0;      
+        }
 
         class MemoryUsageFinder extends Finder {
                 protected $mModel = 'MemoryUsage';
