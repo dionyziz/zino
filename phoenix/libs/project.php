@@ -187,7 +187,8 @@
             'about'             => 'about/info/view',
             'happeningadmin'    => 'adminpanel/happenings/view',
             'bounces'           => 'statistics/bounces',
-            'applications'      => 'application/list'
+            'applications'      => 'application/list',
+            'memorystats'       => 'adminpanel/memoryabuse/view'
         );
     }
     
