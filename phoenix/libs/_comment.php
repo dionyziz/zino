@@ -189,8 +189,8 @@
             $paged = Comment_GetMemcached( $entity );
 
             $commentids = $paged[ $page ];
-            $comments = $this->FindData( $commentids );
-    
+            $comments = $this->FindData( $commentids, 0, 100000, false );
+            var_dump( $comments );
 
             return array( count( $paged ), $comments );
         }
@@ -427,7 +427,7 @@
 
             return $children;
         }
-        public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
+        public function FindData( $commentids, $offset = 0, $limit = 100000, $oop = true ) {
             global $libs;
             
             $libs->Load( 'image/image' );
@@ -455,29 +455,45 @@
             $query->Bind( 'limit', $limit );
 
             $res = $query->Execute();
-            $comments = array();
-            $bulkids = array();
-            while ( $row = $res->FetchArray() ) {
-                $comment = New Comment( $row );
-                $user = New User( $row );
-                $user->CopyAvatarFrom( New Image( $row ) );
-                $comment->CopyUserFrom( $user );
-                $comments[ $comment->Id ] = $comment;
-                $bulkids[] = $comment->Bulkid;
+            
+            if ( $oop ) {
+                $comments = array();
+                $bulkids = array();
+                while ( $row = $res->FetchArray() ) {
+                    $comment = New Comment( $row );
+                    $user = New User( $row );
+                    $user->CopyAvatarFrom( New Image( $row ) );
+                    $comment->CopyUserFrom( $user );
+                    $comments[ $comment->Id ] = $comment;
+                    $bulkids[] = $comment->Bulkid;
+                }
+
+                $bulks = Bulk::FindById( $bulkids );
+
+                $ret = array();
+                foreach ( $commentids as $commentid ) {
+                    if ( isset( $comments[ $commentid ] ) ) {
+                        $comment = $comments[ $commentid ];
+                        $comment->Text = $bulks[ $comment->Bulkid ];
+                        $ret[] = $comment;
+                    }
+                }
+
+                return $ret;
             }
-
-            $bulks = Bulk::FindById( $bulkids );
-
-            $ret = array();
-            foreach ( $commentids as $commentid ) {
-				if ( isset( $comments[ $commentid ] ) ) {
-					$comment = $comments[ $commentid ];
-					$comment->Text = $bulks[ $comment->Bulkid ];
-					$ret[] = $comment;
-				}
+            else {
+                $comments = array();
+                $users = array();
+                while ( $row = $res->FetchArray() ) {
+                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, Array( 'comment_id', 'comment_created', 'comment_userid' ) );
+                    if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
+                        $users[ $row[ 'user_id' ] ] = array_intersect_key( $row, Array( 'user_id', 'user_name', 'user_subdomain' ) );
+                    }
+                }
+                $result[ 'comment' ] = $comments;
+                $result[ 'user' ] = $users;
+                return $result;
             }
-
-            return $ret;
         }
         public function FindParentIds ( $commentids ) { //Returns an array in the following format [ commentid ] => parentid
             if ( empty( $commentids ) ) {
