@@ -485,9 +485,9 @@
                 $comments = array();
                 $users = array();
                 while ( $row = $res->FetchArray() ) {
-                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, Array( 'comment_id', 'comment_created', 'comment_userid' ) );
+                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid' ) ) );
                     if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
-                        $users[ $row[ 'user_id' ] ] = array_intersect_key( $row, Array( 'user_id', 'user_name', 'user_subdomain' ) );
+                        $users[ $row[ 'user_id' ] ] = array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain' ) ) );
                     }
                 }
                 $result[ 'comment' ] = $comments;
