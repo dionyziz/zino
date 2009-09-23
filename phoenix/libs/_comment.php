@@ -1,8 +1,10 @@
 <?php
     /*
         Developer: abresas, petros
-        Masked by: petros
-        Reason: Mitosis
+
+        Masked
+        By: Dionyziz, Chorvus, Pagio
+        Reason: Comment FindData() optimization by dropping OOP
     */
     global $libs;
 
@@ -99,10 +101,6 @@
         public function PreloadUserAvatars() {
             $avatarids = array();
             foreach ( $this as $comment ) {
-                w_assert( is_object( $comment->User ) );
-                w_assert( $comment->Exists() );
-                w_assert( $comment->User->Exists() );
-                w_assert( is_int( $comment->User->Avatarid ), 'Avatarid is not an integer, ' . gettype( $comment->User->Avatarid ) . ' given.' );
                 $avatarids[] = $comment->User->Avatarid;
             }
             $finder = New ImageFinder();
@@ -143,11 +141,17 @@
             foreach ( $itemidsByType as $type => $itemids ) {
                 $itemids = $itemidsByType[ $type ];
                 $water->Trace( 'Find items of type ' . $type );
-                $itemsByType[ $type ] = $finder->FindItemsByType( $type, $itemids );
+                $items = $finder->FindItemsByType( $type, $itemids );
+                foreach ( $items as $item ) {
+                    $itemsByType[ $type ][ $item->Id ] = $item;
+                }
             }
+
+            global $water;
 
             foreach ( $this as $i => $comment ) {
                 if ( !isset( $itemsByType[ $comment->Typeid][ $comment->Itemid ] ) ) {
+                    $water->Trace( 'Comment preload items miss ' . $comment->Typeid . ' ' . $comment->Itemid );
                     continue;
                 }
                 $comment->CopyRelationFrom( 'Item', $itemsByType[ $comment->Typeid ][ $comment->Itemid ] );
@@ -508,12 +512,11 @@
 
         public function __get( $key ) {
             global $libs;
-
+            
             switch ( $key ) {
                 case 'Text':
                     if ( $this->mText === false ) {
                         $libs->Load( 'bulk' );
-
                         $this->mText = Bulk::FindById( $this->Bulkid );
                     }
                     return $this->mText;
@@ -524,8 +527,8 @@
         public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
-                    if ( strlen( $value ) > 1024 * 64 ) { // more than 64k; crop it
-                        $value = substr( $value, 0, 1024 * 64 );
+                    if ( strlen( $value ) > 1024 * 64 ) { // more than 64k; drop it
+                        $value = '';
                     }
                     $this->mText = $value;
                     return;
@@ -601,7 +604,7 @@
         public function OnCreate() {
             global $mc;
             global $libs;
-           
+            
             Comment_LoadLibraryByType( $this->Typeid );
             
             w_assert( is_object( $this->User ), 'Comment->User not an object' );
@@ -615,8 +618,8 @@
                 $this->Item->OnCommentCreate();
             }
 
-            // Comment_RegenerateMemcache( $this->Item );        Old method
-            Mitosis( $this->Id, $this->Parentid, $this->Item );
+            Comment_RegenerateMemcache( $this->Item );        //Old method
+            //Mitosis( $this->Id, $this->Parentid, $this->Item );
 
             Sequence_Increment( SEQUENCE_COMMENT );
             
@@ -675,20 +678,10 @@
 	function Mitosis( $commentid, $parentid, $entity ) { //Tries to divide the page when a new comment is posted.
 		global $mc;                                      //If it cannot it just edits the memcache.
 		
-		$lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Check for memcache lock
-        while( $lock == '1' ) {
-            die( 'Memcache is locked!' );
-            usleep( 100000 );
-            $lock = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );
-        }
-        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock', 1 );    //Set memcache lock
-        sleep( 6 );
-        
-        
+		
         $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );    //Load current pagination from memcache
         if ( $paged === false ) {
             Comment_RegenerateMemcache( $entity );
-            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
             return;
         }
         
@@ -713,7 +706,6 @@
 		if ( $totalcomments < COMMENT_MITOSIS_MIN * 2 ) { //This is just an optimization to avoid searching
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Not enough comments
-            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
 			return;
 		}
         
@@ -752,7 +744,6 @@
 		if ( $mincurrentcomments < COMMENT_MITOSIS_MIN || $totalcomments - $mincurrentcomments < COMMENT_MITOSIS_MIN ) {
 			$mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 			//Division below standards
-            $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
 			return;
 		}
 		
@@ -772,9 +763,7 @@
 		) );
 		
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
-        
-        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_lock' );    //Release memcache lock
+        $mc->set( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );        
 	}
 
 ?>
