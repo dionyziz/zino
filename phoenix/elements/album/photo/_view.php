@@ -384,7 +384,7 @@
                     if ( $image->Numcomments > 0 ) {
                         $finder = New CommentFinder();
                         if ( $commentid == 0 ) {
-                            $comments = $finder->FindByPage( $image , $pageno , true );
+                            $comments = $finder->FindByPage( $image , $pageno , false );
                             $total_pages = $comments[ 0 ];
                             $comments = $comments[ 1 ];
                         }

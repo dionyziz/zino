@@ -171,7 +171,8 @@
         protected $mModel = 'Comment';
         protected $mCollectionClass = 'CommentCollection';
 
-        public function FindByPage( $entity, $page ) {
+        public function FindByPage( $entity, $page, $oop = true ) {
+        
             global $user;
 
             if ( $page <= 0 ) {
@@ -189,12 +190,12 @@
             $paged = Comment_GetMemcached( $entity );
 
             $commentids = $paged[ $page ];
-            $comments = $this->FindData( $commentids, 0, 100000, false );
+            $comments = $this->FindData( $commentids, 0, 100000, $oop );
             var_dump( $comments );
 
             return array( count( $paged ), $comments );
         }
-        public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
+        public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000, $returnarray = false ) {
             global $mc;
 
             $paged = Comment_GetMemcached( $entity );
@@ -219,7 +220,7 @@
             }
 
             $commentids = $paged[ $cur_page ];
-            $comments = $this->FindData( $commentids );
+            $comments = $this->FindData( $commentids, $returnarray );
 
             return array( count( $paged ), $cur_page + 1, $comments ); 
         }
@@ -427,7 +428,7 @@
 
             return $children;
         }
-        public function FindData( $commentids, $offset = 0, $limit = 100000, $oop = true ) {
+        public function FindData( $commentids, $offset = 0, $limit = 100000, $returnarray = false ) {
             global $libs;
             
             $libs->Load( 'image/image' );
