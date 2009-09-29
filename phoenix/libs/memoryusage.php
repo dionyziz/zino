@@ -5,8 +5,10 @@
 	function CheckMemoryUsage() {
 		global $user;
 		global $settings;
-
+        global $water;
+        
 		$memorySize = memory_get_peak_usage( TRUE );
+        $water->Trace( 'Memory peak size: ' . number_format( $memorySize ) . 'bytes' );
 		if( $memorySize > 25*1024*1024 && MemoryUsage_LogVisitorOrNot() ) {
 			$mem = new MemoryUsage();
 			$mem->Size = $memorySize;
