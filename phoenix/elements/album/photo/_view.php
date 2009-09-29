@@ -1,4 +1,6 @@
 <?php
+    //Masked by Izual, Chorvus
+    //Reason: spriting, oop optimization
     class ElementAlbumPhotoView extends Element {
         public function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {
             global $user;
@@ -384,7 +386,7 @@
                     if ( $image->Numcomments > 0 ) {
                         $finder = New CommentFinder();
                         if ( $commentid == 0 ) {
-                            $comments = $finder->FindByPage( $image , $pageno , false );
+                            $comments = $finder->FindByPage( $image , $pageno , true );
                             $total_pages = $comments[ 0 ];
                             $comments = $comments[ 1 ];
                         }
