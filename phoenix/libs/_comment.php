@@ -457,7 +457,7 @@
 
             $res = $query->Execute();
             
-            if ( $oop ) {
+            if ( $returnarray === false ) {
                 $comments = array();
                 $bulkids = array();
                 while ( $row = $res->FetchArray() ) {
