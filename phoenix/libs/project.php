@@ -89,6 +89,8 @@
     }
     
     function Project_Destruct() {
+        global $water;
+        $water->Trace( 'Memory peak size: ' . number_format( memory_get_peak_usage( true ) ) . 'bytes' );
     }
     
     function Project_PagesMap() {
