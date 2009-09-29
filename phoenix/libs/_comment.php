@@ -171,7 +171,7 @@
         protected $mModel = 'Comment';
         protected $mCollectionClass = 'CommentCollection';
 
-        public function FindByPage( $entity, $page, $oop = true ) {
+        public function FindByPage( $entity, $page, $returnarray = false ) {
         
             global $user;
 
@@ -190,7 +190,7 @@
             $paged = Comment_GetMemcached( $entity );
 
             $commentids = $paged[ $page ];
-            $comments = $this->FindData( $commentids, 0, 100000, $oop );
+            $comments = $this->FindData( $commentids, 0, 100000, $returnarray );
             var_dump( $comments );
 
             return array( count( $paged ), $comments );
@@ -486,7 +486,7 @@
                 $comments = array();
                 $users = array();
                 while ( $row = $res->FetchArray() ) {
-                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid' ) ) );
+                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid' ) ) );
                     if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
                         $users[ $row[ 'user_id' ] ] = array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain' ) ) );
                     }
