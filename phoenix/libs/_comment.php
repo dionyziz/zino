@@ -191,7 +191,6 @@
 
             $commentids = $paged[ $page ];
             $comments = $this->FindData( $commentids, 0, 100000, $returnarray );
-            var_dump( $comments );
 
             return array( count( $paged ), $comments );
         }
