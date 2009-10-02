@@ -50,7 +50,7 @@
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
-                    alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
+                    alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 4MB' );
                     window.location.href = <?php
                     echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
                     ?>;
