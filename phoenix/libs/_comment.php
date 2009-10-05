@@ -493,8 +493,8 @@
                     }
                 }
                 
-                die( var_dump( $bulkids ) );
                 $bulks = Bulk::FindById( $bulkids );
+                die( var_dump( $bulks ) );
                 
                 $ret = array();
                 foreach ( $commentids as $commentid ) {
