@@ -21,13 +21,13 @@
             // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
                 $finder = New CommentFinder();
                 if ( $commentid == 0 ) {
-                    $comments = $finder->FindByPage( $theuser, $pageno );
+                    $comments = $finder->FindByPage( $theuser, $pageno, 0, 100000, true );
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
                 }
                 else {
                     $speccomment = New Comment( $commentid );
-                    $comments = $finder->FindNear( $theuser, $speccomment );
+                    $comments = $finder->FindNear( $theuser, $speccomment, 0, 100000, true );
                     if ( $comments === false ) {
                         ob_start();
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
@@ -269,7 +269,7 @@
                                 Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE , $user->Id , $user->Avatarid );
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
-                            $indentation = Element( 'comment/list' , $comments , TYPE_USERPROFILE , $theuser->Id );
+                            $indentation = Element( 'comment/arraylist' , $comments , TYPE_USERPROFILE , $theuser->Id );
                             $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                             $page->AttachInlineScript( "Comments.OnLoad();" );
                             if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
