@@ -498,7 +498,7 @@
                 $ret = array();
                 foreach ( $commentids as $commentid ) {
                     if ( isset( $comments[ $commentid ] ) ) {
-                        $comments[ $commentid ][ 'text' ] = $bulks[ $comments[ $commentid ][ 'comment_bulkid' ] ];
+                        $comments[ $commentid ][ 'text' ] = $bulks[ (int) $comments[ $commentid ][ 'comment_bulkid' ] ];
                         die( var_dump( $comments[ $commentid ] ) );
                     }
                 }
