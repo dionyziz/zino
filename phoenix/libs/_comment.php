@@ -485,7 +485,7 @@
                 $comments = array();
                 $users = array();
                 while ( $row = $res->FetchArray() ) {
-                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid' ) ) );
+                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid', 'comment_bulkid' ) ) );
                     $bulkids[] = (int) $row[ 'comment_bulkid' ];
                     if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
                         //$users[ $row[ 'user_id' ] ] = User( array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain', 'user_avatarid' ) ) ) );
@@ -498,9 +498,7 @@
                 $ret = array();
                 foreach ( $commentids as $commentid ) {
                     if ( isset( $comments[ $commentid ] ) ) {
-                        die( var_dump( $comments[ $commentid ] ) );
                         $comments[ $commentid ][ 'text' ] = $bulks[ (int) $comments[ $commentid ][ 'comment_bulkid' ] ];
-                        die( var_dump( $bulks ) . var_dump( $comments[ $commentid ][ 'comment_bulkid' ] ) );
                     }
                 }
                 
