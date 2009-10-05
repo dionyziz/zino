@@ -494,7 +494,8 @@
                 }
                 
                 $bulks = Bulk::FindById( $bulkids );
-
+                
+                die( var_dump( $bulks ) );
                 $ret = array();
                 foreach ( $commentids as $commentid ) {
                     if ( isset( $comments[ $commentid ] ) ) {
