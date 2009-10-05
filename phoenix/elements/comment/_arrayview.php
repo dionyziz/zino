@@ -11,7 +11,7 @@
             $libs->Load( 'comment' );
             
             ?><div id="comment_<?php
-            echo $comment->Id;
+            echo $comment[ 'comment_id' ];
             ?>" class="comment oc" style="<?php
             if ( $indent > 0 ) {
                 ?>margin-left:<?php
@@ -20,13 +20,13 @@
             }
             ?>"><div class="toolbox">
                     <span class="time invisible"><?php
-                        echo $comment->Created;
+                        echo $comment[ 'comment_created' ];
                     ?></span>
                 </div><div class="who"><?php
-                    Element( 'user/display', $userarray[ 'user_id' ], $userarray[ 'user_avatarid' ] , $comment->User, true );
+                    Element( 'user/display', $userarray[ 'user_id' ], $userarray[ 'user_avatarid' ] , $userarray[ $comment[ 'comment_userid' ] ], true );
                     ?>
                 </div><div class="text"><?php
-                    echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
+                    echo $comment[ 'text' ]; // no htmlspecialchars(); the text is already sanitized
                 ?></div>
                 <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
             </div><?php

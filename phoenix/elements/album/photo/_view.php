@@ -405,7 +405,7 @@
                             $finder = New NotificationFinder();
                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                         }
-                        $indentation = Element( 'comment/list' , $comments , TYPE_IMAGE , $image->Id );
+                        $indentation = Element( 'comment/arraylist' , $comments , TYPE_IMAGE , $image->Id );
                         $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                         $page->AttachInlineScript( "Comments.OnLoad();" );
                         if ( $commentid > 0 && isset( $indentation[ $commentid ] ) ) {
