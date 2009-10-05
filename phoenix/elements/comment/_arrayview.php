@@ -23,7 +23,6 @@
                         echo $comment[ 'comment_created' ];
                     ?></span>
                 </div><div class="who"><?php
-                    die( var_dump( $comment ) );
                     Element( 'user/display', $comment[ 'comment_userid' ], $theuser->Avatarid , $theuser, true );
                     ?>
                 </div><div class="text"><?php
