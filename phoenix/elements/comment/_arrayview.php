@@ -3,7 +3,7 @@
     //On 29/9/2008
     //Reason: oop optimization
     class ElementCommentArrayview extends Element {
-        public function Render( $comment, $indent, $numchildren, $userarray ) {
+        public function Render( $comment, $indent, $numchildren, $theuser ) {
             global $user;
             global $libs;
             global $water;
@@ -23,7 +23,7 @@
                         echo $comment[ 'comment_created' ];
                     ?></span>
                 </div><div class="who"><?php
-                    Element( 'user/display', $userarray[ 'user_id' ], $userarray[ 'user_avatarid' ] , $userarray[ $comment[ 'comment_userid' ] ], true );
+                    Element( 'user/display', $comment[ 'comment_userid' ], $theuser->Avatarid , $theuser, true );
                     ?>
                 </div><div class="text"><?php
                     echo $comment[ 'text' ]; // no htmlspecialchars(); the text is already sanitized
