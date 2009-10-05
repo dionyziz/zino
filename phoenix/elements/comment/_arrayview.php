@@ -2,7 +2,7 @@
     //Masked by Chorvus
     //On 29/9/2008
     //Reason: oop optimization
-    class ElementCommentView extends Element {
+    class ElementCommentArrayview extends Element {
         public function Render( $comment, $indent, $numchildren, $userarray ) {
             global $user;
             global $libs;

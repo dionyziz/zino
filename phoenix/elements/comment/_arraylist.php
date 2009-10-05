@@ -1,6 +1,6 @@
 <?php
     //Masked by chorvus
-    class ElementCommentList extends Element {
+    class ElementCommentArraylist extends Element {
         // protected $mPersistent = array( 'typeid' , 'itemid' );
 
         public function Render( $comments, $typeid = 0 , $itemid = 0 ) {
