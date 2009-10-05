@@ -25,6 +25,7 @@
                 $children_nums[ $comment[ 'comment_parentid'] ] = $children_nums[ $comment[ 'comment_parentid'] ] + 1;
             }
             foreach ( $comments as $comment ) {
+                die( var_dump( $comment ) );
                 $indent[ $comment[ 'comment_id'] ] = $indent[ $comment[ 'comment_parentid'] ] + 1;
                 $children = isset( $children_nums[ $comment[ 'comment_id'] ] ) ? $children_nums[ $comment[ 'comment_id'] ] : 0;
                 Element( 'comment/arrayview', $comment, $indent[ $comment[ 'comment_parentid'] ], $children, $comments[ 'user' ][ $comment[ 'comment_userid' ] ] );
