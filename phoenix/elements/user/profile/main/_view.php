@@ -269,7 +269,7 @@
                                 Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE , $user->Id , $user->Avatarid );
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
-                        die( var_dump( $comments[ 'comment' ] ) );
+                        die( count( $comments[ 'comment' ] ) );
                             $indentation = Element( 'comment/arraylist' , $comments , TYPE_USERPROFILE , $theuser->Id );
                             $page->AttachInlineScript( 'Comments.nowdate = "' . NowDate() . '";' );
                             $page->AttachInlineScript( "Comments.OnLoad();" );
