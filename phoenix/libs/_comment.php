@@ -486,7 +486,7 @@
                 $users = array();
                 while ( $row = $res->FetchArray() ) {
                     $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid' ) ) );
-                    $bulkids[] = $comment[ 'comment_bulkid' ];
+                    $bulkids[] = (int) $comment[ 'comment_bulkid' ];
                     if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
                         //$users[ $row[ 'user_id' ] ] = User( array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain', 'user_avatarid' ) ) ) );
                         $users[ $row[ 'user_id' ] ] = New User( $row );
