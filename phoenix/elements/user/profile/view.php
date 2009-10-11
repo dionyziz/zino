@@ -10,7 +10,7 @@
             $libs->Load( 'user/lastactive' );
             $libs->Load( 'user/profile' );
             $libs->Load( 'image/image' );
-            
+
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $name = $name->Get();
@@ -28,6 +28,12 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 return Element( '404', 'Ο χρήστης δεν υπάρχει' );
             }
+            $banChecker = New Ban();
+            
+            if ( $banChecker->isBannedUser( $theuser->Id ) ) {
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
+            
             $page->SetTitle( $theuser->Name );
             $page->AddKeyword( $theuser->Name );
 
