@@ -31,6 +31,7 @@
             $banChecker = New Ban();
             
             if ( $banChecker->isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( 'http://static.zino.gr/phoenix/banned' );
             }
             
