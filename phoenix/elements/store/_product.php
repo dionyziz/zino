@@ -21,11 +21,11 @@
             
             $storefinder = New StoreItemFinder();
             
+            echo "<p>" . $name . "</p>";
             switch ( $name ) {
                 case 'necklace':
                     $item = $storefinder->FindByName( 'Necklace' );
                     echo "<p>" . $item->Id . "</p>";
-                    die();
                     w_assert( $item instanceof StoreItem, 'StoreFinder returned a ' . gettype( $item ) . ', but StoreItem instance was expected' );
                     break;
                 default:
