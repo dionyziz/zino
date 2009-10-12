@@ -15,7 +15,7 @@
             }
 			$itemid = $itemid->Get();
 			$storefinder = New StoreItemFinder();
-            $item = $storefinder->FindByIds( $itemid );
+            $item = $storefinder->FindById( $itemid );
 			if( $item === false ){
 				return;
 			}
