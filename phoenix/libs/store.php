@@ -123,7 +123,7 @@
 		protected $mDbTableAlias = 'storepurchases';
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Item = $this->HasOne( 'Storeitem', 'itemid' );
+			$this->Item = $this->HasOne( 'Storeitem', 'Itemid' );
         }
 		protected function OnBeforeCreate(){
 			$purchaseFinder = New StorepurchaseFinder();
