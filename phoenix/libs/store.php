@@ -22,6 +22,9 @@
 			$prototype->Name = $name;
 			return $this->FindByPrototype( $prototype );
 		}
+        public function FindByIds( $ids ){
+            return parent::FindByIds( $ids );
+        }
 	}
 	
 	class StorepropertyFinder extends Finder{

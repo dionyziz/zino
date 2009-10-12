@@ -13,7 +13,12 @@
             if ( !$user->Exists() ) {
                 return;
             }
-            $item = new Storeitem( $itemid );
+			$itemid = $itemid->Get();
+			$storefinder = New StoreItemFinder();
+            $item = $storefinder->FindByIds( $itemid );
+			if( !count( $item ) ){
+				return;
+			}
             ?>
             <h1>
                 <div class="city">
