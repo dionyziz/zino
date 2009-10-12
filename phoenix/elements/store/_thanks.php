@@ -5,7 +5,6 @@
             global $libs;
             global $page;
             $libs->Load( 'store' );
-			$itemid = $iteid->Get();
 			
             $page->SetTitle( 'Ευχαριστούμε!' );
             
