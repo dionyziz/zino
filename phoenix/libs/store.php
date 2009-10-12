@@ -22,8 +22,12 @@
 			$prototype->Name = $name;
 			return $this->FindByPrototype( $prototype );
 		}
-        public function FindByIds( $ids ){
-            return parent::FindByIds( $ids );
+        public function FindById( $id ){
+            $item = parent::FindByIds( $id );
+            if( !count( $item ) ){
+                return false;
+            }
+            return $item[ 0 ];
         }
 	}
 	
