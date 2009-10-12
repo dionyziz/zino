@@ -1,6 +1,6 @@
 <?php
     class ElementStoreThanks extends Element {
-        public function Render( $itemid ) {
+        public function Render( tInteger $itemid ) {
             global $user;
             global $libs;
             global $page;
