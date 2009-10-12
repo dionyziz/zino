@@ -1,10 +1,12 @@
 <?php
     class ElementStoreThanks extends Element {
-        public function Render( Storeitem $item ) {
+        public function Render( $itemid ) {
             global $user;
             global $libs;
             global $page;
-            
+            $libs->Load( 'store' );
+			
+			
             $page->SetTitle( 'Ευχαριστούμε!' );
             
             $libs->Load( 'user/profile' );
@@ -12,7 +14,7 @@
             if ( !$user->Exists() ) {
                 return;
             }
-            
+            $item = new Storeitem( $itemid );
             ?>
             <h1>
                 <div class="city">
