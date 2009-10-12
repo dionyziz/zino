@@ -80,7 +80,7 @@
             <a class="goback" href="store.php?p=product&amp;name=<?php
 				echo $item->Name;
 			?>">Πίσω στο <?php
-				echo $item->Friendlyname;
+				echo strtolower( $item->Friendlyname );
 			?></a>
             </div><?php
         }
