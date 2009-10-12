@@ -13,7 +13,7 @@
 
 Προϊόν: <?php
 	echo $purchase->Item->Friendlyname;
-?>
+?> 
 Τιμή: <?php
 	echo $purchase->Item->Price;
 ?>€
