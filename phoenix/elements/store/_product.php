@@ -250,6 +250,9 @@
                         $properties[ $prop->Type ] = true;
                         $prop_val[ $prop->Type ][] = $prop->Value;
                     }  
+                     foreach ( $prop_val[ "size" ] as $value ) {
+                       echo "<p>" . $value . "</p>";
+                     }
                     
                     ?><div class="property"><?php
                         if ( $properties[ "glossy" ] == true ) { //add property code manually
