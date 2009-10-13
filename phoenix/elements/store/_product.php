@@ -247,9 +247,9 @@
                     $properties = array();
                     $prop_val = array();
                     while ( !$prop = $res->FetchArray() ) {
-                        $sample = New Storeproperty( $prop );
-                        $properties[ $sample->Type ] = true;
-                        $prop_val[ $sample->Type ][] = $sample->Value;
+                        //$sample = New Storeproperty( $prop );
+                        //$properties[ $sample->Type ] = true;
+                        //$prop_val[ $sample->Type ][] = $sample->Value;
                         echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
                     }                     
 /*
