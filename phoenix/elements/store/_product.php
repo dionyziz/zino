@@ -5,8 +5,6 @@
             global $page;
             global $user;
             
-            $page->SetTitle( 'ZinoSTORE' );
-            
             $libs->Load( 'store' );
             $libs->Load( 'favourite' );
             $libs->Load( 'image/image' );
