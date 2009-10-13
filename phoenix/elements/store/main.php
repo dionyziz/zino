@@ -33,5 +33,8 @@
             // pass
             return $res;
         }
+        public function SetTitle( $title ) {
+            $this->mTitle = 'ZinoSTORE - ' . $title;
+        }
     }
 ?>
