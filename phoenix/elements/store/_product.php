@@ -247,7 +247,7 @@
                     $properties = array();
                     $prop_val = array();
                     foreach ( $res as $prop ) {
-                        $sample = New Storeproperty( $res );
+                        $sample = New Storeproperty( $prop );
                         $properties[ $sample->Type ] = true;
                         $prop_val[ $sample->Type ][] = $sampleS->Value;
                     }                     
