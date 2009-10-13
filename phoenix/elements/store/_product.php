@@ -25,7 +25,7 @@
                 $item = $storefinder->FindByName( $name );
             }
             if ( $id !== false ) {
-                $item = $storefinder->FindByName( $name );
+                $item = $storefinder->FindById( $id );
             }
             if ( $item === false ) {
                 return Element( '404' );
