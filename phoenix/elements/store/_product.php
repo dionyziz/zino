@@ -249,7 +249,7 @@
                     foreach ( $res as $prop ) {
                         $properties[ $res->Type ] = true;
                         $prop_val[ $res->Type ][] = $res->Value;
-                        echo "<p>type - " . $res->Type. " " . $res->Value . "</p>";
+                        echo "<p>type - " . $res[ "type" ]. " " . $res[ "value" ]. "</p>";
                     }                     
 
                     foreach ( $properties as $key=>$val ) {
