@@ -31,6 +31,8 @@
                 return Element( '404' );
             }
             
+            $page->SetTitle( $item->Friendlyname );
+            
             $purchasefinder = New StorePurchaseFinder();
             $purchases = $purchasefinder->FindByItemId( $item->Id );
             
@@ -74,10 +76,21 @@
             <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
             <div class="content">
                 <div class="productimage">
-                    <img src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace φυσαλίδα" />
+                    <img src="<?php
+                    echo $item->Icon;
+                    ?>" alt="
+                    <?php
+                    echo $item->Friendlyname;
+                    ?>" />
                 </div>
                 <div class="productdetails">
-                    <h2>Necklace φυσαλίδα <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15€" /></span></h2>
+                    <h2><?php
+                    echo $item->Friendlyname;
+                    ?> <span><img src="http://static.zino.gr/phoenix/store/<?php
+                    echo $item->Price;
+                    ?>euros.png" alt="<?php
+                    echo $item->Price;
+                    ?>€" /></span></h2>
                     <ul class="toolbox">
                         <?php
                         if ( $user->Exists() ) {
@@ -224,7 +237,11 @@
                         ?>" />
                     </div>
                     
-                    <h3>Necklace Φυσαλίδα - 15€</h3>
+                    <h3><?php
+                    echo $item->Friendlyname;
+                    ?> - <?php
+                    echo $item->Price;
+                    ?>€</h3>
                     
                     <div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
