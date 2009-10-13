@@ -84,6 +84,6 @@
             Email( $user->Name, $user->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
         }
         
-        return Redirect( 'store.php?p=thanks&id=' . $itemid );
+        return Redirect( 'store.php?p=thanks&itemid=' . $itemid );
     }
 ?>
