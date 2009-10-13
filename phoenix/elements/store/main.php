@@ -34,6 +34,7 @@
             return $res;
         }
         public function SetTitle( $title ) {
+            die( 'test' );
             $this->mTitle = 'ZinoSTORE - ' . $title;
         }
     }
