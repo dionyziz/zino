@@ -29,13 +29,20 @@
                     echo $master;
                 ?></div><?php
             }
-
+            
+            //Coppied from elements/main
+            if ( !$page->TitleFinal() ) {
+                if ( $page->Title() != '' ) { // If the title's page is not blank
+                    $page->SetTitle( $page->Title() . ' | ' . 'ZinoSTORE' );
+                }
+                else {
+                    $water->Notice( 'Title not defined for page' );
+                    $page->SetTitle( 'ZinoSTORE' );
+                }
+            }
+            
             // pass
             return $res;
-        }
-        public function SetTitle( $title ) {
-            die( 'test' );
-            $this->mTitle = 'ZinoSTORE - ' . $title;
         }
     }
 ?>

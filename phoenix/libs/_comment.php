@@ -398,8 +398,8 @@
             return $items;
         }
         public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
-            $query = $this->mDb->Prepare( "
-                SELECT
+            $query = $this->mDb->Prepare(
+                "SELECT
                     `comment_id`, `comment_parentid`
                 FROM
                     :comments
@@ -427,7 +427,7 @@
 
             return $children;
         }
-        public function FindData( $commentids, $offset = 0, $limit = 100000, $returnarray = false ) {
+        public function FindData( $commentids, $offset = 0, $limit = 100000 ) {
             global $libs;
             
             $libs->Load( 'image/image' );
@@ -456,56 +456,32 @@
 
             $res = $query->Execute();
             
-            if ( $returnarray === false ) {
-                $comments = array();
-                $bulkids = array();
-                while ( $row = $res->FetchArray() ) {
-                    $comment = New Comment( $row );
-                    $user = New User( $row );
-                    $user->CopyAvatarFrom( New Image( $row ) );
-                    $comment->CopyUserFrom( $user );
-                    $comments[ $comment->Id ] = $comment;
-                    $bulkids[] = $comment->Bulkid;
+        
+            $comments = array();
+            $users = array();
+            $commentkesy = array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid', 'comment_bulkid' ) );
+            while ( $row = $res->FetchArray() ) {
+                $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, $commentkeys );
+                $bulkids[] = (int) $row[ 'comment_bulkid' ];
+                if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
+                    //$users[ $row[ 'user_id' ] ] = User( array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain', 'user_avatarid' ) ) ) );
+                    $users[ $row[ 'user_id' ] ] = New User( $row );
                 }
-
-                $bulks = Bulk::FindById( $bulkids );
-
-                $ret = array();
-                foreach ( $commentids as $commentid ) {
-                    if ( isset( $comments[ $commentid ] ) ) {
-                        $comment = $comments[ $commentid ];
-                        $comment->Text = $bulks[ $comment->Bulkid ];
-                        $ret[] = $comment;
-                    }
-                }
-
-                return $ret;
             }
-            else {
-                $comments = array();
-                $users = array();
-                while ( $row = $res->FetchArray() ) {
-                    $comments[ $row[ 'comment_id' ] ] = array_intersect_key( $row, array_flip( Array( 'comment_id', 'comment_created', 'comment_userid', 'comment_parentid', 'comment_bulkid' ) ) );
-                    $bulkids[] = (int) $row[ 'comment_bulkid' ];
-                    if ( !isset( $result[ 'user' ][ $row[ 'user_id' ] ] ) ) {
-                        //$users[ $row[ 'user_id' ] ] = User( array_intersect_key( $row, array_flip( Array( 'user_id', 'user_name', 'user_subdomain', 'user_avatarid' ) ) ) );
-                        $users[ $row[ 'user_id' ] ] = New User( $row );
-                    }
+            
+            $bulks = Bulk::FindById( $bulkids );
+            
+            $ret = array();
+            foreach ( $commentids as $commentid ) {
+                if ( isset( $comments[ $commentid ] ) ) {
+                    $comments[ $commentid ][ 'text' ] = $bulks[ (int) $comments[ $commentid ][ 'comment_bulkid' ] ];
                 }
-                
-                $bulks = Bulk::FindById( $bulkids );
-                
-                $ret = array();
-                foreach ( $commentids as $commentid ) {
-                    if ( isset( $comments[ $commentid ] ) ) {
-                        $comments[ $commentid ][ 'text' ] = $bulks[ (int) $comments[ $commentid ][ 'comment_bulkid' ] ];
-                    }
-                }
-                
-                $result[ 'comment' ] = $comments;
-                $result[ 'user' ] = $users;
-                return $result;
             }
+            
+            $result[ 'comment' ] = $comments;
+            $result[ 'user' ] = $users;
+            
+            return $result;
         }
         public function FindParentIds ( $commentids ) { //Returns an array in the following format [ commentid ] => parentid
             if ( empty( $commentids ) ) {
