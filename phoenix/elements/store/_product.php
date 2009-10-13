@@ -246,11 +246,12 @@
                     $res = $prop_finder->FindByItemId( $item->Id );
                     $properties = array();
                     $prop_val = array();
-                    while ( !$prop = $res->FetchArray() ) {
+                    var_dump( $res );
+                    while ( false ) {
                         //$sample = New Storeproperty( $prop );
                         //$properties[ $sample->Type ] = true;
                         //$prop_val[ $sample->Type ][] = $sample->Value;
-                        echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
+                        //echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
                     }                     
 /*
                     foreach ( $properties as $key=>$val ) {
