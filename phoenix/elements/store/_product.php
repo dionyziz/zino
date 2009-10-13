@@ -246,21 +246,17 @@
                     $res = $prop_finder->FindByItemId( $item->Id );
                     $properties = array();
                     $prop_val = array();
-                    var_dump( $res );
                     foreach ( $res as $prop ) {
-                        //$sample = New Storeproperty( $prop );
-                        //$properties[ $sample->Type ] = true;
-                        //$prop_val[ $sample->Type ][] = $sample->Value;
-                        echo "<p>type - " . $prop->Type . " " . $prop->Value . "</p>";
+                        $properties[ $prop->Type ] = true;
+                        $prop_val[ $prop->Type ][] = $prop->Value;
                     }                     
-/*
+
                     foreach ( $properties as $key=>$val ) {
-                        echo "<p>type - " . $key. " " . $val . "</p>";
                         foreach ( $prop_val[ $types ] as $key=>$val ) {
                                 echo "<p>" . $key . " " . $val . "</p>";
                         }
                     }
-*/
+
                     
                     ?><div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
