@@ -246,10 +246,10 @@
                     $res = $prop_finder->FindByItemId( $item->Id );
                     $properties = array();
                     $prop_val = array();
-                    foreach ( $res as $prop ) {
-                        //$sample = New Storeproperty( $prop );
-                        //$properties[ $sample->Type ] = true;
-                        //$prop_val[ $sample->Type ][] = $sample->Value;
+                    while ( !$prop = $res->FetchRow() ) {
+                        $sample = New Storeproperty( $prop );
+                        $properties[ $sample->Type ] = true;
+                        $prop_val[ $sample->Type ][] = $sample->Value;
                         echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
                     }                     
 /*
