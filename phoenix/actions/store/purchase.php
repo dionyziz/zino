@@ -3,7 +3,7 @@
         tInteger $itemid, tBoolean $glossy,
         tText $mobile, tText $firstname, tText $lastname,
         tText $postcode, tText $address, tText $addressnum, tText $area,
-        tInteger $placeid ) {
+        tInteger $placeid, tText $size ) {
         global $user;
         global $libs;
         
@@ -28,6 +28,7 @@
         
         $itemid = $itemid->Get();
         $glossy = $glossy->Get(); // TODO: get other properties
+        $size = $size->Get();
         $mobile = $mobile->Get();
         $postcode = $postcode->Get();
         $address = $address->Get();
@@ -83,6 +84,6 @@
             Email( $user->Name, $user->Profile->Email, $subject, $text, "Zino", "info@zino.gr" );
         }
         
-        return Redirect( 'store.php?p=thanks' );
+        return Redirect( 'store.php?p=thanks&id=' . $itemid );
     }
 ?>
