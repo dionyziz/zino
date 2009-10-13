@@ -251,9 +251,9 @@
                         $prop_val[ $prop->Type ][] = $prop->Value;
                     }                     
 
-                    foreach ( $properties as $types ) {
-                        foreach ( $prop_val[ $types ] as $key=>$val ) {
-                                echo "<p>" . $key . " " . $val . "</p>";
+                    foreach ( $properties as $key=>$val ) {
+                        foreach ( $prop_val[ $key ] as $value ) {
+                                echo "<p>" . $key . " " . $value . "</p>";
                         }
                     }
 
