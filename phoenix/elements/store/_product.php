@@ -252,8 +252,9 @@
                     }                     
 
                     foreach ( $properties as $types ) {
-                        foreach ( $prop_val[ $types ] as $values ) {
-                                echo "<p>" . $values . "</p>";
+                        echo "<p>type - " . $types. "</p>";
+                        foreach ( $prop_val[ $types ] as $key=>$val ) {
+                                echo "<p>" . $key . " " . $val . "</p>";
                         }
                     }
 
