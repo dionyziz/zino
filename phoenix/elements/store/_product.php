@@ -23,11 +23,9 @@
             
             if ( $name !== false ) {
                 $item = $storefinder->FindByName( $name );
-                w_assert( $item instanceof StoreItem, 'StoreFinder returned a ' . gettype( $item ) . ', but StoreItem instance was expected' );
             }
             if ( $id !== false ) {
                 $item = $storefinder->FindByName( $name );
-                w_assert( $item instanceof StoreItem, 'StoreFinder returned a ' . gettype( $item ) . ', but StoreItem instance was expected' );
             }
             if ( $item === false ) {
                 return Element( '404' );
