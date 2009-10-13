@@ -239,9 +239,26 @@
                     echo $item->Friendlyname;
                     ?> - <?php
                     echo $item->Price;
-                    ?>€</h3>
+                    ?>€</h3> <?php
+
                     
-                    <div class="property">
+                    $prop_finder = new StorepropertyFinder();
+                    $res = $prop_finder->FindByItemId( $item->Id );
+                    $properties = array();
+                    $prop_val = array();
+                    foreach ( $res as $prop ) {
+                        $properties[] = $res->Type;
+                        $prop_val[ $res->Type ][] = $res->Value;
+                    }                     
+
+                    foreach ( $properties as $types ) {
+                        foreach ( $prop_val[ $types ] as $values ) {
+                                echo "<p>" . $values . "</p>";
+                        }
+                    }
+
+                    
+                    ?><div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
                         if ( $user->Gender == 'f' ) {
                             ?> checked="checked"<?php
