@@ -249,21 +249,26 @@
                     foreach ( $res as $prop ) {
                         $properties[ $prop->Type ] = true;
                         $prop_val[ $prop->Type ][] = $prop->Value;
-                    }                     
-
-                    foreach ( $properties as $key=>$val ) {
-                        foreach ( $prop_val[ $key ] as $value ) {
-                                echo "<p>" . $key . " " . $value . "</p>";
-                        }
-                    }
-
+                    }  
                     
-                    ?><div class="property">
-                        <input type="checkbox" name="glossy" id="glossy" value="1"<?php
-                        if ( $user->Gender == 'f' ) {
-                            ?> checked="checked"<?php
+                    ?><div class="property"><?php
+                        if ( $properties[ "glossy" ] == true ) { //add property code manually
+                                ?><input type="checkbox" name="glossy" id="glossy" value="1"<?php
+                                if ( $user->Gender == 'f' ) {
+                                    ?> checked="checked"<?php
+                                }
+                                ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label><?php
                         }
-                        ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label>
+                        if ( $properties[ "size" ] == true ) { //add property code manually
+                                ?><select><?php
+                                foreach ( $prop_val[ "size" ] as $value ) {
+                                        ?><option><?php
+                                        echo $value;
+                                        ?><option><?php
+                                }
+                                ?></select><?php
+                        } 
+                    ?>
                     </div>
                     
                     <input type="hidden" name="itemid" value="<?php
