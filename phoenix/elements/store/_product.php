@@ -241,25 +241,25 @@
                     echo $item->Price;
                     ?>€</h3> <?php
 
-                    /*
+                    
                     $prop_finder = new StorepropertyFinder();
                     $res = $prop_finder->FindByItemId( $item->Id );
                     $properties = array();
                     $prop_val = array();
                     foreach ( $res as $prop ) {
-                        $sample = New Storeproperty( $prop );
-                        $properties[ $sample->Type ] = true;
-                        $prop_val[ $sample->Type ][] = $sample->Value;
-                        echo "<p>type - " . $prop[ "item_type" ]. " " . $prop[ "item_value" ] . "</p>";
+                        //$sample = New Storeproperty( $prop );
+                        //$properties[ $sample->Type ] = true;
+                        //$prop_val[ $sample->Type ][] = $sample->Value;
+                        echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
                     }                     
-
+/*
                     foreach ( $properties as $key=>$val ) {
                         echo "<p>type - " . $key. " " . $val . "</p>";
                         foreach ( $prop_val[ $types ] as $key=>$val ) {
                                 echo "<p>" . $key . " " . $val . "</p>";
                         }
-                    }*/
-
+                    }
+*/
                     
                     ?><div class="property">
                         <input type="checkbox" name="glossy" id="glossy" value="1"<?php
