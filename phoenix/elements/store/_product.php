@@ -265,7 +265,7 @@
                                 foreach ( $prop_val[ "Size" ] as $value ) {
                                         ?><option><?php
                                         echo $value;
-                                        ?><option><?php
+                                        ?></option><?php
                                 }
                                 ?></select><?php
                         } 
