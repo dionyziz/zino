@@ -249,7 +249,8 @@
                     foreach ( $res as $prop ) {
                         $sample = New Storeproperty( $prop );
                         $properties[ $sample->Type ] = true;
-                        $prop_val[ $sample->Type ][] = $sampleS->Value;
+                        $prop_val[ $sample->Type ][] = $sample->Value;
+                        echo "<p>type - " . $prop[ "item_type" ]. " " . $prop[ "item_value" ] . "</p>";
                     }                     
 
                     foreach ( $properties as $key=>$val ) {
