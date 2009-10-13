@@ -247,11 +247,11 @@
                     $properties = array();
                     $prop_val = array();
                     var_dump( $res );
-                    while ( false ) {
+                    foreach ( $res as $prop ) {
                         //$sample = New Storeproperty( $prop );
                         //$properties[ $sample->Type ] = true;
                         //$prop_val[ $sample->Type ][] = $sample->Value;
-                        //echo "<p>type - " . $prop[ "property_type" ]. " " . $prop[ "property_value" ] . "</p>";
+                        echo "<p>type - " . $prop->Type . " " . $prop->Value . "</p>";
                     }                     
 /*
                     foreach ( $properties as $key=>$val ) {
