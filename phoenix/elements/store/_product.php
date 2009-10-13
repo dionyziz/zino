@@ -247,12 +247,12 @@
                     $properties = array();
                     $prop_val = array();
                     foreach ( $res as $prop ) {
-                        $properties[] = $res->Type;
+                        $properties[ $res->Type ] = true;
                         $prop_val[ $res->Type ][] = $res->Value;
                     }                     
 
-                    foreach ( $properties as $types ) {
-                        echo "<p>type - " . $types. "</p>";
+                    foreach ( $properties as $key=>$val ) {
+                        echo "<p>type - " . $key. " " . $val . "</p>";
                         foreach ( $prop_val[ $types ] as $key=>$val ) {
                                 echo "<p>" . $key . " " . $val . "</p>";
                         }
