@@ -250,9 +250,6 @@
                         $properties[ $prop->Type ] = true;
                         $prop_val[ $prop->Type ][] = $prop->Value;
                     }  
-                     foreach ( $prop_val[ "Size" ] as $value ) {
-                       echo "<p>" . $value . "</p>";
-                     }
                     
                     ?><div class="property"><?php
                         if ( $properties[ "glossy" ] == true ) { //add property code manually
@@ -263,8 +260,9 @@
                                 ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label><?php
                         }
                         if ( $properties[ "Size" ] == true ) { //add property code manually
-                                ?><select><?php
-                                foreach ( $prop_val[ "size" ] as $value ) {
+                                ?><label for="size">Μέγεθος</label>        
+                                  <select name="size"><?php
+                                foreach ( $prop_val[ "Size" ] as $value ) {
                                         ?><option><?php
                                         echo $value;
                                         ?><option><?php
