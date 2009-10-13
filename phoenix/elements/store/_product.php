@@ -246,7 +246,7 @@
                     $res = $prop_finder->FindByItemId( $item->Id );
                     $properties = array();
                     $prop_val = array();
-                    while ( !$prop = $res->FetchRow() ) {
+                    while ( !$prop = $res->FetchArray() ) {
                         $sample = New Storeproperty( $prop );
                         $properties[ $sample->Type ] = true;
                         $prop_val[ $sample->Type ][] = $sample->Value;
