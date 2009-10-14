@@ -61,14 +61,22 @@
         
         $propertyfinder = New StorePropertyFinder();
         $properties = $propertyfinder->FindByItemId( $itemid );
+        $desired = array();
         if ( $glossy ) {
-            $desired = 'yes';
+            $desired[ "glossy" ] = 'yes';
         }
         else {
-            $desired = 'no';
+            $desired[ "glossy" ] = 'no';
+        }
+
+        if ( $size == "M" || $size == "L" || $size == "S" ) {
+                $desired[ "Size" ] = $size;
+        }
+        else {
+                $desired[ "Size" ] = "M";
         }
         foreach ( $properties as $property ) {
-            if ( $property->Value = $desired ) {
+            if ( $property->Value = $desired[ $property->Type ] ) {
                 $purchaseproperty = New StorePurchaseProperty();
                 $purchaseproperty->Propertyid = $property->Id;
                 $purchaseproperty->Purchaseid = $purchase->Id;
