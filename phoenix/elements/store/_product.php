@@ -12,10 +12,7 @@
             $libs->Load( 'user/profile' );
             
             $id = $id->Get();
-            $name = $name->Get();
-            
-            $page->AttachScript( 'js/store.js' );
-            $page->AttachInlineScript( 'Store.OnLoad();' );
+            $name = $name->Get();          
             
             $storefinder = New StoreItemFinder();
             
@@ -28,7 +25,10 @@
             if ( $item === false ) {
                 return Element( '404' );
             }
-            
+
+            $page->AttachScript( 'js/store.js' );
+            $page->AttachInlineScript( 'Store.OnLoad(' . $id . ');' );
+
             $page->SetTitle( $item->Friendlyname );
             
             $purchasefinder = New StorePurchaseFinder();

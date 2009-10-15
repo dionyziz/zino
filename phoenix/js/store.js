@@ -1,5 +1,5 @@
 var Store = {
-    OnLoad: function () {
+    OnLoad: function ( productid ) {
         $( 'ul.toolbox .lurv a' ).click( function () {
             if ( this.id == 'luved' ) {
                 return;
@@ -7,7 +7,7 @@ var Store = {
             
             Coala.Warm(
                 'favourites/addstore', {
-                    itemid: 20, f: function ( html ) {
+                    itemid: productid, f: function ( html ) {
                         $( 'ul.lurv' )[ 0 ].innerHTML += '<li>' + html + '</li>';
                     }
                 }
