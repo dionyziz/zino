@@ -143,7 +143,7 @@
 
     class Water implements WaterBase {
         protected $mProjectName = 'zino';
-        protected $mProjectKey = 'flowing314sand';
+        protected $mProjectKey = 'black77catch';
         protected $mFootprintData = '[';
         protected $mNumErrors = 0;
         protected $mNumWarnings = 0;
