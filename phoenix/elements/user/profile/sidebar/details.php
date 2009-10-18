@@ -6,6 +6,7 @@
             global $libs;
 
             $libs->Load( 'store' );
+            $libs->Load( 'badge' );
 
             $profile = $theuser->Profile;
             ?><div class="look">
@@ -32,10 +33,26 @@
             $purchases = $finder->FindByUserid( $theuserid );
 
             if ( !empty( $purchases ) ) {
+                
+                $itemids = array();
+                foreach ( $purcashes as $purch ) {
+                        $itemids[] = $purch->Itemid;
+                }
+                $badgefinder = New BadgeFinder();
+                $badges = $badgefinder->FindByIds( $itemids );
+
+                foreach ( $badges as $badge ) {
+                    ?><div class="supporter" style="padding: 5px 0">
+                    <img src="<?php echo $badge->Icon;?>" alt="badge" />
+                    <?php echo $badge->name;?>
+                    </div><?php    
+                }
+                /*
                 ?><div class="supporter" style="padding: 5px 0">
                     <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
                     Υποστηρικτής Zino Καλοκαίρι 2009
                 </div><?php
+                */
             }
         } 
     }
