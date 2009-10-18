@@ -8,7 +8,7 @@
                         FROM
                             :badges
                         WHERE
-                            `badge_id` IN :ids
+                            `badge_itemid` IN :ids
                         LIMIT
                             1000'
                         );
