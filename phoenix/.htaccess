@@ -92,6 +92,8 @@ RewriteRule ^auth/([a-zA-Z0-9/_-]+) /api.php?p=api/auth&username=$1 [L,QSA]
 RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr
 RewriteRule ^notifications /api.php?p=api/notifications [L,QSA]
 
+RewriteCond %{SERVER_NAME} ^store\.beta\.zino\.gr
+RewriteRule ^$ /store.php [L,QSA]
 
 # # #
 #
