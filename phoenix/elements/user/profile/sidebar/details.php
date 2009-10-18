@@ -37,10 +37,10 @@
                 $itemids = array();
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
-                        echo '<p>' . ' shit ' . $purch->Itemid . '</p>';
                 }
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByIds( $itemids );
+                var_dump( $badges );
 
                 foreach ( $badges as $badge ) {
                     ?><div class="supporter" style="padding: 5px 0">
