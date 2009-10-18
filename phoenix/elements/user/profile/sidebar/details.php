@@ -38,26 +38,16 @@
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
                 }
-                echo "sss";
-                var_dump( $itemids );
-                echo "sss";
+
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByItemIds( $itemids );
-                echo "sss";
-                var_dump( $badges );
 
                 foreach ( $badges as $badge ) {
                     ?><div class="supporter" style="padding: 5px 0">
                     <img src="<?php echo $badge->Icon;?>" alt="badge" />
                     <?php echo $badge->Name;?>
                     </div><?php    
-                }
-                
-                ?><div class="supporter" style="padding: 5px 0">
-                    <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
-                    Υποστηρικτής Zino Καλοκαίρι 2009
-                </div><?php
-                
+                } 
             }
         } 
     }
