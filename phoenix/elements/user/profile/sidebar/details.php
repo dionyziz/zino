@@ -37,7 +37,6 @@
                 $itemids = array();
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
-                        echo '<p>' . ' shit ' . $purch->Itemid . '</p>';
                 }
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByIds( $itemids );
