@@ -29,7 +29,7 @@
             }
 
             
-            $page->AttachInlineScript( 'Store.OnLoad(' . $id . ');' );            
+            $page->AttachInlineScript( 'Store.OnLoad(' . $item->Id . ');' );            
 
             $page->SetTitle( $item->Friendlyname );
             
