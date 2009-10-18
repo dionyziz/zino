@@ -94,6 +94,8 @@ RewriteRule ^notifications /api.php?p=api/notifications [L,QSA]
 
 RewriteCond %{SERVER_NAME} ^store\.beta\.zino\.gr
 RewriteRule ^product/([a-z]+) /store.php?p=product&name=$1 [L,QSA]
+RewriteCond %{SERVER_NAME} ^store\.beta\.zino\.gr
+RewriteRule .? /store.php?p=home [L,QSA]
 
 # # #
 #
