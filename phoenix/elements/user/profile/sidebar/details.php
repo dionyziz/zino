@@ -38,10 +38,12 @@
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
                 }
-
+                echo "sss";
                 var_dump( $itemids );
+                echo "sss";
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByItemIds( $itemids );
+                echo "sss";
                 var_dump( $badges );
 
                 foreach ( $badges as $badge ) {
