@@ -40,6 +40,7 @@
                 }
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByIds( $itemids );
+                $badges = $badges->ToArray();
                 var_dump( $badges );
 
                 foreach ( $badges as $badge ) {
