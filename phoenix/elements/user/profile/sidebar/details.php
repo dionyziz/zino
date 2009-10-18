@@ -34,6 +34,7 @@
 
             if ( !empty( $purchases ) ) {
                 
+                var_dump( $purchases );
                 $itemids = array();
                 foreach ( $purchashes as $purch ) {
                         $itemids[] = $purch->Itemid;
