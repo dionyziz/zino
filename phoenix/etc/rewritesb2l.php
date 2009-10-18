@@ -3,7 +3,7 @@
 <?php
 $ourfile = file_get_contents( $argv[ 1 ] );
 $ourfile = str_replace( "RewriteCond %{SERVER_NAME} ^beta\.zino\.gr", "RewriteCond %{SERVER_NAME} ^www\.zino\.gr", $ourfile );
-$ourfile = str_replace( "RewriteRule ^", "RewriteRule ^/", $ourfile );
+$ourfile = preg_replace( "#RewriteRule \\^([^ ])#", "RewriteRule ^/\\1", $ourfile );
 
 $ourfile = str_replace( "RewriteCond %{SERVER_NAME} ^api\.beta\.zino\.gr", "RewriteCond %{SERVER_NAME} ^api\.zino\.gr", $ourfile );
 $ourfile = str_replace( "RewriteCond %{SERVER_NAME} ^store\.beta\.zino\.gr", "RewriteCond %{SERVER_NAME} ^store\.zino\.gr", $ourfile );
