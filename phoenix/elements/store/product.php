@@ -29,7 +29,13 @@
             }
 
             
-            $page->AttachInlineScript( 'Store.OnLoad(' . $item->Id . ');' );            
+            $page->AttachInlineScript( 'Store.OnLoad(' . $item->Id . ');' );       
+
+            $page->SetTitle( $item->Friendlyname ); 
+        
+            if( $item->Css != "" ) { 
+		$page->AttachStylesheet( $item->Css );
+	    }     
 
             $page->SetTitle( $item->Friendlyname );
             
