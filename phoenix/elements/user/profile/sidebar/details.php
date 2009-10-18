@@ -39,7 +39,7 @@
                         $itemids[] = $purch->Itemid;
                 }
                 $badgefinder = New BadgeFinder();
-                $badges = $badgefinder->FindByIds( $itemids );
+                $badges = $badgefinder->FindByItemIds( $itemids );
                 $badges = $badges->ToArray();
                 var_dump( $badges );
 
