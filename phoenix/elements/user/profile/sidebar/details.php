@@ -47,12 +47,12 @@
                     <?php echo $badge->name;?>
                     </div><?php    
                 }
-                /*
+                
                 ?><div class="supporter" style="padding: 5px 0">
                     <img src="http://static.zino.gr/phoenix/emblems/bullet_orange.png" alt="Ðïñôïêáëß ôåëßôóá" />
                     Υποστηρικτής Zino Καλοκαίρι 2009
                 </div><?php
-                */
+                
             }
         } 
     }
