@@ -35,7 +35,7 @@
             if ( !empty( $purchases ) ) {
                 
                 $itemids = array();
-                foreach ( $purcashes as $purch ) {
+                foreach ( $purchashes as $purch ) {
                         $itemids[] = $purch->Itemid;
                         echo '<p>' . $purch->Itemid . '</p>';
                 }
@@ -45,7 +45,7 @@
                 foreach ( $badges as $badge ) {
                     ?><div class="supporter" style="padding: 5px 0">
                     <img src="<?php echo $badge->Icon;?>" alt="badge" />
-                    <?php echo $badge->name;?>
+                    <?php echo $badge->Name;?>
                     </div><?php    
                 }
                 
