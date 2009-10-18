@@ -24,9 +24,9 @@ var Store = {
                 case '107':
                 case '139':
                 case '164':
-                    $( '#delivery1' ).hide();
+                    /*$( '#delivery1' ).hide();
                     $( '#delivery2' ).show();
-                    $( '#needaddy' ).hide();
+                    $( '#needaddy' ).hide();*/
                     break;
                 default:
                     $( '#delivery1' ).show();
