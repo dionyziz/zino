@@ -5,8 +5,6 @@
             global $page;
             global $user;
             
-            $page->SetTitle( 'ZinoSTORE' );
-            
             $libs->Load( 'store' );
             $libs->Load( 'favourite' );
             $libs->Load( 'image/image' );
@@ -14,21 +12,24 @@
             $libs->Load( 'user/profile' );
             
             $id = $id->Get();
-            $name = $name->Get();
-            
-            $page->AttachScript( 'js/store.js' );
-            $page->AttachInlineScript( 'Store.OnLoad();' );
+            $name = $name->Get();          
             
             $storefinder = New StoreItemFinder();
             
-            switch ( $name ) {
-                case 'necklace':
-                    $item = $storefinder->FindByName( 'necklace' );
-                    w_assert( $item instanceof StoreItem, 'StoreFinder returned a ' . gettype( $item ) . ', but StoreItem instance was expected' );
-                    break;
-                default:
-                    return Element( '404' );
+            if ( $name !== false ) {
+                $item = $storefinder->FindByName( $name );
             }
+            if ( $id !== false ) {
+                $item = $storefinder->FindById( $id );
+            }
+            if ( $item === false ) {
+                return Element( '404' );
+            }
+
+            $page->AttachScript( 'js/store.js' );
+            $page->AttachInlineScript( 'Store.OnLoad(' . $id . ');' );
+
+            $page->SetTitle( $item->Friendlyname );
             
             $purchasefinder = New StorePurchaseFinder();
             $purchases = $purchasefinder->FindByItemId( $item->Id );
@@ -73,10 +74,21 @@
             <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
             <div class="content">
                 <div class="productimage">
-                    <img src="http://static.zino.gr/phoenix/store/necklace.jpg" alt="Necklace φυσαλίδα" />
+                    <img src="<?php
+                    echo $item->Icon;
+                    ?>" alt="
+                    <?php
+                    echo $item->Friendlyname;
+                    ?>" />
                 </div>
                 <div class="productdetails">
-                    <h2>Necklace φυσαλίδα <span><img src="http://static.zino.gr/phoenix/store/15euros.png" alt="15€" /></span></h2>
+                    <h2><?php
+                    echo $item->Friendlyname;
+                    ?> <span><img src="http://static.zino.gr/phoenix/store/<?php
+                    echo $item->Price;
+                    ?>euros.png" alt="<?php
+                    echo $item->Price;
+                    ?>€" /></span></h2>
                     <ul class="toolbox">
                         <?php
                         if ( $user->Exists() ) {
@@ -223,14 +235,41 @@
                         ?>" />
                     </div>
                     
-                    <h3>Necklace Φυσαλίδα - 15€</h3>
+                    <h3><?php
+                    echo $item->Friendlyname;
+                    ?> - <?php
+                    echo $item->Price;
+                    ?>€</h3> <?php
+
                     
-                    <div class="property">
-                        <input type="checkbox" name="glossy" id="glossy" value="1"<?php
-                        if ( $user->Gender == 'f' ) {
-                            ?> checked="checked"<?php
+                    $prop_finder = new StorepropertyFinder();
+                    $res = $prop_finder->FindByItemId( $item->Id );
+                    $properties = array();
+                    $prop_val = array();
+                    foreach ( $res as $prop ) {
+                        $properties[ $prop->Type ] = true;
+                        $prop_val[ $prop->Type ][] = $prop->Value;
+                    }  
+                    
+                    ?><div class="property"><?php
+                        if ( $properties[ "glossy" ] == true ) { //add property code manually
+                                ?><input type="checkbox" name="glossy" id="glossy" value="1"<?php
+                                if ( $user->Gender == 'f' ) {
+                                    ?> checked="checked"<?php
+                                }
+                                ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label><?php
                         }
-                        ?> /><label for="glossy">Θέλω το μενταγιόν γυαλισμένο (glossy)</label>
+                        if ( $properties[ "Size" ] == true ) { //add property code manually
+                                ?><label for="size">Μέγεθος</label>        
+                                  <select name="size"><?php
+                                foreach ( $prop_val[ "Size" ] as $value ) {
+                                        ?><option><?php
+                                        echo $value;
+                                        ?></option><?php
+                                }
+                                ?></select><?php
+                        } 
+                    ?>
                     </div>
                     
                     <input type="hidden" name="itemid" value="<?php

@@ -1,10 +1,11 @@
 <?php
     class ElementStoreThanks extends Element {
-        public function Render() {
+        public function Render( tInteger $itemid ) {
             global $user;
             global $libs;
             global $page;
-            
+            $libs->Load( 'store' );
+			
             $page->SetTitle( 'Ευχαριστούμε!' );
             
             $libs->Load( 'user/profile' );
@@ -12,7 +13,12 @@
             if ( !$user->Exists() ) {
                 return;
             }
-            
+			$itemid = $itemid->Get();
+			$storefinder = New StoreItemFinder();
+            $item = $storefinder->FindById( $itemid );
+			if( $item === false ){
+				return;
+			}
             ?>
             <h1>
                 <div class="city">
@@ -39,8 +45,12 @@
             ?>
 
             <dl>
-            <dt>Προϊόν:</dt><dd>Zino Necklace Φυσαλίδα</dd>
-            <dt>Τιμή:</dt><dd>15€</dd>
+            <dt>Προϊόν:</dt><dd><?php
+				echo $item->Friendlyname;
+			?></dd>
+            <dt>Τιμή:</dt><dd><?php
+				echo $item->Price;
+			?>€</dd>
             <dt>Μεταφορικά/έξοδα αντικαταβολής:</dt><dd>Καλύπτονται από το Zino</dd>
             <dt>Παράδοση:</dt><dd><?php
             switch ( $user->Profile->Placeid ) {
@@ -67,7 +77,11 @@
             <p>Σ' ευχαριστούμε για άλλη μία φορά για την αγορά σου! Οι αγορές βοηθούν πολύ το Zino να αναπτυχθεί και 
             να συνεχίσει να υπάρχει <span class="emoticon-smile">.</span></p>
             
-            <a class="goback" href="store.php?p=product&amp;name=necklace">Πίσω στο Zino Necklace Φυσαλίδα</a>
+            <a class="goback" href="store.php?p=product&amp;name=<?php
+				echo $item->Name;
+			?>">Πίσω στο <?php
+				echo strtolower( $item->Friendlyname );
+			?></a>
             </div><?php
         }
     }
