@@ -38,6 +38,8 @@
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
                 }
+
+                var_dump( $itemids );
                 $badgefinder = New BadgeFinder();
                 $badges = $badgefinder->FindByItemIds( $itemids );
                 var_dump( $badges );
