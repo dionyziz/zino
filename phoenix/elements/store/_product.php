@@ -31,9 +31,9 @@
                 return Element( '404' );
             }
             
-            $page->SetTitle( $item->Friendlyname );
-			if( $item->css != "" ){
-				$page->AttachStylesheet( $item->css );
+            $page->SetTitle( $item->Friendlyname ); 
+			if( $item->Css != "" ){ 
+				$page->AttachStylesheet( $item->Css );
 			}
             
             $purchasefinder = New StorePurchaseFinder();
