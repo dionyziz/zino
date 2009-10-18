@@ -59,8 +59,6 @@ RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^advertise$ /index.php?p=advertise [L,QSA]
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^live$ /index.php?p=recent [L,QSA]
-RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
-RewriteRule ^abbbbbbout$ /index.php?p=about [L,QSA]
 
 # # #
 # api.zino.gr
