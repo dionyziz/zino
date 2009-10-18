@@ -37,6 +37,7 @@
                 var_dump( $purchases );
                 $itemids = array();
                 foreach ( $purchashes as $purch ) {
+                        var_dump( $purch );
                         $itemids[] = $purch->Itemid;
                         echo '<p>' . $purch->Itemid . '</p>';
                 }
