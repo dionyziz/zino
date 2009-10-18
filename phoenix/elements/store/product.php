@@ -138,7 +138,7 @@
                             echo $love->User->Name;
                             ?>">
                             <?php
-                            Element( 'image/view', $love->User->Avatarid, $love->Userid, 50, 50, IMAGE_CROPPED_100x100, '', $love->User->Name, '', true, 50, 50, 0 );
+                            Element( 'user/avatar', $purchase->User->Avatarid, $purchase->Userid, 50, 50,$purchase->User->Name, IMAGE_CROPPED_100x100, '', '', false, 0, 0, 0 );
                         ?></a></li><?php
                     }
                 ?></ul>
@@ -151,7 +151,7 @@
                             echo $purchase->User->Name;
                             ?>">
                             <?php
-                            Element( 'image/view', $purchase->User->Avatarid, $purchase->Userid, 50, 50, IMAGE_CROPPED_100x100, '', $purchase->User->Name, '', false, 0, 0, 0 );
+                            Element( 'user/avatar', $purchase->User->Avatarid, $purchase->Userid, 50, 50,$purchase->User->Name, IMAGE_CROPPED_100x100, '', '', false, 0, 0, 0 );
                         ?></a></li><?php
                     }
                 ?></ul>
