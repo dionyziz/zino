@@ -10,6 +10,8 @@
             $libs->Load( 'image/image' );
             $libs->Load( 'place' );
             $libs->Load( 'user/profile' );
+
+            $page->AttachScript( 'js/store.js' );
             
             $id = $id->Get();
             $name = $name->Get();          
@@ -26,8 +28,8 @@
                 return Element( '404' );
             }
 
-            $page->AttachScript( 'js/store.js' );
-            $page->AttachInlineScript( 'Store.OnLoad(' . $id . ');' );
+            
+            $page->AttachInlineScript( 'Store.OnLoad(' . $id . ');' );            
 
             $page->SetTitle( $item->Friendlyname );
             
