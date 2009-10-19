@@ -11,6 +11,8 @@
             $libs->Load( 'place' );
             $libs->Load( 'user/profile' );
 
+            Element( 'user/subdomainmatch' );
+
             $page->AttachScript( 'js/store.js' );
             
             $id = $id->Get();
