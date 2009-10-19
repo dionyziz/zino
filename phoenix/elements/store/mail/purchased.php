@@ -11,8 +11,12 @@
 
 Ακολουθούν οι λεπτομέρειες της παραγγελίας σου.
 
-Προϊόν: Zino Necklace Φυσαλίδα
-Τιμή: 15€
+Προϊόν: <?php
+	echo $purchase->Item->Friendlyname;
+?> 
+Τιμή: <?php
+	echo $purchase->Item->Price;
+?>€
 Μεταφορικά/έξοδα αντικαταβολής: Καλύπτονται από το Zino
 Παράδοση: <?php
             switch ( $user->Profile->Placeid ) {
