@@ -15,7 +15,9 @@
         $favourite->Itemid = $itemid->Get();
         $favourite->Typeid = TYPE_STOREITEM;
         $favourite->Save();
-        
+
+        die( "shit?" );        
+
         echo $f;
         ?>( <?php
         ob_start();
