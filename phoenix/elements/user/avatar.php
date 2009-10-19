@@ -77,7 +77,7 @@
                     echo $theusername;
                     ?>" alt="<?php
                     echo $theusername;
-                    ?>">&nbsp;</span><?php
+                    ?>">&#160;</span><?php
                 }
                 ?></span><?php
         }
