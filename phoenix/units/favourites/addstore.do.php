@@ -9,6 +9,7 @@
         
         $libs->Load( 'favourite' );
         $libs->Load( 'image/image' );
+        $libs->Load( 'types' );
         
         $favourite = New Favourite();
         $favourite->Itemid = $itemid->Get();
@@ -24,7 +25,7 @@
         echo $user->Name;
         ?>"><?php
         Element( 'user/avatar', $user->Avatarid, $user->Id, 50, 50,$user->Name, IMAGE_CROPPED_100x100 );
-        //Element( 'image/view', $user->Avatarid, $user->Id, 50, 50, IMAGE_CROPPED_100x100, '', $user->Name, '', true, 50, 50, 0 );
+        /*Element( 'image/view', $user->Avatarid, $user->Id, 50, 50, IMAGE_CROPPED_100x100, '', $user->Name, '', true, 50, 50, 0 );*/
         ?></a><?php
         echo w_json_encode( ob_get_clean() );
         ?> );<?php
