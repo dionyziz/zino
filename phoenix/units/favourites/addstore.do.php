@@ -3,6 +3,8 @@
         global $libs;
         global $user;
         
+        die( "shit?" );  
+
         if ( !$user->Exists() ) {
             return;
         }
@@ -15,8 +17,7 @@
         $favourite->Itemid = $itemid->Get();
         $favourite->Typeid = TYPE_STOREITEM;
         $favourite->Save();
-
-        die( "shit?" );        
+   
 
         echo $f;
         ?>( <?php
