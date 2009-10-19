@@ -58,8 +58,8 @@
                         <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who">
                             <a href="http://www.zino.gr/store.php?p=product&amp;name=hoodie">
                                 <span class="vavie50">
-                                    <img class="avatar" src="http://static.zino.gr/phoenix/store/zinostore.jpg" alt="ZinoSTORE" style="width:50px;height:50px"></img>Τώρα διαθέσιμο στο ZinoSTORE
-                                </span>
+                                    <img class="avatar" src="http://static.zino.gr/phoenix/store/zinostore.jpg" alt="ZinoSTORE" style="width:50px;height:50px" /></span>Τώρα διαθέσιμο στο ZinoSTORE
+                                
                             </a>:
                         </div>
                         <div class="subject">
