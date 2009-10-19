@@ -138,7 +138,7 @@
                             echo $love->User->Name;
                             ?>">
                             <?php
-                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 75, 75,$love->User->Name, IMAGE_CROPPED_100x100 );
+                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 50, 50,$love->User->Name, IMAGE_CROPPED_100x100 );
                         ?></a></li><?php
                     }
                 ?></ul>
