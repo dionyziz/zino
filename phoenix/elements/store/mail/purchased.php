@@ -17,7 +17,6 @@
 Τιμή: <?php
 	echo $purchase->Item->Price;
 ?>€
-Μεταφορικά/έξοδα αντικαταβολής: Καλύπτονται από το Zino
 Παράδοση: <?php
             switch ( $user->Profile->Placeid ) {
                 case 1:
