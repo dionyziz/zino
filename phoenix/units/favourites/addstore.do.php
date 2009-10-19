@@ -2,8 +2,6 @@
     function UnitFavouritesAddStore( tInteger $itemid, tCoalaPointer $f ) {
         global $libs;
         global $user;
-        
-        die( "shit?" );  
 
         if ( !$user->Exists() ) {
             return;
