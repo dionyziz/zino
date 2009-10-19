@@ -56,7 +56,9 @@
                 }
                     ?><div class="event">
                         <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who">
-                            <img class="avatar" src="http://static.zino.gr/phoenix/store/zinostore.jpg" alt="ZinoSTORE" />
+                            <span class="vavie50">
+                                <img class="avatar" src="http://static.zino.gr/phoenix/store/zinostore.jpg" alt="ZinoSTORE" />
+                            </span>
                             Τώρα διαθέσιμο στο <a href="http://www.zino.gr/store.php?p=product&amp;name=hoodie">ZinoSTORE</a>:
                         </div>
                         <div class="subject">
