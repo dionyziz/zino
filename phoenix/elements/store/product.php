@@ -18,10 +18,10 @@
             
             $storefinder = New StoreItemFinder();
             
-            if ( $name !== false ) {
+            if ( $name !== "" ) {
                 $item = $storefinder->FindByName( $name );
             }
-            if ( $id !== false ) {
+            if ( $id !== 0 ) {
                 $item = $storefinder->FindById( $id );
             }
             if ( $item === false ) {
