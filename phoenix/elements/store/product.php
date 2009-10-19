@@ -272,11 +272,17 @@
                         if ( $properties[ "Size" ] == true ) { //add property code manually
                                 ?><label for="size">Μέγεθος</label>        
                                   <select name="size"><?php
-                                foreach ( $prop_val[ "Size" ] as $value ) {
+                                /*foreach ( $prop_val[ "Size" ] as $value ) {
                                         ?><option><?php
                                         echo $value;
                                         ?></option><?php
-                                }
+                                }*/
+                                ?><option value="-1">XS</option>
+                                  <option value="0">S</option>
+                                  <option value="1" selected="selected">M</option>
+                                  <option value="2">L</option>
+                                  <option value="3">XL</option>                    
+                                  <option value="4">XXL</option><?php
                                 ?></select><?php
                         } 
                     ?>
