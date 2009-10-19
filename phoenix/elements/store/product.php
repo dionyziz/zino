@@ -21,7 +21,7 @@
             if ( $name !== false ) {
                 $item = $storefinder->FindByName( $name );
             }
-            if ( $id !== false ) {
+            else if ( $id !== false ) {
                 $item = $storefinder->FindById( $id );
             }
             if ( $item === false ) {
