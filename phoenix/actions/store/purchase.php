@@ -69,7 +69,7 @@
             $desired[ "glossy" ] = 'no';
         }
 
-        if ( $size == "M" || $size == "L" || $size == "S" ) {
+        if ( $size == "M" || $size == "L" || $size == "S" || $size == "XL" || $size == "XS" || $size == "XXL" ) {
                 $desired[ "Size" ] = $size;
         }
         else {
