@@ -78,7 +78,7 @@
                 </div>
                 <span>
                     <a href="http://www.zino.gr/"><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" /></a>
-                    <a href="http://www.zino.gr/store.php?p=product&name=<?php echo $item->Name; ?>"><img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" /></a>
+                    <a href="http://www.zino.gr/store.php?p=product&amp;name=<?php echo $item->Name; ?>"><img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" /></a>
                 </span>
             </h1>
             <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
