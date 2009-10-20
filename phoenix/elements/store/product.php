@@ -78,7 +78,7 @@
                 </div>
                 <span>
                     <a href="http://www.zino.gr/"><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" /></a>
-                    <a href="http://store.zino.gr/"><img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" /></a>
+                    <a href="http://www.zino.gr/store.php?p=product&name=<?php echo $item->Name; ?>"><img src="http://static.zino.gr/phoenix/store/store.png" alt="STORE" /></a>
                 </span>
             </h1>
             <a class="back" href="http://www.zino.gr/">πίσω στο zino</a>
@@ -140,7 +140,7 @@
                             echo $love->User->Name;
                             ?>">
                             <?php
-                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 50, 50,$love->User->Name, IMAGE_CROPPED_100x100 );
+                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 50, 50,$love->User->Name, IMAGE_CROPPED_100x100, '', true, 50, 50 );
                         ?></a></li><?php
                     }
                 ?></ul>
@@ -153,7 +153,7 @@
                             echo $purchase->User->Name;
                             ?>">
                             <?php
-                            Element( 'user/avatar', $purchase->User->Avatarid, $purchase->Userid, 50, 50,$purchase->User->Name, IMAGE_CROPPED_100x100 );
+                            Element( 'user/avatar', $purchase->User->Avatarid, $purchase->Userid, 50, 50,$purchase->User->Name, IMAGE_CROPPED_100x100, '', true, 50, 50);
                         ?></a></li><?php
                     }
                 ?></ul>
