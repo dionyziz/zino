@@ -25,7 +25,7 @@
         ?>.zino.gr/" title="<?php
         echo $user->Name;
         ?>"><?php
-        Element( 'user/avatar', $user->Avatarid, $user->Id, 50, 50,$user->Name, IMAGE_CROPPED_100x100, '', true, 50, 50 );
+        Element( 'user/avatar', $user->Avatarid, $user->Id, 50, 50,$user->Name, IMAGE_CROPPED_100x100, '', '', true, 50, 50 );
         /*Element( 'image/view', $user->Avatarid, $user->Id, 50, 50, IMAGE_CROPPED_100x100, '', $user->Name, '', true, 50, 50, 0 );*/
         ?></a><?php
         echo w_json_encode( ob_get_clean() );
