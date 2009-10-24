@@ -1,7 +1,7 @@
-span.imageview {
+.imageview {
     position: relative;
 }
-span.imageview > span {
+.imageview > span {
     background: #d8d8d8;
     font-weight: bold;
     opacity: 0.8;
@@ -13,8 +13,9 @@ span.imageview > span {
     border-left: 1px solid #ccccee;
     color: #000;
 }
-span.imageview span > span {
+.imageview span .s1_0027 {
 	vertical-align: -1px;
+    margin: 0 -1px 0 0;
 }
 .vavie50 {
     float: left;
@@ -29,17 +30,12 @@ div.who span.vavie50 img.avatar {
 div.newcomment .vavie50:after {
     content: url( 'http://static.zino.gr/phoenix/shadownewcomment.png' );
 }
-.vavie75 {
+.rn {
     position: relative;
-    width: 80px;
-    height: 80px;
     float: left;
-    padding: 0 2px 0 0;
     display: block;
 }
-.vavie75 img {
-    width: 70px;
-    height: 70px;
+.rn img {
     position: absolute;
     top: 5px;
     left: 6px;
@@ -47,53 +43,48 @@ div.newcomment .vavie50:after {
 .vavie75 .s1_rndavie75 {
     width: 80px;
     height: 80px;
+}
+.rn span {
     position: absolute;
     top: 0;
     left: 1px;
     display: block;
 }
+.vavie75 {
+    width: 80px;
+    height: 80px;
+    padding: 0 2px 0 0;
+}
+.vavie75 img {
+    width: 70px;
+    height: 70px;
+}
+.vavie75 .s1_rndavie75 {
+    width: 80px;
+    height: 80px;
+}
 
 .vavie100 {
-    position: relative;
     width: 110px;
     height: 110px;
-    float: left;
-    display: block;
 }
 .vavie100 img {
     width: 100px;
     height: 100px;
-    position: absolute;
-    top: 5px;
-    left: 6px;
 }
 .vavie100 .s1_rndavie100 {
     width: 110px;
     height: 110px;
-    position: absolute;
-    top: 0;
-    left: 1px;
-    display: block;
 }
 .vavie150 {
-    position: relative;
     width: 160px;
     height: 160px;
-    float: left;
-    display: block;
 }
 .vavie150 img {
     width: 150px;
     height: 150px;
-    position: absolute;
-    top: 5px;
-    left: 6px;
 }
 .vavie150 .s1_rndavie150 {
     width: 160px;
     height: 160px;
-    position: absolute;
-    top: 0;
-    left: 1px;
-    display: block;
 }

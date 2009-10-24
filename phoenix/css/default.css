@@ -14,6 +14,28 @@ ul , li {
 	margin: 0;
 	padding: 0;
 }
+ul.lst { 
+	overflow: hidden; 
+	position: relative;
+	margin: 2px 0;
+}
+ul.lst > li {
+	float: left;
+}
+ul.ul1 {
+	height: 110px;
+}
+ul.ul1 > li {
+	height: 105px;
+	margin: 2px 8px 20px 0; 
+}
+ul.ul2 > li {
+	height: 100px;
+	margin: 0 8px 8px 0; 
+}
+ul.border > li img {
+	border: 1px solid #ccccee;
+}
 dl, dd {
 	padding: 0;
 	margin: 0;
@@ -24,19 +46,18 @@ div.eof {
 .invisible {
 	display: none;
 }
-div.barfade {
-	background: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' ) repeat-x;
-	height: 1px;
+.barfade {
+	background: #ccc;
+   	height: 1px;
+    margin: 10px 0;
 }
-div.barfade div.leftbar {
+.barfade .leftbar {
 	float: left;
-	background: url('http://static.zino.gr/phoenix/icons2.png') no-repeat -739px -1556px;
 	height: 1px;
 	width: 153px;
 }
-div.barfade div.rightbar {
+.barfade .rightbar {
 	float: right;
-	background: url('http://static.zino.gr/phoenix/icons2.png') no-repeat 0 -182px;
 	height: 1px;
 	width: 153px;
 }
@@ -62,18 +83,16 @@ h3.modaltitle {
 }
 #strip1left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content1.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
 #strip1right {
     float: right;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content2.png' ) no-repeat;
     width: 20px;
     height: 8px;
 }
 #strip2 {
-    background: #639dce url( 'http://static.zino.gr/phoenix/siderfade.png' ) repeat-x;
+    background-color: #639dce;
     /* siderfade */
     clear: both;
 }
@@ -87,18 +106,14 @@ h3.modaltitle {
 }
 #strip3left {
     float: left;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content3.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
 #strip3middle {
     height: 17px;
-    /* content_fade */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -814px;
 }
 #strip3right {
     float: right;
-    background: url( 'http://static.zino.gr/phoenix/rounded_content4.png' ) no-repeat;
     width: 20px;
     height: 17px;
 }
@@ -106,10 +121,13 @@ h3.modaltitle {
     text-align: center;
     color: #fff;
     height: 87px;
-    background: url( 'http://static.zino.gr/phoenix/footerfade.png' ) repeat-x;
-    /* footerfade */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -400px;
 }
 div.objectinfo {
     margin: 0 0 0 0px;
+}
+.small {
+    font-size: 80%;
+}
+.small1 {
+    font-size: 9pt;
 }

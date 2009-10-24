@@ -1,19 +1,21 @@
-div#lbanner {
-    background: url( 'http://static.zino.gr/phoenix/lbanner.png' ) no-repeat;
+#lbanner {
     height: 65px;
     width: 110px;
     float: left;
 }
-div#lbanner > h1 {
+#lbanner > h1 {
     padding: 9px 0 0 20px;
     margin: 0;
 }
-div#mbanner {
-    /* mbanner */
-    background: url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -743px;
+#lbanner > h1 > .s1_0055 {
+    display: block;
+    height: 55px;
+    width: 95px;
+}
+#mbanner {
     height: 65px;
 }
-div#mbanner > div {
+#mbanner > div {
     padding-top: 3px;
     color: #fff;
     font-size: 8pt;
@@ -21,37 +23,36 @@ div#mbanner > div {
     top: 21px;
     right: 29px;
 }
-div#mbanner > div#loggedinmenu {
+#mbanner > #loggedinmenu {
     top: 3px;
 }
-div#loggedinmenu  {
+#loggedinmenu  {
 	margin-top: -6px;
 }
-div#loggedinmenu > form {
+#loggedinmenu > form {
     display: inline;
 }
-
-div#loggedinmenu > span > img {
+#loggedinmenu > span > img {
     margin: 0 17px 4px 0;
 }
-div#loggedinmenu > span {
+#loggedinmenu > span {
 	right: 14px;
 	top: 4px;
 }
-div#loggedinmenu > span:after {
+#loggedinmenu > span:after {
     content: url( 'http://static.zino.gr/phoenix/shadowblue.png' );
     margin-left: -74px;
 }
-div#mbanner > div > ul {
+#mbanner > div > ul {
     display: inline;
 }
-div#mbanner > div > ul > li {
+#mbanner > div > ul > li {
     display: inline;
 }
-div#mbanner > div > ul > li > form {
+#mbanner > div > ul > li > form {
     display: inline;
 }
-div#mbanner > div > ul > li > a.unread {
+#mbanner > div > ul > li > a.unread {
     color: #ff0044;
     font-weight: 700;
 }
@@ -60,8 +61,8 @@ img.banneravatar {
     height: 50px;
     border: 1px solid #b4b4b4;
 }
-div#mbanner > div > form input {
-    background: #fff  url( 'http://static.zino.gr/phoenix/inputbg.png' ) no-repeat;
+#mbanner > div > form input {
+    background-color: transparent;
     border: 0;
     width: 104px;
     height: 18px;
@@ -71,24 +72,22 @@ div#mbanner > div > form input {
     padding: 3px 0 0 0;
     margin: 1px 0 0 0;
 }
-div#mbanner > div > form input#loginbutton {
+#mbanner > div > form input#loginbutton {
     width: 68px;
     height: 23px;
     border: 0;
-    background: url( 'http://static.zino.gr/phoenix/login.png' ) no-repeat;
     color: #fff;
     padding: 0 0 4px 0;
     margin: 0 12px 0 0;
     cursor: pointer;
 }
-div#mbanner > div > a.bannerinlink {
+#mbanner > div > a.bannerinlink {
     font-size: 10pt;
     color: #fff;
     margin: 0 7px;
     vertical-align: 21px;
 }
-div#rbanner {
-    background: url( 'http://static.zino.gr/phoenix/rbanner.png' ) no-repeat;
+#rbanner {
     width: 101px;
     height: 65px;
     float: right;

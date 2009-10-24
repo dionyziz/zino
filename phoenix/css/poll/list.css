@@ -1,78 +1,71 @@
-div#polist div.ads {
+#polist .ads {
     position: absolute;
     right: 23px;
     top: 138px;
 }
-div#polist ul li h3 {
+#polist ul li h3 {
 	margin: 0;
 	padding: 0;
 }
-div#polist > ul {
+#polist > ul {
 	margin: 0 0 0 170px;
 }
-div#polist ul li {
+#polist ul li {
 	padding: 10px 0;
 }
-div#polist ul li div.results {
+#polist ul li .results {
 	width: 100%;
 	padding-top: 10px;
 }
-div#polist ul li div.results dl.pollinfo {
+#polist ul li .results dl.pollinfo {
 	text-align: left;
 }
-div#polist ul li div.results dl.pollinfo dd {
+#polist ul li .results dl.pollinfo dd {
 	display: inline;
 	font-size: 80%;
 }
-div#polist ul li div.results ul li {
+#polist ul li .results ul li {
 	padding: 5px 0 1px 0;
     clear: both;
 }
-div.creationmockup {
+.creationmockup {
 	border: 1px solid #ccc;
 	border-style: dotted;
 	padding: 15px;
 	width: 450px;
 	display: none;
 }
-div.creationmockup div input {
+.creationmockup div input {
 	width: 300px;
 	padding: 2px;
 }
-div.creationmockup div a.createpoll {
+.creationmockup div a.createpoll {
 	margin-left: 3px;
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -1504px;
-	padding-left: 12px;
 }
-div.creationmockup div.tip , div#polllist div.tip2 {
+.creationmockup .tip , #polllist .tip2 {
 	font-size: 90%;
 	margin-top: 5px;
 }
-div.creationmockup div.tip span , div#polist div.tip2 span {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -710px;
-	padding: 0 5px 0 12px;
-}
-div#polist div.tip2 {
+#polist .tip2 {
 	display: none;
-	margin-bottom: 25px;
+    margin: 5px 0 25px 0;
 }
-div.creationmockup div.newoption {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -203px -379px; 	
+.creationmockup .newoption {
 	padding-left: 10px;
 	margin: 2px 0;
 	overflow: hidden;
 }
-div#polist div.creatingpoll {
+#polist .creatingpoll {
 	display: none;
 }
-div#polist ul li.create a {
+#polist ul li.create a {
 	font-weight: bold;
 }
-div#polist ul li.create a img {
+#polist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
 }
-div#polist div.pagifypolls {
+#polist .pagifypolls {
 	text-align: center;
 	margin-top: 20px;
 }

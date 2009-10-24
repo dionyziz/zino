@@ -1,7 +1,7 @@
-div.thephoto div {
+.thephoto div {
     display: none;
 }
-div.thephoto div.frienders {
+.thephoto .frienders {
     position: absolute;
     left: 170px;
     top: 0px;
@@ -13,22 +13,22 @@ div.thephoto div.frienders {
     opacity: 0.95;
     z-index: 10;
 }
-div.thephoto div.frienders div.closer {
+.thephoto .frienders div.closer {
     text-align: center;
     margin-bottom: 15px;
 }
-div.thephoto div.frienders div {
+.thephoto .frienders div {
     display: block;
     margin-top: 10px;
 }
-div.thephoto div.frienders form {
+.thephoto .frienders form {
     margin-top: 5px;
 }
-div.thephoto div.frienders form input {
+.thephoto .frienders form input {
     width: 130px;
     color: #777777;
 }
-div.thephoto div.tagme {
+.thephoto .tagme {
     width: 170px;
     height: 170px;
     /* If you change border width, change js/album/photo/tag.js */
@@ -37,7 +37,7 @@ div.thephoto div.tagme {
     left: 0px;
     top: 0px;
 }
-div.thephoto div.tagme div.resizer {
+.thephoto .tagme .resizer {
 	background-image: url( 'http://static.zino.gr/images/resize.png' );
 	display: inline;
 	width: 10px;
@@ -60,47 +60,43 @@ div.thephoto div.tagme div.resizer {
 	right: 0px;
 	bottom: 0px
 }*/
-div.thephoto div.tagme div:hover {
+.thephoto .tagme div:hover {
 	cursor: nw-resize;
 }
-div.thephoto div.frienders ul {
+.thephoto .frienders ul {
     list-style-type: none;
     margin-right: 20px;
     text-align: left;
     overflow: auto;
     max-height: 270px;
 }
-div.thephoto div.frienders ul li div {
+.thephoto .frienders ul li div {
     display: inline;
     color: #105CB6;
 }
-div.thephoto div.frienders ul li div:hover {
+.thephoto .frienders ul li div:hover {
     text-decoration: underline;
 }
-div.thephoto div.frienders ul li div span {
+.thephoto .frienders ul li div span {
     font-weight: bold;
 }
-div.image_tags {
+.image_tags {
     margin-top: 10px;
     text-align: center;
 }
-div.image_tags:first-letter {
+.image_tags:first-letter {
     text-transform: capitalize;
 }
-div.image_tags div {
+.image_tags div {
     display: inline;
 }
-div.image_tags div a.tag_del {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
-    width: 15px;
-    height: 20px;
-    padding-left: 15px;
-    margin-left: 5px;
+.image_tags div a.tag_del {
+    margin-left: 2px;
 }
-div.thephoto div.tanga {
+.thephoto .tanga {
     display: block;
 }
-div.thephoto div.tanga div.tag {
+.thephoto .tanga div.tag {
     position: absolute;
     display: block;
     border: 0 solid #FFFFBB;
@@ -109,7 +105,7 @@ div.thephoto div.tanga div.tag {
     text-align: center;
     cursor: pointer;
 }
-div.thephoto div.tanga div.tag div {
+.thephoto .tanga .tag div {
     position: absolute;
     background-color: #FFFFBB;
     color: #3366FF;

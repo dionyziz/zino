@@ -1,20 +1,20 @@
-div.join {
+.join {
 	padding-top: 20px 0 40px 0;
 	text-align: center;
 }
-div.join h2 {
+.join h2 {
 	margin: 0;
 	padding-bottom: 5px;
 }
-div.join div.bubble {
+.join .bubble {
 	margin: auto;
 	width: 650px;
 	text-align: left;
 }
-div.join div.bubble form.joinform div {
+.join .bubble form.joinform div {
 	padding: 5px 0 20px 0; 
 }
-div.join div.bubble form.joinform div a.button {
+.join .bubble form.joinform div a.button {
 	font-size: 120%;
 	padding: 5px 10px;
 	font-weight: bold;
@@ -23,61 +23,57 @@ div.join div.bubble form.joinform div a.button {
 	margin: 20px auto 0 auto;
 	text-align: center;
 }
-div.join div.bubble form.joinform div label {
+.join .bubble form.joinform div label {
 	display: block;
 	padding: 0 0 3px 0;
 }
-div.join div.bubble form.joinform div input {
+.join .bubble form.joinform div input {
 	display: inline;
 }
-div.join div.bubble form.joinform div > span 	{
+.join .bubble form.joinform div > span 	{
 	vertical-align: bottom;
 	display: none;
-	padding: 5px 0 0 0;
 }
-div.join div.bubble form.joinform div span span {
+.join .bubble form.joinform div span span {
 	font-size: 80%;
 	font-weight: bold;
 	vertical-align: 3px;
-	padding: 5px 0 0 0;
 }
-div.join div.bubble form.joinform div div > span {
+.join .bubble form.joinform div div > span {
 	vertical-align: bottom;
 	display: none;
 }
-div.join div.bubble form.joinform div div > span img.okpwd {
+.join .bubble form.joinform div div > span img.okpwd {
 	padding-left: 5px;
 }
-div.join div.bubble form.joinform div div span span {
+.join .bubble form.joinform div div span span {
 	font-size: 80%;
 	font-weight: bold;
 	vertical-align: 3px;
-	padding: 5px 0 0 0;
 }
-div.join div.bubble form.joinform div p {
+.join .bubble form.joinform div p {
 	padding: 3px 0 0 0;
 	margin: 0;
 	font-size: 80%;
 }
-div.join div.bubble form.joinform div div {
+.join .bubble form.joinform div div {
 	height: 20px;
 }
-
-div.join div.bubble form.joinform div div img {
+.join .bubble form.joinform div div img {
 	padding: 1px;
 }
-div.join div.bubble p {
+.join .bubble p {
 	padding: 3px 0 0 0;
 	margin: 0;
 	font-size: 80%;
 }
-div#join_tos {
+#join_tos {
 	width: 620px;
 	height: 520px;
 	display: none;
 	text-align: center;
 }
-div#join_tos div {
+#join_tos div {
 	text-align: left;
 	overflow: hidden;
 	width: 600px;
@@ -85,20 +81,20 @@ div#join_tos div {
 	overflow: auto;
 	margin: 10px auto 20px auto;
 }
-div#join_tos div h3 {
+#join_tos div h3 {
 	margin: 0;
 	padding: 0;
 	color: black;
 }
-div#join_tos div p {
+#join_tos div p {
 	margin: 0;
 	padding: 3px 0 15px 0;
 }
-div#join_tos div p ol {
+#join_tos div p ol {
 	margin: 0;
 	padding: 0;
 }
-div#join_tos div p ol li {
+#join_tos div p ol li {
 	margin: 0;
 	padding: 0;
 }

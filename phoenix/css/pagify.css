@@ -1,19 +1,35 @@
-div.pagify a.next {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -1907px;
-	padding: 0 0 0 16px;
+.pagify {
+    height: 25px;
 }
-div.pagify a.previous {
-	background: url( 'http://static.zino.gr/phoenix/icons2.png' ) no-repeat -739px -116px;
-	padding: 0 0 0 16px;
+.pagify .previous {
+    margin: 0 5px 0 0;
 }
-div.pagify a.nextbacklinks, div.pagify strong {
-	padding: 0 4px;
+.pagify .next {
+    margin: 0 4px 0 0;
 }
-div.pagify div.pagifycount {
+.pagify a.nextbacklinks {  
+	padding: 3px 4px;
+    border: 1px solid #9aafe5;
+    color: #105cb6;
+    font-size: 85%;
+}
+.pagify a.nextbacklinks:hover {
+    border: 1px solid #2e6ab1;
+    color: #000033;
+}
+.pagify .current {
+    padding: 3px 4px;
+    background: #2e6ab1;
+    font-weight: 700;
+    font-size: 85%;
+    border: 1px solid #2e6ab1;
+    color: #fff;
+}
+.pagify .pagifycount {
     color: #aaa;
     font-size: small;
 }
-div.pagify {
+.pagify {
 	font-size: 11pt;
 	text-align: center;
 }

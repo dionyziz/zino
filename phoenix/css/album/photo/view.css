@@ -1,101 +1,99 @@
-div#pview h2 {
+#pview .ads {
+	display: none;
+}
+#pview h2 {
 	margin: 0 2px 0 0;
 	padding: 0;
 	display: inline;
 }
-div#pview  div.ads {    
+/*#pview .ads {    
     position: absolute;
     right: 23px;
     top: 138px;
     z-index: 2;
 }
-div#pview div.ads h3 {
+*/
+#pview div.ads h3 {
     display: none;
 }
-div#pview dl {
+#pview dl {
 	margin: 2px 0 0 0;
 }
-div#pview dl dd.commentsnum {
+#pview dl dd.commentsnum {
 	margin: 0 5px 0 0;
 	display: inline;
-	font-size: 85%;
 }
-div#pview dl dd.time {
+#pview dl dd.time {
 	display: inline;
-	font-size: 85%;
 }
-div#pview dl dd.time span {
-	padding: 2px 0 2px 17px;
-}
-div#pview ul.edit {
+#pview ul.edit {
 	margin: 25px 0 0 0;
 }
-div#pview ul.edit li {
+#pview ul.edit li {
 	display: inline;
 	margin: 0 0 0 2px;
 }
-div#pview ul.edit li:first {
+#pview ul.edit li:first {
 	margin: 0;
 }
 /* all this trouble to make it resizable :-) */
-div#pview div.pthumbs {
+#pview .pthumbs {
     height: 110px;
 	margin: 50px 0 20px 0;
     text-align: center;
     width: 96%;
 }
-div#pview div.pthumbs div.arrow {
+#pview .pthumbs div.arrow {
     height: 150px;
     line-height: 150px;
     width: 50px;
 }
-div#pview div.pthumbs div.arrow a img {
+#pview .pthumbs div.arrow a img {
 	border: none;
 	margin-bottom: 30px;
     vertical-align: middle;
 }
-div#pview div.pthumbs div.arrow a {
+#pview .pthumbs div.arrow a {
     vertical-align: middle;
 }
-div#pview div.pthumbs div.left {
+#pview .pthumbs div.left {
     float: left;
 }
-div#pview div.pthumbs div.right {
+#pview .pthumbs div.right {
     float: right;
 }
-div#pview div.pthumbs ul {
+#pview .pthumbs ul {
 	height: 110px;
 	text-align: center;
 }
-div#pview div.pthumbs ul li {
+#pview .pthumbs ul li {
     margin: 25px 2px 0 2px;
 	display: inline;
 }
-div#pview div.pthumbs ul li.selected img {
+#pview .pthumbs ul li.selected img {
 	border: 4px solid #82a4b6;
 	padding: 1px;
 }
-div#pview div.pthumbs ul li a img {
+#pview .pthumbs ul li a img {
 	border: 1px solid #ccc;
 	padding: 1px;	
 }
-div#pview div.thephoto {
+#pview .thephoto {
 	text-align:center;
 	padding-top: 0;
 	position: relative;
 	margin: auto;
 }
-div#pview div.banner {
+#pview .banner {
 	margin: 20px auto;
 }
-div#pview div.comments {
+#pview .comments {
 	margin: 20px 0 0 0;
 }
-div#pview div.comments div.pagifycomments {
+#pview .comments .pagifycomments {
 	text-align: center;
 }
 .s_buy {
     background-image: url( 'http://static.zino.gr/phoenix/store/basket.png' );
     background-repeat: no-repeat;
 }
-

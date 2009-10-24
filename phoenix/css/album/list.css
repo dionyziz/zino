@@ -1,23 +1,23 @@
-ul.albums {
+.albums {
     margin: 0 220px 0 200px;
 }
-ul.albums div.ads {
+.albums .ads {
     position: absolute;
     right: 23px;
     top: 138px;
 }
-ul.albums li {
+.albums li {
     float: left;
     width: 180px;
     padding: 10px;
     margin: 0 15px;
 	height: 220px;
 }
-ul.albums li a {
+.albums li a {
     font-weight: bold;
 }
 /*ul.albums li a span {*/
-span.desc {
+.desc {
     display: block;
     width: 176px;
     text-align: center;
@@ -25,38 +25,29 @@ span.desc {
 }
 /*
 ul.albums li a div {*/
-span.albummain {
-    background: url( 'images/album.png' ) no-repeat top left;
-    width: 185px;
-    height: 185px;
-    line-height: 175px;
-    display: block;
-    text-align: center;
-    vertical-align: middle;
-}
-span.albummain a img {
+.albummain a img {
     margin: 0 10px 4px 0;
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
-ul.albums li.create {
+.albums li.create {
 	padding: 85px 0 0 0;
 	text-align: center;
 	height: 160px;
 	margin-bottom: 0;
 }
-ul.albums li.create a {
+.albums li.create a {
 	font-weight: bold;
 }
-ul.albums li.create a img {
+.albums li.create a img {
 	vertical-align: -10px;
 	margin: 0 5px 0 0;
 }
-ul.albums li a:hover span img {
+.albums li a:hover span img {
     border: 2px solid white;
     cursor: pointer;
 }
-ul.albums li dl {
+.albums li dl {
     display: block;
     margin: auto;
     width: 100px;
@@ -65,30 +56,30 @@ ul.albums li dl {
     overflow: visible;
     text-align: center;
 }
-ul.albums li dl dt {
+.albums li dl dt {
     display: inline;
     margin: 0;
     padding: 0;
     padding-left: 5px;
 }
-ul.albums li dl dd {
+.albums li dl dd {
     display: inline;
     margin: 0;
     padding: 0;
     padding-right: 5px;
     font-size: 80%;
 }
-div.creationmakeup , div.creating {
+.creationmakeup , .creating {
 	display: none;
 }
-div.createalbum span.desc {
+.createalbum span.desc {
 	display: block;
 }
-div.pagifyalbums {
+.pagifyalbums {
 	text-align: center;
 	padding-bottom: 20px;
 }
-div.managerlink {
+.managerlink {
     text-align: center;
     font-weight: bold;
     padding: 2em;
