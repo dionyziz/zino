@@ -67,9 +67,7 @@
                 }
                 if ( $theuser->Id == $user->Id ) {
                     ?><li class="create">
-                        <a href="" class="new"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add3.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία album</a>
+                        <a href="" class="new"><span class="s1_0048">Δημιουργία album</span></a>
                     </li><?php
                 }
             ?></ul><?php
@@ -93,14 +91,13 @@
             $total_pages = ceil( $total_albums / $limit );
             $text = "( " . $total_albums . " Album";
             if ( $total_albums > 1 ) {
-				$text .= "s";
+            $text .= "s";
             }
             $text .= " )";
             Element( 'pagify', $pageno, $link, $total_pages, $text );
             ?></div>
-            <?php
-			if ( $user->Id == $theuser->Id ) {
-                ?><div class="managerlink"><a href="?p=photomanager">Διαχείριση Φωτογραφιών</a></div><?php
+            <?php if ( $user->Id == $theuser->Id ) {
+                ?><div class="managerlink"><a href="?p=photomanager"  >Διαχείριση Φωτογραφιών</a></div><?php
             }
             $page->AttachInlineScript( 'AlbumList.OnLoad();' );
         }

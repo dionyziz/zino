@@ -22,7 +22,7 @@
                     <li>
                         <dl><?php
                         if ( $journal->Numcomments > 0 ) {
-                            ?><dt class="commentsnum"><a href="<?php
+                            ?><dt class="small"><a href="<?php
                             ob_start();
                             Element( 'url', $journal );
                             echo htmlspecialchars( ob_get_clean() );

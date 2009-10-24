@@ -6,13 +6,13 @@
             global $xc_settings;
 
             ?><div class="friends"><?php
-                ?><h3>Οι φίλοι μου<?php
+                ?><h2 class="pheading">Οι φίλοι μου<?php
                 if ( $friendsnum > 5 ) {
-                    ?> <span>(<a href="<?php
+                    ?> <span class="small1">(<a href="<?php
                     echo str_replace( '*', urlencode( $subdomain  ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
                     ?>">προβολή όλων</a>)</span><?php
                 }
-                ?></h3><?php
+                ?></h2><?php
                 if ( $usernorel ) {
                     ?>Δεν έχεις προσθέσει κανέναν φίλο. Μπορείς να προσθέσεις φίλους από το προφίλ τους.<?php
                 }

@@ -1,4 +1,9 @@
 <?php
+/*
+	Masked by: Rhapsody
+	Reason: replacing &nbsp; with &#160;
+	STOP! was masked
+*/
     class ElementUserAvatar extends Element {
 
         public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
@@ -12,7 +17,11 @@
             else {
                 $aviesize = $size;
             }
-            ?><span class="vavie<?php
+            ?><span class="<?php
+                if ( $csswidth != 50 ) {
+                    ?>rn <?php
+                }
+                ?>vavie<?php
                 echo $aviesize;
             ?>">
                 <img src="<?php
@@ -71,7 +80,7 @@
                 echo $theusername;
                 ?>"></img><?php
                 if ( $csswidth != 50 ) {
-                    ?><span class="rndavie<?php
+                    ?><span class="s1_rndavie<?php
                         echo $aviesize;
                     ?>" title="<?php
                     echo $theusername;

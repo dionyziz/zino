@@ -48,12 +48,12 @@
             }
             ?><div id="poview"><?php
             $page->SetTitle( $poll->Question );
-                ?><div class="objectinfo"><h2><?php
+                ?><div class="objectinfo"><h2 class="subheading"><?php
                     echo htmlspecialchars( $poll->Question );
                 ?></h2>
                 <dl><?php
                     if ( $poll->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
                         echo $poll->Numcomments;
                         ?> σχόλι<?php
                         if ( $poll->Numcomments == 1 ) {
@@ -64,7 +64,7 @@
                         }
                         ?></dd><?php
                     }
-                    ?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+                    ?><dd class="time small"><span class="s1_0035">&nbsp;</span><?php
                     Element( 'date/diff', $poll->Created );
                     ?></dd><?php
                 ?></dl><?php
@@ -74,7 +74,7 @@
                             ?><li>
                                 <a href="" onclick="return PollView.Delete( '<?php
                                 echo $poll->Id;
-                                ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+                                ?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a>
                             </li><?php
                         }
                     ?></ul><?php

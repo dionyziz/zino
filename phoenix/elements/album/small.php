@@ -19,7 +19,7 @@
                     <a href="?p=album&amp;id=<?php
                     echo $album->Id;
                     ?>">
-                        <span class="albummain"><?php
+                        <span class="s1_0059 albummain"><?php
                             if ( $album->Mainimage->Exists() ) {    
                                 Element( 'image/view', $album->Mainimageid , $album->Mainimage->Userid , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $albumname , '' , false , 0 , 0 , 0 ); // TODO: Optimize
                             }
@@ -39,12 +39,12 @@
                     </a>
                     <dl><?php
                         if ( $photonum > 0 ) {
-                            ?><dd><span class="s_photonum">&nbsp;</span><?php
+                            ?><dd><span class="s1_0006">&nbsp;</span><?php
                             echo $photonum;
                             ?></dd><?php
                         }
                         if ( $commentsnum > 0 ) {
-                            ?><dd><span class="s_commnum">&nbsp;</span><?php
+                            ?><dd><span class="s1_0027">&nbsp;</span><?php
                             echo $commentsnum;
                             ?></dd><?php
                         }
@@ -54,7 +54,7 @@
             else {
                 ?><div class="album createalbum">
                     <a href="">
-                        <span class="albummain"><img src="<?php
+                        <span class="s1_0059 albummain"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>anonymous100.jpg" alt="Νέο album" title="Νέο album" /></span>
                     </a>

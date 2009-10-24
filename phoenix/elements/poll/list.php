@@ -56,7 +56,7 @@
                 <ul><?php
                     if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                         ?><li class="create">
-                            <a href=""><span class="s_bigadd">&nbsp;</span>Δημιουργία δημοσκόπησης</a>
+                            <a href=""><span class="s1_0048">&nbsp;</span>Δημιουργία δημοσκόπησης</a>
                         </li><?php
                     }
                     if ( !empty( $polls ) ) {
@@ -75,14 +75,14 @@
                 if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                     ?><div class="creationmockup">
                         <div>
-                            <input type="text" /><a href="" title="Δημιουργία" class="createpoll">&nbsp;</a>
+                            <input type="text" /><a href="" title="Δημιουργία" class="s1_0065 createpoll">&nbsp;</a>
                         </div>
                         <div class="tip">
-                            <span>&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου
+                            <span class="s1_0033">&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου
                         </div>
                     </div>
                     <div class="tip2">
-						<span>&nbsp;</span>Γράψε μια επιλογή για τη δημοσκόπησή σου
+						<span class="s1_0033">&nbsp;</span>Γράψε μια επιλογή για τη δημοσκόπησή σου
                     </div>
                     <div class="creatingpoll">
                         <img src="<?php

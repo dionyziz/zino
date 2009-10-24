@@ -65,20 +65,20 @@
                
                 <div id="midstrip">
                     <div id="strip1">
-                        <div id="strip1left">
+                        <div id="strip1left" class="s1_0013">
                         </div>
-                        <div id="strip1right">
+                        <div id="strip1right" class="s1_0014">
                         </div>
                     </div>
-                    <div id="strip2">
+                    <div id="strip2" class="sx_0010">
                         <div id="content"><?php
                             Element( '404' );
                         ?></div> 
                     </div>
                     <div id="strip3">
-                        <div id="strip3left">
+                        <div id="strip3left" class="s1_0015">
                         </div>
-                        <div id="strip3right">
+                        <div id="strip3right" class="s1_0016">
                         </div>
                         <div id="strip3middle">
                         </div>
@@ -96,13 +96,13 @@
                     ?></div>
                     <div id="midstrip">
                         <div id="strip1">
-                            <div id="strip1left">
+                            <div id="strip1left" class="s1_0013">
                             </div>
-                            <div id="strip1right">
+                            <div id="strip1right" class="s1_0014">
                             </div>
                         </div>
 
-                        <div id="strip2"><?php
+                        <div id="strip2" class="sx_0010"><?php
                 }
 
                 ?><div id="content"><?php
@@ -112,15 +112,15 @@
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                     ?></div> 
                     <div id="strip3">
-                        <div id="strip3left">
+                        <div id="strip3left" class="s1_0015">
                         </div>
-                        <div id="strip3right">
+                        <div id="strip3right" class="s1_0016">
                         </div>
-                        <div id="strip3middle">
+                        <div id="strip3middle" class="sx_0003">
                         </div>
                     </div>
                     </div>    
-                    <div id="downstrip" style="position:relative"><?php
+                    <div id="downstrip" class="sx_0002" style="position:relative"><?php
                         Element( 'footer' );
                     ?></div><?php
                 }

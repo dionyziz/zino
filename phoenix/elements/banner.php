@@ -8,18 +8,16 @@
             global $libs;
             
             ?>
-           <div id="lbanner">
+           <div id="lbanner" class="s1_0057">
                 <h1>
                     <a href="<?php
                     echo $rabbit_settings[ 'webaddress' ];
-                    ?>">
-                        <img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino" />
-                    </a>
+                    ?>" class="s1_0055"> </a>
                 </h1>
            </div>
-           <div id="rbanner">
+           <div id="rbanner" class="s1_0056">
            </div>
-           <div id="mbanner">
+           <div id="mbanner" class="sx_0006">
                 <div<?php
                 if ( $user->Exists() ) {
                     ?> id="loggedinmenu"<?php   
@@ -89,9 +87,9 @@
                     }
                     else {
                         ?><form id="loginform" action="do/user/login" method="post"><div>
-                            <input id="lusername" type="text" name="username" value="ψευδώνυμο" />
-                            <input id="lpassword" type="text" name="password" value="κωδικός" />
-                            <input type="submit" id="loginbutton" value="Είσοδος" />
+                            <input id="lusername" class="s2_0008" type="text" name="username" value="ψευδώνυμο" />
+                            <input id="lpassword" class="s2_0008" type="text" name="password" value="κωδικός" />
+                            <input type="submit" class="s2_0007" id="loginbutton" value="Είσοδος" />
                             <span>
                                 ή <a href="join" class="wlink">Εγγραφή</a>
                             </span>

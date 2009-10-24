@@ -24,10 +24,10 @@
             else {
                 ?>
                 <div class="questions">
-                    <h3>Ερωτήσεις <span>(<a href="<?php
+                    <h2 class="pheading">Ερωτήσεις <span class="small1">(<a href="<?php
                     Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                     ?>questions">προβολή όλων</a>)</span>
-                    </h3>
+                    </h2>
                     <ul><?php
                     foreach ( $answers as $answer ) {
                         Element( 'question/answer/view', $answer );

@@ -16,8 +16,7 @@
             if ( count( $images ) > 0 ) {
                 ?><div class="latestphotos">
                     <h2>Φωτογραφίες</h2>
-                    <ul class="lstimages plist">
-                        <?php
+                    <ul class="lst ul2 border"><?php
                         foreach ( $images as $image ) {
                             if ( $image->Imageid != null ) {
                                 ?><li><a href="?p=photo&amp;id=<?php

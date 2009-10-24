@@ -58,9 +58,7 @@
                 <ul><?php
                     if ( $theuser->Id == $user->Id ) {
                         ?><li class="create">
-                            <a href="?p=addjournal" class="new"><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>add3.png" alt="Δημιουργία καταχώρησης" title="Δημιουργία καταχώρησης" />Δημιουργία καταχώρησης</a>
+                            <a href="?p=addjournal" class="new"><span class="s1_0048">Δημιουργία καταχώρησης</span></a>
                         </li><?php
                     }
                     if ( !empty( $journals ) ) {
@@ -68,8 +66,8 @@
                             ?><li><?php
                                 Element( 'journal/small' , $journal );
                                 ?><div class="barfade">
-                                    <div class="leftbar"></div>
-                                    <div class="rightbar"></div>
+                                    <div class="s1_0070 leftbar"></div>
+                                    <div class="s1_0071 rightbar"></div>
                                 </div>
                             </li><?php
                         }

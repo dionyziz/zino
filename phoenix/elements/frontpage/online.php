@@ -32,17 +32,17 @@
                         ?>>Είναι online τώρα (<?php
                         echo $count;
                         ?>)</h2>
-                        <div class="list"><?php
+                        <ul class="lst ul2"><?php
                             foreach( $users as $onuser ) {
-                                ?><a href="<?php
+                                ?><li><a href="<?php
                                 ob_start();
                                 Element( 'user/url', $onuser->Id , $onuser->Subdomain );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>"><?php
                                 Element( 'user/avatar' , $onuser->Avatarid , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , 'nolazy' , '' , false , 0 , 0 );
-                                ?></a><?php
+                                ?></a></li><?php
                             }    
-                        ?></div><?php
+                        ?></ul><?php
                 ?></div><?php
             }
         }

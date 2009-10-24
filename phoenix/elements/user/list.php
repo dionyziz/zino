@@ -7,7 +7,7 @@
             $libs->Load( 'image/image' );
             
             ?><div class="people">
-                <ul><?php
+                <ul class="lst ul1"><?php
                     foreach ( $relations as $relation ) {
                         $theuser = ( get_class( $relation ) == "User" ) ? $relation : $relation->Friend;
                         ?><li><a href="<?php

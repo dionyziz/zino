@@ -5,7 +5,7 @@
             //imageid  , imageuserid, imagewidth, imageheight
 			global $xc_settings;
             global $rabbit_settings;
-
+            
 			switch ( $type ) {
 				case IMAGE_PROPORTIONAL_210x210:
 					list( $width , $height ) = ProportionalSize( 210 , 210 , $imagewidth , $imageheight );
@@ -56,7 +56,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>"></img><?php
             if ( $numcom != 0 ) {
-                ?><span><span class="s_commnum">&nbsp;</span><?php
+                ?><span><span class="s1_0027">&nbsp;</span><?php
                 echo $numcom;
                 ?></span><?php
             }

@@ -6,25 +6,25 @@
             if ( $skype != '' || $msn != '' || $gtalk != '' || $yim != '' ) {
                 ?><dl><?php
                     if ( $skype != '' ) {
-                        ?><dt class="skype"></dt>
+                        ?><dt class="s1_0005"></dt>
                         <dd><?php 
                         echo htmlspecialchars( $skype );
                         ?></dd><?php
                     }
                     if ( $msn != '' ) {
-                        ?><dt class="msn"></dt>
+                        ?><dt class="s1_0010"></dt>
                         <dd><?php
                         echo htmlspecialchars( $msn );
                         ?></dd><?php
                     }
                     if ( $gtalk != '' ) {
-                        ?><dt class="gtalk"></dt>
+                        ?><dt class="s1_0021"></dt>
                         <dd><?php
                         echo htmlspecialchars( $gtalk );
                         ?></dd><?php
                     }
                     if ( $yim != '' ) {
-                        ?><dt class="yim"></dt>
+                        ?><dt class="s1_0062"></dt>
                         <dd><?php
                         echo htmlspecialchars( $yim );
                         ?></dd><?php

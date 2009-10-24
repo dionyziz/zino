@@ -20,7 +20,7 @@
                 if ( $showcomnum ) {
                     ?><div><?php
                         if ( $image->Numcomments > 0 ) {
-                            ?><span class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+                            ?><span class="small1"><span class="s1_0027">&nbsp;</span><?php
                             echo $image->Numcomments;
                             ?></span><?php
                         }

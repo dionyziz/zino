@@ -26,9 +26,9 @@
                         ?>pollinfo2<?php
                     }
                     ?>">
-                        <dd><a href="<?php
+                        <dd class="small"><a href="<?php
                         echo $url;
-                        ?>"><span class="s_commnum">&nbsp;</span><?php
+                        ?>"><span class="s1_0027">&nbsp;</span><?php
                         echo $poll->Numcomments;
                         ?> σχόλι<?php
                         if ( $poll->Numcomments == 1 ) {

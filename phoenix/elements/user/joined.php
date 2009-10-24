@@ -23,8 +23,8 @@
                             To προφίλ σου είναι <b><?php
                             Element( 'user/url' , $user->Id , $user->Subdomain );
                             ?></b></div>
-                            <i class="bl"></i>
-                            <i class="br"></i>
+                            <i class="s2_0004 bl"></i>
+                            <i class="s2_0003 br"></i>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <div>
                             <span>Ημερομηνία γέννησης:</span><?php
                             Element( 'user/settings/personal/dob' );
-                        ?><span class="invaliddob"><span class="s_invalid">&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
+                        ?><span class="invaliddob"><span class="s1_0034">&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
 						</div>
                         <div>
                             <span>Φύλο:</span><?php

@@ -4,17 +4,18 @@
         public function Render( $imageseq ) {
             global $user;
             global $libs;
+
             
             $libs->Load( 'image/image' );
 
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 15 );
             if ( count( $images ) > 0 ) {
-                ?><div class="lstimages plist">
+                ?><div>
                     <div class="more">
                         <a href="photos" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a>
                     </div>
-                <ul><?php
+                <ul class="lst ul1 border"><?php
                     foreach ( $images as $image ) {
                         ?><li><a href="?p=photo&amp;id=<?php
                         echo $image->Id;

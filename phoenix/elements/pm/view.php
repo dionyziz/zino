@@ -20,7 +20,7 @@
                 }
                 ?>><?php
                     if ( !$pm->IsSender( $user ) ) {
-                        ?><a href="" class="s_delete" title="Διαγραφή" onclick="return pms.DeletePm( this.parentNode.parentNode, '<?php
+                        ?><a href="" class="s1_0007" title="Διαγραφή" onclick="return pms.DeletePm( this.parentNode.parentNode, '<?php
                         echo $pm->Pmid;
                         ?>', <?php
                         echo $folder->Id;
@@ -34,7 +34,7 @@
                         ?>' )">.</a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
-                        ?><span class="unreadpm"> </span><?php
+                        ?><span class="s1_0067"> </span><?php
                     }
                     ?><div class="infobar_info" onclick="return pms.ExpandPm( this, <?php
                     if ( !$pm->IsSender( $user ) ) {
@@ -116,8 +116,8 @@
                     </div>
                 </div>
                 <div class="lowerline" style="background-color: #f8f8f6;display:none">
-                    <div class="leftcorner"></div>
-                    <div class="rightcorner"></div>
+                    <div class="s1_0068"></div>
+                    <div class="s1_0069"></div>
                     <div class="middle"></div>
                     <div class="toolbar"><?php
                         if ( !$pm->IsSender( $user ) ) {

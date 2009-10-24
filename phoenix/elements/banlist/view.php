@@ -17,7 +17,7 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php
             
-            $bannedUserFinder = new BannedUserFinder();
+            $bannedUserFinder = New BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
             ?><table class="stats">
@@ -50,11 +50,20 @@
             ?></table><?php   
 
             ?><form method="post" action="do/adminpanel/ban"><?php
-            ?><p>Όνομα χρήστη : <input type="text" maxlength="30" name="username" /> &nbsp;&nbsp;  
-                        Λόγος Αποκλεισμού : <input type="text" maxlength="30" name="reason" /> &nbsp;&nbsp;
-                        Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες</p><?php
-            ?><p><input type="submit" value="Ban" /></p><?php
-            ?></form><?php
+            ?><p>
+                        Όνομα χρήστη : <input type="text" maxlength="30" name="username" /> &nbsp;&nbsp;&nbsp;  
+                        Λόγος Αποκλεισμού : <input type="text" maxlength="30" name="reason" /> &nbsp;&nbsp;&nbsp;
+                        Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες          
+              </p>
+              <p>
+                        Μόνιμη διαγραφή ακόμα : &nbsp;&nbsp;&nbsp;  
+                        Εικόνες <input type="checkbox" value="yes" name="delete_images" />&nbsp;&nbsp;
+                        Δημοσκοπήσεις <input type="checkbox" value="yes" name="delete_polls" />&nbsp;&nbsp;
+                        Ημερολόγια <input type="checkbox" value="yes" name="delete_journals" />&nbsp;&nbsp;
+              </p>              
+              <p><input type="submit" value="Ban" /></p>
+             </form>
+            <?php
    
             return;
         }
