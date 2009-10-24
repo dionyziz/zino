@@ -1,4 +1,4 @@
-/*[class^="s1_"] {
+[class^="s1_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/spriting/sprite1/sprite1_4.png' );
 	background-repeat: no-repeat;
 }
@@ -245,4 +245,4 @@
 .s1_0071 {
     background-position: -313px 0;
 }
-*/
+
