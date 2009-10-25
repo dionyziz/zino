@@ -104,7 +104,7 @@
                 ?></a>
                 <dl><?php
                     if ( $image->Numcomments > 0 ) {
-                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
                         echo $image->Numcomments;
                         ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
@@ -115,7 +115,7 @@
                         }
                         ?></dd><?php
                     }
-					?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+					?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
 					Element( 'date/diff', $image->Created );
 					?></dd><?php
                  ?></dl><?php
@@ -134,7 +134,7 @@
 	                        echo $image->Id;
 	                        ?>' , this )"><span class="<?php
 	                        if ( !$fav ) {
-	                            ?>s_addfav<?php
+	                            ?>s1_0020<?php
 	                        }
 	                        else {
 	                            ?>s_isaddedfav<?php
@@ -170,7 +170,7 @@
 		                        echo $image->Id;
 		                        ?>' , this )"><span class="<?php
 		                        if ( !$fav ) {
-		                            ?>s_addfav<?php
+		                            ?>s1_0020<?php
 		                        }
 		                        else {
 		                            ?>s_isaddedfav<?php
@@ -201,7 +201,7 @@
 						?><li>
 							<a href="" onclick="return PhotoView.Delete( '<?php
 	                        echo $image->Id;
-	                        ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+	                        ?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a>
 						</li><?php
 						$relfinder = New FriendRelationFinder();
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE 

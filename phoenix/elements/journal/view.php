@@ -44,7 +44,7 @@
                     <div class="journal" style="clear:none">    
                         <dl><?php
 		                    if ( $journal->Numcomments > 0 ) {
-		                        ?><dd class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+		                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
 		                        echo $journal->Numcomments;
 		                        ?> σχόλι<?php
 		                        if ( $journal->Numcomments == 1 ) {
@@ -55,7 +55,7 @@
 		                        }
 		                        ?></dd><?php
 		                    }
-							?><dd class="time"><span class="s_clock">&nbsp;</span><?php
+							?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
 							Element( 'date/diff', $journal->Created );
 							?></dd>
 						</dl><?php
@@ -74,7 +74,7 @@
 									echo $journal->Id;
 									?>' , this )"><span class="<?php
 									if ( !$fav ) {
-										?>s_addfav<?php
+										?>s1_0020<?php
 									}
 									else {
 										?>s_isaddedfav<?php
@@ -100,7 +100,7 @@
 										echo $journal->Id;
 										?>' , this )"><span class="<?php
 										if ( !$fav ) {
-											?>s_addfav<?php
+											?>s1_0020<?php
 										}
 										else {
 											?>s_isaddedfav<?php
@@ -123,7 +123,7 @@
 								?><li>
 									<a href="" onclick="return JournalView.Delete( '<?php
 									echo $journal->Id;
-									?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a>
+									?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a>
 								</li><?php
 							}
 							?></ul><?php

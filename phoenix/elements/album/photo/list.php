@@ -60,7 +60,7 @@
                         ?></dt><?php
                     }
                     if ( $album->Numcomments > 0 ) {
-                        ?><dt class="commentsnum"><span class="s_commnum">&nbsp;</span><?php
+                        ?><dt class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
                         echo $album->Numcomments;
                         ?></dt><?php
                     }
@@ -74,7 +74,7 @@
                             </div>
                             <div class="delete"><a href="" onclick="return PhotoList.Delete( '<?php
                             echo $album->Id;
-                            ?>' )"><span class="s_delete">&nbsp;</span>Διαγραφή</a></div>
+                            ?>' )"><span class="s1_0007">&nbsp;</span>Διαγραφή</a></div>
                         </div><?php
                     }
                 }
