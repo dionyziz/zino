@@ -57,14 +57,14 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/journals" class="s_book">&nbsp;</a></li>
+                        ?>favourites/journals" class="s1_0025">&nbsp;</a></li>
                         <li<?php
                         if ( $type === TYPE_IMAGE ) {
                             ?> class="selected"<?php
                         }
                         ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
-                        ?>favourites/photos" class="s_photo">&nbsp;</a></li>
+                        ?>favourites/photos" class="s1_0012">&nbsp;</a></li>
                         <li<?php
                         if ( $type === false ) {
                             ?> class="selected"<?php
@@ -128,7 +128,7 @@
                                     if( $theuser->Id == $user->Id ) {
                                         ?><a class="fav_delete" href="" onclick="return Favourites.Delete( <?php
                                             echo $favourite->Id;
-                                        ?> )"><span class="s_delete"> </span> Διαγραφή</a> <?php
+                                        ?> )"><span class="s1_0007"> </span> Διαγραφή</a> <?php
                                     }
                                 ?>
                                 <a href="<?php
@@ -139,10 +139,10 @@
                                 <span class="<?php
 								switch ( $favourite->Typeid ) {
                                     case TYPE_IMAGE:
-                                        ?>s_photo<?php
+                                        ?>s1_0012<?php
                                         break;
                                     case TYPE_JOURNAL
-                                        ?>s_book<?php
+                                        ?>s1_0025<?php
                                         break;
                                     case TYPE_STOREITEM:
                                         //TODO: Style
