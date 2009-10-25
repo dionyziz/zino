@@ -112,7 +112,7 @@
             "upload"            => "album/photo/upload",
             "friends"           => "user/relations/list",
             'legal'             => 'about/legal/view',
-            'pp'                => 'about/legal/pp',
+            'privacy'           => 'about/legal/pp',
             'tos'               => 'about/legal/tos',
             'ads'               => 'admanager/intro',
             'admanager/create'  => 'admanager/create',

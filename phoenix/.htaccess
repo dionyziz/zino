@@ -54,6 +54,10 @@ RewriteRule ^js/([a-zA-Z][a-z0-9_\-]+[a-zA-Z]\.js)$ /js/static.php?file=$1 [L,QS
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^tos$ /index.php?p=tos [L,QSA]
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
+RewriteRule ^privacy$ /index.php?p=privacy [L,QSA]
+RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
+RewriteRule ^legal$ /index.php?p=legal [L,QSA]
+RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^contact$ /index.php?p=contact [L,QSA]
 RewriteCond %{SERVER_NAME} ^beta\.zino\.gr
 RewriteRule ^advertise$ /index.php?p=advertise [L,QSA]
