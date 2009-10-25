@@ -177,4 +177,9 @@ ul#aboutpeople li.selected img {
 #aboutcontact #bugbrowser .chrome {
     background-image: url( 'http://static.zino.gr/phoenix/browsers/chrome.png' );
 }
-
+#abouttos h2,#abouttos h3, #abouttos p {
+    color: #19252f;
+}
+#abouttos p {
+    margin: 5px 5px 5px 30px;
+}
