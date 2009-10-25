@@ -5,7 +5,7 @@
             
             ?><div>
                 <a class="wlink" href="about">Πληροφορίες</a>
-                <a class="wlink" href="tos">Όροι χρήσης</a>
+                <a class="wlink" href="legal">Νομικά</a>
                 <a class="wlink" href="?p=ads">Διαφήμιση</a>
             </div>
             <div id="copyleft">
