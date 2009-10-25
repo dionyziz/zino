@@ -190,10 +190,10 @@ ul#aboutpeople li.selected img {
     margin: 0;
     padding: 0 5px 20px 30px;
 }
-#abouttos ol {
+#abouttos ul {
     list-style-type: disc;
     margin-left: 25px;
 }
-#abouttos ol li {
+#abouttos ul li {
     margin-left: 30px;
 }
