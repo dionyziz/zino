@@ -184,5 +184,6 @@ ul#aboutpeople li.selected img {
     margin: 10px 0 5px 15px;
 }
 #abouttos p {
-    margin: 10px 5px 40px 30px;
+    margin: 0;
+    padding: 10px 5px 40px 30px;
 }
