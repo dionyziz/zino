@@ -1,8 +1,7 @@
 <?php
-    class ElementAboutTOSView extends Element {
+    class ElementAboutLegalView extends Element {
         public function Render() {
             ?><div><?php
-            Element( 'about/tos/text' );
             ?></div><?php
         }
     }

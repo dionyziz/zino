@@ -111,7 +111,7 @@
             "photo"             => "album/photo/view",
             "upload"            => "album/photo/upload",
             "friends"           => "user/relations/list",
-            'tos'               => 'about/tos/view',
+            'tos'               => 'about/legal/tos',
             'ads'               => 'admanager/intro',
             'admanager/create'  => 'admanager/create',
             'admanager/list'    => 'admanager/list',
