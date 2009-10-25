@@ -183,11 +183,17 @@ ul#aboutpeople li.selected img {
 #abouttos h3 {
     margin: 10px 0 5px 15px;
 }
+#abouttos h4 {
+    margin: 5px 0 5px 20px;
+}
 #abouttos p {
     margin: 0;
     padding: 0 5px 20px 30px;
 }
 #abouttos ol {
-    list-style: disc;
-    margin-left: 20px;
+    list-style-type: disc;
+    margin-left: 25px;
+}
+#abouttos ol li {
+    margin-left: 30px;
 }
