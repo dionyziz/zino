@@ -4,6 +4,7 @@
     left: 120px;
 }
 .tweet {
+    background: transparent url( 'http://static.zino.gr/phoenix/sprite_x.png' ) 0 -835px;
     height: 55px;
     float: left;
     padding: 0;
@@ -12,11 +13,15 @@
     float: left;
     height: 55px;
 }
-.tweetbox .s1_0042 {
+div.tweetbox .left {
     width: 40px;
+    float: left;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -812px;
 }
-.tweetbox .s1_0041 {
+div.tweetbox .right {
+    float: right;
     width: 27px;
+    background: url( 'http://static.zino.gr/phoenix/icons2.png' ) 0 -642px;
 }
 .tweet div {
     padding-top: 19px;
