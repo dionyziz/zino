@@ -125,6 +125,9 @@ h3.modaltitle {
 div.objectinfo {
     margin: 0 0 0 0px;
 }
+div.objectinfo p {
+    overflow: hidden;
+}
 .small {
     font-size: 80%;
 }
