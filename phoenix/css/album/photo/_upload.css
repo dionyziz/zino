@@ -1,9 +1,0 @@
-form#uploadform div.colorlink{
-	font-weight: bold;
-	font-size: 110%;
-}
-div#uploadingwait {
-	display: none;
-	font-size: 110%;
-	padding-top: 10px;
-}
