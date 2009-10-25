@@ -187,3 +187,7 @@ ul#aboutpeople li.selected img {
     margin: 0;
     padding: 0 5px 20px 30px;
 }
+#abouttos ol {
+    list-style: disc;
+    margin-left: 20px;
+}
