@@ -3,7 +3,7 @@
     position: relative;
     top: -8px;
 }
-#profile .usidebar {
+#profile .sidebar {
 	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.png') repeat-y right;
 	float: left;
 	position: relative;
@@ -11,10 +11,10 @@
 	padding: 14px 0 0 0;
 	overflow: hidden;
 }
-.usidebar .basicinfo dl dt {
+.sidebar .basicinfo dl dt {
     clear: both;
 }
-.usidebar .basicinfo {
+.sidebar .basicinfo {
 	padding: 4px;
 	margin-bottom: 20px;
 }
@@ -22,72 +22,72 @@
     float: left;
     padding-right: 5px;
 }
-.usidebar .basicinfo .mood {
+.sidebar .basicinfo .mood {
 	padding-top: 5px;
 	margin-top: 5px;
 }
-.usidebar .basicinfo .mood img {
+.sidebar .basicinfo .mood img {
 	display: block; 
 	margin-top: 3px;
 }
-.usidebar .bacicinfo .friendedit {
+.sidebar .bacicinfo .friendedit {
     display: none;
 }
-.usidebar .basicinfo .common {
+.sidebar .basicinfo .common {
     clear: left;
     margin-bottom: 15px;
     height: 20px;
 }
-.usidebar .basicinfo .common a > span {
+.sidebar .basicinfo .common a > span {
     display: block;
     width: 110px;
     height: 50px;
 }
-.usidebar .basicinfo .info {
+.sidebar .basicinfo .info {
 	clear: left;
 }
-.usidebar .basicinfo dl dt {
+.sidebar .basicinfo dl dt {
 	float: left;
 	width: 12em;
 	padding: 3px 0;
 }
-.usidebar .basicinfo dl dd {
+.sidebar .basicinfo dl dd {
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.usidebar .basicinfo h2 {
+.sidebar .basicinfo h2 {
 	padding: 0;
 	margin: 0;
 	font-size: 120%;
 	color: #105cb6;
 }
-.usidebar .basicinfo h2 a span.vavie150 {
+.sidebar .basicinfo h2 a span.vavie150 {
     padding: 0 4px 0 0;
     cursor: pointer;
 }
-.usidebar .basicinfo h2 img {
+.sidebar .basicinfo h2 img {
 	float: left;
 }
-.usidebar .basicinfo h2 span.name {
+.sidebar .basicinfo h2 span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
 }
-.usidebar dl.online dt{
+.sidebar dl.online dt{
 	display: block;
 	float: left;
 	padding: 3px 0;
 }
-.usidebar dl.online dd {
+.sidebar dl.online dd {
 	display: block;
 	text-align: left;
 	margin-left: 12em;
 	padding: 3px 0;
 	width: 160px;
 }
-.usidebar .look {
+.sidebar .look {
 	clear: both;
 	padding: 0 10px 10px 10px;
 	border-top: 1px solid #ccc;
@@ -99,95 +99,95 @@
 	padding: 0 0 46px 15px;
 	position: relative;
 }
-.usidebar .look ul li.dot {
+.sidebar .look ul li.dot {
 	color: #999;
 	font-size: 100%;
 }
-.usidebar .look img {
+.sidebar .look img {
 	float: left;
 }
-.usidebar .look ul {
+.sidebar .look ul {
 	margin: 0 0 0 30px;
 }
-.usidebar .look ul li {
+.sidebar .look ul li {
 	font-weight: bold;
 	padding: 1px;
 	display: inline;
 }
-.usidebar .social {
+.sidebar .social {
 	padding: 4px;
 	clear: both;
 	margin-top: 10px;
 }
-.usidebar .social dl dt {
+.sidebar .social dl dt {
 	float: left;
 	width: 170px;
 	padding: 3px 0;
 }
-.usidebar .social dl dd {
+.sidebar .social dl dd {
 	text-align: left;
 	margin: 0 0 0 170px;
 	padding: 3px 0;
 	width: 100px;
 }
-.usidebar .social ul {
+.sidebar .social ul {
 	float:left;
 	padding:3px 0;
 	margin: 10px 0 0 0;
 }
-.usidebar .social li {
+.sidebar .social li {
 	clear: both;
 	margin: 0 0 4px 0;
 }
-.usidebar .social li strong {
+.sidebar .social li strong {
 	display:block;
 	width: 170px;
 	float:left;
 }
-.usidebar .aboutme {
+.sidebar .aboutme {
 	padding: 4px;
 	clear: both;
 }
-.usidebar .aboutme dl {
+.sidebar .aboutme dl {
 	padding: 7px 0 0 0;
 }
-.usidebar .aboutme dl dt {
+.sidebar .aboutme dl dt {
 	padding: 3px 0 1px 0;
 }
-.usidebar .aboutme dl dd {
+.sidebar .aboutme dl dd {
 	padding: 1px 0 0 0;
 }
-.usidebar .interests {
+.sidebar .interests {
 	padding: 4px;
 	clear: both;
 }
-.usidebar .interests dl dt {
+.sidebar .interests dl dt {
 	padding: 3px 0 1px 0;
 }
-.usidebar .interests dl dd {
+.sidebar .interests dl dd {
 	padding: 1px 0 5px 0;
 }
-.usidebar .contacts {
+.sidebar .contacts {
 	padding: 4px;
 }
-.usidebar .contacts dt {
+.sidebar .contacts dt {
 	float: left;
 	height: 18px;
 	width: 18px;
 }
-.usidebar .ads {
+.sidebar .ads {
     border-top: 1px solid #ccc;
     padding: 10px 0 10px 0;
     margin: 0 0 0 10px;
 }
-.usidebar .ads .ad {
+.sidebar .ads .ad {
     margin: 20px auto 0 0;
 }
-.usidebar .contacts dd {
+.sidebar .contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
 }
-.usidebar .notice {
+.sidebar .notice {
 	margin: 10px 0 20px 0;
 	text-align: left;
 }
