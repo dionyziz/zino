@@ -1,0 +1,116 @@
+.thephoto div {
+    display: none;
+}
+.thephoto .frienders {
+    position: absolute;
+    left: 170px;
+    top: 0px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    width: 250px;
+    margin-left: 20px;
+    opacity: 0.95;
+    z-index: 10;
+}
+.thephoto .frienders div.closer {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.thephoto .frienders div {
+    display: block;
+    margin-top: 10px;
+}
+.thephoto .frienders form {
+    margin-top: 5px;
+}
+.thephoto .frienders form input {
+    width: 130px;
+    color: #777777;
+}
+.thephoto .tagme {
+    width: 170px;
+    height: 170px;
+    /* If you change border width, change js/album/photo/tag.js */
+    border: 3px dotted #FFFFBB;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.thephoto .tagme .resizer {
+	background-image: url( 'http://static.zino.gr/images/resize.png' );
+	display: inline;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+/*
+div.thephoto div.tagme div.resizer {
+	width: 0px;
+	height: 0px;
+	border-top-width: 20px;
+	border-top-style: solid;
+	border-top-color: transparent;
+	border-right-width: 20px;
+	border-right-style: solid;
+	border-right-color: #f00;
+	position: absolute;
+	right: 0px;
+	bottom: 0px
+}*/
+.thephoto .tagme div:hover {
+	cursor: nw-resize;
+}
+.thephoto .frienders ul {
+    list-style-type: none;
+    margin-right: 20px;
+    text-align: left;
+    overflow: auto;
+    max-height: 270px;
+}
+.thephoto .frienders ul li div {
+    display: inline;
+    color: #105CB6;
+}
+.thephoto .frienders ul li div:hover {
+    text-decoration: underline;
+}
+.thephoto .frienders ul li div span {
+    font-weight: bold;
+}
+.image_tags {
+    margin-top: 10px;
+    text-align: center;
+}
+.image_tags:first-letter {
+    text-transform: capitalize;
+}
+.image_tags div {
+    display: inline;
+}
+.image_tags div a.tag_del {
+    margin-left: 2px;
+}
+.thephoto .tanga {
+    display: block;
+}
+.thephoto .tanga div.tag {
+    position: absolute;
+    display: block;
+    border: 0 solid #FFFFBB;
+    width: 170px;
+    height: 170px;
+    text-align: center;
+    cursor: pointer;
+}
+.thephoto .tanga .tag div {
+    position: absolute;
+    background-color: #FFFFBB;
+    color: #3366FF;
+    /* border: 1px solid black; I think it looks better without that...*/
+    display: none;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+}

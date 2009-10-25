@@ -1,8 +1,3 @@
-
-[class^="s2_"] {
-	background-image: url( 'http://static.zino.gr/phoenix/spriting/sprite2/sprite2_4.png' );
-	background-repeat: no-repeat;
-}
 [class^="s1_"] {
 	background-image: url( 'http://static.zino.gr/phoenix/spriting/sprite1/sprite1_4.png' );
 	background-repeat: no-repeat;
@@ -25,7 +20,7 @@
 } 
 .s1_0006 { 
     background-position: 0 -230px; 
-    padding: 0 0 1px 15px;
+    padding: 2px 0 2px 15px;
 } 
 .s1_0007 { 
     background-position: -1px -276px; 
@@ -46,7 +41,7 @@
 } 
 .s1_0012 { 
     background-position: 0 -506px; 
-    padding: 0 0 0 15px;
+    padding: 0 0 0 14px;
 } 
 .s1_0013 { 
     background-position: 0 -552px; 
@@ -62,11 +57,11 @@
     background-position: 0 -675px; 
 } 
 .s1_0017 { 
-    background-position: 0 -722px; 
+    background-position: 0 -720px; 
     padding: 0 0 0 8px;
 } 
 .s1_0018 { 
-    background-position: 0 -768px; 
+    background-position: 0 -766px; 
     padding: 0 0 0 8px;
 } 
 .s1_0019 { 
@@ -127,7 +122,8 @@
     padding: 0 0 0 16px;
 } 
 .s1_0034 { 
-    background-position: 0 -1473px; 
+    background-position: 0 -1474px; 
+    padding: 0 0 2px 12px;
 } 
 .s1_0035 { 
     background-position: 0 -1519px; 
@@ -181,10 +177,10 @@
     background-position: -71px -334px; 
 } 
 .s1_0050 { 
-    background-position: -71px -400px; 
+    background-position: -67px -396px; 
 } 
 .s1_0051 { 
-    background-position: -71px -459px; 
+    background-position: -67px -455px; 
 } 
 .s1_0052 { 
     background-position: -71px -518px; 
@@ -250,4 +246,12 @@
 .s1_0071 {
     background-position: -313px 0;
 }
-
+.s1_rndavie75 {
+    background-position: -313px -31px;
+}
+.s1_rndavie100 {
+    background-position: -313px -141px;
+}
+.s1_rndavie150 {
+    background-position: -313px -281px;
+}

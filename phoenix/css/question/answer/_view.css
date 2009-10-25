@@ -1,0 +1,47 @@
+div#answers div.questions {
+	padding: 5px 0 0 170px;
+}
+div#answers div.questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#answers div.questions ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 70%;
+}
+div#answers div.questions ul li {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#answers div.questions ul li a {
+	margin-left: 5px;
+	display: none;
+}
+div#answers div.questions ul li a img {
+	height: 14px;
+}
+div#answers div.questions ul li p.question, div#answers div.newquestion p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
+	padding: 0;
+	margin: 0;
+	display: inline;
+	font-size: 14px;
+}
+div#answers div.newquestion {
+    padding: 10px;
+    border: 1px #aaa solid;
+    background-color: #f6f6f6;
+}
+div#answers div.newquestion form input {
+    width: 250px;
+    margin: 5px 5px 0 5px;
+}
+div#answers div.questions a.button {
+	margin-left: 0;
+}

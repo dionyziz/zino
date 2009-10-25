@@ -1,0 +1,71 @@
+#polist .ads {
+    position: absolute;
+    right: 23px;
+    top: 138px;
+}
+#polist ul li h3 {
+	margin: 0;
+	padding: 0;
+}
+#polist > ul {
+	margin: 0 0 0 170px;
+}
+#polist ul li {
+	padding: 10px 0;
+}
+#polist ul li .results {
+	width: 100%;
+	padding-top: 10px;
+}
+#polist ul li .results dl.pollinfo {
+	text-align: left;
+}
+#polist ul li .results dl.pollinfo dd {
+	display: inline;
+	font-size: 80%;
+}
+#polist ul li .results ul li {
+	padding: 5px 0 1px 0;
+    clear: both;
+}
+.creationmockup {
+	border: 1px solid #ccc;
+	border-style: dotted;
+	padding: 15px;
+	width: 450px;
+	display: none;
+}
+.creationmockup div input {
+	width: 300px;
+	padding: 2px;
+}
+.creationmockup div a.createpoll {
+	margin-left: 3px;
+}
+.creationmockup .tip , #polllist .tip2 {
+	font-size: 90%;
+	margin-top: 5px;
+}
+#polist .tip2 {
+	display: none;
+    margin: 5px 0 25px 0;
+}
+.creationmockup .newoption {
+	padding-left: 10px;
+	margin: 2px 0;
+	overflow: hidden;
+}
+#polist .creatingpoll {
+	display: none;
+}
+#polist ul li.create a {
+	font-weight: bold;
+}
+#polist ul li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+}
+#polist .pagifypolls {
+	text-align: center;
+	margin-top: 20px;
+}
