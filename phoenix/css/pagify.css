@@ -1,5 +1,5 @@
 .pagify {
-    height: 25px;
+   /* height: 25px;*/
 }
 .pagify .previous {
     margin: 0 5px 0 0;
@@ -28,6 +28,7 @@
 .pagify .pagifycount {
     color: #aaa;
     font-size: small;
+    margin-top: 10px;
 }
 .pagify {
 	font-size: 11pt;
