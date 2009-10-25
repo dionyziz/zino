@@ -11,3 +11,8 @@ div#downstrip > div > a {
 div#downstrip > div#copyleft > a {
     padding: 0 0 0 1px;
 }
+div#downstrip a.hoodie{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
