@@ -23,7 +23,8 @@
     padding: 2px 0 2px 15px;
 } 
 .s1_0007 { 
-    background-position: -1px -276px; 
+    /*background-position: -1px -276px; */
+    background-image: url(http://static.zino.gr/phoenix/delete.png);
     padding: 0 16px 1px 0;
 } 
 .s1_0008 { 
