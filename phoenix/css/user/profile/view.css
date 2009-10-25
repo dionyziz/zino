@@ -38,11 +38,11 @@
     margin-bottom: 15px;
     height: 20px;
 }
-.sidebar .basicinfo .common a > span {
+/*.sidebar .basicinfo .common a > span {
     display: block;
     width: 110px;
     height: 50px;
-}
+} Visual fix, don't know if this is needed... ( ted ) */
 .sidebar .basicinfo .info {
 	clear: left;
 }
