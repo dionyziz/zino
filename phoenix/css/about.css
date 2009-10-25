@@ -180,6 +180,9 @@ ul#aboutpeople li.selected img {
 #abouttos h2,#abouttos h3, #abouttos p {
     color: #19252f;
 }
+#abouttos h3 {
+    margin-left: 15px;
+}
 #abouttos p {
-    margin: 20px 5px 20px 30px;
+    margin: 20px 5px 30px 30px;
 }
