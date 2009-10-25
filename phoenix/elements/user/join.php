@@ -108,7 +108,7 @@
             </div>
             <div id="join_tos">
                 <div><?php
-                Element( 'about/tos/text' );
+                Element( 'about/legal/tos' );
                 ?></div>
                 <a href="" class="button" onclick="">Κλείσιμο</a>
             </div><?php
