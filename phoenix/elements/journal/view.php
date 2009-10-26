@@ -74,10 +74,10 @@
 									echo $journal->Id;
 									?>' , this )"><span class="<?php
 									if ( !$fav ) {
-										?>s1_0019<?php
+										?>s1_0020<?php
 									}
 									else {
-										?>s1_0020<?php
+										?>s1_0019<?php
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
