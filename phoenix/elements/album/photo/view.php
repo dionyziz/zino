@@ -128,20 +128,18 @@
 	                            ?>Το αγαπώ<?php
 	                        } 
 	                        else {
-	                            ?>Αγαπημένο<?php
+	                            ?>To αγαπάς<?php
 	                        }
 	                        ?>" onclick="return PhotoView.AddFav( '<?php
 	                        echo $image->Id;
 	                        ?>' , this )"><span class="<?php
 	                        if ( !$fav ) {
-	                            ?>s1_0020<?php
+	                            ?>s1_0020">&nbsp;</span>
+                                Το αγαπώ<?php
 	                        }
 	                        else {
-	                            ?>s1_0019<?php
-	                        }
-							?>">&nbsp;</span><?php
-	                        if ( !$fav ) {
-	                            ?>Το αγαπώ<?php
+	                            ?>s1_0020">&nbsp;</span>
+                                Το αγαπάς<?php
 	                        }
 	                        ?></a>
 						</li><?php
