@@ -68,7 +68,7 @@
 										?>Το αγαπώ<?php
 									} 
 									else {
-										?>Αγαπημένο<?php
+										?>Το αγαπάς<?php
 									}
 									?>" onclick="return JournalView.AddFav( '<?php
 									echo $journal->Id;
@@ -81,7 +81,7 @@
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
-										?>Το αγαπώ<?php
+										?>Το αγαπάς<?php
 									}
 									?></a>
 								</li><?php
@@ -99,17 +99,17 @@
 										?>" onclick="return JournalView.AddFav( '<?php
 										echo $journal->Id;
 										?>' , this )"><span class="<?php
-										if ( !$fav ) {
-											?>s1_0020<?php
-										}
-										else {
-											?>s_isaddedfav<?php
-										}
-										?>">&nbsp;</span><?php
-										if ( !$fav ) {
-											?>Το αγαπώ<?php
-										}
-										?></a>
+                                        if ( !$fav ) {
+                                            ?>s1_0020<?php
+                                        }
+                                        else {
+                                            ?>s1_0019<?php
+                                        }
+                                        ?>">&nbsp;</span><?php
+                                        if ( !$fav ) {
+                                            ?>Το αγαπάς<?php
+                                        }
+                                        ?></a>
 									</li><?php
 								}
 								if ( $user->Id == $theuser->Id ) {

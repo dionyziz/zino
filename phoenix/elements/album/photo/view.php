@@ -133,15 +133,17 @@
 	                        ?>" onclick="return PhotoView.AddFav( '<?php
 	                        echo $image->Id;
 	                        ?>' , this )"><span class="<?php
-	                        if ( !$fav ) {
-	                            ?>s1_0020">&nbsp;</span>
-                                Το αγαπώ<?php
-	                        }
-	                        else {
-	                            ?>s1_0020">&nbsp;</span>
-                                Το αγαπάς<?php
-	                        }
-	                        ?></a>
+                            if ( !$fav ) {
+                                ?>s1_0019<?php
+                            }
+                            else {
+                                ?>s1_0020<?php
+                            }
+                            ?>">&nbsp;</span><?php
+                            if ( !$fav ) {
+                                ?>Το αγαπώ<?php
+                            }
+                            ?></a>
 						</li><?php
 						$relfinder = New FriendRelationFinder();
 						if ( $image->Album->Ownertype == TYPE_USERPROFILE 
@@ -168,10 +170,10 @@
 		                        echo $image->Id;
 		                        ?>' , this )"><span class="<?php
 		                        if ( !$fav ) {
-		                            ?>s1_0020<?php
+		                            ?>s1_0019<?php
 		                        }
 		                        else {
-		                            ?>s_isaddedfav<?php
+		                            ?>s1_0020<?php
 		                        }
 								?>">&nbsp;</span><?php
 		                        if ( !$fav ) {
