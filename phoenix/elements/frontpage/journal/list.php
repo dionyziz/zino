@@ -6,7 +6,7 @@
             global $xc_settings;
 			global $libs;
 
-            // $sticky = 10721;
+            $sticky = 11174;
 
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
@@ -54,6 +54,7 @@
                         </div><?php
                     }
                 }
+                /*
                     ?><div class="event">
                         <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who">
                             <a href="http://www.zino.gr/store.php?p=product&amp;name=hoodie">
@@ -66,6 +67,8 @@
                             <a href="http://www.zino.gr/store.php?p=product&amp;name=hoodie">Back to School Hoodie</a>
                         </div>
                     </div><?php
+                */
+                
 				?></div><?php
         }
     }
