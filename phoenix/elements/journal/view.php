@@ -68,7 +68,7 @@
 										?>Το αγαπώ<?php
 									} 
 									else {
-										?>Το αγαπάς<?php
+										?>Αγαπημένο<?php
 									}
 									?>" onclick="return JournalView.AddFav( '<?php
 									echo $journal->Id;
@@ -81,7 +81,7 @@
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
-										?>Το αγαπάς<?php
+										?>Το αγαπώ<?php
 									}
 									?></a>
 								</li><?php
@@ -107,7 +107,7 @@
                                         }
                                         ?>">&nbsp;</span><?php
                                         if ( !$fav ) {
-                                            ?>Το αγαπάς<?php
+                                            ?>Το αγαπώ<?php
                                         }
                                         ?></a>
 									</li><?php

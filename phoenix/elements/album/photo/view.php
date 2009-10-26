@@ -128,7 +128,7 @@
 	                            ?>Το αγαπώ<?php
 	                        } 
 	                        else {
-	                            ?>To αγαπάς<?php
+	                            ?>Αγαπημένο<?php
 	                        }
 	                        ?>" onclick="return PhotoView.AddFav( '<?php
 	                        echo $image->Id;
