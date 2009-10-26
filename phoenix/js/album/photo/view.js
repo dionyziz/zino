@@ -33,14 +33,14 @@ var PhotoView = {
 		return false;
 	},
 	AddFav : function( photoid , linknode ) {
-		if ( $( linknode ).find( 'span' ).hasClass( 's_addfav' ) ) {
+		if ( $( linknode ).find( 'span' ).hasClass( 's1_0019' ) ) {
 			$( linknode ).fadeOut( 800 , function() {
 				$( linknode ).attr( {
 					href : '',
 					title : 'Αγαπημένο'
 				} )
-				.removeClass( 's_addfav' )
-				.addClass( 's_isaddedfav' )
+				.removeClass( 's1_0019' )
+				.addClass( 's1_0020' )
 				.empty()
 				.fadeIn( 800 );
 			} );
