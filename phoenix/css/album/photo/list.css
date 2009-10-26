@@ -30,7 +30,8 @@
 }
 #photolist ul li {
 	padding: 5px 10px;
-	width: 210px;
+    float: left;	
+    width: 210px;
 	height: 270px;
 	text-align: center;
 }
