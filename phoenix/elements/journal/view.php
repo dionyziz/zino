@@ -38,13 +38,13 @@
                 ?><div id="journalview"><?php
                 if ( !$journal->IsDeleted() ) {
                     $page->SetTitle( $journal->Title );
-                    ?><div class="objectinfo"><h2><?php
+                    ?><div class="objectinfo"><h2 class="subheading"><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></h2>
                     <div class="journal" style="clear:none">    
                         <dl><?php
 		                    if ( $journal->Numcomments > 0 ) {
-		                        ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
+		                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
 		                        echo $journal->Numcomments;
 		                        ?> σχόλι<?php
 		                        if ( $journal->Numcomments == 1 ) {
@@ -55,7 +55,7 @@
 		                        }
 		                        ?></dd><?php
 		                    }
-							?><dd class="time"><span class="s1_0035">&nbsp;</span><?php
+							?><dd class="time small"><span class="s1_0035">&nbsp;</span><?php
 							Element( 'date/diff', $journal->Created );
 							?></dd>
 						</dl><?php
@@ -70,14 +70,14 @@
 									else {
 										?>Αγαπημένο<?php
 									}
-									?>" onclick="return JournalView.AddFav( '<?php
+									?>" onclick="return Favourites.Add( '<?php
 									echo $journal->Id;
-									?>' , this )"><span class="<?php
+									?>' , 'Journal' , this )"><span class="<?php
 									if ( !$fav ) {
-										?>s1_0020<?php
+										?>s1_0019<?php
 									}
 									else {
-										?>s1_0019<?php
+										?>s1_0020<?php
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
@@ -96,27 +96,27 @@
 										else {
 											?>Αγαπημένο<?php
 										}
-										?>" onclick="return JournalView.AddFav( '<?php
+										?>" onclick="return Favourites.Add( '<?php
 										echo $journal->Id;
-										?>' , this )"><span class="<?php
-                                        if ( !$fav ) {
-                                            ?>s1_0020<?php
-                                        }
-                                        else {
-                                            ?>s1_0019<?php
-                                        }
-                                        ?>">&nbsp;</span><?php
-                                        if ( !$fav ) {
-                                            ?>Το αγαπώ<?php
-                                        }
-                                        ?></a>
+										?>' , 'Journal' , this )"><span class="<?php
+										if ( !$fav ) {
+											?>s1_0019<?php
+										}
+										else {
+											?>s1_0020<?php
+										}
+										?>">&nbsp;</span><?php
+										if ( !$fav ) {
+											?>Το αγαπώ<?php
+										}
+										?></a>
 									</li><?php
 								}
 								if ( $user->Id == $theuser->Id ) {
 									?><li>
 										<a href="?p=addjournal&amp;id=<?php
 										echo $journal->Id;
-                                        ?>"><span class="s_edit">&nbsp;</span>Επεξεργασία
+                                        ?>"><span class="s1_0011">&nbsp;</span>Επεξεργασία
 										</a>
 									</li><?php
 								}
@@ -182,7 +182,7 @@
                 return Element( '404', "Η καταχώρηση δεν υπάρχει" );
             }
             ?><div class="eof"></div><?php
-            $page->AttachInlineScript( "JournalView.OnLoad();" );
+            //$page->AttachInlineScript( "JournalView.OnLoad();" );
         }
     }
 ?>
