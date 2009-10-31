@@ -39,10 +39,12 @@
 	right: 14px;
 	top: 4px;
 }
+/*
 #loggedinmenu > span:after {
     content: url( 'http://static.zino.gr/phoenix/shadowblue.png' );
     margin-left: -74px;
 }
+*/
 #mbanner > div > ul {
     display: inline;
 }
