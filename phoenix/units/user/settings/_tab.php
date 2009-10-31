@@ -43,6 +43,9 @@
 		$html = w_json_encode( ob_get_clean() );
 		
 	  ?>$( '#settingsloader' ).fadeOut();
+        alert( <?php
+            echo $html;
+        ?> );
         $( 'div.settings div.tabs' ).append( <?php
             echo $html;
         ?> );
