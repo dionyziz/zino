@@ -35,7 +35,7 @@
                     Element( 'user/settings/contact' );
                 ?></form><?php
                 break;
-            case 'settings':
+            case 'account':
                 ?><form id="settingsinfo" action="" ><?php
                     Element( 'user/settings/settings' );
                 ?></form><?php
