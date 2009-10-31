@@ -44,17 +44,18 @@
                 return;
         }
         //a little hack to handle the huge tab elements
-        $html = str_split( ob_get_clean(), 128 );
+        $html = str_split( ob_get_clean(), 1024 );
         
-        ?>$( '#settingsloader' ).fadeOut();
-        container = document.createElement( 'form' );
-        $( container ).append( ''
+        ?>
+        buffer = [];
+        $( '#settingsloader' ).fadeOut();
         <?php
         foreach ( $html as $chunk ) {
-            echo "\n + " . w_json_encode( $chunk ); 
+            ?>buffer.push( <?php
+            echo  w_json_encode( $chunk ); 
+            ?> );<?php
         }
-        ?> );
-        $( 'div.settings div.tabs' ).append( $( "form", container ) );
+        ?>$( 'div.settings div.tabs' ).append( buffer.join( "" ) );
         Settings.LoadProperties( '<?php
             echo $tab;
         ?>' );<?php
