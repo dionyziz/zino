@@ -1,4 +1,4 @@
-h1 a {
+#lbanner > h1 > .s1_0055 {
     background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/logo.jpg' );
     background-position: 0 0;
     display: block;
@@ -51,7 +51,7 @@ h1 a {
 }
 #downstrip {
     background-color: #1c1211;
-    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/haunted.jpg' );
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/haunted.gif' );
     height: 116px;
     background-repeat: no-repeat;
     background-position: bottom right;
