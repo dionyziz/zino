@@ -56,3 +56,13 @@
     background-repeat: no-repeat;
     background-position: bottom right;
 }
+#halloween {
+    z-index: 100;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/haunted-hat.gif' );
+    background-repeat: none;
+    width: 82px;
+    height: 42px;
+    position: absolute;
+    bottom: 116px;
+    right: 135px;
+}
