@@ -50,10 +50,11 @@
         container = document.createElement( 'form' );
         <?php
         foreach ( $html as $chunk ) {
-            ?>$( container ).append( <?php
+            ?>
+            alert( 'one more append' );
+            $( container ).append( <?php
                 echo w_json_encode( $chunk );
             ?> );
-            alert( 'one more append' );
             <?php
         }
         ?>
