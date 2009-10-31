@@ -56,8 +56,9 @@
             alert( 'one more append' );
             <?php
         }
+        ?>
         alert( 'appending to the dom tree' );
-        ?>$( 'div.settings div.tabs' ).append( $( "form", container ) );
+        $( 'div.settings div.tabs' ).append( $( "form", container ) );
         Settings.LoadProperties( '<?php
             echo $tab;
         ?>' );<?php
