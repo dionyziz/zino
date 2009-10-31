@@ -1,4 +1,5 @@
-[class^="s1_"] {
+[class^="s1_"],
+.barfade div {
 	background-image: url( 'http://static.zino.gr/phoenix/spriting/sprite1/sprite1_4.png' );
 	background-repeat: no-repeat;
 }
@@ -245,10 +246,12 @@
 .s1_0069 {
     background-position: -72px -1918px;
 }
-.s1_0070 {
+.s1_0070,
+.barfade .leftbar {
     background-position: -71px -1961px;
 }
-.s1_0071 {
+.s1_0071,
+.barfade .rightbar {
     background-position: -313px 0;
 }
 .s1_rndavie75 {
