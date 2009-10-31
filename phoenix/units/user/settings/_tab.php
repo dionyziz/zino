@@ -45,14 +45,13 @@
         }
         //a little hack to handle the huge tab elements
         $html = str_split( ob_get_clean(), 1024 );
-        
         ?>
         buffer = [];
         $( '#settingsloader' ).fadeOut();
         <?php
         foreach ( $html as $chunk ) {
-            ?>
-            buffer.push( <?php
+            echo "\n";
+            ?>buffer.push( <?php
             echo w_json_encode( $chunk ); 
             ?> );<?php
         }
