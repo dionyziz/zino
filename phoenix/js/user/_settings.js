@@ -21,11 +21,13 @@ var Settings = {
             Settings.SectionLoad( section );
             return;
         }
+        $( ".settings .tabs ." + section + "info" ).fadeIn().sibblings().fadeOut();
     },
     SectionLoad: function( section ) {
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     LoadProperties: function( section ) {
+        Settings.SectionsLoaded( section ) = true;
 		if( section = 'interests' ) {
 			Suggest.OnLoad();
 		}
