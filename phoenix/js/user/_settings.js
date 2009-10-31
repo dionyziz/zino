@@ -5,14 +5,13 @@ var Settings = {
     
     OnLoad: function() {
         $.each( Settings.SectionsArray, function() {
-            alert( typeof this );
             Settings.SectionsLoaded[ this ] = false; //Initiate the array
             $( "#settingslist li." + this + " a" ).click( function( section ) {
                 return function() {
                     Settings.SectionSwitch( section );
                     return false;
                 }
-            } ( this ) );
+            } ( this.toString() ) );
         } );
     },
     SectionSwitch: function( section ) {
