@@ -64,6 +64,10 @@
         }
         Settings.LoadProperties( '<?php
             echo $tab;
-        ?>' );<?php
+        ?>' );
+        Settings.SectionSwitch( '<?php
+            echo $tab;
+        ?>' );
+        <?php
     }
 ?>
