@@ -51,8 +51,9 @@
         $( '#settingsloader' ).fadeOut();
         <?php
         foreach ( $html as $chunk ) {
-            ?>buffer.push( <?php
-            echo  w_json_encode( $chunk ); 
+            ?>
+            buffer.push( <?php
+            echo w_json_encode( $chunk ); 
             ?> );<?php
         }
         ?>$( 'div.settings div.tabs' ).append( buffer.join( "" ) );
