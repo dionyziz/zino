@@ -53,7 +53,7 @@
             ?>
             alert( 'one more append' );
             $( container ).append( <?php
-                echo w_json_encode( $chunk );
+                echo w_json_encode( $chunk ); 
             ?> );
             <?php
         }
