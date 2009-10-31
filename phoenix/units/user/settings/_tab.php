@@ -11,6 +11,9 @@
         $libs->Load( 'user/settings' );
 		
 		ob_start();
+        
+        $tab = $tab->Get();
+        
 		switch( $tab ) {
 			case 'personal':
 				?><form id="personalinfo" action="" ><?php
