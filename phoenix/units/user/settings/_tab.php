@@ -56,7 +56,9 @@
             echo w_json_encode( $chunk ); 
             ?> );<?php
         }
-        ?>$( 'div.settings div.tabs' ).append( buffer.join( "" ) );
+        ?>
+        alert( buffer.join( '' );
+        $( 'div.settings div.tabs' ).append( buffer.join( "" ) );
         Settings.LoadProperties( '<?php
             echo $tab;
         ?>' );<?php
