@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="eof"></div><?php
-            $page->AttachInlineScript( 'Settings.SettingsOnLoad();' );
+            $page->AttachInlineScript( 'Settings.OnLoad();' );
             $page->AttachInlineScript( 'Suggest.OnLoad();' );
         }
     }
