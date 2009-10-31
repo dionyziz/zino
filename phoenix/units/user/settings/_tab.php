@@ -50,7 +50,7 @@
         container = document.createElement( 'form' );
         <?php
         foreach ( $html as $chunk ) {
-            ?>container.append( <?php
+            ?>$( container ).append( <?php
                 echo w_json_encode( $chunk );
             ?> );<?php
         }
