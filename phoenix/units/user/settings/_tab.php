@@ -48,17 +48,13 @@
         
         ?>$( '#settingsloader' ).fadeOut();
         container = document.createElement( 'form' );
+        $( container ).append( ''
         <?php
         foreach ( $html as $chunk ) {
-            ?>
-            alert( 'one more append' );
-            $( container ).append( <?php
-                echo w_json_encode( $chunk ); 
-            ?> );
-            <?php
+        ?> + <?php
+            echo w_json_encode( $chunk ); 
         }
-        ?>
-        alert( 'appending to the dom tree' );
+        ?> );
         $( 'div.settings div.tabs' ).append( $( "form", container ) );
         Settings.LoadProperties( '<?php
             echo $tab;
