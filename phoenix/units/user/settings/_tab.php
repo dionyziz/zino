@@ -56,7 +56,12 @@
             ?> );<?php
         }
         ?>
-        $( 'div.settings div.tabs' ).append( buffer.join( "" ).replace( /&nbsp;/g, ' ' ) );
+        if ( $.browser.msie ) {
+            $( 'div.settings div.tabs' ).append( buffer.join( "" ) );
+        }
+        else {
+            $( 'div.settings div.tabs' ).append( buffer.join( "" ).replace( /&nbsp;/g, ' ' ) );
+        }
         Settings.LoadProperties( '<?php
             echo $tab;
         ?>' );<?php
