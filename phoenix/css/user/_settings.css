@@ -300,3 +300,6 @@ form div .setting ul.interesttags li {
     font-size: 90%;
     margin-top: 10px;
 }
+#settingsloader {
+    display: none;
+}
