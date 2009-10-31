@@ -43,13 +43,19 @@
             default:
                 return;
 		}
-		$html = w_json_encode( ob_get_clean() );
+        //a little hack to handle the huge tab elements
+        $html = str_split( ob_get_clean(), 512 );
 		
 	  ?>$( '#settingsloader' ).fadeOut();
-        $( 'div.settings div.tabs' ).append( <?php
-            echo $html;
-        ?> );
-		Settings.LoadProperties( '<?php
+        container = document.createElement( 'form' );
+        <?php
+        foreach ( $html as $chunck ) {
+            ?>container.append( <?php
+                echo w_json_encode( $chunk );
+            ?> );<?php
+        }
+        ?>$( 'div.settings div.tabs' ).append( $( "form", container ) );
+        Settings.LoadProperties( '<?php
 			echo $tab;
 		?>' );<?php
 	}
