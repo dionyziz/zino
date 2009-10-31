@@ -1,0 +1,58 @@
+h1 a {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/logo.jpg' );
+    background-position: 0 0;
+    display: block;
+    height: 59px;
+    position: relative;
+    top: -3px;
+    width: 95px;
+}
+#mbanner {
+    background-color: #1c1211;
+    background-image: none;
+}
+#loggedinmenu > span:after {
+    content: none;
+}
+.s1_0057, .s1_0056 {
+    background-image: none;
+}
+#strip2 {
+    background-color: #1c1211;
+    background-image: none;
+}
+#strip1left {
+    width: 10px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/tl.jpg' );
+    background-position: 10px -1px;
+    background-color: #1c1211;
+}
+#strip1right {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/tr.jpg' );
+    background-position: -2px -1px;
+    background-color: #1c1211;
+}
+#strip3left {
+    background-color: #1c1211;
+    background-position: 10px -1px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/bl.jpg' );
+}
+#strip3right {
+    background-color: #1c1211;
+    background-position: -2px -2px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/br.jpg' );
+}
+#downstrip {
+    background-color: #1c1211;
+    background-image: none;
+}
+#strip3middle {
+    height: 9px;
+}
+#downstrip {
+    background-color: #1c1211;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/haunted.jpg' );
+    height: 116px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}

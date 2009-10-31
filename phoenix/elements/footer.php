@@ -11,9 +11,10 @@
             <div id="copyleft">
                 <span>&copy; 2009</span> <a class="wlink" href="http://www.kamibu.com/">Kamibu</a>
             </div>
-            <a class="hoodie" href="http://zino.gr/store.php?p=product&amp;id=27">
+            <!-- <a class="hoodie" href="http://zino.gr/store.php?p=product&amp;id=27">
                 <img src="http://static.zino.gr/phoenix/store/hoodie-footer.png" alt="hoodie" />
-            </a><?php
+            </a>-->
+            <?php
         }
     }
 ?>
