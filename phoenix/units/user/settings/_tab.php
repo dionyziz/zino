@@ -13,7 +13,7 @@
 		ob_start();
         
         $tab = $tab->Get();
-        die( "alert( '$tab' );");
+        
 		switch( $tab ) {
 			case 'personal':
 				?><form id="personalinfo" action="" ><?php
