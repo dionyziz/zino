@@ -8,7 +8,7 @@ var Settings = {
             Settings.SectionsLoaded[ this ] = false; //Initiate the array
             $( "#settingslist li." + this + " a" ).click( function( section ) {
                 return function() {
-                    Settings.SwitchSection( section );
+                    Settings.SectionSwitch( section );
                     return false;
                 }
             } ( this ) );
