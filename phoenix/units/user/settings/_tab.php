@@ -44,7 +44,7 @@
                 return;
         }
         //a little hack to handle the huge tab elements
-        $html = str_split( ob_get_clean(), 512 );
+        $html = str_split( ob_get_clean(), 128 );
         
         ?>$( '#settingsloader' ).fadeOut();
         container = document.createElement( 'form' );
