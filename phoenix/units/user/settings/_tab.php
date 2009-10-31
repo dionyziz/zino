@@ -51,7 +51,8 @@
         $( container ).append( ''
         <?php
         foreach ( $html as $chunk ) {
-        ?> + <?php
+        ?>
+        + <?php
             echo w_json_encode( $chunk ); 
         }
         ?> );
