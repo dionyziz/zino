@@ -13,19 +13,29 @@
 		ob_start();
 		switch( $tab ) {
 			case 'personal':
-                Element( 'user/settings/personal/view' );
+				?><form id="personalinfo" action="" ><?php
+					Element( 'user/settings/personal/view' );
+                ?></form><?php
 				break;
 			case 'characteristics':
-                Element( 'user/settings/characteristics/view' );
+				?><form id="characteristicsinfo" action="" ><?php
+					Element( 'user/settings/characteristics/view' );
+                ?></form><?php
 				break;
 			case 'interests':
-                Element( 'user/settings/interests' );
+				?><form onsubmit="return false" id="interestsinfo" action="" ><?php
+					Element( 'user/settings/interests' );
+                ?></form><?php
 				break;
 			case 'contact':
-                Element( 'user/settings/contact' );
+				?><form id="contactinfo" action="" ><?php
+					Element( 'user/settings/contact' );
+                ?></form><?php
 				break;
-			case 'account':
-                Element( 'user/settings/account' );
+			case 'settings':
+				?><form id="settingsinfo" action="" ><?php
+					Element( 'user/settings/settings' );
+                ?></form><?php
 				break;
             default:
                 return;
@@ -33,14 +43,9 @@
 		$html = w_json_encode( ob_get_clean() );
 		
 	  ?>$( '#settingsloader' ).fadeOut();
-        $( 'div.settings div.tabs' ).appendTo(
-            document.createElement( 'form' ).attr( 'id', '<?php
-            echo $tab;
-            ?>info' )
-            .html( <?php
-                echo $html;
-            ?> )
-        );
+        $( 'div.settings div.tabs' ).append( <?php
+            echo $html;
+        ?> );
 		Settings.LoadProperties( '<?php
 			echo $tab;
 		?>' );<?php
