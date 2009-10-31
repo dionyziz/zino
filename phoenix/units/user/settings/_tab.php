@@ -56,8 +56,7 @@
             ?> );<?php
         }
         ?>
-        alert( buffer.join( '' ) );
-        $( 'div.settings div.tabs' ).append( buffer.join( "" ) );
+        $( 'div.settings div.tabs' ).append( buffer.join( "" ).replace( /&nbsp;/g, ' ' ) );
         Settings.LoadProperties( '<?php
             echo $tab;
         ?>' );<?php
