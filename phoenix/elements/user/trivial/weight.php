@@ -1,7 +1,6 @@
 <?php
     
     class ElementUserTrivialWeight extends Element {
-        protected $mPersistent = array( 'weight' );
 
         public function Render( $weight ) {
             if ( $weight == -3 ) {

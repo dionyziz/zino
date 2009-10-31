@@ -1,7 +1,6 @@
 <?php
 
     class ElementUserTrivialHaircolor extends Element {
-        protected $mPersistent = array( 'color' );
 
         public function Render( $color ) {
             $hairs = array( '-'        => '-',

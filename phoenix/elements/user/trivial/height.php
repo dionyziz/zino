@@ -1,7 +1,6 @@
 <?php
     
     class ElementUserTrivialHeight extends Element {
-        protected $mPersistent = array( 'height' );
 
         public function Render( $height ) {
             if ( $height == -3 ) {

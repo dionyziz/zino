@@ -1,7 +1,6 @@
 <?php
 
     class ElementUserTrivialEyecolor extends Element {
-        protected $mPersistent = array( 'color' );
 
         public function Render( $color ) {
             $eyes = array( 

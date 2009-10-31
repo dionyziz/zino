@@ -1,7 +1,6 @@
 <?php
     
     class ElementUserTrivialPlace extends Element {
-        protected $mPersistent = array( 'placeid' );
 
         public function Render( $place, $placeid ) {
             if ( $place->Exists() ) {
