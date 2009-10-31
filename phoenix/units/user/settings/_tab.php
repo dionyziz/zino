@@ -32,24 +32,27 @@
 					Element( 'user/settings/contact' );
                 ?></form><?php
 				break;
-			case 'settings':
-				?><form id="settingsinfo" action="" ><?php
-					Element( 'user/settings/settings' );
+			case 'account':
+				?><form id="accountinfo" action="" ><?php
+					Element( 'user/settings/account' );
                 ?></form><?php
 				break;
+            default:
+                return;
 		}
 		$html = w_json_encode( ob_get_clean() );
 		
 	  ?>$( '#settingsloader' ).fadeOut();
-		$( 'div.settings div.tabs' ).html( <?php
-			echo $html;
-		?> );
+        $( 'div.settings div.tabs' ).appendTo(
+            document.createElement( 'form' ).attr( 'id', '<?php
+            echo $tab;
+            ?>info' )
+            .html( <?php
+                echo $html;
+            ?> )
+        );
 		Settings.LoadProperties( '<?php
 			echo $tab;
 		?>' );<?php
-		
-		if( $tab == 'interests' ) {
-			?>Suggest.OnLoad();<?php
-		}
 	}
 ?>
