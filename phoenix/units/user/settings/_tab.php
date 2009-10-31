@@ -13,29 +13,19 @@
 		ob_start();
 		switch( $tab ) {
 			case 'personal':
-				?><form id="personalinfo" action="" ><?php
-					Element( 'user/settings/personal/view' );
-                ?></form><?php
+                Element( 'user/settings/personal/view' );
 				break;
 			case 'characteristics':
-				?><form id="characteristicsinfo" action="" ><?php
-					Element( 'user/settings/characteristics/view' );
-                ?></form><?php
+                Element( 'user/settings/characteristics/view' );
 				break;
 			case 'interests':
-				?><form onsubmit="return false" id="interestsinfo" action="" ><?php
-					Element( 'user/settings/interests' );
-                ?></form><?php
+                Element( 'user/settings/interests' );
 				break;
 			case 'contact':
-				?><form id="contactinfo" action="" ><?php
-					Element( 'user/settings/contact' );
-                ?></form><?php
+                Element( 'user/settings/contact' );
 				break;
 			case 'account':
-				?><form id="accountinfo" action="" ><?php
-					Element( 'user/settings/account' );
-                ?></form><?php
+                Element( 'user/settings/account' );
 				break;
             default:
                 return;
