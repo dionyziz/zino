@@ -18,21 +18,11 @@
                     Element( 'user/settings/sections' );
                 ?></div>
                 <div class="tabs">
-                    <form id="personalinfo" action="" style="display:none"><?php
-                        Element( 'user/settings/personal/view' );
-                    ?></form>
-                    <form id="characteristicsinfo" action="" style="display:none"><?php
-                        Element( 'user/settings/characteristics/view' );
-                    ?></form>
-                    <form onsubmit="return false" id="interestsinfo" action="" style="display:none"><?php
-                        Element( 'user/settings/interests' );
-                    ?></form>
-                    <form id="contactinfo" action="" style="display:none"><?php
-                        Element( 'user/settings/contact' );
-                    ?></form>
-                    <form id="settingsinfo" action="" style="display:none"><?php
-                        Element( 'user/settings/settings' );
-                    ?></form>
+                </div>
+                <div id="settingsloader">
+                    <img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Φόρτωση Ρυθμίσεων...
                 </div>
             </div>
             <div class="eof"></div><?php
