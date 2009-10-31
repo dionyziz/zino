@@ -23,6 +23,7 @@ var Settings = {
         }
     },
     SectionLoad: function( section ) {
+        alert( section );
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     LoadProperties: function( section ) {
