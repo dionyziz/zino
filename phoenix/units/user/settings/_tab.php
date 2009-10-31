@@ -53,7 +53,8 @@
             ?>$( container ).append( <?php
                 alert( 'one more append' );
                 echo w_json_encode( $chunk );
-            ?> );<?php
+            ?> );
+            <?php
         }
         alert( 'appending to the dom tree' );
         ?>$( 'div.settings div.tabs' ).append( $( "form", container ) );
