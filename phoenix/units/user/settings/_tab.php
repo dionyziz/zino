@@ -51,9 +51,9 @@
         <?php
         foreach ( $html as $chunk ) {
             ?>$( container ).append( <?php
-                alert( 'one more append' );
                 echo w_json_encode( $chunk );
             ?> );
+            alert( 'one more append' );
             <?php
         }
         alert( 'appending to the dom tree' );
