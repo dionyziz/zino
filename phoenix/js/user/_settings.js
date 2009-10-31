@@ -1,10 +1,11 @@
 var Settings = {
-    SectionsArray: ['personal','characteristics','interests','contact','account'],
+    SectionsArray: [ 'personal', 'characteristics', 'interests', 'contact', 'account' ],
     SectionsLoaded: [],
     CurrentTab: false,
     
     OnLoad: function() {
         $.each( Settings.SectionsArray, function() {
+            alert( typeof this );
             Settings.SectionsLoaded[ this ] = false; //Initiate the array
             $( "#settingslist li." + this + " a" ).click( function( section ) {
                 return function() {
@@ -23,7 +24,6 @@ var Settings = {
         }
     },
     SectionLoad: function( section ) {
-        alert( typeof section );
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     LoadProperties: function( section ) {
