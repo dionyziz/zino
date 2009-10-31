@@ -6,8 +6,8 @@ var Settings = {
                 return function( section ) {
                     alert( section );
                     return false;
-                } ( this )
-            } );
+                } 
+            }( this ) );
         } );
     }
 };
