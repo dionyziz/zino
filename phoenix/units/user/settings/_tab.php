@@ -51,9 +51,7 @@
         $( container ).append( ''
         <?php
         foreach ( $html as $chunk ) {
-        ?>
-        + <?php
-            echo w_json_encode( $chunk ); 
+            echo "\n + " . w_json_encode( $chunk ); 
         }
         ?> );
         $( 'div.settings div.tabs' ).append( $( "form", container ) );
