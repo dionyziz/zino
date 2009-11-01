@@ -13,9 +13,9 @@
             </div>
             <div id="halloween">
             </div>
-            <!-- <a class="hoodie" href="http://zino.gr/store.php?p=product&amp;id=27">
+            <a class="hoodie" href="http://zino.gr/store.php?p=product&amp;id=27">
                 <img src="http://static.zino.gr/phoenix/store/hoodie-footer.png" alt="hoodie" />
-            </a>-->
+            </a>
             <?php
         }
     }
