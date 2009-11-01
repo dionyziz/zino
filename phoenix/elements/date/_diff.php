@@ -20,7 +20,7 @@
             $hours = $diff[ 'hours' ];
             $minutes = $diff[ 'minutes' ];
 
-            die( var_dump( $diff ) );
+            //die( var_dump( $diff ) );
             
             if ( $years ) {
                 if ( $years == 1 ) {
