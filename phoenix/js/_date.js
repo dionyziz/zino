@@ -110,7 +110,7 @@ function greekDateDiff( diff ) {
     days = diff.days;
     hours = diff.hours;
     minutes = diff.minutes;
-    alert( diff );
+    alert( years + ' ' + months + ' ' + weeks + ' ' + days + ' ' + hours + ' ' + minutes );
     if ( years ) {
         if ( years == 1 ) {
             return 'πέρσι';
