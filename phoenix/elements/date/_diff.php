@@ -99,7 +99,7 @@
             else {
                 ?>πριν λίγο<?php
             }
-            die( var_dump( $diff ) );
+            var_dump( $diff );
 
         }
     }
