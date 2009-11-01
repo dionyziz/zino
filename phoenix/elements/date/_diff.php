@@ -97,7 +97,7 @@
                 }
             }
             else {
-                ?>πριν λίγο<?php
+                ?>πριν λίγο-here<?php
             }
             var_dump( $diff );
 
