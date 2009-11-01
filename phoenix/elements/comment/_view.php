@@ -30,7 +30,7 @@
                 </div><div class="text"><?php
                     echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
                 ?></div>
-                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο - test</div>
             </div><?php
         }
     }
