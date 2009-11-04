@@ -77,12 +77,11 @@
         }
         die( var_dump( count( $properties ) ) );
         foreach ( $properties as $property ) {
-            die( $property->Value );
             if ( $property->Value == $desired[ $property->Type ] ) {
                 $purchaseproperty = New StorePurchaseProperty();
                 $purchaseproperty->Propertyid = $property->Id;
                 $purchaseproperty->Purchaseid = $purchase->Id;
-                die( var_dump( $purchaseproperty->Propertyid ) );
+                die( var_dump( $property->Value ) );
                 //$purchaseproperty->Save();
                 break;
             }
