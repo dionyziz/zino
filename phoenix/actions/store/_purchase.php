@@ -75,7 +75,7 @@
         else {
                 $desired[ "Size" ] = "M";
         }
-        die( (string) count( $properties ) );
+        die( var_dump( count( $properties ) ) );
         foreach ( $properties as $property ) {
             die( $property->Value );
             if ( $property->Value == $desired[ $property->Type ] ) {
