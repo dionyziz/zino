@@ -277,12 +277,12 @@
                                         echo $value;
                                         ?></option><?php
                                 }*/
-                                ?><option value="-1">XS</option>
-                                  <option value="0">S</option>
-                                  <option value="1" selected="selected">M</option>
-                                  <option value="2">L</option>
-                                  <option value="3">XL</option>                    
-                                  <option value="4">XXL</option><?php
+                                ?><option value="XS">XS</option>
+                                  <option value="S">S</option>
+                                  <option value="M" selected="selected">M</option>
+                                  <option value="L">L</option>
+                                  <option value="XL">XL</option>                    
+                                  <option value="XXL">XXL</option><?php
                                 ?></select><?php
                         } 
                     ?>
