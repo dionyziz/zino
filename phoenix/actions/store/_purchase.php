@@ -57,7 +57,7 @@
         $purchase = New StorePurchase();
         $purchase->Itemid = $itemid;
         $purchase->Userid = $user->Id;
-        $purchase->Save();
+        //$purchase->Save();
         
         $propertyfinder = New StorePropertyFinder();
         $properties = $propertyfinder->FindByItemId( $itemid );
@@ -68,7 +68,7 @@
         else {
             $desired[ "glossy" ] = 'no';
         }
-die( var_dump( $size ) );
+
         if ( $size == "M" || $size == "L" || $size == "S" || $size == "XL" || $size == "XS" || $size == "XXL" ) {
                 $desired[ "Size" ] = $size;
         }
@@ -80,7 +80,8 @@ die( var_dump( $size ) );
                 $purchaseproperty = New StorePurchaseProperty();
                 $purchaseproperty->Propertyid = $property->Id;
                 $purchaseproperty->Purchaseid = $purchase->Id;
-                $purchaseproperty->Save();
+                die( var_dump( $purchaseproperty->Propertyid ) );
+                //$purchaseproperty->Save();
                 break;
             }
         }
