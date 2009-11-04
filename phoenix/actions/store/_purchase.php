@@ -75,7 +75,9 @@
         else {
                 $desired[ "Size" ] = "M";
         }
+        die( count( $properties ) );
         foreach ( $properties as $property ) {
+            die( $property->Value );
             if ( $property->Value == $desired[ $property->Type ] ) {
                 $purchaseproperty = New StorePurchaseProperty();
                 $purchaseproperty->Propertyid = $property->Id;
