@@ -8,6 +8,10 @@
         txt.keyup( function ( event ) {
             switch ( event.keyCode ) {
                 case 13: // return
+                    if ( txt[ 0 ].value == '' ) {
+                        return;
+                    }
+                    
                     // send message
                     var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true } );
                     Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node } );
