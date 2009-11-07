@@ -25,6 +25,9 @@
                             $prevuser = $chat->User->Name;
                             Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
                         }
+                        else {
+                            ?>&#160;<?php
+                        }
                         ?></strong> <?php
                         echo nl2br( $chat->Text );
                         ?></li><?php
