@@ -76,7 +76,7 @@ $( function () {
         }
         else if ( !Frontpage.Shoutbox.Autoscroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
             Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
-            Frontage.Shoutbox.Autoscroll = true;
+            Frontpage.Shoutbox.Autoscroll = true;
         }
     } );
 } );
