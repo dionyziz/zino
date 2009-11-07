@@ -50,11 +50,21 @@ Frontpage = {};
 Frontpage.Shoutbox = {
     Typing: [], // people who are currently typing (not including yourself)
     OnMessageArrival: function( shoutid, shouttext, who ) {
+        Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
+        
         if ( $( '#s_' + shoutid ).length ) {
             return; // already received it
         }
         if ( who.name == User && typeof who.self == 'undefined' ) {
             return; // server sent back what we've already added preliminarily -- ignore
+        }
+        
+        var lis = $( 'li.typing' );
+        for ( var i = 0; i < lis.length; ++i ) {
+            var li = lis[ i ];
+            var name = li.id.substr( 7 );
+            
+            li.parentNode.removeChild( li );
         }
         
         var li = document.createElement( 'li' );
@@ -77,6 +87,8 @@ Frontpage.Shoutbox = {
         li.appendChild( div );
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
+        
+        Frontpage.Shoutbox.UpdateTyping();
         
         return li;
     },
@@ -131,7 +143,7 @@ Frontpage.Shoutbox = {
                 var li = document.createElement( 'li' );
                 li.id = 'typing_' + typist.name;
                 li.className = 'typing';
-                li.innerHTML = '<strong>' + typist.name + '</strong> <em>πληκτρολογεί</em>';
+                li.innerHTML = '<strong>' + typist.name + '</strong> <em>πληκτρολογεί...</em>';
                 ol.appendChild( li );
                 li.scrollIntoView();
             }
