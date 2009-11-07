@@ -62,11 +62,6 @@ Frontpage.Shoutbox = {
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
         
-        var txt = $( 'textarea' );
-        if ( txt.length ) {
-            txt[ 0 ].scrollIntoView();
-        }
-        
         return li;
     },
     OnStartTyping: function ( gender, name ) {
