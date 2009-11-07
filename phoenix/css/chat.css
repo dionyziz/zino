@@ -9,7 +9,7 @@ body {
 ol {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 20px 0 0;
     overflow: auto;
 }
 ol li {
@@ -52,5 +52,5 @@ textarea {
     width: 100%;
 }
 div.typehere {
-    margin: 10px 115px 10px 115px;
+    margin: 10px 27px 10px 115px;
 }

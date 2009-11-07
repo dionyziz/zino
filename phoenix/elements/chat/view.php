@@ -41,12 +41,21 @@
             <div>
                 <ol><?php
                     $prevuser = '';
+                    $prevtime = '';
                     foreach ( $chats as $chat ) {
                         ?><li id="s_<?php
                         echo $chat->Id;
-                        ?>"><span class="time"><?php
+                        ?>"><?php
+                        ob_start();
                         Element( 'date/diff', $chat->Created );
-                        ?></span> <strong><?php
+                        $time = ob_get_clean();
+                        if ( $time != $prevtime ) {
+                            $prevtime = $time;
+                            ?><span class="time"><?php
+                            echo $prevtime;
+                            ?></span><?php
+                        }
+                        ?> <strong><?php
                         if ( $prevuser != $chat->User->Name ) {
                             $prevuser = $chat->User->Name;
                             Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
