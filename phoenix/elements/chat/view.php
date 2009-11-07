@@ -40,7 +40,9 @@
                 <ol><?php
                     $prevuser = '';
                     foreach ( $chats as $chat ) {
-                        ?><li><span class="time"><?php
+                        ?><li id="s_<?php
+                        echo $chat->Id;
+                        ?>"><span class="time"><?php
                         Element( 'date/diff', $chat->Created );
                         ?></span> <strong><?php
                         if ( $prevuser != $chat->User->Name ) {

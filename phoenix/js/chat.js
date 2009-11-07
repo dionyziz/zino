@@ -6,7 +6,7 @@ $( function() {
     
     if ( txt.length ) {
         Kamibu.ClickableTextbox( txt[ 0 ], true, '#111', '#999' );
-        txt.keydown( function ( event ) {
+        txt.keyup( function ( event ) {
             switch ( event.keyCode ) {
                 case 13: // return
                     // send message
@@ -25,6 +25,10 @@ $( function() {
 Frontpage = {};
 Frontpage.Shoutbox = { 
     OnMessageArrival: function( shoutid, shouttext, who ) {
+        if ( $( '#s_' + shoutid ).length ) {
+            return; // already received it
+        }
+        
         var li = document.createElement( 'li' );
         var div = document.createElement( 'div' );
         
