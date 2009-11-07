@@ -1,4 +1,4 @@
-function() {
+( function() {
     var lis = $( 'ol li' );
     var txt = $( 'textarea' );
     
@@ -20,7 +20,7 @@ function() {
             }
         } );
     }
-}();
+} )();
 
 Frontpage = {};
 Frontpage.Shoutbox = { 
