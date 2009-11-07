@@ -9,6 +9,7 @@
             $page->AttachStylesheet( 'css/chat.css' );
             $page->AttachScript( 'js/jquery.js' );
             $page->AttachScript( 'js/coala.js' );
+            $page->AttachScript( 'js/meteor.js' );
             $page->AttachScript( 'js/comet.js' );
             $page->AttachScript( 'js/chat.js' );
             
