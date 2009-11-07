@@ -55,7 +55,11 @@
                             echo $prevtime;
                             ?></span><?php
                         }
-                        ?> <strong><?php
+                        ?> <strong<?php
+                        if ( $chat->User->Id == $user->Id ) {
+                            ?> class="u"<?php
+                        }
+                        ?>><?php
                         if ( $prevuser != $chat->User->Name ) {
                             $prevuser = $chat->User->Name;
                             Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
