@@ -8,6 +8,8 @@
             $page->SetTitle( 'Συζήτηση' );
             
             $page->AttachStylesheet( 'css/chat.css' );
+            $page->AttachStylesheet( 'css/emoticons.css' );
+            
             $page->AttachScript( 'js/settings.js' );
             $page->AttachScript( 'js/kamibu.js' );
             $page->AttachScript( 'js/jquery.js' );
