@@ -43,7 +43,8 @@ $( function () {
 } );
 
 Frontpage = {};
-Frontpage.Shoutbox = { 
+Frontpage.Shoutbox = {
+    Typing: [], // people who are currently typing (not including yourself)
     OnMessageArrival: function( shoutid, shouttext, who ) {
         if ( $( '#s_' + shoutid ).length ) {
             return; // already received it
@@ -66,8 +67,53 @@ Frontpage.Shoutbox = {
         
         return li;
     },
-    OnStartTyping: function ( gender, name ) {
+    OnStartTyping: function ( who ) { // received when someone starts typing
+        if ( who.name == User ) { // don't show it when you're typing
+            return;
+        }
+        for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+            var typist = Frontpage.Shoutbox.Typing[ i ];
+            if ( typist.name == who.name ) {
+                clearTimeout( typist.timeout );
+                // in case the typing user gets disconnected and is unable to send us a 
+                // "stopped typing" comet request, time it out after 20,000 milliseconds
+                // of no "started typing" comet requests
+                // (also in case we receive the asynchronous "I'm typing" and "I've stopped typing"
+                // requests in the wrong order -- very improbable but possible)
+                Frontpage.Shoutbox.Typing[ i ].timeout = setTimeout( function () {
+                    Frontpage.Shoutbox.OnStopTyping( who );
+                }, 20000 );
+                return;
+            }
+        }
+        who.timeout = setTimeout( function () {
+            Frontpage.Shoutbox.OnStopTyping( who );
+        }, 20000 ); // in case the remote party gets disconnected
+        Frontpage.Shoutbox.Typing.push( who );
+        Frontpage.Shoutbox.UpdateTyping();
     },
-    OnStopTyping: function ( gender, name ) {
+    OnStopTyping: function ( who ) { // received when someone stops typing
+        var found = false;
+        
+        for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+            var typist = Frontpage.Shoutbox.Typing[ i ];
+            if ( typist.name == who.name ) {
+                Frontpage.Shoutbox.Typing.splice( i, 1 );
+                found = true;
+                break;
+            }
+        }
+        if ( !found ) {
+            return;
+        }
+        Frontpage.Shoutbox.UpdateTyping();
+    },
+    UpdateTyping: function() {
+        t = [];
+        for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
+            var typist = Frontpage.Shoutbox.Typing[ i ];
+            t.push( typist.name );
+        }
+        document.title = t.join( ', ' );
     }
 };
