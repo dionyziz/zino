@@ -30,6 +30,7 @@ Frontpage.Shoutbox = {
         }
         
         var li = document.createElement( 'li' );
+        li.id = 's_' + shoutid;
         var div = document.createElement( 'div' );
         
         div.className = 'text';
