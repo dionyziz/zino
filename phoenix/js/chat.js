@@ -77,7 +77,7 @@ $( function () {
             Frontpage.Shoutbox.AutoScroll = false; // disable autoscrolling
             alert( 'auto disabled' );
         }
-        else if ( !Frontpage.Shoutbox.Autoscroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
+        else if ( !Frontpage.Shoutbox.AutoScroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
             Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
             Frontpage.Shoutbox.Autoscroll = true;
             alert( 'auto enabled' );
