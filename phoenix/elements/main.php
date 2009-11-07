@@ -18,12 +18,6 @@
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people' ) );
             $page->AddMeta( 'description', 'Το Zino είναι η παρέα σου online - είσαι μέσα;' );
             
-            ob_start();
-            $info = Element::MasterElement();
-            $res = $info[ 0 ];
-            $masterelement = $info[ 1 ];
-            $master = ob_get_clean();
-            
             $attachglobals = true;
             
             ob_start();
@@ -40,6 +34,12 @@
                 ?>ExcaliburSettings.Production = false;<?php
             }
             $page->AttachInlineScript( ob_get_clean() );
+            
+            ob_start();
+            $info = Element::MasterElement();
+            $res = $info[ 0 ];
+            $masterelement = $info[ 1 ];
+            $master = ob_get_clean();
             
             if ( $res === false ) { //If the page requested is not in the pages available
                 ?><div id="upstrip"><?php
