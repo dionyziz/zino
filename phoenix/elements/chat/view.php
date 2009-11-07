@@ -3,11 +3,13 @@
         public function Render() {
             global $page;
             global $libs;
+            global $user;
             
             $page->SetTitle( 'Συζήτηση' );
             
             $page->AttachStylesheet( 'css/chat.css' );
             $page->AttachScript( 'js/settings.js' );
+            $page->AttachScript( 'js/kamibu.js' );
             $page->AttachScript( 'js/jquery.js' );
             $page->AttachScript( 'js/coala.js' );
             $page->AttachScript( 'js/meteor.js' );
@@ -27,6 +29,9 @@
             ?>);
             Comet.Subscribe( 'FrontpageShoutboxNew' );
             Comet.Subscribe( 'FrontpageShoutboxTyping' );
+            User = '<?php
+            echo $user->Name;
+            ?>';
             <?php
             $page->AttachInlineScript( ob_get_clean() );
             
@@ -45,14 +50,18 @@
                         else {
                             ?>&#160;<?php
                         }
-                        ?></strong> <span class="text"><?php
+                        ?></strong> <div class="text"><?php
                         echo nl2br( $chat->Text );
-                        ?></span></li><?php
+                        ?></div></li><?php
                     }
                 ?>
-                </ol>
-            </div>
-            <?php
+                </ol><?php
+                if ( !$user->Exists() ) {
+                    ?><div class="typehere">
+                        <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
+                    </div><?php
+                }
+            ?></div><?php
             
             return array( 'tiny' => true );
         }

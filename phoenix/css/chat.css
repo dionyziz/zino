@@ -27,9 +27,20 @@ ol span.time {
     float: right;
     padding-right: 10px;
 }
-ol span.text {
+ol div.text {
     margin-left: 115px;
-    display: block;
     overflow: hidden;
     white-space: nowrap;
+}
+textarea {
+    border: 1px solid #ccc;
+    color: #999;
+    display: block;
+    font-family: Verdana, Tahoma, Helvetica;
+    font-size: 8pt;
+    padding: 3px;
+    width: 100%;
+}
+div.typehere {
+    margin: 10px 115px 115px 10px;
 }
