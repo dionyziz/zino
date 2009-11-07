@@ -109,10 +109,29 @@ Frontpage.Shoutbox = {
         Frontpage.Shoutbox.UpdateTyping();
     },
     UpdateTyping: function() {
-        t = [];
+        var ol = $( 'ol' )[ 0 ];
+        var processed = {};
+        
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
             var typist = Frontpage.Shoutbox.Typing[ i ];
-            t.push( typist.name );
+            if ( !$( '#typing_' + typist.name ).length ) {
+                var li = document.createElement( 'li' );
+                li.id = 'typing_' + typist.name;
+                li.className = 'typing';
+                li.innerHTML = '<strong>' + typist.name + '</strong> <img src="http://fc04.deviantart.net/fs21/f/2007/282/1/2/_typerhappy__by_de_Mote.gif" alt="Πληκτρολογεί..." />';
+                ol.appendChild( li );
+            }
+            processed[ typist.name ] = true;
+        }
+        var lis = $( 'li.typing' );
+        for ( var i = 0; i < lis.length; ++i ) {
+            var li = lis[ i ];
+            var name = li.id.substr( 7 );
+            
+            if ( typeof processed[ name ] == 'undefined' ) {
+                // someone stopped typing
+                li.parentNode.removeChild( li );
+            }
         }
         document.title = t.join( ', ' );
     }
