@@ -18,6 +18,7 @@
                     Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node, f: function () {
                         var lis = $( 'ol li' );
                         lis[ lis.length - 1 ].scrollIntoView();
+                        Frontpage.Shoutbox.AutoScroll = true;
                     } } );
                     txt[ 0 ].value = '';
                     break;
