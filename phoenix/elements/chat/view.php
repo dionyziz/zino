@@ -21,8 +21,8 @@
                         ?><li><span class="time"><?php
                         Element( 'date/diff', $chat->Created );
                         ?></span> <strong><?php
-                        if ( $prevuser != $user->User->Name ) {
-                            $prevuser = $user->User->Name;
+                        if ( $prevuser != $chat->User->Name ) {
+                            $prevuser = $chat->User->Name;
                             Element( 'user/name', $chat->User );
                         }
                         ?></strong> <?php
