@@ -22,6 +22,12 @@
     }
 } )();
 
+$( function () {
+    document.body.onResize = function () {
+        $( 'ol' ).style.height = document.body.offsetHeight - $( 'textaea' )[ 0 ].offsetHeight + 'px';
+    };
+} );
+
 Frontpage = {};
 Frontpage.Shoutbox = { 
     OnMessageArrival: function( shoutid, shouttext, who ) {
