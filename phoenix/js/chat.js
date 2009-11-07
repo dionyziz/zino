@@ -10,7 +10,7 @@ $( function() {
             switch ( event.keyCode ) {
                 case 13: // return
                     // send message
-                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User } );
+                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true } );
                     Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node } );
                     txt[ 0 ].value = '';
                     break;
@@ -27,6 +27,9 @@ Frontpage.Shoutbox = {
     OnMessageArrival: function( shoutid, shouttext, who ) {
         if ( $( '#s_' + shoutid ).length ) {
             return; // already received it
+        }
+        if ( who.name == User && typeof who.self == 'undefined' ) {
+            return; // server sent back what we've already added preliminarily -- ignore
         }
         
         var li = document.createElement( 'li' );
