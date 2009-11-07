@@ -1,4 +1,4 @@
-$( function() {
+function() {
     var lis = $( 'ol li' );
     var txt = $( 'textarea' );
     
@@ -20,7 +20,7 @@ $( function() {
             }
         } );
     }
-} );
+}();
 
 Frontpage = {};
 Frontpage.Shoutbox = { 
@@ -43,6 +43,11 @@ Frontpage.Shoutbox = {
         li.appendChild( div );
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
+        
+        var txt = $( 'textarea' );
+        if ( txt.length ) {
+            txt.scrollIntoView();
+        }
         
         return li;
     },

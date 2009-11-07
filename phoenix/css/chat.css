@@ -9,6 +9,7 @@ ol {
 }
 ol li {
     padding: 2px;
+    clear: both;
 }
 ol strong {
     color: #6af;
@@ -18,6 +19,10 @@ ol strong {
     overflow: hidden;
     text-align: right;
     padding-right: 15px;
+    display: block;
+    vertical-align: bottom;
+    height: 16px;
+    line-height: 16px;
 }
 ol strong.u {
     color: #aaa;
