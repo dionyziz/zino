@@ -8,7 +8,8 @@
         txt.keyup( function ( event ) {
             switch ( event.keyCode ) {
                 case 13: // return
-                    if ( txt[ 0 ].value == '' ) {
+                    if ( txt[ 0 ].value.replace( /^\s+/ ).replace( /\s+$/ ) == '' ) {
+                        txt[ 0 ].value = '';
                         return;
                     }
                     
