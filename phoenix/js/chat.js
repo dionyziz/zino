@@ -21,7 +21,22 @@
                 case 27: // escape
                     txt[ 0 ].value = '';
                     break;
-            }
+                default:
+                    // send an "I'm typing" request
+                    if ( Frontpage.Shoutbox.TypingCancelTimeout !== 0 ) { // if we were about to send a "I've stopped typing" request...
+                        clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout ); // delay it for a while
+                    }
+                    Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
+                        Coala.Warm( 'shoutbox/typing', { 'typing': false } ); // OK send the actual "I've stopped typing" request
+                    }, 10000 ); // send an "I've stopped typing" request if I haven't touched the keyboard for 10 seconds
+                    if ( Frontpage.Shoutbox.TypingUpdated ) { // We've already sent an "I'm typing" request recently; don't do it again for every keystroke!
+                        return;
+                    }
+                    Frontpage.Shoutbox.TypingUpdated = true; // OK we're about to send an "I'm typing" request now; make sure we don't send one again very soon
+                    setTimeout( function () { // After we've sent an "I'm typing" request, we don't want to send more. But only for 10 seconds; we'll send another "I'm typing" request if I'm still typing by then.
+                        Frontpage.Shoutbox.TypingUpdated = false;
+                    }, 10000 );
+                    Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request            }
         } );
     }
 } )();
@@ -50,6 +65,8 @@ $( function () {
 Frontpage = {};
 Frontpage.Shoutbox = {
     Typing: [], // people who are currently typing (not including yourself)
+    TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
+    TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
         
