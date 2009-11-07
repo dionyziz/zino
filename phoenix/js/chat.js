@@ -57,7 +57,7 @@ Frontpage.Shoutbox = {
         var div = document.createElement( 'div' );
         
         div.className = 'text';
-        div.appendChild( document.createTextNode( shouttext ) );
+        div.innerHTML = shouttext;
         
         li.innerHTML = '<span class="time"></span> <strong>' + who.name + '</strong> ';
         li.appendChild( div );
