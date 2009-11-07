@@ -118,8 +118,9 @@ Frontpage.Shoutbox = {
                 var li = document.createElement( 'li' );
                 li.id = 'typing_' + typist.name;
                 li.className = 'typing';
-                li.innerHTML = '<strong>' + typist.name + '</strong> <img src="http://fc04.deviantart.net/fs21/f/2007/282/1/2/_typerhappy__by_de_Mote.gif" alt="Πληκτρολογεί..." />';
+                li.innerHTML = '<strong>' + typist.name + '</strong> <em>πληκτρολογεί</em>';
                 ol.appendChild( li );
+                li.scrollIntoView();
             }
             processed[ typist.name ] = true;
         }
