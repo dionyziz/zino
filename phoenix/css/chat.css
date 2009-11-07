@@ -1,0 +1,29 @@
+body {
+    font-family: Tahoma, Helvetica;
+    font-size: 10pt;
+}
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ol li {
+    padding: 2px;
+}
+ol strong {
+    color: #6af;
+    font-weight: normal;
+    width: 100px;
+    float: left;
+    overflow: hidden;
+    text-align: right;
+    padding-right: 15px;
+}
+ol strong.u {
+    color: #aaa;
+}
+ol span.time {
+    color: #aaa;
+    float: right;
+    padding-right: 10px;
+}
