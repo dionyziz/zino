@@ -108,7 +108,7 @@ var Frontpage = {
                     $( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).find( 'div.text' );
                     var copytext = text;
                     $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) ); 
-                    Coala.Warm( 'shoutbox/new' , { text : text , node : newshout, f: function () {} );
+                    Coala.Warm( 'shoutbox/new' , { text : text , node : newshout, f: function () {} } );
                     Frontpage.Shoutbox.ShowShout( newshout );
                     Frontpage.Shoutbox.Changed = false;
                     textarea[ 0 ].value = '';
