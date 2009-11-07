@@ -26,7 +26,8 @@ $( function () {
     f = function () {
         $( 'ol' )[ 0 ].style.height = document.body.offsetHeight - $( 'textaea' )[ 0 ].offsetHeight + 'px';
     };
-    $( 'body' ).resize( f ).load( f );
+    f();
+    window.onresize = f;
 } );
 
 Frontpage = {};
