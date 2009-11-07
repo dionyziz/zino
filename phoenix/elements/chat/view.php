@@ -23,7 +23,7 @@
                         ?></span> <strong><?php
                         if ( $prevuser != $chat->User->Name ) {
                             $prevuser = $chat->User->Name;
-                            Element( 'user/name', $chat->User );
+                            Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
                         }
                         ?></strong> <?php
                         echo nl2br( $chat->Text );
