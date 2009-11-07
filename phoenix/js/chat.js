@@ -8,7 +8,7 @@
         txt.keyup( function ( event ) {
             switch ( event.keyCode ) {
                 case 13: // return
-                    if ( txt[ 0 ].value.replace( /^\s+/ ).replace( /\s+$/ ) == '' ) {
+                    if ( txt[ 0 ].value.replace( /^\s+/, '' ).replace( /\s+$/, '' ) == '' ) {
                         txt[ 0 ].value = '';
                         return;
                     }
@@ -160,6 +160,5 @@ Frontpage.Shoutbox = {
                 li.parentNode.removeChild( li );
             }
         }
-        document.title = t.join( ', ' );
     }
 };
