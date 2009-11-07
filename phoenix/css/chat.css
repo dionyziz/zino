@@ -54,3 +54,7 @@ textarea {
 div.typehere {
     margin: 10px 27px 10px 115px;
 }
+em {
+    color: #ccc;
+    font-size: 80%;
+}

@@ -64,7 +64,16 @@ Frontpage.Shoutbox = {
         div.className = 'text';
         div.innerHTML = shouttext;
         
-        li.innerHTML = '<span class="time"></span> <strong>' + who.name + '</strong> ';
+        var strong = document.createElement( 'strong' );
+        strong.appendChild( document.createTextNode( who.name ) );
+        
+        if ( typeof who.self != 'undefined' ) {
+            strong.className = 'u';
+        }
+        
+        li.innerHTML = '<span class="time"></span> ';
+        li.appendChild( strong );
+        li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
