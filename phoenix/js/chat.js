@@ -12,6 +12,7 @@ $( function() {
                     // send message
                     var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User } );
                     Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node } );
+                    txt[ 0 ].value = '';
                     break;
                 case 27: // escape
                     txt[ 0 ].value = '';
@@ -31,7 +32,7 @@ Frontpage.Shoutbox = {
         div.appendChild( document.createTextNode( shouttext ) );
         
         li.innerHTML = '<span class="time"></span> <strong>' + who.name + '</strong> ';
-        li.appendChild( span );
+        li.appendChild( div );
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
         
