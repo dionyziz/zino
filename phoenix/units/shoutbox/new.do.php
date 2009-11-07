@@ -1,5 +1,5 @@
 <?php
-    function UnitShoutboxNew( tText $text , tCoalaPointer $node ) {
+    function UnitShoutboxNew( tText $text , tCoalaPointer $node, tCoalaPointer $f ) {
         global $user;
         global $libs;
         
@@ -43,5 +43,9 @@
             $( node ).find( 'div.text' ).html( text.replace( /&nbsp;/g, ' ' ) );
         }
         <?php
+        if ( $f->Exists() ) {
+            echo $f;
+            ?>();<?php
+        }
     }
 ?>

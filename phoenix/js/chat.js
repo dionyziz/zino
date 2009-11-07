@@ -15,7 +15,10 @@
                     
                     // send message
                     var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true } );
-                    Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node } );
+                    Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node, f: function () {
+                        var lis = $( 'ol li' );
+                        lis[ lis.length - 1 ].scrollIntoView();
+                    } } );
                     txt[ 0 ].value = '';
                     break;
                 case 27: // escape
