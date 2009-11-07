@@ -9,6 +9,7 @@
             
             $page->AttachStylesheet( 'css/chat.css' );
             $page->AttachStylesheet( 'css/emoticons.css' );
+            $page->AttachStylesheet( 'css/wysiwyg.css' );
             
             $page->AttachScript( 'js/settings.js' );
             $page->AttachScript( 'js/kamibu.js' );
@@ -17,6 +18,7 @@
             $page->AttachScript( 'js/meteor.js' );
             $page->AttachScript( 'js/comet.js' );
             $page->AttachScript( 'js/chat.js' );
+            $page->AttachScript( 'js/wysiwyg.js' );
             
             $libs->Load( 'shoutbox' );
             
