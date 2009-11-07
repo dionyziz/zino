@@ -46,7 +46,7 @@ Frontpage.Shoutbox = {
         
         var txt = $( 'textarea' );
         if ( txt.length ) {
-            txt.scrollIntoView();
+            txt[ 0 ].scrollIntoView();
         }
         
         return li;
