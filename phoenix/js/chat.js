@@ -17,8 +17,8 @@ Frontpage.Shoutbox = {
         $( 'ol' )[ 0 ].appendChild( li );
         li.scrollIntoView();
     },
-    OnStartTyping = function ( gender, name ) {
+    OnStartTyping: function ( gender, name ) {
     },
-    OnStopTyping = function ( gender, name ) {
+    OnStopTyping: function ( gender, name ) {
     }
 };
