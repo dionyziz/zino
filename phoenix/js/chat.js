@@ -170,7 +170,7 @@ Frontpage.Shoutbox = {
                 var li = document.createElement( 'li' );
                 li.id = 'typing_' + typist.name;
                 li.className = 'typing';
-                li.innerHTML = '<strong>' + typist.name + '</strong> <em>πληκτρολογεί...</em>';
+                li.innerHTML = '<strong>' + typist.name + '</strong> <div class="text"><em>πληκτρολογεί...</em></div>';
                 ol.appendChild( li );
                 li.scrollIntoView();
             }
