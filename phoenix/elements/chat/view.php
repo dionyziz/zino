@@ -27,7 +27,7 @@
             
             ob_start();
             ?>Comet.Init(<?php
-            echo w_json_encode( session_id() );
+            echo w_json_encode( uniqid() );
             ?>);
             Comet.Subscribe( 'FrontpageShoutboxNew' );
             Comet.Subscribe( 'FrontpageShoutboxTyping' );

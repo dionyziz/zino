@@ -9,7 +9,7 @@
             ?>document.domain=<?php
             echo w_json_encode( $rabbit_settings[ 'hostname' ] );
             ?>;Comet.Init( <?php
-            echo w_json_encode( session_id() );
+            echo w_json_encode( uniqid() );
             ?>, 'universe.' + <?php
             echo w_json_encode( $rabbit_settings[ 'hostname' ] );
             ?> );
