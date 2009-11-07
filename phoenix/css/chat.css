@@ -29,4 +29,7 @@ ol span.time {
 }
 ol span.text {
     margin-left: 115px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
 }
