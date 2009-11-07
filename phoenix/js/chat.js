@@ -78,7 +78,7 @@ $( function () {
             Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
             Frontage.Shoutbox.Autoscroll = true;
         }
-    }
+    } );
 } );
 
 Frontpage = {};
