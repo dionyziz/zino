@@ -69,6 +69,16 @@ $( function () {
     };
     f();
     window.onresize = f;
+    $( 'ol' ).scroll( function() {
+        var scrll = $( this ).scrollTop();
+        if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
+            Frontpage.Shoutbox.AutoScroll = false; // disable autoscrolling
+        }
+        else if ( !Frontpage.Shoutbox.Autoscroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
+            Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
+            Frontage.Shoutbox.Autoscroll = true;
+        }
+    }
 } );
 
 Frontpage = {};
@@ -76,6 +86,8 @@ Frontpage.Shoutbox = {
     Typing: [], // people who are currently typing (not including yourself)
     TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
     TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
+    BottomScroll: 0, // number got from ScrollTop() last time we AutoScroll'ed to bottom
+    AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
         
@@ -113,7 +125,11 @@ Frontpage.Shoutbox = {
         li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
         $( 'ol' )[ 0 ].appendChild( li );
-        li.scrollIntoView();
+
+        if ( this.AutoScroll ) { 
+            li.scrollIntoView();
+            this.BottomScroll = $( 'ol' )[ 0 ].ScrollTop();
+        }
         
         Frontpage.Shoutbox.UpdateTyping();
         
@@ -172,7 +188,9 @@ Frontpage.Shoutbox = {
                 li.className = 'typing';
                 li.innerHTML = '<strong>' + typist.name + '</strong> <div class="text"><em>πληκτρολογεί...</em></div>';
                 ol.appendChild( li );
-                li.scrollIntoView();
+                if ( this.AutoScroll ) {
+                    li.scrollIntoView();
+                }
             }
             processed[ typist.name ] = true;
         }
