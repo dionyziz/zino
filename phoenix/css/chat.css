@@ -19,7 +19,7 @@ ol li {
 ol strong {
     color: #6af;
     font-weight: normal;
-    width: 100px;
+    width: 120px;
     float: left;
     overflow: hidden;
     text-align: right;
@@ -37,7 +37,7 @@ ol span.time {
     padding-right: 10px;
 }
 ol div.text {
-    margin-left: 115px;
+    margin-left: 135px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -51,7 +51,7 @@ textarea {
     width: 100%;
 }
 div.typehere {
-    margin: 10px 27px 10px 115px;
+    margin: 10px 27px 10px 135px;
 }
 em {
     color: #aaa;
