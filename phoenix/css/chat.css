@@ -1,6 +1,10 @@
+body, html {
+    height: 100%;
+}
 body {
     font-family: Tahoma, Helvetica;
     font-size: 10pt;
+    margin: 0;
 }
 ol {
     list-style: none;
