@@ -56,7 +56,7 @@
                     }
                 ?>
                 </ol><?php
-                if ( !$user->Exists() ) {
+                if ( $user->Exists() ) {
                     ?><div class="typehere">
                         <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
                     </div><?php
