@@ -24,7 +24,17 @@
 
 $( function () {
     f = function () {
-        $( 'ol' )[ 0 ].style.height = window.innerHeight - $( 'textarea' )[ 0 ].offsetHeight - 10 + 'px';
+        var h = 0;
+        if ( typeof window.innerHeight != 'undefined' && window.innerHeight ) {
+            h = window.innerHeight;
+        }
+        else if ( typeof document.documentElement.clientHeight != 'undefined' && document.documentElement.clientHeight ) {
+            h = document.documentElement.clientHeight;
+        }
+        else {
+            h = document.body.clientHeight;
+        }
+        $( 'ol' )[ 0 ].style.height = h - $( 'textarea' )[ 0 ].offsetHeight - 10 + 'px';
     };
     f();
     window.onresize = f;
