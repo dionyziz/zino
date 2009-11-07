@@ -7,6 +7,7 @@
             $page->SetTitle( 'Συζήτηση' );
             
             $page->AttachStylesheet( 'css/chat.css' );
+            $page->AttachScript( 'js/settings.js' );
             $page->AttachScript( 'js/jquery.js' );
             $page->AttachScript( 'js/coala.js' );
             $page->AttachScript( 'js/meteor.js' );
