@@ -34,7 +34,7 @@ $( function () {
         else {
             h = document.body.clientHeight;
         }
-        $( 'ol' )[ 0 ].style.height = h - $( 'textarea' )[ 0 ].offsetHeight - 10 + 'px';
+        $( 'ol' )[ 0 ].style.height = h - $( 'textarea' )[ 0 ].offsetHeight - 20 + 'px';
     };
     f();
     window.onresize = f;
