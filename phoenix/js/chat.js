@@ -72,7 +72,7 @@ $( function () {
     window.onresize = f;
     $( 'ol' ).scroll( function() {
         var scrll = $( this ).scrollTop();
-        alert( scrll + ' ' + this.BottomScroll );
+        alert( scrll + ' ' + Frontpage.Shoutbox.BottomScroll );
         if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
             Frontpage.Shoutbox.AutoScroll = false; // disable autoscrolling
             alert( 'auto disabled' );
