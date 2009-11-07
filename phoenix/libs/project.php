@@ -191,7 +191,8 @@
             'happeningadmin'    => 'adminpanel/happenings/view',
             'bounces'           => 'statistics/bounces',
             'applications'      => 'application/list',
-            'memorystats'       => 'adminpanel/memoryabuse/view'
+            'memorystats'       => 'adminpanel/memoryabuse/view',
+            'chat'              => 'chat/view'
         );
     }
     
