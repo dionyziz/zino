@@ -23,9 +23,10 @@
 } )();
 
 $( function () {
-    document.body.onResize = function () {
-        $( 'ol' ).style.height = document.body.offsetHeight - $( 'textaea' )[ 0 ].offsetHeight + 'px';
+    f = function () {
+        $( 'ol' )[ 0 ].style.height = document.body.offsetHeight - $( 'textaea' )[ 0 ].offsetHeight + 'px';
     };
+    $( 'body' ).resize( f ).load( f );
 } );
 
 Frontpage = {};
