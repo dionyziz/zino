@@ -37,6 +37,7 @@
                         Frontpage.Shoutbox.TypingUpdated = false;
                     }, 10000 );
                     Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request            }
+            }
         } );
     }
 } )();
