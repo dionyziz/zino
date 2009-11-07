@@ -24,7 +24,7 @@
 
 $( function () {
     f = function () {
-        $( 'ol' )[ 0 ].style.height = window.innerHeight - $( 'textarea' )[ 0 ].offsetHeight - 30 + 'px';
+        $( 'ol' )[ 0 ].style.height = window.innerHeight - $( 'textarea' )[ 0 ].offsetHeight - 10 + 'px';
     };
     f();
     window.onresize = f;
