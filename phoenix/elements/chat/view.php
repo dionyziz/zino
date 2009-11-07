@@ -28,9 +28,9 @@
                         else {
                             ?>&#160;<?php
                         }
-                        ?></strong> <?php
+                        ?></strong> <span class="text"><?php
                         echo nl2br( $chat->Text );
-                        ?></li><?php
+                        ?></span></li><?php
                     }
                 ?>
                 </ol>

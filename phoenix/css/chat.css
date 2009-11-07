@@ -27,3 +27,6 @@ ol span.time {
     float: right;
     padding-right: 10px;
 }
+ol span.text {
+    margin-left: 115px;
+}
