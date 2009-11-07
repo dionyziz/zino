@@ -26,6 +26,21 @@
             
             $attachglobals = true;
             
+            ob_start();
+            ?>if ( typeof ExcaliburSettings == 'undefined' ) {
+                ExcaliburSettings = {};
+            }
+            ExcaliburSettings.webaddress = '<?php
+            echo $rabbit_settings[ 'webaddress' ];
+            ?>';<?php
+            if ( $rabbit_settings[ 'production' ] ) {
+                ?>ExcaliburSettings.Production = true;<?php
+            }
+            else {
+                ?>ExcaliburSettings.Production = false;<?php
+            }
+            $page->AttachInlineScript( ob_get_clean() );
+            
             if ( $res === false ) { //If the page requested is not in the pages available
                 ?><div id="upstrip"><?php
                     Element( 'banner' );
@@ -113,11 +128,9 @@
                 $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
                 $page->AttachInlineScript( "ExcaliburSettings.webaddress = '" . $rabbit_settings[ 'webaddress' ] . "';" );
                 if ( $rabbit_settings[ 'production' ] ) {
-                    $page->AttachInlineScript( "ExcaliburSettings.Production = true;" );
                     $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
                 }
                 else {
-                    $page->AttachInlineScript( "ExcaliburSettings.Production = false;" );
                     $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
                 }
             }
