@@ -1,7 +1,6 @@
 ( function() {
-    var lis = $( 'ol li' );
     var txt = $( 'textarea' );
-    
+    var lis = $( 'ol li' );
     lis[ lis.length - 1 ].scrollIntoView();
     
     if ( txt.length ) {
@@ -35,6 +34,9 @@ $( function () {
             h = document.body.clientHeight;
         }
         $( 'ol' )[ 0 ].style.height = h - $( 'textarea' )[ 0 ].offsetHeight - 20 + 'px';
+        
+        var lis = $( 'ol li' );
+        lis[ lis.length - 1 ].scrollIntoView();
     };
     f();
     window.onresize = f;
