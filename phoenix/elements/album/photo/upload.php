@@ -7,10 +7,14 @@
             global $rabbit_settings;
             global $page;
             global $libs;
+            global $xc_settings;
             
             $libs->Load( 'album' );
             
             $page->SetTitle( 'Ανέβασε μια εικόνα' );
+            $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
+            $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
+            
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
             $color = $color->Get();
