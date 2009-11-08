@@ -74,15 +74,15 @@ $( function () {
     window.onresize = f;
     $( 'ol' ).scroll( function() {
         var scrll = $( this ).scrollTop();
-        alert( scrll + ' ' + Frontpage.Shoutbox.BottomScroll + ' ' + Frontpage.Shoutbox.Autoscroll );
+        alert( scrll + ' ' + Frontpage.Shoutbox.BottomScroll + ' ' + Frontpage.Shoutbox.AutoScroll );
         if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
-            Frontpage.Shoutbox.AutoScroll = false; // disable autoscrolling
+            Frontpage.Shoutbox.AutoScroll = false; // disable AutoScrolling
             alert( 'auto disabled' );
             return;
         }
         if ( !Frontpage.Shoutbox.AutoScroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
             Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
-            Frontpage.Shoutbox.Autoscroll = true;
+            Frontpage.Shoutbox.AutoScroll = true;
             alert( 'auto enabled' );
             return;
         }
