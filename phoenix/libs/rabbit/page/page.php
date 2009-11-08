@@ -291,16 +291,17 @@ class PageHTML extends Page {
     public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
         global $water;
         
-        if ( !isset( $this->mScripts[ $filename ] ) ) {
+        if ( isset( $this->mScripts[ $filename ] ) ) {
+            unset( $this->mScripts[ $filename ] );
+        }
+        else {
             $water->Trace( 'Loading script ' . $filename );
-            $this->mScripts[ $filename ] = array( 'language'  => $language, 
-                                                  'filename'  => $filename, 
-                                                  'ieversion' => $ieversion,
-                                                  'head'      => $head );
         }
-        else if ( $head && !$this->mScripts[ $filename ][ 'head' ] ) {
-            $this->mScripts[ $filename ][ 'head' ] = true; // somebody needs to load this a priori, do so 
-        }
+        
+        $this->mScripts[ $filename ] = array( 'language'  => $language, 
+                                              'filename'  => $filename, 
+                                              'ieversion' => $ieversion,
+                                              'head'      => $head );
     }
     public function AttachInlineScript( $code, $language = 'javascript' ) {
         if ( !isset( $this->mScriptsInline[ $language ] ) ) {
