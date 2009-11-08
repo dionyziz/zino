@@ -93,7 +93,7 @@ Frontpage.Shoutbox = {
     Typing: [], // people who are currently typing (not including yourself)
     TypingUpdated: false, // whether "I am typing" has been sent recently (we don't want to send it for every keystroke!)
     TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
-    BottomScroll: 0, // number got from ScrollTop() last time we AutoScroll'ed to bottom
+    BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
@@ -135,7 +135,7 @@ Frontpage.Shoutbox = {
 
         if ( this.AutoScroll ) { 
             li.scrollIntoView();
-            this.BottomScroll = $( 'ol' ).ScrollTop();
+            this.BottomScroll = $( 'ol' ).scrollTop();
         }
         
         Frontpage.Shoutbox.UpdateTyping();
