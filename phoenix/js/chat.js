@@ -67,7 +67,8 @@ $( function () {
         
         var lis = $( 'ol li' );
         lis[ lis.length - 1 ].scrollIntoView();
-        Frontpage.Shoutbox.BottomScroll = $( 'ol' )[ 0 ].scrollTop();
+        Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
+        alert( Frontpage.Shoutbox.BottomScroll + ' debug' );
     };
     f();
     window.onresize = f;
@@ -139,7 +140,7 @@ Frontpage.Shoutbox = {
 
         if ( this.AutoScroll ) { 
             li.scrollIntoView();
-            this.BottomScroll = $( 'ol' )[ 0 ].ScrollTop();
+            this.BottomScroll = $( 'ol' ).ScrollTop();
         }
         
         Frontpage.Shoutbox.UpdateTyping();
