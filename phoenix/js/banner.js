@@ -19,7 +19,7 @@ var Banner = {
                     { value : '',
                     type : 'password',
                     name : 'password'
-                } ).addClass( 's2_0008' );
+                } ).addClass( 's2_0008' ); //temporary solution until Kamibu.ClickableTextbox is published
                 $( "#lusername" ).after( newinput ); 
                 newinput.focus();
                 Banner.Lpassword = true; 
