@@ -124,7 +124,8 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             }
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
-            if ( !$user->Exists() ) {
+            /* commented out by ted
+			if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
                     <div class="planet">
                         <form action="" method="get">
@@ -136,7 +137,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         </form>
                     </div>
                 </div><?php
-            } 
+            }*/ 
             ?><div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php

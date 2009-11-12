@@ -19,7 +19,7 @@ var Banner = {
                     { value : '',
                     type : 'password',
                     name : 'password'
-                } );
+                } ).addClass( 's2_0008' );
                 $( "#lusername" ).after( newinput ); 
                 newinput.focus();
                 Banner.Lpassword = true; 
