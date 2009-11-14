@@ -7,7 +7,6 @@
         $libs->Load( 'contacts/contacts' );
 	$libs->Load( 'relation/relation' );
 	$libs->Load( 'rabbit/helpers/validate' );
-        $libs->Load( 'rabbit/helpers/email' );
 	$libs->Load( 'user/profile' );
 	
         

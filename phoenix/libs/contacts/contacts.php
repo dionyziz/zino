@@ -61,7 +61,7 @@
         global $rabbit_settings;
         global $libs;
         $libs->Load( 'rabbit/helpers/hashstring' );
-    
+        $libs->Load( 'rabbit/helpers/email' );
         foreach ( $contacts as $contact ) {
             $contact->Validtoken = GenerateRandomHash();
             $contact->Invited = true;
