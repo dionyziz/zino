@@ -202,7 +202,7 @@ class PageHTML extends Page {
         $prioritized = Array();
         foreach( $this->mScripts as $key => $script ) {
             if ( $script[ 'priority' ] != 0 ) {
-                $prioritized[] = $script;
+                $prioritized[ $key ] = $script;
                 unset( $this->mScripts[ $key ] );
             }
         }
