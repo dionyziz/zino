@@ -40,7 +40,7 @@
 	    $libs->Load( 'grooveshark' );
 	    //$res = Groove_GetWidgetId();
 	    //echo '<p>' . $res[ "header" ] . " " . $res[ "widgetid" ] . '</p>';
-	    echo '<p>' .  Groove_MakeNewWidget( "16551907", "12120191" ) .  '</p>';
+	    echo '<p>' .  Groove_MakeNewWidget( "16551907", "12120183" ) .  '</p>';
 
         }
     }
