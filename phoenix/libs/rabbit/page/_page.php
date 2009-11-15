@@ -200,7 +200,7 @@ class PageHTML extends Page {
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
         print_r( $this->mScripts );
-        uasort( $this->mScripts, 'PageHTML::CheckPriority' );
+        uasort( $this->mScripts, 'uasortCheckPriority' );
         die( print_r( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
@@ -306,20 +306,6 @@ class PageHTML extends Page {
                                               'head'      => $head,
                                               'priority'  => $priority
                                             );
-    }
-    function CheckPriority( $first, $second ) {
-        $a = (int) $first[ 'priority' ];
-        $b = (int) $second[ 'priority' ];
-        if ( $a == 0 ) {
-            return 1;
-        }
-        if ( $b == 0 ) {
-            return -1;
-        }
-        if ( $a == $b ) {
-            return 0;
-        }
-        return ($a < $b) ? -1 : 1;
     }
     public function AttachInlineScript( $code, $language = 'javascript' ) {
         if ( !isset( $this->mScriptsInline[ $language ] ) ) {
@@ -525,6 +511,19 @@ final class PageAction extends Page {
         if ( isset( $this->mRedirection ) ) {
             $this->mRedirection->Redirect();
         }
+    }
+}
+function uasortCheckPriority( $a, $b ) {
+    $a = (int) $a[ 'priority' ];
+    $b = (int) $b[ 'priority' ];
+    if ( $a == 0 ) {
+        return 1;
+    }
+    if ( $b == 0 ) {
+        return -1;
+    }
+    if ( $a == $b ) {
+        return 0;
     }
 }
 ?>
