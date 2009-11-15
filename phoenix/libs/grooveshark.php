@@ -19,8 +19,11 @@
 		}
 		else {
 			if ( $pos1 = stripos( $res, "http://widgets.grooveshark.com/make?widgetid=" ) ) {
-			//widget id 45
+				//widget id 45
 				$widgetid = substr( $res, $pos1+45, 8 );	
+			}
+			else {
+				$widget_id = "EMPTY";
 			}
 			return $res . " " . $widget_id;
 		}
