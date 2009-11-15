@@ -38,7 +38,7 @@
             */
 		
 	    $libs->Load( 'grooveshark' );
-	    echo '<p>' . Groove_GetWidgetId . '</p>';
+	    echo '<p>' . Groove_GetWidgetId() . '</p>';
 
         }
     }
