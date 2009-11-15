@@ -7,22 +7,15 @@
     Coming soon: unit tests!
     */
     
-    define( 'SPOT_PORT', 21490 );
-
     class Spot {
         private static $mRequestHeader = "SPOT\n";
-        private static $mServerIp = '88.198.246.218'; //  iris <---europa.kamibu.com
 
         public function __construct() {
             // do nothing! static methods
-	    global $rabbit_settings;
-		
-   	    if ( $rabbit_settings[ 'production' ] ) {
-		$this->mServerIp = '88.198.246.218';//change ip if spot is on live to check the db in iris		
-	    }
-	    
         }
         private static function SendRequest( $requestBody ) {
+            global $xc_settings;
+
             // TODO: Response Text
             // TODO: Error checking
 
@@ -34,9 +27,10 @@
                 return false;
             }
 
-            $result = socket_connect( $sock, self::$mServerIp, SPOT_PORT );
+            $result = socket_connect( $sock, $xc_settings[ 'spotdaemon' ][ 'address' ], $xc_settings[ 'spotdaemon' ][ 'port' ] );
             // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             if ( $result === false ) {
+                socket_close( $sock );
                 return false;
             }
 
