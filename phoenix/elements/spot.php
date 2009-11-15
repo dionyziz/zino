@@ -41,11 +41,9 @@
 						echo $url . "</a> - ";
 				 	    echo htmlspecialchars( $poll->Question ) . "</p>";
 					}
-					
+					?></div><?php					
 				}
 
-
-				$libs->Load( 'poll/frontpage' );
 				$polls = $finder->FindFrontpageLatest( 0 , 4 );
 		  	    ?><div class="list">
 				<h2 class="pheading">Δημοσκοπήσεις ( πρόσφατες )</h2><?php
@@ -61,6 +59,8 @@
 				}
 				?></div><?php
 			}
+
+
 		}
 	}
 ?>
