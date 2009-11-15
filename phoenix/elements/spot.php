@@ -63,11 +63,9 @@
 				}
 				?></div><?php
 
-
-
 				$finder = New JournalFinder();
 		    	$journals = false;
-				$journas = $finder->FindUserRelated( $user );
+				$journals = $finder->FindUserRelated( $user );
 				if ( $journals === false ) {
 					?><b>Spot connection failed (start daemon!).</b><?php
 				}
