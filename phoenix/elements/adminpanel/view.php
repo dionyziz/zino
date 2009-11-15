@@ -44,6 +44,9 @@
 	    //echo '<p>' .  Groove_MakeNewWidget( "16551907", "12120183" ) .  '</p>';
 
    	   //-----------------spot
+  	   $libs->Load( 'poll/poll' );
+           $finder = New PollFinder();
+           $polls = false;
 	   if ( $user->Exists() ) {
                 $polls = $finder->FindUserRelated( $user );
                 // ONLY FOR BETA
