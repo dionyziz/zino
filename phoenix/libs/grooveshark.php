@@ -33,25 +33,21 @@
 		return;
 	}
 
-	function Groove_MakeNewWidget( $id ) {
-		/*$ch = curl_init();
-		http://widgets.grooveshark.com/make?widgetid=16551254
-		$data = array(
-		    'USER' => $user,
-		    'PWD' => $pwd,
-		    'SIGNATURE' => $signature,
-		    'VERSION' => $version,
-		    'METHOD' => "POST"
-		);
+	function Groove_MakeNewWidget( $widgetid, $songid ) {
+		$ch = curl_init();
 
-		curl_setopt( $curl, CURLOPT_URL, "http://widgets.grooveshark.com/make?widgetid=16551254" );
-		curl_setopt( $curl, CURLOPT_USERAGENT, "Zino/21290 <ads@zino.gr>" );
-		curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
-		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt( $curl, CURLOPT_POST, true );
-		curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
-*/
-
+		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/add_songs.php?action=add&songs=" . $songid . "&widgetid=" . $widgetid . "&type=1&isProcessing=0" );
+		curl_setopt( $ch, CURLOPT_HTTPGET, true );
+		
+		$output;
+		if ( curl_exec( $ch ) ) {
+			$output = "TRUE";
+		}
+		else {
+			$output = "FALSE";
+		}
+		curl_close();
+		return $output;
 	}
 
 	function Groove_GetWidgetId( $id ) {
