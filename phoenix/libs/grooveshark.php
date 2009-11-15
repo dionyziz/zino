@@ -14,7 +14,7 @@
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
 
-		if ( $res = curl_exec( $ch ) ) {
+		if ( !$res = curl_exec( $ch ) ) {
 			return "ERROR";
 		}
 		else {
