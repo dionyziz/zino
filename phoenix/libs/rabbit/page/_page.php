@@ -199,9 +199,9 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
-        var_dump( $this->mScripts );
+        print_r( $this->mScripts );
         uasort( $this->mScripts, 'PageHTML::CheckCompatibility' );
-        die( var_dump( $this->mScripts ) );
+        die( print_r( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
