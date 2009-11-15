@@ -127,8 +127,6 @@
                 return $ids;
             }
             $journals = $this->FindByIds( $ids );
-            var_dump( $journals );
-            die();
             $journals->PreloadRelation( 'User' );
             return $journals;
         }
