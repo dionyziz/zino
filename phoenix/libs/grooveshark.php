@@ -13,10 +13,11 @@
 		foreach ( $data as $key=>$value) { 
 			$data_string .= $key . '=' . $value . '&'; 
 		}
-		rtrim( $fields_string, '&' );
+		rtrim( $data_string, '&' );
 
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/search.php" );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt( $ch, CURLOPT_HEADER, true );
 		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );

@@ -38,9 +38,9 @@
             */
 		
 	    $libs->Load( 'grooveshark' );
-	    $res = Groove_GetWidgetId();
+	    //$res = Groove_GetWidgetId();
 	    //echo '<p>' . $res[ "header" ] . " " . $res[ "widgetid" ] . '</p>';
-	    //echo '<p>shit ' . Groove_SearchSong( "time" ) .  '</p>';
+	    echo '<p>' . Groove_SearchSong( "time" ) .  '</p>';
 
         }
     }
