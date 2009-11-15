@@ -18,7 +18,7 @@
 			return "ERROR";
 		}
 		else {
-			if ( ! $pos1 = stripos( $res, "http://widgets.grooveshark.com/make?widgetid=" ) ) {
+			if ( $pos1 = stripos( $res, "http://widgets.grooveshark.com/make?widgetid=" ) ) {
 			//widget id 45
 				$widgetid = substr( $res, $pos1+45, 8 );	
 			}
