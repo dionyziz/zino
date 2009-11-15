@@ -42,6 +42,7 @@
 						?>"> <?php 
 						echo $url . "</a> - ";
 				 	    echo htmlspecialchars( $poll->Question );
+						?></p><?php
 					}
 					?></div><?php					
 				}
@@ -58,6 +59,7 @@
 					?>"> <?php 
 					echo $url . "</a> - ";
 			 	    echo htmlspecialchars( $poll->Question );
+					?></p><?php
 				}
 				?></div><?php
 
@@ -78,7 +80,8 @@
 							    echo Element( 'url', $journal );
 						?>"> <?php 
 						echo Element( 'url', $journal ) . "</a> - ";
-				 	    echo htmlspecialchars( $journal->Title ) . "</p>";
+				 	    echo htmlspecialchars( $journal->Title );
+						?></p><?php
 					}
 					?></div><?php					
 				}
@@ -92,7 +95,8 @@
 							    echo Element( 'url', $journal );
 						?>"> <?php 
 						echo Element( 'url', $journal ) . "</a> - ";
-				 	    echo htmlspecialchars( $journal->Title ) . "</p>";
+				 	    echo htmlspecialchars( $journal->Title );
+						?></p><?php
 				}
 				?></div><?php
 			}
