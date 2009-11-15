@@ -199,7 +199,9 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
+        var_dump( $this->mScripts );
         uasort( $this->mScripts, 'PageHTML::CheckCompatibility' );
+        die( var_dump( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
@@ -298,7 +300,6 @@ class PageHTML extends Page {
         else {
             $water->Trace( 'Loading script ' . $filename );
         }
-        
         $this->mScripts[ $filename ] = array( 'language'  => $language, 
                                               'filename'  => $filename, 
                                               'ieversion' => $ieversion,
