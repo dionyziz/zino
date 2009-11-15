@@ -199,7 +199,7 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
-        print_r( $this->mScritps );
+        print_r( $this->mScripts );
         $prioritized = Array();
         foreach( $this->mScripts as $script ) {
             if ( $script[ 'priority' ] != 0 ) {
