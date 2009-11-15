@@ -215,7 +215,7 @@ class PageHTML extends Page {
         }
         ?></head><?php
     }
-    public function uasortCheckPriority( $a, $b ) {
+    private function uasortCheckPriority( $a, $b ) {
         $a = (int) $a[ 'priority' ];
         $b = (int) $b[ 'priority' ];
         if ( $a == 0 ) {
