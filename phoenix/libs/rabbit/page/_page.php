@@ -208,7 +208,7 @@ class PageHTML extends Page {
             }
         }
         uasort( $prioritized, 'uasortCheckPriority' );
-        $this->mScripts = array_merge_recursive( $prioritized, $this->mScripts );
+        $this->mScripts = array_merge( $prioritized, $this->mScripts );
         //die( print_r( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
