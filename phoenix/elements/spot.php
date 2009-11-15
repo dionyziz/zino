@@ -29,9 +29,9 @@
 					?><b>Spot connection failed (start daemon!).</b><?php
 				}
 				else {
+					?><div class="list">
+					<h2 class="pheading">Δημοσκοπήσεις ( S.P.O.T ) </h2><?php
 					foreach ( $polls as $poll ) {
-						?><div class="list">
-						<h2 class="pheading">Δημοσκοπήσεις ( S.P.O.T ) </h2><?php
 						$domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
 						$url = $domain . 'polls/' . $poll->Url;
 				   	    ?><p>
@@ -41,9 +41,8 @@
 						echo $url . "</a> - ";
 				 	    echo htmlspecialchars( $poll->Question ) . "</p>";
 					}
-					?></div><?php
+					
 				}
-				
 
 
 				$libs->Load( 'poll/frontpage' );
