@@ -125,14 +125,15 @@
                     $page->AttachStylesheet( 'css/ie.css' );
                 }
                 //start javascript attaching
-                $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
+                $page->AttachScript( 'http://www.google-analytics.com/urchin.js', $language = 'javascript', false, '', 9 );
                 $page->AttachInlineScript( "ExcaliburSettings.webaddress = '" . $rabbit_settings[ 'webaddress' ] . "';" );
                 if ( $rabbit_settings[ 'production' ] ) {
-                    $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
+                    $globaljs = $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ];
                 }
                 else {
-                    $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
+                    $globaljs = $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ];
                 }
+                $page->AttachScript( $globaljs, $language = 'javascript', false, '', 10 );
             }
             
             if ( !$page->TitleFinal() ) {
