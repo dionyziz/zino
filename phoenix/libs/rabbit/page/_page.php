@@ -199,9 +199,7 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
-        print_r( $this->mScripts );
         uasort( $this->mScripts, 'uasortCheckPriority' );
-        die( print_r( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
