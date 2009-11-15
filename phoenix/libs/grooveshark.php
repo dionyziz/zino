@@ -10,12 +10,18 @@
 	  	    'domain' => urlencode( 'widgets' )
 		);
 
+		foreach ( $data as $key=>$value ) {
+			$data_string .= $key . '=' . $value . '&'; 
+		}
+		rtrim( $data_string, '&' );
+
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/search" );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_HEADER, true );
-		curl_setopt( $ch, CURLOPT_POST, 1 );
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
+		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
+		curl_setopt($DATA_POST, CURLOPT_REFERER, 'http://widgets.grooveshark.com/make?widgetid=16551254' ); 
 
 		if ( ! $res = curl_exec( $ch ) ) {
 			return "ERROR";
