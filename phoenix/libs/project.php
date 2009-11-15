@@ -182,7 +182,7 @@
             'store/product'     => 'store/product',
             'store/home'        => 'store/home',
             'store/thanks'      => 'store/thanks',
-			'spot'				=> 'spot',
+			'recommended'		=> 'spot',
             'forgot'            => 'user/passwordrequest/view',
             'forgot/success'    => 'user/passwordrequest/success',
             'forgot/failure'    => 'user/passwordrequest/failure',
