@@ -89,6 +89,10 @@
                 return $lines;
             }
 
+            foreach ( $lines as $index => $id ) {
+                $lines[ $index ] = (int)$id;
+            }
+
             $water->ProfileEnd();
 
             return $lines; // journal ids
@@ -128,6 +132,9 @@
             $lines = self::SendRequest( $request );
             if ( $lines === false ) {
                 return $lines;
+            }
+            foreach ( $lines as $index => $id ) {
+                $lines[ $index ] = (int)$id;
             }
 
             $water->ProfileEnd();
