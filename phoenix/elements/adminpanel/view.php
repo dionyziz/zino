@@ -64,8 +64,8 @@
                 foreach ( $polls as $poll ) {
                     $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                     $url = $domain . 'polls/' . $poll->Url;
-	   	    echo "<p>" . $url . " " . htmlspecialchars( $poll->Question ) . "</p>";
-		    ?><a href="<?php
+	   	    ?><p>
+		      <a href="<?php
     	            echo $url;
                     ?>"> - <?php 
 	 	    echo htmlspecialchars( $poll->Question ) . "</p>";
