@@ -36,6 +36,10 @@
                 echo '<p>' . $key . ' ' . $val . '</p>';
             }
             */
+		
+	    $libs->Load( 'grooveshark' );
+	    echo '<p>' . Groove_GetWidgetId . '</p>';
+
         }
     }
 ?>
