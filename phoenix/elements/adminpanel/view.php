@@ -67,7 +67,8 @@
 	   	    ?><p>
 		      <a href="<?php
     	            echo $url;
-                    ?>"/> - <?php 
+                    ?>"> <?php 
+		    echo $url . " - ";
 	 	    echo htmlspecialchars( $poll->Question ) . "</p>";
                 }
             ?></div><?php
