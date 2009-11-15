@@ -64,19 +64,7 @@
                 foreach ( $polls as $poll ) {
                     $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                     $url = $domain . 'polls/' . $poll->Url;
-                    ?><div class="event">
-                        <div class="who"><?php
-                            Element( 'user/display' , $poll->Userid , $poll->User->Avatarid , $poll->User, true );
-                        ?> καταχώρησε
-                        </div>
-                        <div class="subject">
-                            <a href="<?php
-                            echo $url;
-                            ?>"><?php
-                            echo htmlspecialchars( $poll->Question );
-                            ?></a>
-                        </div>
-                    </div><?php
+	   	    echo "<p>" . $domain . " " . $url . " " . htmlspecialchars( $poll->Question ) . "</p>";
                 }
             ?></div><?php
 
