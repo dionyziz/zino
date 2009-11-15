@@ -199,7 +199,7 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
-        print_r( $this->mScripts );
+        //print_r( $this->mScripts );
         $prioritized = Array();
         foreach( $this->mScripts as $key => $script ) {
             if ( $script[ 'priority' ] != 0 ) {
@@ -209,7 +209,7 @@ class PageHTML extends Page {
         }
         uasort( $prioritized, 'uasortCheckPriority' );
         $this->mScripts = array_merge_recursive( $prioritized, $this->mScripts );
-        die( print_r( $this->mScripts ) );
+        //die( print_r( $this->mScripts ) );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
