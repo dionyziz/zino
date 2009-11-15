@@ -206,7 +206,7 @@ class PageHTML extends Page {
                 unset( $this->mScripts[ $key ] );
             }
         }
-        uasort( $prioritized, 'uasortCheckPriority' );
+        uasort( $prioritized, 'PageHTML::uasortCheckPriority' );
         $this->mScripts = array_merge_recursive( array_reverse( $prioritized ), $this->mScripts );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
@@ -214,6 +214,19 @@ class PageHTML extends Page {
             }
         }
         ?></head><?php
+    }
+    public function uasortCheckPriority( $a, $b ) {
+        $a = (int) $a[ 'priority' ];
+        $b = (int) $b[ 'priority' ];
+        if ( $a == 0 ) {
+            return 1;
+        }
+        if ( $b == 0 ) {
+            return -1;
+        }
+        if ( $a == $b ) {
+            return 0;
+        }
     }
     private function OutputScript( $script ) {
         w_assert( is_array( $script ) );
@@ -517,19 +530,6 @@ final class PageAction extends Page {
         if ( isset( $this->mRedirection ) ) {
             $this->mRedirection->Redirect();
         }
-    }
-}
-function uasortCheckPriority( $a, $b ) {
-    $a = (int) $a[ 'priority' ];
-    $b = (int) $b[ 'priority' ];
-    if ( $a == 0 ) {
-        return 1;
-    }
-    if ( $b == 0 ) {
-        return -1;
-    }
-    if ( $a == $b ) {
-        return 0;
     }
 }
 ?>
