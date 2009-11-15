@@ -11,7 +11,7 @@
 		        return;
 		    }
 		    
-		    $page->setTitle( 'Αποτελέσματα S.P.O.T - Social Prediction Optimazation Tool' );
+		    $page->setTitle( 'S.P.O.T - Social Prediction Optimazation Tool' );
 	
 		    
 		    ?><h2>Αποτελέσματα S.P.O.T - Social Prediction Optimazation Tool</h2><?php
@@ -30,7 +30,7 @@
 				}
 				else {
 					?><div class="list">
-					<h2 class="pheading">Δημοσκοπήσεις ( S.P.O.T ) </h2><?php
+					<h2 class="pheading">Δημοσκοπήσεις ( προτεινόμενες ) </h2><?php
 					foreach ( $polls as $poll ) {
 						$domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
 						$url = $domain . 'polls/' . $poll->Url;
