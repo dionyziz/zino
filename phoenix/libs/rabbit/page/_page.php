@@ -201,10 +201,10 @@ class PageHTML extends Page {
         }
         print_r( $this->mScripts );
         $prioritized = Array();
-        foreach( $this->mScripts as $script ) {
+        foreach( $this->mScripts as $key => $script ) {
             if ( $script[ 'priority' ] != 0 ) {
                 $prioritized[] = $script;
-                unset( $script );
+                unset( $this->mScripts[ $key ] );
             }
         }
         uasort( $prioritized, 'uasortCheckPriority' );
