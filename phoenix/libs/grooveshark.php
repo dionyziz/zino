@@ -4,17 +4,21 @@
 	//q=ssssssssssss&type=song&page=1&domain=widgets
 		$ch = curl_init();
 		$data = array(
-		    'q' => $name,
-		    'type' => 'song',
-	  	    'page' => '1',
-	  	    'domain' => 'widgets'
+		    'q' => urlencode( $name ),
+		    'type' => urlencode( 'song' ),
+	  	    'page' => urlencode( '1' ),
+	  	    'domain' => urlencode( 'widgets' )
 		);
 
+		foreach ( $data as $key=>$value) { 
+			$data_string .= $key . '=' . $value . '&'; 
+		}
+		rtrim( $fields_string, '&' );
+
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/search" );
-		//curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_POST, true );
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
+		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
 
 		if ( ! $res = curl_exec( $ch ) ) {
 			return "ERROR";
@@ -71,6 +75,7 @@
 			}
 		}
 
+		curl_close( $ch );
 		return output;
 	}
 
