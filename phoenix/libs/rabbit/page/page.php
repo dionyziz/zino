@@ -199,12 +199,34 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
+        $prioritized = Array();
+        foreach( $this->mScripts as $key => $script ) {
+            if ( $script[ 'priority' ] != 0 ) {
+                $prioritized[ $key ] = $script;
+                unset( $this->mScripts[ $key ] );
+            }
+        }
+        uasort( $prioritized, array( 'PageHTML', 'uasortCheckPriority' ) );
+        $this->mScripts = array_merge_recursive( array_reverse( $prioritized ), $this->mScripts );
         foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
             }
         }
         ?></head><?php
+    }
+    private function uasortCheckPriority( $a, $b ) {
+        $a = (int) $a[ 'priority' ];
+        $b = (int) $b[ 'priority' ];
+        if ( $a == 0 ) {
+            return 1;
+        }
+        if ( $b == 0 ) {
+            return -1;
+        }
+        if ( $a == $b ) {
+            return 0;
+        }
     }
     private function OutputScript( $script ) {
         w_assert( is_array( $script ) );
@@ -288,7 +310,7 @@ class PageHTML extends Page {
             }
         }
     }
-    public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
+    public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '', $priority = 0 ) {
         global $water;
         
         if ( isset( $this->mScripts[ $filename ] ) ) {
@@ -297,11 +319,12 @@ class PageHTML extends Page {
         else {
             $water->Trace( 'Loading script ' . $filename );
         }
-        
         $this->mScripts[ $filename ] = array( 'language'  => $language, 
                                               'filename'  => $filename, 
                                               'ieversion' => $ieversion,
-                                              'head'      => $head );
+                                              'head'      => $head,
+                                              'priority'  => $priority
+                                            );
     }
     public function AttachInlineScript( $code, $language = 'javascript' ) {
         if ( !isset( $this->mScriptsInline[ $language ] ) ) {
@@ -509,5 +532,4 @@ final class PageAction extends Page {
         }
     }
 }
-
 ?>
