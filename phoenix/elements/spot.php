@@ -19,6 +19,8 @@
 
 			$libs->Load( 'poll/poll' );
 			$libs->Load( 'poll/frontpage' );
+			$libs->Load( 'journal/journal' );
+			$libs->Load( 'journal/frontpage' );
 
 	       	$finder = New PollFinder();
 		    $polls = false;
@@ -39,7 +41,7 @@
 							    echo $url;
 						?>"> <?php 
 						echo $url . "</a> - ";
-				 	    echo htmlspecialchars( $poll->Question ) . "</p>";
+				 	    echo htmlspecialchars( $poll->Question );
 					}
 					?></div><?php					
 				}
@@ -55,7 +57,42 @@
 					        echo $url;
 					?>"> <?php 
 					echo $url . "</a> - ";
-			 	    echo htmlspecialchars( $poll->Question ) . "</p>";
+			 	    echo htmlspecialchars( $poll->Question );
+				}
+				?></div><?php
+
+
+
+				$finder = New JournalFinder();
+		    	$journals = false;
+				$journas = $finder->FindUserRelated( $user );
+				if ( $journals === false ) {
+					?><b>Spot connection failed (start daemon!).</b><?php
+				}
+				else {
+					?><div class="list">
+					<h2 class="pheading">Ημερολόγια ( προτεινόμενα ) </h2><?php
+					foreach ( $journals as $journal ) {
+				   	    ?><p>
+						  <a href="<?php
+							    echo Element( 'url', $journal );
+						?>"> <?php 
+						echo Element( 'url', $journal ) . "</a> - ";
+				 	    echo htmlspecialchars( $journal->Title ) . "</p>";
+					}
+					?></div><?php					
+				}
+
+				$journals = $finder->FindFrontpageLatest( 0 , 4 );
+		  	    ?><div class="list">
+				<h2 class="pheading">Ημερολόγια ( πρόσφατα )</h2><?php
+				foreach ( $journals as $journal ) {
+				   	    ?><p>
+						  <a href="<?php
+							    echo Element( 'url', $journal );
+						?>"> <?php 
+						echo Element( 'url', $journal ) . "</a> - ";
+				 	    echo htmlspecialchars( $journal->Title ) . "</p>";
 				}
 				?></div><?php
 			}
