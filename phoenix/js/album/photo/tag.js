@@ -331,7 +331,7 @@ var Tag = {
             return false;
           };
         a.style.cursor = "pointer";
-        a.className = "tag_del";
+        a.className = "s1_0007";
         $( a ).click( function() {
 				Tag.parseDel( $( this ).parent() );
             } );
@@ -442,7 +442,7 @@ var Tag = {
                         };
                     } )( username );
             } );
-        $( 'div.image_tags:first div a.tag_del' ).click( function() {
+        $( 'div.image_tags:first div a.s1_0007' ).click( function() {
 				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
