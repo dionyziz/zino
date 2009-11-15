@@ -23,9 +23,9 @@
 				$widgetid = substr( $res, $pos1+45, 8 );	
 			}
 			else {
-				$widget_id = "EMPTY";
+				$widgetid = "EMPTY";
 			}
-			return $res . " " . $widget_id;
+			return $res . " " . $widgetid;
 		}
 
 		return;
