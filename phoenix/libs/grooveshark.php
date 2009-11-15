@@ -19,6 +19,7 @@
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
+		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
 
 		if ( ! $res = curl_exec( $ch ) ) {
 			return "ERROR";
