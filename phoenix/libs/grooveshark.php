@@ -15,8 +15,6 @@
 		}
 		rtrim( $fields_string, '&' );
 
-		return "shits";
-
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/search.php" );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
@@ -26,7 +24,7 @@
 			return "ERROR";
 		}
 		else {
-			return $res;
+			return $res . "data";
 		}
 		return;
 	}
