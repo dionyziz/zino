@@ -67,6 +67,7 @@
             self::SendRequest( $request );
         }
         public static function GetContent( $user ) {
+            die( 'Do not call Spot::GetContent. This is depracated. Use GetJournals(), GetImages() and GetPolls() instead' );
             $userid = $user->Id;
             $request = "GET CONTENT\n$userid\n";
             $content = self::SendRequest( $request );

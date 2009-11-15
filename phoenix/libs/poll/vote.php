@@ -35,6 +35,9 @@
         protected function OnCreate() {
             $this->Poll->OnVoteCreate();
             $this->Option->OnVoteCreate();
+
+            $libs->Load( 'rabbit/event' );
+            FireEvent( 'VoteCreated', $this );
         }
         protected function OnDelete() {
             $this->Poll->Numvotes = $this->Poll->Numvotes - 1;
