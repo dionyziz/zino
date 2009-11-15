@@ -15,6 +15,12 @@
 
         public function __construct() {
             // do nothing! static methods
+	    global $rabbit_settings;
+		
+   	    if ( $rabbit_settings[ 'production' ] ) {
+		$this->mServerIp = '88.198.246.218';//change ip if spot is on live to check the db in iris		
+	    }
+	    
         }
         private static function SendRequest( $requestBody ) {
             // TODO: Response Text

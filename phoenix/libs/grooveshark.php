@@ -38,9 +38,10 @@
 
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/add_songs.php?action=add&songs=" . $songid . "&widgetid=" . $widgetid . "&type=1&isProcessing=0" );
 		curl_setopt( $ch, CURLOPT_HTTPGET, true );
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		
 		$output;
-		if ( curl_exec( $ch ) ) {
+		if ( $res = curl_exec( $ch ) ) {
 			$output = "TRUE";
 		}
 		else {
