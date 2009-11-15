@@ -11,7 +11,7 @@
 
     class Spot {
         private static $mRequestHeader = "SPOT\n";
-        private static $mServerIp = '88.198.246.217'; // europa.kamibu.com
+        private static $mServerIp = '88.198.246.218'; //  iris <---europa.kamibu.com
 
         public function __construct() {
             // do nothing! static methods
