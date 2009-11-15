@@ -14,11 +14,15 @@
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
 
-		if ( !$res = curl_exec( $ch ) ) {
+		if ( ! $res = curl_exec( $ch ) ) {
 			return "ERROR";
 		}
 		else {
-			return $res;
+			if ( ! $pos1 = stripos( $res, "http://widgets.grooveshark.com/make?widgetid=" ) ) {
+			//widget id 45
+				$widgetid = substr( $res, $pos1+45, 8 );	
+			}
+			return $res . " " . $widget_id;
 		}
 
 		return;
