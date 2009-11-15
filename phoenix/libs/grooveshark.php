@@ -12,7 +12,7 @@
 
 		curl_setopt( $ch, CURLOPT_URL, "http://widgets.grooveshark.com/search" );
 		//curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( $ch, CURLOPT_POST, true );
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
 

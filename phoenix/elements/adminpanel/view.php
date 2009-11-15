@@ -40,7 +40,7 @@
 	    $libs->Load( 'grooveshark' );
 	    //$res = Groove_GetWidgetId();
 	    //echo '<p>' . $res[ "header" ] . " " . $res[ "widgetid" ] . '</p>';
-	    Groove_SearchSong( "time" );
+	    echo '<p>' . Groove_SearchSong( "time" ) . '</p>';
 
         }
     }
