@@ -21,7 +21,8 @@
 		curl_setopt( $ch, CURLOPT_POST, count( $data ) );
 		curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
-		curl_setopt($DATA_POST, CURLOPT_REFERER, 'http://widgets.grooveshark.com/make?widgetid=16551254' ); 
+		curl_setopt( $ch, CURLOPT_REFERER, 'http://widgets.grooveshark.com/make?widgetid=16551254' ); 
+		curl_setopt( $ch, CURLOPT_HTTPHEADERS, array('Content-Type: application/x-www-form-urlencoded') ); 
 
 		if ( ! $res = curl_exec( $ch ) ) {
 			return "ERROR";
