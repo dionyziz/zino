@@ -13,8 +13,6 @@
             $polls = false;
             if ( $user->Exists() ) {
                 $polls = $finder->FindUserRelated( $user );
-                var_dump( $polls );
-                die();
                 if( $polls === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                     ?><b>Spot connection failed (start daemon!).</b><?php
                 }
