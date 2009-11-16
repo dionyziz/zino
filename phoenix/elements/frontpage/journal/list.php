@@ -16,6 +16,8 @@
                 $journals = $finder->FindUserRelated( $user );
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                     ?><b>Spot connection failed (start daemon!).</b><?php
+                    var_dump( $journals );
+                    die();
                 }
             }
             if ( $journals === false ) {
