@@ -167,7 +167,7 @@
                                 <div class="rightbar"></div>
                             </div>
                         <div class="journals"><?php
-                            Element( 'frontpage/journal/list', 0 );
+                            Element( 'frontpage/journal/list', $sequences[ SEQUENCE_JOURNAL ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
