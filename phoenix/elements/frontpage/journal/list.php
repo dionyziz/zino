@@ -20,6 +20,7 @@
             }
             if ( $journals === false ) {
                 Element( 'frontpage/journal/latest', $journalseq );
+                return;
             }
             
             ?><div class="list">
