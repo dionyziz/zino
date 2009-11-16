@@ -1,5 +1,5 @@
 <?php
-    class ElementFrontpageJournalList extends Element {
+    class ElementFrontpageJournalLatest extends Element {
         protected $mPersistent = array( 'journalseq' );
 
         public function Render( $journalseq ) {
