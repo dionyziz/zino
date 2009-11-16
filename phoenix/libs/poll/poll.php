@@ -100,6 +100,7 @@
             global $libs;
             $libs->Load( 'research/spot' );
 
+            die( 'find user related' );
             $ids = Spot::GetPolls( $user );
             var_dump( $ids );
             die( 'ids' );
