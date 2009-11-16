@@ -27,7 +27,8 @@
             ?><div id="frontpage"><?php
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
-                <a class="s1_0009 delete" href="" onclick="Frontpage.Closenewuser();return false;" style="margin:3px">&nbsp;</a>
+                <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+
                 <p>
                 <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong> 
                 <br /><br />
@@ -44,7 +45,7 @@
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
-                            <a class="s1_0009 delete" href="" onclick="Frontpage.Closenewuser();return false" style="margin:3px">&nbsp;</a>
+                            <a class="delete" href="" onclick="Frontpage.Closenewuser();return false">&nbsp;</a>
                             <form>
                                 <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
                                 <div>
@@ -83,8 +84,8 @@
                                 <p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
                             </form>
                         </div>
-                        <i class="s2_0004 bl"></i>
-                        <i class="s2_0003 br"></i>
+                        <i class="bl"></i>
+                        <i class="br"></i>
                     </div><?php
                 }
             }
@@ -119,7 +120,7 @@
                         }
                     ?></div>
                     <div class="expand">
-                        <a id="notifexpand" href="" title="Απόκρυψη" class="s1_0024">&nbsp;</a>
+                        <a id="notifexpand" href="" title="Απόκρυψη" class="s1_0024" >&nbsp;</a>
                     </div>
                 </div><?php
             }
@@ -128,19 +129,20 @@
             }
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
+            /* commented out by ted
             if ( !$user->Exists() ) {
-                ?><div class="sx_0008">
-                    <div class="s2_0006 planet">
+                ?><div class="frontpagejoin">
+                    <div class="planet">
                         <form action="" method="get">
-                            <div class="s2_0014">
+                            <div>
                                 <input type="hidden" name="p" value="join" />
-                                <input id="newusername" class="s2_0005" type="text" name="username" value="ψευδώνυμο" />
-                                <input id="snewusername" class="s2_0009" type="submit" value="&nbsp;" />
+                                <input id="newusername" type="text" name="username" value="ψευδώνυμο" />
+                                <input id="snewusername" type="submit" value="&nbsp;" />
                             </div>
                         </form>
                     </div>
                 </div><?php
-            } 
+            } */
             ?><div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php
@@ -154,23 +156,23 @@
                 ?></div>
                 <div id="fp_right">
                     <div id="fp_latest">
-                        <h2 class="subheading">Πρόσφατα γεγονότα</h2>
+                        <h2>Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>
                         <div class="eof"></div>
-                        <div class="sx_0007"></div>
+                        <div class="commfading"></div>
                         <div class="barfade">
-                                <div class="s1_0070 leftbar"></div>
-                                <div class="s1_0071 rightbar"></div>
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
                             </div>
                         <div class="journals"><?php
                             Element( 'frontpage/journal/list', 0 );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
-                                <div class="s1_0070 leftbar"></div>
-                                <div class="s1_0071 rightbar"></div>
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
                             </div>
                         <div class="polls"><?php
                             Element( 'frontpage/poll/list', 0 );

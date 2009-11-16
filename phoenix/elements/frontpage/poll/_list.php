@@ -29,7 +29,7 @@
             }
             
             ?><div class="list">
-                <h2 class="pheading">Δημοσκοπήσεις <span class="small1">(<a href="polls">προβολή όλων</a>)</span></h2><?php
+                <h2>Δημοσκοπήσεις (<a href="polls">προβολή όλων</a>)</h2><?php
                 foreach ( $polls as $poll ) {
                     $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                     $url = $domain . 'polls/' . $poll->Url;
