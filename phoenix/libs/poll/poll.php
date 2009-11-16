@@ -102,7 +102,7 @@
 
             $ids = Spot::GetPolls( $user );
             var_dump( $ids );
-            die();
+            die( 'ids' );
             if ( $ids === false ) {
                 return $ids;
             }
