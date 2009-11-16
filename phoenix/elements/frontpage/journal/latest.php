@@ -5,6 +5,9 @@
         public function Render( $journalseq ) {
             global $xc_settings;
 
+            $finder = New JournalFinder();
+            $journals = $finder->FindFrontpageLatest();
+
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
