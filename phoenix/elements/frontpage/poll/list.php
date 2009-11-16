@@ -1,16 +1,28 @@
 <?php
+    
     class ElementFrontpagePollList extends Element {
-        protected $mPersistent = array( 'pollseq' );
+        // protected $mPersistent = array( 'pollseq' );
 
         public function Render( $pollseq ) {
             global $libs;
             global $xc_settings;
+            global $user;
 
             $libs->Load( 'poll/poll' );
-			$libs->Load( 'poll/frontpage' );
-			
             $finder = New PollFinder();
-            $polls = $finder->FindFrontpageLatest( 0 , 4 );
+            $polls = false;
+            if ( $user->Exists() ) {
+                $polls = $finder->FindUserRelated( $user );
+                // ONLY FOR BETA
+                if ( $polls === false ) {
+                    ?><b>Spot connection failed (start daemon!).</b><?php
+                }
+            }
+            if ( $polls === false ) { // anonymous or spot failed
+                $libs->Load( 'poll/frontpage' );
+                $polls = $finder->FindFrontpageLatest( 0 , 4 );
+            }
+            
             ?><div class="list">
                 <h2>Δημοσκοπήσεις (<a href="polls">προβολή όλων</a>)</h2><?php
                 foreach ( $polls as $poll ) {

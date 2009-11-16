@@ -1,5 +1,10 @@
 <?php
-   class ElementFrontpageView extends Element {
+    /* 
+    Masked by: abresas
+    Reason: spot
+    */
+
+    class ElementFrontpageView extends Element {
         public function Render( tBoolean $newuser, tBoolean $validated ) {
             global $user;
             global $rabbit_settings;
@@ -23,6 +28,7 @@
             if ( $validated && $user->Exists() && $user->Profile->Emailvalidated ) {
                 ?><div class="ybubble"><div class="body">
                 <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" alt="Κλείσιμο" title="Κλείσιμο" /></a>
+
                 <p>
                 <strong>Η e-mail διεύθυνσή σου επιβεβαιώθηκε επιτυχώς.</strong> 
                 <br /><br />
@@ -39,8 +45,7 @@
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
-                            <a class="delete" href="" onclick="Frontpage.Closenewuser();return false"><img src="http://static.zino.gr/images/icons/cancel.png" 
-alt="Ακύρωση" title="Ακύρωση" /></a>
+                            <a class="delete" href="" onclick="Frontpage.Closenewuser();return false">&nbsp;</a>
                             <form>
                                 <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
                                 <div>
@@ -115,7 +120,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         }
                     ?></div>
                     <div class="expand">
-                        <a id="notifexpand" href="" class="s1_0024" title="Απόκρυψη">&nbsp;</a>
+                        <a id="notifexpand" href="" title="Απόκρυψη" class="s1_0024" >&nbsp;</a>
                     </div>
                 </div><?php
             }
@@ -125,7 +130,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             /* commented out by ted
-			if ( !$user->Exists() ) {
+            if ( !$user->Exists() ) {
                 ?><div class="frontpagejoin">
                     <div class="planet">
                         <form action="" method="get">
@@ -137,7 +142,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                         </form>
                     </div>
                 </div><?php
-            }*/ 
+            } */
             ?><div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php
@@ -162,7 +167,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                                 <div class="rightbar"></div>
                             </div>
                         <div class="journals"><?php
-                            Element( 'frontpage/journal/list' , $sequences[ SEQUENCE_JOURNAL ] );
+                            Element( 'frontpage/journal/list', 0 );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
@@ -170,7 +175,7 @@ alt="Ακύρωση" title="Ακύρωση" /></a>
                                 <div class="rightbar"></div>
                             </div>
                         <div class="polls"><?php
-                            Element( 'frontpage/poll/list' , $sequences[ SEQUENCE_POLL ] );
+                            Element( 'frontpage/poll/list', 0 );
                         ?></div>
                     </div>
                 </div>
