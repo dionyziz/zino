@@ -101,8 +101,6 @@
             $libs->Load( 'research/spot' );
 
             $ids = Spot::GetPolls( $user );
-            var_dump( $ids );
-            die();
             if ( $ids === false ) {
                 return $ids;
             }
