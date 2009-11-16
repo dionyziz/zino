@@ -13,8 +13,6 @@
             $journals = false;
             if ( $user->Exists() ) {
                 $finder = New JournalFinder();
-                $journals = $finder->FindFrontpageLatest( 0, 4 );
-                $finder = New JournalFinder();
                 $journals = $finder->FindUserRelated( $user );
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                     ?><b>Spot connection failed (start daemon!).</b><?php
