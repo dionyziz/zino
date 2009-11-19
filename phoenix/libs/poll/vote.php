@@ -33,6 +33,8 @@
             throw New PollException( "Poll votes cannot be edited!" );
         }
         protected function OnCreate() {
+            global $libs;
+
             $this->Poll->OnVoteCreate();
             $this->Option->OnVoteCreate();
 
