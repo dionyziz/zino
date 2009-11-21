@@ -157,7 +157,7 @@ var Profile = {
 			
 			$( '.sidebar .mplayer .addsong' ).show();
 			$( '#mplayersearchmodal' ).jqm({
-				trigger: '.sidebar .mplayer .addsong',
+				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
 				overlayClass: 'mdloverlay1'
 			});
 		},
