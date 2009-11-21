@@ -12,13 +12,13 @@
 }
 #mplayersearchmodal{
 	display: none;
-	top: 25%;
-	left: 40%;
+	top: 15%;
+	left: 30%;
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
     height: 400px;
-	width: 400px;
+	width: 500px;
 	z-index: 500;
 }
 #mplayersearchmodal form .input{
