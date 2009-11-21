@@ -36,11 +36,6 @@
 						<input type="submit" style="display: none" />
 					</div>
 					<ul>
-						<li id="song_12">
-							<span class="artist">Mr. Scruff</span> - 
-							<span class="album">Ninija Tuna</span> - 
-							<span class="title">Kalimba</span>
-						</li>
 					</ul>
 				</form>
 			</div><?php
