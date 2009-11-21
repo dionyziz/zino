@@ -115,7 +115,7 @@ var Profile = {
     },
     Player: {
 		
-		MyProfileOnLoad(){
+		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
 			$( '.sidebar .mplayer' ).hover( function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
