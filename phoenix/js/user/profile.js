@@ -127,7 +127,7 @@ var Profile = {
 				$( li ).attr( 'id', 'song_' + song.songID )
 					.html( litext ).appendTo( '#mplayersearchmodal form ul' );
 			}
-			$( '.#mplayersearchmodal .input' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
