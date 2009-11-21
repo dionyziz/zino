@@ -36,13 +36,12 @@
 	padding: 5px;
 	display: block;
 }
-#mplayersearchmodal form table thead{
+#mplayersearchmodal form table tr.head{
 	display: none;
 	font-weight: bold;
-	position: relative;
 	text-align: left;
 }
-#mplayersearchmodal form table thead th{
+#mplayersearchmodal form table tr.head td{
 	border-bottom: 2px solid #ccc;
 }
 #mplayersearchmodal form table tr{
