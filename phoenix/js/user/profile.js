@@ -119,7 +119,7 @@ var Profile = {
 			var div = document.createElement( 'div' );
 			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
 			$( '#mplayersearchmodal' ).jqmHide().find( '.input' ).removeClass( 'loading' );
-			//Profile.Player.Initialize();
+			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
 			$( '#mplayersearchmodal .input' ).addClass( 'loading' );
