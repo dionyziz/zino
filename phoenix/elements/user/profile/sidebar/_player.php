@@ -15,6 +15,10 @@
 						?>&amp;style=metal&amp;p=0" allowScriptAccess="always" wmode="window">
 						</embed>
 					</object>
+					<div class="toolbox">
+						<span class="s1_0024 search">&nbsp;</span>
+						<span class="s1_0007 delete">&nbsp;</span>
+					</div>
 				</div><?php
 			}
 			else{
@@ -23,10 +27,7 @@
 				</div>
 				<?php
 			}
-			?><div class="toolbox">
-				<span class="s1_0024 search">&nbsp;</span>
-				<span class="s1_0007 delete">&nbsp;</span>
-			</div>
+			?>
 			<div id="mplayersearchmodal">
 				<h1>Search</h1>
 			</div><?php
