@@ -1,6 +1,6 @@
 <?php
     class ElementUserProfileSidebarDetails extends Element {
-        protected $mPersistent = array( 'theuserid', 'lastupdated' );
+        //protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
         public function Render( $theuser, $theuserid, $lastupdated ) { 
             global $libs;
@@ -16,10 +16,7 @@
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
             ?></div><?php
-				if ( $theuser->Profile->Song != false ){
-					Element( 'user/profile/sidebar/player', $theuser );
-				}
-
+				Element( 'user/profile/sidebar/player', $theuser );
             ?><div class="aboutme"><?php
                 Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
