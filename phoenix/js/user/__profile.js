@@ -1,4 +1,4 @@
-var Profile = {
+var Profile = { //double masked by ted.
     AntisocialCalled : false,
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
