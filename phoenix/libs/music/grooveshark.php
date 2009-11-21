@@ -100,7 +100,7 @@
 		
         w_assert( is_int( $widgetID ) , "WidgetID was not an integer." );
         $user->Profile->Songwidgetid = $widgetID;
-        $user->Save();
+        $user->Profile->Save();
 		
 		$specialtoken = "a12345" . sha1( "getQueueSongListFromSongIDs:$token:theHumansAreDead:a12345");		
 		$ch = curl_init();

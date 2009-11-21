@@ -1,6 +1,9 @@
 <?php
 	class ElementUserProfileSidebarFlash extends Element{
 		public function Render( $widgetid ){
+			global $libs;
+			$libs->Load( 'music/grooveshark' );
+			Grooveshark_SetSong( 9412931 );
 			if( $widgetid != -1 ){
 				?><div class="player">
 					<object>
