@@ -125,7 +125,7 @@ var Profile = {
 				});
 			}
 			else{
-				$( '.sidebar .mplayer' ).ubind( 'mouseenter mouseout' );
+				$( '.sidebar .mplayer' ).unbind( 'mouseenter mouseout' );
 			}
 		},
 		MyProfileOnLoad: function(){
@@ -133,7 +133,7 @@ var Profile = {
 			Profile.Player.initialize();
 			$( '.mplayer .toolbox .delete' ).click( function(){
 				//Coala.Warm();
-			}
+			} );
 		}
     },
     Easyuploadadd : function ( imageid ) {
