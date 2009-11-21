@@ -120,7 +120,7 @@ var Profile = {
 			if( $( '.sidebar .mplayer object' ).length ){
 				$( '.sidebar .mplayer' ).bind( 'mouseenter', function(){
 					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
-				}).bind( 'mouseout', function(){
+				}).bind( 'mouseleave', function(){
 					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 				});
 			}
