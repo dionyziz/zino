@@ -114,9 +114,7 @@ var Profile = {
         }
     },
     Player: {
-		
-		
-		initialize: function(){
+		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
 			}, function(){
@@ -125,11 +123,17 @@ var Profile = {
 		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
-			Profile.Player.initialize();
+			Profile.Player.Initialize();
 			
 			$( '.mplayer .toolbox .delete' ).click( function(){
-				//Coala.Warm();
+				//Coala.Warm();, delete: that sould reset the mplayer element, and run initialize
 			} );
+			$( '#mplayersearchmodal form .input input:first' ).keypress( function( e ){
+				if( e.which == 13 ){
+					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal input.search' ) } );
+					return false;
+				}
+			});
 		}
     },
     Easyuploadadd : function ( imageid ) {

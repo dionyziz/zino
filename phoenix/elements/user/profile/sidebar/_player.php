@@ -29,7 +29,20 @@
 			}
 			?>
 			<div id="mplayersearchmodal">
-				<h1>Search</h1>
+				<h3 class="modaltitle">Αναζήτηση τραγουδιών...</h3>
+				<form>
+					<div class="input">
+						<input type="text" />
+						<input type="submit" style="display: none" />
+					</div>
+					<ul>
+						<li id="song_12">
+							<span class="artist">Mr. Scruff</span> - 
+							<span class="album">Ninija Tuna</span> - 
+							<span class="title">Kalimba</span>
+						</li>
+					</ul>
+				</form>
 			</div><?php
 		}
     }
