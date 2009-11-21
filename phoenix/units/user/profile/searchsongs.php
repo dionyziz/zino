@@ -4,7 +4,7 @@
         
 		$libs->Load( 'music/grooveshark' );
 		
-        $query = $query->Get();
+        $query->Get();
 		?>Profile.Player.Addsongs( <?php
 		echo Grooveshark_SearchSong( $query );
 		?> );<?php
