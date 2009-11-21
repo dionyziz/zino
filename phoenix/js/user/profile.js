@@ -126,6 +126,7 @@ var Profile = {
 			}
 			else{
 				$( '.sidebar .mplayer' ).unbind( 'mouseenter mouseout' );
+				$( '.sidebar .mplayer .addsong' ).show();
 			}
 		},
 		MyProfileOnLoad: function(){

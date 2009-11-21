@@ -7,6 +7,9 @@
 	cursor: pointer;
 	display: block;
 }
+.sidebar .mplayer .addsong{
+	display: none;
+}
 #mplayersearchmodal{
 	display: none;
 	top: 25%;
