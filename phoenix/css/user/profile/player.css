@@ -33,7 +33,7 @@
 #mplayersearchmodal form table{
 	overflow: auto;
 	height: 339px;
-	padding: 5px;
+	padding: 0 5px;
 	display: block;
 }
 #mplayersearchmodal form table tr{
