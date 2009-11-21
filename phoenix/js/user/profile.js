@@ -151,6 +151,10 @@ var Profile = {
 			}, function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
+			$( '.mplayer .toolbox .delete' ).click( function(){
+				Profile.Player.RemoveWidget();
+			} );
+			
 			$( '.sidebar .mplayer .addsong' ).show();
 			$( '#mplayersearchmodal' ).jqm({
 				trigger: '.sidebar .mplayer .addsong',
@@ -159,9 +163,6 @@ var Profile = {
 		},
 		MyProfileOnLoad: function(){
 			Profile.Player.Initialize();
-			$( '.mplayer .toolbox .delete' ).click( function(){
-				Profile.Player.RemoveWidget();
-			} );
 			$( '#mplayersearchmodal form .input input:first' ).keypress( function( e ){
 				if( e.which == 13 ){
 					$( '#mplayersearchmodal .input' ).addClass( 'loading' );
