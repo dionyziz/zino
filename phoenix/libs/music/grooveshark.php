@@ -78,6 +78,7 @@
         global $user; 
     
         $libs->Load( "user/profile" );    
+        $libs->Load( "music/song" );
 
 		$uuid = Grooveshark_CreateUUID();
 		$session = Grooveshark_GetSessionID();
@@ -113,7 +114,7 @@
 		curl_close ($ch);
 		$result = json_decode( $result, true );
 		$info = $result[ "result" ][ 0 ];
-		
+        
 		//TODO
 		//Save songid, artistid, and albumid to database. $info is like this:
 		/*
@@ -128,6 +129,12 @@
 		  'avgRating' => int 3
 		  'estimateDuration' => int 214
 	  */
+
+        $song = New Song();
+        $song->Songid = $info[ "songID" ];
+        $song->Albumid = $info[ "albumID" ];
+        $song->Artistid = $info[ "artistID" ];
+        $song->Save();
 
 		return true;
 	}
