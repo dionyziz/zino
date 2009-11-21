@@ -7,11 +7,11 @@
 		
         $songid = $songid->Get();
 		Grooveshark_SetSong( $songid );
-		?>$( '.sidebar .mplayer' ).html( "<?php
+		?>$( '.sidebar .mplayer' ).html( <?php
 		ob_start();
 		Element( 'user/profile/sidebar/player', $user );
 		echo w_json_encode( ob_get_clean() );
-		?>" );
+		?> );
 		Profile.Player.Initialize();
 		$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 		<?php
