@@ -30,7 +30,7 @@
 #mplayersearchmodal form .input.loading{
 	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 257px 3px;
 }
-#mplayersearchmodal form ul{
+#mplayersearchmodal form table{
 	overflow: auto;
 	height: 339px;
 	padding: 5px;
