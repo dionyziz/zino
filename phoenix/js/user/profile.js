@@ -113,6 +113,9 @@ var Profile = {
             $( '#tweetedit' ).jqmHide();
         }
     },
+    Player: {
+	
+    },
     Easyuploadadd : function ( imageid ) {
         var uplalbid = $( '#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
@@ -135,6 +138,10 @@ var Profile = {
             trigger : 'div#profile div.main div.photos ul li.addphoto a',
             overlayClass : 'mdloverlay1'
         } );
+		$( '#mplayersearchmodal' ).jqm({
+				trigger: 'div.mplayer div.toolbox .search',
+			overlayclass: '.mdloverlay1'
+		});
         $( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
             if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
                 Coala.Cold( 'user/profile/easyupload' , {} );
@@ -161,8 +168,7 @@ var Profile = {
             inp.focus();
             return false;
         } );
-    }
-    ,
+    },
     FetchContacts: function( subdomain ) {
         Coala.Cold( 'user/profile/fetchcontacts', { 'subdomain': subdomain, f: function ( html ) {
             $( 'div.contacts' )[ 0 ].innerHTML = html;

@@ -1,0 +1,20 @@
+.sidebar .mplayer .toolbox{
+	display: none;
+	position: absolute;
+	bottom: -20px;
+	right: 20px;
+}
+.sidebar .mplayer .toolbox div{
+	float: left;
+	margin: 0 5px;
+	padding: 5px;
+}
+#mplayersearchmodal{
+	display: none;
+	top: 25%;
+	left: 40%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    height: 400px;
+}
