@@ -26,4 +26,6 @@
 }
 #mplayersearchmodal form ul{
 	overflow: auto;
+	height: 339px;
+	padding: 5px;
 }
