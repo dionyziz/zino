@@ -119,7 +119,7 @@ var Profile = {
 			var div = document.createElement( 'div' );
 			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
 			$( '#mplayersearchmodal' ).jqmHide().find( '.input' ).removeClass( 'loading' );
-			Profile.Player.Initialize();
+			//Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
 			$( '#mplayersearchmodal .input' ).addClass( 'loading' );
@@ -158,9 +158,7 @@ var Profile = {
 			});
 		},
 		MyProfileOnLoad: function(){
-			//$( '.sidebar .mplayer
 			Profile.Player.Initialize();
-			
 			$( '.mplayer .toolbox .delete' ).click( function(){
 				Profile.Player.RemoveWidget();
 			} );
