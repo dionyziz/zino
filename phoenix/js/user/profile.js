@@ -117,21 +117,16 @@ var Profile = {
 		
 		
 		initialize: function(){
-			if( $( '.sidebar .mplayer object' ).length ){
-				$( '.sidebar .mplayer' ).bind( 'mouseenter', function(){
-					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
-				}).bind( 'mouseleave', function(){
-					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
-				});
-			}
-			else{
-				$( '.sidebar .mplayer' ).unbind( 'mouseenter mouseout' );
-				$( '.sidebar .mplayer .addsong' ).show();
-			}
+			$( '.sidebar .mplayer .player' ).hover( function(){
+				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
+			}, function(){
+				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
+			});
 		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
 			Profile.Player.initialize();
+			
 			$( '.mplayer .toolbox .delete' ).click( function(){
 				//Coala.Warm();
 			} );
@@ -160,7 +155,7 @@ var Profile = {
             overlayClass : 'mdloverlay1'
         } );
 		$( '#mplayersearchmodal' ).jqm({
-				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .toolbox .addsong',
+				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
 			overlayclass: '.mdloverlay1'
 		});
         Profile.Player.MyProfileOnLoad();
