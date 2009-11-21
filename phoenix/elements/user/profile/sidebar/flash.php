@@ -8,7 +8,7 @@
 							echo $widgetid;
 						?>&#38;style=metal&#38;p=0"></param><embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="300" height="40" flashvars="hostname=cowbell.grooveshark.com&#38;widgetID=<?php
 							echo $widgetid;
-						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed></object><div class="toolbox"><span class="s1_0024 search">&nbsp;</span><span class="s1_0007 delete">&nbsp;</span></div></div><?php
+						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed></object><div class="toolbox"><span class="s1_0024 search">&#160;</span><span class="s1_0007 delete">&#160;</span></div></div><?php
 			}
 			else{
 				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
