@@ -1,8 +1,13 @@
 .sidebar .mplayer .toolbox{
 	display: none;
 	float: right;
-	width: 20px;
+	margin: 4px 8px 0 0;
 }
+.sidebar .mplayer .toolbox span{
+	cursor: pointer;
+	display: block;
+}
+.sidebar .mplayer .toolbox
 #mplayersearchmodal{
 	display: none;
 	top: 25%;
