@@ -39,7 +39,7 @@
 #mplayersearchmodal form table thead{
 	display: none;
 	font-weight: bold;
-
+	position: relative;
 	text-align: left;
 }
 #mplayersearchmodal form table thead th{
