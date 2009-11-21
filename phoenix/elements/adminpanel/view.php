@@ -39,7 +39,7 @@
             */
 		
 	        $libs->Load( 'music/grooveshark' );
-            echo "<p>" . Grooveshark_SearchSong("time") . " - res </p>";
+            //echo "<p>" . Grooveshark_SearchSong("time") . " - res </p>";
 
         }
     }
