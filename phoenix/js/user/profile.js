@@ -115,13 +115,25 @@ var Profile = {
     },
     Player: {
 		
+		
+		initialize: function(){
+			if( $( '.sidebar .mplayer object' ).length ){
+				$( '.sidebar .mplayer' ).bind( 'mouseenter', function(){
+					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
+				}).bind( 'mouseout', function(){
+					$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
+				});
+			}
+			else{
+				$( '.sidebar .mplayer' ).ubind( 'mouseenter mouseout' );
+			}
+		}
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
-			$( '.sidebar .mplayer' ).hover( function(){
-				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
-			}, function(){
-				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
-			} );
+			Profile.Player.initialize();
+			$( '.mplayer .toolbox .delete' ).click( function(){
+				//Coala.Warm();
+			}
 		}
     },
     Easyuploadadd : function ( imageid ) {
@@ -147,7 +159,7 @@ var Profile = {
             overlayClass : 'mdloverlay1'
         } );
 		$( '#mplayersearchmodal' ).jqm({
-				trigger: 'div.mplayer div.toolbox .search',
+				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .toolbox .addsong',
 			overlayclass: '.mdloverlay1'
 		});
         Profile.Player.MyProfileOnLoad();
