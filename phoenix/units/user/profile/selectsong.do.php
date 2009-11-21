@@ -10,7 +10,7 @@
 		Grooveshark_SetSong( $songid );
 		?>$( '.sidebar .mplayer' ).html( "<?php
 		ob_start();
-		Element( 'user/profile/sidebar/player', $user );
+		//Element( 'user/profile/sidebar/player', $user );
 		echo w_json_encode( ob_get_clean() );
 		?>" );
 		Profile.Player.Initialize();
