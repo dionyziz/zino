@@ -97,10 +97,37 @@
 		
 		$widgetID = $result[ "result" ][ "widgetID" ];
 		
-        w_assert( is_int( $widgetID ) , "WidgetID was not an integer." );        
-
+        w_assert( is_int( $widgetID ) , "WidgetID was not an integer." );
         $user->Profile->Songwidgetid = $widgetID;
         $user->Profile->Save();
+		
+		$specialtoken = "a12345" . sha1( "getQueueSongListFromSongIDs:$token:theHumansAreDead:a12345");		
+		$ch = curl_init();
+		curl_setopt( $ch, CURLOPT_URL, "http://cowbell.grooveshark.com/service.php?getQueueSongListFromSongIDs" );
+		curl_setopt( $ch, CURLOPT_COOKIE, "PHPSESSID=$session" );
+		curl_setopt( $ch, CURLOPT_POST, true);
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"token":"' . $specialtoken . '","session":"' . $session . '","uuid":"' . $uuid . '","client":"gslite","clientRevision":"20091027.09"},"parameters":{"songIDs":[' . $id . ']},"method":"getQueueSongListFromSongIDs"}');
+		curl_setopt( $ch,CURLOPT_HTTPHEADER, array( "Content-type: application/json" ) );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$result = curl_exec ($ch);
+		curl_close ($ch);
+		$result = json_decode( $result, true );
+		$info = $result[ "result" ][ 0 ];
+		
+		//TODO
+		//Save songid, artistid, and albumid to database. $info is like this:
+		/*
+		array
+		  'songID' => int 2
+		  'songName' => string 'A Living Prayer' (length=15)
+		  'albumID' => int 6
+		  'albumName' => string 'Lonely Runs Both Ways' (length=21)
+		  'artistID' => int 1
+		  'artistName' => string 'Alison Krauss & Union Station' (length=29)
+		  'artURL' => string 'http://beta.grooveshark.com/static/amazonart/s881ebf588fa6b2a5bf7cbaf49c8d7c5f.png' (length=82)
+		  'avgRating' => int 3
+		  'estimateDuration' => int 214
+	  */
 
 		return true;
 	}
