@@ -116,7 +116,7 @@ var Profile = {
     Player: {
 		Addsongs: function( songs ){
 			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
-			$( '#mplayersearchmodal table tr' ).remove();
+			$( '#mplayersearchmodal tbody tr' ).remove();
 			$( '#mplayersearchmodal table thead' ).show();
 			var results = songs.result.Return;
 			for( var i in results ){

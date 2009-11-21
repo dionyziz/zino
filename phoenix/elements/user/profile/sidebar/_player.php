@@ -37,9 +37,11 @@
 					</div>
 					<table>
 						<thead>
-							<th>Name</th>
-							<th>Artist</th>
-							<th>Album</th>
+							<tr>
+								<th>Name</th>
+								<th>Artist</th>
+								<th>Album</th>
+							</tr>
 						</thead>
 						<tbody>
 						</tbody>
