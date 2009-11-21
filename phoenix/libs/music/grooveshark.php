@@ -1,6 +1,6 @@
 <?php
 	
-	function CreateUUID(){
+	function Grooveshark_CreateUUID(){
 		$uid = "";
 		for( $i = 0; $i < 8; ++$i ){
 			$uid .= dechex( mt_rand  ( 0, 15  ) );
@@ -24,7 +24,7 @@
 		return strtoupper( $uid );
 	}
 	
-	function GetSessionID(){
+	function Grooveshark_GetSessionID(){
 		$ch = curl_init();
 		curl_setopt( $ch, CURLOPT_URL, "http://listen.grooveshark.com/" );
 		curl_setopt($ch, CURLOPT_HEADER, true);
@@ -37,7 +37,7 @@
 		return $result[ 0 ]; //PHPSESSIONID
 	}
 	
-	function GetToken( $session, $uid ){
+	function Grooveshark_GetToken( $session, $uid ){
 		$secretKey = md5( $session );
 		$ch = curl_init();
 		curl_setopt( $ch, CURLOPT_URL, "https://cowbell.grooveshark.com/service.php" );
@@ -55,10 +55,10 @@
 	}
 	
 	
-	function SearchSong( $query ){
-		$uuid = CreateUUID();
-		$session = GetSessionID();
-		$token = GetToken( $session, $uuid );
+	function Grooveshark_SearchSong( $query ){
+		$uuid = Grooveshark_CreateUUID();
+		$session = Grooveshark_GetSessionID();
+		$token = Grooveshark_GetToken( $session, $uuid );
 		
 		$specialtoken = "a12345" . sha1( "getSearchResults:$token:theHumansAreDead:a12345");
 		$ch = curl_init();
@@ -73,15 +73,15 @@
 		return $result;
 	}
 	
-	function SetSong( $id ){
+	function Grooveshark_SetSong( $id ){
         global $libs;  
         global $user; 
     
         $libs->Load( "user/profile" );    
 
-		$uuid = CreateUUID();
-		$session = GetSessionID();
-		$token = GetToken( $session, $uuid );
+		$uuid = Grooveshark_CreateUUID();
+		$session = Grooveshark_GetSessionID();
+		$token = Grooveshark_GetToken( $session, $uuid );
 		
 		$specialtoken = "a12345" . sha1( "createWidgetIDFromSongIDs:$token:theHumansAreDead:a12345");
 		$ch = curl_init();
@@ -105,7 +105,7 @@
 		return true;
 	}
 	
-	function DeleteSong(){
+	function Grooveshark_DeleteSong(){
 		global $libs;  
         global $user; 
     
