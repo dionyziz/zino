@@ -118,9 +118,9 @@ var Profile = {
 		
 		initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
-				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
+				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
 			}, function(){
-				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
+				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
 		},
 		MyProfileOnLoad: function(){
