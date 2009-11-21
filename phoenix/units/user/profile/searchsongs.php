@@ -8,5 +8,5 @@
 		?>Profile.Player.Addsongs( <?php
 		echo Grooveshark_SearchSong( $query );
 		?> );<?php
-	}
+	} 
 ?>
