@@ -15,9 +15,11 @@
             ?></div>
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
-            ?></div><?php
+            ?></div>
+			<div class="mplayer"><?php
 				Element( 'user/profile/sidebar/player', $theuser );
-            ?><div class="aboutme"><?php
+            ?></div>
+			<div class="aboutme"><?php
                 Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
             <div class="interests"><?php
