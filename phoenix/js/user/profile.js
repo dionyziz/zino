@@ -114,6 +114,13 @@ var Profile = {
         }
     },
     Player: {
+		Setsong: function( content ){
+			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
+			var div = document.createElement( 'div' );
+			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
+			Profile.Player.Initialize();
+			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
+		},
 		SelectSong: function( songid ){
 			$( '#mplayersearchmodal .input' ).addClass( 'loading' );
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
