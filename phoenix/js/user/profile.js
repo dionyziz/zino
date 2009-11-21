@@ -146,7 +146,7 @@ var Profile = {
 			$( '#mplayersearchmodal form .input input:first' ).keypress( function( e ){
 				if( e.which == 13 ){
 					$( '#mplayersearchmodal .input' ).addClass( 'loading' );
-					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal input.search' ) } );
+					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 					return false;
 				}
 			});
