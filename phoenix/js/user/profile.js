@@ -152,6 +152,7 @@ var Profile = {
 			}, function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
+			$( '.sidebar .mplayer .addsong' ).show();
 		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
