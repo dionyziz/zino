@@ -55,6 +55,7 @@ user/list.css
 user/profile/abuse.css
 user/profile/tweet.css
 user/profile/view.css
+user/profile/player.css
 user/relations.css
 user/sections.css
 user/settings.css
