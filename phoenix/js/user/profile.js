@@ -152,10 +152,10 @@ var Profile = {
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
 			$( '.sidebar .mplayer .addsong' ).show();
-			/*$( '#mplayersearchmodal' ).jqm({
+			$( '#mplayersearchmodal' ).jqm({
 				trigger: '.sidebar .mplayer .addsong',
 				overlayClass: 'mdloverlay1'
-			});*/
+			});
 		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
