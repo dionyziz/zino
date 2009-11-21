@@ -97,6 +97,8 @@
 		
 		$widgetID = $result[ "result" ][ "widgetID" ];
 		
+        w_assert( is_int( $widgetID ) , "WidgetID was not an integer." );        
+
         $user->Profile->Songwidgetid = $widgetID;
         $user->Profile->Save();
 
