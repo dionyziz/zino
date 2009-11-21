@@ -120,9 +120,9 @@ var Profile = {
 				var song = results[ i ];
 				
 				var li = document.createElement( 'li' );
-				var litext = '<span class="artist">' + song.ArtistName + '</span> - ';
-				litext += '<span class="album">' + song.AlbumName + '</span> - ';
-				litext +=  '<span class="title">' + song.SongName + '</span>';
+				var litext = '<span class="title">' + song.SongName + '</span> - ';
+				litext +=  '<span class="artist">' + song.ArtistName + '</span> - ';
+				litext += '<span class="album">' + song.AlbumName + '</span>';
 				
 				$( li ).attr( 'id', 'song_' + song.songID )
 					.html( litext ).appendTo( '#mplayersearchmodal form ul' );
