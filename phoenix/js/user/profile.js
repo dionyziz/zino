@@ -118,9 +118,9 @@ var Profile = {
 		MyProfileOnLoad(){
 			//$( '.sidebar .mplayer
 			$( '.sidebar .mplayer' ).hover( function(){
-				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
+				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
 			}, function(){
-				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
+				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			} );
 		}
     },
