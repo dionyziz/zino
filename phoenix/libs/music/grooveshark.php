@@ -74,6 +74,11 @@
 	}
 	
 	function SetSong( $id ){
+        global $libs;  
+        global $user; 
+    
+        $libs->Load( "user/profile" );    
+
 		$uuid = CreateUUID();
 		$session = GetSessionID();
 		$token = GetToken( $session, $uuid );
@@ -92,14 +97,21 @@
 		
 		$widgetID = $result[ "result" ][ "widgetID" ];
 		
-		//TODO
-		//Take the $widgetID and save it to the user profile table
+        $user->Profile->Songwidgetid = $widgetID;
+        $user->Profile->Save();
+
 		return true;
 	}
 	
 	function DeleteSong(){
-		//TODO
-		//Set the widgetID field of the current loggedin user to -1
+		global $libs;  
+        global $user; 
+    
+        $libs->Load( "user/profile" );    
+        
+        $user->Profile->Songwidgetid = -1;
+        $user->Profile->Save();        
+    
 		return true;
 	}
 ?>
