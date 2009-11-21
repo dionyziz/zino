@@ -2,7 +2,7 @@
     function UnitUserProfileSearchsongs( tText $query ) {
         global $libs;
         
-		$libs->Load( 'libs/music/grooveshark' );
+		$libs->Load( 'music/grooveshark' );
 		
         $query = $query->Get();
 		?>Profile.Player.Addsongs( <?php
