@@ -160,7 +160,7 @@ var Profile = {
         } );
 		$( '#mplayersearchmodal' ).jqm({
 				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
-			overlayclass: '.mdloverlay1'
+			overlayclass: 'mdloverlay1'
 		});
         Profile.Player.MyProfileOnLoad();
 		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
