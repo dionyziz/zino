@@ -114,6 +114,20 @@ var Profile = {
         }
     },
     Player: {
+		Addsongs: function( songs ){
+			var results = songs.result.Return;
+			for( var i in results ){
+				var song = results[ i ];
+				
+				var li = document.createElement( 'li' );
+				var litext = '<span class="artist">' + song.ArtistName + '</span> - ';
+				litext += '<span class="album">' + song.AlbumName + '</span> - ';
+				litext +=  '<span class="title">' + song.SongName + '</span>';
+				
+				$( li ).attr( 'id', 'song_' + song.songID )
+					.html( litext ).appendTo( '#mplayersearchmodal form ul' );
+			}
+		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
@@ -159,7 +173,7 @@ var Profile = {
             overlayClass : 'mdloverlay1'
         } );
 		$( '#mplayersearchmodal' ).jqm({
-				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
+			trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
 			overlayclass: 'mdloverlay1'
 		});
         Profile.Player.MyProfileOnLoad();
