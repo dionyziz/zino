@@ -36,17 +36,22 @@
 	padding: 5px;
 	display: block;
 }
+#mplayersearchmodal form table tr{
+	padding: 3px;
+	cursor: pointer;
+}
 #mplayersearchmodal form table tr.head{
 	display: none;
 	font-weight: bold;
 	text-align: left;
 }
-#mplayersearchmodal form table tr.head td{
-	border-bottom: 2px solid #ccc;
-}
-#mplayersearchmodal form table tr{
-	padding: 3px;
+#mplayersearchmodal form table tr:hover{
+	background: #ddeeff;
+	font-weight: 3px;
 }
 #mplayersearchmodal form table tr td{
 	border-bottom: 1px dashed #ccc;
+}
+#mplayersearchmodal form table tr.head td{
+	border-bottom: 2px solid #ccc;
 }
