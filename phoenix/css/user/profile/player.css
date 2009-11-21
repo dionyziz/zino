@@ -1,7 +1,7 @@
 .sidebar .mplayer .toolbox{
 	display: none;
 	float: right;
-	margin: 4px 8px 0 0;
+	margin: 4px 4px 0 0;
 }
 .sidebar .mplayer .toolbox span{
 	cursor: pointer;
@@ -12,17 +12,17 @@
 }
 #mplayersearchmodal{
 	display: none;
-	top: 25%;
-	left: 40%;
+	top: 15%;
+	left: 30%;
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
-    height: 150px;
-	width: 300px;
+    height: 400px;
+	width: 500px;
 	z-index: 500;
 }
 #mplayersearchmodal form .input{
-	margin: 40px 5px 5px 5px;
+	margin: 5px;
 }
 #mplayersearchmodal form .input input{
 	width: 250px;

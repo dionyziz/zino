@@ -114,15 +114,13 @@ var Profile = {
         }
     },
     Player: {
+		SelectSong: function( songid ){
+			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
+		},
+		RemoveWidget: function(){
+			Coala.Warm( 'user/profile/removewidget', {} );
+		},
 		Addsongs: function( songs ){
-			$( '#mplayersearchmodal' ).animate({
-				width: 500,
-				height: 400,
-				top: "15%",
-				left: "30%"
-			}, 'fast' ).find( '.input' ).animate({
-				marginTop: 5
-			}, 'fast' );
 			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			$( '#mplayersearchmodal table tr' ).show();
@@ -151,7 +149,7 @@ var Profile = {
 			Profile.Player.Initialize();
 			
 			$( '.mplayer .toolbox .delete' ).click( function(){
-				//Coala.Warm();, delete: that sould reset the mplayer element, and run initialize
+				Profile.Player.RemoveWidget();
 			} );
 			$( '#mplayersearchmodal form .input input:first' ).keypress( function( e ){
 				if( e.which == 13 ){
@@ -159,6 +157,9 @@ var Profile = {
 					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 					return false;
 				}
+			});
+			$( '#mplayersearchmodal form table tr' ).live( 'click', function(){
+				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
 		}
     },
