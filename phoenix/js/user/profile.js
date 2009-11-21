@@ -121,9 +121,10 @@ var Profile = {
 				var song = results[ i ];
 				
 				var tr = document.createElement( 'tr' );
-				var text = '<td>' + song.SongName + '</td>';
-				text +=  '<td>' + song.ArtistName + '</td>';
-				text += '<td>' + song.AlbumName + '</td>';
+				var td = document.createElement( 'td' );
+				$( td ).clone().text( song.SongName ).appendTo( tr );
+				$( td ).clone().text( song.ArtistName ).appendTo( tr );
+				$( td ).clone().text( song.AlbumName ).appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID )
 					.html( text ).appendTo( '#mplayersearchmodal form table' );

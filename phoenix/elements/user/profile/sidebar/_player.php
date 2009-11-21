@@ -36,11 +36,11 @@
 						<input type="submit" style="display: none" />
 					</div>
 					<table>
-						<th>
+						<tr>
 							<td>Name</td>
 							<td>Artist</td>
 							<td>Album</td>
-						</th>
+						</tr>
 					</table>
 				</form>
 			</div><?php
