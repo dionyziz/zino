@@ -120,23 +120,24 @@ var Profile = {
 				height: 400,
 				top: "15%",
 				left: "30%"
-			}, 'fast', function( songs ){
-				$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
-				$( '#mplayersearchmodal table tr:not(.head)' ).remove();
-				$( '#mplayersearchmodal table tr' ).show();
-				var results = songs.result.Return;
-				for( var i in results ){
-					var song = results[ i ];
-					
-					var tr = document.createElement( 'tr' );
-					var td = document.createElement( 'td' );
-					$( td ).clone().text( song.SongName ).appendTo( tr );
-					$( td ).clone().text( song.ArtistName ).appendTo( tr );
-					$( td ).clone().text( song.AlbumName ).appendTo( tr );
-					
-					$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal form table tbody' );
-				}
-			} );
+			}, 'fast' ).find( '.input' ).animate({
+				marginTop: 5
+			}, 'fast' );
+			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
+			$( '#mplayersearchmodal table tr' ).show();
+			var results = songs.result.Return;
+			for( var i in results ){
+				var song = results[ i ];
+				
+				var tr = document.createElement( 'tr' );
+				var td = document.createElement( 'td' );
+				$( td ).clone().text( song.SongName ).appendTo( tr );
+				$( td ).clone().text( song.ArtistName ).appendTo( tr );
+				$( td ).clone().text( song.AlbumName ).appendTo( tr );
+				
+				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal form table tbody' );
+			}
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
