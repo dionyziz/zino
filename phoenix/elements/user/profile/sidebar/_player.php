@@ -36,12 +36,12 @@
 						<input type="submit" style="display: none" />
 					</div>
 					<table>
+						<thead>
+							<th>Name</th>
+							<th>Artist</th>
+							<th>Album</th>
+						</thead>
 						<tbody>
-							<tr class="head">
-								<td>Name</td>
-								<td>Artist</td>
-								<td>Album</td>
-							</tr>
 						</tbody>
 					</table>
 				</form>
