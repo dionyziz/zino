@@ -123,12 +123,11 @@ var Profile = {
 				
 				var tr = document.createElement( 'tr' );
 				var td = document.createElement( 'td' );
-				$( td ).clone().text( song.SongName ).appendTo( $( tr ) );
-				$( td ).clone().text( song.ArtistName ).appendTo( $( tr ) );
-				$( td ).clone().text( song.AlbumName ).appendTo( $( tr ) );
+				$( td ).clone().text( song.SongName ).appendTo( tr );
+				$( td ).clone().text( song.ArtistName ).appendTo( tr );
+				$( td ).clone().text( song.AlbumName ).appendTo( tr );
 				
-				$( tr ).attr( 'id', 'song_' + song.SongID )
-					.html( text ).appendTo( '#mplayersearchmodal form table tbody' );
+				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal form table tbody' );
 			}
 		},
 		Initialize: function(){
