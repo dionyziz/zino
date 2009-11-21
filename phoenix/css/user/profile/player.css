@@ -32,6 +32,10 @@
 }
 #mplayersearchmodal form table{
 	overflow: auto;
-	height: 339px;
+	max-height: 339px;
 	padding: 5px;
+}
+#mplayersearchmodal form table tr{
+	padding: 3px;
+	border-bottom: 1px solid $ccc;
 }
