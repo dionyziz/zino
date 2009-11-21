@@ -35,8 +35,13 @@
 						<input type="text" />
 						<input type="submit" style="display: none" />
 					</div>
-					<ul>
-					</ul>
+					<table>
+						<th>
+							<td>Name</td>
+							<td>Artist</td>
+							<td>Album</td>
+						</th>
+					</table>
 				</form>
 			</div><?php
 		}

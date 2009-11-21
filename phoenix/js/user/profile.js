@@ -115,19 +115,19 @@ var Profile = {
     },
     Player: {
 		Addsongs: function( songs ){
+			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 			var results = songs.result.Return;
 			for( var i in results ){
 				var song = results[ i ];
 				
-				var li = document.createElement( 'li' );
-				var litext = '<span class="title">' + song.SongName + '</span> - ';
-				litext +=  '<span class="artist">' + song.ArtistName + '</span> - ';
-				litext += '<span class="album">' + song.AlbumName + '</span>';
+				var tr = document.createElement( 'tr' );
+				var text = '<td>' + song.SongName + '</td>';
+				text +=  '<td>' + song.ArtistName + '</td>';
+				text += '<td>' + song.AlbumName + '</td>';
 				
-				$( li ).attr( 'id', 'song_' + song.songID )
-					.html( litext ).appendTo( '#mplayersearchmodal form ul' );
+				$( tr ).attr( 'id', 'song_' + song.SongID )
+					.html( text ).appendTo( '#mplayersearchmodal form table' );
 			}
-			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
