@@ -127,6 +127,7 @@ var Profile = {
 				$( li ).attr( 'id', 'song_' + song.songID )
 					.html( litext ).appendTo( '#mplayersearchmodal form ul' );
 			}
+			$( '.#mplayersearchmodal .input' ).removeClass( 'loading' );
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
@@ -144,6 +145,7 @@ var Profile = {
 			} );
 			$( '#mplayersearchmodal form .input input:first' ).keypress( function( e ){
 				if( e.which == 13 ){
+					$( '#mplayersearchmodal .input' ).addClass( 'loading' );
 					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal input.search' ) } );
 					return false;
 				}
