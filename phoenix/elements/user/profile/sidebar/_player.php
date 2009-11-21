@@ -37,11 +37,11 @@
 					</div>
 					<table>
 						<tbody>
-							<th>
+							<tr class="head">
 								<td>Name</td>
 								<td>Artist</td>
 								<td>Album</td>
-							</th>
+							</tr>
 						</tbody>
 					</table>
 				</form>
