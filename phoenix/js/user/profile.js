@@ -118,8 +118,8 @@ var Profile = {
 			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
 			var div = document.createElement( 'div' );
 			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
-			Profile.Player.Initialize();
 			$( '#mplayersearchmodal' ).jqmHide().find( '.input' ).removeClass( 'loading' );
+			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
 			$( '#mplayersearchmodal .input' ).addClass( 'loading' );
@@ -152,10 +152,10 @@ var Profile = {
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
 			$( '.sidebar .mplayer .addsong' ).show();
-			$( '#mplayersearchmodal' ).jqm({
+			/*$( '#mplayersearchmodal' ).jqm({
 				trigger: '.sidebar .mplayer .addsong',
 				overlayClass: 'mdloverlay1'
-			});
+			});*/
 		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
