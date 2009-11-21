@@ -127,7 +127,7 @@ var Profile = {
 			else{
 				$( '.sidebar .mplayer' ).ubind( 'mouseenter mouseout' );
 			}
-		}
+		},
 		MyProfileOnLoad: function(){
 			//$( '.sidebar .mplayer
 			Profile.Player.initialize();
