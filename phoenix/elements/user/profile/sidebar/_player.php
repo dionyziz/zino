@@ -18,8 +18,8 @@
 					</object><?php
 				}
 				?><div class="toolbox">
-					<div class="search"></div>
-					<div class="delete"></div>
+					<div class="search">S</div>
+					<div class="delete">D</div>
 				</div>
 				<div id="mplayersearchmodal">
 					<h1>Search</h1>

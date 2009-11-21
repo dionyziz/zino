@@ -114,7 +114,14 @@ var Profile = {
         }
     },
     Player: {
-	
+		
+		MyProfileOnLoad(){
+			$( '.sidebar .mplayer object' ).hover( function(){
+				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
+			}, function(){
+				$( this ).siblings( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
+			} );
+		}
     },
     Easyuploadadd : function ( imageid ) {
         var uplalbid = $( '#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
@@ -142,7 +149,8 @@ var Profile = {
 				trigger: 'div.mplayer div.toolbox .search',
 			overlayclass: '.mdloverlay1'
 		});
-        $( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
+        Profile.Player.MyProfileOnLoad();
+		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
             if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
                 Coala.Cold( 'user/profile/easyupload' , {} );
             }
