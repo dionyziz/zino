@@ -34,9 +34,9 @@
 #mplayersearchmodal .input input[type=text]{
 	width: 544px;
 	padding: 5px 50px 5px 5px;
-	height: 30px;
+	height: 35px;
 	margin: 8px;
-	font-size: 23px;
+	font-size: 28px;
 	font-family: Helvetica;
 	color: #666;
 }
@@ -51,10 +51,10 @@
 	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
 #mplayersearchmodal .input input[type=image]:hover{
-	background-position: 0 -44px;
+	background-position: 0 -45px;
 }
 #mplayersearchmodal .input input[type=image].active{
-	background-position: 0 -88px;
+	background-position: 0 -90px;
 }
 #mplayersearchmodal .search .input input[type=image].loading{
 	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
