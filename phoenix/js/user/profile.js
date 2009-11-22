@@ -129,9 +129,14 @@ var Profile = {
 		},
 		Addsongs: function( songs ){
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
-			$( '#mplayersearchmodal table tr' ).show();
-			$( '#mplayersearchmodal table' ).css( 'background', 'white' );
 			var results = songs.result.Return;
+			if( results.length == 0 ){
+				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) ).text( 'Δεν βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' );
+			}
+			else{
+				$( '#mplayersearchmodal .list div' ).remove();
+			}
+			$( '#mplayersearchmodal table tr' ).show();
 			for( var i in results ){
 				var song = results[ i ];
 				

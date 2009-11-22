@@ -24,24 +24,27 @@
 	top: 35%;
 	left: 30%;
 	position: fixed;
-	background: transparent;
+	background: #6C8ABB;
 	width: 466px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-bottomright: 4px;
 }
 #mplayersearchmodal .input{
-	-moz-border-radius: 10px;
-	background: #6C6ABB;
+
 }
 #mplayersearchmodal .input input{
 	width: 410px;
 	height: 30px;
-	margin: 5px;
+	margin: 8px;
 	font-size: 23px;
+	font-family: Helvetica;
 }
 #mplayersearchmodal .list{
 	display: none;
-	margin-top: 20px;
-	background: #6C6ABB;
-	padding: 4px;
+	margin-top: 10px;
+	padding: 6px;
 }
 #mplayersearchmodal table{
 	overflow: auto;
