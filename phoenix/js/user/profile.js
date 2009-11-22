@@ -174,9 +174,9 @@ var Profile = {
 						.append( $( document.createElement( 'div' ) ).addClass( 'text' ) )
 						.append( $( document.createElement( 'div' ) ).addClass( 'fade' ) ).end();
 					
-				$( td ).clone().find( 'div.text' ).addClass( 'name' ).text( song.SongName ).end().appendTo( tr );
-				$( td ).clone().find( 'div.text' ).addClass( 'artist' ).text( song.ArtistName ).end().appendTo( tr );
-				$( td ).clone().find( 'div.text' ).addClass( 'album' ).text( song.AlbumName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'name' ).text( song.SongName ).attr( 'title', song.SongName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'artist' ).text( song.ArtistName ).attr( 'title', song.ArtistName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'album' ).text( song.AlbumName ).attr( 'title', song.AlbumName ).end().appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal table tbody' );
 			}
