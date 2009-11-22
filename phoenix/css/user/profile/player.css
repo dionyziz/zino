@@ -52,7 +52,7 @@
 	height: 339px;
 	padding: 0 5px;
 	display: block;
-	background: #ccc;
+	background: #eeeeee url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 215px 150px;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
