@@ -177,7 +177,10 @@ var Profile = {
 					if( e.which == 13 ){
 						$( '#mplayersearchmodal' ).animate( {
 							top: "15%"
-						}, 'normal' ).find( '.list' ).slideDown( 'normal' );
+						}, 'normal' ).css({
+							MozBorderRadiusBottomright: 4,
+							MozBorderRadiusBottomleft: 4,
+						}).find( '.list' ).slideDown( 'normal' );
 						
 						Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 						return false;
