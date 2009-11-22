@@ -169,7 +169,9 @@ var Profile = {
 				var song = results[ i ];
 				
 				var tr = document.createElement( 'tr' );
-				var td = $( document.createElement( 'td' ) ).append( document.createElement( 'div' ) );
+				var td = $( document.createElement( 'td' ) )
+					.append( document.createElement( 'div' ) )
+					.append( $( document.createElement( 'div' ) ).addClass( 'fade' ) );
 				$( td ).clone().children().addClass( 'name' ).text( song.SongName ).end().appendTo( tr );
 				$( td ).clone().children().addClass( 'artist' ).text( song.ArtistName ).end().appendTo( tr );
 				$( td ).clone().children().addClass( 'album' ).text( song.AlbumName ).end().appendTo( tr );

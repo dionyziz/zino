@@ -92,6 +92,7 @@
 #mplayersearchmodal table tr td{
 	border-width: 0;
 	border-bottom: 1px dashed #ccc;
+	position: relative;
 }
 #mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
@@ -111,4 +112,11 @@
 	width: 290px;
 	white-space: nowrap;
 	overflow: hidden;
+}
+#mplayersearchmodal table td div.fade{
+	position: absolute;
+	right: 0;
+	height: 16px;
+	width: 14px;
+	background: transparent url( http://static.zino.gr/phoenix/pm-fade.png ) repeat-y 0 0;
 }
