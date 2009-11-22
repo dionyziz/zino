@@ -150,13 +150,15 @@ var Profile = {
 				if( $( '#mplayersearchmodal .list div' ).length ){
 					return false;
 				}
-				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) )
+				$( '#mplayersearchmodal .list' ).prepend( 
+					$( document.createElement( 'div' ) )
 						.text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' )
 						.css({
 							position: 'relative',
 							top: 25,
 							left: 10
-						});
+						})
+					);
 					$( '#mplayersearchmodal table tr.head' ).hide();
 				return false;
 			}
