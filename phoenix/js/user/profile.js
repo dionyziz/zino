@@ -170,12 +170,13 @@ var Profile = {
 				
 				var tr = document.createElement( 'tr' );
 				var td = $( document.createElement( 'td' ) )
-					.append( document.createElement( 'div' ) )
-					.append( $( document.createElement( 'div' ) ).addClass( 'fade' ) );
+					.append( document.createElement( 'div' ) ).children()
+						.append( $( document.createElement( 'div' ) ).addClass( 'text' ) )
+						.append( $( document.createElement( 'div' ) ).addClass( 'fade' ) ).end();
 					
-				$( td ).clone().children( 'div:first' ).addClass( 'name' ).text( song.SongName ).end().appendTo( tr );
-				$( td ).clone().children( 'div:first' ).addClass( 'artist' ).text( song.ArtistName ).end().appendTo( tr );
-				$( td ).clone().children( 'div:first' ).addClass( 'album' ).text( song.AlbumName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'name' ).text( song.SongName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'artist' ).text( song.ArtistName ).end().appendTo( tr );
+				$( td ).clone().find( 'div.text' ).addClass( 'album' ).text( song.AlbumName ).end().appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal table tbody' );
 			}

@@ -92,23 +92,26 @@
 #mplayersearchmodal table tr td{
 	border-width: 0;
 	border-bottom: 1px dashed #ccc;
-	position: relative;
 }
 #mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
 }
 
-#mplayersearchmodal table .name{
+#mplayersearchmodal table td > div{
+	position: relative;
+}
+#mplayersearchmodal table .name > div{
 	width: 350px;
 	white-space: nowrap;
 	overflow: hidden;
+	
 }
-#mplayersearchmodal table .artist{
+#mplayersearchmodal table .artist > div{
 	width: 100px;
 	white-space: nowrap;
 	overflow: hidden;
 }
-#mplayersearchmodal table .album{
+#mplayersearchmodal table .album > div{
 	width: 290px;
 	white-space: nowrap;
 	overflow: hidden;
