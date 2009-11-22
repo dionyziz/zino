@@ -38,6 +38,7 @@
 	margin: 8px;
 	font-size: 23px;
 	font-family: Helvetica;
+	color: #666;
 	background: white url(http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif) no-repeat 425px 6px;
 }
 #mplayersearchmodal .input input.loading{
