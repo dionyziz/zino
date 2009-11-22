@@ -29,7 +29,7 @@
 }
 #mplayersearchmodal .input{
 	-moz-border-radius: 10px;
-	background: purple;
+	background: #6C6ABB;
 }
 #mplayersearchmodal .input input{
 	width: 410px;
@@ -37,14 +37,10 @@
 	margin: 5px;
 	font-size: 23px;
 }
-#mplayersearchmodal .input.loading{
-	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 330px 15px;
-}
 #mplayersearchmodal .list{
 	display: none;
 	margin-top: 20px;
-	-moz-border-radius: 10px;
-	background: purple;
+	background: #6C6ABB;
 	padding: 4px;
 }
 #mplayersearchmodal table{
