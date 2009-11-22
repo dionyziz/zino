@@ -22,17 +22,17 @@
 #mplayersearchmodal{
 	display: none;
 	top: 35%;
-	left: 20%;
+	left: 19%;
 	position: fixed;
 	background: #6C8ABB;
-	width: 616px;
+	width: 780px;
 	-moz-border-radius: 10px;
 }
 #mplayersearchmodal .input{
 
 }
 #mplayersearchmodal .input input[type=text]{
-	width: 544px;
+	width: 708px;
 	padding: 5px 50px 5px 5px;
 	height: 35px;
 	margin: 8px;
