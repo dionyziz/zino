@@ -154,7 +154,7 @@ var Profile = {
 					$( document.createElement( 'div' ) )
 						.text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' )
 						.css({
-							position: 'relative',
+							position: 'absolute',
 							top: 25,
 							left: 10
 						})

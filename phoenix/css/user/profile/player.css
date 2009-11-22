@@ -63,14 +63,13 @@
 }
 #mplayersearchmodal .list{
 	display: none;
-	margin-top: 10px;
 	padding: 6px;
 	position: relative;
 }
 #mplayersearchmodal table{
 	overflow: auto;
 	height: 339px;
-	padding: 0 5px;
+	padding: 3px 5px;
 	display: block;
 	background: white;
 	border-collapse: collapse;
