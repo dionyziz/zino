@@ -52,7 +52,7 @@
 	height: 339px;
 	padding: 0 5px;
 	display: block;
-	background: white;
+	background: #ccc;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
@@ -68,6 +68,7 @@
 	font-weight: 3px;
 }
 #mplayersearchmodal table tr td{
+	border-width: 0;
 	border-bottom: 1px dashed #ccc;
 }
 #mplayersearchmodal table tr.head td{

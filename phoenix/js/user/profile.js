@@ -132,6 +132,7 @@ var Profile = {
 			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			$( '#mplayersearchmodal table tr' ).show();
+			$( '#mplayersearchmodal table' ).css( 'background', 'white' );
 			var results = songs.result.Return;
 			for( var i in results ){
 				var song = results[ i ];
