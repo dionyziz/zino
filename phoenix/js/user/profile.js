@@ -170,7 +170,7 @@ var Profile = {
 				
 				var tr = document.createElement( 'tr' );
 				var td = $( document.createElement( 'td' ) )
-					.append( document.createElement( 'div' ) )
+					.append( document.createElement( 'div' ) ).children()
 					.append( $( document.createElement( 'div' ) ).addClass( 'fade' ) );
 				$( td ).clone().children().addClass( 'name' ).text( song.SongName ).end().appendTo( tr );
 				$( td ).clone().children().addClass( 'artist' ).text( song.ArtistName ).end().appendTo( tr );
