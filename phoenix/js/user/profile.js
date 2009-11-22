@@ -176,7 +176,7 @@ var Profile = {
 				$( td ).clone().text( song.AlbumName ).appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID );
-				$( tbody ).html( $( tbody.html() + $( tr ).html() ) );
+				$( tbody ).html( $( tbody ).html() + $( tr ).html() );
 			}
 			$( '#mplayersearchmodal table tbody' ).html( $( tbody ).html() );
 		},
