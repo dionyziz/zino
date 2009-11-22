@@ -161,7 +161,7 @@ var Profile = {
 		MyProfileOnLoad: function(){
 			Profile.Player.Initialize();
 			$( '#mplayersearchmodal .input input:first' ).attr( 'default', $( '#mplayersearchmodal .input input:first' ).val() )
-				.focus( function(){
+				.keydown( function(){
 					if( $( this ).val() == $( this ).attr( 'default' ) ){
 						$( this ).val( '' );
 					}
