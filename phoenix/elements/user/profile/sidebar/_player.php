@@ -4,12 +4,14 @@
 			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songwidgetid );
 			?>
 			<div id="mplayersearchmodal">
-				<h3 class="modaltitle">Αναζήτηση τραγουδιών...</h3>
-				<form>
+				<div class="search">
 					<div class="input">
 						<input type="text" />
 						<input type="submit" style="display: none" />
 					</div>
+				</div>
+				<div class="list">
+					<h3 class="modaltitle">Αναζήτηση τραγουδιών...</h3>
 					<table>
 						<tbody>
 							<tr class="head">
@@ -19,7 +21,7 @@
 							</tr>
 						</tbody>
 					</table>
-				</form>
+				</div>
 			</div><?php
 		}
     }

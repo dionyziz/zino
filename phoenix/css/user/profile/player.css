@@ -21,46 +21,48 @@
 }
 #mplayersearchmodal{
 	display: none;
-	top: 15%;
+	top: 35%;
 	left: 30%;
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
-    height: 400px;
-	width: 500px;
+    height: 40px;
+	width: 350px;
 	z-index: 500;
 }
-#mplayersearchmodal form .input{
+#mplayersearchmodal .input input{
+	width: 340px;
+	height: 30px;
 	margin: 5px;
 }
-#mplayersearchmodal form .input input{
-	width: 250px;
-}
-#mplayersearchmodal form .input.loading{
+#mplayersearchmodal .input.loading{
 	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 257px 3px;
 }
-#mplayersearchmodal form table{
+#mplayersearchmodal .list{
+	display: none;
+}
+#mplayersearchmodal table{
 	overflow: auto;
 	height: 339px;
 	padding: 0 5px;
 	display: block;
 }
-#mplayersearchmodal form table tr{
+#mplayersearchmodal table tr{
 	padding: 3px;
 	cursor: pointer;
 }
-#mplayersearchmodal form table tr.head{
+#mplayersearchmodal table tr.head{
 	display: none;
 	font-weight: bold;
 	text-align: left;
 }
-#mplayersearchmodal form table tr:hover{
+#mplayersearchmodal table tr:hover{
 	background: #ddeeff;
 	font-weight: 3px;
 }
-#mplayersearchmodal form table tr td{
+#mplayersearchmodal table tr td{
 	border-bottom: 1px dashed #ccc;
 }
-#mplayersearchmodal form table tr.head td{
+#mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
 }
