@@ -123,3 +123,6 @@
 	width: 14px;
 	background: transparent url( http://static.zino.gr/phoenix/pm-fade.png ) repeat-y 0 0;
 }
+#mplayersearchmodal table tr:hover div.fade{
+	display: none;
+}
