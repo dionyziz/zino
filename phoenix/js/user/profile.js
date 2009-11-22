@@ -146,7 +146,7 @@ var Profile = {
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
 			if( !results.length ){
-				if( $( 'mplayersearchmodal .list div' ).length ){
+				if( $( '#mplayersearchmodal .list div' ).length ){
 					return false;
 				}
 				$( '#mplayersearchmodal .list' )
