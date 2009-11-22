@@ -4,6 +4,10 @@
 			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songwidgetid );
 			?>
 			<div id="mplayersearchmodal">
+				<div class="toolbar">
+					<div class="X">X</div>
+					<div class="eof"></div>
+				</div>
 				<div class="search">
 					<div class="input">
 						<input type="text" value="Αναζήτηση..." />

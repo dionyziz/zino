@@ -28,8 +28,16 @@
 	width: 780px;
 	-moz-border-radius: 10px;
 }
-#mplayersearchmodal .input{
 
+#mplayersearchmodal .toolbar{
+	height: 20px;
+}
+#mplayersearchmodal .toolbar .X{
+	float: right;
+}
+
+#mplayersearchmodal .input{
+	position: relative;
 }
 #mplayersearchmodal .input input[type=text]{
 	width: 708px;
@@ -63,6 +71,7 @@
 	background-position: 14px 14px;
 	cursor: default;
 }
+
 #mplayersearchmodal .list{
 	display: none;
 	padding: 6px;
@@ -98,7 +107,6 @@
 #mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
 }
-
 #mplayersearchmodal table td > div{
 	position: relative;
 }
