@@ -12,7 +12,7 @@
 						<param name="flashvars" value="hostname=cowbell.grooveshark.com&#38;widgetID=<?php
 							echo $widgetid;
 						?>&#38;style=metal&#38;p=0"></param>
-						<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="300" height="40" flashvars="hostname=cowbell.grooveshark.com&#38;widgetID=<?php
+						<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&#38;widgetID=<?php
 							echo $widgetid;
 						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed>
 					</object>

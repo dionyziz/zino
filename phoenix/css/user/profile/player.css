@@ -1,3 +1,7 @@
+.sidebar .mplayer .player object, .sidebar .mplayer .player embed{
+	height: 40px;
+	margin-left: 5px;
+}
 .sidebar .mplayer .toolbox{
 	display: none;
 	float: right;
