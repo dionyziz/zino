@@ -131,7 +131,12 @@ var Profile = {
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
 			if( results.length == 0 ){
-				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) ).text( 'Δεν βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' ) );
+				$( '#mplayersearchmodal .list' )
+					.prepend( $( document.createElement( 'div' ) ).text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' ) )
+					.css({
+						marginTop: 0,
+						paddingTop: 0
+					});
 			}
 			else{
 				$( '#mplayersearchmodal .list div' ).remove();
