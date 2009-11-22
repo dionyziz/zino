@@ -32,11 +32,16 @@
 
 }
 #mplayersearchmodal .input input{
-	width: 410px;
+	width: 418px;
+	padding-right: 30px;
 	height: 30px;
 	margin: 8px;
 	font-size: 23px;
 	font-family: Helvetica;
+	background: white url(http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif) no-repeat 425px 6px;
+}
+#mplayersearchmodal .input input.loading{
+	background: white url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat 425px 8px;
 }
 #mplayersearchmodal .list{
 	display: none;
@@ -48,7 +53,6 @@
 	height: 339px;
 	padding: 0 5px;
 	display: block;
-	background: #eeeeee url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 215px 150px;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
@@ -58,8 +62,9 @@
 	display: none;
 	font-weight: bold;
 	text-align: left;
+	cursor: default;
 }
-#mplayersearchmodal table tr:hover{
+#mplayersearchmodal table tr[id^="song_"]:hover{
 	background: #ddeeff;
 	font-weight: 3px;
 }
