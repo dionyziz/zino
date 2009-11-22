@@ -22,18 +22,19 @@
 #mplayersearchmodal{
 	display: none;
 	top: 35%;
-	left: 30%;
+	left: 15%;
 	position: fixed;
 	background: #6C8ABB;
-	width: 466px;
+	width: 616px;
 	-moz-border-radius: 10px;
 }
 #mplayersearchmodal .input{
 
 }
 #mplayersearchmodal .input input[type=text]{
-	width: 418px;
-	padding-right: 30px;
+	width: 554px;
+	padding: 5px 40px 5px 5px;
+	padding-right: 40px;
 	height: 30px;
 	margin: 8px;
 	font-size: 23px;
@@ -41,20 +42,20 @@
 	color: #666;
 }
 #mplayersearchmodal .input input[type=image]{
-	width: 30px;
-	height: 30px;
+	width: 34px;
+	height: 34px;
 	padding: 0;
 	margin: 0;
 	position: absolute;
 	top: 10px;
 	right: 11px;
-	background: white url( http://static.zino.gr/phoenix/search.png ) no-repeat 0 0;
+	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
 #mplayersearchmodal .input input[type=image]:hover{
-	background-position: 0 -60px;
+	background-position: 0 -34px;
 }
-#mplayersearchmodal .input input[type=image]:active{
-	background-position: 0 -30px;
+#mplayersearchmodal .input input[type=image]:focus{
+	background-position: 0 -68px;
 }
 #mplayersearchmodal .search .input input[type=image].loading{
 	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
