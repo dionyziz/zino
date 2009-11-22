@@ -11,7 +11,6 @@
 					</div>
 				</div>
 				<div class="list">
-					<h3 class="modaltitle">Αναζήτηση τραγουδιών...</h3>
 					<table>
 						<tbody>
 							<tr class="head">

@@ -24,13 +24,13 @@
 	top: 35%;
 	left: 30%;
 	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
+	background: transparent;
     height: 46px;
 	width: 356px;
 }
 #mplayersearchmodal .input{
 	-moz-border-radius: 10px;
+	background: purple;
 }
 #mplayersearchmodal .input input{
 	width: 310px;
@@ -39,16 +39,22 @@
 	font-size: 23px;
 }
 #mplayersearchmodal .input.loading{
-	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 257px 3px;
+	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 330px 15px;
 }
 #mplayersearchmodal .list{
 	display: none;
+	margin-top: 20px;
+	-moz-border-radius: 10px;
+	background: purple;
+	padding: 4px;
 }
 #mplayersearchmodal table{
 	overflow: auto;
 	height: 339px;
 	padding: 0 5px;
 	display: block;
+	background: white;
+	-moz-border-radius: 6px;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
