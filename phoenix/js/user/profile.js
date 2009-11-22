@@ -150,20 +150,17 @@ var Profile = {
 				if( $( '#mplayersearchmodal .list div' ).length ){
 					return false;
 				}
-				$( '#mplayersearchmodal .list' )
-					.prepend( $( document.createElement( 'div' ) ).text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' ) )
-					.css({
-						marginTop: 0,
-						paddingTop: 0
-					});
+				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) )
+						.text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' )
+						.css({
+							position: 'relative',
+							top: 25,
+							left: 10
+						});
 					$( '#mplayersearchmodal table tr.head' ).hide();
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
-			$( '#mplayersearchmodal table' ).css({
-				marginTop: 10,
-				paddingTop: 6
-			});
 			$( '#mplayersearchmodal table tr.head' ).show();
 
 			for( var i in results ){
