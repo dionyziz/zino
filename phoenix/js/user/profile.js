@@ -145,7 +145,10 @@ var Profile = {
 			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
-			if( results.length == 0 ){
+			if( !results.length ){
+				if( $( 'mplayersearchmodal .list div' ).length ){
+					return false;
+				}
 				$( '#mplayersearchmodal .list' )
 					.prepend( $( document.createElement( 'div' ) ).text( 'Δε βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' ) )
 					.css({
@@ -153,15 +156,15 @@ var Profile = {
 						paddingTop: 0
 					});
 					$( '#mplayersearchmodal table tr.head' ).hide();
+				return false;
 			}
-			else{
-				$( '#mplayersearchmodal .list div' ).remove();
-				$( '#mplayersearchmodal table' ).css({
-					marginTop: 10,
-					paddingTop: 6
-				});
-				$( '#mplayersearchmodal table tr.head' ).show();
-			}
+			$( '#mplayersearchmodal .list div' ).remove();
+			$( '#mplayersearchmodal table' ).css({
+				marginTop: 10,
+				paddingTop: 6
+			});
+			$( '#mplayersearchmodal table tr.head' ).show();
+
 			for( var i in results ){
 				var song = results[ i ];
 				
