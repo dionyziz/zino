@@ -48,13 +48,13 @@
 	position: absolute;
 	top: 16px;
 	right: 11px;
-	background: white url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif ) no-repeat 0 0;
+	background: white url( http://static.zino.gr/phoenix/search.png ) no-repeat 0 0;
 }
 #mplayersearchmodal .input input[type=image]:hover{
-	background-image: url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif );
+	background-position: 0 -40px;
 }
 #mplayersearchmodal .input input[type=image]:active{
-	background-image: url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif );
+	background-position: 0 -20px;
 }
 #mplayersearchmodal .search .input input[type=image].loading{
 	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
