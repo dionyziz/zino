@@ -215,6 +215,8 @@ var Profile = {
 					$( this ).addClass( 'active' );
 				}).mouseup( function(){
 					$( this ).removeClass( 'active' );
+				}).mouseout( function(){
+					$( this ).removeClass( 'active' );
 				});
 			
 			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
