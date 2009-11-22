@@ -164,8 +164,7 @@ var Profile = {
 				paddingTop: 6
 			});
 			var tbody = document.createElement( 'tbody' );
-			$( '#mplayersearchmodal table tr.head' ).appendTo( tbody ).show();
-			var tbodyhtml = "";
+			var tbodyhtml = $( '#mplayersearchmodal table tbody' ).html();
 			for( var i in results ){
 				var song = results[ i ];
 				
@@ -179,6 +178,7 @@ var Profile = {
 				tbodyhtml += '<tr id="song_' + song.SongID + '">' + $( tr ).html() + '</tr>';
 			}
 			$( '#mplayersearchmodal table tbody' ).html( tbodyhtml );
+			$( '#mplayersearchmodal table tr.head' ).show();
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
