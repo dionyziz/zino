@@ -150,7 +150,7 @@ var Profile = {
 			}, function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeOut( 'fast' );
 			});
-			$( '.mplayer .toolbox .delete' ).click( function(){
+			$( '.mplayer .toolbox .delete' ).one( 'click', function(){
 				Profile.Player.RemoveWidget();
 			} );
 			$( '#mplayersearchmodal' ).jqmAddTrigger( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
