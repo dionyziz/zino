@@ -137,9 +137,13 @@ var Profile = {
 						marginTop: 0,
 						paddingTop: 0
 					});
+					$( '#mplayersearchmodal table tr.head' ).hide();
 			}
 			else{
-				$( '#mplayersearchmodal .list div' ).remove();
+				$( '#mplayersearchmodal .list div' ).remove().parent().css({
+					marginTop: 10,
+					paddingTop: 6
+				});
 			}
 			$( '#mplayersearchmodal table tr' ).show();
 			for( var i in results ){
