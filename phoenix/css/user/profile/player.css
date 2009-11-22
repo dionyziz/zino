@@ -92,14 +92,12 @@
 #mplayersearchmodal table tr td{
 	border-width: 0;
 	border-bottom: 1px dashed #ccc;
+	position: relative;
 }
 #mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
 }
 
-#mplayersearchmodal table td > div{
-	position: relative;
-}
 #mplayersearchmodal table .name{
 	width: 350px;
 	white-space: nowrap;
@@ -115,7 +113,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 }
-#mplayersearchmodal table td div div.fade{
+#mplayersearchmodal table td div.fade{
 	position: absolute;
 	right: 0;
 	height: 16px;
