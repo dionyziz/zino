@@ -31,7 +31,7 @@
 #mplayersearchmodal .input{
 
 }
-#mplayersearchmodal .input input{
+#mplayersearchmodal .input input[type=text]{
 	width: 418px;
 	padding-right: 30px;
 	height: 30px;
@@ -39,10 +39,18 @@
 	font-size: 23px;
 	font-family: Helvetica;
 	color: #666;
-	background: white url(http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif) no-repeat 425px 6px;
 }
-#mplayersearchmodal .input input.loading{
-	background: white url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat 425px 8px;
+#mplayersearchmodal .input input[type=image]{
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 16px;
+	right: 11px;
+}
+#mplayersearchmodal .search .input input[type=image].loading{
+	cursor: default;
 }
 #mplayersearchmodal .list{
 	display: none;

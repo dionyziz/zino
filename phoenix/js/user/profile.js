@@ -115,7 +115,8 @@ var Profile = {
     },
     Player: {
 		Setsong: function( content ){
-			$( '#mplayersearchmodal input' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' ).attr( 'src', 'http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif' );
+			
 			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
 			var div = document.createElement( 'div' );
 			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
@@ -123,14 +124,25 @@ var Profile = {
 			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
-			$( '#mplayersearchmodal input' ).addClass( 'loading' );
+			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' ).attr( 'src', 'http://static.zino.gr/phoenix/ajax-loader.gif' );
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
 		RemoveWidget: function(){
 			Coala.Warm( 'user/profile/removewidget', {} );
 		},
+		SubmitSearch: function(){
+			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' ).attr( 'src', 'http://static.zino.gr/phoenix/ajax-loader.gif' );
+			$( '#mplayersearchmodal' ).animate( {
+				top: "15%"
+			}, 'normal' ).css({
+				MozBorderRadiusBottomright: 4,
+				MozBorderRadiusBottomleft: 4,
+			}).find( '.list' ).slideDown( 'normal' );
+			
+			Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
+		},
 		Addsongs: function( songs ){
-			$( '#mplayersearchmodal input' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' ).attr( 'src', 'http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
 			if( results.length == 0 ){
@@ -188,18 +200,16 @@ var Profile = {
 					}
 				}).keypress( function( e ){
 					if( e.which == 13 ){
-						$( '#mplayersearchmodal input' ).addClass( 'loading' );
-						$( '#mplayersearchmodal' ).animate( {
-							top: "15%"
-						}, 'normal' ).css({
-							MozBorderRadiusBottomright: 4,
-							MozBorderRadiusBottomleft: 4,
-						}).find( '.list' ).slideDown( 'normal' );
-						
-						Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
+						Profile.Player.SubmitSearch();
 						return false;
 					}
+				}).siblings( '[type=image]' ).click( function(){
+					if( !$( this ).hasClass( 'loading' ) ){
+						Profile.Player.SubmitSearch();
+					}
+					return false;
 				});
+			
 			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
