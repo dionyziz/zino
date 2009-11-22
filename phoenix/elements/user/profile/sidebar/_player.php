@@ -6,7 +6,7 @@
 			<div id="mplayersearchmodal">
 				<div class="search">
 					<div class="input">
-						<input type="text" />
+						<input type="text" val="Αναζήτση..." />
 						<input type="submit" style="display: none" />
 					</div>
 				</div>

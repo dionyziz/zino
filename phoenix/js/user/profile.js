@@ -160,7 +160,16 @@ var Profile = {
 		},
 		MyProfileOnLoad: function(){
 			Profile.Player.Initialize();
-			$( '#mplayersearchmodal .input input:first' ).keypress( function( e ){
+			$( '#mplayersearchmodal .input input:first' ).attr( 'default', $( this ).val() )
+				.focus( function(){
+					if( $( this ).val() == $( this ).attr( 'default' ) ){
+						$( this ).val( '' );
+					}
+				}).blur( function(){
+					if( $( this ).val() == '' ){
+						$( this ).val( $( this ).attr( 'default' ) );
+					}
+				}).keypress( function( e ){
 				if( e.which == 13 ){
 					$( '#mplayersearchmodal' ).animate( {
 						top: "15%"
