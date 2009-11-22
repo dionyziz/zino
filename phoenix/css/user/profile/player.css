@@ -98,17 +98,17 @@
 }
 
 #mplayersearchmodal table .name{
-	width: 300px
+	width: 350px;
 	white-space: nowrap;
 	overflow: hidden;
 }
 #mplayersearchmodal table .artist{
-	width: 180px
+	width: 100px;
 	white-space: nowrap;
 	overflow: hidden;
 }
 #mplayersearchmodal table .album{
-	width: 300px
+	width: 290px;
 	white-space: nowrap;
 	overflow: hidden;
 }
