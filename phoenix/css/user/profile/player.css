@@ -48,8 +48,17 @@
 	position: absolute;
 	top: 16px;
 	right: 11px;
+	background: white url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif ) no-repeat 0 0;
+}
+#mplayersearchmodal .input input[type=image]:hover{
+	background-image: url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif );
+}
+#mplayersearchmodal .input input[type=image]:active{
+	background-image: url( http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif );
 }
 #mplayersearchmodal .search .input input[type=image].loading{
+	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
+	background-position: 2px 2px;
 	cursor: default;
 }
 #mplayersearchmodal .list{

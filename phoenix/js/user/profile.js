@@ -115,7 +115,7 @@ var Profile = {
     },
     Player: {
 		Setsong: function( content ){
-			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' ).attr( 'src', 'http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif' );
+			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
 			
 			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
 			var div = document.createElement( 'div' );
@@ -124,14 +124,14 @@ var Profile = {
 			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
-			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' ).attr( 'src', 'http://static.zino.gr/phoenix/ajax-loader.gif' );
+			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' );
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
 		RemoveWidget: function(){
 			Coala.Warm( 'user/profile/removewidget', {} );
 		},
 		SubmitSearch: function(){
-			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' ).attr( 'src', 'http://static.zino.gr/phoenix/ajax-loader.gif' );
+			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' );
 			$( '#mplayersearchmodal' ).animate( {
 				top: "15%"
 			}, 'normal' ).css({
@@ -142,7 +142,7 @@ var Profile = {
 			Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 		},
 		Addsongs: function( songs ){
-			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' ).attr( 'src', 'http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif' );
+			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
 			if( results.length == 0 ){

@@ -7,7 +7,7 @@
 				<div class="search">
 					<div class="input">
 						<input type="text" value="Αναζήτηση..." />
-						<input type="image" src="http://t2.gstatic.com/images?q=tbn:pytqWl5NIsyw8M:http://www.bcbsm.com/homepage/images/icon_search.gif" />
+						<input type="image" src="" alt="" />
 					</div>
 				</div>
 				<div class="list">
