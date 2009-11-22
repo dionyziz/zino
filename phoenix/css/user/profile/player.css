@@ -34,7 +34,7 @@
 #mplayersearchmodal .input input[type=text]{
 	width: 708px;
 	padding: 5px 50px 5px 5px;
-	height: 35px;
+	height: 36px;
 	margin: 8px;
 	font-size: 28px;
 	font-family: Helvetica;
@@ -47,7 +47,7 @@
 	margin: 0;
 	position: absolute;
 	top: 10px;
-	right: 10px;
+	right: 9px;
 	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
 #mplayersearchmodal .input input[type=image]:hover{
@@ -58,7 +58,7 @@
 }
 #mplayersearchmodal .search .input input[type=image].loading{
 	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
-	background-position: 2px 2px;
+	background-position: 14px 14px;
 	cursor: default;
 }
 #mplayersearchmodal .list{
@@ -95,4 +95,20 @@
 }
 #mplayersearchmodal table tr.head td{
 	border-bottom: 2px solid #ccc;
+}
+
+#mplayersearchmodal table .name{
+	width: 300px
+	white-space: nowrap;
+	overflow: hidden;
+}
+#mplayersearchmodal table .artist{
+	width: 180px
+	white-space: nowrap;
+	overflow: hidden;
+}
+#mplayersearchmodal table .album{
+	width: 300px
+	white-space: nowrap;
+	overflow: hidden;
 }

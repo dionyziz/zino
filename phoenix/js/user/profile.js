@@ -170,9 +170,9 @@ var Profile = {
 				
 				var tr = document.createElement( 'tr' );
 				var td = document.createElement( 'td' );
-				$( td ).clone().text( song.SongName ).appendTo( tr );
-				$( td ).clone().text( song.ArtistName ).appendTo( tr );
-				$( td ).clone().text( song.AlbumName ).appendTo( tr );
+				$( td ).clone().text( '<div class="name">' + song.SongName + '</div>' ).appendTo( tr );
+				$( td ).clone().text( '<div class="artist">' + song.ArtistName + '</div>' ).appendTo( tr );
+				$( td ).clone().text( '<div class="album">' + song.AlbumName + '</div>' ).appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal table tbody' );
 			}
