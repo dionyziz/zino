@@ -143,7 +143,8 @@ var Profile = {
 					$( '#mplayersearchmodal table tr.head' ).hide();
 			}
 			else{
-				$( '#mplayersearchmodal .list div' ).remove().parent().css({
+				$( '#mplayersearchmodal .list div' ).remove();
+				$( '#mplayersearchmodal table' ).css({
 					marginTop: 10,
 					paddingTop: 6
 				});
