@@ -17,8 +17,8 @@
 						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed>
 					</object>
 					<div class="toolbox">
-						<span class="s1_0024 search">&#160;</span>
 						<span class="s1_0007 delete">&#160;</span>
+						<span class="s1_0024 search">&#160;</span>
 					</div>
 				</div><?php
 			}
