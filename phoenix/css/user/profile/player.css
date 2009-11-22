@@ -1,12 +1,13 @@
 .sidebar .mplayer .player object, .sidebar .mplayer .player embed{
-	width: 300px;
+	width: 280px;
 	height: 40px;
-	margin-left: 5px;
+	margin-left: 2px;
+	float: left;
 }
 .sidebar .mplayer .toolbox{
 	display: none;
-	float: right;
-	margin: 4px 4px 0 0;
+	float: left;
+	margin: 4px 4px 0 20px;
 }
 .sidebar .mplayer .toolbox span{
 	cursor: pointer;
