@@ -34,6 +34,7 @@
 }
 #mplayersearchmodal .toolbar .X{
 	float: right;
+	margin: 0 3px;
 }
 
 #mplayersearchmodal .input{
