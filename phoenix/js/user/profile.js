@@ -217,6 +217,9 @@ var Profile = {
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
 			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
+			//preloading ajax loader image
+			var loader = new Image( 15, 15 );
+			loader.src = "http://static.zino.gr/phoenix/ajax-loader.gif";
 		}
     },
     Easyuploadadd : function ( imageid ) {
