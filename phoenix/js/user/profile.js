@@ -165,7 +165,7 @@ var Profile = {
 			});
 			var tbody = document.createElement( 'tbody' );
 			$( '#mplayersearchmodal table tr.head' ).appendTo( tbody ).show();
-			
+			var tbodyhtml = "";
 			for( var i in results ){
 				var song = results[ i ];
 				
@@ -176,9 +176,9 @@ var Profile = {
 				$( td ).clone().text( song.AlbumName ).appendTo( tr );
 				
 				$( tr ).attr( 'id', 'song_' + song.SongID );
-				$( tbody ).html( $( tbody ).html() + $( tr ).html() );
+				tbodyhtml += '<tr id="song_' + song.SongID + '">' + $( tr ).html() + '</tr>';
 			}
-			$( '#mplayersearchmodal table tbody' ).html( $( tbody ).html() );
+			$( '#mplayersearchmodal table tbody' ).html( tbodyhtml );
 		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
