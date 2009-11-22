@@ -100,18 +100,18 @@
 #mplayersearchmodal table td > div{
 	position: relative;
 }
-#mplayersearchmodal table .name > div{
+#mplayersearchmodal table .name {
 	width: 350px;
 	white-space: nowrap;
 	overflow: hidden;
 	
 }
-#mplayersearchmodal table .artist > div{
+#mplayersearchmodal table .artist{
 	width: 100px;
 	white-space: nowrap;
 	overflow: hidden;
 }
-#mplayersearchmodal table .album > div{
+#mplayersearchmodal table .album{
 	width: 290px;
 	white-space: nowrap;
 	overflow: hidden;
