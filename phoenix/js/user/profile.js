@@ -216,7 +216,7 @@ var Profile = {
 			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
-			$( '#mplayersearchmodal .list' ).mousedown( function(){ return false; });
+			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
 		}
     },
     Easyuploadadd : function ( imageid ) {
