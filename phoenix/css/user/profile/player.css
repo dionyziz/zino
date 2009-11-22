@@ -72,6 +72,7 @@
 	padding: 0 5px;
 	display: block;
 	background: white;
+	border-collapse: collapse;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
