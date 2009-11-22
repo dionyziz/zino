@@ -26,14 +26,17 @@
 	position: fixed;
 	background: #eef5f9;
 	border: 1px solid #284659;
-    height: 40px;
-	width: 350px;
-	z-index: 500;
+    height: 46px;
+	width: 356px;
+}
+#mplayersearchmodal .input{
+	-moz-border-radius: 10px;
 }
 #mplayersearchmodal .input input{
-	width: 340px;
+	width: 310px;
 	height: 30px;
 	margin: 5px;
+	font-size: 23px;
 }
 #mplayersearchmodal .input.loading{
 	background: url(http://static.zino.gr/phoenix/ajax-loader.gif) no-repeat scroll 257px 3px;
