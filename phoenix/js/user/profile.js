@@ -131,7 +131,7 @@ var Profile = {
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			var results = songs.result.Return;
 			if( results.length == 0 ){
-				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) ).text( 'Δεν βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' );
+				$( '#mplayersearchmodal .list' ).prepend( $( document.createElement( 'div' ) ).text( 'Δεν βρέθηκαν αποτελέσματα στην αναζήτησή σου. Δοκίμασε ξανά.' ) );
 			}
 			else{
 				$( '#mplayersearchmodal .list div' ).remove();
@@ -174,15 +174,15 @@ var Profile = {
 						$( this ).val( $( this ).attr( 'default' ) );
 					}
 				}).keypress( function( e ){
-				if( e.which == 13 ){
-					$( '#mplayersearchmodal' ).animate( {
-						top: "15%"
-					}, 'normal' ).find( '.list' ).slideDown( 'normal' );
-					
-					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
-					return false;
-				}
-			});
+					if( e.which == 13 ){
+						$( '#mplayersearchmodal' ).animate( {
+							top: "15%"
+						}, 'normal' ).find( '.list' ).slideDown( 'normal' );
+						
+						Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
+						return false;
+					}
+				});
 			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
