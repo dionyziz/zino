@@ -162,7 +162,11 @@ var Profile = {
 			Profile.Player.Initialize();
 			$( '#mplayersearchmodal .input input:first' ).keypress( function( e ){
 				if( e.which == 13 ){
-					$( '#mplayersearchmodal .input' ).addClass( 'loading' );
+					$( '#mplayersearchmodal' ).animate( {
+						top: "15%"
+					}, 'normal' ).find( '.list' ).slideDown( 'normal' );
+					
+					//$( '#mplayersearchmodal .input' ).addClass( 'loading' );
 					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 					return false;
 				}

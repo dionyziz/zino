@@ -25,15 +25,14 @@
 	left: 30%;
 	position: fixed;
 	background: transparent;
-    height: 46px;
-	width: 356px;
+	width: 466px;
 }
 #mplayersearchmodal .input{
 	-moz-border-radius: 10px;
 	background: purple;
 }
 #mplayersearchmodal .input input{
-	width: 310px;
+	width: 410px;
 	height: 30px;
 	margin: 5px;
 	font-size: 23px;
