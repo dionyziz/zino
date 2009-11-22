@@ -154,12 +154,9 @@ var Profile = {
 			$( '.mplayer .toolbox .delete' ).click( function(){
 				Profile.Player.RemoveWidget();
 			} );
+			$( '#mplayersearchmodal' ).jqmAddTrigger( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
 			
 			$( '.sidebar .mplayer .addsong' ).show();
-			$( '#mplayersearchmodal' ).jqm({
-				trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
-				overlayClass: 'mdloverlay1'
-			});
 		},
 		MyProfileOnLoad: function(){
 			Profile.Player.Initialize();
