@@ -211,6 +211,10 @@ var Profile = {
 						Profile.Player.SubmitSearch();
 					}
 					return false;
+				}).mousedown( function(){
+					$( this ).addClass( 'active' );
+				}).mouseup( function(){
+					$( this ).removeClass( 'active' );
 				});
 			
 			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
