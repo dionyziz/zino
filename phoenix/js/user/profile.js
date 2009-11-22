@@ -118,18 +118,16 @@ var Profile = {
 			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
 			var div = document.createElement( 'div' );
 			$( div ).html( content ).children().prependTo( '.sidebar .mplayer' );
-			$( '#mplayersearchmodal' ).jqmHide().find( '.input' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal' ).jqmHide().find( '.input' );
 			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
-			$( '#mplayersearchmodal .input' ).addClass( 'loading' );
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
 		RemoveWidget: function(){
 			Coala.Warm( 'user/profile/removewidget', {} );
 		},
 		Addsongs: function( songs ){
-			$( '#mplayersearchmodal .input' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
 			$( '#mplayersearchmodal table tr' ).show();
 			$( '#mplayersearchmodal table' ).css( 'background', 'white' );
@@ -176,7 +174,6 @@ var Profile = {
 						top: "15%"
 					}, 'normal' ).find( '.list' ).slideDown( 'normal' );
 					
-					//$( '#mplayersearchmodal .input' ).addClass( 'loading' );
 					Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 					return false;
 				}
