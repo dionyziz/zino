@@ -125,6 +125,7 @@ var Profile = {
 		},
 		SelectSong: function( songid ){
 			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' );
+			$( '#mplayersearchmodal' ).jqmHide();
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
 		RemoveWidget: function(){
