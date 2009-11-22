@@ -149,7 +149,6 @@ var Profile = {
 				});
 				$( '#mplayersearchmodal table tr.head' ).show();
 			}
-			$( '#mplayersearchmodal table tr' ).show();
 			for( var i in results ){
 				var song = results[ i ];
 				
