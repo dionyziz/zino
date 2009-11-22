@@ -1,3 +1,6 @@
+.sidebar .mplayer .player{
+	height: 40px;
+}
 .sidebar .mplayer .player object, .sidebar .mplayer .player embed{
 	width: 280px;
 	height: 40px;
