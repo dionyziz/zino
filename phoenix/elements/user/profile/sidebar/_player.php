@@ -17,9 +17,9 @@
 					<table>
 						<thead>
 							<tr class="head">
-								<th>Όνομα</td>
-								<th>Καλλιτέχνης</td>
-								<th>Άλμπουμ</td>
+								<th>Όνομα</th>
+								<th>Καλλιτέχνης</th>
+								<th>Άλμπουμ</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
