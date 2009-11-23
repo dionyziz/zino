@@ -96,7 +96,7 @@
 	cursor: pointer;
 }
 #mplayersearchmodal table thead tr{
-	display: none;
+	visibility: collapse;
 	font-weight: bold;
 	text-align: left;
 	cursor: default;
