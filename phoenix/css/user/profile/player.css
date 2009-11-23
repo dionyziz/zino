@@ -30,11 +30,14 @@
 }
 
 #mplayersearchmodal .toolbar{
-	height: 20px;
+	position: absolute;
+	top: -18px;
+	left: -18px;
 }
 #mplayersearchmodal .toolbar .X{
-	float: right;
-	margin: 0 3px;
+	width: 30px;
+	height: 30px;
+	background: transparent url(http://img252.imageshack.us/img252/6115/xbutton.png) no-repeat 0 0;
 }
 
 #mplayersearchmodal .input{

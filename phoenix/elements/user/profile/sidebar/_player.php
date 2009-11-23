@@ -5,8 +5,7 @@
 			?>
 			<div id="mplayersearchmodal">
 				<div class="toolbar">
-					<div class="X">X</div>
-					<div class="eof"></div>
+					<div class="X"></div>
 				</div>
 				<div class="search">
 					<div class="input">
