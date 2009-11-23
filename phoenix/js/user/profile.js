@@ -159,7 +159,7 @@ var Profile = {
 							left: 10
 						})
 					);
-					$( '#mplayersearchmodal table thead tr' ).addClass( 'hiden' );
+					$( '#mplayersearchmodal table thead tr' ).addClass( 'hidden' );
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
