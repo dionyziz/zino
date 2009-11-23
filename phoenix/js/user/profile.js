@@ -228,7 +228,7 @@ var Profile = {
 			});
 			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
 			
-			$( '#mplayersearchmodal' ).keydown( function( e ){
+			$( '#mplayersearchmodal' ).keyup( function( e ){
 				if( e.which == 27 ){
 					$( this ).jqmHide();
 				}

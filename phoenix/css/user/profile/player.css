@@ -102,7 +102,7 @@
 	cursor: default;
 	
 }
-#mplayersearchmodal table thead tr td{
+#mplayersearchmodal table thead tr th{
 	border-bottom: 2px solid #ccc;
 }
 #mplayersearchmodal table tr[id^="song_"]:hover{
