@@ -34,10 +34,11 @@
 	top: -18px;
 	left: -18px;
 }
-#mplayersearchmodal .toolbar .X{
+#mplayersearchmodal .toolbar .exit{
 	width: 30px;
 	height: 30px;
 	background: transparent url(http://img252.imageshack.us/img252/6115/xbutton.png) no-repeat 0 0;
+	cursor: pointer;
 }
 
 #mplayersearchmodal .input{

@@ -227,9 +227,19 @@ var Profile = {
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
 			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
-			//preloading ajax loader image
+			
+			$( '#mplayersearchmodal' ).keypress( function( e ){
+				if( e.which == 0 ){
+					$( this ).jqmHide();
+				}
+			}).find( '.toolbar .exit' ).click( function(){
+				$( '#mdlplayersearchmodal' ).jqmHide();
+			});
+			//preloading images
 			var loader = new Image( 15, 15 );
 			loader.src = "http://static.zino.gr/phoenix/ajax-loader.gif";
+			var loader2 = new Image( 15, 15 );
+			loader2.src = "http://static.zino.gr/phoenix/search-button.png";
 		}
     },
     Easyuploadadd : function ( imageid ) {
