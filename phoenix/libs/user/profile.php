@@ -231,6 +231,7 @@
             $this->Height = -3;
             $this->Weight = -3;
             $this->Updated = NowDate();
+            $this->Songwidgetid = -1;        
         }
         protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $user;
