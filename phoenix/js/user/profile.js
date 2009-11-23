@@ -159,11 +159,11 @@ var Profile = {
 							left: 10
 						})
 					);
-					$( '#mplayersearchmodal table thead tr' ).removeClass( 'hiden' );
+					$( '#mplayersearchmodal table thead tr' ).addClass( 'hiden' );
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
-			$( '#mplayersearchmodal table thead tr' ).addClass( 'hidden' );
+			$( '#mplayersearchmodal table thead tr' ).removeClass( 'hidden' );
 
 			for( var i in results ){
 				var song = results[ i ];
