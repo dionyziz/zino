@@ -22,7 +22,7 @@
 					</div>
 				</div><?php
 			}
-			else{
+			else if( $user->HasPermission( 60 ) ){
 				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
 			}
 		}
