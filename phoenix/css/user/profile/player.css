@@ -111,7 +111,6 @@
 	cursor: pointer;
 }
 #mplayersearchmodal table thead tr{
-	visibility: collapse;
 	font-weight: bold;
 	text-align: left;
 	cursor: default;
