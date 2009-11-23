@@ -5,10 +5,6 @@
 			global $user;
 			$libs->Load( 'music/grooveshark' );
 			
-			//firebug lite for ie...
-			global $page;
-			$page->AttachScript( 'http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js' );
-			
 			if( $widgetid != -1 ){
 				?><div class="player">
 					<object>

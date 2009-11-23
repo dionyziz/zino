@@ -2,6 +2,12 @@
     class ElementUserProfileSidebarPlayer extends Element {
         public function Render( $theuser ) {
 			global $user;
+
+			//firebug lite for ie...
+			if( $user->Id == 3890 ){
+				global $page;
+				$page->AttachScript( 'http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js' );
+			}
 			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songwidgetid );
 			if( $user->HasPermission( 60 ) ) {
 				?>
