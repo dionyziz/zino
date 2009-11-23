@@ -233,7 +233,7 @@ var Profile = {
 					$( this ).jqmHide();
 				}
 			}).find( '.toolbar .exit' ).click( function(){
-				$( '#mdlplayersearchmodal' ).jqmHide();
+				$( '#mplayersearchmodal' ).jqmHide();
 			});
 			//preloading images
 			var loader = new Image( 15, 15 );
