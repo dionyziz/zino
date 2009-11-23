@@ -115,7 +115,7 @@ var Profile = {
     },
     Player: {
 		Setsong: function( content ){
-			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal div.search' ).removeClass( 'loading' );
 			
 			$( '.sidebar .mplayer .player, .sidebar .mplayer .addsong' ).remove();
 			var div = document.createElement( 'div' );
@@ -124,7 +124,7 @@ var Profile = {
 			Profile.Player.Initialize();
 		},
 		SelectSong: function( songid ){
-			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' );
+			$( '#mplayersearchmodal div.search' ).addClass( 'loading' );
 			$( '#mplayersearchmodal' ).jqmHide();
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
@@ -132,7 +132,7 @@ var Profile = {
 			Coala.Warm( 'user/profile/removewidget', {} );
 		},
 		SubmitSearch: function(){
-			$( '#mplayersearchmodal input[type=image]' ).addClass( 'loading' );
+			$( '#mplayersearchmodal div.search' ).addClass( 'loading' );
 			$( '#mplayersearchmodal' ).animate( {
 				top: "15%"
 			}, 'normal' ).css({
@@ -143,7 +143,7 @@ var Profile = {
 			Coala.Cold( 'user/profile/searchsongs', { query: $( '#mplayersearchmodal .input input:first' ).val() } );
 		},
 		Addsongs: function( songs ){
-			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
+			$( '#mplayersearchmodal div.search' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tbody tr' ).remove();
 			var results = songs.result.Return;
 			if( !results.length ){
@@ -217,7 +217,7 @@ var Profile = {
 						Profile.Player.SubmitSearch();
 						return false;
 					}
-				}).siblings( '[type=image]' ).click( function(){
+				}).siblings( '.search' ).click( function(){
 					if( !$( this ).hasClass( 'loading' ) ){
 						Profile.Player.SubmitSearch();
 					}
@@ -230,10 +230,10 @@ var Profile = {
 					$( this ).removeClass( 'active' );
 				});
 			
-			$( '#mplayersearchmodal table tr:not(.head)' ).live( 'click', function(){
+			$( '#mplayersearchmodal table tbody tr' ).live( 'click', function(){
 				Profile.Player.SelectSong( $( this ).attr( 'id' ).split( '_' )[ 1 ] );
 			});
-			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
+			$( '#mplayersearchmodal .list' ).mousedown( function(){ return false; });
 			
 			$( '#mplayersearchmodal' ).keypress( function( e ){
 				if( e.keyCode == 27 ){

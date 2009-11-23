@@ -12,7 +12,7 @@
 					<div class="search">
 						<div class="input">
 							<input type="text" value="Αναζήτηση..." />
-							<input type="image" src="" alt="" />
+							<div class="search"></div>
 						</div>
 					</div>
 					<div class="list">

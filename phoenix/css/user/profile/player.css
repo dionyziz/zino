@@ -62,7 +62,7 @@
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
-#mplayersearchmodal .input input[type=image]{
+#mplayersearchmodal .input div.search{
 	width: 44px;
 	height: 44px;
 	padding: 0;
@@ -72,13 +72,13 @@
 	right: 8px;
 	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
-#mplayersearchmodal .input input[type=image]:hover{
+#mplayersearchmodal .input div.search:hover{
 	background-position: 0 -46px;
 }
-#mplayersearchmodal .input input[type=image].active{
+#mplayersearchmodal .input div.search.active{
 	background-position: 0 -92px;
 }
-#mplayersearchmodal .search .input input[type=image].loading{
+#mplayersearchmodal .search .input div.search.loading{
 	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
 	background-position: 14px 14px;
 	cursor: default;
