@@ -70,6 +70,7 @@
 	position: absolute;
 	top: 11px;
 	right: 8px;
+	cursor: pointer;
 	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
 #mplayersearchmodal .input div.search:hover{
@@ -103,14 +104,18 @@
 	cursor: pointer;
 }
 #mplayersearchmodal table thead tr{
-	visibility: collapse;
 	font-weight: bold;
 	text-align: left;
 	cursor: default;
-	
+}
+#mplayersearchmodal table thead tr.hidden{
+	visibility: collapsed;
 }
 #mplayersearchmodal table thead tr th{
 	border-bottom: 2px solid #ccc;
+}
+#mplayersearchmodal table thead tr.hidden th{
+	border: none;
 }
 #mplayersearchmodal table tr[id^="song_"]:hover{
 	background: #ddeeff;

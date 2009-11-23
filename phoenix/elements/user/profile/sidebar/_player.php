@@ -18,7 +18,7 @@
 					<div class="list">
 						<table>
 							<thead>
-								<tr class="head">
+								<tr class="hidden">
 									<th>Όνομα</th>
 									<th>Καλλιτέχνης</th>
 									<th>Άλμπουμ</th>
