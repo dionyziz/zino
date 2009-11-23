@@ -206,7 +206,7 @@ var Profile = {
 						$( this ).val( $( this ).attr( 'default' ) );
 					}
 				}).keypress( function( e ){
-					if( e.which == 13 ){
+					if( e.keyCode == 13 ){
 						Profile.Player.SubmitSearch();
 						return false;
 					}
@@ -228,8 +228,8 @@ var Profile = {
 			});
 			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
 			
-			$( '#mplayersearchmodal' ).keyup( function( e ){
-				if( e.which == 27 ){
+			$( '#mplayersearchmodal' ).keypress( function( e ){
+				if( e.keyCode == 27 ){
 					$( this ).jqmHide();
 				}
 			}).find( '.toolbar .exit' ).click( function(){
