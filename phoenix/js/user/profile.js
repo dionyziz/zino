@@ -144,7 +144,7 @@ var Profile = {
 		},
 		Addsongs: function( songs ){
 			$( '#mplayersearchmodal input[type=image]' ).removeClass( 'loading' );
-			$( '#mplayersearchmodal table tr:not(.head)' ).remove();
+			$( '#mplayersearchmodal table tbody tr' ).remove();
 			var results = songs.result.Return;
 			if( !results.length ){
 				if( $( '#mplayersearchmodal .list div' ).length ){
@@ -159,11 +159,11 @@ var Profile = {
 							left: 10
 						})
 					);
-					$( '#mplayersearchmodal table tr.head' ).hide();
+					$( '#mplayersearchmodal table thead tr' ).hide();
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
-			//$( '#mplayersearchmodal table tr.head' ).show();
+			$( '#mplayersearchmodal table thead tr' ).show();
 
 			for( var i in results ){
 				var song = results[ i ];

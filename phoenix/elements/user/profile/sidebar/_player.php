@@ -15,13 +15,14 @@
 				</div>
 				<div class="list">
 					<table>
-						<tbody>
+						<thead>
 							<tr class="head">
-								<td>Όνομα</td>
-								<td>Καλλιτέχνης</td>
-								<td>Άλμπουμ</td>
+								<th>Όνομα</td>
+								<th>Καλλιτέχνης</td>
+								<th>Άλμπουμ</td>
 							</tr>
-						</tbody>
+						</thead>
+						<tbody></tbody>
 					</table>
 				</div>
 			</div><?php

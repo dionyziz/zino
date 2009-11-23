@@ -95,11 +95,15 @@
 	padding: 3px;
 	cursor: pointer;
 }
-#mplayersearchmodal table tr.head{
+#mplayersearchmodal table tbody tr{
 	display: none;
 	font-weight: bold;
 	text-align: left;
 	cursor: default;
+	
+}
+#mplayersearchmodal table tbody tr td{
+	border-bottom: 2px solid #ccc;
 }
 #mplayersearchmodal table tr[id^="song_"]:hover{
 	background: #ddeeff;
@@ -108,9 +112,6 @@
 #mplayersearchmodal table tr td{
 	border-width: 0;
 	border-bottom: 1px dashed #ccc;
-}
-#mplayersearchmodal table tr.head td{
-	border-bottom: 2px solid #ccc;
 }
 #mplayersearchmodal table td > div{
 	position: relative;
