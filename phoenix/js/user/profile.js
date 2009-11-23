@@ -159,7 +159,7 @@ var Profile = {
 							left: 10
 						})
 					);
-					$( '#mplayersearchmodal table thead tr' ).hide();
+					$( '#mplayersearchmodal table thead tr' ).css( 'visibility', 'collapse' );
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
@@ -229,7 +229,7 @@ var Profile = {
 			$( '#mplayersearchmodal .list, #mplayersearchmodal .input input[type=image]' ).mousedown( function(){ return false; });
 			
 			$( '#mplayersearchmodal' ).keypress( function( e ){
-				if( e.which == 0 ){
+				if( e.which == 27 ){
 					$( this ).jqmHide();
 				}
 			}).find( '.toolbar .exit' ).click( function(){
