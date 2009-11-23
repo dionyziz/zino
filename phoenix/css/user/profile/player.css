@@ -104,6 +104,7 @@
 	background: white;
 	border-collapse: collapse;
 	color: #32587d;
+	width:100%;
 }
 #mplayersearchmodal table tr{
 	padding: 3px;
