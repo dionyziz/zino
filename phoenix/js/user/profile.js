@@ -163,7 +163,7 @@ var Profile = {
 				return false;
 			}
 			$( '#mplayersearchmodal .list div' ).remove();
-			$( '#mplayersearchmodal table tr.head' ).show();
+			//$( '#mplayersearchmodal table tr.head' ).show();
 
 			for( var i in results ){
 				var song = results[ i ];
