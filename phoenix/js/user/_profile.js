@@ -261,19 +261,29 @@ var Profile = {
         var uplalbid = $( '#easyphotoupload div.modalcontent div ul li.selected' ).attr( 'id' ).substr( 6 );
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
+	Abuse: {
+		Init: function () {
+			if ( !Profile.Mine ) {
+				$( '#reportabusemodal' ).jqm( {
+					trigger : '#reportabuse a.report',
+					overlayClass : 'mdloverlay1'
+				} );
+				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( Profile.Abuse.Hide );
+			}
+		},
+		Hide: function () {
+			$( '#reportabusemodal' ).jqmHide();
+		}
+	},
     OnLoad: function () {
         Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
-		alert( 'Your profile ' + ( Profile.Mine? "yes": "no" ) );
+		Profile.Abuse.Init();
     },
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
 		
-        $( '#reportabusemodal' ).jqm( {
-            trigger : '#reportabuse a.report',
-            overlayClass : 'mdloverlay1'
-        } );
         $( '#tweetedit' ).jqm( {
             trigger : 'div.tweetbox div.tweet div a',
             overlayClass : 'mdloverlay1'

@@ -2,7 +2,7 @@
     class ElementUserProfileSidebarDetails extends Element {
         protected $mPersistent = array( 'theuserid', 'lastupdated' );
         
-        public function Render( $theuser, $theuserid, $lastupdated ) { 
+        public function Render( $theuser, $theuserid, $lastupdated ) {
             global $libs;
 
             $libs->Load( 'store' );
@@ -15,11 +15,8 @@
             ?></div>
             <div class="social"><?php
                 Element( 'user/profile/sidebar/social/view' , $theuser );
-            ?></div>
-			<div class="mplayer"><?php
-				Element( 'user/profile/sidebar/player', $theuser );
-            ?></div>
-            <div class="aboutme"><?php
+            ?></div><?php
+			?><div class="aboutme"><?php
                 Element( 'user/profile/sidebar/aboutme' , $profile->Aboutme );
             ?></div>
             <div class="interests"><?php
@@ -34,7 +31,6 @@
             $purchases = $finder->FindByUserid( $theuserid );
 
             if ( !empty( $purchases ) ) {
-                
                 $itemids = array();
                 foreach ( $purchases as $purch ) {
                         $itemids[] = $purch->Itemid;
@@ -50,6 +46,10 @@
                     </div><?php    
                 } 
             }
-        } 
+            ?>
+            <div id="reportabuse"><?php
+                Element( 'user/profile/sidebar/abuse', $theuser->Id );
+            ?></div><?php
+        }
     }
 ?>
