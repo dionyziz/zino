@@ -99,7 +99,7 @@
 #mplayersearchmodal table{
 	overflow: auto;
 	height: 339px;
-	padding: 3px 5px;
+	padding: 3px 0 3px 5px;
 	display: block;
 	background: white;
 	border-collapse: collapse;
