@@ -23,7 +23,7 @@
 					</div>
 					
 					<div>
-						<label for="reportcomments">Σχόλια:</label>
+						<label for="reportcomments" style="display:block;margin-bottom:10px;">Σχόλια:</label>
 						<textarea name="reportcomments" id="reportcomments"></textarea>
 					</div>
 					

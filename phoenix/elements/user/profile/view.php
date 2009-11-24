@@ -50,7 +50,7 @@
                 $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . $isfriend . ' , " ' .$theuser->Id . ' " );' );
             }
             if ( $user->Id == $theuser->Id ) {
-                $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
+                $page->AttachInlineScript( '$( function () { Profile.MyProfileOnLoad( "' . $theuser->Username . '" ) } );' );
             }
             $page->AttachInlineScript( '$( Profile.OnLoad );' );
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {

@@ -12,8 +12,11 @@ div#reportabusemodal form {
 	padding: 15px;
 }
 div#reportabusemodal div {
-	padding: 15px;
+	padding-bottom: 30px;
 }
 div#reportabusemodal div.buttons a {
-	margin: 10px;
+	margin-right: 10px;
+}
+div#reportabusemodal textarea {
+	width: 100%;
 }

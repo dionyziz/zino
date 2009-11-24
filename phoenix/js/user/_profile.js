@@ -262,24 +262,39 @@ var Profile = {
         Coala.Warm( 'user/profile/easyuploadadd' , { imageid : imageid , albumid : uplalbid } );
     },
 	Abuse: {
-		Init: function () {
+		Init: function ( username ) {
 			if ( !Profile.Mine ) {
 				$( '#reportabusemodal' ).jqm( {
 					trigger : '#reportabuse a.report',
 					overlayClass : 'mdloverlay1'
 				} );
-				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( Profile.Abuse.Hide );
+				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( function () {
+					Profile.Abuse.Hide();
+					return false;
+				} );
+				$( $( '#reportabusemodal div.buttons a' )[ 0 ] ).click( function () {
+					$( '#reportabuse a.report' ).hide();
+					$( '#reportabuse form' )[ 0 ].innerHTML = '<strong>Η αναφορά σας αποθηκεύτηκε.</strong><br /><br />Θα την εξετάσουμε το συντομότερο δυνατό.';
+					$( '#reportabuse form' )[ 0 ].style.textAlign = 'center';
+					Coala.Warm( 'about/contact', {
+						reason: $( '#reportreason' )[ 0 ].value,
+						comments: $( '#reportomments' )[ 0 ].value,
+						abuseusername: username
+					} );
+					setTimeout( Profile.Abuse.Hide, 2000 );
+					return false;
+				} );
 			}
 		},
 		Hide: function () {
 			$( '#reportabusemodal' ).jqmHide();
 		}
 	},
-    OnLoad: function () {
+    OnLoad: function ( username ) {
         Coala.Cold( 'admanager/showad', { f: function ( html ) {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
-		Profile.Abuse.Init();
+		Profile.Abuse.Init( username );
     },
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
