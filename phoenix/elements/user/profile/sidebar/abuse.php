@@ -13,7 +13,7 @@
 					<div>
 						<label for="reportreason">Αιτιολογία:</label>
 						<select name="reportreason" id="reportreason">
-							<option>Επέλεξε μία</option>
+							<option>Επίλεξε μία</option>
 							<option>Ανάρτηση πορνογραφικού υλικού</option>
 							<option>Ρατσιστική επίθεση</option>
 							<option>Ανάρτηση διαφημιστικού ή επαναλαμβανόμενου περιεχομένου (spam)</option>
