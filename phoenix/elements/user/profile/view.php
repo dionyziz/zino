@@ -51,7 +51,7 @@
             }
 			$onload = '';
             if ( $user->Id == $theuser->Id ) {
-				$onload = 'Profile.MyProfileOnLoad()';
+				$onload = 'Profile.MyProfileOnLoad();';
             }
 			$onload .= 'Profile.OnLoad( "' . $theuser->Name . '" );';
             $page->AttachInlineScript( '$( function () { ' . $onload . ' } )' );

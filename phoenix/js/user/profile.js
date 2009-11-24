@@ -285,6 +285,7 @@ var Profile = {
 					return false;
 				} );
 				$( '#reportabusemodal' )[ 0 ].style.left = Math.round( ( $( window ).width() - $( '#reportabusemodal' ).width() ) / 2 ) + 'px';
+				$( '#reportabuse a.report' ).show();
 			}
 		},
 		Hide: function () {
