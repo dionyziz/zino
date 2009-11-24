@@ -16,9 +16,14 @@
 	cursor: pointer;
 	display: block;
 }
+.sidebar .mplayer .toolbox .search{
+	background: transparent url(http://static.zino.gr/phoenix/edit.png) no-repeat 0 0;
+	padding: 0 1px 0 11px;
+}
 .sidebar .mplayer .addsong{
 	display: none;
 }
+
 #mplayersearchmodal{
 	display: none;
 	top: 35%;

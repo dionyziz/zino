@@ -20,8 +20,8 @@
 					</object><?php
 					if( $user->HasPermission( 60 ) ){
 						?><div class="toolbox">
-							<span class="s1_0007 delete">&#160;</span>
-							<span class="s1_0024 search">&#160;</span>
+							<span class="s1_0007 delete" title="Διαγραφή τραγουδιού.">&#160;</span>
+							<span class="search" title="Αλλαγή τραγουδιού.">&#160;</span>
 						</div><?php
 					}
 				?></div><?php
