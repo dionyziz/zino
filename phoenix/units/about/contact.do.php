@@ -21,7 +21,7 @@
             $from = $user->Subdomain . "@users.zino.gr";
         }
         else {
-            $from = $email;
+            $from = 'noreply@zino.gr';
         }
         $oniz = "oniz@kamibu.com";
 		$fromname = "";
