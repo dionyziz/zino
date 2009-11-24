@@ -49,10 +49,13 @@
                 }
                 $page->AttachInlineScript( 'Profile.ShowFriendLinks( ' . $isfriend . ' , " ' .$theuser->Id . ' " );' );
             }
+			$onload = '';
             if ( $user->Id == $theuser->Id ) {
-                $page->AttachInlineScript( '$( Profile.MyProfileOnLoad );' );
+				$onload = 'Profile.MyProfileOnLoad()';
             }
-            $page->AttachInlineScript( '$( Profile.OnLoad( "' . $theuser->Name . '" ) );' );
+			$onload .= 'Profile.OnLoad( "' . $theuser->Name . '" );';
+            $page->AttachInlineScript( '$( function () { ' . $onload . ' } )' );
+			
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
                     $text = "αυτή τη στιγμή!";
