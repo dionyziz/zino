@@ -284,7 +284,7 @@ var Profile = {
 					$( '#reportabuse form' )[ 0 ].style.textAlign = 'center';
 					return false;
 				} );
-				$( '#reportabuse' )[ 0 ].style.left = Math.round( ( $( window ).width() - $( '#reportabuse' ).width() ) / 2 ) + 'px';
+				$( '#reportabusemodal' )[ 0 ].style.left = Math.round( ( $( window ).width() - $( '#reportabusemodal' ).width() ) / 2 ) + 'px';
 			}
 		},
 		Hide: function () {
