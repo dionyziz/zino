@@ -21,9 +21,9 @@ var Kamibu = {
                 var text = element.value;
                 element.onblur = function() { 
                     if ( element.value === '' ) {
-                        element.value = text;
                         clicked = false;
                         element.style.color = beforecolor;
+                        element.value = text;
                     }
                 }
             }
