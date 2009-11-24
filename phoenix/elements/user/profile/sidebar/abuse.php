@@ -7,7 +7,7 @@
                 <form>
                     <p>Πρόκειται να αναφέρεις την παραβίαση των όρων χρήσης από αυτό το χρήστη.</p>
                     <p><strong>Η αναφορά αυτή είναι εμπιστευτική.</strong></p>
-                    <p>Αν δεν συμφωνείς με τις του, αυτός δεν είναι λόγος για να τον αναφέρεις.
+                    <p>Αν δεν συμφωνείς με τις απόψεις του, δεν είναι λόγος για αναφορά.
 					Θα ελέγξουμε την περίπτωση παραβίασης και θα παρέμβουμε μόνο αν πραγματικά υπάρχει.</p>
 					
 					<div>
@@ -23,7 +23,7 @@
 					</div>
 					
 					<div>
-						<label for="reportcomments" style="display:block;margin-bottom:10px;">Σχόλια:</label>
+						<label for="reportcomments" style="display:block;margin-bottom:10px;">Σύνδεσμοι προς το περιεχόμενο που παραβιάζει τους όρους:</label>
 						<textarea name="reportcomments" id="reportcomments"></textarea>
 					</div>
 					
