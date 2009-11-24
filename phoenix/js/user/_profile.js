@@ -274,14 +274,14 @@ var Profile = {
 				} );
 				$( $( '#reportabusemodal div.buttons a' )[ 0 ] ).click( function () {
 					$( '#reportabuse a.report' ).hide();
-					$( '#reportabuse form' )[ 0 ].innerHTML = '<strong>Η αναφορά σας αποθηκεύτηκε.</strong><br /><br />Θα την εξετάσουμε το συντομότερο δυνατό.';
-					$( '#reportabuse form' )[ 0 ].style.textAlign = 'center';
 					Coala.Warm( 'about/contact', {
 						reason: $( '#reportreason' )[ 0 ].value,
 						comments: $( '#reportomments' )[ 0 ].value,
 						abuseusername: username
 					} );
 					setTimeout( Profile.Abuse.Hide, 2000 );
+					$( '#reportabuse form' )[ 0 ].innerHTML = '<strong>Η αναφορά σας αποθηκεύτηκε.</strong><br /><br />Θα την εξετάσουμε το συντομότερο δυνατό.';
+					$( '#reportabuse form' )[ 0 ].style.textAlign = 'center';
 					return false;
 				} );
 			}
