@@ -202,6 +202,11 @@ var Profile = {
 			$( '.sidebar .mplayer .addsong' ).show();
 		},
 		MyProfileOnLoad: function(){
+			//to avoid code running without reason
+			if( !$( '#mplayersearchmodal' ).length ){
+				return false;
+			}
+			
 			Profile.Player.Initialize();
 			$( '#mplayersearchmodal .input input:first' ).attr( 'default', $( '#mplayersearchmodal .input input:first' ).val() )
 				.focus( function(){
