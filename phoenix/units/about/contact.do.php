@@ -1,6 +1,7 @@
 <?php
 	function UnitAboutContact( tText $reason, tText $comments, tText $abuseusername ) {
 		global $user;
+		global $libs;
 		
 		$reason = $reason->Get();
 		$comments = $comments->Get();
