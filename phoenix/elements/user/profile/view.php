@@ -54,7 +54,7 @@
 				$onload = 'Profile.MyProfileOnLoad();';
             }
 			$onload .= 'Profile.OnLoad( "' . $theuser->Name . '" );';
-            $page->AttachInlineScript( '$( function () { ' . $onload . ' } )' );
+            $page->AttachInlineScript( '$( function () { ' . $onload . ' } );' );
 			
             if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
                 if ( $theuser->LastActivity->IsOnline() ) {
