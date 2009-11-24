@@ -276,7 +276,7 @@ var Profile = {
 					$( '#reportabuse a.report' ).hide();
 					Coala.Warm( 'about/contact', {
 						reason: $( '#reportreason' )[ 0 ].value,
-						comments: $( '#reportomments' )[ 0 ].value,
+						comments: $( '#reportcomments' )[ 0 ].value,
 						abuseusername: username
 					} );
 					setTimeout( Profile.Abuse.Hide, 2000 );
