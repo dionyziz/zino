@@ -29,6 +29,7 @@
 	-moz-border-radius: 10px;
 	-khtml-border-radius: 10px;
 	-webkit-border-radius: 10px;
+	-msie-border-radius: 10px;
 	border-radius: 10px;
 	
 }
@@ -66,6 +67,7 @@
 	-moz-border-radius: 4px;
 	-khtml-border-radius: 4px;
 	-webkit-border-radius: 4px;
+	-msie-border-radius: 4px;
 	border-radius: 4px;
 }
 #mplayersearchmodal .input div.search{
