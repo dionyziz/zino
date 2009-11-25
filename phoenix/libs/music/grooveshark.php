@@ -56,6 +56,10 @@
 	
 	
 	function Grooveshark_SearchSong( $query ){
+		global $user;
+		if( !$user->HasPermission( 60 ) ){
+			return;
+		}
 		$uuid = Grooveshark_CreateUUID();
 		$session = Grooveshark_GetSessionID();
 		$token = Grooveshark_GetToken( $session, $uuid );
@@ -76,7 +80,9 @@
 	function Grooveshark_SetSong( $id ){
         global $libs;  
         global $user; 
-    
+		if( !$user->HasPermission( 60 ) ){
+			return;
+		}
         $libs->Load( "user/profile" );    
         $libs->Load( "music/song" );
 
