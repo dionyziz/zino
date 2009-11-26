@@ -1,11 +1,12 @@
 <?php
-	class ElementUserProfileSidebarFlash extends Element{
-		public function Render( $widgetid ){
+	class ElementUserProfileSidebarFlash extends Element {
+		public function Render( $widgetid, User $theuser ) {
 			global $libs;
 			global $user;
+			
 			$libs->Load( 'music/grooveshark' );
 			
-			if( $widgetid != -1 ){
+			if ( $widgetid != -1 ){
 				?><div class="player">
 					<object>
 						<param name="movie" value="http://listen.grooveshark.com/songWidget.swf"></param>
@@ -26,7 +27,7 @@
 					}
 				?></div><?php
 			}
-			else if( $user->HasPermission( 60 ) ){
+			else if ( $theuser->HasPermission( 60 ) ) {
 				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
 			}
 		}
