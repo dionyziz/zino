@@ -299,8 +299,7 @@ var Frontpage = {
             var text = document.createElement( 'div' );
             
             if ( who.avatar !== 0 ) {
-                avatar = 'http://images2.zino.gr/media/'
-                                + who.id + '/' + who.avatar + '/' + who.avatar 
+                avatar = 'http://images2.zino.gr/media/' + who.id + '/' + who.avatar + '/' + who.avatar 
                                 + '_100.jpg';
             }
             else {

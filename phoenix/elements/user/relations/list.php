@@ -37,6 +37,11 @@
                 ?>Ο χρήστης δεν υπάρχει<?php
                 return;
             }        
+
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
             
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {

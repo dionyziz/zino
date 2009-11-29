@@ -35,6 +35,11 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 return Element( '404' );
             }
+
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
             
             if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
                 $page->SetTitle( $theuser->Name . " Albums" );

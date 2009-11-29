@@ -279,5 +279,5 @@ var About = {
             document.getElementById( 'bugcomputeros' ).value = os;
             $( '#bugcomputeros' ).change();
         }
-    },
+    }
 };

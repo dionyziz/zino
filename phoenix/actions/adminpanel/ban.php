@@ -27,8 +27,7 @@
             return Redirect( '?p=banlist&errormessage=nouserwiththisname' );
         }
        
-        $ban = New Ban();
-        $res = $ban->BanUser( $username, $reason, $time_banned );
+        $res = Ban::BanUser( $username, $reason, $time_banned );
         
         if ( $delete_images == "yes" ) {
             /*foreach ( $user2ban->Albums as $album ) {

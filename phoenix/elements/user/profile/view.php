@@ -28,9 +28,8 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 return Element( '404', 'Ο χρήστης δεν υπάρχει' );
             }
-            $banChecker = New Ban();
-            
-            if ( $banChecker->isBannedUser( $theuser->Id ) ) {
+
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
                 $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( 'http://static.zino.gr/phoenix/banned' );
             }

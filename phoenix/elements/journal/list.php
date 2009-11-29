@@ -36,8 +36,13 @@
                 ?>Ο χρήστης δεν υπάρχει<?php
                 return;
             }
-            
-            if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
+
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
+
+            if ( ctype_upper( substr( $theuser->Name, 0, 1 ) ) ) {
                 $page->SetTitle( $theuser->Name . " Ημερολόγιο" );
             }
             else {

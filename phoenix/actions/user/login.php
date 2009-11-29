@@ -21,8 +21,7 @@
             $loginattempt->Save();
             
             /*if ( LoginAttempt_checkBot( UserIp() ) ) {
-                $ban = New Ban();
-                $ban->BanIp( UserIp(), 15*60 );
+              Ban::BanIp( UserIp(), 15*60 );
             }*///TODO<--reconsider this
 
             return Redirect( '?p=a' );

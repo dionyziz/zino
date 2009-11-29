@@ -6,8 +6,7 @@
         
         $libs->Load( 'adminpanel/ban' );
         
-        $ban = New Ban();
-        $res = $ban->Revoke( $userid );
+        $res = Ban::Revoke( $userid );
     
         return Redirect( '?p=banlist' );
     }

@@ -4,7 +4,7 @@
     */
     
     class Ban {    
-        public function Revoke( $userid ) {
+        public static function Revoke( $userid ) {
             global $libs;
                         
             $libs->Load( 'adminpanel/bannedips' );
@@ -40,7 +40,7 @@
             return;
         }
     
-        public function isBannedIp( $ip ) {
+        public static function isBannedIp( $ip ) {
             global $libs;     
                
             $libs->Load( 'adminpanel/bannedips' );
@@ -56,7 +56,7 @@
             }
         }
         
-        public function isBannedUser( $userid ) {
+        public static function isBannedUser( $userid ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
@@ -72,7 +72,7 @@
                 $diff = strtotime( NowDate() ) - strtotime( $user->Expire );
                 
                 if ( $diff > 0 ) {
-                    $this->Revoke( $user->Userid );
+                    self::Revoke( $user->Userid );
                     return false;
                 }
                 else {
@@ -81,15 +81,15 @@
             }
         }
 
-        public function BanIp( $ip, $time_banned = 1728000 ) {//20 days ,time in seconds
+        public static function BanIp( $ip, $time_banned = 1728000 ) {//20 days ,time in seconds
             w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
             w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
-            $this->addBannedIps( array( $ip ), -1 , $time_banned );
+            self::addBannedIps( array( $ip ), -1 , $time_banned );
             return;
         }
     
         
-        public function BanUser( $user_name, $reason, $time_banned = 1728000 ) {//20 days
+        public static function BanUser( $user_name, $reason, $time_banned = 1728000 ) {//20 days
             w_assert( is_int( $time_banned ), "Time to be banned is not an integer." );
             w_assert( ( $time_banned > 0 ), "Time to be banned is negative." );
         
@@ -128,8 +128,8 @@
             //
             
             //ban this ips and ban user with this username
-            $this->addBannedIps( $logs, $b_user->Id, $time_banned );            
-            $this->addBannedUser( $b_user, $reason, $time_banned );
+            self::addBannedIps( $logs, $b_user->Id, $time_banned );            
+            self::addBannedUser( $b_user, $reason, $time_banned );
 
             $b_user->Rights=0;
             $b_user->Save();
@@ -138,7 +138,7 @@
             return true;
         }
         
-        protected function addBannedUser( $b_user, $reason, $time_banned ) {
+        protected static function addBannedUser( $b_user, $reason, $time_banned ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
@@ -154,7 +154,7 @@
             return;        
         }
         
-        protected function addBannedIps( $ips, $user_id, $time_banned ) {
+        protected static function addBannedIps( $ips, $user_id, $time_banned ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );

@@ -34,7 +34,7 @@
                     $type = false; // all
             }
             
-            if ( strtoupper( substr( $album->Owner->Name, 0, 1 ) ) == substr( $album->Owner->Name, 0, 1 ) ) {
+            if ( ctype_upper( substr( $album->Owner->Name, 0, 1 ) ) ) {
                 $page->SetTitle( $album->Owner->Name . " Αγαπημένα" );
             }
             else {
@@ -43,6 +43,12 @@
             // Find all user's favourite journals
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );
+
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
+
             $favfinder = New FavouriteFinder();
             $favourites = $favfinder->FindByUserAndType( $theuser, $type, $offset, $limit );
 

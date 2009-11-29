@@ -20,7 +20,7 @@
                 $finder = New AlbumFinder();
                 $album = $finder->FindByUserAndUrl( $owner, $url );
             }
-            else {
+            else { // school albums
                 $album = New Album( $id->Get() );
             }
 
@@ -35,6 +35,10 @@
             }
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
                 Element( 'user/sections', 'album' , $album->Owner );
+                if ( Ban::isBannedUser( $theuser->Id ) ) {
+                    $libs->Load( 'rabbit/helpers/http' );
+                    return Redirect( 'http://static.zino.gr/phoenix/banned' );
+                }
             }
             else {
                 Element( 'school/info', $album->Owner, true );
