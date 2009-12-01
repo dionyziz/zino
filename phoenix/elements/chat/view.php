@@ -30,12 +30,13 @@
 				$channels = array();
 			}
 			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
+			die( var_dump( $channels ) );
 			
 			$finder = New ShoutboxFinder();
 			$chats = $finder->FindByChannel( 0, 0, 100 );
 				
 			$chats = array_reverse( $chats );
-		
+			
             ob_start();
             ?>Comet.Init(<?php
             echo w_json_encode( uniqid() );
@@ -45,7 +46,7 @@
             User = '<?php
             echo $user->Name;
             ?>';
-			Channels = <?php
+			var Channels = <?php
 			echo w_json_encode( $channels );
 			?>;
             <?php
