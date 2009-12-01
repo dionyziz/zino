@@ -38,8 +38,6 @@
 				$channels[ $row[ 'channel_id' ] ][ 'participants' ][] = $row[ 'user_name' ];
 			}
 			
-			$channels = self::FindByIds( $channelids );
-			
 			return $channels;
 		}
 	}
