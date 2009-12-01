@@ -23,7 +23,7 @@
             $libs->Load( 'shoutbox' );
             
             $finder = New ShoutboxFinder();
-            $chats = $finder->FindLatest( 0, 100 );
+            $chats = $finder->FindLatest( 0, 0, 100 );
             
             $chats = array_reverse( $chats );
             
