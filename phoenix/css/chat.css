@@ -58,3 +58,78 @@ em {
     font-size: 80%;
     font-style: normal;
 }
+#tabs {
+	height: 25px;
+	background-image: url( 'http://static.zino.gr/phoenix/chattabs.png' );
+	background-repeat: repeat-x;
+}
+#tabs ul {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+#tabs ul li {
+	font-family: Verdana;
+	padding: 0px 8px 0px 8px;
+	height: 25px;
+	float: left;
+	background-color: transparent;
+	color: white;
+	margin: 0 8px 0 5px;
+}
+#tabs ul li.main {
+	background-image: url( 'http://static.zino.gr/phoenix/bullet_star.png' );
+	background-repeat: no-repeat;
+	background-position: 7px 3px;
+	padding-left: 22px;
+}
+#tabs ul li.focus {
+	font-weight: bold;
+	background-color: white;
+	color: black;
+	border-right: 1px solid #5180ae;
+	border-left: 1px solid #5180ae;
+}
+#tabs li a {
+	text-decoration: none;
+	color: inherit;
+	padding: 4px 5px;
+	opacity: 0.7;
+}
+#tabs li.focus a {
+	opacity: 1;
+}
+#tabs li a:hover {
+	background-color: #99b9e3;
+	color: white;
+	opacity: 1;
+}
+#tabs li.focus a:hover {
+	background-color: inherit;
+	color: inherit;
+}
+#tabs li img {
+	width: 25px;
+	float: left;
+	border: 0;
+	padding: 0 0;
+	margin: 0;
+}
+#tabs li span {
+	padding: 0 0 8px 0;
+	vertical-align: bottom;
+	line-height: 21px;
+}
+#tabs li span strong {
+	background-image: url( 'http://static.zino.gr/phoenix/comment.png' );
+	background-position: 0 5px;
+	background-repeat: no-repeat;
+	padding: 5px;
+}
+#tabs li a.new {
+	opacity: 1;
+}
+#tabs ul {
+	list-style: none;
+}

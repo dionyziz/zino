@@ -60,7 +60,7 @@ $( function () {
         }
         var t = 0;
         if ( $( 'textarea' ).length ) {
-            t = $( 'textarea' )[ 0 ].offsetHeight;
+            t = $( 'textarea' )[ 0 ].offsetHeight + $( '#tabs' )[ 0 ].offsetHeight;
         }
         
         $( 'ol' )[ 0 ].style.height = h - t - 20 + 'px';
@@ -95,6 +95,9 @@ Frontpage.Shoutbox = {
     TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
     BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
+	Init: function( channels ) {
+		
+	},
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
         

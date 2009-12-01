@@ -9,7 +9,7 @@
 			
 			$query = $db->Prepare(
 				'SELECT
-					`channel_id`, `channel_authtoken`, `user_name`
+					`channel_id`, `channel_authtoken`, `user_name`, `user_avatar`
 				FROM
 					:chatchannels
 						CROSS JOIN :chatparticipants AS me
@@ -35,7 +35,9 @@
 						'participants' => array()
 					);
 				}
-				$channels[ $row[ 'channel_id' ] ][ 'participants' ][] = $row[ 'user_name' ];
+				$channels[ $row[ 'channel_id' ] ][ 'participants' ][] = array(
+					'name' => $row[ 'user_name' ], 'avatar' => $row[ 'user_avatar' ]
+				);
 			}
 			
 			return $channels;

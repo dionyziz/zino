@@ -52,6 +52,40 @@
             $page->AttachInlineScript( ob_get_clean() );
             
             ?>
+			<div id="tabs">
+				<ul><?php
+					foreach ( $channels as $channelid => $channeldata ) {
+						?><li<?php
+						if ( $channelid == 0 ) {
+							?> class="main focus"<?php
+						}
+						?>><a href=""><?php
+						if ( $channelid == 0 ) {
+							$name = 'Zino';
+						}
+						else {
+							if ( count( $channeldata[ 'participants' ] ) == 1 ) {
+								$name = $channeldata[ 'participants' ][ 0 ][ 'name' ];
+								$img = $channeldata[ 'participants' ][ 0 ][ 'avatar' ];
+								?><img src="http://images2.zino.gr/media/<?php
+								echo $img;
+								?>/<?php
+								echo $img;
+								?>_100.jpg" alt="<?php
+								echo $name;
+								?>" /><?php
+							}
+							else {
+								$name = 'Συνομιλία ' . count( $channeldata[ 'participants' ] ) . ' ατόμων';
+							}
+						}
+						?><span><?php
+						echo $name;
+						?></span></a></li><?php
+					}
+					?>
+				</ul>
+			</div>
             <div>
                 <ol><?php
                     $prevuser = '';
