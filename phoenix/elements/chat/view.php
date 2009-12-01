@@ -21,7 +21,12 @@
             $page->AttachScript( 'js/wysiwyg.js' );
             
             $libs->Load( 'shoutbox' );
-            
+            $libs->Load( 'chat/channel' );
+			
+			$channels = ChannelFinder::FindByUserid( $user->Id );
+			var_dump( $channels );
+			die();
+			
             $finder = New ShoutboxFinder();
             $chats = $finder->FindByChannel( 0, 0, 100 );
             
