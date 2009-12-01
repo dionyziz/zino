@@ -25,9 +25,11 @@
 			
 			if ( $user->Exists() ) {
 				$channels = ChannelFinder::FindByUserid( $user->Id );
-				var_dump( $channels );
-				die();
 			}
+			else {
+				$channels = array();
+			}
+			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			
 			$finder = New ShoutboxFinder();
 			$chats = $finder->FindByChannel( 0, 0, 100 );
@@ -43,6 +45,9 @@
             User = '<?php
             echo $user->Name;
             ?>';
+			Channels = <?php
+			echo w_json_encode( $channels );
+			?>;
             <?php
             $page->AttachInlineScript( ob_get_clean() );
             
