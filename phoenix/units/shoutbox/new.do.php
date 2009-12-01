@@ -22,6 +22,7 @@
         
         $shout = New Shout();
         $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
+		$shout->Channelid = 0;
         $shout->Save();
         
         ?>var node = <?php

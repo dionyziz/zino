@@ -12,5 +12,6 @@
             'subdomain' => $shout->User->Subdomain
         ) );
         ?> );<?php
+		return 0;
     }
 ?>

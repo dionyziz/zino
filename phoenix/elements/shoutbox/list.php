@@ -12,7 +12,7 @@
             $libs->Load( 'shoutbox' );
 
             $finder = New ShoutboxFinder();
-            $shouts = $finder->FindLatest( 20 * ( $pageno - 1 ), 20 )
+            $shouts = $finder->FindByChannel( 0, 20 * ( $pageno - 1 ), 20 )
             ?><div class="shoutbox">
                 <h2>Συζήτηση</h2>
                 <div class="comments"><?php

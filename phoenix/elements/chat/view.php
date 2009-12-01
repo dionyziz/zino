@@ -31,8 +31,8 @@
             ?>Comet.Init(<?php
             echo w_json_encode( uniqid() );
             ?>);
-            Comet.Subscribe( 'FrontpageShoutboxNew' );
-            Comet.Subscribe( 'FrontpageShoutboxTyping' );
+            Comet.Subscribe( 'FrontpageShoutboxNew0' );
+            Comet.Subscribe( 'FrontpageShoutboxTyping0' );
             User = '<?php
             echo $user->Name;
             ?>';

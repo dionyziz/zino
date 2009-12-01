@@ -16,7 +16,7 @@
             return ( int )$row[ 'newscount' ];
         }
 
-        public function FindLatest( $offset = 0, $limit = 20 ) {
+        public function FindByChannel( $channelid = 0, $offset = 0, $limit = 20 ) {
             global $libs;
             
             $libs->Load( 'image/image' );
@@ -33,6 +33,7 @@
                         ON `user_avatarid` = `image_id`
                 WHERE
                     `shout_delid` = '0'
+					AND `shout_channelid` = :channelid
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
@@ -41,6 +42,7 @@
             $query->BindTable( 'shoutbox', 'users', 'images' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
+			$query->Bind( 'channelid', $channelid );
             
             $res = $query->Execute();
             $shouts = array();
