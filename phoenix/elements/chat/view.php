@@ -1,4 +1,8 @@
 <?php
+	/*
+		Developer: Dionyziz
+	*/
+	
     class ElementChatView extends Element {
         public function Render() {
             global $page;
@@ -33,7 +37,6 @@
 			
 			$finder = New ShoutboxFinder();
 			$chats = $finder->FindByChannel( 0, 0, 100 );
-				
 			$chats = array_reverse( $chats );
 			
             ob_start();
@@ -54,6 +57,8 @@
             ?>
 			<div id="tabs">
 				<ul><?php
+					ksort( $channels );
+					
 					foreach ( $channels as $channelid => $channeldata ) {
 						?><li<?php
 						if ( $channelid == 0 ) {
@@ -66,13 +71,13 @@
 						else {
 							if ( count( $channeldata[ 'participants' ] ) == 1 ) {
 								$name = $channeldata[ 'participants' ][ 0 ][ 'name' ];
-								$img = $channeldata[ 'participants' ][ 0 ][ 'avatar' ];
-								?><img src="http://images2.zino.gr/media/<?php
-								echo $img;
-								?>/<?php
-								echo $img;
-								?>_100.jpg" alt="<?php
-								echo $name;
+								?><img src="<?php
+								Element(
+									'image/url',
+									$channeldata[ 'participants' ][ 0 ][ 'avatar' ],
+									$channeldata[ 'participants' ][ 0 ][ 'id' ],
+									IMAGE_CROPPED_100x100
+								);
 								?>" /><?php
 							}
 							else {
