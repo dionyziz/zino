@@ -169,7 +169,7 @@
         public function __construct( $value ) {
             parent::__construct( $value );
             $this->mExists = $value != '0';
-            w_assert( preg_match( '#^([a-zA-Z0-9\.\[\] ])+$#', $this->mValue ) );
+            w_assert( preg_match( '#^([a-zA-Z0-9\.\[\] ])+$#', $this->mValue ), $this->mValue . " is not a valid tCoalaPointer" );
         }
         public function Get() {
             throw New Exception( 'Type Get() cannot be used on tCoalaPointer; use "echo" directly with your pointer instead' );
