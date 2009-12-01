@@ -29,8 +29,8 @@
 			else {
 				$channels = array();
 			}
-			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			die( var_dump( $channels ) );
+			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			
 			$finder = New ShoutboxFinder();
 			$chats = $finder->FindByChannel( 0, 0, 100 );
