@@ -19,7 +19,7 @@
 							echo $widgetid;
 						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed>
 					</object><?php
-					if( $user->HasPermission( 60 ) ){
+					if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ){
 						?><div class="toolbox">
 							<span class="s1_0007 delete" title="Διαγραφή τραγουδιού.">&#160;</span>
 							<span class="search" title="Αλλαγή τραγουδιού.">&#160;</span>
@@ -27,7 +27,7 @@
 					}
 				?></div><?php
 			}
-			else if ( $theuser->HasPermission( 60 ) ) {
+			else if ( $theuser->HasPermission( PERMISSION_SONG_CREATE ) ) {
 				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
 			}
 		}

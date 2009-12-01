@@ -3,14 +3,8 @@
         public function Render( $theuser ) {
 			global $user;
 
-			//firebug lite for ie...
-			if ( $user->Id == 3890 ) {
-				global $page;
-				
-				$page->AttachScript( 'http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js' );
-			}
 			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songwidgetid, $theuser );
-			if ( $theuser->HasPermission( 60 ) ) {
+			if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ) {
 				?>
 				<div id="mplayersearchmodal">
 					<div class="toolbar">
@@ -34,7 +28,8 @@
 							<tbody></tbody>
 						</table>
 					</div>
-				</div><?php
+				</div>
+				<?php
 			}
 		}
     }

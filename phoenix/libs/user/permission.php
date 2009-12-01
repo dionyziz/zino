@@ -57,4 +57,8 @@
    // ads permissions
    define( 'PERMISSION_AD_CREATE', 30 );
    define( 'PERMISSION_AD_EDIT', 30 );
+   
+   define( 'PERMISSION_SONG_CREATE', 50 );
+   define( 'PERMISSION_SONG_EDIT', 50 );
+   define( 'PERMISSION_SONG_DELETE', 50 );
 ?>
