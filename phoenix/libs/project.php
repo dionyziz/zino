@@ -73,8 +73,8 @@
         }
         
         if ( ( $user->Exists() && Ban::isBannedUser( $user->Id ) ) 
-            || $banChecker->isBannedIp( UserIp() )  
-            ||  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
+            || Ban::isBannedIp( UserIp() )  
+            || !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             exit();
