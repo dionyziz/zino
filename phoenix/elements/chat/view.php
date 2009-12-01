@@ -23,15 +23,17 @@
             $libs->Load( 'shoutbox' );
             $libs->Load( 'chat/channel' );
 			
-			$channels = ChannelFinder::FindByUserid( $user->Id );
-			var_dump( $channels );
-			die();
+			if ( $user->Exists() ) {
+				$channels = ChannelFinder::FindByUserid( $user->Id );
+				var_dump( $channels );
+				die();
+			}
 			
-            $finder = New ShoutboxFinder();
-            $chats = $finder->FindByChannel( 0, 0, 100 );
-            
-            $chats = array_reverse( $chats );
-            
+			$finder = New ShoutboxFinder();
+			$chats = $finder->FindByChannel( 0, 0, 100 );
+				
+			$chats = array_reverse( $chats );
+		
             ob_start();
             ?>Comet.Init(<?php
             echo w_json_encode( uniqid() );
