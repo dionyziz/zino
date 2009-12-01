@@ -11,10 +11,10 @@
 				'SELECT
 					`channel_id`, `channel_authtoken`, `user_name`
 				FROM
-					:channels
-						CROSS JOIN :participants AS me
+					:chatchannels
+						CROSS JOIN :chatparticipants AS me
 							ON `channel_id`=me.`participant_channelid`
-						CROSS JOIN :participants AS other
+						CROSS JOIN :chatparticipants AS other
 							ON `channel_id`=other.`participant_channelid`
 						CROSS JOIN :users
 							ON other.`participant_userid`=`user_id`
@@ -22,7 +22,7 @@
 					me.`participant_userid` = :userid
 					AND other.`participant_userid` != :userid'
 			);
-			$query->BindTable( 'channels', 'channelparticipants', 'users' );
+			$query->BindTable( 'chatchannels', 'chatparticipants', 'users' );
 			$query->Bind( 'userid', $userid );
 			$res = $query->Execute();
 			
