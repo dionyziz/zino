@@ -72,7 +72,7 @@ Frontpage.Shoutbox = {
 			
 			$( 'ol' ).height( h - t - 30 );
 			
-			var lis = $( 'ol li' );
+			var lis = $( 'ol#messages_0 li' );
 			lis[ lis.length - 1 ].scrollIntoView();
 			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
 		};
@@ -104,6 +104,8 @@ Frontpage.Shoutbox = {
 			$( 'textarea' ).focus();
 			
 			Frontpage.Shoutbox.ActiveChannel = channelid;
+			var lis = $( 'ol#messages_' + channelid + ' li' );
+			lis[ lis.length - 1 ].scrollIntoView();
 			
 			return false;
 		} );
