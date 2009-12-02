@@ -1,5 +1,6 @@
 <?php
-    function UnitFrontpageShoutboxNew( Shout $shout, $channel ) {
+    function UnitFrontpageShoutboxNew( Shout $shout ) {
+		$channel = $shout->Channelid;
 		w_assert( is_int( $channel ) );
 		
         ?>Frontpage.Shoutbox.OnMessageArrival( <?php
