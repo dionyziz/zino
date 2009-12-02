@@ -42,13 +42,11 @@
 				$channelmessages[ $channelid ] = array();
 			}
 			foreach ( $chats as $chat ) {
-				$channelmessages[ $chat->Channelid ][] = $chat->Text;
+				$channelmessages[ $chat->Channelid ][] = $chat;
 			}
 			foreach ( $channelmessages as $channelid => $messages ) {
 				$channelmessages[ $channelid ] = array_reverse( $messages );
 			}
-			var_dump( $channelmessages );
-			die();
 			
             ob_start();
             ?>Comet.Init(<?php
@@ -59,9 +57,9 @@
             User = '<?php
             echo $user->Name;
             ?>';
-			var Channels = <?php
+			Frontpage.Shoutbox.Init( <?php
 			echo w_json_encode( $channels );
-			?>;
+			?> );
             <?php
             $page->AttachInlineScript( ob_get_clean() );
             
@@ -105,41 +103,46 @@
 				</div><?php
 			}
 			
-            ?><div>
-                <ol><?php
-                    $prevuser = '';
-                    $prevtime = '';
-                    foreach ( $chats as $chat ) {
-                        ?><li id="s_<?php
-                        echo $chat->Id;
-                        ?>"><?php
-                        ob_start();
-                        Element( 'date/diff', $chat->Created );
-                        $time = ob_get_clean();
-                        if ( $time != $prevtime ) {
-                            $prevtime = $time;
-                            ?><span class="time"><?php
-                            echo $prevtime;
-                            ?></span><?php
-                        }
-                        ?> <strong<?php
-                        if ( $chat->User->Id == $user->Id ) {
-                            ?> class="u"<?php
-                        }
-                        ?>><?php
-                        if ( $prevuser != $chat->User->Name ) {
-                            $prevuser = $chat->User->Name;
-                            Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
-                        }
-                        else {
-                            ?>&#160;<?php
-                        }
-                        ?></strong> <div class="text"><?php
-                        echo nl2br( $chat->Text );
-                        ?></div></li><?php
-                    }
-                ?>
-                </ol><?php
+            ?><div><?php
+				foreach ( $channelmessages as $channelid => $chats ) {
+					?>
+					<ol id="messages_<?php
+						echo $channelid;
+						?>><?php
+						$prevuser = '';
+						$prevtime = '';
+						foreach ( $chats as $chat ) {
+							?><li id="s_<?php
+							echo $chat->Id;
+							?>"><?php
+							ob_start();
+							Element( 'date/diff', $chat->Created );
+							$time = ob_get_clean();
+							if ( $time != $prevtime ) {
+								$prevtime = $time;
+								?><span class="time"><?php
+								echo $prevtime;
+								?></span><?php
+							}
+							?> <strong<?php
+							if ( $chat->User->Id == $user->Id ) {
+								?> class="u"<?php
+							}
+							?>><?php
+							if ( $prevuser != $chat->User->Name ) {
+								$prevuser = $chat->User->Name;
+								Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
+							}
+							else {
+								?>&#160;<?php
+							}
+							?></strong> <div class="text"><?php
+							echo nl2br( $chat->Text );
+							?></div></li><?php
+						}
+					?>
+					</ol><?php
+				}
                 if ( $user->Exists() ) {
                     ?><div class="typehere">
                         <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
