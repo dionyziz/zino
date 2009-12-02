@@ -111,6 +111,7 @@ Frontpage.Shoutbox = {
 			
 			if ( Frontpage.Shoutbox.Flashes[ channelid ] ) {
 				clearInterval( Frontpage.Shoutbox.Flashes[ channelid ] );
+				Frontpage.Shoutbox.Flashes[ channelid ] = 0;
 				$( '#switchchannel_' + channelid ).css( { 'opacity': '1' } );
 			}
 			
@@ -162,7 +163,7 @@ Frontpage.Shoutbox = {
         
 		if ( Frontpage.Shoutbox.ActiveChannel != channel ) {
 			Frontpage.Shoutbox.FlashStates[ channel ] = true;
-			if ( Frontpage.Shoutbox.Flashes[ channel ] ) {
+			if ( typeof Frontpage.Shoutbox.Flashes[ channel ] == 'undefined' || Frontpage.Shoutbox.Flashes[ channel ] == 0 ) {
 				document.title = 'Flash ' + channel;
 				Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
 					if ( Frontpage.Shoutbox.FlashStates[ channel ] ) {
