@@ -93,7 +93,7 @@ Frontpage.Shoutbox = {
 			$( 'ol.channelmessages' ).hide();
 			$( 'ol#messages_' + channelid ).show();
 			$( '#tabs li' ).removeClass( 'focus' );
-			$( this.parent ).addClass( 'focus' );
+			$( this.parentNode ).addClass( 'focus' );
 			return false;
 		} );
 	},
