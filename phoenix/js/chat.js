@@ -48,25 +48,16 @@
 
 $( function () {
     f = function () {
-        var h = 0;
-        if ( typeof window.innerHeight != 'undefined' && window.innerHeight ) {
-            h = window.innerHeight;
-        }
-        else if ( typeof document.documentElement.clientHeight != 'undefined' && document.documentElement.clientHeight ) {
-            h = document.documentElement.clientHeight;
-        }
-        else {
-            h = document.body.clientHeight;
-        }
+        var h = $( window ).height();
         var t = 0;
         if ( $( 'textarea' ).length ) {
-            t = $( 'textarea' )[ 0 ].offsetHeight;
+            t = $( 'textarea' ).height();
 			if ( $( '#tabs' ).length ) {
-				t += $( '#tabs' )[ 0 ].offsetHeight;
+				t += $( '#tabs' ).height();
 			}
         }
         
-        $( 'ol' )[ 0 ].style.height = h - t - 20 + 'px';
+        $( 'ol' ).height( h - t - 20 );
         
         var lis = $( 'ol li' );
         lis[ lis.length - 1 ].scrollIntoView();
