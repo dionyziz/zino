@@ -108,7 +108,7 @@
 					?>
 					<ol id="messages_<?php
 						echo $channelid;
-						?>><?php
+						?>"><?php
 						$prevuser = '';
 						$prevtime = '';
 						foreach ( $chats as $chat ) {
