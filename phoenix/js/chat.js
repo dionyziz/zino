@@ -46,41 +46,6 @@
     }
 } )();
 
-$( function () {
-    f = function () {
-        var h = $( window ).height();
-        var t = 0;
-        if ( $( 'textarea' ).length ) {
-            t = $( 'textarea' ).height();
-			if ( $( '#tabs' ).length ) {
-				t += $( '#tabs' ).height();
-			}
-        }
-        
-        $( 'ol' ).height( h - t - 30 );
-        
-        var lis = $( 'ol li' );
-        lis[ lis.length - 1 ].scrollIntoView();
-        Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
-    };
-    window.onresize = f;
-    $( 'ol' ).scroll( function() {
-        var scrll = $( this ).scrollTop();
-        if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
-            Frontpage.Shoutbox.AutoScroll = false; // disable AutoScrolling
-            return;
-        }
-        if ( !Frontpage.Shoutbox.AutoScroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
-            Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
-            Frontpage.Shoutbox.AutoScroll = true;
-            return;
-        }
-        if ( scrll > Frontpage.Shoutbox.BottomScroll ) {
-            Frontpage.Shoutbox.BottomScroll = scrll;
-        }
-    } );
-} );
-
 Frontpage = {};
 Frontpage.Shoutbox = {
     Typing: [], // people who are currently typing (not including yourself)
@@ -89,8 +54,40 @@ Frontpage.Shoutbox = {
     BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
 	Init: function( channels ) {
+		var f = function () {
+			var h = $( window ).height();
+			var t = 0;
+			if ( $( 'textarea' ).length ) {
+				t = $( 'textarea' ).height();
+				if ( $( '#tabs' ).length ) {
+					t += $( '#tabs' ).height();
+				}
+			}
+			
+			$( 'ol' ).height( h - t - 30 );
+			
+			var lis = $( 'ol li' );
+			lis[ lis.length - 1 ].scrollIntoView();
+			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
+		};
+		window.onresize = f;
+		$( 'ol' ).scroll( function() {
+			var scrll = $( this ).scrollTop();
+			if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
+				Frontpage.Shoutbox.AutoScroll = false; // disable AutoScrolling
+				return;
+			}
+			if ( !Frontpage.Shoutbox.AutoScroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
+				Frontpage.Shoutbox.BottomScroll = scrll; // update last known bottom
+				Frontpage.Shoutbox.AutoScroll = true;
+				return;
+			}
+			if ( scrll > Frontpage.Shoutbox.BottomScroll ) {
+				Frontpage.Shoutbox.BottomScroll = scrll;
+			}
+		} );
 		$( '#messages_0' )[ 0 ].style.display = '';
-		window.onresize();
+		f();
 	},
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
