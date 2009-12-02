@@ -72,7 +72,6 @@ $( function () {
         lis[ lis.length - 1 ].scrollIntoView();
         Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
     };
-    f();
     window.onresize = f;
     $( 'ol' ).scroll( function() {
         var scrll = $( this ).scrollTop();
@@ -100,6 +99,7 @@ Frontpage.Shoutbox = {
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
 	Init: function( channels ) {
 		$( '#messages_0' )[ 0 ].style.display = '';
+		window.onresize();
 	},
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
