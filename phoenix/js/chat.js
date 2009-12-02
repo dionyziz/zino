@@ -177,7 +177,7 @@ Frontpage.Shoutbox = {
 						Frontpage.Shoutbox.FlashStates[ channel ] = true;
 						$( '#switchchannel_' + channel ).animate( { 'opacity': 1 } );
 					}
-				}, 200 );
+				}, 400 );
 			}
 		}
 		
