@@ -156,6 +156,8 @@ Frontpage.Shoutbox = {
         return li;
     },
     OnStartTyping: function ( who, channel ) { // received when someone starts typing
+		document.title = who.name + ' start @' + channel;
+		
         if ( who.name == User ) { // don't show it when you're typing
             return;
         }
@@ -182,6 +184,8 @@ Frontpage.Shoutbox = {
         Frontpage.Shoutbox.UpdateTyping();
     },
     OnStopTyping: function ( who, channel ) { // received when someone stops typing
+		document.title = who.name + ' stop @' + channel;
+		
         var found = false;
         
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
