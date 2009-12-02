@@ -14,7 +14,7 @@
                     }
                     
                     // send message
-                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true }, Frontpage.ActiveChannel );
+                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true }, Frontpage.Shoutbox.ActiveChannel );
                     Coala.Warm( 'shoutbox/new' , { 
 						text: txt[ 0 ].value,
 						channel: Frontpage.ActiveChannel,
