@@ -161,7 +161,7 @@ Frontpage.Shoutbox = {
         }
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
             var typist = Frontpage.Shoutbox.Typing[ i ];
-            if ( typist.name == who.name ) {
+            if ( typist.name == who.name && typist.channel == channel ) {
                 clearTimeout( typist.timeout );
                 // in case the typing user gets disconnected and is unable to send us a 
                 // "stopped typing" comet request, time it out after 20,000 milliseconds
@@ -169,14 +169,15 @@ Frontpage.Shoutbox = {
                 // (also in case we receive the asynchronous "I'm typing" and "I've stopped typing"
                 // requests in the wrong order -- very improbable but possible)
                 Frontpage.Shoutbox.Typing[ i ].timeout = setTimeout( function () {
-                    Frontpage.Shoutbox.OnStopTyping( who );
+                    Frontpage.Shoutbox.OnStopTyping( who, channel );
                 }, 20000 );
                 return;
             }
         }
         who.timeout = setTimeout( function () {
-            Frontpage.Shoutbox.OnStopTyping( who );
+            Frontpage.Shoutbox.OnStopTyping( who, channel );
         }, 20000 ); // in case the remote party gets disconnected
+		who.channel = channel;
         Frontpage.Shoutbox.Typing.push( who );
         Frontpage.Shoutbox.UpdateTyping();
     },
@@ -185,7 +186,7 @@ Frontpage.Shoutbox = {
         
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
             var typist = Frontpage.Shoutbox.Typing[ i ];
-            if ( typist.name == who.name ) {
+            if ( typist.name == who.name && typist.channel == channel ) {
                 Frontpage.Shoutbox.Typing.splice( i, 1 );
                 found = true;
                 break;
@@ -197,29 +198,30 @@ Frontpage.Shoutbox = {
         Frontpage.Shoutbox.UpdateTyping();
     },
     UpdateTyping: function() {
-        var ol = $( 'ol' )[ 0 ];
         var processed = {};
         
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
             var typist = Frontpage.Shoutbox.Typing[ i ];
-            if ( !$( '#typing_' + typist.name ).length ) {
+            if ( !$( '#typing_' + typist.channel + '_' + typist.name ).length ) {
                 var li = document.createElement( 'li' );
-                li.id = 'typing_' + typist.name;
+                li.id = 'typing_' + typist.channel + '_' + typist.name;
                 li.className = 'typing';
                 li.innerHTML = '<strong>' + typist.name + '</strong> <div class="text"><em>πληκτρολογεί...</em></div>';
-                ol.appendChild( li );
+                $( 'ol#messages_' + typist.channel ).appendChild( li );
                 if ( this.AutoScroll ) {
                     li.scrollIntoView();
                 }
             }
-            processed[ typist.name ] = true;
+            processed[ typist.channel + '_' + typist.name ] = true;
         }
         var lis = $( 'li.typing' );
         for ( var i = 0; i < lis.length; ++i ) {
             var li = lis[ i ];
-            var name = li.id.substr( 7 );
-            
-            if ( typeof processed[ name ] == 'undefined' ) {
+            var data = li.id.split( '_' );
+            var channel = data[ 1 ];
+			var name = data[ 2 ];
+			
+            if ( typeof processed[ channel + '_' + name ] == 'undefined' ) {
                 // someone stopped typing
                 li.parentNode.removeChild( li );
             }

@@ -1,5 +1,9 @@
 <?php
     function UnitFrontpageShoutboxTyping( User $user, $typing, $channel ) {
+		global $libs;
+		
+		$libs->Load( 'chat/channel' );
+		
         w_assert( is_bool( $typing ) );
 		w_assert( is_int( $channel ) );
         if ( $typing ) {
@@ -22,6 +26,11 @@
 			echo $channel;
 			?> );<?php
         }
-		return 0; // TODO: propagate to other users as well, based on channel
+		if ( $channel == 0 ) {
+			return 0;
+		}
+		// private channel (non-main)
+		$userids = ChannelFinder::FindParticipantsByChannel( $channel );
+		return $userids;
     }
 ?>
