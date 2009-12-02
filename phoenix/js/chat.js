@@ -161,17 +161,17 @@ Frontpage.Shoutbox = {
         Frontpage.Shoutbox.UpdateTyping();
         
 		if ( Frontpage.Shoutbox.ActiveChannel != channel ) {
-			Frontpage.Shoutbox.Flashstates[ channel ] = true;
+			Frontpage.Shoutbox.FlashStates[ channel ] = true;
 			if ( Frontpage.Shoutbox.Flashes[ channel ] ) {
 				clearInterval( Frontpage.Shoutbox.Flashes[ channel ] );
 			}
 			Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
-				if ( Frontpage.Shoutbox.Flashstates[ channel ] ) {
-					Frontpage.Shoutbox.Flashstates[ channel ] = false;
+				if ( Frontpage.Shoutbox.FlashStates[ channel ] ) {
+					Frontpage.Shoutbox.FlashStates[ channel ] = false;
 					$( '#switchchannel_' + channel ).animate( { 'opacity': 0.7 } );
 				}
 				else {
-					Frontpage.Shoutbox.Flashstates[ channel ] = true;
+					Frontpage.Shoutbox.FlashStates[ channel ] = true;
 					$( '#switchchannel_' + channel ).animate( { 'opacity': 1 } );
 				}
 			}, 200 );
