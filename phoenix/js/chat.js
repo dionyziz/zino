@@ -15,11 +15,16 @@
                     
                     // send message
                     var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true } );
-                    Coala.Warm( 'shoutbox/new' , { text: txt[ 0 ].value, node: node, f: function () {
-                        var lis = $( 'ol li' );
-                        lis[ lis.length - 1 ].scrollIntoView();
-                        Frontpage.Shoutbox.AutoScroll = true;
-                    } } );
+                    Coala.Warm( 'shoutbox/new' , { 
+						text: txt[ 0 ].value,
+						channel: 0,
+						node: node, 
+						f: function () {
+							var lis = $( 'ol li' );
+							lis[ lis.length - 1 ].scrollIntoView();
+							Frontpage.Shoutbox.AutoScroll = true;
+						}
+					} );
                     txt[ 0 ].value = '';
                     break;
                 case 27: // escape
@@ -31,7 +36,7 @@
                         clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout ); // delay it for a while
                     }
                     Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
-                        Coala.Warm( 'shoutbox/typing', { 'typing': false } ); // OK send the actual "I've stopped typing" request
+                        Coala.Warm( 'shoutbox/typing', { 'typing': false, 'channel': 0 } ); // OK send the actual "I've stopped typing" request
                     }, 10000 ); // send an "I've stopped typing" request if I haven't touched the keyboard for 10 seconds
                     if ( Frontpage.Shoutbox.TypingUpdated ) { // We've already sent an "I'm typing" request recently; don't do it again for every keystroke!
                         return;
@@ -40,7 +45,7 @@
                     setTimeout( function () { // After we've sent an "I'm typing" request, we don't want to send more. But only for 10 seconds; we'll send another "I'm typing" request if I'm still typing by then.
                         Frontpage.Shoutbox.TypingUpdated = false;
                     }, 10000 );
-                    Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request            }
+                    Coala.Warm( 'shoutbox/typing', { 'typing': true, 'channel': 0 } ); // OK send the actual request            }
             }
         } );
     }
@@ -53,6 +58,7 @@ Frontpage.Shoutbox = {
     TypingCancelTimeout: 0, // this timeout is used to send a "I have stopped typing" request
     BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
+	ActiveChannel: 0,
 	Init: function( channels ) {
 		var f = function () {
 			var h = $( window ).height();
@@ -90,14 +96,19 @@ Frontpage.Shoutbox = {
 		f();
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];
+			
 			$( 'ol.channelmessages' ).hide();
 			$( 'ol#messages_' + channelid ).show();
 			$( '#tabs li' ).removeClass( 'focus' );
 			$( this.parentNode ).addClass( 'focus' );
+			$( 'textarea' ).focus();
+			
+			Frontpage.Shoutbox.ActiveChannel = channelid;
+			
 			return false;
 		} );
 	},
-    OnMessageArrival: function( shoutid, shouttext, who ) {
+    OnMessageArrival: function( shoutid, shouttext, who, channel ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
         
         if ( $( '#s_' + shoutid ).length ) {
@@ -144,7 +155,7 @@ Frontpage.Shoutbox = {
         
         return li;
     },
-    OnStartTyping: function ( who ) { // received when someone starts typing
+    OnStartTyping: function ( who, channel ) { // received when someone starts typing
         if ( who.name == User ) { // don't show it when you're typing
             return;
         }
@@ -169,7 +180,7 @@ Frontpage.Shoutbox = {
         Frontpage.Shoutbox.Typing.push( who );
         Frontpage.Shoutbox.UpdateTyping();
     },
-    OnStopTyping: function ( who ) { // received when someone stops typing
+    OnStopTyping: function ( who, channel ) { // received when someone stops typing
         var found = false;
         
         for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {

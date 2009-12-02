@@ -1,5 +1,7 @@
 <?php
-    function UnitFrontpageShoutboxNew( Shout $shout ) {
+    function UnitFrontpageShoutboxNew( Shout $shout, $channel ) {
+		w_assert( is_int( $channel ) );
+		
         ?>Frontpage.Shoutbox.OnMessageArrival( <?php
         echo $shout->Id;
         ?>, <?php
@@ -11,7 +13,9 @@
             'avatar' => $shout->User->Avatarid,
             'subdomain' => $shout->User->Subdomain
         ) );
-        ?> );<?php
+        ?>, <?php
+		echo $channel;
+		?> );<?php
 		return 0;
     }
 ?>

@@ -108,7 +108,7 @@ var Frontpage = {
                     $( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).find( 'div.text' );
                     var copytext = text;
                     $( newshout ).find( 'div.text' ).append( document.createTextNode( copytext ) ); 
-                    Coala.Warm( 'shoutbox/new' , { text : text , node : newshout, f: function () {} } );
+                    Coala.Warm( 'shoutbox/new' , { text : text, channel: 0, node : newshout, f: function () {} } );
                     Frontpage.Shoutbox.ShowShout( newshout );
                     Frontpage.Shoutbox.Changed = false;
                     textarea[ 0 ].value = '';
@@ -166,7 +166,7 @@ var Frontpage = {
                     clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout ); // delay it for a while
                 }
                 Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
-                    Coala.Warm( 'shoutbox/typing', { 'typing': false } ); // OK send the actual "I've stopped typing" request
+                    Coala.Warm( 'shoutbox/typing', { 'typing': false, 'channel': 0 } ); // OK send the actual "I've stopped typing" request
                 }, 10000 ); // send an "I've stopped typing" request if I haven't touched the keyboard for 10 seconds
                 if ( Frontpage.Shoutbox.TypingUpdated ) { // We've already sent an "I'm typing" request recently; don't do it again for every keystroke!
                     return;
@@ -175,7 +175,7 @@ var Frontpage = {
                 setTimeout( function () { // After we've sent an "I'm typing" request, we don't want to send more. But only for 10 seconds; we'll send another "I'm typing" request if I'm still typing by then.
                     Frontpage.Shoutbox.TypingUpdated = false;
                 }, 10000 );
-                Coala.Warm( 'shoutbox/typing', { 'typing': true } ); // OK send the actual request
+                Coala.Warm( 'shoutbox/typing', { 'typing': true, 'channel': 0 } ); // OK send the actual request
             } ).change( q ).focus( function() {
                 if ( !Frontpage.Shoutbox.Changed ) {
                     textarea[ 0 ].value = '';
@@ -197,7 +197,7 @@ var Frontpage = {
                 textarea[ 0 ].disabled = false;
             }
         },
-        OnStartTyping: function ( who ) { // received when someone starts typing
+        OnStartTyping: function ( who, channel ) { // received when someone starts typing
             if ( who.name == GetUsername() ) { // don't show it when you're typing
                 return;
             }
@@ -222,7 +222,7 @@ var Frontpage = {
             Frontpage.Shoutbox.Typing.push( who );
             Frontpage.Shoutbox.UpdateTyping();
         },
-        OnStopTyping: function ( who ) { // received when someone stops typing
+        OnStopTyping: function ( who, channel ) { // received when someone stops typing
             var found = false;
             
             for ( var i = 0; i < Frontpage.Shoutbox.Typing.length; ++i ) {
@@ -284,7 +284,7 @@ var Frontpage = {
                 }
             }
         },
-        OnMessageArrival: function ( shoutid, shouttext, who ) {
+        OnMessageArrival: function ( shoutid, shouttext, who, channel ) {
             var whoami = GetUsername();
             var target;
             

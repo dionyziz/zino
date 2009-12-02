@@ -1,5 +1,5 @@
 <?php
-    function UnitShoutboxNew( tText $text , tCoalaPointer $node, tCoalaPointer $f ) {
+    function UnitShoutboxNew( tText $text, tInteger $channel, tCoalaPointer $node, tCoalaPointer $f ) {
         global $user;
         global $libs;
         
@@ -8,6 +8,7 @@
         $libs->Load( 'comet' );
         
         $text = $text->Get();
+		$channel = $channel->Get();
         if ( !$user->Exists() ) {
             ?>alert( "Πρέπει να είσαι συνδεδεμένος για να συμμετέχεις στην συζήτηση" );
             window.location.reload();<?php
@@ -22,7 +23,7 @@
         
         $shout = New Shout();
         $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
-		$shout->Channelid = 0;
+		$shout->Channelid = $channel; // TODO: ensure only participants can send messages
         $shout->Save();
         
         ?>var node = <?php

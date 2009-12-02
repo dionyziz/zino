@@ -1,5 +1,5 @@
 <?php
-    function UnitShoutboxTyping( tBoolean $typing ) {
+    function UnitShoutboxTyping( tBoolean $typing, tInteger $channel ) {
         global $user;
         global $libs;
         
@@ -8,9 +8,10 @@
         }
         
         $typing = $typing->Get();
+		$channel = $channel->Get();
         
         $libs->Load( 'rabbit/event' );
         
-        FireEvent( 'ShoutTyping', $user, $typing );
+        FireEvent( 'ShoutTyping', $user, $typing, $channel );
     }
 ?>
