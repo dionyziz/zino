@@ -138,7 +138,7 @@ Frontpage.Shoutbox = {
         var div = document.createElement( 'div' );
         
         div.className = 'text';
-        div.innerHTML = shouttext;
+        div.innerHTML = shouttext + '';
         
         var strong = document.createElement( 'strong' );
         strong.appendChild( document.createTextNode( who.name ) );
@@ -163,18 +163,17 @@ Frontpage.Shoutbox = {
 		if ( Frontpage.Shoutbox.ActiveChannel != channel ) {
 			Frontpage.Shoutbox.FlashStates[ channel ] = true;
 			if ( Frontpage.Shoutbox.Flashes[ channel ] ) {
-				clearInterval( Frontpage.Shoutbox.Flashes[ channel ] );
+				Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
+					if ( Frontpage.Shoutbox.FlashStates[ channel ] ) {
+						Frontpage.Shoutbox.FlashStates[ channel ] = false;
+						$( '#switchchannel_' + channel ).animate( { 'opacity': 0.7 } );
+					}
+					else {
+						Frontpage.Shoutbox.FlashStates[ channel ] = true;
+						$( '#switchchannel_' + channel ).animate( { 'opacity': 1 } );
+					}
+				}, 200 );
 			}
-			Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
-				if ( Frontpage.Shoutbox.FlashStates[ channel ] ) {
-					Frontpage.Shoutbox.FlashStates[ channel ] = false;
-					$( '#switchchannel_' + channel ).animate( { 'opacity': 0.7 } );
-				}
-				else {
-					Frontpage.Shoutbox.FlashStates[ channel ] = true;
-					$( '#switchchannel_' + channel ).animate( { 'opacity': 1 } );
-				}
-			}, 200 );
 		}
 		
         return li;
