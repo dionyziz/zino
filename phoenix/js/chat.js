@@ -113,7 +113,9 @@ Frontpage.Shoutbox = {
 				clearInterval( Frontpage.Shoutbox.Flashes[ channelid ] );
 				document.title = 'Clear ' + Frontpage.Shoutbox.Flashes[ channelid ] + ' (of ' + channelid + ')';
 				Frontpage.Shoutbox.Flashes[ channelid ] = 0;
-				$( '#switchchannel_' + channelid ).css( { 'opacity': 1 } );
+				setTimeout( function () {
+					$( '#switchchannel_' + channelid ).css( { 'opacity': 1 } );
+				}, 200 );
 			}
 			
 			return false;
