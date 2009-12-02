@@ -60,7 +60,10 @@ $( function () {
         }
         var t = 0;
         if ( $( 'textarea' ).length ) {
-            t = $( 'textarea' )[ 0 ].offsetHeight + $( '#tabs' )[ 0 ].offsetHeight;
+            t = $( 'textarea' )[ 0 ].offsetHeight;
+			if ( $( '#tabs' ).length ) {
+				t += $( '#tabs' )[ 0 ].offsetHeight;
+			}
         }
         
         $( 'ol' )[ 0 ].style.height = h - t - 20 + 'px';

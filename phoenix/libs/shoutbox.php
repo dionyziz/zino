@@ -19,6 +19,14 @@
         public function FindByChannel( $channelid = 0, $offset = 0, $limit = 20 ) {
             global $libs;
             
+			if ( is_int( $channelid ) ) {
+				$channelid = array( $channelid );
+			}
+			else {
+				w_assert( is_array( $channelid ) );
+				w_assert( !empty( $channelid ) );
+			}
+			
             $libs->Load( 'image/image' );
             $libs->Load( 'bulk' );
 
@@ -33,7 +41,7 @@
                         ON `user_avatarid` = `image_id`
                 WHERE
                     `shout_delid` = '0'
-					AND `shout_channelid` = :channelid
+					AND `shout_channelid` IN :channelids
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
@@ -42,7 +50,7 @@
             $query->BindTable( 'shoutbox', 'users', 'images' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
-			$query->Bind( 'channelid', $channelid );
+			$query->Bind( 'channelids', $channelid );
             
             $res = $query->Execute();
             $shouts = array();
