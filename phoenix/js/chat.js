@@ -168,11 +168,11 @@ Frontpage.Shoutbox = {
 			Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
 				if ( Frontpage.Shoutbox.Flashstates[ channel ] ) {
 					Frontpage.Shoutbox.Flashstates[ channel ] = false;
-					$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 0.7 } );
+					$( '#tabs switchchannel_' + channel ).css( { 'opacity': 0.7 } );
 				}
 				else {
 					Frontpage.Shoutbox.Flashstates[ channel ] = true;
-					$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 1 } );
+					$( '#tabs switchchannel_' + channel ).css( { 'opacity': 1 } );
 				}
 			}, 200 );
 		}
