@@ -111,7 +111,7 @@ Frontpage.Shoutbox = {
 			
 			if ( Frontpage.Shoutbox.Flashes[ channelid ] ) {
 				clearInterval( Frontpage.Shoutbox.Flashes[ channelid ] );
-				$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 1 } );
+				$( '#switchchannel_' + channelid ).css( { 'opacity': 'inherit' } );
 			}
 			
 			return false;
@@ -168,11 +168,11 @@ Frontpage.Shoutbox = {
 			Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
 				if ( Frontpage.Shoutbox.Flashstates[ channel ] ) {
 					Frontpage.Shoutbox.Flashstates[ channel ] = false;
-					$( '#switchchannel_' + channel ).css( { 'opacity': 0.7 } );
+					$( '#switchchannel_' + channel ).animate( { 'opacity': 0.7 } );
 				}
 				else {
 					Frontpage.Shoutbox.Flashstates[ channel ] = true;
-					$( '#switchchannel_' + channel ).css( { 'opacity': 1 } );
+					$( '#switchchannel_' + channel ).animate( { 'opacity': 1 } );
 				}
 			}, 200 );
 		}
