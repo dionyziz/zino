@@ -47,7 +47,7 @@
 		public static function FindParticipantsByChannel( $channelid ) {
 			global $db;
 			
-			w_assert( is_int( $userid ) );
+			w_assert( is_int( $channelid ) );
 			
 			$query = $db->Prepare(
 				'SELECT
