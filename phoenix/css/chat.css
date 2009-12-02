@@ -78,7 +78,7 @@ em {
 	color: white;
 	margin: 0 8px 0 5px;
 }
-#tabs ul li.main {
+#tabs ul li.main a {
 	background-image: url( 'http://static.zino.gr/phoenix/bullet_star.png' );
 	background-repeat: no-repeat;
 	background-position: 7px 3px;
