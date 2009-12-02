@@ -14,10 +14,10 @@
                     }
                     
                     // send message
-                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true } );
+                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true }, Frontpage.ActiveChannel );
                     Coala.Warm( 'shoutbox/new' , { 
 						text: txt[ 0 ].value,
-						channel: 0,
+						channel: Frontpage.ActiveChannel,
 						node: node, 
 						f: function () {
 							var lis = $( 'ol li' );
@@ -36,7 +36,7 @@
                         clearTimeout( Frontpage.Shoutbox.TypingCancelTimeout ); // delay it for a while
                     }
                     Frontpage.Shoutbox.TypingCancelTimeout = setTimeout( function () {
-                        Coala.Warm( 'shoutbox/typing', { 'typing': false, 'channel': 0 } ); // OK send the actual "I've stopped typing" request
+                        Coala.Warm( 'shoutbox/typing', { 'typing': false, 'channel': Frontpage.ActiveChannel } ); // OK send the actual "I've stopped typing" request
                     }, 10000 ); // send an "I've stopped typing" request if I haven't touched the keyboard for 10 seconds
                     if ( Frontpage.Shoutbox.TypingUpdated ) { // We've already sent an "I'm typing" request recently; don't do it again for every keystroke!
                         return;
@@ -45,7 +45,7 @@
                     setTimeout( function () { // After we've sent an "I'm typing" request, we don't want to send more. But only for 10 seconds; we'll send another "I'm typing" request if I'm still typing by then.
                         Frontpage.Shoutbox.TypingUpdated = false;
                     }, 10000 );
-                    Coala.Warm( 'shoutbox/typing', { 'typing': true, 'channel': 0 } ); // OK send the actual request            }
+                    Coala.Warm( 'shoutbox/typing', { 'typing': true, 'channel': Frontpage.ActiveChannel } ); // OK send the actual request            }
             }
         } );
     }
