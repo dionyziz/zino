@@ -24,8 +24,9 @@
             Modals.Create( theDiv, 800, 600 );<?php
             return;
         }
+        
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-            ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
+            ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο." );<?php
             return;
         }
         
@@ -37,28 +38,48 @@
         $parent = $parent->Get();
         $compage = $compage->Get();
         $type = $type->Get();
-        
-        $comment = New Comment();
-        $text = nl2br( htmlspecialchars( $text ) );
-        $text = WYSIWYG_PostProcess( $text );
-        $comment->Text = $text;
-        $comment->Userid = $user->Id;
-        $comment->Parentid = $parent;
-        $comment->Typeid = $type;
-        $comment->Itemid = $compage;
-        $comment->Save();
+
+        if ( $user->Exists() ) {
+            $comment = New Comment();
+            $text = nl2br( htmlspecialchars( $text ) );
+            $text = WYSIWYG_PostProcess( $text );
+            $comment->Text = $text;
+            $comment->Userid = $user->Id;
+            $comment->Parentid = $parent;
+            $comment->Typeid = $type;
+            $comment->Itemid = $compage;
+            $comment->Save();
+        }
+        else {
+            $_SESSION[ 'teaser_comment' ] = array( 
+                'text' => $text,
+                'parentid' => $parent,
+                'typeid' => $type,
+                'itemid' => $compage
+            );
+        }
 
         //Element::ClearFromCache( 'comment/list', $type, $compage );
-        
+
         echo $callback;
         ?>( <?php
         echo $node;
         ?>, <?php
-        echo $comment->Id;
+        if ( isset( $comment ) ) {
+            echo $comment->Id;
+        }
+        else {
+            ?>0<?php
+        }
         ?>, <?php
         echo $parent;
         ?>, <?php
-        echo w_json_encode( nl2br( $comment->Text ) );
+        if ( isset( $comment ) ) {
+            echo w_json_encode( nl2br( $comment->Text ) );
+        }
+        else {
+            ?>''<?php
+        }
         ?> );<?php
     }
 ?>

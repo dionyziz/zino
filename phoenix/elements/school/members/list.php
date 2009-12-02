@@ -1,6 +1,9 @@
 <?php
 	class ElementSchoolMembersList extends Element {
 		public function Render( tInteger $id , tInteger $pageno ) {
+            global $libs;
+            $libs->Load( 'school/school' );
+
             $id = $id->Get();
 			
             $school = New School( $id );

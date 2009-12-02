@@ -64,6 +64,10 @@ var Comments = {
         Comments.ToggledReplies[ parentid ] = 0;
 	},
     NewCommentCallback : function( node , id , parentid , newtext ) {
+        if ( id == 0 ) { // anonymous
+            window.location.href = 'join';
+            return;
+        }
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
