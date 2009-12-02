@@ -144,7 +144,7 @@ Frontpage.Shoutbox = {
         li.appendChild( strong );
         li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
-        $( 'ol' )[ 0 ].appendChild( li );
+        $( '#messages_' + channel )[ 0 ].appendChild( li );
 
         if ( this.AutoScroll ) { 
             li.scrollIntoView();
