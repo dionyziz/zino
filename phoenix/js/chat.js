@@ -163,6 +163,7 @@ Frontpage.Shoutbox = {
 		if ( Frontpage.Shoutbox.ActiveChannel != channel ) {
 			Frontpage.Shoutbox.FlashStates[ channel ] = true;
 			if ( Frontpage.Shoutbox.Flashes[ channel ] ) {
+				document.title = 'Flash ' + channel;
 				Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
 					if ( Frontpage.Shoutbox.FlashStates[ channel ] ) {
 						Frontpage.Shoutbox.FlashStates[ channel ] = false;
