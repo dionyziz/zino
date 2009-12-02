@@ -54,6 +54,18 @@
             ?>);
             Comet.Subscribe( 'FrontpageShoutboxNew0' );
             Comet.Subscribe( 'FrontpageShoutboxTyping0' );
+			<?php
+			if ( $user->Exists() ) {
+				?>
+				Comet.Subscribe( 'FrontpageShoutboxNew<?php
+				echo $user->Id; // TODO: auth
+				?>' );
+				Comet.Subscribe( 'FrontpageShoutboxTyping<?php
+				echo $user->Id;
+				?>' );
+				<?php
+			}
+			?>
             User = '<?php
             echo $user->Name;
             ?>';

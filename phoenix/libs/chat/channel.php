@@ -44,5 +44,29 @@
 			
 			return $channels;
 		}
+		public static function FindParticipantsByChannel( $channelid ) {
+			global $db;
+			
+			w_assert( is_int( $userid ) );
+			
+			$query = $db->Prepare(
+				'SELECT
+					`participant_userid`
+				FROM
+					:chatparticipants
+				WHERE
+					`participant_channelid` = :channelid'
+			);
+			$query->BindTable( 'chatparticipants' );
+			$query->Bind( 'channelid', $channelid );
+			$res = $query->Execute();
+			
+			$userids = array();
+			while ( $row = $res->FetchArray() ) {
+				$userids[] = $row[ 'participant_userid' ];
+			}
+			
+			return $userids;
+		}
 	}
 ?>

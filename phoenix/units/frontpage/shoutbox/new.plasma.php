@@ -1,5 +1,9 @@
 <?php
     function UnitFrontpageShoutboxNew( Shout $shout ) {
+		global $libs;
+		
+		$libs->Load( 'chat/channel' );
+		
 		$channel = $shout->Channelid;
 		w_assert( is_int( $channel ) );
 		
@@ -17,6 +21,12 @@
         ?>, <?php
 		echo $channel;
 		?> );<?php
-		return 0;
+		
+		if ( $channel == 0 ) {
+			return 0;
+		}
+		// private channel (non-main)
+		$userids = ChannelFinder::FindParticipantsByChannel( $channel );
+		return $userids;
     }
 ?>
