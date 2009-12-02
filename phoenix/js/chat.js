@@ -82,7 +82,8 @@ Frontpage.Shoutbox = {
 		$( 'ol' ).scroll( function() {
 			var scrll = $( this ).scrollTop();
 			if ( Frontpage.Shoutbox.AutoScroll && scrll < Frontpage.Shoutbox.BottomScroll ) { // user scrolled up
-				Frontpage.Shoutbox.AutoScroll = false; // disable AutoScrolling
+				// turn this off until we establish a better system
+				// Frontpage.Shoutbox.AutoScroll = false; // disable AutoScrolling
 				return;
 			}
 			if ( !Frontpage.Shoutbox.AutoScroll && scrll >= Frontpage.Shoutbox.BottomScroll ) { // user scrolled to last known bottom
