@@ -59,6 +59,8 @@ Frontpage.Shoutbox = {
     BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
 	ActiveChannel: 0,
+	Flashes: {},
+	FlashStates: {},
 	Init: function( channels ) {
 		var f = function () {
 			var h = $( window ).height();
@@ -107,6 +109,11 @@ Frontpage.Shoutbox = {
 			var lis = $( 'ol#messages_' + channelid + ' li' );
 			lis[ lis.length - 1 ].scrollIntoView();
 			
+			if ( Frontpage.Shoutbox.Flashes[ channelid ] ) {
+				clearInterval( Frontpage.Shoutbox.Flashes[ channelid ] );
+				$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 1 } );
+			}
+			
 			return false;
 		} );
 	},
@@ -153,6 +160,23 @@ Frontpage.Shoutbox = {
         
         Frontpage.Shoutbox.UpdateTyping();
         
+		if ( Frontpage.Shoutbox.ActiveChannel != channel ) {
+			Frontpage.Shoutbox.Flashstates[ channel ] = true;
+			if ( Frontpage.Shoutbox.Flashes[ channel ] ) {
+				clearInterval( Frontpage.Shoutbox.Flashes[ channel ] );
+			}
+			Frontpage.Shoutbox.Flashes[ channel ] = setInterval( function () {
+				if ( Frontpage.Shoutbox.Flashstates[ channel ] ) {
+					Frontpage.Shoutbox.Flashstates[ channel ] = false;
+					$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 0.7 } );
+				}
+				else {
+					Frontpage.Shoutbox.Flashstates[ channel ] = true;
+					$( '#tabs switchchannel_' + channelid ).css( { 'opacity': 1 } );
+				}
+			}, 200 );
+		}
+		
         return li;
     },
     OnStartTyping: function ( who, channel ) { // received when someone starts typing
