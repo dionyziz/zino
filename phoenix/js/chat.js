@@ -99,7 +99,7 @@ Frontpage.Shoutbox = {
     BottomScroll: 0, // number got from scrollTop() last time we AutoScroll'ed to bottom
     AutoScroll: true, // if user scrolls AutoScroll will be false and we won't scroll down on new message until user scrolls to BottomScroll or lower
 	Init: function( channels ) {
-		
+		$( '#messages_0' )[ 0 ].style.display = '';
 	},
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
