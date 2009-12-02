@@ -88,6 +88,14 @@ Frontpage.Shoutbox = {
 		} );
 		$( '#messages_0' )[ 0 ].style.display = '';
 		f();
+		$( '#tabs ul li a' ).show().click( function () {
+			var channelid = this.id.split( '_' )[ 1 ];
+			$( 'ol.channelmessages' ).hide();
+			$( 'ol#messages_' + channelid ).show();
+			$( '#tabs li' ).removeClass( 'focus' );
+			$( this.parent ).addClass( 'focus' );
+			return false;
+		} );
 	},
     OnMessageArrival: function( shoutid, shouttext, who ) {
         Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );

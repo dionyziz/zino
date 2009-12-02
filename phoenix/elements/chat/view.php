@@ -74,7 +74,9 @@
 							if ( $channelid == 0 ) {
 								?> class="main focus"<?php
 							}
-							?>><a href=""><?php
+							?>><a href="" id="switchchannel_<?php
+							echo $channelid;
+							?>" style="display:none"><?php
 							if ( $channelid == 0 ) {
 								$name = 'Zino';
 							}
@@ -106,7 +108,7 @@
             ?><div><?php
 				foreach ( $channelmessages as $channelid => $chats ) {
 					?>
-					<ol id="messages_<?php
+					<ol class="channelmessages" id="messages_<?php
 						echo $channelid;
 						?>" style="display:none"><?php
 						$prevuser = '';
