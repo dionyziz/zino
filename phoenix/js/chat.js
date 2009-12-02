@@ -57,7 +57,7 @@ $( function () {
 			}
         }
         
-        $( 'ol' ).height( h - t - 20 );
+        $( 'ol' ).height( h - t - 30 );
         
         var lis = $( 'ol li' );
         lis[ lis.length - 1 ].scrollIntoView();
