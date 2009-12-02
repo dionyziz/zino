@@ -109,7 +109,7 @@ Frontpage.Shoutbox = {
 		} );
 	},
     OnMessageArrival: function( shoutid, shouttext, who, channel ) {
-        Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
+        Frontpage.Shoutbox.OnStopTyping( { 'name': who.name }, channel );
         
         if ( $( '#s_' + shoutid ).length ) {
             return; // already received it
@@ -121,8 +121,6 @@ Frontpage.Shoutbox = {
         var lis = $( 'li.typing' );
         for ( var i = 0; i < lis.length; ++i ) {
             var li = lis[ i ];
-            var name = li.id.substr( 7 );
-            
             li.parentNode.removeChild( li );
         }
         
