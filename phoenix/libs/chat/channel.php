@@ -58,7 +58,7 @@
 				WHERE
 					`participant_channelid` = :channelid'
 			);
-			$query->BindTable( 'chatparticipants' );
+			$query->BindTable( 'chatparticipants', 'users' );
 			$query->Bind( 'channelid', $channelid );
 			$res = $query->Execute();
 			
