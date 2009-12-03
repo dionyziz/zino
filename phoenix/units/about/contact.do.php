@@ -23,9 +23,9 @@
         else {
             $from = 'noreply@zino.gr';
         }
-        $oniz = "oniz@kamibu.com";
+        $oniz = "abuse@zino.gr";
 		$fromname = "";
 
-        Email( '', 'oniz@kamibu.com', $subject, $text, '', $from );
+        Email( '', 'abuse@zino.gr', $subject, $text, '', $from );
 	}
 ?>
