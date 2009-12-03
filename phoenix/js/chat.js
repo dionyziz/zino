@@ -13,9 +13,11 @@
                         return;
                     }
                     
-					document.createTextNode( 
+					var div = document.createElement( 'div' );
+					div.appendChild( document.createTextNode( txt[ 0 ].value ) );
+					
                     // send message
-                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true }, Frontpage.Shoutbox.ActiveChannel );
+                    var node = Frontpage.Shoutbox.OnMessageArrival( 0, div.innerHTML, { 'name': User, 'self': true }, Frontpage.Shoutbox.ActiveChannel );
                     Coala.Warm( 'shoutbox/new' , { 
 						text: txt[ 0 ].value,
 						channel: Frontpage.Shoutbox.ActiveChannel,
