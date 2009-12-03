@@ -100,12 +100,12 @@
 
 #mplayersearchmodal .list{
 	display: none;
-	padding: 6px;
+	margin: 6px;
 	position: relative;
+	overflow: auto;
+	height: 345px;
 }
 #mplayersearchmodal table{
-	overflow: auto;
-	height: 339px;
 	padding: 3px 0 3px 5px;
 	display: block;
 	background: white;
