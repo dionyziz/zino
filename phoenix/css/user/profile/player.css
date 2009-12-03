@@ -100,6 +100,7 @@
 
 #mplayersearchmodal .list{
 	display: none;
+	background: white;
 	margin: 6px;
 	position: relative;
 	overflow-X: hidden;
