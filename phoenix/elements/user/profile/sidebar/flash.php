@@ -19,7 +19,7 @@
 							echo $widgetid;
 						?>&#38;style=metal&#38;p=0<?php
 							if( $coalacall ){
-								?>&#38;ap=1<?php
+								?>&#38;p=1<?php
 							}
 						?>" allowScriptAccess="always" wmode="opaque"></embed>
 					</object><?php
