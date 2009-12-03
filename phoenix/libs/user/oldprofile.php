@@ -19,7 +19,7 @@
             $this->Drinker = '-';
             $this->Height = -3;
             $this->Weight = -3;
-            $this->Songwidgetid = -1;
+            $this->Songid = -1;
         }
     }
 

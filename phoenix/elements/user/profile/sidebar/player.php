@@ -3,7 +3,7 @@
         public function Render( $theuser ) {
 			global $user;
 
-			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songwidgetid, $theuser );
+			Element( 'user/profile/sidebar/flash', $theuser->Profile->Songid, $theuser );
 			if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ) {
 				?>
 				<div id="mplayersearchmodal">
