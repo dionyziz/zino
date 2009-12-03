@@ -131,6 +131,7 @@ var Profile = {
 			Coala.Warm( 'user/profile/selectsong', { songid: songid } );
 		},
 		RemoveWidget: function(){
+			$( '#profile .mplayer div:first' ).text( 'Αποθήκευση προφίλ...' );
 			Coala.Warm( 'user/profile/removewidget', {} );
 		},
 		SubmitSearch: function(){
