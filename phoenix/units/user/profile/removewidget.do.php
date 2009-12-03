@@ -9,7 +9,7 @@
 		Grooveshark_DeleteSong();
 		?>Profile.Player.Setsong( <?php
 		ob_start();
-		Element( 'user/profile/sidebar/flash', $user->Profile->Songid, $user );
+		Element( 'user/profile/sidebar/flash', $user );
 		echo w_json_encode( ob_get_clean() );
 		?> );<?php
 

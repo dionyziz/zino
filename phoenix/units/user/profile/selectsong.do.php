@@ -10,7 +10,7 @@
 		Grooveshark_SetSong( $songid );
 		?>Profile.Player.Setsong( <?php
 		ob_start();
-		Element( 'user/profile/sidebar/flash', $songid, $user, true );
+		Element( 'user/profile/sidebar/flash', $user, true );
 		echo w_json_encode( ob_get_clean() );
 		?> );<?php
 
