@@ -107,6 +107,7 @@
 }
 #mplayersearchmodal table{
 	padding: 3px 0 3px 5px;
+	min-height: 339px;
 	display: block;
 	background: white;
 	border-collapse: collapse;
