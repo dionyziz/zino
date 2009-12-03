@@ -26,7 +26,8 @@
 			return 0;
 		}
 		// private channel (non-main)
-		$userids = ChannelFinder::FindParticipantsByChannel( $channel );
-		return $userids;
+		// subchannels are in the form of $userid . "x" . $authtokenpart
+		$userinfo = ChannelFinder::FindParticipantsByChannel( $channel );
+		return $userinfo;
     }
 ?>

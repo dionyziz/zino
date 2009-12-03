@@ -51,9 +51,10 @@
 			
 			$query = $db->Prepare(
 				'SELECT
-					`participant_userid`
+					`user_id`, `user_authtoken`
 				FROM
-					:chatparticipants
+					:chatparticipants CROSS JOIN :users
+						ON `participant_userid` = `user_id`
 				WHERE
 					`participant_channelid` = :channelid'
 			);
@@ -61,12 +62,12 @@
 			$query->Bind( 'channelid', $channelid );
 			$res = $query->Execute();
 			
-			$userids = array();
+			$userinfo = array();
 			while ( $row = $res->FetchArray() ) {
-				$userids[] = $row[ 'participant_userid' ];
+				$userinfo[] = $row[ 'user_id' ] . 'x' . substr( $row[ 'user_authtoken' ], 0, 10 );
 			}
 			
-			return $userids;
+			return $userinfo;
 		}
 	}
 ?>

@@ -13,6 +13,7 @@
                         return;
                     }
                     
+					document.createTextNode( 
                     // send message
                     var node = Frontpage.Shoutbox.OnMessageArrival( 0, txt[ 0 ].value, { 'name': User, 'self': true }, Frontpage.Shoutbox.ActiveChannel );
                     Coala.Warm( 'shoutbox/new' , { 
