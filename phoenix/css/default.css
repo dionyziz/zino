@@ -103,6 +103,8 @@ h3.modaltitle {
     margin: 0 11px 0 11px;
     background: #fff;
     padding: 0 12px 0 7px;
+	/* ted: visual bug when the content was too small */
+	min-height: 170px;
 }
 #strip3left {
     float: left;

@@ -1,6 +1,6 @@
 <?php
 	class ElementUserProfileSidebarFlash extends Element {
-		public function Render( $widgetid, User $theuser ) {
+		public function Render( $widgetid, User $theuser, $coalacall = false ) {
 			global $libs;
 			global $user;
 			
@@ -17,7 +17,11 @@
 						?>&#38;style=metal&#38;p=0"></param>
 						<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&#38;widgetID=<?php
 							echo $widgetid;
-						?>&#38;style=metal&#38;p=0" allowScriptAccess="always" wmode="opaque"></embed>
+						?>&#38;style=metal&#38;p=0<?php
+							if( $coalacall ){
+								?>$#38;ap=1<?php
+							}
+						?>" allowScriptAccess="always" wmode="opaque"></embed>
 					</object><?php
 					if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ){
 						?><div class="toolbox">
