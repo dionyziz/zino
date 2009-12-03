@@ -108,7 +108,9 @@ Frontpage.Shoutbox = {
 			
 			Frontpage.Shoutbox.ActiveChannel = channelid;
 			var lis = $( 'ol#messages_' + channelid + ' li' );
-			lis[ lis.length - 1 ].scrollIntoView();
+			if ( lis.length ) {
+				lis[ lis.length - 1 ].scrollIntoView();
+			}
 			
 			if ( Frontpage.Shoutbox.Flashes[ channelid ] ) {
 				clearInterval( Frontpage.Shoutbox.Flashes[ channelid ] );
