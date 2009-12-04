@@ -4,7 +4,8 @@
         global $user;
         
         $libs->Load( 'happening' );
-        
+        $libs->Load( 'user/profile' );
+		
         $happeningid = $happeningid->Get();
         $mobile = $mobile->Get();
         $firstname = $firstname->Get();
