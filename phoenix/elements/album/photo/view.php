@@ -20,6 +20,14 @@
             $image = New Image( $id );
             $theuser = $image->User;
 			
+            if ( $theuser->Deleted ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/deleted' );
+            }
+            if ( Ban::isBannedUser( $theuser->Id ) ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/banned' );
+            }
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $jsarr = "Tag.photoid = " . $id . ";";
                 $page->AttachInlineScript( $jsarr );

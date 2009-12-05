@@ -20,6 +20,14 @@
             }
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
                 Element( 'user/sections', 'album' , $album->Owner );
+                if ( $album->Owner->Deleted ) {
+                    $libs->Load( 'rabbit/helpers/http' );
+                    return Redirect( 'http://static.zino.gr/phoenix/deleted' );
+                }
+                if ( Ban::isBannedUser( $album->Owner->Id ) ) {
+                    $libs->Load( 'rabbit/helpers/http' );
+                    return Redirect( 'http://static.zino.gr/phoenix/banned' );
+                }
             }
             else {
                 Element( 'school/info', $album->Owner, true );

@@ -71,6 +71,19 @@
                 }
             }
         }
+
+        if ( $user->Deleted ) {
+            $_SESSION[ 's_username' ] = '';
+            $_SESSION[ 's_password' ] = '';
+
+            $user->RenewAuthtoken();
+            $user->Save();
+
+            User_ClearCookie();
+
+            $libs->Load( 'rabbit/helpers/http' );
+            return Redirect( 'http://static.zino.gr/phoenix/deleted' );
+        }
         
         if ( ( $user->Exists() && Ban::isBannedUser( $user->Id ) ) 
             || Ban::isBannedIp( UserIp() )  

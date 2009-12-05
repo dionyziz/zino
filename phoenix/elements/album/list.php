@@ -36,6 +36,10 @@
                 return Element( '404' );
             }
 
+            if ( $theuser->Deleted ) {
+                $libs->Load( 'rabbit/helpers/http' );
+                return Redirect( 'http://static.zino.gr/phoenix/deleted' );
+            }
             if ( Ban::isBannedUser( $theuser->Id ) ) {
                 $libs->Load( 'rabbit/helpers/http' );
                 return Redirect( 'http://static.zino.gr/phoenix/banned' );
