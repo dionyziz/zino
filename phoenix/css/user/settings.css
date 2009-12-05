@@ -213,7 +213,7 @@ form div .setting ul.interesttags li {
 #avatarlist div.cancel {
 	text-align: center;
 }
-#pwdmodal {
+#pwdmodal, #deletemodal {
 	display: none;
     top: 10%;
 	left: 30%;
@@ -222,7 +222,7 @@ form div .setting ul.interesttags li {
 	border: 1px solid #284659;
     width: 400px;
 }
-#pwdmodal > div {
+#pwdmodal > div, #deletemodal > div {
     padding: 0 0 0 20px;
 }
 .oldpassword {
