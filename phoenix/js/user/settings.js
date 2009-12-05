@@ -503,7 +503,7 @@ var Settings = {
         } );
         $( 'div#deletemodal div.save a' ).click( function () {
             document.body.style.cursor = 'wait';
-            Coala.Warm( 'user/delete', { password: $( '#deletemodal input' ) } );
+            Coala.Warm( 'user/delete', { password: $( '#deletemodal input' )[ 0 ].value } );
             return false;
         } );
         Settings.oldpassword.focus();
