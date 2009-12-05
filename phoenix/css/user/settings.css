@@ -225,6 +225,9 @@ form div .setting ul.interesttags li {
 #pwdmodal > div, #deletemodal > div {
     padding: 0 0 0 20px;
 }
+#deletemodal > div {
+    margin: 20px 0 20px 0;
+}
 .oldpassword {
 	margin: 10px 0;
 }

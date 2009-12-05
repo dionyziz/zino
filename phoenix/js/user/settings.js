@@ -476,7 +476,6 @@ var Settings = {
                 Settings.oldpassworderror = false;
                 $( Settings.oldpassworddiv ).find( 'div div span' ).fadeOut( 300 );
             }
-
         } );
         
         $( Settings.newpassword ).keyup( function( event ) {
