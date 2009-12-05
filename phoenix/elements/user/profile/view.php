@@ -58,6 +58,9 @@
 					$user->Betastatus = 1;
 					$user->Save();
 					$user->Profile->Save(); // force user profile uncache
+					
+					$libs->Load( 'rabbit/helpers/http' );
+					
 					return Redirect( 'http://static.zino.gr/phoenix/udat/beta.html' );
 				}
 				$onload = 'Profile.MyProfileOnLoad();';
