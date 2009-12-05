@@ -461,7 +461,11 @@ var Settings = {
             overlayClass : 'mdloverlay1'
         } );
         $( '#pwdmodal' ).jqm( {
-            trigger : 'div.changepwdl a.changepwdlink',
+            trigger : 'div.changepwdl a.changepwdlink:first',
+            overlayClass : 'mdloverlay1'
+        } );
+        $( '#deletemodal' ).jqm( {
+            trigger : 'div.changepwdl a.changepwdlink:last',
             overlayClass : 'mdloverlay1'
         } );
         $( Settings.oldpassword ).keyup( function( event ) {
@@ -496,6 +500,11 @@ var Settings = {
         } );
         $( 'div#pwdmodal div.save a' ).click( function() {
             Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+            return false;
+        } );
+        $( 'div#deletemodal div.save a' ).click( function () {
+            document.body.style.cursor = 'wait';
+            Coala.Warm( 'user/delete', { password: $( '#deletemodal input' ) } );
             return false;
         } );
         Settings.oldpassword.focus();
