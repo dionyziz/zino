@@ -81,8 +81,8 @@
 
             User_ClearCookie();
 
-            $libs->Load( 'rabbit/helpers/http' );
-            return Redirect( 'http://static.zino.gr/phoenix/deleted' );
+            header( 'Location: http://static.zino.gr/phoenix/deleted' );
+            exit();
         }
         
         if ( ( $user->Exists() && Ban::isBannedUser( $user->Id ) ) 
