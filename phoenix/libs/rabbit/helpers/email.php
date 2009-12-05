@@ -13,7 +13,7 @@
         return "=?utf-8?Q?$subject?=";
     }
 
-    function Email( $toname, $toemail, $subject, $message, $fromname, $fromemail ) {
+    function Email( $toname, $toemail, $subject, $message, $fromname, $fromemail, $replyto = false ) {
         global $libs;
 
         $libs->Load( 'rabbit/helpers/validate' );
@@ -24,9 +24,12 @@
 		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
 		w_assert( ValidEmail( $fromemail ), 'Invalid sender e-mail: ' . $fromemail );
 
-        $headers = "To: $toname <$toemail>\r\n"
-                 . "From: $fromname <$fromemail>\r\n"
-                 . "Reply-To: $fromemail\r\n"
+		if ( $replyto === false ) {
+			$replyto = $fromemail;
+		}
+		
+        $headers = "From: $fromname <$fromemail>\r\n"
+                 . "Reply-To: $replyto\r\n"
                  . "Content-type: text/plain; charset=utf-8";
         
         $subject = Email_FormatSubject( $subject );
