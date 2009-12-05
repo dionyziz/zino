@@ -56,7 +56,7 @@
             ?><p>
                         Όνομα χρήστη : <input type="text" maxlength="30" name="username" /> &nbsp;&nbsp;&nbsp;  
                         Λόγος Αποκλεισμού : <input type="text" maxlength="30" name="reason" /> &nbsp;&nbsp;&nbsp;
-                        Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες          
+                        Διάρκεια : <input type="text" maxlength="5" value="20" name="time_banned" /> μέρες (0 για διαγραφή χρήστη)
               </p>
               <p>
                         Μόνιμη διαγραφή ακόμα : &nbsp;&nbsp;&nbsp;  

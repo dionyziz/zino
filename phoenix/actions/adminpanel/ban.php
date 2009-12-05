@@ -26,6 +26,13 @@
         if ( $user2ban == false ) {
             return Redirect( '?p=banlist&errormessage=nouserwiththisname' );
         }
+
+        if ( $time_banned == 0 ) {
+            // permanent delete
+            $user2ban->Deleted = 1;
+            $user2ban->Save();
+            return Redirect();
+        }
        
         $res = Ban::BanUser( $username, $reason, $time_banned );
         
