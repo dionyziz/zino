@@ -102,11 +102,19 @@
         $text = WYSIWYG_Smileys( $text );
         return $text;
     }
-
+	
+	function WYSIWYG_LinkProcess( $matches ){
+		if( preg_match( "#^http\://([a-z0-9\-]+\.)*zino\.gr#i", $matches[ 0 ] ) ) { //It's a Zino link, so no tabs
+			return '<a href="' . $matches[ 0 ] . '">' . $matches[ 0 ] . '</a>';
+		}
+		//Not a Zino link, open new tab
+		return '<a onclick="window.open( \'' . $matches[ 0 ] . '\' );return false;" href="' . $matches[ 0 ] . '">' . $matches[ 0 ] . '</a>';
+	}
+	
     function WYSIWYG_Links( $text ) {
         $text = preg_replace( // LOL is a special testcase -- when it exists within a link it should not be matched as a link, because it will be matched from the smiley code later
             '#\b(https?+\://(?!www.youtube.com/watch\?v=)[a-z0-9.-]++(/([a-zA-Z0-9./+?=&\(\)_;\#~%-](?<!LOL))*+)?+)(?<!\.jpg|\.png|\.gif|\.JPG|\.PNG|\.GIF)#',
-            '<a onclick="window.open( \'\1\' );return false;" href="\1">\1</a>',
+            'WYSIWYG_LinkProcess',
             $text
         );
         $text = preg_replace(
