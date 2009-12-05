@@ -26,6 +26,7 @@
                     <th>Πότε</th>
                     <th>Μέχρι</th>
                     <th>Αιτία</th>
+                    <th>Διαχειριστής</th>
                     <th></th>
                 </tr>
             <?php            
@@ -38,6 +39,8 @@
                     echo $bannedUser->Expire; 
                     ?></td><td><?php
                     echo htmlspecialchars( $bannedUser->Reason );
+                    ?></td><td><?php
+                    echo $bannedUser->Admin;
                     ?></td><td><?php
                     ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><input type="submit" value="Επαναφορά" /><?php

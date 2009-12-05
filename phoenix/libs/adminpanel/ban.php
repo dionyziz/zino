@@ -140,7 +140,8 @@
         
         protected static function addBannedUser( $b_user, $reason, $time_banned ) {
             global $libs;
-            
+            global $user;            
+
             $libs->Load( 'adminpanel/bannedusers' );
             
             $banneduser = New BannedUser();
@@ -150,6 +151,7 @@
             $banneduser->Expire = date( 'Y-m-d H:i:s', time() + $time_banned );
             $banneduser->Delalbums = 0;            
             $banneduser->Reason = $reason;
+            $banneduser->Admin = $user->Name;
             $banneduser->Save();            
             return;        
         }
