@@ -26,6 +26,6 @@
         $oniz = "abuse@zino.gr";
 		$fromname = "";
 
-        Email( '', 'abuse@zino.gr', $subject, $text, '', $from );
+        Email( '', 'abuse@zino.gr', $subject, $text, '', $from, 'abuse@zino.gr' );
 	}
 ?>
