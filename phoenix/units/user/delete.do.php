@@ -8,7 +8,7 @@
 
         $password = $password->Get();
         if ( !$user->IsCorrectPassword( $password ) ) {
-			?>$( '#deletemodal div div span' ).find( 'div div span' ).fadeIn( 300 );
+			?>$( '#deletemodal div div span' ).fadeIn( 300 );
             document.body.style.cursor = 'default';
             <?php
             return;
