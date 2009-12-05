@@ -4,7 +4,7 @@
 			global $user;
 
 			Element( 'user/profile/sidebar/flash', $theuser );
-			if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ) {
+			if ( $theuser->Betastatus == 1 ) {
 				?>
 				<div id="mplayersearchmodal">
 					<div class="toolbar">

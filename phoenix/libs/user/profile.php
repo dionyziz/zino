@@ -138,28 +138,6 @@
                         }
                     }
                     return false;
-                case 'Song':
-                    switch ( $this->Userid ) {
-                        case 1:
-							return array( "name" => "Loreena McKennitt - The Old Ways", "url" => "http://www.dionyziz.com/files/oldways.mp3" );		
-						case 58:
-							return array( "name" => "Blank & Jones ft Elles -  Mind of the wonderful" , "url" => "http://izual.kamibu.com/song.mp3" );
-                        case 658:
-                            return array( "name" => "Deadlock - We shall all bleed", "url" => "http://abresas.kamibu.com/deadlock.mp3" );
-						case 872:
-							return array( "name" => "Peace Burial At Sea - 52 Faces" , "url" => "http://static.zino.gr/phoenix/art/player/52_faces.mp3" );
-						case 3890:
-							return array( "name" => "Muse - Time is running out", "url" => "http://static.zino.gr/phoenix/art/player/timerunning.mp3" );
-						case 4005:
-							return array( "name" => "Los Lobos - Cancion del Mariachi", "url" => "http://pagio.kamibu.com/01%20Cancion%20del%20Mariachi.mp3" );
-						case 4047:
-						    return array( "name" => "Fragma - Toca's Miracle", "url" => "http://amikrop.gr/Toca%27s%20Miracle.mp3" );
-						case 5181:
-						    return array( "name" => "The Who - Baba O'Riley", "url" => "http://petros.kamibu.com/babaoriley.mp3" );
-						default:
-							return false;
-                    }
-                    return false;
                 default:
                     return parent::__get( $key );
             }

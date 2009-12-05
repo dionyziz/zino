@@ -31,7 +31,7 @@
 							}
 						?>" allowScriptAccess="always" wmode="opaque"></embed>
 					</object><?php
-					if ( $theuser->HasPermission( PERMISSION_SONG_EDIT ) ){
+					if ( $theuser->Betastatus == 1 ){
 						?><div class="toolbox">
 							<span class="s1_0007 delete" title="Διαγραφή τραγουδιού.">&#160;</span>
 							<span class="search" title="Αλλαγή τραγουδιού.">&#160;</span>
@@ -39,7 +39,7 @@
 					}
 				?></div><?php
 			}
-			else if ( $theuser->HasPermission( PERMISSION_SONG_CREATE ) ) {
+			else if ( $theuser->Betastatus == 1 ) {
 				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
 			}
 		}

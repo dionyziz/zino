@@ -2,24 +2,24 @@
 	
 	function Grooveshark_CreateUUID(){
 		$uid = "";
-		for( $i = 0; $i < 8; ++$i ){
-			$uid .= dechex( mt_rand  ( 0, 15  ) );
+		for( $i = 0; $i < 8; ++$i ) {
+			$uid .= dechex( mt_rand( 0, 15 ) );
 		}
 		$uid .= "-";
-		for( $i = 0; $i < 4; ++$i ){
-			$uid .= dechex( mt_rand  ( 0, 15  ) );
+		for( $i = 0; $i < 4; ++$i ) {
+			$uid .= dechex( mt_rand( 0, 15 ) );
 		}
 		$uid .= "-";
-		for( $i = 0; $i < 4; ++$i ){
-			$uid .= dechex( mt_rand  ( 0, 15  ) );
+		for( $i = 0; $i < 4; ++$i ) {
+			$uid .= dechex( mt_rand( 0, 15 ) );
 		}
 		$uid .= "-";
-		for( $i = 0; $i < 4; ++$i ){
-			$uid .= dechex( mt_rand  ( 0, 15  ) );
+		for( $i = 0; $i < 4; ++$i ) {
+			$uid .= dechex( mt_rand( 0, 15 ) );
 		}
 		$uid .= "-";
-		for( $i = 0; $i < 12; ++$i ){
-			$uid .= dechex( mt_rand  ( 0, 15  ) );
+		for( $i = 0; $i < 12; ++$i ) {
+			$uid .= dechex( mt_rand( 0, 15 ) );
 		}
 		return strtoupper( $uid );
 	}
@@ -57,7 +57,8 @@
 	
 	function Grooveshark_SearchSong( $query ){
 		global $user;
-		if( !$user->HasPermission( 60 ) ){
+		
+		if ( $user->Betastatus != 1 ) {
 			return;
 		}
 		$uuid = Grooveshark_CreateUUID();
@@ -78,9 +79,10 @@
 	}
 	
 	function Grooveshark_SetSong( $songid ){
-        global $libs;  
-        global $user; 
-		if( !$user->HasPermission( 60 ) ){
+        global $libs;
+        global $user;
+		
+		if ( $user->Betastatus != 1 ) {
 			return;
 		}
         $libs->Load( "user/profile" );    

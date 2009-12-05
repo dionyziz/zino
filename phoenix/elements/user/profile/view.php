@@ -54,6 +54,12 @@
             }
 			$onload = '';
             if ( $user->Id == $theuser->Id ) {
+				if ( $user->Betastatus == 2 ) {
+					$user->Betastatus = 1;
+					$user->Save();
+					$user->Profile->Save(); // force user profile uncache
+					return Redirect( 'http://static.zino.gr/phoenix/udat/beta.html' );
+				}
 				$onload = 'Profile.MyProfileOnLoad();';
             }
 			$onload .= 'Profile.OnLoad( "' . $theuser->Name . '" );';
