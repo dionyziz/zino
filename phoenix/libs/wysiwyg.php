@@ -112,7 +112,7 @@
 	}
 	
     function WYSIWYG_Links( $text ) {
-        $text = preg_replace( // LOL is a special testcase -- when it exists within a link it should not be matched as a link, because it will be matched from the smiley code later
+        $text = preg_replace_callback( // LOL is a special testcase -- when it exists within a link it should not be matched as a link, because it will be matched from the smiley code later
             '#\b(https?+\://(?!www.youtube.com/watch\?v=)[a-z0-9.-]++(/([a-zA-Z0-9./+?=&\(\)_;\#~%-](?<!LOL))*+)?+)(?<!\.jpg|\.png|\.gif|\.JPG|\.PNG|\.GIF)#',
             'WYSIWYG_LinkProcess',
             $text
