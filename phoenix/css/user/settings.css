@@ -213,7 +213,7 @@ form div .setting ul.interesttags li {
 #avatarlist div.cancel {
 	text-align: center;
 }
-#pwdmodal, #deletemodal {
+#pwdmodal, #deletemodal { /* password change and account delte modals */
 	display: none;
     top: 10%;
 	left: 30%;
