@@ -11,6 +11,7 @@
 			?>$( '#deletemodal div div span' ).find( 'div div span' ).fadeIn( 300 );
             document.body.style.cursor = 'default';
             <?php
+            return;
         }
 
         $user->Deleted = 1;
