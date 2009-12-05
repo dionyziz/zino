@@ -1,10 +1,4 @@
 <?php
-/*
-	Masked by: Rhapsody
-	Reason: new ajax loading tabs for settings testing
-	
-	STOP! was masked
-*/
     class ElementUserSettingsView extends Element {
         public function Render() {
             global $user;
@@ -20,20 +14,20 @@
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
             ?><div class="settings">
-                <div class="sidebar"><?php
-                    Element( 'user/settings/sidebar' );
+                <div class="sections"><?php
+                    Element( 'user/settings/sections' );
                 ?></div>
                 <div class="tabs">
                 </div>
-				<div id="settingsloader">
+                <div id="settingsloader">
                     <img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Φόρτωση Ρυθμίσεων...
                 </div>
             </div>
             <div class="eof"></div><?php
-            $page->AttachInlineScript( 'Settings.SettingsOnLoad();' );
-            //$page->AttachInlineScript( 'Suggest.OnLoad();' );
+            $page->AttachInlineScript( 'Settings.OnLoad();' );
+            $page->AttachInlineScript( 'Suggest.OnLoad();' );
         }
     }
 ?>
