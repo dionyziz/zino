@@ -132,7 +132,7 @@
                     <div id="messages_<?php
                     echo $channelid;
                     ?>" class="channelmessages<?php
-                    if ( count( $videostream ) ) {
+                    if ( count( $videostreams ) ) {
                         ?> video<?php
                     }
                     ?>" style="visibility:hidden; height: 0;">
