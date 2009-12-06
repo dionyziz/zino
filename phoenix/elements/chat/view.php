@@ -151,7 +151,7 @@
                                 ?>' ).watch( '<?php
                                 echo $stream->User->Name;
                                 ?>.<?php
-                                echo $stream->User->Authtoken;
+                                echo $stream->Authtoken;
                                 ?>' );<?php
                             }
                             $page->AttachInlineScript( ob_get_clean() );
