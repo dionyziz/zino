@@ -16,7 +16,7 @@
     // move all these into one file
     require_once 'libs/rabbit/rabbit.php';
     require_once 'libs/rabbit/primitive.php';
-    $libs->Load( 'rabbit/controller.php' );
+    $libs->Load( 'rabbit/controller' );
     
     $req = $_GET;
     Rabbit_ClearPostGet();
