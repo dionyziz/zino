@@ -135,6 +135,7 @@
                         $finder = New ChatVideoFinder();
                         $videostreams = $finder->FindByChannelId( $channelid );
                         foreach ( $videostreams as $stream ) {
+                            ob_start();
                             if ( $stream->Userid == $user->Id ) { // we're broadcasting
                                 ?>$( '#videochat_<?php
                                 echo $channelid;
@@ -153,6 +154,7 @@
                                 echo $stream->User->Authtoken;
                                 ?>' );<?php
                             }
+                            $page->AttachInlineScript( ob_get_clean() );
                         }
                         ?>
                     </div>
