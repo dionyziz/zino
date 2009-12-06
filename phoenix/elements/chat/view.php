@@ -24,7 +24,7 @@
             $page->AttachScript( 'js/chat.js' );
             $page->AttachScript( 'js/wysiwyg.js' );
             
-            $libs->Load( 'shoutbox' );
+            $libs->Load( 'chat/message' );
             $libs->Load( 'chat/channel' );
             $libs->Load( 'chat/video' );
 			

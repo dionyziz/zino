@@ -3,7 +3,7 @@
         public function Render() {
             global $libs;
 
-            $libs->Load( 'shoutbox' );
+            $libs->Load( 'chat/message' );
 
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindLatest( 0, 7 );

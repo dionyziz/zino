@@ -1,6 +1,25 @@
 <?php
 	/* Avoid Satori/Finder base for speed */
 	
+    function Channel_SequencePosition( $channelid ) { // ensure atomicity
+        global $db;
+
+        $query = $db->Prepare(
+            "INSERT INTO
+                :chatsequences
+                ( `sequence_channelid`, `sequence_position` )
+                VALUES
+                ( :channelid, 0 )
+            ON DUPLICATE KEY UPDATE `sequence_position` = LAST_INSERT_ID( `sequence_position` + 1 )"
+        );
+        $query->BindTable( 'chatsequences' );
+        $query->Bind( 'channelid', $channelid );
+        $res = $query->Execute();
+        $insertid = $res->InsertId();
+
+        return $insertid;
+    }
+
 	class ChannelFinder {
 		public static function FindByUserid( $userid ) {
 			global $db;

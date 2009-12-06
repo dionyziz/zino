@@ -1,13 +1,9 @@
 <?php
-
     class TestShoutbox extends Testcase {
-        protected $mAppliesTo = 'libs/shoutbox';
+        protected $mAppliesTo = 'libs/chat/message';
         private $mUsers;
 
         public function SetUp() {
-            global $libs;
-            $libs->Load( 'shoutbox' );
-
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testshoutbox' );
             if ( is_object( $user ) ) {

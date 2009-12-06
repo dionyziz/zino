@@ -4,7 +4,7 @@
         global $libs;
         
         $libs->Load( 'wysiwyg' );
-        $libs->Load( 'shoutbox' );
+        $libs->Load( 'chat/message' );
         
         $text = $text->Get();
         if ( $user->Exists() && trim( $text ) != '' ) {

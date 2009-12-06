@@ -9,7 +9,7 @@
                 $pageno = 1;
             }
 
-            $libs->Load( 'shoutbox' );
+            $libs->Load( 'chat/message' );
 
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindByChannel( 0, 20 * ( $pageno - 1 ), 20 )

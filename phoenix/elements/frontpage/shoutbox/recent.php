@@ -5,7 +5,7 @@
         public function Render( $shoutboxseq ) {
             global $libs;
             
-            $libs->Load( 'shoutbox' );
+            $libs->Load( 'chat/message' );
 
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindByChannel( 0, 0, 7 );

@@ -5,10 +5,10 @@
         // We use this as it is here or global function? --d3nnn1z
         public function Count() {
             $query = $this->mDb->Prepare(
-            'SELECT
-                COUNT(*) AS newscount
-            FROM
-                :shoutbox;
+                'SELECT
+                    COUNT(*) AS newscount
+                FROM
+                    :shoutbox;
             ');
             $query->BindTable( 'shoutbox' );
             $res = $query->Execute();
@@ -98,7 +98,10 @@
             global $libs;
             
             $libs->Load( 'bulk' );
+            $libs->Load( 'chat/channel' );
+
             $this->Bulkid = Bulk::Store( $this->mText );
+            $this->ChannelPosition = Channel_SequencePosition( $this->Channelid );
         }
 
         protected function OnBeforeUpdate() {
