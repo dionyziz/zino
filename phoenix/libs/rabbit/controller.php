@@ -21,7 +21,7 @@
             $ret = Rabbit_Include( 'controllers/' . $path ); // throws RabbitIncludeException
             return $ret;
         }
-        catch ( RabbitInludeException $e ) {
+        catch ( RabbitIncludeException $e ) {
             return false;
         }
     }
