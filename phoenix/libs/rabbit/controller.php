@@ -51,7 +51,7 @@
         if ( $ret === false ) {
             Controller_Include( '404' );
             $c = New Controller404( $method, $coala );
-            $c->FireAction( 'View' );
+            $c->FireAction( 'View', $req );
             return;
         }
 
