@@ -14,13 +14,13 @@
             ?>alert( 'Please try a different channel' );<?php
             return;
         }
-        die( '21' );
 
         $participants = ChannelFinder::FindParticipantsByChannel( $channelid );
         if ( count( $participants ) != 2 ) {
             ?>alert( 'Only one-to-one channels are allowed for now' );<?php
             return; // only one-to-one video for now
         }
+        die( '22' );
 
         $video = New ChatVideo();
         $video->Channelid = $channelid;
