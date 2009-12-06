@@ -168,4 +168,16 @@ div.server a {
     padding-left: 21px;
     background-position: 1px 0;
 }
+ol li.history {
+    color: #ccc;
+    text-align: center;
+}
+ol li.history a {
+    padding: 10px;
+    text-decoration: none;
+    color: #5281af; 
+}
+ol li.history a:hover {
+    text-decoration: underline;
+}
 
