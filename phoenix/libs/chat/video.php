@@ -15,12 +15,12 @@
                 "SELECT
                     video_authtoken, user_id, user_name
                 FROM
-                    :chatvideos CROSS JOIN :users
+                    :chatvideo CROSS JOIN :users
                         ON video_userid = user_id
                 WHERE
                     video_channelid = :channelid;"
             );
-            $query->BindTable( 'chatvideos', 'users' );
+            $query->BindTable( 'chatvideo', 'users' );
             $query->Bind( 'channelid', $channelid );
             $res = $query->Execute();
 
