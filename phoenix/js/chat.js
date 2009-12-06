@@ -99,7 +99,8 @@ Frontpage.Shoutbox = {
 				Frontpage.Shoutbox.BottomScroll = scrll;
 			}
 		} );
-		$( '#messages_0' )[ 0 ].style.display = '';
+		$( '#messages_0' )[ 0 ].style.visibility = 'visible';
+		$( '#messages_0' ).height( 'auto' );
 		f();
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];
