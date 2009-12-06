@@ -16,50 +16,52 @@
             return ( int )$row[ 'newscount' ];
         }
 
-        public function FindByChannel( $channelid = 0, $offset = 0, $limit = 20 ) {
+        public function FindByChannel( $channelid = 0, $limit = 20 ) {
             global $libs;
             
 			if ( is_int( $channelid ) ) {
-				$channelid = array( $channelid );
+				$channelids = array( $channelid );
 			}
 			else {
-				w_assert( is_array( $channelid ) );
-				w_assert( !empty( $channelid ) );
+                $channelids = $channelid;
+				w_assert( is_array( $channelids ) );
+				w_assert( !empty( $channelids ) );
 			}
 			
             $libs->Load( 'image/image' );
             $libs->Load( 'bulk' );
 
-            $limit *= count( $channelid );
+            $shouts = array();
+            $bulkids = array();
+            $row = array();
 
             $query = $this->mDb->Prepare( "
                 SELECT
                     *
                 FROM
                     :shoutbox
-                    LEFT JOIN :chatsequences
-                        ON `shout_channelid` = `sequence_channelid`
                     LEFT JOIN :users
                         ON `shout_userid` = `user_id`
                     LEFT JOIN :images
                         ON `user_avatarid` = `image_id`
                 WHERE
                     `shout_delid` = '0'
-					AND `shout_channelid` IN :channelids
+                    AND `shout_channelid` IN :channelids
                 ORDER BY
                     `sequence_position` - `shout_channelposition` ASC
                 LIMIT
                     :offset, :limit;" );
-
             $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
-            $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
-			$query->Bind( 'channelids', $channelid );
+            foreach ( $channelids as $channelid ) {
+                $query->Bind( 'channelids', $channelid );
+                $res = $query->Execute();
+                while ( $row = $res->FetchArray() ) {
+                    $rows[] = $row;
+                }
+            }
             
-            $res = $query->Execute();
-            $shouts = array();
-            $bulkids = array();
-            while ( $row = $res->FetchArray() ) {
+            while ( $row = array_shift( $rows ) ) {
                 $shout = New Shout( $row );
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
