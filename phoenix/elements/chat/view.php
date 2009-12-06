@@ -141,18 +141,18 @@
                             foreach ( $videostreams as $stream ) {
                                 ob_start();
                                 if ( $stream->Userid == $user->Id ) { // we're broadcasting
-                                    ?>$( '#videochat_<?php
+                                    ?>document.getElementById( 'videochat_<?php
                                     echo $channelid;
-                                    ?>' )[ 0 ].publish( '<?php
+                                    ?>' ).publish( '<?php
                                     echo $stream->User->Name;
                                     ?>.<?php
-                                    echo $stream->User->Authtoken;
+                                    echo $stream->Authtoken;
                                     ?>' );<?php
                                 }
                                 else { // we're receiving
-                                    ?>$( '#videochat_<?php
+                                    ?>document.getElementById( 'videochat_<?php
                                     echo $channelid;
-                                    ?>' )[ 0 ].watch( '<?php
+                                    ?>' ).watch( '<?php
                                     echo $stream->User->Name;
                                     ?>.<?php
                                     echo $stream->Authtoken;
