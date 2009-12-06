@@ -42,7 +42,7 @@
         $video->Active = 1;
         $video->Save();
 
-        die( 'ACTIVATED' );
+        die( $video->Authtoken );
 
         echo $f;
         ?>( <?php
