@@ -5,8 +5,11 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
-        protected function OnBeforeCreate() {
+        public function RenewAuthtoken() {
             $this->Authtoken = Chat_GenerateVidAuthtoken();
+        }
+        protected function OnBeforeCreate() {
+            $this->RenewAuthtoken();
         }
     }
 

@@ -28,6 +28,9 @@
         foreach ( $streams as $video ) {
             if ( $video->Userid == $user->Id ) {
                 // stream already exists, activate it
+                if ( $video->Active == 0 ) {
+                    $video->RenewAuthtoken();
+                }
                 $flag = true;
                 break;
             }
@@ -42,13 +45,11 @@
         $video->Active = 1;
         $video->Save();
 
-        die( $video->Authtoken );
-
         echo $f;
         ?>( <?php
         echo $channelid;
-        ?>, <?php
+        ?>, '<?php
         echo $video->Authtoken;
-        ?> );<?php
+        ?>' );<?php
     }
 ?>
