@@ -42,6 +42,8 @@
         $video->Active = 1;
         $video->Save();
 
+        die( 'ACTIVATED' );
+
         echo $f;
         ?>( <?php
         echo $channelid;
