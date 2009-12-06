@@ -42,7 +42,7 @@
 			
 			$query = $db->Prepare(
 				'SELECT
-					`channel_id`, `channel_authtoken`, `user_name`, `user_id`, `user_avatarid`
+					`channel_id`, `user_name`, `user_id`, `user_avatarid`
 				FROM
 					:chatchannels
 						CROSS JOIN :chatparticipants AS me
