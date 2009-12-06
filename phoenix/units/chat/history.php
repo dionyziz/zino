@@ -27,7 +27,7 @@
                 'id' => $message->Id
             );
             if ( $user->Id == $message->Userid ) {
-                $data[ 'self' ] = true;
+                $data[ 'who' ][ 'self' ] = true;
             }
             $data[] = $item;
         }
