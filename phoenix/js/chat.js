@@ -89,6 +89,7 @@ Frontpage.Shoutbox = {
         
                         div.className = 'text';
                         div.innerHTML = item.text + '';
+                        alert( item.text );
         
                         var strong = document.createElement( 'strong' );
                         strong.appendChild( document.createTextNode( item.who.name ) );
