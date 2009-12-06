@@ -101,7 +101,7 @@ Frontpage.Shoutbox = {
                         var strong = document.createElement( 'strong' );
                         strong.appendChild( document.createTextNode( item.who.name ) );
         
-                        if ( typeof item.who.self != 'undefined' ) {
+                        if ( item.who.name == User ) {
                             strong.className = 'u';
                         }
         

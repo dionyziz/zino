@@ -26,9 +26,6 @@
                 'created' => $message->Created,
                 'id' => $message->Id
             );
-            if ( $user->Id == $message->Userid ) {
-                $item[ 'who' ][ 'self' ] = true;
-            }
             $data[] = $item;
         }
 
