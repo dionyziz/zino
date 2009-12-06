@@ -1,7 +1,10 @@
 ( function() {
     var txt = $( 'textarea' );
     var lis = $( 'ol li' );
-    lis[ lis.length - 1 ].scrollIntoView();
+
+    if ( lis.length ) {
+        lis[ lis.length - 1 ].scrollIntoView();
+    }
     
     if ( txt.length ) {
         Kamibu.ClickableTextbox( txt[ 0 ], true, '#111', '#999' );
