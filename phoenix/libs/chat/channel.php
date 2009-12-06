@@ -27,7 +27,7 @@
 
             $query = $db->Prepare(
                 "SELECT
-                    `channel_id`
+                    `participant_channelid`
                 FROM
                     :chatparticipants
                 WHERE
