@@ -78,7 +78,7 @@
             $beforefunc = "Before$action";
             $this->$beforefunc(); // MAGIC!
 
-            $ret = Rabbit_TypeSafe_Call( array( $c, $action ), $req );
+            $ret = Rabbit_TypeSafe_Call( array( $this, $action ), $req );
 
             if ( $this->mRedirected ) {
                 w_assert( !$this->mCoala );
