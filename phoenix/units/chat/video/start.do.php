@@ -3,9 +3,6 @@
         global $libs;
         global $user;
 
-        $channelid = $channelid->Get();
-        die( ',' . $channelid );
-
         $libs->Load( 'chat/video' );
         $libs->Load( 'chat/channel' );
 
@@ -13,6 +10,7 @@
             ?>alert( 'Please login' );<?php
             return;
         }
+        die( '1' );
         if ( !ChannelFinder::Auth( $channelid, $user->Id ) ) { // we must be in the channel
             ?>alert( 'Please try a different channel' );<?php
             return;
