@@ -92,7 +92,7 @@
             $this->$afterfunc(); // MAGIC!
 
             if ( !$this->mCoala ) {
-                $page->Output( ob_get_clean() );
+                $this->mPage->Output( ob_get_clean() );
             }
         }
         protected function Redirect( $url ) {
