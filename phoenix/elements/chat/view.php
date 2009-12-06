@@ -26,6 +26,7 @@
             
             $libs->Load( 'shoutbox' );
             $libs->Load( 'chat/channel' );
+            $libs->Load( 'chat/video' );
 			
 			if ( $user->Exists() ) {
 				$channels = ChannelFinder::FindByUserid( $user->Id );
@@ -130,7 +131,30 @@
                     <div class="server">
                         <embed width="600" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="sameDomain" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_<?php
                         echo $channelid;
-                        ?>" />
+                        ?>" /><?php
+                        $finder = New ChatVideoFinder();
+                        $videostreams = $finder->FindByChannelId( $channelid );
+                        foreach ( $videostreams as $stream ) {
+                            if ( $stream->Userid == $user->Id ) { // we're broadcasting
+                                ?>$( '#videochat_<?php
+                                echo $channelid;
+                                ?>' ).publish( '<?php
+                                echo $stream->User->Name;
+                                ?>.<?php
+                                echo $stream->User->Authtoken;
+                                ?>' );<?php
+                            }
+                            else { // we're receiving
+                                ?>$( '#videochat_<?php
+                                echo $channelid;
+                                ?>' ).watch( '<?php
+                                echo $stream->User->Name;
+                                ?>.<?php
+                                echo $stream->User->Authtoken;
+                                ?>' );<?php
+                            }
+                        }
+                        ?>
                     </div>
 					<ol><?php
 						$prevuser = '';
