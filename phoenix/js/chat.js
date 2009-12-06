@@ -66,23 +66,6 @@ Frontpage.Shoutbox = {
 	FlashStates: {},
 	Init: function( channels ) {
 		var f = function () {
-			var h = $( window ).height();
-			var t = 0;
-			if ( $( 'textarea' ).length ) {
-				t = $( 'textarea' ).height();
-				if ( $( '#tabs' ).length ) {
-					t += $( '#tabs' ).height();
-				}
-			}
-			
-            var channelmessages = $( 'div.channelmessages' );
-			var i = Frontpage.Shoutbox.ActiveChannel;
-            //for ( var i = 0; i < channelmessages.length; ++i ) {
-                var serv = $( $( 'div.channelmessages' )[ i ] ).find( 'div.server' ).height();
-                $( $( 'div.channelmessages' )[ i ] ).height( h - t - 30 );
-                $( $( 'div.channelmessages ol' )[ i ] ).height( h - t - 30 - serv );
-            //}
-			
 			var lis = $( 'div#messages_0 li' );
 			lis[ lis.length - 1 ].scrollIntoView();
 			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
