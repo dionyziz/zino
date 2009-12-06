@@ -27,7 +27,9 @@
 						node: node, 
 						f: function () {
 							var lis = $( 'ol li' );
-							lis[ lis.length - 1 ].scrollIntoView();
+                            if ( lis.length ) {
+                                lis[ lis.length - 1 ].scrollIntoView();
+                            }
 							Frontpage.Shoutbox.AutoScroll = true;
 						}
 					} );
