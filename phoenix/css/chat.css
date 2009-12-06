@@ -12,6 +12,11 @@ ol {
     margin: 0 20px 0 0;
     overflow: auto;
     height: 100%;
+    position: fixed;
+    top: 26px;
+    bottom: 63px;
+    left: 0;
+    right: 0;
 }
 ol li {
     padding: 2px;
