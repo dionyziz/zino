@@ -133,3 +133,15 @@ em {
 #tabs ul {
 	list-style: none;
 }
+#tabs.notice {
+    padding: 26px 5px 0;
+}
+#tabs.notice div.notice a {
+    text-decoration: none;
+    color: #5281af;
+    background-image: url( 'http://static.zino.gr/phoenix/webcam.png' );
+    background-repeat: no-repeat;
+    padding-left: 21px;
+    background-position: 1px 0;
+}
+
