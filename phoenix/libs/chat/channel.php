@@ -4,18 +4,32 @@
     function Channel_SequencePosition( $channelid ) { // ensure atomicity
         global $db;
 
+        // ensure an atomic positive position sequence in increasing order
         $query = $db->Prepare(
             "INSERT INTO
                 :chatsequences
                 ( `sequence_channelid`, `sequence_position` )
                 VALUES
-                ( :channelid, 0 )
+                ( :channelid, 1 )
             ON DUPLICATE KEY UPDATE `sequence_position` = LAST_INSERT_ID( `sequence_position` + 1 )"
         );
         $query->BindTable( 'chatsequences' );
         $query->Bind( 'channelid', $channelid );
         $res = $query->Execute();
         $insertid = $res->InsertId();
+
+        // under rush conditions, this may not be the real max, but that's OK we only need an approximate aggregation
+        $query = $db->Prepare(
+            "UPDATE
+                :chatchannels
+            SET
+                `channel_maxposition` = :insertid
+            WHERE
+                `channel_id` = :channelid"
+        );
+        $query->BindTable( 'chatchannels' );
+        $query->Bind( 'insertid', $insertid );
+        $query->Execute();
 
         return $insertid;
     }

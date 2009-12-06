@@ -30,11 +30,15 @@
             $libs->Load( 'image/image' );
             $libs->Load( 'bulk' );
 
+            $limit *= count( $channelid );
+
             $query = $this->mDb->Prepare( "
                 SELECT
                     *
                 FROM
                     :shoutbox
+                    LEFT JOIN :channels
+                        ON `shout_channelid` = `channel_id`
                     LEFT JOIN :users
                         ON `shout_userid` = `user_id`
                     LEFT JOIN :images
@@ -43,7 +47,7 @@
                     `shout_delid` = '0'
 					AND `shout_channelid` IN :channelids
                 ORDER BY
-                    `shout_id` DESC
+                    `channel_maxposition` - `shout_channelposition` ASC
                 LIMIT
                     :offset, :limit;" );
 
