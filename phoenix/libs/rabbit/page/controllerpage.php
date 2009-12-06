@@ -235,6 +235,30 @@
             }
             ?></head><?php
         }
+        private function OutputScript( $script ) {
+            w_assert( is_array( $script ) );
+            
+            if ( $script[ 'ieversion' ] != '' ) {
+                ?><!--[if lt IE <?php
+                echo $script[ 'ieversion' ];
+                ?>]><?php
+                echo "\n";
+            }
+            ?><script type="text/<?php
+            echo $script[ 'language' ];
+            ?>" src="<?php
+            echo $script[ 'filename' ];
+            if ( file_exists( $this->mBaseIncludePath . '/' . $script[ 'filename' ] ) ) {
+                ?>?<?php
+                // force uncaching if necessary
+                echo filemtime( $this->mBaseIncludePath . '/' . $script[ 'filename' ] );
+            }
+            ?>" charset="utf-8"></script><?php
+            if ( $script[ 'ieversion' ] != '' ) {
+                ?><![endif]--><?php
+                echo "\n";
+            }
+        }
         private function OutputHTMLBody( $bodyhtml ) {
             ?><body><?php
             echo $bodyhtml;
