@@ -114,13 +114,13 @@
             return;
         }
         // override these!
-        protected function View() {
+        public function View() {
         }
-        protected function Create() {
+        public function Create() {
         }
-        protected function Update() {
+        public function Update() {
         }
-        protected function Delete() {
+        public function Delete() {
         }
         protected function BeforeView() {
         }
