@@ -21,6 +21,7 @@
     $req = $_GET;
     Rabbit_ClearPostGet();
     
+    Project_Construct();
     Controller_Fire( 'GET', $req );
 
     // Rabbit_Destruct(); // this doesn't do anything!
