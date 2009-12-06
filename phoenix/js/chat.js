@@ -76,7 +76,14 @@ Frontpage.Shoutbox = {
                 offset: $( '#messages_' + channelid + ' li.text' ).length,
                 f: function ( data ) {
                     document.body.style.cursor = 'default';
-                    $( '#messages_' + channelid + ' li.history a' ).show();
+
+                    if ( data.length < 50 ) {
+                        $( '#messages_' + channelid + ' li.history' ).hide();
+                    }
+                    else {
+                        $( '#messages_' + channelid + ' li.history a' ).show();
+                    }
+
                     var ol = $( '#messages_' + channelid + ' ol' )[ 0 ];
                     var at = $( ol ).find( 'li.text' )[ 0 ];
                     var i;
