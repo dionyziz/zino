@@ -215,9 +215,19 @@
 					</ol></div><?php
 				}
                 if ( $user->Exists() ) {
-                    ?><div class="typehere">
-                        <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
-                    </div><?php
+                    ?>
+                        
+                    <div class="bottom">
+                        <div class="toolbox">
+                            <div class="video">
+                            </div>
+                        </div>
+                        <div class="typehere">
+                            <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
+                        </div>
+                    </div>
+                    
+                    <?php
                 }
             ?></div><?php
             
