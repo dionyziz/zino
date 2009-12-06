@@ -2,6 +2,8 @@
 
     class ElementDeveloperAlbumView extends Element {
         public function Render( $album, $images ) {
+            global $user;
+
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
                 Element( 'developer/user/sections', 'album' , $album->Owner );
             }
