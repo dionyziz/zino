@@ -119,7 +119,7 @@ Frontpage.Shoutbox = {
             var div = this.parentNode.parentNode.parentNode;
             var channelid = div.id.substr( 'messages_'.length );
 
-            this.hide();
+            $( this ).hide();
 
             document.body.style.cursor = 'hourglass';
             Frontpage.Shoutbox.LoadHistory( channelid );
