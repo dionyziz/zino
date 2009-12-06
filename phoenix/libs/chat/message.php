@@ -101,7 +101,7 @@
             $libs->Load( 'chat/channel' );
 
             $this->Bulkid = Bulk::Store( $this->mText );
-            $this->ChannelPosition = Channel_SequencePosition( $this->Channelid );
+            $this->Channelposition = Channel_SequencePosition( $this->Channelid );
         }
 
         protected function OnBeforeUpdate() {
