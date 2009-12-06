@@ -1,9 +1,6 @@
 <?php
     class ControllerAlbum extends Controller {
         public function View( tInteger $id , tInteger $pageno ) {
-            global $user;
-            global $rabbit_settings; 
-            global $water;
             global $libs;
             
             $libs->Load( 'album' );
@@ -27,7 +24,7 @@
 
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
-            $page->SetTitle( $album->Name );
+            $this->mPage->SetTitle( $album->Name );
 
             Element( 'developer/album/view', $album, $images );
         }
