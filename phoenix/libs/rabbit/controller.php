@@ -24,7 +24,7 @@
 
         $coala = false; // unit handling later
 
-        $path = $p;
+        $path = $req[ 'p' ];
         $action = 'view';
 
         if ( $action == 'view' ) {
