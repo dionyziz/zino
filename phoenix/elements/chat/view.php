@@ -135,7 +135,7 @@
                     if ( count( $videostreams ) ) {
                         ?>
                         <div class="server">
-                            <embed width="600" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://beta.zino.gr/etc/zinovideo.swf" id="videochat_<?php
+                            <embed width="600" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_<?php
                             echo $channelid;
                             ?>" /><?php
                             foreach ( $videostreams as $stream ) {
