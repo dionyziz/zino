@@ -13,7 +13,7 @@
         public function FindByChannelId( $channelid ) {
             $query = $this->mDb->Prepare(
                 "SELECT
-                    video_authtoken, user_id, user_name
+                    *
                 FROM
                     :chatvideo CROSS JOIN :users
                         ON video_userid = user_id
