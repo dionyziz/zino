@@ -170,6 +170,8 @@ Frontpage.Shoutbox = {
             Coala.Warm( 'chat/video/start', {
                 channelid: Frontpage.Shoutbox.ActiveChannel,
                 f: function ( channelid, authtoken ) {
+                    alert( 'Unicasting to channel ' + channelid + ' using authtoken ' + authtoken );
+
                     var div = document.createElement( 'div' );
                     document.body.style.cursor = 'default';
                     div.className = 'server';
