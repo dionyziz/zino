@@ -25,7 +25,7 @@
             ( channel_id, channel_maxposition, channel_created )
             VALUES
             ( :channelid, :insertid, NOW() )
-            ON DUPICATE KEY UPDATE
+            ON DUPLICATE KEY UPDATE
             `channel_maxposition` = :insertid"
         );
         $query->BindTable( 'chatchannels' );
