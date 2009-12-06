@@ -48,9 +48,9 @@
                     `shout_delid` = '0'
                     AND `shout_channelid` IN :channelids
                 ORDER BY
-                    `sequence_position` - `shout_channelposition` ASC
+                    `shout_id` DESC
                 LIMIT
-                    :offset, :limit;" );
+                    :limit;" );
             $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
             $query->Bind( 'limit', $limit );
             foreach ( $channelids as $channelid ) {
