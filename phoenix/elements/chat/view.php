@@ -139,7 +139,7 @@
                             if ( $stream->Userid == $user->Id ) { // we're broadcasting
                                 ?>$( '#videochat_<?php
                                 echo $channelid;
-                                ?>' ).publish( '<?php
+                                ?>' )[ 0 ].publish( '<?php
                                 echo $stream->User->Name;
                                 ?>.<?php
                                 echo $stream->User->Authtoken;
@@ -148,7 +148,7 @@
                             else { // we're receiving
                                 ?>$( '#videochat_<?php
                                 echo $channelid;
-                                ?>' ).watch( '<?php
+                                ?>' )[ 0 ].watch( '<?php
                                 echo $stream->User->Name;
                                 ?>.<?php
                                 echo $stream->Authtoken;
