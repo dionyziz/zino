@@ -128,6 +128,8 @@ Frontpage.Shoutbox = {
 					$( '#switchchannel_' + channelid ).css( { 'opacity': 1 } );
 				}, 200 );
 			}
+
+            window.onresize();
 			
 			return false;
 		} );
@@ -245,7 +247,7 @@ Frontpage.Shoutbox = {
                 li.id = 'typing_' + typist.channel + '_' + typist.name;
                 li.className = 'typing';
                 li.innerHTML = '<strong>' + typist.name + '</strong> <div class="text"><em>πληκτρολογεί...</em></div>';
-                $( 'ol#messages_' + typist.channel + ' ol' )[ 0 ].appendChild( li );
+                $( 'div#messages_' + typist.channel + ' ol' )[ 0 ].appendChild( li );
                 if ( this.AutoScroll ) {
                     li.scrollIntoView();
                 }
