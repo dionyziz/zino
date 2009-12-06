@@ -52,10 +52,13 @@
                 LIMIT
                     :limit;"
             );
-            $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
+            $query->BindTable( 'shoutbox', 'users', 'images' );
             $query->Bind( 'limit', $limit );
             foreach ( $channelids as $channelid ) {
                 $query->Bind( 'channelid', $channelid );
+
+                die( $query->Apply() );
+
                 $res = $query->Execute();
                 while ( $row = $res->FetchArray() ) {
                     $rows[] = $row;
