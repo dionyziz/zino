@@ -195,6 +195,7 @@
         protected function AfterView() {
             global $rabbit_settings;
             global $water;
+            global $libs;
 
             if ( !$this->mPage->IsTitleFinal() ) {
                 if ( $this->mPage->Title() != '' ) { // If the title's page is not blank
