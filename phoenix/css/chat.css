@@ -141,6 +141,7 @@ em {
 div.server {
     background-color: #f5f5f5;
     border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 div.server a {
     text-decoration: none;
