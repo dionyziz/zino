@@ -3,6 +3,7 @@
         global $libs;
         global $user;
 
+        $channelid = $channelid->Get();
         $libs->Load( 'chat/video' );
         $libs->Load( 'chat/channel' );
 
