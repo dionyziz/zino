@@ -57,8 +57,6 @@
             foreach ( $channelids as $channelid ) {
                 $query->Bind( 'channelid', $channelid );
 
-                die( $query->Apply() );
-
                 $res = $query->Execute();
                 while ( $row = $res->FetchArray() ) {
                     $rows[] = $row;
