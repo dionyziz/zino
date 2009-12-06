@@ -91,9 +91,6 @@ Frontpage.Shoutbox = {
             }
 
 			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
-            if ( $( '#messages_' + Frontpage.Shoutbox.ActiveChannel + ' div.server' ).length ) {
-                $( '#messages_' + Frontpage.Shoutbox.ActiveChannel + ' ol' ).css( { top: '227px' } );
-            }
 		};
 		window.onresize = f;
 		$( 'ol' ).scroll( function() {

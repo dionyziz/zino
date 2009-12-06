@@ -126,13 +126,17 @@
 			
             ?><div><?php
 				foreach ( $channelmessages as $channelid => $chats ) {
+                    $finder = New ChatVideoFinder();
+                    $videostreams = $finder->FindByChannelId( $channelid );
 					?>
                     <div id="messages_<?php
                     echo $channelid;
-                    ?>" class="channelmessages" style="visibility:hidden; height: 0;">
+                    ?>" class="channelmessages<?php
+                    if ( count( $videostream ) ) {
+                        ?> video<?php
+                    }
+                    ?>" style="visibility:hidden; height: 0;">
                     <?php
-                    $finder = New ChatVideoFinder();
-                    $videostreams = $finder->FindByChannelId( $channelid );
 
                     if ( count( $videostreams ) ) {
                         ?>
