@@ -38,7 +38,7 @@
                 FROM
                     :shoutbox
                     LEFT JOIN :chatsequences
-                        ON `shout_channelid` = `sequence_channelid``
+                        ON `shout_channelid` = `sequence_channelid`
                     LEFT JOIN :users
                         ON `shout_userid` = `user_id`
                     LEFT JOIN :images
