@@ -22,14 +22,15 @@
         $query = $db->Prepare(
             "INSERT INTO
                 :chatchannels
-            ( channel_maxposition, channel_created )
+            ( channel_id, channel_maxposition, channel_created )
             VALUES
-            ( :insertid, NOW() )
+            ( :channelid, :insertid, NOW() )
             ON DUPICATE KEY UPDATE
             `channel_maxposition` = :insertid"
         );
         $query->BindTable( 'chatchannels' );
         $query->Bind( 'insertid', $insertid );
+        $query->Bind( 'channelid', $channelid );
         $query->Execute();
 
         return $insertid;
