@@ -72,7 +72,11 @@ Frontpage.Shoutbox = {
 	Init: function( channels ) {
 		var f = function () {
 			var lis = $( 'div#messages_0 li' );
-			lis[ lis.length - 1 ].scrollIntoView();
+
+            if ( lis.length ) {
+                lis[ lis.length - 1 ].scrollIntoView();
+            }
+
 			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
             if ( $( '#messages_' + Frontpage.Shoutbox.ActiveChannel + ' div.server' ).length ) {
                 $( '#messages_' + Frontpage.Shoutbox.ActiveChannel + ' ol' ).css( { top: '227px' } );
