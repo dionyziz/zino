@@ -37,7 +37,9 @@
 
             $query = $this->mDb->Prepare(
                 "SELECT
-                    *
+                    shout_id, shout_created, shout_bulkid, shout_channelid,
+                    user_id, user_name, user_subdomain, user_gender,
+                    image_id
                 FROM
                     :shoutbox
                     LEFT JOIN :users
@@ -62,8 +64,6 @@
                     $rows[] = $row;
                 }
             }
-            var_dump( $rows );
-            die();
             
             while ( $row = array_shift( $rows ) ) {
                 $shout = New Shout( $row );
