@@ -73,8 +73,10 @@ Frontpage.Shoutbox = {
         Coala.Cold(
             'chat/history', {
                 channelid: channelid,
-                offset: $( 'messages_' + channelid + ' li.text' ).length,
+                offset: $( '#messages_' + channelid + ' li.text' ).length,
                 f: function ( data ) {
+                    document.body.style.cursor = 'default';
+                    $( '#messages_' + channelid + ' li.history a' ).show();
                     alert( data );
                 }
             }
@@ -113,6 +115,17 @@ Frontpage.Shoutbox = {
 		$( '#messages_0' )[ 0 ].style.visibility = 'visible';
 		$( '#messages_0' ).height( 'auto' );
 		f();
+        $( 'li.history a' ).click( function () {
+            var div = this.parentNode.parentNode.parentNode;
+            var channelid = div.id.substr( 'messages_'.length );
+
+            this.hide();
+
+            document.body.style.cursor = 'hourglass';
+            Frontpage.Shoutbox.LoadHistory( channelid );
+
+            return false;
+        } );
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];
 			
