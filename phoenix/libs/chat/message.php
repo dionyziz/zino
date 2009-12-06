@@ -35,8 +35,8 @@
             $bulkids = array();
             $row = array();
 
-            $query = $this->mDb->Prepare( "
-                SELECT
+            $query = $this->mDb->Prepare(
+                "SELECT
                     *
                 FROM
                     :shoutbox
@@ -46,7 +46,7 @@
                         ON `user_avatarid` = `image_id`
                 WHERE
                     `shout_delid` = '0'
-                    AND `shout_channelid` IN :channelids
+                    AND `shout_channelid` = :channelid
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
@@ -54,7 +54,7 @@
             $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
             $query->Bind( 'limit', $limit );
             foreach ( $channelids as $channelid ) {
-                $query->Bind( 'channelids', $channelid );
+                $query->Bind( 'channelid', $channelid );
                 $res = $query->Execute();
                 while ( $row = $res->FetchArray() ) {
                     $rows[] = $row;
