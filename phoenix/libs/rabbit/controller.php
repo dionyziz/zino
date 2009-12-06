@@ -26,6 +26,24 @@
         }
     }
 
+    function Controller_CheckAction( $action, $method ) {
+        if ( $action == 'view' ) {
+            w_assert( $method == 'GET', 'View only with GET' );
+        }
+        else if ( $action == 'create' || $action == 'update' || $action == 'delete' ) {
+            w_assert( $method == 'POST', 'Create, update and delete only with POST'  );
+        }
+        else {
+            die( 'invalid controller action requested' );
+        }
+    }
+
+    function Controller_Invalid( $method, $coala = false ) {
+        Controller_Include( '404' );
+        $c = New Controller404( $method, $coala );
+        $c->FireAction( 'View', array() );
+    }
+
     // this is where we decide which controller to call
     // and start action
     function Controller_Fire( $method, $req ) {
@@ -36,29 +54,17 @@
         $path = $req[ 'p' ];
         $action = 'view';
 
-        if ( $action == 'view' ) {
-            w_assert( $method == 'GET', 'View only with GET' );
-        }
-        else if ( $action == 'create' || $action == 'update' || $action == 'delete' ) {
-            w_assert( $method == 'POST', 'Create, update and delete only with POST'  );
-        }
-        else {
-            die( 'invalid controller action requested' );
-        }
-
+        Controller_CheckAction( $action, $method );
         $ret = Controller_Include( $path ); 
 
         if ( $ret === false ) {
-            Controller_Include( '404' );
-            $c = New Controller404( $method, $coala );
-            $c->FireAction( 'View', $req );
+            Controller_Invalid( $method, $coala );
             return;
         }
 
         $classname = Controller_GetClass( $path );
         w_assert( class_exists( $classname ), "controller $classname does not exist" );
 
-        // profile?
         $c = New $classname( $method, $coala );
         $c->FireAction( $action, $req );
     }
@@ -157,7 +163,7 @@
     }
     
     // move this to controllers/zino and define __autoload()
-    class ControllerZino extends Controller {
+    abstract class ControllerZino extends Controller {
         protected function BeforeView() {
             global $rabbit_settings;
             global $xc_settings;
