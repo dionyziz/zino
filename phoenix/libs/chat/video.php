@@ -31,7 +31,7 @@
         }
     }
 
-    function Chat_GenerateVidAuhtoken() {
+    function Chat_GenerateVidAuthtoken() {
         static $digits = array();
 
         if ( empty( $digits ) ) {
