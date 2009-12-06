@@ -124,9 +124,10 @@
             ?><div><?php
 				foreach ( $channelmessages as $channelid => $chats ) {
 					?>
-					<ol class="channelmessages" id="messages_<?php
-						echo $channelid;
-						?>" style="display:none"><?php
+                    <div id="messages_<?php
+                    echo $channelid;
+                    ?>" class="channelmessages" style="display:none">
+					<ol><?php
 						$prevuser = '';
 						$prevtime = '';
 						foreach ( $chats as $chat ) {
@@ -159,7 +160,7 @@
 							?></div></li><?php
 						}
 					?>
-					</ol><?php
+					</ol></div><?php
 				}
                 if ( $user->Exists() ) {
                     ?><div class="typehere">

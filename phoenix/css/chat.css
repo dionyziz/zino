@@ -11,6 +11,7 @@ ol {
     padding: 0;
     margin: 0 20px 0 0;
     overflow: auto;
+    height: 100%;
 }
 ol li {
     padding: 2px;
@@ -135,6 +136,9 @@ em {
 }
 #tabs.notice {
     padding: 26px 5px 0;
+    height: 45px;
+}
+#tabs.video {
 }
 #tabs.notice div.notice a {
     text-decoration: none;

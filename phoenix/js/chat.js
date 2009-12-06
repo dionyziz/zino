@@ -75,9 +75,9 @@ Frontpage.Shoutbox = {
 				}
 			}
 			
-			$( 'ol' ).height( h - t - 30 );
+			$( 'div.channelmessages' ).height( h - t - 30 );
 			
-			var lis = $( 'ol#messages_0 li' );
+			var lis = $( 'div#messages_0 li' );
 			lis[ lis.length - 1 ].scrollIntoView();
 			Frontpage.Shoutbox.BottomScroll = $( 'ol' ).scrollTop();
 		};
@@ -103,14 +103,14 @@ Frontpage.Shoutbox = {
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];
 			
-			$( 'ol.channelmessages' ).hide();
-			$( 'ol#messages_' + channelid ).show();
+			$( 'div.channelmessages' ).hide();
+			$( 'div#messages_' + channelid ).show();
 			$( '#tabs li' ).removeClass( 'focus' );
 			$( this.parentNode ).addClass( 'focus' );
 			$( 'textarea' ).focus();
 			
 			Frontpage.Shoutbox.ActiveChannel = channelid;
-			var lis = $( 'ol#messages_' + channelid + ' li' );
+			var lis = $( 'div#messages_' + channelid + ' li' );
 			if ( lis.length ) {
 				lis[ lis.length - 1 ].scrollIntoView();
 			}
@@ -160,7 +160,7 @@ Frontpage.Shoutbox = {
         li.appendChild( strong );
         li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
-        $( '#messages_' + channel )[ 0 ].appendChild( li );
+        $( '#messages_' + channel + ' ol' )[ 0 ].appendChild( li );
 
         if ( this.AutoScroll ) { 
             li.scrollIntoView();
@@ -239,7 +239,7 @@ Frontpage.Shoutbox = {
                 li.id = 'typing_' + typist.channel + '_' + typist.name;
                 li.className = 'typing';
                 li.innerHTML = '<strong>' + typist.name + '</strong> <div class="text"><em>πληκτρολογεί...</em></div>';
-                $( 'ol#messages_' + typist.channel )[ 0 ].appendChild( li );
+                $( 'ol#messages_' + typist.channel + ' ol' )[ 0 ].appendChild( li );
                 if ( this.AutoScroll ) {
                     li.scrollIntoView();
                 }
