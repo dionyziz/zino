@@ -38,6 +38,9 @@
             $query->BindTable( 'chatparticipants' );
             $query->Bind( 'channelid', $channelid );
             $query->Bind( 'userid', $userid );
+            $res = $query->Execute();
+
+            return $res->Results() > 0;
         }
 		public static function FindByUserid( $userid ) {
 			global $db;
