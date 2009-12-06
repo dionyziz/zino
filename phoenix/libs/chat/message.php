@@ -37,8 +37,8 @@
                     *
                 FROM
                     :shoutbox
-                    LEFT JOIN :chatchannels
-                        ON `shout_channelid` = `channel_id`
+                    LEFT JOIN :chatsequences
+                        ON `shout_channelid` = `sequence_channelid``
                     LEFT JOIN :users
                         ON `shout_userid` = `user_id`
                     LEFT JOIN :images
@@ -47,11 +47,11 @@
                     `shout_delid` = '0'
 					AND `shout_channelid` IN :channelids
                 ORDER BY
-                    `channel_maxposition` - `shout_channelposition` ASC
+                    `sequence_position` - `shout_channelposition` ASC
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'shoutbox', 'users', 'images', 'chatchannels' );
+            $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 			$query->Bind( 'channelids', $channelid );
