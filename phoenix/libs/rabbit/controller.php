@@ -144,6 +144,7 @@
     class ControllerZino extends Controller {
         protected function BeforeView() {
             global $rabbit_settings;
+            global $xc_settings;
 
             // Copied from elements/main
             // TODO: do something about this shit
