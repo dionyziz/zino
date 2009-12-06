@@ -33,7 +33,7 @@
 
             $shouts = array();
             $bulkids = array();
-            $row = array();
+            $rows = array();
 
             $query = $this->mDb->Prepare(
                 "SELECT
