@@ -228,7 +228,6 @@
             $this->mSize      = $value[ 'size' ]; // in bytes
             $this->mTempname  = $value[ 'tmp_name' ];
             $this->mErrorcode = $value[ 'error' ];
-        
         }
         public function __toString() {
             return '[uploaded file: ' . $this->mName . ']';

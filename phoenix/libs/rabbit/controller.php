@@ -13,17 +13,17 @@
     }
 
     function Controller_Include( $path ) {
-        global $rabbit_settings;
+        if ( strpos( $path, ".." ) !== false ) { // maybe rabbit should check this?
+            return false;
+        }
 
-        if ( strpos( $path, ".." ) !== false ) {
+        try {
+            $ret = Rabbit_Include( 'controllers/' . $path ); // throws RabbitIncludeException
+            return $ret;
+        }
+        catch ( RabbitInludeException $e ) {
             return false;
         }
-        $fullpath = $rabbit_settings[ 'rootdir' ] . '/controllers/' . $path . ".php";
-        if ( !file_exists( $fullpath ) ) {
-            return false;
-        }
-        $ret = Rabbit_Include( 'controllers/' . $path ); // throws RabbitIncludeException
-        // handle $ret ?
     }
 
     // this is where we decide which controller to call
