@@ -16,7 +16,7 @@
             return ( int )$row[ 'newscount' ];
         }
 
-        public function FindByChannel( $channelid = 0, $limit = 20 ) {
+        public function FindByChannel( $channelid = 0, $offset = 0, $limit = 20 ) {
             global $libs;
             
 			if ( is_int( $channelid ) ) {
@@ -52,10 +52,11 @@
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
-                    :limit;"
+                    :offset, :limit;"
             );
             $query->BindTable( 'shoutbox', 'users', 'images' );
             $query->Bind( 'limit', $limit );
+            $query->Bind( 'limit', $offset );
             foreach ( $channelids as $channelid ) {
                 $query->Bind( 'channelid', $channelid );
 
@@ -111,7 +112,6 @@
             $libs->Load( 'chat/channel' );
 
             $this->Bulkid = Bulk::Store( $this->mText );
-            $this->Channelposition = Channel_SequencePosition( $this->Channelid );
         }
 
         protected function OnBeforeUpdate() {

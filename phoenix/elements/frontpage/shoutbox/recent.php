@@ -8,7 +8,7 @@
             $libs->Load( 'chat/message' );
 
             $finder = New ShoutboxFinder();
-            $shouts = $finder->FindByChannel( 0, 7 );
+            $shouts = $finder->FindByChannel( 0, 0, 7 );
             foreach ( $shouts as $shout ) {
                 Element( 'shoutbox/view' , $shout , false );
             }

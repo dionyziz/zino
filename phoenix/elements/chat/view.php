@@ -39,7 +39,7 @@
 			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			
 			$finder = New ShoutboxFinder();
-			$chats = $finder->FindByChannel( array_keys( $channels ), CHAT_HISTORY_DEFAULT_LIMIT );
+			$chats = $finder->FindByChannel( array_keys( $channels ), 0, CHAT_HISTORY_DEFAULT_LIMIT );
 			$channelmessages = array();
 			foreach ( $channels as $channelid => $channeldata ) {
 				$channelmessages[ $channelid ] = array();
@@ -177,7 +177,7 @@
 						foreach ( $chats as $chat ) {
 							?><li id="s_<?php
 							echo $chat->Id;
-							?>"><?php
+							?>" class="text"><?php
 							ob_start();
 							Element( 'date/diff', $chat->Created );
 							$time = ob_get_clean();

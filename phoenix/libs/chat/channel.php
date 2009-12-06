@@ -22,6 +22,23 @@
     }
 
 	class ChannelFinder {
+        public static function Auth( $channelid, $userid ) {
+            global $db;
+
+            $query = $db->Prepare(
+                "SELECT
+                    `channel_id`
+                FROM
+                    :chatparticipants
+                WHERE
+                    `participant_channelid` = :channelid
+                    AND `participant_userid` = :userid
+                LIMIT 1" 
+            );
+            $query->BindTable( 'chatparticipants' );
+            $query->Bind( 'channelid', $channelid );
+            $query->Bind( 'userid', $userid );
+        }
 		public static function FindByUserid( $userid ) {
 			global $db;
 			

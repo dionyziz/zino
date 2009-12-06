@@ -69,6 +69,17 @@ Frontpage.Shoutbox = {
 	ActiveChannel: 0,
 	Flashes: {},
 	FlashStates: {},
+    LoadHistory: function ( channelid ) {
+        Coala.Cold(
+            'chat/history', {
+                channelid: channelid,
+                offset: $( 'messages_' + channelid + ' li.text' ).length
+                f: function ( data ) {
+                    alert( data );
+                }
+            }
+        );
+    }
 	Init: function( channels ) {
 		var f = function () {
 			var lis = $( 'div#messages_0 li' );
@@ -164,6 +175,7 @@ Frontpage.Shoutbox = {
         li.appendChild( strong );
         li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
+        li.className = 'text';
         $( '#messages_' + channel + ' ol' )[ 0 ].appendChild( li );
 
         if ( this.AutoScroll ) { 
