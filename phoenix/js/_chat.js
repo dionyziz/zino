@@ -75,6 +75,7 @@ Frontpage.Shoutbox = {
 	ActiveChannel: 0,
 	Flashes: {},
 	FlashStates: {},
+    Broadcasting: [], // array of channelids that you're currently broadcasting video and audio to 
     LoadHistory: function ( channelid ) {
         Coala.Cold(
             'chat/history', {
@@ -163,6 +164,21 @@ Frontpage.Shoutbox = {
             Frontpage.Shoutbox.LoadHistory( channelid );
 
             return false;
+        } );
+        $( 'div.toolbox .video' ).click( function () {
+            document.body.style.cursor = 'wait';
+            Coala.Warm( 'chat/video/start', {
+                channelid: Frontpage.Shoutbox.ActiveChannel,
+                f: function ( channelid, authtoken ) {
+                    var div = document.createElement( 'div' );
+                    document.body.style.cursor = 'default';
+                    div.className = 'server';
+                    var flash = '<embed width="267" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_' + channelid + '" />';
+                    document.getElementById( 'videochat_' + channelid ).publish( User + '.' + authtoken );
+                    div.innerHTML = flash;
+                    $( '#messages_' + channelid )[ 0 ].appendChild( div );
+                }
+            } );
         } );
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];

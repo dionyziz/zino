@@ -185,12 +185,13 @@ div.video ol {
 }
 div.bottom div.toolbox {
     position: fixed;
-    left: 102px;
+    left: 111px;
     bottom: 41px;
 }
 div.toolbox div.video {
     background-image: url( 'http://static.zino.gr/phoenix/webcam.png' );
     background-repeat: no-repeat;
-    padding: 0 6px;
+    padding: 8px;
+    cursor: pointer;
 }
 

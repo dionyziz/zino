@@ -27,7 +27,7 @@
             $page->AttachScript( 'js/coala.js' );
             $page->AttachScript( 'js/meteor.js' );
             $page->AttachScript( 'js/comet.js' );
-            $page->AttachScript( 'js/chat.js' );
+            $page->AttachScript( 'js/_chat.js' );
             $page->AttachScript( 'js/wysiwyg.js' );
             
             $libs->Load( 'chat/message' );
