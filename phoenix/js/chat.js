@@ -76,7 +76,7 @@ Frontpage.Shoutbox = {
 			}
 			
             var channelmessages = $( 'div.channelmessages' );
-			var i = ActiveChannel;
+			var i = Frontpage.Shoutbox.ActiveChannel;
             //for ( var i = 0; i < channelmessages.length; ++i ) {
                 var serv = $( $( 'div.channelmessages' )[ i ] ).find( 'div.server' ).height();
                 $( $( 'div.channelmessages' )[ i ] ).height( h - t - 30 );
