@@ -10,11 +10,11 @@
             ?>alert( 'Please login' );<?php
             return;
         }
-        die( '1' );
         if ( !ChannelFinder::Auth( $channelid, $user->Id ) ) { // we must be in the channel
             ?>alert( 'Please try a different channel' );<?php
             return;
         }
+        die( '21' );
 
         $participants = ChannelFinder::FindParticipantsByChannel( $channelid );
         if ( count( $participants ) != 2 ) {
