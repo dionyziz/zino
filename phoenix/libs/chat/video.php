@@ -3,7 +3,7 @@
         protected $mDbTableAlias = 'chatvideo';
 
         protected function Relations() {
-            $this->mUser = $this->HasOne( 'User', 'Userid' );
+            $this->User = $this->HasOne( 'User', 'Userid' );
         }
     }
 
