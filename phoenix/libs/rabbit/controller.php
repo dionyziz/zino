@@ -195,7 +195,7 @@
         protected function AfterView() {
             global $rabbit_settings;
 
-            if ( !$this->mPage->TitleFinal() ) {
+            if ( !$this->mPage->IsTitleFinal() ) {
                 if ( $this->mPage->Title() != '' ) { // If the title's page is not blank
                     $this->mPage->SetTitle( $this->mPage->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
                 }
