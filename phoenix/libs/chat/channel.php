@@ -20,12 +20,13 @@
 
         // under rush conditions, this may not be the real max, but that's OK we only need an approximate aggregation
         $query = $db->Prepare(
-            "UPDATE
+            "INSERT INTO
                 :chatchannels
-            SET
-                `channel_maxposition` = :insertid
-            WHERE
-                `channel_id` = :channelid"
+            ( channel_maxposition, channel_created )
+            VALUES
+            ( :insertid, NOW() )
+            ON DUPICATE KEY UPDATE
+            `channel_maxposition` = :insertid"
         );
         $query->BindTable( 'chatchannels' );
         $query->Bind( 'insertid', $insertid );
