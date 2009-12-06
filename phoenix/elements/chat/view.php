@@ -127,7 +127,7 @@
 					?>
                     <div id="messages_<?php
                     echo $channelid;
-                    ?>" class="channelmessages" style="display:none">
+                    ?>" class="channelmessages" style="visibility:hidden; height: 0;">
                     <?php
                     $finder = New ChatVideoFinder();
                     $videostreams = $finder->FindByChannelId( $channelid );
