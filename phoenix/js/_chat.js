@@ -170,8 +170,6 @@ Frontpage.Shoutbox = {
             Coala.Warm( 'chat/video/start', {
                 channelid: Frontpage.Shoutbox.ActiveChannel,
                 f: function ( channelid, authtoken ) {
-                    alert( 'Unicasting to channel ' + channelid + ' using authtoken ' + authtoken );
-
                     var div = document.createElement( 'div' );
                     document.body.style.cursor = 'default';
                     div.className = 'server';
@@ -180,7 +178,9 @@ Frontpage.Shoutbox = {
                     var msg = $( '#messages_' + channelid )[ 0 ];
                     msg.insertBefore( div, msg.firstChild );
                     $( msg ).addClass( 'video' );
-                    document.getElementById( 'videochat_' + channelid ).publish( User + '.' + authtoken );
+                    setTimeout( function () {
+                        document.getElementById( 'videochat_' + channelid ).publish( User + '.' + authtoken );
+                    }, 200 );
                 }
             } );
         } );
