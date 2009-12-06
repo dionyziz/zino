@@ -4,6 +4,7 @@
         global $user;
 
         $channelid = $channelid->Get();
+        die( ',' . $channelid );
 
         $libs->Load( 'chat/video' );
         $libs->Load( 'chat/channel' );
