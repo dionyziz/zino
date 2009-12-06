@@ -77,7 +77,16 @@ Frontpage.Shoutbox = {
                 f: function ( data ) {
                     document.body.style.cursor = 'default';
                     $( '#messages_' + channelid + ' li.history a' ).show();
-                    alert( data );
+                    var ol = $( '#messages_' + channelid + ' ol' )[ 0 ];
+                    var at = $( ol ).find( 'li.text' )[ 0 ];
+                    var i;
+
+                    for ( i in data ) {
+                        var item = data[ i ];
+                        var li = document.createElement( 'li' );
+                        li.appendChild( document.createTextNode( data.text ) );
+                        ol.insertBefore( li, at );
+                    }
                 }
             }
         );

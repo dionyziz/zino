@@ -25,6 +25,10 @@
         public static function Auth( $channelid, $userid ) {
             global $db;
 
+            if ( $channelid == 0 ) {
+                return true;
+            }
+
             $query = $db->Prepare(
                 "SELECT
                     `participant_channelid`

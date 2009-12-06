@@ -13,7 +13,6 @@
         $messages = $finder->FindByChannel( $channelid, $offset, 50 );
 
         if ( !ChannelFinder::Auth( $channelid, $user->Id ) ) {
-            ?>alert( 'Access denied' );<?php
             return;
         }
 
