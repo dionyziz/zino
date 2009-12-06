@@ -73,7 +73,7 @@ Frontpage.Shoutbox = {
         Coala.Cold(
             'chat/history', {
                 channelid: channelid,
-                offset: $( 'messages_' + channelid + ' li.text' ).length
+                offset: $( 'messages_' + channelid + ' li.text' ).length,
                 f: function ( data ) {
                     alert( data );
                 }
