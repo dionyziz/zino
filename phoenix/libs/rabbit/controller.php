@@ -230,8 +230,6 @@
                     Element( 'footer' );
                 ?></div><?php
             }
-
-            Element( 'footer' );
         }
     }
 
