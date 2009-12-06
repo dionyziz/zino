@@ -183,7 +183,7 @@ ol li.history a:hover {
 div.video ol {
     top: 227px;
 }
-div.bottom div.toolbox {
+div.bottom div.toolbox { /* toolbox on the left of the textarea */
     position: fixed;
     left: 111px;
     bottom: 41px;
