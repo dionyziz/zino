@@ -17,7 +17,7 @@
             
             $page->SetTitle( 'Συζήτηση' );
             
-            $page->AttachStylesheet( 'css/chat.css' );
+            $page->AttachStylesheet( 'css/_chat.css' );
             $page->AttachStylesheet( 'css/emoticons.css' );
             $page->AttachStylesheet( 'css/wysiwyg.css' );
             
