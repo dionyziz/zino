@@ -50,7 +50,8 @@
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
-                    :limit;" );
+                    :limit;"
+            );
             $query->BindTable( 'shoutbox', 'users', 'images', 'chatsequences' );
             $query->Bind( 'limit', $limit );
             foreach ( $channelids as $channelid ) {
@@ -60,6 +61,8 @@
                     $rows[] = $row;
                 }
             }
+            var_dump( $rows );
+            die();
             
             while ( $row = array_shift( $rows ) ) {
                 $shout = New Shout( $row );
