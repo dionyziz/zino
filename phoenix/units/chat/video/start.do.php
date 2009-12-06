@@ -21,12 +21,25 @@
             ?>alert( 'Only one-to-one channels are allowed for now' );<?php
             return; // only one-to-one video for now
         }
-        die( '22' );
 
-        $video = New ChatVideo();
-        $video->Channelid = $channelid;
-        $video->Userid = $user->Id;
-        $video->Active = true;
+        $finder = New ChatVideoFinder();
+        $streams = $finder->FindByChannelId( $channelid );
+        $flag = false;
+        foreach ( $streams as $video ) {
+            if ( $video->Userid == $user->Id ) {
+                // stream already exists, activate it
+                $flag = true;
+                break;
+            }
+        }
+
+        if ( !$flag ) {
+            $video = New ChatVideo();
+            $video->Channelid = $channelid;
+            $video->Userid = $user->Id;
+        }
+
+        $video->Active = 1;
         $video->Save();
 
         echo $f;
