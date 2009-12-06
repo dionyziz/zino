@@ -138,9 +138,11 @@ em {
     padding: 26px 5px 0;
     height: 45px;
 }
-#tabs.video {
+div.server {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
 }
-#tabs.notice div.notice a {
+div.server a {
     text-decoration: none;
     color: #5281af;
     background-image: url( 'http://static.zino.gr/phoenix/webcam.png' );

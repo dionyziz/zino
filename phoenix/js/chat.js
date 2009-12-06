@@ -75,7 +75,12 @@ Frontpage.Shoutbox = {
 				}
 			}
 			
-			$( 'div.channelmessages' ).height( h - t - 30 );
+            var channelmessages = $( 'div.channelmessages' );
+
+            for ( var i = 0; i < channelmessages.length; ++i ) {
+                var serv = $( $( 'div.channelmessages' )[ i ] ).find( 'div.server' ).height();
+                $( $( 'div.channelmessages' )[ i ] ).height( h - t - 30 - serv );
+            }
 			
 			var lis = $( 'div#messages_0 li' );
 			lis[ lis.length - 1 ].scrollIntoView();
