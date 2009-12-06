@@ -56,7 +56,7 @@
             );
             $query->BindTable( 'shoutbox', 'users', 'images' );
             $query->Bind( 'limit', $limit );
-            $query->Bind( 'limit', $offset );
+            $query->Bind( 'offset', $offset );
             foreach ( $channelids as $channelid ) {
                 $query->Bind( 'channelid', $channelid );
 
