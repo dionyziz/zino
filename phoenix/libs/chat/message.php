@@ -37,7 +37,7 @@
                     *
                 FROM
                     :shoutbox
-                    LEFT JOIN :channels
+                    LEFT JOIN :chatchannels
                         ON `shout_channelid` = `channel_id`
                     LEFT JOIN :users
                         ON `shout_userid` = `user_id`
@@ -51,7 +51,7 @@
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'shoutbox', 'users', 'images' );
+            $query->BindTable( 'shoutbox', 'users', 'images', 'chatchannels' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 			$query->Bind( 'channelids', $channelid );
