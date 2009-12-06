@@ -2,6 +2,8 @@
 	/*
 		Developer: Dionyziz
 	*/
+
+    define( 'CHAT_HISTORY_DEFAULT_LIMIT', 50 );
 	
     class ElementChatView extends Element {
         public function Render() {
@@ -37,7 +39,7 @@
 			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			
 			$finder = New ShoutboxFinder();
-			$chats = $finder->FindByChannel( array_keys( $channels ), 50 );
+			$chats = $finder->FindByChannel( array_keys( $channels ), CHAT_HISTORY_DEFAULT_LIMIT );
 			$channelmessages = array();
 			foreach ( $channels as $channelid => $channeldata ) {
 				$channelmessages[ $channelid ] = array();
@@ -166,6 +168,12 @@
 					?><ol><?php
 						$prevuser = '';
 						$prevtime = '';
+                        if ( count( $chats ) >= CHAT_HISTORY_DEFAULT_LIMIT ) {
+                            ?><li class="history">
+                                &bull;<a href="">Παλιότερα μηνύματα</a>&bull;
+                            </li><?php
+                        }
+
 						foreach ( $chats as $chat ) {
 							?><li id="s_<?php
 							echo $chat->Id;
