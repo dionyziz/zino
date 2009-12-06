@@ -13,6 +13,15 @@
     }
 
     function Controller_Include( $path ) {
+        global $rabbit_settings;
+
+        if ( strpos( $path, ".." ) !== false ) {
+            return false;
+        }
+        $fullpath = $rabbit_settings[ 'rootdir' ] . '/controllers/' . $path . ".php";
+        if ( !file_exists( $fullpath ) ) {
+            return false;
+        }
         $ret = Rabbit_Include( 'controllers/' . $path ); // throws RabbitIncludeException
         // handle $ret ?
     }
@@ -37,7 +46,14 @@
             die( 'invalid controller action requested' );
         }
 
-        Controller_Include( $path );
+        $ret = Controller_Include( $path ); 
+
+        if ( $ret === false ) {
+            Controller_Include( '404' );
+            $c = New Controller404( $method, $coala );
+            $c->FireAction( 'View' );
+            return;
+        }
 
         $classname = Controller_GetClass( $path );
         w_assert( class_exists( $classname ), "controller $classname does not exist" );
