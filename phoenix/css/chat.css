@@ -55,7 +55,9 @@ div.typehere {
 	position: fixed;
 	bottom: 0px;
 	height: 50px;
-	margin-top: 10px;
+	left: 100px;
+	right: 100px;
+	margin: 10px auto;
 }
 .channelmessages {
 	position: fixed;
