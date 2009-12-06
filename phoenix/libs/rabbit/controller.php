@@ -9,11 +9,11 @@
 
     // get class of controller 
     function Controller_GetClass( $path ) {
-        return 'Controller' . str_replace( '/' , '' , $elementpath );
+        return 'Controller' . str_replace( '/' , '' , $path );
     }
 
     function Controller_Include( $path ) {
-        $ret = Rabbit_Include( 'controllers/' . $elementpath ); // throws RabbitIncludeException
+        $ret = Rabbit_Include( 'controllers/' . $path ); // throws RabbitIncludeException
         // handle $ret ?
     }
 
