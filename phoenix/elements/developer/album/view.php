@@ -1,7 +1,7 @@
 <?php
 
     class ElementDeveloperAlbumView extends Element {
-        public function Render( $album, $images ) {
+        public function Render( $album, $images, $pageno ) {
             global $user;
 
             if ( $album->Ownertype == TYPE_USERPROFILE ) {

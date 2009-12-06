@@ -22,11 +22,13 @@
                 }
             }
 
+            $pageno = $pageno->Get( array( 'min' => 1 ) );
+
             $finder = New ImageFinder();
             $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
             $this->mPage->SetTitle( $album->Name );
 
-            Element( 'developer/album/view', $album, $images );
+            Element( 'developer/album/view', $album, $images, $pageno );
         }
     }
 ?>
