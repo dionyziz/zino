@@ -89,7 +89,7 @@ Frontpage.Shoutbox = {
         
                         div.className = 'text';
                         div.innerHTML = item.text + '';
-                        alert( item.text );
+                        // alert( item.text );
         
                         var strong = document.createElement( 'strong' );
                         strong.appendChild( document.createTextNode( item.who.name ) );
@@ -146,7 +146,7 @@ Frontpage.Shoutbox = {
 
             $( this ).hide();
 
-            document.body.style.cursor = 'hourglass';
+            document.body.style.cursor = 'wait';
             Frontpage.Shoutbox.LoadHistory( channelid );
 
             return false;
