@@ -79,7 +79,7 @@ Frontpage.Shoutbox = {
                 }
             }
         );
-    }
+    },
 	Init: function( channels ) {
 		var f = function () {
 			var lis = $( 'div#messages_0 li' );
