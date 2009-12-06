@@ -73,7 +73,7 @@
             }
         
             $beforefunc = "Before$action";
-            $c->$beforefunc(); // MAGIC!
+            $this->$beforefunc(); // MAGIC!
 
             $ret = Rabbit_TypeSafe_Call( array( $c, $action ), $req );
 
@@ -86,7 +86,7 @@
             }
 
             $afterfunc = "After$action";
-            $c->afterfunc(); // MAGIC!
+            $this->$afterfunc(); // MAGIC!
 
             if ( !$this->mCoala ) {
                 $page->Output( ob_get_clean() );
