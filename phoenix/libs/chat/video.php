@@ -10,7 +10,7 @@
     class ChatVideoFinder extends Finder {
         protected $mModel = 'ChatVideo';
 
-        public function FindByChannel( $channelid ) {
+        public function FindByChannelId( $channelid ) {
             $query = $this->mDb->Prepare(
                 "SELECT
                     video_authtoken, user_id, user_name
