@@ -84,7 +84,25 @@ Frontpage.Shoutbox = {
                     for ( i in data ) {
                         var item = data[ i ];
                         var li = document.createElement( 'li' );
-                        li.appendChild( document.createTextNode( data.text ) );
+                        li.id = 's_' + item.id;
+                        var div = document.createElement( 'div' );
+        
+                        div.className = 'text';
+                        div.innerHTML = item.text + '';
+        
+                        var strong = document.createElement( 'strong' );
+                        strong.appendChild( document.createTextNode( item.who.name ) );
+        
+                        if ( typeof who.self != 'undefined' ) {
+                            strong.className = 'u';
+                        }
+        
+                        li.innerHTML = '<span class="time"></span> ';
+                        li.appendChild( strong );
+                        li.appendChild( document.createTextNode( ' ' ) );
+                        li.appendChild( div );
+                        li.className = 'text';
+
                         ol.insertBefore( li, at );
                     }
                 }

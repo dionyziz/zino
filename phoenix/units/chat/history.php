@@ -18,13 +18,18 @@
 
         $data = array();
         foreach ( $messages as $message ) {
-            $data[] = array(
+            $item = array(
                 'who' => array(
                     'name' => $message->User->Name
                 ),
                 'text' => $message->Text,
-                'created' => $message->Created
+                'created' => $message->Created,
+                'id' => $message->Id
             );
+            if ( $user->Id == $message->Userid ) {
+                $data[ 'self' ] = true;
+            }
+            $data[] = $item;
         }
 
         echo $f;
