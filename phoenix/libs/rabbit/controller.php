@@ -59,7 +59,10 @@
             $this->mCoala = $coala;
 
             if ( !$this->mCoala ) {
+                global $page;
+
                 $this->mPage = New ControllerPage();
+                $page = $this->mPage; // god damn inline scripts :/
             }
 
             $this->mRedirected = false;
