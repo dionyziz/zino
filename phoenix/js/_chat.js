@@ -176,9 +176,11 @@ Frontpage.Shoutbox = {
                     document.body.style.cursor = 'default';
                     div.className = 'server';
                     var flash = '<embed width="267" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_' + channelid + '" />';
-                    document.getElementById( 'videochat_' + channelid ).publish( User + '.' + authtoken );
                     div.innerHTML = flash;
-                    $( '#messages_' + channelid )[ 0 ].appendChild( div );
+                    var msg = $( '#messages_' + channelid )[ 0 ];
+                    msg.insertBefore( div, msg.firstChild );
+                    $( msg ).addClass( 'video' );
+                    document.getElementById( 'videochat_' + channelid ).publish( User + '.' + authtoken );
                 }
             } );
         } );
