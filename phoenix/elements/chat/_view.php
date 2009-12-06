@@ -219,7 +219,7 @@
                         
                     <div class="bottom">
                         <div class="toolbox">
-                            <div class="video">
+                            <div class="video" title="Δείξε την κάμερά μου">
                             </div>
                         </div>
                         <div class="typehere">

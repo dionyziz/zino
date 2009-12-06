@@ -5,6 +5,9 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
+        protected function OnBeforeCreate() {
+            $this->Authtoken = Chat_GenerateVidAuthtoken();
+        }
     }
 
     class ChatVideoFinder extends Finder {

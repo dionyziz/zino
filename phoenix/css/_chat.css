@@ -186,7 +186,7 @@ div.video ol {
 div.bottom div.toolbox { /* toolbox on the left of the textarea */
     position: fixed;
     left: 111px;
-    bottom: 41px;
+    bottom: 9px;
 }
 div.toolbox div.video {
     background-image: url( 'http://static.zino.gr/phoenix/webcam.png' );
