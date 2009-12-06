@@ -109,7 +109,7 @@ Frontpage.Shoutbox = {
 		$( '#tabs ul li a' ).show().click( function () {
 			var channelid = this.id.split( '_' )[ 1 ];
 			
-			$( 'div.channelmessages' ).hide();
+			$( 'div.channelmessages' ).css( { 'visibility': 'hidden' } ).height( 0 );
 			$( 'div#messages_' + channelid ).show();
 			$( '#tabs li' ).removeClass( 'focus' );
 			$( this.parentNode ).addClass( 'focus' );
