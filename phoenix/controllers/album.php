@@ -1,5 +1,5 @@
 <?php
-    class ControllerAlbum extends Controller {
+    class ControllerAlbum extends ControllerZino {
         public function View( tInteger $id , tInteger $pageno ) {
             global $libs;
             
