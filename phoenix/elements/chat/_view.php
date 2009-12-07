@@ -8,28 +8,11 @@
             Reason: Video chat
 	*/
 
-    define( 'CHAT_HISTORY_DEFAULT_LIMIT', 50 );
-	
     class ElementChatView extends Element {
         public function Render() {
             global $page;
             global $libs;
             global $user;
-            
-            $page->SetTitle( 'Συζήτηση' );
-            
-            $page->AttachStylesheet( 'css/_chat.css' );
-            $page->AttachStylesheet( 'css/emoticons.css' );
-            $page->AttachStylesheet( 'css/wysiwyg.css' );
-            
-            $page->AttachScript( 'js/settings.js' );
-            $page->AttachScript( 'js/kamibu.js' );
-            $page->AttachScript( 'js/jquery.js' );
-            $page->AttachScript( 'js/coala.js' );
-            $page->AttachScript( 'js/meteor.js' );
-            $page->AttachScript( 'js/comet.js' );
-            $page->AttachScript( 'js/_chat.js' );
-            $page->AttachScript( 'js/wysiwyg.js' );
             
             $libs->Load( 'chat/message' );
             $libs->Load( 'chat/channel' );
@@ -56,37 +39,6 @@
 				$channelmessages[ $channelid ] = array_reverse( $messages );
 			}
 			
-            ob_start();
-            ?>Comet.Init(<?php
-            echo w_json_encode( uniqid() );
-            ?>);
-            Comet.Subscribe( 'FrontpageShoutboxNew0' );
-            Comet.Subscribe( 'FrontpageShoutboxTyping0' );
-			<?php
-			if ( $user->Exists() ) {
-				?>
-				Comet.Subscribe( 'FrontpageShoutboxNew<?php
-				echo $user->Id;
-				?>x<?php
-				echo substr( $user->Authtoken, 0, 10 );
-				?>' );
-				Comet.Subscribe( 'FrontpageShoutboxTyping<?php
-				echo $user->Id;
-				?>x<?php
-				echo substr( $user->Authtoken, 0, 10 );
-				?>' );
-				<?php
-			}
-			?>
-            User = '<?php
-            echo $user->Name;
-            ?>';
-			Frontpage.Shoutbox.Init( <?php
-			echo w_json_encode( $channels );
-			?> );
-            <?php
-            $page->AttachInlineScript( ob_get_clean() );
-            
 			if ( count( $channels ) > 1 ) {
 				?>
 				<div id="tabs">
@@ -230,62 +182,8 @@
                             ?>
                         </div><?php
                     }
-					?><ol><?php
-						$prevuser = '';
-						$prevtime = '';
-                        if ( count( $chats ) >= CHAT_HISTORY_DEFAULT_LIMIT ) {
-                            ?><li class="history">
-                                &bull;<a href="">Παλιότερα μηνύματα</a>&bull;
-                            </li><?php
-                        }
-
-						foreach ( $chats as $chat ) {
-							?><li id="s_<?php
-							echo $chat->Id;
-							?>" class="text"><?php
-							ob_start();
-							Element( 'date/diff', $chat->Created );
-							$time = ob_get_clean();
-							if ( $time != $prevtime ) {
-								$prevtime = $time;
-								?><span class="time"><?php
-								echo $prevtime;
-								?></span><?php
-							}
-							?> <strong<?php
-							if ( $chat->User->Id == $user->Id ) {
-								?> class="u"<?php
-							}
-							?>><?php
-							if ( $prevuser != $chat->User->Name ) {
-								$prevuser = $chat->User->Name;
-								Element( 'user/name', $chat->User->Id, $chat->User->Name, $chat->User->Subdomain, false );
-							}
-							else {
-								?>&#160;<?php
-							}
-							?></strong> <div class="text"><?php
-							echo nl2br( $chat->Text );
-							?></div></li><?php
-						}
-					?>
-					</ol></div><?php
+					?></div><?php
 				}
-                if ( $user->Exists() ) {
-                    ?>
-                        
-                    <div class="bottom">
-                        <div class="toolbox">
-                            <div class="video" title="Δείξε την κάμερά μου">
-                            </div>
-                        </div>
-                        <div class="typehere">
-                            <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
-                        </div>
-                    </div>
-                    
-                    <?php
-                }
             ?></div><?php
             
             return array( 'tiny' => true );
