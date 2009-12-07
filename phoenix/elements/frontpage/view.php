@@ -1,9 +1,4 @@
 <?php
-    /* 
-    Masked by: abresas
-    Reason: spot
-    */
-
     class ElementFrontpageView extends Element {
         public function Render( tBoolean $newuser, tBoolean $validated ) {
             global $user;
