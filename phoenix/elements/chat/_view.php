@@ -216,7 +216,6 @@
                                     ?>' );<?php
                                 }
                                 else { // we're receiving
-                                    ob_start();
                                     ?>Frontpage.Shoutbox.Watch( <?php
                                     echo $channelid;
                                     ?>, '<?php
