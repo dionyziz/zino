@@ -124,6 +124,7 @@
 				</div><?php
 			}
 			
+            /*
             ?><div><?php
 				foreach ( $channelmessages as $channelid => $chats ) {
                     $finder = New ChatVideoFinder();
@@ -216,6 +217,7 @@
                     </div><?php
                 }
             ?></div><?php
+            */
             
             return array( 'tiny' => true );
         }
