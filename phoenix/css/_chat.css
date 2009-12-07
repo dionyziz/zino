@@ -155,14 +155,17 @@ em {
     padding: 26px 5px 0;
     height: 45px;
 }
+div.notice {
+    background-color: #ffffd3;
+    height: 30px;
+}
+div.notice ol {
+    background-color: white;
+}
 div.server {
     background-color: #f5f5f5;
     border-bottom: 1px solid #ccc;
     text-align: center;
-}
-div.notice {
-    background-color: #ffffd3;
-    height: 30px;
 }
 div.server ol {
     background-color: white;
