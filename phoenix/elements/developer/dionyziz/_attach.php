@@ -6,6 +6,8 @@
             ?>This text should be inside the content div.<?php
             $page->AttachInlineScript( 'alert( "Hello" );' );
             ?> This text should too be inside the content div.<?php
+
+            return array( 'tiny' => true );
         }
     }
 ?>
