@@ -12,6 +12,7 @@
 	
     class ElementChatView extends Element {
         public function Render() {
+			/*
             global $page;
             global $libs;
             global $user;
