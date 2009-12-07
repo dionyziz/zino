@@ -18,12 +18,7 @@
             $libs->Load( 'chat/channel' );
             $libs->Load( 'chat/video' );
 			
-			if ( $user->Exists() ) {
-				$channels = ChannelFinder::FindByUserid( $user->Id );
-			}
-			else {
-				$channels = array();
-			}
+			$channels = ChannelFinder::FindByUserid( 1 );
 			$channels[ 0 ] = array( 'authtoken' => '', 'participants' => array() );
 			
 			$finder = New ShoutboxFinder();
@@ -39,48 +34,6 @@
 				$channelmessages[ $channelid ] = array_reverse( $messages );
 			}
 			
-			if ( count( $channels ) > 1 ) {
-				?>
-				<div id="tabs">
-					<ul><?php
-						ksort( $channels );
-						
-						foreach ( $channels as $channelid => $channeldata ) {
-							?><li<?php
-							if ( $channelid == 0 ) {
-								?> class="main focus"<?php
-							}
-							?>><a href="" id="switchchannel_<?php
-							echo $channelid;
-							?>" style="display:none"><?php
-							if ( $channelid == 0 ) {
-								$name = 'Zino';
-							}
-							else {
-								if ( count( $channeldata[ 'participants' ] ) == 1 ) {
-									$name = $channeldata[ 'participants' ][ 0 ][ 'name' ];
-									?><img src="<?php
-									Element(
-										'image/url',
-										$channeldata[ 'participants' ][ 0 ][ 'avatar' ],
-										$channeldata[ 'participants' ][ 0 ][ 'id' ],
-										IMAGE_CROPPED_100x100
-									);
-									?>" /><?php
-								}
-								else {
-									$name = 'Συνομιλία ' . ( count( $channeldata[ 'participants' ] ) + 1 ) . ' ατόμων';
-								}
-							}
-							?><span><?php
-							echo $name;
-							?></span></a></li><?php
-						}
-						?>
-					</ul>
-				</div><?php
-			}
-			
             ?><div><?php
 				foreach ( $channelmessages as $channelid => $chats ) {
                     $finder = New ChatVideoFinder();
@@ -91,23 +44,11 @@
                     ?>" class="channelmessages<?php
                     if ( count( $videostreams ) ) {
                         $who = array();
-                        $count = 0;
                         $broadcast = false;
                         foreach ( $videostreams as $stream ) {
                             if ( $stream->Userid != $user->Id ) {
-                                switch ( $stream->User->Gender ) {
-                                    case 'f':
-                                        $item = 'η';
-                                        $gender = 'f';
-                                        break;
-                                    case 'm':
-                                    default:
-                                        $item = 'ο';
-                                        $gender = 'm';
-                                }
-                                $item .= ' ' . $stream->User->Name;
+                                $item = ' ' . $stream->User->Name;
                                 $who[] = $item;
-                                ++$count;
                             }
                             else {
                                 $broadcast = true;
@@ -135,19 +76,14 @@
                                 ?> έχει<?php
                             }
                             ?> ενεργοποιήσει την camera <?php
-                            if ( $count > 1 ) {
-                                ?>τους<?php
-                            }
-                            else {
-                                switch ( $gender ) {
-                                    case 'f':
-                                        ?>της<?php
-                                        break;
-                                    case 'm':
-                                    default:
-                                        ?>του<?php
-                                }
-                            }
+							switch ( $gender ) {
+								case 'f':
+									?>της<?php
+									break;
+								case 'm':
+								default:
+									?>του<?php
+							}
                             ?>. <strong>Προβολή video.</strong></span>
                             <embed width="267" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_<?php
                             echo $channelid;
