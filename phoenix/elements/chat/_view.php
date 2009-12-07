@@ -200,7 +200,7 @@
                             echo $channelid;
                             ?>"<?php
                             if ( !$broadcast ) {
-                                ?>style="display:none"<?php
+                                ?> style="display:none"<?php
                             }
                             ?> /><?php
                             foreach ( $videostreams as $stream ) {
