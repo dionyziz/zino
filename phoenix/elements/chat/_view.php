@@ -137,7 +137,35 @@
                     echo $channelid;
                     ?>" class="channelmessages<?php
                     if ( count( $videostreams ) ) {
+                        $who = array();
+                        $count = 0;
+                        $broadcast = false;
+                        foreach ( $videostream as $stream ) {
+                            if ( $stream->Userid != $user->Id ) {
+                                switch ( $stream->User->Gender ) {
+                                    case 'f':
+                                        $item = 'η';
+                                        $gender = 'f';
+                                        break;
+                                    case 'm':
+                                    default:
+                                        $item = 'ο';
+                                        $gender = 'm';
+                                }
+                                $item .= ' ' . $stream->User->Name;
+                                $who[] = $item;
+                                ++$count;
+                            }
+                            else {
+                                $broadcast = true;
+                            }
+                        }
+                        $who = implode( ', ', $who );
+                        $who = ucfirst( $who );
                         ?> video<?php
+                        if ( $broadcast ) {
+                            ?> notice<?php
+                        }
                     }
                     ?>" style="visibility:hidden; height: 0;">
                     <?php
@@ -145,9 +173,36 @@
                     if ( count( $videostreams ) ) {
                         ?>
                         <div class="server">
+                            <span><?php
+                            echo $who;
+                            if ( $count > 1 ) {
+                                ?> έχουν<?php
+                            }
+                            else {
+                                ?> έχει<?php
+                            }
+                            ?> ενεργοποιήσει την camera <?php
+                            if ( $count > 1 ) {
+                                ?>τους<?php
+                            }
+                            else {
+                                switch ( $gender ) {
+                                    case 'f':
+                                        ?>της<?php
+                                        break;
+                                    case 'm':
+                                    default:
+                                        ?>του<?php
+                                }
+                            }
+                            ?>. <strong>Προβολή video.</strong></span>
                             <embed width="267" height="200" align="middle" type="application/x-shockwave-flash" salign="" allowscriptaccess="always" allowfullscreen="false" menu="true" name="zinoVideo" bgcolor="#ffffff" devicefont="false" wmode="window" scale="showall" loop="true" play="true" pluginspage="http://www.adobe.com/go/getflashplayer" quality="high" src="http://static.zino.gr/phoenix/video/zinovideo.swf" id="videochat_<?php
                             echo $channelid;
-                            ?>" /><?php
+                            ?>"<?php
+                            if ( !$broadcast ) {
+                                ?>style="display:none"<?php
+                            }
+                            ?> /><?php
                             foreach ( $videostreams as $stream ) {
                                 ob_start();
                                 if ( $stream->Userid == $user->Id ) { // we're broadcasting
@@ -160,11 +215,10 @@
                                     ?>' );<?php
                                 }
                                 else { // we're receiving
-                                    ?>document.getElementById( 'videochat_<?php
-                                    echo $channelid;
-                                    ?>' ).watch( '<?php
+                                    ob_start();
+                                    ?>Frontpage.Shoutbox.Watch( '<?php
                                     echo $stream->User->Name;
-                                    ?>.<?php
+                                    ?>', '<?php
                                     echo $stream->Authtoken;
                                     ?>' );<?php
                                 }

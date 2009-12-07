@@ -124,6 +124,15 @@ Frontpage.Shoutbox = {
             }
         );
     },
+    Watch: function ( channelid, username, authtoken ) {
+        $( 'div#messages_' + channelid + ' div.notice' ).click( 
+            function () {
+                $( this ).find( 'embed' ).css( { 'display': 'block' } );
+                $( this ).removeClass( 'notice' );
+                document.getElementById( 'videochat_' + channelid ).watch( username + '.' + authtoken );
+            }
+        );
+    }
 	Init: function( channels ) {
 		var f = function () {
 			var lis = $( 'div#messages_0 li' );
