@@ -204,7 +204,8 @@
             'bounces'           => 'statistics/bounces',
             'applications'      => 'application/list',
             'memorystats'       => 'adminpanel/memoryabuse/view',
-            'chat'              => 'chat/view'
+            'chat'              => 'chat/view',
+            'dio'               => 'developer/dionyziz/attach'
         );
     }
     
