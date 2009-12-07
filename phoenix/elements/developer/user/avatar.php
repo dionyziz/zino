@@ -42,7 +42,7 @@
                         echo '_';
                     }
                     echo $avatarid . '/' . $avatarid . '_' . $type . '.jpg';
-                    //Element( 'image/url' , $avatarid , $avataruserid , $type );
+                    //Element( 'developer/image/url' , $avatarid , $avataruserid , $type );
                 }
                 else {
                     echo $rabbit_settings[ 'imagesurl' ];
