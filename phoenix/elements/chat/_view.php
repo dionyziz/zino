@@ -218,7 +218,7 @@
                                     ob_start();
                                     ?>Frontpage.Shoutbox.Watch( <?php
                                     echo $channelid;
-                                    ?>'<?php
+                                    ?>, '<?php
                                     echo $stream->User->Name;
                                     ?>', '<?php
                                     echo $stream->Authtoken;
