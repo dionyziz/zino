@@ -170,7 +170,7 @@ div.server {
 div.server ol {
     background-color: white;
 }
-div.server a {
+div.notice > a {
     text-decoration: none;
     color: #5281af;
     background-image: url( 'http://static.zino.gr/phoenix/webcam.png' );
