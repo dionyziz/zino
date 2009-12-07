@@ -140,7 +140,7 @@
                         $who = array();
                         $count = 0;
                         $broadcast = false;
-                        foreach ( $videostream as $stream ) {
+                        foreach ( $videostreams as $stream ) {
                             if ( $stream->Userid != $user->Id ) {
                                 switch ( $stream->User->Gender ) {
                                     case 'f':
@@ -216,7 +216,9 @@
                                 }
                                 else { // we're receiving
                                     ob_start();
-                                    ?>Frontpage.Shoutbox.Watch( '<?php
+                                    ?>Frontpage.Shoutbox.Watch( <?php
+                                    echo $channelid;
+                                    ?>'<?php
                                     echo $stream->User->Name;
                                     ?>', '<?php
                                     echo $stream->Authtoken;

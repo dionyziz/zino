@@ -189,6 +189,7 @@ div.video ol {
 }
 div.notice ol {
     top: 50px;
+    background-color: #ffffd3;
 }
 div.bottom div.toolbox { /* toolbox on the left of the textarea */
     position: fixed;
