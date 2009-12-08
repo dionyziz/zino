@@ -16,12 +16,16 @@
         var defconfig = {
             position: 'center',
             overlayClass: 'mdloverlay1',
-            noclose: false,
-            noframe: false,
+            noClose: false,
+            noFrame: false,
             modal: true
         };
         config = $.extend( config, defconfig );
-
+        if ( !noClose ) {
+            close = document.CreateElement( 'div' );
+            $( close ).addClass( 'close' );
+            this.append( close );
+        }
         if ( config.position == 'center' ) {
             this.center();
         }
