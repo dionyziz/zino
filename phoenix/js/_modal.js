@@ -20,6 +20,7 @@
             noframe: false
         };
         config = $.extend( config, defconfig );
+
         if ( config.position == 'center' ) {
             this.center();
         }
