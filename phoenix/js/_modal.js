@@ -17,7 +17,8 @@
             position: 'center',
             overlayClass: 'mdloverlay1',
             noclose: false,
-            noframe: false
+            noframe: false,
+            modal: true
         };
         config = $.extend( config, defconfig );
 
