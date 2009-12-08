@@ -24,6 +24,7 @@
         if ( !config.noClose ) {
             close = document.createElement( 'div' );
             $( close ).addClass( 'close' );
+            this.jqmAddClose( close );
             this.append( close );
         }
         if ( config.position == 'center' ) {
