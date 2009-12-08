@@ -24,9 +24,10 @@
         if ( !config.noClose ) {
             close = document.createElement( 'div' );
             $( close ).addClass( 'close' );
-            close.click( function () { function ( modalElement ) {
+            close.click( function ( modalElement ) {
+                return function () {
                     modalElement.jqmHide();
-                } ( this ) } )
+                } } ( this ) );
             this.jqmAddClose( close );
             this.append( close );
         }
