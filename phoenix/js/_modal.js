@@ -24,6 +24,9 @@
         if ( !config.noClose ) {
             close = document.createElement( 'div' );
             $( close ).addClass( 'close' );
+            close.click( function () { function ( modalElement ) {
+                    modalElement.jqmHide();
+                } ( this ) } )
             this.jqmAddClose( close );
             this.append( close );
         }
