@@ -7,6 +7,9 @@
         private $mUser;
         
         public function SetUp() {
+            global $libs;
+
+            $libs->Load( 'album' );
             $finder = New UserFinder();
             $user = $finder->FindByName( 'usertest' );
             if ( is_object( $user ) ) {
