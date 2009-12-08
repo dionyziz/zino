@@ -22,7 +22,7 @@
         };
         config = $.extend( config, defconfig );
         if ( !config.noClose ) {
-            close = document.CreateElement( 'div' );
+            close = document.createElement( 'div' );
             $( close ).addClass( 'close' );
             this.append( close );
         }
