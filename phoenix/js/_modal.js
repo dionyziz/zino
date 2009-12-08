@@ -6,13 +6,27 @@
     jqModal ( jquery.modal.js )
 */
 
+/*
+    Change of plans, new modal system
+*/
+
+
 ( function($) {
-    $.fn.modal = function( trigger, config ) {
+    $.fn.modal = function( config, modalTrigger ) {
         var defconfig = {
-            overlayClass : 'mdloverlay1'
+            position: 'center',
+            overlayClass: 'mdloverlay1',
+            noclose: false,
+            noframe: false
         };
-        defconfig.trigger = trigger;
-        return this.jqm( $.extend( config, defconfig ) );
+        config = $.extend( config, defconfig );
+        if ( config.position == 'center' ) {
+            this.center();
+        }
+        return this.jqm( config );
+        if ( modalTrigger ) {
+            this.jqmAddTrigger( modalTrigger );
+        }
     }
 } ) ( jQuery );
 
