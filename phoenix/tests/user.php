@@ -10,6 +10,8 @@
             global $libs;
 
             $libs->Load( 'album' );
+            $libs->Load( 'journal' );
+
             $finder = New UserFinder();
             $user = $finder->FindByName( 'usertest' );
             if ( is_object( $user ) ) {
