@@ -23,12 +23,13 @@
         config = $.extend( config, defconfig );
         if ( !config.noClose ) {
             close = document.createElement( 'div' );
-            $( close ).addClass( 'close' );
-            /*$( close ).click( function ( modalElement ) {
-                return function () {
-                    modalElement.jqmHide();
-                } } ( this ) );*/
-            this.jqmAddClose( $( close ) );
+            $( close ).addClass( 'close' ).click(
+                function ( modalElement ) {
+                    return function () {
+                        modalElement.jqmHide();
+                    }
+                } ( this )
+            );
             this.append( close );
         }
         if ( config.position == 'center' ) {
