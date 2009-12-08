@@ -21,7 +21,7 @@
             modal: true
         };
         config = $.extend( config, defconfig );
-        if ( !noClose ) {
+        if ( !config.noClose ) {
             close = document.CreateElement( 'div' );
             $( close ).addClass( 'close' );
             this.append( close );
