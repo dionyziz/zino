@@ -10,7 +10,7 @@
             global $libs;
 
             $libs->Load( 'album' );
-            $libs->Load( 'journal' );
+            $libs->Load( 'journal/journal' );
 
             $finder = New UserFinder();
             $user = $finder->FindByName( 'usertest' );
