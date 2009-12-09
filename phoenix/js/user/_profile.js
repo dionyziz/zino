@@ -266,10 +266,7 @@ var Profile = {
 	Abuse: {
 		Init: function ( username ) {
 			if ( !Profile.Mine ) {
-				$( '#reportabusemodal' ).jqm( {
-					trigger : '#reportabuse a.report',
-					overlayClass : 'mdloverlay1'
-				} );
+				$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
 				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( function () {
 					Profile.Abuse.Hide();
 					return false;
@@ -304,14 +301,9 @@ var Profile = {
 		Profile.Mine = true;
 		
         $( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
-        $( '#easyphotoupload' ).jqm( {
-            trigger : 'div#profile div.main div.photos ul li.addphoto a',
-            overlayClass : 'mdloverlay1'
-        } );
-		$( '#mplayersearchmodal' ).jqm({
-			trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
-			overlayClass: 'mdloverlay1'
-		});
+        $( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
+		$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
+
         Profile.Player.MyProfileOnLoad();
 		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
             if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
