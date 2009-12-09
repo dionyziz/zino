@@ -54,8 +54,8 @@
                     </div>
                 </div><?php
                 if ( $userid == $user->Id ) {
-                    ?><div id="tweetedit">
-                        <h3 class="modaltitle">Τι κάνεις τώρα;</h3>
+                    ?><div id="tweetedit modal">
+                        <h3>Τι κάνεις τώρα;</h3>
                         <form>
                             <div class="input"><?php
                                 if ( $gender == 'f' ) {
