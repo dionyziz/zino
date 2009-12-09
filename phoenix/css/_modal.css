@@ -1,0 +1,18 @@
+.modal {
+    display: none;
+    background: #e8eaec url( 'http://static.zino.gr/images/sorabody.jpg' ) repeat-x top right;
+    text-align: center;
+    padding: 30px 25px 20px;
+    border: 9px solid #6C8ABB;
+    -moz-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -msie-border-radius: 15px;
+    border-radius: 15px;
+}
+.modal ul {
+    margin-top: 20px;
+}
+.modal ul li {
+    display: inline;
+}
