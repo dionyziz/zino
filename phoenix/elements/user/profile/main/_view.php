@@ -65,11 +65,13 @@
             Element( 'user/profile/main/tweeter', $theuser );
             
             ?><div id="easyphotoupload" class="modal">
-                <h3>Ανέβασε μια φωτογραφία...</h3> 
+                <h3>Ανέβασε μια φωτογραφία...</h3>
+                <div class="modalcontent">
                     <img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" />
                     <span class="plswait">Παρακαλώ περιμένετε...</span>
+                </div>
             </div><?php
             
             ?><div class="main"><?php
