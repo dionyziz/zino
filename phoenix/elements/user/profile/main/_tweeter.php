@@ -78,14 +78,6 @@
                                 </ul>
                             </div>
                         </form>
-                    </div>
-                    <div id="easyphotoupload">
-                        <h3 class="modaltitle">Ανέβασε μια φωτογραφία...</h3> 
-                        <div class="modalcontent"> 
-                            <img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>ajax-loader.gif" /><span class="plswait">Παρακαλώ περιμένετε...</span>
-                        </div>
                     </div><?php
                 }
             }
