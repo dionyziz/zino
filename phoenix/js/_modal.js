@@ -12,7 +12,7 @@
 
 
 ( function($) {
-    $.fn.modal = function( config, modalTrigger ) {
+    $.fn.modal = function( modalTrigger, config ) {
         var defconfig = {
             position: 'center',
             overlayClass: 'mdloverlay1',
@@ -39,6 +39,9 @@
             this.center();
         }
         if ( modalTrigger ) {
+            if ( typeof modalTrigger == 'string' ) {
+                modalTrigger = $( modalTrigger );
+            }
             this.jqmAddTrigger( modalTrigger );
         }
         return this;
