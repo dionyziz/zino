@@ -62,7 +62,16 @@
                 Element( 'user/profile/main/antisocial', $theuser );
             }
             
-            Element( 'user/profile/main/tweeter', $theuser )
+            Element( 'user/profile/main/tweeter', $theuser );
+            
+            ?><div id="easyphotoupload">
+                <h3 class="">Ανέβασε μια φωτογραφία...</h3> 
+                <div class="modalcontent"> 
+                    <img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>ajax-loader.gif" /><span class="plswait">Παρακαλώ περιμένετε...</span>
+                </div>
+            </div><?php
             
             ?><div class="main"><?php
                 if ( $showuploadavatar ) {
