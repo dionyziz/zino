@@ -303,7 +303,7 @@ var Profile = {
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
 		
-        $( '#tweetedit' ).jqm( false, $( 'div.tweetbox div.tweet div a' ) );
+        $( '#tweetedit' ).modal( false, $( 'div.tweetbox div.tweet div a' ) );
         $( '#easyphotoupload' ).jqm( {
             trigger : 'div#profile div.main div.photos ul li.addphoto a',
             overlayClass : 'mdloverlay1'
