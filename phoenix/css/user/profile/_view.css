@@ -244,12 +244,6 @@
     padding: 43px 0 0 0;
 }
 #easyphotoupload {
-	display: none;
-	top: 15%;
-	left: 37%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
     width: 450px;
     height: 225px;
 }
