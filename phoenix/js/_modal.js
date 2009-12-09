@@ -21,24 +21,27 @@
             modal: true
         };
         config = $.extend( config, defconfig );
+        this.jqm( config );
         if ( !config.noClose ) {
             close = document.createElement( 'div' );
-            $( close ).addClass( 'close' ).click(
+            $( close ).addClass( 'close' )
+            /*.click( 
                 function ( modalElement ) {
                     return function () {
                         modalElement.jqmHide();
                     }
                 } ( this )
-            );
+            );*/
             this.append( close );
+            this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
             this.center();
         }
-        return this.jqm( config );
         if ( modalTrigger ) {
             this.jqmAddTrigger( modalTrigger );
         }
+        return this;
     }
 } ) ( jQuery );
 
