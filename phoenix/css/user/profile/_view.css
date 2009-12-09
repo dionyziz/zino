@@ -1,0 +1,386 @@
+#profile {
+	margin: 0;
+    position: relative;
+    top: -8px;
+}
+#profile .sidebar {
+	background: #fff url('http://static.zino.gr/phoenix/sidebarbg.png') repeat-y right;
+	float: left;
+	position: relative;
+	width: 330px;
+	padding: 14px 0 0 0;
+	overflow: hidden;
+}
+.sidebar .basicinfo dl dt {
+    clear: both;
+}
+.sidebar .basicinfo {
+	padding: 4px;
+	margin-bottom: 20px;
+}
+#birthday img {
+    float: left;
+    padding-right: 5px;
+}
+.sidebar .basicinfo .mood {
+	padding-top: 5px;
+	margin-top: 5px;
+}
+.sidebar .basicinfo .mood img {
+	display: block; 
+	margin-top: 3px;
+}
+.sidebar .bacicinfo .friendedit {
+    display: none;
+}
+.sidebar .basicinfo .common {
+    clear: left;
+    margin-bottom: 15px;
+    height: 20px;
+}
+/*.sidebar .basicinfo .common a > span {
+    display: block;
+    width: 110px;
+    height: 50px;
+} Visual fix, don't know if this is needed... ( ted ) */
+.sidebar .basicinfo .info {
+	clear: left;
+}
+.sidebar .basicinfo dl dt {
+	float: left;
+	width: 12em;
+	padding: 3px 0;
+}
+.sidebar .basicinfo dl dd {
+	text-align: left;
+	margin-left: 12em;
+	padding: 3px 0;
+	width: 160px;
+}
+.sidebar .basicinfo h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 120%;
+	color: #105cb6;
+}
+.sidebar .basicinfo h2 a span.vavie150 {
+    padding: 0 4px 0 0;
+    cursor: pointer;
+}
+.sidebar .basicinfo h2 img {
+	float: left;
+}
+.sidebar .basicinfo h2 span.name {
+	font-size: 120%;
+	display: block;
+	font-weight: bold;
+}
+.sidebar dl.online dt{
+	display: block;
+	float: left;
+	padding: 3px 0;
+}
+.sidebar dl.online dd {
+	display: block;
+	text-align: left;
+	margin-left: 12em;
+	padding: 3px 0;
+	width: 160px;
+}
+.sidebar .look {
+	clear: both;
+	padding: 0 10px 10px 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+	height: 30px;
+}
+.look .s1_0054 {
+	padding: 0 0 46px 15px;
+	position: relative;
+}
+.sidebar .look ul li.dot {
+	color: #999;
+	font-size: 100%;
+}
+.sidebar .look img {
+	float: left;
+}
+.sidebar .look ul {
+	margin: 0 0 0 30px;
+}
+.sidebar .look ul li {
+	font-weight: bold;
+	padding: 1px;
+	display: inline;
+}
+.sidebar .social {
+	padding: 4px;
+	clear: both;
+	margin-top: 10px;
+}
+.sidebar .social dl dt {
+	float: left;
+	width: 170px;
+	padding: 3px 0;
+}
+.sidebar .social dl dd {
+	text-align: left;
+	margin: 0 0 0 170px;
+	padding: 3px 0;
+	width: 100px;
+}
+.sidebar .social ul {
+	/*
+	float:left; commented out by ted 
+	*/
+	padding:3px 0;
+	margin: 10px 0 0 0;
+}
+.sidebar .social li {
+	clear: both;
+	margin: 0 0 4px 0;
+}
+.sidebar .social li strong {
+	display:block;
+	width: 170px;
+	float:left;
+}
+.sidebar .aboutme {
+	padding: 4px;
+	clear: both;
+}
+.sidebar .aboutme dl {
+	padding: 7px 0 0 0;
+}
+.sidebar .aboutme dl dt {
+	padding: 3px 0 1px 0;
+}
+.sidebar .aboutme dl dd {
+	padding: 1px 0 0 0;
+}
+.sidebar .interests {
+	padding: 4px;
+	clear: both;
+}
+.sidebar .interests dl dt {
+	padding: 3px 0 1px 0;
+}
+.sidebar .interests dl dd {
+	padding: 1px 0 5px 0;
+}
+.sidebar .contacts {
+	padding: 4px;
+}
+.sidebar .contacts dt {
+	float: left;
+	height: 18px;
+	width: 18px;
+}
+.sidebar .ads {
+    border-top: 1px solid #ccc;
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 10px;
+}
+.sidebar .ads .ad {
+    margin: 20px auto 0 0;
+}
+.sidebar .contacts dd {
+	height: 18px;
+	margin: 4px 4px 4px 20px;
+}
+.sidebar .notice {
+	margin: 10px 0 20px 0;
+	text-align: left;
+}
+#antisocial {
+    background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
+    padding: 10px;
+    margin: 0 20px 10px 330px;
+    height: 40px;
+}
+#antisocial div {
+    padding: 10px 5px 0 0px;
+    width: 100%;
+    height: 20px;
+}
+#profile .main {
+	padding: 10px 0 0 20px;
+	margin-left: 330px;
+	position: relative;
+}
+#profile .main .ybubble {
+	margin: -28px 0 20px 50px;
+	width: 500px;
+	height: 85px;
+}
+.main .ybubble .body h3 {
+	padding: 5px 0 0 5px;
+}	
+.main .ybubble .body .uploaddiv {
+	margin: 0 0 5px 0px;
+}
+.main .ybubble .body .uploaddiv object.uploadframe {
+	height: 40px;
+}
+.main .ybubble .body .uploaddiv iframe.uploadframe {
+    height: 40px;
+    margin: 0 0 0 30px;
+}
+.main .photos {
+	height: 115px;
+}
+.main .photos .more {
+	float: right;
+	margin: 5px 0 0 0;
+}
+.morealbums {
+	margin: 0 0 10px 0;
+}
+.main .photos .viewalbums {
+	margin: 20px 0 0 0;
+}
+.main .photos ul li.addphoto {
+    padding: 43px 0 0 0;
+}
+#easyphotoupload {
+	display: none;
+	top: 15%;
+	left: 37%;
+	position: fixed;
+	background: #eef5f9;
+	border: 1px solid #284659;
+    width: 450px;
+    height: 225px;
+}
+#easyphotoupload .modalcontent {
+    padding: 80px 0 0 140px; 
+}
+#easyphotoupload .modalcontent span.plswait {
+    padding: 0 0 0 5px;
+    vertical-align: 3px;
+}
+#easyphotoupload div span.inalb {
+    padding: 0 0 0 10px;
+}
+#easyphotoupload div .ulcontainer {
+    overflow: auto;
+    height: 80px;
+    padding: 0 0 0 5px;
+}
+#easyphotoupload div ul li {
+    margin: 3px 5px; 
+    float: left;
+    cursor: pointer;
+    background: #e0ffff;
+}
+#easyphotoupload div ul li.selected span img {
+    border: 1px solid #4682b4;
+    padding: 1px;
+}
+#easyphotoupload div ul li span img {
+    border: 1px solid #add8e6;
+    padding: 1px; 
+}
+#easyphotoupload .uploadsuccess {
+    padding: 0 0 0 30px;
+    height: 20px;
+}
+#easyphotoupload .uploadsuccess div {
+    font-weight: 700;
+    display: none;
+}
+.main .friends h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+.main .friends a.button {
+	margin-left: 0;
+}
+.main .questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+.main .questions ul {
+	width: 70%;
+}
+.main .questions ul li {
+	padding: 5px 0 5px 0;
+	overflow: hidden;
+}
+.main .questions ul li p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+.main .questions ul li p.answer {
+	padding: 0;
+	margin: 0;
+}
+.main .lastpoll {
+	float: right;
+	padding: 0 0 20px 0;
+    margin: 0 50px;
+}
+
+.main .lastpoll h3 {
+	padding: 5px 0;
+	margin: 0;
+}
+.main .lastpoll h4 {
+	padding: 2px 0 0 0;
+	margin: 0;
+}
+.main .lastpoll .container {
+	margin-bottom: 10px;
+}
+.main .lastpoll a.button {
+	margin-left: 0;
+}
+.main .lastpoll .nopolls {
+	width: 400px;
+}	
+.main .lastpoll .nopolls div {
+	margin: 5px 0 0 0;
+	font-weight: bold;
+}
+.main .lastjournal .jsmall {
+	margin: 0 0 10px 0;
+}
+.main .lastjournal h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+.main .lastjournal .nojournals div {
+	font-weight: bold;
+	margin: 5px 0 0 0;
+}
+.main .space {
+	margin: 0 0 20px 0;
+}
+.main .space div {
+	margin: 0  0 20px 0;
+}
+.main .space h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+.main .space a.button {
+	margin-left: 0;
+}
+.comments {
+	width: 90%;
+	overflow:hidden;
+}
+.comments h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+.comments .pagifycomments {
+	text-align: center;
+}
+#profile .friends .people {
+    overflow: hidden;
+    height: 110px;
+	position: relative;
+}
