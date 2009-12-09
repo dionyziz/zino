@@ -72,7 +72,7 @@
                                 <input type="submit" style="display:none" />
                             </div>
                             <div>
-                                <ul>
+                                <ul class="buttons">
                                     <li><a href="" class="button">Αποθήκευση</a></li>
                                     <li><a href="" class="button">Διαγραφή</a></li>
                                 </ul>
