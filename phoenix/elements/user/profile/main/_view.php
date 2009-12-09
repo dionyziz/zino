@@ -67,10 +67,11 @@
             ?><div id="easyphotoupload" class="modal">
                 <h3>Ανέβασε μια φωτογραφία...</h3>
                 <div class="modalcontent">
+                    <span class="plswait">
                     <img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>ajax-loader.gif" />
-                    <span class="plswait">Παρακαλώ περιμένετε...</span>
+                    Παρακαλώ περιμένετε...</span>
                 </div>
             </div><?php
             
