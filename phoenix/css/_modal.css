@@ -36,3 +36,15 @@
     border: 2px solid #ccc;
     padding: 0.2em;
 }
+.modal .close {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    background: url("http://static.zino.gr/phoenix/xbutton.png");
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+.modal .close:hover {
+    background-position: 0 -60px;
+}
