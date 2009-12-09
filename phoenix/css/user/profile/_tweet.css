@@ -42,9 +42,6 @@ div.tweetbox .right {
     text-decoration: underline;
     color: #149;
 }
-#tweetedit form {
-    margin: 20px 15px 0 15px;
-}
 #tweetedit ul li {
     display: inline;
     margin: 10px;
