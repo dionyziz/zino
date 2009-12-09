@@ -301,8 +301,8 @@ var Profile = {
 		Profile.Mine = true;
 		
         $( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
-        $( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
-		$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
+        //$( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
+		//$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
 
         Profile.Player.MyProfileOnLoad();
 		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
