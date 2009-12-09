@@ -266,7 +266,7 @@ var Profile = {
 	Abuse: {
 		Init: function ( username ) {
 			if ( !Profile.Mine ) {
-				$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
+				//$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
 				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( function () {
 					Profile.Abuse.Hide();
 					return false;
@@ -300,7 +300,7 @@ var Profile = {
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
 		
-        $( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
+        //$( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
         //$( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
 		//$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
 
