@@ -8,7 +8,7 @@ jquery.center.js
 modal.js
 trivial/dates.js
 coala.js
-errorhandler.js
+#errorhandler.js
 places.js
 admanager.js
 album/list.js
