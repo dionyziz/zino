@@ -14,7 +14,7 @@
             if ( $user->Exists() ) {
                 $polls = $finder->FindUserRelated( $user );
                 if( $polls === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
-                    ?><b>Spot connection failed (start daemon!).</b><?php
+                    ?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
                 }
             }
             if ( $polls === false ) { // anonymous or spot failed
