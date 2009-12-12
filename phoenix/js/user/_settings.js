@@ -21,6 +21,7 @@ var Settings = {
             Settings.SectionLoad( section );
             return;
         }
+        alert( "lol" );
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
