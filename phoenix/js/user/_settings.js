@@ -16,7 +16,7 @@ var Settings = {
     },
     SectionSwitch: function( section ) {
         Settings.CurrentTab = section;
-        $( ".settings .tabs" ).fadeOut();
+        $( ".settings .tabs > div" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
             $( "#settingsloader" ).fadeIn();
             Settings.SectionLoad( section );
