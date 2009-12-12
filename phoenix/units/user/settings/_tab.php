@@ -44,7 +44,7 @@
                 return;
         }
         //a little hack to handle the huge tab elements
-        $html = str_split( ob_get_clean(), 1024 );
+        $html = str_split( ob_get_clean(), 1023 );
         ?>
         buffer = ""<?php
         foreach ( $html as $chunk ) {
