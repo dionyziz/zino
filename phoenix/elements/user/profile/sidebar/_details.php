@@ -25,6 +25,9 @@
             <div class="interests"><?php
                 Element( 'user/profile/sidebar/interests' , $theuser );
             ?></div>
+            <div id="privatemessage">
+                <a href="">Συζήτησε</a>
+            </div>
             <div class="contacts"><?php
                 /*Removed by: Chorvus
                   Reason: to counter web-crawlers searching for IMs
@@ -56,10 +59,7 @@
             ?>
             <div id="reportabuse"><?php
                 Element( 'user/profile/sidebar/abuse', $theuser->Id );
-            ?></div>
-            <div id="privatemessage">
-                <a href="">Συζήτησε</a>
-            </div><?php
+            ?></div><?php
         }
     }
 ?>
