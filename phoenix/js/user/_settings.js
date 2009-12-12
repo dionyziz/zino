@@ -124,10 +124,10 @@ var Settings = {
     ,
     CheckInput: function( inputElement, inputName ) {
         $( inputElement ).change( function() {
-            return function( inElem, inName ) {
+            return function() {
                 Settings.SavingOn();
-                Settings.InputArray[ inName ] =  $( inputElement );
-            } ( inputElement, inputName );
+                Settings.InputArray[ inputName ] =  $( inputElement );
+            };
         }
     }
 };
