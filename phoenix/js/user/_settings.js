@@ -123,6 +123,7 @@ var Settings = {
     }
     ,
     CheckInput: function( inputElement, inputName ) {
+        alert( inputElement.attr( 'id' ) );
         $( inputElement ).change( /*function() {
             return function() {
                 if ( !Settings.InputArray[ inputName ] ) {
