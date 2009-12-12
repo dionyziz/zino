@@ -29,7 +29,7 @@ var Settings = {
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     LoadProperties: function( section ) {
-        Settings.SectionsLoaded( section ) = true;
+        Settings.SectionsLoaded[ section ] = true;
 		if( section = 'interests' ) {
 			Suggest.OnLoad();
 		}
