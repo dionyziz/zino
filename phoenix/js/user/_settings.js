@@ -18,10 +18,11 @@ var Settings = {
         //TODO: sidebar effects
         Settings.CurrentTab = section;
         if ( !Settings.SectionsLoaded[ section ] ) {
+            alert( "preloading " + section );
             Settings.SectionLoad( section );
             return;
         }
-        alert( "lol" );
+        alert( "loading " + section );
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
