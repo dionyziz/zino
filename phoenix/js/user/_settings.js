@@ -127,7 +127,7 @@ var Settings = {
             return function( inElem, inName ) {
                 Settings.SavingOn();
                 Settings.InputArray[ inName ] =  $( inputElement );
-            } ( inputElement, inputName )
+            } ( inputElement, inputName );
         }
     }
 };
