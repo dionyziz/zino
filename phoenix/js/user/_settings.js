@@ -18,6 +18,7 @@ var Settings = {
         Settings.CurrentTab = section;
         $( ".settings .tabs > form" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
+            alert( 'coala-loading the section ' + section );
             $( "#settingsloader" ).fadeIn();
             Settings.SectionLoad( section );
             return;
