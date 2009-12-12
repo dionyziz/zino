@@ -128,6 +128,6 @@ var Settings = {
                 Settings.SavingOn();
                 Settings.InputArray[ inputName ] =  $( inputElement );
             };
-        }
+        } );
     }
 };
