@@ -1,4 +1,5 @@
 <?php
+    define( 'GROOVESHARK_CLIENTREVISION', '20091209.02' );
 	
 	function Grooveshark_CreateUUID(){
 		$uid = "";
@@ -45,7 +46,7 @@
 		curl_setopt( $ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"session":"' . $session . '","uuid":"' . $uid . '","client":"gslite","clientRevision":"20091027.09"},"parameters":{"secretKey":"' . $secretKey . '"},"method":"getCommunicationToken"}');
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"session":"' . $session . '","uuid":"' . $uid . '","client":"gslite","clientRevision":"' . GROOVESHARK_CLIENTREVISION . '"},"parameters":{"secretKey":"' . $secretKey . '"},"method":"getCommunicationToken"}');
 		curl_setopt( $ch,CURLOPT_HTTPHEADER, array( "Content-type: application/json" ) );
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$result = curl_exec ($ch);
@@ -70,7 +71,7 @@
 		curl_setopt( $ch, CURLOPT_URL, "http://cowbell.grooveshark.com/more.php?getSearchResults" );
 		curl_setopt( $ch, CURLOPT_COOKIE, "PHPSESSID=$session" );
 		curl_setopt( $ch, CURLOPT_POST, true);
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"token":"' . $specialtoken . '","session":"' . $session . '","uuid":"' . $uuid . '","client":"gslite","clientRevision":"20091027.09"},"parameters":{"query":"' . $query . '","type":"Songs"},"method":"getSearchResults"}');
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"token":"' . $specialtoken . '","session":"' . $session . '","uuid":"' . $uuid . '","client":"gslite","clientRevision":"' . GROOVESHARK_CLIENTREVISION . '"},"parameters":{"query":"' . $query . '","type":"Songs"},"method":"getSearchResults"}');
 		curl_setopt( $ch,CURLOPT_HTTPHEADER, array( "Content-type: application/json" ) );
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$result = curl_exec ($ch);
@@ -99,7 +100,7 @@
 		curl_setopt( $ch, CURLOPT_URL, "http://cowbell.grooveshark.com/service.php?getQueueSongListFromSongIDs" );
 		curl_setopt( $ch, CURLOPT_COOKIE, "PHPSESSID=$session" );
 		curl_setopt( $ch, CURLOPT_POST, true);
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"token":"' . $specialtoken . '","session":"' . $session . '","uuid":"' . $uuid . '","client":"gslite","clientRevision":"20091027.09"},"parameters":{"songIDs":[' . $songid . ']},"method":"getQueueSongListFromSongIDs"}');
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, '{"header":{"token":"' . $specialtoken . '","session":"' . $session . '","uuid":"' . $uuid . '","client":"gslite","clientRevision":"' . GROOVESHARK_CLIENTREVISION . '"},"parameters":{"songIDs":[' . $songid . ']},"method":"getQueueSongListFromSongIDs"}');
 		curl_setopt( $ch,CURLOPT_HTTPHEADER, array( "Content-type: application/json" ) );
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$result = curl_exec ($ch);
