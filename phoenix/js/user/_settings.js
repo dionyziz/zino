@@ -124,7 +124,7 @@ var Settings = {
     ,
     CheckInput: function( inputElement, inputName ) {
         inputElement = $( inputElement );
-        inputElement.keyup( function() {
+        inputElement.keyup( function( inputElement, inputName ) {
             return function() {
                     alert( 'something got changed on ' + inputName );
                 if ( !Settings.InputArray[ inputName ] ) {
@@ -132,6 +132,6 @@ var Settings = {
                     Settings.InputArray[ inputName ] =  inputElement;
                 }
             };
-        } );
+        } ( inputElement, inputName ) );
     }
 };
