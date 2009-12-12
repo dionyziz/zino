@@ -123,7 +123,7 @@ var Settings = {
     }
     ,
     CheckInput: function( inputElement, inputName ) {
-        $( inputElement ).change( function() {
+        $( inputElement ).change( /*function() {
             return function() {
                 if ( !Settings.InputArray[ inputName ] ) {
                     alert( 'something got changed on ' + inputName );
@@ -131,6 +131,10 @@ var Settings = {
                     Settings.InputArray[ inputName ] =  $( inputElement );
                 }
             };
-        } );
+        }*/
+        function() {
+            alert( 'something got changed on ' + inputName );
+        }
+        );
     }
 };
