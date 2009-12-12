@@ -125,8 +125,11 @@ var Settings = {
     CheckInput: function( inputElement, inputName ) {
         $( inputElement ).change( function() {
             return function() {
-                Settings.SavingOn();
-                Settings.InputArray[ inputName ] =  $( inputElement );
+                if ( !Settings.InputArray[ inputName ] ) {
+                    alert( 'something got changed on ' + inputName );
+                    Settings.SavingOn();
+                    Settings.InputArray[ inputName ] =  $( inputElement );
+                }
             };
         } );
     }
