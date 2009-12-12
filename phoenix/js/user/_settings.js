@@ -29,7 +29,7 @@ var Settings = {
     OnTabLoad: function( section ) {
         $( '#settingsloader' ).fadeOut();
         Settings.SectionsLoaded[ section ] = true;
-		if( section = 'interests' ) {
+		if( section == 'interests' ) {
 			Suggest.OnLoad();
 		}
         alert( "request switching to: " + section );
