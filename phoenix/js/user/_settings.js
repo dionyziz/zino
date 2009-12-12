@@ -16,21 +16,20 @@ var Settings = {
     },
     SectionSwitch: function( section ) {
         Settings.CurrentTab = section;
-        $( ".settings .tabs > form" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
-            $( "#settingsloader" ).center().fadeIn();
             Settings.SectionLoad( section );
             return;
         }
-        $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings();
+        $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
+        $( "#settingsloader" ).center().fadeIn();
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     OnTabLoad: function( section ) {
         $( '#settingsloader' ).fadeOut();
         Settings.SectionsLoaded[ section ] = true;
-		if( section == 'interests' ) {
+		if( section = 'interests' ) {
 			Suggest.OnLoad();
 		}
         Settings.SectionSwitch( section );
