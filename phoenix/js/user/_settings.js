@@ -1,5 +1,6 @@
 var Settings = {
     SectionsArray: [ 'personal', 'characteristics', 'interests', 'contact', 'account' ],
+    InputArray: [],
     SectionsLoaded: [],
     CurrentTab: false,
     SavingQueue: {},
@@ -100,17 +101,33 @@ var Settings = {
                 $( '#politics select' ).change( function() {
                     Settings.Enqueue( 'politics' , this.value );
                 });
+                Settings.CheckInput( '#slogan input', 'slogan' ); 
                                                 //---------INTEREST SETTINGS---------
             case 'interests':
                 Suggest.OnLoad();
         }
-    },
+    }
+    ,
     Enqueue: function( key , value ) {
+        Settings.SavingOn();
 		Settings.SavingQueue[ key ] = value;
-        //$( 'div.savebutton a' ).removeClass( 'disabled' );
         alert( "setting '" + key + "' to '" + value );
-	},
+	}
+    ,
     Dequeue: function() {
         Settings.SavingQueue = {};
+    }
+    ,
+    SavingOn: function() {
+        //$( 'div.savebutton a' ).removeClass( 'disabled' );
+    }
+    ,
+    CheckInput: function( inputElement, inputName ) {
+        $( inputElement ).change( ret: function() {
+            return function( inElem, inName ) {
+                Settings.SavingOn();
+                Settings.InputArray[ inName ] =  $( inputElement );
+            } ( inputElement, inputName )
+        }
     }
 };
