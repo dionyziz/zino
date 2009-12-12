@@ -81,6 +81,22 @@ var Settings = {
                     } );
                     Settings.Enqueue( 'gender' , this.value );
                 });
+                $( '#place select' ).change( function() {
+                    Settings.Enqueue( 'place' , this.value );
+                    //TODO: Callback with a list with schools
+                });
+                $( '#school select' ).change( function() {
+                    Settings.Enqueue( 'school' , this.value );
+                });
+                $( '#relationship select' ).change( function() {
+                    Settings.Enqueue( 'relationship' , this.value );
+                });
+                $( '#religion select' ).change( function() {
+                    Settings.Enqueue( 'religion' , this.value );
+                });
+                $( '#politics select' ).change( function() {
+                    Settings.Enqueue( 'politics' , this.value );
+                });
                                                 //---------INTEREST SETTINGS---------
             case 'interests':
                 Suggest.OnLoad();
