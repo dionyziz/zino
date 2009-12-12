@@ -18,12 +18,11 @@ var Settings = {
         Settings.CurrentTab = section;
         $( ".settings .tabs > form" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
-            alert( 'coala-loading the section ' + section );
-            $( "#settingsloader" ).fadeIn();
+            $( "#settingsloader" ).center().fadeIn();
             Settings.SectionLoad( section );
             return;
         }
-        $( ".settings .tabs ." + section + "info" ).fadeIn().sibblings().fadeOut();
+        $( ".settings .tabs ." + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
         Coala.Cold( 'user/settings/tab', { tab: section } );
