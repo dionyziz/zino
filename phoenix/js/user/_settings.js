@@ -28,7 +28,8 @@ var Settings = {
     SectionLoad: function( section ) {
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
-    LoadProperties: function( section ) {
+    OnTabLoad: function( section ) {
+        $( '#settingsloader' ).fadeOut();
         Settings.SectionsLoaded[ section ] = true;
 		if( section = 'interests' ) {
 			Suggest.OnLoad();
