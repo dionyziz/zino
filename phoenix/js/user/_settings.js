@@ -31,5 +31,6 @@ var Settings = {
 		if( section = 'interests' ) {
 			Suggest.OnLoad();
 		}
+        Settings.SectionSwitch( section );
     }
 };
