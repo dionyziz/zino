@@ -46,13 +46,12 @@
         //a little hack to handle the huge tab elements
         $html = str_split( ob_get_clean(), 1024 );
         ?>
-        buffer = "" 
-        <?php
+        buffer = ""<?php
         foreach ( $html as $chunk ) {
             ?>+<?php
             echo w_json_encode( $chunk ); 
         }
-        ?>
+        ?>;
         if ( $.browser.msie ) {
             $( 'div.settings div.tabs' ).append( buffer );
         }
