@@ -123,7 +123,7 @@ var Settings = {
     }
     ,
     CheckInput: function( inputElement, inputName ) {
-        $( inputElement ).change( ret: function() {
+        $( inputElement ).change( function() {
             return function( inElem, inName ) {
                 Settings.SavingOn();
                 Settings.InputArray[ inName ] =  $( inputElement );
