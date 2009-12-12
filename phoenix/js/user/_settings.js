@@ -38,12 +38,11 @@ var Settings = {
         switch( section ) {
                                                 //---------PERSONAL SETTINGS---------
             case 'personal':
-                //Date Of Birth
                 $( '#dateofbirth select' ).change( function() {
                     var day = $( '#dateofbirth select' )[ 0 ].value;
                     var month = $( '#dateofbirth select' )[ 1 ].value;
                     var year = $( '#dateofbirth select' )[ 2 ].value;
-                    //check for validdate
+
                     if ( day != -1 && month != -1 && year != -1 ) {
                         if ( Dates.ValidDate( day , month , year ) ) {
                             if ( Settings.invaliddob ) {
@@ -67,7 +66,6 @@ var Settings = {
                         }
                     }
                 } );
-                //Gender
                 $( '#gender select' ).change( function() {
                     var sexselected = $( '#sex select' )[ 0 ].value;
                     var relselected = $( '#religion select' )[ 0 ].value;
@@ -102,9 +100,38 @@ var Settings = {
                     Settings.Enqueue( 'politics' , this.value );
                 });
                 Settings.CheckInput( '#slogan input', 'slogan' ); 
+                Settings.CheckInput( '#aboutme textarea', 'aboutme' ); 
+                Settings.CheckInput( '#favquote input', 'favquote' ); 
+                                                //---------CHARACTERISTICS SETTINGS---------
+            case 'characteristics':
+                $( '#haircolor select' ).change( function() {
+                    Settings.Enqueue( 'haircolor' , this.value );
+                });
+                $( '#eyecolor select' ).change( function() {
+                    Settings.Enqueue( 'eyecolor' , this.value );
+                });
+                $( '#height select' ).change( function() {
+                    Settings.Enqueue( 'height' , this.value );
+                });
+                $( '#weight select' ).change( function() {
+                    Settings.Enqueue( 'weight' , this.value );
+                });
+                $( '#smoker select' ).change( function() {
+                    Settings.Enqueue( 'smoker' , this.value );
+                });
+                $( '#drinker select' ).change( function() {
+                    Settings.Enqueue( 'drinker' , this.value );
+                });
                                                 //---------INTEREST SETTINGS---------
             case 'interests':
                 Suggest.OnLoad();
+                                                //---------CONTACT SETTINGS---------
+            case 'contact':
+                Settings.CheckInput( '#msn input', 'msn' ); 
+                Settings.CheckInput( '#gtalk input', 'gtalk' ); 
+                Settings.CheckInput( '#skype input', 'skype' ); 
+                Settings.CheckInput( '#yahoo input', 'yahoo' ); 
+                Settings.CheckInput( '#web input', 'web' ); 
         }
     }
     ,
