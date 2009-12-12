@@ -15,6 +15,7 @@ var Settings = {
         } );
     },
     SectionSwitch: function( section ) {
+        alert( 'requested: ' + section );
         Settings.CurrentTab = section;
         $( ".settings .tabs > form" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
@@ -22,7 +23,6 @@ var Settings = {
             Settings.SectionLoad( section );
             return;
         }
-        alert( "fadeout" );
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
