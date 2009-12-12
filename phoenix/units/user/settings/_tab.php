@@ -62,12 +62,8 @@
         else {
             $( 'div.settings div.tabs' ).append( buffer.join( "" ).replace( /&nbsp;/g, ' ' ) );
         }
-        Settings.LoadProperties( '<?php
+        Settings.OnTabLoad( '<?php
             echo $tab;
-        ?>' );
-        Settings.SectionSwitch( '<?php
-            echo $tab;
-        ?>' );
-        <?php
+        ?>' );<?php
     }
 ?>
