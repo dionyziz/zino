@@ -18,11 +18,11 @@ var Settings = {
         //TODO: sidebar effects
         Settings.CurrentTab = section;
         if ( !Settings.SectionsLoaded[ section ] ) {
-            alert( "preloading " + section );
+            //alert( "preloading " + section );
             Settings.SectionLoad( section );
             return;
         }
-        alert( "loading " + section );
+        //alert( "loading " + section );
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
@@ -31,10 +31,9 @@ var Settings = {
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
     OnTabLoad: function( section ) {
-        Settings.SectionSwitch( section );
-        
-        $( '#settingsloader' ).fadeOut();
         Settings.SectionsLoaded[ section ] = true;
+        Settings.SectionSwitch( section );
+        $( '#settingsloader' ).fadeOut();
         switch( section ) {
                                                 //---------PERSONAL SETTINGS---------
             case 'personal':
