@@ -47,7 +47,6 @@
         $html = str_split( ob_get_clean(), 1024 );
         ?>
         buffer = [];
-        $( '#settingsloader' ).fadeOut();
         <?php
         foreach ( $html as $chunk ) {
             echo "\n";
