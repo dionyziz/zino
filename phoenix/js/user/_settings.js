@@ -23,6 +23,7 @@ var Settings = {
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
+        $( ".settings .tabs form" ).fadeOut();
         $( "#settingsloader" ).center().fadeIn();
         Coala.Cold( 'user/settings/tab', { tab: section } );
     },
