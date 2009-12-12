@@ -15,7 +15,6 @@ var Settings = {
         } );
     },
     SectionSwitch: function( section ) {
-        alert( 'requested: ' + section );
         Settings.CurrentTab = section;
         $( ".settings .tabs > form" ).fadeOut();
         if ( !Settings.SectionsLoaded[ section ] ) {
@@ -23,7 +22,7 @@ var Settings = {
             Settings.SectionLoad( section );
             return;
         }
-        $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
+        $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings();
     },
     SectionLoad: function( section ) {
         Coala.Cold( 'user/settings/tab', { tab: section } );
@@ -34,7 +33,6 @@ var Settings = {
 		if( section == 'interests' ) {
 			Suggest.OnLoad();
 		}
-        alert( 'requesting: '  + section );
         Settings.SectionSwitch( section );
     }
 };
