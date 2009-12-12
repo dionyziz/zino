@@ -127,9 +127,9 @@ var Settings = {
         inputElement.keyup( function( inputElement, inputName ) {
             return function() {
                 if ( !Settings.InputArray[ inputName ] ) {
-                    alert( 'something got changed on ' + inputName );
-                    Settings.SavingOn();
                     Settings.InputArray[ inputName ] =  inputElement;
+                    Settings.SavingOn();
+                    alert( 'something got changed on ' + inputName );
                 }
             };
         } ( inputElement, inputName ) );
