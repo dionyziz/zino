@@ -83,6 +83,9 @@ var Settings = {
                 });
                 $( '#place select' ).change( function() {
                     Settings.Enqueue( 'place' , this.value );
+                });
+                $( '#education select' ).change( function() {
+                    Settings.Enqueue( 'education' , this.value );
                     //TODO: Callback with a list with schools
                 });
                 $( '#school select' ).change( function() {
