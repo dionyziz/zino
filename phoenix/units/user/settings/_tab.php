@@ -44,22 +44,22 @@
                 return;
         }
         //a little hack to handle the huge tab elements
-        $html = str_split( ob_get_clean(), 2048 );
+        $html = str_split( ob_get_clean(), 1024 );
         ?>
-        buffer = [];
+        buffer = ""
         <?php
         foreach ( $html as $chunk ) {
             echo "\n";
-            ?>buffer.push( <?php
+            ?>+ "<?php
             echo w_json_encode( $chunk ); 
-            ?> );<?php
+            ?>"<?php
         }
         ?>
         if ( $.browser.msie ) {
-            $( 'div.settings div.tabs' ).append( buffer.join( "" ) );
+            $( 'div.settings div.tabs' ).append( buffer );
         }
         else {
-            $( 'div.settings div.tabs' ).append( buffer.join( "" ).replace( /&nbsp;/g, ' ' ) );
+            $( 'div.settings div.tabs' ).append( buffer.replace( /&nbsp;/g, ' ' ) );
         }
         Settings.OnTabLoad( '<?php
             echo $tab;
