@@ -123,13 +123,14 @@ var Settings = {
     }
     ,
     CheckInput: function( inputElement, inputName ) {
+        inputElement = $( inputElement );
         alert( inputElement.attr( 'id' ) );
-        $( inputElement ).change( /*function() {
+        inputElement.change( /*function() {
             return function() {
                 if ( !Settings.InputArray[ inputName ] ) {
                     alert( 'something got changed on ' + inputName );
                     Settings.SavingOn();
-                    Settings.InputArray[ inputName ] =  $( inputElement );
+                    Settings.InputArray[ inputName ] =  inputElement;
                 }
             };
         }*/
