@@ -26,19 +26,20 @@
                         if ( $user->Avatarid > 0 ) {
                             $libs->Load( 'image/image' );
                             
-                            // Element( 'image/view' , $user->Avatarid , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
-
+                            ?><div style="display:none"><?php
+                            Element( 'image/view' , $user->Avatarid , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
+                            ?></div><?php
                         }
                         else {
-                            /*
-                            ?><span class="imageview">
+                            ?><div style="display:none">
+                            <span class="imageview">
                                 <img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="<?php
                                 echo htmlspecialchars( $user->Name );
                                 ?>" title="<?php
                                 echo htmlspecialchars( $user->Name );
                                 ?>" class="banneravatar" />
-                            </span><?php
-                            */
+                            </span>
+                            </div><?php
                         }
                         ?><ul>
                             <li>
