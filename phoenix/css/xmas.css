@@ -109,3 +109,14 @@ body, html {
     background-repeat: no-repeat;
     z-index: 10;
 }
+#xmas4 {
+    bottom: -120px;
+    position: absolute;
+    background-color: #100e21;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/snow.jpg' );
+    background-repeat: repeat-x;
+    background-position: bottom;
+    height: 124px;
+    width: 100%;
+}
+
