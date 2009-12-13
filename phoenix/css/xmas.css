@@ -1,0 +1,108 @@
+body, html {
+    background-color: #100e21;
+}
+#lbanner > h1 > .s1_0055 {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/logo.png' );
+    background-position: 0 0;
+    display: block;
+    height: 59px;
+    position: relative;
+    top: -3px;
+    width: 95px;
+}
+#upstrip {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/xmasbanner.png' );
+    background-repeat: repeat-x;
+    background-position: -93px -25px;
+}
+#mbanner {
+    background-color: transparent;
+    background-image: none;
+}
+#loggedinmenu > span:after {
+    content: none;
+}
+.s1_0057, .s1_0056 {
+    background-image: none;
+}
+#strip2 {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/xmasbanner.png' );
+    background-repeat: repeat-x;
+    background-color: #3b76b0;
+}
+#strip1left {
+    width: 10px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/tl.jpg' );
+    background-position: 10px -1px;
+    background-color: #3b76b0;
+}
+#strip1right {
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/tr.jpg' );
+    background-position: -2px -1px;
+    background-color: #3b76b0;
+}
+#strip3left {
+    background-color: #3b76b0;
+    background-position: 10px -1px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/bl.jpg' );
+}
+#strip3right {
+    background-color: #3b76b0;
+    background-position: -2px -2px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/br.jpg' );
+}
+#downstrip {
+    background-color: #1c1211;
+    background-image: none;
+}
+#strip3middle {
+    height: 9px;
+}
+#downstrip {
+    background-color: #3b76b0;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/footer-fade.jpg' );
+    height: 116px;
+    background-repeat: repeat-x;
+    background-position: top;
+}
+#halloween {
+    z-index: 100;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/halloween/haunted-hat.gif' );
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 37px;
+    position: absolute;
+    bottom: 116px;
+    right: 143px;
+}
+
+#xmas1 {
+    position: absolute;
+    bottom: 114px;
+    left: 0px;
+    width: 20px;
+    height: 89px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/bl-side.jpg' );
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+#xmas2 {
+    position: absolute;
+    bottom: 114px;
+    right: 0px;
+    width: 20px;
+    height: 89px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/br-side.jpg' );
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+#xmas3 {
+    position: absolute;
+    bottom: -81px;
+    right: 0px;
+    width: 238px;
+    height: 183px;
+    background-image: url( 'http://static.zino.gr/phoenix/themes/xmas/shooting.png' );
+    background-repeat: no-repeat;
+    z-index: 10;
+}
