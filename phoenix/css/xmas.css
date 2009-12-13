@@ -19,6 +19,9 @@ body, html {
     background-color: transparent;
     background-image: none;
 }
+#loggedinmenu {
+    top: 27px;
+}
 #loggedinmenu > span:after {
     content: none;
 }

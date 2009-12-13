@@ -77,7 +77,7 @@
                                 ?></a>
                             </li>
                             <li>
-                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink">ZinoSTORE</a>
+                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold">ZinoSTORE</a>
                             </li>
                             <li>
                                 <form method="post" action="do/user/logout">
