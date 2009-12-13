@@ -1,5 +1,4 @@
 <?php
-    
     class ElementBanner extends Element {
         public function Render() {
             global $page;
@@ -27,10 +26,11 @@
                         if ( $user->Avatarid > 0 ) {
                             $libs->Load( 'image/image' );
                             
-                            Element( 'image/view' , $user->Avatarid , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
+                            // Element( 'image/view' , $user->Avatarid , $user->Id , $user->Avatar->Width , $user->Avatar->Height , IMAGE_CROPPED_100x100 , 'banneravatar' , $user->Name , '' , true , 50 , 50 , 0 );
 
                         }
                         else {
+                            /*
                             ?><span class="imageview">
                                 <img src="http://static.zino.gr/phoenix/anonymous100.jpg" alt="<?php
                                 echo htmlspecialchars( $user->Name );
@@ -38,6 +38,7 @@
                                 echo htmlspecialchars( $user->Name );
                                 ?>" class="banneravatar" />
                             </span><?php
+                            */
                         }
                         ?><ul>
                             <li>
@@ -76,7 +77,7 @@
                                 ?></a>
                             </li>
                             <li>
-                                <a href="find" class="bannerinlink">Βρες Φίλους</a>
+                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink">ZinoSTORE</a>
                             </li>
                             <li>
                                 <form method="post" action="do/user/logout">
