@@ -19,7 +19,7 @@ body, html {
     background-color: transparent;
     background-image: none;
 }
-#loggedinmenu {
+#mbanner > #loggedinmenu {
     top: 27px;
 }
 #loggedinmenu > span:after {
