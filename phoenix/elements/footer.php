@@ -17,9 +17,6 @@
             </div>
             <div id="xmas3">
             </div>
-            <a class="hoodie" href="http://zino.gr/store.php?p=product&amp;id=27">
-                <img src="http://static.zino.gr/phoenix/store/hoodie-footer.png" alt="hoodie" />
-            </a>
             <?php
         }
     }
