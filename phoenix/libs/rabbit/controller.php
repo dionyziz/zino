@@ -46,23 +46,32 @@
 
     // this is where we decide which controller to call
     // and start action
-    function Controller_Fire( $method, $req ) {
+    function Controller_Fire( $uri, $req ) {
         global $rabbit_settings;
 
         $coala = false; // unit handling later
 
-        $path = $req[ 'p' ];
-        $action = 'view';
+        $pos = strrpos( '/', $uri );
+        if ( $pos ) {
+            $resourcePath = substr( $uri, 0, $pos );
+            $action = substr( $uri, $pos + 1 );
+            // check if the last part wasn't meant to be action e.g. for view or create?
+            // maybe some other time
+        }
+        else {
+            $resourcePath = $uri;
+            $action = 'view';
+        }
 
         Controller_CheckAction( $action, $method );
-        $ret = Controller_Include( $path ); 
+        $ret = Controller_Include( $resourcePath ); 
 
         if ( $ret === false ) {
             Controller_Invalid( $method, $coala );
             return;
         }
 
-        $classname = Controller_GetClass( $path );
+        $classname = Controller_GetClass( $resourcePath );
         w_assert( class_exists( $classname ), "controller $classname does not exist" );
 
         $c = New $classname( $method, $coala );

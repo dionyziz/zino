@@ -20,9 +20,16 @@
     
     $req = $_GET;
     Rabbit_ClearPostGet();
+
+    // change .htaccess to rewrite everything to index.php
+    // then read URI like this
+    // uri = $_SERVER[ 'REQUEST_URI' ];
+
+    // this is just for the testing phase
+    $uri = $req[ 'p' ];
     
     Project_Construct();
-    Controller_Fire( 'GET', $req );
+    Controller_Fire( $uri, $req );
 
     // Rabbit_Destruct(); // this doesn't do anything!
 ?>
