@@ -49,7 +49,7 @@
 		public function FindByItemid( $id, $offset = 0, $limit = 200 ){
 			$prototype = New Storepurchase();
 			$prototype->Itemid = $id;
-			$purchases = $this->FindByPrototype( $prototype, $offset, $limit );
+			$purchases = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'ASC' ) );
 			$userids = array();
 			foreach ( $purchases as $purchase ){
 				$userids[] = $purchase->Userid;
