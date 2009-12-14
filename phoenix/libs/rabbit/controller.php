@@ -69,7 +69,59 @@
         $c->FireAction( $action, $req );
     }
 
-    abstract class Controller { 
+    /*
+        The most abstract controller class.
+        Extend this class if you want to create a custom resource controller, 
+        e.g. for image rendering.
+        If you want statndard HTML resource management (for HTML, CSS, JS, AJAX, HTTP Redirections), 
+        extend the HTMLController, that is linked to a Page class.
+
+        HTMLController would be a child of this Controller, but for efficiency reasons
+        the basic stuff are copied to it (PHP sucks at object handling).
+    */
+    abstract class Controller {
+        protected $mMethod;
+
+        public function __construct( $method ) {
+            // instantiate variables 
+            $this->mMethod = $method;
+        }
+        public function FireAction( $action, $req ) {
+            $beforefunc = "Before$action";
+            $this->$beforefunc(); // MAGIC!
+
+            $ret = Rabbit_TypeSafe_Call( array( $this, $action ), $req );
+
+            $afterfunc = "After$action";
+            $this->$afterfunc(); // MAGIC!
+        }
+        public function View() {
+        }
+        public function Create() {
+        }
+        public function Update() {
+        }
+        public function Delete() {
+        }
+        protected function BeforeView() {
+        }
+        protected function AfterView() {
+        }
+        protected function BeforeCreate() {
+        }
+        protected function AfterCreate() {
+        }
+        protected function BeforeUpdate() {
+        }
+        protected function AfterUpdate() {
+        }
+        protected function BeforeDelete() {
+        }
+        protected function AfterDelete() {
+        }
+    }
+
+    abstract class ControllerHTML { 
         protected $mMethod;
         protected $mCoala;
         protected $mPage;
@@ -163,7 +215,7 @@
     }
     
     // move this to controllers/zino and define __autoload()
-    abstract class ControllerZino extends Controller {
+    abstract class ControllerZino extends ControllerHTML {
         protected function BeforeView() {
             global $rabbit_settings;
             global $xc_settings;
