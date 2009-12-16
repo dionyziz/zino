@@ -100,7 +100,7 @@ var Settings = {
                 $( '#politics select' ).change( function() {
                     Settings.Enqueue( 'politics' , this.value );
                 });
-                $( '#avatarlist' ).modal( trigger : 'div.changeavatar a' );
+                $( "#avatarlist" ).modal( $( ".changeavatar a" ) );
                 Settings.CheckInput( '#slogan input', 'slogan' ); 
                 Settings.CheckInput( '#aboutme textarea', 'aboutme' ); 
                 Settings.CheckInput( '#favquote input', 'favquote' ); 
@@ -273,4 +273,18 @@ var Settings = {
     ,
     Save: function() {
     }
+    ,
+    SelectAvatar: function( imageid ) {
+        $( '#avatarlist' ).jqmHide();
+		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
+	}
+    ,
+	AddAvatar: function( imageid ) {
+        var li = document.createElement( 'li' );
+		$( li ).hide();
+		$( 'div#avatarlist ul' ).prepend( li );
+		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
+		var li2 = document.createElement( 'li' );
+		$( 'div#avatarlist ul' ).prepend( li2 );
+	}
 };
