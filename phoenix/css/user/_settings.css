@@ -35,6 +35,9 @@
 .settings .sections ul li.savesettings {
     padding-top: 20px;
 }
+.settings .sections ul li.savesettings a.disabled span {
+    background: none;
+}
 .settings .sections ul li.highlighted a {
     color: red;
     font-weight: bold;
