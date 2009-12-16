@@ -190,10 +190,10 @@ form div .setting ul.interesttags li {
 #avatarlist div.cancel {
 	text-align: center;
 }
-#password, #delete {
+#passwordchange, #accdelete {
     width: 400px;
 }
-#password > div, #delete > div {
+#passwordchange > div, #accdelete > div {
     padding: 0 0 0 20px;
 }
 .oldpassword {
@@ -244,7 +244,7 @@ form div .setting ul.interesttags li {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
-#password .save {
+#passwordchange .save {
     margin: 0 0 20px 0;
 	text-align: center;
 }
