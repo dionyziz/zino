@@ -11,7 +11,7 @@
                     echo htmlspecialchars( $user->Profile->Email );
                     ?>" />
                     <span>
-                       <span class="s_invalid">&nbsp;</span>Το email δεν είναι έγκυρο
+                       <span class="s1_0007">&nbsp;</span>Το email δεν είναι έγκυρο
                     </span>
                     <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
                 </div>
