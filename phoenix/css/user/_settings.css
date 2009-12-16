@@ -260,10 +260,7 @@ form div .setting ul.interesttags li {
 	vertical-align: 3px;
 	padding-top: 3px;
 }
-#accountinfo .changepwdl {
-    display:block;
-}
-#accountinfo .changepwdl label {
+#accountinfo div label {
     width: 400px;
     text-align: center;
 }
