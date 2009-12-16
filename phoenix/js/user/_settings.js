@@ -234,29 +234,29 @@ var Settings = {
          oldpassword = $( '#passwordchange .oldpassword input' );
          newpassword = $( '#passwordchange .newpassword input' );
          renewpassword = $( '#passwordchange .renewpassword input' );
-		if ( oldpassword.length < 4 ) {
+		if ( oldpassword.val().length < 4 ) {
 			oldpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			oldpassword.focus();
             return;
 		} else {
             oldpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
         }
-		if ( newpassword.length < 4 ) {
+		if ( newpassword.val().length < 4 ) {
 			newpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			newpassword.focus();
             return;
 		} else {
             newpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
         }
-		if ( newpassword != renewpassword ) {
+		if ( newpassword.val() != renewpassword.val() ) {
 			renewpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			renewpassword.focus();
             return;
 		} else {
             renewpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
         }
-        Settings.Enqueue( 'oldpassword' , oldpassword );
-        Settings.Enqueue( 'newpassword' , newpassword );
+        Settings.Enqueue( 'oldpassword' , oldpassword.val() );
+        Settings.Enqueue( 'newpassword' , newpassword.val() );
         Settings.Save( false );
 	}
     ,
