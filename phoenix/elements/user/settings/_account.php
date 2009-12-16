@@ -161,8 +161,8 @@
                     </tbody>
                 </table>
             </div>
-            <div id ="pwdmodal">
-                <h3 class="modaltitle">Αλλαγή κωδικού πρόσβασης</h3>
+            <div id ="passwordchange" class="modal">
+                <h3>Αλλαγή κωδικού πρόσβασης</h3>
                 <div class="oldpassword">
                     <span>Κωδικός πρόσβασης:</span>
                     <div>
@@ -206,7 +206,7 @@
                 </div>
             </div>
             
-            <div id ="delete modal">
+            <div id ="delete" class="modal">
                 <h3>Διαγραφή λογαριασμού</h3>
                 <div>
                     Πρόκειται να διαγράψεις τον λογαριασμό σου. Θα διαγραφεί επίσης όλο το περιεχόμενο που έχεις αναρτήσει.
