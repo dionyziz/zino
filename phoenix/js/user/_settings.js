@@ -232,17 +232,17 @@ var Settings = {
          newpassword = $( '#passwordchange .newpassword input' );
          renewpassword = $( '#passwordchange .renewpassword input' );
 		if ( oldpassword.length < 4 ) {
-			oldpassword.siblings( 'div' ).find( 'span' );).fadeIn( 300 );
+			oldpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			oldpassword.focus();
             return;
 		}
 		if ( newpassword.length < 4 ) {
-			newpassword.siblings( 'div' ).find( 'span' );.fadeIn( 300 );
+			newpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			newpassword.focus();
             return;
 		}
 		if ( newpassword != renewpassword ) {
-			renewpassword.siblings( 'div' ).find( 'span' );.fadeIn( 300 );
+			renewpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			renewpassword.focus();
             return;
 		}
