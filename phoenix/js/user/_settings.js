@@ -132,12 +132,22 @@ var Settings = {
                 Settings.CheckInput( '#skype input', 'skype' ); 
                 Settings.CheckInput( '#yahoo input', 'yahoo' ); 
                 Settings.CheckInput( '#web input', 'web' ); 
-            case '
+                                                //---------ACCOUNT SETTINGS---------
+            case 'account':
+                Settings.CheckInput( '#email input', 'email', function(x) {
+                    if ( Kamibu.ValidEmail( x.value ) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                } ); 
+                
         }
     }
     ,
     Enqueue: function( key , value ) {
-        Settings.SavingOn();
+        Settings.SavingEnabled();
 		Settings.SavingQueue[ key ] = value;
         alert( "setting '" + key + "' to '" + value );
 	}
@@ -146,21 +156,26 @@ var Settings = {
         Settings.SavingQueue = {};
     }
     ,
-    SavingOn: function() {
+    SavingEnabled: function() {
         //$( 'div.savebutton a' ).removeClass( 'disabled' );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity = false ) {
-        if ( typeof checkValidity != false && checkValidity( inputElement ) == false ) {
-            return;
-        }
         inputElement = $( inputElement );
         inputElement.keyup( function( inputElement, inputName ) {
             return function() {
-                if ( !Settings.InputArray[ inputName ] ) {
-                    Settings.InputArray[ inputName ] =  inputElement;
-                    Settings.SavingOn();
-                    alert( 'something got changed on ' + inputName );
+                if ( typeof checkValidity != false && checkValidity( inputElement ) == false ) {
+                    if ( Settings.InputArray[ inputName ] ) {
+                        delete Settings.InputArray[ inputName ];
+                        alert( 'did not pass the validation check, removing' );
+                    }
+                }
+                else {
+                    if ( !Settings.InputArray[ inputName ] ) {
+                        Settings.InputArray[ inputName ] =  inputElement.value;
+                        Settings.SavingOn();
+                        alert( 'something got changed on ' + inputName );
+                    }
                 }
             };
         } ( inputElement, inputName ) );
