@@ -86,7 +86,7 @@ var Settings = {
                 });
                 $( '#education select' ).change( function() {
                     Settings.Enqueue( 'education' , this.value );
-                    //TODO: Callback with a list with schools
+                    //TODO: Callback with a list of schools
                 });
                 $( '#school select' ).change( function() {
                     Settings.Enqueue( 'school' , this.value );
@@ -100,6 +100,7 @@ var Settings = {
                 $( '#politics select' ).change( function() {
                     Settings.Enqueue( 'politics' , this.value );
                 });
+                $( '#avatarlist' ).modal( trigger : 'div.changeavatar a' );
                 Settings.CheckInput( '#slogan input', 'slogan' ); 
                 Settings.CheckInput( '#aboutme textarea', 'aboutme' ); 
                 Settings.CheckInput( '#favquote input', 'favquote' ); 
@@ -173,7 +174,7 @@ var Settings = {
     Enqueue: function( key , value ) {
         Settings.EnableSave();
 		Settings.SavingQueue[ key ] = value;
-        alert( "setting '" + key + "' to '" + value );
+        alert( "setting '" + key + "' to '" + value + "'" );
 	}
     ,
     Dequeue: function() {
