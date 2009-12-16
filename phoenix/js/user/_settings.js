@@ -151,7 +151,7 @@ var Settings = {
                 $( '#passwordchange div.save a' ).click( function() {
                     Settings.ChangePassword();
                     return false;
-                );
+                } );
                 $( '#accdelete' ).click( function () {
                     document.body.style.cursor = 'wait';
                     Coala.Warm( 'user/delete', { password: $( '#deletemodal input' )[ 0 ].value } );
