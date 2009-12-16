@@ -20,12 +20,12 @@
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
-                <div class="changepwdl"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+                <div id="changepwd"><label><a href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
             <div class="barfade emailbarfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
             </div>
-                <div class="changepwdl"><label><a class="changepwdlink" href="">Διαγραφή λογαριασμού</a></label></div>
+                <div id="delaccount"><label><a href="">Διαγραφή λογαριασμού</a></label></div>
             <div class="barfade pwdbarfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
