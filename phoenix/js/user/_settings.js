@@ -135,6 +135,7 @@ var Settings = {
                                                 //---------ACCOUNT SETTINGS---------
             case 'account':
                 Settings.CheckInput( '#email input', 'email', c = function(x) {
+                    alert( 'checking ' + x.value );
                     if ( Kamibu.ValidEmail( x.value ) ) {
                         return true;
                     }
