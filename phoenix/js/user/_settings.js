@@ -132,6 +132,7 @@ var Settings = {
                 Settings.CheckInput( '#skype input', 'skype' ); 
                 Settings.CheckInput( '#yahoo input', 'yahoo' ); 
                 Settings.CheckInput( '#web input', 'web' ); 
+            case '
         }
     }
     ,
@@ -149,7 +150,10 @@ var Settings = {
         //$( 'div.savebutton a' ).removeClass( 'disabled' );
     }
     ,
-    CheckInput: function( inputElement, inputName ) {
+    CheckInput: function( inputElement, inputName, checkValidity = false ) {
+        if ( typeof checkValidity != false && checkValidity( inputElement ) == false ) {
+            return;
+        }
         inputElement = $( inputElement );
         inputElement.keyup( function( inputElement, inputName ) {
             return function() {
