@@ -238,17 +238,23 @@ var Settings = {
 			oldpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			oldpassword.focus();
             return;
-		}
+		} else {
+            oldpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
+        }
 		if ( newpassword.length < 4 ) {
 			newpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			newpassword.focus();
             return;
-		}
+		} else {
+            newpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
+        }
 		if ( newpassword != renewpassword ) {
 			renewpassword.siblings( 'div' ).find( 'span' ).fadeIn( 300 );
 			renewpassword.focus();
             return;
-		}
+		} else {
+            renewpassword.siblings( 'div' ).find( 'span' ).fadeOut( 300 );
+        }
         Settings.Enqueue( 'oldpassword' , oldpassword );
         Settings.Enqueue( 'newpassword' , newpassword );
         Settings.Save( false );
