@@ -191,12 +191,6 @@ form div .setting ul.interesttags li {
 	text-align: center;
 }
 #pwdmodal {
-	display: none;
-    top: 10%;
-	left: 30%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
     width: 400px;
 }
 #pwdmodal > div {
