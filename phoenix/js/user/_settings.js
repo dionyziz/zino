@@ -135,8 +135,7 @@ var Settings = {
                                                 //---------ACCOUNT SETTINGS---------
             case 'account':
                 Settings.CheckInput( '#email input', 'email', c = function(x) {
-                    alert( 'checking ' + x.val() );
-                    if ( Kamibu.ValidEmail( x.value ) ) {
+                    if ( Kamibu.ValidEmail( x.val() ) ) {
                         return true;
                     }
                     else {
@@ -173,7 +172,7 @@ var Settings = {
                 }
                 else {
                     if ( !Settings.InputArray[ inputName ] ) {
-                        Settings.InputArray[ inputName ] =  inputElement.value;
+                        Settings.InputArray[ inputName ] =  inputElement.val();
                         Settings.SavingOn();
                         alert( 'something got changed on ' + inputName );
                     }
