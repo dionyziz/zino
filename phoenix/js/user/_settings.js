@@ -144,8 +144,8 @@ var Settings = {
                         Settings.DisableSave();
                         return false;
                     }
-                } ); 
-                
+                } );
+                $( '#password' ).modal( $( '#changepwdl a' ) );
         }
     }
     ,
