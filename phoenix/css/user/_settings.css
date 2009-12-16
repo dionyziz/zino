@@ -193,9 +193,6 @@ form div .setting ul.interesttags li {
 #passwordchange, #accdelete {
     width: 400px;
 }
-#passwordchange > div, #accdelete > div {
-    padding: 0 0 0 20px;
-}
 .oldpassword {
 	margin: 10px 0;
 }
