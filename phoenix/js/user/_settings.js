@@ -157,7 +157,7 @@ var Settings = {
                     Coala.Warm( 'user/delete', { password: $( '#accdelete input' )[ 0 ].value } );
                     return false;
                 } );
-                $( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
+                $( 'form#accountinfo div.setting table tbody tr td input' ).click( function() {
                     var value = $( this )[ 0 ].checked;
                     if ( value ) {
                         value = 'yes';
