@@ -1,5 +1,5 @@
 <?php
-    class ElementUserSettingsSettings extends Element {
+    class ElementUserSettingsAccount extends Element {
         public function Render() {
             global $rabbit_settings;
             global $user; 
