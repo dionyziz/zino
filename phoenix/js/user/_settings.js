@@ -134,7 +134,7 @@ var Settings = {
                 Settings.CheckInput( '#web input', 'web' ); 
                                                 //---------ACCOUNT SETTINGS---------
             case 'account':
-                Settings.CheckInput( '#email input', 'email', function(x) {
+                Settings.CheckInput( '#email input', 'email', c = function(x) {
                     if ( Kamibu.ValidEmail( x.value ) ) {
                         return true;
                     }
@@ -160,11 +160,11 @@ var Settings = {
         //$( 'div.savebutton a' ).removeClass( 'disabled' );
     }
     ,
-    CheckInput: function( inputElement, inputName, checkValidity = false ) {
+    CheckInput: function( inputElement, inputName, checkValidity ) {
         inputElement = $( inputElement );
         inputElement.keyup( function( inputElement, inputName ) {
             return function() {
-                if ( typeof checkValidity != false && checkValidity( inputElement ) == false ) {
+                if ( checkValidity !== undefined && checkValidity( inputElement ) == false ) {
                     if ( Settings.InputArray[ inputName ] ) {
                         delete Settings.InputArray[ inputName ];
                         alert( 'did not pass the validation check, removing' );
