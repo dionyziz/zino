@@ -152,9 +152,9 @@ var Settings = {
                     Settings.ChangePassword();
                     return false;
                 } );
-                $( '#accdelete' ).click( function () {
+                $( '#accdelete .save a' ).click( function () {
                     document.body.style.cursor = 'wait';
-                    Coala.Warm( 'user/delete', { password: $( '#deletemodal input' )[ 0 ].value } );
+                    Coala.Warm( 'user/delete', { password: $( '#accdelete input' )[ 0 ].value } );
                     return false;
                 } );
         }
