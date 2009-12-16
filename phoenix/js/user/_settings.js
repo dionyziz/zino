@@ -148,10 +148,7 @@ var Settings = {
                 } );
                 $( '#passwordchange' ).modal( $( '#changepwd a' ) );
                 $( '#accdelete' ).modal( $( '#delaccount a' ) );
-                $( '#passwordchange div.save a' ).click( function() {
-                    Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
-                    return false;
-                } );
+                $( '#passwordchange div.save a' ).click( Settings.ChangePassword() );
                 $( '#accdelete' ).click( function () {
                     document.body.style.cursor = 'wait';
                     Coala.Warm( 'user/delete', { password: $( '#deletemodal input' )[ 0 ].value } );
@@ -230,20 +227,23 @@ var Settings = {
 		return false;
 	}
     ,
-	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
+	ChangePassword : function() {
+         oldpassword = $( '#passwordchange .oldpassword input' );
+         newpassword = $( '#passwordchange .newpassword input' );
+         renewpassword = $( '#passwordchange .renewpassword input' );
 		if ( oldpassword.length < 4 ) {
-			$( '#passwordchange .oldpassword div span' ).fadeIn( 300 );
-			$( '#passwordchange .oldpassword input' ).focus();
+			oldpassword.siblings( 'div' ).find( 'span' );).fadeIn( 300 );
+			oldpassword.focus();
             return;
 		}
 		if ( newpassword.length < 4 ) {
-			$( '#passwordchange .newpassword div span' ).fadeIn( 300 );
-			$( '#passwordchange .newpassword input' ).focus();
+			newpassword.siblings( 'div' ).find( 'span' );.fadeIn( 300 );
+			newpassword.focus();
             return;
 		}
 		if ( newpassword != renewpassword ) {
-			$( '#passwordchange .renewpassword div span' ).fadeIn( 300 );
-			$( '#passwordchange .renewpassword input' ).focus();
+			renewpassword.siblings( 'div' ).find( 'span' );.fadeIn( 300 );
+			renewpassword.focus();
             return;
 		}
         Settings.Enqueue( 'oldpassword' , oldpassword );
