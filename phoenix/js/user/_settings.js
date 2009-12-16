@@ -1,3 +1,4 @@
+//TODO: remove these ugly newpassworderror etc
 var Settings = {
     SectionsArray: [ 'personal', 'characteristics', 'interests', 'contact', 'account' ],
     InputArray: [],
@@ -146,7 +147,16 @@ var Settings = {
                     }
                 } );
                 $( '#passwordchange' ).modal( $( '#changepwd a' ) );
-                $( '#delete' ).modal( $( '#delaccount a' ) );
+                $( '#accdelete' ).modal( $( '#delaccount a' ) );
+                $( '#passwordchange div.save a' ).click( function() {
+                    Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+                    return false;
+                } );
+                $( '#accdelete' ).click( function () {
+                    document.body.style.cursor = 'wait';
+                    Coala.Warm( 'user/delete', { password: $( '#deletemodal input' )[ 0 ].value } );
+                    return false;
+                } );
         }
     }
     ,
@@ -210,7 +220,8 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
-	},
+	}
+    ,
 	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
@@ -218,4 +229,28 @@ var Settings = {
 		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
 		return false;
 	}
+    ,
+	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
+		if ( oldpassword.length < 4 ) {
+			$( '#passwordchange .oldpassword div span' ).fadeIn( 300 );
+			$( '#passwordchange .oldpassword input' ).focus();
+            return;
+		}
+		if ( newpassword.length < 4 ) {
+			$( '#passwordchange .newpassword div span' ).fadeIn( 300 );
+			$( '#passwordchange .newpassword input' ).focus();
+            return;
+		}
+		if ( newpassword != renewpassword ) {
+			$( '#passwordchange .renewpassword div span' ).fadeIn( 300 );
+			$( '#passwordchange .renewpassword input' ).focus();
+            return;
+		}
+        Settings.Enqueue( 'oldpassword' , oldpassword );
+        Settings.Enqueue( 'newpassword' , newpassword );
+        Settings.Save( false );
+	}
+    ,
+    Save: function() {
+    }
 };
