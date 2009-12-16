@@ -36,8 +36,8 @@
                 ?></form><?php
                 break;
             case 'account':
-                ?><form id="settingsinfo" action="" ><?php
-                    Element( 'user/settings/settings' );
+                ?><form id="accountinfo" action="" ><?php
+                    Element( 'user/settings/account' );
                 ?></form><?php
                 break;
             default:
