@@ -303,3 +303,7 @@ form div .setting ul.interesttags li {
 #settingsloader {
     display: none;
 }
+ul.interesttags li div {
+    border: 2px solid grey;
+    padding: 2px;
+}
