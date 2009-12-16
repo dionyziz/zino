@@ -137,9 +137,11 @@ var Settings = {
                 Settings.CheckInput( '#email input', 'email', c = function(x) {
                     if ( Kamibu.ValidEmail( x.val() ) ) {
                         return true;
+                        x.css( 'background', 'blue' );
                     }
                     else {
                         return false;
+                        x.css( 'background', 'red' );
                     }
                 } ); 
                 
@@ -173,7 +175,7 @@ var Settings = {
                 else {
                     if ( !Settings.InputArray[ inputName ] ) {
                         Settings.InputArray[ inputName ] =  inputElement.val();
-                        Settings.SavingOn();
+                        Settings.Enabled();
                         alert( 'something got changed on ' + inputName );
                     }
                 }
