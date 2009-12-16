@@ -10,7 +10,7 @@
                 <li class="interests"><a href=""><span class="s1_0037">&nbsp;</span>Ενδιαφέροντα</a></li>
                 <li class="contact"><a href=""><span class="s1_0040">&nbsp;</span>Επικοινωνία</a></li>
                 <li class="account"><a href=""><span class="s1_0038">&nbsp;</span>Λογαριασμός</a></li>
-                <li class="savesettings"><a href=""><span class="s1_0045">&nbsp;</span>Αποθήκευση ρυθμίσεων</a></li>
+                <li class="savesettings"><a href="" class="disabled"><span class="s1_0045">&nbsp;</span>Αποθήκευση ρυθμίσεων</a></li>
                 <li class="backtoprofile"><a href=""><span class="s1_0018">&nbsp;</span>Επιστροφή στο προφίλ</a></li>
             </ul><?php
         }
