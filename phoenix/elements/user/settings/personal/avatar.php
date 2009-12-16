@@ -11,8 +11,8 @@
             ?><div class="changeavatar">
 				<a href="">Αλλαγή εικόνας</a>
             </div>
-            <div id="avatarlist">
-				<h3 class="modaltitle">Επίλεξε μια φωτογραφία...</h3>
+            <div id="avatarlist" class="modal">
+				<h3>Επίλεξε μια φωτογραφία...</h3>
                 <div class="uploaddiv">
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
