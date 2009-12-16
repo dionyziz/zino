@@ -145,7 +145,8 @@ var Settings = {
                         return false;
                     }
                 } );
-                $( '#password' ).modal( $( '#changepwdl a' ) );
+                $( '#passwordchange' ).modal( $( '#changepwd a' ) );
+                $( '#delete' ).modal( $( '#delaccount a' ) );
         }
     }
     ,
