@@ -151,15 +151,6 @@ form div .setting ul.interesttags li {
 #photo .changeavatar{
 	clear: both;
 }
-#avatarlist {
-	display: none;
-	top: 10%;
-	left: 30%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
-
-}
 #avatarlist .uploaddiv {
 	position: absolute;
 	top: 25px;
