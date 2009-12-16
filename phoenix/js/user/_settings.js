@@ -136,11 +136,12 @@ var Settings = {
             case 'account':
                 Settings.CheckInput( '#email input', 'email', function(x) {
                     if ( Kamibu.ValidEmail( x.val() ) ) {
-                        x.css( 'background', 'blue' );
+                        $( '#email span.s1_0007' ).stop().fadeIn();
                         return true;
                     }
                     else {
-                        x.css( 'background', 'red' );
+                        $( '#email span.s1_0007' ).stop().fadeOut();
+                        Settings.DisableSave();
                         return false;
                     }
                 } ); 
@@ -149,7 +150,7 @@ var Settings = {
     }
     ,
     Enqueue: function( key , value ) {
-        Settings.SavingEnabled();
+        Settings.EnableSave();
 		Settings.SavingQueue[ key ] = value;
         alert( "setting '" + key + "' to '" + value );
 	}
@@ -158,7 +159,7 @@ var Settings = {
         Settings.SavingQueue = {};
     }
     ,
-    SavingEnabled: function() {
+    EnableSave: function() {
         //$( 'div.savebutton a' ).removeClass( 'disabled' );
     }
     ,
@@ -174,8 +175,8 @@ var Settings = {
                 }
                 else {
                     if ( !Settings.InputArray[ inputName ] ) {
-                        Settings.InputArray[ inputName ] =  inputElement.val();
-                        Settings.Enabled();
+                        Settings.InputArray[ inputName ] = true;
+                        Settings.EnableSave();
                         alert( 'something got changed on ' + inputName );
                     }
                 }
