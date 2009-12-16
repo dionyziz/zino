@@ -134,14 +134,14 @@ var Settings = {
                 Settings.CheckInput( '#web input', 'web' ); 
                                                 //---------ACCOUNT SETTINGS---------
             case 'account':
-                Settings.CheckInput( '#email input', 'email', c = function(x) {
+                Settings.CheckInput( '#email input', 'email', function(x) {
                     if ( Kamibu.ValidEmail( x.val() ) ) {
-                        return true;
                         x.css( 'background', 'blue' );
+                        return true;
                     }
                     else {
-                        return false;
                         x.css( 'background', 'red' );
+                        return false;
                     }
                 } ); 
                 
