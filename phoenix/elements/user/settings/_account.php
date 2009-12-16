@@ -21,6 +21,11 @@
                 <div class="rightbar"></div>
             </div>
                 <div class="changepwdl"><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+            <div class="barfade emailbarfade">
+                <div class="leftbar"></div>
+                <div class="rightbar"></div>
+            </div>
+                <div class="changepwdl"><label><a class="changepwdlink" href="">Διαγραφή λογαριασμού</a></label></div>
             <div class="barfade pwdbarfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
@@ -198,6 +203,31 @@
                 </div>
                 <div class="save">
                     <a href="" class="button">Αποθήκευση</a>
+                </div>
+            </div>
+            
+            <div id ="deletemodal">
+                <h3 class="modaltitle">Διαγραφή λογαριασμού</h3>
+                <div>
+                    Πρόκειται να διαγράψεις τον λογαριασμό σου. Θα διαγραφεί επίσης όλο το περιεχόμενο που έχεις αναρτήσει.
+                    Το όνομα του λογαριασμού που χρησιμοποίησες δεν θα μπορέσει να ξαναχρησιμοποιηθεί από άλλο μέλος.
+                </div>
+                <div style="font-weight:bold;color:#f00">Προσοχή: Η διαγραφή λογαριασμού δεν μπορεί να ακυρωθεί!</div>
+                <div class="oldpassword">
+                    <span>Κωδικός πρόσβασης:</span>
+                    <div>
+                        <input type="password" />
+                        <div class="wrongpwd">
+                        <span>
+                        <img src="<?php
+                        echo $rabbit_settings[ 'imagesurl' ];
+                        ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="save">
+                    <a href="" class="button">Διαγραφή του λογαριασμού μου</a>
                 </div>
             </div><?php
         }
