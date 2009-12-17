@@ -25,18 +25,8 @@
 }
 
 #mplayersearchmodal{
-	display: none;
-	top: 35%;
-	left: 19%;
-	position: fixed;
 	background: #6C8ABB;
 	width: 780px;
-	-moz-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-msie-border-radius: 10px;
-	border-radius: 10px;
-	
 }
 
 #mplayersearchmodal .toolbar{
