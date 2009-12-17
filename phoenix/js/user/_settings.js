@@ -16,10 +16,11 @@ var Settings = {
                 }
             } ( this.toString() ) );
         } );
-        $( "li.savesettings" ).css( 'opacity', 0.5 ).click( function() {
-            if ( !this.hasClass( 'disabled' ) ) {
+        $( "li.savesettings" ).css( 'opacity', 0.5 ).children( "a" ).click( function() {
+            if ( !$(this).hasClass( 'disabled' ) ) {
                 Settings.Save();
             }
+            return false;
         } );
     },
     SectionSwitch: function( section ) {
@@ -191,7 +192,7 @@ var Settings = {
     }
     ,
     EnableSave: function() {
-        $( 'li.savesettings a' ).removeClass( 'disabled' ).animate( { opacity: 1 }, 200 );
+        $( 'li.savesettings a' ).removeClass( 'disabled' ).parent().animate( { opacity: 1 }, 200 );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
