@@ -73,6 +73,7 @@
 }
 #join_tos div {
 	overflow: auto;
+    height: 100%;
 }
 #join_tos div h3 {
 	margin: 0;
