@@ -40,7 +40,7 @@
                 else {
                     ?><object style="height:50px" data="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;
-                    ?>&amp;typeid=4&amp;color=eef5f9" class="uploadframe" id="uploadframe" type="text/html">
+                    ?>&amp;typeid=4&amp;color=e8eAec" class="uploadframe" id="uploadframe" type="text/html">
                     </object><?php
                 }
             ?></div>
