@@ -25,6 +25,7 @@
 }
 
 #mplayersearchmodal{
+    background: #6c8abb;
     padding: 0;
 	-moz-border-radius: 10px;
 	-khtml-border-radius: 10px;
@@ -62,8 +63,8 @@
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	top: 11px;
-	right: 8px;
+	top: 3px;
+	right: 3px;
 	cursor: pointer;
 	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
 }
