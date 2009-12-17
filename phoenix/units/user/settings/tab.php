@@ -45,7 +45,7 @@
         }
         //a little hack to handle the huge tab elements
         //$html = str_split( ob_get_clean(), 2048 );
-        $buffer = $ob_get_clean();
+        $buffer = ob_get_clean();
         ?>buffer = <?php
             echo w_json_encode( $buffer ); 
         ?>;
