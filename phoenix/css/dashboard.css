@@ -1,211 +1,555 @@
 html {
-    height: 100%;
+	height: 100%;
 }
 body {
-    font-family: "Trebuchet MS";
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
+	font-family: "Trebuchet MS";
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
 }
 #content {
-    padding-top: 0;
-    padding-left: 2px;
-    padding-right: 0;
-    margin-left: 11px;
+	padding-top: 0;
+	padding-left: 2px;
+	padding-right: 0;
+	margin-left: 11px;
 }
 #nowbar {
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    top: 0;
-    background-color: white;
-    float: right;
-    width: 30%;
-    border-left: 2px solid #dde;
-    border-bottom: 1px solid #dde;
-    border: 1px solid #778a97;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    padding: 0 0 5px 5px;
-    background-color: #c2d0da;
-    cursor: e-resize;
+	position: fixed;
+	z-index: 1;
+	right: 0;
+	top: 0;
+	background-color: white;
+	float: right;
+	width: 30%;
+	border-left: 2px solid #dde;
+	border-bottom: 1px solid #dde;
+	border: 1px solid #778a97;
+	border-top-width: 0;
+	border-bottom-width: 0;
+	padding: 0 0 5px 5px;
+	background-color: #c2d0da;
+	cursor: e-resize;
 }
 #notifications {
-    position: absolute;
-    top: 0;
-    z-index: 1;
+	position: absolute;
+	top: 0;
+	z-index: 1;
 }
 #notifybox {
-    font-size: 90%;
-    width: 500px;
-    border: 1px solid #778a97;
-    border-top-width: 0;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    padding: 0 3px 3px 3px;
-    background-color: #c2d0da;
+	font-size: 90%;
+	width: 500px;
+	border: 1px solid #778a97;
+	border-top-width: 0;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	padding: 0 3px 3px 3px;
+	background-color: #c2d0da;
 }
 .border {
-    padding-top: 5px;
-    background-color: white;
-    border: 1px solid #ccd;
-    border-top-width: 0;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
+	padding-top: 5px;
+	background-color: white;
+	border: 1px solid #ccd;
+	border-top-width: 0;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
 }
 #nowbar .border {
-    border-right-width: 0;
-    border-bottom-width: 0;
-    -moz-border-radius-bottomright: 0;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-bottomleft: 0;
-    -webkit-border-bottom-left-radius: 0;
-    cursor: default;
+	border-right-width: 0;
+	border-bottom-width: 0;
+	-moz-border-radius-bottomright: 0;
+	-webkit-border-bottom-right-radius: 0;
+	-moz-border-radius-bottomleft: 0;
+	-webkit-border-bottom-left-radius: 0;
+	cursor: default;
 }
 #notifications div.avatar img {
-    padding: 0;
-    margin: 0;
-    width: 50px;
-    height: 50px;
+	padding: 0;
+	margin: 0;
+	width: 50px;
+	height: 50px;
 }
 #notifications li {
-    clear: both;
-    height: 53px;
-    line-height: 50px;
-    padding: 3px 0 3px 0;
-    vertical-align: middle;
+	clear: both;
+	height: 53px;
+	line-height: 50px;
+	padding: 3px 0 3px 0;
+	vertical-align: middle;
 }
 #notifications li img {
-    float: left;
-    margin-right: 5px;
+	float: left;
+	margin-right: 5px;
 }
 #notifications h2 {
-    padding: 0 5px 0 5px;
-    text-align: center;
-    font-size: 110%;
+	padding: 0 5px 0 5px;
+	text-align: center;
+	font-size: 110%;
 }
 ol, ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 input {
-    color: #999;
-    display: block;
-    font-family: Verdana, Tahoma, Helvetica;
-    font-size: 8pt;
-    padding: 3px;
-    width: 100%;
-    border: 1px solid #ccc;
-    background-image: url( 'http://static.zino.gr/phoenix/find-simple.png' );
-    background-repeat: no-repeat;
-    background-position: 3px 3px;
-    padding-left: 20px;
+	color: #999;
+	display: block;
+	font-family: Verdana, Tahoma, Helvetica;
+	font-size: 8pt;
+	padding: 3px;
+	width: 100%;
+	border: 1px solid #ccc;
+	background-image: url( 'http://static.zino.gr/phoenix/find-simple.png' );
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	padding-left: 20px;
 }
 #chat {
-    font-size: 90%;
-    position: relative;
-    overflow: hidden;
+	font-size: 90%;
+	position: relative;
+	overflow: hidden;
 }
 #chat textarea {
-    border: 1px solid #ccc;
-    color: #999;
-    display: block;
-    font-family: Verdana, Tahoma, Helvetica;
-    font-size: 8pt;
-    padding: 3px;
-    width: 100%;
+	border: 1px solid #ccc;
+	color: #999;
+	display: block;
+	font-family: Verdana, Tahoma, Helvetica;
+	font-size: 8pt;
+	padding: 3px;
+	width: 100%;
 }
 #chat strong {
-    color: #6af;
-    font-weight: normal;
-    float: left;
-    text-align: right;
-    height: 18px;
-    margin-right: 10px;
-    text-align: right;
-    line-height: 18px;
-    width: 100px;
-    overflow: hidden;
+	color: #6af;
+	font-weight: normal;
+	float: left;
+	text-align: right;
+	height: 18px;
+	margin-right: 10px;
+	text-align: right;
+	line-height: 18px;
+	width: 100px;
+	overflow: hidden;
 }
 #chat ol {
-    overflow: auto;
+	overflow: auto;
 }
 #friends ol {
-    overflow: auto;
+	overflow: auto;
 }
 #chat {
-    padding-left: 5px;
+	padding-left: 5px;
 }
 #chat div.text {
-    margin-left: 110px;
+	margin-left: 110px;
 }
 #frontpage {
-    background-color: #5180ae;
-    overflow: auto;
-    border-top: 1px solid transparent;
-    position: relative;
+	background-color: #5180ae;
+	overflow: auto;
+	border-top: 1px solid transparent;
+	position: relative;
 }
 h2 {
-    color: #3c3940;
-    font-size: 110%;
-    font-weight: bold;
-    padding: 0 5px 0 5px;
+	color: #3c3940;
+	font-size: 110%;
+	font-weight: bold;
+	padding: 0 5px 0 5px;
 }
 div.input {
-    padding: 5px;
+	padding: 5px;
 }
 a img {
-    border: none;
+	border: none;
 }
 a.collapse {
-    background-image: url( 'http://static.zino.gr/phoenix/application_view_list.png' );
-    background-repeat: no-repeat;
-    background-position: 2px 2px;
-    float: right;
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+	background-image: url( 'http://static.zino.gr/phoenix/application_view_list.png' );
+	background-repeat: no-repeat;
+	background-position: 2px 2px;
+	float: right;
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
 }
 #notifications li a.item {
-    display: block;
-    height: 50px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    padding: 2px 6px 2px 6px;
-    color: #345;
-    text-decoration: none;
+	display: block;
+	height: 50px;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	padding: 2px 6px 2px 6px;
+	color: #345;
+	text-decoration: none;
 }
 #notifications li a.item:hover, #notifications li:hover a.item {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    -moz-border-radius: 5px;
-    background-color: #f7f7f7;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	-moz-border-radius: 5px;
+	background-color: #f7f7f7;
 }
 #notifications a.remove {
-    font-family: Verdana;
-    font-weight: bold;
-    font-size: 70%;
-    float: right;
-    display: block;
-    line-height: 16px;
-    width: 16px;
-    height: 16px;
-    text-align: center;
-    margin: 4px;
-    border: 1px solid transparent;
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 70%;
+	float: right;
+	display: block;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	margin: 4px;
+	border: 1px solid transparent;
 }
 #notifications a.remove:hover {
-    border: 1px solid white;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    background-color: #105cb6;
-    color: white;
-    text-decoration: none;
+	border: 1px solid white;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #105cb6;
+	color: white;
+	text-decoration: none;
 }
-
+#notifications div.shadow-left {
+	background-image: url( 'http://static.zino.gr/phoenix/notify-shadow-left.png' );
+	background-repeat: repeat-y;
+	width: 7px;
+	height: 100%;
+	position: absolute;
+	left: -7px;
+	top: -5px;
+}
+#notifications div.shadow-right {
+	background-image: url( 'http://static.zino.gr/phoenix/notify-shadow-right.png' );
+	background-repeat: repeat-y;
+	width: 7px;
+	height: 100%;
+	position: absolute;
+	right: -7px;
+	top: -5px;
+}
+#notifications div.shadow-bottom div.real {
+	background-image: url( 'http://static.zino.gr/phoenix/notify-shadow-bottom.png' );
+	background-repeat: repeat-x;
+	height: 7px;
+}
+#notifications div.shadow-bottom {
+	position: absolute;
+	bottom: -7px;
+	margin: 0 5px 0 5px;
+	right: 3px;
+	left: 3px;
+}
+#notifications div.shadow-bl {
+	background-image: url( 'http://static.zino.gr/phoenix/notify-shadow-bl.png' );
+	background-repeat: no-repeat;
+	width: 15px;
+	height: 12px;
+	position: absolute;
+	left: -7px;
+	bottom: -7px;
+}
+#notifications div.shadow-br {
+	background-image: url( 'http://static.zino.gr/phoenix/notify-shadow-br.png' );
+	background-repeat: no-repeat;
+	width: 15px;
+	height: 12px;
+	position: absolute;
+	right: -7px;
+	bottom: -7px;
+}
+a {
+	text-decoration: none;
+	color: #105cb6;
+}
+a:hover {
+	text-decoration: underline;
+}
+#friends h2 {
+	padding-left: 5px;
+}
+#friends ul {
+	padding: 0;
+	padding-left: 5px;
+}
+#friends li {
+	clear: both;
+	padding: 0 0 13px 0;
+	overflow: hidden;
+	height: 50px;
+	position: relative;
+}
+#friends li a {
+	font-weight: bold;
+}
+#friends li span.twit {
+	font-weight: normal;
+	display: block;
+	color: #999;
+	font-size: 90%;
+	white-space: nowrap;
+	margin-left: 61px;
+}
+#friends div.toolbox {
+	font-size: 80%;
+	font-weight: bold;
+	background-color: #eee;
+	border-bottom: 1px solid #aaa;
+}
+#friends div.toolbox .a {
+	float: left;
+	background-image: url( 'http://static.zino.gr/phoenix/bullet_arrow_down.png' );
+	background-repeat: no-repeat;
+	background-position: right 3px;
+	padding-right: 18px;
+}
+#friends div.toolbox .b {
+	float: right;
+}
+#friends div.toolbox a {
+	padding: 5px;
+	text-decoration: underline;
+}
+#friends div.toolbox a:hover {
+	background-color: #d9dfe7;
+}
+#friends div.overlay {
+	background-image: url( 'http://static.zino.gr/phoenix/pm-fade.png' );
+	background-repeat: repeat-y;
+	background-position: right;
+	position: absolute;
+	height: 100%;
+	width: 20px;
+	top: 0;
+	right: 0;
+}
+#friends div.avatar, #notifications div.avatar {
+	position: relative;
+	float: left;
+}
+#notifications div.avatar {
+	margin-right: 10px;
+}
+#friends div.avatar {
+	margin: 5px;
+}
+div.corner {
+	position: absolute;
+	background-color: transparent;
+	width: 1px;
+	height: 1px;
+	border: 0px solid white;
+}
+div.tl {
+	border-top-width: 1px;
+	border-left-width: 1px;
+	top: 0;
+	left: 0;
+}
+div.tr {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	top: 0;
+	right: 0;
+}
+div.bl {
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	bottom: 0;
+	left: 0;
+}
+div.br {
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	bottom: 0;
+	right: 0;
+}
+#friends {
+}
+#friends li a {
+	display: block;
+	height: 60px;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+#friends a.item:hover {
+	text-decoration: none;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	-moz-border-radius: 5px;
+	background-color: #f7f7f7;
+}
+#friends a:hover span.username {
+	text-decoration: underline;
+}
+#friends .twit .mood {
+	width: 25px;
+	height: 25px;
+	float: left;
+	margin: 2px 5px 0 0;
+}
+div.text {
+	margin-left: 100px;
+}
+a.maximize {
+	background-image: url( 'http://image.fpsbanana.com/ico/maximize.gif' );
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	display: block;
+	margin: 5px;
+	position: absolute;
+	top: 5px;
+	right: 0;
+}
+a.minimize {
+	background-image: url( 'http://image.fpsbanana.com/ico/minimize.gif' );
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	display: block;
+	margin: 5px 0 5px 0;
+	position: absolute;
+	top: 5px;
+	right: 25px;
+}
+#frontpage li span {
+	color: #aaa;
+}
+#stream {
+	font-size: 100%;
+	background-color: white;
+}
+#stream > ul > li {
+	margin-right: 10px;
+	padding: 0 2px 9px 0;
+	border-top: 1px solid #ddd;
+	background-image: url( 'http://static.zino.gr/phoenix/commgradient.png' );
+	background-repeat: repeat-x;
+	background-position: top;
+}
+#stream h3 {
+	font-size: 100%;
+	font-weight: normal;
+	color: #123;
+	margin: 6px 0;
+}
+#stream .lvl2 {
+	margin-left: 20px;
+}
+#stream .lvl3 {
+	margin-left: 40px;
+}
+#stream a.filter {
+	background-image: url( 'http://static.zino.gr/phoenix/page_go.png' );
+	background-repeat: no-repeat;
+	opacity: 0.7;
+	float: right;
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+#stream a.filter:hover {
+	opacity: 1;
+}
+#stream li img {
+	border: 1px solid #ccc;
+	padding: 2px;
+}
+#stream li a:hover {
+	text-decoration: none;
+}
+#stream li a:hover img {
+	border: 1px solid #aaa;
+	background-color: #e3e3e3;
+}
+#stream div.comments {
+	padding-left: 60px;
+}
+#stream ul.comments {
+	padding-left: 19px;
+}
+#stream ul.comments strong {
+	color: #105cc2;
+	font-weight: bold;
+	font-size: 90%;
+}
+#stream h4 {
+	color: #345;
+	margin: 5px 0;
+	background-image: url( 'http://static.zino.gr/phoenix/comments.png' );
+	background-repeat: no-repeat;
+	background-position: 0 2px;
+	display: inline;
+	font-size: 80%;
+	padding: 0 0 0 18px;
+	line-height: 18px;
+}
+#stream > ul > li.link {
+	cursor: pointer;
+}
+#stream > ul > li.link:hover {
+	background-color: #eee;
+	background-image: none;
+}
+#stream > ul > li.link:hover h4 {
+}
+#stream {
+	margin-left: 5px;
+}
+#stream .avatar {
+	float: left;
+	position: relative;
+	margin: 5px 8px 5px 2px;
+}
+#stream .avatar img {
+	border: 0;
+	padding: 0;
+}
+#stream h3 strong {
+	color: #105cc2;
+}
+#stream a {
+	color: #678;
+}
+#stream strong a {
+	color: inherit;
+}
+#stream strong a:hover {
+	text-decoration: underline;
+}
+#stream .comments li a:hover {
+	border-bottom: 1px solid #aaa;
+}
+#stream .comments li {
+	white-space: nowrap;
+	overflow: hidden;
+}
+#stream .avatar a {
+	display: block;
+}
+#stream .avatar a:hover img {
+	border: 0;
+}
+#stream > ul > li strong a {
+	float: left;
+}
+#stream > ul > li strong a.inline {
+	float: none;
+}
+i.icon {
+	background-repeat: no-repeat;
+	background-position: 5px 0;
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 0 3px 0 3px;
+	float: left;
+}
+i.poll {
+	background-image: url( 'http://static.zino.gr/phoenix/chart_bar.png' );
+}
+i.journal {
+	background-image: url( 'http://static.zino.gr/phoenix/book.png' );
+}
+i.photo {
+	background-image: url( 'http://static.zino.gr/phoenix/picture.png' );
+}
