@@ -299,7 +299,7 @@ var Settings = {
             listString += queueName + ": " + Settings.SavingQueue[ queueName ] + "\n";
         }
         alert( listString );*/
-		Coala.Warm( 'user/settings/save' , Settings.queue );
+		Coala.Warm( 'user/settings/save' , Settings.SavingQueue );
 		Settings.Dequeue();
         Settings.DisableSave();
         $( "li.backtoprofile" ).addClass( "highlighted" );
