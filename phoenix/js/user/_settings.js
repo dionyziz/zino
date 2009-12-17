@@ -16,10 +16,15 @@ var Settings = {
                 }
             } ( this.toString() ) );
         } );
-        $( "li.savesettings" ).css( 'opacity', 0.5 );
+        $( "li.savesettings" ).css( 'opacity', 0.5 ).click( function() {
+            if ( !this.hasClass( 'disabled' ) ) {
+                Settings.Save();
+            }
+        } );
     },
     SectionSwitch: function( section ) {
         //TODO: sidebar effects
+        $( "#settingslist li." + section ).animate( { left: 15 }, 200 ).siblings().animate( { left: 0 }, 200 );
         Settings.CurrentTab = section;
         if ( !Settings.SectionsLoaded[ section ] ) {
             //alert( "preloading " + section );
