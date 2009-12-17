@@ -45,12 +45,13 @@
         }
         //a little hack to handle the huge tab elements 
         //$html = str_split( ob_get_clean(), 2048 );
-        $html = explode( "\n", ob_get_clean() );
+        $buffer = ob_get_clean();
+        $html = explode( "\n", $buffer );
         ?>
         buffer = ""<?php
         foreach ( $html as $chunk ) {
             ?>+"\n"+<?php
-            echo w_json_encode( $chunk ); 
+            echo json_encode( $chunk ); 
         }
         ?>;
         if ( $.browser.msie ) {
