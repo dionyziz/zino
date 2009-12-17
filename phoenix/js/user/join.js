@@ -1,9 +1,4 @@
 var Join = {
-	ShowTos : function () {
-		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
-		$( area ).css( "display" , "block" );
-		Modals.Create( area, 620, 520 );
-	},
     UserExists : function() {
         if ( !Join.usernameexists ) {
             Join.usernameexists = true;
@@ -28,6 +23,9 @@ var Join = {
         Join.repassword = $( 'form.joinform div input' )[ 2 ];
         Join.enabled = true;
         Join.email = $( 'form.joinform div input' )[ 3 ];
+        
+        $( 'div#join_tos' ).modal( $( 'form.joinform p a' ) );
+        
         $( 'form.joinform' ).submit( function() {
             return false;
         } );
@@ -126,12 +124,6 @@ var Join = {
         if ( Join.username ) {
             Join.username.focus();
         }
-        
-        $( 'form.joinform p a' ).click( function () {
-            Join.ShowTos();
-            return false;
-        });
-        
         $( 'div a.button' ).click( function() {
             var create = true;
             if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
