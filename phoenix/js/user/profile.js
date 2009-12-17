@@ -184,13 +184,6 @@ var Profile = {
 				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal table tbody' );
 			}
 		},
-		CorrectMidPosition: function(){
-			var left = ( $( window ).width() - $( '#mplayersearchmodal' ).width() ) / 2;
-			if( left < 0 ){
-				left = 0;
-			}
-			$( '#mplayersearchmodal' ).css( 'left', left );
-		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
@@ -255,7 +248,6 @@ var Profile = {
 			loader.src = "http://static.zino.gr/phoenix/ajax-loader.gif";
 			var loader2 = new Image( 15, 15 );
 			loader2.src = "http://static.zino.gr/phoenix/search-button.png";
-			Profile.Player.CorrectMidPosition();
 			$( window ).resize( Profile.Player.CorrectMidPosition );
 		}
     },
@@ -266,10 +258,7 @@ var Profile = {
 	Abuse: {
 		Init: function ( username ) {
 			if ( !Profile.Mine ) {
-				$( '#reportabusemodal' ).jqm( {
-					trigger : '#reportabuse a.report',
-					overlayClass : 'mdloverlay1'
-				} );
+				$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
 				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( function () {
 					Profile.Abuse.Hide();
 					return false;
@@ -286,7 +275,6 @@ var Profile = {
 					$( '#reportabuse form' )[ 0 ].style.textAlign = 'center';
 					return false;
 				} );
-				$( '#reportabusemodal' )[ 0 ].style.left = Math.round( ( $( window ).width() - $( '#reportabusemodal' ).width() ) / 2 ) + 'px';
 				$( '#reportabuse a.report' ).show();
 			}
 		},
@@ -303,18 +291,10 @@ var Profile = {
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
 		
-        $( '#tweetedit' ).jqm( {
-            trigger : 'div.tweetbox div.tweet div a',
-            overlayClass : 'mdloverlay1'
-        } );
-        $( '#easyphotoupload' ).jqm( {
-            trigger : 'div#profile div.main div.photos ul li.addphoto a',
-            overlayClass : 'mdloverlay1'
-        } );
-		$( '#mplayersearchmodal' ).jqm({
-			trigger: '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong',
-			overlayClass: 'mdloverlay1'
-		});
+        $( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
+        $( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
+		$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' ).css( 'top', '40%' );
+
         Profile.Player.MyProfileOnLoad();
 		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
             if ( !$( '#easyphotoupload div.modalcontent div.uploaddiv' )[ 0 ] ) {
