@@ -7,7 +7,6 @@
             $libs->Load( 'album' );
             
             ?><div>
-                <h2>Ανέβασε μια φωτογραφία</h2>
                 <span class="inalb">Στο album <b>Εγώ</b></span><?php
                 $finder = New AlbumFinder();
                 $albums = $finder->FindByUser( $user );
