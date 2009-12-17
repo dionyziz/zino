@@ -228,13 +228,11 @@
                 if ( $user->IsCorrectPassword( $oldpassword ) ) {
                     if ( strlen( $newpassword ) >= 4 ) {
                         $user->Password = $newpassword;
-                        ?>$( 'div#pwdmodal' ).jqmHide();<?php
+                        ?>$( 'div#passwordchange' ).jqmHide();<?php
                     }
                 }
                 else {
-                    ?>Settings.oldpassworderror = true;
-                    $( Settings.oldpassworddiv ).find( 'div div span' ).fadeIn( 400 );
-                    Settings.oldpassword.focus();<?php
+                    ?>$( '.wrongpwd' ).fadeIn( 400 ).focus();<?php
                 }
             }
             if ( $emailprofilecomment ) {
