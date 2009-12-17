@@ -45,3 +45,4 @@ function OnLoad() {
     // setInterval( HandleResize, 2000 );
 }
 
+window.onresize = HandleResize;
