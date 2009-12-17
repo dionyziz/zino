@@ -66,14 +66,50 @@
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
-        public static function GetContent( $user ) {
-            die( 'Do not call Spot::GetContent. This is depracated. Use GetJournals(), GetImages() and GetPolls() instead' );
+        public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {
+            global $libs;
+            $libs->Load( 'image/image' );
+            $libs->Load( 'journal/journal' );
+            $libs->Load( 'poll/poll' );
+
             $userid = $user->Id;
-            $request = "GET CONTENT\n$userid\n";
+            $request = "GET CONTENT\n$userid\n$numImages\n$numJournals\n$numPolls\n";
             $content = self::SendRequest( $request );
             // TODO: process content somehow?
 
-            return $content;
+            $lines = self::SendRequest( $request );
+            if ( $lines === false ) {
+                return $lines;
+            }
+
+            $imageids = array();
+            $journalids = array();
+            $pollids = array();
+            foreach ( $lines as $id ) {
+                $id = (int)$id;
+                if ( count( $imageids ) < $numImages ) {
+                    $imageids[] = $id;
+                }
+                else if ( count( $journalids ) < $numJournals ) {
+                    $journalids[] = $id;
+                }
+                else {
+                    $pollids[] = $id;
+                }
+            }
+
+            $finder = New ImageFinder();
+            $images = $finder->FindByIds( $imageids );
+
+            $finder = New JournalFinder();
+            $journals = $finder->FindByIds( $journalids );
+
+            $finder = New PollFinder();
+            $polls = $finder->FindByIds( $pollids );
+
+            $water->ProfileEnd();
+
+            return array_merge( $images, $journals, $polls );
         }
         public static function GetJournals( $user, $num = 4 ) {
             global $libs;
@@ -97,7 +133,7 @@
 
             return $lines; // journal ids
         }
-        public static function GetImages( $user ) {
+        public static function GetImages( $user, $num = 30 ) {
             global $libs;
             global $water;
             $libs->Load( 'image/image' );
@@ -105,7 +141,7 @@
             $water->Profile( 'Spot get images' );
 
             $userid = $user->Id;
-            $request = "GET IMAGES\n$userid\n";
+            $request = "GET IMAGES\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
             if ( $lines === false ) {
                 return $lines;
