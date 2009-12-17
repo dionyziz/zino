@@ -69,16 +69,14 @@
 }
 #join_tos {
 	width: 620px;
-	height: 520px;
+	height: 400px;
 }
 #join_tos div {
 	overflow: auto;
     height: 100%;
 }
-#join_tos div h3 {
-	margin: 0;
-	padding: 0;
-	color: black;
+#join_tos div h2 {
+    color: white;
 }
 #join_tos div p {
 	margin: 0;
