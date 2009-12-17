@@ -244,7 +244,7 @@
                     </div>
                 </div>
 
-                <div id="strip2" class="sx_0010"><div id="spotcontent">
+                <div id="strip2" class="sx_0010"><div id="content">
                 <div id="notifications">
                     <div style="" class="shadow-left"></div>
                     <div style="" class="shadow-right"></div>
@@ -532,7 +532,7 @@
                 
             </div>
 			<?php
-            return array( 'tiny' => true );
+            return array( 'tiny' => true, 'selfmanaged' => true );
         }
     }
 ?>

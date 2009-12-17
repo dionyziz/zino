@@ -88,9 +88,13 @@
                         <div id="strip2" class="sx_0010"><?php
                 }
 
-                ?><div id="content"><?php
-                    echo $master;
-                ?></div><?php
+                if ( !is_array( $res ) || !isset( $res[ 'selfmanaged' ] ) ) {
+                    ?><div id="content"><?php
+                }
+                echo $master;
+                if ( !is_array( $res ) || !isset( $res[ 'selfmanaged' ] ) ) {
+                    ?></div><?php
+                }
                  
                 if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                     ?></div> 
