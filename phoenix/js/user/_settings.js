@@ -1,10 +1,11 @@
 //TODO: remove these ugly newpassworderror etc
 var Settings = {
     SectionsArray: [ 'personal', 'characteristics', 'interests', 'contact', 'account' ],
-    InputArray: [],
+    InputArray: {},
     SectionsLoaded: [],
     CurrentTab: false,
     SavingQueue: {},
+    QueueEmpty: true,
     OnLoad: function() {
         $.each( Settings.SectionsArray, function() {
             Settings.SectionsLoaded[ this ] = false; //Initiate the array
@@ -174,15 +175,17 @@ var Settings = {
     Enqueue: function( key , value ) {
         Settings.EnableSave();
 		Settings.SavingQueue[ key ] = value;
+        Settings.QueueEmpty = false;
         alert( "setting '" + key + "' to '" + value + "'" );
 	}
     ,
     Dequeue: function() {
         Settings.SavingQueue = {};
+        Settings.QueueEmpty = true;
     }
     ,
     EnableSave: function() {
-        //$( 'div.savebutton a' ).removeClass( 'disabled' );
+        $( 'li.savesettings a' ).removeClass( 'disabled' ).animate( { opacity: 1 } );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
@@ -197,8 +200,9 @@ var Settings = {
                 }
                 else {
                     if ( !Settings.InputArray[ inputName ] ) {
-                        Settings.InputArray[ inputName ] = true;
+                        Settings.InputArray[ inputName ] = inputElement;
                         Settings.EnableSave();
+                        Settings.QueueEmpty = false;
                         alert( 'something got changed on ' + inputName );
                     }
                 }
@@ -272,6 +276,15 @@ var Settings = {
 	}
     ,
     Save: function() {
+        for ( inputName in Settings.InputArray ) {
+            Save.Enqueue( inputName, Settings.InputArray[ inputName ].val() );
+        }
+        
+        listString = "";
+        for ( queueName in Settings.SavingQueue ) {
+            listString += queueName + ": " + Settings.SavingQueue[ queueName ] + "\n";
+        }
+        alert( listString );
     }
     ,
     SelectAvatar: function( imageid ) {
