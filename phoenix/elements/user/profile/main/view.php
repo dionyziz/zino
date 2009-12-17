@@ -65,7 +65,7 @@
             Element( 'user/profile/main/tweeter', $theuser );
             
             ?><div id="easyphotoupload" class="modal">
-                <h3>Ανέβασε μια φωτογραφία...</h3>
+                <h2>Ανέβασε μια φωτογραφία...</h2>
                 <div class="modalcontent">
                     <span class="plswait">
                     <img src="<?php
