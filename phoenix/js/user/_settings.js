@@ -192,6 +192,7 @@ var Settings = {
 		Settings.SavingQueue[ key ] = value;
         Settings.QueueEmpty = false;
         //alert( "setting '" + key + "' to '" + value + "'" );
+        $( "li.backtoprofile" ).removeClass( "highlighted" );
 	}
     ,
     Dequeue: function() {
@@ -291,7 +292,7 @@ var Settings = {
         }
         Settings.Enqueue( 'oldpassword' , oldpassword.val() );
         Settings.Enqueue( 'newpassword' , newpassword.val() );
-        Settings.Save( false );
+        Settings.Save();
 	}
     ,
     Save: function() {
