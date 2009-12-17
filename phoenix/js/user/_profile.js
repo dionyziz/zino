@@ -293,7 +293,7 @@ var Profile = {
 		
         $( '#tweetedit' ).modal( $( 'div.tweetbox div.tweet div a' ) );
         $( '#easyphotoupload' ).modal( 'div#profile div.main div.photos ul li.addphoto a' );
-		$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' );
+		$( '#mplayersearchmodal' ).modal( '.sidebar .mplayer .toolbox .search, .sidebar .mplayer .addsong' ).css( 'top', '40%' );
 
         Profile.Player.MyProfileOnLoad();
 		$( 'div#profile div.main div.photos ul li.addphoto a' ).click( function() {
