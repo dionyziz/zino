@@ -1,74 +1,55 @@
+.settings .tabs {
+    margin: 0 320px 0 40px;
+}
 .settings {
     padding: 30px 0 30px 5px;
 }
-.settings .sidebar {
+.settings .sections {
     float: right;
-    width: 300px;
     height: 100%;
-    background: #fff;
-    padding-left: 50px;
+    padding: 40px;
+    width: 220px;
 }
-.sidebar .savesettings .savebutton {
-    margin: 5px 0 0 0;
-}
-.sidebar .savesettings .savebutton a {
-    display: block;
-}
-.sidebar .savesettings div.savebutton img {
-    vertical-align: -2px;
-    margin-right: 3px;
-}
-.sidebar .backtoprofile {
-    margin: 20px 0 0 0;
-}
-.sidebar .backtoprofile a {
-    display: block;
-}
-.sidebar .savesettings .saving span {
-    padding: 0 0 0 5px;
-    vertical-align: 3px;
-}
-.sidebar .disabled {
-    opacity: 0.3;
-	filter: alpha(opacity = 30);
-	background: #fff;
-}
-.sidebar a.disabled:hover {
-    color: #105cb6;
-}
-.settings .sidebar ol {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-}
-.sidebar ol li {
-    padding: 0 0 0 18px;
+.settings .sections ul li{
+    padding: 0px 12px 0;
     margin: 0 0 0 22px;
-    background-color: #fff;
+    position: relative;
 }
-.sidebar ol li.s1_selected {
-	font-weight: bold;
-    background-position: -71px -334px;
-    background-color: #047cbb;
-}
-.sidebar ol li a {
-    height: 25px;
-    padding: 5px 35px 5px 35px;
+.settings .sections ul li a {
+    padding: 8px;
+    padding-bottom: 4px;
     line-height: 22px;
     vertical-align: middle;
     border-bottom: 1px solid #eef;
     display: block;
     white-space: nowrap;
+    text-align: center;
 }
-.sidebar ol li a span {
+.settings .sections ul li a:hover {
+    border-bottom: 1px solid #bbd;
+}
+.settings .sections ul li a.disabled:hover {
+    border-bottom: 1px solid #eef;
+}
+.settings .sections ul li a span {
 	margin-left: -30px;
 	padding-left: 22px;
 	float: left;
 }
-.settings .tabs {
-    margin: 0 350px 0 0;
+.settings .sections ul li.savesettings {
+    padding-top: 20px;
 }
-.tabs form .option { /* denotes a specific setting */
+.settings .sections ul li.highlighted a {
+    color: red;
+    font-weight: bold;
+}
+.settings .sections ul li.backtoprofile span {
+    margin-left: -26px;
+}
+.settings .h1 {
+    text-align: center;
+}
+.tabs form .option { 
     padding: 10px 0;
 }
 .tabs form .barfade {
@@ -174,15 +155,6 @@ form div .setting ul.interesttags li {
 #photo .changeavatar{
 	clear: both;
 }
-#avatarlist {
-	display: none;
-	top: 10%;
-	left: 30%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
-
-}
 #avatarlist .uploaddiv {
 	position: absolute;
 	top: 25px;
@@ -213,20 +185,8 @@ form div .setting ul.interesttags li {
 #avatarlist div.cancel {
 	text-align: center;
 }
-#pwdmodal, #deletemodal { /* password change and account delte modals */
-	display: none;
-    top: 10%;
-	left: 30%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
+#passwordchange, #accdelete {
     width: 400px;
-}
-#pwdmodal > div, #deletemodal > div {
-    padding: 0 0 0 20px;
-}
-#deletemodal > div {
-    margin: 20px 0 20px 0;
 }
 .oldpassword {
 	margin: 10px 0;
@@ -276,14 +236,14 @@ form div .setting ul.interesttags li {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
-#pwdmodal .save {
+#passwordchange .save {
     margin: 0 0 20px 0;
 	text-align: center;
 }
-#settingsinfo label { 
+#accountinfo label { 
 	font-weight: bold;
 }
-#settingsinfo .email label {
+#accountinfo .email label {
     font-weight: normal;
     float: none;
     margin: 2px 0;
@@ -292,37 +252,41 @@ form div .setting ul.interesttags li {
 	vertical-align: 3px;
 	padding-top: 3px;
 }
-#settingsinfo .changepwdl {
-    display:block;
-}
-#settingsinfo .changepwdl label {
+#accountinfo div label {
     width: 400px;
     text-align: center;
 }
-#settingsinfo .barfade {
+#accountinfo .barfade {
     width: 400px;
     clear: left;
 }
-#settingsinfo .emailbarfade { 
+#accountinfo .emailbarfade { 
     margin: 10px 0;
 }
-#settingsinfo .pwdbarfade {
+#accountinfo .pwdbarfade {
     margin: 35px 0 0 0;
 }
-#settingsinfo .notifyme {
+#accountinfo .notifyme {
 	font-weight: bold;
 	clear: left;
 	padding-top: 30px;
 	display: block;
 }
-#settingsinfo .setting table thead tr th {
+#accountinfo .setting table thead tr th {
 	font-weight: 400;
 }
-#settingsinfo .setting table tbody tr th {
+#accountinfo .setting table tbody tr th {
 	font-weight: 400;
 }
 .settings .explanation {
     color: #aaa;
     font-size: 90%;
     margin-top: 10px;
+}
+#settingsloader {
+    display: none;
+}
+ul.interesttags li div {
+    border: 2px solid grey;
+    padding: 2px;
 }
