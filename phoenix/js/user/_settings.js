@@ -199,7 +199,7 @@ var Settings = {
     }
     ,
     DisableSave: function() {
-        $( 'li.savesettings a' ).addClass( 'disabled' ).parent().animate( { opacity: 0.5 }, 200 );
+        $( 'li.savesettings a' ).addClass( 'disabled' ).removeClass( 'highlighted' ).parent().animate( { opacity: 0.5 }, 200 );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
