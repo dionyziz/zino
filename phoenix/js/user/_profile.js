@@ -184,13 +184,6 @@ var Profile = {
 				$( tr ).attr( 'id', 'song_' + song.SongID ).appendTo( '#mplayersearchmodal table tbody' );
 			}
 		},
-		CorrectMidPosition: function(){
-			var left = ( $( window ).width() - $( '#mplayersearchmodal' ).width() ) / 2;
-			if( left < 0 ){
-				left = 0;
-			}
-			$( '#mplayersearchmodal' ).css( 'left', left );
-		},
 		Initialize: function(){
 			$( '.sidebar .mplayer .player' ).hover( function(){
 				$( this ).children( '.toolbox' ).stop( 1, 1 ).fadeIn( 'fast' );
@@ -255,7 +248,6 @@ var Profile = {
 			loader.src = "http://static.zino.gr/phoenix/ajax-loader.gif";
 			var loader2 = new Image( 15, 15 );
 			loader2.src = "http://static.zino.gr/phoenix/search-button.png";
-			Profile.Player.CorrectMidPosition();
 			$( window ).resize( Profile.Player.CorrectMidPosition );
 		}
     },
