@@ -195,11 +195,11 @@ var Settings = {
     }
     ,
     EnableSave: function() {
-        $( 'li.savesettings a' ).removeClass( 'disabled' ).addClass( 'highlighted' ).parent().animate( { opacity: 1 }, 200 );
+        $( 'li.savesettings a' ).removeClass( 'disabled' ).parent().addClass( 'highlighted' ).animate( { opacity: 1 }, 200 );
     }
     ,
     DisableSave: function() {
-        $( 'li.savesettings a' ).addClass( 'disabled' ).removeClass( 'highlighted' ).parent().animate( { opacity: 0.5 }, 200 );
+        $( 'li.savesettings a' ).addClass( 'disabled' ).parent().removeClass( 'highlighted' ).animate( { opacity: 0.5 }, 200 );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
