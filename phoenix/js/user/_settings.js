@@ -26,19 +26,19 @@ var Settings = {
     SectionSwitch: function( section ) {
         //TODO: sidebar effects
         $( "#settingslist li." + section ).animate( { left: 15 }, 200 ).siblings().animate( { left: 0 }, 200 );
-        Settings.CurrentTab = section;
         if ( !Settings.SectionsLoaded[ section ] && Settings.CurrentTab != section ) {
-            //alert( "preloading " + section );
             Settings.SectionLoad( section );
             return;
         }
+        Settings.CurrentTab = section;
         //alert( "loading " + section );
         $( ".settings .tabs form#" + section + "info" ).fadeIn().siblings().fadeOut();
     },
     SectionLoad: function( section ) {
         $( ".settings .tabs form" ).fadeOut();
-        $( "#settingsloader" ).center().fadeIn();
+        $( "#settingsloader" ).center( { horizontal: false } ).fadeIn();
         Coala.Cold( 'user/settings/tab', { tab: section } );
+        Settings.CurrentTab = section;
     },
     OnTabLoad: function( section ) {
         Settings.SectionsLoaded[ section ] = true;
