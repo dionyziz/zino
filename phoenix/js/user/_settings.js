@@ -22,6 +22,11 @@ var Settings = {
             }
             return false;
         } );
+        $( "li.backtoprofile a" ).attr( 'href', $( ".bannerinlink:first" ).attr( 'href' ) ).click( function() {
+            if ( !Settings.QueueEmpty ) {
+                return confirm( "ΞΟ‡ΞµΞΉΟ‚ ΞΌΞ· Ξ±Ο€ΞΏΞΈΞ·ΞΊΞµΟ…ΞΌΞ­Ξ½ΞµΟ‚ ΟΟ…ΞΈΞΌΞ―ΟƒΞµΞΉΟ‚, ΟƒΞ―Ξ³ΞΏΟ…ΟΞ± ΞΈΞµΟ‚ Ξ½Ξ± Ο†ΟΞ³ΞµΞΉΟ‚ Ξ±Ο€Ο Ο„Ξ· ΟƒΞµΞ»Ξ―Ξ΄Ξ±;" );
+            }
+        } );
     },
     SectionSwitch: function( section ) {
         //TODO: sidebar effects
@@ -239,13 +244,13 @@ var Settings = {
 				Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			}
 			else {
-				alert( 'Το κείμενό σου μπορεί να έχει 32 χαρακτήρες το πολύ' );
+				alert( 'Ξ¤ΞΏ ΞΊΞµΞ―ΞΌΞµΞ½Ο ΟƒΞΏΟ… ΞΌΟ€ΞΏΟΞµΞ― Ξ½Ξ± Ξ­Ο‡ΞµΞΉ 32 Ο‡Ξ±ΟΞ±ΞΊΟ„Ξ®ΟΞµΟ‚ Ο„ΞΏ Ο€ΞΏΞ»Ο' );
 			}
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 		else {
-			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
+			alert( 'Ξ”Ξµ ΞΌΟ€ΞΏΟΞµΞ―Ο‚ Ξ½Ξ± Ο€ΟΞΏΟƒΞΈΞ­ΟƒΞµΞΉΟ‚ ΞΊΞµΞ½Ο ΞµΞ½Ξ΄ΞΉΞ±Ο†Ξ­ΟΞΏΞ½' );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
