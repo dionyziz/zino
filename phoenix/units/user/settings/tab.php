@@ -43,11 +43,14 @@
             default:
                 return;
         }
-        //a little hack to handle the huge tab elements
-        //$html = str_split( ob_get_clean(), 2048 );
-        $buffer = ob_get_clean();
-        ?>buffer = <?php
-            echo w_json_encode( $buffer ); 
+        //a little hack to handle the huge tab elements 
+        $html = str_split( ob_get_clean(), 2048 );
+        ?>
+        buffer = ""<?php
+        foreach ( $html as $chunk ) {
+            ?>+<?php
+            echo w_json_encode( $chunk ); 
+        }
         ?>;
         if ( $.browser.msie ) {
             $( 'div.settings div.tabs' ).append( buffer );
