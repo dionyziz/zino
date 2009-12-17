@@ -2,8 +2,8 @@
     class ElementUserProfileSidebarAbuse extends Element {
         public function Render() {
             ?><a href="" class="report" style="display:none">Αναφορά κακής χρήσης</a>
-            <div id="reportabusemodal" style="display:none">
-                <h3 class="modaltitle">Αναφορά κακής χρήσης</h3>
+            <div id="reportabusemodal" class="modal">
+                <h3>Αναφορά κακής χρήσης</h3>
                 <form>
                     <p>Πρόκειται να αναφέρεις την παραβίαση των όρων χρήσης από αυτό το χρήστη.</p>
                     <p><strong>Η αναφορά αυτή είναι εμπιστευτική.</strong></p>
