@@ -1,0 +1,211 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: "Trebuchet MS";
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+#content {
+    padding-top: 0;
+    padding-left: 2px;
+    padding-right: 0;
+    margin-left: 11px;
+}
+#nowbar {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    background-color: white;
+    float: right;
+    width: 30%;
+    border-left: 2px solid #dde;
+    border-bottom: 1px solid #dde;
+    border: 1px solid #778a97;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    padding: 0 0 5px 5px;
+    background-color: #c2d0da;
+    cursor: e-resize;
+}
+#notifications {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+#notifybox {
+    font-size: 90%;
+    width: 500px;
+    border: 1px solid #778a97;
+    border-top-width: 0;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    padding: 0 3px 3px 3px;
+    background-color: #c2d0da;
+}
+.border {
+    padding-top: 5px;
+    background-color: white;
+    border: 1px solid #ccd;
+    border-top-width: 0;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+}
+#nowbar .border {
+    border-right-width: 0;
+    border-bottom-width: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    cursor: default;
+}
+#notifications div.avatar img {
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+}
+#notifications li {
+    clear: both;
+    height: 53px;
+    line-height: 50px;
+    padding: 3px 0 3px 0;
+    vertical-align: middle;
+}
+#notifications li img {
+    float: left;
+    margin-right: 5px;
+}
+#notifications h2 {
+    padding: 0 5px 0 5px;
+    text-align: center;
+    font-size: 110%;
+}
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+input {
+    color: #999;
+    display: block;
+    font-family: Verdana, Tahoma, Helvetica;
+    font-size: 8pt;
+    padding: 3px;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-image: url( 'http://static.zino.gr/phoenix/find-simple.png' );
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+    padding-left: 20px;
+}
+#chat {
+    font-size: 90%;
+    position: relative;
+    overflow: hidden;
+}
+#chat textarea {
+    border: 1px solid #ccc;
+    color: #999;
+    display: block;
+    font-family: Verdana, Tahoma, Helvetica;
+    font-size: 8pt;
+    padding: 3px;
+    width: 100%;
+}
+#chat strong {
+    color: #6af;
+    font-weight: normal;
+    float: left;
+    text-align: right;
+    height: 18px;
+    margin-right: 10px;
+    text-align: right;
+    line-height: 18px;
+    width: 100px;
+    overflow: hidden;
+}
+#chat ol {
+    overflow: auto;
+}
+#friends ol {
+    overflow: auto;
+}
+#chat {
+    padding-left: 5px;
+}
+#chat div.text {
+    margin-left: 110px;
+}
+#frontpage {
+    background-color: #5180ae;
+    overflow: auto;
+    border-top: 1px solid transparent;
+    position: relative;
+}
+h2 {
+    color: #3c3940;
+    font-size: 110%;
+    font-weight: bold;
+    padding: 0 5px 0 5px;
+}
+div.input {
+    padding: 5px;
+}
+a img {
+    border: none;
+}
+a.collapse {
+    background-image: url( 'http://static.zino.gr/phoenix/application_view_list.png' );
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+#notifications li a.item {
+    display: block;
+    height: 50px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding: 2px 6px 2px 6px;
+    color: #345;
+    text-decoration: none;
+}
+#notifications li a.item:hover, #notifications li:hover a.item {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    -moz-border-radius: 5px;
+    background-color: #f7f7f7;
+}
+#notifications a.remove {
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 70%;
+    float: right;
+    display: block;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    margin: 4px;
+    border: 1px solid transparent;
+}
+#notifications a.remove:hover {
+    border: 1px solid white;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #105cb6;
+    color: white;
+    text-decoration: none;
+}
+

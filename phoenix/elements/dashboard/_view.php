@@ -17,6 +17,7 @@
             $page->AttachScript( 'js/kamibu.js' );
             $page->AttachScript( 'js/dashboard.js' ); 
 
+            $page->AttachInlineScript( 'OnLoad();' );
 			?>
             <div id="nowbar">
                 <div class="border">
