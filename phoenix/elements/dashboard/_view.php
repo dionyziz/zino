@@ -244,7 +244,7 @@
                     </div>
                 </div>
 
-                <div id="strip2" class="sx_0010"><div id="content">
+                <div id="strip2" class="sx_0010"><div id="spotcontent">
                 <div id="notifications">
                     <div style="" class="shadow-left"></div>
                     <div style="" class="shadow-right"></div>
@@ -352,7 +352,7 @@
                                     <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="izual" style="width:50px;height:50px" />
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="spotcontent">
                                 <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
 
                                 <h3>
@@ -391,7 +391,7 @@
                                     <img src="http://images2.zino.gr/media/4451/222617/222617_100.jpg" alt="zizou" style="width:50px;height:50px" />
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="spotcontent">
                                 <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
                                 <h3>
                                     <strong><a href="">zizou</a></strong> 
@@ -418,7 +418,7 @@
 
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="spotcontent">
                                 <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
                                 <h3><strong><a href="http://pagio91.zino.gr/">pagio91</a></strong> 
                                     <i class="journal icon"></i> SPOT: The internal workings</h3>
@@ -444,7 +444,7 @@
                                     <img src="http://images2.zino.gr/media/4000/219356/219356_100.jpg" alt="beboula" style="width:50px;height:50px" />
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="spotcontent">
                                 <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
                                 <h3>
                                     <strong><a href="">beboula</a></strong> 
@@ -473,7 +473,7 @@
                                     <img src="http://images2.zino.gr/media/1778/190846/190846_100.jpg" alt="uLee" style="width:50px;height:50px" />
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="spotcontent">
                                 <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
 
                                 <h3>
