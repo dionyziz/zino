@@ -106,11 +106,9 @@
                 </div>
                 <img src="images/button_ok_16.png" alt="Σωστή επαλήθευση" title="Σωστή επαλήθευση" style="display:none" />
             </div>
-            <div id="join_tos" class="modal">
-                <div><?php
+            <div id="join_tos" class="modal"><?php
                 Element( 'about/legal/tos' );
-                ?></div>
-            </div><?php
+            ?></div><?php
             $page->AttachInlineScript( 'Join.JoinOnLoad();' );
             $finder = New UserFinder();
             if( $finder->IsTaken( $username ) && $username != '' ) {
