@@ -531,6 +531,7 @@
                 
             </div>
 			<?php
+            return array( 'tiny' => true );
         }
     }
 ?>
