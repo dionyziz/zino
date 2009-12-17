@@ -6,7 +6,7 @@
 			Element( 'user/profile/sidebar/flash', $theuser );
 			if ( $theuser->Betastatus == 1 ) {
 				?>
-				<div id="mplayersearchmodal">
+				<div id="mplayersearchmodal" class="modal">
 					<div class="toolbar">
 						<div class="exit"></div>
 					</div>
