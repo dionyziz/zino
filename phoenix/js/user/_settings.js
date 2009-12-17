@@ -16,7 +16,7 @@ var Settings = {
                 }
             } ( this.toString() ) );
         } );
-        $( "li.savesettings" ).css( 'opacity', 1 );
+        $( "li.savesettings" ).css( 'opacity', 0.5 );
     },
     SectionSwitch: function( section ) {
         //TODO: sidebar effects
