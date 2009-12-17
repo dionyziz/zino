@@ -47,7 +47,7 @@
         //$html = str_split( ob_get_clean(), 2048 );
         ?>
         buffer = <?php
-            echo w_json_encode( $ob_get_clean() ); 
+            echo w_json_encode( (string) $ob_get_clean() ); 
         ?>;
         if ( $.browser.msie ) {
             $( 'div.settings div.tabs' ).append( buffer );
