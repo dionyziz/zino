@@ -16,6 +16,7 @@ var Settings = {
                 }
             } ( this.toString() ) );
         } );
+        $( "li.savesettings" ).css( 'opacity', 1 );
     },
     SectionSwitch: function( section ) {
         //TODO: sidebar effects
@@ -185,7 +186,7 @@ var Settings = {
     }
     ,
     EnableSave: function() {
-        $( 'li.savesettings a' ).removeClass( 'disabled' ).animate( { opacity: 1 } );
+        $( 'li.savesettings a' ).removeClass( 'disabled' ).animate( { opacity: 1 }, 200 );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
