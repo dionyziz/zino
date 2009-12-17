@@ -16,7 +16,7 @@ var Settings = {
                 }
             } ( this.toString() ) );
         } );
-        $( "li.savesettings" ).css( 'opacity', 0.5 ).children( "a" ).click( function() {
+        $( "li.savesettings" ).css( 'opacity', 0.5 ).children( 'a' ).click( function() {
             if ( !$(this).hasClass( 'disabled' ) ) {
                 Settings.Save();
             }
