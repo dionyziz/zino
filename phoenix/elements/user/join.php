@@ -106,11 +106,10 @@
                 </div>
                 <img src="images/button_ok_16.png" alt="Σωστή επαλήθευση" title="Σωστή επαλήθευση" style="display:none" />
             </div>
-            <div id="join_tos">
+            <div id="join_tos" class="modal">
                 <div><?php
                 Element( 'about/legal/tos' );
                 ?></div>
-                <a href="" class="button" onclick="">Κλείσιμο</a>
             </div><?php
             $page->AttachInlineScript( 'Join.JoinOnLoad();' );
             $finder = New UserFinder();
