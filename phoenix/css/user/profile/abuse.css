@@ -1,10 +1,4 @@
 div#reportabusemodal {
-	display: none;
-	top: 25%;
-	left: 40%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
     height: 400px;
     width: 600px;
 }
