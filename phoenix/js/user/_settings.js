@@ -286,9 +286,8 @@ var Settings = {
 	}
     ,
     Save: function() {
-        alert( 'saving' );
         for ( inputName in Settings.InputArray ) {
-            Save.Enqueue( inputName, Settings.InputArray[ inputName ].val() );
+            Settings.Enqueue( inputName, Settings.InputArray[ inputName ].val() );
         }
         
         listString = "";
