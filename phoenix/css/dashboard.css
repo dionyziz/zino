@@ -131,6 +131,7 @@ input {
 	line-height: 18px;
 	width: 100px;
 	overflow: hidden;
+    clear: both;
 }
 #chat ol {
 	overflow: auto;
