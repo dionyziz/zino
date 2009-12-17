@@ -258,7 +258,7 @@ var Profile = {
 	Abuse: {
 		Init: function ( username ) {
 			if ( !Profile.Mine ) {
-				//$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
+				$( '#reportabusemodal' ).modal( '#reportabuse a.report' );
 				$( $( '#reportabusemodal div.buttons a' )[ 1 ] ).click( function () {
 					Profile.Abuse.Hide();
 					return false;
