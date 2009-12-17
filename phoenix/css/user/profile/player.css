@@ -27,6 +27,7 @@
 #mplayersearchmodal{
 	background: #6C8ABB;
 	width: 780px;
+    padding: 0;
 }
 
 #mplayersearchmodal .toolbar{
