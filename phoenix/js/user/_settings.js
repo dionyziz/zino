@@ -303,6 +303,8 @@ var Settings = {
 		Settings.Dequeue();
         Settings.DisableSave();
         $( "li.backtoprofile" ).addClass( "highlighted" );
+        $( "#settingslist li" ).animate( { left: 0 }, 200 );
+        $( "$settings .tabs form" ).fadeOut();
     }
     ,
     SelectAvatar: function( imageid ) {
