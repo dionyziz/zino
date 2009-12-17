@@ -9,11 +9,18 @@ a img {
 	border: 0;
 }
 a.button {
-	padding: 5px;
-    margin: 2px;
-    border: 1px solid #ccf;
+    line-height: 2.5em;
+    margin: 6px;
     background: #fff;
 	text-align: center;
+    border: 2px solid #ccf;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -msie-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0.4em 0.9em;
+    font-weight: bold;
 }
 a.button_big {
 	font-size: 120%;
