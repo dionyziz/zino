@@ -36,7 +36,7 @@ var Settings = {
     },
     SectionLoad: function( section ) {
         $( ".settings .tabs form" ).fadeOut();
-        $( "#settingsloader" ).center( { horizontal: false } ).fadeIn();
+        $( "#settingsloader" ).center( { vertical: true, horizontal: false } ).fadeIn();
         Coala.Cold( 'user/settings/tab', { tab: section } );
         Settings.CurrentTab = section;
     },
