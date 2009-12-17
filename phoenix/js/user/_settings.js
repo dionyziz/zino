@@ -27,7 +27,7 @@ var Settings = {
         //TODO: sidebar effects
         $( "#settingslist li." + section ).animate( { left: 15 }, 200 ).siblings().animate( { left: 0 }, 200 );
         Settings.CurrentTab = section;
-        if ( !Settings.SectionsLoaded[ section ] ) {
+        if ( !Settings.SectionsLoaded[ section ] && Settings.CurrentTab != section ) {
             //alert( "preloading " + section );
             Settings.SectionLoad( section );
             return;
