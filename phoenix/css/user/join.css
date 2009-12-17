@@ -72,12 +72,7 @@
 	height: 520px;
 }
 #join_tos div {
-	text-align: left;
 	overflow: hidden;
-	width: 600px;
-	height: 450px;
-	overflow: auto;
-	margin: 10px auto 20px auto;
 }
 #join_tos div h3 {
 	margin: 0;
