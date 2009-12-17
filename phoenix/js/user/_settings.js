@@ -186,7 +186,7 @@ var Settings = {
         Settings.EnableSave();
 		Settings.SavingQueue[ key ] = value;
         Settings.QueueEmpty = false;
-        alert( "setting '" + key + "' to '" + value + "'" );
+        //alert( "setting '" + key + "' to '" + value + "'" );
 	}
     ,
     Dequeue: function() {
@@ -195,7 +195,11 @@ var Settings = {
     }
     ,
     EnableSave: function() {
-        $( 'li.savesettings a' ).removeClass( 'disabled' ).parent().animate( { opacity: 1 }, 200 );
+        $( 'li.savesettings a' ).removeClass( 'disabled' ).addClass( 'highlighted' ).parent().animate( { opacity: 1 }, 200 );
+    }
+    ,
+    DisableSave: function() {
+        $( 'li.savesettings a' ).addClass( 'disabled' ).parent().animate( { opacity: 0.5 }, 200 );
     }
     ,
     CheckInput: function( inputElement, inputName, checkValidity ) {
@@ -205,7 +209,7 @@ var Settings = {
                 if ( checkValidity !== undefined && checkValidity( inputElement ) == false ) {
                     if ( Settings.InputArray[ inputName ] ) {
                         delete Settings.InputArray[ inputName ];
-                        alert( 'did not pass the validation check, removing' );
+                        //alert( 'did not pass the validation check, removing' );
                     }
                 }
                 else {
@@ -213,7 +217,7 @@ var Settings = {
                         Settings.InputArray[ inputName ] = inputElement;
                         Settings.EnableSave();
                         Settings.QueueEmpty = false;
-                        alert( 'something got changed on ' + inputName );
+                        //alert( 'something got changed on ' + inputName );
                     }
                 }
             };
@@ -290,11 +294,15 @@ var Settings = {
             Settings.Enqueue( inputName, Settings.InputArray[ inputName ].val() );
         }
         
-        listString = "";
+        /*listString = "";
         for ( queueName in Settings.SavingQueue ) {
             listString += queueName + ": " + Settings.SavingQueue[ queueName ] + "\n";
         }
-        alert( listString );
+        alert( listString );*/
+		Coala.Warm( 'user/settings/save' , Settings.queue );
+		Settings.Dequeue();
+        Settings.DisableSave();
+        $( "li.backtoprofile" ).addClass( "highlighted" );
     }
     ,
     SelectAvatar: function( imageid ) {
