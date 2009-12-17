@@ -7,6 +7,7 @@
 			if ( $theuser->Betastatus == 1 ) {
 				?>
 				<div id="mplayersearchmodal" class="modal">
+                    <h2>Βάλε μουσική στο προφίλ σου!</h2>
 					<div class="search">
 						<div class="input">
 							<input type="text" value="Αναζήτηση..." />
