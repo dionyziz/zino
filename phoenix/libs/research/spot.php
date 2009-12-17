@@ -107,8 +107,6 @@
             $finder = New PollFinder();
             $polls = $finder->FindByIds( $pollids );
 
-            $water->ProfileEnd();
-
             return array_merge( $images, $journals, $polls );
         }
         public static function GetJournals( $user, $num = 4 ) {
