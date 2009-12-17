@@ -92,6 +92,9 @@ var Settings = {
                 $( '#place select' ).change( function() {
                     Settings.Enqueue( 'place' , this.value );
                 });
+                $( '#sex select' ).change( function() {
+                    Settings.Enqueue( 'sex' , this.value );
+                });
                 $( '#education select' ).change( function() {
                     Settings.Enqueue( 'education' , this.value );
                     //TODO: Callback with a list of schools
