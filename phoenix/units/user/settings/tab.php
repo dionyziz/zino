@@ -49,7 +49,7 @@
         ?>
         buffer = ""<?php
         foreach ( $html as $chunk ) {
-            ?>+<?php
+            ?>+"\n"+<?php
             echo w_json_encode( $chunk ); 
         }
         ?>;
