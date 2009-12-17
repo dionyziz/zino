@@ -244,13 +244,8 @@
     padding: 43px 0 0 0;
 }
 #easyphotoupload {
-	display: none;
-	top: 15%;
-	left: 37%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
     width: 450px;
+    height: 140px;
 }
 #easyphotoupload .modalcontent {
     padding: 80px 0 0 140px; 
@@ -258,10 +253,7 @@
 #easyphotoupload .modalcontent span.plswait {
     padding: 0 0 0 5px;
     vertical-align: 3px;
-}
-#easyphotoupload div {
-    padding: 5px 0 0 0;
-}
+} 
 #easyphotoupload div span.inalb {
     padding: 0 0 0 10px;
 }

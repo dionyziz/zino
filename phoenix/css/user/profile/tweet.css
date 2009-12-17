@@ -43,28 +43,8 @@ div.tweetbox .right {
     color: #149;
 }
 #tweetedit {
-	display: none;
-	top: 25%;
-	left: 40%;
-	position: fixed;
-	background: #eef5f9;
-	border: 1px solid #284659;
-    height: 120px;
-}
-#tweetedit form {
-    margin: 20px 15px 0 15px;
-    text-align: center;
-}
-#tweetedit ul li {
-    display: inline;
-    margin: 10px;
-}
-#tweetedit h5 {
-    margin: 0 0 30px 0;
-}
-#tweetedit div.input {
-    padding: 0 0 30px 0;
+    width: 500px;
 }
 #tweetedit input {
-    width: 200px;
+    width: 350px;
 }
