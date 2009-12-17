@@ -70,7 +70,7 @@
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Favquote != '' ) {
-                        ?><dt><strong>Αγαπημένα ρητό</strong></dt>
+                        ?><dt><strong>Αγαπημένο ρητό</strong></dt>
                         <dd><?php
                         echo htmlspecialchars( $theuser->Profile->Favquote );
                         ?></dd><?php
