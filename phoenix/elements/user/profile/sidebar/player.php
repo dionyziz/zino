@@ -7,9 +7,6 @@
 			if ( $theuser->Betastatus == 1 ) {
 				?>
 				<div id="mplayersearchmodal" class="modal">
-					<div class="toolbar">
-						<div class="exit"></div>
-					</div>
 					<div class="search">
 						<div class="input">
 							<input type="text" value="Αναζήτηση..." />
