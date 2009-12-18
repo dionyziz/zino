@@ -9,6 +9,7 @@
             $page->AttachStylesheet( 'css/banner.css' );
             $page->AttachStylesheet( 'css/footer.css' );
             $page->AttachStylesheet( 'css/links.css' );
+            $page->AttachStylesheet( 'css/emoticons.css' );
             $page->AttachStylesheet( 'css/spriting/sprite1.css' );
             $page->AttachStylesheet( 'css/spriting/sprite2.css' );
             $page->AttachStylesheet( 'css/spriting/spritex.css' );
