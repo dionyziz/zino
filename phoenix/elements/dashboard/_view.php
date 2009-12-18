@@ -21,6 +21,9 @@
             $page->AttachScript( 'js/dashboard.js' ); 
 
             $page->AttachInlineScript( 'Dashboard.OnLoad();' );
+            if ( $user->Exists() ) {
+                $page->AttachInlineScript( 'var User = "' . $user->Name . '";' );
+            }
 
             $libs->Load( 'chat/message' );
 
