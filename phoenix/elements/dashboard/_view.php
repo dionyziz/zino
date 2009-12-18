@@ -17,6 +17,7 @@
 
             $page->AttachScript( 'http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js' );
             $page->AttachScript( 'js/kamibu.js' );
+            $page->AttachScript( 'js/coala.js' );
             $page->AttachScript( 'js/dashboard.js' ); 
 
             $page->AttachInlineScript( 'Dashboard.OnLoad();' );
