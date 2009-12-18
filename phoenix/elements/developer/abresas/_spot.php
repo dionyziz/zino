@@ -15,7 +15,7 @@
                 if ( $object instanceof Image ) {
                     $image = $object;
                     ?>Φωτογραφία "<?php
-                    echo $image->Title;
+                    echo $image->Name;
                     ?>" του <a href="<?php
                     Element( 'url', $image->User );
                     ?>"><?php
