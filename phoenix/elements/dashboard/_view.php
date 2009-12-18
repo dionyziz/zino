@@ -3,6 +3,7 @@
         public function Render() {
             global $page;
             global $libs;
+            global $user;
 
             $page->AttachStylesheet( 'css/default.css' );
             $page->AttachStylesheet( 'css/banner.css' );
