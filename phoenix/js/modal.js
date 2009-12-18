@@ -10,8 +10,8 @@
         config = $.extend( config, defconfig );
         this.jqm( config );
         if ( !config.noClose ) {
-            eClose = document.createElement( 'span' );
-            $( eClose ).addClass( 'close' )
+            close = document.createElement( 'span' );
+            $( close ).addClass( 'close' )
             /*.click( 
                 function ( modalElement ) {
                     return function () {
@@ -19,11 +19,11 @@
                     }
                 } ( this )
             );*/
-            this.append( eClose );
-            this.jqmAddClose( eClose );
+            this.append( close );
+            this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
-            //this.center();
+            this.center();
         }
         if ( modalTrigger ) {
             if ( typeof modalTrigger == 'string' ) {
