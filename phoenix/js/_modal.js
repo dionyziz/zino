@@ -20,6 +20,7 @@
                 } ( this )
             );*/
             _close = document.createElement( 'span' );
+            close = document.createElement( 'span' );
             //close = jQuery.create( "span", { 'class': 'close' } );
             $( _close ).addClass( 'close' );
             this.append( _close );
