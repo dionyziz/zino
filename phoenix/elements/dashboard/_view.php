@@ -19,12 +19,25 @@
             $page->AttachScript( 'http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js' );
             $page->AttachScript( 'js/kamibu.js' );
             $page->AttachScript( 'js/coala.js' );
+            $page->AttachScript( 'js/meteor.js' );
+            $page->AttachScript( 'js/comet.js' );
             $page->AttachScript( 'js/dashboard.js' ); 
 
-            $page->AttachInlineScript( 'Dashboard.OnLoad();' );
+            ob_start();
+            ?>Dashboard.OnLoad();<?php
             if ( $user->Exists() ) {
-                $page->AttachInlineScript( 'var User = "' . $user->Name . '";' );
+                ?>
+                var User = "<?php
+                echo $user->Name;
+                ?>";
+                <?php
             }
+            ?>Comet.Init(<?php
+            echo w_json_encode( uniqid() );
+            ?>);
+            Comet.Subscribe( 'FrontpageShoutboxNew0' );
+            Comet.Subscribe( 'FrontpageShoutboxTyping0' );<?php
+            $page->AttachInlineScript( ob_get_clean() );
 
             $libs->Load( 'chat/message' );
 
