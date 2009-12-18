@@ -19,10 +19,11 @@
                     }
                 } ( this )
             );*/
-            alert( document.createElement( "span" ) );
-            close = jQuery.create( 'span', { 'class': 'close' } );
-            this.append( close );
-            this.jqmAddClose( close );
+            alert( _close = document.createElement( "span" ) );
+            //close = jQuery.create( "span", { 'class': 'close' } );
+            $( _close ).addClass( 'close' );
+            this.append( _close );
+            this.jqmAddClose( _close );
         }
         if ( config.position == 'center' ) {
             this.center();
