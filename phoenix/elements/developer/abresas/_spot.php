@@ -19,7 +19,12 @@
                     Element( 'url', $image );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
-                    echo $image->Name;
+                    if ( !empty( $image->Name ) ) {
+                        echo $image->Name;
+                    }
+                    else {
+                        echo "(ανώνυμη)";
+                    }
                     ?></a> του <a href="<?php
                     ob_start();
                     Element( 'url', $image->User );
