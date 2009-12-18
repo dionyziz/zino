@@ -38,6 +38,12 @@ var Dashboard = {
         $( '#frontpage' )[ 0 ].style.height = h + 'px';
         
         notifications.style.marginLeft = Math.round( frontpage.offsetWidth / 2 - notifications.offsetWidth / 2 ) - 20 + 'px';
+
+        var lis = $( '#chat ol li' );
+
+        if ( lis.length ) {
+            lis[ lis.length - 1 ].scrollIntoView();
+        }
     },
     OnLoad: function() {
         Kamibu.ClickableTextbox( $( 'textarea' )[ 0 ], true, 'black', '#aaa' );
@@ -53,7 +59,6 @@ window.onresize = Dashboard.HandleResize;
     var lis = $( '#chat ol li' );
 
     if ( lis.length ) {
-        alert( 'Blue' );
         lis[ lis.length - 1 ].scrollIntoView();
     }
     
