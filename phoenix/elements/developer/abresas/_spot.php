@@ -15,11 +15,15 @@
                 if ( $object instanceof Image ) {
                     $image = $object;
                     ?>Φωτογραφία <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $image ) );
+                    ob_start();
+                    Element( 'url', $image );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $image->Name;
                     ?></a> του <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $image->User ) );
+                    ob_start();
+                    Element( 'url', $image->User );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $image->User->Name;
                     ?></a><?php
@@ -27,11 +31,15 @@
                 else if ( $object instanceof Journal ) {
                     $journal = $object;
                     ?>Ημερολόγιο <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $journal ) );
+                    ob_start();
+                    Element( 'url', $journal );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $journal->Title;
                     ?></a> του <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $journal->User ) );
+                    ob_start();
+                    Element( 'url', $journal->User );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $journal->User->Name;
                     ?></a><?php
@@ -39,11 +47,15 @@
                 else {
                     $poll = $object;
                     ?>Δημοσκόπηση <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $poll ) );
+                    ob_start();
+                    echo Element( 'url', $poll );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $poll->Question;
                     ?></a> του <a href="<?php
-                    echo htmlspecialchars( Element( 'url', $poll->User ) );
+                    ob_start();
+                    echo Element( 'url', $poll->User );
+                    echo htmlspecialchars( ob_get_clean() );
                     ?>"><?php
                     echo $poll->User->Name;
                     ?></a><?php
