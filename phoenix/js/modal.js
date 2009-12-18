@@ -23,7 +23,7 @@
             this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
-            this.center();
+            //this.center();
         }
         if ( modalTrigger ) {
             if ( typeof modalTrigger == 'string' ) {
