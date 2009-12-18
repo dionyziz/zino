@@ -1,16 +1,3 @@
-/*
-  Developer: Chorvus
-  Modal relay function for jqModal
-  Requirements:
-    jQuery  ( jquery.js )
-    jqModal ( jquery.modal.js )
-*/
-
-/*
-    Change of plans, new modal system
-*/
-
-
 ( function($) {
     $.fn.modal = function( modalTrigger, config ) {
         var defconfig = {
@@ -23,8 +10,8 @@
         config = $.extend( config, defconfig );
         this.jqm( config );
         if ( !config.noClose ) {
-            close = document.createElement( 'span' );
-            $( close ).addClass( 'close' )
+            //close = document.createElement( 'span' );
+            //$( close ).addClass( 'close' )
             /*.click( 
                 function ( modalElement ) {
                     return function () {
@@ -32,7 +19,7 @@
                     }
                 } ( this )
             );*/
-            this.append( close );
+            this.append( $.create( 'span' ).addClass( 'close' ) );
             this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
@@ -49,57 +36,77 @@
 } ) ( jQuery );
 
 var Modals = {
+    ModalBG: false,
+    CurrentWindow: false,
+    CurrentWidth: 0,
+    CurrentHeight: 0,
     Confirm: function ( question, action ) {
         Modals.Question( question, [
-            { Text: 'Ναι' , Callback: action },
+            { Text: 'Ναι' , Action: action },
             { Text: 'Όχι' }
         ] );
     },
-    Question: function ( question, answers, callback ) {
+    Question: function ( question, answers ) {
         qq = document.createElement( 'div' );
+        qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( document.createTextNode( question ) );
-        optionsdiv = document.createElement( 'div' );
         options = document.createElement( 'ul' );
-        if ( typeof( answers ) == 'string' ) {
-            answers = [ answers ];
-        }
-        else if ( typeof( answers ) == 'undefined' ) {
-            answers = [ "OK" ];
-        }
+        options.style.display = 'inline';
+        options.style.margin = '0px';
+        options.style.padding = '0px';
         for ( i in answers ) {
             answer = answers[ i ];
             li = document.createElement( 'li' );
-            btn = document.createElement( 'a' );
-            btn.href = '';
-            if ( typeof( answer ) == 'object' ) {
-                    btn.appendChild( document.createTextNode( answer.Text ) );
-            }
-            else {
-                btn.appendChild( document.createTextNode( answer ) );
-            }
-            $( btn ).click( function( j, a, w ) {
-                return function() {
-                    $( w ).jqmHide().remove();
-                    if ( a.Callback ) {
-                        a.Callback.call( this );
+            li.style.display = 'inline';
+            li.style.padding = '5px';
+            btn = document.createElement( 'input' );
+            btn.type = 'button';
+            btn.value = answer.Text;
+            btn.onclick = function ( act ) {
+                return function () {
+                    if ( act ) {
+                        act();
                     }
-                    if ( callback ) {
-                        callback.call( this, j );
-                    }
-                    return false;
+                    Modals.Destroy();
                 };
-            } ( i, answer, qq ) );
-            
+            }( answer.Action );
             li.appendChild( btn );
             options.appendChild( li );
         }
+        qq.appendChild( document.createElement( 'br' ) );
+        qq.appendChild( document.createElement( 'br' ) );
         qq.appendChild( options );
-        document.body.appendChild( qq );
-        qq.className = "modal";
-        if ( $( qq ).width() > $( "body" ).width() * 0.6 ) {
-            $( qq ).css( "width", $( "body" ).width() * 0.6 );
+        Modals.Create( qq , 250 , 100 );
+    },
+    Create: function ( node, width, height ) {
+        if ( !width ) {
+            width = 500;
         }
-        $( qq ).center().modal().jqmShow();
-        return;
+        if ( !height ) {
+            height = 300;
+        }
+        Modals.ModalBG = bg = document.createElement( 'div' );
+        bg.className = 'modalbg';
+        Modals.CurrentWindow = modal = document.createElement( 'div' );
+        modal.className = 'modal';
+        modal.appendChild( node );
+        modal.style.width  = width + 'px';
+        modal.style.height = height + 'px';
+        document.body.appendChild( bg );
+        document.body.appendChild( modal );
+        document.body.onscroll = Modals.Scrolled;
+        Modals.CurrentWidth = width;
+        Modals.CurrentHeight = height;
+        Modals.Scrolled();
+    },
+    Destroy: function () {
+        document.body.removeChild( Modals.CurrentWindow );
+        document.body.removeChild( Modals.ModalBG );
+    },
+    Scrolled: function () {
+        Modals.ModalBG.style.top = document.body.scrollTop + 'px';
+        Modals.ModalBG.style.left = document.body.scrollLeft + 'px';
+        Modals.CurrentWindow.style.marginLeft = document.body.scrollLeft - Modals.CurrentWidth / 2 + 'px'; // document.body.scrollTop + 'px';
+        Modals.CurrentWindow.style.marginTop  = document.body.scrollTop - Modals.CurrentHeight / 2 + 'px';
     }
 };
