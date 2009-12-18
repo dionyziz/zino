@@ -195,7 +195,7 @@
                             foreach ( $messages as $message ) {
                                 ?><li class="text" id="s_<?php
                                 echo $message[ 'id' ];
-                                ?>><strong><?php
+                                ?>"><strong><?php
                                 echo $message[ 'username' ];
                                 ?></strong> <div class="text"><?php
                                 echo $message[ 'html' ];
