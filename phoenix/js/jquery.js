@@ -1058,7 +1058,7 @@ jQuery.extend({
 		});
 
 		if ( set )
-			elem[ name ] = value;
+            try{elem[ name ] = value;} catch (err){}; 
 
 		return elem[ name ];
 	},
