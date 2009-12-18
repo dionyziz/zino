@@ -9,7 +9,7 @@
 
             $content = Spot::GetContent( $user, 8, 5, 4 );
 
-            ?><ul style="list-style-type: none; margin: 10px 0 0 0; padding: 0;"><?php
+            ?><ul style="list-style-type: none; margin: 20px 0 0 20px; padding: 0;"><?php
             foreach ( $content as $object ) {
                 ?><li><?php
                 if ( $object instanceof Image ) {
