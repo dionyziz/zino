@@ -19,8 +19,7 @@
                     }
                 } ( this )
             );*/
-            alert( document );
-            alert( document.createElement );
+            alert( document.createElement( "span" ) );
             close = jQuery.create( 'span', { 'class': 'close' } );
             this.append( close );
             this.jqmAddClose( close );
