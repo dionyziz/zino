@@ -9,7 +9,7 @@
         };
         config = $.extend( config, defconfig );
         this.jqm( config );
-        if ( !config.noClose ) {
+        if ( false && !config.noClose ) {
             //close = document.createElement( 'span' );
             //$( close ).addClass( 'close' )
             /*.click( 
