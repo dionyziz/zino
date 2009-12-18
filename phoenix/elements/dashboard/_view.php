@@ -27,11 +27,12 @@
 
             $messages = array();
             foreach ( $chats as $chat ) {
-                $messages[] = array(
+                array_unshift( $messages, array(
                     'username' => $chat->User->Name,
                     'html' => $chat->Text
-                );
+                ) );
             }
+
 
 			?>
             <div id="nowbar">
