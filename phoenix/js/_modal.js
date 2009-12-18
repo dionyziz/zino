@@ -19,9 +19,9 @@
                     }
                 } ( this )
             );*/
-            _close = $.create( 'span' ).addClass( 'close' );
-            this.append( _close );
-            this.jqmAddClose( _close );
+            close = $.create( 'span' ).addClass( 'close' );
+            this.append( close );
+            this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
             this.center();
