@@ -14,9 +14,11 @@
                 ?><li><?php
                 if ( $object instanceof Image ) {
                     $image = $object;
-                    ?>Φωτογραφία "<?php
+                    ?>Φωτογραφία <a href="<?php
+                    Element( 'url', $image );
+                    ?>">"<?php
                     echo $image->Name;
-                    ?>" του <a href="<?php
+                    ?>"</a> του <a href="<?php
                     Element( 'url', $image->User );
                     ?>"><?php
                     echo $image->User->Name;
@@ -24,9 +26,11 @@
                 }
                 else if ( $object instanceof Journal ) {
                     $journal = $object;
-                    ?>Ημερολόγιο "<?php
+                    ?>Ημερολόγιο <a href="<?php
+                    Element( 'url', $journal );
+                    ?>">"<?php
                     echo $journal->Title;
-                    ?>" του <a href="<?php
+                    ?>"</a> του <a href="<?php
                     Element( 'url', $journal->User );
                     ?>"><?php
                     echo $journal->User->Name;
@@ -34,9 +38,11 @@
                 }
                 else {
                     $poll = $object;
-                    ?>Δημοσκόπηση "<?php
+                    ?>Δημοσκόπηση <a href="<?php
+                    Element( 'url', $poll );
+                    ?>">"<?php
                     echo $poll->Question;
-                    ?>" του <a href="<?php
+                    ?>"</a> του <a href="<?php
                     Element( 'url', $poll->User );
                     ?>"><?php
                     echo $poll->User->Name;

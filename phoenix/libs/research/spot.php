@@ -85,16 +85,20 @@
             $imageids = array();
             $journalids = array();
             $pollids = array();
-            foreach ( $lines as $id ) {
-                $id = (int)$id;
-                if ( count( $imageids ) < $numImages ) {
-                    $imageids[] = $id;
-                }
-                else if ( count( $journalids ) < $numJournals ) {
-                    $journalids[] = $id;
-                }
-                else {
-                    $pollids[] = $id;
+            $idToOrder = array();
+            foreach ( $lines as $order => $line ) {
+                list( $type, $id ) = explode( ":", $line );
+                $idToOrder[ $type ][ $id ] = $order;
+                switch ( $type ) {
+                    case 'image':
+                        $imageids[] = $id;
+                        break;
+                    case 'journal':
+                        $journalids[] = $id;
+                        break;
+                    case 'poll':
+                        $pollids[] = $id;
+                        break;
                 }
             }
 
@@ -107,7 +111,18 @@
             $finder = New PollFinder();
             $polls = $finder->FindByIds( $pollids );
 
-            return array_merge( $images->ToArray(), $journals->ToArray(), $polls->ToArray() );
+            $content = array();
+            foreach ( $images as $image ) {
+                $content[ $idToOrder[ 'image' ][ $image->Id ] ] = $image;
+            }
+            foreach ( $journals as $journal ) {
+                $content[ $idToOrder[ 'journal' ][ $journal->Id ] ] = $image;
+            }
+            foreach ( $polls as $poll ) {
+                $content[ $idToOrder[ 'poll' ][ $poll->Id ] ] = $poll;
+            }
+
+            return $content;
         }
         public static function GetJournals( $user, $num = 4 ) {
             global $libs;
