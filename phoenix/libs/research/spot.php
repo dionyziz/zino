@@ -68,6 +68,7 @@
         }
         public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {
             global $libs;
+            global $water;
             $libs->Load( 'image/image' );
             $libs->Load( 'journal/journal' );
             $libs->Load( 'poll/poll' );
@@ -78,6 +79,7 @@
             // TODO: process content somehow?
 
             $lines = self::SendRequest( $request );
+            $water->Trace( 'Got response from spot', $lines );
             if ( $lines === false ) {
                 return $lines;
             }
@@ -97,6 +99,7 @@
                     $pollids[] = $id;
                 }
             }
+            $water->Trace( 'Separated response into arrays of ids', array( $imageids, $journalids, $pollids ) );
 
             $finder = New ImageFinder();
             $images = $finder->FindByIds( $imageids );
