@@ -42,9 +42,8 @@ var Dashboard = {
     OnLoad: function() {
         Kamibu.ClickableTextbox( $( 'textarea' )[ 0 ], true, 'black', '#aaa' );
         Kamibu.ClickableTextbox( $( 'input' )[ 0 ], true, 'black', '#aaa' );
-        HandleResize();
+        Dashboard.HandleResize();
         Frontpage.Shoutbox.OnLoad();
-        // setInterval( HandleResize, 2000 );
     }
 };
 
