@@ -10,8 +10,8 @@
         config = $.extend( config, defconfig );
         this.jqm( config );
         if ( !config.noClose ) {
-            close = document.createElement( 'span' );
-            $( close ).addClass( 'close' )
+            eClose = document.createElement( 'span' );
+            $( eClose ).addClass( 'close' )
             /*.click( 
                 function ( modalElement ) {
                     return function () {
@@ -19,8 +19,8 @@
                     }
                 } ( this )
             );*/
-            this.append( close );
-            this.jqmAddClose( close );
+            this.append( eClose );
+            this.jqmAddClose( eClose );
         }
         if ( config.position == 'center' ) {
             //this.center();
