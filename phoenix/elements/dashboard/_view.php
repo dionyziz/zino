@@ -18,7 +18,7 @@
             $page->AttachScript( 'js/kamibu.js' );
             $page->AttachScript( 'js/dashboard.js' ); 
 
-            $page->AttachInlineScript( 'OnLoad();' );
+            $page->AttachInlineScript( 'Dashboard.OnLoad();' );
 
             $libs->Load( 'chat/message' );
 
@@ -28,11 +28,11 @@
             $messages = array();
             foreach ( $chats as $chat ) {
                 array_unshift( $messages, array(
+                    'id' => $chat->Id,
                     'username' => $chat->User->Name,
                     'html' => $chat->Text
                 ) );
             }
-
 
 			?>
             <div id="nowbar">
@@ -189,19 +189,24 @@
                         <a href="" class="minimize" title="Ελαχιστοποίηση"></a>
 
                         <h2>Συζήτηση</h2>
-                        <ol><?php
+                        <ol>
+                            <li class="history">Προβολή προηγούμενων μηνυμάτων</li><?php
                             foreach ( $messages as $message ) {
-                                ?><li><strong><?php
+                                ?><li class="text" id="s_<?php
+                                echo $message[ 'id' ];
+                                ?>><strong><?php
                                 echo $message[ 'username' ];
                                 ?></strong> <div class="text"><?php
                                 echo $message[ 'html' ];
                                 ?></div></li><?php
                             }
-                        ?></ol>
-                        <div class="input">
-                            <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
-
-                        </div>
+                        ?></ol><?php
+                        if ( $user->Exists() ) {
+                            ?><div class="input">
+                                <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
+                            </div><?php
+                        }
+                        ?>
                     </div>
                 </div><!-- class=border -->
             </div>
