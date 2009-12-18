@@ -116,7 +116,7 @@
                 $content[ $idToOrder[ 'image' ][ $image->Id ] ] = $image;
             }
             foreach ( $journals as $journal ) {
-                $content[ $idToOrder[ 'journal' ][ $journal->Id ] ] = $image;
+                $content[ $idToOrder[ 'journal' ][ $journal->Id ] ] = $journal;
             }
             foreach ( $polls as $poll ) {
                 $content[ $idToOrder[ 'poll' ][ $poll->Id ] ] = $poll;
