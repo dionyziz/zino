@@ -19,7 +19,8 @@
                     }
                 } ( this )
             );*/
-            this.append( $.create( 'span' ).addClass( 'close' ) );
+            close = $.create( 'span' ).addClass( 'close' );
+            this.append( close );
             this.jqmAddClose( close );
         }
         if ( config.position == 'center' ) {
