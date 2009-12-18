@@ -43,7 +43,6 @@ var Dashboard = {
         Kamibu.ClickableTextbox( $( 'textarea' )[ 0 ], true, 'black', '#aaa' );
         Kamibu.ClickableTextbox( $( 'input' )[ 0 ], true, 'black', '#aaa' );
         Dashboard.HandleResize();
-        Frontpage.Shoutbox.OnLoad();
     }
 };
 
