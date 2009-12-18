@@ -53,6 +53,7 @@ window.onresize = Dashboard.HandleResize;
     var lis = $( '#chat ol li' );
 
     if ( lis.length ) {
+        alert( 'Blue' );
         lis[ lis.length - 1 ].scrollIntoView();
     }
     

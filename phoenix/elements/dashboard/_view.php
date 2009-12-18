@@ -195,7 +195,7 @@
 
                         <h2>Συζήτηση</h2>
                         <ol>
-                            <li class="history">Προβολή προηγούμενων μηνυμάτων</li><?php
+                            <!-- <li class="history">Προβολή προηγούμενων μηνυμάτων</li> --><?php
                             foreach ( $messages as $message ) {
                                 ?><li class="text" id="s_<?php
                                 echo $message[ 'id' ];
