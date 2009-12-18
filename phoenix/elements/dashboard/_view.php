@@ -2,6 +2,7 @@
     class ElementDashboardView extends Element {
         public function Render() {
             global $page;
+            global $libs;
 
             $page->AttachStylesheet( 'css/default.css' );
             $page->AttachStylesheet( 'css/banner.css' );
@@ -18,6 +19,20 @@
             $page->AttachScript( 'js/dashboard.js' ); 
 
             $page->AttachInlineScript( 'OnLoad();' );
+
+            $libs->Load( 'chat/message' );
+
+            $finder = New ShoutboxFinder();
+            $chats = $finder->FindByChannel( 0, 0, 20 );
+
+            $messages = array();
+            foreach ( $chats as $chat ) {
+                $messages[] = array(
+                    'username' => $chat->User->Name,
+                    'html' => $chat->Text
+                );
+            }
+
 			?>
             <div id="nowbar">
                 <div class="border">
@@ -173,23 +188,15 @@
                         <a href="" class="minimize" title="Ελαχιστοποίηση"></a>
 
                         <h2>Συζήτηση</h2>
-                        <ol>
-                            <li><strong>dionyziz</strong> <div class="text">Hi!</div></li>
-                            <li><strong>Mikros_Pitsilotos_Satanoulis</strong> <div class="text">Hello</div></li>
-                            <li><strong>pagio91</strong> 
-                                <div class="text">
-
-                                    <br />
-                                    <div class="wysiwyg-youtube-preview">
-                                        <img src="http://img.youtube.com/vi/xJWb04NYXkA/2.jpg" alt="YouTube Video Preview"/><span onclick="WYSIWYG.VideoPlay( 'xJWb04NYXkA', this.parentNode )"/>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><strong>annaAa</strong> <div class="text">γαμάτο video...</div></li>
-
-                            <li><strong>Izual</strong> <div class="text">τα σπάει! :-)</div></li>
-                            <li><strong>dionyziz</strong> <div class="text">nice</div></li>
-                        </ol>
+                        <ol><?php
+                            foreach ( $messages as $message ) {
+                                ?><li><strong><?php
+                                echo $message[ 'username' ];
+                                ?></strong> <div class="text"><?php
+                                echo $message[ 'html' ];
+                                ?></div></li><?php
+                            }
+                        ?></ol>
                         <div class="input">
                             <textarea>Πρόσθεσε ένα σχόλιο στη συζήτηση</textarea>
 
