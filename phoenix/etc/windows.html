@@ -114,9 +114,10 @@
                                         me.move( e.clientX - me.capture[ 0 ], e.clientY - me.capture[ 1 ] );
                                     }
                                     switch ( me.resizing ) {
-                                        case Puffin.c.RESIZE_N;
+                                        case Puffin.c.RESIZE_N:
                                             // me.move( 0, );
                                             me.resize( me.w, capture[ 1 ] - e.clientY );
+                                            break;
                                     }
                                     f();
                                 };
