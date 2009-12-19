@@ -16,6 +16,7 @@
             position: fixed;
         }
         </style>
+        <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" charset="utf-8"></script>
         <script type="text/javascript">
             var Puffin = {
                 create: function () {
@@ -30,6 +31,12 @@
                             }
                             if ( y < 0 ) {
                                 y = 0;
+                            }
+                            if ( x > this.maxx ) {
+                                x = this.maxx;
+                            }
+                            if ( y > this.maxy ) {
+                                y = this.maxy;
                             }
                             this.x = x;
                             this.y = y;
@@ -60,6 +67,8 @@
                                     }
                                     me.capture = [ e.clientX - me.x, e.clientY - me.y ];
                                     me.moving = true;
+                                    me.maxx = $( window ).width() - me.w;
+                                    me.maxy = $( window ).height() - me.h;
                                     return false;
                                 };
                             } )( this );
