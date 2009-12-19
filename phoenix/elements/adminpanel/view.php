@@ -24,22 +24,19 @@
                         ?><li><a href="?p=memorystats" >Στατιστικά σχετικά με την χρήση μνήμης απο τα διάφορα scripts</a></li><?php
 	        ?></ul><?php
 	        
-	        /*
-	        $libs->Load( 'contacts/contacts' );
-	        $username = $username->Get();
-	        $pass = $pass->Get();
-	        $provider = $provider->Get();
-	        ?><p>654687</p><?php
-	        $contacts = GetContacts( $username,$pass,$provider);
-	        ?><p>alksjgaf</p><?php
-	        var_dump( $contacts );
-            foreach ( $contacts as $key => $val ) {
-                echo '<p>' . $key . ' ' . $val . '</p>';
+	        $libs->Load( 'content' );
+            $content = getContent();
+            foreach ( $content as $object ) {
+                ?><p><?php
+                echo $object[ "object" ]->Id;
+                ?>  <?php
+                foreach ( $object[ "comments" ] as $comm ) { 
+                    ?><p><?php
+                    echo $comm->Text;
+                    ?></p><?php
+                }
+                ?></p><?php                
             }
-            */
-		
-	        $libs->Load( 'music/grooveshark' );
-            //echo "<p>" . Grooveshark_SearchSong("time") . " - res </p>";
 
         }
     }
