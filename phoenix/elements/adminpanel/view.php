@@ -26,7 +26,7 @@
 	        
 	        $libs->Load( 'content' );
             ?><p>Content</p><?php
-            $content = getContent();
+            $content = Content_GetContent();
             foreach ( $content as $object ) {
                 ?><p><?php
                 echo $object[ "object" ]->Id;
