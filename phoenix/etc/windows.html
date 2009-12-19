@@ -36,6 +36,8 @@
                         __construct: function () {
                             this.div = document.createElement( 'div' );
                             this.div.className = 'puffin';
+                            this.hide();
+                            document.body.appendChild( this.div );
                         }
                     };
                     obj.__construct();
