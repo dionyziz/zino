@@ -50,13 +50,11 @@
                             } )( this );
                             this.div.onmousemove = ( function( me ) {
                                 return function( e ) {
-                                    alert( me.div );
                                     if ( !e ) {
                                         e = window.event;
                                     }
                                     if ( me.moving ) {
-                                        me.div.left = e.clientX + 'px';
-                                        me.div.top = e.clientY + 'px';
+                                        me.move( e.clientX, e.clientY );
                                     }
                                 };
                             } )( this );
