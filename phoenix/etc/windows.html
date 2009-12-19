@@ -62,7 +62,7 @@
                             document.body.onmouseup = ( function( me ) {
                                 return function() {
                                     me.moving = false;
-                                    f();
+                                    // f();
                                 };
                             } )( this );
                             var f = function () {};
@@ -78,7 +78,7 @@
                                         document.title = me.capture[ 0 ] + ', ' + me.capture[ 1 ];
                                         me.move( e.clientX - me.capture[ 0 ], e.clientY - me.capture[ 1 ] );
                                     }
-                                    f();
+                                    // f();
                                 };
                             } )( this );
                             this.hide();
