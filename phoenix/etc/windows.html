@@ -5,6 +5,7 @@
         div.puffin {
             border: 1px solid black;
             background-color: #eee;
+            position: fixed;
         }
         </style>
         <script type="text/javascript">
@@ -31,8 +32,7 @@
                         },
                         show: function () {
                             this.visible = true;
-                            this.div.style.display = 'fixed';
-                            alert( this.div );
+                            this.div.style.display = 'block';
                         },
                         __construct: function () {
                             this.div = document.createElement( 'div' );
