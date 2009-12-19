@@ -57,7 +57,11 @@
                                     f();
                                 };
                             } )( this );
-                            this.div.onmousemove = ( function( me ) {
+                            var f = function () {};
+                            if ( typeof document.body.onmousemove == 'function' ) {
+                                var f = document.body.onmousemove;
+                            }
+                            document.body.onmousemove = ( function( me ) {
                                 return function( e ) {
                                     if ( !e ) {
                                         e = window.event;
@@ -66,6 +70,7 @@
                                         document.title = me.capture[ 0 ] + ', ' + me.capture[ 1 ];
                                         me.move( e.clientX - me.capture[ 0 ], e.clientY - me.capture[ 1 ] );
                                     }
+                                    f();
                                 };
                             } )( this );
                             this.hide();
