@@ -144,6 +144,7 @@ input {
 }
 #chat div.text {
 	margin-left: 110px;
+    line-height: 18px;
 }
 #frontpage {
 	background-color: #5180ae;
