@@ -14,6 +14,7 @@
                     var obj = {
                         div: null,
                         x: 0, y: 0, w: 0, h: 0, visible: false,
+                        movable: true, moving: false,
                         move: function ( x, y ) {
                             this.x = x;
                             this.y = y;
@@ -37,6 +38,21 @@
                         __construct: function () {
                             this.div = document.createElement( 'div' );
                             this.div.className = 'puffin';
+                            this.div.onmousedown = function() {
+                                this.moving = true;
+                            };
+                            this.div.onmouseup = function() {
+                                this.moving = false;
+                            };
+                            this.div.onmousemove = function( e ) {
+                                if ( !e ) {
+                                    e = window.event;
+                                }
+                                if ( this.moving ) {
+                                    this.div.left = e.clientX + 'px';
+                                    this.div.top = e.classY + 'px';
+                                }
+                            }
                             this.hide();
                             document.body.appendChild( this.div );
                         }
