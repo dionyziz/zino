@@ -1,6 +1,6 @@
 <?php
 
-    function getContent() {
+    function Content_GetContent() {
         global $libs;
         global $user;
 
