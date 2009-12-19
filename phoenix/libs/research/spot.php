@@ -82,8 +82,6 @@
                 return $lines;
             }
 
-            die(var_dump($lines));
-
             $imageids = array();
             $journalids = array();
             $pollids = array();
