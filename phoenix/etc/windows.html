@@ -42,8 +42,8 @@
                                 return function( e ) {
                                     if ( !e ) {
                                         e = window.event;
-                                        me.capture = [ e.clientX, e.clientY ];
                                     }
+                                    me.capture = [ e.clientX, e.clientY ];
                                     me.moving = true;
                                 };
                             } )( this );
