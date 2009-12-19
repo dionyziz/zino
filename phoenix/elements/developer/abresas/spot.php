@@ -9,8 +9,6 @@
 
             $content = Spot::GetContent( $user, 8, 5, 4 );
 
-            var_dumb( $content );
-
             ?><h2>Spot Content</h2><ul style="list-style-type: none; margin: 20px 0 0 20px; padding: 0;"><?php
             foreach ( $content as $object ) {
                 ?><li><?php
