@@ -25,6 +25,7 @@
 	        ?></ul><?php
 	        
 	        $libs->Load( 'content' );
+            ?><p>Content</p><?php
             $content = getContent();
             foreach ( $content as $object ) {
                 ?><p><?php
