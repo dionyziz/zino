@@ -38,21 +38,27 @@
                         __construct: function () {
                             this.div = document.createElement( 'div' );
                             this.div.className = 'puffin';
-                            this.div.onmousedown = function() {
-                                this.moving = true;
-                            };
-                            this.div.onmouseup = function() {
-                                this.moving = false;
-                            };
-                            this.div.onmousemove = function( e ) {
-                                if ( !e ) {
-                                    e = window.event;
-                                }
-                                if ( this.moving ) {
-                                    this.div.left = e.clientX + 'px';
-                                    this.div.top = e.classY + 'px';
-                                }
-                            }
+                            this.div.onmousedown = ( function( me ) {
+                                return function() {
+                                    me.moving = true;
+                                };
+                            } )( this );
+                            this.div.onmouseup = ( function( me ) {
+                                return function() {
+                                    me.moving = false;
+                                };
+                            } )( this );
+                            this.div.onmousemove = ( function( me ) {
+                                return function( e ) {
+                                    if ( !e ) {
+                                        e = window.event;
+                                    }
+                                    if ( me.moving ) {
+                                        me.div.left = e.clientX + 'px';
+                                        me.div.top = e.classY + 'px';
+                                    }
+                                };
+                            } )( this );
                             this.hide();
                             document.body.appendChild( this.div );
                         }
