@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>In-site windows</title>
+        <style type="text/css">
+        div.puffin {
+            border: 1px solid black;
+            background-color: #eee;
+        }
+        </style>
+        <script type="text/javascript">
+            var Puffin = {
+                create: function () {
+                    var obj = {
+                        div: null,
+                        x: 0, y: 0, w: 0, h: 0, visible: false,
+                        move: function ( x, y ) {
+                            this.x = x;
+                            this.y = y;
+                            this.div.style.left = x + 'px';
+                            this.div.style.top = y + 'px';
+                        },
+                        resize: function ( w, h ) {
+                            this.w = w;
+                            this.h = h;
+                            this.div.style.width = w + 'px';
+                            this.div.style.height = h + 'px';
+                        },
+                        hide: function () {
+                            this.visible = false;
+                            this.div.style.display = 'none';
+                        }
+                        show: function () {
+                            this.visible = true;
+                            this.div.style.display = 'fixed';
+                        },
+                        __construct: function () {
+                            this.div = document.createElement( 'div' );
+                            this.div.className = 'puffin';
+                        }
+                    };
+                    obj.__construct();
+                    return obj;
+                },
+            };
+
+            var myWindow = Puffin.create();
+            myWindow.move( 100, 100 );
+            myWindow.resize( 200, 300 );
+            myWindow.show();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+
