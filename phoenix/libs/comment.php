@@ -393,6 +393,36 @@
 
             return $items;
         }
+        public function FindByTypeidAndItemid( $typeid, $itemid, $offset = 0, $limit = 100000 ) {
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :comments
+                WHERE
+                    `comment_typeid` = :typeid AND
+                    `comment_itemid` = :itemid AND
+                    `comment_delid` = :delid
+                ORDER BY
+                    `comment_id` ASC
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'typeid', $typeid );
+            $query->Bind( 'itemid', $itemid );
+            $query->Bind( 'delid', 0 );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+            $res = $query->Execute();
+            $coms = array();
+            while ( $row = $res->FetchArray() ) {
+                $coms[ $row[ 'comment_id' ] ] = $row;
+            }
+
+            return $coms;
+        }
         public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
             $query = $this->mDb->Prepare( "
                 SELECT
