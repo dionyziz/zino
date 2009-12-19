@@ -47,9 +47,14 @@
                                     me.moving = true;
                                 };
                             } )( this );
-                            this.div.onmouseup = ( function( me ) {
+                            var f = function () {};
+                            if ( typeof document.body.onmouseup == 'function' ) {
+                                var f = document.body.onmouseup;
+                            }
+                            document.body.onmouseup = ( function( me ) {
                                 return function() {
                                     me.moving = false;
+                                    f();
                                 };
                             } )( this );
                             this.div.onmousemove = ( function( me ) {
