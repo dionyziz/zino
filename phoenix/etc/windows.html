@@ -14,10 +14,6 @@
             border: 1px solid black;
             background-color: #eee;
             position: fixed;
-            left: 100px;
-            top: 100px;
-            width: 200px;
-            height: 300px;
         }
         </style>
         <script type="text/javascript">
@@ -25,16 +21,31 @@
                 create: function () {
                     var obj = {
                         div: null,
-                        x: 0, y: 0, 
-                        moving: false,
+                        x: 0, y: 0, w: 0, h: 0, visible: false,
+                        movable: true, moving: false,
                         move: function ( x, y ) {
                             this.x = x;
                             this.y = y;
                             this.div.style.left = x + 'px';
                             this.div.style.top = y + 'px';
                         },
+                        resize: function ( w, h ) {
+                            this.w = w;
+                            this.h = h;
+                            this.div.style.width = w + 'px';
+                            this.div.style.height = h + 'px';
+                        },
+                        hide: function () {
+                            this.visible = false;
+                            this.div.style.display = 'none';
+                        },
+                        show: function () {
+                            this.visible = true;
+                            this.div.style.display = 'block';
+                        },
                         __construct: function () {
-                            this.div = document.getElementsByTagName( 'div' )[ 0 ];
+                            this.div = document.createElement( 'div' );
+                            this.div.className = 'puffin';
                             this.div.onmousedown = ( function( me ) {
                                 return function( e ) {
                                     if ( !e ) {
@@ -42,13 +53,23 @@
                                     }
                                     me.capture = [ e.clientX - me.x, e.clientY - me.y ];
                                     me.moving = true;
+                                    return false;
                                 };
                             } )( this );
+                            var f = function () {};
+                            if ( typeof document.body.onmouseup == 'function' ) {
+                                var f = document.body.onmouseup;
+                            }
                             document.body.onmouseup = ( function( me ) {
                                 return function() {
                                     me.moving = false;
+                                    f();
                                 };
                             } )( this );
+                            var f = function () {};
+                            if ( typeof document.body.onmousemove == 'function' ) {
+                                var f = document.body.onmousemove;
+                            }
                             document.body.onmousemove = ( function( me ) {
                                 return function( e ) {
                                     if ( !e ) {
@@ -58,8 +79,10 @@
                                         document.title = me.capture[ 0 ] + ', ' + me.capture[ 1 ];
                                         me.move( e.clientX - me.capture[ 0 ], e.clientY - me.capture[ 1 ] );
                                     }
+                                    f();
                                 };
                             } )( this );
+                            this.hide();
                             document.body.appendChild( this.div );
                         }
                     };
@@ -71,10 +94,11 @@
         </script>
     </head>
     <body>
-        <div class="puffin">
-        </div>
         <script type="text/javascript">
             var myWindow = Puffin.create();
+            myWindow.move( 100, 100 );
+            myWindow.resize( 200, 300 );
+            myWindow.show();
         </script>
     </body>
 </html>
