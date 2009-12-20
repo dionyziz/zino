@@ -213,6 +213,10 @@
                                     if ( !e ) {
                                         e = window.event;
                                     }
+                                    if ( me.moving || me.resizing !== false ) {
+                                        // move/resize system will take care of mouse cursor; do not override
+                                        return;
+                                    }
                                     // change mouse to current resize cursor
                                     var resizeType = Puffin.getResizeType( me, { x: e.clientX, y: e.clientY } );
                                     if ( resizeType === false ) {
