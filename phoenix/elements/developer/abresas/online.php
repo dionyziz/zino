@@ -21,7 +21,7 @@
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>moods/<?php
                 echo $onlineUser[ 'mood_url' ];
-                ?>" /><?php
+                ?>" /></div><?php
             }
         }
     }
