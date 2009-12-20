@@ -208,6 +208,7 @@
             'dio'               => 'developer/dionyziz/attach',
             'dashboard'         => 'dashboard/view',
             'online'            => 'developer/abresas/online',
+            'dionyziz'          => 'developer/dionyziz/satori'
         );
     }
     
