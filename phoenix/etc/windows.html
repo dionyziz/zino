@@ -213,7 +213,6 @@
                             var f = function () {};
                             if ( typeof document.onmousemove == 'function' ) {
                                 var f = document.onmousemove;
-                                alert( 'Updating onmousemove' );
                             }
                             document.onmousemove = ( function( me ) {
                                 return function( e ) {
@@ -245,7 +244,7 @@
                                             me.move( coords[ 0 ], coords[ 1 ] );
                                         }
                                     }
-                                    f();
+                                    f( e );
                                     return false;
                                 };
                             } )( this );
