@@ -71,6 +71,7 @@
             */
             
             var Puffin = {
+                currentZ: 100, // starting Z-index
                 clientWidth: function () {
                     if ( typeof window.innerWidth != 'undefined' ) {
                         return window.innerWidth;
@@ -100,7 +101,7 @@
                     RESIZE_NW: 'NW',
                     RESIZE_BORDER: 6, // in pixels
                     MIN_W: 20,
-                    MIN_H: 20
+                    MIN_H: 20,
                 },
                 create: function () {
                     var obj = {
@@ -170,11 +171,16 @@
                         __construct: function () {
                             this.div = document.createElement( 'div' );
                             this.div.className = 'puffin';
+                            ++Puffin.currentZ;
+                            this.div.style.zIndex = Puffin.currentZ;
                             this.div.onmousedown = ( function( me ) {
                                 return function( e ) {
                                     if ( !e ) {
                                         e = window.event;
                                     }
+                                    ++Puffin.currentZ;
+                                    me.style.zIndex = Puffin.currentZ;
+
                                     // position of mouse within window
                                     var xpos = e.clientX - me.x;
                                     var ypos = e.clientY - me.y;
