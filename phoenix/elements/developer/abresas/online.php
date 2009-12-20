@@ -9,12 +9,9 @@
             $finder = New UserFinder();
             $onlineUsers = $finder->FindOnlineWithDetails();
 
-            var_dump( $onlineUsers );
-            die();
-
             foreach ( $onlineUsers as $onlineUser ) {
                 ?><div id="float: left;"><?php
-                Element( 'user/avatar', $onlineUser[ 'image_id' ], $onlineUser[ 'user_id' ], $onlineUser[ 'image_width' ], $onlineUser[ 'image_height' ], $onlineUser[ 'user_name' ], IMAGE_CROPPED_100x100 );
+                // Element( 'user/avatar', $onlineUser[ 'image_id' ], $onlineUser[ 'user_id' ], $onlineUser[ 'image_width' ], $onlineUser[ 'image_height' ], $onlineUser[ 'user_name' ], IMAGE_CROPPED_100x100 );
                 ?></div><div><?php
                 Element( 'user/url', $onlineUser[ 'user_id' ], $onlineUser[ 'user_subdomain' ] );
                 echo $onlineUser[ 'user_name' ];
