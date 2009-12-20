@@ -167,7 +167,7 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
-            return $query->Execute->MakeArray();
+            return $query->Execute()->MakeArray();
         }
         public function FindOnline( $offset = 0, $limit = 100 ) {
             global $xc_settings;
