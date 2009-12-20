@@ -27,15 +27,6 @@
                 position: fixed;
             }
         </style>
-        <style type="text/css">
-            body {
-                background-color: #ffffee;
-            }
-            a img {
-                border: 0;
-                padding: 5px;
-            }
-        </style>
         <script type="text/javascript">
             /*
                 Developer: Dionysis Zindros <dionyziz@kamibu.com>
@@ -396,12 +387,22 @@
                     return false;
                 }
             };
-
         </script>
+        <style type="text/css">
+            body {
+                background-color: #ffffee;
+            }
+            a img {
+                border: 0;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
         <a href=""><img src="http://static.zino.gr/phoenix/add.png" alt="New Window" title="New Window" /></a>
-        <div style="display:none">Hello world!</div>
+        <div style="display:none">
+            <textarea></textarea>
+        </div>
         <script type="text/javascript">
             document.getElementsByTagName( 'a' )[ 0 ].onclick = function () {
                 var myWindow = Puffin.create();
