@@ -200,7 +200,7 @@
                             if ( typeof document.onmouseup == 'function' ) {
                                 var f = document.onmouseup;
                             }
-                            document.onmouseup = ( function( me ) {
+                            document.onmouseup = ( function( me, f ) {
                                 return function() {
                                     me.moving = false;
                                     me.resizing = false;
@@ -209,12 +209,12 @@
                                     f();
                                     return false;
                                 };
-                            } )( this );
+                            } )( this, f );
                             var f = function () {};
                             if ( typeof document.onmousemove == 'function' ) {
                                 var f = document.onmousemove;
                             }
-                            document.onmousemove = ( function( me ) {
+                            document.onmousemove = ( function( me, f ) {
                                 return function( e ) {
                                     if ( !e ) {
                                         e = window.event;
@@ -247,7 +247,7 @@
                                     f( e );
                                     return false;
                                 };
-                            } )( this );
+                            } )( this, f );
                             this.div.onmousemove = ( function ( me ) {
                                 return function ( e ) {
                                     if ( !e ) {
@@ -272,7 +272,7 @@
                             if ( typeof window.onresize == 'function' ) {
                                 f = window.onresize;
                             }
-                            window.onresize = ( function ( me ) {
+                            window.onresize = ( function ( me, f ) {
                                 return function () {
                                     me.maxx = Puffin.clientWidth();
                                     me.maxy = Puffin.clientHeight();
@@ -281,7 +281,7 @@
                                     me.move( me.x, me.y );
                                     f();
                                 }
-                            } )( this );
+                            } )( this, f );
                             this.hide();
                             document.body.appendChild( this.div );
                             window.onresize();
