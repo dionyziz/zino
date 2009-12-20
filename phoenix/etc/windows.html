@@ -8,9 +8,6 @@
                 height: 100%;
                 margin: 0;
             }
-            body {
-                background-color: #ffffee;
-            }
             div.puffin {
                 border: 1px solid black;
                 -moz-border-radius: 5px;
@@ -28,6 +25,14 @@
                 background-color: #eee;
                 position: absolute;
                 position: fixed;
+            }
+        </style>
+        <style type="text/css">
+            body {
+                background-color: #ffffee;
+            }
+            a img {
+                border: 0;
             }
         </style>
         <script type="text/javascript">
@@ -386,8 +391,25 @@
         </script>
     </head>
     <body>
+        <a href=""><img src="http://static.zino.gr/phoenix/add.png" alt="New Window" title="New Window" /></a>
         <div style="display:none">Hello world!</div>
         <script type="text/javascript">
+            document.getElementsByTagName( 'a' )[ 0 ].onclick = function () {
+                var myWindow = Puffin.create();
+                var w = Math.random() * Puffin.clientWidth();
+                var h = Math.random() * Puffin.clientHeight();
+                var x = Math.random() * ( Puffin.clientWidth() - w );
+                var y = Math.random() * ( Puffin.clientHeight() - h );
+
+                myWindow.move( x, y );
+                myWindow.resize( w, h );
+
+                myWindow.setContent( document.getElementsByTagName( 'div' )[ 0 ] );
+                myWindow.show();
+
+                return false;
+            }
+
             var myWindow = Puffin.create();
             myWindow.move( 100, 100 );
             myWindow.resize( 200, 300 );
