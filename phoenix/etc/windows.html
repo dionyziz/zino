@@ -161,6 +161,7 @@
                                     else {
                                         me.moving = true;
                                         document.body.style.cursor = 'move';
+                                        me.div.style.cursor = 'move';
                                     }
                                     me.capture = {
                                         clientX: e.clientX,
@@ -182,6 +183,7 @@
                                     me.moving = false;
                                     me.resizing = false;
                                     document.body.style.cursor = 'default';
+                                    me.div.style.cursor = 'default';
                                     f();
                                 };
                             } )( this );
