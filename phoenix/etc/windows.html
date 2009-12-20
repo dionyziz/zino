@@ -136,6 +136,9 @@
                             
                             return ret;
                         },
+                        setContent: function ( node ) {
+                            this.div.appendChild( node );
+                        }
                         hide: function () {
                             this.visible = false;
                             this.div.style.display = 'none';
@@ -337,10 +340,12 @@
         </script>
     </head>
     <body>
+        <div>Hello world!</div>
         <script type="text/javascript">
             var myWindow = Puffin.create();
             myWindow.move( 100, 100 );
             myWindow.resize( 200, 300 );
+            myWindow.setContent( document.getElementsByTagName( 'div' )[ 0 ] );
             myWindow.show();
         </script>
     </body>
