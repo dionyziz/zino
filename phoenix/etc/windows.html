@@ -137,7 +137,9 @@
                             return ret;
                         },
                         setContent: function ( node ) {
-                            this.div.appendChild( node );
+                            var content = node.cloneNode( true );
+                            content.style.display = 'block';
+                            this.div.appendChild( content );
                         }
                         hide: function () {
                             this.visible = false;
