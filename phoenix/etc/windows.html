@@ -75,11 +75,12 @@
                                     if ( !e ) {
                                         e = window.event;
                                     }
+                                    // position of mouse within window
                                     var xpos = e.clientX - me.x;
                                     var ypos = e.clientY - me.y;
                                     if ( ypos < 5 ) {
                                         me.resizing = Puffin.c.RESIZE_N;
-                                        me.capture = [ xpos, e.clientY + me.h ];
+                                        me.capture = [ me.y + e.clientY, e.clientY + me.h ];
                                     }
                                     else {
                                         me.moving = true;
@@ -115,7 +116,7 @@
                                     }
                                     switch ( me.resizing ) {
                                         case Puffin.c.RESIZE_N:
-                                            // me.move( 0, );
+                                            me.move( me.x, me.capture[ 0 ] - e.clientY );
                                             me.resize( me.w, me.capture[ 1 ] - e.clientY );
                                             break;
                                     }
