@@ -56,11 +56,17 @@
                     if ( typeof window.innerWidth != 'undefined' ) {
                         return window.innerWidth;
                     }
-                    return document.documentElement.innerWidth;
+                    if ( document.documentElement.clientWidth == 0 ) {
+                        return document.body.clientWidth;
+                    }
+                    return document.documentElement.clientWidth;
                 },
                 clientHeight: function () {
                     if ( typeof window.innerHeight != 'undefined' ) {
                         return window.innerHeight;
+                    }
+                    if ( document.documentElement.clientHeight == 0 ) {
+                        return document.body.clientHeight;
                     }
                     return document.documentElement.clientHeight;
                 },
