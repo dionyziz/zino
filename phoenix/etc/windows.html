@@ -181,8 +181,6 @@
                                         x: me.x, y: me.y,
                                         h: me.h, w: me.w
                                     };
-                                    me.maxx = Puffin.clientWidth();
-                                    me.maxy = Puffin.clientHeight();
                                     return false;
                                 };
                             } )( this );
@@ -246,10 +244,16 @@
                             if ( typeof window.onresize == 'function' ) {
                                 f = window.onresize;
                             }
-                            window.onresize = function () {
-                                document.title = 'Ha!';
-                                f();
-                            };
+                            window.onresize = ( function ( me ) {
+                                return function () {
+                                    me.maxx = Puffin.clientWidth();
+                                    me.maxy = Puffin.clientHeight();
+                                    // fix window position
+                                    me.move( me.x, me.y );
+                                    me.resize( me.w, me.h );
+                                    f();
+                                }
+                            } )( this );
                             this.hide();
                             document.body.appendChild( this.div );
                         }
