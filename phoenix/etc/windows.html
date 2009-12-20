@@ -221,6 +221,7 @@
                                         var cx = e.clientX;
                                         var cy = e.clientY;
 
+                                        /*
                                         if ( cx < 0 ) {
                                             cx = 0;
                                         }
@@ -233,8 +234,9 @@
                                         if ( cy > maxy ) {
                                             cy = maxy;
                                         }
+                                        */
 
-                                        var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: cx, y: cy} );
+                                        var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: cx, y: cy } );
                                         if ( me.resize( coords[ 2 ], coords[ 3 ] ) ) {
                                             me.move( coords[ 0 ], coords[ 1 ] );
                                         }
