@@ -11,6 +11,8 @@
             $finder = New UserFinder();
             $onlineUsers = $finder->FindOnlineWithDetails();
 
+            ?><h2>Online</h2><?php
+
             foreach ( $onlineUsers as $onlineUser ) {
                 ?><div id="float: left;"><?php
                 Element( 'user/avatar', $onlineUser[ 'image_id' ], $onlineUser[ 'user_id' ], 100, 100, $onlineUser[ 'user_name' ], IMAGE_CROPPED_100x100, '', '', true, 100, 100 );
@@ -18,7 +20,9 @@
                 Element( 'user/url', $onlineUser[ 'user_id' ], $onlineUser[ 'user_subdomain' ] );
                 ?>"><?php
                 echo $onlineUser[ 'user_name' ];
-                ?></a> <img src="<?php
+                ?></a> "<?php
+                echo $onlineUser[ 'profile_slogan' ];
+                ?>" <br /><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>moods/<?php
                 echo $onlineUser[ 'mood_url' ];
