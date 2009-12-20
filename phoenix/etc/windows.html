@@ -131,6 +131,12 @@
                             if ( h < Puffin.c.MIN_H ) {
                                 h = Puffin.c.MIN_H;
                             }
+                            if ( w > this.maxx ) {
+                                w = this.maxx;
+                            }
+                            if ( h > this.maxy ) {
+                                h = this.maxy;
+                            }
                             
                             var ret = !( this.w == w && this.h == h );
                             
