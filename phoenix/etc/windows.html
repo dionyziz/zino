@@ -155,6 +155,10 @@
                             
                             return ret;
                         },
+                        focus: function () {
+                            me.div.style.zIndex = Puffin.currentZ;
+                            ++Puffin.currentZ;
+                        },
                         setContent: function ( node ) {
                             var content = node.cloneNode( true );
                             content.style.display = 'block';
@@ -171,15 +175,13 @@
                         __construct: function () {
                             this.div = document.createElement( 'div' );
                             this.div.className = 'puffin';
-                            ++Puffin.currentZ;
-                            this.div.style.zIndex = Puffin.currentZ;
+                            this.focus();
                             this.div.onmousedown = ( function( me ) {
                                 return function( e ) {
                                     if ( !e ) {
                                         e = window.event;
                                     }
-                                    ++Puffin.currentZ;
-                                    me.div.style.zIndex = Puffin.currentZ;
+                                    me.focus()
 
                                     // position of mouse within window
                                     var xpos = e.clientX - me.x;
