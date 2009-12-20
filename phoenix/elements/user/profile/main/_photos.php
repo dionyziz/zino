@@ -5,7 +5,7 @@
             global $water;
             global $user;
           
-            ?><embed src="http://static.zino.gr/phoenix/multifileUploader.swf" quality="high" pluginspage="http://www.adobe.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="window" devicefont="false" bgcolor="#ffffff" name="multifileUploader" menu="true" allowfullscreen="false" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" height="400" width="550" />
+            ?><embed src="http://beta.zino.gr/bin/multifileUploader.swf" quality="high" pluginspage="http://www.adobe.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="window" devicefont="false" bgcolor="#ffffff" name="multifileUploader" menu="true" allowfullscreen="false" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" height="400" width="550" />
 			<ul class="lst ul1 border"><?php
                 if ( $user->Id == $theuserid && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                    ?><li class="addphoto"><a href="" class="s1_0048" title="Ανέβασε μια φωτογραφία">&nbsp;</a></li><?php
