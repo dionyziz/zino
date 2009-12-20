@@ -266,11 +266,10 @@
                                         }
                                         if ( resized & Puffin.c.DIMENSION_VERTICAL == 0 ) {
                                             // do not move window vertically if it was not resized vertically
+                                            document.title = 'TOXIC!';
                                             y = me.y;
                                         }
-                                        if ( resized != 0 ) {
-                                            me.move( x, y );
-                                        }
+                                        me.move( x, y );
                                     }
                                     f( e );
                                     return false;
