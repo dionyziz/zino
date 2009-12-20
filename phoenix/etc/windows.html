@@ -91,6 +91,8 @@
                     RESIZE_W: 'W',
                     RESIZE_NW: 'NW',
                     RESIZE_BORDER: 6, // in pixels
+                    DIMENSION_HORIZONTAL: 1,
+                    DIMENSION_VERTICAL: 2,
                     MIN_W: 20,
                     MIN_H: 20,
                 },
@@ -114,7 +116,13 @@
                                 y = this.maxy - this.h;
                             }
                             
-                            var ret = !( this.x == x && this.y == y );
+                            var ret = 0;
+                            if ( this.x == x ) {
+                                ret |= DIMENSION_HORIZONTAL;
+                            }
+                            if ( this.y == y ) {
+                                ret |= DIMENSION_VERTICAL;
+                            }
                             
                             this.x = x;
                             this.y = y;
@@ -137,7 +145,13 @@
                                 h = this.maxy;
                             }
                             
-                            var ret = !( this.w == w && this.h == h );
+                            var ret = 0;
+                            if ( this.w == w ) {
+                                ret |= DIMENSION_HORIZONTAL;
+                            }
+                            if ( this.h == h ) {
+                                ret |= DIMENSION_VERTICAL;
+                            }
                             
                             this.w = w;
                             this.h = h;
@@ -240,9 +254,19 @@
                                         }
 
                                         var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: cx, y: cy } );
-                                        if ( me.resize( coords[ 2 ], coords[ 3 ] ) ) {
-                                            me.move( coords[ 0 ], coords[ 1 ] );
+                                        var resized = me.resize( coords[ 2 ], coords[ 3 ] );
+                                        var x = coords[ 0 ];
+                                        var y = coords[ 1 ];
+
+                                        if ( resized & DIMENSION_HORIZONTAL == 0 ) {
+                                            // do not move window horizontally if it was not resized horizontally
+                                            x = me.x;
                                         }
+                                        if ( resized & DIMENSION_VERTICAL == 0 ) {
+                                            // do not move window vertically if it was not resized vertically
+                                            y = me.y;
+                                        }
+                                        me.move( x, y );
                                     }
                                     f( e );
                                     return false;
