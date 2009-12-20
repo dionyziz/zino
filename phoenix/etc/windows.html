@@ -140,7 +140,7 @@
                             var content = node.cloneNode( true );
                             content.style.display = 'block';
                             this.div.appendChild( content );
-                        }
+                        },
                         hide: function () {
                             this.visible = false;
                             this.div.style.display = 'none';
@@ -342,7 +342,7 @@
         </script>
     </head>
     <body>
-        <div>Hello world!</div>
+        <div style="display:none">Hello world!</div>
         <script type="text/javascript">
             var myWindow = Puffin.create();
             myWindow.move( 100, 100 );
