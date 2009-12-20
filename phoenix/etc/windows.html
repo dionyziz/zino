@@ -242,6 +242,14 @@
                                     return false;
                                 }
                             } )( this );
+                            var f = function () {};
+                            if ( typeof document.onresize == 'function' ) {
+                                f = document.onresize;
+                            }
+                            document.onresize = function () {
+                                document.title = 'Ha!';
+                                f();
+                            };
                             this.hide();
                             document.body.appendChild( this.div );
                         }
