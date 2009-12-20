@@ -122,12 +122,9 @@
                                     if ( me.moving ) {
                                         me.move( e.clientX - me.capture.clientX + me.capture.x, e.clientY - me.capture.clientY + me.capture.y );
                                     }
-                                    switch ( me.resizing ) {
-                                        case Puffin.c.RESIZE_N:
-                                            me.move( me.x, me.capture.y - me.capture.clientY + e.clientY );
-                                            me.resize( me.w, me.capture.clientY + me.capture.h - e.clientY );
-                                            break;
-                                    }
+                                    var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: e.clientX, y: e.clientY } );
+                                    me.move( coords[ 0 ], coords[ 1 ] );
+                                    me.resizing( coords[ 0 ], coords[ 1 ] );
                                     f();
                                 };
                             } )( this );
@@ -138,6 +135,14 @@
                     obj.__construct();
                     return obj;
                 },
+                resizeEval: function ( obj, direction, capture, mouse ) {
+                    if ( direction== Puffin.c.RESIZE_N ) {
+                        return [
+                            obj.x, capture.y - obj.caption.clientY + mouse.y,
+                            obj.w, capture.clientY + capture.h - mouse.y 
+                        ];
+                    }
+                }
             };
 
         </script>
