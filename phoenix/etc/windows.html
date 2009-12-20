@@ -18,8 +18,7 @@
                 -moz-box-shadow: 0 0 7px #666;
                 -webkit-box-shadow: 0 0 7px #666;
                 box-shadow: 0 0 7px #666;
-                filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=5, OffY=5, Color='#666', Porisitive='true')
-                        progid:DXImageTransform.Microsoft.Blur(pixelradius=2);
+                filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=5, OffY=5, Color='#666', Porisitive='true');
                 background-color: #eee;
                 position: absolute;
                 position: fixed;
@@ -193,6 +192,7 @@
                                     document.body.style.cursor = 'default';
                                     me.div.style.cursor = 'default';
                                     f();
+                                    return false;
                                 };
                             } )( this );
                             var f = function () {};
@@ -214,6 +214,7 @@
                                         }
                                     }
                                     f();
+                                    return false;
                                 };
                             } )( this );
                             this.div.onmousemove = ( function ( me ) {
@@ -223,7 +224,7 @@
                                     }
                                     if ( me.moving || me.resizing !== false ) {
                                         // move/resize system will take care of mouse cursor; do not override
-                                        return;
+                                        return false;
                                     }
                                     // change mouse to current resize cursor
                                     var resizeType = Puffin.getResizeType( me, { x: e.clientX, y: e.clientY } );
@@ -233,6 +234,7 @@
                                     else {
                                         me.div.style.cursor = resizeType + '-resize';
                                     }
+                                    return false;
                                 }
                             } )( this );
                             this.hide();
