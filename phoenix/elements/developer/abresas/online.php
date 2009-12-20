@@ -4,7 +4,7 @@
         public function Render() {
             global $libs;
 
-            $libs->Load( 'user' );
+            $libs->Load( 'user/user' );
 
             $finder = New UserFinder();
             $onlineUsers = $finder->FindOnlineWithDetails();
