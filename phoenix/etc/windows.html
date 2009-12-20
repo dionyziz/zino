@@ -156,7 +156,7 @@
                             this.w = w;
                             this.h = h;
                             this.div.style.width = w + 'px';
-                            this.div.style.height = h + 'px';
+                        !   this.div.style.height = h + 'px';
                             
                             return ret;
                         },
@@ -268,7 +268,7 @@
                                             // do not move window vertically if it was not resized vertically
                                             y = me.y;
                                         }
-                                        me.move( x, y );
+                                        // me.move( x, y );
                                     }
                                     f( e );
                                     return false;
