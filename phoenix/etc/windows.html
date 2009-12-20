@@ -260,13 +260,12 @@
 
                                         document.title = 'Resize dimension: ' + resized;
 
-                                        if ( resized & Puffin.c.DIMENSION_HORIZONTAL == 0 ) {
+                                        if ( ( resized & Puffin.c.DIMENSION_HORIZONTAL ) == 0 ) {
                                             // do not move window horizontally if it was not resized horizontally
                                             x = me.x;
                                         }
-                                        if ( resized & Puffin.c.DIMENSION_VERTICAL == 0 ) {
+                                        if ( ( resized & Puffin.c.DIMENSION_VERTICAL ) == 0 ) {
                                             // do not move window vertically if it was not resized vertically
-                                            document.title = 'TOXIC!';
                                             y = me.y;
                                         }
                                         me.move( x, y );
