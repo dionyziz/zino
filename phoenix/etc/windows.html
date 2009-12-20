@@ -80,7 +80,7 @@
                                     var ypos = e.clientY - me.y;
                                     if ( ypos < 5 ) {
                                         me.resizing = Puffin.c.RESIZE_N;
-                                        me.capture = [ me.y + e.clientY, e.clientY + me.h ];
+                                        me.capture = [ me.y - e.clientY, e.clientY + me.h ];
                                     }
                                     else {
                                         me.moving = true;
