@@ -213,6 +213,7 @@
                             var f = function () {};
                             if ( typeof document.onmousemove == 'function' ) {
                                 var f = document.onmousemove;
+                                alert( 'Updating onmousemove' );
                             }
                             document.onmousemove = ( function( me ) {
                                 return function( e ) {
