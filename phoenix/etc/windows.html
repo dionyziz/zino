@@ -243,10 +243,10 @@
                                 }
                             } )( this );
                             var f = function () {};
-                            if ( typeof document.body.onresize == 'function' ) {
-                                f = document.body.onresize;
+                            if ( typeof window.onresize == 'function' ) {
+                                f = window.onresize;
                             }
-                            document.body.onresize = function () {
+                            window.onresize = function () {
                                 document.title = 'Ha!';
                                 f();
                             };
