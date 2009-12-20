@@ -122,9 +122,11 @@
                                     if ( me.moving ) {
                                         me.move( e.clientX - me.capture.clientX + me.capture.x, e.clientY - me.capture.clientY + me.capture.y );
                                     }
-                                    var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: e.clientX, y: e.clientY } );
-                                    me.move( coords[ 0 ], coords[ 1 ] );
-                                    me.resizing( coords[ 0 ], coords[ 1 ] );
+                                    if ( me.resizing !== false ) {
+                                        var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: e.clientX, y: e.clientY } );
+                                        me.move( coords[ 0 ], coords[ 1 ] );
+                                        me.resize( coords[ 0 ], coords[ 1 ] );
+                                    }
                                     f();
                                 };
                             } )( this );
