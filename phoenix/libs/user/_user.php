@@ -144,7 +144,7 @@
             
             $query = $this->mDb->Prepare(
                 'SELECT
-                    :users.*, :images.*, :userprofiles.`mood_id`, :userprofiles.`profile_slogan`, :moods.*
+                    :users.*, :images.*, :userprofiles.`profile_moodid`, :userprofiles.`profile_slogan`, :moods.*
                 FROM
                     :users
                     CROSS JOIN :lastactive ON
