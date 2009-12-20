@@ -140,7 +140,7 @@
                 resizeEval: function ( obj, direction, capture, mouse ) {
                     if ( direction== Puffin.c.RESIZE_N ) {
                         return [
-                            obj.x, capture.y - obj.caption.clientY + mouse.y,
+                            obj.x, capture.y - capture.clientY + mouse.y,
                             obj.w, capture.clientY + capture.h - mouse.y 
                         ];
                     }
