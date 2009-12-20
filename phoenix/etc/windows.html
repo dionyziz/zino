@@ -156,9 +156,11 @@
                                     var resizeType = Puffin.getResizeType( me, { x: e.clientX, y: e.clientY } );
                                     if ( resizeType !== false ) {
                                         me.resizing = resizeType;
+                                        document.body.style.cursor = resizeType + '-resize';
                                     }
                                     else {
                                         me.moving = true;
+                                        document.body.style.cursor = 'move';
                                     }
                                     me.capture = {
                                         clientX: e.clientX,
@@ -179,6 +181,7 @@
                                 return function() {
                                     me.moving = false;
                                     me.resizing = false;
+                                    document.body.style.cursor = 'default;
                                     f();
                                 };
                             } )( this );
