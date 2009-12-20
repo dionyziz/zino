@@ -206,7 +206,8 @@
             'memorystats'       => 'adminpanel/memoryabuse/view',
             'chat'              => 'chat/view',
             'dio'               => 'developer/dionyziz/attach',
-            'dashboard'         => 'dashboard/view'
+            'dashboard'         => 'dashboard/view',
+            'online'            => 'developer/abresas/online',
         );
     }
     
