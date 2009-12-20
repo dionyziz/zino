@@ -20,14 +20,17 @@
         <script type="text/javascript">
             var Puffin = {
                 c: {
-                    RESIZE_N: 1,
-                    RESIZE_NE: 2,
-                    RESIZE_E: 3,
-                    RESIZE_SE: 4,
-                    RESIZE_S: 5,
-                    RESIZE_SW: 6,
-                    RESIZE_W: 7,
-                    RESIZE_NW: 8
+                    RESIZE_N: 'N',
+                    RESIZE_NE: 'NE',
+                    RESIZE_E: 'E',
+                    RESIZE_SE: 'SE',
+                    RESIZE_S: 'S',
+                    RESIZE_SW: 'SW',
+                    RESIZE_W: 'W',
+                    RESIZE_NW: 'NW',
+					RESIZE_BORDER: 6, // in pixels
+					MIN_W: 20,
+					MIN_H: 20
                 },
                 create: function () {
                     var obj = {
@@ -42,22 +45,38 @@
                             if ( y < 0 ) {
                                 y = 0;
                             }
-                            if ( x > this.maxx ) {
-                                x = this.maxx;
+                            if ( x > this.maxx - this.w ) {
+                                x = this.maxx - this.w;
                             }
-                            if ( y > this.maxy ) {
-                                y = this.maxy;
+                            if ( y > this.maxy - this.h ) {
+                                y = this.maxy - this.h;
                             }
+							
+							var ret = !( this.x == x && this.y == y );
+							
                             this.x = x;
                             this.y = y;
                             this.div.style.left = x + 'px';
                             this.div.style.top = y + 'px';
+							
+							return ret;
                         },
                         resize: function ( w, h ) {
-                            this.w = w;
+							if ( w < Puffin.c.MIN_W ) {
+								w = Puffin.c.MIN_W;
+							}
+							if ( h < Puffin.c.MIN_H ) {
+								h = Puffin.c.MIN_H;
+							}
+							
+							var ret = !( this.w == w && this.h == h );
+                            
+							this.w = w;
                             this.h = h;
                             this.div.style.width = w + 'px';
                             this.div.style.height = h + 'px';
+							
+							return ret;
                         },
                         hide: function () {
                             this.visible = false;
@@ -78,24 +97,21 @@
                                     // position of mouse within window
                                     var xpos = e.clientX - me.x;
                                     var ypos = e.clientY - me.y;
-                                    if ( ypos < 7 ) {
-                                        me.resizing = Puffin.c.RESIZE_N;
-                                        me.capture = [ me.y - e.clientY, e.clientY + me.h ];
+									var resizeType = Puffin.getResizeType( me, { x: e.clientX, y: e.clientY } );
+                                    if ( resizeType !== false ) {
+                                        me.resizing = resizeType;
                                     }
                                     else {
                                         me.moving = true;
-                                        me.capture = [ xpos, ypos ];
                                     }
                                     me.capture = {
                                         clientX: e.clientX,
                                         clientY: e.clientY,
-                                        x: me.x,
-                                        y: me.y,
-                                        h: me.h,
-                                        w: me.w
+                                        x: me.x, y: me.y,
+                                        h: me.h, w: me.w
                                     };
-                                    me.maxx = $( window ).width() - me.w;
-                                    me.maxy = $( window ).height() - me.h;
+                                    me.maxx = $( window ).width();
+                                    me.maxy = $( window ).height();
                                     return false;
                                 };
                             } )( this );
@@ -124,12 +140,27 @@
                                     }
                                     if ( me.resizing !== false ) {
                                         var coords = Puffin.resizeEval( me, me.resizing, me.capture, { x: e.clientX, y: e.clientY } );
-                                        me.move( coords[ 0 ], coords[ 1 ] );
-                                        me.resize( coords[ 2 ], coords[ 3 ] );
+                                        if ( me.resize( coords[ 2 ], coords[ 3 ] ) ) {
+											me.move( coords[ 0 ], coords[ 1 ] );
+										}
                                     }
                                     f();
                                 };
                             } )( this );
+							this.div.onmousemove = ( function ( me ) {
+								return function ( e ) {
+									if ( !e ) {
+										e = window.event;
+									}
+									var resizeType = Puffin.getResizeType( me, { x: e.clientX, y: e.clientY } );
+									if ( resizeType === false ) {
+										me.div.style.cursor = 'default';
+									}
+									else {
+										me.div.style.cursor = resizeType + '-resize';
+									}
+								}
+							} )( this );
                             this.hide();
                             document.body.appendChild( this.div );
                         }
@@ -138,14 +169,101 @@
                     return obj;
                 },
                 resizeEval: function ( obj, direction, capture, mouse ) {
-                    switch ( direction ) {
-                        case Puffin.c.RESIZE_N:
-                            return [
-                                obj.x, capture.y - capture.clientY + mouse.y,
-                                obj.w, capture.clientY + capture.h - mouse.y 
-                            ];
-                    }
-                }
+					var combine = function ( a, b ) {
+						var c = a;
+						
+						if ( a[ 0 ] == obj.x ) {
+							c[ 0 ] = b[ 0 ];
+						}
+						if ( a[ 1 ] == obj.y ) {
+							c[ 1 ] = b[ 1 ];
+						}
+						if ( a[ 2 ] == obj.w ) {
+							c[ 2 ] = b[ 2 ];
+						}
+						if ( a[ 3 ] == obj.h ) {
+							c[ 3 ] = b[ 3 ];
+						}
+						
+						return c;
+					}
+					var get = function ( dir ) {
+						switch ( dir ) {
+							case Puffin.c.RESIZE_N:
+								return [
+									obj.x, capture.y - capture.clientY + mouse.y,
+									obj.w, capture.clientY + capture.h - mouse.y 
+								];
+							case Puffin.c.RESIZE_W:
+								return [
+									capture.x - capture.clientX + mouse.x, obj.y,
+									capture.clientX + capture.w - mouse.x, obj.h
+								];
+							case Puffin.c.RESIZE_S:
+								return [
+									obj.x, obj.y,
+									obj.w, capture.h + mouse.y - capture.clientY
+								];
+							case Puffin.c.RESIZE_E:
+								return [
+									obj.x, obj.y,
+									capture.w + mouse.x - capture.clientX, obj.h
+								];
+							case Puffin.c.RESIZE_NW:
+								return combine( get( Puffin.c.RESIZE_N ), get( Puffin.c.RESIZE_W ) );
+							case Puffin.c.RESIZE_NE:
+								return combine( get( Puffin.c.RESIZE_N ), get( Puffin.c.RESIZE_E ) );
+							case Puffin.c.RESIZE_SE:
+								return combine( get( Puffin.c.RESIZE_S ), get( Puffin.c.RESIZE_E ) );
+							case Puffin.c.RESIZE_SW:
+								return combine( get( Puffin.c.RESIZE_S ), get( Puffin.c.RESIZE_W ) );
+						}
+					};
+					return get( direction );
+                },
+				getResizeType: function ( obj, mouse ) {
+					var xx = 0;
+					var yy = 0;
+					
+					if ( mouse.x >= obj.x && mouse.x < obj.x + Puffin.c.RESIZE_BORDER ) {
+						xx = -1;
+					}
+					if ( mouse.x <= obj.x + obj.w && mouse.x > obj.x + obj.w - Puffin.c.RESIZE_BORDER ) {
+						xx = 1;
+					}
+					if ( mouse.y >= obj.y && mouse.y < obj.y + Puffin.c.RESIZE_BORDER ) {
+						yy = -1;
+					}
+					if ( mouse.y <= obj.y + obj.h && mouse.y > obj.y + obj.h - Puffin.c.RESIZE_BORDER ) {
+						yy = 1;
+					}
+					
+					switch ( xx ) {
+						case -1:
+							switch ( yy ) {
+								case -1:
+									return Puffin.c.RESIZE_NW;
+								case 1:
+									return Puffin.c.RESIZE_SW;
+							}
+							return Puffin.c.RESIZE_W;
+						case 1:
+							switch ( yy ) {
+								case -1:
+									return Puffin.c.RESIZE_NE;
+								case 1:
+									return Puffin.c.RESIZE_SE;
+							}
+							return Puffin.c.RESIZE_E;
+					}
+					switch ( yy ) {
+						case -1:
+							return Puffin.c.RESIZE_N;
+						case 1:
+							return Puffin.c.RESIZE_S;
+					}
+					return false;
+				}
             };
 
         </script>
