@@ -117,10 +117,10 @@
                             }
                             
                             var ret = 0;
-                            if ( this.x == x ) {
+                            if ( this.x != x ) {
                                 ret |= Puffin.c.DIMENSION_HORIZONTAL;
                             }
-                            if ( this.y == y ) {
+                            if ( this.y != y ) {
                                 ret |= Puffin.c.DIMENSION_VERTICAL;
                             }
                             
@@ -146,10 +146,10 @@
                             }
                             
                             var ret = 0;
-                            if ( this.w == w ) {
+                            if ( this.w != w ) {
                                 ret |= Puffin.c.DIMENSION_HORIZONTAL;
                             }
-                            if ( this.h == h ) {
+                            if ( this.h != h ) {
                                 ret |= Puffin.c.DIMENSION_VERTICAL;
                             }
                             
