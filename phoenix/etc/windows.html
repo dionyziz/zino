@@ -422,7 +422,11 @@
                 border: 0;
                 padding: 5px;
             }
-            div.chat textarea {
+            div.chat div.typehere {
+                width: 100%;
+                padding: 5px;
+            }
+            div.chat div.typehere textarea {
                 width: 100%;
             }
         </style>
@@ -430,7 +434,9 @@
     <body>
         <a href=""><img src="http://static.zino.gr/phoenix/add.png" alt="New Window" title="New Window" /></a>
         <div style="display:none" class="chat">
-            <textarea></textarea>
+            <div class="typehere">
+                <textarea></textarea>
+            </div>
         </div>
         <script type="text/javascript">
             document.getElementsByTagName( 'a' )[ 0 ].onclick = function () {
