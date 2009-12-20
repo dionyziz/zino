@@ -118,10 +118,10 @@
                             
                             var ret = 0;
                             if ( this.x == x ) {
-                                ret |= DIMENSION_HORIZONTAL;
+                                ret |= Puffin.c.DIMENSION_HORIZONTAL;
                             }
                             if ( this.y == y ) {
-                                ret |= DIMENSION_VERTICAL;
+                                ret |= Puffin.c.DIMENSION_VERTICAL;
                             }
                             
                             this.x = x;
@@ -147,10 +147,10 @@
                             
                             var ret = 0;
                             if ( this.w == w ) {
-                                ret |= DIMENSION_HORIZONTAL;
+                                ret |= Puffin.c.DIMENSION_HORIZONTAL;
                             }
                             if ( this.h == h ) {
-                                ret |= DIMENSION_VERTICAL;
+                                ret |= Puffin.c.DIMENSION_VERTICAL;
                             }
                             
                             this.w = w;
@@ -260,11 +260,11 @@
 
                                         document.title = 'Resize dimension: ' + resized;
 
-                                        if ( resized & DIMENSION_HORIZONTAL == 0 ) {
+                                        if ( resized & Puffin.c.DIMENSION_HORIZONTAL == 0 ) {
                                             // do not move window horizontally if it was not resized horizontally
                                             x = me.x;
                                         }
-                                        if ( resized & DIMENSION_VERTICAL == 0 ) {
+                                        if ( resized & Puffin.c.DIMENSION_VERTICAL == 0 ) {
                                             // do not move window vertically if it was not resized vertically
                                             y = me.y;
                                         }
