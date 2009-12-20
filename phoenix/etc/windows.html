@@ -124,8 +124,8 @@
                                     }
                                     switch ( me.resizing ) {
                                         case Puffin.c.RESIZE_N:
-                                            me.move( me.x, me.capture[ 0 ] + e.clientY );
-                                            me.resize( me.w, me.capture[ 1 ] - e.clientY );
+                                            me.move( me.x, me.capture.y - me.capture.clientY + e.clientY );
+                                            me.resize( me.w, me.capture.clientY + me.capture.h - e.clientY );
                                             break;
                                     }
                                     f();
