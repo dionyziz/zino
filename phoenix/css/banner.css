@@ -2,7 +2,7 @@
     position: relative;
     display: block;
     float: left;
-    padding-right: 50px;
+    margin-right: 5px;
 }
 #zinostorelink a:hover {
     text-decoration: none;
