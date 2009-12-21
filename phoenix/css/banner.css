@@ -11,7 +11,7 @@
     left: 0;
     color: #900;
 }
-a:hover #zinostorelink span.shadowN, a:hover #zinostorelink span.shadowNE, a:hover #zinostorelink span.shadowE, a:hover #zinostorelink span.shadowSE, a:hover #zinostorelink span.shadowS, a:hover #zinostorelink span.shadowSW, a:hover #zinostorelink span.shadowW, a:hover #zinostorelink span.shadowNW, a:hover #zinostorelink span.shadowN {
+#zinostorelink a:hover span.shadowN, #zinostorelink a:hover span.shadowNE, #zinostorelink a:hover span.shadowE, #zinostorelink a:hover span.shadowSE, #zinostorelink a:hover span.shadowS, #zinostorelink a:hover span.shadowSW, #zinostorelink a:hover span.shadowW, #zinostorelink a:hover span.shadowNW, #zinostorelink a:hover span.shadowN {
     position: absolute;
     top: 0;
     left: 0;
