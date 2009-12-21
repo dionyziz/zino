@@ -33,8 +33,7 @@
             }
             $polls = array();
             $images = array();
-            $journals = array();
-            die( $content );            
+            $journals = array();        
         }
 
 
