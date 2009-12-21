@@ -14,7 +14,7 @@
 
         $content = Spot::GetContent( $user, 8, 5, 4 );
         
-        if ( count( $content ) == 0 ) { // if spot is down , find the newest content    
+        if ( empty( $content ) ) { // if spot is down , find the newest content    
                         
             $finder = New PollFinder();        
             $polls = $finder->FindFrontpageLatest( 0 , 4 );
