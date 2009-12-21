@@ -1,5 +1,8 @@
 #zinostorelink a {
     position: relative;
+    display: block;
+    float: left;
+    padding-right: 50px;
 }
 #zinostorelink a:hover {
     text-decoration: none;
