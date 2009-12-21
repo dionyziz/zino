@@ -2,7 +2,7 @@
     function ActionImageUpload2( tInteger $albumid, tInteger $typeid, tString $color, 
                                  tFile $uploadimage,
                                  /* -- OR -- */
-                                 tString $fileencoded, tString $filename ) {
+                                 tString $fileencoded ) {
         global $libs;
         global $water;
         global $rabbit_settings;
