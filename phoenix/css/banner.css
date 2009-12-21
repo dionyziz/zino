@@ -1,12 +1,23 @@
 #zinostorelink a {
     position: relative;
 }
-#zinostorelink span.shadowN, #zinostorelink span.shadowNE, #zinostorelink span.shadowE, #zinostorelink span.shadowSE, #zinostorelink span.shadowS, #zinostorelink span.shadowSW, #zinostorelink span.shadowW, #zinostorelink span.shadowNW, #zinostorelink span.shadowN {
+#zinostorelink span.shadowN, #zinostorelink span.shadowNE, #zinostorelink span.shadowE, #zinostorelink span.shadowSE, #zinostorelink span.shadowS, #zinostorelink span.shadowSW, #zinostorelink span.shadowW, #zinostorelink span.shadowNW, #zinostorelink span.shadowN, span.wizard {
     position: absolute;
     top: 0;
     left: 0;
     color: red;
 }
+#zinostorelink span.wizard {
+    color: white;
+}
+#zinostorelink span.shadowN { top: -1px; }
+#zinostorelink span.shadowNE { top: -1px; left: 1px }
+#zinostorelink span.shadowE { left: 1px; }
+#zinostorelink span.shadowSE { top: 1px; left: 1px }
+#zinostorelink span.shadowS { top: 1px; }
+#zinostorelink span.shadowSW { top: 1px; left: -1px }
+#zinostorelink span.shadowW { left: -1px }
+#zinostorelink span.shadowNW { top: -1px; left: -1px }
 #lbanner {
     height: 65px;
     width: 110px;

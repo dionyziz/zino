@@ -79,6 +79,7 @@
                             </li>
                             <li id="zinostorelink">
                                 <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">
+                                    ZinoSTORE
                                     <span class="shadowN">ZinoSTORE</span>
                                     <span class="shadowNE">ZinoSTORE</span>
                                     <span class="shadowE">ZinoSTORE</span>
@@ -87,7 +88,7 @@
                                     <span class="shadowSW">ZinoSTORE</span>
                                     <span class="shadowW">ZinoSTORE</span>
                                     <span class="shadowNW">ZinoSTORE</span>
-                                    <span>ZinoSTORE</span>
+                                    <span class="wizard">ZinoSTORE</span>
                                 </a>
                             </li>
                             <li>
