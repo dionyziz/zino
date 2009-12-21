@@ -1,6 +1,10 @@
 #zinostorelink a {
     position: relative;
 }
+#zinostorelink a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid white;
+}
 #zinostorelink span.shadowN, #zinostorelink span.shadowNE, #zinostorelink span.shadowE, #zinostorelink span.shadowSE, #zinostorelink span.shadowS, #zinostorelink span.shadowSW, #zinostorelink span.shadowW, #zinostorelink span.shadowNW, #zinostorelink span.shadowN, span.wizard {
     position: absolute;
     top: 0;
