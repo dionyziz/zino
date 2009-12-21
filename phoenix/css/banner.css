@@ -1,3 +1,21 @@
+#zinostorelink a {
+    position: relative;
+}
+#zinostorelink span.shadowN,
+#zinostorelink span.shadowNE,
+#zinostorelink span.shadowE,
+#zinostorelink span.shadowSE,
+#zinostorelink span.shadowS,
+#zinostorelink span.shadowSW,
+#zinostorelink span.shadowW,
+#zinostorelink span.shadowNW,
+#zinostorelink span.shadowN,
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: red;
+}
 #lbanner {
     height: 65px;
     width: 110px;

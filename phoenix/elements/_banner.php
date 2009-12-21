@@ -77,7 +77,7 @@
                                 }
                                 ?></a>
                             </li>
-                            <li>
+                            <li id="zinostorelink">
                                 <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">
                                     <span class="shadowN">ZinoSTORE</span>
                                     <span class="shadowNE">ZinoSTORE</span>
