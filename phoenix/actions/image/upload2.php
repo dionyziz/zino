@@ -59,7 +59,7 @@
         else {
             $fileencoded = $fileencoded->Get();
             $tempname = tempnam( '/tmp', 'zinoupload' );
-            file_put_contents( '/tmp/zinouploadtest', base64_decode( $fileencoded ) );
+            file_put_contents( $tempname, base64_decode( $fileencoded ) );
         }
         $setTempFile = $image->LoadFromFile( $tempname );
         switch ( $setTempFile ) {
