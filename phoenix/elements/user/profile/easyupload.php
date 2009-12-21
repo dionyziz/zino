@@ -29,7 +29,12 @@
                 }
                 ?></ul></div>
             </div>
-            <div class="uploaddiv"><?php
+            <div class="uploaddiv">
+				<object>
+					<param name="movie" value="http://beta.zino.gr/bin/multifileUploader"/>
+					<param name="wmode" value="opaque"/>
+					<param name="allowScriptAccess" value="always"/>
+					<embed src="http://beta.zino.gr/bin/multifileUploader" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque"/><?php
                 if ( UserBrowser() == 'MSIE' ) {
                     ?><iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;
@@ -43,7 +48,7 @@
                     ?>&amp;typeid=4&amp;color=e8eAec" class="uploadframe" id="uploadframe" type="text/html">
                     </object><?php
                 }
-            ?></div>
+            ?></object></div>
             <div class="uploadsuccess">
                 <div>Η φωτογραφία προστέθηκε επιτυχώς</div> 
             </div><?php
