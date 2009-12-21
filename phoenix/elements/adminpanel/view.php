@@ -29,7 +29,7 @@
             $content = Content_GetContent();
             foreach ( $content as $object ) {
                 ?><p><?php
-                echo $object[ "object" ]->Id;
+                echo $object[ "item" ]->Id;
                 ?>  <?php
                 foreach ( $object[ "comments" ] as $comm ) { 
                     ?><p><?php

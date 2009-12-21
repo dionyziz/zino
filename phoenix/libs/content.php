@@ -18,8 +18,8 @@
                         
             $finder = New PollFinder();        
             $polls = $finder->FindFrontpageLatest( 0 , 4 );
-            $finder = New JournalFinder( 0, 5 );
-            $journals = $finder->FindFrontpageLatest(); 
+            $finder = New JournalFinder();
+            $journals = $finder->FindFrontpageLatest( 0, 5 ); 
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0, 8 );
             foreach ( $polls as $obj ) {
@@ -64,7 +64,7 @@
         }
 
         foreach ( $content as $object ) {
-            $res[ $object->Id ][ "object" ] = $object;
+            $res[ $object->Id ][ "item" ] = $object;
             $res[ $object->Id ][ "comments" ] = $comments[ $object->Id ];
         }        
         
