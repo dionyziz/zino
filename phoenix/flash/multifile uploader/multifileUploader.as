@@ -20,13 +20,15 @@
 		private var variables:String = new String;
 		private var urlvars:URLVariables = new URLVariables();
 		private var loader:Loader = new Loader;
+		private var files:Array;
 		
 		public function multifileUploader() {
 			Security.allowDomain( "zino.gr" );
-			filehandler = new FileHandler( LoadImage );
+			filehandler = new FileHandler( onFileSelect );
 			req = new URLRequest( "http://beta.zino.gr/do/image/upload2" );
 			req.method = URLRequestMethod.POST;
 			button.addEventListener( MouseEvent.CLICK, filehandler.BrowseFiles );
+			loader.contentLoaderInfo.addEventListener( Event.COMPLETE, PrepareForUpload );
 			ExternalInterface.addCallback( "AppendPostVar", AppendPostVar );
 		}
 		
@@ -38,10 +40,16 @@
 			variables = encodeURI( name ) + "=" + encodeURI( value );
 		}
 		
-		public function LoadImage( files:Array ){
-			loader.loadBytes( files[ 0 ].data );
-			loader.contentLoaderInfo.addEventListener( Event.COMPLETE, PrepareForUpload );
-			
+		public function onFileSelect( files:Array ){
+			this.files = files;
+			LoadImage();
+		}
+		
+		public function LoadImage( event = null ){
+			var file = files.pop();
+			if( file != undefined ){
+				loader.loadBytes( file.data );
+			}
 		}
 		
 		public function PrepareForUpload( event ){
@@ -64,10 +72,14 @@
 		}
 		
 		public function Upload( file:ByteArray ){
-			AppendPostVar( "fileencoded", encodeURIComponent( Base64.encodeByteArray( file ) ) );
-			urlvars.decode( variables );
+			if( variables.length != 0 ){
+				urlvars.decode( variables );
+			}
+			urlvars.fileencoded = encodeURIComponent( Base64.encodeByteArray( file ) );
 			req.data = urlvars;
 			var urlloader = new URLLoader( req );
+			trace("uploading" );
+			urlloader.addEventListener( Event.COMPLETE, LoadImage );
 		}
 	}
 }
