@@ -12,13 +12,13 @@
     position: absolute;
     top: 0;
     left: 0;
-    color: #900;
+    color: #600;
 }
 #zinostorelink a:hover span.shadowN, #zinostorelink a:hover span.shadowNE, #zinostorelink a:hover span.shadowE, #zinostorelink a:hover span.shadowSE, #zinostorelink a:hover span.shadowS, #zinostorelink a:hover span.shadowSW, #zinostorelink a:hover span.shadowW, #zinostorelink a:hover span.shadowNW, #zinostorelink a:hover span.shadowN {
     position: absolute;
     top: 0;
     left: 0;
-    color: red;
+    color: #900;
 }
 #zinostorelink span.wizard {
     color: white;
