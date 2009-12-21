@@ -1,6 +1,8 @@
 <?php
-
-    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage , tInteger $typeid , tString $color ) {
+    function ActionImageUpload2( tInteger $albumid, tInteger $typeid, tString $color, 
+                                 tFile $uploadimage,
+                                 /* -- OR -- */
+                                 tString $fileencoded, tString $filename ) {
         global $libs;
         global $water;
         global $rabbit_settings;
@@ -33,20 +35,33 @@
                 }
             }
         }
-        $extension = File_GetExtension( $uploadimage->Name );
-        if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
-            die( "Not supported filetype" );
-        }
-        if ( !$uploadimage->Exists() ) {
-            if ( $albumid > 0 ) {
-                return Redirect( 'index?p=upload&albumid=' . $albumid );
+        if ( $uploadimage->Exists() ) {
+            $extension = File_GetExtension( $uploadimage->Name );
+            if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
+                die( "Not supported filetype" );
             }
+            if ( !$uploadimage->Exists() ) {
+                if ( $albumid > 0 ) {
+                    return Redirect( 'index?p=upload&albumid=' . $albumid );
+                }
+            }
+        }
+        else if ( !$fileencoded->Exists() ) {
+            die( 'No file data' );
         }
         
         header( 'Content-type: text/html' );
         $image = New Image();
         $image->Name = '';
-        $setTempFile = $image->LoadFromFile( $uploadimage->Tempname );
+        if ( $uploadimage->Exists() ) {
+            $tempname = $uploadimage->Tempname;
+        }
+        else {
+            $fileencoded = $fileencoded->Get();
+            $tempname = tempnam( '/tmp', 'zinoupload' );
+            file_put_contents( $tempname, base64_decode( $fileencoded ) );
+        }
+        $setTempFile = $image->LoadFromFile( $tempname );
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
@@ -75,6 +90,7 @@
             </script></head><body></body></html><?php
             return;
         }
+        unlink( $tempname );
         ?><html>
         <head>
         <title>Upload</title>
