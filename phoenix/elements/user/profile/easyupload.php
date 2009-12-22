@@ -40,7 +40,9 @@
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>/do/image/upload2" />
 					<param name="allowScriptAccess" value="always"/>
-					<embed src="bin/multifileUploader.swf" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque" width="100" height="25" id="flashuploader" /><?php
+					<embed src="bin/multifileUploader.swf" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque" width="100" height="25" id="flashuploader" flashvars="posturl=<?php
+                    echo $rabbit_settings[ 'webaddress' ];
+                    ?>/do/image/upload2" /><?php
                 if ( UserBrowser() == 'MSIE' ) {
                     ?><iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;
