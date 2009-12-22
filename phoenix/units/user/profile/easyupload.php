@@ -5,12 +5,14 @@
         Element( 'user/profile/easyupload' );
         echo w_json_encode( ob_get_clean() );
         ?> ).css( 'padding' , '0' );
-        // flash uploader
-        var Flash = document.getElementById( 'flashuploader' );
-        if ( typeof Flash.AppendPostVar == 'function' ) {
-            Flash.AppendPostVar( 'albumid', '0' ); // ego album
-            $( '#uploadframe' ).hide();
-        }
+        setTimeout( function () {
+            // flash uploader
+            var Flash = document.getElementById( 'flashuploader' );
+            if ( typeof Flash.AppendPostVar == 'function' ) {
+                Flash.AppendPostVar( 'albumid', '0' ); // ego album
+                $( '#uploadframe' ).hide();
+            }
+        }, 100 );
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
             if ( !previousSelection ) {
                 var previousSelection = $( 'div#easyphotoupload div.modalcontent div ul li' );
