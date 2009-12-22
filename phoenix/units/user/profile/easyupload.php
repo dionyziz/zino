@@ -20,17 +20,6 @@
             var albumname = $( this ).find( 'span img' ).attr( 'alt' );
             var username = GetUsername();
             $( 'div#easyphotoupload div.modalcontent div b' ).empty().append( document.createTextNode( albumname ) );
-            var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
-            if ( UserBrowser() == 'MSIE' ) {
-                $attr = 'src';
-            }
-            else {
-                $attr = 'data';
-            }
-            echo $attr;
-            ?>" ).split( "&" );
-            arguments[ 0 ] = "?p=upload";
-            arguments[ 1 ] = "albumid=" + $( this ).attr( 'id' ).substr( 6 );
 
             // flash uploader
             var Flash = document.getElementById( 'flashuploader' );
@@ -39,10 +28,22 @@
                 alert( 'Set album id to ' + albumid );
                 Flash.AppendPostVar( 'albumid', albumid );
             }
-
-            $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
-            echo $attr;
-            ?>", arguments.join( "&" ) );
+            else {
+                var arguments = $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
+                if ( UserBrowser() == 'MSIE' ) {
+                    $attr = 'src';
+                }
+                else {
+                    $attr = 'data';
+                }
+                echo $attr;
+                ?>" ).split( "&" );
+                arguments[ 0 ] = "?p=upload";
+                arguments[ 1 ] = "albumid=" + $( this ).attr( 'id' ).substr( 6 );
+                $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
+                echo $attr;
+                ?>", arguments.join( "&" ) );
+            }
         } );<?php
     }
 ?>
