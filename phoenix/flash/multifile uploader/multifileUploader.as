@@ -33,11 +33,7 @@
 		}
 		
 		public function AppendPostVar( name, value ){
-			if( variables.length != 0 ){
-				variables = variables + "&" + encodeURI( name ) + "=" + encodeURI( value );
-				return;
-			}
-			variables = encodeURI( name ) + "=" + encodeURI( value );
+			urlvars[ name ]  = value;
 		}
 		
 		public function onFileSelect( files:Array ){
@@ -72,9 +68,6 @@
 		}
 		
 		public function Upload( file:ByteArray ){
-			if( variables.length != 0 ){
-				urlvars.decode( variables );
-			}
 			urlvars.fileencoded = Base64.encodeByteArray( file );
 			req.data = urlvars;
 			var urlloader = new URLLoader( req );
