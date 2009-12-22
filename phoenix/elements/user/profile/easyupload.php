@@ -3,6 +3,7 @@
         public function Render () {
             global $user;
             global $libs;
+            global $settings;
             
             $libs->Load( 'album' );
             
