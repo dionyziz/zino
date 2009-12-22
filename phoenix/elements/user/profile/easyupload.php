@@ -36,7 +36,7 @@
 					<param name="width" value="100"/>
 					<param name="height" value="25"/>
 					<param name="allowScriptAccess" value="always"/>
-					<embed src="http://beta.zino.gr/bin/multifileUploader.swf" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque" width="100" height="25"/><?php
+					<embed src="http://beta.zino.gr/bin/multifileUploader.swf" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque" width="100" height="25" id="flashuploader" /><?php
                 if ( UserBrowser() == 'MSIE' ) {
                     ?><iframe frameborder="0" style="height:50px" src="?p=upload&amp;albumid=<?php
                     echo $user->Egoalbumid;

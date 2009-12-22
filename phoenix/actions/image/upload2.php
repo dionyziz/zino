@@ -17,6 +17,9 @@
         }
 
         $albumid = $albumid->Get();
+        if ( $albumid == 0 ) { // ego album
+            $albumid = $user->Egoalbumid;
+        }
         if ( $albumid > 0 ) {
             $album = New Album( $albumid );
             if ( $album->IsDeleted() ) {
