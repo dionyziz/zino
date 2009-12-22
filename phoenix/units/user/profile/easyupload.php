@@ -35,7 +35,9 @@
             // flash uploader
             var Flash = document.getElementById( 'flashuploader' );
             if ( typeof Flash.AppendPostVar == 'function' ) {
-                Flash.AppendPostVar( 'albumid', $( this ).attr( 'id' ).substr( 6 ) );
+                var albumid = $( this ).attr( 'id' ).substr( 6 ) );
+                alert( 'Set album id to ' + albumid );
+                Flash.AppendPostVar( 'albumid', albumid );
             }
 
             $( 'div#easyphotoupload div.modalcontent div.uploaddiv' ).children().attr( "<?php
