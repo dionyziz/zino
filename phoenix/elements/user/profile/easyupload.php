@@ -3,7 +3,7 @@
         public function Render () {
             global $user;
             global $libs;
-            global $settings;
+            global $rabbit_settings;
             
             $libs->Load( 'album' );
             
@@ -37,7 +37,7 @@
 					<param name="width" value="100"/>
 					<param name="height" value="25"/>
                     <param name="posturl" value="<?php
-                    echo $settings[ 'webaddress' ];
+                    echo $rabbit_settings[ 'webaddress' ];
                     ?>/do/image/upload2" />
 					<param name="allowScriptAccess" value="always"/>
 					<embed src="bin/multifileUploader.swf" type="application/x-shockwave-flash" allowScriptAccess="always" wmode="opaque" width="100" height="25" id="flashuploader" /><?php
