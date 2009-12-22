@@ -26,7 +26,6 @@
             var Flash = document.getElementById( 'flashuploader' );
             if ( typeof Flash.AppendPostVar == 'function' ) {
                 var albumid = $( this ).attr( 'id' ).substr( 6 );
-                alert( 'Set album id to ' + albumid );
                 Flash.AppendPostVar( 'albumid', albumid );
             }
             else {
