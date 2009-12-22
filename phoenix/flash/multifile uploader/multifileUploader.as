@@ -7,7 +7,7 @@
 	import flash.geom.Matrix;
 	import flash.system.Security;
 	import flash.utils.ByteArray;
-
+	
 	import gr.zino.FileHandler;
 	import gr.zino.lib.PostRequest;
 	import com.adobe.images.JPGEncoder;
@@ -25,7 +25,7 @@
 		public function multifileUploader() {
 			Security.allowDomain( "*" );
 			filehandler = new FileHandler( onFileSelect );
-			req = new URLRequest( "http://beta.zino.gr/do/image/upload2" );
+			req = new URLRequest( MovieClip(this.root).loaderInfo.parameters.posturl );
 			req.method = URLRequestMethod.POST;
 			button.addEventListener( MouseEvent.CLICK, filehandler.BrowseFiles );
 			loader.contentLoaderInfo.addEventListener( Event.COMPLETE, PrepareForUpload );
@@ -38,6 +38,7 @@
 		
 		public function onFileSelect( files:Array ){
 			this.files = files;
+			ExternalInterface.call( "document.body.style.cursor = 'wait'" );			
 			LoadImage();
 		}
 		
