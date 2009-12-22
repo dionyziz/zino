@@ -45,7 +45,9 @@
 			var file = files.pop();
 			if( file != undefined ){
 				loader.loadBytes( file.data );
+				return;
 			}
+			ExternalInterface.call( "document.location.reload" );
 		}
 		
 		public function PrepareForUpload( event ){
