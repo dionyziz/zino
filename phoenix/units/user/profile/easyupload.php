@@ -9,6 +9,7 @@
         var Flash = document.getElementById( 'flashuploader' );
         if ( typeof Flash.AppendPostVar == 'function' ) {
             Flash.AppendPostVar( 'albumid', '0' ); // ego album
+            $( '#uploadframe' ).hide();
         }
         $( 'div#easyphotoupload div.modalcontent div ul li' ).click( function() {
             if ( !previousSelection ) {
