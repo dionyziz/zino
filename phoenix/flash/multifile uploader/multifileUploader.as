@@ -23,7 +23,7 @@
 		private var files:Array;
 		
 		public function multifileUploader() {
-			Security.allowDomain( "zino.gr" );
+			Security.allowDomain( "*.zino.gr" );
 			filehandler = new FileHandler( onFileSelect );
 			req = new URLRequest( "http://beta.zino.gr/do/image/upload2" );
 			req.method = URLRequestMethod.POST;
@@ -75,7 +75,7 @@
 			if( variables.length != 0 ){
 				urlvars.decode( variables );
 			}
-			urlvars.fileencoded = encodeURIComponent( Base64.encodeByteArray( file ) );
+			urlvars.fileencoded = Base64.encodeByteArray( file );
 			req.data = urlvars;
 			var urlloader = new URLLoader( req );
 			trace("uploading" );
