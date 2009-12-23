@@ -26,7 +26,7 @@
             foreach ( $purchases as $purchase ) {
                 ?><tr><td><?php
                     echo $purchase->User->Name;
-                ?></tr></td><?php
+                ?></td></tr><?php
             }
             ?></table><?php
         }
