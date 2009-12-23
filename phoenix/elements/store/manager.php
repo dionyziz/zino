@@ -58,10 +58,9 @@
                         $pps = $spfinder->FindByPurchaseId( $purchase->Id );
                         var_dump( $pps );
                         foreach ( $pps as $pp ) { 
-
-                            echo $pp->Prop->Type;
+                            echo $pp->Property->Type;
                             ?>:<?php
-                            echo $pp->Prop->Value;
+                            echo $pp->Property->Value;
                             ?>,<?php
                         }
                     ?></td></tr><?php
