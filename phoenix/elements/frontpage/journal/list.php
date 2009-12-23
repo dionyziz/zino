@@ -5,7 +5,7 @@
 			global $libs;
             global $user;
 
-            $sticky = 11690; // xmas zino meeting
+            // $sticky = 11690; // xmas zino meeting
 
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
