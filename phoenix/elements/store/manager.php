@@ -38,7 +38,7 @@
                         echo $purchase->User->Profile->Address;
                     ?> <?php
                         echo $purchase->User->Profile->Addressnum;
-                    ?> <?php
+                    ?> - <?php
                         echo $purchase->User->Profile->Postcode;
                     ?></td><td><?php
                         echo $purchase->User->Profile->Firstname;
