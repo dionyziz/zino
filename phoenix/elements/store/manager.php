@@ -24,7 +24,7 @@
             $purchases = $prcfinder->FindByItemId( $id );
 
             foreach ( $purchases as $purchase ) {
-                if ( $purchase->User->Exists() ) {
+                if ( $purchase->User->Exists() && $purchase->User->Profile->Exists() ) {
                         ?><tr><td><?php
                         echo $purchase->User->Name;
                     ?></td><td><?php
