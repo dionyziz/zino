@@ -20,7 +20,7 @@
                 </tr>
             <?php
 
-            $prcfinder = New PurchaseFinder();
+            $prcfinder = New StorepurchaseFinder();
             $purchases = $prcfinder->FindByItemId( $id );
 
             foreach ( $purchases as $purchase ) {
