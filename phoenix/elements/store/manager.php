@@ -29,9 +29,21 @@
                 ?></td><td><?php
                     echo $purchase->Created;
                 ?></td><td><?php
-echo $purchase->User->Place;
+                    echo $purchase->User->Profile->Location;
+                ?>-<?php
+                    echo $purchase->User->Profile->Area;
                 ?></td><td><?php
-
+                    echo $purchase->User->Profile->Address;
+                ?> <?php
+                    echo $purchase->User->Profile->Addressnum;
+                ?> <?php
+                    echo $purchase->User->Profile->Postcode;
+                ?></td><td><?php
+                    echo $purchase->User->Profile->Firstname;
+                ?> <?php
+                    echo $purchase->User->Profile->Lastname;
+                ?></td><td><?php
+                    echo $purchase->User->Profile->Mobile;
                 ?></td></tr><?php
             }
             ?></table><?php
