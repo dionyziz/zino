@@ -56,7 +56,6 @@
                         echo htmlspecialchars( $purchase->User->Profile->Mobile );
                     ?></td><td><?php
                         $pps = $spfinder->FindByPurchaseId( $purchase->Id );
-                        var_dump( $pps );
                         foreach ( $pps as $pp ) { 
                             echo $pp->Property->Type;
                             ?>:<?php
