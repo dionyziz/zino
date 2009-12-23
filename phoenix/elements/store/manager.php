@@ -31,8 +31,8 @@
                     ?></td><td><?php
                         echo $purchase->Created;
                     ?></td><td><?php
-                        echo $purchase->User->Profile->Location;
-                    ?>-<?php
+                        echo $purchase->User->Profile->Location->Name;
+                    ?> - <?php
                         echo $purchase->User->Profile->Area;
                     ?></td><td><?php
                         echo $purchase->User->Profile->Address;
