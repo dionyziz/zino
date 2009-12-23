@@ -66,7 +66,7 @@
 			var trans = new Matrix();
 			trans.scale( resize, resize );
 			image.draw( loader, trans );
-			var jpgencoder = new JPGEncoder( 75 );
+			var jpgencoder = new JPGEncoder( 100 );
 			Upload( jpgencoder.encode( image ) );
 		}
 		
