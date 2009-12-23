@@ -1,0 +1,24 @@
+<?php
+    class ElementStoreManager extends Element {
+        public function Render( tInteger $id ) {
+
+            global $libs;
+            $libs->Load( 'store' );
+            $id = $id->Get(); 
+            $sifinder = New StoreitemFinder();
+            $storeitem = $sifinder->FindById( $id );
+
+            ?><h2>Αγορές</h2>
+                <table class="stats">
+                <tr>
+                    <th>Χρήστης</th>
+                    <th>Ημερομηνία</th>
+                    <th>Πόλη - Περιοχή</th>
+                    <th>Διεύθυνση</th>
+                    <th>Ονοματεπώνυμο</th>
+                    <th>Κινητό</th>
+                </tr>
+            <?php
+        }
+    }
+?>
