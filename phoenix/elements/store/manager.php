@@ -55,8 +55,13 @@
                     ?></td><td><?php
                         echo htmlspecialchars( $purchase->User->Profile->Mobile );
                     ?></td><td><?php
-                        $properties = $spfinder->FindByPurchaseId( $purchase->Id );
-                        var_dump( $properties );
+                        $pps = $spfinder->FindByPurchaseId( $purchase->Id );
+                        foreach ( $pps as $pp ) { 
+                            echo $pp->Property->Type;
+                            ?>:<?php
+                            echo $pp->Property->Value;
+                            ?>,<?php
+                        }
                     ?></td></tr><?php
                 }
             }
