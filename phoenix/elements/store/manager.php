@@ -26,6 +26,12 @@
             foreach ( $purchases as $purchase ) {
                 ?><tr><td><?php
                     echo $purchase->User->Name;
+                ?></td><td><?php
+                    echo $purchase->Created;
+                ?></td><td><?php
+echo $purchase->User->Place;
+                ?></td><td><?php
+
                 ?></td></tr><?php
             }
             ?></table><?php
