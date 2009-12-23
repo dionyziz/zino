@@ -82,7 +82,7 @@
 		protected $mModel = 'Storepurchaseproperty';
         
         public function FindByPurchaseId( $purchaseid ) {
-            $prototype = New StorePurchaeProperty();
+            $prototype = New StorePurchaseProperty();
             $prototype->Purchaseid = $purchaseid;
             return $this->FindByPrototype( $prototype );
         }
