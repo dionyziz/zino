@@ -2,6 +2,11 @@
     class ElementStoreManager extends Element {
         public function Render( tInteger $id ) {
 
+	        if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
+	            ?> Permission Denied <?php
+	            return;
+	        }
+
             global $libs;
             $libs->Load( 'store' );
             $libs->Load( 'user/profile' );
@@ -33,19 +38,19 @@
                     ?></td><td><?php
                         echo $purchase->User->Profile->Location->Name;
                     ?> - <?php
-                        echo $purchase->User->Profile->Area;
+                        echo htmlspecialchars( $purchase->User->Profile->Area );
                     ?></td><td><?php
-                        echo $purchase->User->Profile->Address;
+                        echo htmlspecialchars( $purchase->User->Profile->Address );
                     ?> <?php
-                        echo $purchase->User->Profile->Addressnum;
+                        echo htmlspecialchars( $purchase->User->Profile->Addressnum );
                     ?> - <?php
-                        echo $purchase->User->Profile->Postcode;
+                        echo htmlspecialchars( $purchase->User->Profile->Postcode );
                     ?></td><td><?php
-                        echo $purchase->User->Profile->Firstname;
+                        echo htmlspecialchars( $purchase->User->Profile->Firstname );
                     ?> <?php
-                        echo $purchase->User->Profile->Lastname;
+                        echo htmlspecialchars( $purchase->User->Profile->Lastname );
                     ?></td><td><?php
-                        echo $purchase->User->Profile->Mobile;
+                        echo htmlspecialchars( $purchase->User->Profile->Mobile );
                     ?></td></tr><?php
                 }
             }
