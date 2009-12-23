@@ -86,10 +86,6 @@
             $prototype->Purchaseid = $purchaseid;
             return $this->FindByPrototype( $prototype );
         }
-        protected function Relations() {
-            $this->Purchase = $this->HasOne( 'StorePurchase', 'Purchaseid' );
-            $this->Prop = $this->HasOne( 'StoreProperty', 'Propertyid' );
-        }
 		public function FindAll( $offset = 9, $limit = 25 ){
 			return parent::FindAll( $offset, $limit, array( 'Id', 'DESC' ) );
 		}
@@ -140,6 +136,11 @@
 	
 	class Storepurchaseproperty extends Satori{
 		protected $mDbTableAlias = 'storepurchaseproperties';
+
+        protected function Relations() {
+            $this->Purchase = $this->HasOne( 'StorePurchase', 'Purchaseid' );
+            $this->Property = $this->HasOne( 'StoreProperty', 'Propertyid' );
+        }
 	}
 	
 ?>
