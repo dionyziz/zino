@@ -19,6 +19,16 @@
                     <th>Κινητό</th>
                 </tr>
             <?php
+
+            $prcfinder = New PurchaseFinder();
+            $purchases = $prcfinder->FindByItemId( $id );
+
+            foreach ( $purchases as $purchase ) {
+                ?><tr><td><?php
+                    echo $purchase->User->Name;
+                ?></tr></td><?php
+            }
+            ?></table><?php
         }
     }
 ?>
