@@ -59,9 +59,9 @@
                         var_dump( $pps );
                         foreach ( $pps as $pp ) { 
 
-                            echo $pp->Property->Type;
+                            echo $pp->Prop->Type;
                             ?>:<?php
-                            echo $pp->Property->Value;
+                            echo $pp->Prop->Value;
                             ?>,<?php
                         }
                     ?></td></tr><?php
