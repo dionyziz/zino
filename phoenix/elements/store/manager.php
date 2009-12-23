@@ -4,6 +4,7 @@
 
             global $libs;
             $libs->Load( 'store' );
+            $libs->Load( 'user/profile' );
             $id = $id->Get(); 
             $sifinder = New StoreitemFinder();
             $storeitem = $sifinder->FindById( $id );
