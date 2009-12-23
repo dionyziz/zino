@@ -231,41 +231,9 @@
             </div>
             <div id="frontpage">
             <div id="upstrip">
-                <div id="lbanner" class="s1_0057">
-                    <h1>
-                        <a href="http://www.zino.gr" class="s1_0055"> </a>
-
-                    </h1>
-                </div>
-                <div id="rbanner" class="s1_0056">
-                </div>
-                <div id="mbanner" class="sx_0006">
-                    <div id="loggedinmenu">
-                        <span class="imageview"><img src="http://images2.zino.gr/media/3155/176678/176678_100.jpg" class="banneravatar" style="width:50px;height:50px;" title="naruto" alt="naruto"></img></span>
-                        <ul>
-                            <li>
-
-                                <a href="http://naruto.zino.gr/" class="bannerinlink">Προφίλ</a>
-                            </li>
-                            <li>
-                                <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
-                            </li>
-                            <li>
-                                <a id="unreadmessages" href="messages" class="bannerinlink">Μηνύματα</a>
-
-                            </li>
-                            <li>
-                                <a href="find" class="bannerinlink">Βρες Φίλους</a>
-                            </li>
-                            <li>
-                                <form method="post" action="do/user/logout">
-                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
-                                </form>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <?php
+                Element( 'banner' );
+            ?>
             </div>
             <div id="midstrip">
                 <div id="strip1">
