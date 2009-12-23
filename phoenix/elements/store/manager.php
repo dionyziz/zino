@@ -24,11 +24,13 @@
                     <th>Διεύθυνση</th>
                     <th>Ονοματεπώνυμο</th>
                     <th>Κινητό</th>
+                    <th>Properties</th>
                 </tr>
             <?php
 
             $prcfinder = New StorepurchaseFinder();
             $purchases = $prcfinder->FindByItemId( $id );
+            $spfinder = New StorepurchasepropertyFinder();
 
             foreach ( $purchases as $purchase ) {
                 if ( $purchase->User->Exists() && $purchase->User->Profile->Exists() ) {
@@ -52,6 +54,9 @@
                         echo htmlspecialchars( $purchase->User->Profile->Lastname );
                     ?></td><td><?php
                         echo htmlspecialchars( $purchase->User->Profile->Mobile );
+                    ?></td><td><?php
+                        $properties = $spfinder->FindByPurchaseId( $purchase->Id );
+                        var_dump( $properties );
                     ?></td></tr><?php
                 }
             }
