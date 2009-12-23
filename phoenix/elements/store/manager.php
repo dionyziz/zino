@@ -2,6 +2,7 @@
     class ElementStoreManager extends Element {
         public function Render( tInteger $id ) {
 
+            global $user;
 	        if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
 	            ?> Permission Denied <?php
 	            return;
