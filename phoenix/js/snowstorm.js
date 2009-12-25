@@ -1,7 +1,7 @@
 var snowStorm = null;
 
 function SnowStorm() {
-	this.flakesMax = 60;
+	this.flakesMax = 30;
 	this.flakesMaxActive = 60;
 	this.animationInterval = 40;
 	this.flakeBottom = null;
@@ -9,9 +9,9 @@ function SnowStorm() {
 	this.followMouse = true;
 	this.snowColor = '#fff';
 	this.snowCharacter = '&#x2022;';
-	this.snowStick = false;
+	this.snowStick = true;
 	this.useMeltEffect = true;
-	this.useTwinkleEffect = false;
+	this.useTwinkleEffect = true;
 	this.usePositionFixed = false;
 	this.flakeLeftOffset = 0;
 	this.flakeRightOffset = 0;
