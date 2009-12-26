@@ -45,12 +45,10 @@
 		$user_ids = array();
 		$users = array();
         $res = array();
-        $items = array();
         $commfinder = new CommentFinder();        
         foreach ( $content as $object ) {
             $comments[ $object->Id ] = $commfinder->FindByTypeidAndItemid( Type_FromObject( $object ), $object->Id, 0, 3 );        
             foreach ( $comments[ $object->Id ] as $comment ) {
-                $items[] = $comment;
 				$bulk_ids[] = (int)$comment[ 'comment_bulkid' ];
 				$user_ids[] = (int)$comment[ 'comment_userid' ];
             }            
@@ -81,7 +79,8 @@
         foreach ( $content as $object ) {
             $res[ $object->Id ][ "item" ] = $object;
             $res[ $object->Id ][ "comments" ] = $comments[ $object->Id ];
-        }        
+        }      
+		shuffle( $res );  
         
         return $res;
     }
