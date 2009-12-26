@@ -428,6 +428,7 @@ a.minimize {
 	background-repeat: repeat-x;
 	background-position: top;
     clear: both;
+    min-height: 51px;
 }
 #stream h3 {
 	font-size: 100%;

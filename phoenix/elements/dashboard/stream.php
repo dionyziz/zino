@@ -14,113 +14,71 @@
                     foreach ( $stream as $fish ) {
                         $item = $fish[ 'item' ];
                         $comments = $fish[ 'comments' ];
+                        ?><li class="link">
+                        <div class="avatar">
+                            <div class="tl corner"></div>
+                            <div class="tr corner"></div>
+                            <div class="bl corner"></div>
+                            <div class="br corner"></div>
+                            <a href="" title="<?php
+                                echo $journal->User->Name;
+                                ?>"><?php
+                                Element( 'image/view', $journal->User->Avatarid, $journal->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $journal->User->Name, '', false, 0, 0, 0 );
+                                ?>
+
+                            </a>
+                        </div>
+                        <div class="spotcontent">
+                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a><?php
                         switch ( get_class( $item ) ) {
                             case 'Journal':
                                 $journal = $item;
-                                ?><li class="link">
-                                    <div class="avatar">
-                                        <div class="tl corner"></div>
-                                        <div class="tr corner"></div>
-                                        <div class="bl corner"></div>
-                                        <div class="br corner"></div>
-                                        <a href="" title="<?php
-                                            echo $journal->User->Name;
-                                            ?>"><?php
-                                            Element( 'image/view', $journal->User->Avatarid, $journal->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $journal->User->Name, '', false, 0, 0, 0 );
-                                            ?>
-
-                                        </a>
-                                    </div>
-                                    <div class="spotcontent">
-                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-                                        <h3><strong><?php
-                                            Element( 'user/name', $journal->Userid, $journal->User->Name, $journal->User->Subdomain );
-                                            ?></strong> 
-                                            <i class="journal icon"></i> <?php
-                                            echo htmlspecialchars( $journal->Title );
-                                            ?></h3>
-                                    </div>
-                                    <div class="comments"><?php
-                                    if ( $journal->Numcomments ) {
-                                            ?><h4><?php
-                                            echo $journal->Numcomments;
-                                            ?> σχόλια</h4>
-                                            <ul class="comments">
-                                                <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
-                                                <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
-                                            </ul><?php
-                                    }
-                                    ?></div><?php
+                                ?>
+                                <h3><strong><?php
+                                Element( 'user/name', $journal->Userid, $journal->User->Name, $journal->User->Subdomain );
+                                ?></strong> 
+                                <i class="journal icon"></i> <?php
+                                echo htmlspecialchars( $journal->Title );
+                                ?></h3>
+                                <?php
                                 break;
                             case 'Image':
-                                ?><li>
-                                    <div class="avatar">
-                                        <div class="tl corner"></div>
+                                ?>
+                                <h3>
+                                    <i class="photo icon"></i> 
+                                    Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
+                                </a>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
 
-                                        <div class="tr corner"></div>
-                                        <div class="bl corner"></div>
-                                        <div class="br corner"></div>
-                                        <a href="" title="izual">
-                                            <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="izual" style="width:50px;height:50px" />
-                                        </a>
-                                    </div>
-                                    <div class="spotcontent">
-                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-
-                                        <h3>
-                                            <i class="photo icon"></i> 
-                                            Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
-                                        <a href="">
-                                            <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
-                                        </a>
-                                        <a href="">
-                                            <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
-
-                                        </a>
-                                        <a href="">
-                                            <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="comments">
-                                        <h4>13 σχόλια</h4>
-                                        <ul class="comments">
-
-                                            <li><a href=""><strong>dionyziz</strong> Τα σπάει!</a></li>
-                                            <li class="lvl2"><a href=""><strong>izual</strong> Καλό είναι!</a></li>
-                                            <li><a href=""><strong>pagio91</strong> Nice</a></li>
-                                        </ul>
-                                    </div>
+                                </a>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
+                                </a>
                                 <?php
                                 break;
                             case 'Poll':
-                                ?><li class="link">
-                                    <div class="avatar">
-                                        <div class="tl corner"></div>
-                                        <div class="tr corner"></div>
-                                        <div class="bl corner"></div>
-                                        <div class="br corner"></div>
-                                        <a href="" title="zizou">
-
-                                            <img src="http://images2.zino.gr/media/4451/222617/222617_100.jpg" alt="zizou" style="width:50px;height:50px" />
-                                        </a>
-                                    </div>
-                                    <div class="spotcontent">
-                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-                                        <h3>
-                                            <strong><a href="">zizou</a></strong> 
-                                                <i class="poll icon"></i> Πόσο σου αρέσει η μαλακία;
-                                        </h3>
-
-                                    </div>
-                                    <div class="comments">
-                                        <h4>4 σχόλια</h4>
-                                        <ul class="comments">
-                                            <li><a href=""><strong>pagio91</strong> πάαααααααααααααααρα πολύ!!!1</a></li>
-                                        </ul>
-                                    </div>
+                                ?>
+                                <h3>
+                                    <strong><a href="">zizou</a></strong> 
+                                        <i class="poll icon"></i> Πόσο σου αρέσει η μαλακία;
+                                </h3>
                                 <?php
                                 break;
                         }
+                        ?><div class="comments"><?php
+                        if ( $item->Numcomments ) {
+                                ?><h4><?php
+                                echo $item->Numcomments;
+                                ?> σχόλια</h4>
+                                <ul class="comments">
+                                    <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
+                                    <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
+                                </ul><?php
+                        }
+                        ?></div><?php
                         ?></li><?php
                     }
                 ?>
