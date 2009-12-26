@@ -11,6 +11,8 @@
         $libs->Load( 'journal/journal' );
 		$libs->Load( 'journal/frontpage' );
         $libs->Load( 'image/image' );
+		$libs->Load( 'bulk' );
+		$libs->Load( 'user/user' );
 
         $content = Spot::GetContent( $user, 8, 5, 4 );
         
