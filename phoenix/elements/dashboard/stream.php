@@ -39,19 +39,18 @@
                                             <i class="journal icon"></i> <?php
                                             echo htmlspecialchars( $journal->Title );
                                             ?></h3>
-                                    </div><?php
+                                    </div>
+                                    <div class="comments"><?php
                                     if ( $journal->Numcomments ) {
-                                        ?><div class="comments">
-                                            <h4><?php
+                                            ?><h4><?php
                                             echo $journal->Numcomments;
                                             ?> σχόλια</h4>
                                             <ul class="comments">
                                                 <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
                                                 <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
-                                            </ul>
-
-                                        </div><?php
+                                            </ul><?php
                                     }
+                                    ?></div><?php
                                 break;
                             case 'Image':
                                 ?><li>
