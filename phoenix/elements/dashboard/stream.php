@@ -22,7 +22,11 @@
                                         <div class="tr corner"></div>
                                         <div class="bl corner"></div>
                                         <div class="br corner"></div>
-                                        <a href="" title="pagio91">
+                                        <a href="" title="<?php
+                                            echo $journal->User->Name;
+                                            ?>"><?php
+                                            Element( 'image/view', $journal->User->Avatarid, $journal->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $journal->User->Name, '', false, 0, 0, 0 );
+                                            ?>
                                             <img src="http://images2.zino.gr/media/4005/217702/217702_100.jpg" alt="pagio91" style="width:50px;height:50px" />
 
                                         </a>
