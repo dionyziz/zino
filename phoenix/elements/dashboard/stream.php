@@ -7,119 +7,116 @@
 
             $stream = Content_GetContent();
 
-            foreach ( $stream as $fish ) {
-                $item = $fish[ 'item' ];
-                $comments = $fish[ 'comments' ];
-                switch ( get_class( $item ) ) {
-                    case 'Journal':
-                        echo "Journal";
-                        break;
-                    case 'Image':
-                        echo "Image";
-                        break;
-                    case 'Poll':
-                        echo "Poll";
-                        break;
-                }
-                echo "<br />";
-            }
-            return;
 
             ?><div id="stream">
                 <h2>Τι συμβαίνει;</h2>
-                <ul>
-                    <li>
-                        <div class="avatar">
-                            <div class="tl corner"></div>
+                <ul><?php
+                    foreach ( $stream as $fish ) {
+                        $item = $fish[ 'item' ];
+                        $comments = $fish[ 'comments' ];
+                        switch ( get_class( $item ) ) {
+                            case 'Journal':
+                                ?><li class="link">
+                                    <div class="avatar">
+                                        <div class="tl corner"></div>
+                                        <div class="tr corner"></div>
+                                        <div class="bl corner"></div>
+                                        <div class="br corner"></div>
+                                        <a href="" title="pagio91">
+                                            <img src="http://images2.zino.gr/media/4005/217702/217702_100.jpg" alt="pagio91" style="width:50px;height:50px" />
 
-                            <div class="tr corner"></div>
-                            <div class="bl corner"></div>
-                            <div class="br corner"></div>
-                            <a href="" title="izual">
-                                <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="izual" style="width:50px;height:50px" />
-                            </a>
-                        </div>
-                        <div class="spotcontent">
-                            <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
+                                        </a>
+                                    </div>
+                                    <div class="spotcontent">
+                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
+                                        <h3><strong><a href="http://pagio91.zino.gr/">pagio91</a></strong> 
+                                            <i class="journal icon"></i> SPOT: The internal workings</h3>
+                                    </div>
+                                    <div class="comments">
 
-                            <h3>
-                                <i class="photo icon"></i> 
-                                Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
-                            <a href="">
-                                <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
-                            </a>
-                            <a href="">
-                                <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
+                                        <h4>16 σχόλια</h4>
+                                        <ul class="comments">
+                                            <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
+                                            <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
+                                        </ul>
 
-                            </a>
-                            <a href="">
-                                <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="comments">
-                            <h4>13 σχόλια</h4>
-                            <ul class="comments">
+                                    </div>
+                                </li><?php
+                                break;
+                            case 'Image':
+                                ?><li>
+                                    <div class="avatar">
+                                        <div class="tl corner"></div>
 
-                                <li><a href=""><strong>dionyziz</strong> Τα σπάει!</a></li>
-                                <li class="lvl2"><a href=""><strong>izual</strong> Καλό είναι!</a></li>
-                                <li><a href=""><strong>pagio91</strong> Nice</a></li>
-                            </ul>
+                                        <div class="tr corner"></div>
+                                        <div class="bl corner"></div>
+                                        <div class="br corner"></div>
+                                        <a href="" title="izual">
+                                            <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="izual" style="width:50px;height:50px" />
+                                        </a>
+                                    </div>
+                                    <div class="spotcontent">
+                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
 
-                        </div>
-                    </li>
-                    <li class="link">
-                        <div class="avatar">
-                            <div class="tl corner"></div>
-                            <div class="tr corner"></div>
-                            <div class="bl corner"></div>
-                            <div class="br corner"></div>
-                            <a href="" title="zizou">
+                                        <h3>
+                                            <i class="photo icon"></i> 
+                                            Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
+                                        <a href="">
+                                            <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
 
-                                <img src="http://images2.zino.gr/media/4451/222617/222617_100.jpg" alt="zizou" style="width:50px;height:50px" />
-                            </a>
-                        </div>
-                        <div class="spotcontent">
-                            <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-                            <h3>
-                                <strong><a href="">zizou</a></strong> 
-                                    <i class="poll icon"></i> Πόσο σου αρέσει η μαλακία;
-                            </h3>
+                                        </a>
+                                        <a href="">
+                                            <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="comments">
+                                        <h4>13 σχόλια</h4>
+                                        <ul class="comments">
 
-                        </div>
-                        <div class="comments">
-                            <h4>4 σχόλια</h4>
-                            <ul class="comments">
-                                <li><a href=""><strong>pagio91</strong> πάαααααααααααααααρα πολύ!!!1</a></li>
-                            </ul>
-                        </div>
+                                            <li><a href=""><strong>dionyziz</strong> Τα σπάει!</a></li>
+                                            <li class="lvl2"><a href=""><strong>izual</strong> Καλό είναι!</a></li>
+                                            <li><a href=""><strong>pagio91</strong> Nice</a></li>
+                                        </ul>
 
-                    </li>
-                    <li class="link">
-                        <div class="avatar">
-                            <div class="tl corner"></div>
-                            <div class="tr corner"></div>
-                            <div class="bl corner"></div>
-                            <div class="br corner"></div>
-                            <a href="" title="pagio91">
-                                <img src="http://images2.zino.gr/media/4005/217702/217702_100.jpg" alt="pagio91" style="width:50px;height:50px" />
+                                    </div>
+                                </li><?php
+                                break;
+                            case 'Poll':
+                                ?><li class="link">
+                                    <div class="avatar">
+                                        <div class="tl corner"></div>
+                                        <div class="tr corner"></div>
+                                        <div class="bl corner"></div>
+                                        <div class="br corner"></div>
+                                        <a href="" title="zizou">
 
-                            </a>
-                        </div>
-                        <div class="spotcontent">
-                            <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-                            <h3><strong><a href="http://pagio91.zino.gr/">pagio91</a></strong> 
-                                <i class="journal icon"></i> SPOT: The internal workings</h3>
-                        </div>
-                        <div class="comments">
+                                            <img src="http://images2.zino.gr/media/4451/222617/222617_100.jpg" alt="zizou" style="width:50px;height:50px" />
+                                        </a>
+                                    </div>
+                                    <div class="spotcontent">
+                                        <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
+                                        <h3>
+                                            <strong><a href="">zizou</a></strong> 
+                                                <i class="poll icon"></i> Πόσο σου αρέσει η μαλακία;
+                                        </h3>
 
-                            <h4>16 σχόλια</h4>
-                            <ul class="comments">
-                                <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
-                                <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
-                            </ul>
+                                    </div>
+                                    <div class="comments">
+                                        <h4>4 σχόλια</h4>
+                                        <ul class="comments">
+                                            <li><a href=""><strong>pagio91</strong> πάαααααααααααααααρα πολύ!!!1</a></li>
+                                        </ul>
+                                    </div>
 
-                        </div>
-                    </li>
+                                </li><?php
+                                break;
+                        }
+                    }
+                    return;
+                ?>
                     <li class="link">
                         <div class="avatar">
                             <div class="tl corner"></div>
