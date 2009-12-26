@@ -16,6 +16,7 @@
                         $comments = $fish[ 'comments' ];
                         switch ( get_class( $item ) ) {
                             case 'Journal':
+                                $journal = $item;
                                 ?><li class="link">
                                     <div class="avatar">
                                         <div class="tl corner"></div>
