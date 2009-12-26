@@ -50,6 +50,10 @@
                 ) );
             }
 
+            $libs->Load( 'content' );
+
+            $stream = Content_GetContent();
+
 			?>
             <div id="nowbar">
                 <div class="border">
@@ -75,7 +79,7 @@
                         <div id="content">
                             <?php
                                 Element( 'dashboard/notifications' );
-                                Element( 'dashboard/stream' );
+                                Element( 'dashboard/stream', $stream );
                             ?>
                         </div>
                     </div>

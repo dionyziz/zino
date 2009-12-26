@@ -1,13 +1,6 @@
 <?php
     class ElementDashboardStream extends Element {
-        public function Render() {
-            global $libs;
-
-            $libs->Load( 'content' );
-
-            $stream = Content_GetContent();
-
-
+        public function Render( $stream ) {
             ?><div id="stream">
                 <h2>Τι συμβαίνει;</h2>
                 <ul><?php
@@ -62,7 +55,9 @@
                             case 'Poll':
                                 ?>
                                 <h3>
-                                    <strong><a href="">zizou</a></strong> 
+                                    <strong><?php
+                                        Element( 'user/name', $item->Userid, $item->User->Name, $item->User->Subdomain );
+                                        ?></strong> 
                                         <i class="poll icon"></i> <?php
                                         echo htmlspecialchars( $item->Title );
                                         ?>
