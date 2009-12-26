@@ -75,7 +75,7 @@
                         <div id="content">
                             <?php
                                 Element( 'dashboard/notifications' );
-                                // Element( 'dashboard/stream' );
+                                Element( 'dashboard/stream' );
                             ?>
                         </div>
                     </div>

@@ -117,6 +117,7 @@
                     }
                 ?>
                 </ul>
+                </div>
                 <?php
                 return;
                 ?>
