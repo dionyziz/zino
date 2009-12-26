@@ -51,12 +51,11 @@
             $comments[ $object->Id ] = $commfinder->FindByTypeidAndItemid( Type_FromObject( $object ), $object->Id, 0, 3 );        
             foreach ( $comments[ $object->Id ] as $comment ) {
                 $items[] = $comment;
-				$bulk_ids[] = $comment[ 'comment_bulkid' ];
-				$user_ids[] = $comment[ 'comment_userid' ];
+				$bulk_ids[] = (int)$comment[ 'comment_bulkid' ];
+				$user_ids[] = (int)$comment[ 'comment_userid' ];
             }            
         }
 
-		var_dump( $bulk_ids );
 		$bulk = Bulk::FindById( $bulk_ids );
 		$finder = New UserFinder();
 		$res = $finder->FindByIds( $user_ids );
