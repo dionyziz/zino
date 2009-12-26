@@ -1,9 +1,7 @@
 <?php
     class ElementDashboardView extends Element {
         public function Render() {
-            global $page;
-            global $libs;
-            global $user;
+            global $page, $libs, $user;
 
             $page->AttachStylesheet( 'css/default.css' );
             $page->AttachStylesheet( 'css/banner.css' );
@@ -13,7 +11,6 @@
             $page->AttachStylesheet( 'css/spriting/sprite1.css' );
             $page->AttachStylesheet( 'css/spriting/sprite2.css' );
             $page->AttachStylesheet( 'css/spriting/spritex.css' );
-
             $page->AttachStylesheet( 'css/dashboard.css' );
 
             $page->AttachScript( 'http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js' );
@@ -60,40 +57,34 @@
                         Element( 'dashboard/friends' );
                         Element( 'dashboard/chat', $messages );
                     ?>
-                </div><!-- class=border -->
+                </div>
             </div>
             <div id="frontpage">
-            <div id="upstrip">
-            <?php
-                Element( 'banner' );
-            ?>
-            </div>
-            <div id="midstrip">
-                <div id="strip1">
-                    <div id="strip1left" class="s1_0013">
+                <div id="upstrip">
+                    <?php
+                        Element( 'banner' );
+                    ?>
+                </div>
+                <div id="midstrip">
+                    <div id="strip1">
+                        <div id="strip1left" class="s1_0013"></div>
+                        <div id="strip1right" class="s1_0014"></div>
                     </div>
 
-                    <div id="strip1right" class="s1_0014">
+                    <div id="strip2" class="sx_0010">
+                        <div id="content">
+                            <?php
+                                Element( 'dashboard/notifications' );
+                                Element( 'dashboard/stream' );
+                            ?>
+                        </div>
                     </div>
                 </div>
-
-                <div id="strip2" class="sx_0010"><div id="content">
-                <?php
-                    Element( 'dashboard/notifications' );
-                    Element( 'dashboard/stream' );
-                ?>
-            </div>
-            
-            </div></div>
             
                 <div id="strip3">
-                    <div id="strip3left" class="s1_0015">
-                    </div>
-
-                    <div id="strip3right" class="s1_0016">
-                    </div>
-                    <div id="strip3middle" class="sx_0003">
-                    </div>
+                    <div id="strip3left" class="s1_0015"></div>
+                    <div id="strip3right" class="s1_0016"></div>
+                    <div id="strip3middle" class="sx_0003"></div>
                 </div>
                 
                 <div id="downstrip" class="sx_0002" style="position:relative">
@@ -101,7 +92,6 @@
                         Element( 'footer' );
                     ?>
                 </div>
-                
             </div>
 			<?php
             return array( 'tiny' => true, 'selfmanaged' => true );

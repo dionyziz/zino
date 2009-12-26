@@ -1,6 +1,30 @@
 <?php
     class ElementDashboardStream extends Element {
         public function Render() {
+            global $libs;
+
+            $libs->Load( 'content' );
+
+            $stream = Content_GetContent();
+
+            foreach ( $stream as $fish ) {
+                $item = $fish[ 'item' ];
+                $comments = $fish[ 'comments' ];
+                switch ( get_class( $item ) ) {
+                    case 'Journal':
+                        echo "Journal";
+                        break;
+                    case 'Image':
+                        echo "Image";
+                        break;
+                    case 'Poll':
+                        echo "Poll";
+                        break;
+                }
+                echo "<br />";
+            }
+            return;
+
             ?><div id="stream">
                 <h2>Τι συμβαίνει;</h2>
                 <ul>
