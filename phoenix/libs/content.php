@@ -61,7 +61,7 @@
 		$res = $finder->FindByIds( $user_ids );
 
 		foreach ( $res as $one ) {
-			$users [ $one[ 'user_id' ] ] = $one;
+			$users [ $one->Id ] = $one;
 		}
 
 		$nea = array();        
