@@ -33,12 +33,18 @@
                                     </div>
                                     <div class="spotcontent">
                                         <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-                                        <h3><strong><a href="http://pagio91.zino.gr/">pagio91</a></strong> 
-                                            <i class="journal icon"></i> SPOT: The internal workings</h3>
+                                        <h3><strong><?php
+                                            Element( 'user/name', $journal->Userid, $journal->User->Name, $journal->User->Subdomain );
+                                            ?></strong> 
+                                            <i class="journal icon"></i> <?php
+                                            echo htmlspecialchars( $journal->Title );
+                                            ?></h3>
                                     </div>
                                     <div class="comments">
 
-                                        <h4>16 σχόλια</h4>
+                                        <h4><?php
+                                        echo $journal->Numcomments;
+                                        ?></h4>
                                         <ul class="comments">
                                             <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
                                             <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
