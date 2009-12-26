@@ -427,6 +427,7 @@ a.minimize {
 	background-image: url( 'http://static.zino.gr/phoenix/commgradient.png' );
 	background-repeat: repeat-x;
 	background-position: top;
+    clear: both;
 }
 #stream h3 {
 	font-size: 100%;
