@@ -70,7 +70,8 @@
                                 <?php
                                 break;
                         }
-                        ?><div class="comments"><?php
+                        ?></div>
+                        <div class="comments"><?php
                         if ( $item->Numcomments ) {
                                 ?><h4><?php
                                 echo $item->Numcomments;
