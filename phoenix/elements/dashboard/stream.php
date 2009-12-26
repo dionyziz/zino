@@ -21,9 +21,9 @@
                             <div class="bl corner"></div>
                             <div class="br corner"></div>
                             <a href="" title="<?php
-                                echo $journal->User->Name;
+                                echo $item->User->Name;
                                 ?>"><?php
-                                Element( 'image/view', $journal->User->Avatarid, $journal->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $journal->User->Name, '', false, 0, 0, 0 );
+                                Element( 'image/view', $item->User->Avatarid, $item->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $item->User->Name, '', false, 0, 0, 0 );
                                 ?>
 
                             </a>
@@ -63,7 +63,9 @@
                                 ?>
                                 <h3>
                                     <strong><a href="">zizou</a></strong> 
-                                        <i class="poll icon"></i> Πόσο σου αρέσει η μαλακία;
+                                        <i class="poll icon"></i> <?php
+                                        echo htmlspecialchars( $item->Title );
+                                        ?>
                                 </h3>
                                 <?php
                                 break;
