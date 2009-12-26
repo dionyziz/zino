@@ -56,6 +56,7 @@
             }            
         }
 
+		var_dump( $bulk_ids );
 		$bulk = Bulk::FindById( $bulk_ids );
 		$finder = New UserFinder();
 		$res = $finder->FindByIds( $user_ids );
