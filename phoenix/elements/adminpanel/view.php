@@ -33,7 +33,7 @@
                 ?>  <?php
                 foreach ( $object[ "comments" ] as $comm ) { 
                     ?><p><?php
-                    echo $comm->Text . " " . $comm->User->Name;
+                    echo $comm[ 'text' ] . " " . $comm[ 'user_name' ];
                     ?></p><?php
                 }
                 ?></p><?php                

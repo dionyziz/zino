@@ -418,7 +418,7 @@
             $res = $query->Execute();
             $coms = array();
             while ( $row = $res->FetchArray() ) {
-                $coms[ $row[ 'comment_id' ] ] = New Comment( $row );
+                $coms[ $row[ 'comment_id' ] ] = $row;
             }
 
             return $coms;

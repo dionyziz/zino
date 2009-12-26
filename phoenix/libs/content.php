@@ -38,6 +38,10 @@
 
 
         $comments = array();
+		$bulk_ids = array();
+		$bulk  = array();
+		$user_ids = array();
+		$users = array();
         $res = array();
         $items = array();
         $commfinder = new CommentFinder();        
@@ -45,24 +49,33 @@
             $comments[ $object->Id ] = $commfinder->FindByTypeidAndItemid( Type_FromObject( $object ), $object->Id, 0, 3 );        
             foreach ( $comments[ $object->Id ] as $comment ) {
                 $items[] = $comment;
+				$bulk_ids[] = $comment[ 'comment_bulkid' ];
+				$user_ids[] = $comment[ 'comment_userid' ];
             }            
         }
 
-        $collection = New CommentCollection( $items, count( $items ) );
-        $collection->PreloadRelation( 'User' );
-        $collection->PreloadBulk();
-        $comms = $collection->ToArrayById();
+		$finder = New Bulk();
+		$bulk = $finder->Fetch( $bulk_ids );
+		$finder = New UserFinder();
+		$res = $finder->FindByIds( $user_ids );
 
-        
-        $nea = array();        
+		foreach ( $res as $one ) {
+			$users [ $one[ 'user_id' ] ] = $one;
+		}
+
+		$nea = array();        
         foreach ( $comments as $key=>$val ) {
             $nea = array();
             foreach ( $comments[ $key ] as $obj ) {
-                $nea[] = $comms[ $obj->Id ];
+                $nea[] = array( 'id'=> $obj[ 'comment_id' ], 
+								'parentid' => $obj[ 'comment_parentid' ], 
+								'text'=> $bulk[ $obj[ 'comment_bulkid' ] ], 
+								'user_name' => $users[ $obj[ 'comment_userid' ] ][ 'user_name' ] , 									'user_subdomain' => $users[ $obj[ 'comment_userid' ] ][ 'user_subdomain' ] 
+								);
             }
             $comments[ $key ] = $nea;
         }
-
+	
         foreach ( $content as $object ) {
             $res[ $object->Id ][ "item" ] = $object;
             $res[ $object->Id ][ "comments" ] = $comments[ $object->Id ];
