@@ -71,7 +71,7 @@
                 $nea[] = array( 'id'=> $obj[ 'comment_id' ], 
 								'parentid' => $obj[ 'comment_parentid' ], 
 								'text'=> $bulk[ $obj[ 'comment_bulkid' ] ], 
-								'user_name' => $users[ $obj[ 'comment_userid' ] ][ 'user_name' ] , 									'user_subdomain' => $users[ $obj[ 'comment_userid' ] ][ 'user_subdomain' ] 
+								'user_name' => $users[ $obj[ 'comment_userid' ] ]->Name , 									'user_subdomain' => $users[ $obj[ 'comment_userid' ] ]->Subdomain 
 								);
             }
             $comments[ $key ] = $nea;
