@@ -97,16 +97,9 @@
                 </div>
                 
                 <div id="downstrip" class="sx_0002" style="position:relative">
-                    <div>
-                        <a class="wlink" href="about">Πληροφορίες</a>
-
-                        <a class="wlink" href="legal">Νομικά</a>
-                        <a class="wlink" href="?p=ads">Διαφήμιση</a>
-                    </div>
-                    <div id="copyleft">
-                        <span>&copy; 2009</span> <a class="wlink" href="http://www.kamibu.com/">Kamibu</a>
-                    </div>
-
+                    <?php
+                        Element( 'footer' );
+                    ?>
                 </div>
                 
             </div>
