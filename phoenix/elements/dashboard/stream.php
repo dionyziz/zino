@@ -115,7 +115,10 @@
                                 break;
                         }
                     }
-                    return;
+                ?>
+                </ul>
+                <?php
+                return;
                 ?>
                     <li class="link">
                         <div class="avatar">
