@@ -77,6 +77,7 @@
             $comments[ $key ] = $nea;
         }
 	
+		$res = array();
         foreach ( $content as $object ) {
             $res[ $object->Id ][ "item" ] = $object;
             $res[ $object->Id ][ "comments" ] = $comments[ $object->Id ];
