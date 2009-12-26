@@ -39,19 +39,19 @@
                                             <i class="journal icon"></i> <?php
                                             echo htmlspecialchars( $journal->Title );
                                             ?></h3>
-                                    </div>
-                                    <div class="comments">
+                                    </div><?php
+                                    if ( $journal->Numcomments ) {
+                                        ?><div class="comments">
+                                            <h4><?php
+                                            echo $journal->Numcomments;
+                                            ?> σχόλια</h4>
+                                            <ul class="comments">
+                                                <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
+                                                <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
+                                            </ul>
 
-                                        <h4><?php
-                                        echo $journal->Numcomments;
-                                        ?></h4>
-                                        <ul class="comments">
-                                            <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
-                                            <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
-                                        </ul>
-
-                                    </div>
-                                </li><?php
+                                        </div><?php
+                                    }
                                 break;
                             case 'Image':
                                 ?><li>
@@ -90,9 +90,8 @@
                                             <li class="lvl2"><a href=""><strong>izual</strong> Καλό είναι!</a></li>
                                             <li><a href=""><strong>pagio91</strong> Nice</a></li>
                                         </ul>
-
                                     </div>
-                                </li><?php
+                                <?php
                                 break;
                             case 'Poll':
                                 ?><li class="link">
@@ -120,10 +119,10 @@
                                             <li><a href=""><strong>pagio91</strong> πάαααααααααααααααρα πολύ!!!1</a></li>
                                         </ul>
                                     </div>
-
-                                </li><?php
+                                <?php
                                 break;
                         }
+                        ?></li><?php
                     }
                 ?>
                 </ul>
