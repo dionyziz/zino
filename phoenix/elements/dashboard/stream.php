@@ -39,7 +39,6 @@
                         </div>
                         <div class="spotcontent">
                         <a href="" class="filter" title="Κι άλλα όπως αυτό"></a><?php
-                        /*
                         switch ( $type ) {
                             case 'Journal':
                                 $journal = $item;
@@ -90,6 +89,7 @@
                                     }
                                 break;
                             case 'Poll':
+                                /*
                                 ?>
                                 <h3>
                                     <strong><?php
@@ -103,8 +103,8 @@
                                 </h3>
                                 <?php
                                 break;
+                                */
                         }
-                        */
                         ?></div>
                         <div class="comments"><?php
                         if ( $numcomments ) {
