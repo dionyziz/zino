@@ -574,4 +574,7 @@ i.photo {
 #stream .spotcontent {
     margin-left: 60px;
 }
+#mbanner > #loggedinmenu {
+    top: 35px;
+}
 
