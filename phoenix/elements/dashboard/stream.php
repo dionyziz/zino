@@ -128,7 +128,11 @@
                                 ?></h4>
                                 <ul class="comments"><?php
                                     foreach ( $comments as $comment ) {
-                                        ?><li><a href=""><strong><?php
+                                        ?><li><a href="<?php
+                                        ob_start();
+                                        echo Element( 'url', $comment );
+                                        echo htmlspecialchars( ob_get_clean() );
+                                        ?>"><strong><?php
                                         echo $comment[ 'user_name' ];
                                         ?></strong> <?php
                                         echo $comment[ 'text' ];
