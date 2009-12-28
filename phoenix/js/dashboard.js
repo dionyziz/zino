@@ -69,6 +69,11 @@ var Dashboard = {
 window.onresize = Dashboard.HandleResize;
 
 ( function() {
+    $( '#notifybox .minimize' ).click( 
+        function () {
+            Dashboard.Notifications.Toggle();
+        }
+    );
     var txt = $( '#chat textarea' );
     var lis = $( '#chat ol li' );
 
