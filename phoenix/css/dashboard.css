@@ -471,6 +471,10 @@ a.minimize {
 	border: 1px solid #aaa;
 	background-color: #e3e3e3;
 }
+#stream li a:hover img.emoticon {
+	border: none;
+	background-color: transparent;
+}
 #stream div.comments {
 	padding-left: 60px;
 }
