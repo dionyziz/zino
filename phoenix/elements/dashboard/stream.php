@@ -92,7 +92,14 @@
                         if ( $numcomments ) {
                                 ?><h4><?php
                                 echo $numcomments;
-                                ?> σχόλια</h4>
+                                ?> σχόλι<?php
+                                if ( $numcomments == 1 ) {
+                                    ?>ο<?php
+                                }
+                                else {
+                                    ?>α<?php
+                                }
+                                ?></h4>
                                 <ul class="comments"><?php
                                     foreach ( $comments as $comment ) {
                                         ?><li><a href=""><strong><?php
@@ -102,8 +109,6 @@
                                         ?></a></li><?php
                                     }
                                     ?>
-                                    <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
-                                    <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
                                 </ul><?php
                         }
                         ?></div><?php
