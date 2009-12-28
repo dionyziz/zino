@@ -17,7 +17,9 @@
                         }
                         ?><li<?php
                         if ( !is_array( $item ) ) {
-                            ?> class="link"<?php
+                            ?> class="link" onclick="Dashboard.Navigate('<?php
+                            Element( 'url', $item );
+                            ?>')"<?php
                         }
                         ?>>
                         <div class="avatar">
@@ -25,7 +27,9 @@
                             <div class="tr corner"></div>
                             <div class="bl corner"></div>
                             <div class="br corner"></div>
-                            <a href="" title="<?php
+                            <a href="<?php
+                                Element( 'url', $single->User );
+                                ?>" title="<?php
                                 echo $single->User->Name;
                                 ?>"><?php
                                 Element( 'image/view', $single->User->Avatarid, $single->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $single->User->Name, '', true, 50, 50, 0 );
@@ -42,9 +46,11 @@
                                 <h3><strong><?php
                                 Element( 'user/name', $journal->Userid, $journal->User->Name, $journal->User->Subdomain );
                                 ?></strong> 
-                                <i class="journal icon"></i> <?php
+                                <i class="journal icon"></i> <a href="<?php
+                                Element( 'url', $journal );
+                                ?>"><?php
                                 echo htmlspecialchars( $journal->Title );
-                                ?></h3>
+                                ?></a></h3>
                                 <?php
                                 break;
                             case 'Image':
@@ -75,7 +81,9 @@
                                     ?></a></strong></h3>
                                     <?php
                                     foreach ( $items as $photo ) {
-                                        ?><a href=""><?php
+                                        ?><a href="<?php
+                                            Element( 'url', $photo );
+                                            ?>"><?php
                                             Element( 'image/view', $photo->Id, $photo->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $photo->Name, '', false, 0, 0, 0 );
                                         ?></a><?php
                                     }
@@ -86,9 +94,11 @@
                                     <strong><?php
                                         Element( 'user/name', $item->Userid, $item->User->Name, $item->User->Subdomain );
                                         ?></strong> 
-                                        <i class="poll icon"></i> <?php
+                                        <i class="poll icon"></i> <a href="<?php
+                                        Element( 'url', $item );
+                                        ?>"><?php
                                         echo htmlspecialchars( $item->Title );
-                                        ?>
+                                        ?></a>
                                 </h3>
                                 <?php
                                 break;
