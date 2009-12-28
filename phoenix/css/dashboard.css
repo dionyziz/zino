@@ -46,6 +46,7 @@ body {
 	-webkit-border-bottom-left-radius: 5px;
 	padding: 0 3px 3px 3px;
 	background-color: #c2d0da;
+    opacity: 0.7;
 }
 .border {
 	padding-top: 5px;
@@ -572,8 +573,5 @@ i.photo {
 }
 #stream .spotcontent {
     margin-left: 60px;
-}
-#mbanner > #loggedinmenu {
-    top: 32px;
 }
 

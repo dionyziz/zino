@@ -2,6 +2,9 @@ var prevW = -1;
 var prewH = -1;
 
 var Dashboard = {
+    Navigate: function ( url ) {
+        window.location.href = url;
+    },
     HandleResize: function() {
         var h = 0;
         var w = 0;
