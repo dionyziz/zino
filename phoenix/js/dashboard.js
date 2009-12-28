@@ -50,7 +50,7 @@ var Dashboard = {
         Kamibu.ClickableTextbox( $( 'input' )[ 0 ], true, 'black', '#aaa' );
         Dashboard.HandleResize();
     },
-    Notifictions: {
+    Notifications: {
         Visible: true,
         Toggle: function () {
             Notifications.Visible = !Notifications.Visible;
@@ -72,6 +72,7 @@ window.onresize = Dashboard.HandleResize;
     $( '#notifybox .minimize' ).click( 
         function () {
             Dashboard.Notifications.Toggle();
+            return false;
         }
     );
     var txt = $( '#chat textarea' );
