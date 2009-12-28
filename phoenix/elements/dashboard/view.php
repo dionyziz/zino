@@ -20,6 +20,7 @@
             $page->AttachScript( 'js/comet.js' );
             $page->AttachScript( 'js/banner.js' ); 
             $page->AttachScript( 'js/dashboard.js' ); 
+            $page->AttachScript( 'http://www.google-analytics.com/urchin.js', $language = 'javascript', false, '', 9 );
 
             ob_start();
             ?>Dashboard.OnLoad();<?php

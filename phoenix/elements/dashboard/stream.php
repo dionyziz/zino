@@ -28,7 +28,7 @@
                             <a href="" title="<?php
                                 echo $single->User->Name;
                                 ?>"><?php
-                                Element( 'image/view', $single->User->Avatarid, $single->Userid, 50, 50, IMAGE_CROPPED_100x100, '', $single->User->Name, '', false, 0, 0, 0 );
+                                Element( 'image/view', $single->User->Avatarid, $single->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $single->User->Name, '', true, 50, 50, 0 );
                                 ?>
 
                             </a>
