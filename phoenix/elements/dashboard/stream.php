@@ -40,34 +40,18 @@
                                 ?>
                                 <h3>
                                     <i class="photo icon"></i> 
-                                    <?php
-                                    if ( !is_array( $item ) ) {
-                                        $items = array( $item );
-                                    }
-                                    else {
-                                        $items = $item;
-                                    }
-                                    $username = $items[ 0 ]->User->Name;
-                                    $gender = $items[ 0 ]->User->Gender;
-                                    ?>
-                                    Νέες φωτογραφίες <?php
-                                    switch ( $gender ) {
-                                        case 'f':
-                                            ?>της<?php
-                                            break;
-                                        case 'm':
-                                        default:
-                                            ?>του<?php
-                                    }
-                                    ?> <strong><a href="" class="inline"><?php
-                                    echo $username;
-                                    ?></a></strong></h3>
-                                    <?php
-                                    foreach ( $items as $photo ) {
-                                        ?><a href=""><?php
-                                            Element( 'image/view', $photo->Id, $photo->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $photo->Name, '', false, 0, 0, 0 );
-                                        ?></a><?php
-                                    }
+                                    Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
+                                </a>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
+
+                                </a>
+                                <a href="">
+                                    <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
+                                </a>
+                                <?php
                                 break;
                             case 'Poll':
                                 ?>
@@ -84,9 +68,9 @@
                         }
                         ?></div>
                         <div class="comments"><?php
-                        if ( $item->Numcomments ) {
+                        if ( $numcomments ) {
                                 ?><h4><?php
-                                echo $item->Numcomments;
+                                echo $numcomments;
                                 ?> σχόλια</h4>
                                 <ul class="comments">
                                     <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
@@ -138,23 +122,6 @@
                             <div class="tr corner"></div>
                             <div class="bl corner"></div>
                             <div class="br corner"></div>
-                            <a href="" title="uLee">
-                                <img src="http://images2.zino.gr/media/1778/190846/190846_100.jpg" alt="uLee" style="width:50px;height:50px" />
-                            </a>
-                        </div>
-                        <div class="spotcontent">
-                            <a href="" class="filter" title="Κι άλλα όπως αυτό"></a>
-
-                            <h3>
-                                <i class="photo icon"></i> 
-                                Νέες φωτογραφίες της <strong><a href="" class="inline">uLee</a></strong></h3>
-                                <a href="">
-                                    <img src="http://images2.zino.gr/media/1778/120808/120808_100.jpg" alt="" />
-                                </a>
-                                <a href="">
-                                    <img src="http://images2.zino.gr/media/1778/169693/169693_100.jpg" alt=":P" title=":P" />
-
-                                </a>
                                 <a href="">
                                     <img src="http://images2.zino.gr/media/1778/165339/165339_100.jpg" alt="" title="" />
                                 </a>

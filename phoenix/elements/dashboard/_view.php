@@ -57,6 +57,7 @@
             foreach ( $stream as $fish ) {
                 $item = $fish[ 'item' ];
                 $type = get_class( $item );
+                $comments = $fish[ 'comments' ];
                 $userid = $item->Userid;
                 $id = $item->Id;
                 $key = $type . ':' . $userid;
@@ -70,13 +71,17 @@
                         $res[ $key ][ 'item' ] = array( $res[ $key ][ 'item' ] );
                     }
                     $res[ $key ][ 'item' ][] = $item;
+                    $res[ $key ][ 'comment' ] = array_merge( $res[ $key ][ 'comment' ], $comments );
+                    $res[ $key ][ 'numcomments' ] += $item->Numcomments;
                 }
                 else {
-                    // no images by this user exist in the stream, create a new fish
+                    // no images by this user exist in the stream
+                    // or it's a non-collated type such as a journal; create a new fish
                     $res[ $key ] = array(
                         'type' => $type,
-                        'item' => $fish[ 'item' ],
-                        'comments' => $fish[ 'comments' ]
+                        'item' => $item,
+                        'comments' => $comments,
+                        'numcomments' => $item->Numcomments
                     );
                 }
             }
