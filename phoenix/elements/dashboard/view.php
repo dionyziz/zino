@@ -18,6 +18,7 @@
             $page->AttachScript( 'js/coala.js' );
             $page->AttachScript( 'js/meteor.js' );
             $page->AttachScript( 'js/comet.js' );
+            $page->AttachScript( 'js/banner.js' ); 
             $page->AttachScript( 'js/dashboard.js' ); 
 
             ob_start();
