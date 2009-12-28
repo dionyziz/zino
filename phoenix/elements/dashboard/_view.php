@@ -80,6 +80,7 @@
                     );
                 }
             }
+            $stream = $res;
 
 			?>
             <div id="nowbar">
