@@ -8,6 +8,7 @@
                         $type = $fish[ 'type' ];
                         $item = $fish[ 'item' ];
                         $comments = $fish[ 'comments' ];
+                        $numcomments = $fish[ 'numcomments' ];
                         ?><li class="link">
                         <div class="avatar">
                             <div class="tl corner"></div>
