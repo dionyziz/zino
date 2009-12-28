@@ -9,7 +9,11 @@
                         $item = $fish[ 'item' ];
                         $comments = $fish[ 'comments' ];
                         $numcomments = $fish[ 'numcomments' ];
-                        ?><li class="link">
+                        ?><li<?php
+                        if ( !is_array( $item ) ) {
+                            ?> class="link"<?php
+                        }
+                        ?>>
                         <div class="avatar">
                             <div class="tl corner"></div>
                             <div class="tr corner"></div>
@@ -89,7 +93,15 @@
                                 ?><h4><?php
                                 echo $numcomments;
                                 ?> σχόλια</h4>
-                                <ul class="comments">
+                                <ul class="comments"><?php
+                                    foreach ( $comments as $comment ) {
+                                        ?><li><a href=""><strong><?php
+                                        echo $comment[ 'user_name' ];
+                                        ?></strong> <?php
+                                        echo $comment[ 'text' ];
+                                        ?></a></li><?php
+                                    }
+                                    ?>
                                     <li><a href=""><strong>abresas</strong> Cool! OMG!</a></li>
                                     <li class="lvl2"><a href=""><strong>pagio91</strong> Yes, it IS COOL!</a></li>
                                 </ul><?php
