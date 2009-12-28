@@ -570,3 +570,7 @@ i.journal {
 i.photo {
 	background-image: url( 'http://static.zino.gr/phoenix/picture.png' );
 }
+#stream .spotcontent {
+    margin-left: 60px;
+}
+
