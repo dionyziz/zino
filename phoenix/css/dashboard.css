@@ -457,6 +457,12 @@ a.minimize {
 #stream li img {
 	border: 1px solid #ccc;
 	padding: 2px;
+    margin: 5px;
+}
+#stream li img.emoticon {
+	border: none;
+	padding: 0;
+    margin: 0;
 }
 #stream li a:hover {
 	text-decoration: none;
