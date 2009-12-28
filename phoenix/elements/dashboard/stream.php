@@ -40,18 +40,34 @@
                                 ?>
                                 <h3>
                                     <i class="photo icon"></i> 
-                                    Νέες φωτογραφίες του <strong><a href="" class="inline">izual</a></strong></h3>
-                                <a href="">
-                                    <img src="http://images2.zino.gr/media/58/224071/224071_100.jpg" alt="" />
-                                </a>
-                                <a href="">
-                                    <img src="http://images2.zino.gr/media/58/223815/223815_100.jpg" alt="Shiny happy people :-)" title="Shiny happy people :-)" />
-
-                                </a>
-                                <a href="">
-                                    <img src="http://images2.zino.gr/media/58/223102/223102_100.jpg" alt="" />
-                                </a>
-                                <?php
+                                    <?php
+                                    if ( !is_array( $item ) ) {
+                                        $items = array( $item );
+                                    }
+                                    else {
+                                        $items = $item;
+                                    }
+                                    $username = $items[ 0 ]->User->Name;
+                                    $gender = $items[ 0 ]->User->Gender;
+                                    ?>
+                                    Νέες φωτογραφίες <?php
+                                    switch ( $gender ) {
+                                        case 'f':
+                                            ?>της<?php
+                                            break;
+                                        case 'm':
+                                        default:
+                                            ?>του<?php
+                                    }
+                                    ?> <strong><a href="" class="inline"><?php
+                                    echo $username;
+                                    ?></a></strong></h3>
+                                    <?php
+                                    foreach ( $items as $photo ) {
+                                        ?><a href=""><?php
+                                            Element( 'image/view', $photo->Id, $photo->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $photo->Name, '', false, 0, 0, 0 );
+                                        ?></a><?php
+                                    }
                                 break;
                             case 'Poll':
                                 ?>
