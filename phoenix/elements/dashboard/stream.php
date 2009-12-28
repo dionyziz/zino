@@ -130,8 +130,17 @@
                                     foreach ( $comments as $comment ) {
                                         ?><li><a href="<?php
                                         ob_start();
-                                        echo Element( 'url', $comment );
-                                        echo htmlspecialchars( ob_get_clean() );
+                                        echo Element( 'url', $item );
+                                        $url = ob_get_clean();
+                                        echo htmlspecialchars( $url );
+                                        if ( strpos( $url, '&' ) !== false ) {
+                                            ?>&amp;<?php
+                                        }
+                                        else {
+                                            ?>?<?php
+                                        }
+                                        ?>commentid=<?php
+                                        echo $comment[ 'id' ];
                                         ?>"><strong><?php
                                         echo $comment[ 'user_name' ];
                                         ?></strong> <?php

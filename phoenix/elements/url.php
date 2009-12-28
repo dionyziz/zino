@@ -5,7 +5,7 @@
             global $rabbit_settings;
             global $xc_settings;
 
-            w_assert( is_object( $target ), 'Please change URL target to an object; ' . gettype( $target ) . 'given' );
+            w_assert( is_object( $target ), 'Please change URL target to an object; ' . gettype( $target ) . ' given' );
 
             switch ( get_class( $target ) ) {
                 case 'Favourite':
