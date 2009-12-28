@@ -53,6 +53,33 @@
             $libs->Load( 'content' );
 
             $stream = Content_GetContent();
+            $res = array();
+            foreach ( $stream as $fish ) {
+                $item = $fish[ 'item' ];
+                $type = get_class( $item );
+                $userid = $item->Userid;
+                $id = $item->Id;
+                $key = $type . ':' . $userid;
+                if ( $type != 'Image' ) {
+                    // only allow collation of images
+                    $key .= ':' . $id;
+                }
+                if ( isset( $res[ $key ] ) ) {
+                    // image by same user already exists in stream; add it to the fish
+                    if ( !is_array( $res[ $key ][ 'item' ] ) ) {
+                        $res[ $key ][ 'item' ] = array( $res[ $key ][ 'item' ] );
+                    }
+                    $res[ $key ][ 'item' ][] = $item;
+                }
+                else {
+                    // no images by this user exist in the stream, create a new fish
+                    $res[ $key ] = array(
+                        'type' => $type,
+                        'item' => $fish[ 'item' ],
+                        'comments' => $fish[ 'comments' ]
+                    );
+                }
+            }
 
 			?>
             <div id="nowbar">
