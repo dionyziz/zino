@@ -54,7 +54,7 @@ var Dashboard = {
         Visible: true,
         Toggle: function () {
             Dashboard.Notifications.Visible = !Dashboard.Notifications.Visible;
-            $( '#notifybox border > *' ).each( function ( i ) {
+            $( '#notifybox .border' ).children().each( function ( i ) {
                 if ( Notifications.Visible ) {
                     this.style.display = '';
                 }
