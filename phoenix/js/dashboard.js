@@ -49,6 +49,20 @@ var Dashboard = {
         Kamibu.ClickableTextbox( $( 'textarea' )[ 0 ], true, 'black', '#aaa' );
         Kamibu.ClickableTextbox( $( 'input' )[ 0 ], true, 'black', '#aaa' );
         Dashboard.HandleResize();
+    },
+    Notifictions: {
+        Visible: true,
+        Toggle: function () {
+            Notifications.Visible = !Notifications.Visible;
+            $( '#notifybox border' ).each( function ( i ) {
+                if ( Notifications.Visible ) {
+                    this.style.display = '';
+                }
+                else {
+                    this.style.display = 'none';
+                }
+            } );
+        }
     }
 };
 
