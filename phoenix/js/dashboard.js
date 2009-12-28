@@ -55,7 +55,7 @@ var Dashboard = {
         Toggle: function () {
             Dashboard.Notifications.Visible = !Dashboard.Notifications.Visible;
             $( '#notifybox .border' ).children().each( function ( i ) {
-                if ( Notifications.Visible ) {
+                if ( Dashboard.Notifications.Visible ) {
                     this.style.display = '';
                 }
                 else {
