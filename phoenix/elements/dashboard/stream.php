@@ -18,7 +18,9 @@
                         ?><li<?php
                         if ( !is_array( $item ) ) {
                             ?> class="link" onclick="Dashboard.Navigate('<?php
+                            ob_start();
                             Element( 'url', $item );
+                            echo htmlspecialchars( ob_get_clean() );
                             ?>')"<?php
                         }
                         ?>>
@@ -28,7 +30,9 @@
                             <div class="bl corner"></div>
                             <div class="br corner"></div>
                             <a href="<?php
+                                ob_start();
                                 Element( 'url', $single->User );
+                                echo htmlspecialchars( ob_get_clean() );
                                 ?>" title="<?php
                                 echo $single->User->Name;
                                 ?>"><?php
@@ -47,7 +51,9 @@
                                 Element( 'user/name', $journal->Userid, $journal->User->Name, $journal->User->Subdomain );
                                 ?></strong> 
                                 <i class="journal icon"></i> <a href="<?php
+                                ob_start();
                                 Element( 'url', $journal );
+                                echo htmlspecialchars( ob_get_clean() );
                                 ?>"><?php
                                 echo htmlspecialchars( $journal->Title );
                                 ?></a></h3>
@@ -82,28 +88,30 @@
                                     <?php
                                     foreach ( $items as $photo ) {
                                         ?><a href="<?php
+                                            ob_start();
                                             Element( 'url', $photo );
+                                            echo htmlspecialchars( ob_get_clean() );
                                             ?>"><?php
                                             Element( 'image/view', $photo->Id, $photo->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $photo->Name, '', false, 0, 0, 0 );
                                         ?></a><?php
                                     }
                                 break;
                             case 'Poll':
-                                /*
                                 ?>
                                 <h3>
                                     <strong><?php
                                         Element( 'user/name', $item->Userid, $item->User->Name, $item->User->Subdomain );
                                         ?></strong> 
                                         <i class="poll icon"></i> <a href="<?php
+                                        ob_start();
                                         Element( 'url', $item );
+                                        echo htmlspecialchars( ob_get_clean() );
                                         ?>"><?php
                                         echo htmlspecialchars( $item->Title );
                                         ?></a>
                                 </h3>
                                 <?php
                                 break;
-                                */
                         }
                         ?></div>
                         <div class="comments"><?php
