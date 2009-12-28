@@ -9,6 +9,12 @@
                         $item = $fish[ 'item' ];
                         $comments = $fish[ 'comments' ];
                         $numcomments = $fish[ 'numcomments' ];
+                        if ( is_array( $item ) ) {
+                            $single = $item[ 0 ];
+                        }
+                        else {
+                            $single = $item;
+                        }
                         ?><li<?php
                         if ( !is_array( $item ) ) {
                             ?> class="link"<?php
@@ -20,9 +26,9 @@
                             <div class="bl corner"></div>
                             <div class="br corner"></div>
                             <a href="" title="<?php
-                                echo $item->User->Name;
+                                echo $single->User->Name;
                                 ?>"><?php
-                                Element( 'image/view', $item->User->Avatarid, $item->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $item->User->Name, '', false, 0, 0, 0 );
+                                Element( 'image/view', $single->User->Avatarid, $single->Userid, 100, 100, IMAGE_CROPPED_100x100, '', $single->User->Name, '', false, 0, 0, 0 );
                                 ?>
 
                             </a>
@@ -52,8 +58,8 @@
                                     else {
                                         $items = $item;
                                     }
-                                    $username = $items[ 0 ]->User->Name;
-                                    $gender = $items[ 0 ]->User->Gender;
+                                    $username = $single->User->Name;
+                                    $gender = $single->User->Gender;
                                     ?>
                                     Νέες φωτογραφίες <?php
                                     switch ( $gender ) {
