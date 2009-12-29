@@ -130,7 +130,7 @@
                                     foreach ( $comments as $comment ) {
                                         ?><li><a href="<?php
                                         ob_start();
-                                        echo Element( 'url', $item );
+                                        echo Element( 'url', $single );
                                         $url = ob_get_clean();
                                         echo htmlspecialchars( $url );
                                         if ( strpos( $url, '&' ) !== false ) {
