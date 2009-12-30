@@ -52,7 +52,7 @@
             foreach ( $comments[ $object->Id ] as $comment ) {
 				$bulk_ids[] = (int)$comment[ 'comment_bulkid' ];
 				$user_ids[] = (int)$comment[ 'comment_userid' ];
-				$time_created[ array( Type_FromObject( $object ), $object->I ) ] = $object->Created;
+				$time_created[ array( Type_FromObject( $object ), $object->Id ) ] = $object->Created;
             }            
         }
 
