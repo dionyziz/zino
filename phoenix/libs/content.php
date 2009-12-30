@@ -1,89 +1,99 @@
 <?php
 
-    function Content_GetContent() {
-        global $libs;
-        global $user;
+	class ContentStream {
 
-        $libs->Load( 'research/spot' );
-        $libs->Load( 'comment' );
-        $libs->Load( 'poll/frontpage' );
-        $libs->Load( 'poll/poll' );
-        $libs->Load( 'journal/journal' );
-		$libs->Load( 'journal/frontpage' );
-        $libs->Load( 'image/image' );
-		$libs->Load( 'bulk' );
-		$libs->Load( 'user/user' );
-
-        $content = Spot::GetContent( $user, 8, 5, 4 );
-        
-        if ( empty( $content ) ) { // if spot is down , find the newest content    
-                        
-            $finder = New PollFinder();        
-            $polls = $finder->FindFrontpageLatest( 0 , 4 );
-            $finder = New JournalFinder();
-            $journals = $finder->FindFrontpageLatest( 0, 5 ); 
-            $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0, 8 );
-            foreach ( $polls as $obj ) {
-                $content[] = $obj;
-            }
-            foreach ( $journals as $obj ) {
-                $content[] = $obj;
-            }
-            foreach ( $images as $obj ) {
-                $content[] = $obj;
-            }
-            $polls = array();
-            $images = array();
-            $journals = array();        
-        }
-
-
-		$time_created = array();
-        $comments = array();
-		$bulk_ids = array();
-		$bulk  = array();
-		$user_ids = array();
-		$users = array();
-        $res = array();
-        $commfinder = new CommentFinder();        
-        foreach ( $content as $object ) {
-            $comments[ $object->Id ] = $commfinder->FindByTypeidAndItemid( Type_FromObject( $object ), $object->Id, 0, 3 );        
-            foreach ( $comments[ $object->Id ] as $comment ) {
-				$bulk_ids[] = (int)$comment[ 'comment_bulkid' ];
-				$user_ids[] = (int)$comment[ 'comment_userid' ];
-				$time_created[ array( Type_FromObject( $object ), $object->Id ) ] = $object->Created;
-            }            
-        }
-
-		$bulk = Bulk::FindById( $bulk_ids );
-		$finder = New UserFinder();
-		$res = $finder->FindByIds( $user_ids );
-
-		foreach ( $res as $one ) {
-			$users [ $one->Id ] = $one;
+		private function cmpByDate( $a, $b ) {
+			return $a[ "created" ] < $b[ "created" ];
 		}
 
-		$nea = array();        
-        foreach ( $comments as $key=>$val ) {
-            $nea = array();
-            foreach ( $comments[ $key ] as $obj ) {
-                $nea[] = array( 'id'=> $obj[ 'comment_id' ], 
-								'parentid' => $obj[ 'comment_parentid' ], 
-								'text'=> $bulk[ $obj[ 'comment_bulkid' ] ], 
-								'user_name' => $users[ $obj[ 'comment_userid' ] ]->Name , 									'user_subdomain' => $users[ $obj[ 'comment_userid' ] ]->Subdomain 
-								);
-            }
-            $comments[ $key ] = $nea;
-        }
+		public function GetContent() {
+		    global $libs;
+		    global $user;
+
+		    $libs->Load( 'research/spot' );
+		    $libs->Load( 'comment' );
+		    $libs->Load( 'poll/frontpage' );
+		    $libs->Load( 'poll/poll' );
+		    $libs->Load( 'journal/journal' );
+			$libs->Load( 'journal/frontpage' );
+		    $libs->Load( 'image/image' );
+			$libs->Load( 'bulk' );
+			$libs->Load( 'user/user' );
+
+		    $content = Spot::GetContent( $user, 8, 5, 4 );
+		    
+		    if ( empty( $content ) ) { // if spot is down , find the newest content    
+		                    
+		        $finder = New PollFinder();        
+		        $polls = $finder->FindFrontpageLatest( 0 , 4 );
+		        $finder = New JournalFinder();
+		        $journals = $finder->FindFrontpageLatest( 0, 5 ); 
+		        $finder = New ImageFinder();
+		        $images = $finder->FindFrontpageLatest( 0, 8 );
+		        foreach ( $polls as $obj ) {
+		            $content[] = $obj;
+		        }
+		        foreach ( $journals as $obj ) {
+		            $content[] = $obj;
+		        }
+		        foreach ( $images as $obj ) {
+		            $content[] = $obj;
+		        }
+		        $polls = array();
+		        $images = array();
+		        $journals = array();        
+		    }
+
+
+		    $comments = array();
+			$bulk_ids = array();
+			$bulk  = array();
+			$user_ids = array();
+			$users = array();
+		    $res = array();
+		    $commfinder = new CommentFinder();        
+		    foreach ( $content as $object ) {
+		        $comments[ $object->Id ] = $commfinder->FindByTypeidAndItemid( Type_FromObject( $object ), $object->Id, 0, 3 );        
+		        foreach ( $comments[ $object->Id ] as $comment ) {
+					$bulk_ids[] = (int)$comment[ 'comment_bulkid' ];
+					$user_ids[] = (int)$comment[ 'comment_userid' ];
+					
+		        }            
+		    }
+
+			$bulk = Bulk::FindById( $bulk_ids );
+			$finder = New UserFinder();
+			$res = $finder->FindByIds( $user_ids );
+
+			foreach ( $res as $one ) {
+				$users [ $one->Id ] = $one;
+			}
+
+			$nea = array();        
+		    foreach ( $comments as $key=>$val ) {
+		        $nea = array();
+		        foreach ( $comments[ $key ] as $obj ) {
+		            $nea[] = array( 'id'=> $obj[ 'comment_id' ], 
+									'parentid' => $obj[ 'comment_parentid' ], 
+									'text'=> $bulk[ $obj[ 'comment_bulkid' ] ], 
+									'user_name' => $users[ $obj[ 'comment_userid' ] ]->Name , 									'user_subdomain' => $users[ $obj[ 'comment_userid' ] ]->Subdomain 
+									);
+		        }
+		        $comments[ $key ] = $nea;
+		    }
 	
-		$res = array();
-        foreach ( $content as $object ) {
-            $res[ $object->Id ][ "item" ] = $object;
-            $res[ $object->Id ][ "comments" ] = $comments[ $object->Id ];
-        }      
-		shuffle( $res );  
-        
-        return $res;
-    }
+			$res = array();
+			$name = array();
+		    foreach ( $content as $object ) {
+				$name = array( "type" => Type_FromObject( $object ), "id" => $object->Id );
+		        $res[ $name ][ "item" ] = $object;
+		        $res[ $name ][ "comments" ] = $comments[ $object->Id ];
+				$res[ $name ][ "created" ] = strtotime( $object->Created );
+		    }    
+
+			uasort( $res, 'ContentStream::cmpByDate' );  
+		    
+		    return $res;
+		}
+	}
 ?>
