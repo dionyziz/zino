@@ -89,8 +89,8 @@
 		        $res[ $name ][ "comments" ] = $comments[ $object->Id ];
 				$res[ $name ][ "created" ] = strtotime( $object->Created );
 		    }    
-			die( var_dump( $res ) );
-			//uasort( $res, 'ContentStream::cmpByDate' );  
+
+			uasort( $res, 'ContentStream::cmpByDate' );  
 		    
 		    return $res;
 		}
