@@ -32,7 +32,7 @@
 			var_dump( $content );
             foreach ( $content as $object ) {
                 ?><p><?php
-                echo $object[ "item" ]->Id;
+                echo $object[ "item" ]->Id . "----" . $object[ "created" ];
                 ?>  <?php
                 foreach ( $object[ "comments" ] as $comm ) { 
                     ?><p><?php
