@@ -2,7 +2,7 @@
 
 	class ContentStream {
 
-		private function cmpByDate( $a, $b ) {
+		private static function cmpByDate( $a, $b ) {
 			return $a[ "created" ] < $b[ "created" ];
 		}
 
