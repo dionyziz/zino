@@ -29,7 +29,6 @@
 			
 			$stream = New ContentStream();
             $content = $stream->GetContent();
-			var_dump( $content );
             foreach ( $content as $object ) {
                 ?><p><?php
                 echo $object[ "item" ]->Id . "----" . $object[ "created" ];
