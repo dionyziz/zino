@@ -44,8 +44,6 @@
 		        $journals = array();        
 		    }
 
-			die( var_dump( $content ) );
-
 		    $comments = array();
 			$bulk_ids = array();
 			$bulk  = array();
@@ -91,7 +89,7 @@
 		        $res[ $name ][ "comments" ] = $comments[ $object->Id ];
 				$res[ $name ][ "created" ] = strtotime( $object->Created );
 		    }    
-
+			die( var_dump( $res ) );
 			//uasort( $res, 'ContentStream::cmpByDate' );  
 		    
 		    return $res;
