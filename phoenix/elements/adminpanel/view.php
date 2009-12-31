@@ -26,7 +26,9 @@
 	        
 	        $libs->Load( 'content' );
             ?><p>Content</p><?php
-            $content = Content_GetContent();
+			
+			$stream = New ContentStream();
+            $content = $stream->GetContent();
             foreach ( $content as $object ) {
                 ?><p><?php
                 echo $object[ "item" ]->Id;
