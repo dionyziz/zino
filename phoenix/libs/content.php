@@ -91,7 +91,7 @@
 				$res[ $name ][ "created" ] = strtotime( $object->Created );
 		    }    
 
-			uasort( $res, 'ContentStream::cmpByDate' );  
+			//uasort( $res, 'ContentStream::cmpByDate' );  
 		    
 		    return $res;
 		}
