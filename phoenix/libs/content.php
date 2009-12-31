@@ -44,6 +44,7 @@
 		        $journals = array();        
 		    }
 
+			die( var_dump( $content ) );
 
 		    $comments = array();
 			$bulk_ids = array();
