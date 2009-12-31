@@ -6,9 +6,8 @@
 			return $a[ "created" ] < $b[ "created" ];
 		}
 
-		public function GetContent() {
+		public function GetContent( $theuser ) {
 		    global $libs;
-		    global $user;
 
 		    $libs->Load( 'research/spot' );
 		    $libs->Load( 'comment' );
@@ -20,7 +19,7 @@
 			$libs->Load( 'bulk' );
 			$libs->Load( 'user/user' );
 
-		    $content = Spot::GetContent( $user, 8, 5, 4 );
+		    $content = Spot::GetContent( $theuser, 8, 5, 4 );
 		    
 		    if ( empty( $content ) ) { // if spot is down , find the newest content    
 		                    
