@@ -84,7 +84,7 @@
 			$res = array();
 			$name = array();
 		    foreach ( $content as $object ) {
-				$name = array( "type" => Type_FromObject( $object ), "id" => $object->Id );
+				$name = Type_FromObject( $object ) . "_" . $object->Id;
 		        $res[ $name ][ "item" ] = $object;
 		        $res[ $name ][ "comments" ] = $comments[ $object->Id ];
 				$res[ $name ][ "created" ] = strtotime( $object->Created );
