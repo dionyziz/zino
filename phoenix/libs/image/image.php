@@ -117,7 +117,8 @@
                     LEFT JOIN :users ON
                         `image_userid` = `user_id`
                 WHERE
-                    `image_id` IN :imageids'
+                    `image_id` IN :imageids AND
+                    `image_delid` = 0' // frontpage deleted fix
             );
             $query->BindTable( 'images', 'users' );
             $query->Bind( 'imageids', $imageids );
