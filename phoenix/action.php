@@ -4,7 +4,7 @@
     global $page;
     global $rabbit_settings;
 
-    require_once 'libs/rabbit/rabbit.php';
+    require_once 'libs/rabbit/rabbit.php'; 
 
     Rabbit_Construct( 'action' );
 
