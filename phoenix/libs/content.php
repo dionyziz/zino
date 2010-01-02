@@ -94,4 +94,10 @@
 		    return $res;
 		}
 	}
+    
+    //Chorvus: temp fix for the undefined function Content_GetContent
+    function Content_GetContent() {
+        global $user;
+        return ContentStream::GetContent( $user );
+    }
 ?>
