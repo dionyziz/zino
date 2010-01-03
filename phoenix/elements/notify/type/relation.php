@@ -1,5 +1,5 @@
 <?php
-    class ElementNotifyImagetag extends Element {
+    class ElementNotifyTypeRelation extends Element {
         public function Render( $comment ) {
             
         }

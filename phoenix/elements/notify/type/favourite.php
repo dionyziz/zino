@@ -1,5 +1,5 @@
 <?php
-    class ElementNotifyFavourite extends Element {
+    class ElementNotifyTypeFavourite extends Element {
         public function Render( $favourite ) {
             
         }
