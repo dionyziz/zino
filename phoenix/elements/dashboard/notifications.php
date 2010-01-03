@@ -9,7 +9,7 @@
             $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user );
             
-            $notifycount = $notifs->TotalCount() > 0;
+            $notifycount = $notifs->TotalCount();
             
             ?><div id="notifications">
                 <div style="" class="shadow-left"></div>
