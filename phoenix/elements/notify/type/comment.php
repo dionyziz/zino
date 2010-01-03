@@ -17,7 +17,6 @@
                     echo htmlspecialchars( $comment->User->Name );
                 ?></span>
                 <span class="text">"<?php
-                $comment = $notif->Item;
                 $text = $comment->GetText( 30 );
                 echo $text;
                 if ( mb_strlen( $comment->Text ) > 30 ) {
