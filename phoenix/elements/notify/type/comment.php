@@ -10,7 +10,7 @@
                 ?>"><?php
                 if ( $comment->User->Avatarid > 0 ) {
                     ?><div class="avatar"><?php
-                        Element( 'image/view', $comment->User->Avatarid, $comment->Userid, 50, 50, IMAGE_CROPPED_150x150, '', $comment->User->Name );
+                        Element( 'image/view', $comment->User->Avatarid, $comment->Userid, 50, 50, IMAGE_CROPPED_150x150, '', $comment->User->Name, '', false, 0, 0, 0 );
                     ?></div><?php
                 }
                 ?><span class="username"><?php
