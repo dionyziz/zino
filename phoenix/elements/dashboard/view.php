@@ -113,7 +113,9 @@
                     <div id="strip2" class="sx_0010">
                         <div id="content">
                             <?php
-                                Element( 'dashboard/notifications' );
+                                if ( $user !== false ) {
+                                    Element( 'dashboard/notifications' );
+                                }
                                 Element( 'dashboard/stream', $stream );
                             ?>
                         </div>
