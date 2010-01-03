@@ -6,7 +6,7 @@
             }
             
             ?><li>
-                <a href="" class="remove" alt="X" title="Áðüêñõøç åíçìÝñùóçò">X</a>
+                <a href="" class="remove" alt="X" title="Î‘Ï€ÏŒÎºÏÏ…ÏˆÎ· ÎµÎ½Î·Î¼Î­ÏÏ‰ÏƒÎ·Ï‚">X</a>
                 <?php
                 switch ( $notif->Typeid ) {
                     case EVENT_COMMENT_CREATED:
@@ -20,7 +20,7 @@
                     case EVENT_USER_BIRTHDAY:
                         Element( 'notify/type/birthday' );
                 }
-            ?></li><?php
+            ?></li><?php 
         }
     }
 ?>
