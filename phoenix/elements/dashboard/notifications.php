@@ -7,7 +7,7 @@
             $libs->Load( 'notify/notify' );
             
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user );
+            $notifs = $finder->FindByUser( $user, 0, 21 );
             
             $notifycount = $notifs->TotalCount();
             
@@ -28,21 +28,28 @@
                                 echo 'καμία ενημέρωση';
                             }
                             elseif ( $notifycount == 1 ) {
-                                echo '1 ενημέρωση';
+                                echo '1 νέα ενημέρωση';
                             }
                             else {
-                                if ( $notifycount <= 10 ) {
+                                if ( $notifycount <= 20 ) {
                                     echo $notifycount;
                                 }
                                 else {
-                                    echo '10+';
+                                    echo '20+';
                                 }
                                 echo ' νέες ενημερώσεις';
                             }
                         ?></h2>
-                        <ol>
-
-                        </ol>
+                        <ol><?php
+                            if ( $notifications->TotalCount() > 0 ) {
+                                $notifs = $notifs->ToArray();
+                                $vnotifs = array_slice( $notifs , 0 , 5 );
+                                $inotifs = array_slice( $notifs , 5 );
+                                foreach ( $vnotifs as $notif ) {
+                                    Element( 'notif/view', $notif );
+                                }
+                            }
+                        ?></ol>
                     </div>
 
                 </div>
