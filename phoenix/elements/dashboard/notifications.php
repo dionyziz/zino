@@ -41,7 +41,7 @@
                             }
                         ?></h2>
                         <ol><?php
-                            if ( $notifications->TotalCount() > 0 ) {
+                            if ( $notifycount > 0 ) {
                                 $notifs = $notifs->ToArray();
                                 $vnotifs = array_slice( $notifs , 0 , 5 );
                                 $inotifs = array_slice( $notifs , 5 );
