@@ -67,7 +67,7 @@ body {
 	-webkit-border-bottom-left-radius: 0;
 	cursor: default;
 }
-#notifications div.avatar img {
+#notifications div.avatar span img {
 	padding: 0;
 	margin: 0;
 	width: 50px;
