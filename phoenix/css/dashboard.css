@@ -75,6 +75,7 @@ body {
 }
 #notifiactions .username {
     font-weight: bold;
+    color: black;
 }
 #notifications li {
 	clear: both;
