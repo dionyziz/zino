@@ -46,7 +46,7 @@
                                 $vnotifs = array_slice( $notifs , 0 , 5 );
                                 $inotifs = array_slice( $notifs , 5 );
                                 foreach ( $vnotifs as $notif ) {
-                                    Element( 'notif/view', $notif );
+                                    Element( 'notify/view', $notif );
                                 }
                             }
                         ?></ol>
