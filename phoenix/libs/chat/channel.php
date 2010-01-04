@@ -44,6 +44,7 @@
 							ON other.`participant_userid`=`user_id`
 				WHERE
 					me.`participant_userid` = :userid
+                    AND me.`participant_active` = 1
 					AND other.`participant_userid` != :userid'
 			);
 			$query->BindTable( 'chatchannels', 'chatparticipants', 'users' );
@@ -94,4 +95,81 @@
 			return $userinfo;
 		}
 	}
+
+    function Chat_Create( $userid1, $userid2 ) {
+        global $db;
+
+        // check if userid1 and userid2 are already chatting in an existing channel_id
+        // but make sure that no other people are in that convo
+        $query = $db->Prepare(
+            'SELECT
+                channel_id
+            FROM
+                :chatchannels
+                CROSS JOIN :chatparticipants AS one
+                    ON channel_id = one.participant_channelid
+                    AND one.participant_userid = :userid1
+                CROSS JOIN :chatparticipants AS two
+                    ON channel_id = two.participant_channelid
+                    AND two.participant_userid = :userid2
+                CROSS JOIN :chatparticipants AS others
+                    ON channel_id = others.participant_channelid
+                    AND NOT others.participant_userid IN ( :userid1, :userid2 )
+            WHERE
+                others.participant_userid IS NULL
+            LIMIT 1'
+        );
+        $query->BindTable( 'chatchannels', 'chatparticipants' );
+        $query->Bind( 'userid1', $userid1 );
+        $query->Bind( 'userid2', $userid2 );
+        $res = $query->Execute();
+        if ( $res->Results() ) {
+            $row = $res->FetchArray();
+            $channelid = $row[ 'channel_id' ];
+
+            // participant #1 who initiated the chat must be shown a chat window,
+            // so activate his participation,
+            // however, we don't need to activate #2 who is just a passive receiver,
+            // until a message is received
+            $query = $db->Prepare(
+                'UPDATE 
+                    :chatparticipants
+                SET
+                    participant_active = 1
+                WHERE
+                    participant_userid = :userid1
+                    AND participant_channelid = :channelid
+                LIMIT 1'
+            );
+            $query->BindTable( 'chatparticipants' );
+            $query->Bind( 'userid1', $userid1 );
+            $query->Bind( 'userid2', $userid2 );
+            $query->Execute();
+        }
+        else {
+            $query = $db->Prepare(
+                'INSERT INTO 
+                    :chatchannels
+                ( channel_created ) VALUES ( NOW() )'
+            );
+            $query->BindTable( 'chatchannels' );
+            $change = $query->Execute();
+            $channelid = $change->InsertId();
+            $query = $db->Prepare(
+                'INSERT INTO
+                    :chatparticipants
+                ( participant_userid, participant_channelid, participant_active, praticipant_joined ) VALUES
+                ( :userid1, :channelid, :active1, NOW() ), ( :userid2, :channelid, :active2, NOW() )'
+            );
+            $query->BindTable( 'chatparticipants' );
+            $query->Bind( 'userid1', $userid1 );
+            $query->Bind( 'userid2', $useird2 );
+            $query->Bind( 'channelid', $channelid );
+            $query->Bind( 'active1', 1 );
+            $query->Bind( 'active2', 0 );
+            $query->Execute();
+        }
+        
+        return $channelid;
+    }
 ?>
