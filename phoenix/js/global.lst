@@ -48,5 +48,5 @@ applications.js
 album/manager.js
 favourites.js
 wysiwyg.js
-errorhandler.js
+#errorhandler.js
 #snowstorm.js
