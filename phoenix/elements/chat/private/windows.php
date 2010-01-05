@@ -3,20 +3,25 @@
         public function Render() {
             global $user;
             global $libs;
+            global $page;
 
             $libs->Load( 'chat/channel' );
+
+            $page->AttachScript( 'js/puffin.js' );
 
             $channels = ChannelFinder::FindByUserid( $user->Id );
             
             foreach ( $channels as $channel ) {
-                ?>(begin chat)<ul><?php
+                ?><div id="im_<?php
+                echo $channel[ 'id' ];
+                ?>" style="display:none"><?php
                 $participants = $channel[ 'participants' ];
                 foreach ( $participants as $participant ) {
-                    ?><li><?php
+                    ?><p><?php
                     echo $participant[ 'name' ];
-                    ?></li><?php
+                    ?></p><?php
                 }
-                ?></ul>(end chat)<?php
+                ?></div><?php
             }
         }
     }

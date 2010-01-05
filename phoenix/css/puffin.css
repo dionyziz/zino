@@ -1,0 +1,18 @@
+div.puffin {
+    border: 1px solid black;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 7px #666;
+    -webkit-box-shadow: 0 0 7px #666;
+    box-shadow: 0 0 7px #666;
+    overflow: hidden;
+    zoom: 1;
+    filter:
+        progid:DXImageTransform.Microsoft.DropShadow(color=#cccccc, offx=1, offy=1)
+        progid:DXImageTransform.Microsoft.DropShadow(color=#dddddd, offx=1, offy=1)
+        progid:DXImageTransform.Microsoft.DropShadow(color=#eeeeee, offx=1, offy=1);
+    background-color: #eee;
+    position: absolute;
+    position: fixed;
+}
