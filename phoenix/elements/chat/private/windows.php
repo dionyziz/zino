@@ -10,6 +10,7 @@
             
             foreach ( $channels as $channel ) {
                 ?>(begin chat)<ul><?php
+                $participants = $channel[ 'participants' ];
                 foreach ( $participants as $participant ) {
                     ?><li><?php
                     echo $participant[ 'name' ];
