@@ -28,7 +28,7 @@
                 chatWindow.resize( 200, 300 );
                 chatWindow.setContent( $( '#im_<?php
                 echo $id;
-                ?>' ) );
+                ?>' )[ 0 ] );
                 chatWindow.show();
                 <?php
                 $page->AttachInlineScript( ob_get_clean() );
