@@ -11,9 +11,9 @@
 
             $channels = ChannelFinder::FindByUserid( $user->Id );
             
-            foreach ( $channels as $channel ) {
+            foreach ( $channels as $id => $channel ) {
                 ?><div id="im_<?php
-                echo $channel[ 'id' ];
+                echo $id;
                 ?>" style="display:none"><?php
                 $participants = $channel[ 'participants' ];
                 foreach ( $participants as $participant ) {
