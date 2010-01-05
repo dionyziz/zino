@@ -1,5 +1,5 @@
 <?php
-    class ElementChatPrivateWindows extends Elements {
+    class ElementChatPrivateWindows extends Element {
         public function Render() {
             global $user;
             global $libs;
