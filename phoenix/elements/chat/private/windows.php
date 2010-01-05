@@ -22,6 +22,16 @@
                     ?></p><?php
                 }
                 ?></div><?php
+                ob_start();
+                ?>var chatWindow = Puffin.create();
+                chatWindow.move( 100, 100 );
+                chatWindow.resize( 200, 300 );
+                chatWindow.setContent( $( '#im_<?php
+                echo $channel[ 'id' ];
+                ?>' ) );
+                chatWindow.show();
+                <?php
+                $page->AttachInlineScript( ob_get_clean() );
             }
         }
     }
