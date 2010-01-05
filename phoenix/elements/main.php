@@ -12,7 +12,7 @@
             <!--
                     Σε ενδιαφέρει ο κώδικάς μας; Τότε ίσως θα ήθελες να δουλέψεις μαζί μας. Τσέκαρε στο http://www.kamibu.com/join
                     και μην διστάσεις να επικοινωνήσεις μαζί μας.
-                -->
+            -->
             <?php
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddKeyword( array( 'greek', 'friends', 'chat', 'community', 'greece', 'meet', 'people' ) );
@@ -150,6 +150,9 @@
                 }
             }
 
+            if ( $user->Id == 1 ) {
+                Element( 'chat/private/windows' );
+            }
             Element( 'statistics/log', $masterelement );
             $libs->Load( 'memoryusage' );//<collecting memory usage information
             CheckMemoryUsage();
