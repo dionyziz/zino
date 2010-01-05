@@ -27,7 +27,7 @@
                 chatWindow.move( 100, 100 );
                 chatWindow.resize( 200, 300 );
                 chatWindow.setContent( $( '#im_<?php
-                echo $channel[ 'id' ];
+                echo $id;
                 ?>' ) );
                 chatWindow.show();
                 <?php
