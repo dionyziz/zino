@@ -8,6 +8,7 @@
             $libs->Load( 'chat/channel' );
 
             $page->AttachScript( 'js/puffin.js' );
+            $page->AttachStylesheet( 'css/puffin.css' );
 
             $channels = ChannelFinder::FindByUserid( $user->Id );
             
