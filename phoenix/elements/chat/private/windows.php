@@ -41,10 +41,10 @@
                 echo $channel[ 'w' ];
                 ?>, <?php
                 echo $channel[ 'h' ];
-                ?>);
+                ?> );
                 var content = chatWindow.setContent( $( '.imwindow' )[ <?php
                 echo $i;
-                ?>' ] );
+                ?> ] );
                 content.id = 'im_<?php
                 echo $id;
                 ?>';
