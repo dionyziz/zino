@@ -61,7 +61,8 @@
                         echo $id;
                         ?>,
                         deactivate: true
-                    } )
+                    } );
+                    return false;
                 } )( chatWindow );
                 chatWindow.onmove = function ( x, y ) {
                     Coala.Warm( 'chat/window/update', {

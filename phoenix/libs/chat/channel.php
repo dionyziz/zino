@@ -151,7 +151,6 @@
         $query->Bind( 'y', $y );
         $query->Bind( 'w', $w );
         $query->Bind( 'h', $h );
-        $query->Bind( 'active', $active );
         $query->Bind( 'channelid', $channelid );
         $query->Bind( 'userid', $userid );
         $query->Execute();
