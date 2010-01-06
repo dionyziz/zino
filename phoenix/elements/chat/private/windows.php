@@ -50,7 +50,7 @@
                 ?>';
                 chatWindow.onmove = function ( x, y ) {
                     Coala.Warm( 'chat/window/update', {
-                        id: <?php
+                        channelid: <?php
                         echo $id;
                         ?>,
                         x: x,
@@ -59,7 +59,7 @@
                 };
                 chatWindow.onresize = function ( w, h ) {
                     Coala.Warm( 'chat/window/update', {
-                        id: <?php
+                        channelid: <?php
                         echo $id;
                         ?>,
                         w: w,

@@ -1,6 +1,6 @@
 <?php
     function UnitChatWindowUpdate(
-        tInteger $id, tBoolean $deactivate,
+        tInteger $channelid, tBoolean $deactivate,
         tInteger $x, tInteger $y,
         tInteger $w, tInteger $h ) {
         global $user;
