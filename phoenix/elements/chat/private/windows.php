@@ -44,7 +44,7 @@
                 ?>);
                 var content = chatWindow.setContent( $( '.imwindow' )[ <?php
                 echo $i;
-                ?>' )[ 0 ] );
+                ?>' ] );
                 content.id = 'im_<?php
                 echo $id;
                 ?>';
