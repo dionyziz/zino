@@ -15,7 +15,7 @@
                 $pageno = 1;
             }
             
-            if ( !$album->Exists() ) {
+            if ( !$album->Exists() || $album->IsDeleted() ) {
                 return Element( '404', 'To album δεν υπάρχει' );
             }
             if ( $album->Ownertype == TYPE_USERPROFILE ) {
@@ -37,9 +37,6 @@
                     ?> class="schoolupload"<?php   
                 }
                 ?>><?php
-                if ( $album->IsDeleted() ) {
-                    return Element( '404', 'Το album έχει διαγραφεί' ); 
-                }
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $album , ( $pageno - 1 ) * 20 , 20 );
                 if ( $album->Ownertype == TYPE_USERPROFILE && $album->Id == $album->Owner->Egoalbumid ) {
