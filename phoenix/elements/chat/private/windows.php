@@ -16,10 +16,10 @@
             foreach ( $channels as $id => $channel ) {
                 ?><div class="imwindow" style="display:none"><?php
                 if ( $channel[ 'w' ] == 0 ) {
-                    $channel[ 'w' ] = 100;
+                    $channel[ 'w' ] = 300;
                 }
                 if ( $channel[ 'h' ] == 0 ) {
-                    $channel[ 'h' ] = 100;
+                    $channel[ 'h' ] = 300;
                 }
                 $participants = $channel[ 'participants' ];
                 if ( count( $participants ) == 1 ) {
