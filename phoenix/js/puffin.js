@@ -98,7 +98,7 @@ var Puffin = {
                 this.y = y;
                 this.div.style.left = x + 'px';
                 this.div.style.top = y + 'px';
-                
+
                 return ret;
             },
             resize: function ( w, h ) {
@@ -138,6 +138,10 @@ var Puffin = {
                 var content = node.cloneNode( true );
                 content.style.display = 'block';
                 this.div.appendChild( content );
+
+                // return cloned node; can be used to manipulate particular window contents
+                // that require the returned puffin window object (e.g. a close link)
+                return content;
             },
             hide: function () {
                 this.visible = false;
@@ -146,6 +150,12 @@ var Puffin = {
             show: function () {
                 this.visible = true;
                 this.div.style.display = 'block';
+            },
+            onmove: function ( x, y ) {
+                // overwrite me
+            },
+            onresize: function ( w, h ) {
+                // overwrite me
             },
             __construct: function () {
                 this.div = document.createElement( 'div' );
@@ -186,6 +196,12 @@ var Puffin = {
                 }
                 document.onmouseup = ( function( me, f ) {
                     return function() {
+                        if ( me.moving ) {
+                            me.onmove( me.x, me.y );
+                        }
+                        if ( me.resizing ) {
+                            me.onresize( me.w, me.h );
+                        }
                         me.moving = false;
                         me.resizing = false;
                         document.body.style.cursor = 'default';

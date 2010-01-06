@@ -12,27 +12,64 @@
 
             $channels = ChannelFinder::FindByUserid( $user->Id );
             
+            $i = 0;
             foreach ( $channels as $id => $channel ) {
-                ?><div id="im_<?php
-                echo $id;
-                ?>" style="display:none"><?php
+                ?><div class="imwindow" style="display:none"><?php
                 $participants = $channel[ 'participants' ];
-                foreach ( $participants as $participant ) {
-                    ?><p><?php
-                    echo $participant[ 'name' ];
-                    ?></p><?php
+                if ( count( $participants ) == 1 ) {
+                    $title = $participants[ 0 ][ 'name' ];
                 }
+                else {
+                    $names = array();
+                    foreach ( $participants as $participant ) {
+                        $names[] = $participant[ 'name' ];
+                    }
+                    $title = implode( ', ', $names );
+                }
+                ?><h3><?php
+                echo $title;
+                ?></h3><?php
                 ?></div><?php
                 ob_start();
                 ?>var chatWindow = Puffin.create();
-                chatWindow.move( 100, 100 );
-                chatWindow.resize( 200, 300 );
-                chatWindow.setContent( $( '#im_<?php
-                echo $id;
+                chatWindow.move( <?php
+                echo $channel[ 'x' ];
+                ?>, <?php
+                echo $channel[ 'y' ];
+                ?>);
+                chatWindow.resize( <?php
+                echo $channel[ 'w' ];
+                ?>, <?php
+                echo $channel[ 'h' ];
+                ?>);
+                var content = chatWindow.setContent( $( '.imwindow' )[ <?php
+                echo $i;
                 ?>' )[ 0 ] );
+                content.id = 'im_<?php
+                echo $id;
+                ?>';
+                chatWindow.onmove = function ( x, y ) {
+                    Coala.Warm( 'chat/window/update', {
+                        id: <?php
+                        echo $id;
+                        ?>,
+                        x: x,
+                        y: y
+                    } );
+                };
+                chatWindow.onresize = function ( w, h ) {
+                    Coala.Warm( 'chat/window/update', {
+                        id: <?php
+                        echo $id;
+                        ?>,
+                        w: w,
+                        h: h
+                    } );
+                };
                 chatWindow.show();
                 <?php
                 $page->AttachInlineScript( ob_get_clean() );
+                ++$i;
             }
         }
     }

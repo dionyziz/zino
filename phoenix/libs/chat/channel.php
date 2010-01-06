@@ -33,7 +33,10 @@
 			
 			$query = $db->Prepare(
 				'SELECT
-					`channel_id`, `user_name`, `user_id`, `user_avatarid`
+					`channel_id`,
+                    me.`participant_x` AS x, me.`participant_y` AS y,
+                    me.`participant_w` AS w, me.`participant_h` AS h
+                    `user_name`, `user_id`, `user_avatarid`
 				FROM
 					:chatchannels
 						CROSS JOIN :chatparticipants AS me
@@ -57,6 +60,8 @@
 				if ( !isset( $channels[ $row[ 'channel_id' ] ] ) ) {
 					$channels[ $row[ 'channel_id' ] ] = array(
 						'authtoken' => $row[ 'channel_authtoken' ],
+                        'x' => $row[ 'x' ], 'y' => $row[ 'y' ],
+                        'w' => $row[ 'w' ], 'h' => $row[ 'h' ],
 						'participants' => array()
 					);
 				}
@@ -95,6 +100,62 @@
 			return $userinfo;
 		}
 	}
+
+    function Chat_UpdateParticipant( $channelid, $userid, $x, $y, $w, $h, $deactivate ) {
+        global $db;
+
+        w_assert( is_int( $channelid ) );
+        w_assert( $channelid > 0 );
+        w_assert( is_int( $userid ) );
+        w_assert( $userid > 0 );
+        w_assert( is_int( $x ) );
+        w_assert( $x >= 0 );
+        w_assert( is_int( $y ) );
+        w_assert( $y >= 0 );
+        w_assert( is_int( $w ) );
+        w_assert( $w >= 0 );
+        w_assert( is_int( $h ) );
+        w_assert( $h >= 0 );
+        w_assert( is_bool( $deactivate ) );
+
+        $updates = array();
+        if ( $x > 0 ) {
+            $updates[] = '`participant_x` = :x';
+        }
+        if ( $y > 0 ) {
+            $updates[] = '`participant_y` = :y';
+        }
+        if ( $w > 0 ) {
+            $updates[] = '`participant_w` = :w';
+        }
+        if ( $h > 0 ) {
+            $updates[] = '`participant_h` = :h';
+        }
+        if ( $deactivate === true ) {
+            $updates[] = '`participant_active` = 0';
+        }
+        w_assert( count( $updates ) );
+        $query = $db->Prepare(
+            'UPDATE
+                :chatparticipants
+            SET '
+            . implode( ', ', $updates )
+            . '
+            WHERE
+                `participant_channelid` = :channelid
+                AND `participant_userid` = :userid
+            LIMIT 1'
+        );
+        $query->BindTable( 'chatparticipants' );
+        $query->Bind( 'x', $x );
+        $query->Bind( 'y', $y );
+        $query->Bind( 'w', $w );
+        $query->Bind( 'h', $h );
+        $query->Bind( 'active', $active );
+        $query->Bind( 'channelid', $channelid );
+        $query->Bind( 'userid', $userid );
+        $query->Execute();
+    }
 
     function Chat_Create( $userid1, $userid2 ) {
         global $db;
