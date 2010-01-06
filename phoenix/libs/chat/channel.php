@@ -35,7 +35,7 @@
 				'SELECT
 					`channel_id`,
                     me.`participant_x` AS x, me.`participant_y` AS y,
-                    me.`participant_w` AS w, me.`participant_h` AS h
+                    me.`participant_w` AS w, me.`participant_h` AS h,
                     `user_name`, `user_id`, `user_avatarid`
 				FROM
 					:chatchannels
