@@ -32,7 +32,7 @@
                     }
                     $title = implode( ', ', $names );
                 }
-                ?><h3><?php
+                ?><h3><a href="" clsas="close">&times;</a><?php
                 echo $title;
                 ?></h3><?php
                 ?></div><?php
@@ -54,6 +54,15 @@
                 content.id = 'im_<?php
                 echo $id;
                 ?>';
+                $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
+                    me.hide();
+                    Coala.Warm( 'chat/window/update', {
+                        channelid: <?php
+                        echo $id;
+                        ?>,
+                        deactivate: true
+                    } )
+                } )( chatWindow );
                 chatWindow.onmove = function ( x, y ) {
                     Coala.Warm( 'chat/window/update', {
                         channelid: <?php

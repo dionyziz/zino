@@ -183,4 +183,15 @@ ol li.history a:hover {
 div.video ol {
     top: 227px;
 }
+/* Begin IM */
+.imwindow h3 {
+    background-color: #789;
+    color: white;
+    font-size: 100%;
+    padding: 5px;
+    margin-top: 0;
+}
+.imwindow a.close {
+    float: right;
+}
 
