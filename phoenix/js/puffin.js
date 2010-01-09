@@ -32,6 +32,15 @@
 */
 
 var Puffin = {
+    clickable: function ( e ) {
+        if ( !e ) {
+            var e = window.event;
+        }
+        e.cancelBubble = true;
+        if ( e.stopPropagation ) {
+            e.stopPropagation();
+        }
+    },
     currentZ: 100, // starting Z-index
     clientWidth: function () {
         if ( typeof window.innerWidth != 'undefined' ) {
