@@ -39,7 +39,8 @@
                 }
                 ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
-                ?></h3><?php
+                ?></h3>
+                <textarea></textarea><?php
                 ?></div><?php
                 ob_start();
                 ?>var chatWindow = Puffin.create();
