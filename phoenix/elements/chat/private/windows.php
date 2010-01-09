@@ -7,12 +7,16 @@
 
             $libs->Load( 'chat/channel' );
 
+            $channels = ChannelFinder::FindByUserid( $user->Id );
+            
+            if ( empty( $channels ) ) {
+                return;
+            }
+
             $page->AttachScript( 'js/puffin.js' );
             $page->AttachStylesheet( 'css/puffin.css' );
             $page->AttachStylesheet( 'css/chat.css' );
 
-            $channels = ChannelFinder::FindByUserid( $user->Id );
-            
             $i = 0;
             foreach ( $channels as $id => $channel ) {
                 ?><div class="imwindow" style="display:none"><?php
@@ -33,7 +37,7 @@
                     }
                     $title = implode( ', ', $names );
                 }
-                ?><h3><a href="" clsas="close">&times;</a><?php
+                ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
                 ?></h3><?php
                 ?></div><?php
