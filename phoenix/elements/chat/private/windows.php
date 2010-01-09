@@ -40,7 +40,7 @@
                 ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
                 ?></h3>
-                <textarea></textarea><?php
+                <textarea onclick="return true;"></textarea><?php
                 ?></div><?php
                 ob_start();
                 ?>var chatWindow = Puffin.create();
