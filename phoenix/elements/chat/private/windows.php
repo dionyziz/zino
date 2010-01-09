@@ -40,7 +40,7 @@
                 ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
                 ?></h3>
-                <textarea onmousedown="return Puffin.clickable()"></textarea><?php
+                <textarea></textarea><?php
                 ?></div><?php
                 ob_start();
                 ?>var chatWindow = Puffin.create();
@@ -60,6 +60,7 @@
                 content.id = 'im_<?php
                 echo $id;
                 ?>';
+                $( content ).find( 'textarea' )[ 0 ].onmousemove = Puffin.clickable;
                 $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
                     return function () {
                         me.hide();
