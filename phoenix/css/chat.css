@@ -193,5 +193,10 @@ div.video ol {
 }
 .imwindow a.close {
     float: right;
+    opacity: 0.7;
+    color: white;
+}
+.imwindow a.close:hover {
+    opacity: 1;
 }
 
