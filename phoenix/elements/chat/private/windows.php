@@ -56,14 +56,16 @@
                 echo $id;
                 ?>';
                 $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
-                    me.hide();
-                    Coala.Warm( 'chat/window/update', {
-                        channelid: <?php
-                        echo $id;
-                        ?>,
-                        deactivate: true
-                    } );
-                    return false;
+                    return function () {
+                        me.hide();
+                        Coala.Warm( 'chat/window/update', {
+                            channelid: <?php
+                            echo $id;
+                            ?>,
+                            deactivate: true
+                        } );
+                        return false;
+                    };
                 } )( chatWindow );
                 chatWindow.onmove = function ( x, y ) {
                     Coala.Warm( 'chat/window/update', {
