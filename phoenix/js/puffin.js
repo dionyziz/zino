@@ -170,7 +170,7 @@ var Puffin = {
                 this.div = document.createElement( 'div' );
                 this.div.className = 'puffin';
                 this.focus();
-                this.div.addEventListener( 'mousemove', ( function( me ) {
+                this.div.addEventListener( 'mousedown', ( function( me ) {
                     return function( e ) {
                         if ( !e ) {
                             e = window.event;
@@ -223,7 +223,7 @@ var Puffin = {
                 if ( typeof document.onmousemove == 'function' ) {
                     var f = document.onmousemove;
                 }
-                document.onmousemove = ( function( me, f ) {
+                document.addEventListener( 'mousemove', ( function( me, f ) {
                     return function( e ) {
                         if ( !e ) {
                             e = window.event;
@@ -266,7 +266,7 @@ var Puffin = {
                         f( e );
                         return false;
                     };
-                } )( this, f );
+                } )( this, f ), false );
                 this.div.onmousemove = ( function ( me ) {
                     return function ( e ) {
                         if ( !e ) {
