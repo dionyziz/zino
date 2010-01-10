@@ -288,7 +288,20 @@ var Profile = {
         } } );
 		Profile.Abuse.Init( username );
         $( '#privatemessage a' ).click( function () {
-            Coala.Warm( 'chat/window/new', { target: username } );
+            document.body.style.cursor = 'wait';
+            Coala.Warm( 'chat/window/new', {
+                target: username,
+                f: function ( channel ) {
+                    var content = '<div class="imwindow">'
+                        + '<h3><a href="" class="close">&#215;</a>'
+                        + who.name
+                        + '</h3><ul></ul>'
+                        + '<div class="typehere"><textarea></textarea></div>'
+                    + '</div>';
+                    document.body.style.cursor = 'default';
+                    IM.CreateWindow( channel, 100, 100, 300, 300, content );
+                }
+            } );
             return false;
         } );
     },

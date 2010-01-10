@@ -1,5 +1,5 @@
 <?php
-    function UnitChatWindowNew( tText $target ) {
+    function UnitChatWindowNew( tText $target, tCoalaPointer $f ) {
         global $libs;
         global $user;
 
@@ -13,6 +13,11 @@
         
         $libs->Load( 'chat/channel' );
 
-        Chat_Create( $user->Id, $theuser->Id );
+        $channelid = Chat_Create( $user->Id, $theuser->Id );
+
+        echo $f;
+        ?>(<?php
+        echo $channelid;
+        ?>);<?php
     }
 ?>
