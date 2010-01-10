@@ -96,6 +96,7 @@ var IM = {
                     channel: id,
                     node: li
                 } );
+                li.scrollIntoView();
                 this.value = '';
             }
         } );
