@@ -24,7 +24,7 @@
 
             $i = 0;
 
-            Element( 'comet/init' );
+            // Element( 'comet/init' );
 
             foreach ( $channels as $id => $channel ) {
                 ?><div class="imwindow" style="display:none"><?php
