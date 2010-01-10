@@ -1,6 +1,7 @@
 var Comet = {
     Connected: false,
     ConnectionTimer: 0,
+    Initialized: false,
     Connect: function () {
         if ( Comet.Connected ) {
             return;
@@ -31,6 +32,11 @@ var Comet = {
         eval( code );
     },
     Init: function ( uniq, domain ) {
+        if ( Comet.Initialized ) {
+            return;
+        }
+
+        Comet.Initialized = true;
         domain = domain || 'universe.' + location.hostname;
         Meteor.hostid = uniq;
         Meteor.host = domain;

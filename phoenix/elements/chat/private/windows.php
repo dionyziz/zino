@@ -14,10 +14,14 @@
             }
 
             $page->AttachScript( 'js/puffin.js' );
+            $page->AttachScript( 'js/im.js' );
             $page->AttachStylesheet( 'css/puffin.css' );
             $page->AttachStylesheet( 'css/chat.css' );
 
             $i = 0;
+
+            Element( 'comet/init' );
+
             foreach ( $channels as $id => $channel ) {
                 ?><div class="imwindow" style="display:none"><?php
                 if ( $channel[ 'w' ] == 0 ) {
@@ -154,6 +158,13 @@
                 $page->AttachInlineScript( ob_get_clean() );
                 ++$i;
             }
+            ?>
+            Comet.Subscribe( 'FrontpageShoutboxNew<?php
+            echo $user->Id;
+            ?>' );
+            Comet.Subscribe( 'FrontpageShoutboxTyping<?php
+            echo $user->Id;
+            ?>' );<?php
         }
     }
 ?>
