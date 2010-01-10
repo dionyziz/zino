@@ -75,6 +75,7 @@
                 ?>';
                 Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
                 Puffin.clickable( $( content ).find( 'a' )[ 0 ] );
+                Puffin.clickable( $( content ).find( 'ul' )[ 0 ] );
                 $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
                     return function () {
                         me.hide();
