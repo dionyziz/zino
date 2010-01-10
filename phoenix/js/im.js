@@ -6,7 +6,7 @@ var IM = {
         }
 
         if ( $( '#im_' + channel ).length == 0 ) {
-            var content = '<div class="imwindow">
+            var content = '<div class="imwindow">'
                 + '<h3><a href="" class="close">&times;</a>'
                 + who.name
                 + '</h3><ul></ul>'
