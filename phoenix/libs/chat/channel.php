@@ -282,7 +282,7 @@
             WHERE
                 participant_channelid = :channelid'
         );
-        $query->BindTable( 'chaparticipants' );
+        $query->BindTable( 'chatparticipants' );
         $query->Bind( 'channelid', $channelid );
         $query->Execute();
     }
