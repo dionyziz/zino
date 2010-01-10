@@ -294,7 +294,7 @@ var Profile = {
                 f: function ( channel ) {
                     var content = '<div class="imwindow">'
                         + '<h3><a href="" class="close">&#215;</a>'
-                        + who.name
+                        + username
                         + '</h3><ul></ul>'
                         + '<div class="typehere"><textarea></textarea></div>'
                     + '</div>';
