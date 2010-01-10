@@ -221,4 +221,7 @@ div.video ol {
 .imwindow textarea {
     color: black;
 }
+.imwindow div.text {
+    display: inline;
+}
 
