@@ -68,7 +68,7 @@
                 </div><?php
                 ob_start();
                 ?>
-                IM.createWindow( <?php
+                IM.CreateWindow( <?php
                 echo $id;
                 ?>, <?php
                 echo $channel[ 'x' ];
