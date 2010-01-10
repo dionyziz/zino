@@ -5,6 +5,10 @@
             global $libs;
             global $page;
 
+            if ( !$user->Exists() ) {
+                return;
+            }
+
             $libs->Load( 'chat/channel' );
 
             $channels = ChannelFinder::FindByUserid( $user->Id );
@@ -158,6 +162,7 @@
                 $page->AttachInlineScript( ob_get_clean() );
                 ++$i;
             }
+            ob_start();
             ?>
             Comet.Subscribe( 'FrontpageShoutboxNew<?php
             echo $user->Id;
@@ -165,6 +170,7 @@
             Comet.Subscribe( 'FrontpageShoutboxTyping<?php
             echo $user->Id;
             ?>' );<?php
+            $page->AttachInlineScript( ob_get_clean() );
         }
     }
 ?>
