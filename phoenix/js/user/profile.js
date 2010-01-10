@@ -287,10 +287,10 @@ var Profile = {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
 		Profile.Abuse.Init( username );
-        $( '#privatemessage a' ).click(
+        $( '#privatemessage a' ).click( function () {
             Coala.Warm( 'chat/window/new', { target: username } );
             return false;
-        );
+        } );
     },
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
