@@ -40,8 +40,10 @@
                 ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
                 ?></h3>
-                <textarea></textarea><?php
-                ?></div><?php
+                <div class="typehere">
+                    <textarea></textarea>
+                </div>
+                </div><?php
                 ob_start();
                 ?>var chatWindow = Puffin.create();
                 chatWindow.move( <?php
@@ -61,6 +63,7 @@
                 echo $id;
                 ?>';
                 Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
+                Puffin.clickable( $( content ).find( 'a' )[ 0 ] );
                 $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
                     return function () {
                         me.hide();

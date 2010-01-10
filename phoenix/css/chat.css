@@ -63,6 +63,10 @@ div.typehere {
 	right: 27px;
 	margin: 10px auto;
 }
+.imwindow div.typehere {
+    left: 0;
+    right: 0;
+}
 .channelmessages {
 	position: fixed;
 	top: 25px;
