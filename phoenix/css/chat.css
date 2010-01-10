@@ -218,3 +218,7 @@ div.video ol {
     left: 2px;
     right: 2px;
 }
+.imwindow textarea {
+    color: black;
+}
+

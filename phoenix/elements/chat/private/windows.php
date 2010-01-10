@@ -43,11 +43,13 @@
                 <ul>
                     <?php
                     foreach ( $channel[ 'history' ] as $message ) {
-                        ?><li><strong><?php
+                        ?><li id="s_<?php
+                        echo $message[ 'id' ];
+                        ?>"><strong><?php
                         echo $message[ 'name' ];
-                        ?></strong> <?php
-                        echo $message[ 'text' ];
-                        ?></li><?php
+                        ?></strong> <div class="text"><?php
+                        echo $message[ 'text' ]; // XHTML sane
+                        ?></div></li><?php
                     }
                     ?>
                 </ul>
@@ -106,6 +108,42 @@
                         h: h
                     } );
                 };
+                $( content ).find( 'textarea' ).keydown( function( e ) {
+                    var code;
+                    if ( !e ) {
+                        var e = window.event;
+                    }
+                    if ( e.keyCode ) {
+                        code = e.keyCode; 
+                    }
+                    else if ( e.which ) {
+                        code = e.which;
+                    }
+                    else {
+                        return;
+                    }
+                    if ( code == 13 ) { // enter
+                        var li = document.createElement( 'li' );
+                        var text = document.createElement( 'div' );
+                        var strong = document.createElement( 'strong' );
+                        strong.appendChild( document.createTextNode( '<?php
+                        echo $user->Name;
+                        ?>' ) );
+                        text.className = 'text';
+                        text.appendChild( this.value );
+                        li.appendChild( strong );
+                        li.appendChild( document.createTextNode( ' ' ) );
+                        li.appendChild( text );
+                        $( this.parentNode.parentNode ).find( 'ul' )[ 0 ].appendChild( li );
+                        Coala.Warm( 'shoutbox/new', {
+                            text: this.value,
+                            channel: <?php
+                            echo $id;
+                            ?>,
+                            node: li
+                        } );
+                    }
+                } );
                 chatWindow.show();
                 <?php
                 $page->AttachInlineScript( ob_get_clean() );

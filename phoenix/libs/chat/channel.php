@@ -76,7 +76,7 @@
                     */
                     $query = $db->Prepare(
                         'SELECT
-                            user_name, bulk_text
+                            shout_id, user_name, bulk_text
                         FROM
                             :shoutbox
                             CROSS JOIN :bulk
@@ -95,6 +95,7 @@
                     $channels[ $row[ 'channel_id' ] ][ 'history' ] = array();
                     while ( $message = $res2->FetchArray() ) {
                         $channels[ $row[ 'channel_id' ] ][ 'history' ][] = array(
+                            'id' => $message[ 'shout_id' ],
                             'name' => $message[ 'user_name' ],
                             'text' => $message[ 'bulk_text' ]
                         );
