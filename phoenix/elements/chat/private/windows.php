@@ -124,16 +124,15 @@
                         return;
                     }
                     if ( code == 13 ) { // enter
-                        // ---
                         var li = document.createElement( 'li' );
                         var text = document.createElement( 'div' );
                         var strong = document.createElement( 'strong' );
                         strong.appendChild( document.createTextNode( '<?php
                         echo $user->Name;
                         ?>' ) );
-                        document.title = 'Hit ' + this.value;
+                        // ---
                         text.className = 'text';
-                        text.appendChild( this.value );
+                        text.appendChild( document.createTextNode( this.value ) );
                         li.appendChild( strong );
                         li.appendChild( document.createTextNode( ' ' ) );
                         li.appendChild( text );
