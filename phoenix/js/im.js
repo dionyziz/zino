@@ -34,14 +34,13 @@ var IM = {
         li.scrollIntoView();
     },
     CreateWindow: function ( id, x, y, w, h, winContent ) {
-        console.log( winContent );
-
         var chatWindow = Puffin.create();
 
         chatWindow.move( x, y );
         chatWindow.resize( w, h );
         var content = chatWindow.setContent( winContent );
         content.id = 'im_' + id;
+        console.log( content );
         Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
         Puffin.clickable( $( content ).find( 'a' )[ 0 ] );
         Puffin.clickable( $( content ).find( 'ul' )[ 0 ] );
