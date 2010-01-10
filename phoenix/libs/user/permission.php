@@ -61,4 +61,6 @@
    define( 'PERMISSION_SONG_CREATE', 50 );
    define( 'PERMISSION_SONG_EDIT', 50 );
    define( 'PERMISSION_SONG_DELETE', 50 );
+
+   define( 'PERMISSION_CHAT_VIEW', 60 );
 ?>

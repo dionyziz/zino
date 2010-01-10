@@ -25,8 +25,8 @@
             <div class="interests"><?php
                 Element( 'user/profile/sidebar/interests' , $theuser );
             ?></div>
-            <div id="privatemessage">
-                <a href="" onclick="return false">Συζήτησε</a>
+            <div id="privatemessage" style="display:none">
+                <a href="">Συζήτησε</a>
             </div>
             <div class="contacts"><?php
                 /*Removed by: Chorvus

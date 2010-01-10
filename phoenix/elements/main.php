@@ -150,9 +150,10 @@
                 }
             }
 
-            if ( $user->Id == 1 ) {
+            if ( $user->HasPermission( PERMISSION_CHAT_VIEW ) ) {
                 Element( 'chat/private/windows' );
             }
+
             Element( 'statistics/log', $masterelement );
             $libs->Load( 'memoryusage' );//<collecting memory usage information
             CheckMemoryUsage();
