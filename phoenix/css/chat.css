@@ -190,6 +190,9 @@ div.video ol {
 }
 /* Begin IM */
 .imwindow h3 {
+    background-image: url('http://static.zino.gr/phoenix/windowtitle.jpg');
+    background-repeat: repeat-x;
+    background-position: top;
     background-color: #789;
     color: white;
     font-size: 100%;
