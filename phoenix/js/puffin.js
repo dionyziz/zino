@@ -148,13 +148,18 @@ var Puffin = {
                 ++Puffin.currentZ;
             },
             setContent: function ( node ) {
-                var content = node.cloneNode( true );
-                content.style.display = 'block';
-                this.div.appendChild( content );
+                if ( typeof node == 'string' ) {
+                    this.div.innerHTML = node;
+                }
+                else {
+                    var content = node.cloneNode( true );
+                    content.style.display = 'block';
+                    this.div.appendChild( content );
+                }
 
-                // return cloned node; can be used to manipulate particular window contents
+                // return the winow div node; can be used to manipulate particular window contents
                 // that require the returned puffin window object (e.g. a close link)
-                return content;
+                return this.div;
             },
             hide: function () {
                 this.visible = false;
