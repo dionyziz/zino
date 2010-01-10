@@ -11,6 +11,7 @@ var IM = {
         li.appendChild( div );
         li.id = 's_' + shoutid;
         $( '#im_' + channel + ' ul' )[ 0 ].appendChild( li );
+        li.scrollIntoView();
     }
 };
 
