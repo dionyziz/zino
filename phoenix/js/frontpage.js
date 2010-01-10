@@ -291,6 +291,9 @@ var Frontpage = {
             if ( who.name == whoami ) {
                 return;
             }
+            if ( channel != 0 ){
+                return;
+            }
             
             Frontpage.Shoutbox.OnStopTyping( { 'name': who.name } );
             
