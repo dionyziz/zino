@@ -14,7 +14,7 @@ if ( typeof Frontpage == 'undefined' ) {
 else {
     Frontpage.Shoutbox.OnMessageArrival = ( function ( old ) {
         return function ( shoutid, text, who, channel ) {
-            old();
+            old( shoutid, text, who, channel );
             IM.OnMessageArrival( shoutid, text, who, channel );
         };
     } )( Frontpage.Shoutbox.OnMessageArrival );
