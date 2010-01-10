@@ -204,4 +204,12 @@ div.video ol {
 .imwindow a.close:hover {
     opacity: 1;
 }
-
+.imwindow ul {
+    padding: 5px;
+    overflow: auto;
+    background-color: white;
+    margin: 5px;
+    position: absolute;
+    top: 25px;
+    bottom: 60px;
+}
