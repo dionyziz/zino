@@ -174,7 +174,11 @@ var Puffin = {
                         if ( !e ) {
                             e = window.event;
                         }
-                        document.title = e.throughClickableElement? 'true': 'false';
+                        if ( e.throughClickableElement ) {
+                            // do not allow window move initiation when user clicks on "clickable" in-window
+                            // elements such as textboxes or links
+                            return;
+                        }
                         me.focus()
 
                         // position of mouse within window
