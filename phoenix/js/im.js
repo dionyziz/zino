@@ -6,6 +6,7 @@ var IM = {
         }
 
         if ( $( '#im_' + channel ).length == 0 ) {
+            console.log( 'Creating new window' );
             var content = '<div class="imwindow">'
                 + '<h3><a href="" class="close">&times;</a>'
                 + who.name
@@ -13,6 +14,9 @@ var IM = {
                 + '<div class="typehere"><textarea></textarea></div>'
             + '</div>';
             IM.CreateWindow( channel, 0, 0, 300, 300, content );
+        }
+        else {
+            console.log( 'Updating existing window' );
         }
 
         var li = document.createElement( 'li' );
