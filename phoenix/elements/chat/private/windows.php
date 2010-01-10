@@ -108,7 +108,7 @@
                         h: h
                     } );
                 };
-                $( content ).find( 'textarea' ).keydown( function( e ) {
+                $( content ).find( 'textarea' ).keyup( function( e ) {
                     var code;
 
                     if ( !e ) {
@@ -144,6 +144,7 @@
                             ?>,
                             node: li
                         } );
+                        this.value = '';
                     }
                 } );
                 chatWindow.show();
