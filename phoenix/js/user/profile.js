@@ -287,6 +287,9 @@ var Profile = {
             $( 'div.ads' )[ 0 ].innerHTML = html;
         } } );
 		Profile.Abuse.Init( username );
+        $( '#privatemessage a' ).click(
+            Coala.Warm( 'chat/channel/new', { target: username } );
+        );
     },
     MyProfileOnLoad: function () {
 		Profile.Mine = true;
