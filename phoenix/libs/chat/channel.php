@@ -256,7 +256,7 @@
             $query = $db->Prepare(
                 'INSERT INTO
                     :chatparticipants
-                ( participant_userid, participant_channelid, participant_active, praticipant_joined ) VALUES
+                ( participant_userid, participant_channelid, participant_active, participant_joined ) VALUES
                 ( :userid1, :channelid, :active1, NOW() ), ( :userid2, :channelid, :active2, NOW() )'
             );
             $query->BindTable( 'chatparticipants' );
