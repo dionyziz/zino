@@ -166,7 +166,9 @@ var Puffin = {
             },
             setContent: function ( node ) {
                 if ( typeof node == 'string' ) {
+                    console.log( 'Setting direct HTML content' );
                     this.div.innerHTML = node;
+                    console.log( 'Set direct HTML content' );
                 }
                 else {
                     var content = node.cloneNode( true );
