@@ -110,6 +110,7 @@
                 };
                 $( content ).find( 'textarea' ).keydown( function( e ) {
                     var code;
+
                     if ( !e ) {
                         var e = window.event;
                     }
@@ -122,6 +123,7 @@
                     else {
                         return;
                     }
+                    document.title = 'Hit ' + code;
                     if ( code == 13 ) { // enter
                         var li = document.createElement( 'li' );
                         var text = document.createElement( 'div' );
