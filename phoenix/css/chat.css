@@ -64,8 +64,9 @@ div.typehere {
 	margin: 10px auto;
 }
 .imwindow div.typehere {
-    left: 0;
-    right: 0;
+    left: 6px;
+    right: 14px;
+    position: absolute;
 }
 .channelmessages {
 	position: fixed;
