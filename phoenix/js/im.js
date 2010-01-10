@@ -29,12 +29,12 @@ var IM = {
         $( '#im_' + channel + ' ul' )[ 0 ].appendChild( li );
         li.scrollIntoView();
     },
-    CreateWindow: function ( id, x, y, w, h, content ) {
+    CreateWindow: function ( id, x, y, w, h, winContent ) {
         var chatWindow = Puffin.create();
 
         chatWindow.move( x, y );
         chatWindow.resize( w, h );
-        var content = chatWindow.setContent( content );
+        var content = chatWindow.setContent( winContent );
         content.id = 'im_' + id;
         Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
         Puffin.clickable( $( content ).find( 'a' )[ 0 ] );
