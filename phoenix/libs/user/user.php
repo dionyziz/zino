@@ -135,6 +135,37 @@
         public function FindLatest() {
             return $this->FindByPrototype( New User(), 0, 25, array( 'Created', 'DESC' ) );
         }
+        public function SearchOnline( $namestart, $offset = 0, $limit = 1000 ) {
+            global $xc_settings;
+
+            $query = $this->mDb->Prepare( 
+                "SELECT
+                    :users.*, :images.*, :userprofiles.`profile_moodid`, :userprofiles.`profile_slogan`, :moods.*
+                FROM
+                    :users
+                    CROSS JOIN :lastactive ON
+                        `user_id` = `lastactive_userid`
+                    LEFT JOIN :images ON
+                        `user_avatarid` = `image_id`
+                    LEFT JOIN :userprofiles ON
+                        `user_id` = `profile_userid`
+                    LEFT JOIN :moods ON
+                        `mood_id` = `profile_moodid`
+                WHERE
+                    `user_name` LIKE ':namestart%'
+                ORDER BY
+                    `lastactive_updated` DESC
+                LIMIT
+                    :offset, :limit'"
+            );
+
+            $query->BindTable( 'users', 'lastactive', 'images', 'userprofiles', 'moods' );
+            $query->BindLike( 'namestart', $namestart );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            return $query->Execute()->MakeArray();
+        }
         public function FindOnlineWithDetails( $offset = 0, $limit = 1000 ) {
             // NEW OnlineNowFinder 
             // TODO: user-specific order
