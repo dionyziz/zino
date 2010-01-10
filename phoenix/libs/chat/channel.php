@@ -92,8 +92,9 @@
                     $query->BindTable( 'shoutbox', 'bulk', 'users' );
                     $query->Bind( 'channelid', $row[ 'channel_id' ] );
                     $res2 = $query->Execute();
+                    $channels[ $row[ 'channel_id' ] ][ 'history' ] = array();
                     while ( $message = $res2->FetchArray() ) {
-                        $channels[ $row[ 'channel_id' ] ][ 'message' ] = array(
+                        $channels[ $row[ 'channel_id' ] ][ 'history' ][] = array(
                             'name' => $message[ 'user_name' ],
                             'text' => $message[ 'bulk_text' ]
                         );
