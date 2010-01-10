@@ -40,18 +40,18 @@
                 ?><h3><a href="" class="close">&times;</a><?php
                 echo $title;
                 ?></h3>
+                <ul>
+                    <?php
+                    foreach ( $channel[ 'history' ] as $message ) {
+                        ?><li><strong><?php
+                        echo $message[ 'name' ];
+                        ?></strong> <?php
+                        echo $message[ 'text' ];
+                        ?></li><?php
+                    }
+                    ?>
+                </ul>
                 <div class="typehere">
-                    <ul>
-                        <?php
-                        foreach ( $channel[ 'history' ] as $message ) {
-                            ?><li><strong><?php
-                            echo $message[ 'name' ];
-                            ?></strong> <?php
-                            echo $message[ 'text' ];
-                            ?></li><?php
-                        }
-                        ?>
-                    </ul>
                     <textarea></textarea>
                 </div>
                 </div><?php
