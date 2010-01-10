@@ -41,6 +41,17 @@
                 echo $title;
                 ?></h3>
                 <div class="typehere">
+                    <ul>
+                        <?php
+                        foreach ( $channel[ 'history' ] as $message ) {
+                            ?><li><strong><?php
+                            echo $message[ 'name' ];
+                            ?></strong> <?php
+                            echo $message[ 'text' ];
+                            ?></li><?php
+                        }
+                        ?>
+                    </ul>
                     <textarea></textarea>
                 </div>
                 </div><?php

@@ -64,6 +64,39 @@
                         'w' => $row[ 'w' ], 'h' => $row[ 'h' ],
 						'participants' => array()
 					);
+                    /*
+                        TODO: Optimize; use a secondary table called
+                              chatrecent that contains the most recent 10
+                              messages from each channelid, so that we can
+                              do just one query with a WHERE channel_id IN ( .. ) LIMIT 10 * N
+                              clause.
+
+                        TODO: Optimize; do not join with bulk table directly; use
+                              one more query with an IN clause.
+                    */
+                    $query = $db->Prepare(
+                        'SELECT
+                            user_name, bulk_text
+                        FROM
+                            :shoutbox
+                            CROSS JOIN :bulk
+                                ON shout_bulkid = bulk_id
+                            CROSS JOIN :users
+                                ON shout_userid = user_id
+                        WHERE
+                            shout_channelid = :channelid
+                        ORDER BY
+                            shout_id DESC
+                        LIMIT 10'
+                    );
+                    $query->BindTable( 'shoutbox', 'bulk' );
+                    $query->Bind( 'channelid', $row[ 'channel_id' ] );
+                    while ( $message = $res->FetchArray() ) {
+                        $channels[ $row[ 'channel_id' ] ][ 'message' ] = array(
+                            'name' => $message[ 'user_name' ],
+                            'text' => $message[ 'bulk_text' ]
+                        );
+                    }
 				}
 				$channels[ $row[ 'channel_id' ] ][ 'participants' ][] = array(
 					'id' => $row[ 'user_id' ],
@@ -71,6 +104,7 @@
 					'avatar' => $row[ 'user_avatarid' ]
 				);
 			}
+
 			
 			return $channels;
 		}
