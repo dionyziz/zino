@@ -13,9 +13,9 @@ if ( typeof Frontpage == 'undefined' ) {
 }
 else {
     Frontpage.Shoutbox.OnMessageArrival = ( function ( old ) {
-        return function ( id, name, avatar, subdomain ) {
+        return function ( shoutid, text, who, channel ) {
             old();
-            IM.OnMessageArrival();
+            IM.OnMessageArrival( shoutid, text, who, channel );
         };
     } )( Frontpage.Shoutbox.OnMessageArrival );
 }
