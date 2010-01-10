@@ -51,9 +51,7 @@
                 <ul>
                     <?php
                     foreach ( $channel[ 'history' ] as $message ) {
-                        ?><li id="s_<?php
-                        echo $message[ 'id' ];
-                        ?>"><strong><?php
+                        ?><li><strong><?php
                         echo $message[ 'name' ];
                         ?></strong> <div class="text"><?php
                         echo $message[ 'text' ]; // XHTML sane
