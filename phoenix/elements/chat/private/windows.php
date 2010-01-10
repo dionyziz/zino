@@ -26,6 +26,8 @@
             ?>var User = '<?php
             echo $user->Name;
             ?>';<?php
+            $page->AttachInlineScript( ob_get_clean() );
+
             Element( 'comet/init' );
 
             $i = 0;
