@@ -8,7 +8,7 @@ var IM = {
         if ( $( '#im_' + channel ).length == 0 ) {
             console.log( 'Creating new window' );
             var content = '<div class="imwindow">'
-                + '<h3><a href="" class="close">&times;</a>'
+                + '<h3><a href="" class="close">&#215;</a>'
                 + who.name
                 + '</h3><ul></ul>'
                 + '<div class="typehere"><textarea></textarea></div>'
