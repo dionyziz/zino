@@ -33,7 +33,7 @@
 
 var Puffin = {
     clickable: function ( element ) {
-        element.addEventListener( 'mousemove', function ( e ) {
+        element.addEventListener( 'mousedown', function ( e ) {
             if ( !e ) {
                 var e = window.event;
             }
@@ -174,6 +174,7 @@ var Puffin = {
                         if ( !e ) {
                             e = window.event;
                         }
+                        document.title = e.throughClickableElement? 'true': 'false';
                         me.focus()
 
                         // position of mouse within window
