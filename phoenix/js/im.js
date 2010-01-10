@@ -21,7 +21,7 @@ var IM = {
 
         div.className = 'text';
         strong.appendChild( document.createTextNode( who.name ) );
-        div.appendChild( document.createTextNode( text ) );
+        div.innerHTML = text;
         li.appendChild( strong );
         li.appendChild( document.createTextNode( ' ' ) );
         li.appendChild( div );
