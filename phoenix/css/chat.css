@@ -212,4 +212,6 @@ div.video ol {
     position: absolute;
     top: 25px;
     bottom: 60px;
+    left: 2px;
+    right: 2px;
 }
