@@ -100,6 +100,7 @@
                             'text' => $message[ 'bulk_text' ]
                         );
                     }
+                    $channels[ $row[ 'channel_id' ] ][ 'history' ] = array_reverse( $channels[ $row[ 'channel_id' ] ][ 'history' ] );
 				}
 				$channels[ $row[ 'channel_id' ] ][ 'participants' ][] = array(
 					'id' => $row[ 'user_id' ],
