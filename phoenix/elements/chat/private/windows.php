@@ -24,7 +24,7 @@
 
             $i = 0;
 
-            // Element( 'comet/init' );
+            Element( 'comet/init' );
 
             foreach ( $channels as $id => $channel ) {
                 ?><div class="imwindow" style="display:none"><?php
@@ -166,9 +166,13 @@
             ?>
             Comet.Subscribe( 'FrontpageShoutboxNew<?php
             echo $user->Id;
+            ?>x<?php
+            echo $user->Authtoken;
             ?>' );
             Comet.Subscribe( 'FrontpageShoutboxTyping<?php
             echo $user->Id;
+            ?>x<?php
+            echo $user->Authtoken;
             ?>' );<?php
             $page->AttachInlineScript( ob_get_clean() );
         }
