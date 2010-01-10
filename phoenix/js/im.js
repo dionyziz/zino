@@ -80,7 +80,7 @@ var IM = {
                 var li = document.createElement( 'li' );
                 var text = document.createElement( 'div' );
                 var strong = document.createElement( 'strong' );
-                strong.appendChild( document.createTextNode( User );
+                strong.appendChild( document.createTextNode( User ) );
                 text.className = 'text';
                 text.appendChild( document.createTextNode( this.value ) );
                 li.appendChild( strong );
