@@ -80,7 +80,7 @@ var Puffin = {
             x: 0, y: 0, w: 0, h: 0, visible: false,
             movable: true, moving: false, resizing: false,
             minw: Puffin.c.MIN_W, minh: Puffin.c.MIN_H,
-            restrict: function ( minw, minh ) {
+            minSize: function ( minw, minh ) {
                 this.minw = minw;
                 this.minh = minh;
             },

@@ -148,7 +148,7 @@
                         this.value = '';
                     }
                 } );
-                chatWindow.restrict( 139, 25 );
+                chatWindow.minSize( 139, 25 );
                 chatWindow.show();
                 <?php
                 $page->AttachInlineScript( ob_get_clean() );

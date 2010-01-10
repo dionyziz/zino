@@ -198,6 +198,10 @@ div.video ol {
     font-size: 100%;
     padding: 5px;
     margin-top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 .imwindow a.close {
     float: right;
@@ -224,4 +228,3 @@ div.video ol {
 .imwindow div.text {
     display: block;
 }
-
