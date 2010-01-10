@@ -33,7 +33,7 @@
 
 var Puffin = {
     clickable: function ( element ) {
-        element.addEventListener( 'mousedown', function ( e ) {
+        Puffin.attachEvent( element, 'mousedown', function ( e ) {
             if ( !e ) {
                 var e = window.event;
             }
@@ -73,6 +73,23 @@ var Puffin = {
         DIMENSION_VERTICAL: 2,
         MIN_W: 20,
         MIN_H: 20,
+    },
+    attachEvent: function ( obj, onwhat, dowhat ) {
+        var f;
+        if ( typeof obj.addEventListener == 'undefined' ) {
+            if ( typeof obj[ 'on' + onwhat ] == 'undefined' ) {
+                f = obj[ 'on' + onwhat ];
+            }
+            else {
+                f = function () {};
+            }
+            obj[ 'on' + onwhat ] = function() {
+                f();
+                dowhat();
+            };
+            return;
+        }
+        obj.addEventListener( onwhat, dowhat, false );
     },
     create: function () {
         var obj = {
@@ -179,7 +196,7 @@ var Puffin = {
                 this.div = document.createElement( 'div' );
                 this.div.className = 'puffin';
                 this.focus();
-                this.div.addEventListener( 'mousedown', ( function( me ) {
+                Puffin.attachEvent( this.div, 'mousedown', ( function( me ) {
                     return function( e ) {
                         if ( !e ) {
                             e = window.event;
@@ -233,7 +250,7 @@ var Puffin = {
                         return false;
                     };
                 } )( this, f );
-                document.addEventListener( 'mousemove', ( function( me, f ) {
+                Puffin.attachEvent( document, 'mousemove', ( function( me, f ) {
                     return function( e ) {
                         if ( !e ) {
                             e = window.event;
