@@ -123,8 +123,8 @@
                     else {
                         return;
                     }
-                    document.title = 'Hit ' + code;
                     if ( code == 13 ) { // enter
+                        document.title = 'Hit ' + this.value;
                         var li = document.createElement( 'li' );
                         var text = document.createElement( 'div' );
                         var strong = document.createElement( 'strong' );
