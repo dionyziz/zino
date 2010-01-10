@@ -37,10 +37,7 @@ var Puffin = {
             if ( !e ) {
                 var e = window.event;
             }
-            e.cancelBubble = true;
-            if ( e.stopPropagation ) {
-                e.stopPropagation();
-            }
+            e.throughClickableElement = true;
         }, false );
     },
     currentZ: 100, // starting Z-index
@@ -221,10 +218,6 @@ var Puffin = {
                         return false;
                     };
                 } )( this, f );
-                var f = function () {};
-                if ( typeof document.onmousemove == 'function' ) {
-                    var f = document.onmousemove;
-                }
                 document.addEventListener( 'mousemove', ( function( me, f ) {
                     return function( e ) {
                         if ( !e ) {
@@ -265,7 +258,6 @@ var Puffin = {
                             }
                             me.move( x, y );
                         }
-                        f( e );
                         return false;
                     };
                 } )( this, f ), false );
