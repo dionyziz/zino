@@ -14,6 +14,7 @@ if ( typeof Frontpage == 'undefined' ) {
 else {
     Frontpage.Shoutbox.OnMessageArrival = ( function ( old ) {
         return function ( shoutid, text, who, channel ) {
+            alert( who.name );
             old( shoutid, text, who, channel );
             IM.OnMessageArrival( shoutid, text, who, channel );
         };
