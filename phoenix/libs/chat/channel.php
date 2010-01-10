@@ -210,7 +210,7 @@
                 CROSS JOIN :chatparticipants AS two
                     ON channel_id = two.participant_channelid
                     AND two.participant_userid = :userid2
-                CROSS JOIN :chatparticipants AS others
+                LEFT JOIN :chatparticipants AS others
                     ON channel_id = others.participant_channelid
                     AND NOT others.participant_userid IN ( :userid1, :userid2 )
             WHERE

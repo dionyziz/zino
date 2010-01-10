@@ -6,7 +6,6 @@ var IM = {
         }
 
         if ( $( '#im_' + channel ).length == 0 ) {
-            console.log( 'Creating new window' );
             var content = '<div class="imwindow">'
                 + '<h3><a href="" class="close">&#215;</a>'
                 + who.name
@@ -14,9 +13,6 @@ var IM = {
                 + '<div class="typehere"><textarea></textarea></div>'
             + '</div>';
             IM.CreateWindow( channel, 0, 0, 300, 300, content );
-        }
-        else {
-            console.log( 'Updating existing window' );
         }
 
         var li = document.createElement( 'li' );
@@ -40,7 +36,6 @@ var IM = {
         chatWindow.resize( w, h );
         var content = chatWindow.setContent( winContent );
         content.id = 'im_' + id;
-        console.log( content );
         Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
         Puffin.clickable( $( content ).find( 'a' )[ 0 ] );
         Puffin.clickable( $( content ).find( 'ul' )[ 0 ] );
