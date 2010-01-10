@@ -124,18 +124,20 @@
                         return;
                     }
                     if ( code == 13 ) { // enter
+                        // ---
                         var li = document.createElement( 'li' );
                         var text = document.createElement( 'div' );
                         var strong = document.createElement( 'strong' );
                         strong.appendChild( document.createTextNode( '<?php
                         echo $user->Name;
                         ?>' ) );
+                        document.title = 'Hit ' + this.value;
                         text.className = 'text';
                         text.appendChild( this.value );
                         li.appendChild( strong );
                         li.appendChild( document.createTextNode( ' ' ) );
                         li.appendChild( text );
-                        document.title = 'Hit ' + this.value;
+                        // ---
                         $( this.parentNode.parentNode ).find( 'ul' )[ 0 ].appendChild( li );
                         Coala.Warm( 'shoutbox/new', {
                             text: this.value,
