@@ -89,7 +89,7 @@
                             shout_id DESC
                         LIMIT 10'
                     );
-                    $query->BindTable( 'shoutbox', 'bulk' );
+                    $query->BindTable( 'shoutbox', 'bulk', 'users' );
                     $query->Bind( 'channelid', $row[ 'channel_id' ] );
                     $res2 = $query->Execute();
                     while ( $message = $res2->FetchArray() ) {
