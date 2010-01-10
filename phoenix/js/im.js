@@ -34,6 +34,8 @@ var IM = {
         li.scrollIntoView();
     },
     CreateWindow: function ( id, x, y, w, h, winContent ) {
+        console.log( winContent );
+
         var chatWindow = Puffin.create();
 
         chatWindow.move( x, y );
