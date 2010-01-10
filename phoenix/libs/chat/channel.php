@@ -270,4 +270,20 @@
         
         return $channelid;
     }
+
+    function Chat_Activate( $channelid ) {
+        global $db;
+
+        $query = $db->Prepare(
+            'UPDATE
+                :chatparticipants
+            SET
+                participant_active = 1
+            WHERE
+                participant_channelid = :channelid'
+        );
+        $query->BindTable( 'chaparticipants' );
+        $query->Bind( 'channelid', $channelid );
+        $query->Execute();
+    }
 ?>

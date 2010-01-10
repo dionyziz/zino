@@ -12,7 +12,7 @@ var IM = {
                 + '</h3><ul></ul>'
                 + '<div class="typehere"><textarea></textarea></div>'
             + '</div>';
-
+            IM.CreateWindow( channel, 0, 0, 300, 300, content );
         }
 
         var li = document.createElement( 'li' );

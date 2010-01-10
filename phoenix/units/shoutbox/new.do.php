@@ -15,12 +15,20 @@
             return;
         }
         
-        if ( trim ( $text ) == '' ) {
+        if ( trim( $text ) == '' ) {
             ?>alert( "Δεν μπορείς να δημοσιεύσεις κενό μήνυμα" );
             window.location.reload();<?php
             return;
         }
-        
+
+        if ( $channel > 0 ) {
+            $libs->Load( 'chat/channel' );
+            if ( !ChannelFinder::Auth( $channel, $user->Id ) ) {
+                return;
+            }
+            Chat_Activate( $channel );
+        }
+
         $shout = New Shout();
         $shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
 		$shout->Channelid = $channel; // TODO: ensure only participants can send messages
