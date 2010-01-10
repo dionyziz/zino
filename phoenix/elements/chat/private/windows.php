@@ -167,12 +167,12 @@
             Comet.Subscribe( 'FrontpageShoutboxNew<?php
             echo $user->Id;
             ?>x<?php
-            echo $user->Authtoken;
+            echo substr( $user->Authtoken, 0, 10 );
             ?>' );
             Comet.Subscribe( 'FrontpageShoutboxTyping<?php
             echo $user->Id;
             ?>x<?php
-            echo $user->Authtoken;
+            echo substr( $user->Authtoken, 0, 10 );
             ?>' );<?php
             $page->AttachInlineScript( ob_get_clean() );
         }
