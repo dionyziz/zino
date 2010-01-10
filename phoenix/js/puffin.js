@@ -32,14 +32,16 @@
 */
 
 var Puffin = {
-    clickable: function ( e ) {
-        if ( !e ) {
-            var e = window.event;
-        }
-        e.cancelBubble = true;
-        if ( e.stopPropagation ) {
-            e.stopPropagation();
-        }
+    clickable: function ( element ) {
+        element.addEventListener( 'mousemove', function ( e ) {
+            if ( !e ) {
+                var e = window.event;
+            }
+            e.cancelBubble = true;
+            if ( e.stopPropagation ) {
+                e.stopPropagation();
+            }
+        }, false );
     },
     currentZ: 100, // starting Z-index
     clientWidth: function () {

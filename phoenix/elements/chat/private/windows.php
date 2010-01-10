@@ -60,7 +60,7 @@
                 content.id = 'im_<?php
                 echo $id;
                 ?>';
-                $( content ).find( 'textarea' )[ 0 ].addEventListener( 'mousemove', Puffin.clickable, false );
+                Puffin.clickable( $( content ).find( 'textarea' )[ 0 ] );
                 $( content ).find( 'a' )[ 0 ].onclick = ( function ( me ) {
                     return function () {
                         me.hide();
