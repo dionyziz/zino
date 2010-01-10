@@ -1,6 +1,6 @@
 var IM = {
     OnMessageArrival: function ( shoutid, text, who, channel ) {
-        window.title = 'Message received from ' + who.name + ': ' + text;
+        document.title = 'Message received from ' + who.name + ': ' + text;
     }
 };
 
