@@ -79,6 +79,11 @@ var Puffin = {
             div: null,
             x: 0, y: 0, w: 0, h: 0, visible: false,
             movable: true, moving: false, resizing: false,
+            minw: Puffin.c.MIN_W, minh: Puffin.c.MIN_H,
+            restrict: function ( minw, minh ) {
+                this.minw = minw;
+                this.minh = minh;
+            },
             move: function ( x, y ) {
                 // check window is within boundaries
                 if ( x < 0 ) {
@@ -110,11 +115,11 @@ var Puffin = {
                 return ret;
             },
             resize: function ( w, h ) {
-                if ( w < Puffin.c.MIN_W ) {
-                    w = Puffin.c.MIN_W;
+                if ( w < this.minw ) {
+                    w = this.minw;
                 }
-                if ( h < Puffin.c.MIN_H ) {
-                    h = Puffin.c.MIN_H;
+                if ( h < this.minh ) {
+                    h = this.minh;
                 }
                 if ( w > this.maxx ) {
                     w = this.maxx;
