@@ -124,7 +124,6 @@
                         return;
                     }
                     if ( code == 13 ) { // enter
-                        document.title = 'Hit ' + this.value;
                         var li = document.createElement( 'li' );
                         var text = document.createElement( 'div' );
                         var strong = document.createElement( 'strong' );
@@ -136,6 +135,7 @@
                         li.appendChild( strong );
                         li.appendChild( document.createTextNode( ' ' ) );
                         li.appendChild( text );
+                        document.title = 'Hit ' + this.value;
                         $( this.parentNode.parentNode ).find( 'ul' )[ 0 ].appendChild( li );
                         Coala.Warm( 'shoutbox/new', {
                             text: this.value,
