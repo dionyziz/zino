@@ -84,6 +84,9 @@ body {
 	padding: 3px 0 3px 0;
 	vertical-align: middle;
 }
+#notifications li .addfriend, #notifications li .viewprofile {
+    line-height: 125%;
+}
 #notifications li img {
 	float: left;
 	margin-right: 5px;
@@ -419,7 +422,7 @@ a.minimize {
 	right: 25px;
 }
 #frontpage li span {
-	color: #aaa;
+	color: #777;
 }
 #stream {
 	font-size: 100%;
