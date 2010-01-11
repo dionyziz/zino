@@ -12,7 +12,7 @@
                     case EVENT_COMMENT_CREATED:
                         Element( 'notify/type/comment', $notif->Item );
                     case EVENT_FRIENDRELATION_CREATED:
-                        Element( 'notify/type/relation' );
+                        Element( 'notify/type/relation', $notif );
                     case EVENT_IMAGETAG_CREATED:
                         Element( 'notify/type/imagetag' );
                     case EVENT_FAVOURITE_CREATED:
