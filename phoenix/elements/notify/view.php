@@ -8,6 +8,7 @@
             ?><li>
                 <a href="" class="remove" alt="X" title="Απόκρυψη ενημέρωσης">X</a>
                 <?php
+                echo (string) $notif->Typeid . "\n";
                 switch ( $notif->Typeid ) {
                     case EVENT_COMMENT_CREATED:
                         Element( 'notify/type/comment', $notif->Item );
