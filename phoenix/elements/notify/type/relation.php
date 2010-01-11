@@ -12,7 +12,7 @@
             else {
                 ?>Ο<?php
             }
-            ?><span class="username"><?php
+            ?> <span class="username"><?php
                 echo htmlspecialchars( $notif->FromUser->Name );
             ?></span>
             σε πρόσθεσε στους φίλους<?php
@@ -26,7 +26,7 @@
                 echo $notif->Id;
                 ?>' , '<?php
                 echo $notif->Fromuserid;
-                ?>' )"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ τ<?php
+                ?>' )">Πρόσθεσέ τ<?php
                 if ( $notif->FromUser->Gender == 'f' ) {
                     ?>η<?php
                 }
