@@ -16,13 +16,13 @@
                 ?><span class="username"><?php
                     echo htmlspecialchars( $comment->User->Name );
                 ?></span>
-                <span class="text">"<?php
+                <span class="text"><?php
                 $text = $comment->GetText( 30 );
                 echo $text;
                 if ( mb_strlen( $comment->Text ) > 30 ) {
                     ?>...<?php
                 }
-                ?>"</span><?php
+                ?></span><?php
                 
                 /*switch ( Type_FromObject( $comment->Item ) ) {
                     case TYPE_JOURNAL:
