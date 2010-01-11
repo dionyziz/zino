@@ -7,15 +7,15 @@
             $libs->Load( 'relation/relation' );
             
             if ( $notif->FromUser->Gender == 'f' ) {
-                ?>Η<?php
+                ?>Ξ—<?php
             }
             else {
-                ?>Ο<?php
+                ?>Ξ<?php
             }
             ?><span class="username"><?php
                 echo htmlspecialchars( $comment->User->Name );
             ?></span>
-            σε πρόσθεσε στους φίλους<?php
+            ΟƒΞµ Ο€ΟΟΟƒΞΈΞµΟƒΞµ ΟƒΟ„ΞΏΟ…Ο‚ Ο†Ξ―Ξ»ΞΏΟ…Ο‚<?php
             
             $finder = New FriendRelationFinder();
             $res = $finder->FindFriendship( $user , $notif->FromUser );
@@ -26,20 +26,20 @@
                 echo $notif->Id;
                 ?>' , '<?php
                 echo $notif->Fromuserid;
-                ?>' )"><span class="s_addfriend">&nbsp;</span>Πρόσθεσέ τ<?php
+                ?>' )"><span class="s_addfriend">&nbsp;</span>Ξ ΟΟΟƒΞΈΞµΟƒΞ­ Ο„<?php
                 if ( $notif->FromUser->Gender == 'f' ) {
-                    ?>η<?php
+                    ?>Ξ·<?php
                 }
                 else {
                     ?>o<?php
-                }
-                ?>ν στους φίλους</a></div><?php
+                } 
+                ?>Ξ½ ΟƒΟ„ΞΏΟ…Ο‚ Ο†Ξ―Ξ»ΞΏΟ…Ο‚</a></div><?php
             }
             ?><div class="viewprofile"><a href="" onclick="return Notification.Visit( '<?php
             Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
             ?>' , '0' , '<?php
             echo $notif->Id;
-            ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
+            ?>' , '0' )">Ξ ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ»&raquo;</a></div><?php
             
         }
     }
