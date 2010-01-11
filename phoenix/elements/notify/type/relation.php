@@ -13,7 +13,7 @@
                 ?>Ο<?php
             }
             ?><span class="username"><?php
-                echo htmlspecialchars( $comment->User->Name );
+                echo htmlspecialchars( $notif->FromUser->Name );
             ?></span>
             σε πρόσθεσε στους φίλους<?php
             
