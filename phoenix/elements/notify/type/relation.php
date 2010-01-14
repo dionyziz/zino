@@ -6,6 +6,10 @@
             
             $libs->Load( 'relation/relation' );
             
+            ?><a class="item" href="<?php
+                Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
+            ?>"><?php
+            
             if ( $notif->FromUser->Gender == 'f' ) {
                 ?>Η<?php
             }
@@ -39,7 +43,9 @@
             Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
             ?>' , '0' , '<?php
             echo $notif->Id;
-            ?>' , '0' )">Προβολή προφίλ&raquo;</a></div><?php
+            ?>' , '0' )">Προβολή προφίλ&raquo;</a></div>
+            </a>
+            <?php
             
         }
     }
