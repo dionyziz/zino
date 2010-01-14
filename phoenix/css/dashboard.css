@@ -84,8 +84,8 @@ body {
 	padding: 3px 0 3px 0;
 	vertical-align: middle;
 }
-#notifications li .addfriend, #notifications li .viewprofile {
-    line-height: 125%;
+#notifications li .addfriend {
+    float: right;
 }
 #notifications li img {
 	float: left;
@@ -182,7 +182,7 @@ a.collapse {
 	height: 20px;
 	margin-right: 10px;
 }
-#notifications li a.item {
+#notifications li .item {
 	display: block;
 	height: 50px;
 	border-top: 1px solid transparent;
