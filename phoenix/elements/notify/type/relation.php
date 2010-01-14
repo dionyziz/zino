@@ -9,9 +9,10 @@
             ?><a class="item" href="<?php
                 Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
             ?>"><?php
-            if ( $comment->User->Avatarid > 0 ) {
+            
+            if ( $notif->Fromuser->Avatarid > 0 ) {
                 ?><div class="avatar"><?php
-                    Element( 'image/view', $comment->User->Avatarid, $comment->Userid, 50, 50, IMAGE_CROPPED_150x150, '', $comment->User->Name, '', true, 50, 50, 0 );
+                    Element( 'image/view', $notif->Fromuser->Avatarid, $notif->Fromuserid, 50, 50, IMAGE_CROPPED_150x150, '', $notif->Fromuser->Name, '', true, 50, 50, 0 );
                 ?></div><?php
             }
             if ( $notif->FromUser->Gender == 'f' ) {
