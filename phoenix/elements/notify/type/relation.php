@@ -9,7 +9,11 @@
             ?><a class="item" href="<?php
                 Element( 'user/url' , $notif->Fromuserid , $notif->FromUser->Subdomain );
             ?>"><?php
-            
+            if ( $comment->User->Avatarid > 0 ) {
+                ?><div class="avatar"><?php
+                    Element( 'image/view', $comment->User->Avatarid, $comment->Userid, 50, 50, IMAGE_CROPPED_150x150, '', $comment->User->Name, '', true, 50, 50, 0 );
+                ?></div><?php
+            }
             if ( $notif->FromUser->Gender == 'f' ) {
                 ?>Η<?php
             }
@@ -26,19 +30,21 @@
             if ( !$res ) {
                 ?><div class="addfriend" id="addfriend_<?php
                 echo $notif->Fromuserid;
-                ?>"><span class="s1_0010">&#160;</span>
+                ?>">
                 <a href="" onclick="return Notification.AddFriend( '<?php
                 echo $notif->Id;
                 ?>' , '<?php
                 echo $notif->Fromuserid;
-                ?>' )">Πρόσθεσέ τ<?php
+                ?>' )">
+                <span class="s1_0061">&#160;</span>
+                Πρόσθεσέ τ<?php
                 if ( $notif->FromUser->Gender == 'f' ) {
                     ?>η<?php
                 }
                 else {
                     ?>o<?php
                 } 
-                ?>ν στους φίλους</a></div><?php
+                ?>ν και εσύ!</a></div><?php
             }
             ?></a><?php
         }
