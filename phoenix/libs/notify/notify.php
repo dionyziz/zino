@@ -182,7 +182,7 @@
             $libs->Load( 'relation/relation' );
             $libs->Load( 'favourite' );
             
-            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->User = $this->HasOne( 'User', 'Fromuserid' );
             if ( $this->Typeid ) {
                 $model = Event_ModelByType( $this->Typeid );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
