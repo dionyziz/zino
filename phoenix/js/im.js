@@ -1,6 +1,10 @@
 var IM = {
     Cnt: 0,
     OnMessageArrival: function ( shoutid, text, who, channel ) {
+        if ( channel == 0 ) {
+            // main chat; do not make it windowed
+            return;
+        }
         if ( who.name == User ) {
             return;
         }
