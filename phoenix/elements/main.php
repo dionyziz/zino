@@ -150,8 +150,7 @@
                 }
             }
 
-            if ( $user->HasPermission( PERMISSION_CHAT_VIEW )
-                 || $user->Id == 5300 ) {
+            if ( $user->HasPermission( PERMISSION_CHAT_VIEW ) ) {
                 Element( 'chat/private/windows' );
             }
 
