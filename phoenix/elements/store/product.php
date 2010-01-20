@@ -131,19 +131,6 @@
                     </div>
                 </div>
                 <div class="eof"></div>
-                <h3 class="lurv">Το αγαπάνε:</h3>
-                <ul class="lurv"><?php
-                    foreach ( $loves as $love ) {
-                        ?><li><a href="http://<?php
-                            echo $love->User->Subdomain;
-                            ?>.zino.gr/" title="<?php
-                            echo $love->User->Name;
-                            ?>">
-                            <?php
-                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 100, 100,$love->User->Name, IMAGE_CROPPED_100x100, '', '', true, 50, 50 );
-                        ?></a></li><?php
-                    }
-                ?></ul>
                 <h3 class="wantz">Το έχουν:</h3>
                 <ul class="wantz"><?php
                     foreach ( $purchases as $purchase ) {
@@ -178,6 +165,19 @@
                     ?>
                 </p>
             </div>
+            <h3 class="lurv">Το αγαπάνε:</h3>
+                <ul class="lurv"><?php
+                    foreach ( $loves as $love ) {
+                        ?><li><a href="http://<?php
+                            echo $love->User->Subdomain;
+                            ?>.zino.gr/" title="<?php
+                            echo $love->User->Name;
+                            ?>">
+                            <?php
+                            Element( 'user/avatar', $love->User->Avatarid, $love->Userid, 100, 100,$love->User->Name, IMAGE_CROPPED_100x100, '', '', true, 50, 50 );
+                        ?></a></li><?php
+                    }
+            ?></ul>
             <div id="buynow" style="display:none">
                 <form action="do/store/purchase" method="post">
                     <a class="close" onclick="$('#buynow').fadeOut();return false;" href="">X</a>
