@@ -164,7 +164,6 @@
                     }
                     ?>
                 </p>
-            </div>
             <h3 class="lurv">Το αγαπάνε:</h3>
                 <ul class="lurv"><?php
                     foreach ( $loves as $love ) {
@@ -178,6 +177,7 @@
                         ?></a></li><?php
                     }
             ?></ul>
+            </div>
             <div id="buynow" style="display:none">
                 <form action="do/store/purchase" method="post">
                     <a class="close" onclick="$('#buynow').fadeOut();return false;" href="">X</a>
