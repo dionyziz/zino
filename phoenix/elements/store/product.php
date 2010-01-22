@@ -94,9 +94,16 @@
                 <div class="productdetails">
                     <h2><?php
                     echo $item->Friendlyname;
-                    ?> <span><img src="http://static.zino.gr/phoenix/store/<?php
-                    echo $item->Price;
-                    ?>euros.png" alt="<?php
+                    ?> <span><img src="<?php
+                    if ( $item->Priceimage != '' ) {
+                        echo $item->Priceimage;
+                    }
+                    else {
+                        ?>http://static.zino.gr/phoenix/store/<?php
+                        echo $item->Price;
+                        ?>euros.png<?php
+                    }
+                    ?>" alt="<?php
                     echo $item->Price;
                     ?>€" /></span></h2>
                     <ul class="toolbox">
