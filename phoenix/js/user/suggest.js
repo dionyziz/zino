@@ -120,6 +120,7 @@ var Suggest = {
             ul.find( 'li' ).remove();
         }
         else if ( event.keyCode == 13 ) { // enter
+            /*
 			Suggest.over[ type ] = false;
 			if ( lis.text().length != 0 ) {
 				$( 'div.' + type + ' input' ).attr( 'value', lis.text() );
@@ -127,6 +128,7 @@ var Suggest = {
 			$("div.add." + type +" input").val( $("div.add." + type + " ul li.selected").text() );
 			Settings.AddInterest( type, Suggest.type2int( type ) );
 			ul.find( 'li' ).remove();
+            */
         }
 		else if ( $.trim( text ) !== '' ) {
 			var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
