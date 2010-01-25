@@ -151,7 +151,7 @@
                             echo $rabbit_settings[ 'webaddress' ];
                             ?>/?p=photo&id=<?php
                             echo $image->Id;
-                            echo ob_get_clean();
+                            echo htmlspecialchars( ob_get_clean() );
                             ?>"><?php
                             Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , 0 );
                             ?></a></li>
