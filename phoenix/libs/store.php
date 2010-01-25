@@ -155,7 +155,7 @@
     class StoreActionshotFinder extends Finder {
         protected $mModel = 'StoreActionshot';
         
-        public function FindByItemid( $itemid ) {
+        public function FindByItemId( $itemid ) {
             $prototype = New StoreActionshot();
             $prototype->Itemid = $itemid;
             
