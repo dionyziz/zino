@@ -148,6 +148,7 @@
         
         protected function Relations() {
             $this->Product = $this->HasOne( 'Storeitem', 'Itemid' );
+            $this->Image = $this->HasOne( 'Image', 'Imageid' );
         }
     }
     
