@@ -153,7 +153,6 @@
                             echo $image->Id;
                             echo ob_get_clean();
                             ?>"><?php
-                    die( 'DIE POTATO!' );
                             Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , 0 );
                             ?></a></li>
                             <?php
