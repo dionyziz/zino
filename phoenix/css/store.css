@@ -156,10 +156,14 @@ h3.wantz {
     color: black;
     clear: both;
 }
-ul.wantz, ul.lurv, ul.actionshots {
+ul.wantz, ul.lurv {
     margin-left: 90px;
     position: relative;
     top: -22px;
+}
+ul.actionshots {
+    margin-left: 90px;
+    position: relative;
 }
 ul.wantz {
     top: -64px;
