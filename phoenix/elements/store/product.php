@@ -4,6 +4,7 @@
             global $libs;
             global $page;
             global $user;
+            global $rabbit_settings;
             
             $libs->Load( 'store' );
             $libs->Load( 'favourite' );
@@ -138,6 +139,28 @@
                     </div>
                 </div>
                 <div class="eof"></div>
+                <?php
+                    $shotfinder = New StoreActionshotFinder();
+                    $shots = $shotfinder->FindByItemId( $item->Id );
+                    if ( !empty( $shots ) ) {
+                        ?>Φωτογραφίες Μελών:
+                        <ul class="lst ul2 border"><?php
+                        foreach ( $shots as $shot ) {
+                            $image = $shot->Image;
+                                ?><li><a href="<?php
+                                ob_start();
+                                echo $rabbit_settings[ 'webaddress' ];
+                                ?>/?p=photo&id=<?php
+                                echo $image->Id;
+                                echo htmlspecialchars( ob_get_clean() );
+                                ?>"><?php
+                                Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , 0 );
+                                ?></a></li>
+                                <?php
+                        }
+                        ?></ul><?php
+                    }
+                ?>
                 <h3 class="wantz">Το έχουν:</h3>
                 <ul class="wantz"><?php
                     foreach ( $purchases as $purchase ) {
