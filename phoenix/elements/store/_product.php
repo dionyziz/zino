@@ -142,11 +142,11 @@
                 <?php
                     $shotfinder = New StoreActionshotFinder();
                     $shots = $shotfinder->FindByItemId( $item->Id );
-                    die( 'DIE POTATO!' );
                     
                     ?><ul class="lst ul2 border"><?php
                     foreach ( $shots as $shot ) {
                         $image = $shot->Image;
+                    die( 'DIE POTATO!' );
                             ?><li><a href="<?php
                             ob_start();
                             echo $rabbit_settings[ 'webaddress' ];
