@@ -77,7 +77,7 @@
                                 }
                                 ?></a>
                             </li>
-                            <li id="Sales!link">
+                            <li id="zinostorelink">
                                 <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">Sales!<span class="shadowN">Sales!</span><span class="shadowNE">Sales!</span><span class="shadowE">Sales!</span><span class="shadowSE">Sales!</span><span class="shadowS">Sales!</span><span class="shadowSW">Sales!</span><span class="shadowW">Sales!</span><span class="shadowNW">Sales!</span><span class="wizard">Sales!</span></a>
                             </li>
                             <li>
