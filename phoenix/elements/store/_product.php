@@ -143,7 +143,8 @@
                     $shotfinder = New StoreActionshotFinder();
                     $shots = $shotfinder->FindByItemId( $item->Id );
                     
-                    ?><ul class="lst ul2 border"><?php
+                    ?>Φωτογραφίες Μελών:
+                    <ul class="lst ul2 border"><?php
                     foreach ( $shots as $shot ) {
                         $image = $shot->Image;
                             ?><li><a href="<?php
