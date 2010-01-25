@@ -150,11 +150,11 @@
                             ob_start();
                             echo $rabbit_settings[ 'webaddress' ];
                             ?>/?p=photo&id=<?php
-                            echo $image->Imageid;
+                            echo $image->Id;
                             echo ob_get_clean();
                             ?>"><?php
                     die( 'DIE POTATO!' );
-                            Element( 'image/view' , $image->Imageid , $image->Image->Userid , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , 0 );
+                            Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 , 0 );
                             ?></a></li>
                             <?php
                     }
