@@ -141,8 +141,8 @@
                 <div class="eof"></div>
                 <?php
                     $shotfinder = New StoreActionshotFinder();
-                    die( 'DIE POTATO!' );
                     $shots = $shotfinder->FindByItemId( $item->Id );
+                    die( 'DIE POTATO!' );
                     
                     ?><ul class="lst ul2 border"><?php
                     foreach ( $shots as $shot ) {
