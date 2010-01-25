@@ -78,7 +78,7 @@
                                 ?></a>
                             </li>
                             <li id="zinostorelink">
-                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">Sales!<span class="shadowN">Sales!</span><span class="shadowNE">Sales!</span><span class="shadowE">Sales!</span><span class="shadowSE">Sales!</span><span class="shadowS">Sales!</span><span class="shadowSW">Sales!</span><span class="shadowW">Sales!</span><span class="shadowNW">Sales!</span><span class="wizard">Sales!</span></a>
+                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">Εκπτώσεις<span class="shadowN">Εκπτώσεις</span><span class="shadowNE">Εκπτώσεις</span><span class="shadowE">Εκπτώσεις</span><span class="shadowSE">Εκπτώσεις</span><span class="shadowS">Εκπτώσεις</span><span class="shadowSW">Εκπτώσεις</span><span class="shadowW">Εκπτώσεις</span><span class="shadowNW">Εκπτώσεις</span><span class="wizard">Εκπτώσεις</span></a>
                             </li>
                             <li>
                                 <form method="post" action="do/user/logout">
