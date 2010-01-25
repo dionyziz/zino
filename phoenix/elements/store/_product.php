@@ -146,7 +146,6 @@
                     ?><ul class="lst ul2 border"><?php
                     foreach ( $shots as $shot ) {
                         $image = $shot->Image;
-                    die( 'DIE POTATO!' );
                             ?><li><a href="<?php
                             ob_start();
                             echo $rabbit_settings[ 'webaddress' ];
@@ -154,6 +153,7 @@
                             echo $image->Imageid;
                             echo ob_get_clean();
                             ?>"><?php
+                    die( 'DIE POTATO!' );
                             Element( 'image/view' , $image->Imageid , $image->Image->Userid , $image->Image->Width , $image->Image->Height , IMAGE_CROPPED_100x100 , '' , $image->Image->User->Name , '' , false , 0 , 0 , 0 );
                             ?></a></li>
                             <?php
