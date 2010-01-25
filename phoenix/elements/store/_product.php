@@ -141,7 +141,7 @@
                 <div class="eof"></div>
                 <?php
                     $shotfinder = New StoreActionshotFinder();
-                    $shots = $shotfinder->FindById( $item->Id );
+                    $shots = $shotfinder->FindByItemId( $item->Id );
                     
                     ?><ul class="lst ul2 border"><?php
                     foreach ( $shots as $shot ) {
