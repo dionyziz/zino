@@ -144,7 +144,7 @@
                     $shots = $shotfinder->FindByItemId( $item->Id );
                     if ( !empty( $shots ) ) {
                         ?>Φωτογραφίες Μελών:
-                        <ul class="lst ul2 border"><?php
+                        <ul class="lst ul2 border actionshots"><?php
                         foreach ( $shots as $shot ) {
                             $image = $shot->Image;
                                 ?><li><a href="<?php
