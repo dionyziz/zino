@@ -143,4 +143,22 @@
         }
 	}
 	
+    class StoreActionshot extends Satori {
+        protected $mDbTableAlias = 'storeactionshots';
+        
+        protected function Relations() {
+            $this->Product = $this->HasOne( 'Storeitem', 'Itemid' );
+        }
+    }
+    
+    class StoreActionshotFinder extends Finder {
+        protected $mModel = 'StoreActionshot';
+        
+        public function FindByItemid( $itemid ) {
+            $prototype = New StoreActionshot();
+            $prototype->Itemid = $itemid;
+            
+            return $this->FindByPrototype( $prototype );
+        }
+    }
 ?>
