@@ -1,5 +1,5 @@
 <?php
-    define( 'GROOVESHARK_CLIENTREVISION', '20091209.02' );
+    define( 'GROOVESHARK_CLIENTREVISION', '20100115.09' );
 	
 	function Grooveshark_CreateUUID(){
 		$uid = "";
