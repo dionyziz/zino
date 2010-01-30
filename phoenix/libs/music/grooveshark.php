@@ -66,7 +66,7 @@
 		$session = Grooveshark_GetSessionID();
 		$token = Grooveshark_GetToken( $session, $uuid );
 		
-		$specialtoken = "a12345" . sha1( "getSearchResults:$token:theHumansAreDead:a12345");
+		$specialtoken = "a12345" . sha1( "getSearchResults:$token:theColorIsRed:a12345");
 		$ch = curl_init();
 		curl_setopt( $ch, CURLOPT_URL, "http://cowbell.grooveshark.com/more.php?getSearchResults" );
 		curl_setopt( $ch, CURLOPT_COOKIE, "PHPSESSID=$session" );
@@ -95,7 +95,7 @@
 		$uuid = Grooveshark_CreateUUID();
 		$session = Grooveshark_GetSessionID();
 		$token = Grooveshark_GetToken( $session, $uuid );
-		$specialtoken = "a12345" . sha1( "getQueueSongListFromSongIDs:$token:theHumansAreDead:a12345");		
+		$specialtoken = "a12345" . sha1( "getQueueSongListFromSongIDs:$token:theColorIsRed:a12345");		
 		$ch = curl_init();
 		curl_setopt( $ch, CURLOPT_URL, "http://cowbell.grooveshark.com/service.php?getQueueSongListFromSongIDs" );
 		curl_setopt( $ch, CURLOPT_COOKIE, "PHPSESSID=$session" );
