@@ -123,9 +123,6 @@
                 foreach ( $partinserts as $insert ) {
                     reset( $fields );
                     foreach ( $insert as $field => $value ) {
-                        if ( is_null( $value ) ) {
-                            die( 'Got preliminary NULL' );
-                        }
                         // assert the fields are the same number and in the same order in each insert
                         $thisfield = each( $fields );
                         w_assert( $thisfield[ 'value' ] == $field );
@@ -135,6 +132,7 @@
                 w_assert( count( $insertvalues ) );
                 $bindings = array();
                 $i = 0;
+                die( var_dump( $insertvalues ) );
                 foreach ( $insertvalues as $valuetuple ) {
                     if ( is_null( $valuetuple ) ) {
                         die( 'Found NULL variable!' );
