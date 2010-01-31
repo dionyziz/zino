@@ -420,13 +420,6 @@
             $libs->Load( 'user/profile' );
             
             $this->Egoalbumid = null;
-            if ( is_null( $this->mCurrentValues[ 'Egoalbumid' ] ) ) {
-                die( 'It is null' );
-            }
-            else {
-                die( 'It is not null' );
-            }
-
 
             $this->Count->Save();
         }

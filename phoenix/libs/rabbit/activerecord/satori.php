@@ -433,6 +433,9 @@
                 }
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                    if ( is_null( $this->mCurrentValues[ $attributename ] ) ) {
+                        die( 'Got null at ' . $attributename );
+                    }
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
