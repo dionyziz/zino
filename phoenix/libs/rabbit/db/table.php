@@ -132,7 +132,6 @@
                 w_assert( count( $insertvalues ) );
                 $bindings = array();
                 $i = 0;
-                die( var_dump( $insertvalues ) );
                 foreach ( $insertvalues as $valuetuple ) {
                     $bindings[] = ':insert' . $i; // this corresponds to a WHOLE ROW, not just one column of a row!
                     ++$i;
