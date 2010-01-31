@@ -134,13 +134,7 @@
                 $i = 0;
                 die( var_dump( $insertvalues ) );
                 foreach ( $insertvalues as $valuetuple ) {
-                    if ( is_null( $valuetuple ) ) {
-                        die( 'Found NULL variable!' );
-                        $bindings[] = 'NULL';
-                    }
-                    else {
-                        $bindings[] = ':insert' . $i;
-                    }
+                    $bindings[] = ':insert' . $i; // this corresponds to a WHOLE ROW, not just one column of a row!
                     ++$i;
                 }
                 

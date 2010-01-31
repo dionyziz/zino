@@ -18,6 +18,8 @@
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
+                case 'NULL':
+                    return 'NULL';
                 case 'boolean':
                     return ( int )$argument;
                 case 'integer':
