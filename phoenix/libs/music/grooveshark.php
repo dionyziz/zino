@@ -59,9 +59,6 @@
 	function Grooveshark_SearchSong( $query ){
 		global $user;
 		
-		if ( $user->Betastatus != 1 ) {
-			return;
-		}
 		$uuid = Grooveshark_CreateUUID();
 		$session = Grooveshark_GetSessionID();
 		$token = Grooveshark_GetToken( $session, $uuid );
@@ -83,9 +80,6 @@
         global $libs;
         global $user;
 		
-		if ( $user->Betastatus != 1 ) {
-			return;
-		}
         $libs->Load( "user/profile" );    
         $libs->Load( "music/song" );
 

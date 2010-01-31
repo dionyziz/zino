@@ -30,18 +30,14 @@
 								echo 0;
 							}
 						?>" allowScriptAccess="always" wmode="opaque"></embed>
-					</object><?php
-					if ( $theuser->Betastatus == 1 ){
-						?><div class="toolbox">
-							<span class="s1_0007 delete" title="Διαγραφή τραγουδιού.">&#160;</span>
-							<span class="search" title="Αλλαγή τραγουδιού.">&#160;</span>
-						</div><?php
-					}
-				?></div><?php
+					</object>
+					<div class="toolbox">
+						<span class="s1_0007 delete" title="Διαγραφή τραγουδιού.">&#160;</span>
+						<span class="search" title="Αλλαγή τραγουδιού.">&#160;</span>
+					</div>
+				</div><?php
 			}
-			else if ( $theuser->Betastatus == 1 ) {
-				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
-			}
+			?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
 		}
 	}
 ?>
