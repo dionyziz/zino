@@ -134,6 +134,7 @@
                 $i = 0;
                 foreach ( $insertvalues as $valuetuple ) {
                     if ( is_null( $valuetuple ) ) {
+                        die( 'Found NULL variable!' );
                         $bindings[] = 'NULL';
                     }
                     else {
