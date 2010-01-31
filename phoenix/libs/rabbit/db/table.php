@@ -84,11 +84,6 @@
             // keep in mind that in single inserts, the values of the array must be scalar
             // while in multiple inserts, the values are arrays of scalar values
             if ( !is_array( end( $inserts ) ) ) {
-                foreach ( $inserts as $value ) {
-                    if ( is_null( $value ) ) {
-                        die( 'Got null' );
-                    }
-                }
                 $inserts = array( $inserts );
                 $multipleinserts = false;
             }
@@ -128,12 +123,12 @@
                 foreach ( $partinserts as $insert ) {
                     reset( $fields );
                     foreach ( $insert as $field => $value ) {
+                        if ( is_null( $value ) ) {
+                            die( 'Got preliminary NULL' );
+                        }
                         // assert the fields are the same number and in the same order in each insert
                         $thisfield = each( $fields );
                         w_assert( $thisfield[ 'value' ] == $field );
-                    }
-                    if ( is_null( $insert ) ) {
-                        die( 'Got preliminary NULL' );
                     }
                     $insertvalues[] = $insert;
                 }
