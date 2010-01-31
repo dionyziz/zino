@@ -37,7 +37,9 @@
 					</div>
 				</div><?php
 			}
-			?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
+			else{
+				?><div class="addsong"><a href="">Πρόσθεσε κάποιο τραγούδι στο προφίλ σου.</a></div><?php
+			}
 		}
 	}
 ?>
