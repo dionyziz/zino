@@ -127,6 +127,9 @@
                         $thisfield = each( $fields );
                         w_assert( $thisfield[ 'value' ] == $field );
                     }
+                    if ( is_null( $insert ) ) {
+                        die( 'Got preliminary NULL' );
+                    }
                     $insertvalues[] = $insert;
                 }
                 w_assert( count( $insertvalues ) );
