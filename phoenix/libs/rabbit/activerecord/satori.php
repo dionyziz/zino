@@ -434,14 +434,6 @@
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
-                    if ( is_null( $this->mCurrentValues[ $attributename ] ) ) {
-                        if ( is_null( $inserts[ $fieldname ] ) ) {
-                            die( 'Got double null at ' . $attributename );
-                        }
-                        else {
-                            die( 'Got orphan null at ' . $attributename );
-                        }
-                    }
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
                 $change = $this->mDbTable->InsertInto( $inserts, $this->mInsertIgnore );
