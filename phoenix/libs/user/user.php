@@ -426,8 +426,6 @@
         protected function OnCreate() {
             global $libs;
 
-            die( 'About to create' );
-
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
            
