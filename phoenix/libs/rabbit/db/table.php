@@ -133,7 +133,12 @@
                 $bindings = array();
                 $i = 0;
                 foreach ( $insertvalues as $valuetuple ) {
-                    $bindings[] = ':insert' . $i;
+                    if ( is_null( $valuetuple ) ) {
+                        $bindings[] = 'NULL';
+                    }
+                    else {
+                        $bindings[] = ':insert' . $i;
+                    }
                     ++$i;
                 }
                 

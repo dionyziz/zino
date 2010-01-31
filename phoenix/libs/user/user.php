@@ -419,20 +419,22 @@
             $libs->Load( 'album' );
             $libs->Load( 'user/profile' );
             
-            $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
-            $this->EgoAlbum->Save(); // create ego album
-            $this->Egoalbumid = $this->EgoAlbum->Id;
+            $this->Egoalbumid = null;
 
             $this->Count->Save();
         }
         protected function OnCreate() {
             global $libs;
 
+            die( 'About to create' );
+
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
            
             $this->EgoAlbum->Ownerid = $this->Id; // update ego albm userid
+            $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
             $this->EgoAlbum->Save();
+            $this->Egoalbumid = $this->EgoAlbum->Id;
             
             $this->OnUpdate();
             PMFolder_PrepareUser( $this );
