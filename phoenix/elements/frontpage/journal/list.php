@@ -31,7 +31,7 @@
                 Element( 'frontpage/journal/latest', $journalseq );
                 return;
             }
-            
+            echo "<p>gamietai</p>";
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
@@ -54,7 +54,6 @@
                         </div>
                     </div><?php
                 }
-				echo "<p>gamietai</p>";
                 foreach( $stickies as $stickie ){
                     // Sticky article
                     if ( $journal->Exists() ) {
