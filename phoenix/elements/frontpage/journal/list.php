@@ -5,10 +5,19 @@
 			global $libs;
             global $user;
 
-            $sticky = 12206; // tsiknomeeting
+			$sticky = 12206; // tsiknomeeting
 
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
+			
+			$finder = New FrontpageStickieJournalFinder();
+			
+			$stickies = $finder->FindAll( 0, 5 ); //Maximum 5 stickies
+			
+			$stickiesid = array();
+			foreach( $stickies as $stickie ){
+				$stickiesid[ $stickie->Journalid ] = true; //Array with stickies IDs as keys for quick checking later
+			}
 			
             $journals = false;
             if ( $user->Exists() ) {
@@ -26,7 +35,7 @@
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
-                    if ( isset( $sticky ) && $journal->Id == $sticky ) {
+                    if ( isset( $stickiesid[ $journal->Id ] ) ) { //Using indexed array keys for performance
                         continue;
                     }
                     ?><div class="event">
@@ -45,9 +54,8 @@
                         </div>
                     </div><?php
                 }
-                if ( isset( $sticky ) ) {
+                foreach( $stickies as $journal ){
                     // Sticky article
-                    $journal = New Journal( $sticky );
                     if ( $journal->Exists() ) {
                         ?><div class="event">
                             <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who"><?php

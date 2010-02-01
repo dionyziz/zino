@@ -54,6 +54,18 @@
         }
     }
     
+	class FrontpageStickieJournalFinder extends Finder {
+	        protected $mModel = 'FrontpageStickieJournal';
+	}
+	
+	class FrontpageStickieJournal extends Satori {
+		protected $mDbTableAlias = 'journalstickies';
+		
+		protected function Relations() {
+            $this->Journal = $this->HasOne( 'Journal', 'Journalid' );
+        }
+	}
+	
     class FrontpageJournal extends Satori {
         protected $mDbTableAlias = 'journalsfrontpage';
         
