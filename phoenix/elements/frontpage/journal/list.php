@@ -12,7 +12,7 @@
 			
 			$finder = New FrontpageStickieJournalFinder();
 			
-			$stickies = $finder->FindLatest( 0, 5 ); //Maximum 5 stickies
+			$stickies = $finder->FindLatest(); //Maximum 5 stickies
 			
 			$stickiesid = array();
 			foreach( $stickies as $stickie ){
