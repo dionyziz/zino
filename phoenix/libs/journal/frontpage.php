@@ -9,7 +9,7 @@
             
             $journalids = array();
             $userids = array();
-            
+			
             foreach ( $latest as $frontpagejournal ) {
                 $journalids[] = $frontpagejournal->Journalid;
                 $userids[] = $frontpagejournal->Userid;
@@ -55,7 +55,7 @@
     }
     
 	class FrontpageStickieJournalFinder extends Finder {
-	        protected $mModel = 'FrontpageStickieJournal';
+	    protected $mModel = 'FrontpageStickieJournal';
 	}
 	
 	class FrontpageStickieJournal extends Satori {
