@@ -4,7 +4,7 @@
             global $xc_settings;
 			global $libs;
             global $user;
-			echo "<p>gamietai</p>";
+			
 			$sticky = 12206; // tsiknomeeting
 
             $libs->Load( 'journal/journal' );
@@ -56,6 +56,7 @@
                 }
                 foreach( $stickies as $stickie ){
                     // Sticky article
+					$journal = $stickie->Journal;
                     if ( $journal->Exists() ) {
                         ?><div class="event">
                             <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who"><?php
