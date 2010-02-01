@@ -4,8 +4,6 @@
             global $xc_settings;
 			global $libs;
             global $user;
-			
-			$sticky = 12206; // tsiknomeeting
 
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
