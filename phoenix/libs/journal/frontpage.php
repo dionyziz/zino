@@ -56,6 +56,10 @@
     
 	class FrontpageStickieJournalFinder extends Finder {
 	    protected $mModel = 'FrontpageStickieJournal';
+		public function FindLatest( $offset = 0, $limit = 4, $totalcount = false ) {
+			$prototype = New FrontpageStickieJournal();
+			return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Journalid', 'DESC' ), $totalcount );
+		}
 	}
 	
 	class FrontpageStickieJournal extends Satori {
