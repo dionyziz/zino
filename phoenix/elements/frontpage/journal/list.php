@@ -54,6 +54,7 @@
                             ?></a>
                         </div>
                     </div><?php
+					echo "foo";
                 }
 				echo "Entering";
                 foreach( $stickies as $stickie ){
