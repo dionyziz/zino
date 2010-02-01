@@ -54,9 +54,9 @@
                         </div>
                     </div><?php
                 }
-                foreach( $stickies as $journal ){
+                foreach( $stickies as $stickie ){
                     // Sticky article
-					echo $journal->Id;
+					$journal = $stickie->Journal;
                     if ( $journal->Exists() ) {
                         ?><div class="event">
                             <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who"><?php
