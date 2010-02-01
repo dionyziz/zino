@@ -4,7 +4,7 @@
             global $xc_settings;
 			global $libs;
             global $user;
-
+			echo "<p>gamietai</p>";
 			$sticky = 12206; // tsiknomeeting
 
             $libs->Load( 'journal/journal' );
@@ -31,7 +31,7 @@
                 Element( 'frontpage/journal/latest', $journalseq );
                 return;
             }
-            echo "<p>gamietai</p>";
+            
             ?><div class="list">
                 <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
