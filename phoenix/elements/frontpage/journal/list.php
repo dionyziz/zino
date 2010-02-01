@@ -16,7 +16,6 @@
 			
 			$stickiesid = array();
 			foreach( $stickies as $stickie ){
-				echo $stickie->Journal->Id;
 				$stickiesid[ $stickie->Journalid ] = true; //Array with stickies IDs as keys for quick checking later
 			}
 			
@@ -54,13 +53,10 @@
                             ?></a>
                         </div>
                     </div><?php
-					echo "foo";
                 }
-				echo "Entering";
                 foreach( $stickies as $stickie ){
                     // Sticky article
-					echo "in";
-					echo $stickie->Journal->Id;
+					echo "<p>" . $stickie->Journal->Id . "</p>";
                     if ( $journal->Exists() ) {
                         ?><div class="event">
                             <div style="background: #fff8d2 url('http://static.zino.gr/phoenix/highlight.png') no-repeat 0;" class="who"><?php
