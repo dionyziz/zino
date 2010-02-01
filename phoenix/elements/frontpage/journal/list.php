@@ -55,8 +55,10 @@
                         </div>
                     </div><?php
                 }
+				echo "Entering";
                 foreach( $stickies as $stickie ){
                     // Sticky article
+					echo "in";
 					echo $stickie->Journal->Id;
                     if ( $journal->Exists() ) {
                         ?><div class="event">
