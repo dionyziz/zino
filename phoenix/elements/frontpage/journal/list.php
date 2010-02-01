@@ -27,7 +27,7 @@
             }
             if ( $journals === false ) {
                 Element( 'frontpage/journal/latest', $journalseq );
-                //return;
+                return;
             }
             
             ?><div class="list">
