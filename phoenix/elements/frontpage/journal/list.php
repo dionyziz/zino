@@ -16,6 +16,7 @@
 			
 			$stickiesid = array();
 			foreach( $stickies as $stickie ){
+				echo $stickie->Journal->Id;
 				$stickiesid[ $stickie->Journalid ] = true; //Array with stickies IDs as keys for quick checking later
 			}
 			
