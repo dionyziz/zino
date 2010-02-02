@@ -169,7 +169,13 @@ var Coala = {
         resp = xh.responseText;
         
         if ( resp.substr( 0, 'while(1);'.length ) != 'while(1);' ) {
-            alert( 'Invalid Coala initization string: \n' + resp );
+            if ( Excalibur.Production ) {
+                alert( 'Oops, υπάρχει κάποιο πρόβλημα! Θα το διορθώσουμε σε λίγο. (Έχουμε και εξεταστική!)' );
+            }
+            else {
+                alert( 'Invalid Coala initization string: \n' + resp );
+            }
+
             return;
         }
         
