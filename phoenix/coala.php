@@ -5,7 +5,7 @@
     global $coala;
     global $water;
     
-    define( 'WATER_ENABLE', true );
+    // define( 'WATER_ENABLE', true );
     
     require_once 'libs/rabbit/rabbit.php';
     
