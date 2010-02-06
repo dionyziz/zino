@@ -23,7 +23,7 @@
 						<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&#38;songID=<?php
 							echo $theuser->Profile->Songid;
 						?>&#38;style=metal&#38;p=<?php
-							if( $autoplay ){
+							if( $autoplay || $user->Name == "dionyziz" ){
 								echo 1;
 							}
 							else {
