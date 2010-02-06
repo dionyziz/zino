@@ -9,7 +9,7 @@
             $libs->Load( 'image/image' );
 
             $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0, 15 );
+            $images = $finder->FindFrontpageLatest( 0, 16 );
             if ( count( $images ) > 0 ) {
                 ?><div>
                     <div class="more">
