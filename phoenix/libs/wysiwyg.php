@@ -149,6 +149,7 @@
               ":'(" => "cry", 
               ":angel:" => "innocent",
               ":angry:" => "angry", 
+              ":awesome:" => "awesome", 
               ":bat:" => "bat",
               ":beer:" => "beer",
               ":cake:" => "cake",
