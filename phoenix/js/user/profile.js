@@ -168,7 +168,7 @@ var Profile = {
 			$( '#mplayersearchmodal table thead tr' ).removeClass( 'hidden' );
 
 			for( var song in songs ){
-				
+				alert( song );
 				var tr = document.createElement( 'tr' );
 				var td = $( document.createElement( 'td' ) )
 					.append( document.createElement( 'div' ) ).children()
