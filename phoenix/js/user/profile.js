@@ -148,8 +148,7 @@ var Profile = {
 		Addsongs: function( songs ){
 			$( '#mplayersearchmodal div.search' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tbody tr' ).remove();
-			var results = songs.Return;
-			if( !results.length ){
+			if( !songs.length ){
 				if( $( '#mplayersearchmodal .list div' ).length ){
 					return false;
 				}
@@ -168,8 +167,7 @@ var Profile = {
 			$( '#mplayersearchmodal .list div' ).remove();
 			$( '#mplayersearchmodal table thead tr' ).removeClass( 'hidden' );
 
-			for( var i in results ){
-				var song = results[ i ];
+			for( var song in songs ){
 				
 				var tr = document.createElement( 'tr' );
 				var td = $( document.createElement( 'td' ) )
