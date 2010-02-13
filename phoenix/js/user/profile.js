@@ -148,7 +148,7 @@ var Profile = {
 		Addsongs: function( songs ){
 			$( '#mplayersearchmodal div.search' ).removeClass( 'loading' );
 			$( '#mplayersearchmodal table tbody tr' ).remove();
-			var results = songs.result.Return;
+			var results = songs.Return;
 			if( !results.length ){
 				if( $( '#mplayersearchmodal .list div' ).length ){
 					return false;
