@@ -1,5 +1,5 @@
 <?php
-    function UnitBackendSpotVoteCreated( Vote $vote ) {
+    function UnitBackendSpotVoteCreated( PollVote $vote ) {
         global $libs;
         global $rabbit_settings;
         
