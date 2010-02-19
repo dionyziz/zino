@@ -6,7 +6,7 @@
 		
         $query = $query->Get();
 		?>Profile.Player.Addsongs( <?php
-			Grooveshark_SearchSong( $query );
+			json_encode( Grooveshark_SearchSong( $query ) );
 		?>);<?php
 	} 
 ?>
