@@ -150,7 +150,7 @@
                 }
             }
 
-            if ( $user->HasPermission( PERMISSION_CHAT_VIEW ) ) {
+            if ( $user->HasPermission( PERMISSION_CHAT_VIEW ) || $user->Name == 'Precambrian' ) {
                 Element( 'chat/private/windows' );
             }
 
