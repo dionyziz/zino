@@ -1,9 +1,6 @@
 <feed>
     <? foreach ( $photos as $photo ): ?>
-    <entry>
-        <link href="photo/<?php
-        echo $photo[ 'id' ];
-        ?>" />
+    <entry id="<?= $photo[ 'id' ] ?>">
         <media url="http://images2.zino.gr/media/<?php
         echo $photo[ 'userid' ];
         ?>/<?php

@@ -4,8 +4,8 @@
     <xsl:template match="/social">
         <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
             <head>
+                <base href="/" /><!-- <xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" /></xsl:attribute></base> -->
                 <title>Zino</title>
-                <base href="http://www.dionyziz.com/experiment/" />
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
@@ -23,7 +23,7 @@
                             <li><a href=""><img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Προφίλ</span></a></li>
                         </xsl:if>
                         <xsl:if test="not(/social/@for)">
-                            <li><a href=""><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
+                            <li><a href="login"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
                         </xsl:if>
                         <li class="bl"><a href=""><img src="images/comments.png" alt="Συζήτηση" title="Συζήτηση" /><span>Chat</span></a></li>
                     </ul>

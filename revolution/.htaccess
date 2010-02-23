@@ -3,5 +3,6 @@ RewriteEngine On
 RewriteRule ^photos$ index.php?resource=photo&method=listing [L,QSA]
 RewriteRule ^photo/([0-9]+)$ index.php?resource=photo&method=view&id=$1 [L,QSA]
 RewriteRule ^session/create$ index.php?resource=session&method=create [L]
+RewriteRule ^session/view$ index.php?resource=session&method=view [L]
 php_flag display_errors on
 

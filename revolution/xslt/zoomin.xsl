@@ -4,8 +4,8 @@
     <xsl:template match="/social">
         <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
             <head>
+                <base href="http://alpha.zino.gr/" /><!-- <xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" /></xsl:attribute></base> -->
                 <title>Zino</title>
-                <base href="http://www.dionyziz.com/experiment/" />
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
                 <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             </head>

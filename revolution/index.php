@@ -34,8 +34,10 @@
         $vars = $_GET;
     }
 
+    $path = explode( '/', substr( $_SERVER[ 'SCRIPT_FILENAME' ], strlen( '/var/www/zino.gr/alpha/' ) ), 2 );
+    $base = 'http://alpha.zino.gr/' . $path[ 0 ]; // $path[ 0 ] is the developer name
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo '<?xml-stylesheet type="text/xsl" href="/experiment/xslt/' . $resource . '/' . $method . '.xsl"?>';
+    echo '<?xml-stylesheet type="text/xsl" href="' . $base . '/xslt/' . $resource . '/' . $method . '.xsl"?>';
     ?><social generated="<?php
     echo date( "Y-m-d H:i:s", time() );
     ?>"<?php
@@ -44,7 +46,9 @@
         echo $_SESSION[ 'user' ][ 'name' ];
         ?>"<?php
     }
-    ?>><?php
+    ?> generator="<?php
+    echo $base;
+    ?>"><?php
     include 'controllers/' . $resource . '.php';
     call_user_func_array( $method, $vars );
     ?></social><?php

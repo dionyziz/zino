@@ -8,7 +8,7 @@
                     <li>
                         <a>
                             <xsl:attribute name="href">
-                                <xsl:value-of select="link[1]/@href" />
+                                photo/<xsl:value-of select="@id" />
                             </xsl:attribute>
                             <xsl:if test="discussion[1]/@count &gt; 0">
                                 <span class="countbubble">
