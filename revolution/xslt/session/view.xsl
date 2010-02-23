@@ -50,9 +50,9 @@
                         username: this.getElementsByTagName( 'input' )[ 0 ].value,
                         password: this.getElementsByTagName( 'input' )[ 1 ].value
                     }, function ( res ) {
-                        if ( $( xml ).find( 'operation result' ).text() == 'SUCCESS' ) {
-                            alert( 'Login successful!' );
-                            // window.location.href = 'photos';
+                        if ( $( res ).find( 'operation result' ).text() == 'SUCCESS' ) {
+                            // alert( 'Login successful!' );
+                            window.location.href = 'photos';
                         }
                         else {
                             alert( 'Login failed!' );

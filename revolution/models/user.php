@@ -8,7 +8,9 @@
                 `users`
             WHERE
                 `user_name` = :username
-                AND `user_password` = MD5( :password ) LIMIT 1' );
+                AND `user_password` = MD5( :password ) LIMIT 1',
+            compact( 'username', 'password' )
+        );
         if ( mysql_num_rows( $res ) ) {
             $row = mysql_fetch_array( $res );
             return $row;
