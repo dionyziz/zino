@@ -1,6 +1,5 @@
 <?php
     function Create( $typeid, $itemid ) {
-        include 'models/user.php';
-
+        isset( $_SESSION[ 'user' ] ) or die;
     }
 ?>

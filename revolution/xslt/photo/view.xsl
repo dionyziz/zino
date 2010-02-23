@@ -9,16 +9,14 @@
                     <xsl:value-of select="media[1]/@url" />
                 </xsl:attribute>
             </img>
-            <xsl:apply-templates select="favourites" />
+            <div class="note">
+                <xsl:for-each select="favourites/user">
+                    <div class="love">&#9829; <div class="username"><xsl:value-of select="name[1]" /> </div> </div>
+                </xsl:for-each>
+                <a class="love" href=""><strong>&#9829;</strong> Το αγαπώ!</a>
+            </div>
         </div>
         <xsl:apply-templates select="discussion" />
-    </xsl:template>
-    <xsl:template match="favourites">
-        <div class="note">
-            <xsl:for-each select="user">
-                &#9829; <div class="username"><xsl:value-of select="name[1]" /> </div>
-            </xsl:for-each>
-        </div>
     </xsl:template>
     <xsl:template match="discussion">
         <div class="discussion">
