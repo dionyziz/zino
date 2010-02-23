@@ -24,4 +24,12 @@
         $res = mysql_query( strtr( $sql, $bind ) ) or die( mysql_error() );
         return $res;
     }
+    function db_array( $sql, $bind = false ) {
+        $res = db( $sql, $bind );
+        $rows = array();
+        while ( $row = mysql_fetch_array( $res ) ) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
 ?>

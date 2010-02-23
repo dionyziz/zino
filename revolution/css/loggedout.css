@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: "Trebuchet MS";
+    background-image: url( '../images/loggedout/bg.png' );
+    background-repeat: repeat-x;
+    background-color: #b8e7ff;
+}
+a {
+    color: #0f9ae8;
+    text-decoration: none;
+}
+img {
+    display: block;
+}
+ul {
+    list-style: none;
+    display: inline;
+    padding: 0 0 0 10px;
+}
+ul li {
+    display: inline;
+    padding: 10px;
+}
+div.card {
+    margin: 20px auto 15px auto;
+    background-image: url( '../images/loggedout/loggedout.png' );
+    background-repeat: no-repeat;
+    width: 776px;
+    height: 385px;
+    color: white;
+    border: 1px solid transparent; /* avoid margin collapse */
+}
+div.copy {
+    padding: 0 5px 5px 50px;
+    font-size: 80%;
+    color: #666;
+    margin: auto;
+    width: 776px;
+}
+h1 {
+    margin: 0;
+}
+h1 img {
+    padding: 35px;
+    float: left;
+}
+p {
+    font-size: 16pt;
+    font-weight: bold;
+    line-height: 22px;
+    letter-spacing: 0.04em;
+    width: 370px;
+    margin-left: 305px;
+    margin-top: 40px;
+}
+form.register {
+    font-size: 13pt;
+    clear: both;
+    float: left;
+    padding: 48px 50px 50px 33px;
+}
+form.register input.text {
+    border: 1px solid transparent;
+    position: relative;
+    top: 2px;
+    width: 173px;
+    height: 30px;
+    background-image: url( '../images/loggedout/textbox.png' );
+    background-repeat: no-repeat;
+    background-color: transparent;
+    padding: 2px 5px 0 12px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+form.register input.submit {
+    color: transparent;
+    width: 130px;
+    height: 35px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    background-image: url( '../images/loggedout/register.png' );
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: right;
+}
+form.register span {
+    padding-left: 2px;
+    display: block;
+    height: 25px;
+}
+form.register div {
+    vertical-align: top;
+}
+div.login {
+    float: right;
+    margin: 52px 10px 0 0;
+    width: 196px;
+    height: 183px;
+    background-image: url( '../images/loggedout/login.png' );
+    background-repeat: no-repeat;
+    color: #5f6366;
+    font-size: 9pt;
+    /*border-bottom: 1px solid #249eda;*/
+}
+div.login h2 {
+    color: #198ece;
+    font-size: 13pt;
+    padding: 5px 10px;
+    margin: 4px;
+}
+div.login form {
+    padding: 0 13px;
+}
+div.login form label {
+    display: block;
+    padding: 4px 0 0 0;
+    line-height: 15px;
+}
+div.login form input.text {
+    width: 165px;
+    background-image: url( '../images/loggedout/textbox-small.png' );
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 155px;
+    height: 26px;
+    border: 1px solid transparent;
+    padding: 0 8px;
+    font-weight: bold;
+}
+div.login form input.submit {
+    margin: 8px 0 0 auto;
+    display: block;
+    background-color: transparent;
+    color: transparent;
+    background-image: url( '../images/loggedout/enter.png' );
+    background-repeat: no-repeat;
+    width: 79px;
+    height: 28px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
