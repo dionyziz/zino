@@ -1,0 +1,228 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+    font-size: 11px;
+    margin: 0;
+    height: 100%;
+    background-color: #213549;
+}
+a img { 
+    border: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: #acf;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.vbar {
+    background-color: #2e4965;
+    font-weight: bold;
+    height: 100%;
+    position: relative;
+}
+.vbar ul li {
+    height: 80px;
+    display: block;
+    text-align: center;
+}
+.vbar ul li img {
+    margin-top: 25%;
+}
+.vbar ul li.selected a {
+    display: block;
+    border: 1px solid #ccc;
+    border-right: 1px solid #f5f5f5;
+    background-color: white;
+    font-weight: bold;
+}
+.vbar ul li a span {
+    display: block;
+    line-height: 12px;
+    padding-top: 5px;
+    margin-bottom: 25%;
+}
+.vbar ul li.selected a span {
+    color: black;
+}
+div.photofeed {
+    width: 100%;
+    overflow: hidden;
+}
+div.photofeed ul {
+    width: 120%;
+}
+div.photofeed li {
+    position: relative;
+    float: left;
+    padding: 0;
+    margin: 0;
+    line-height: 5px;
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+div.photofeed a {
+    text-decoration: none;
+}
+div.photofeed img {
+    position: relative;
+}
+div.photofeed a:hover img {
+    opacity: 0.9;
+}
+.bl {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.col1 {
+    float: left;
+    width: 54px;
+    height: 100%;
+}
+.col2 {
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+}
+.portrait {
+    text-align: center;
+    padding: 15px;
+}
+.portrait img {
+    border: 3px solid white;
+}
+.highlight-content {
+    position: relative;
+    background-color: #213549;
+}
+.xbutton {
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    padding: 2px 3px 2px 0;
+    position: absolute;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: #45719b;
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+    text-decoration: none;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.xbutton:hover {
+    background-color: #131e2a;
+    text-align: left;
+    padding: 2px 1px 2px 2px;
+}
+div.thread {
+    border-top: 1px solid #2c4762;
+    color: white;
+    margin-top: 5px;
+    margin-left: 20px;
+    text-align: left;
+    clear: left;
+    overflow: hidden;
+}
+div.discussion {
+    padding: 10px;
+}
+img.avatar {
+    border: 1px solid transparent;
+    -moz-border-radius: 2px;
+    width: 50px;
+    height: 50px;
+}
+div.message {
+    background-color: #243a50;
+    font-size: 110%;
+}
+div.message .author {
+    float: left;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    font-family: Verdana;
+    height: 50px;
+    font-size: 90%;
+}
+div.username {
+    color: #3f8bbb;
+}
+div.message div.text {
+    line-height: 25px;
+    margin-left: 60px;
+}
+.author .avatar {
+    float: left;
+    margin-right: 5px;
+}
+div.eof {
+    clear: both;
+}
+div.author div.details {
+    white-space: nowrap;
+    margin-left: 60px;
+}
+div.time {
+    color: #3d6287;
+    padding: 5px 0;
+}
+span.countbubble {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    z-index: 1;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    vertical-align: middle;
+    line-height: 19px;
+    color: black;
+    padding-right: 1px;
+    border: 2px solid white;
+    font-weight: bold;
+}
+.thread {
+    border-left: 2px solid transparent;
+}
+.thread:hover {
+    border-left: 2px solid #243a50;
+}
+div.note {
+    padding: 5px;
+    display: block;
+    color: white;
+}
+div.note div.username {
+    display: inline;
+}
+.love {
+    display: inline;
+    padding-right: 6px;
+    text-decoration: none;
+}
+.love strong {
+    color: red;
+}
+div.button {
+    color: red;
+}
