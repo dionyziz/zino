@@ -3,19 +3,20 @@
     <xsl:include href="../zoomin.xsl" />
     <xsl:template match="entry">
         <div class="portrait">
+            <a class="xbutton" href="photos">&#171;</a>
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="media[1]/@url" />
                 </xsl:attribute>
             </img>
+            <xsl:apply-templates select="favourites" />
         </div>
-        <xsl:apply-templates select="favourites" />
         <xsl:apply-templates select="discussion" />
     </xsl:template>
     <xsl:template match="favourites">
         <div class="note">
             <xsl:for-each select="user">
-                <div class="username"><xsl:value-of select="name[1]" /></div>
+                &#9829; <div class="username"><xsl:value-of select="name[1]" /> </div>
             </xsl:for-each>
         </div>
     </xsl:template>

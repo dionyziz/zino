@@ -7,6 +7,7 @@
             <title>Zino</title>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
             <link href="css/loggedout.css" rel="stylesheet" type="text/css" />
+            <script type="text/javascript" src="http://www.zino.gr/js/jquery.js"></script>
         </head>
         <body>
             <div class="card">
@@ -43,6 +44,26 @@
                     <li><a href="">Νομικά</a></li>
                 </ul>
             </div>
+            <script type="text/javascript">
+                $( 'form' )[ 1 ].onsubmit = function () {
+                    $.post( 'session/create', {
+                        username: this.getElementsByTagName( 'input' )[ 0 ].value,
+                        password: this.getElementsByTagName( 'input' )[ 1 ].value
+                    }, function ( res ) {
+                        if ( $( xml ).find( 'operation result' ).text() == 'SUCCESS' ) {
+                            alert( 'Login successful!' );
+                            // widnow.location.href = 'photos';
+                        }
+                        else {
+                            alert( 'Login failed!' );
+                        }
+                    }, 'xml' );
+                    document.body.style.cursor = 'wait';
+                    this.style.opacity = '0.5';
+                    this.blur();
+                    return false;
+                };
+            </script>
         </body>
     </html>
     </xsl:template>
