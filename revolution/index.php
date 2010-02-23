@@ -4,22 +4,28 @@
 
     header( 'Content-type: application/xml' );
 
+    $resource = '';
     if ( isset( $_GET[ 'resource' ] ) ) {
         $resource = $_GET[ 'resource' ];
         unset( $_GET[ 'resource' ] );
     }
-    else {
-        $resource = 'photo';
-    }
+    $method = '';
     if ( isset( $_GET[ 'method' ] ) ) {
         $method = $_GET[ 'method' ];
         unset( $_GET[ 'method' ] );
     }
-    else {
-        $method = 'listing';
+    switch ( $resource ) {
+        case 'photo': case 'session': case 'comment': case 'favourite':
+            break;
+        default:
+            $resource = 'photo';
     }
-    $resource_whitelist = array_flip( array( 'photo', 'session', 'comment', 'favourite' ) );
-    $method_whitelist = array_flip( array( 'view', 'listing', 'create', 'delete', 'update' ) );
+    switch ( $method ) {
+        case 'view': case 'listing': case 'create': case 'delete': case 'update':
+            break;
+        default:
+            $method = 'listing';
+    }
     if ( $method != 'listing' && $method != 'view' ) {
         $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die;
         $vars = $_POST;
@@ -27,9 +33,6 @@
     else {
         $vars = $_GET;
     }
-
-    isset( $resource_whitelist[ $resource ] ) or die;
-    isset( $method_whitelist[ $method ] ) or die;
 
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo '<?xml-stylesheet type="text/xsl" href="/experiment/xslt/' . $resource . '/' . $method . '.xsl"?>';

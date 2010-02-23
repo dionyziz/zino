@@ -52,7 +52,7 @@
                     }, function ( res ) {
                         if ( $( xml ).find( 'operation result' ).text() == 'SUCCESS' ) {
                             alert( 'Login successful!' );
-                            // widnow.location.href = 'photos';
+                            // window.location.href = 'photos';
                         }
                         else {
                             alert( 'Login failed!' );
