@@ -9,6 +9,12 @@
                 <xsl:attribute name="src">
                     <xsl:value-of select="media[1]/@url" />
                 </xsl:attribute>
+                <xsl:attribute name="width">
+                    <xsl:value-of select="media[1]/@width" />
+                </xsl:attribute>
+                <xsl:attribute name="height">
+                    <xsl:value-of select="media[1]/@height" />
+                </xsl:attribute>
             </img>
             <div class="note">
                 <xsl:for-each select="favourites/user">

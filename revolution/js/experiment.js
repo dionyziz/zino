@@ -5,7 +5,7 @@ $( 'div.time' ).each( function () {
 if ( User !== '' ) {
     var favourites = $( 'div.love .username' );
     var faved = false;
-    for ( i = 0; i &lt; favourites.length; ++i ) {
+    for ( i = 0; i < favourites.length; ++i ) {
         if ( favourites[ i ].innerHTML == User ) {
             // I have already fav'ed this
             faved = true;

@@ -4,7 +4,7 @@ RewriteRule ^photos$ index.php?resource=photo&method=listing [L,QSA]
 RewriteRule ^photo/([0-9]+)$ index.php?resource=photo&method=view&id=$1 [L,QSA]
 
 RewriteRule ^session/create$ index.php?resource=session&method=create [L]
-RewriteRule ^session/view$ index.php?resource=session&method=view [L]
+RewriteRule ^login$ index.php?resource=session&method=view [L]
 
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L]
 
