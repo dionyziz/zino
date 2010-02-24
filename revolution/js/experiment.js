@@ -40,3 +40,18 @@ if ( User !== '' ) {
         }
     }
 }
+$( 'a.talk' ).click( function() {
+    var thread = document.createElement( 'div' );
+    thread.className = 'thread';
+    var msg = document.createElement( 'div' );
+    msg.className = 'message mine';
+    var nnew = document.createElement( 'div' );
+    nnew.className = 'new';
+    var tx = document.createElement( 'textarea' );
+    nnew.appendChild( tx );
+    msg.appendChild( nnew );
+    thread.appendChild( msg );
+    $( $( '.discussion .note' )[ 0 ] ).after( thread );
+    tx.focus();
+    return false;
+} );

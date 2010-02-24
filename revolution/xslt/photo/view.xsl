@@ -27,6 +27,11 @@
     </xsl:template>
     <xsl:template match="discussion">
         <div class="discussion">
+            <xsl:if test="/social/@for">
+                <div class="note">
+                    <a href="" class="talk button">Ξεκίνα μία συζήτηση</a>
+                </div>
+            </xsl:if>
             <xsl:apply-templates select="comment" />
         </div>
     </xsl:template>

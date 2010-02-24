@@ -149,6 +149,7 @@ img.avatar {
     height: 50px;
 }
 div.message {
+    position: relative;
     background-color: #243a50;
     font-size: 110%;
     padding-bottom: 2px;
@@ -214,6 +215,7 @@ div.note {
     padding: 5px;
     display: block;
     color: white;
+    text-align: center;
 }
 div.note div.username {
     display: inline;
@@ -234,4 +236,23 @@ div.mine {
 }
 div.mine .time {
     color: #4f7eae;
+}
+a.button {
+    text-align: center;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+a.talk {
+    background-image: url( '../images/speak.png' );
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    padding-left: 20px;
+}
+div.message .new {
+    padding: 5px;
+    margin: auto;
+    width: 90%;
+}
+div.message textarea {
+    width: 100%;
 }
