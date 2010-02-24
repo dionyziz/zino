@@ -151,6 +151,8 @@ img.avatar {
 div.message {
     background-color: #243a50;
     font-size: 110%;
+    padding-bottom: 2px;
+    cursor: pointer;
 }
 div.message .author {
     float: left;
@@ -159,6 +161,7 @@ div.message .author {
     font-family: Verdana;
     height: 50px;
     font-size: 90%;
+    cursor: default;
 }
 div.username {
     color: #3f8bbb;
@@ -225,4 +228,10 @@ div.note div.username {
 }
 div.button {
     color: red;
+}
+div.mine {
+    background-color: #345373;
+}
+div.mine .time {
+    color: #4f7eae;
 }

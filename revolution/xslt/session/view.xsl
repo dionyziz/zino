@@ -5,6 +5,9 @@
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
         <head>
             <title>Zino</title>
+            <base>
+                <xsl:attribute name="href"><xsl:value-of select="@generator" />/</xsl:attribute>
+            </base>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
             <link href="css/loggedout.css" rel="stylesheet" type="text/css" />
             <script type="text/javascript" src="http://www.zino.gr/js/jquery.js"></script>

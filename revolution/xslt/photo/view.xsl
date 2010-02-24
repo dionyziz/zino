@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:include href="../zoomin.xsl" />
+    <xsl:include href="../comment/listing.xsl" />
     <xsl:template match="entry">
         <div class="portrait">
             <a class="xbutton" href="photos">&#171;</a>
@@ -13,7 +14,7 @@
                 <xsl:for-each select="favourites/user">
                     <div class="love">&#9829; <div class="username"><xsl:value-of select="name[1]" /> </div> </div>
                 </xsl:for-each>
-                <a class="love" href=""><strong>&#9829;</strong> Το αγαπώ!</a>
+                <a class="love" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
             </div>
         </div>
         <xsl:apply-templates select="discussion" />
@@ -22,32 +23,5 @@
         <div class="discussion">
             <xsl:apply-templates select="comment" />
         </div>
-    </xsl:template>
-    <xsl:template match="comment">
-        <div class="thread">
-            <div class="message">
-                <div class="author">
-                    <img class="avatar">
-                        <xsl:attribute name="src">
-                            <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
-                        </xsl:attribute>
-                    </img>
-                    <div class="details">
-                        <div class="username"><xsl:value-of select="author[1]/name[1]" /></div>
-                        <div class="time">
-                            <xsl:value-of select="published" />
-                        </div>
-                    </div>
-                </div>
-                <div class="text">
-                    <xsl:apply-templates select="text" />
-                </div>
-                <div class="eof"></div>
-            </div>
-            <xsl:apply-templates select="comment" />
-        </div>
-    </xsl:template>
-    <xsl:template match="a|img|span">
-        <xsl:copy-of select="." />
     </xsl:template>
 </xsl:stylesheet>

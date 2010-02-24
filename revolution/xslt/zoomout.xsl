@@ -4,7 +4,7 @@
     <xsl:template match="/social">
         <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
             <head>
-                <base href="/" /><!-- <xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" /></xsl:attribute></base> -->
+                <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
                 <title>Zino</title>
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
