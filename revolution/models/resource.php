@@ -53,7 +53,10 @@
         call_user_func_array( $method, $vars );
     }
 
+	// include models/page !
     function Resource_RenderXML() {
+		header( 'Content-type: application/xml' );
+
 		list( $resource, $method, $vars ) = Resource_Init();
 
         $stylesheet = Resource_StylesheetAddress( $resource, $method );
