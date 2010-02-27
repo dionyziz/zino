@@ -9,6 +9,24 @@
 		);
 	}
 
+	// include models/page !
+    function Resource_RenderXML() {
+		header( 'Content-type: application/xml' );
+
+		list( $resource, $method, $vars ) = Resource_Init();
+
+        $stylesheet = Resource_StylesheetAddress( $resource, $method );
+
+        Page_Start( $stylesheet );
+        Resource_Call( $resource, $method, $vars );
+        Page_End();
+    }
+
+    function Resource_Call( $resource, $method, $vars ) {
+        include 'controllers/' . $resource . '.php';
+        call_user_func_array( $method, $vars );
+    }
+
     function Resource_Init() {
 		$list = Resource_List();
 		$resource = Resource_Select( $list );
@@ -57,24 +75,6 @@
             $vars = $_GET;
         }
 	}
-
-    function Resource_Call( $resource, $method, $vars ) {
-        include 'controllers/' . $resource . '.php';
-        call_user_func_array( $method, $vars );
-    }
-
-	// include models/page !
-    function Resource_RenderXML() {
-		header( 'Content-type: application/xml' );
-
-		list( $resource, $method, $vars ) = Resource_Init();
-
-        $stylesheet = Resource_StylesheetAddress( $resource, $method );
-
-        Page_Start( $stylesheet );
-        Resource_Call( $resource, $method, $vars );
-        Page_End();
-    }
 
     function Resource_StylesheetAddress( $resource, $method ) {
         global $settings;

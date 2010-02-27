@@ -6,8 +6,8 @@
     global $settings;
 	$settings = include "settings.php";
 
-    include 'models/resource.php';
-    include 'models/page.php';
+    include 'resource.php';
+    include 'page.php';
 
     Resource_RenderXML();
 
