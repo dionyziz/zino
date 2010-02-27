@@ -1,25 +1,35 @@
 <?php
 
+	function Resource_List() {
+		return array(
+			'photo',
+			'session',
+			'comment',
+			'favourite'
+		);
+	}
+
     function Resource_Init() {
-		$resource = Resource_Select();
+		$list = Resource_List();
+		$resource = Resource_Select( $list );
 		$method = Resource_SelectMethod();
 		$args = Resource_Arguments( $method );
 
         return array( $resource, $method, $args );
     }
 
-    function Resource_Select() {
+    function Resource_Select( $list ) {
         $resource = '';
+
         if ( isset( $_GET[ 'resource' ] ) ) {
             $resource = $_GET[ 'resource' ];
             unset( $_GET[ 'resource' ] );
         }
-        switch ( $resource ) {
-            case 'photo': case 'session': case 'comment': case 'favourite':
-                break;
-            default:
-                $resource = 'photo';
-        }
+
+		if ( !in_array( $resource, $list ) ) {
+			$resource = $list[ 0 ];
+		}
+
 		return $resource;
     }
 
@@ -61,10 +71,9 @@
 
         $stylesheet = Resource_StylesheetAddress( $resource, $method );
 
-        Page_XMLHead( $stylesheet );
-        SocialPage_Start();
+        Page_Start( $stylesheet );
         Resource_Call( $resource, $method, $vars );
-        SocialPage_End();
+        Page_End();
     }
 
     function Resource_StylesheetAddress( $resource, $method ) {

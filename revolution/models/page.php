@@ -1,16 +1,14 @@
 <?php
 
-    /* Generic */
-
     function Page_XMLHead( $stylesheet ) {
         echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
         echo "<?xml-stylesheet type=\"text/xsl\" href=\"$stylesheet\"?>";
     }
 
-    /* Social */
-    
-    function SocialPage_Start() {
+    function Page_Start( $stylesheet ) {
         global $settings;
+
+		Page_XMLHead( $stylesheet );
 
         ?><social generated="<?php
         echo date( "Y-m-d H:i:s", time() );
@@ -25,7 +23,7 @@
         ?>"><?php
     }
     
-    function SocialPage_End() {
+    function Page_End() {
         ?></social><?php
     }
 
