@@ -4,15 +4,14 @@
 
     header( 'Content-type: application/xml' );
 
-    die( 'test' );
-
     include 'models/resource.php';
     include 'models/page.php';
 
     global $settings;
-    $settings[ 'base' ] = 'http://alpha.zino.gr/abresas';
+    $path = explode( '/', substr( $_SERVER[ 'SCRIPT_FILENAME' ], strlen( '/var/www/zino.gr/alpha/' ) ), 2 );
+    $settings[ 'base' ] = 'http://alpha.zino.gr/' . $path[ 0 ];
 
     list( $resource, $method, $vars ) = Resource_Init();
-    Page_OutputResource( $resource, $method, $vars );
+    Page_OutputSocialResource( $resource, $method, $vars );
 
 ?>
