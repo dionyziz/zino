@@ -15,13 +15,17 @@
         echo $comment[ 'username' ];
         ?></name><gender><?php
         echo $comment[ 'gender' ];
-        ?></gender><avatar><media url="http://images2.zino.gr/media/<?php
-        echo $comment[ 'userid' ];
-        ?>/<?php
-        echo $comment[ 'avatarid' ];
-        ?>/<?php
-        echo $comment[ 'avatarid' ];
-        ?>_100.jpg" /></avatar></author><text><?= $comment[ 'text' ]; ?></text><?php
+        ?></gender><?php
+        if ( $comment[ 'avatarid' ] ) {
+            ?><avatar><media url="http://images2.zino.gr/media/<?php
+            echo $comment[ 'userid' ];
+            ?>/<?php
+            echo $comment[ 'avatarid' ];
+            ?>/<?php
+            echo $comment[ 'avatarid' ];
+            ?>_100.jpg" /></avatar><?
+        }
+        ?></author><text><?= $comment[ 'text' ]; ?></text><?php
     }
     while ( count( $commentids ) > 1 ) {
         array_shift( $commentids );

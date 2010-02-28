@@ -12,7 +12,12 @@
                             </xsl:attribute>
                             <xsl:if test="discussion[1]/@count &gt; 0">
                                 <span class="countbubble">
-                                    <xsl:value-of select="discussion[1]/@count" />
+                                    <xsl:if test="discussion[1]/@count &gt; 99">
+                                        &#8734;
+                                    </xsl:if>
+                                    <xsl:if test="discussion[1]/@count &lt; 100">
+                                        <xsl:value-of select="discussion[1]/@count" />
+                                    </xsl:if>
                                 </span>
                             </xsl:if>
                             <img>
