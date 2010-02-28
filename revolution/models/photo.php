@@ -37,7 +37,6 @@
             return false;
         }
         public static function ListByIds( $ids ) {
-            die( var_dump($ids) );
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
