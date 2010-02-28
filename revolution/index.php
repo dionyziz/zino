@@ -4,52 +4,40 @@
 
     header( 'Content-type: application/xml' );
 
-    $resource = '';
-    if ( isset( $_GET[ 'resource' ] ) ) {
-        $resource = $_GET[ 'resource' ];
-        unset( $_GET[ 'resource' ] );
-    }
-    $method = '';
-    if ( isset( $_GET[ 'method' ] ) ) {
-        $method = $_GET[ 'method' ];
-        unset( $_GET[ 'method' ] );
-    }
-    switch ( $resource ) {
-        case 'photo': case 'session': case 'comment': case 'favourite':
-            break;
-        default:
-            $resource = 'photo';
-    }
+	$resources = array( 'photo', 'session', 'comment', 'favourite' );
+
+	$resource = @$_GET[ 'resource' ];
+	$method = @$_GET[ 'method' ];
+
+	unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
+
+	in_array( $resource, $resources ) or $resource = 'photo';
+
+	$vars = $_GET;
     switch ( $method ) {
-        case 'view': case 'listing': case 'create': case 'delete': case 'update':
+        case 'view': case 'listing': 
+			break;
+		case 'create': case 'delete': case 'update':
+			$vars = $_POST;
             break;
         default:
             $method = 'listing';
     }
-    if ( $method != 'listing' && $method != 'view' ) {
-        $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die;
-        $vars = $_POST;
-    }
-    else {
-        $vars = $_GET;
-    }
 
-    $path = explode( '/', substr( $_SERVER[ 'SCRIPT_FILENAME' ], strlen( '/var/www/zino.gr/alpha/' ) ), 2 );
-    $base = 'http://alpha.zino.gr/' . $path[ 0 ]; // $path[ 0 ] is the developer name
+	$uri = $_SERVER[ 'REQUEST_URI' ];
+	$base = 'http://alpha.zino.gr' . substr( $uri, 0, strpos( $uri, '/', 1 ) );
+
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo '<?xml-stylesheet type="text/xsl" href="' . $base . '/xslt/' . $resource . '/' . $method . '.xsl"?>';
-    ?><social generated="<?php
-    echo date( "Y-m-d H:i:s", time() );
-    ?>"<?php
+    echo "<?xml-stylesheet type=\"text/xsl\" href=\"$base/xslt/$resource/$method.xsl\"?>"
+
+    ?><social generated="<?= date( "Y-m-d H:i:s", time() ); ?>"<?php
     if ( isset( $_SESSION[ 'user' ] ) ) {
-        ?> for="<?php
-        echo $_SESSION[ 'user' ][ 'name' ];
-        ?>"<?php
+        ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?php
     }
-    ?> generator="<?php
-    echo $base;
-    ?>"><?php
+    ?> generator="<?= $base; ?>"><?php
+
     include 'controllers/' . $resource . '.php';
     call_user_func_array( $method, $vars );
+
     ?></social><?php
 ?>
