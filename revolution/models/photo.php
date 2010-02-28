@@ -46,7 +46,7 @@
                     `images` CROSS JOIN `users`
                         ON `image_userid` = `user_id`
                 WHERE
-                    `image_id` IN :ids;', array( 'ids' => $id )
+                    `image_id` IN :ids;', array( 'ids' => $ids )
             );
             $images = array();
             while ( $row = mysql_fetch_array( $res ) ) {
