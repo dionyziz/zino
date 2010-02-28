@@ -6,7 +6,7 @@ body {
     font-size: 11px;
     margin: 0;
     height: 100%;
-    background-color: white;
+    background-color: #213549;
 }
 a img { 
     border: none;
@@ -17,7 +17,7 @@ ul {
     margin: 0;
 }
 a {
-    color: #467;
+    color: #acf;
     font-weight: normal;
     text-decoration: underline;
 }
@@ -50,9 +50,6 @@ a {
 }
 .vbar ul li.selected a span {
     color: black;
-}
-.vbar a {
-    color: #acf;
 }
 div.photofeed {
     width: 100%;
@@ -135,9 +132,9 @@ li.stat span {
 .contentitem img {
     border: 3px solid white;
 }
-.highlight-content {
+.contentitem {
     position: relative;
-    background-color: white;
+    background-color: #213549;
 }
 .xbutton {
     top: 10px;
@@ -146,10 +143,10 @@ li.stat span {
     height: 20px;
     padding: 2px 3px 2px 0;
     position: absolute;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    border: 2px solid #31414e;
-    background-color: #6c8eab;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: #45719b;
     opacity: 0.9;
     color: white;
     text-align: center;
@@ -165,8 +162,8 @@ li.stat span {
     padding: 2px 1px 2px 2px;
 }
 div.thread {
-    border-top: 1px solid #ddd;
-    color: black;
+    border-top: 1px solid #2c4762;
+    color: white;
     margin-top: 5px;
     margin-left: 20px;
     text-align: left;
@@ -184,7 +181,7 @@ img.avatar {
 }
 div.message {
     position: relative;
-    background-color: #f0f0f0;
+    background-color: #243a50;
     font-size: 110%;
     padding-bottom: 2px;
     cursor: pointer;
@@ -243,12 +240,12 @@ span.countbubble {
     border-left: 2px solid transparent;
 }
 .thread:hover {
-    border-left: 2px solid #f0f0f0;
+    border-left: 2px solid #243a50;
 }
 div.note {
     padding: 5px;
     display: block;
-    color: #333;
+    color: white;
     text-align: center;
 }
 div.note div.username {
@@ -258,7 +255,6 @@ div.note div.username {
     display: inline;
     padding-right: 6px;
     text-decoration: none;
-    color: #733;
 }
 .love strong {
     color: red;
@@ -267,8 +263,7 @@ div.button {
     color: red;
 }
 div.mine {
-    background-color: #eee;
-    border-top: 2px solid #aaf394;
+    background-color: #345373;
 }
 div.mine .time {
     color: #4f7eae;
@@ -279,7 +274,7 @@ a.button {
     text-decoration: none;
 }
 a.talk {
-    background-image: url( '../images/speak-blue.png' );
+    background-image: url( '../images/speak.png' );
     background-repeat: no-repeat;
     background-position: 2px 3px;
     padding-left: 20px;
