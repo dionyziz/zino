@@ -8,9 +8,7 @@
         ?>/<?php
         echo $photo[ 'id' ];
         ?>_150.jpg" />
-        <discussion count="<?php
-        echo $photo[ 'numcomments' ];
-        ?>" />
+        <discussion count="<?= $photo[ 'numcomments' ] ?>" />
     </entry>
     <? endforeach; ?>
 </feed>
