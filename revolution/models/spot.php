@@ -14,7 +14,7 @@
             // do nothing! static methods
         }
         private static function SendRequest( $requestBody ) {
-            global $xc_settings;
+            //global $xc_settings;
 
             // TODO: Response Text
             // TODO: Error checking
@@ -41,7 +41,7 @@
             socket_close( $sock );
 
             $lines = explode( "\n", $response );
-            w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
+            //w_assert( $lines[ 0 ] == "SUCCESS", "Spot failed! Response: $response" );
             array_shift( $lines ); // success message
             array_pop( $lines ); // useless last line exploded
             return $lines;
