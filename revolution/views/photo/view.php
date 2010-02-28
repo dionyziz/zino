@@ -1,4 +1,5 @@
 <entry id="<?= $photo[ 'id' ] ?>">
+    <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
     <author>
         <name><?= $photo[ 'username' ] ?></name>
         <subdomain><?= $photo[ 'subdomain' ] ?></subdomain>

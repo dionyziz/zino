@@ -9,7 +9,7 @@
             ?></comment><?php
         }
         array_unshift( $commentids, $comment[ 'id' ] );
-        ?><comment><published><?php
+        ?><comment id="<?= $comment[ 'id' ] ?>"><published><?php
         echo $comment[ 'created' ];
         ?></published><author><name><?php
         echo $comment[ 'username' ];
