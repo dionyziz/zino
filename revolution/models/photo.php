@@ -36,5 +36,23 @@
             }
             return false;
         }
+        public static function ListByIds( $ids ) {
+            $res = db(
+                'SELECT
+                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
+                    `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain,
+                    `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
+                FROM
+                    `images` CROSS JOIN `users`
+                        ON `image_userid` = `user_id`
+                WHERE
+                    `image_id` IN :ids;', array( 'ids' => $id )
+            );
+            $images = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $images[] = $row;
+            }
+            return $images;
+        }
     }
 ?>
