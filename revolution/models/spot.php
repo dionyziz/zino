@@ -166,7 +166,6 @@
             $content = Photo::ListByIds( $ids );
 
             $water->ProfileEnd();
-            die( "error in spot" );
 
             return $content;
         }
