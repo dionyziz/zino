@@ -164,7 +164,6 @@
             foreach ( $lines as $id ) {
                 $ids[] = $id;
             }
-            $ids = array(1,2,3,4,5,6);
             $content = Photo::ListByIds( $ids );
 
             //$water->ProfileEnd();
