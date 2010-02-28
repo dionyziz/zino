@@ -148,11 +148,11 @@
             return $lines; // journal ids
         }
         public static function GetImages( $userid, $num = 30 ) {
-            global $water;
+            //global $water;
 
             include 'models/photo.php';
 
-            $water->Profile( 'Spot get images' );
+            //$water->Profile( 'Spot get images' );
 
             $request = "GET IMAGES\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
@@ -167,7 +167,7 @@
             $ids = array(1,2,3,4,5,6);
             $content = Photo::ListByIds( $ids );
 
-            $water->ProfileEnd();
+            //$water->ProfileEnd();
 
             return $content;
         }
