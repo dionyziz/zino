@@ -28,7 +28,7 @@
 	$base = 'http://alpha.zino.gr' . substr( $uri, 0, strpos( $uri, '/', 1 ) );
 
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo "<?xml-stylesheet type=\"text/xsl\" href=\"$base/xslt/$resource/$method.xsl\"?>"
+    echo "<?xml-stylesheet type=\"text/xsl\" href=\"$base/xslt/$resource/$method.xsl\"?>";
 
     ?><social generated="<?= date( "Y-m-d H:i:s", time() ); ?>"<?php
     if ( isset( $_SESSION[ 'user' ] ) ) {
