@@ -3,8 +3,16 @@
     <xsl:include href="../zoomin.xsl" />
     <xsl:include href="../comment/listing.xsl" />
     <xsl:template match="entry">
-        <div class="portrait">
-            <a class="xbutton" href="photos">&#171;</a>
+        <a class="xbutton" href="photos">&#171;</a>
+        <div class="contentitem">
+            <div class="details">
+                <ul>
+                    <li>Από: <a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></li>
+                    <li><div class="time"><xsl:value-of select="published" /></div></li>
+                    <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
+                    <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
+                </ul>
+            </div>
             <img>
                 <xsl:attribute name="src">
                     <xsl:value-of select="media[1]/@url" />

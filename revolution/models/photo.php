@@ -22,8 +22,8 @@
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created,
-                    `user_name` AS username, `user_gender` AS gender,
-                    `image_width` AS w, `image_height` AS h
+                    `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain,
+                    `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
                 FROM
                     `images` CROSS JOIN `users`
                         ON `image_userid` = `user_id`

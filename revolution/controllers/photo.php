@@ -12,6 +12,7 @@
         $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
         $numpages = $commentdata[ 0 ];
         $comments = $commentdata[ 1 ];
+        $countcomments = $photo[ 'numcomments' ];
         $favourites = Favourite::Listing( TYPE_IMAGE, $id );
         include 'views/photo/view.php';
     }

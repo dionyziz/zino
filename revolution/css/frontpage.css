@@ -97,11 +97,42 @@ div.photofeed a:hover img {
     overflow: auto;
     background-color: white;
 }
-.portrait {
-    text-align: center;
-    padding: 15px;
+.contentitem > .details {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin: 5px;
+    background-color: #e5e5e5;
+    opacity: 0.8;
 }
-.portrait img {
+.contentitem > .details img {
+    border: none;
+}
+li.stat {
+    padding-top: 15px;
+    display: inline;
+    font-size: 120%;
+    padding: 5px;
+}
+li.numfavourites {
+    color: red;
+}
+li.numcomments span {
+    background-image: url( '../images/speak-blue.png' );
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 15px;
+}
+li.stat span {
+    font-weight: bold;
+    color: black;
+}
+.contentitem {
+    text-align: center;
+    padding: 5px 15px 0 15px;
+}
+.contentitem img {
     border: 3px solid white;
 }
 .highlight-content {

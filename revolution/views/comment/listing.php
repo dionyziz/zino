@@ -1,4 +1,4 @@
-<discussion>
+<discussion count="<?= $countcomments ?>">
 <?
     $commentids = array( 0 );
     $indentation = 0;
