@@ -8,21 +8,20 @@
 
 	$resource = @$_GET[ 'resource' ];
 	$method = @$_GET[ 'method' ];
-
+	
 	unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
 
 	in_array( $resource, $resources ) or $resource = 'photo';
 
-	$vars = $_GET;
-    switch ( $method ) {
-        case 'view': case 'listing': 
-			break;
-		case 'create': case 'delete': case 'update':
-			$vars = $_POST;
-            break;
-        default:
-            $method = 'listing';
-    }
+	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
+		$vars = $_POST;
+	}
+	else {
+		$vars = $_GET;
+		if ( $method != 'view' && $method != 'listing' ) {
+			$method = 'listing';
+		}
+	}
 
 	$uri = $_SERVER[ 'REQUEST_URI' ];
 	$base = 'http://alpha.zino.gr' . substr( $uri, 0, strpos( $uri, '/', 1 ) );
