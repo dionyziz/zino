@@ -13,7 +13,7 @@
                         </img>
                     </xsl:if>
                     <div class="details">
-                        <div class="username"><xsl:value-of select="author[1]/name[1]" /></div>
+                        <span class="username"><xsl:value-of select="author[1]/name[1]" /></span>
                         <div class="time">
                             <xsl:value-of select="published" />
                         </div>

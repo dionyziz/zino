@@ -8,7 +8,7 @@
             <div class="details">
                 <ul>
                     <li><xsl:value-of select="title[1]" /></li>
-                    <li>Από: <a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></li>
+                    <li>Από: <span class="username"><a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></span></li>
                     <li><div class="time"><xsl:value-of select="published" /></div></li>
                     <xsl:if test="favourites[1]/@count &gt; 0">
                         <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
@@ -31,7 +31,7 @@
             </img>
             <div class="note">
                 <xsl:for-each select="favourites/user">
-                    <div class="love">&#9829; <div class="username"><xsl:value-of select="name[1]" /> </div> </div>
+                    <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
                 </xsl:for-each>
                 <a class="love button" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
             </div>

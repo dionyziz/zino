@@ -1,5 +1,6 @@
 $( 'div.time' ).each( function () {
     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
+    $( this ).addClass( 'processedtime' );
 } );
 
 if ( User !== '' ) {

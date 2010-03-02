@@ -100,11 +100,21 @@ div.photofeed a:hover img {
     right: 0;
     padding: 10px;
     margin: 5px;
-    background-color: #e5e5e5;
+    background-color: #2c4762;
+    color: white;
     opacity: 0.8;
+    width: 120px;
 }
 .contentitem > .details img {
     border: none;
+}
+.contentitem > .details .username {
+    display: inline;
+}
+.contentitem > .details .processedtime {
+    color: #7399ba;
+    padding: 5px;
+    display: block;
 }
 li.stat {
     padding-top: 15px;
@@ -123,7 +133,7 @@ li.numcomments span {
 }
 li.stat span {
     font-weight: bold;
-    color: black;
+    color: white;
 }
 .contentitem {
     text-align: center;
@@ -137,6 +147,7 @@ li.stat span {
     background-color: #213549;
 }
 .xbutton {
+    z-index: 1;
     top: 10px;
     left: 10px;
     width: 20px;
@@ -190,13 +201,14 @@ div.message .author {
     float: left;
     margin: 0 10px 0 0;
     vertical-align: middle;
-    font-family: Verdana;
     height: 50px;
     font-size: 90%;
     cursor: default;
 }
-div.username {
+span.username {
     color: #3f8bbb;
+    font-family: Verdana;
+    display: block;
 }
 div.message div.text {
     line-height: 25px;
@@ -216,6 +228,10 @@ div.author div.details {
 div.time {
     color: #3d6287;
     padding: 5px 0;
+    display: none;
+}
+div.processedtime {
+    display: inline;
 }
 span.countbubble {
     display: block;
@@ -248,7 +264,7 @@ div.note {
     color: white;
     text-align: center;
 }
-div.note div.username {
+div.note span.username {
     display: inline;
 }
 .love {
