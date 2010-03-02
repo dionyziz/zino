@@ -6,7 +6,7 @@
         <gender><?= $photo[ 'gender' ] ?></gender>
     </author>
     <published><?= $photo[ 'created' ] ?></published>
-    <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_full.jpg" width="<?= $photo[ 'w' ] ?>" height="<?= $photo[ 'h' ] ?>" /><?
+    <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_full.jpg" width="<?= $photo[ 'w' ] ?>" height="<?= $photo[ 'h' ] ?>" /><?
     include 'views/comment/listing.php';
     if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
