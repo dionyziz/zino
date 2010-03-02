@@ -21,8 +21,11 @@
         $method == 'view' or $method = 'listing';
 	}
 
+    global $settings;
+    
+    $settings = include 'settings.php';
+    
 	$uri = $_SERVER[ 'REQUEST_URI' ];
-	$base = 'http://alpha.zino.gr' . substr( $uri, 0, strpos( $uri, '/', 1 ) );
 
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo "<?xml-stylesheet type=\"text/xsl\" href=\"$base/xslt/$resource/$method.xsl\"?>";
@@ -31,7 +34,7 @@
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?php
     }
-    ?> generator="<?= $base; ?>"><?php
+    ?> generator="<?= $settings[ 'base' ]; ?>"><?php
 
     include 'controllers/' . $resource . '.php';
     call_user_func_array( $method, $vars );

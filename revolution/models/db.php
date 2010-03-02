@@ -1,6 +1,8 @@
 <?php
-    mysql_connect( 'localhost', 'zinolive', '7eyBYoaIHwI47p50nRLD' ) or die( mysql_error() );
-    mysql_select_db( 'zinolive' );
+    global $settings;
+    
+    mysql_connect( $settings[ 'db' ][ 'host' ], $settings[ 'db' ][ 'user' ], $settings[ 'db' ][ 'password' ] ) or die( mysql_error() );
+    mysql_select_db( $settings[ 'db' ][ 'name' ] );
     mysql_query( "SET NAMES UTF8;" );
 
     function db( $sql, $bind = false ) {
