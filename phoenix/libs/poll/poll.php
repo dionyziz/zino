@@ -128,14 +128,6 @@
             --$this->Numvotes;
             $this->Save();
         }
-        public function OnCommentCreate() {
-            ++$this->Numcomments;
-            $this->Save();
-        }
-        public function OnCommentDelete() {
-            --$this->Numcomments;
-            $this->Save();
-        }
         public function CreateOption( $text ) {
             $option = New PollOption();
             $option->Text = $text;

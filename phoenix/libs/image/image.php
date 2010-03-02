@@ -213,9 +213,6 @@
             if ( $this->Albumid ) {
                 $this->Album->OnCommentCreate( $this );
             }
-           
-            ++$this->Numcomments;
-            return $this->Save();
         }
         public function OnCommentDelete() {
             global $libs;

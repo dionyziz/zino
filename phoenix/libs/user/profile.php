@@ -224,15 +224,6 @@
                 $this->ChangedEmail( $previousValues[ 'Email' ], $user->Name );
             }
         }
-        public function OnCommentCreate() {
-            ++$this->Numcomments;
-            $this->Save();
-        }
-        public function OnCommentDelete() {
-            --$this->Numcomments;
-            $this->Save();
-        }
-        
         public function ChangedEmail( $previousEmail, $username ) {
             global $libs;
             global $rabbit_settings;

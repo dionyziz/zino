@@ -633,14 +633,8 @@
             
             Comment_LoadLibraryByType( $this->Typeid );
             
-            w_assert( is_object( $this->User ), 'Comment->User not an object' );
-            $this->User->OnCommentCreate();
-
             w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
-            if ( $this->Typeid == TYPE_USERPROFILE ) {
-                $this->Item->Profile->OnCommentCreate();
-            }
-            else {
+            if ( $this->Typeid == TYPE_IMAGE ) {
                 $this->Item->OnCommentCreate();
             }
 

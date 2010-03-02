@@ -207,14 +207,6 @@
 
             return false;
         }
-        public function OnCommentCreate( Image $image ) {
-            ++$this->Numcomments;
-            $this->Save();
-        }
-        public function OnCommentDelete( Image $image ) {
-            --$this->Numcomments;
-            $this->Save();
-        }
         public function ImageAdded( Image $image ) {
             $this->Numcomments += $image->Numcomments;
             ++$this->Numphotos;

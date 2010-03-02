@@ -206,14 +206,6 @@
         public function OnUpdate() {            
             Bulk::Store( $this->Text, $this->Bulkid );
         }
-        public function OnCommentCreate() {
-            ++$this->Numcomments;
-            $this->Save();
-        }
-        public function OnCommentDelete() {
-            --$this->Numcomments;
-            $this->Save();
-        }
         protected function OnCreate() {
             global $libs;
             
