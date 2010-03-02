@@ -1,6 +1,6 @@
 delimiter |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `comments`
+CREATE TRIGGER insertcounts AFTER INSERT ON `comments`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_comments` = `count_comments` + 1 WHERE `count_userid` = NEW.`comment_userid` LIMIT 1;
         CASE NEW.`comment_typeid`
@@ -16,7 +16,7 @@ CREATE TRIGGER updatecounts AFTER INSERT ON `comments`
    END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `comments`
+CREATE TRIGGER deletecounts AFTER DELETE ON `comments`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_comments` = `count_comments` - 1 WHERE `count_userid` = OLD.`comment_userid` LIMIT 1;
         CASE NEW.`comment_typeid`
@@ -33,14 +33,14 @@ CREATE TRIGGER updatecounts AFTER DELETE ON `comments`
    END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `images`
+CREATE TRIGGER insertcounts AFTER INSERT ON `images`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` + 1 WHERE `count_userid` = NEW.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` + 1 WHERE `album_id` = NEW.`image_albumid` LIMIT 1;
    END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `images`
+CREATE TRIGGER deletecounts AFTER DELETE ON `images`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
@@ -49,7 +49,7 @@ CREATE TRIGGER updatecounts AFTER DELETE ON `images`
    END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `albums`
+CREATE TRIGGER insertcounts AFTER INSERT ON `albums`
     FOR EACH ROW BEGIN
         IF NEW.`album_ownertype` = 3 THEN UPDATE `usercounts` SET `count_albums` = `count_albums` + 1 WHERE `count_userid` = NEW.`album_ownerid` LIMIT 1;
     END;
@@ -63,20 +63,20 @@ CREATE TRIGGER updatecounts BEFORE DELETE ON `albums`
    END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `polls`
+CREATE TRIGGER insertcounts AFTER INSERT ON `polls`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_polls` = `count_polls` + 1 WHERE `count_userid` = NEW.`poll_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `polls`
+CREATE TRIGGER deletecounts AFTER DELETE ON `polls`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_polls` = `count_polls` - 1 WHERE `count_userid` = OLD.`poll_userid` LIMIT 1;
         DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 1 LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `journals`
+CREATE TRIGGER insertcounts AFTER INSERT ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` + 1 WHERE `count_userid` = NEW.`journal_userid` LIMIT 1;
         DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 4 LIMIT 1;
@@ -84,63 +84,63 @@ CREATE TRIGGER updatecounts AFTER INSERT ON `journals`
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `journals`
+CREATE TRIGGER deletecounts AFTER DELETE ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` - 1 WHERE `count_userid` = OLD.`journal_userid` LIMIT 1;
         DELETE FROM `bulk` WHERE `bulk_id` = OLD.`journal_bulkid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `shoutbox`
+CREATE TRIGGER insertcounts AFTER INSERT ON `shoutbox`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_shouts` = `count_shouts` + 1 WHERE `count_userid` = NEW.`shout_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `shoutbox`
+CREATE TRIGGER deletecounts AFTER DELETE ON `shoutbox`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_shouts` = `count_shouts` - 1 WHERE `count_userid` = OLD.`shout_userid` LIMIT 1;
         DELETE FROM `bulk` WHERE `bulk_id`=OLD.`shout_bulkid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `relations`
+CREATE TRIGGER insertcounts AFTER INSERT ON `relations`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_relations` = `count_relations` + 1 WHERE `count_userid` = NEW.`relation_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `relations`
+CREATE TRIGGER deletecounts AFTER DELETE ON `relations`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_relations` = `count_relations` - 1 WHERE `count_userid` = OLD.`relation_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `favourites`
+CREATE TRIGGER insertcounts AFTER INSERT ON `favourites`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_favourites` = `count_favourites` + 1 WHERE `count_userid` = NEW.`favourite_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `favourites`
+CREATE TRIGGER deletecounts AFTER DELETE ON `favourites`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_favourites` = `count_favourites` - 1 WHERE `count_userid` = OLD.`favourite_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER INSERT ON `answers`
+CREATE TRIGGER insertcounts AFTER INSERT ON `answers`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_answers` = `count_answers` + 1 WHERE `count_userid` = NEW.`answer_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `answers`
+CREATE TRIGGER deletecounts AFTER DELETE ON `answers`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_answers` = `count_answers` - 1 WHERE `count_userid` = NEW.`answer_userid` LIMIT 1;
     END;
 |
 
-CREATE TRIGGER updatecounts AFTER DELETE ON `questions`
+CREATE TRIGGER deletecounts AFTER DELETE ON `questions`
     FOR EACH ROW BEGIN
         DELETE FROM `answers` WHERE `answer_questionid`=OLD.`question_id`;
     END;
