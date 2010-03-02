@@ -256,22 +256,12 @@
         protected function OnCreate() {
             global $libs;
 
-            $libs->Load( 'user/count' );
-            
-            ++$this->User->Count->Relations;
-            $this->User->Count->Save();
-            
             $libs->Load( 'rabbit/event' );
             FireEvent( 'FriendRelationCreated', $this );
         }
         protected function OnDelete() {
             global $libs;
             
-            $libs->Load( 'user/count' );
-            
-            --$this->User->Count->Relations;
-            $this->User->Count->Save();
-
             $libs->Load( 'rabbit/event' );
             FireEvent( 'FriendRelationDeleted', $this );
         }

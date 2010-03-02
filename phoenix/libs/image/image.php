@@ -331,10 +331,6 @@
             global $libs;
             
             $libs->Load( 'album' );
-            $libs->Load( 'user/count' );
-            
-            ++$this->User->Count->Images;
-            $this->User->Count->Save();
 
             // throws ImageException
             $upload = $this->Upload();
@@ -355,11 +351,7 @@
             global $libs;
             
             $libs->Load( 'comment' );
-            $libs->Load( 'user/count' );
             $libs->Load( 'album' );
-
-            --$this->User->Count->Images;
-            $this->User->Count->Save();
 
             if ( $this->Albumid > 0 ) {
                 $this->Album->ImageDeleted( $this );

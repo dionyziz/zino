@@ -168,18 +168,12 @@
             global $water;
             global $libs;
 
-            $libs->Load( 'user/count' );
             if ( $this->IsDeleted() ) {
                 $water->Notice( 'Album already deleted; skipping' );
                 return;
             }
             $this->Delid = 1;
             $this->Save();
-            
-            if ( $this->Ownertype == TYPE_USERPROFILE ) {
-                --$this->Owner->Count->Albums;
-                $this->Owner->Count->Save();
-            }
             
             /*
             This would be nicer this way:
@@ -223,7 +217,6 @@
             $this->Save();
         }
         public function ImageDeleted( Image $image ) {
-            --$this->Numphotos;
             if ( $this->Mainimageid == $image->Id ) {
                 $imagefinder = New ImageFinder();
                 $images = $imagefinder->FindByAlbum( $this, 0, 1 );
@@ -263,16 +256,6 @@
                         $this->Owner->Save();
                     }
                 }
-            }
-        }
-        protected function OnCreate() {
-            global $libs;
-            
-            $libs->Load( 'user/count' );
-        
-            if ( $this->Ownertype == TYPE_USERPROFILE ) {
-                ++$this->Owner->Count->Albums;
-                $this->Owner->Count->Save();
             }
         }
         public function LoadDefaults() {

@@ -52,23 +52,16 @@
         protected function OnCreate() {
             global $libs;
             
-            $libs->Load( 'user/count' );
             $libs->Load( 'rabbit/event' );
             
             FireEvent( 'FavouriteCreated', $this );
-            ++$this->User->Count->Favourites;
-            $this->User->Count->Save();
         }
         protected function OnDelete() {
             global $libs;
             
-            $libs->Load( 'user/count' );
             $libs->Load( 'rabbit/event' );
             
             FireEvent( 'FavouriteDeleted', $this );
-            
-            --$this->User->Count->Favourites;
-            $this->User->Count->Save();
         }
     }
 ?>

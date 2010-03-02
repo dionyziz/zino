@@ -194,13 +194,7 @@
         protected function OnCreate() {
             global $libs;
             
-            $libs->Load( 'user/count' );
-
-            ++$this->User->Count->Polls;
-            $this->User->Count->Save();
-            
 			$this->MakeFrontpage();
-			
 
             Sequence_Increment( SEQUENCE_POLL );
         }
@@ -218,10 +212,6 @@
             global $libs;
 
             $libs->Load( 'comment' );
-            $libs->Load( 'user/count' );
-            
-            --$this->User->Count->Polls;
-            $this->User->Count->Save();
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );

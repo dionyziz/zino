@@ -84,24 +84,6 @@
             $this->Userid = $user->Id;
             $this->Created = NowDate();
         }
-        protected function OnCreate() {
-            global $user;
-            global $libs;
-
-            $libs->Load( 'user/count' );
-            
-            ++$user->Count->Answers;
-            $user->Count->Save();
-        }
-        protected function OnDelete() {
-            global $user;
-            global $libs;
-
-            $libs->Load( 'user/count' );
-            
-            --$user->Count->Answers;
-            $user->Count->Save();
-        }
     }
     
 ?>

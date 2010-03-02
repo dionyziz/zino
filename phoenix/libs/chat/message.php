@@ -148,11 +148,6 @@
             global $user;
             global $libs;
             
-            $libs->Load( 'user/count' );
-            
-            ++$user->Count->Shouts;
-            $user->Count->Save();
-
             Sequence_Increment( SEQUENCE_SHOUT );
             
             $libs->Load( 'rabbit/event' );
@@ -164,11 +159,6 @@
             global $user;
             global $libs;
             
-            $libs->Load( 'user/count' );
-            
-            --$user->Count->Shouts;
-            $user->Count->Save();
-
             Sequence_Increment( SEQUENCE_SHOUT );
         }
 
