@@ -245,9 +245,6 @@
                 $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_JOURNAL, $this->id );
             }
 
-            $finder = New CommentFinder();
-            $finder->DeleteByEntity( $this );
-			
 			$frontpage = New FrontpageJournal( $this->Userid );
             if ( $frontpage->Exists() ) {
                 if ( $frontpage->Journalid == $this->Id ) {

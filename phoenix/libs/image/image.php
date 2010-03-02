@@ -209,10 +209,6 @@
                     break;
                 }
             }
-
-            if ( $this->Albumid ) {
-                $this->Album->OnCommentCreate( $this );
-            }
         }
         public function OnCommentDelete() {
             global $libs;
@@ -226,10 +222,6 @@
                     Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
                     break;
                 }
-            }
-
-            if ( $this->Albumid ) {
-                $this->Album->OnCommentDelete( $this );
             }
         }
         public function AddPageview() {
@@ -350,15 +342,11 @@
         protected function OnDelete() {
             global $libs;
             
-            $libs->Load( 'comment' );
             $libs->Load( 'album' );
 
             if ( $this->Albumid > 0 ) {
                 $this->Album->ImageDeleted( $this );
             }
-
-            $finder = New CommentFinder();
-            $finder->DeleteByEntity( $this );
 
             Sequence_Increment( SEQUENCE_IMAGE );
         }

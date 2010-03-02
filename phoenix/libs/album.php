@@ -175,30 +175,6 @@
             $this->Delid = 1;
             $this->Save();
             
-            /*
-            This would be nicer this way:
-            $album->Images->Delete();
-            But we'll need Finders to return a collection rather than an array
-                                                                -- abresas
-            
-            For now, use relevant finders to mass delete, similar to how placeids
-            are nullified in `users` records using a User finder called from the Place model
-            TODO
-                                                                -- dionyziz
-            */
-            $query  = $this->mDb->Prepare("
-                UPDATE 
-                    :" . $this->mImageTableAlias . "
-                SET
-                    `image_delid`     = :ImageDelId
-                WHERE
-                      `image_albumid` = :AlbumId;
-            ");
-            $query->BindTable( $this->mImageTableAlias );
-            $query->Bind( 'ImageDelId', 1 );
-            $query->Bind( 'AlbumId', $this->Id );
-            $query->Execute();
-
             return false;
         }
         public function ImageAdded( Image $image ) {
@@ -214,7 +190,6 @@
             $frontpage->Imageid = $image->Id;
             $frontpage->Save();
             Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
-            $this->Save();
         }
         public function ImageDeleted( Image $image ) {
             if ( $this->Mainimageid == $image->Id ) {
@@ -243,7 +218,6 @@
                     Sequence_Increment( SEQUENCE_FRONTPAGEIMAGECOMMENTS );
                 }
             }
-            $this->Save();
         }
         public function ImageUndeleted( Image $image ) {
             $this->ImageAdded( $image );

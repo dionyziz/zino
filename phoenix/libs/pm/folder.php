@@ -4,6 +4,7 @@
     define( 'PMFOLDER_OUTBOX', 'outbox' );
     define( 'PMFOLDER_USER', 'user' );
 
+    /* triggered
     function PMFolder_PrepareUser( $user ) {
         $inbox = New PMFolder();
         $inbox->Userid = $user->Id;
@@ -19,6 +20,7 @@
         $outbox->Delid = 0;
         $outbox->Save();
     }
+    */
 
     class PMFolderFinder extends Finder {
         protected $mModel = 'PMFolder';

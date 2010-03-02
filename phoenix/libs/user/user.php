@@ -372,20 +372,6 @@
             $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
             $this->Avatar = $this->HasOne( 'Image', 'Avatarid' );
         }
-        protected function OnBeforeDelete() {
-            foreach ( $this->Albums as $album ) {
-                $album->Delete();
-            }
-            foreach ( $this->Journals as $journal ) {
-                $journal->Delete();
-            }
-            if ( $this->Profile->Exists() ) {
-                $this->Profile->Delete();
-            }
-            if ( $this->Preferences->Exists() ) {
-                $this->Preferences->Delete();
-            }
-        }
         public function HasPermission( $permission ) { 
             return $this->Rights >= $permission;
         }
@@ -412,33 +398,12 @@
         public function UpdateLastLogin() {
             $this->Lastlogin = NowDate();
         }
-        protected function OnBeforeCreate() {
-            global $libs;
-            
-            $libs->Load( 'user/count' );
-            $libs->Load( 'album' );
-            $libs->Load( 'user/profile' );
-            
-            $this->Egoalbumid = null;
-
-            $this->Count->Save();
-        }
         protected function OnCreate() {
             global $libs;
 
             $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
            
-            $this->EgoAlbum->Ownerid = $this->Id; // update ego albm userid
-            $this->EgoAlbum->Ownertype = TYPE_USERPROFILE;
-            $this->EgoAlbum->Save();
-            $this->Egoalbumid = $this->EgoAlbum->Id;
-            
-            $this->OnUpdate();
-            PMFolder_PrepareUser( $this );
-
-            $this->Save(); // save again
-
             ob_start();
             $link = $this->Profile->ChangedEmail( '', $this->Name );
             $subject = Element( 'user/email/welcome', $this, $link );
