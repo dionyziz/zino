@@ -28,7 +28,7 @@
 	$uri = $_SERVER[ 'REQUEST_URI' ];
 
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo "<?xml-stylesheet type=\"text/xsl\" href=\"$base/xslt/$resource/$method.xsl\"?>";
+    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/xslt/$resource/$method.xsl\"?>";
 
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?php
     if ( isset( $_SESSION[ 'user' ] ) ) {

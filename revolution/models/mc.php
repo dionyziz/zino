@@ -981,9 +981,10 @@ class memcached
 }
 
 // }}}
-global $mc;
+global $mc, $settings;
 
-$mc = new memcached(
+if ( $settings[ 'enablemc' ] ) {
+    $mc = new memcached(
         array(
               'servers' => array('88.198.246.218:11211'),
               'debug'   => false,
@@ -991,4 +992,15 @@ $mc = new memcached(
               'persistant' => true
         )
     );
+}
+else {
+    class memcacheddummy {
+        public function add( $key, $value ) {}
+        public function get_multi( $keys ) { return null; }
+        public function get( $key ) { return null; }
+        public function delete( $key ) {}
+    }
+    $mc = new memcacheddummy();
+}
+
 ?>
