@@ -59,7 +59,7 @@ CREATE TRIGGER updatecounts BEFORE DELETE ON `albums`
    FOR EACH ROW BEGIN
         IF NEW.`album_ownertype` = 3 THEN UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
         UPDATE `usercounts` SET `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid`=OLD.`album_userid` LIMIT 1;
-       DELETE FROM `images` WHERE `image_albumid` = `album_id`;
+       DELETE FROM `images` WHERE `image_albumid` = `album_id` LIMIT 1;
    END;
 |
 
