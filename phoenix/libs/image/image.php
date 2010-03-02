@@ -231,9 +231,6 @@
             if ( $this->Albumid ) {
                 $this->Album->OnCommentDelete( $this );
             }
-
-            --$this->Numcomments;
-            return $this->Save();
         }
         public function AddPageview() {
             ++$this->Pageviews;

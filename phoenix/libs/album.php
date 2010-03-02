@@ -208,7 +208,6 @@
             return false;
         }
         public function ImageAdded( Image $image ) {
-            $this->Numcomments += $image->Numcomments;
             ++$this->Numphotos;
             if ( $this->Mainimageid == 0 ) {
                 $this->Mainimageid = $image->Id;
@@ -224,7 +223,6 @@
             $this->Save();
         }
         public function ImageDeleted( Image $image ) {
-            $this->Numcomments -= $image->Numcomments;
             --$this->Numphotos;
             if ( $this->Mainimageid == $image->Id ) {
                 $imagefinder = New ImageFinder();
