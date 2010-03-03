@@ -71,6 +71,7 @@ var Meteor = {
 		document.domain = Meteor.extract_xss_domain(document.domain);
 		if (Meteor.mode=="stream") { Meteor.mode = Meteor.selectStreamTransport(); }
 		Meteor.log("Selected "+Meteor.mode+" transport");
+        Meteor.mode = 'iframe';
 		if (Meteor.mode=="xhrinteractive" || Meteor.mode=="iframe" || Meteor.mode=="serversent") {
 			if (Meteor.mode == "iframe") {
 				Meteor.loadFrame(Meteor.getSubsUrl());
