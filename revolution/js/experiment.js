@@ -41,8 +41,36 @@ if ( User !== '' ) {
         }
     }
 }
+$( '.message .author' ).click( function( event ) {
+    event.stopPropagation();
+} );
+$( '.message' ).click( function( event ) {
+    alert( 'Replying' );
+} );
 $( 'a.talk' ).click( function() {
-    $( $( '.discussion .note' )[ 0 ] ).after( '<div class="thread"><div class="message mine"><div class="new"><textarea></textarea></div></div></div>' );
-    $( '.thread .mine .new textarea' ).focus();
+    $( '.thread .new' ).parent().remove();
+    $( $( '.discussion .note' )[ 0 ] ).after(
+        '<div class="thread new">' + 
+        '<div class="message mine new">' + 
+        '<div><textarea></textarea></div>' +
+        '<ul class="tips"><li>Enter = <strong>Αποθήκευση</strong></li><li>Escape = <strong>Ακύρωση</strong></li><li>Shift + Enter = <strong>Νέα γραμμή</strong></li><li><a href="">Φάτσες</a></li></ul>' +
+        '</div>' +
+        '</div>'
+    );
+    $( '.thread .new textarea' ).focus().keydown( function ( event ) {
+        if ( event.shiftKey ) {
+            return;
+        }
+        switch ( event.keyCode ) {
+            case 27: // ESC
+                $( this.parentNode.parentNode.parentNode ).hide();
+                break;
+            case 13: // Enter
+                document.body.style.cursor = 'wait';
+                $( this.parentNode.parentNode.parentNode ).hide();
+                // TODO
+                break;
+        }
+    } );
     return false;
 } );

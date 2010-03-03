@@ -104,6 +104,8 @@ div.photofeed a:hover img {
     color: white;
     opacity: 0.8;
     width: 120px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 .contentitem > .details img {
     border: none;
@@ -295,11 +297,35 @@ a.talk {
     background-position: 2px 3px;
     padding-left: 20px;
 }
-div.message .new {
-    padding: 5px;
-    margin: auto;
-    width: 90%;
+.thread.new {
+    border-top: none;
+}
+div.thread .new {
+    padding: 5px 10px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 div.message textarea {
+    font: 1.15em/1.1 'Lucida Grande',sans-serif;
+    border: 1px solid #aaa;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 4px 2px;
     width: 100%;
+}
+div.thread .new.message {
+    cursor: default;
+}
+ul.tips {
+    text-align: right;
+    padding: 2px 0;
+}
+ul.tips li {
+    display: inline; 
+    padding-left: 20px;
+    color: #4f7eae;
+}
+ul.tips strong {
+    font-weight: normal;
+    color: #acf;
 }
