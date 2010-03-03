@@ -70,7 +70,7 @@ var Meteor = {
 		if (!Meteor.hostid) { Meteor.hostid = t+""+Math.floor(Math.random()*1000000); }
 		document.domain = Meteor.extract_xss_domain(document.domain);
 		if (Meteor.mode=="stream") { Meteor.mode = Meteor.selectStreamTransport(); }
-        Meteor.mode = 'serversent';
+        Meteor.mode = 'xhrinteractive';
 		Meteor.log("Selected "+Meteor.mode+" transport");
 		if (Meteor.mode=="xhrinteractive" || Meteor.mode=="iframe" || Meteor.mode=="serversent") {
 			if (Meteor.mode == "iframe") {
