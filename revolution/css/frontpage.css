@@ -68,6 +68,7 @@ div.photofeed li {
     height: 100px;
     border: 1px solid black;
     overflow: hidden;
+    background-color: #2E4965;
 }
 div.photofeed a {
     text-decoration: none;
@@ -92,7 +93,7 @@ div.photofeed a:hover img {
 .col2 {
     height: 100%;
     overflow: auto;
-    background-color: white;
+    background-color: #446180;
 }
 .contentitem > .details {
     position: absolute;
