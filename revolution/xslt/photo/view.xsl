@@ -7,7 +7,6 @@
         <div class="contentitem">
             <div class="details">
                 <ul>
-                    <li><xsl:value-of select="title[1]" /></li>
                     <li>Από: <span class="username"><a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></span></li>
                     <li><div class="time"><xsl:value-of select="published" /></div></li>
                     <xsl:if test="favourites[1]/@count &gt; 0">
@@ -29,6 +28,9 @@
                     <xsl:value-of select="media[1]/@height" />
                 </xsl:attribute>
             </img>
+            <span class="title">
+                <xsl:value-of select="title[1]" />
+            </span>
             <div class="note">
                 <xsl:for-each select="favourites/user">
                     <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>

@@ -118,6 +118,10 @@ div.photofeed a:hover img {
     padding: 5px;
     display: block;
 }
+.contentitem > .title {
+    color: #7399ba;
+    display: block;
+}
 li.stat {
     padding-top: 15px;
     display: inline;
