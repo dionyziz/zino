@@ -7,6 +7,8 @@
 
             $libs->Load( 'image/image' );
             
+            $finder = New ImageFinder();
+            
             $images = false;
             if ( $user->Exists() && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                 $images = $finder->FindUserRelated( $user );
