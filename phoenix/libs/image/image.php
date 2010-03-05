@@ -160,6 +160,7 @@
 
             $ids = Spot::GetImages( $user, 16 );
             if ( $ids === false ) {
+                die( 'here' );
                 return $ids;
             }
             $images = $this->FindByIds( $ids );
