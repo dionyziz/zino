@@ -5,11 +5,19 @@
             global $user;
             global $libs;
 
-            
             $libs->Load( 'image/image' );
-
-            $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0, 16 );
+            
+            $images = false;
+            if ( $user->Exists() && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
+                $images = $finder->FindUserRelated( $user );
+                if ( $images === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
+                    ?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
+                }
+            }
+            if ( $images === false ) {
+                $images = $finder->FindFrontpageLatest( 0, 16 );
+            }
+            
             if ( count( $images ) > 0 ) {
                 ?><div>
                     <div class="more">

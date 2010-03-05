@@ -154,6 +154,17 @@
 
             return ( int )$row[ "imagesnum" ];
         }
+        public function FindUserRelated( $user ) {
+            global $libs;
+            $libs->Load( 'research/spot' );
+
+            $ids = Spot::GetImages( $user, 16 );
+            if ( $ids === false ) {
+                return $ids;
+            }
+            $images = $this->FindByIds( $ids );
+            return $images;
+        }
     }
     
     class Image extends Satori {
