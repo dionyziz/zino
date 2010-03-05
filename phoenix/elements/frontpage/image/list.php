@@ -12,6 +12,7 @@
             $images = false;
             if ( $user->Exists() && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                 $images = $finder->FindUserRelated( $user );
+                die( (string) count( $images ) );
                 if ( $images === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                     ?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
                 }
