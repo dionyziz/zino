@@ -42,7 +42,7 @@ var Comet = {
         Meteor.host = domain;
         Meteor.registerEventCallback( "process", Comet.Process );
         Meteor.registerEventCallback( 'pollmode', Comet.ChangeMode );
-        Meteor.mode = 'stream';
+        Meteor.mode = 'longpoll';
     },
     ChangeMode: function ( mode ) {
         if ( mode == 'poll' ) { // don't allow polling
