@@ -16,7 +16,7 @@ var Meteor = {
 	},
 	channelcount: 0,
 	channels: {},
-	debugmode: false,
+	debugmode: true,
 	frameref: null,
 	host: null,
 	hostid: null,
