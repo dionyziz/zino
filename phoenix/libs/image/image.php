@@ -158,7 +158,7 @@
             global $libs;
             $libs->Load( 'research/spot' );
 
-            $imaeges = Spot::GetImages( $user, 16 );
+            $images = Spot::GetImages( $user, 16 );
             if ( $images === false ) {
                 return $images;
             }
