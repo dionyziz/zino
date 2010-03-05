@@ -161,10 +161,14 @@
             }
 
             $content = array();
-            foreach ( $lines as $id ) {
-                $content[] = New Image( $id );
+
+            foreach ( $lines as $index => $id ) {
+                $lines[ $index ] = (int)$id;
             }
 
+            $finder = New ImageFinder();
+            $content = $finder->FindByIds( $lines );
+            
             $water->ProfileEnd();
 
             return $content;

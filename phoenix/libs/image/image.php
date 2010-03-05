@@ -158,12 +158,10 @@
             global $libs;
             $libs->Load( 'research/spot' );
 
-            $ids = Spot::GetImages( $user, 16 );
-            if ( $ids === false ) {
-                return $ids;
+            $imaeges = Spot::GetImages( $user, 16 );
+            if ( $images === false ) {
+                return $images;
             }
-            die( var_dump( $ids ) );
-            $images = $this->FindByIds( $ids );
             return $images;
         }
     }
