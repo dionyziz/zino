@@ -398,6 +398,9 @@
         public function UpdateLastLogin() {
             $this->Lastlogin = NowDate();
         }
+        protected function OnBeforeCreate() {
+            $this->Egoalbumid = null;
+        }
         protected function OnCreate() {
             global $libs;
 
