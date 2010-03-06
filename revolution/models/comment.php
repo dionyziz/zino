@@ -142,6 +142,10 @@
         }
         public static function Create( $userid, $text, $typeid, $itemid, $parentid ) {
             include 'models/bulk.php';
+            include 'models/wysiwyg.php';
+
+            $text = nl2br( htmlspecialchars( $text ) );
+            $text = WYSIWYG_PostProcess( $text );
 
             $bulkid = Bulk::Store( $text );
             db( "INSERT INTO `comments`
@@ -151,8 +155,6 @@
             );
             
             Comment::RegenerateMemcache( $typeid, $itemid );
-            // TODO: update count comments for user
-            // TODO: update count comments for item
             // TODO: notifications
             // TODO: comet
         }
