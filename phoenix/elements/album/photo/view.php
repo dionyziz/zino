@@ -45,6 +45,7 @@
                     Element( 'user/sections', 'album' , $theuser );
                     break;
                 case TYPE_SCHOOL:
+                    $libs->Load( 'school/school' );
                     Element( 'school/info', $image->Album->Owner, true );
                     break;
             }
