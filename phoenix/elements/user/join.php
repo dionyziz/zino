@@ -17,10 +17,10 @@
             $username = $username->Get();
             $id = $id->Get();
             $validtoken = $validtoken->Get();
-            if( $id != "" ){
+            if ( $id != "" ){
                 $finder = New ContactFinder();
                 $contact = $finder->FindById( $id );
-                if( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
+                if ( $contact->Validtoken == $validtoken && $contact->Invited == 1 ){
                     $email = $contact->Mail;
                     $mailfinder = New UserProfileFinder();
                     $userprofiles = $mailfinder->FindAllUsersByEmails( array( $email ) );
@@ -35,6 +35,10 @@
                         $username = "";
                     }
                 }
+            }
+            else {
+                $email = '';
+                $username = '';
             }
             ?><div class="join">
                 <div class="bubble">
