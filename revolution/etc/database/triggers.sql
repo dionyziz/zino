@@ -44,8 +44,8 @@ CREATE TRIGGER imagedelete AFTER DELETE ON `images`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 2 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = `image_itemid` AND `favourite_typeid` = 2 LIMIT 1;
+        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_itemid` AND `comment_typeid` = 2 LIMIT 1;
+        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_itemid` AND `favourite_typeid` = 2 LIMIT 1;
    END;
 |
 
@@ -86,8 +86,6 @@ CREATE TRIGGER polldelete AFTER DELETE ON `polls`
 CREATE TRIGGER journalinsert AFTER INSERT ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` + 1 WHERE `count_userid` = NEW.`journal_userid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 4 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = `image_itemid` AND `favourite_typeid` = 4 LIMIT 1;
     END;
 |
 
@@ -95,6 +93,8 @@ CREATE TRIGGER journaldelete AFTER DELETE ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` - 1 WHERE `count_userid` = OLD.`journal_userid` LIMIT 1;
         DELETE FROM `bulk` WHERE `bulk_id` = OLD.`journal_bulkid` LIMIT 1;
+        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`journal_itemid` AND `comment_typeid` = 4 LIMIT 1;
+        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`journal_itemid` AND `favourite_typeid` = 4 LIMIT 1;
     END;
 |
 
