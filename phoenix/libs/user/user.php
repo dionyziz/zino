@@ -380,6 +380,7 @@
             $this->Registerhost = UserIp();
             $this->Created = NowDate();
             $this->RenewAuthtoken(); // create a basic authtoken
+            $this->Gender = '-';
         }
         protected function OnConstruct( /* ... */ ) {
             $args = func_get_args();
