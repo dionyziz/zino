@@ -153,11 +153,17 @@ CREATE TRIGGER questiondelete AFTER DELETE ON `questions`
     END;
 |
 
+CREATE TRIGGER beforebirth BEFORE INSERT ON `users`
+    FOR EACH ROW BEGIN
+        INSERT INTO `albums` (`album_ownerid`, `album_ownertype`) VALUES (NULL, 3);
+        SET NEW.`user_egoalbumid` = LAST_INSERT_ID();
+    END;
+|
+
 CREATE TRIGGER userbirth AFTER INSERT ON `users`
     FOR EACH ROW BEGIN
         INSERT INTO `usercounts` (`count_userid`) VALUES (NEW.`user_id`);
-        INSERT INTO `albums` (`album_ownerid`, `album_ownertype`) VALUES (NEW.`user_id`, 3);
-        UPDATE `users` SET `user_egoalbumid`=LAST_INSERT_ID() WHERE `user_id`=NEW.`user_id`;
+        UPDATE `albums` SET `album_ownerid` = NEW.`user_id` WHERE `album_id`=NEW.`user_egoalbumid` LIMIT 1;
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'inbox', 'inbox');
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'outbox', 'outbox');
     END;
