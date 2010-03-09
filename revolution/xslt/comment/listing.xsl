@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="discussion">
+        <div class="discussion">
+            <xsl:if test="/social/@for">
+                <div class="note">
+                    <a href="" class="talk button">Ξεκίνα μία συζήτηση</a>
+                </div>
+            </xsl:if>
+            <xsl:apply-templates select="comment" />
+        </div>
+    </xsl:template>
     <xsl:template match="comment">
         <div class="thread">
             <div>

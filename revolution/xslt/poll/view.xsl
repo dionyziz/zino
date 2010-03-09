@@ -4,7 +4,7 @@
     <xsl:include href="../comment/listing.xsl" />
     <xsl:include href="../author.xsl" />
     <xsl:template match="entry">
-        <a class="xbutton" href="photos">&#171;</a>
+        <a class="xbutton" href="news">&#171;</a>
         <div class="contentitem">
             <div class="details">
                 <ul>
@@ -20,20 +20,14 @@
                     </xsl:if>
                 </ul>
             </div>
-            <img>
-                <xsl:attribute name="src">
-                    <xsl:value-of select="media[1]/@url" />
-                </xsl:attribute>
-                <xsl:attribute name="width">
-                    <xsl:value-of select="media[1]/@width" />
-                </xsl:attribute>
-                <xsl:attribute name="height">
-                    <xsl:value-of select="media[1]/@height" />
-                </xsl:attribute>
-            </img>
-            <span class="title">
-                <xsl:value-of select="title[1]" />
-            </span>
+            <h2><xsl:value-of select="title[1]" /></h2>
+            <ul>
+                <xsl:for-each select="options[1]/option">
+                    <li>
+                        <xsl:value-of select="title" />
+                    </li>
+                </xsl:for-each>
+            </ul>
             <div class="note">
                 <xsl:for-each select="favourites/user">
                     <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
@@ -42,15 +36,5 @@
             </div>
         </div>
         <xsl:apply-templates select="discussion" />
-    </xsl:template>
-    <xsl:template match="discussion">
-        <div class="discussion">
-            <xsl:if test="/social/@for">
-                <div class="note">
-                    <a href="" class="talk button">Ξεκίνα μία συζήτηση</a>
-                </div>
-            </xsl:if>
-            <xsl:apply-templates select="comment" />
-        </div>
     </xsl:template>
 </xsl:stylesheet>
