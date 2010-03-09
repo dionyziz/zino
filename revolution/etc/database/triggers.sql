@@ -1,3 +1,27 @@
+DROP TRIGGER IF EXISTS commentinsert;
+DROP TRIGGER IF EXISTS commentdelete;
+DROP TRIGGER IF EXISTS imageinsert;
+DROP TRIGGER IF EXISTS imagedelete;
+DROP TRIGGER IF EXISTS albuminsert;
+DROP TRIGGER IF EXISTS albumdelete;
+DROP TRIGGER IF EXISTS pollinsert;
+DROP TRIGGER IF EXISTS polldelete;
+DROP TRIGGER IF EXISTS journalinsert;
+DROP TRIGGER IF EXISTS journaldelete;
+DROP TRIGGER IF EXISTS shoutinsert;
+DROP TRIGGER IF EXISTS shoutdelete;
+DROP TRIGGER IF EXISTS relationinsert;
+DROP TRIGGER IF EXISTS relationdelete;
+DROP TRIGGER IF EXISTS commentinsert;
+DROP TRIGGER IF EXISTS commentinsert;
+DROP TRIGGER IF EXISTS favouriteinsert;
+DROP TRIGGER IF EXISTS favouritedelete;
+DROP TRIGGER IF EXISTS answerinsert;
+DROP TRIGGER IF EXISTS answerdelete;
+DROP TRIGGER IF EXISTS beforebirth;
+DROP TRIGGER IF EXISTS userbirth;
+DROP TRIGGER IF EXISTS userdeath;
+
 delimiter |
 
 CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
@@ -44,8 +68,8 @@ CREATE TRIGGER imagedelete AFTER DELETE ON `images`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_itemid` AND `comment_typeid` = 2 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_itemid` AND `favourite_typeid` = 2 LIMIT 1;
+        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
+        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
    END;
 |
 
@@ -93,8 +117,8 @@ CREATE TRIGGER journaldelete AFTER DELETE ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` - 1 WHERE `count_userid` = OLD.`journal_userid` LIMIT 1;
         DELETE FROM `bulk` WHERE `bulk_id` = OLD.`journal_bulkid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`journal_itemid` AND `comment_typeid` = 4 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`journal_itemid` AND `favourite_typeid` = 4 LIMIT 1;
+        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`journal_id` AND `comment_typeid` = 4 LIMIT 1;
+        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`journal_id` AND `favourite_typeid` = 4 LIMIT 1;
     END;
 |
 
