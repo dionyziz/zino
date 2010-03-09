@@ -4,6 +4,9 @@
         <name><?= $photo[ 'username' ] ?></name>
         <subdomain><?= $photo[ 'subdomain' ] ?></subdomain>
         <gender><?= $photo[ 'gender' ] ?></gender>
+        <avatar>
+            <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $photo[ 'avatarid' ] ?>/<?= $photo[ 'avatarid' ] ?>_100.jpg" />
+        </avatar>
     </author>
     <published><?= $photo[ 'created' ] ?></published>
     <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_full.jpg" width="<?= $photo[ 'w' ] ?>" height="<?= $photo[ 'h' ] ?>" /><?
