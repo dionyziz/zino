@@ -3,11 +3,9 @@
         public static function ListRecent() {
             $res = db(
                 'SELECT
-                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
-                    `user_avatarid` AS avatarid
+                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments
                 FROM
-                    `images` CROSS JOIN `users`
-                        ON `image_userid` = `user_id`
+                    `images`
                 WHERE
                     `image_delid`=0
                 ORDER BY
@@ -24,7 +22,7 @@
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
-                    `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain,
+                    `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
                 FROM
                     `images` CROSS JOIN `users`
