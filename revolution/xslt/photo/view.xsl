@@ -7,7 +7,16 @@
         <div class="contentitem">
             <div class="details">
                 <ul>
-                    <li>Από: <span class="username"><a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></span></li>
+                    <li>
+                        <xsl:if test="author[1]/avatar[1]">
+                            <img class="avatar">
+                                <xsl:attribute name="src">
+                                    <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
+                                </xsl:attribute>
+                            </img>
+                        </xsl:if>
+                        <span class="username"><a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></span>
+                    </li>
                     <li><div class="time"><xsl:value-of select="published" /></div></li>
                     <xsl:if test="favourites[1]/@count &gt; 0">
                         <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
