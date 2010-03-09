@@ -7,19 +7,20 @@
         include 'models/comment.php';
         include 'models/poll.php';
         include 'models/favourite.php';
-        $photo = Poll::Item( $id );
-        $photo !== false or die;
+        $poll = Poll::Item( $id );
+        $poll !== false or die;
         $commentdata = Comment::FindByPage( TYPE_POLL, $id, $commentpage );
         $numpages = $commentdata[ 0 ];
         $comments = $commentdata[ 1 ];
-        $countcomments = $photo[ 'numcomments' ];
+        $countcomments = $poll[ 'numcomments' ];
         $favourites = Favourite::Listing( TYPE_POLL, $id );
+        $options = $poll[ 'options' ];
         include 'views/poll/view.php';
     }
     function Listing() {
         include 'models/db.php';
         include 'models/poll.php';
-        $photos = Poll::ListRecent();
+        $polls = Poll::ListRecent();
         include 'views/poll/listing.php';
     }
     function Create() {

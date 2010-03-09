@@ -1,5 +1,5 @@
 <entry id="<?= $poll[ 'id' ] ?>">
-    <title><?= htmlspecialchars( $poll[ 'title' ] ) ?></title>
+    <title><?= htmlspecialchars( $poll[ 'question' ] ) ?></title>
     <author>
         <name><?= $poll[ 'username' ] ?></name>
         <subdomain><?= $poll[ 'subdomain' ] ?></subdomain>

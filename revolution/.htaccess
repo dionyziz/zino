@@ -3,6 +3,8 @@ RewriteEngine On
 RewriteRule ^photos$ index.php?resource=photo&method=listing [L,QSA]
 RewriteRule ^photo/([0-9]+)$ index.php?resource=photo&method=view&id=$1 [L,QSA]
 
+RewriteRule ^poll/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
+
 RewriteRule ^session/create$ index.php?resource=session&method=create [L]
 RewriteRule ^login$ index.php?resource=session&method=view [L]
 
