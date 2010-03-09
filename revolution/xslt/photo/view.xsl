@@ -10,11 +10,14 @@
                     <li>
                         <xsl:if test="author[1]/avatar[1]">
                             <div>
-                                <img class="avatar">
-                                    <xsl:attribute name="src">
-                                        <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
-                                    </xsl:attribute>
-                                </img>
+                                <a>
+                                    <xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" />
+                                    <img class="avatar">
+                                        <xsl:attribute name="src">
+                                            <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
+                                        </xsl:attribute>
+                                    </img>
+                                </a>
                             </div>
                         </xsl:if>
                         <span class="username"><a><xsl:attribute name="href">http://<xsl:value-of select="author[1]/subdomain[1]" />.zino.gr/</xsl:attribute><xsl:value-of select="author[1]/name[1]" /></a></span>
