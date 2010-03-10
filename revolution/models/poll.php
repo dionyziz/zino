@@ -47,8 +47,8 @@
 			);
 			
 			$item[ 'options' ] = array();
-			while ( $row = mysql_fetch_array( $res ) ) {
-                $item[ 'options' ] = $row;
+			while ( $row = mysql_fetch_array( $res2 ) ) {
+                $item[ 'options' ][] = $row;
             }
 			return $item;
 		}
