@@ -21,10 +21,19 @@
                 </ul>
             </div>
             <h2><xsl:value-of select="title[1]" /></h2>
-            <ul>
+            <ul class="options">
                 <xsl:for-each select="options[1]/option">
                     <li>
+                        <strong><xsl:value-of select="ceiling( 100 * @votes div ../@totalvotes )" />%</strong>
+                         - 
                         <xsl:value-of select="title" />
+                        <div class="progressbar">
+                            <div class="progress">
+                                <xsl:attribute name="style">
+                                    width:<xsl:value-of select="25 + ceiling(275 * @votes div ../@totalvotes)" />px
+                                </xsl:attribute>
+                            </div>
+                        </div>
                     </li>
                 </xsl:for-each>
             </ul>

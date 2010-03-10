@@ -334,3 +334,40 @@ ul.tips strong {
     font-weight: normal;
     color: #acf;
 }
+h2 {
+    color: white;
+    font-size: 110%;
+    margin: 10px 180px;
+}
+ul.options {
+    margin: auto;
+    width: 300px;
+}
+ul.options li {
+    padding: 5px 0;
+    color: white;
+    text-align: left;
+}
+div.progressbar {
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    background-color: #172634;
+    border: 1px solid #f5f5f5;
+    height: 20px;
+    width: 300px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+div.progressbar div.progress {
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius-topright: 25px;
+    border-radius-bottomright: 25px;
+    -moz-border-radius-topright: 25px;
+    -moz-border-radius-bottomright: 25px;
+    -webkit-border-top-right-radius: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    background-color: orange;
+    height: 100%;
+}
+
