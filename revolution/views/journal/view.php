@@ -5,7 +5,7 @@
         <subdomain><?= $journal[ 'subdomain' ] ?></subdomain>
         <gender><?= $journal[ 'gender' ] ?></gender>
         <avatar>
-            <media url="http://images2.zino.gr/media/<?= $journal[ 'userid' ] ?>/<?= $journal[ 'avatarid' ] ?>/<?= $poll[ 'avatarid' ] ?>_100.jpg" />
+            <media url="http://images2.zino.gr/media/<?= $journal[ 'userid' ] ?>/<?= $journal[ 'avatarid' ] ?>/<?= $journal[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
     </author>
     <published><?= $journal[ 'created' ] ?></published>
