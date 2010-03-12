@@ -68,12 +68,13 @@ CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
    FOR EACH ROW BEGIN
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
+            IF
             UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
             /*
             DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
             DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
             */
-        END IF
+        END IF;
    END;
 |
 
@@ -91,12 +92,12 @@ CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
             IF OLD.`album_ownertype` = 3 THEN 
                 UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
             END IF;
-            IF OLD.`album_ownertype` = 3 THEN UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
+            IF OLD.`album_ownertype` = 3 THEN
                 UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
             END IF;
             UPDATE `usercounts` SET `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid`=OLD.`album_ownerid` LIMIT 1;
-            UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
             /*
+            UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
             DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id`;
             */
         END IF;
@@ -218,6 +219,6 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `comments` WHERE `comment_userid`=OLD.`user_id`;
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
-        DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id`;                                                                                                 
+        DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id;                                                                             
 	END;
 |
