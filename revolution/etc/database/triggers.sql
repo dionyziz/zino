@@ -18,6 +18,7 @@ DROP TRIGGER IF EXISTS favouriteinsert;
 DROP TRIGGER IF EXISTS favouritedelete;
 DROP TRIGGER IF EXISTS answerinsert;
 DROP TRIGGER IF EXISTS answerdelete;
+DROP TRIGGER IF EXISTS questiondelete;
 DROP TRIGGER IF EXISTS beforebirth;
 DROP TRIGGER IF EXISTS userbirth;
 DROP TRIGGER IF EXISTS userdeath;
@@ -68,7 +69,6 @@ CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
    FOR EACH ROW BEGIN
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
-            IF
             UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
             /*
             DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
