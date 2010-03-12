@@ -92,9 +92,6 @@ CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
             IF OLD.`album_ownertype` = 3 THEN 
                 UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
             END IF;
-            IF OLD.`album_ownertype` = 3 THEN
-                UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
-            END IF;
             UPDATE `usercounts` SET `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid`=OLD.`album_ownerid` LIMIT 1;
             /*
             UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
