@@ -64,12 +64,16 @@ CREATE TRIGGER imageinsert AFTER INSERT ON `images`
    END;
 |
 
-CREATE TRIGGER imagedelete AFTER DELETE ON `images`
+CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
    FOR EACH ROW BEGIN
-        UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
-        UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
+        IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
+            UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
+            UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
+            /*
+            DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
+            DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
+            */
+        END IF
    END;
 |
 
@@ -81,16 +85,21 @@ CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
     END;
 |
 
-CREATE TRIGGER albumdelete BEFORE DELETE ON `albums`
+CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
    FOR EACH ROW BEGIN
-        IF OLD.`album_ownertype` = 3 THEN 
-			UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
-		END IF;
-        IF OLD.`album_ownertype` = 3 THEN UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
-			UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
-		END IF;
-        UPDATE `usercounts` SET `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid`=OLD.`album_ownerid` LIMIT 1;
-       DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id` LIMIT 1;
+        IF OLD.`album_delid` = 0 AND NEW.`album_delid` = 1 THEN
+            IF OLD.`album_ownertype` = 3 THEN 
+                UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
+            END IF;
+            IF OLD.`album_ownertype` = 3 THEN UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
+                UPDATE `usercounts` SET `count_albums` = `count_albums` - 1 WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
+            END IF;
+            UPDATE `usercounts` SET `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid`=OLD.`album_ownerid` LIMIT 1;
+            UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
+            /*
+            DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id`;
+            */
+        END IF;
    END;
 |
 
@@ -100,10 +109,14 @@ CREATE TRIGGER pollinsert AFTER INSERT ON `polls`
     END;
 |
 
-CREATE TRIGGER polldelete AFTER DELETE ON `polls`
+CREATE TRIGGER polldelete AFTER UPDATE ON `polls`
     FOR EACH ROW BEGIN
-        UPDATE `usercounts` SET `count_polls` = `count_polls` - 1 WHERE `count_userid` = OLD.`poll_userid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 1 LIMIT 1;
+        IF OLD.`poll_delid` = 0 AND NEW.`poll_delid` = 1 THEN
+            UPDATE `usercounts` SET `count_polls` = `count_polls` - 1 WHERE `count_userid` = OLD.`poll_userid` LIMIT 1;
+            /*
+            DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 1 LIMIT 1;
+            */
+        END IF;
     END;
 |
 
@@ -113,12 +126,16 @@ CREATE TRIGGER journalinsert AFTER INSERT ON `journals`
     END;
 |
 
-CREATE TRIGGER journaldelete AFTER DELETE ON `journals`
+CREATE TRIGGER journaldelete AFTER UPDATE ON `journals`
     FOR EACH ROW BEGIN
-        UPDATE `usercounts` SET `count_journals` = `count_journals` - 1 WHERE `count_userid` = OLD.`journal_userid` LIMIT 1;
-        DELETE FROM `bulk` WHERE `bulk_id` = OLD.`journal_bulkid` LIMIT 1;
-        DELETE FROM `comments` WHERE `comment_itemid` = OLD.`journal_id` AND `comment_typeid` = 4 LIMIT 1;
-        DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`journal_id` AND `favourite_typeid` = 4 LIMIT 1;
+        IF OLD.`journal_delid` = 0 AND NEW.`journal_delid` = 1 THEN
+            UPDATE `usercounts` SET `count_journals` = `count_journals` - 1 WHERE `count_userid` = OLD.`journal_userid` LIMIT 1;
+            /*
+            DELETE FROM `bulk` WHERE `bulk_id` = OLD.`journal_bulkid` LIMIT 1;
+            DELETE FROM `comments` WHERE `comment_itemid` = OLD.`journal_id` AND `comment_typeid` = 4 LIMIT 1;
+            DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`journal_id` AND `favourite_typeid` = 4 LIMIT 1;
+            */
+        END IF;
     END;
 |
 
@@ -128,7 +145,7 @@ CREATE TRIGGER shoutinsert AFTER INSERT ON `shoutbox`
     END;
 |
 
-CREATE TRIGGER shoutdelete AFTER DELETE ON `shoutbox`
+CREATE TRIGGER shoutdelete AFTER UPDATE ON `shoutbox`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_shouts` = `count_shouts` - 1 WHERE `count_userid` = OLD.`shout_userid` LIMIT 1;
         DELETE FROM `bulk` WHERE `bulk_id`=OLD.`shout_bulkid` LIMIT 1;
