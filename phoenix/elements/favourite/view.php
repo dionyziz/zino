@@ -34,15 +34,16 @@
                     $type = false; // all
             }
             
-            if ( ctype_upper( substr( $album->Owner->Name, 0, 1 ) ) ) {
-                $page->SetTitle( $album->Owner->Name . " Αγαπημένα" );
-            }
-            else {
-                $page->SetTitle( $album->Owner->Name . " αγαπημένα" );
-            }
             // Find all user's favourite journals
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );
+
+            if ( ctype_upper( substr( $theuser->Name, 0, 1 ) ) ) {
+                $page->SetTitle( $subomdina . " Αγαπημένα" );
+            }
+            else {
+                $page->SetTitle( $theuser->Name . " αγαπημένα" );
+            }
 
             if ( $theuser->Deleted ) {
                 $libs->Load( 'rabbit/helpers/http' );
