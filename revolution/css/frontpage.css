@@ -144,15 +144,14 @@ li.stat span {
     color: white;
 }
 .contentitem {
+    background-color: #213549;
+    font-size: 120%;
     text-align: center;
-    padding: 5px 15px 0 15px;
+    position: relative;
+    padding: 5px 25px 0 25px;
 }
 .contentitem img {
     border: 3px solid white;
-}
-.contentitem {
-    position: relative;
-    background-color: #213549;
 }
 .xbutton {
     z-index: 1;
@@ -336,9 +335,11 @@ ul.tips strong {
     color: #acf;
 }
 h2 {
-    color: white;
-    font-size: 110%;
-    margin: 10px 180px;
+    color: #7399BA;
+    font-size: 130%;
+    margin: 0.5em 200px;
+    line-height: 2.5em;
+    border-bottom: 3px #243A50 solid;
 }
 ul.options {
     margin: auto;
