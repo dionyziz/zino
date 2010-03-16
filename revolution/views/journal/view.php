@@ -9,6 +9,7 @@
         </avatar>
     </author>
     <published><?= $journal[ 'created' ] ?></published>
+    <text><?= $journal[ 'text' ] ?></text>
     <? include 'views/comment/listing.php'; ?>
     <? if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
