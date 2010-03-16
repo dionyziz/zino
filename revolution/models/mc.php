@@ -996,8 +996,8 @@ if ( $settings[ 'enablemc' ] ) {
 else {
     class memcacheddummy {
         public function add( $key, $value ) {}
-        public function get_multi( $keys ) { return null; }
-        public function get( $key ) { return null; }
+        public function get_multi( $keys ) { return false; }
+        public function get( $key ) { return false; }
         public function delete( $key ) {}
         public function set( $key, $value ) {}
     }

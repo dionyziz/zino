@@ -103,13 +103,11 @@
         }
         public static function GetMemcached( $typeid, $itemid ) {
             global $mc;
-            if( $settings[ "enablemc" ] === true ){
-                $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
-                if ( $paged === false ) {
-                    return Comment::RegenerateMemcache( $typeid, $itemid );
-                }
+            $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
+            if ( $paged === false ) {
+                return Comment::RegenerateMemcache( $typeid, $itemid );
             }
-            return Comment::RegenerateMemcache( $typeid, $itemid );
+            return $paged;
         }
         public static function GetFromDb( $typeid, $itemid, $offset = 0, $limit = 100000 ) {
             $res = db(
