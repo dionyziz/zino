@@ -999,6 +999,7 @@ else {
         public function get_multi( $keys ) { return null; }
         public function get( $key ) { return null; }
         public function delete( $key ) {}
+        public function set( $key, $value ) {}
     }
     $mc = new memcacheddummy();
 }
