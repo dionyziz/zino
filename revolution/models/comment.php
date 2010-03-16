@@ -1,7 +1,7 @@
 <?php
     include 'models/mc.php';
     include 'models/types.php';
-
+    $settings = include 'settings.php';
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
     class Comment {
@@ -103,13 +103,13 @@
         }
         public static function GetMemcached( $typeid, $itemid ) {
             global $mc;
-
-            $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
-            if ( $paged === false ) {
-                $paged = Comment::RegenerateMemcache( $typeid, $itemid );
+            if( $settings[ "enablemc" ] === true ){
+                $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
+                if ( $paged === false ) {
+                    return Comment::RegenerateMemcache( $typeid, $itemid );
+                }
             }
-
-            return $paged;
+            return Comment::RegenerateMemcache( $typeid, $itemid );
         }
         public static function GetFromDb( $typeid, $itemid, $offset = 0, $limit = 100000 ) {
             $res = db(
