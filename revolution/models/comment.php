@@ -15,6 +15,7 @@
             $paged = Comment::GetMemcached( $typeid, $itemid );
 
             $commentids = $paged[ $page ];
+            
             $comments = Comment::Populate( $commentids );
 
             return array( count( $paged ), $comments );

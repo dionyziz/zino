@@ -19,7 +19,7 @@
     function Listing() {
         include 'models/db.php';
         include 'models/journal.php';
-        $polls = Journal::ListRecent();
+        $journals = Journal::ListRecent();
         include 'views/journal/listing.php';
     }
     function Create() {
