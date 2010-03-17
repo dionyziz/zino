@@ -74,3 +74,10 @@ $( 'a.talk' ).click( function() {
     } );
     return false;
 } );
+
+$( 'ul.options li input' ).click( function () {
+    $.post( 'pollvote/create', {
+        pollid: $( '.contentitem' )[ 0 ].id.split( 'poll' )[ 1 ],
+        optionid: this.value
+    } );
+} );

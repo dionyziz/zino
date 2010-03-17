@@ -10,6 +10,7 @@
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>
+                <script type="text/javascript" src="js/menu.js"></script>
             </head>
             <body>
                 <div class="col1 vbar">
@@ -20,10 +21,10 @@
                             <a href=""><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>
                         </li>
                         <xsl:if test="/social/@for">
-                            <li><a href=""><img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Προφίλ</span></a></li>
+                            <li><a href="" id="logoutbutton"><img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Temp Logout</span></a></li>
                         </xsl:if>
                         <xsl:if test="not(/social/@for)">
-                            <li><a href="login"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
+                            <li><a href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
                         </xsl:if>
                         <li class="bl"><a href=""><img src="images/comments.png" alt="Συζήτηση" title="Συζήτηση" /><span>Chat</span></a></li>
                     </ul>

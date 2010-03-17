@@ -20,6 +20,7 @@
     }
     function Delete() {
         unset( $_SESSION[ 'user' ] );
+        $success = true;
         include 'views/session/delete.php';
     }
 ?>

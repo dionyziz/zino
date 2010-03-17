@@ -10,7 +10,10 @@
     </author>
     <options totalvotes="<?= $poll[ 'numvotes' ] ?>">
         <? foreach ( $options as $option ): ?>
-        <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>">
+        <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>"
+            <? if ( isset( $myvote ) && $myvote == $option[ 'id' ] ): ?>
+            voted="voted"
+            <? endif ?>>
             <title><?= htmlspecialchars( $option[ 'text' ] ) ?></title>
         </option>
         <? endforeach; ?>

@@ -15,6 +15,12 @@
         $countcomments = $poll[ 'numcomments' ];
         $favourites = Favourite::Listing( TYPE_POLL, $id );
         $options = $poll[ 'options' ];
+        if ( isset( $_SESSION[ 'user' ] ) ) {
+            $myvote = PollVote::Item( $id, $_SESSION[ 'user' ][ 'id' ] );
+            if ( !$myvote ) {
+                unset( $myvote );
+            }
+        }
         include 'views/poll/view.php';
     }
     function Listing() {
