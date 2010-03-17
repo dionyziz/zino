@@ -72,9 +72,13 @@
 		}
 		
 		public static function Create( $pollid, $optionid, $userid ) {
-			
-		
-		
+			$res = db(
+				'INSERT IGNORE INTO `votes`
+				VALUE 
+				( :userid, NOW(), :optionid, :pollid ) ', 
+				array( 'pollid' => $pollid, 'userid' => $userid, 'optionid' => $optionid  ) 
+			);
+			return;
 		}
 	}
 ?>
