@@ -65,7 +65,16 @@
 			);
 			
 			$item = mysql_fetch_array( $res );
-			return $item;		
+			if ( $item === false ) {
+				return false;
+			}	
+			return $item[ 'vote_optionid' ];		
+		}
+		
+		public static function Create( $pollid, $optionid, $userid ) {
+			
+		
+		
 		}
 	}
 ?>
