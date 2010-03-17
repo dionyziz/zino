@@ -7,6 +7,6 @@
 		$poll = Poll::Item( $pollid );
         $poll !== false or $success = false;
         $options = $poll[ 'options' ];
-		include 'views/poll/create';
+		include 'views/poll/create.php';
 	}
 ?>
