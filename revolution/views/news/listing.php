@@ -17,8 +17,8 @@
         </author>
     </entry>
     <? endforeach; ?>
-	<? foreach ( $news as $item ): ?>
-    <entry type="<?= $item[ 'type' ] ?>">
+	<? foreach ( $journals as $item ): ?>
+    <entry type="journal">
         <author>
             <name><?= $item[ 'username' ]; ?></name>
             <subdomain<?= $item[ 'subdomain' ]; ?></subdomain>
