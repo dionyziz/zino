@@ -53,4 +53,19 @@
 			return $item;
 		}
 	}
+	
+	class PollVote {		
+		public static function Item( $pollid, $userid ) {
+			$res = db(
+					'SELECT `vote_optionid`
+					FROM `votes`
+					WHERE `vote_userid` = :userid
+					AND `vote_pollid` = :pollid
+					LIMIT 1', array( 'pollid' => $pollid, 'userid' => $userid ) 
+			);
+			
+			$item = mysql_fetch_array( $res );
+			return $item;		
+		}
+	}
 ?>
