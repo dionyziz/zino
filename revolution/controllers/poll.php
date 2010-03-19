@@ -9,6 +9,10 @@
         include 'models/favourite.php';
         $poll = Poll::Item( $id );
         $poll !== false or die;
+		if ( $poll[ 'userdeleted' ] === 1 ) { 
+			include 'views/itemdeleted.php';
+			return;
+		}
         $commentdata = Comment::FindByPage( TYPE_POLL, $id, $commentpage );
         $numpages = $commentdata[ 0 ];
         $comments = $commentdata[ 1 ];

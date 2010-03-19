@@ -22,7 +22,7 @@
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
-                    `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
+                    `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
                 FROM
                     `images` CROSS JOIN `users`
@@ -31,10 +31,13 @@
                     `image_id` = :id
                 LIMIT 1;', array( 'id' => $id )
             );
-            if ( mysql_num_rows( $res ) ) {
-                return mysql_fetch_array( $res );
+			$item = array();
+			$item = mysql_num_rows( $res );
+            if ( $item === false ) {
+                return false;
             }
-            return false;
+            $item[ 'userdeleted' ] = ( int )$item[ 'userdeleted' ];
+			return $item;
         }
         public static function ListByIds( $ids ) {
             $res = db(
