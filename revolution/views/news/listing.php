@@ -3,7 +3,7 @@
     <entry type="poll">
         <author>
             <name><?= $item[ 'username' ]; ?></name>
-            <subdomain<?= $item[ 'subdomain' ]; ?></subdomain>
+            <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
             <gender><?= $item[ 'gender' ]; ?></gender>
         </author>
     </entry>
@@ -12,7 +12,7 @@
     <entry type="journal">
         <author>
             <name><?= $item[ 'username' ]; ?></name>
-            <subdomain<?= $item[ 'subdomain' ]; ?></subdomain>
+            <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
             <gender><?= $item[ 'gender' ]; ?></gender>
         </author>
     </entry>
