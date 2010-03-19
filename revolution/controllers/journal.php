@@ -9,6 +9,10 @@
         include 'models/favourite.php';
         $journal = Journal::Item( $id );
         $journal !== false or die;
+		if ( $journal[ 'userdeleted' ] === 1 ) { 
+			include 'views/itemdeleted.php';
+			return;
+		}
         $commentdata = Comment::FindByPage( TYPE_JOURNAL, $id, $commentpage );
         $numpages = $commentdata[ 0 ];
         $comments = $commentdata[ 1 ];
