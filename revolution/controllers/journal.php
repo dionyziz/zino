@@ -13,6 +13,7 @@
 			include 'views/itemdeleted.php';
 			return;
 		}
+		else die;
         $commentdata = Comment::FindByPage( TYPE_JOURNAL, $id, $commentpage );
         $numpages = $commentdata[ 0 ];
         $comments = $commentdata[ 1 ];
