@@ -6,7 +6,7 @@
                 'SELECT
 					`user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `journal_id` as id, `journal_title` as title, `journal_url` as url, `journal_userid` as userid, `journal_created` as created , `journal_numcomments` as numcomments 
 				FROM 
-					`journal`
+					`journals`
 				CROSS JOIN `users` ON
 					`journal_userid` = `user_id`
 				WHERE `journal_delid` = 0
