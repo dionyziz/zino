@@ -10,7 +10,7 @@
 	unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
 
 	in_array( $resource, array(
-        'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote'
+        'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news'
     ) ) or $resource = 'photo';
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
