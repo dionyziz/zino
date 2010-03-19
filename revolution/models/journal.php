@@ -36,6 +36,7 @@
 			
 			$item = array();
 			$item = mysql_fetch_array( $res );
+			$item[ 'userdeleted' ] = ( int )$item[ 'userdeleted' ];
 			return $item;
 		}
 	}
