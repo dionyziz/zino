@@ -4,13 +4,13 @@
 		public static function ListRecent( $amount ) { //<---TODO
 		    $res = db(
                 'SELECT
-					`poll_id` as id, `poll_question` as question, `poll_url` as url, `poll_userid` as userid, `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
+					`user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `journal_id` as id, `journal_title` as title, `journal_url` as url, `journal_userid` as userid, `journal_created` as created , `journal_numcomments` as numcomments 
 				FROM 
-					`polls`
+					`journal`
 				CROSS JOIN `users` ON
-					`poll_userid` = `user_id`
-				WHERE `poll_delid` = 0
-				ORDER BY `poll_id` DESC
+					`journal_userid` = `user_id`
+				WHERE `journal_delid` = 0
+				ORDER BY `journal_id` DESC
 				LIMIT :amount', array( 'amount' => $amount ) 
             );
             $polls = array();
