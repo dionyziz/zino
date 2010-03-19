@@ -69,6 +69,18 @@ $( 'a.talk' ).click( function() {
                 document.body.style.cursor = 'wait';
                 $( this.parentNode.parentNode.parentNode ).hide();
                 // TODO
+                $.post( 'comment/create', {
+                    text: this.value,
+                    typeid: {
+                        'poll': 1,
+                        'photo': 2,
+                        'user': 3,
+                        'journal': 4,
+                        'school': 7
+                    }[ $( '.contentitem' )[ 0 ].id.split( '_' )[ 0 ] ],
+                    itemid: $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
+                    parentid: 0
+                } );
                 break;
         }
     } );
@@ -77,7 +89,7 @@ $( 'a.talk' ).click( function() {
 
 $( 'ul.options li input' ).click( function () {
     $.post( 'pollvote/create', {
-        pollid: $( '.contentitem' )[ 0 ].id.split( 'poll' )[ 1 ],
+        pollid: $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
         optionid: this.value
     } );
 } );

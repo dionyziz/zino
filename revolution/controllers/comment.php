@@ -1,5 +1,7 @@
 <?php
     function Create( $text, $typeid, $itemid, $parentid ) {
+        die( var_dump( $_POST ) );
+
         isset( $_SESSION[ 'user' ] ) or die; // must be logged in to leave comment
         include 'models/types.php';
         switch ( $typeid ) {

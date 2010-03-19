@@ -6,7 +6,7 @@
     <xsl:template match="entry">
         <a class="xbutton" href="news">&#171;</a>
         <div class="contentitem">
-            <xsl:attribute name="id">poll<xsl:value-of select="/social/entry[1]/@id" /></xsl:attribute>
+            <xsl:attribute name="id">poll_<xsl:value-of select="/social/entry[1]/@id" /></xsl:attribute>
             <div class="details">
                 <ul>
                     <li>

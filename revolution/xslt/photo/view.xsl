@@ -6,6 +6,7 @@
     <xsl:template match="entry">
         <a class="xbutton" href="photos">&#171;</a>
         <div class="contentitem">
+            <xsl:attribute name="id">photo_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
             <div class="details">
                 <ul>
                     <li>

@@ -6,6 +6,7 @@
     <xsl:template match="entry">
         <a class="xbutton" href="news">&#171;</a>
         <div class="contentitem">
+            <xsl:attribute name="id">journal_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
             <div class="details">
                 <ul>
                     <li>

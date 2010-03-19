@@ -15,6 +15,7 @@ RewriteRule ^login$ index.php?resource=session&method=view [L]
 
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L]
 
+RewriteRule ^comment/create$ index.php?resource=comment&method=create [L]
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
 
 php_flag display_errors on
