@@ -21,6 +21,8 @@
         $method == 'view' or $method = 'listing';
 	}
 
+    include 'models/water.php';
+
     global $settings;
     
     $settings = include 'settings.php';

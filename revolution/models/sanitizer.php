@@ -78,7 +78,7 @@
             $this->mTextProcessor = $textprocessor;
         }
         public function SetMaxLength( $length = false ) {
-            assert( $length === false || is_int( $length ) );
+            w_assert( $length === false || is_int( $length ) );
             $this->mMaxLength = $length;
         }
         public function SetSource( $source ) {
@@ -117,7 +117,7 @@
         public function GetXHTML() {
             // global $water;
             
-            assert( $this->mSource !== false, 'Please SetSource() before calling GetXHTML()' );
+            w_assert( $this->mSource !== false, 'Please SetSource() before calling GetXHTML()' );
             
             $tags = array();
             
@@ -163,7 +163,7 @@
             if ( $body === false ) {
                 return '';
             }
-            assert( $body->nodeName == 'body' );
+            w_assert( $body->nodeName == 'body' );
             
             $ret = trim( $this->XMLInnerHTML( $body ) );
             
@@ -310,12 +310,12 @@
             return $this->mName;
         }
         public function AttributeAllowed( $attributename ) {
-            assert( is_string( $attributename ) );
+            w_assert( is_string( $attributename ) );
             return isset( $this->mAllowedAttributes[ $attributename ] );
         }
         public function XHTMLSaneTag( $tagname ) {
-            assert( is_string( $tagname ) );
-            assert( preg_match( '#^[a-z0-9]+$#', $tagname ) );
+            w_assert( is_string( $tagname ) );
+            w_assert( preg_match( '#^[a-z0-9]+$#', $tagname ) );
             $this->mName = $tagname;
             
             if ( $tagname == 'img' ) {
@@ -342,8 +342,8 @@
             return $this->mName;
         }
         public function XHTMLSaneAttribute( $attributename ) {
-            assert( is_string( $attributename ) );
-            assert( preg_match( '#^[a-z]+$#', $attributename ) );
+            w_assert( is_string( $attributename ) );
+            w_assert( preg_match( '#^[a-z]+$#', $attributename ) );
             $this->mName = $attributename;
         }
     }

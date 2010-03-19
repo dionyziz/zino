@@ -1,9 +1,8 @@
 <?php
     function Create( $text, $typeid, $itemid, $parentid ) {
-        die( var_dump( $_POST ) );
-
         isset( $_SESSION[ 'user' ] ) or die; // must be logged in to leave comment
         include 'models/types.php';
+        include 'models/db.php';
         switch ( $typeid ) {
             case TYPE_POLL:
                 // include 'models/poll.php';
@@ -14,13 +13,15 @@
                 break;
             case TYPE_USERPROFILE:
                 include 'models/user.php';
-                break;
+                // break;
             case TYPE_JOURNAL:
                 // include 'models/journal.php';
-                break;
+                // break;
             case TYPE_SCHOOL:
                 // include 'models/school.php';
-                break;
+                // break;
+            default:
+                // comment somewhere unknown
         }
         $target !== false or die; // cannot leave a comment on non-existing object
         include 'models/comment.php';
