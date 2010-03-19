@@ -32,7 +32,7 @@
                 LIMIT 1;', array( 'id' => $id )
             );
 			$item = array();
-			$item = mysql_num_rows( $res );
+			$item = mysql_fetch_array( $res );
             if ( $item === false ) {
                 return false;
             }
