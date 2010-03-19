@@ -6,6 +6,6 @@
 		$polls = Poll::ListRecent( 4 );
 		$journals = Journal::ListRecent( 4 );
 		
-		include 'views/news.php';	
+		include 'views/news/listing.php';	
     }
 ?>
