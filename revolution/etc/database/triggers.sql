@@ -32,7 +32,6 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
             WHEN 1 THEN UPDATE `polls` SET `poll_numcomments` = `poll_numcomments` + 1 WHERE `poll_id`=NEW.`comment_itemid` LIMIT 1;
             WHEN 2 THEN BEGIN
                 UPDATE `images` SET `image_numcomments` = `image_numcomments` + 1 WHERE `image_id`=NEW.`comment_itemid` LIMIT 1;
-                UPDATE `albums`, `images` SET `album_numcomments` = `album_numcomments` + 1 WHERE `image_albumid`=`album_id` AND `image_id`=NEW.`comment_itemid` LIMIT 1;
             END;
             WHEN 3 THEN UPDATE `userprofiles` SET `profile_numcomments` = `profile_numcomments` + 1 WHERE `profile_userid`=NEW.`comment_itemid` LIMIT 1;
             WHEN 4 THEN UPDATE `journals` SET `journal_numcomments` = `journal_numcomments` + 1 WHERE `journal_id`=NEW.`comment_itemid` LIMIT 1;
@@ -76,6 +75,14 @@ CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
             */
         END IF;
    END;
+|
+
+CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
+    FOR EACH ROW BEGIN
+        IF OLD.`image_numcomments` <> NEW.`image_numcomments` THEN
+            UPDATE `albums` SET `album_numcomments` = `album_numcomments` + (NEW.`image_numcomments` - OLD.`image_numcomments`) WHERE `album_id`=OLD.`image_albumid` LIMIT 1;
+        END IF;
+    END;
 |
 
 CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
