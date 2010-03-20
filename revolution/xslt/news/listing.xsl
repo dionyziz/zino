@@ -27,7 +27,7 @@
                         </a>
                     </xsl:if>
                     <span>
-                    από τον/την
+                     Ξ±Ο€Ο Ο„Ξ·Ξ½/Ο„ΞΏΞ½ 
                         <xsl:apply-templates select="author" />
                     </span>
                 </li>
