@@ -6,6 +6,7 @@
             <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
             <gender><?= $item[ 'gender' ]; ?></gender>
         </author>
+        <question><?= $item[ 'question' ]; ?></question>
     </entry>
     <? endforeach; ?>
 	<? foreach ( $journals as $item ): ?>
@@ -15,6 +16,7 @@
             <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
             <gender><?= $item[ 'gender' ]; ?></gender>
         </author>
+        <title><?= $item[ 'title' ]; ?></title>
     </entry>
     <? endforeach; ?>
 </feed>

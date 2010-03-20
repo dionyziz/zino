@@ -5,7 +5,6 @@
 		include 'models/journal.php';
 		$polls = Poll::ListRecent( 4 );
 		$journals = Journal::ListRecent( 4 );
-		
-		include 'views/news/listing.php';	
+		include 'views/news/listing.php';
     }
 ?>
