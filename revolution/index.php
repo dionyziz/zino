@@ -7,7 +7,6 @@
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
-	unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
 
 	in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news'
@@ -17,6 +16,7 @@
 		$vars = $_POST;
 	}
 	else {
+        unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
 		$vars = $_GET;
         $method == 'view' or $method = 'listing';
 	}
