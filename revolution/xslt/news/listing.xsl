@@ -7,17 +7,28 @@
             <xsl:for-each select="entry">
                 <li>
                     <xsl:if test="@type = 'poll' ">
-                        <xsl:apply-templates select="author" />
-                        <span class="title">
-                            <xsl:value-of select="question[1]" />
-                        </span>
+                        <a>
+                            <xsl:attribute name="href">
+                                poll/<xsl:value-of select="@id" />
+                            </xsl:attribute>
+                            <span class="title">
+                                <xsl:value-of select="question[1]" />
+                            </span>
+                        </a>
                     </xsl:if>
                     <xsl:if test="@type = 'journal' ">
-                        <xsl:apply-templates select="author" />
-                        <span class="title">
-                            <xsl:value-of select="title[1]" />
-                        </span>
+                        <a>
+                            <xsl:attribute name="href">
+                                journal/<xsl:value-of select="@id" />
+                            </xsl:attribute>
+                            <span class="title">
+                                <xsl:value-of select="title[1]" />
+                            </span>
+                        </a>
                     </xsl:if>
+                    <span>
+                        <xsl:apply-templates select="author" />
+                    </span>
                 </li>
             </xsl:for-each>
         </div>
