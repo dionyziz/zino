@@ -27,6 +27,7 @@
                         </a>
                     </xsl:if>
                     <span>
+                    από τον/την
                         <xsl:apply-templates select="author" />
                     </span>
                 </li>
