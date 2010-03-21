@@ -26,7 +26,7 @@
                                 </xsl:attribute>
                             </img>
                         </a>
-                    </li>
+                    </li> <xsl:text> </xsl:text>
                 </xsl:for-each>
             </ul>
         </div>

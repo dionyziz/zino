@@ -7,7 +7,13 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #213549;
+    background-color: #f8f8ff;
+}
+h1 {
+    margin: 5px 0 -15px;
+}
+h1 img {
+    width: 70px;
 }
 a img { 
     border: none;
@@ -23,9 +29,23 @@ a {
     text-decoration: underline;
 }
 .vbar {
-    background-color: #2e4965;
+    background-image:
+	-webkit-gradient(
+	    linear,
+	    left bottom,
+	    right bottom,
+	    color-stop(0, #cad7e9 ),
+	    color-stop(0.4, #E8E8FF),
+	    color-stop(0.6, #E8E8FF),
+	    color-stop(1, #cad7e9)
+	);
+   background-image:
+	-moz-linear-gradient(
+	    left center,
+	    rgb(14,123,186) 0%,
+	    rgb(0,115,191) 100%
+	);
     font-weight: bold;
-    height: 100%;
     position: relative;
 }
 .vbar ul li {
@@ -57,44 +77,46 @@ div.photofeed {
     overflow: hidden;
 }
 div.photofeed ul {
-    width: 120%;
+    text-align: justify;
 }
 div.photofeed li {
-    position: relative;
-    float: left;
-    padding: 0;
-    margin: 0;
-    line-height: 5px;
-    width: 150px;
-    height: 100px;
-    border: 1px solid black;
-    overflow: hidden;
-    background-color: #2E4965;
+    display: inline;
 }
 div.photofeed a {
     text-decoration: none;
-}
-div.photofeed img {
     position: relative;
 }
+div.photofeed img {
+    padding: 5px;
+    background-image: url( http://sh.deviantart.net/shadow/x/152/152/logo3.png );
+    position: relative;
+}
+div.photofeed a:hover span {
+    top: -142px;
+    left: 8px;
+}
 div.photofeed a:hover img {
-    opacity: 0.9;
+    left: -2px;
+    top: -2px;
 }
 .bl {
-    bottom: 0;
+    bottom: 5px;
     left: 0;
     position: absolute;
     width: 100%;
 }
 .col1 {
     float: left;
-    width: 54px;
+    width: 70px;
+    border-right: 2px solid #7fafb6;
     height: 100%;
 }
 .col2 {
     height: 100%;
     overflow: auto;
-    background-color: #446180;
+    background-image: url( http://farm5.static.flickr.com/4021/4283886098_0895163184.jpg);
+    background-repeat: repeat;
+    background-color: #dae7f9;
 }
 .contentitem > .details {
     position: absolute;
@@ -247,7 +269,6 @@ span.countbubble {
     height: 20px;
     background-color: orange;
     z-index: 1;
-    margin: 5px;
     text-align: center;
     text-decoration: none;
     -moz-border-radius: 13px;
@@ -255,9 +276,10 @@ span.countbubble {
     vertical-align: middle;
     line-height: 19px;
     color: black;
-    padding-right: 1px;
     border: 2px solid white;
     font-weight: bold;
+    top: -140px;
+    left: 10px;
 }
 .thread {
     border-left: 2px solid transparent;

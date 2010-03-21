@@ -14,6 +14,7 @@
             </head>
             <body>
                 <div class="col1 vbar">
+                    <h1><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino Bubble" /></h1>
                     <ul>
                         <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li>
                         <li class="selected"><a href=""><img src="images/images.png" alt="Φωτογραφίες" title="Φωτογραφίες" /><span>Εικόνες</span></a></li>
