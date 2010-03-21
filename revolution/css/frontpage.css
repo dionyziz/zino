@@ -7,7 +7,7 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #f8f8ff;
+    background-color: #213549;
 }
 h1 {
     margin: 5px 0 -15px;
@@ -212,7 +212,6 @@ div.thread {
 }
 div.discussion {
     padding: 10px;
-    background-color: #213549;
 }
 img.avatar {
     border: 1px solid transparent;
