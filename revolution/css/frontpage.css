@@ -212,6 +212,7 @@ div.thread {
 }
 div.discussion {
     padding: 10px;
+    background-color: #213549;
 }
 img.avatar {
     border: 1px solid transparent;
