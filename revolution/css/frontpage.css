@@ -1,19 +1,17 @@
-html {
-    height: 100%;
-}
 body {
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
     font-size: 11px;
     margin: 0;
-    height: 100%;
-    width: 100%;
     background-color: #213549;
 }
 h1 {
-    margin: 5px 0 -15px;
+    margin: 20px 0 -10px;
+    width: 100%;
 }
 h1 img {
-    width: 70px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
 }
 a img { 
     border: none;
@@ -34,19 +32,16 @@ a {
 	    linear,
 	    left bottom,
 	    right bottom,
-	    color-stop(0, #cad7e9 ),
-	    color-stop(0.4, #E8E8FF),
-	    color-stop(0.6, #E8E8FF),
-	    color-stop(1, #cad7e9)
+	    color-stop(0, #111),
+	    color-stop(1, #222 )
 	);
-   background-image:
-	-moz-linear-gradient(
-	    left center,
-	    rgb(14,123,186) 0%,
-	    rgb(0,115,191) 100%
-	);
+    background-image: -moz-linear-gradient(left,#111,#222);
+    background-color: #111;
     font-weight: bold;
-    position: relative;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
 }
 .vbar ul li {
     height: 80px;
@@ -87,8 +82,8 @@ div.photofeed a {
     position: relative;
 }
 div.photofeed img {
-    padding: 5px;
-    background-image: url( http://sh.deviantart.net/shadow/x/152/152/logo3.png );
+    padding: 6px;
+    background-image: url( http://sh.deviantart.net/shadow/x/153/153/logo3.png );
     position: relative;
 }
 div.photofeed a:hover span {
@@ -106,17 +101,25 @@ div.photofeed a:hover img {
     width: 100%;
 }
 .col1 {
-    float: left;
-    width: 70px;
-    border-right: 2px solid #7fafb6;
-    height: 100%;
+    position: fixed;
+    height: 98%;
+    top: 1%;
+    width: 4.5%;
+    min-width: 50px;
+    margin-top: -2px;
+    border-top: 2px;
+    border-bottom: 2px;
+    border-right: 2px;
+    border-left: 0px;
+    border-style: solid;
+    border-color: #ddd;
 }
 .col2 {
-    height: 100%;
     overflow: auto;
     background-image: url( http://farm5.static.flickr.com/4021/4283886098_0895163184.jpg);
     background-repeat: repeat;
     background-color: #dae7f9;
+    padding-left: 5.5%;
 }
 .contentitem > .details {
     position: absolute;
@@ -272,7 +275,7 @@ span.countbubble {
     text-align: center;
     text-decoration: none;
     -moz-border-radius: 13px;
-    border-radius: 13px;
+    -webkit-border-radius: 13px;
     vertical-align: middle;
     line-height: 19px;
     color: black;

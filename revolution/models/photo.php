@@ -1,6 +1,7 @@
 <?php
     class Photo {
-        public static function ListRecent() {
+        public static function ListRecent( $page = 1 ) {
+            --$page;
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments
@@ -10,7 +11,7 @@
                     `image_delid`=0
                 ORDER BY
                     id DESC
-                LIMIT 100'
+                LIMIT 100 OFFSET :offset', array( 'offset' => $page * 100 )
             );
             $images = array();
             while ( $row = mysql_fetch_array( $res ) ) {

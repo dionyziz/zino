@@ -10,6 +10,11 @@
                             <xsl:attribute name="href">
                                 photo/<xsl:value-of select="@id" />
                             </xsl:attribute>
+                            <img>
+                                <xsl:attribute name="src">
+                                    <xsl:value-of select="media[1]/@url" />
+                                </xsl:attribute>
+                            </img>
                             <xsl:if test="discussion[1]/@count &gt; 0">
                                 <span class="countbubble">
                                     <xsl:if test="discussion[1]/@count &gt; 99">
@@ -20,11 +25,6 @@
                                     </xsl:if>
                                 </span>
                             </xsl:if>
-                            <img>
-                                <xsl:attribute name="src">
-                                    <xsl:value-of select="media[1]/@url" />
-                                </xsl:attribute>
-                            </img>
                         </a>
                     </li> <xsl:text> </xsl:text>
                 </xsl:for-each>
