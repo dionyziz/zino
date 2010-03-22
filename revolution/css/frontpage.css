@@ -78,6 +78,7 @@ div.photofeed li {
 }
 div.photofeed a {
     text-decoration: none;
+    position: relative;
 }
 div.photofeed img {
     padding: 6px;
