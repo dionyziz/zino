@@ -68,8 +68,7 @@ a {
     color: black;
 }
 div.photofeed {
-    width: 100%;
-    overflow: hidden;
+    padding-left: 20px;
 }
 div.photofeed ul {
     text-align: justify;
@@ -79,12 +78,19 @@ div.photofeed li {
 }
 div.photofeed a {
     text-decoration: none;
-    position: relative;
 }
 div.photofeed img {
     padding: 6px;
-    background-image: url( http://sh.deviantart.net/shadow/x/153/153/logo3.png );
+    width: 18%;
+    max-width: 150px;
     position: relative;
+}
+div.photofeed img {
+    background-image: url( http://sh.deviantart.net/shadow/x/153/153/logo3.png );
+    -moz-background-origin: border-box;
+    -moz-background-size: 100% 100%;
+    -webkit-background-origin: border;
+    -webkit-background-size: 100% 100%;
 }
 div.photofeed a:hover span {
     top: -142px;
@@ -119,7 +125,7 @@ div.photofeed a:hover img {
     background-image: url( http://farm5.static.flickr.com/4021/4283886098_0895163184.jpg);
     background-repeat: repeat;
     background-color: #dae7f9;
-    padding-left: 5.5%;
+    padding-left: 4.5%;
 }
 .contentitem > .details {
     position: absolute;
