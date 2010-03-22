@@ -68,7 +68,8 @@ a {
     color: black;
 }
 div.photofeed {
-    padding-left: 20px;
+    padding-left: 14px;
+    padding-right: 20px;
 }
 div.photofeed ul {
     text-align: justify;
@@ -78,28 +79,31 @@ div.photofeed li {
 }
 div.photofeed a {
     text-decoration: none;
-    position: relative;
-}
-div.photofeed img {
-    padding: 6px;
+    display: inline-block;
     width: 18%;
     max-width: 150px;
     position: relative;
 }
 div.photofeed img {
-    background-image: url( http://sh.deviantart.net/shadow/x/153/153/logo3.png );
+    margin: 6px;
+    width: 100%;
+    position: relative;
+    -webkit-box-shadow: 3px 3px 5px black;
+    -moz-box-shadow: 3px 3px 5px black;
     -moz-background-origin: border-box;
     -moz-background-size: 100% 100%;
     -webkit-background-origin: border;
     -webkit-background-size: 100% 100%;
 }
 div.photofeed a:hover span {
-    top: -142px;
-    left: 8px;
+    top: 10px;
+    left: 10px;
 }
 div.photofeed a:hover img {
     left: -2px;
     top: -2px;
+    -webkit-box-shadow: 3px 3px 10px black;
+    -moz-box-shadow: 3px 3px 10px black;
 }
 .bl {
     bottom: 5px;
@@ -288,8 +292,8 @@ span.countbubble {
     color: black;
     border: 2px solid white;
     font-weight: bold;
-    top: -140px;
-    left: 10px;
+    top: 12px;
+    left: 12px;
 }
 .thread {
     border-left: 2px solid transparent;
