@@ -8,7 +8,7 @@
         include 'models/user.php';
         $user = User::Item( $id );
         $user !== false or die;
-		if ( $photo[ 'userdeleted' ] === 1 ) { 
+		if ( $user[ 'userdeleted' ] === 1 ) { 
 			include 'views/itemdeleted.php';
 			return;
 		}
