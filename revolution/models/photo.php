@@ -32,7 +32,6 @@
                     `image_id` = :id
                 LIMIT 1;', array( 'id' => $id )
             );
-			$item = array();
 			$item = mysql_fetch_array( $res );
             if ( $item === false ) {
                 return false;
