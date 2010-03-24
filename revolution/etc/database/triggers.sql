@@ -64,8 +64,8 @@ CREATE TRIGGER imageinsert AFTER INSERT ON `images`
    END;
 |
 
-CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
-   FOR EACH ROW BEGIN
+CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
+    FOR EACH ROW BEGIN
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
             UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
@@ -74,11 +74,6 @@ CREATE TRIGGER imagedelete AFTER UPDATE ON `images`
             DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
             */
         END IF;
-   END;
-|
-
-CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
-    FOR EACH ROW BEGIN
         IF OLD.`image_numcomments` <> NEW.`image_numcomments` THEN
             UPDATE `albums` SET `album_numcomments` = `album_numcomments` + (NEW.`image_numcomments` - OLD.`image_numcomments`) WHERE `album_id`=OLD.`image_albumid` LIMIT 1;
         END IF;
