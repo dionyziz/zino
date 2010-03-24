@@ -22,12 +22,12 @@
             $request = self::$mRequestHeader . $requestBody;
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
             // w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
-            die( "<p>" . $result . "</p>" );
             if ( $sock === false ) {
                 return false;
             }
 
             $result = @socket_connect( $sock, $xc_settings[ 'spotdaemon' ][ 'address' ], $xc_settings[ 'spotdaemon' ][ 'port' ] );
+            die( "<p>" . $result . "</p>" );
             // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             if ( $result === false ) {
                 socket_close( $sock );
