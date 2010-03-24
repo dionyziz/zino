@@ -38,10 +38,10 @@ a {
     background-image: -moz-linear-gradient(left,#111,#222);
     background-color: #111;
     font-weight: bold;
-    -moz-border-radius-topright: 20px;
-    -moz-border-radius-bottomright: 20px;
-    -webkit-border-top-right-radius: 20px;
-    -webkit-border-bottom-right-radius: 20px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
 }
 .vbar ul li {
     height: 80px;
@@ -88,8 +88,8 @@ div.photofeed img {
     margin: 6px;
     width: 100%;
     position: relative;
-    -webkit-box-shadow: 3px 3px 5px black;
-    -moz-box-shadow: 3px 3px 5px black;
+    -webkit-box-shadow: 3px 3px 5px #333;
+    -moz-box-shadow: 3px 3px 5px #333;
     -moz-background-origin: border-box;
     -moz-background-size: 100% 100%;
     -webkit-background-origin: border;
@@ -102,8 +102,8 @@ div.photofeed a:hover span {
 div.photofeed a:hover img {
     left: -2px;
     top: -2px;
-    -webkit-box-shadow: 3px 3px 10px black;
-    -moz-box-shadow: 3px 3px 10px black;
+    -webkit-box-shadow: 3px 3px 10px #333;
+    -moz-box-shadow: 3px 3px 10px #333;
 }
 .bl {
     bottom: 5px;
@@ -113,6 +113,7 @@ div.photofeed a:hover img {
 }
 .col1 {
     position: fixed;
+    z-index: 5;
     height: 98%;
     top: 1%;
     width: 4.5%;
