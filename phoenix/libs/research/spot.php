@@ -27,7 +27,8 @@
             }
 
             $result = @socket_connect( $sock, $xc_settings[ 'spotdaemon' ][ 'address' ], $xc_settings[ 'spotdaemon' ][ 'port' ] );
-            die( "<p>" . $result . "</p>" );
+            var_dump( $result );
+            die();
             // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             if ( $result === false ) {
                 socket_close( $sock );
