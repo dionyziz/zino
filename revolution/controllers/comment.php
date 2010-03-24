@@ -25,7 +25,7 @@
         }
         $target !== false or die; // cannot leave a comment on non-existing object
         include 'models/comment.php';
-        $commentid = Comment::Create( $_SESSION[ 'user' ][ 'id' ], $text, $typeid, $itemid, $parentid );
+        $comment = Comment::Create( $_SESSION[ 'user' ][ 'id' ], $text, $typeid, $itemid, $parentid );
         include 'views/comment/view.php';
     }
 ?>

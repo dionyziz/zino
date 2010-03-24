@@ -152,10 +152,16 @@
                 VALUES
                     (:userid, :bulkid, :typeid, :itemid, :parentid)", compact( 'userid', 'bulkid', 'typeid', 'itemid', 'parentid' )
             );
+            $id = mysql_insert_id();
             
             Comment::RegenerateMemcache( $typeid, $itemid );
             // TODO: notifications
             // TODO: comet
+
+            return array(
+                'id' => $id,
+                'text' => $text
+            );
         }
     }
 ?>
