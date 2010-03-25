@@ -7,6 +7,7 @@
                 <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
                 <title>Zino</title>
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
+                <link type="text/css" href="css/chat.css" rel="stylesheet" />
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>

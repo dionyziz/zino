@@ -1,0 +1,40 @@
+#chat {
+    background-color: white;
+    position: fixed;
+    top: 5px;
+    bottom: 5px;
+    right: 5px;
+    left: 5%;
+    border: 1px solid black;
+    -moz-border-radius: 5px 5px 5px 5px;
+    z-index: 10;
+}
+.userlist {
+    float: right;
+    width: 10%;
+    height: 100%;
+}
+.userlist ol {
+    padding: 5px;
+    margin: 0pt;
+    list-style: none outside none;
+}
+.textmessages {
+    height: 100%;
+    margin-right: 10%;
+}
+.textmessages div {
+    bottom: 5px;
+    top: 5px;
+    position: absolute;
+    left: 5px;
+    overflow: auto;
+    right: 0pt;
+    margin-right: 10%;
+}
+.textmessages ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+

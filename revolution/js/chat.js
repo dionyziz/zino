@@ -1,6 +1,7 @@
  var Chat = {
      Visible: false,
      Inited: false,
+     ChannelsLoaded: {},
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
         $.get( 'users/online', {}, function ( res ) {
@@ -32,24 +33,31 @@
             }
          }, 'xml' );
      },
-     Join: function ( channelid ) {
-         $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="list-style: none; padding: 0; margin: 0" id="chatmessages_' + channelid + '"></ol>';
+     LoadHistory: function ( channelid ) {
+         $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" id="chatmessages_' + channelid + '"></ol>';
          Chat.GetMessages( channelid );
      },
      Init: function () {
          $( '.col2' )[ 0 ].innerHTML +=
-             '<div style="background-color: white; position: fixed; top: 5px; bottom: 5px; right: 5px; left: 5%; border: 1px solid black; -moz-border-radius: 5px 5px 5px 5px; z-index: 10;" id="chat">'
-                 + '<div style="float: right; width: 10%; height: 100%; border-left: 1px solid black;">'
-                     + '<ol id="onlineusers" style="padding: 5px; margin: 0pt; list-style: none outside none;">'
-                     + '<li>Κοιτάμε ποιος είναι online...</li>'
-                     + '</ol>'
+             '<div style="" id="chat">'
+                 + '<div class="userlist">'
+                     + '<ol id="onlineusers"></ol>'
                  + '</div>'
-                 + '<div style="height: 100%; margin-right: 10%;">'
-                     + '<div style="padding: 5px;" id="chatmessages"></div>'
+                 + '<div class="textmessages">'
+                     + '<div id="chatmessages"></div>'
                  + '</div>'
              + '</div>';
-         Chat.Join( 0 );
+         Chat.Show( 0 );
+         // Chat.Join( User );
          Chat.Inited = true;
+     },
+     Join: function ( channelid ) {
+         // Listen to push messages here
+     },
+     Show: function ( channelid ) {
+         if ( typeof Chat.ChannelsLoaded[ channelid ] == 'undefined' ) {
+         }
+         Chat.LoadHistory( channelid );
      },
      Toggle: function () {
          if ( !Chat.Inited ) {
