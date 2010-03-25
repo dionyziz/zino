@@ -8,7 +8,7 @@
                     <li>
                         <a>
                             <xsl:attribute name="href">
-                                photo/<xsl:value-of select="@id" />
+                                photos/<xsl:value-of select="@id" />
                             </xsl:attribute>
                             <img>
                                 <xsl:attribute name="src">

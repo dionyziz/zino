@@ -9,7 +9,8 @@
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
 
 	in_array( $resource, array(
-        'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news'
+        'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
+        'user'
     ) ) or $resource = 'photo';
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {

@@ -18,7 +18,11 @@
         $countcomments = $photo[ 'numcomments' ];
         include 'views/user/view.php';
     }
-    function Listing( $commentpage = 1 ) {
+    function Listing() {
+        include 'models/db.php';
+        include 'models/user.php';
+        $users = User::ListOnline();
+        include 'views/user/listing.php';
     }
     function Create() {
     }

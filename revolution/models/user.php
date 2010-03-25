@@ -31,5 +31,25 @@
             );
 			return mysql_fetch_array( $res );
         }
+        public static function ListOnline() {
+            $res = db(
+                'SELECT
+                    `user_id` AS id, `user_name` AS name
+                FROM
+                    `users`
+                    CROSS JOIN `lastactive` ON
+                        `user_id` = `lastactive_userid`
+                WHERE
+                    `lastactive_updated` > NOW() - INTERVAL 5 MINUTE
+                ORDER BY
+                    `lastactive_updated` DESC'
+            );
+            $ret = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $ret[] = $row;
+            }
+            var_dump( $ret );
+            return $ret;
+        }
     }
 ?>

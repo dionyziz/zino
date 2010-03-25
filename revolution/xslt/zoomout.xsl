@@ -11,6 +11,7 @@
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>
                 <script type="text/javascript" src="js/menu.js"></script>
+                <script type="text/javascript" src="js/chat.js"></script>
             </head>
             <body>
                 <div class="col1 vbar">
