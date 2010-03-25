@@ -1,8 +1,9 @@
 <?php
-    function Listing() {
+    function Listing( $channelid ) {
         include 'models/db.php';
         include 'models/chat.php';
-        $users = ChatMessage::ListByChannel();
+        $chatmessages = ChatMessage::ListByChannel( $channelid, 0, 50);
+        $chatmessages = array_reverse( $chatmessages );
         include 'views/chatmessage/listing.php';
     }
     function Create() {

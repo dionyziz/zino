@@ -8,7 +8,7 @@
             $res = db(
                 "SELECT
                     `shout_id` AS id,
-                    `user_name` AS username, `user_avatarid` AS avatarid,
+                    `user_name` AS username, `user_id` AS userid, `user_avatarid` AS avatarid,
                     `bulk_text` AS text
                 FROM
                     `shoutbox`
