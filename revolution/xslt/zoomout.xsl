@@ -27,7 +27,7 @@
                         <xsl:if test="not(/social/@for)">
                             <li><a href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
                         </xsl:if>
-                        <li class="bl"><a href=""><img src="images/comments.png" alt="Συζήτηση" title="Συζήτηση" /><span>Chat</span></a></li>
+                        <li class="bl"><a href="" id="chatbutton"><img src="images/comments.png" alt="Συζήτηση" title="Συζήτηση" /><span>Chat</span></a></li>
                     </ul>
                 </div>
                 <div class="col2">
