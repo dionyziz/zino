@@ -20,7 +20,7 @@
                     `shout_delid` = '0'
                     AND `shout_channelid` = :channelid
                 ORDER BY
-                    `shout_id` DESC
+                    `shout_id` ASC
                 LIMIT
                     :offset, :limit;", compact( 'channelid', 'offset', 'limit' )
             );
@@ -31,7 +31,25 @@
             return $ret;
         }
     }
-    class Chat {
+    class ChatChannel {
+        public static function Auth( $channelid, $userid ) {
+            if ( $channelid == 0 ) {
+                return true;
+            }
+
+            $res = db(
+                "SELECT
+                    `participant_channelid`
+                FROM
+                    chatparticipants
+                WHERE
+                    `participant_channelid` = :channelid
+                    AND `participant_userid` = :userid
+                LIMIT 1", compact( 'channelid', 'userid' )
+            );
+
+            return mysql_num_rows( $res ) > 0;
+        }
         public static function Create( $userid1, $userid2 ) {
             // check if userid1 and userid2 are already chatting in an existing channel_id
             // but make sure that no other people are in that convo
