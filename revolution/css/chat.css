@@ -11,7 +11,7 @@
 }
 .userlist {
     float: right;
-    width: 10%;
+    width: 200px;
     height: 100%;
 }
 .userlist ol {
@@ -19,22 +19,58 @@
     margin: 0pt;
     list-style: none outside none;
 }
+.userlist li {
+    padding: 5px;
+    cursor: pointer;
+}
+.userlist li.selected {
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.13, rgb(59,130,243)),
+        color-stop(0.6, rgb(50,152,254))
+    );
+    background: -moz-linear-gradient(
+        center bottom,
+        rgb(59,130,243) 13%,
+        rgb(50,152,254) 60%
+    );
+    -moz-border-radius: 5px;
+    color: white;
+}
 .textmessages {
     height: 100%;
-    margin-right: 10%;
+    margin-right: 200px;
 }
-.textmessages div {
+.textmessages li {
+    clear: both;
+    line-height: 23px;
+}
+.textmessages strong {
+    color: #39f;
+    font-weight: normal;
+    float: left;
+    text-align: right;
+    padding-right: 15px;
+    width: 100px;
+}
+.textmessages #chatmessages {
     bottom: 5px;
     top: 5px;
     position: absolute;
     left: 5px;
     overflow: auto;
     right: 0pt;
-    margin-right: 10%;
+    margin-right: 200px;
 }
 .textmessages ol {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
+#chatmessages span.text {
+    margin-left: 105px;
+    display: block;
+    overflow: hidden;
+}

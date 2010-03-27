@@ -1,7 +1,13 @@
+ function innerxml( node ) {
+     return (node.xml || (new XMLSerializer()).serializeToString(node) || "").replace(
+     new RegExp("(^<\\w*" + node.tagName + "[^>]*>)|(<\\w*\\/\\w*" + node.tagName + "[^>]*>$)", "gi"), "");
+ }
+
  var Chat = {
      Visible: false,
      Inited: false,
      ChannelsLoaded: {},
+     ChannelByUserid: {}.
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
         $.get( 'users/online', {}, function ( res ) {
@@ -11,12 +17,16 @@
             var name;
             online.css( { opacity: 1 } );
             online = online[ 0 ];
-            online.innerHTML = '<li class="selected">Zino</li>';
+            online.innerHTML = '<li class="selected world">Zino</li>';
             for ( i = 0; i < users.length; ++i ) {
                 user = users[ i ];
                 name = $( user ).find( 'name' ).text();
-                online.innerHTML += '<li>' + name + '</li>';
+                online.innerHTML += '<li id="u' + $( user ).attr( 'id' ) + '">' + name + '</li>';
             }
+            $( '#onlineusers li' ).click( function () {
+                $( '#onlineusers li' ).removeClass( 'selected' );
+                $( this ).addClass( 'selected' );
+            } );
         }, 'xml' );
      },
      GetMessages: function ( channelid ) {
@@ -27,9 +37,9 @@
 
             history.innerHTML = '';
             for ( i = 0; i < messages.length; ++i ) {
-                text = $( messages[ i ] ).find( 'text' ).text();
+                text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
                 author = $( messages[ i ] ).find( 'author name' ).text();
-                history.innerHTML += '<li><strong>' + author + '</strong>: ' + text + '</li>';
+                history.innerHTML += '<li><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
             }
          }, 'xml' );
      },
@@ -53,6 +63,10 @@
      },
      Join: function ( channelid ) {
          // Listen to push messages here
+     },
+     ShowPrivate: function ( userid ) {
+         if ( typeof Chat.ChannelByUserId[ userid ] == 'undefined' ) {
+         }
      },
      Show: function ( channelid ) {
          if ( typeof Chat.ChannelsLoaded[ channelid ] == 'undefined' ) {

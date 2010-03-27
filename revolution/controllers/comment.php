@@ -1,6 +1,6 @@
 <?php
     function Create( $text, $typeid, $itemid, $parentid ) {
-        isset( $_SESSION[ 'user' ] ) or die; // must be logged in to leave comment
+        isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a comment' ); // must be logged in to leave comment
         include 'models/types.php';
         include 'models/db.php';
         switch ( $typeid ) {

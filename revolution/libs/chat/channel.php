@@ -241,7 +241,6 @@
             );
             $query->BindTable( 'chatparticipants' );
             $query->Bind( 'userid1', $userid1 );
-            $query->Bind( 'userid2', $userid2 );
             $query->Bind( 'channelid', $channelid );
             $query->Execute();
         }

@@ -31,4 +31,70 @@
             return $ret;
         }
     }
+    class Chat {
+        public static function Create( $userid1, $userid2 ) {
+            // check if userid1 and userid2 are already chatting in an existing channel_id
+            // but make sure that no other people are in that convo
+            $res = db(
+                'SELECT
+                    channel_id
+                FROM
+                    chatchannels
+                    CROSS JOIN chatparticipants AS one
+                        ON channel_id = one.participant_channelid
+                        AND one.participant_userid = :userid1
+                    CROSS JOIN chatparticipants AS two
+                        ON channel_id = two.participant_channelid
+                        AND two.participant_userid = :userid2
+                    LEFT JOIN chatparticipants AS others
+                        ON channel_id = others.participant_channelid
+                        AND NOT others.participant_userid IN ( :userid1, :userid2 )
+                WHERE
+                    others.participant_userid IS NULL
+                LIMIT 1', compact( 'userid1', 'userid2' )
+            );
+            if ( $res->Results() ) {
+                $row = mysql_fetch_array();
+                $channelid = $row[ 'channel_id' ];
+
+                // participant #1 who initiated the chat must be shown a chat window,
+                // so activate his participation,
+                // however, we don't need to activate #2 who is just a passive receiver,
+                // until a message is received
+                db(
+                    'UPDATE 
+                        chatparticipants
+                    SET
+                        participant_active = 1
+                    WHERE
+                        participant_userid = :userid1
+                        AND participant_channelid = :channelid
+                    LIMIT 1', compact( 'userid1', 'channelid' )
+                );
+            }
+            else {
+                // verify user exists
+                $res = db(
+                    'SELECT user_id FROM users WHERE user_id = :userid2 LIMIT 1',
+                    compact( 'userid2' )
+                );
+                mysql_num_rows( $res ) or die( 'Failed to create private chat; target user does not exist' );
+                db(
+                    'INSERT INTO 
+                        chatchannels
+                    ( channel_created ) VALUES ( NOW() )'
+                );
+                $channelid = mysql_insert_id();
+                db(
+                    'INSERT INTO
+                        :chatparticipants
+                    ( participant_userid, participant_channelid, participant_active, participant_joined ) VALUES
+                    ( :userid1, :channelid, 1, NOW() ), ( :userid2, :channelid, 0, NOW() )',
+                    compact( 'userid1', 'userid2', 'channelid' )
+                );
+            }
+            
+            return $channelid;
+        }
+    }
 ?>
