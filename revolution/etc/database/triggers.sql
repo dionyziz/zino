@@ -1,7 +1,7 @@
 DROP TRIGGER IF EXISTS commentinsert;
 DROP TRIGGER IF EXISTS commentdelete;
 DROP TRIGGER IF EXISTS imageinsert;
-DROP TRIGGER IF EXISTS imagedelete;
+DROP TRIGGER IF EXISTS imageupdate;
 DROP TRIGGER IF EXISTS albuminsert;
 DROP TRIGGER IF EXISTS albumdelete;
 DROP TRIGGER IF EXISTS pollinsert;
