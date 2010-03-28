@@ -5,11 +5,13 @@
             ( string )( int )$offset == ( string )$offset or die( 'Offset is not an integer' );
             ( string )( int )$limit == ( string )$limit or die( 'Limit is not an integer' );
 
+            include 'models/bulk.php';
+
             $res = db(
                 "SELECT
                     `shout_id` AS id,
                     `user_name` AS username, `user_id` AS userid, `user_avatarid` AS avatarid,
-                    `bulk_text` AS text
+                    `shout_bulkid` AS bulkid
                 FROM
                     `shoutbox`
                     LEFT JOIN `users`
@@ -17,16 +19,26 @@
                     LEFT JOIN `bulk`
                         ON `shout_bulkid` = `bulk_id`
                 WHERE
-                    `shout_delid` = '0'
-                    AND `shout_channelid` = :channelid
+                    `shout_channelid` = :channelid
                 ORDER BY
                     `shout_id` DESC
                 LIMIT
                     :offset, :limit;", compact( 'channelid', 'offset', 'limit' )
             );
             $ret = array();
+            $bulkids = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = $row;
+                $bulkids[] = $row[ 'bulkid' ];
+            }
+            $bulkdata = Bulk::FindById( $bulkids );
+            foreach ( $ret as $i => $row ) {
+                if ( isset( $bulkdata[ $row[ 'bulkid' ] ] ) ) {
+                    $ret[ $i ][ 'text' ] = $bulkdata[ $row[ 'bulkid' ] ];
+                }
+                else {
+                    $ret[ $i ][ 'text' ] = '(text missing)';
+                }
             }
             $ret = array_reverse( $ret ); // chronological order
             return $ret;
@@ -87,40 +99,23 @@
             // but make sure that no other people are in that convo
             $res = db(
                 'SELECT
-                    channel_id
+                    one.participant_channelid AS channel_id
                 FROM
-                    chatchannels
-                    CROSS JOIN chatparticipants AS one
-                        ON channel_id = one.participant_channelid
-                        AND one.participant_userid = :userid1
+                    chatparticipants AS one
                     CROSS JOIN chatparticipants AS two
-                        ON channel_id = two.participant_channelid
-                        AND two.participant_userid = :userid2
-                    LEFT JOIN chatparticipants AS others
-                        ON channel_id = others.participant_channelid
-                        AND NOT others.participant_userid IN ( :userid1, :userid2 )
+                        ON one.participant_channelid = two.participant_channelid
+                    LEFT JOIN chatparticipants AS three
+                        ON one.participant_channelid = three.participant_channelid 
+                        AND three.participant_userid != :userid1
+                        AND three.participant_userid != :userid2
                 WHERE
-                    others.participant_userid IS NULL
-                LIMIT 1', compact( 'userid1', 'userid2' )
+                    one.participant_userid = :userid1
+                    AND two.participant_userid = :userid2
+                    AND three.participant_userid IS NULL', compact( 'userid1', 'userid2' )
             );
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
                 $channelid = $row[ 'channel_id' ];
-
-                // participant #1 who initiated the chat must be shown a chat window,
-                // so activate his participation,
-                // however, we don't need to activate #2 who is just a passive receiver,
-                // until a message is received
-                db(
-                    'UPDATE 
-                        chatparticipants
-                    SET
-                        participant_active = 1
-                    WHERE
-                        participant_userid = :userid1
-                        AND participant_channelid = :channelid
-                    LIMIT 1', compact( 'userid1', 'channelid' )
-                );
             }
             else {
                 // verify user exists

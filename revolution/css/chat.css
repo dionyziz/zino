@@ -95,3 +95,16 @@
     font-family: Trebuchet MS;
     height: 29px;
 }
+.textmessages .loading {
+    bottom: 55px;
+    color: #CCCCCC;
+    font-size: 200%;
+    left: 5px;
+    margin-left: 115px;
+    margin-right: 200px;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 40%;
+}

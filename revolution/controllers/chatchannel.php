@@ -11,7 +11,7 @@
         $participants = array(
             array( 'id' => $_SESSION[ 'userid' ], $userid )
         );
-        include 'views/chat/create.php';
+        include 'views/chatchannel/create.php';
     }
     function Update() {
     }
