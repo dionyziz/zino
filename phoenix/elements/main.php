@@ -150,10 +150,6 @@
                 }
             }
 
-            if ( $user->HasPermission( PERMISSION_CHAT_VIEW ) || $user->Name == 'Precambrian' ) {
-                Element( 'chat/private/windows' );
-            }
-
             Element( 'statistics/log', $masterelement );
             $libs->Load( 'memoryusage' );//<collecting memory usage information
             CheckMemoryUsage();
