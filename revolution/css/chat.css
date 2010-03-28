@@ -13,6 +13,7 @@
     float: right;
     width: 200px;
     height: 100%;
+    overflow: auto;
 }
 .userlist ol {
     padding: 5px;

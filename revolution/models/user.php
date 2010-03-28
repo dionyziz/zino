@@ -47,9 +47,10 @@
             );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $ret[] = $row;
+                $ret[ $row[ 'name' ] ] = $row;
             }
-            var_dump( $ret );
+            ksort( $ret );
+            $ret = array_values( $ret );
             return $ret;
         }
     }

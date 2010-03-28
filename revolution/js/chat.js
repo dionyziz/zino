@@ -7,7 +7,7 @@
      Visible: false,
      Inited: false,
      ChannelsLoaded: {},
-     ChannelByUserid: {},
+     ChannelByUserId: {},
      CurrentChannel: 0,
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
@@ -16,37 +16,53 @@
             var user;
             var online = $( '#onlineusers' );
             var name;
+            var html = '<li class="selected world" id="u0">Zino</li>';
             online.css( { opacity: 1 } );
             online = online[ 0 ];
-            online.innerHTML = '<li class="selected world">Zino</li>';
             for ( i = 0; i < users.length; ++i ) {
                 user = users[ i ];
                 name = $( user ).find( 'name' ).text();
-                online.innerHTML += '<li id="u' + $( user ).attr( 'id' ) + '">' + name + '</li>';
+                html += '<li id="u' + $( user ).attr( 'id' ) + '">' + name + '</li>';
             }
+            online.innerHTML = html;
             $( '#onlineusers li' ).click( function () {
                 $( '#onlineusers li' ).removeClass( 'selected' );
                 $( this ).addClass( 'selected' );
+                var userid = this.id.split( 'u' )[ 1 ];
+                if ( userid == 0 ) {
+                    Chat.Show( 0 );
+                }
+                else {
+                    Chat.ShowPrivate( userid );
+                }
             } );
         }, 'xml' );
      },
-     GetMessages: function ( channelid ) {
-         $.get( 'chat/' + channelid + '/messages', {}, function ( res ) {
-            var history = $( '#chatmessages_' + channelid )[ 0 ];
-            var messages = $( res ).find( 'discussion comment' );
-            var text;
-
-            history.innerHTML = '';
-            for ( i = 0; i < messages.length; ++i ) {
-                text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
-                author = $( messages[ i ] ).find( 'author name' ).text();
-                history.innerHTML += '<li><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
-            }
+     HistoryFromXML: function ( res ) {
+        var channelid = $( res ).find( 'channel' ).attr( 'id' );
+        if ( $( '#chatmessages_' + channelid ).length == 0 ) {
+            $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
+        }
+        var history = $( '#chatmessages_' + channelid )[ 0 ];
+        var messages = $( res ).find( 'discussion comment' );
+        var text;
+        var html = '';
+        
+        for ( i = 0; i < messages.length; ++i ) {
+            text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
+            author = $( messages[ i ] ).find( 'author name' ).text();
+            html += '<li><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
+        }
+        history.innerHTML = html;
+     },
+     GetMessages: function ( channelid, callback ) {
+         $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
+             Chat.HistoryFromXML( res );
+             callback( res );
          }, 'xml' );
      },
-     LoadHistory: function ( channelid ) {
-         $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
-         Chat.GetMessages( channelid );
+     LoadHistory: function ( channelid, callback ) {
+         Chat.GetMessages( channelid, callback );
      },
      Init: function () {
          $( '.col2' )[ 0 ].innerHTML +=
@@ -66,10 +82,19 @@
                     this.value = '';
                     $( this ).blur();
                 case 13: // enter
+                    $( '#chatmessages_' + Chat.CurrentChannel )[ 0 ].innerHTML += '<li><strong>' + User + '</strong> <span class="text">' + this.value + '</span></li>';
+                    var lastChild = $( '#chatmessages_' + Chat.CurrentChannel )[ 0 ].lastChild;
                     $.post( 'chat/message/create', {
-                        chanelid: Chat.CurrentChannel,
+                        channelid: Chat.CurrentChannel,
                         text: this.value
-                    } );
+                    }, function ( res ) {
+                        $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+                    }, 'xml' );
+                    this.value = '';
+             }
+         } ).keyup( function ( e ) {
+             switch ( e.keyCode ) {
+                 case 13: // enter
                     this.value = '';
              }
          } );
@@ -80,18 +105,49 @@
      Join: function ( channelid ) {
          // Listen to push messages here
      },
+     // switch to a channel given a userid; if not loaded, it will load it
      ShowPrivate: function ( userid ) {
+         var channelid;
          if ( typeof Chat.ChannelByUserId[ userid ] == 'undefined' ) {
+             $.get(
+                'chat/messages', {
+                    channelid: 0,
+                    userid: userid
+                },
+                function ( res ) {
+                    channelid = $( res ).find( 'channel' ).attr( 'id' );
+                    Chat.ChannelByUserId[ userid ] = channelid;
+                    Chat.HistoryFromXML( res );
+                    Chat.ChannelsLoaded[ channelid ] = true;
+                    Chat.DisplayChannel( channelid );
+                }, 'xml'
+             );
+         }
+         else {
+             channelid = Chat.ChannelByUserId[ userid ];
+             Chat.DisplayChannel( channelid );
          }
      },
+     // switches to given channel; loads it if not yet lo
      Show: function ( channelid ) {
          if ( typeof Chat.ChannelsLoaded[ channelid ] == 'undefined' ) {
              Chat.CurrentChannel = channelid;
-             Chat.LoadHistory( channelid );
+             Chat.LoadHistory( channelid, function () {
+                 Chat.ChannelsLoaded[ channelid ] = true;
+                 Chat.DisplayChannel( channelid );
+             } );
          }
+         else {
+             Chat.DisplayChannel( channelid );
+         }
+     },
+     // switch to an already loaded channel
+     DisplayChannel: function ( channelid ) {
          $( '.chatchannel' ).hide();
          $( '#chatmessages_' + channelid ).show();
+         Chat.CurrentChannel = channelid;
      },
+     // hide/show the chat application
      Toggle: function () {
          if ( !Chat.Inited ) {
              Chat.Init();

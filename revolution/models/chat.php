@@ -36,12 +36,24 @@
             ( string )( int )$userid == ( string )$userid or die( 'Userid is not an integer' );
 
             include 'models/bulk.php';
+            include 'models/wysiwyg.php';
 
             $text = nl2br( htmlspecialchars( $text ) );
+            $text = WYSIWYG_PostProcess( $text );
+
             $bulkid = Bulk::Store( $text );
             db( 'INSERT INTO `shoutbox` 
                 ( `shout_userid`, `shout_channelid`, `shout_bulkid`, `shout_created`, `shout_delid` ) 
                 VALUES ( :userid, :channelid, :bulkid, NOW(), 0 )', compact( 'userid', 'channelid', 'bulkid' ) );
+            if ( $channelid != 0 ) {
+                db( 'UPDATE
+                        chatparticipants
+                    SET
+                        participant_active = 1
+                    WHERE
+                        participant_channelid = :channelid', compact( 'channelid' )
+                );
+            }
 
             $id = mysql_insert_id();
 
@@ -91,8 +103,8 @@
                     others.participant_userid IS NULL
                 LIMIT 1', compact( 'userid1', 'userid2' )
             );
-            if ( $res->Results() ) {
-                $row = mysql_fetch_array();
+            if ( mysql_num_rows( $res ) ) {
+                $row = mysql_fetch_array( $res );
                 $channelid = $row[ 'channel_id' ];
 
                 // participant #1 who initiated the chat must be shown a chat window,
@@ -125,7 +137,7 @@
                 $channelid = mysql_insert_id();
                 db(
                     'INSERT INTO
-                        :chatparticipants
+                        chatparticipants
                     ( participant_userid, participant_channelid, participant_active, participant_joined ) VALUES
                     ( :userid1, :channelid, 1, NOW() ), ( :userid2, :channelid, 0, NOW() )',
                     compact( 'userid1', 'userid2', 'channelid' )

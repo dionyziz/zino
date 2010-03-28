@@ -11,7 +11,7 @@
 
             if ( $channelid == 0 ) {
                 // the history has been requested for a user
-                $channelid = Chat::Create( $_SESSION[ 'user' ][ 'id' ], $userid );
+                $channelid = ChatChannel::Create( $_SESSION[ 'user' ][ 'id' ], $userid );
                 // if the channel existed, it'll give us a chennlid; else it will create it and give us the channel id
                 // we don't need to check for authentication in this case, as we're definately a participant 
             }

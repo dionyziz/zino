@@ -14,6 +14,11 @@
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
                 <script type="text/javascript" src="js/chat.js"></script>
+                <script type="text/javascript">
+                    var User = '<xsl:value-of select="@for" />';
+                    var Now = '<xsl:value-of select="@generated" />';
+                    var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
+                </script>
             </head>
             <body>
                 <div class="col1 vbar">
