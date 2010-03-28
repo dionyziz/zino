@@ -27,7 +27,17 @@
         );
         include 'views/chatmessage/listing.php';
     }
-    function Create() {
+    function Create( $channelid, $text ) {
+        isset( $_SESSION[ 'userid' ] ) or die( 'You must be logged in to post a message' ); 
+
+        include 'models/db.php';
+        include 'models/chat.php';
+
+        if ( $channelid != 0 ) {
+            ChatChannel::Auth( $channelid, $_SESSION[ 'userid' ] ) or die( 'You are not authorized to post on this channel' );
+        }
+        $messageid = ChatMessage::Create( $channelid, $_SESSION[ 'userid' ] , $text );
+        include 'views/chatmessage/create.php';
     }
     function Update() {
     }

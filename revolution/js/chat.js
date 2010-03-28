@@ -7,7 +7,8 @@
      Visible: false,
      Inited: false,
      ChannelsLoaded: {},
-     ChannelByUserid: {}.
+     ChannelByUserid: {},
+     CurrentChannel: 0,
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
         $.get( 'users/online', {}, function ( res ) {
@@ -44,7 +45,7 @@
          }, 'xml' );
      },
      LoadHistory: function ( channelid ) {
-         $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" id="chatmessages_' + channelid + '"></ol>';
+         $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
          Chat.GetMessages( channelid );
      },
      Init: function () {
@@ -55,9 +56,21 @@
                  + '</div>'
                  + '<div class="textmessages">'
                      + '<div id="chatmessages"></div>'
+                     + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
                  + '</div>'
              + '</div>';
          Chat.Show( 0 );
+         $( '#chat textarea' ).keydown( function ( e ) {
+             switch ( e.keyCode ) {
+                case 27: // ESC
+                    this.value = '';
+                    $( this ).blur();
+                case 13: // enter
+                    $.post( 'chat/' + Chat.CurrentChannel + '/message/create', {} );
+                    this.value = '';
+             }
+         } );
+         Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
          // Chat.Join( User );
          Chat.Inited = true;
      },
@@ -70,8 +83,11 @@
      },
      Show: function ( channelid ) {
          if ( typeof Chat.ChannelsLoaded[ channelid ] == 'undefined' ) {
+             Chat.CurrentChannel = channelid;
+             Chat.LoadHistory( channelid );
          }
-         Chat.LoadHistory( channelid );
+         $( '.chatchannel' ).hide();
+         $( '#chatmessages_' + channelid ).show();
      },
      Toggle: function () {
          if ( !Chat.Inited ) {

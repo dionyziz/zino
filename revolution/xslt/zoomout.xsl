@@ -8,10 +8,11 @@
                 <title>Zino</title>
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
                 <link type="text/css" href="css/chat.css" rel="stylesheet" />
+                <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>
-                <script type="text/javascript" src="js/menu.js"></script>
+                <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
                 <script type="text/javascript" src="js/chat.js"></script>
             </head>
             <body>
@@ -35,6 +36,7 @@
                 <div class="col2">
                     <xsl:apply-templates />
                 </div>
+                <script type="text/javascript" src="js/menu.js"></script>
             </body>
         </html>
     </xsl:template>

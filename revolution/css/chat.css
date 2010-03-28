@@ -56,7 +56,7 @@
     width: 100px;
 }
 .textmessages #chatmessages {
-    bottom: 5px;
+    bottom: 55px;
     top: 5px;
     position: absolute;
     left: 5px;
@@ -73,4 +73,24 @@
     margin-left: 105px;
     display: block;
     overflow: hidden;
+}
+#outgoing {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    padding: 5px 10px 5px 5px;
+    bottom: 5px;
+    height: 37px;
+    margin-left: 113px;
+    background-color: #eee;
+    -moz-border-radius: 5px 5px 5px 5px;
+    margin-right: 197px;
+}
+#outgoing div {
+}
+#outgoing textarea {
+    width: 100%;
+    font-size: 106%;
+    font-family: Trebuchet MS;
+    height: 29px;
 }

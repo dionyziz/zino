@@ -20,7 +20,7 @@
                     `shout_delid` = '0'
                     AND `shout_channelid` = :channelid
                 ORDER BY
-                    `shout_id` ASC
+                    `shout_id` DESC
                 LIMIT
                     :offset, :limit;", compact( 'channelid', 'offset', 'limit' )
             );
@@ -28,6 +28,7 @@
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = $row;
             }
+            $ret = array_reverse( $ret ); // chronological order
             return $ret;
         }
     }
