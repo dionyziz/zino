@@ -40,7 +40,7 @@
             $text = nl2br( htmlspecialchars( $text ) );
             $bulkid = Bulk::Store( $text );
             db( 'INSERT INTO `shoutbox` 
-                ( `shout_userid, `shout_channelid`, `shout_bulkid`, `shout_created`, `shout_delid` ) 
+                ( `shout_userid`, `shout_channelid`, `shout_bulkid`, `shout_created`, `shout_delid` ) 
                 VALUES ( :userid, :channelid, :bulkid, NOW(), 0 )', compact( 'userid', 'channelid', 'bulkid' ) );
 
             $id = mysql_insert_id();
