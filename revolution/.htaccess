@@ -33,7 +33,7 @@ RewriteRule ^users/([a-z0-9-]+)$ index.php?resource=user&method=view [L,QSA]
 
 # chat
 RewriteRule ^chat/([0-9]+)/messages$ index.php?resource=chatmessage&method=listing&channelid=$1 [L,QSA]
-RewriteRule ^chat/([0-9]+)/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]
+RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]
 
 php_flag display_errors on
 

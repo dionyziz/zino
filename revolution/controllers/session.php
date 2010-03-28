@@ -11,7 +11,7 @@
     function Create( $username, $password ) {
         include 'models/db.php';
         include 'models/user.php';
-        $data = Login( $username, $password );
+        $data = User::Login( $username, $password );
         $success = $data !== false;
         if ( $success ) {
             $_SESSION[ 'user' ] = $data;

@@ -66,7 +66,10 @@
                     this.value = '';
                     $( this ).blur();
                 case 13: // enter
-                    $.post( 'chat/' + Chat.CurrentChannel + '/message/create', {} );
+                    $.post( 'chat/message/create', {
+                        chanelid: Chat.CurrentChannel,
+                        text: this.value
+                    } );
                     this.value = '';
              }
          } );

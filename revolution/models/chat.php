@@ -33,7 +33,9 @@
         }
         public static function Create( $channelid, $userid, $text ) {
             ( string )( int )$channelid == ( string )$channelid or die( 'Channelid is not an integer' );
-            ( string )( int )$userid == ( string )$channelid or die( 'Userid is not an integer' );
+            ( string )( int )$userid == ( string )$userid or die( 'Userid is not an integer' );
+
+            include 'models/bulk.php';
 
             $text = nl2br( htmlspecialchars( $text ) );
             $bulkid = Bulk::Store( $text );
