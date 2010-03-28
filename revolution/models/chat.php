@@ -31,6 +31,23 @@
             $ret = array_reverse( $ret ); // chronological order
             return $ret;
         }
+        public static function Create( $channelid, $userid, $text ) {
+            ( string )( int )$channelid == ( string )$channelid or die( 'Channelid is not an integer' );
+            ( string )( int )$userid == ( string )$channelid or die( 'Userid is not an integer' );
+
+            $text = nl2br( htmlspecialchars( $text ) );
+            $bulkid = Bulk::Store( $text );
+            db( 'INSERT INTO `shoutbox` 
+                ( `shout_userid, `shout_channelid`, `shout_bulkid`, `shout_created`, `shout_delid` ) 
+                VALUES ( :userid, :channelid, :bulkid, NOW(), 0 )', compact( 'userid', 'channelid', 'bulkid' ) );
+
+            $id = mysql_insert_id();
+
+            return array(
+                'id' => $id,
+                'text' => $text
+            );
+        }
     }
     class ChatChannel {
         public static function Auth( $channelid, $userid ) {
