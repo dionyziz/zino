@@ -162,14 +162,14 @@
 			$tempid;
             foreach ( $lines as $index => $id ) {
                 $lines[ $index ] = explode( " ", $id );
-				$tempid = $lines[ $index ][ 0 ];
+				$tempid = (int)$lines[ $index ][ 0 ];
 				array_shift( $lines[ $index ] );
 				$res[ $index ] = array( $tempid, $lines[ $index ] );
             }
 
             $water->ProfileEnd();
 
-            return $lines; // journal ids and extended info
+            return $res; // journal ids and extended info
         }
         public static function GetImages( $user, $num = 30 ) {
             global $libs;
