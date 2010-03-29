@@ -164,7 +164,7 @@
                 $lines[ $index ] = explode( " ", $id );
 				$tempid = (int)$lines[ $index ][ 0 ];
 				array_shift( $lines[ $index ] );
-				$res[ $index ] = array( $tempid, $lines[ $index ] );
+				$res[ $index ] = array( "journalid" => $tempid, "ranks" => $lines[ $index ] );
             }
 
             $water->ProfileEnd();
