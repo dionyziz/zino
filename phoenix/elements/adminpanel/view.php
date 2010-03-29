@@ -24,23 +24,12 @@
                         ?><li><a href="?p=memorystats" >Στατιστικά σχετικά με την χρήση μνήμης απο τα διάφορα scripts</a></li><?php
 	        ?></ul><?php
 	        
-	        $libs->Load( 'content' );
+	        $libs->Load( 'research/spot' );
             ?><p>Content</p><?php
-			
-			$stream = New ContentStream();
-            $content = $stream->GetContent( $user );
-            foreach ( $content as $object ) {
-                ?><p><?php
-                echo $object[ "item" ]->Id . "----" . $object[ "created" ];
-                ?>  <?php
-                foreach ( $object[ "comments" ] as $comm ) { 
-                    ?><p><?php
-                    echo $comm[ 'text' ] . " " . $comm[ 'user_name' ];
-                    ?></p><?php
-                }
-                ?></p><?php                
-            }
-
+			$spot = New Spot();
+			$res = $spot->GetJournalsExtended( 4005 );
+			var_dump( $res );
+			return;
         }
     }
 ?>
