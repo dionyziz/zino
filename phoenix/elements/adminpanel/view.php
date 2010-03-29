@@ -27,7 +27,7 @@
 	        $libs->Load( 'research/spot' );
             ?><p>Content</p><?php
 			$spot = New Spot();
-			$res = $spot->GetJournalsExtended( 4005 );
+			$res = $spot->GetJournalsExtended( $user );
 			var_dump( $res );
 			return;
         }
