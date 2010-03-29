@@ -160,7 +160,7 @@
             }
 
             foreach ( $lines as $index => $id ) {
-                $lines[ $index ] = explode( " ", $id );
+                $lines[ $index ] = $id;
             }
 
             $water->ProfileEnd();
