@@ -158,9 +158,13 @@
             if ( $lines === false ) {
                 return $lines;
             }
-
+			$res = array();
+			$tempid;
             foreach ( $lines as $index => $id ) {
-                $lines[ $index ] = $id;
+                $lines[ $index ] = explode( " ", $id );
+				$tempid = $lines[ $index ][ 0 ];
+				array_shift( $lines[ $index ] );
+				$res[ $index ] = array( $tempid, $lines[ $index ] );
             }
 
             $water->ProfileEnd();
