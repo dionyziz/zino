@@ -4,6 +4,8 @@
         global $xc_settings;
         global $libs;
         
+        $info = explode( $info->Get(), ',' );
+        
         switch( $type->Get() ) {
             case TYPE_JOURNAL:
                 $libs->Load( 'journal/journal' );
@@ -14,7 +16,7 @@
                     return;
                 }
                 ?>alert( '<?php
-                    var_dump( $info->Get() );
+                var_dump( $info );
                 ?>' );<?php
                 
                 ?>window.location.href = '<?php
