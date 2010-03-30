@@ -4,11 +4,6 @@
         global $xc_settings;
         global $libs;
         
-        ?>alert( <?php
-        echo TYPE_JOURNAL;
-        ?>);<?php
-        return;
-        
         switch( $type->Get() ) {
             case TYPE_JOURNAL:
                 $libs->Load( 'journal/journal' );
@@ -18,6 +13,9 @@
                     ?>alert( 'Item does not exist' );<?php
                     return;
                 }
+                ?>alert( '<?php
+                var_dump( $info );
+                ?>' );<?php
                 
                 Element( 'url', $journal );
                 ?>window.location.href = '<?php
