@@ -51,7 +51,9 @@
                     if ( isset( $stickiesid[ $journal->Id ] ) ) { //Using indexed array keys for performance
                         continue;
                     }
-                    ?><div class="event">
+                    ?><div class="event" id="journal_<?php
+                    echo $journal->Id
+                    ?>">
                         <div class="who"><?php
                             Element( 'user/display', $journal->Userid, $journal->User->Avatarid, $journal->User, true );
                         ?> καταχώρησε
