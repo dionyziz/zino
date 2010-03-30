@@ -4,7 +4,7 @@
         global $xc_settings;
         global $libs;
         
-        $info = explode( $info->Get(), ',' );
+        $info = explode( ',', $info->Get() );
         
         switch( $type->Get() ) {
             case TYPE_JOURNAL:
