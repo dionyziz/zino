@@ -14,14 +14,13 @@
                     return;
                 }
                 ?>alert( '<?php
-                foreach( $info as $key => $value ) {
+                foreach( $info as $value ) {
                     echo $value . ' - ';
                 }
                 ?>' );<?php
                 
-                Element( 'url', $journal );
                 ?>window.location.href = '<?php
-                echo $url;
+                Element( 'url', $journal );
                 ?>';<?php
                 break;
             default:
