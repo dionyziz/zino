@@ -14,7 +14,9 @@
                     return;
                 }
                 ?>alert( '<?php
-                serialize( $info->Get() );
+                foreach( $info as $key => $value ) {
+                    echo $value . ' - ';
+                }
                 ?>' );<?php
                 
                 Element( 'url', $journal );
