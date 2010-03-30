@@ -14,7 +14,7 @@
                     return;
                 }
                 ?>alert( '<?php
-                    var_dump( $info );
+                    var_dump( $info->Get() );
                 ?>' );<?php
                 
                 ?>window.location.href = '<?php
