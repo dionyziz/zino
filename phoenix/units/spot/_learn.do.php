@@ -15,7 +15,7 @@
                 }
                 ?>alert( '<?php
                 foreach( $info as $value ) {
-                    echo $value . ' - ';
+                    echo $value->Get() . ' - ';
                 }
                 ?>' );<?php
                 
