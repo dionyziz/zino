@@ -5,7 +5,8 @@
             global $xc_settings;
 			global $libs;
             global $user;
-
+            global $page;
+            
             $libs->Load( 'journal/journal' );
 			$libs->Load( 'journal/frontpage' );
 			
@@ -25,7 +26,13 @@
                 $journals = $res[ 'journals' ];
                 if ( $user->Id == 4005 || $user->Id == 5104 ) {
                     unset( $res[ 'journals' ] );
-                    die( var_dump( w_json_encode( $res ) ) );
+                    ob_start();
+                    ?>var SPOTJournals = <?php
+                    echo w_json_encode( $res );
+                    ?>;
+                    
+                    <?php
+                    $page->AttachInlineScript( ob_get_clean() );
                 }
                 
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
