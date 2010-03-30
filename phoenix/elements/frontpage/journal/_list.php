@@ -22,10 +22,12 @@
             $journals = false;
             if ( $user->Exists() ) {
                 $finder = New JournalFinder();
-                $res = $finder->FindUserRelated( $user, true );
-                $journals = $res[ 'journals' ];
                 if ( $user->Id == 4005 || $user->Id == 5104 ) {
+                    $res = $finder->FindUserRelated( $user, true );
+                    
+                    $journals = $res[ 'journals' ];
                     unset( $res[ 'journals' ] );
+                    
                     ob_start();
                     ?>var SPOTJournals = <?php
                     echo w_json_encode( $res );
@@ -38,6 +40,9 @@
                     } );
                     <?php
                     $page->AttachInlineScript( ob_get_clean() );
+                }
+                else {
+                    $journals = $finder->FindUserRelated( $user, false );
                 }
                 
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
