@@ -4,7 +4,10 @@
         global $xc_settings;
         global $libs;
         
-        $libs->Load( 'research/spot' );
+        ?>alert( <?php
+        echo TYPE_JOURNAL;
+        ?>);<?php
+        return;
         
         switch( $type->Get() ) {
             case TYPE_JOURNAL:
