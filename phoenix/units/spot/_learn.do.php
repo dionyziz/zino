@@ -15,9 +15,8 @@
                     ?>alert( 'Item does not exist' );<?php
                     return;
                 }
-                ?>alert( '<?php
-                var_dump( $info );
-                ?>' );<?php
+
+                //CODE HERE
                 
                 ?>window.location.href = '<?php
                 Element( 'url', $journal );
