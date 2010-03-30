@@ -29,6 +29,7 @@
                 	}
 					else {
 						$journals = $res[ "journals" ];
+						$unset( $res[ "journals" ] );
 					}
 				
 				}
