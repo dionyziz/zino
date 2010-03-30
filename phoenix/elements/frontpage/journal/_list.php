@@ -22,10 +22,10 @@
             if ( $user->Exists() ) {
                 $finder = New JournalFinder();
                 $res = $finder->FindUserRelated( $user );
+                die( var_dump( $res ) );
                 $journals = $res[ 'journals' ];
-                if ( $user->Id == 4005 || $user->Id = 5104 ) {
+                if ( $user->Id == 4005 || $user->Id == 5104 ) {
                     unset( $res[ 'journals' ] );
-                    die( var_dump( $res ) );
                 }
                 
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
