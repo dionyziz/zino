@@ -14,7 +14,7 @@
                     return;
                 }
                 ?>alert( '<?php
-                var_dump( $info );
+                serialize( $info->Get() );
                 ?>' );<?php
                 
                 Element( 'url', $journal );
