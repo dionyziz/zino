@@ -120,11 +120,11 @@
         public function FindByIds( $ids ) {
             return parent::FindByIds( $ids );
         }
-        public function FindUserRelated( $user ) {
+        public function FindUserRelated( $user, $extended ) {
             global $libs;
             $libs->Load( 'research/spot' );
 
-			if ( $user->Id  == 4005 ) {
+			if ( $extended ) {
 				$info = Spot::GetJournalsExtended( $user );
 				$ids = array();
 		        if ( $info === false ) {
