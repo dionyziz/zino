@@ -25,7 +25,7 @@
                 $journals = $res[ 'journals' ];
                 if ( $user->Id == 4005 || $user->Id == 5104 ) {
                     unset( $res[ 'journals' ] );
-                    die( var_dump( $res ) );
+                    die( var_dump( w_json_encode( $res ) ) );
                 }
                 
                 if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
