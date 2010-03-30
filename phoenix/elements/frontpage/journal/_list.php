@@ -30,7 +30,12 @@
                     ?>var SPOTJournals = <?php
                     echo w_json_encode( $res );
                     ?>;
-                    
+                    $.each( SPOTJournals, function( i,v ) {
+                        $( "#journal_" + v.journalid ).click( function() {
+                            Coala.Warm( 'spot/learn', 4, v.journalid, v.ranks );
+                            return false;
+                        } );
+                    } );
                     <?php
                     $page->AttachInlineScript( ob_get_clean() );
                 }

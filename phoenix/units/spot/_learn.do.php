@@ -1,5 +1,5 @@
 <?php
-    function UnitSpotLearn( tInteger $type, tInteger $id, tArray $info ) {
+    function UnitSpotLearn( tInteger $type, tInteger $id, tIntegerArray $info ) {
         global $user;
         global $xc_settings;
         global $libs;
