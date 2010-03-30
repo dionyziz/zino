@@ -1,5 +1,5 @@
 <?php
-	//Deving on the spot - pagio
+
     class ElementFrontpageJournalList extends Element {
         public function Render( $journalseq ) {
             global $xc_settings;
@@ -21,25 +21,18 @@
             $journals = false;
             if ( $user->Exists() ) {
                 $finder = New JournalFinder();
-				if ( $user->Id == 4005 ) {
-					$res = $finder->FindUserRelated( $user );	
-					if ( $res === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
-						$journals = false;
-                    	?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
-                	}
-					else {
-						$journals = $res[ "journals" ];
-						$unset( $res[ "journals" ] );
-					}
-				
-				}
-				else {
-		            $journals = $finder->FindUserRelated( $user );
-		            if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
-		                ?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
-		            }
-				}
+                $res = $finder->FindUserRelated( $user );
+                $journals = $res[ 'journals' ];
+                if ( $user->Id == 4005 || $user->Id = 5104 ) {
+                    unset( $res[ 'journals' ] );
+                    die( var_dump( $res ) );
+                }
+                
+                if ( $journals === false && $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
+                    ?><!-- <b>Spot connection failed (start daemon!).</b> --><?php
+                }
             }
+
             if ( $journals === false ) {
                 Element( 'frontpage/journal/latest', $journalseq );
                 return;
