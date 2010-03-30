@@ -8,16 +8,25 @@
                 <title>Zino</title>
                 <link type="text/css" href="css/frontpage.css" rel="stylesheet" />
                 <link type="text/css" href="css/chat.css" rel="stylesheet" />
-                <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/jquery.modal.js"></script>
                 <script type="text/javascript" src="http://www.zino.gr/js/modal.js"></script>
-                <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
                 <script type="text/javascript" src="js/chat.js"></script>
+                <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
+                <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
+                <script type="text/javascript" src="js/comet.js"></script>
                 <script type="text/javascript">
                     var User = '<xsl:value-of select="@for" />';
                     var Now = '<xsl:value-of select="@generated" />';
                     var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
+                </script>
+                <script type="text/javascript">
+                document.domain = 'zino.gr';
+                var Meteor = {
+                    register: function ( target ) {
+                        alert( "Hello from the parent." );
+                    }
+                };
                 </script>
             </head>
             <body>

@@ -7,6 +7,7 @@
     left: 5%;
     border: 1px solid black;
     -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     z-index: 10;
 }
 .userlist {
@@ -38,6 +39,7 @@
         rgb(50,152,254) 60%
     );
     -moz-border-radius: 5px;
+    border-radius: 5px;
     color: white;
 }
 .textmessages {
@@ -84,7 +86,8 @@
     height: 37px;
     margin-left: 113px;
     background-color: #eee;
-    -moz-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     margin-right: 197px;
 }
 #outgoing div {

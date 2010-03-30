@@ -1,9 +1,12 @@
- function innerxml( node ) {
-     return (node.xml || (new XMLSerializer()).serializeToString(node) || "").replace(
-     new RegExp("(^<\\w*" + node.tagName + "[^>]*>)|(<\\w*\\/\\w*" + node.tagName + "[^>]*>$)", "gi"), "");
- }
+function innerxml( node ) {
+    return (node.xml || (new XMLSerializer()).serializeToString(node) || "").replace(
+        new RegExp("(^<\\w*" + node.tagName + "[^>]*>)|(<\\w*\\/\\w*" + node.tagName + "[^>]*>$)", "gi"), "");
+}
+var ExcaliburSettings = {
+    Production: true
+};
 
- var Chat = {
+var Chat = {
      Visible: false,
      Inited: false,
      ChannelsLoaded: {},
@@ -94,8 +97,12 @@
              }
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
-         // Chat.Join( User );
+         document.domain = 'zino.gr';
+         Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
+         Chat.Join( 0 );
+         Chat.Join( User );
          Chat.Inited = true;
+         var bigNumber = 123456789;
      },
      SendMessage: function ( channelid, text ) {
          var li = document.createElement( 'li' );
@@ -112,6 +119,8 @@
      },
      Join: function ( channelid ) {
          // Listen to push messages here
+         Comet.Subscribe( 'FrontpageShoutboxNew' + channelid );
+         Comet.Subscribe( 'FrontpageShoutboxTyping' + channelid );
      },
      NowLoading: function () {
          document.body.style.cursor = 'wait';
