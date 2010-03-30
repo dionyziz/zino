@@ -1,5 +1,5 @@
 <?php
-    function UnitSpotLearn( tInteger $type, tInteger $id, tIntegerArray $info ) {
+    function UnitSpotLearn( tInteger $type, tInteger $id, tText $info ) {
         global $user;
         global $xc_settings;
         global $libs;
@@ -14,9 +14,7 @@
                     return;
                 }
                 ?>alert( '<?php
-                foreach( $info as $value ) {
-                    echo $value->Get() . ' - ';
-                }
+                    var_dump( $info );
                 ?>' );<?php
                 
                 ?>window.location.href = '<?php
