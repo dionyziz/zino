@@ -18,9 +18,6 @@
 
                 //CODE HERE
                 
-                ?>window.location.href = '<?php
-                Element( 'url', $journal );
-                ?>';<?php
                 break;
             default:
                 ?>alert( 'Wrong item type' );<?php
