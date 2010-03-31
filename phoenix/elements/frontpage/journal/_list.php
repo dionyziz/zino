@@ -35,7 +35,7 @@
                     $.each( SPOTJournals, function( i,v ) {
                         $( "#journal_" + v.journalid ).mousedown( function() {
                             Coala.Warm( 'spot/learn', { 'type': 4, 'id': v.journalid, 'info': v.ranks.join(',') } );
-                            $( ".event[id^=journal_]" ).unbind( 'click' );
+                            $( ".event[id^=journal_]" ).unbind( 'mousedown' );
 							alert( 5 );
                         } );
                     } );
