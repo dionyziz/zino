@@ -3,7 +3,8 @@
         global $user;
         global $xc_settings;
         global $libs;
-		?>alert( 5 );<?php
+		
+		$libs->Load( "research/spot" );
         
         $info = explode( ',', $info->Get() );
         
@@ -19,6 +20,7 @@
 				foreach( $info as $key=>$val ) {
 					$trainvalues .= $val . " ";
 				}
+				Spot::JournalVisited( $trainvalues, $id );
                 break;
             default:
                 ?>alert( 'Wrong item type' );<?php
