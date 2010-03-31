@@ -16,7 +16,9 @@
                     ?>alert( 'Item does not exist' );<?php
                     return;
                 }
-
+				foreach( $info as $key=>$val ) {
+					$trainvalues .= $val . " ";
+				}
                 break;
             default:
                 ?>alert( 'Wrong item type' );<?php

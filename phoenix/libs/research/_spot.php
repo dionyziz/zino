@@ -65,6 +65,14 @@
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
+		public static function JournalVisited( $info, $journalid ) {
+			global $user;
+            $userid = $user->Id;
+            $itemid = $journalid;
+            $trainvalues = $info;
+            $request = "VISITED\n$userid\n$itemid\n$trainvalues\n";
+            self::SendRequest( $request );
+        }
         public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {
             global $libs;
             $libs->Load( 'image/image' );
