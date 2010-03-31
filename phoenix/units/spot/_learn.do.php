@@ -3,7 +3,7 @@
         global $user;
         global $xc_settings;
         global $libs;
-		?>alert( 'Item does not exist' );<?php
+		?>alert( 5 );<?php
         
         $info = explode( ',', $info->Get() );
         
