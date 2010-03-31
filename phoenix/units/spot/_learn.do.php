@@ -9,6 +9,7 @@
         switch( $type->Get() ) {
             case TYPE_JOURNAL:
                 $libs->Load( 'journal/journal' );
+				?>alert( '<?php echo $info[ 0 ]; ?>' ); <?php
                 
                 $journal = New Journal( $id->Get() );
                 if ( !$journal->Exists() ) {
