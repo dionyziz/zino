@@ -3,6 +3,7 @@
         global $user;
         global $xc_settings;
         global $libs;
+		?>alert( 'Item does not exist' );<?php
         
         $info = explode( ',', $info->Get() );
         
@@ -16,8 +17,6 @@
                     return;
                 }
 
-                Redirect( "http://www.zino.gr" );
-                
                 break;
             default:
                 ?>alert( 'Wrong item type' );<?php
