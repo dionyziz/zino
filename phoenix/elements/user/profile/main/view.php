@@ -115,7 +115,7 @@
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                        ?>albums" class="button">Προβολή albums&raquo;</a></div><?php
+                        ?>albums" class="button">Ola t albums&raquo;</a></div><?php
                     }
                 ?></div><?php
                 $finder = New FriendRelationFinder();
@@ -135,11 +135,11 @@
                 }
                 if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
                     ?><div class="lastpoll">
-                        <h3>Δημοσκοπήσεις<?php
+                        <h3>Dimosk0picC <?php
                         if ( $theuser->Count->Polls > 0 ) {
                             ?> <span>(<a href="<?php
                             Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                            ?>polls">προβολή όλων</a>)</span><?php
+                            ?>polls">olaaa</a>)</span><?php
                         }
                         ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) {
@@ -177,12 +177,12 @@
                 }
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     ?><div class="comments">
-                        <h3>Σχόλια στο προφίλ <?php
+                        <h3>Sxolia st profil <?php
                         if ( $theuser->Gender == 'f' ) {
-                            ?>της <?php
+                            ?>tc <?php
                         }
                         else {
-                            ?>του <?php
+                            ?>t <?php
                         }
                         Element( 'user/name' , $theuser->Id , $theuser->Name , $theuser->Subdomain , false );
                         ?></h3><?php

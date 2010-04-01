@@ -4,23 +4,23 @@
             ?><div class="info">
                 <dl><?php
                     if ( $theuser->Profile->Age ) {
-                        ?><dt id="birthday"><strong>Ηλικία</strong></dt>
+                        ?><dt id="birthday"><strong>Poso eim?</strong></dt>
                         <dd><?php
                         echo $theuser->Profile->Age;
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Placeid > 0 ) {
-                        ?><dt><strong>Περιοχή</strong></dt>
+                        ?><dt><strong>Apo p?</strong></dt>
                         <dd><?php
                         echo htmlspecialchars( $theuser->Profile->Location->Name );
                         ?></dd><?php
                     }
 					if ( $theuser->Profile->Schoolid > 0 && $theuser->Profile->Placeid > 0 ) {
 						if ( $theuser->Profile->Education < 5 ) {
-							?><dt><strong>Σχολείο</strong></dt><dd><?php
+							?><dt><strong>Sxolio</strong></dt><dd><?php
 						}
 						else {
-							?><dt><strong>Πανεπιστήμιο</strong></dt><dd><?php
+							?><dt><strong>pAnepiStimio</strong></dt><dd><?php
 						}
                         if ( $schoolexists ) {
                             ?><a href="?p=school&amp;id=<?php
@@ -34,13 +34,13 @@
 						?></dd><?php
 					}
                     if ( $theuser->Profile->Haircolor != '-' ) {
-                        ?><dt><strong>Χρώμα μαλλιών</strong></dt>
+                        ?><dt><strong>T mallia m</strong></dt>
                         <dd><?php
                         Element( 'user/trivial/haircolor' , $theuser->Profile->Haircolor );
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Eyecolor != '-' ) {
-                        ?><dt><strong>Χρώμα ματιών</strong></dt>
+                        ?><dt><strong>T matia m</strong></dt>
                         <dd><?php
                         Element( 'user/trivial/eyecolor' , $theuser->Profile->Eyecolor );
                         ?></dd><?php

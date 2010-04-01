@@ -4,7 +4,7 @@
 
         public function Render( $sexualorientation, $gender ) {
             if ( $sexualorientation != '-' ) {
-                ?><li><strong>Σεξουαλικές προτιμήσεις</strong>
+                ?><li><strong>t krevati m</strong>
                 <?php
                 Element( 'user/trivial/sex' , $sexualorientation , $gender );
                 ?></li><?php

@@ -47,7 +47,7 @@
                             ob_start();
                             Element( 'user/url' , $user->Id , $user->Subdomain );
                             echo htmlspecialchars( ob_get_clean() );
-                            ?>" class="bannerinlink">Προφίλ</a>
+                            ?>" class="bannerinlink">Profil m</a>
                             
                             </li>
                             <li>

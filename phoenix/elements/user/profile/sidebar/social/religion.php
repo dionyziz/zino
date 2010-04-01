@@ -4,7 +4,7 @@
 
         public function Render( $religion, $gender ) {
             if ( $religion != '-' ) {
-                ?><li><strong>Θρήσκευμα</strong> <?php
+                ?><li><strong>the0i klp</strong> <?php
                 Element( 'user/trivial/religion' , $religion , $gender );
                 ?></li><?php
             }
