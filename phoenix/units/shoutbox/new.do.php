@@ -42,8 +42,8 @@
             id : "s_<?php
             echo $shout->Id;
             ?>" } );
-        var text = <?php 
-            echo w_json_encode( str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $shout->Text ) );
+        var text = <?php
+            echo w_json_encode( $shout->Text );
         ?>;
 
         if ( $.browser.msie ) {

@@ -1,7 +1,7 @@
 <?php
     class ElementUserProfileSidebarAbuse extends Element {
         public function Render() {
-            ?><a href="" class="report" style="display:none">Karf0se tn</a>
+            ?><a href="" class="report" style="display:none">Αναφορά κακής χρήσης</a>
             <div id="reportabusemodal" class="modal">
                 <h3>Αναφορά κακής χρήσης</h3>
                 <form>

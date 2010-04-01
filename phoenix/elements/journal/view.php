@@ -54,12 +54,12 @@
 		                    if ( $journal->Numcomments > 0 ) {
 		                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
 		                        echo $journal->Numcomments;
-		                        ?> sxoli<?php
+		                        ?> σχόλι<?php
 		                        if ( $journal->Numcomments == 1 ) {
 		                            ?>ο<?php
 		                        }
 		                        else {
-		                            ?>a<?php
+		                            ?>α<?php
 		                        }
 		                        ?></dd><?php
 		                    }
@@ -73,7 +73,7 @@
 								?><li>
 									<a href="" title="<?php
 									if ( !$fav ) {
-										?>t agapo0 moe moe<?php
+										?>Το αγαπώ<?php
 									} 
 									else {
 										?>Αγαπημένο<?php
@@ -89,7 +89,7 @@
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
-										?>t agap0 moe moe<?php
+										?>Το αγαπώ<?php
 									}
 									?></a>
 								</li><?php
@@ -115,7 +115,7 @@
 										}
 										?>">&nbsp;</span><?php
 										if ( !$fav ) {
-											?>t agap0 moe moe<?php
+											?>Το αγαπώ<?php
 										}
 										?></a>
 									</li><?php
@@ -139,8 +139,7 @@
 						?>
 						</div><div class="eof"></div>
                         <p><?php
-                        //echo $journal->Text; // purposely not formatted
-                        echo str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $journal->Text );
+                        echo $journal->Text; // purposely not formatted
                         ?></p>
                     </div>
 					<div class="eof"></div>

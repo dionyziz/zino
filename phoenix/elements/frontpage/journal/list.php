@@ -31,7 +31,7 @@
             }
             
             ?><div class="list">
-                <h2>imrologia (<a href="journals">0la deixta</a>)</h2><?php
+                <h2>Ημερολόγια (<a href="journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
                     if ( isset( $stickiesid[ $journal->Id ] ) ) { //Using indexed array keys for performance
                         continue;
@@ -39,7 +39,7 @@
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display', $journal->Userid, $journal->User->Avatarid, $journal->User, true );
-                        ?> egrpc
+                        ?> καταχώρησε
                         </div>
                         <div class="subject"><?php
                             $domain = str_replace( '*', urlencode( $journal->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );

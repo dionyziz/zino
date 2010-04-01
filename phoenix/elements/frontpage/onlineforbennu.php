@@ -30,7 +30,7 @@
                             echo $count;
                             ?> άτομα είναι online"<?php
                         }
-                        ?>>Ein meca (<?php
+                        ?>>Είναι online τώρα (<?php
                         echo $count;
                         ?>)</h2>
                         <div class="list"><?php

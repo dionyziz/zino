@@ -23,14 +23,14 @@
             }
             
             ?><div class="list">
-                <h2>Dim0skopiCc (<a href="polls">ola t thelooo</a>)</h2><?php
+                <h2>Δημοσκοπήσεις (<a href="polls">προβολή όλων</a>)</h2><?php
                 foreach ( $polls as $poll ) {
                     $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                     $url = $domain . 'polls/' . $poll->Url;
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display' , $poll->Userid , $poll->User->Avatarid , $poll->User, true );
-                        ?> egrapc
+                        ?> καταχώρησε
                         </div>
                         <div class="subject">
                             <a href="<?php

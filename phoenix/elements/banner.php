@@ -47,11 +47,11 @@
                             ob_start();
                             Element( 'user/url' , $user->Id , $user->Subdomain );
                             echo htmlspecialchars( ob_get_clean() );
-                            ?>" class="bannerinlink">Profil m</a>
+                            ?>" class="bannerinlink">Προφίλ</a>
                             
                             </li>
                             <li>
-                                <a href="settings" class="bannerinlink">RithmiCc</a>
+                                <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
                             </li>
                             <li>
                                 <a id="unreadmessages" href="messages" class="bannerinlink<?php
@@ -64,33 +64,36 @@
                                 ?>"><?php
                                 if ( $unreadcount > 0 ) {
                                     echo $unreadcount;
-                                    ?> new<?php
+                                    ?> νέ<?php
                                     if( $unreadcount == 1 ) {
-                                        ?> PM<?php  
+                                        ?>ο μήνυμα<?php  
                                     }
                                     else {
-                                        ?> PMs<?php
+                                        ?>α μηνύματα<?php
                                     }
                                 }
                                 else {
-                                    ?>PMSss<?php
+                                    ?>Μηνύματα<?php
                                 }
                                 ?></a>
                             </li>
+                            <li id="zinostorelink">
+                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">Εκπτώσεις!<span class="shadowN">Εκπτώσεις!</span><span class="shadowNE">Εκπτώσεις!</span><span class="shadowE">Εκπτώσεις!</span><span class="shadowSE">Εκπτώσεις!</span><span class="shadowS">Εκπτώσεις!</span><span class="shadowSW">Εκπτώσεις!</span><span class="shadowW">Εκπτώσεις!</span><span class="shadowNW">Εκπτώσεις!</span><span class="wizard">Εκπτώσεις!</span></a>
+                            </li>
                             <li>
                                 <form method="post" action="do/user/logout">
-                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">vgec</a>
+                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
                                 </form>
                             </li>
                         </ul><?php
                     }
                     else {
                         ?><form id="loginform" action="do/user/login" method="post"><div>
-                            <input id="lusername" class="s2_0008" type="text" name="username" value="nick" />
-                            <input id="lpassword" class="s2_0008" type="text" name="password" value="kodik0c" />
-                            <input type="submit" class="s2_0007" id="loginbutton" value="Mpec" />
+                            <input id="lusername" class="s2_0008" type="text" name="username" value="ψευδώνυμο" />
+                            <input id="lpassword" class="s2_0008" type="text" name="password" value="κωδικός" />
+                            <input type="submit" class="s2_0007" id="loginbutton" value="Είσοδος" />
                             <span>
-                                ή <a href="join" class="wlink">Grapco0</a>
+                                ή <a href="join" class="wlink">Εγγραφή</a>
                             </span>
                         </div></form><?php
                     }

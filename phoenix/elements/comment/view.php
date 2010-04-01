@@ -23,10 +23,9 @@
                     Element( 'user/display', $comment->Userid , $comment->User->Avatarid , $comment->User, true );
                     ?>
                 </div><div class="text"><?php
-                    //echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
-                    echo str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $comment->Text );
-                ?></div> 
-                <div class="bottom"><a href="">Apantic</a> s afto t sxolio</div>
+                    echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
+                ?></div>
+                <div class="bottom"><a href="">Απάντησε</a> σε αυτό το σχόλιο</div>
             </div><?php
         }
     }

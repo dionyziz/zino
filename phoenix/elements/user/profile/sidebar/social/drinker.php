@@ -4,7 +4,7 @@
 
         public function Render( $drinker ) {
             if ( $drinker != '-' ) {
-                ?><li><strong>pin0?</strong>
+                ?><li><strong>Πίνεις;</strong>
                 <?php
                 Element( 'user/trivial/yesno' , $drinker );
                 ?></li><?php

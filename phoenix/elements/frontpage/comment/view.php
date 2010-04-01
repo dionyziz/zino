@@ -15,15 +15,14 @@
                     ?>"><?php
                         Element( 'user/avatar' , $comment->User->Avatarid, $comment->Userid , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;
-                    ?></a> milic:
+                    ?></a> έγραψε:
                 </div>
                 <div class="subject">
                     <p><?php
                         $text = $comment->GetText( 35 );
                         if ( !empty( $text ) ) {
                             ?><span class="text">"<?php
-                            //echo trim( $text );
-                            echo str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $text );
+                            echo trim( $text );
                             if ( strlen( $text ) > 30 ) {
                                 ?>...<?php
                             }
@@ -31,7 +30,7 @@
                         }
                         switch ( $comment->Typeid ) {
                             case TYPE_POLL:
-                                ?>st dim0skopic <a href="<?php
+                                ?>στη δημοσκόπηση <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -40,7 +39,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_IMAGE:
-                                ?>stn pic <a href="<?php
+                                ?>στη φωτογραφία <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -50,12 +49,12 @@
                                 break;
                             case TYPE_USERPROFILE:
                                 $user = $comment->Item;
-                                ?>st profil <?php
+                                ?>στο προφίλ <?php
                                 if ( $user->Gender == 'f' ) {
-                                    ?>tc <?php
+                                    ?>της <?php
                                 }
                                 else {
-                                    ?>t <?php
+                                    ?>του <?php
                                 }
                                 ?><a href="<?php
                                 ob_start();
@@ -66,7 +65,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_JOURNAL:
-                                ?>st imrlogio <a href="<?php
+                                ?>στο ημερολόγιο <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -75,7 +74,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_SCHOOL:
-                                ?>st <a href="<?php
+                                ?>στο <a href="<?php
                                 ob_start();
                                 Element( 'url', $comment );
                                 echo htmlspecialchars( ob_get_clean() );

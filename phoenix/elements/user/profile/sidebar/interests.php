@@ -29,48 +29,48 @@
                     }
                     $songs = $bytype[ TAG_SONG ];
                     if ( !empty( $songs ) ) {
-                        ?><dt><strong>Agapimena songzz</strong></dt>
+                        ?><dt><strong>Αγαπημένα τραγούδια</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $songs ) );
                         ?></dd><?php
                     }
                     $movies = $bytype[ TAG_MOVIE ];
                     if ( !empty( $movies ) ) {
-                        ?><dt><strong>tainies p agapo</strong></dt>
+                        ?><dt><strong>Αγαπημένες ταινίες</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $movies ) );
                         ?></dd><?php
                     }
                     $shows = $bytype[ TAG_SHOW ];
                     if ( !empty( $shows ) ) {
-                        ?><dt><strong>Seiresss p m arecn</strong></dt>
+                        ?><dt><strong>Αγαπημένες σειρές</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $shows ) );
                         ?></dd><?php
                     }
                     $books = $bytype[ TAG_BOOK ];
                     if ( !empty( $books ) ) {
-                        ?><dt><strong>books p agapo</strong></dt>
+                        ?><dt><strong>Αγαπημένα βιβλία</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $books ) ) ;
                         ?></dd><?php
                     }
                     $artists = $bytype[ TAG_ARTIST ];
                     if ( !empty( $artists ) ) {
-                        ?><dt><strong>kallitexnes p agapo</strong></dt>
+                        ?><dt><strong>Αγαπημένοι καλλιτέχνες</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $artists ) );
                         ?></dd><?php
                     }
                     $games = $bytype[ TAG_GAME ];
                     if ( !empty( $games ) ) {
-                        ?><dt><strong>games p agapo</strong></dt>
+                        ?><dt><strong>Αγαπημένα παιχνίδια</strong></dt>
                         <dd><?php
                             echo htmlspecialchars( implode( ", " , $games ) );
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Favquote != '' ) {
-                        ?><dt><strong>kati p eipan k m arec</strong></dt>
+                        ?><dt><strong>Αγαπημένο ρητό</strong></dt>
                         <dd><?php
                         echo htmlspecialchars( $theuser->Profile->Favquote );
                         ?></dd><?php

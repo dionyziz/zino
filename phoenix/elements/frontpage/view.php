@@ -105,7 +105,7 @@
                     $page->AttachInlineScript( "Notification.VNotifs = " . count( $notifs ) . ";Notification.INotifs = 0;" );
                 }
                 ?><div id="notifications">
-                    <h3>eNimEr0seis</h3>
+                    <h3>Ενημερώσεις</h3>
                     <div id="notiflist"><?php
                         Element( 'notification/list', $vnotifs );
                     ?></div>
@@ -151,7 +151,7 @@
                 ?></div>
                 <div id="fp_right">
                     <div id="fp_latest">
-                        <h2>t ginete?</h2>
+                        <h2>Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
                             Element( 'frontpage/comment/list' , $sequences[ SEQUENCE_COMMENT ] );
                         ?></div>

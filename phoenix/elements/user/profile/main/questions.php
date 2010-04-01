@@ -24,9 +24,9 @@
             else {
                 ?>
                 <div class="questions">
-                    <h2 class="pheading">ErotiCc <span class="small1">(<a href="<?php
+                    <h2 class="pheading">Ερωτήσεις <span class="small1">(<a href="<?php
                     Element( 'user/url', $theuser->Id , $theuser->Subdomain );
-                    ?>questions">oleesss</a>)</span>
+                    ?>questions">προβολή όλων</a>)</span>
                     </h2>
                     <ul><?php
                     foreach ( $answers as $answer ) {

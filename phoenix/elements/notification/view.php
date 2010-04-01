@@ -51,20 +51,20 @@
                     Element( 'user/name' , $notif->Fromuserid , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     switch ( $notif->Typeid ) {
                         case EVENT_FRIENDRELATION_CREATED:
-                            ?> s evale filo t <?php
+                            ?> σε πρόσθεσε στους φίλους:<?php
                             break;
                         case EVENT_IMAGETAG_CREATED:
-                            ?> c vrike <?php
+                            ?> σε αναγνώρισε:<?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
-                            ?> c agapaei moe moe <?php
+                            ?> αγαπάει:<?php
                             break;
                         case EVENT_COMMENT_CREATED:
                             if ( $notif->Item->Parentid == 0 ) {
-                                ?> miliC <?php
+                                ?> έγραψε:<?php
                             }
                             else {
-                                ?> apantiC <?php
+                                ?> απάντησε στο σχόλιό σου:<?php
                             }
                             break;
                     }
@@ -145,27 +145,27 @@
                             ?><p><?php
                             $image = New Image( $notif->Item->Imageid );
                             if ( $image->Name != '' ) {
-                                ?>ctn pic c "<?php
+                                ?>στην εικόνα "<?php
                                 echo htmlspecialchars( $image->Name );
                                 ?>"<?php
                             }
                             else if ( $image->Albumid == $image->User->Egoalbumid ) {
-                                ?>ctn pic <?php
+                                ?>στις φωτογραφίες <?php
                                 if ( $image->Userid == $user->Id ) {
-                                    ?>c<?php
+                                    ?>σου<?php
                                 }
                                 else if ( $image->User->Gender == 'f' ) {
-                                    ?>tc <?php
+                                    ?>της <?php
                                 }
                                 else {
-                                    ?>t <?php
+                                    ?>του <?php
                                 }
                                 if ( $image->Userid != $user->Id ) {
                                     echo htmlspecialchars( $image->User->Name );
                                 }
                             }
                             else {
-                                ?>ct albm "<?php
+                                ?>σε μια εικόνα του Album "<?php
                                 $libs->Load( 'album' );
                                 switch ( $image->Album->Ownertype ) {
                                     case TYPE_USERPROFILE:
@@ -214,15 +214,15 @@
                                     $image = $notif->Item->Item;
 									Element( 'image/view' , $image->Id , $image->Userid , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , '' , true , 75 , 75 , 0 );
                                     if ( $image->Name != '' ) {
-                                        ?>tin pic "<?php
+                                        ?>την εικόνα "<?php
                                         echo htmlspecialchars( $image->Name );
                                         ?>"<?php
                                     }
                                     else if ( $image->Albumid == $image->User->Egoalbumid ) {
-                                        ?>mia pic c <?php
+                                        ?>μια φωτογραφία σου<?php
                                     }
                                     else {
-                                        ?>mia pic st albm "<?php
+                                        ?>μια εικόνα του Album "<?php
                                         $libs->Load( 'album' );
                                         
                                         switch ( $image->Album->Ownertype ) {
@@ -239,7 +239,7 @@
                                 case TYPE_JOURNAL:
                                     $libs->Load( 'journal/journal' );
                                     $journal = $notif->Item->Item;
-                                    ?>To imErologio c <a href="<?php
+                                    ?>Το ημερολόγιό σου <a href="<?php
                                     ob_start();
                                     Element( 'url', $journal );
                                     echo htmlspecialchars( ob_get_clean() );
@@ -262,16 +262,16 @@
                             , <?php
                             switch ( $comment->Typeid ) {
                                 case TYPE_USERPROFILE:
-                                    ?>sto profil <?php
+                                    ?>στο προφίλ <?php
                                     if ( $comment->Itemid == $notif->Touserid ) {
-                                        ?>c<?php
+                                        ?>σου<?php
                                     }
                                     else {
                                         if ( $notif->Item->Item->Gender == 'f' ) {
-                                            ?>tc <?php
+                                            ?>της <?php
                                         }
                                         else {
-                                            ?>t <?php
+                                            ?>του <?php
                                         }
                                         if ( $notif->Fromuserid != $comment->Itemid ) {
                                             ?><a href="<?php
@@ -285,21 +285,21 @@
                                     }
                                     break;
                                 case TYPE_POLL:
-                                    ?>st dimosk0pic "<?php
+                                    ?>στη δημοσκόπηση "<?php
                                     echo htmlspecialchars( $comment->Item->Title );
                                     ?>"<?php
                                     break;
                                 case TYPE_IMAGE:
-                                    ?>stin pic <?php
+                                    ?>στη φωτογραφία <?php
                                     Element( 'image/view' , $comment->Itemid , $comment->Item->Userid , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 , 0 );
                                     break;
                                 case TYPE_JOURNAL:
-                                    ?>sto imerologio "<?php
+                                    ?>στο ημερολόγιο "<?php
                                     echo htmlspecialchars( $comment->Item->Title );
                                     ?>"<?php
                                     break;
                                 case TYPE_SCHOOL:
-                                    ?>sto <?php
+                                    ?>στο <?php
                                     echo htmlspecialchars( $comment->Item->Name );
                                     break;
                             }

@@ -4,7 +4,7 @@
 
         public function Render( $politics, $gender ) {
             if ( $politics != '-' ) {
-                ?><li><strong>p0litika k mlkiec</strong><?php
+                ?><li><strong>Πολιτική ιδεολογία</strong><?php
                 Element( 'user/trivial/politics', $politics, $gender );
                 ?></li><?php
             }

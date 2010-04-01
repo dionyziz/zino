@@ -94,7 +94,7 @@
                 <div class="objectinfo"><h2><?php
                 echo htmlspecialchars( $image->Name );
                 ?></h2>
-                <span>ct album</span> <a href="?p=album&amp;id=<?php
+                <span>στο album</span> <a href="?p=album&amp;id=<?php
                 echo $image->Albumid;
                 ?>"><?php
                 switch ( $image->Album->Ownertype ) {
@@ -115,12 +115,12 @@
                     if ( $image->Numcomments > 0 ) {
                         ?><dd class="commentsnum"><span class="s1_0027">&nbsp;</span><?php
                         echo $image->Numcomments;
-                        ?> sxoli<?php
+                        ?> σχόλι<?php
                         if ( $image->Numcomments == 1 ) {
-                            ?>o<?php
+                            ?>ο<?php
                         }
                         else {
-                            ?>a<?php
+                            ?>α<?php
                         }
                         ?></dd><?php
                     }
@@ -134,10 +134,10 @@
 						?><li>
 							<a href="" title="<?php
 	                        if ( !$fav ) {
-	                            ?>to agap0oo moe moe<?php
+	                            ?>Το αγαπώ<?php
 	                        } 
 	                        else {
-	                            ?>to agapisa<?php
+	                            ?>Αγαπημένο<?php
 	                        }
 	                        ?>" onclick="return PhotoView.AddFav( '<?php
 	                        echo $image->Id;
@@ -150,7 +150,7 @@
                             }
                             ?>">&nbsp;</span><?php
                             if ( !$fav ) {
-                                ?>to agap0o moe moe<?php
+                                ?>Το αγαπώ<?php
                             }
                             ?></a>
 						</li><?php
@@ -161,7 +161,7 @@
                             $relfinder->IsFriend( $theuser, $user ) == FRIENDS_BOTH )
 							&& $image->Width > 45 && $image->Height > 45 ) {
 							?><li>
-								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.prestart( false, '', true );return false"><span class="s_addtag">&nbsp;</span>vres opoion kses</a>
+								<a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.prestart( false, '', true );return false"><span class="s_addtag">&nbsp;</span>Γνωρίζεις κάποιον;</a>
 							</li><?php
 						}
 					}
@@ -170,7 +170,7 @@
 							?><li>
 								<a href="" title="<?php
 		                        if ( !$fav ) {
-		                            ?>to agap0o moe moe<?php
+		                            ?>Το αγαπώ<?php
 		                        } 
 		                        else {
 		                            ?>Αγαπημένο<?php
@@ -186,7 +186,7 @@
 		                        }
 								?>">&nbsp;</span><?php
 		                        if ( !$fav ) {
-		                            ?>to agap0o moe moe<?php
+		                            ?>Το αγαπώ<?php
 		                        }
 		                        ?></a>
 							</li><?php

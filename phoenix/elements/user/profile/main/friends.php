@@ -6,11 +6,11 @@
             global $xc_settings;
 
             ?><div class="friends"><?php
-                ?><h2 class="pheading">oi friends m <?php
+                ?><h2 class="pheading">Οι φίλοι μου<?php
                 if ( $friendsnum > 5 ) {
                     ?> <span class="small1">(<a href="<?php
                     echo str_replace( '*', urlencode( $subdomain  ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
-                    ?>">oloiii</a>)</span><?php
+                    ?>">προβολή όλων</a>)</span><?php
                 }
                 ?></h2><?php
                 if ( $usernorel ) {

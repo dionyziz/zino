@@ -4,13 +4,13 @@
         
 		public function Render( $theuserid , $theusername , $theusersubdomain, $link = true ) {
             if ( !$link ) {
-                echo htmlspecialchars( str_replace( array( 's', 'S' ), array( 'c', 'C' ), $theusername ) );
+                echo htmlspecialchars( $theusername );
             }
             else {
-                ?><a href="<?php 
+                ?><a href="<?php
                 Element( 'user/url' , $theuserid , $theusersubdomain );
-                ?>"><?php 
-                echo htmlspecialchars( str_replace( array( 's', 'S' ), array( 'c', 'C' ), $theusername ) );
+                ?>"><?php
+                echo htmlspecialchars( $theusername );
                 ?></a><?php
             }
         }

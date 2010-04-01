@@ -10,11 +10,10 @@
                 ?>">
                     <div class="who"><?php
                         Element( 'user/display' , $shout->Userid , $shout->User->Avatarid , $shout->User, true );
-                        ?> eip:
+                        ?> είπε:
                     </div>
-                    <div class="text"><?php 
-                        //echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
-                        echo nl2br( str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $shout->Text ) ); // no htmlspecialchars(); the text is already sanitized
+                    <div class="text"><?php
+                        echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
                     ?></div>
                 </div><?php
             }
@@ -22,7 +21,7 @@
                 ?><div class="comment empty" style="border-color:#dee;display:none">
                     <div class="who"><?php
                         Element( 'user/display' , $user->Id , $user->Avatarid , $user, true );
-                        ?> eip:
+                        ?> είπε:
                     </div>
                     <div class="text"></div>
                 </div><?php
