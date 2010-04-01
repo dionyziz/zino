@@ -5,7 +5,6 @@
             global $user;
             
             if ( !$empty ) {
-            die('test');
                 ?><div class="comment" id="s_<?php
                 echo $shout->Id;
                 ?>">
@@ -14,6 +13,7 @@
                         ?> eip:
                     </div>
                     <div class="text"><?php 
+            die('test2');
                         //echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
                         echo nl2br( str_replace( array( 'ò', 'ó', 'Ó' ), array( 'c', 'c', 'C' ), $shout->Text ) ); // no htmlspecialchars(); the text is already sanitized
                     ?></div>
