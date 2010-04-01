@@ -75,7 +75,7 @@
         echo $parent;
         ?>, <?php
         if ( isset( $comment ) ) {
-            echo w_json_encode( nl2br( preg_replace( '/[σΣ]/u', 'C', $comment->Text ) ) );
+            echo w_json_encode( nl2br( str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $comment->Text ) ) );
         }
         else {
             ?>''<?php
