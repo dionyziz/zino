@@ -4,11 +4,11 @@
         protected $mPersistent = array( 'journalid' , 'numcomments' , 'numjournals' , 'sameuser' );
         public function Render( $journal , $theuser , $journalid , $numcomments , $numjournals , $sameuser ) {
             ?><div class="lastjournal">
-                <h2 class="pheading">Ημερολόγιο <?php
+                <h2 class="pheading">Imer0logio <?php
                 if ( $numjournals > 1 ) {
                     ?><span class="small1">(<a href="<?php
                     Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>journals">προβολή όλων</a>)</span><?php
+                    ?>journals">ola t thel0</a>)</span><?php
                 }
                 ?></h2><?php
                 if ( $sameuser ) {
