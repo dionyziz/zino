@@ -13,9 +13,9 @@
                         ?> eip:
                     </div>
                     <div class="text"><?php 
-            die('test2');
                         //echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
                         echo nl2br( str_replace( array( 'ò', 'ó', 'Ó' ), array( 'c', 'c', 'C' ), $shout->Text ) ); // no htmlspecialchars(); the text is already sanitized
+            die('test3');
                     ?></div>
                 </div><?php
             }
