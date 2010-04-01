@@ -1,7 +1,7 @@
 <?php
     function Sequence_Increment( $key ) {
         global $db;
-
+ 
         $query = $db->Prepare( 'INSERT INTO :sequences (`sequence_key`, `sequence_value`) 
                         VALUES (:key, 0) 
                         ON DUPLICATE KEY UPDATE `sequence_value`=`sequence_value` + 1' );
