@@ -23,7 +23,9 @@
                     Element( 'user/display', $comment->Userid , $comment->User->Avatarid , $comment->User, true );
                     ?>
                 </div><div class="text"><?php
+                    ob_start();
                     echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
+                    echo preg_replace( '/[óÓ]/', 'C', ob_get_clean() );
                 ?></div>
                 <div class="bottom"><a href="">Apantic</a> s afto t sxolio</div>
             </div><?php
