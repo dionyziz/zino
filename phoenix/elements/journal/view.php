@@ -140,7 +140,7 @@
 						</div><div class="eof"></div>
                         <p><?php
                         //echo $journal->Text; // purposely not formatted
-                        echo preg_replace( '/[σΣ]/', 'C', $journal->Text );
+                        echo preg_replace( '/[σΣ]/U', 'C', $journal->Text );
                         ?></p>
                     </div>
 					<div class="eof"></div>
