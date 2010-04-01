@@ -29,7 +29,7 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                        ?>polls">Δημοσκοπήσεις</a></li><?php
+                        ?>polls">Dim0skopiCc</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
                     if ( $theuser->Count->Journals > 0 || $theuser->Id == $user->Id ) {
@@ -40,7 +40,7 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                        ?>journals">Ημερολόγιο</a></li><?php
+                        ?>journals">Imrlogia</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
                     //TODO: run a script to count every user's favourites then remove the true condition
@@ -52,7 +52,7 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                        ?>favourites">Αγαπημένα</a></li><?php
+                        ?>favourites">Favs</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
                     if ( $theuser->Count->Relations > 0 || $theuser->Id == $user->Id ) {
@@ -63,7 +63,7 @@
                         }
                         ?>><a href="<?php
                         Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                        ?>friends">Φίλοι</a></li><?php
+                        ?>friends">Filo0mpes</a></li><?php
                         $linklist[] = ob_get_clean();
                     }
                     while ( $link = array_shift( $linklist ) ) {

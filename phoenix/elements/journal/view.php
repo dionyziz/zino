@@ -54,12 +54,12 @@
 		                    if ( $journal->Numcomments > 0 ) {
 		                        ?><dd class="commentsnum small"><span class="s1_0027">&nbsp;</span><?php
 		                        echo $journal->Numcomments;
-		                        ?> σχόλι<?php
+		                        ?> sxoli<?php
 		                        if ( $journal->Numcomments == 1 ) {
 		                            ?>ο<?php
 		                        }
 		                        else {
-		                            ?>α<?php
+		                            ?>a<?php
 		                        }
 		                        ?></dd><?php
 		                    }
@@ -73,7 +73,7 @@
 								?><li>
 									<a href="" title="<?php
 									if ( !$fav ) {
-										?>Το αγαπώ<?php
+										?>t agapo0 moe moe<?php
 									} 
 									else {
 										?>Αγαπημένο<?php
@@ -89,7 +89,7 @@
 									}
 									?>">&nbsp;</span><?php
 									if ( !$fav ) {
-										?>Το αγαπώ<?php
+										?>t agap0 moe moe<?php
 									}
 									?></a>
 								</li><?php
@@ -115,7 +115,7 @@
 										}
 										?>">&nbsp;</span><?php
 										if ( !$fav ) {
-											?>Το αγαπώ<?php
+											?>t agap0 moe moe<?php
 										}
 										?></a>
 									</li><?php
