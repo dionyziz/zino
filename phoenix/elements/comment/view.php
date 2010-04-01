@@ -24,7 +24,7 @@
                     ?>
                 </div><div class="text"><?php
                     //echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
-                    echo preg_replace( '/[óÓ]/u', 'C', $comment->Text );
+                    echo str_replace( array( 'ò', 'ó', 'Ó' ), array( 'c', 'c', 'C' ), $comment->Text );
                 ?></div>
                 <div class="bottom"><a href="">Apantic</a> s afto t sxolio</div>
             </div><?php
