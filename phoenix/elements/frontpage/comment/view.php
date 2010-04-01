@@ -15,7 +15,7 @@
                     ?>"><?php
                         Element( 'user/avatar' , $comment->User->Avatarid, $comment->Userid , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;
-                    ?></a> έγραψε:
+                    ?></a> milic:
                 </div>
                 <div class="subject">
                     <p><?php
@@ -30,7 +30,7 @@
                         }
                         switch ( $comment->Typeid ) {
                             case TYPE_POLL:
-                                ?>στη δημοσκόπηση <a href="<?php
+                                ?>st dim0skopic <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -39,7 +39,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_IMAGE:
-                                ?>στη φωτογραφία <a href="<?php
+                                ?>stn pic <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -49,12 +49,12 @@
                                 break;
                             case TYPE_USERPROFILE:
                                 $user = $comment->Item;
-                                ?>στο προφίλ <?php
+                                ?>st profil <?php
                                 if ( $user->Gender == 'f' ) {
-                                    ?>της <?php
+                                    ?>tc <?php
                                 }
                                 else {
-                                    ?>του <?php
+                                    ?>t <?php
                                 }
                                 ?><a href="<?php
                                 ob_start();
@@ -65,7 +65,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_JOURNAL:
-                                ?>στο ημερολόγιο <a href="<?php
+                                ?>st imrlogio <a href="<?php
                                 ob_start();
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
@@ -74,7 +74,7 @@
                                 ?></a><?php
                                 break;
                             case TYPE_SCHOOL:
-                                ?>στο <a href="<?php
+                                ?>st <a href="<?php
                                 ob_start();
                                 Element( 'url', $comment );
                                 echo htmlspecialchars( ob_get_clean() );
