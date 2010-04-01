@@ -22,7 +22,8 @@
                         $text = $comment->GetText( 35 );
                         if ( !empty( $text ) ) {
                             ?><span class="text">"<?php
-                            echo trim( $text );
+                            //echo trim( $text );
+                            echo str_replace( array( 'ς', 'σ', 'Σ' ), array( 'c', 'c', 'C' ), $text );
                             if ( strlen( $text ) > 30 ) {
                                 ?>...<?php
                             }
