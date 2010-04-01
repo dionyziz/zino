@@ -43,7 +43,7 @@
             echo $shout->Id;
             ?>" } );
         var text = <?php
-            echo w_json_encode( $shout->Text );
+            echo w_json_encode( str_replace( array( '?', 's', 'S' ), array( 'c', 'c', 'C' ), $shout->Text ) );
         ?>;
 
         if ( $.browser.msie ) {
