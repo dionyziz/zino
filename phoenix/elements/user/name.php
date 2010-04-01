@@ -7,9 +7,9 @@
                 echo htmlspecialchars( str_replace( array( 's', 'S' ), array( 'c', 'C' ), $theusername ) );
             }
             else {
-                ?><a href="<?php
+                ?><a href="<?php 
                 Element( 'user/url' , $theuserid , $theusersubdomain );
-                ?>"><?php
+                ?>"><?php 
                 echo htmlspecialchars( str_replace( array( 's', 'S' ), array( 'c', 'C' ), $theusername ) );
                 ?></a><?php
             }
