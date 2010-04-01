@@ -14,7 +14,7 @@
                     </div>
                     <div class="text"><?php
                         //echo nl2br( $shout->Text ); // no htmlspecialchars(); the text is already sanitized
-                        echo nl2br( str_replace( array( 'ò', 's', 'S' ), array( 'c', 'c', 'C' ), $shout->Text ) ); // no htmlspecialchars(); the text is already sanitized
+                        echo nl2br( str_replace( array( 'ò', 'ó', 'Ó' ), array( 'c', 'c', 'C' ), $shout->Text ) ); // no htmlspecialchars(); the text is already sanitized
                     ?></div>
                 </div><?php
             }
