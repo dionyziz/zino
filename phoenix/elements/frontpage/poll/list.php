@@ -23,7 +23,7 @@
             }
             
             ?><div class="list">
-                <h2>Eroticc (<a href="polls">ola t thelooo</a>)</h2><?php
+                <h2>Dim0skopiCc (<a href="polls">ola t thelooo</a>)</h2><?php
                 foreach ( $polls as $poll ) {
                     $domain = str_replace( '*', urlencode( $poll->User->Subdomain ), $xc_settings[ 'usersubdomains' ] );
                     $url = $domain . 'polls/' . $poll->Url;

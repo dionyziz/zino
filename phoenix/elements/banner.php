@@ -88,7 +88,7 @@
                         ?><form id="loginform" action="do/user/login" method="post"><div>
                             <input id="lusername" class="s2_0008" type="text" name="username" value="nick" />
                             <input id="lpassword" class="s2_0008" type="text" name="password" value="kodik0c" />
-                            <input type="submit" class="s2_0007" id="loginbutton" value="Είσοδος" />
+                            <input type="submit" class="s2_0007" id="loginbutton" value="Mpec" />
                             <span>
                                 ή <a href="join" class="wlink">Grapco0</a>
                             </span>

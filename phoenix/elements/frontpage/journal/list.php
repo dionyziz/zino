@@ -31,7 +31,7 @@
             }
             
             ?><div class="list">
-                <h2>imrologia (<a href="journals">0la dixta</a>)</h2><?php
+                <h2>imrologia (<a href="journals">0la deixta</a>)</h2><?php
                 foreach ( $journals as $journal ) {
                     if ( isset( $stickiesid[ $journal->Id ] ) ) { //Using indexed array keys for performance
                         continue;
