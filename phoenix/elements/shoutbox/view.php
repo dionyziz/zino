@@ -5,6 +5,7 @@
             global $user;
             
             if ( !$empty ) {
+            die('test');
                 ?><div class="comment" id="s_<?php
                 echo $shout->Id;
                 ?>">

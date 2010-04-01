@@ -10,7 +10,6 @@
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindByChannel( 0, 0, 7 );
             foreach ( $shouts as $shout ) {
-                die('test');
                 Element( 'shoutbox/view' , $shout , false );
             }
         }
