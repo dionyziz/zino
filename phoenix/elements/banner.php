@@ -51,7 +51,7 @@
                             
                             </li>
                             <li>
-                                <a href="settings" class="bannerinlink">Ρυθμίσεις</a>
+                                <a href="settings" class="bannerinlink">RithmiCc</a>
                             </li>
                             <li>
                                 <a id="unreadmessages" href="messages" class="bannerinlink<?php
@@ -64,36 +64,33 @@
                                 ?>"><?php
                                 if ( $unreadcount > 0 ) {
                                     echo $unreadcount;
-                                    ?> νέ<?php
+                                    ?> new<?php
                                     if( $unreadcount == 1 ) {
-                                        ?>ο μήνυμα<?php  
+                                        ?> PM<?php  
                                     }
                                     else {
-                                        ?>α μηνύματα<?php
+                                        ?> PMs<?php
                                     }
                                 }
                                 else {
-                                    ?>Μηνύματα<?php
+                                    ?>PMSss<?php
                                 }
                                 ?></a>
                             </li>
-                            <li id="zinostorelink">
-                                <a href="http://store.zino.gr/?p=product&amp;id=27" class="bannerinlink" style="font-weight:bold" title="♥">Εκπτώσεις!<span class="shadowN">Εκπτώσεις!</span><span class="shadowNE">Εκπτώσεις!</span><span class="shadowE">Εκπτώσεις!</span><span class="shadowSE">Εκπτώσεις!</span><span class="shadowS">Εκπτώσεις!</span><span class="shadowSW">Εκπτώσεις!</span><span class="shadowW">Εκπτώσεις!</span><span class="shadowNW">Εκπτώσεις!</span><span class="wizard">Εκπτώσεις!</span></a>
-                            </li>
                             <li>
                                 <form method="post" action="do/user/logout">
-                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">Έξοδος</a>
+                                    <a href="#" class="bannerinlink" onclick="this.parentNode.submit();return false;">vgec</a>
                                 </form>
                             </li>
                         </ul><?php
                     }
                     else {
                         ?><form id="loginform" action="do/user/login" method="post"><div>
-                            <input id="lusername" class="s2_0008" type="text" name="username" value="ψευδώνυμο" />
-                            <input id="lpassword" class="s2_0008" type="text" name="password" value="κωδικός" />
+                            <input id="lusername" class="s2_0008" type="text" name="username" value="nick" />
+                            <input id="lpassword" class="s2_0008" type="text" name="password" value="kodik0c" />
                             <input type="submit" class="s2_0007" id="loginbutton" value="Είσοδος" />
                             <span>
-                                ή <a href="join" class="wlink">Εγγραφή</a>
+                                ή <a href="join" class="wlink">Grapco0</a>
                             </span>
                         </div></form><?php
                     }

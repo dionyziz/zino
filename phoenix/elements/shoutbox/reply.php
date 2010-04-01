@@ -17,7 +17,7 @@
                 </div>
                 <div class="bottom">
                     <div class="typing"></div>
-                    <input id="shoutbox_submit" type="submit" value="Σχολίασε!" disabled="disabled" />
+                    <input id="shoutbox_submit" type="submit" value="PeC t!" disabled="disabled" />
                 </div>
             </div><?php
         }

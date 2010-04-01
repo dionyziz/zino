@@ -105,7 +105,7 @@
                     $page->AttachInlineScript( "Notification.VNotifs = " . count( $notifs ) . ";Notification.INotifs = 0;" );
                 }
                 ?><div id="notifications">
-                    <h3>Ενημερώσεις</h3>
+                    <h3>eNimEr0seis</h3>
                     <div id="notiflist"><?php
                         Element( 'notification/list', $vnotifs );
                     ?></div>

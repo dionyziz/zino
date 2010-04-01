@@ -22,7 +22,7 @@
             $finder = New CommentFinder();
             $comments = $finder->FindLatest( ( $pageno - 1 ) * 20, 20 );
             ?><div class="latestcomments">
-                <h2>Πρόσφατα σχόλια</h2>
+                <h2>New sxolia</h2>
                 <div class="list"><?php
                 foreach ( $comments as $comment ) {
                     Element( 'frontpage/comment/view', $comment );
