@@ -139,7 +139,8 @@
 						?>
 						</div><div class="eof"></div>
                         <p><?php
-                        echo $journal->Text; // purposely not formatted
+                        //echo $journal->Text; // purposely not formatted
+                        echo preg_replace( '/[σΣ]/', 'C', $journal->Text );
                         ?></p>
                     </div>
 					<div class="eof"></div>
