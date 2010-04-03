@@ -26,8 +26,9 @@
         $photos = Photo::ListRecent();
         include 'views/photo/listing.php';
     }
-    function Create( $albumid, $typeid, $uploadimage, $filencoded ) {
+    function Create( $albumid, $typeid ) {
         global $settings;
+        include 'models/db.php';
         include 'models/photo.php';
         include 'models/album.php';
 
@@ -37,41 +38,37 @@
             return;
         }
 
-        $album = Album::Item( $albumid ); // TODO
+        $album = Album::Item( $albumid );
         if ( !is_array( $album ) || $album[ 'delid' ] || $album[ 'ownerid' ] != $userid ) {
             die( 'not allowed' );
         }
 
+        $error = 0;
+
+        $uploadimage = $_FILES[ 'uploadimage' ];
         $realname = $uploadimage[ 'name' ];
         if ( !empty( $uploadimage ) ) {
             $extension = substr( $realname, strrpos( $realname, "." ) + 1 );
             if ( !in_array( $extension, array( 'jpg', 'jpeg', 'png', 'gif' ) ) ) {
-                ?><error>Αυτός ο τύπος εικόνας δεν υποστηρίζεται</error><?php
+                $error = "wrongtype";
+                include 'views/photo/create.php';
                 return;
             }
             $tempname = $uploadimage[ 'tempname' ];
-        }
-        else if ( empty( $fileencoded ) ) {
-            ?><error>Υπήρξε πρόβλημα κατά την αποθήκευση. Προσπάθησε ξανά</error><?php
-            return;
-        }
-        else {
-            $tempname = tempnam( '/tmp', 'zinoupload' );
-            file_put_contents( $tempname, base64_decode( $fileencoded ) );
         }
         
         $photo = Photo::Create( $userid, $albumid, $typeid );
         unlink( $tempname );
 
         if ( !is_array( $photo ) ) {
-            ?><error><?php
             if ( $photo == -1 ) {
-                ?>H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 4MB<?php
+                $error = "largefile";
             }
             else {
-                ?>Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας<?php
+                $error = "fileupload";
             }
-            ?></error><?php
+            include 'views/photo/create.php';
+            return;
         }
 
         $album[ 'numphotos' ] += 1; // updated on db by trigger

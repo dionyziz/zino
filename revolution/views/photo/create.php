@@ -1,3 +1,4 @@
+<? if ( empty( $error ) ): ?>
 <photo>
     <id><?= $photo[ 'id' ] ?></id>
     <typeid><?= $typeid ?></typeid>
@@ -14,3 +15,11 @@
         <photocount><?= $album[ 'numphotos' ] + 1 ?></photocount>
     </album>
 </photo>
+<? else: ?>
+<error type="<?= $error ?>"></error>
+/*
+wrongextension -> Αυτός ο τύπος εικόνας δεν υποστηρίζεται
+largefile -> H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 4MB
+fileupload -> Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας
+*/
+<? endif; ?>
