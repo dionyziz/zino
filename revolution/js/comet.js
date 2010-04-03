@@ -48,7 +48,7 @@ var Comet = {
         var iframe = document.createElements( 'iframe' );
         iframe.src = 'comet.html';
         document.body.appendChild( iframe );
-    }
+    },
     ChangeMode: function ( mode ) {
         if ( mode == 'poll' ) { // don't allow polling
             Meteor.disconnect();
