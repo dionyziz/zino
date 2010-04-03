@@ -37,7 +37,7 @@
             <xsl:apply-templates select="comment" />
         </div>
     </xsl:template>
-    <xsl:template match="a|img|span|br|em|strong">
+    <xsl:template match="a|img|span|br|em|strong|p">
         <xsl:copy-of select="." />
     </xsl:template>
 </xsl:stylesheet>

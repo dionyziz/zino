@@ -34,9 +34,17 @@
                     <h1><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino Bubble" /></h1>
                     <ul>
                         <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li>
-                        <li class="selected"><a href=""><img src="images/images.png" alt="Φωτογραφίες" title="Φωτογραφίες" /><span>Εικόνες</span></a></li>
                         <li>
-                            <a href=""><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>
+                            <xsl:if test="/social/feed[1]/@type = 'photos'">
+                                <xsl:attribute name="class">selected</xsl:attribute>
+                            </xsl:if>
+                            <a href=""><img src="images/images.png" alt="Φωτογραφίες" title="Φωτογραφίες" /><span>Εικόνες</span></a>
+                        </li>
+                        <li>
+                            <xsl:if test="/social/feed[1]/@type = 'news'">
+                                <xsl:attribute name="class">selected</xsl:attribute>
+                            </xsl:if>
+                            <a href="news"><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>
                         </li>
                         <xsl:if test="/social/@for">
                             <li><a href="" id="logoutbutton"><img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Temp Logout</span></a></li>

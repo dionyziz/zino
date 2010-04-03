@@ -10,7 +10,7 @@
                             <xsl:attribute name="href">
                                 photos/<xsl:value-of select="@id" />
                             </xsl:attribute>
-                            <img>
+                            <img width="150" height="150">
                                 <xsl:attribute name="src">
                                     <xsl:value-of select="media[1]/@url" />
                                 </xsl:attribute>

@@ -414,3 +414,22 @@ div.document {
     color: white;
     padding: 20px;
 }
+.feed ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 5px;
+}
+.feed li {
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    clear: both;
+    height: 55px;
+}
+.feed li a {
+    color: black;
+}
+.feed li div.author {
+    float: left;
+}
