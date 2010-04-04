@@ -3,8 +3,8 @@
 		include 'models/db.php';
 		include 'models/poll.php';
 		include 'models/journal.php';
-		$polls = Poll::ListRecent( 4 );
-		$journals = Journal::ListRecent( 4 );
+		$polls = Poll::ListRecent( 25 );
+		$journals = Journal::ListRecent( 25 );
         $content = array();
         $i = 0;
         foreach ( $polls as $poll ) {
