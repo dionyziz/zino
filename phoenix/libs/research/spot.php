@@ -65,6 +65,14 @@
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
+		public static function JournalVisited( $info, $journalid ) {
+			global $user;
+            $userid = $user->Id;
+            $itemid = $journalid;
+            $trainvalues = $info;
+            $request = "VISITED\n$userid\n$itemid\n$trainvalues\n";
+            self::SendRequest( $request );
+        }
         public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {
             global $libs;
             $libs->Load( 'image/image' );
@@ -144,6 +152,32 @@
             $water->ProfileEnd();
 
             return $lines; // journal ids
+        }
+		public static function GetJournalsExtended( $user, $num = 4 ) {
+            global $libs;
+            global $water;
+            $libs->Load( 'journal/journal' );
+
+            $water->Profile( 'Spot get journals' );
+
+            $userid = $user->Id;
+            $request = "GET JOURNALS EXTENDED\n$userid\n$num\n";
+            $lines = self::SendRequest( $request );
+            if ( $lines === false ) {
+                return $lines;
+            }
+			$res = array();
+			$tempid;
+            foreach ( $lines as $index => $id ) {
+                $lines[ $index ] = explode( " ", $id );
+				$tempid = (int)$lines[ $index ][ 0 ];
+				array_shift( $lines[ $index ] );
+				$res[ $index ] = array( "journalid" => $tempid, "ranks" => $lines[ $index ] );
+            }
+
+            $water->ProfileEnd();
+
+            return $res; // journal ids and extended info
         }
         public static function GetImages( $user, $num = 30 ) {
             global $libs;

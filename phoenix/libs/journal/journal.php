@@ -1,4 +1,6 @@
 <?php
+	//DEving for spot  -pagio
+
     global $libs;
 
     $libs->Load( 'bulk' );
@@ -118,9 +120,24 @@
         public function FindByIds( $ids ) {
             return parent::FindByIds( $ids );
         }
-        public function FindUserRelated( $user ) {
+        public function FindUserRelated( $user, $extended ) {
             global $libs;
             $libs->Load( 'research/spot' );
+
+			if ( $extended ) {
+				$info = Spot::GetJournalsExtended( $user );
+				$ids = array();
+		        if ( $info === false ) {
+		            return $info;
+		        }
+				foreach( $info as $key => $val ) {
+					$ids[] = $val[ "journalid" ];
+				}
+		        $journals = $this->FindByIds( $ids );
+		        $journals->PreloadRelation( 'User' );
+				$info[ "journals" ] = $journals;
+		        return $info;
+			}
 
             $ids = Spot::GetJournals( $user );
             if ( $ids === false ) {
