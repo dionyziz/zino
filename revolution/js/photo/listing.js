@@ -18,6 +18,7 @@ var PhotoListing = {
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
             PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
             PhotoListing.LastLoaded = $( '.photofeed ul li')[ PhotoListing.CurrentPage * 100 - 1];
+            $( PhotoListing.LastLoaded ).attr( 'style', 'border: 2px solid red' );
             PhotoListing.FetchNewPhotos()
         }
     },
@@ -32,6 +33,7 @@ var PhotoListing = {
                var url = $( this ).find( 'media' ).attr( 'url' );
                var count = $( this ).find( 'discussion' ).attr( 'count' );
                PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
+               $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'style', 'border:2px solid blue' );
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'http://alpha.zino.gr/petros/photos/' + id );
            } );
