@@ -32,15 +32,15 @@
         return false;
     }
     class Notification {
-        public function Create( $fromuserid, $touserid, $eventmodel, $itemid ){
+        public function Create( $fromuserid, $touserid, $eventid, $eventmodel, $itemid ){
             $fromuserid = ( int ) $fromuserid;
             $touserid = ( int ) $touserid;
             $created = date( "Y-m-d G:i:s" ); 
             $typeid = Event_TypeByModel( $eventmodel );
             db( "INSERT INTO `notify`
-                    (`notify_fromuserid`, `notify_touserid`, `notify_created`, `notify_typeid`, `notify_itemid`)
+                    (`notify_fromuserid`, `notify_touserid`, `notify_eventid`, `notify_created`, `notify_typeid`, `notify_itemid`)
                 VALUES
-                    (:fromuserid, :touserid, :created, :typeid, :itemid)", compact( 'fromuserid', 'touserid', 'created', 'typeid', 'itemid' )
+                    (:fromuserid, :touserid, :eventid, :created, :typeid, :itemid)", compact( 'fromuserid', 'touserid', 'eventid', 'created', 'typeid', 'itemid' )
             );
            $id = mysql_insert_id();
         }
