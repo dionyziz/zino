@@ -18,7 +18,6 @@ var PhotoListing = {
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
             PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
             PhotoListing.LastLoaded = $( '.photofeed ul li')[ PhotoListing.CurrentPage * 100 - 1];
-            $( PhotoListing.LastLoaded ).attr( 'style', 'border: 2px solid red' );
             PhotoListing.FetchNewPhotos()
         }
     },
@@ -27,21 +26,15 @@ var PhotoListing = {
     },
     FetchNewPhotos: function(){
        PhotoListing.CurrentPage++;
-       $.get( 'http://alpha.zino.gr/petros?resource=photo&method=listing&page=' + PhotoListing.CurrentPage, function( xml ){
+       $.get( 'http://alpha.zino.gr/dionyziz?resource=photo&method=listing&page=' + PhotoListing.CurrentPage, function( xml ){
            $( xml ).find( 'entry' ).each( function(){
                var id = $( this ).attr( 'id' );
                var url = $( this ).find( 'media' ).attr( 'url' );
                var count = $( this ).find( 'discussion' ).attr( 'count' );
-               PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
-               /*
-               if ( $( PhotoListing.LastLoaded ).find( 'img' )[ 0 ].src != '' ) {
-                   alert( 'Ghost!' );
-               }
-               */
-               if ( $( 'img', $( PhotoListing.LastLoaded ) ).length == 0 ) {
-                   alert( 'Fruitless' );
-               }
-               $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'style', 'border:2px solid blue' );
+               do {
+                   PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
+               } while ( PhotoListing.LastLoaded.nodeType != 1);
+
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'http://alpha.zino.gr/petros/photos/' + id );
            } );
