@@ -69,7 +69,8 @@ a {
 }
 div.photofeed {
     margin-left: 1%;
-    margin-right: 2%;
+    padding-right: 2%;
+    overflow: hidden;
 }
 div.photofeed ul {
     text-align: justify;
@@ -91,6 +92,7 @@ div.photofeed img {
     margin: 1px;
     padding: 5px;
     width: 100%;
+    display: block;
     position: relative;
     background-image: url( 'http://sh.deviantart.net/shadow/x/152/152/logo3.png' );
     -moz-background-origin: border-box;
