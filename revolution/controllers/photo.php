@@ -20,10 +20,10 @@
         $favourites = Favourite::Listing( TYPE_IMAGE, $id );
         include 'views/photo/view.php';
     }
-    function Listing( $commentpage = 1 ) {
+    function Listing( $page = 1 ) {
         include 'models/db.php';
         include 'models/photo.php';
-        $photos = Photo::ListRecent();
+        $photos = Photo::ListRecent( $page );
         include 'views/photo/listing.php';
     }
     function Create( $albumid, $typeid ) {

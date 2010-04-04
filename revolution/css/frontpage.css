@@ -68,11 +68,14 @@ a {
     color: black;
 }
 div.photofeed {
-    padding-left: 14px;
-    padding-right: 20px;
+    margin-left: 1%;
+    margin-right: 2%;
 }
 div.photofeed ul {
     text-align: justify;
+}
+div.photofeed li:before {
+    content: "  ";
 }
 div.photofeed li {
     display: inline;
@@ -85,11 +88,11 @@ div.photofeed a {
     position: relative;
 }
 div.photofeed img {
-    margin: 6px;
+    margin: 1px;
+    padding: 5px;
     width: 100%;
     position: relative;
-    -webkit-box-shadow: 3px 3px 5px #333;
-    -moz-box-shadow: 3px 3px 5px #333;
+    background-image: url( 'http://sh.deviantart.net/shadow/x/152/152/logo3.png' );
     -moz-background-origin: border-box;
     -moz-background-size: 100% 100%;
     -webkit-background-origin: border;
@@ -102,8 +105,6 @@ div.photofeed a:hover span {
 div.photofeed a:hover img {
     left: -2px;
     top: -2px;
-    -webkit-box-shadow: 3px 3px 10px #333;
-    -moz-box-shadow: 3px 3px 10px #333;
 }
 .bl {
     bottom: 5px;

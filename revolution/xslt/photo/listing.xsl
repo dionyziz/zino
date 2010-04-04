@@ -26,7 +26,7 @@
                                 </span>
                             </xsl:if>
                         </a>
-                    </li> <xsl:text> </xsl:text>
+                    </li>
                 </xsl:for-each>
             </ul>
         </div>
