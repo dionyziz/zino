@@ -20,10 +20,13 @@
         $favourites = Favourite::Listing( TYPE_IMAGE, $id );
         include 'views/photo/view.php';
     }
-    function Listing( $page = 1 ) {
+    function Listing( $page = 1, $limit = 100 ) {
+        $page = ( int )$page;
+        $limit = ( int )$limit;
         include 'models/db.php';
         include 'models/photo.php';
-        $photos = Photo::ListRecent( $page );
+        $offset = ( $page - 1 ) * $limit;
+        $photos = Photo::ListRecent( $offset, $limit );
         include 'views/photo/listing.php';
     }
     function Create( $albumid, $typeid ) {

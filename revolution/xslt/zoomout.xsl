@@ -59,6 +59,7 @@
                     <xsl:apply-templates />
                 </div>
                 <script type="text/javascript" src="js/menu.js"></script>
+                <script type="text/javascript" src="js/photo/listing.js"></script>
             </body>
         </html>
     </xsl:template>

@@ -33,6 +33,14 @@ var PhotoListing = {
                var url = $( this ).find( 'media' ).attr( 'url' );
                var count = $( this ).find( 'discussion' ).attr( 'count' );
                PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
+               /*
+               if ( $( PhotoListing.LastLoaded ).find( 'img' )[ 0 ].src != '' ) {
+                   alert( 'Ghost!' );
+               }
+               */
+               if ( $( 'img', $( PhotoListing.LastLoaded ) ).length == 0 ) {
+                   alert( 'Fruitless' );
+               }
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'style', 'border:2px solid blue' );
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'http://alpha.zino.gr/petros/photos/' + id );

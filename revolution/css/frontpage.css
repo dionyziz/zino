@@ -434,3 +434,6 @@ div.document {
 .feed li div.author {
     float: left;
 }
+.feed li span.title {
+    font-weight: bold;
+}
