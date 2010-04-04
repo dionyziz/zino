@@ -1,4 +1,5 @@
 <?php
+    define( 'PUSH_PUBLISH_URL', 'http://www.zino.gr:666/publish?channel_id=' );
     define( 'PUSH_SUBSCRIPTION_EXPIRY', 4 * 60 );
 
     class PushTunnel {
@@ -47,8 +48,32 @@
                 LIMIT 1', compact( $tunnelid )
             );
         }
-        public static function Publish( $tunnelids, $xml ) {
-            // TODO
+        public static function Publish(
+            /* int or array of ints */ $tunnelid,
+            $xml
+            ) {
+            if ( is_array( $tunnelid ) ) {
+                foreach ( $tunnelid as $id ) {
+                    self::Publish( $id, $xml );
+                }
+                return;
+            }
+
+            $curl = curl_init();
+
+            $data = array( 'body' => $xml );
+
+            $server = PUSH_PUBLISH_URL . $tunnelid;
+            curl_setopt( $curl, CURLOPT_URL, $server );
+            // curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
+            curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
+            // curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
+            curl_setopt( $curl, CURLOPT_POST, 1 );
+            curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
+
+            $data = curl_exec( $curl );
+
+            curl_close( $curl );
         }
     }
     class PushChannel {
@@ -73,6 +98,15 @@
                 'INSERT INTO push
                 ( push_tunnelid, push_channelid ) VALUES
                 ( :tunnelid, :channelid )'
+            );
+        }
+        public static function CleanUp() {
+            db(
+                'DELETE FROM
+                    push, pushtunnels
+                 WHERE
+                    push_tunnelid = tunnel_id
+                    AND tunnel_expires < NOW()'
             );
         }
     }
