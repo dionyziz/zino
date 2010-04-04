@@ -20,6 +20,7 @@
 				foreach( $info as $key=>$val ) {
 					$trainvalues .= $val . " ";
 				}
+				?>alert( <?php echo $traunvalues; ?> ); <?php
 				Spot::JournalVisited( $trainvalues, $id );
                 break;
             default:
