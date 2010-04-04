@@ -156,6 +156,27 @@
             
             Comment::RegenerateMemcache( $typeid, $itemid );
             // TODO: notifications
+            include( 'models/notification.php' );
+            switch( $typeid ){
+                case TYPE_POLL:
+                    include( 'models/poll.php' );
+                    $poll = Poll::Item( $itemid );
+                    Notification::Create( $userid, $poll[ 'userid' ], 'EVENT_COMMENT_CREATED', $itemid );
+                    break;
+                case TYPE_IMAGE:
+                    include( 'models/photo.php' );
+                    $photo = Photo::Item( $itemid );
+                    Notification::Create( $userid, $photo[ 'userid' ], 'EVENT_COMMENT_CREATED', $itemid );
+                    break;
+                case TYPE_USERPROFILE:
+                    Notification::Create( $userid, $itemid, 'EVENT_COMMENT_CREATED', $itemid );
+                    break;
+                case TYPE_JOURNAL:
+                    include( 'model/journal.php' );
+                    $journal = Journal::Item( $itemid );
+                    Notification::Create( $userid, $journal[ 'userid' ], 'EVENT_COMMENT_CREATED', $itemid );
+                    break;
+            }
             // TODO: comet
 
             return array(
