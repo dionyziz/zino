@@ -228,6 +228,7 @@ div.thread {
 }
 div.discussion {
     padding: 10px;
+    clear: both;
 }
 img.avatar {
     border: 1px solid transparent;
@@ -490,4 +491,7 @@ div.document {
     top: 0;
     width: 44%;
     background-color: #213549;
+}
+.contentitem img.maincontent {
+    margin-left: 120px;
 }

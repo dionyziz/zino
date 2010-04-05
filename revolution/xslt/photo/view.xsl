@@ -21,7 +21,7 @@
                     </xsl:if>
                 </ul>
             </div>
-            <img>
+            <img class="maincontent">
                 <xsl:attribute name="src">
                     <xsl:value-of select="media[1]/@url" />
                 </xsl:attribute>
