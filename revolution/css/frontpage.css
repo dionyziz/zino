@@ -250,7 +250,7 @@ div.message .author {
     font-size: 90%;
     cursor: default;
 }
-div.messages .author .avatar {
+div.message .author .avatar {
     float: left;
     margin-right: 5px;
 }
