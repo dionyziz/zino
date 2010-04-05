@@ -137,17 +137,15 @@ div.photofeed a:hover img {
     padding-left: 4.5%;
 }
 .contentitem > .details {
-    position: absolute;
-    top: 0;
-    right: 0;
     padding: 10px;
-    margin: 5px;
+    margin: 5px 0 5px 5px;
     background-color: #2c4762;
     color: white;
     opacity: 0.8;
     width: 120px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+    float: right;
 }
 .contentitem > .details img {
     border: none;
@@ -188,7 +186,7 @@ li.stat span {
     font-size: 120%;
     text-align: center;
     position: relative;
-    padding: 5px 25px 0 25px;
+    padding: 5px 5px 0 5px;
 }
 .contentitem img {
     border: 3px solid white;
@@ -252,6 +250,10 @@ div.message .author {
     font-size: 90%;
     cursor: default;
 }
+div.messages .author .avatar {
+    float: left;
+    margin-right: 5px;
+}
 span.username {
     color: #3f8bbb;
     font-family: Verdana;
@@ -260,10 +262,6 @@ span.username {
 div.message div.text {
     line-height: 25px;
     margin-left: 60px;
-}
-.author .avatar {
-    float: left;
-    margin-right: 5px;
 }
 div.eof {
     clear: both;
