@@ -17,6 +17,7 @@
             $content[ $i ][ 'type' ] = 'journal';
             ++$i;
         }
+        shuffle( $content );
 		include 'views/news/listing.php';
     }
 ?>

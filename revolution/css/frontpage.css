@@ -417,25 +417,79 @@ div.document {
     color: white;
     padding: 20px;
 }
+.feed {
+    margin-left: 0.2%;
+}
 .feed ul {
     list-style: none;
     padding: 0;
     margin-left: 5px;
 }
+.feed li.poll {
+    border-left: 8px solid orange;
+}
+.feed li.journal {
+    border-left: 8px solid red;
+}
 .feed li {
-    border-bottom: 1px solid #ccc;
+    background-image:
+	-webkit-gradient(
+	    linear,
+	    left top,
+	    left bottom,
+	    color-stop(0, #dedede),
+	    color-stop(1, #b2c4e6 )
+	);
+    background-image: -moz-linear-gradient(top,#dedede,#b2c4e6);
+    border: 1px solid #555;
+    padding-top: 8px;
+    min-height: 44px;
+    -moz-border-radius-bottomleft:4px;
+    -moz-border-radius-bottomright:4px;
+    -moz-border-radius-topleft:4px;
+    -moz-border-radius-topright:4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    margin: 3px;
+    padding: 8px 8px 0 8px;
+    width: 50%;
+}
+.feed li:hover {
+    background-image:
+	-webkit-gradient(
+	    linear,
+	    left top,
+	    left bottom,
+	    color-stop(0, #dedede),
+	    color-stop(1, #fff )
+	);
+    background-image: -moz-linear-gradient(top,#dedede,#fff);
+}
+.feed a {
+    color: black;
+    text-decoration: none;
+}
+.feed h2 {
+    font-size: 18px;
+    border: 0;
+    margin: 0 0 10px;
+    font-weight: normal;
+    color: black;
+    line-height: 18px;
+}
+#preview {
+    -moz-border-radius-bottomleft: 9px;
+    -moz-border-radius-bottomright: 9px;
+    -moz-border-radius-topleft: 9px;
+    -moz-border-radius-topright: 9px;
+    -webkit-border-radius: 9px;
     background-color: white;
-    color: black;
-    padding: 5px;
-    clear: both;
-    height: 55px;
-}
-.feed li a {
-    color: black;
-}
-.feed li div.author {
-    float: left;
-}
-.feed li span.title {
-    font-weight: bold;
+    border: 3px solid #516579;
+    margin: 5px 0;
+    bottom: 0;
+    position: fixed;
+    right: 0.5%;
+    top: 0;
+    width: 44%;
+    background-color: #213549;
 }

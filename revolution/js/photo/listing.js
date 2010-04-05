@@ -37,6 +37,9 @@ var PhotoListing = {
 
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'http://alpha.zino.gr/petros/photos/' + id );
+               if( count != 0 ){
+                   $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
+               }
            } );
        }, 'xml' )
     }
