@@ -139,6 +139,8 @@ div.photofeed img {
 }
 .contentitem > .details img {
     border: none;
+    display: block;
+    margin: auto;
 }
 .contentitem > .details .username {
     display: inline;
