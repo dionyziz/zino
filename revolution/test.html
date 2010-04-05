@@ -5,20 +5,25 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                height: 100%;
+                overflow: auto;
             }
             .father {
-                width: 300px;
+                width: 700px;
+                height: 100%;
                 background-color: red;
             }
             .son {
-                height: 50%;
+                height: 100%;
                 width: 100px;
+                float: left;
                 background-color: green;
             }
         </style>
     </head>
     <body>
         <div class="father">
+            <div class="son">I am the son. I have 50% the height of my father</div>
             <ul>
                 <li>I am the father.</li>
                 <li>I am the father.</li>
@@ -73,7 +78,6 @@
                 <li>I am the father.</li>
                 <li>I am the father.</li>
             </ul>
-            <div class="son">I am the son. I have 50% the height of my father</div>
         </div>
     </body>
 </html>

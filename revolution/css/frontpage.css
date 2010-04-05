@@ -67,12 +67,23 @@ a {
 .vbar ul li.selected a span {
     color: black;
 }
+.photofeed:before {
+    content: 'a';
+    width:4.5%;
+    min-width: 50px;
+    float: left;
+    height: 100%;
+    color: transparent;
+    display: block;
+}
 div.photofeed {
-    margin-left: 1%;
-    padding-right: 2%;
-    overflow: hidden;
+    margin-left: 5px;
+    height: 100%;
+    margin-right: 10px;
 }
 div.photofeed ul {
+    height: 100%;
+    overflow: auto;
     text-align: justify;
 }
 div.photofeed li:before {
@@ -120,11 +131,9 @@ div.photofeed img {
 }
 .col2 {
     overflow: auto;
-    background-image: url( 'http://static.zino.gr/revolution/background.png');
     background-repeat: repeat;
     background-attachment: fixed;
-    background-color: #dae7f9;
-    padding-left: 4.5%;
+    background-color: #41a6d5;
 }
 .contentitem > .details {
     padding: 10px;
@@ -409,12 +418,23 @@ div.document {
     padding: 20px;
 }
 .feed {
-    margin-left: 0.2%;
+    margin-left: 5px;
+    height: 100%;
+}
+.feed:before {
+    content: 'a';
+    width:4.5%;
+    min-width: 50px;
+    float: left;
+    height: 100%;
+    color: transparent;
+    display: block;
 }
 .feed ul {
     list-style: none;
     padding: 0;
-    margin-left: 5px;
+    height: 100%;
+    overflow: auto;
 }
 .feed li.poll {
     background-image: -moz-linear-gradient( bottom , #FBCA54, #fbe9bf);
@@ -457,8 +477,7 @@ div.document {
     -webkit-border-bottom-left-radius: 4px;
     -webkit-border-top-right-radius: 4px;
     -webkit-border-bottom-right-radius: 4px;
-    margin: 5px;
-    width: 50%;
+    margin: 2px;
     position: relative;
     overflow: hidden;
 }
@@ -516,8 +535,8 @@ div.document {
     right: 0.5%;
     top: 0;
     width: 44%;
-    background-color: #213549;
-    background-image: url( 'http://static.zino.gr/revolution/background-dark.png' );
+    background-color: #b6daef;
+    display: none;
 }
 #preview p  {
     color: #161616;
