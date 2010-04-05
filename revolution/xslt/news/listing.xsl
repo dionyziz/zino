@@ -10,17 +10,17 @@
                         <xsl:attribute name="class"><xsl:value-of select="@type" /></xsl:attribute>
                         <xsl:apply-templates select="author" />
                         <xsl:if test="@type = 'poll' ">
-                            <a>
+                            <a class="title">
                                 <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
-                                <h2 class="title">
+                                <h2>
                                     <xsl:value-of select="question[1]" />
                                 </h2>
                             </a>
                         </xsl:if>
                         <xsl:if test="@type = 'journal' ">
-                            <a>
+                            <a class="title">
                                 <xsl:attribute name="href">journals/<xsl:value-of select="@id" /></xsl:attribute>
-                                <h2 class="title">
+                                <h2>
                                     <xsl:value-of select="title[1]" />
                                 </h2>
                             </a>
@@ -29,7 +29,7 @@
                 </xsl:for-each>
             </ul>
             <div id="preview">
-                <p></p>
+                <p>Κάνε παρατεταμένο κλικ σε κάτι που σε ενδιαφέρει για να δεις μία προεπισκόπηση</p>
             </div>
         </div>
     </xsl:template>

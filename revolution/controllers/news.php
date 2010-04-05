@@ -18,6 +18,7 @@
             ++$i;
         }
         shuffle( $content );
+        shuffle( $content );
 		include 'views/news/listing.php';
     }
 ?>

@@ -94,19 +94,11 @@ div.photofeed img {
     width: 100%;
     display: block;
     position: relative;
-    background-image: url( 'http://sh.deviantart.net/shadow/x/152/152/logo3.png' );
+    background-image: url( 'http://static.zino.gr/revolution/placeholder.png' );
     -moz-background-origin: border-box;
     -moz-background-size: 100% 100%;
     -webkit-background-origin: border;
     -webkit-background-size: 100% 100%;
-}
-div.photofeed a:hover span {
-    top: 10px;
-    left: 10px;
-}
-div.photofeed a:hover img {
-    left: -2px;
-    top: -2px;
 }
 .bl {
     bottom: 5px;
@@ -122,17 +114,15 @@ div.photofeed a:hover img {
     width: 4.5%;
     min-width: 50px;
     margin-top: -2px;
-    border-top: 2px;
-    border-bottom: 2px;
-    border-right: 2px;
-    border-left: 0px;
     border-style: solid;
     border-color: #ddd;
+    border: 0;
 }
 .col2 {
     overflow: auto;
-    background-image: url( http://farm5.static.flickr.com/4021/4283886098_0895163184.jpg);
+    background-image: url( 'http://static.zino.gr/revolution/background.png');
     background-repeat: repeat;
+    background-attachment: fixed;
     background-color: #dae7f9;
     padding-left: 4.5%;
 }
@@ -231,10 +221,10 @@ div.discussion {
     clear: both;
 }
 img.avatar {
+    height: 46px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
     border: 1px solid transparent;
-    -moz-border-radius: 2px;
-    width: 50px;
-    height: 50px;
 }
 div.message {
     position: relative;
@@ -425,10 +415,26 @@ div.document {
     margin-left: 5px;
 }
 .feed li.poll {
-    border-left: 8px solid orange;
+    background-image: -moz-linear-gradient( bottom , #FBCA54, #fbe9bf);
+    background-image:
+	-webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0, #FBCA54),
+	    color-stop(1, #fbe9bf )
+	);
 }
 .feed li.journal {
-    border-left: 8px solid red;
+    background-image: -moz-linear-gradient( bottom, #fc7b80, #fcb0b3);
+    background-image:
+	-webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0, #fc7b80),
+	    color-stop(1, #fcb0b3 )
+	);
 }
 .feed li {
     background-image:
@@ -441,17 +447,18 @@ div.document {
 	);
     background-image: -moz-linear-gradient(top,#dedede,#b2c4e6);
     border: 1px solid #555;
-    padding-top: 8px;
-    min-height: 44px;
     -moz-border-radius-bottomleft:4px;
     -moz-border-radius-bottomright:4px;
     -moz-border-radius-topleft:4px;
     -moz-border-radius-topright:4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
     -webkit-border-top-right-radius: 4px;
     -webkit-border-bottom-right-radius: 4px;
-    margin: 3px;
-    padding: 8px 8px 0 8px;
+    margin: 5px;
     width: 50%;
+    position: relative;
+    overflow: hidden;
 }
 .feed li:hover {
     background-image:
@@ -468,6 +475,23 @@ div.document {
     color: black;
     text-decoration: none;
 }
+.feed li a.avatar{
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+    height: 46px;
+    left: -1px;
+}
+.feed li a.username {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 10px 0 50px;
+}
+.feed li a.title {
+    display: block;
+    padding: 17px 10px 1px 50px;
+}
 .feed h2 {
     font-size: 18px;
     border: 0;
@@ -477,20 +501,32 @@ div.document {
     line-height: 18px;
 }
 #preview {
-    -moz-border-radius-bottomleft: 9px;
-    -moz-border-radius-bottomright: 9px;
-    -moz-border-radius-topleft: 9px;
-    -moz-border-radius-topright: 9px;
-    -webkit-border-radius: 9px;
+    -moz-border-radius-bottomleft: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-radius: 3px;
     background-color: white;
-    border: 3px solid #516579;
-    margin: 5px 0;
+    border: 1px solid #333;
+    margin: 4px 0;
     bottom: 0;
     position: fixed;
     right: 0.5%;
     top: 0;
     width: 44%;
     background-color: #213549;
+    background-image: url( 'http://static.zino.gr/revolution/background-dark.png' );
+}
+#preview p  {
+    color: #161616;
+    font-size: 17px;
+    font-style: oblique;
+    margin: -22px auto auto;
+    padding-top: 5px;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    width: 85%;
 }
 .contentitem img.maincontent {
     margin-left: 120px;
