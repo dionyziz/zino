@@ -20,14 +20,6 @@
                     var Now = '<xsl:value-of select="@generated" />';
                     var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
                 </script>
-                <script type="text/javascript">
-                document.domain = 'zino.gr';
-                var Meteor = {
-                    register: function ( target ) {
-                        alert( "Hello from the parent." );
-                    }
-                };
-                </script>
             </head>
             <body>
                 <div class="col1 vbar">

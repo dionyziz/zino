@@ -40,7 +40,7 @@
     ?> generator="<?= $settings[ 'base' ]; ?>"><?php
 
     include 'controllers/' . $resource . '.php';
-    call_user_func_array( $method, $vars );
+    call_user_func_array( array( 'Controller' . $resource, $method ), $vars );
 
     ?></social><?php
 ?>

@@ -16,6 +16,9 @@ var Comet = {
         Comet.TunnelAuthtoken = $( res ).find( 'tunnel authtoken' ).text();
         Comet.TunnelId = $( res ).find( 'tunnel' ).attr( 'id' );
     },
+    Init: function () {
+        setTimeout( Comet.Handshake, 50 );
+    },
     Connect: function () {
         $.get( 'fish/view', {
             tunnelid: Comet.TunnelId
@@ -24,7 +27,10 @@ var Comet = {
     OnFishArrival: function ( res ) {
         Comet.Connect(); // reconnect
         // TODO: verify Comet.Channels item exists
-        Comet.Channels[ $( res ).find( 'tunnel' ).attr( 'id' ) ]( res ); // fire callback
+        var channelid = $( res ).find( 'channel' ).attr( 'id' );
+        if ( typeof Comet.Channels[ channelid ] != 'undefined' ) {
+            Comet.Channels[ channelid ]( res ); // fire callback
+        }
     },
     Renew: function () {
         $.post( 'tunnel/update', {
