@@ -1,26 +1,28 @@
 <?php
-    function View() {
-        if ( isset( $_SESSION[ 'user' ] ) ) {
-            $user = $_SESSION[ 'user' ];
+    class ControllerSession {
+        public static function View() {
+            if ( isset( $_SESSION[ 'user' ] ) ) {
+                $user = $_SESSION[ 'user' ];
+            }
+            else {
+                $user = false;
+            }
+            include 'views/session/view.php';
         }
-        else {
-            $user = false;
+        public static function Create( $username, $password ) {
+            include 'models/db.php';
+            include 'models/user.php';
+            $data = User::Login( $username, $password );
+            $success = $data !== false;
+            if ( $success ) {
+                $_SESSION[ 'user' ] = $data;
+            }
+            include 'views/session/create.php';
         }
-        include 'views/session/view.php';
-    }
-    function Create( $username, $password ) {
-        include 'models/db.php';
-        include 'models/user.php';
-        $data = User::Login( $username, $password );
-        $success = $data !== false;
-        if ( $success ) {
-            $_SESSION[ 'user' ] = $data;
+        public static function Delete() {
+            unset( $_SESSION[ 'user' ] );
+            $success = true;
+            include 'views/session/delete.php';
         }
-        include 'views/session/create.php';
-    }
-    function Delete() {
-        unset( $_SESSION[ 'user' ] );
-        $success = true;
-        include 'views/session/delete.php';
     }
 ?>
