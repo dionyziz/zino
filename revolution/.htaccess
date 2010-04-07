@@ -29,11 +29,16 @@ RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
 
 # users
 RewriteRule ^users/online$ index.php?resource=user&method=listing [L,QSA]
-RewriteRule ^users/([a-z0-9-]+)$ index.php?resource=user&method=view [L,QSA]
+RewriteRule ^users/([a-z0-9-]+)$ index.php?resource=user&method=view&id=$1 [L,QSA]
 
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]
 RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]
 
-php_flag display_errors on
+# global
 
+RewriteRule ^global.xsl$ xslt/global.php [L,QSA]
+RewriteRule ^global.js$ js/global.php [L,QSA]
+RewriteRule ^global.css$ css/global.php [L,QSA]
+
+php_flag display_errors on
