@@ -125,34 +125,39 @@
             
             $source = $this->RemoveComments( $source );
             
-            $descriptors = array(
-                0 => array( "pipe", "r" ),
-                1 => array( "pipe", "w" ),
-                2 => array( "pipe", "r" )
-            );
-            
-            $process = proc_open( '/home/dionyziz/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
-            
-            if ( !is_resource( $process ) ) {
-                throw New Exception( 'Failed to start the XHTML sanitizer' );
+            if ( USE_SANITIZER_EXECUTABLE !== false ) {                
+                $descriptors = array(
+                    0 => array( "pipe", "r" ),
+                    1 => array( "pipe", "w" ),
+                    2 => array( "pipe", "r" )
+                );
+                
+                $process = proc_open( '/home/dionyziz/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
+                
+                if ( !is_resource( $process ) ) {
+                    throw New Exception( 'Failed to start the XHTML sanitizer' );
+                }
+                
+                fwrite( $pipes[ 0 ], $source );
+                fclose( $pipes[ 0 ] );
+                
+                $ret = stream_get_contents( $pipes[ 1 ] );
+                
+                ob_start();
+                var_dump( $ret );
+                $tidied = ob_get_clean();
+                
+                // $water->Trace( 'Sanitizer tidied up document', $tidied );
+                
+                fclose( $pipes[ 1 ] );
+                
+                $returnvalue = proc_close( $process );
+                
+                // $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             }
-            
-            fwrite( $pipes[ 0 ], $source );
-            fclose( $pipes[ 0 ] );
-            
-            $ret = stream_get_contents( $pipes[ 1 ] );
-            
-            ob_start();
-            var_dump( $ret );
-            $tidied = ob_get_clean();
-            
-            // $water->Trace( 'Sanitizer tidied up document', $tidied );
-            
-            fclose( $pipes[ 1 ] );
-            
-            $returnvalue = proc_close( $process );
-            
-            // $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
+            else {
+                $ret = $source;
+            }
             
             $ret = trim( $this->ReduceWhitespace( $ret ) );
             $ret = str_replace( '&nbsp;', ' ', $ret );

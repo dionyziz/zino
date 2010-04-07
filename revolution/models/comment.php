@@ -1,7 +1,7 @@
 <?php
     include 'models/mc.php';
     include 'models/types.php';
-    $settings = include 'settings.php';
+    global $settings;
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
     class Comment {
