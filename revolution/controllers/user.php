@@ -16,7 +16,7 @@
             $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $id, $commentpage );
             $numpages = $commentdata[ 0 ];
             $comments = $commentdata[ 1 ];
-            $countcomments = $photo[ 'numcomments' ];
+            //$countcomments = $photo[ 'numcomments' ];
             include 'views/user/view.php';
         }
         public static function Listing() {
