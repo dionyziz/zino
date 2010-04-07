@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
-    <xsl:template match="/social">
+<xsl:template match="/social[@template='session.view']">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
         <head>
             <title>Zino</title>
@@ -69,5 +66,4 @@
             </script>
         </body>
     </html>
-    </xsl:template>
-</xsl:stylesheet>
+</xsl:template>

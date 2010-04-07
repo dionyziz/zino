@@ -1,0 +1,12 @@
+html.xsl
+zoomout.xsl
+zoomin.xsl
+author.xsl
+photo/listing.xsl
+photo/view.xsl
+comment/listing.xsl
+session/view.xsl
+user/view.xsl
+poll/view.xsl
+news/listing.xsl
+journal/view.xsl
