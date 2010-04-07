@@ -1,5 +1,5 @@
 <?php
-header( 'Content-Type: application/javascript' );
+header( 'Content-Type: text/css' );
 
 define( USE_CACHING, true );
 if ( file_exists( '../localtest.php' ) ) {

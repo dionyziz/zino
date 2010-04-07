@@ -5,5 +5,4 @@
     <avatar>
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
-</entry>
-
+</user>
