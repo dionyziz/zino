@@ -1,9 +1,11 @@
 <?php
 header( 'Content-Type: text/xsl' );
 
-define( USE_CACHING, true );
 if ( file_exists( '../localtest.php' ) ) {
-    define( USE_CACHING, false );
+    define( 'USE_CACHING', false );
+}
+else {
+    define( 'USE_CACHING', true );
 }
 
 $listfh = fopen( 'global.lst', 'r' );
