@@ -33,13 +33,21 @@
     
             include 'models/db.php';
             include 'models/chat.php';
-    
+
             if ( $channelid != 0 ) {
                 ChatChannel::Auth( $channelid, $_SESSION[ 'user' ][ 'id' ] ) or die( 'You are not authorized to post on this channel' );
             }
             $chatmessage = ChatMessage::Create( $channelid, $_SESSION[ 'user' ][ 'id' ], $text );
             $channel = array( 'id' => $channelid );
+            $chatmessage[ 'name' ] = $_SESSION[ 'user' ][ 'name' ];
+
+            ob_start();
             include 'views/chatmessage/create.php';
+            $xml = ob_get_clean();
+            
+            // Comet
+            include 'models/comet.php';
+            PushChannel::Publish( 'chat', $xml );
         }
         public static function Update() {
         }

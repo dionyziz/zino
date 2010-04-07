@@ -14,36 +14,31 @@
             40 => 'EVENT_USER_BIRTHDAY' // not connected with any class. Triggered by script
         );
     }
-    function Event_TypeByModel( $model ){
-        $types = Event_Types();
-        foreach( $types as $typeid => $curmodel ){
-            $curmodel == $model and $curtypeid = $typeid;
-        }
-        if( isset( $curtypeid ) ){
-            return $curtypeid;
+    function Event_TypeByModel( $model ) {
+        $rtypes = array_flip( Event_Types() );
+        if ( isset( $rtypes[ $model ] ) ) {
+            return $rtypes[ $model ];
         }
         return false;
     }
-    function Event_ModelByType( $typeid ){
+    function Event_ModelByType( $typeid ) {
         $types = Event_Types();
-        if( isset( $types[ $typeid ] ) ){
+        if ( isset( $types[ $typeid ] ) ) {
             return $types[ $typeid ];
         }
         return false;
     }
     class Notification {
         public function Create( $fromuserid, $touserid, $eventid, $eventmodel, $itemid ){
-            $fromuserid = ( int ) $fromuserid;
-            $touserid = ( int ) $touserid;
-            $created = date( "Y-m-d G:i:s" ); 
+            $fromuserid = ( int )$fromuserid;
+            $touserid = ( int )$touserid;
             $typeid = Event_TypeByModel( $eventmodel );
             db( "INSERT INTO `notify`
                     (`notify_fromuserid`, `notify_touserid`, `notify_eventid`, `notify_created`, `notify_typeid`, `notify_itemid`)
                 VALUES
-                    (:fromuserid, :touserid, :eventid, :created, :typeid, :itemid)", compact( 'fromuserid', 'touserid', 'eventid', 'created', 'typeid', 'itemid' )
+                    (:fromuserid, :touserid, :eventid, NOW(), :typeid, :itemid)", compact( 'fromuserid', 'touserid', 'eventid', 'typeid', 'itemid' )
             );
-           $id = mysql_insert_id();
+            $id = mysql_insert_id();
         }
-            
     }
 ?>

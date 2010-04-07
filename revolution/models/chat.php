@@ -69,6 +69,10 @@
 
             $id = mysql_insert_id();
 
+            if ( !class_exists( 'ControllerChatMessage' ) ) {
+                ControllerChatMessage::Push( $channelid, $userid, $id, $text );
+            }
+
             return array(
                 'id' => $id,
                 'text' => $text

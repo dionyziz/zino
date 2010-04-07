@@ -155,7 +155,6 @@
             $id = mysql_insert_id();
             
             Comment::RegenerateMemcache( $typeid, $itemid );
-            // TODO: notifications
             include( 'models/notification.php' );
             switch( $typeid ){
                 case TYPE_POLL:
