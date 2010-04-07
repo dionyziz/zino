@@ -31,13 +31,15 @@
 	$uri = $_SERVER[ 'REQUEST_URI' ];
 
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/xslt/$resource/$method.xsl\"?>";
+    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl\"?>";
 
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?php
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?php
     }
-    ?> generator="<?= $settings[ 'base' ]; ?>"><?php
+    ?> generator="<?= $settings[ 'base' ];
+    ?>" template="<?="$resource.$method";
+    ?>" ><?php
 
     include 'controllers/' . $resource . '.php';
     call_user_func_array( array( 'Controller' . $resource, $method ), $vars );
