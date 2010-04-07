@@ -12,7 +12,7 @@
 </xsl:template>
 
 <!--eat all other output-->
-<xsl:template match="*|text()" priority="0"/>
+<xsl:template match="*|text()" priority="-1"/>
 
 <xsl:template name="html">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
