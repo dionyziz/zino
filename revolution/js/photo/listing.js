@@ -4,7 +4,7 @@ var PhotoListing = {
     PhotoPrototype: null,
     CurrentPage: 1,
     LastLoaded: null,
-    Init: function(){
+Init: function(){
         this.PhotoList = $( '.photofeed ul' );
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){
@@ -26,7 +26,9 @@ var PhotoListing = {
     },
     FetchNewPhotos: function(){
        PhotoListing.CurrentPage++;
-       $.get( 'http://alpha.zino.gr/dionyziz?resource=photo&method=listing&page=' + PhotoListing.CurrentPage, function( xml ){
+       $.get( 'photos',
+        { 'page': PhotoListing.CurrentPage },
+        function( xml ){
            $( xml ).find( 'entry' ).each( function(){
                var id = $( this ).attr( 'id' );
                var url = $( this ).find( 'media' ).attr( 'url' );
@@ -36,12 +38,11 @@ var PhotoListing = {
                } while ( PhotoListing.LastLoaded.nodeType != 1);
 
                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
-               $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'http://alpha.zino.gr/petros/photos/' + id );
+               $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
                if( count != 0 ){
                    $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
                }
            } );
-       }, 'xml' )
+       } )
     }
 }
-PhotoListing.Init();
