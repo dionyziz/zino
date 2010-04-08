@@ -21,6 +21,16 @@
             <title>Zino</title>
             <link type="text/css" href="global.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
+            <script type="text/javascript">
+                var OnLoad = function () {};
+                var Startup = function ( method ) {
+                    var f = OnLoad;
+                    OnLoad = function () {
+                        f();
+                        method();
+                    };
+                };
+            </script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
             <script type="text/javascript" src="js/axslt.js"></script>
@@ -33,6 +43,9 @@
         </head>
         <body>
             <xsl:apply-templates />
+        <script type="text/javascript">
+            OnLoad();
+        </script>
         </body>
     </html>
 </xsl:template>

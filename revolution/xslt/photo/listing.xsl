@@ -31,4 +31,9 @@
             </xsl:for-each>
         </ul>
     </div>
+    <script type="text/javascript">
+        Startup( function () {
+            PhotoListing.Init();
+        } );
+    </script>
 </xsl:template>

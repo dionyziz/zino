@@ -1,7 +1,7 @@
 <?php
 header( 'Content-Type: text/xsl' );
 
-if ( file_exists( '../localtest.php' ) ) {
+if ( file_exists( '../nocache' ) ) {
     define( 'USE_CACHING', false );
 }
 else {
