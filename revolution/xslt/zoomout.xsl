@@ -1,9 +1,4 @@
 <xsl:template name="zoomout">
-    <script type="text/javascript">
-        var User = '<xsl:value-of select="/social/@for" />';
-        var Now = '<xsl:value-of select="/social/@generated" />';
-        var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
-    </script>
     <div class="col1 vbar">
         <h1><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino Bubble" /></h1>
         <ul>

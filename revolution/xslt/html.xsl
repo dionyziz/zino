@@ -21,9 +21,15 @@
             <title>Zino</title>
             <link type="text/css" href="global.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
-            <script type="text/javascript" src="global.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
+            <script type="text/javascript" src="js/axslt.js"></script>
+            <script type="text/javascript">
+                var User = '<xsl:value-of select="/social/@for" />';
+                var Now = '<xsl:value-of select="/social/@generated" />';
+                var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
+            </script>
+            <script type="text/javascript" src="global.js"></script>
         </head>
         <body>
             <xsl:apply-templates />
