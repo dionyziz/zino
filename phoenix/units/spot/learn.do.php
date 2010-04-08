@@ -17,6 +17,7 @@
                     ?>alert( 'Item does not exist' );<?php
                     return;
                 }
+                $trainvalues = "";
 				foreach( $info as $key=>$val ) {
 					$trainvalues .= $val . " ";
 				}
