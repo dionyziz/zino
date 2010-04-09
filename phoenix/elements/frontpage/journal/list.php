@@ -22,7 +22,7 @@
             $journals = false;
             if ( $user->Exists() ) {
                 $finder = New JournalFinder();
-                if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 ) {
+                if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 || $user->Id == 1 ) {
                     $res = $finder->FindUserRelated( $user, true );
                     
                     $journals = $res[ 'journals' ];
