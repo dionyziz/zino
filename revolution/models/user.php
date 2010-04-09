@@ -90,6 +90,24 @@
                 $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];
                 unset( $row[ 'profile_' . $detail ] );
             }
+            static $positivefields = array( 'height', 'weight' );
+            foreach ( $positivefields as $field ) {
+                if ( !( $row[ 'profile' ][ $field ] > 0 ) ) {
+                    unset( $row[ 'profile' ][ $field ] );
+                }
+            }
+            static $enumfields = array( 'sexualorientation', 'politics', 'religion', 'eyecolor', 'haircolor', 'relationship' );
+            foreach ( $enumfields as $field ) {
+                if ( $row[ 'profile' ][ $field ] == '-' ) {
+                    unset( $row[ 'profile' ][ $field ] );
+                }
+            }
+            static $textfields = array( 'msn', 'skype', 'yim', 'aboutme', 'slogan' );
+            foreach ( $textfields as $field ) {
+                if ( $row[ 'profile' ][ $field ] == '' ) {
+                    unset( $row[ 'profile' ][ $field ] );
+                }
+            }
 
             return $row;
         }

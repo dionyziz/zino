@@ -2,7 +2,7 @@
     <name><?= $user[ 'username' ] ?></name>
     <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
     <gender><?= $user[ 'gender' ] ?></gender>
-    <avatar>
+    <avatar id="<?= $user[ 'avatarid' ] ?>">
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
     <location><?= $user[ 'location' ] ?></location>
@@ -23,7 +23,7 @@
     <contact>
         <? $ims = array( 'skype', 'msn', 'gtalk', 'yim' );
            foreach ( $ims as $im ):
-           if ( !empty( $user[ 'profile' ][ $im ] ) ): ?>
+           if ( isset( $user[ 'profile' ][ $im ] ) ): ?>
         <im type="<?= $im ?>"><?= $user[ 'profile' ][ $im ] ?></im>
         <? endif;
            endforeach; ?>
