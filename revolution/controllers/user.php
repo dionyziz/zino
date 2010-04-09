@@ -7,7 +7,7 @@
             include 'models/db.php';
             include 'models/comment.php';
             include 'models/user.php';
-            $user = User::Item( $id );
+            $user = User::ItemDetails( $id );
             $user !== false or die;
             if ( $user[ 'userdeleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
@@ -16,7 +16,7 @@
             $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $id, $commentpage );
             $numpages = $commentdata[ 0 ];
             $comments = $commentdata[ 1 ];
-            //$countcomments = $photo[ 'numcomments' ];
+            $countcomments = $user[ 'numcomments' ];
             include 'views/user/view.php';
         }
         public static function Listing() {

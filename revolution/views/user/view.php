@@ -5,4 +5,28 @@
     <avatar>
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
+    <location><?= $user[ 'location' ] ?></location>
+    <details>
+        <? $stats = array(
+            'height', 'weight', 'smoker', 'drinker',
+            'relationship', 'sexualorientation',
+            'politics', 'religion',
+            'slogan', 'aboutme',
+            'eyecolor', 'haircolor'
+           );
+           foreach ( $stats as $stat ):
+           if ( isset( $user[ 'profile' ][ $stat ] ) ): ?>
+           <<?= $stat ?>><?= $user[ 'profile' ][ $stat ] ?></<?= $stat ?>>
+        <? endif;
+           endforeach; ?>
+    </details>
+    <contact>
+        <? $ims = array( 'skype', 'msn', 'gtalk', 'yim' );
+           foreach ( $ims as $im ):
+           if ( !empty( $user[ 'profile' ][ $im ] ) ): ?>
+        <im type="<?= $im ?>"><?= $user[ 'profile' ][ $im ] ?></im>
+        <? endif;
+           endforeach; ?>
+    </contact>
+    <? include 'views/comment/listing.php' ?>
 </user>
