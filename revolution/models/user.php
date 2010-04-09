@@ -72,48 +72,25 @@
                 LIMIT 1;', array( 'id' => $id )
             );
 			$row = mysql_fetch_array( $res );
-            $row[ 'mood' ] = array(
-                'labelmale' => $row[ 'mood_labelmale' ],
-                'labelfemale' => $row[ 'mood_labelfemale' ],
-                'url' => $row[ 'mood_url' ]
+            static $mooddetails = array( 'labelmale', 'labelfemale', 'url' );
+            $row[ 'mood' ] = array();
+            foreach ( $mooddetails as $detail ) {
+                $row[ 'mood' ][ $detail ] = $row[ 'mood_' . $detail ];
+                unset( $row[ 'mood_' . $detail ] );
+            }
+            static $profiledetails = array(
+                'height', 'weight', 'smoker', 'drinker',
+                'skype', 'msn', 'gtalk',
+                'eyecolor', 'haircolor',
+                'sexualorientation', 'relationship',
+                'religion', 'politics',
+                'slogan', 'aboutme', 'dob'
             );
-            unset( $row[ 'mood_labelmale' ] );
-            unset( $row[ 'mood_labelfemale' ] );
-            unset( $row[ 'mood_url' ] );
-            $row[ 'profile' ] = array(
-                'height' => $row[ 'profile_height' ],
-                'weight' => $row[ 'profile_weight' ],
-                'smoker' => $row[ 'profile_smoker' ],
-                'drinker' => $row[ 'profile_drinker' ],
-                'skype' => $row[ 'profile_skype' ],
-                'msn' => $row[ 'profile_msn' ],
-                'gtalk' => $row[ 'profile_gtalk' ],
-                'eyecolor' => $row[ 'profile_eyecolor' ],
-                'haircolor' => $row[ 'profile_haircolor' ],
-                'sexualorientation' => $row[ 'profile_sexualorientation' ],
-                'relationship' => $row[ 'profile_relationship' ],
-                'religion' => $row[ 'profile_religion' ],
-                'politics' => $row[ 'profile_politics' ],
-                'slogan' => $row[ 'profile_slogan' ],
-                'aboutme' => $row[ 'profile_aboutme' ],
-                'dob' => $row[ 'profile_dob' ]
-            );
-            unset( $row[ 'profile_height' ] );
-            unset( $row[ 'profile_weight' ] );
-            unset( $row[ 'profile_smoker' ] );
-            unset( $row[ 'profile_drinker' ] );
-            unset( $row[ 'profile_skype' ] );
-            unset( $row[ 'profile_msn' ] );
-            unset( $row[ 'profile_gtalk' ] );
-            unset( $row[ 'profile_eyecolor' ] );
-            unset( $row[ 'profile_haircolor' ] );
-            unset( $row[ 'profile_sexualorientation' ] );
-            unset( $row[ 'profile_relationship' ] );
-            unset( $row[ 'profile_religion' ] );
-            unset( $row[ 'profile_politics' ] );
-            unset( $row[ 'profile_slogan' ] );
-            unset( $row[ 'profile_aboutme' ] );
-            unset( $row[ 'profile_dob' ] );
+            foreach ( $profiledetails as $detail ) {
+                $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];
+                unset( $row[ 'profile_' . $detail ] );
+            }
+
             return $row;
         }
         public static function ListOnline() {
