@@ -3,6 +3,9 @@ body {
     font-size: 11px;
     margin: 0;
     background-color: #213549;
+    background-image: url('http://static.zino.gr/revolution/bg.png');
+    background-position: top;
+    background-repeat: repeat-x;
 }
 h1 {
     margin: 20px 0 -10px;
@@ -138,7 +141,7 @@ div.photofeed img {
 .contentitem > .details {
     padding: 10px;
     margin: 5px 0 5px 5px;
-    background-color: #2c4762;
+    background-color: #206386;
     color: white;
     opacity: 0.8;
     width: 120px;
@@ -183,7 +186,6 @@ li.stat span {
     color: white;
 }
 .contentitem {
-    background-color: #213549;
     font-size: 120%;
     text-align: center;
     position: relative;

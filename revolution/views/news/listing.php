@@ -9,12 +9,17 @@
                 <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
             </avatar>
         </author>
-        <? if ( $item[ 'type' ] == 'poll' ): ?>
+        <? switch ( $item[ 'type' ] ):
+           case 'poll': ?>
         <url><?= $item[ 'url' ]; ?></url>
         <question><?= htmlspecialchars( $item[ 'question' ] ) ?></question>
-        <? else: ?>
+        <? break; ?>
+        <? case 'photo': ?>
+        <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $item[ 'id' ] ?>/<?= $item[ 'id' ] ?>_150.jpg" />
+        <? break; ?>
+        <? case 'journal': ?>
         <title><?= htmlspecialchars( $item[ 'title' ] ) ?></title>
-        <? endif; ?>
+        <? endswitch; ?>
     </entry>
     <? endforeach; ?>
 </feed>
