@@ -1,4 +1,8 @@
 <?php
+    if ( !defined( 'USE_SANITIZER_EXECUTABLE' ) ) {
+        define( 'USE_SANITIZER_EXECUTABLE', true );
+    }
+    
     include 'models/xml.php';
     
     global $xhtmlsanitizer_goodtags;
