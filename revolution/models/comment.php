@@ -158,12 +158,12 @@
             include( 'models/notification.php' );
             switch( $typeid ){
                 case TYPE_POLL:
-                    include( 'models/poll.php' );
+                    //include( 'models/poll.php' );
                     $poll = Poll::Item( $itemid );
                     Notification::Create( $userid, $poll[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
                     break;
                 case TYPE_IMAGE:
-                    include( 'models/photo.php' );
+                    //include( 'models/photo.php' );
                     $photo = Photo::Item( $itemid );
                     Notification::Create( $userid, $photo[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
                     break;
@@ -171,13 +171,12 @@
                     Notification::Create( $userid, $itemid, $id, 'EVENT_COMMENT_CREATED', $itemid );
                     break;
                 case TYPE_JOURNAL:
-                    include( 'model/journal.php' );
+                    //include( 'model/journal.php' );
                     $journal = Journal::Item( $itemid );
                     Notification::Create( $userid, $journal[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
                     break;
             }
             // TODO: comet
-
             return array(
                 'id' => $id,
                 'text' => $text

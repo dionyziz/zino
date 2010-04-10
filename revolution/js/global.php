@@ -35,9 +35,9 @@ foreach ( $list as $num=>$line ) {
 
 header( 'Pragma: public' );
 header( 'Cache-Control: maxage=' . (60*60*24*356) );
-header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' , $modtime ).' GMT' );
+header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' , $maxtime ).' GMT' );
 
-if ( USE_CACHING && @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $modtime ) {
+if ( USE_CACHING && @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $maxtime ) {
     header( 'HTTP/1.1 304 Not Modified' );
     exit;
 }

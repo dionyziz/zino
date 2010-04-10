@@ -85,10 +85,14 @@ $( function() {
                         }[ $( '.contentitem' )[ 0 ].id.split( '_' )[ 0 ] ],
                         itemid: $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
                         parentid: 0 } );
-                    
-                    Transform( wysiwyg, function() {
                         
-                    } , '/social/comment' );
+                    var callback = ( function( parent ) {
+                         return function() {
+                            $( this ).fadeIn( 750 ).insertAfter( 'div.discussion .note' );
+                        }
+                    } )( this )
+                    
+                    wysiwyg.transform( callback, '/social/comment' );
                     break;
             }
         } );

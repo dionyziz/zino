@@ -23,10 +23,12 @@
                     // break;
                 default:
                     // comment somewhere unknown
-            }
-            $target !== false or die; // cannot leave a comment on non-existing object
+            }            
+            $target !== false or die(); // cannot leave a comment on non-existing object
             include 'models/comment.php';
             $comment = Comment::Create( $_SESSION[ 'user' ][ 'id' ], $text, $typeid, $itemid, $parentid );
+            include 'models/user.php';
+            $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
             include 'views/comment/view.php';
         }
     }
