@@ -12,6 +12,11 @@
             </div>
         </xsl:if>
         <xsl:apply-templates select="comment" />
+        <xsl:if test="/social/@for">
+            <script type="text/javascript">
+                Comment.Init();
+            </script>
+        </xsl:if>
     </div>
 </xsl:template>
 
