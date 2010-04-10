@@ -92,7 +92,7 @@ $( function() {
                     
                     var message = $( '<div class="message mine"><div class="text" /></div>' );
                     message.find( '.text' ).append( $( this ).val() );
-                    $( this ).closest( '.thread.new' ).css( 'opacity', 0.8 )
+                    $( this ).closest( '.thread.new' ).animate( { 'opacity': 0.7 }, 500 )
                         .find( 'ul.tips' ).hide();
                     $( this ).replaceWith( message );
                     
