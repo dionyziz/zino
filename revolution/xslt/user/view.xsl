@@ -1,7 +1,7 @@
 <xsl:template match="/social[@template='user.view']/user">
     <a class="xbutton" href="photos">&#171;</a>
     <h2><xsl:value-of select="name[1]" /></h2>
-    <xls:if test="slogan[1]">
+    <xsl:if test="slogan[1]">
         <h3><xsl:value-of select="slogan[1]" /></h2>
     </xsl:if>
     <a class="avatar">
