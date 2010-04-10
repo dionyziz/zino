@@ -24,7 +24,7 @@ div.mine .time {
     color: #4f7eae;
 }
 a.talk {
-    background-image: url( '../images/speak.png' );
+    background-image: url( 'images/speak.png' );
     background-repeat: no-repeat;
     background-position: 2px 3px;
     padding-left: 20px;

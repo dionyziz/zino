@@ -160,20 +160,20 @@
                 case TYPE_POLL:
                     //include( 'models/poll.php' );
                     $poll = Poll::Item( $itemid );
-                    Notification::Create( $userid, $poll[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
+                    Notification::Create( $userid, $poll[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
                     break;
                 case TYPE_IMAGE:
                     //include( 'models/photo.php' );
                     $photo = Photo::Item( $itemid );
-                    Notification::Create( $userid, $photo[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
+                    Notification::Create( $userid, $photo[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
                     break;
                 case TYPE_USERPROFILE:
-                    Notification::Create( $userid, $itemid, $id, 'EVENT_COMMENT_CREATED', $itemid );
+                    Notification::Create( $userid, $itemid, 'EVENT_COMMENT_CREATED', $id );
                     break;
                 case TYPE_JOURNAL:
                     //include( 'model/journal.php' );
                     $journal = Journal::Item( $itemid );
-                    Notification::Create( $userid, $journal[ 'userid' ], $id, 'EVENT_COMMENT_CREATED', $itemid );
+                    Notification::Create( $userid, $journal[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
                     break;
             }
             // TODO: comet

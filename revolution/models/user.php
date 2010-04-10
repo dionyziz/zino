@@ -32,13 +32,13 @@
             );
 			return mysql_fetch_array( $res );
         }
-        public static function ItemDetails( $useird ) {
+        public static function ItemDetails( $id ) {
             $res = db(
                 'SELECT
                     `user_id` AS id,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `place_name` AS location,
-                    `profile_numcomments` AS numcomments
+                    `profile_numcomments` AS numcomments,
                     `profile_height`,
                     `profile_weight`,
                     `profile_smoker`,
@@ -60,10 +60,10 @@
                     `mood_url`
                 FROM
                     `users`
-                    CROSS JOIN `places`
-                        ON `user_placeid`=`place_id`
                     CROSS JOIN `userprofiles`
                         ON `user_id`=`profile_userid`
+                    CROSS JOIN `places`
+                        ON `profile_placeid`=`place_id`
                     CROSS JOIN `moods`
                         ON `profile_moodid`=`mood_id`
                 WHERE
@@ -71,6 +71,9 @@
                 LIMIT 1;', array( 'id' => $id )
             );
 			$row = mysql_fetch_array( $res );
+            if ( $row === false ) {
+                return false;
+            }
             static $mooddetails = array( 'labelmale', 'labelfemale', 'url' );
             $row[ 'mood' ] = array();
             foreach ( $mooddetails as $detail ) {
@@ -79,7 +82,7 @@
             }
             static $profiledetails = array(
                 'height', 'weight', 'smoker', 'drinker',
-                'skype', 'msn', 'gtalk',
+                'skype', 'msn', 'gtalk', 'yim',
                 'eyecolor', 'haircolor',
                 'sexualorientation', 'relationship',
                 'religion', 'politics',

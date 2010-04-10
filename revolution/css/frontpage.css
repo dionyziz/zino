@@ -176,7 +176,7 @@ li.numfavourites {
     color: red;
 }
 li.numcomments span {
-    background-image: url( '../images/speak-blue.png' );
+    background-image: url( 'images/speak-blue.png' );
     background-repeat: no-repeat;
     background-position: left;
     padding-left: 15px;
@@ -202,8 +202,8 @@ li.stat span {
     height: 20px;
     padding: 2px 3px 2px 0;
     position: absolute;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
     border: 2px solid white;
     background-color: #45719b;
     opacity: 0.9;
@@ -214,6 +214,18 @@ li.stat span {
     text-decoration: none;
     line-height: 16px;
     vertical-align: middle;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(34,67,89)),
+        color-stop(0.6, rgb(63,115,163))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(34,67,89) 0%,
+        rgb(63,115,163) 60%
+    );
 }
 .xbutton:hover {
     background-color: #131e2a;
