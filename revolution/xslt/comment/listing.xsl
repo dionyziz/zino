@@ -3,6 +3,12 @@
         <xsl:if test="/social/@for">
             <div class="note">
                 <a href="" class="talk button">Ξεκίνα μία συζήτηση</a>
+                <div class="thread new">
+                    <div class="message mine new">
+                        <div><textarea></textarea></div>
+                        <ul class="tips"><li>Enter = <strong>Αποθήκευση</strong></li><li>Escape = <strong>Ακύρωση</strong></li><li>Shift + Enter = <strong>Νέα γραμμή</strong></li><li><a href="">Φάτσες</a></li></ul>
+                    </div>
+                </div>
             </div>
         </xsl:if>
         <xsl:apply-templates select="comment" />
@@ -11,6 +17,7 @@
 
 <xsl:template match="comment">
     <div class="thread">
+        <xsl:attribute name="id">thread_<xsl:value-of select="@id" /></xsl:attribute>
         <div>
             <xsl:attribute name="class">message<xsl:if test="/social/@for = author[1]/name[1]"> mine</xsl:if></xsl:attribute>
             <div class="author">

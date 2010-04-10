@@ -229,10 +229,6 @@ div.thread {
     clear: left;
     overflow: hidden;
 }
-div.discussion {
-    padding: 10px;
-    clear: both;
-}
 img.avatar {
     height: 46px;
     -webkit-border-top-left-radius: 6px;
@@ -301,21 +297,6 @@ span.countbubble {
     top: 12px;
     left: 12px;
 }
-.thread {
-    border-left: 2px solid transparent;
-}
-.thread:hover {
-    border-left: 2px solid #243a50;
-}
-div.note {
-    padding: 5px;
-    display: block;
-    color: white;
-    text-align: center;
-}
-div.note span.username {
-    display: inline;
-}
 .love {
     display: inline;
     padding-right: 6px;
@@ -327,54 +308,10 @@ div.note span.username {
 div.button {
     color: red;
 }
-div.mine {
-    background-color: #345373;
-}
-div.mine .time {
-    color: #4f7eae;
-}
 a.button {
     text-align: center;
     padding-bottom: 2px;
     text-decoration: none;
-}
-a.talk {
-    background-image: url( '../images/speak.png' );
-    background-repeat: no-repeat;
-    background-position: 2px 3px;
-    padding-left: 20px;
-}
-.thread.new {
-    border-top: none;
-}
-div.thread .new {
-    padding: 5px 10px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-div.message textarea {
-    font: 1.15em/1.1 'Lucida Grande',sans-serif;
-    border: 1px solid #aaa;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    padding: 4px 2px;
-    width: 100%;
-}
-div.thread .new.message {
-    cursor: default;
-}
-ul.tips {
-    text-align: right;
-    padding: 2px 0;
-}
-ul.tips li {
-    display: inline; 
-    padding-left: 20px;
-    color: #4f7eae;
-}
-ul.tips strong {
-    font-weight: normal;
-    color: #acf;
 }
 h2 {
     color: #7399BA;
