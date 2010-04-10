@@ -38,7 +38,8 @@ var Comment = {
                         
                     var callback = ( function( thread ) {
                          return function() {
-                            $( thread ).replaceWith( this ).click( function() { Comment.New(); } ).fadeIn( 750 );
+                            $( thread ).replaceWith( this ).click( function() { return Comment.New.call( this ); } ).fadeIn( 750 );
+                            document.body.style.cursor = 'default';
                         }
                     } )( $( this ).closest( '.thread.new' ) )
                     wysiwyg.transform( callback, '/social/comment' );
