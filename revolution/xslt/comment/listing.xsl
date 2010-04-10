@@ -14,7 +14,7 @@
         <xsl:apply-templates select="comment" />
         <xsl:if test="/social/@for">
             <script type="text/javascript">
-                Comment.Init();
+                Comment.Prepare( $( 'a.talk, .message' ) );
             </script>
         </xsl:if>
     </div>

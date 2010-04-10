@@ -2,7 +2,9 @@ var Comment = {
     New: function() {
         var parentid;
         var newthread;
-        newthread = $( '.discussion .note .thread.new' ).clone()
+        newthread = $( '.discussion .note .thread.new' ).clone();
+        if ( $( '.discussion .note .thread.new > author' ).length == 0 ) {
+        }
         if ( $( this ).hasClass( 'talk' ) ) {
             parentid = 0;
             newthread.insertAfter( '.discussion .note' );
@@ -38,7 +40,8 @@ var Comment = {
                         
                     var callback = ( function( thread ) {
                          return function() {
-                            $( thread ).replaceWith( this ).click( function() { return Comment.New.call( this ); } ).fadeIn( 750 );
+                            Comment.Prepare( $( this ).find( '.message' ) );
+                            newthread = $( thread ).replaceWith( this ).fadeIn( 750 )
                             document.body.style.cursor = 'default';
                         }
                     } )( $( this ).closest( '.thread.new' ) )
@@ -54,10 +57,12 @@ var Comment = {
         } );
         return false;
     },
-    Init: function() {
-        $( '.message .author' ).click( function( event ) {
+    Prepare: function( collection ) {
+        $( collection ).click( function() {
+            return Comment.New.call( this );
+        } )
+        .find( '.author' ).click( function( event ) {
             event.stopPropagation();
         } );
-        $( 'a.talk, .message' ).click( function() { return Comment.New.call( this ); } );
     }
 }
