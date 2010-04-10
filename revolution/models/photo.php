@@ -1,5 +1,4 @@
 <?php
-
     class Photo {
         public static function ListRecent( $offset = 0, $limit = 100 ) {
             $res = db(
