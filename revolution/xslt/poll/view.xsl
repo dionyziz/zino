@@ -3,7 +3,7 @@
 </xsl:template>
 
 <xsl:template match="/social[@template='poll.view']//entry">
-    <a class="xbutton" href="news">&#171;</a>
+    <a class="xbutton" href="photos">&#171;<span><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">poll_<xsl:value-of select="/social/entry[1]/@id" /></xsl:attribute>
         <div class="details">
@@ -63,4 +63,9 @@
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
+    <script type="text/javascript">
+    Startup( function () {
+        ItemView.Init( 1 );
+    } );
+    </script>
 </xsl:template>

@@ -4,7 +4,7 @@ var PhotoListing = {
     PhotoPrototype: null,
     CurrentPage: 1,
     LastLoaded: null,
-Init: function(){
+    Init: function(){
         this.PhotoList = $( '.photofeed ul' );
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){

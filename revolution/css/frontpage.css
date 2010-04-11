@@ -228,9 +228,33 @@ li.stat span {
     );
 }
 .xbutton:hover {
-    background-color: #131e2a;
-    text-align: left;
-    padding: 2px 1px 2px 2px;
+}
+.xbutton > span {
+    display: none;
+    position: absolute;
+    left: -4px;
+    top: 40px;
+    background-color: #111;
+    color: #eee;
+    padding: 5px;
+    font-size: 70%;
+    font-weight: normal;
+    font-family: "Trebuchet MS";
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+.xbutton:hover > span {
+    display: block;
+}
+.xbutton span span {
+    left: 3px;
+    top: -12px;
+    position: absolute;
+    font-size: 180%;
+    color: #111;
 }
 div.thread {
     border-top: 1px solid #2c4762;
@@ -251,14 +275,12 @@ div.message {
     position: relative;
     background-color: #243a50;
     font-size: 110%;
-    padding-bottom: 2px;
     cursor: pointer;
 }
 div.message .author {
     float: left;
     margin: 0 10px 0 0;
     vertical-align: middle;
-    height: 50px;
     font-size: 90%;
     cursor: default;
 }
@@ -330,7 +352,7 @@ h2 {
     font-size: 130%;
     margin: 0.5em 200px;
     line-height: 2.5em;
-    border-bottom: 3px #243A50 solid;
+    border-bottom: 3px #246d93 solid;
 }
 ul.options {
     margin: auto;

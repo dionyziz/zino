@@ -6,7 +6,7 @@ div.discussion {
     border-left: 2px solid transparent;
 }
 .thread:hover {
-    border-left: 2px solid #243a50;
+    border-left: 2px solid #273f57;
 }
 div.note {
     padding: 5px;
@@ -18,7 +18,8 @@ div.note span.username {
     display: inline;
 }
 div.mine {
-    background-color: #345373;
+    border-top: 1px solid #3b5d81;
+    background-color: #284059;
 }
 div.mine .time {
     color: #4f7eae;

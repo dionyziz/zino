@@ -43,9 +43,9 @@
         </head>
         <body>
             <xsl:apply-templates />
-        <script type="text/javascript">
-            OnLoad();
-        </script>
+            <script type="text/javascript">
+                OnLoad();
+            </script>
         </body>
     </html>
 </xsl:template>
