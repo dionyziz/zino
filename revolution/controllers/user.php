@@ -1,21 +1,28 @@
 <?php
     class ControllerUser {
-        public static function View( $id, $commentpage = 1 ) {
+        public static function View( $id, $details = true, $commentpage = 1 ) {
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
             include 'models/db.php';
             include 'models/comment.php';
             include 'models/user.php';
-            $user = User::ItemDetails( $id );
+            if ( $details ) {
+                $user = User::ItemDetails( $id );
+            }
+            else {
+                $user = User::Item( $id );
+            }
             $user !== false or die;
             if ( $user[ 'userdeleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
                 return;
             }
-            $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $id, $commentpage );
-            $numpages = $commentdata[ 0 ];
-            $comments = $commentdata[ 1 ];
+            if ( $details ) {
+                $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $id, $commentpage );
+                $numpages = $commentdata[ 0 ];
+                $comments = $commentdata[ 1 ];
+            }
             $countcomments = $user[ 'numcomments' ];
             include 'views/user/view.php';
         }

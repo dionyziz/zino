@@ -1,5 +1,4 @@
 <xsl:template match="/social[@template='user.view']">
-    Hahaha
     <xsl:for-each select="user">
         <a class="xbutton" href="photos">&#171;</a>
         <h2><xsl:value-of select="name[1]" /></h2>

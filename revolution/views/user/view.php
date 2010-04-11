@@ -5,7 +5,9 @@
     <avatar id="<?= $user[ 'avatarid' ] ?>">
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
+    <? if ( isset( $user[ 'location' ] ) ): ?>
     <location><?= $user[ 'location' ] ?></location>
+    <? endif; ?>
     <details>
         <? $stats = array(
             'height', 'weight', 'smoker', 'drinker',
