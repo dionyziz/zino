@@ -3,4 +3,7 @@ comment.js
 photo/view.js
 photo/listing.js
 itemview.js
+chat.js
+menu.js
+comet.js
 

@@ -15,13 +15,14 @@ var Comet = {
         Comet.HandshakeCompleted = true;
         Comet.TunnelAuthtoken = $( res ).find( 'tunnel authtoken' ).text();
         Comet.TunnelId = $( res ).find( 'tunnel' ).attr( 'id' );
+        Comet.Connect();
     },
     Init: function () {
         setTimeout( Comet.Handshake, 50 );
     },
     Connect: function () {
-        $.get( 'fish/view', {
-            tunnelid: Comet.TunnelId
+        $.get( '/subscribe', {
+            id: Comet.TunnelId
         }, Comet.OnFishArrival, 'xml' );
     },
     OnFishArrival: function ( res ) {

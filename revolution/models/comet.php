@@ -1,10 +1,10 @@
 <?php
     define( 'PUSH_PUBLISH_URL', 'http://www.zino.gr:666/publish?channel_id=' );
-    define( 'PUSH_SUBSCRIPTION_EXPIRY', 4 * 60 );
+    define( 'PUSH_SUBSCRIPTION_EXPIRY', 4 * 60 ); // seconds 
 
     class PushTunnel {
         public static function Create() {
-            $authtok = '';
+            $authtoken = '';
             for ( $i = 0; $i < 7; ++$i ) {
                 $authtoken .= dechex( rand( 0, 15 ) );
             }
@@ -21,7 +21,7 @@
             return array(
                 'id' => $tunnelid,
                 'expires' => PUSH_SUBSCRIPTION_EXPIRY,
-                'authtoken' => $authtoke
+                'authtoken' => $authtoken
             );
         }
         public static function Auth( $tunnelid, $auth ) {

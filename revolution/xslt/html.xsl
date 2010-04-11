@@ -33,6 +33,7 @@
             </script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
+            <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
             <script type="text/javascript" src="http://chorvus.com/axslt/axslt.js"></script>
             <script type="text/javascript">
                 var User = '<xsl:value-of select="/social/@for" />';

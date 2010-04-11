@@ -10,7 +10,7 @@
 
 	in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
-        'user', 'chatmessage'
+        'user', 'chatmessage', 'tunnel'
     ) ) or $resource = 'photo';
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
@@ -39,7 +39,7 @@
     }
     ?> generator="<?= $settings[ 'base' ];
     ?>" template="<?="$resource.$method";
-    ?>" ><?php
+    ?>"><?php
 
     include 'controllers/' . $resource . '.php';
     call_user_func_array( array( 'Controller' . $resource, $method ), $vars );
