@@ -44,10 +44,12 @@
             ob_start();
             include 'views/chatmessage/create.php';
             $xml = ob_get_clean();
+
+            echo $xml;
             
             // Comet
             include 'models/comet.php';
-            PushChannel::Publish( 'chat', $xml );
+            PushChannel::Publish( 'chat/messages/list/zino', $xml );
         }
         public static function Update() {
         }

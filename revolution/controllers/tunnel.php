@@ -10,7 +10,11 @@
             include 'models/db.php';
             include 'models/comet.php';
     
+            $channelids = explode( ',', $channels );
             $tunnel = PushTunnel::Create();
+            foreach ( $channelids as $channelid ) {
+                PushTunnel::AddChannel( $tunnel[ 'id' ], $channelid );
+            }
 
             include 'views/tunnel/create.php';
         }

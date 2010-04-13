@@ -21,16 +21,27 @@ var Comet = {
         setTimeout( Comet.Handshake, 50 );
     },
     Connect: function () {
-        $.get( '/subscribe', {
-            id: Comet.TunnelId
-        }, Comet.OnFishArrival, 'xml' );
+        $.get( '/subscribe?id=' + Comet.TunnelId, {}, Comet.OnFishArrival, 'text' );
     },
     OnFishArrival: function ( res ) {
+        var xmlDoc;
+
+        if ( window.DOMParser ) {
+            var parser = new DOMParser();
+            xmlDoc = parser.parseFromString( res, "text/xml" );
+        }
+        else {
+            xmlDoc = new ActiveXObject( "Microsoft.XMLDOM" );
+            xmlDoc.async = 'false';
+            xmlDoc.loadXML( res );
+        }
+        alert( 'Comet data arrival: ' + res );
         Comet.Connect(); // reconnect
-        // TODO: verify Comet.Channels item exists
-        var channelid = $( res ).find( 'channel' ).attr( 'id' );
+
+        var channelid = $( xmlDoc ).find( 'channel' ).attr( 'id' );
+        alert( 'Channel id is: ' + channelid );
         if ( typeof Comet.Channels[ channelid ] != 'undefined' ) {
-            Comet.Channels[ channelid ]( res ); // fire callback
+            Comet.Channels[ channelid ]( xmlDoc.find( 'channel' )[ 0 ] ); // fire callback
         }
     },
     Renew: function () {

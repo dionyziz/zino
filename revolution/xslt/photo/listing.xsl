@@ -8,9 +8,7 @@
             <xsl:for-each select="entry">
                 <li>
                     <a>
-                        <xsl:attribute name="href">
-                            photos/<xsl:value-of select="@id" />
-                        </xsl:attribute>
+                        <xsl:attribute name="href">photos/<xsl:value-of select="@id" /></xsl:attribute>
                         <img>
                             <xsl:attribute name="src">
                                 <xsl:value-of select="media[1]/@url" />

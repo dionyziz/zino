@@ -99,7 +99,7 @@ var Chat = {
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
          document.domain = 'zino.gr';
          Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
-         Chat.Join( 0 );
+         Chat.Join( 'zino' );
          Chat.Join( User );
          Chat.Inited = true;
          var bigNumber = 123456789;
@@ -119,8 +119,8 @@ var Chat = {
      },
      Join: function ( channelid ) {
          // Listen to push messages here
-         Comet.Subscribe( 'FrontpageShoutboxNew' + channelid );
-         Comet.Subscribe( 'FrontpageShoutboxTyping' + channelid );
+         Comet.Subscribe( 'chat/messages/list/' + channelid );
+         Comet.Subscribe( 'chat/typing/list/' + channelid );
      },
      NowLoading: function () {
          document.body.style.cursor = 'wait';

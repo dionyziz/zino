@@ -24,6 +24,14 @@
                 'authtoken' => $authtoken
             );
         }
+        public static function AddChannel( $tunnelid, $channelid ) {
+            db(
+                'INSERT INTO push
+                    (`push_tunnelid`, `push_channelid`) VALUES
+                    (:tunnelid, :channelid)',
+                compact( 'tunnelid', 'channelid' )
+            );
+        }
         public static function Auth( $tunnelid, $auth ) {
             $res = db(
                 'SELECT
@@ -78,14 +86,15 @@
     }
     class PushChannel {
         public static function Publish( $channelid, $xml ) {
+            $xml = '<channel id="' . $channelid . '">' . $xml . '</channel>';
             $res = db(
                 'SELECT
-                    tunnel_tunnelid AS tunnelid, tunnel_authtoken AS authtoken
+                    tunnel_id AS tunnelid, tunnel_authtoken AS authtoken
                 FROM
                     push CROSS JOIN
                         pushtunnels ON push_tunnelid = tunnel_id
                 WHERE
-                    push_channelid = :channelid', compact( $channelid )
+                    push_channelid = :channelid', compact( 'channelid' )
             );
             $tunnelids = array();
             while ( $row = mysql_fetch_array( $res ) ) {
@@ -97,9 +106,11 @@
             db(
                 'INSERT INTO push
                 ( push_tunnelid, push_channelid ) VALUES
-                ( :tunnelid, :channelid )'
+                ( :tunnelid, :channelid )',
+                compact( 'tunnelid', 'channelid' )
             );
         }
+        // TODO: expiration check; call this function somewhere!
         public static function CleanUp() {
             db(
                 'DELETE FROM
