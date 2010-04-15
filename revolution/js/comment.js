@@ -1,16 +1,28 @@
 var Comment = {
+    FadeOut: function( jQnode ) {
+        jQnode.animate(  { 'opacity': 0, 'height': 0 }, 150, 'linear', function() { $( this ).remove() } );
+    }
+    ,
     New: function() {
         var parentid;
         var newthread;
         newthread = $( '.discussion .note .thread.new' ).clone();
-        if ( $( '.discussion .note .thread.new > author' ).length == 0 ) {
+        if ( $( '.discussion .note .thread.new > .author > .avatar' ).length == 0 ) {
+            Comment.LoadAvatar();
         }
         if ( $( this ).hasClass( 'talk' ) ) {
-            parentid = 0;
+            if ( $( '.discussion > .thread.new' ).length != 0 ) {
+                Comment.FadeOut( $( '.discussion > .thread.new' ) );
+                return false;
+            }
             newthread.insertAfter( '.discussion .note' );
+            parentid = 0;
         }
         else {
-            $( this ).siblings( '.thread.new' ).remove();
+            if ( $( this ).siblings( '.thread.new' ).length != 0 ) {
+                Comment.FadeOut( $( this ).siblings( '.thread.new' ) );
+                return false;
+            }
             newthread.insertAfter( this );
             parentid = $( this ).closest( '.thread' ).attr( 'id' ).split( '_' )[ 1 ];
         }
@@ -21,7 +33,7 @@ var Comment = {
             }
             switch ( event.keyCode ) {
                 case 27: // ESC
-                    $( this ).closest( '.thread.new' ).animate(  { 'opacity': 0, 'height': 0 }, 150, 'linear', function() { $( this ).remove() } );
+                    Comment.FadeOut(  $( this ).closest( '.thread.new' ) );
                     break;
                 case 13: // Enter
                     document.body.style.cursor = 'wait';
@@ -64,5 +76,8 @@ var Comment = {
         .find( '.author' ).click( function( event ) {
             event.stopPropagation();
         } );
+    },
+    LoadAvatar: function() {
+        $.get( 'user/view', { 'user': User } );
     }
 }
