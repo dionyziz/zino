@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="temp.xsl"?> 
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://wadl.dev.java.net/2009/02 wadl.xsd"
+ xmlns="http://wadl.dev.java.net/2009/02">
+    <doc title="Zino API"></doc>
+    <grammars>
+        <include href="http://alpha.zino.gr/abresas/etc/social.xsd">
+            <doc xml:lang="en" title="Use of social.xsd">
+            The social.xsd file is provided to describe the XML response of the web service,
+            when the request was valid and the service replied with a HTTP 200 status.
+            </doc>
+        </include>
+        <!--
+        <include href="http://alpha.zino.gr/abresas/error.xsd">
+            <doc xml:lang="en" title="Use of error.xsd">
+            The error.xsd file is provided to describe the XML response when the request was invalid
+            and the web service replied with an HTTP error status, e.g. 400 (not found)
+            </doc>
+        </include>
+        -->
+    </grammars>
+    <resources base="http://alpha.zino.gr/abresas/">
+        <resource path="photos">
+            <method name="GET">
+                <doc xml:lang="en" title="GET single photo">Passing an id parameter to a GET request gives information about a specific photo</doc>
+                <request>
+                    <param name="id" type="xsd:positiveInteger" style="query" required="yes" />
+                    <param name="user" type="xsd:string" style="query" />
+                    <param name="commentpage" type="xsd:positiveInteger" style="query" default="1" />
+                </request>
+                <response status="200">
+                    <representation mediaType="application/xml" element="social" />
+                    <!-- define important params here -->
+                </response>
+                <response status="400">
+                    <!-- <representation mediaType="application/xml" element="error" /> -->
+                </response>
+            </method>
+            <method name="GET">
+                <doc xml:lang="en" title="GET collection of photos">
+                When no id is passed, information about a list of photos will be returned. 
+                By default this list is the latest uploaded photographs.
+                </doc>
+                <request>
+                </request>
+            </method>
+            <method name="POST">
+                <doc xml:lang="en" title="POST method">Creates a new photo within the specified albumid.</doc>
+                <request>
+                    <param name="albumid" type="xsd:positiveInteger" style="query" required="yes" />
+                    <param name="typeid" type="xsd:positiveInteger" style="query" required="yes" />
+                </request>
+                <response status="200">
+                    <representation mediaType="application/xml" element="photo">
+                        <doc title="Valid request response">
+                        If the request was valid, server replies with an HTTP 200 header, and provides information about the new image
+                        </doc>
+                        <param name="ownerName" path="owner/name" style="plain" type="xsd:string" />
+                        <param name="typeid" path="typeid" style="plain" type="xsd:positiveInteger" />
+                        <param name="width" path="width" style="plain" type="xsd:positiveInteger" />
+                        <param name="height" path="height" style="plain" type="xsd:positiveInteger" />
+                        <param name="size" path="height" style="plain" type="xsd:positiveInteger" />
+                    </representation>
+                </response>
+            </method>
+            <method name="DELETE">
+                <param name="id" type="xsd:positiveInteger" style="template" required="true" />
+                <doc xml:lang="en" title="DELETE method">
+                Delete the specified photo from the database. No information about it should remain in the server,
+                except only as a cache for a limited time.</doc>
+                <response status="200">
+                    <representation mediaType="application/xml" element="photo" />
+                </response>
+                <response status="400">
+                    <!-- <representation mediaType="application/xml" element="error" /> -->
+                </response>
+            </method>
+            <method name="PUT">
+                <param name="id" type="xsd:positiveInteger" style="template" required="true" />
+                <doc xml:lang="en" title="PUT method">
+                Update the photo information.
+                </doc>
+                <request>
+                    <param name="userid" type="xsd:positiveInteger" style="header" />
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

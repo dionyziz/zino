@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.zino.gr" elementFormDefault="qualified">
+
+<!-- types -->
+<xs:complexType name="htmltext" mixed="true">
+    <xs:sequence>
+        <xs:any minOccurs="0" />
+    </xs:sequence>
+</xs:complexType>
+
+<!-- definition of simple elements -->
+<xs:element name="url" type="xs:anyURI" />
+<xs:element name="title" type="xs:string" />
+<xs:element name="question" type="xs:string" /><!-- polls -->
+<xs:element name="name" type="xs:string" />
+<xs:element name="subdomain" type="xs:string" />
+<xs:element name="gender">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="f" />
+            <xs:enumeration value="m" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>
+<xs:element name="published" type="xs:string" /><!-- xs:dateTime -->
+<xs:element name="typeid" type="xs:nonNegativeInteger" />
+<xs:element name="photocount" type="xs:nonNegativeInteger" />
+<xs:element name="size" type="xs:nonNegativeInteger" />
+<xs:element name="mime" type="xs:string" />
+
+<!-- definition of attributes -->
+<xs:attribute name="id" type="xs:positiveInteger" />
+<xs:attribute name="url" type="xs:anyURI" />
+<xs:attribute name="type" type="xs:string" />
+<xs:attribute name="generated" type="xs:string" /> <!-- xs:dateTime -->
+<xs:attribute name="generator" type="xs:anyURI" />
+<xs:attribute name="template" type="xs:string" />
+<xs:attribute name="count" type="xs:nonNegativeInteger" />
+<xs:attribute name="width" type="xs:positiveInteger" />
+<xs:attribute name="height" type="xs:positiveInteger" />
+<xs:attribute name="totalvotes" type="xs:nonNegativeInteger" />
+<xs:attribute name="votes" type="xs:nonNegativeInteger" />
+
+<!-- definition of complex elements -->
+
+<xs:element name="text" type="htmltext" />
+
+<xs:element name="option">
+    <xs:complexType>
+        <xs:all>
+            <xs:element ref="title" />
+        </xs:all>
+        <xs:attribute ref="id" use="required" />
+        <xs:attribute ref="votes" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="options">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="option" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute ref="totalvotes" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="media">
+    <xs:complexType>
+        <xs:attribute ref="url" use="required" />
+        <xs:attribute ref="width" />
+        <xs:attribute ref="height" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="avatar">
+    <xs:complexType>
+        <xs:all>
+            <xs:element ref="media" />
+        </xs:all>
+    </xs:complexType>
+</xs:element>
+
+
+<xs:element name="user">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="name" />
+            <xs:element ref="subdomain" minOccurs="0" />
+            <xs:element ref="gender" minOccurs="0" />
+            <xs:element ref="avatar" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="author" substitutionGroup="user" />
+<xs:element name="owner" substitutionGroup="user" />
+
+<xs:element name="favourites">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="user" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute ref="count" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="comment">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="published" />
+            <xs:element ref="author" />
+            <xs:element ref="text" />
+            <xs:element ref="comment" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute ref="id" use="required" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="discussion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="comment" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute ref="count" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="entry">
+    <xs:complexType>
+        <xs:all>
+            <xs:element ref="media" /><!-- required? -->
+            <xs:element ref="url" minOccurs="0" />
+            <xs:element ref="discussion" minOccurs="0" />
+            <xs:element ref="author" minOccurs="0" />
+            <xs:element ref="title" minOccurs="0" />
+            <xs:element ref="question" minOccurs="0" /><!-- polls -->
+
+            <!-- item view -->
+            <xs:element ref="published" minOccurs="0" />
+            <xs:element ref="favourites" minOccurs="0" />
+
+            <!-- journal -->
+            <xs:element ref="text" minOccurs="0" />
+
+            <!-- poll -->
+            <xs:element ref="options" minOccurs="0" />
+        </xs:all>
+        <xs:attribute ref="id" use="required" />
+        <xs:attribute ref="type" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="feed">
+    <xs:complexType>
+        <xs:attribute ref="type" use="required" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="social">
+    <xs:complexType>
+        <xs:choice>
+            <xs:element ref="feed" minOccurs="0" />
+            <xs:element ref="entry" minOccurs="0" />
+        </xs:choice>
+        <xs:attribute ref="generated" use="required" />
+        <xs:attribute ref="generator" use="required" />
+        <xs:attribute ref="template" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="album">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="name" />
+            <xs:element ref="count" />
+        </xs:sequence>
+        <xs:attribute ref="id" />
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="photo">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="typeid" />
+            <xs:element ref="owner" />
+            <xs:element ref="width" />
+            <xs:element ref="height" />
+            <xs:element ref="size" />
+            <xs:element ref="mime" />
+            <xs:element ref="media" />
+            <xs:element ref="album" />
+        </xs:sequence>
+        <xs:attribute ref="id" />
+    </xs:complexType>
+</xs:element>
+
+</xs:schema>
