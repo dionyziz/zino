@@ -20,25 +20,25 @@
         </include>
         -->
     </grammars>
+    <representation id="socialResponse" mediaType="application/xml" element="social" />
     <resources base="http://alpha.zino.gr/abresas/">
         <resource path="photos">
             <method name="GET">
-                <doc xml:lang="en" title="GET single photo">Passing an id parameter to a GET request gives information about a specific photo</doc>
+                <doc xml:lang="en" title="Photo view">Passing an id parameter to a GET request gives information about a specific photo</doc>
                 <request>
                     <param name="id" type="xsd:positiveInteger" style="query" required="yes" />
                     <param name="user" type="xsd:string" style="query" />
                     <param name="commentpage" type="xsd:positiveInteger" style="query" default="1" />
                 </request>
                 <response status="200">
-                    <representation mediaType="application/xml" element="social" />
-                    <!-- define important params here -->
+                    <representation ref="socialResponse" />
                 </response>
                 <response status="400">
                     <!-- <representation mediaType="application/xml" element="error" /> -->
                 </response>
             </method>
             <method name="GET">
-                <doc xml:lang="en" title="GET collection of photos">
+                <doc xml:lang="en" title="Photo list">
                 When no id is passed, information about a list of photos will be returned. 
                 By default this list is the latest uploaded photographs.
                 </doc>
@@ -46,44 +46,62 @@
                 </request>
             </method>
             <method name="POST">
-                <doc xml:lang="en" title="POST method">Creates a new photo within the specified albumid.</doc>
+                <doc xml:lang="en" title="Photo create">Creates a new photo within the specified albumid.</doc>
                 <request>
                     <param name="albumid" type="xsd:positiveInteger" style="query" required="yes" />
                     <param name="typeid" type="xsd:positiveInteger" style="query" required="yes" />
                 </request>
                 <response status="200">
-                    <representation mediaType="application/xml" element="photo">
-                        <doc title="Valid request response">
-                        If the request was valid, server replies with an HTTP 200 header, and provides information about the new image
-                        </doc>
-                        <param name="ownerName" path="owner/name" style="plain" type="xsd:string" />
-                        <param name="typeid" path="typeid" style="plain" type="xsd:positiveInteger" />
-                        <param name="width" path="width" style="plain" type="xsd:positiveInteger" />
-                        <param name="height" path="height" style="plain" type="xsd:positiveInteger" />
-                        <param name="size" path="height" style="plain" type="xsd:positiveInteger" />
-                    </representation>
+                    <doc title="Valid request response">
+                    If the request was valid, server replies with an HTTP 200 header, and provides information about the new image.
+                    </doc>
+                    <representation ref="socialResponse" />
                 </response>
             </method>
             <method name="DELETE">
-                <param name="id" type="xsd:positiveInteger" style="template" required="true" />
-                <doc xml:lang="en" title="DELETE method">
+                <request>
+                    <param name="id" type="xsd:positiveInteger" style="query" required="true" />
+                </request>
+                <doc xml:lang="en" title="Photo delete">
                 Delete the specified photo from the database. No information about it should remain in the server,
                 except only as a cache for a limited time.</doc>
                 <response status="200">
-                    <representation mediaType="application/xml" element="photo" />
+                    <representation ref="socialResponse" />
                 </response>
                 <response status="400">
                     <!-- <representation mediaType="application/xml" element="error" /> -->
                 </response>
             </method>
             <method name="PUT">
-                <param name="id" type="xsd:positiveInteger" style="template" required="true" />
-                <doc xml:lang="en" title="PUT method">
+                <doc xml:lang="en" title="Photo update">
                 Update the photo information.
                 </doc>
                 <request>
+                    <param name="id" type="xsd:positiveInteger" style="query" required="true" />
                     <param name="userid" type="xsd:positiveInteger" style="header" />
                 </request>
+                <response status="200">
+                    <representation ref="socialResponse" />
+                </response>
+            </method>
+        </resource>
+        <resource path="journals">
+            <method name="GET">
+                <doc xml:lang="en" title="Journal view">View information about a specific journal.</doc>
+                <request>
+                    <param name="id" type="xsd:positiveInteger" style="query" required="true" />
+                    <param name="userid" type="xsd:positiveInteger" style="query" />
+                    <param name="commentpage" type="xsd:positiveInteger" style="query" />
+                </request>
+                <response status="200">
+                    <representation ref="socialResponse" />
+                </response>
+            </method>
+            <method name="GET">
+                <doc xml:lang="en" title="Journal list">View information about a collection of journals.</doc>
+                <response status="200">
+                    <representation ref="socialResponse" />
+                </response>
             </method>
         </resource>
     </resources>
