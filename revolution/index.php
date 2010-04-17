@@ -42,7 +42,20 @@
     ?>"><?php
 
     include 'controllers/' . $resource . '.php';
-    call_user_func_array( array( 'Controller' . $resource, $method ), $vars );
+    
+    $refl = New ReflectionClass( 'Controller' . $resource );
+    $func = $refl->getMethod( $method );
+    
+    $params = array();
+    
+    foreach ( $func->getParameters() as $parameter ) {
+        $paramname = $parameter->getName();
+        if ( isset( $vars[ $paramname ] ) ) {
+            $params[] = $vars[ $paramname ];
+        }
+    }
+    
+    call_user_func_array( array( 'Controller' . $resource, $method ), $params );
     
     ?></social><?php
 ?>
