@@ -26,7 +26,6 @@
                     $res = $finder->FindUserRelated( $user, true );
                     
                     $journals = $res[ 'journals' ];
-                    unset( $res[ 'journals' ] );
                     
                     ob_start();
                     ?>var SPOTJournals = <?php
