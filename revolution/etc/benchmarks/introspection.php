@@ -55,26 +55,29 @@
     }
 
     $total = array( 0, 0 );
-    for ( $j = 0; $j < 40; ++$j ) {
+
+    $runs = isset( $argv[ 1 ] ) ? (int)$argv[ 1 ] : 50;
+    $loops = isset( $argv[ 2 ] ) ? (int)$argv[ 2 ] : 10000;
+
+    echo "Starting $runs runs with $loops loops in each run.\n";
+
+    for ( $j = 0; $j < $runs; ++$j ) {
+        $t = microtime( true );
         if ( $j % 2 == 0 ) {
-            $t = microtime( true );
-            for ( $i = 0; $i < 10000; ++$i ) {
+            for ( $i = 0; $i < $loops; ++$i ) {
                 introspect();
             }
-            $t = microtime( true ) - $t;
-            $total[ 0 ] += $t;
         }
         else {
-            $t = microtime( true );
-            for ( $i = 0; $i < 10000; ++$i ) {
+            for ( $i = 0; $i < $loops; ++$i ) {
                 call(); 
             }
-            $t = microtime( true ) - $t;
-            $total[ 1 ] += $t;
         }
+        $t = microtime( true ) - $t;
+        $total[ $j % 2 ] += $t;
     }
 
-    echo "Mean time intro: " . $total[ 0 ] / 20 . "\n";
-    echo "Mean time call: " . $total[ 1 ] / 20 . "\n";
+    printf( "intro: %0.4fs\n", $total[ 0 ] / ( $runs / 2 )  );
+    printf( "call: %0.4fs\n", $total[ 1 ] / ( $runs / 2 ) );
 
 ?>
