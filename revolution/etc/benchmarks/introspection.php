@@ -6,8 +6,7 @@
 
     function usage() {
         echo "Usage: \n";
-        echo "$ time ./introspection.php type\n";
-        echo "type = intro or call\n";
+        echo "$ ./introspection.php ( intro | call )\n";
     }
 
     function testfunc( $color, $iq, $size, $parts, $p4, $p5, $p6, $p7, $p8, $p9 ) {
@@ -70,14 +69,20 @@
     }
 
     if ( $argv[ 1 ] == 'intro' ) {
+        $t = microtime( true );
         for ( $i = 0; $i < 10000; ++$i ) {
                 introspect();
         }
+        $t = microtime( true ) - $t;
+        echo "Time: $t\n";
     }
     else if ( $argv[ 1 ] == 'call' ) {
+        $t = microtime( true );
         for ( $i = 0; $i < 10000; ++$i ) {
             call(); 
         }
+        $t = microtime( true ) - $t;
+        echo "Time: $t\n";
     }
     else {
         echo "Error: unknown type\n";
