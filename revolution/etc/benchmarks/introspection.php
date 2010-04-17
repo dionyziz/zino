@@ -66,6 +66,7 @@
     if ( $argc < 2 ) {
         echo "Error: too few arguments\n";
         usage();
+        exit();
     }
 
     if ( $argv[ 1 ] == 'intro' ) {
