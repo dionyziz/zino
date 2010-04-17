@@ -1,14 +1,6 @@
 #!/usr/bin/php
 <?php
 
-    // usage: $ time php introspection.php
-    // change the function call on the for loop to change benchmark function
-
-    function usage() {
-        echo "Usage: \n";
-        echo "$ ./introspection.php ( intro | call )\n";
-    }
-
     function testfunc( $color, $iq, $size, $parts, $p4, $p5, $p6, $p7, $p8, $p9 ) {
         $magic = 0;
         if ( $color == 'red' ) {
@@ -62,31 +54,27 @@
         return call_user_func_array( 'testfunc', $arr );
     }
 
-    if ( $argc < 2 ) {
-        echo "Error: too few arguments\n";
-        usage();
-        exit();
+    $total = array( 0, 0 );
+    for ( $j = 0; $j < 40; ++$j ) {
+        if ( $j % 2 == 0 ) {
+            $t = microtime( true );
+            for ( $i = 0; $i < 10000; ++$i ) {
+                introspect();
+            }
+            $t = microtime( true ) - $t;
+            $total[ 0 ] += $t;
+        }
+        else {
+            $t = microtime( true );
+            for ( $i = 0; $i < 10000; ++$i ) {
+                call(); 
+            }
+            $t = microtime( true ) - $t;
+            $total[ 1 ] += $t;
+        }
     }
 
-    if ( $argv[ 1 ] == 'intro' ) {
-        $t = microtime( true );
-        for ( $i = 0; $i < 10000; ++$i ) {
-                introspect();
-        }
-        $t = microtime( true ) - $t;
-        echo "Time: $t\n";
-    }
-    else if ( $argv[ 1 ] == 'call' ) {
-        $t = microtime( true );
-        for ( $i = 0; $i < 10000; ++$i ) {
-            call(); 
-        }
-        $t = microtime( true ) - $t;
-        echo "Time: $t\n";
-    }
-    else {
-        echo "Error: unknown type\n";
-        usage();
-    }
+    echo "Mean time intro: " . $total[ 0 ] / 20 . "\n";
+    echo "Mean time call: " . $total[ 1 ] / 20 . "\n";
 
 ?>
