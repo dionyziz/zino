@@ -1,33 +1,44 @@
 var Comment = {
-    FadeOut: function( jQnode ) {
-        jQnode.animate(  { 'opacity': 0, 'height': 0 }, 150, 'linear', function() { $( this ).remove() } );
-    }
-    ,
+    StillMouse: false,
     New: function() {
-        var parentid;
+        if ( !Comment.StillMouse ) {
+            return false;
+        }
+        
         var newthread;
-        newthread = $( '.discussion .note .thread.new' ).clone();
+        var rootparent = $( this ).hasClass( 'talk' );
+        var newcomment = $( '.discussion .note .thread.new' );
+        
         if ( $( '.discussion .note .thread.new > .author > .avatar' ).length == 0 ) {
             Comment.LoadAvatar();
         }
-        if ( $( this ).hasClass( 'talk' ) ) {
-            if ( $( '.discussion > .thread.new' ).length != 0 ) {
-                Comment.FadeOut( $( '.discussion > .thread.new' ) );
-                return false;
+        
+        if ( rootparent ) {
+            newthread = $( '.discussion > .thread.new' );
+            if ( newthread.length == 0 ) {
+                newthread = newcomment.clone().insertAfter( '.discussion .note' );
+                Comment.TextEvents( newthread );
             }
-            newthread.insertAfter( '.discussion .note' );
-            parentid = 0;
         }
         else {
-            if ( $( this ).siblings( '.thread.new' ).length != 0 ) {
-                Comment.FadeOut( $( this ).siblings( '.thread.new' ) );
-                return false;
+            newthread = $( this ).siblings( '.thread.new' );
+            if( newthread.length == 0 ) {
+                newthread = newcomment.clone().insertAfter( this );
+                Comment.TextEvents( newthread );
             }
-            newthread.insertAfter( this );
-            parentid = $( this ).closest( '.thread' ).attr( 'id' ).split( '_' )[ 1 ];
         }
-        newthread.fadeIn( 200 );
-        newthread.find( 'textarea' ).focus().keydown( function ( event ) {
+        
+        if ( newthread.css( 'display' ) == 'none' || newthread.css( 'height' ) != 'auto' ) {
+            Comment.FadeOut( $( '.discussion .thread .thread.new:visible' ) );
+            Comment.FadeIn( newthread );
+        }
+        else {
+            Comment.FadeOut( newthread );
+        }
+        return false;
+    },
+    TextEvents: function( jQnode ) {
+        jQnode.find( 'textarea' ).keydown( function ( event ) {
             if ( event.shiftKey ) {
                 return;
             }
@@ -36,8 +47,16 @@ var Comment = {
                     Comment.FadeOut(  $( this ).closest( '.thread.new' ) );
                     break;
                 case 13: // Enter
-                    document.body.style.cursor = 'wait';
                     // TODO
+                    var parentid;
+                    if ( $( this ).closest( '.thread.new' ).parent().hasClass( 'discussion' ) ) {
+                        parentid = 0;
+                    }
+                    else {
+                        parentid = $( this ).closest( '.thread.new' ).parent().attr( 'id' ).split( '_' )[ 1 ];
+                    }
+                    document.body.style.cursor = 'wait';
+                    //alert( parentid );
                     var wysiwyg = $.post( 'comment/create', {
                         text: this.value,
                         typeid: {
@@ -57,7 +76,7 @@ var Comment = {
                             document.body.style.cursor = 'default';
                         }
                     } )( $( this ).closest( '.thread.new' ) )
-                    wysiwyg.transform( callback, '/social/comment' );
+                    wysiwyg.transform( '/social/comment', callback );
                     
                     var message = $( '<div class="message mine"><div class="text" /></div>' );
                     message.find( '.text' ).append( $( this ).val() );
@@ -67,17 +86,29 @@ var Comment = {
                     break;
             }
         } );
-        return false;
+    },
+    FadeOut: function( jQnode ) {
+        jQnode.stop().animate(  { 'opacity': 0, 'height': 0 }, 100, 'linear', function() { $( this ).hide(); } );
+    },
+    FadeIn: function( jQnode ) {
+        jQnode.stop().css( { 'opacity': 1, 'height': 'auto' } ).show().fadeIn( 200 )
+            .find( 'textarea' ).focus();
     },
     Prepare: function( collection ) {
-        $( collection ).click( function() {
+    
+    $( collection )
+        .mousedown( function() { Comment.StillMouse = true; } )
+        .mousemove( function() { Comment.StillMouse = false; } )
+        .mouseup( function() {
             return Comment.New.call( this );
         } )
+        .click( function() { return false; } )
         .find( '.author' ).click( function( event ) {
             event.stopPropagation();
         } );
     },
     LoadAvatar: function() {
-        $.get( 'user/view', { 'user': User } );
+        $.get( 'users/view', { 'name': User, 'details': 'false' } );
+        $( '<img />' ).appendTo( '.discussion .note .thread.new > .author' );
     }
 }
