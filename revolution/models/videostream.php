@@ -4,7 +4,9 @@
             db( 'INSERT INTO `videostream`
                     (`videostream_userid`, `videostream_stratusid`)
                 VALUES
-                    (:id, :stratusid );', compact( 'id', 'stratusid' ) );
+                    (:id, :stratusid )
+                ON DUPLICATE KEY UPADTE
+                    `videostream_stratusid` = :stratusid;', compact( 'id', 'stratusid' ) );
                     
         }
         public static function Retrieve( $userid, $targetuserid ){
