@@ -1,7 +1,7 @@
 <?php
     class VideoStream{
         public static function Create( $id, $stratusid ){
-            db( 'INSERT INTO `videostream`
+            return db( 'INSERT INTO `videostream`
                     (`videostream_userid`, `videostream_stratusid`)
                 VALUES
                     (:id, :stratusid )
@@ -10,7 +10,7 @@
                     
         }
         public static function Retrieve( $userid, $targetuserid ){
-            db( 'SELECT
+            $res = db( 'SELECT
                     `videostream_stratusid` AS stratusid, `videostream_token` AS token
                  FROM
                     `videostream`
@@ -18,7 +18,7 @@
                     `videostream_targetuserid` = :userid AND 
                     `videostream_userid` = :targetuserid
                  LIMIT 1;', compact( 'userid', 'targetuserid' ) );
-
+            return mysql_fetch_array( $res );
         }
         public static function GrantPermission( $userid, $targetuserid ){
             $token = $this->GenerateToken();
