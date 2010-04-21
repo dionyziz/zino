@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init();">
+    <mx:Script>
+        <![CDATA[
+            private const StratusAddress:String = "rtmfp://stratus.adobe.com";
+            private const DeveloperKey:String = "afd29db69ae6ab11613eca86-919ccefd8799";
+            private var camera:Video;
+            private var netConnection:NetConnection;
+            private var sendStream:NetStream;
+            private var recvStream:NetStream;
+            private var foo:Camera;
+            private function init():void{
+                trace( "Hello World!" );
+            }
+            private function connect():void{
+                netConnection = new NetConnection();
+                netConnection.addEventListener( NetStatusEvent.NET_STATUS, netConnectionHandler );
+                netConnection.connect( StratusAddress + "/" + DeveloperKey );
+            }
+            private function netConnectionHandler( e:NetStatusEvent ):void {
+                txtlabel.text = netConnection.nearID;
+                trace( netConnection.unconnectedPeerStreams );
+                sendStream = new NetStream( netConnection, NetStream.DIRECT_CONNECTIONS );
+                sendStream.publish( "media" );
+                sendStream.attachAudio( Microphone.getMicrophone() );
+                sendStream.attachCamera( Camera.getCamera() );
+                camera = new Video();
+                foo = Camera.getCamera();
+                foo.setMode( 640, 480, 24, true );
+                camera.attachCamera( foo );
+                uic.addChild( camera );
+            }
+        ]]>
+    </mx:Script>
+    <mx:UIComponent id="uic" width="320" height="240"/>
+    <mx:TextInput editable="true" />
+    <mx:Label id="txtlabel" />
+    <mx:Button label="Connect" click="connect();" />
+</mx:Application>
