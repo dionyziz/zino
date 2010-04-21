@@ -19,7 +19,7 @@
 
         }
         public static function GrantPermission( $userid, $targetuserid ){
-            $token = $this->GenerateToken;
+            $token = $this->GenerateToken();
             db( 'UPDATE `videostream`
                  SET
                     `videostream_targetuserid` = :targetuserid,
