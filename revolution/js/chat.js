@@ -103,7 +103,7 @@ var Chat = {
          document.domain = 'zino.gr';
          var bigNumber = 123456789;
          Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
-         Chat.Join( 'zino' );
+         Chat.Join( '0' );
          Chat.Join( User ); // TODO: Join( UserId + ':' + Authtoken )
          Chat.Inited = true;
      },
