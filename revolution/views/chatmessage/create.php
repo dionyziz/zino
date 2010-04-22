@@ -1,4 +1,4 @@
-<channel id="<?= $channel[ 'id' ] ?>">
+<chatchannel id="<?= $channel[ 'id' ] ?>">
     <discussion>
         <comment id="s<?= $chatmessage[ 'id' ] ?>">
             <author>
@@ -7,4 +7,4 @@
             <text><?= $chatmessage[ 'text' ] ?></text>
         </comment>
     </discussion>
-</channel>
+</chatchannel>

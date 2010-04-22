@@ -76,6 +76,30 @@
         }
     }
     class ChatChannel {
+        public static function ParticipantList( $channelid ) {
+            if ( $channelid == 0 ) {
+                return array();
+            }
+
+            $res = db( 
+                "SELECT
+                    `participant_userid` AS userid, `user_authtoken` AS authtoken
+                FROM
+                    chatparticipants
+                        CROSS JOIN users
+                WHERE
+                    `participant_channelid` = :channelid",
+                compact( 'channelid' )
+            );
+
+            $ret = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $ret[] = $row;
+            }
+
+            return $ret;
+            
+        }
         public static function Auth( $channelid, $userid ) {
             if ( $channelid == 0 ) {
                 return true;

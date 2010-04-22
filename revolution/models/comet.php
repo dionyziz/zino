@@ -1,5 +1,5 @@
 <?php
-    define( 'PUSH_PUBLISH_URL', 'http://www.zino.gr:666/publish?channel_id=' );
+    define( 'PUSH_PUBLISH_URL', 'http://zino.gr:666/publish?id=' );
     define( 'PUSH_SUBSCRIPTION_EXPIRY', 4 * 60 ); // seconds 
 
     class PushTunnel {

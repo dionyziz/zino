@@ -49,7 +49,15 @@
             
             // Comet
             include 'models/comet.php';
-            PushChannel::Publish( 'chat/messages/list/zino', $xml );
+            if ( $channelid != 0 ) {
+                $participants = ChatChannel::ParticipantList( $channelid );
+                foreach ( $participants as $participant ) {
+                    PushChannel::Publish( 'chat/messages/list/' . $participant[ 'userid' ] . ':' . $participant[ 'authtoken' ], $xml );
+                }
+            }
+            else {
+                PushChannel::Publish( 'chat/messages/list/0', $xml );
+            }
         }
         public static function Update() {
         }

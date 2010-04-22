@@ -26,6 +26,11 @@ var Comet = {
     OnFishArrival: function ( res ) {
         var xmlDoc;
 
+        var a = res.split( "\n" );
+        a.splice( 0, 3 );
+        a.splice( a.length - 2, 2 );
+        res = a.join( "\n" );
+
         if ( window.DOMParser ) {
             var parser = new DOMParser();
             xmlDoc = parser.parseFromString( res, "text/xml" );
@@ -35,13 +40,11 @@ var Comet = {
             xmlDoc.async = 'false';
             xmlDoc.loadXML( res );
         }
-        alert( 'Comet data arrival: ' + res );
         Comet.Connect(); // reconnect
 
         var channelid = $( xmlDoc ).find( 'channel' ).attr( 'id' );
-        alert( 'Channel id is: ' + channelid );
         if ( typeof Comet.Channels[ channelid ] != 'undefined' ) {
-            Comet.Channels[ channelid ]( xmlDoc.find( 'channel' )[ 0 ] ); // fire callback
+            Comet.Channels[ channelid ]( $( xmlDoc ).find( 'channel' )[ 0 ] ); // fire callback
         }
     },
     Renew: function () {

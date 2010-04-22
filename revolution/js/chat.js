@@ -43,7 +43,7 @@ var Chat = {
         }, 'xml' );
      },
      HistoryFromXML: function ( res ) {
-        var channelid = $( res ).find( 'channel' ).attr( 'id' );
+        var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
         if ( $( '#chatmessages_' + channelid ).length == 0 ) {
             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
         }
@@ -86,9 +86,12 @@ var Chat = {
                 case 27: // ESC
                     this.value = '';
                     $( this ).blur();
+                    break;
                 case 13: // enter
                     Chat.SendMessage( Chat.CurrentChannel, this.value );
                     this.value = '';
+                    $( this ).blur();
+                    $( this ).focus();
              }
          } ).keyup( function ( e ) {
              switch ( e.keyCode ) {
@@ -98,29 +101,51 @@ var Chat = {
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
          document.domain = 'zino.gr';
+         var bigNumber = 123456789;
          Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
          Chat.Join( 'zino' );
-         Chat.Join( User );
+         Chat.Join( User ); // TODO: Join( UserId + ':' + Authtoken )
          Chat.Inited = true;
-         var bigNumber = 123456789;
      },
      SendMessage: function ( channelid, text ) {
+         /*
          var li = document.createElement( 'li' );
          li.innerHTML = '<strong>' + User + '</strong> <span class="text">' + text + '</span>';
          $( '#chatmessages_' + channelid )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid )[ 0 ].lastChild.scrollIntoView();
          var lastChild = $( '#chatmessages_' + channelid )[ 0 ].lastChild;
+         */
          $.post( 'chat/message/create', {
             channelid: channelid,
             text: text
          }, function ( res ) {
-            $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+            // $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
          }, 'xml' );
+     },
+     OnMessageArrival: function ( res ) {
+         var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
+         if ( $( '#chatmessages_' + channelid ).length == 0 ) {
+             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
+         }
+         var history = $( '#chatmessages_' + channelid )[ 0 ];
+         var messages = $( res ).find( 'discussion comment' );
+         var text;
+         var html = '';
+         var li;
+
+         for ( i = 0; i < messages.length; ++i ) {
+             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
+             author = $( messages[ i ] ).find( 'author name' ).text();
+             li = document.createElement( 'li' );
+             li.innerHTML = '<strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
+             history.appendChild( li );
+         }
+         li.scrollIntoView();
      },
      Join: function ( channelid ) {
          // Listen to push messages here
-         Comet.Subscribe( 'chat/messages/list/' + channelid );
-         Comet.Subscribe( 'chat/typing/list/' + channelid );
+         Comet.Subscribe( 'chat/messages/list/' + channelid, Chat.OnMessageArrival );
+         Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnMessageArrival );
      },
      NowLoading: function () {
          document.body.style.cursor = 'wait';
@@ -142,7 +167,7 @@ var Chat = {
                     userid: userid
                 },
                 function ( res ) {
-                    channelid = $( res ).find( 'channel' ).attr( 'id' );
+                    channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
                     Chat.ChannelByUserId[ userid ] = channelid;
                     Chat.HistoryFromXML( res );
                     Chat.ChannelsLoaded[ channelid ] = true;

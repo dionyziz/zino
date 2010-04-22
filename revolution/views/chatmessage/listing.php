@@ -1,4 +1,4 @@
-<channel id="<?= $channel[ 'id' ] ?>">
+<chatchannel id="<?= $channel[ 'id' ] ?>">
     <discussion>
         <? foreach ( $chatmessages as $chatmessage ): ?>
         <comment id="s<?= $chatmessage[ 'id' ] ?>">
@@ -14,4 +14,4 @@
         </comment>
         <? endforeach; ?>
     </discussion>
-</channel>
+</chatchannel>
