@@ -10,7 +10,8 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'user/user' );
             $libs->Load( 'journal/journal' );
-
+			$libs->Load( 'research/spot' );
+			
             Element( 'user/subdomainmatch' );
 
             if ( $subdomain->Exists() && $url->Exists() ) {
@@ -26,6 +27,9 @@
             }
 
             if ( $journal !== false ) {
+				if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 || $user->Id == 1 || $user->Id == 5181 || $user->Id == 3890 ) {
+                    Spot::Selected( TYPE_JOURNAL, $id );
+				}
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
                 $finder = New FavouriteFinder();
