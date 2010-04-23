@@ -10,7 +10,7 @@ var Comment = {
         var newcomment = $( '.discussion .note .thread.new' );
         
         if ( $( '.discussion .note .thread.new > .author > .avatar' ).length == 0 ) {
-            Comment.LoadAvatar();
+            //Comment.LoadAvatar();
         }
         
         if ( rootparent ) {
@@ -76,7 +76,7 @@ var Comment = {
                             document.body.style.cursor = 'default';
                         }
                     } )( $( this ).closest( '.thread.new' ) )
-                    wysiwyg.transform( '/social/comment', callback );
+                    axslt( wysiwyg, '/social/comment', callback );
                     
                     var message = $( '<div class="message mine"><div class="text" /></div>' );
                     message.find( '.text' ).append( $( this ).val() );
