@@ -77,7 +77,7 @@
 			global $user;
             $userid = $user->Id;
             $itemid = $id;
-            $request = "VISITED\n$userid\n$type_id\n$itemid\n";
+            $request = "VISITED\n$userid\n$itemid\n$type_id\n";
             self::SendRequest( $request );
         }
         public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {
