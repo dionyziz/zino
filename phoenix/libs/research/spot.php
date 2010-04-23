@@ -73,11 +73,11 @@
             $request = "VISITED\n$userid\n$itemid\n$trainvalues\n";
             self::SendRequest( $request );
         }
-		public static function Selected( $type_id, $id ) {
+		public static function Visited( $type_id, $id ) {
 			global $user;
             $userid = $user->Id;
             $itemid = $id;
-            $request = "SELECTED\n$userid\n$type_id\n$itemid\n";
+            $request = "VISITED\n$userid\n$type_id\n$itemid\n";
             self::SendRequest( $request );
         }
         public static function GetContent( $user, $numImages = 30, $numJournals = 10, $numPolls = 10 ) {

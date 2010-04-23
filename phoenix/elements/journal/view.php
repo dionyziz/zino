@@ -28,7 +28,7 @@
 
             if ( $journal !== false ) {
 				if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 || $user->Id == 1 || $user->Id == 5181 || $user->Id == 3890 ) {
-                    Spot::Selected( TYPE_JOURNAL, $id );
+                    Spot::Visited( TYPE_JOURNAL, $id );
 				}
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
