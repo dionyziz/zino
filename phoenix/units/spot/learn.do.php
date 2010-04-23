@@ -21,7 +21,7 @@
 				foreach( $info as $key=>$val ) {
 					$trainvalues .= $val . " ";
 				}
-				Spot::JournalVisited( $trainvalues, $id );
+				Spot::Selected( $trainvalues, $id, TYPE_JOURNAL );
                 break;
             default:
                 ?>alert( 'Wrong item type' );<?php

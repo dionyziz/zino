@@ -65,12 +65,10 @@
             $request = "NEW FAVOURITE\n$userid\n$itemid\n$typeid\n";
             self::SendRequest( $request );
         }
-		public static function JournalVisited( $info, $journalid ) {
+		public static function Selected( $info, $id, $type_id ) {
 			global $user;
             $userid = $user->Id;
-            $itemid = $journalid;
-            $trainvalues = $info;
-            $request = "VISITED\n$userid\n$itemid\n$trainvalues\n";
+            $request = "SELECTED\n$userid\n$id\n$type_id\n$info\n";
             self::SendRequest( $request );
         }
 		public static function Visited( $type_id, $id ) {
