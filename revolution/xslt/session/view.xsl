@@ -1,4 +1,4 @@
-<xsl:template match="/social[@resource='session'][@method='view']">
+<xsl:template match="/social[@resource='session' and @method='view']">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
         <head>
             <title>Zino</title>
