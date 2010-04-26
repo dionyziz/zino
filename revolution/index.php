@@ -33,12 +33,13 @@
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl\"?>";
 
-    ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?php
+    ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {
-        ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?php
+        ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?
     }
     ?> generator="<?= $settings[ 'base' ];
-    ?>" template="<?="$resource.$method";
+    ?>" resource="<?= $resource;
+    ?>" method="<?= $method;
     ?>"><?php
 
     include 'controllers/' . $resource . '.php';
