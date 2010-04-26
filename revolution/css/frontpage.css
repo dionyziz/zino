@@ -106,6 +106,7 @@ div.photofeed img {
     margin: 1px;
     padding: 5px;
     width: 100%;
+    height: 150px;
     display: block;
     position: relative;
     background-image: url( 'http://static.zino.gr/revolution/placeholder.png' );
@@ -133,9 +134,6 @@ div.photofeed img {
     border: 0;
 }
 .col2 {
-    overflow: auto;
-    background-repeat: repeat;
-    background-attachment: fixed;
     background-color: #347594;
 }
 .contentitem > .details {
@@ -388,82 +386,34 @@ div.progressbar div.progress {
 div.document {
     text-align: left;
     color: white;
-    padding: 20px;
+    padding: 20px 200px;
 }
 .feed {
     margin-left: 5px;
-    height: 100%;
 }
 .feed:before {
-    content: 'a';
+    content: '';
     width:4.5%;
     min-width: 50px;
     float: left;
-    height: 100%;
-    color: transparent;
-    display: block;
+    padding-top: 1px;
 }
-.feed ul {
-    list-style: none;
-    padding: 0;
-    height: 100%;
+.feed ul{
     overflow: auto;
-}
-.feed li.poll {
-    background-image: -moz-linear-gradient( bottom , #FBCA54, #fbe9bf);
-    background-image:
-	-webkit-gradient(
-	    linear,
-	    left bottom,
-	    left top,
-	    color-stop(0, #FBCA54),
-	    color-stop(1, #fbe9bf )
-	);
-}
-.feed li.journal {
-    background-image: -moz-linear-gradient( bottom, #fc7b80, #fcb0b3);
-    background-image:
-	-webkit-gradient(
-	    linear,
-	    left bottom,
-	    left top,
-	    color-stop(0, #fc7b80),
-	    color-stop(1, #fcb0b3 )
-	);
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    width: 50%;
 }
 .feed li {
-    background-image:
-	-webkit-gradient(
-	    linear,
-	    left top,
-	    left bottom,
-	    color-stop(0, #dedede),
-	    color-stop(1, #b2c4e6 )
-	);
-    background-image: -moz-linear-gradient(top,#dedede,#b2c4e6);
-    border: 1px solid #555;
-    -moz-border-radius-bottomleft:4px;
-    -moz-border-radius-bottomright:4px;
-    -moz-border-radius-topleft:4px;
-    -moz-border-radius-topright:4px;
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
-    margin: 2px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #999;
     position: relative;
     overflow: hidden;
+    background: #f6f6f6;
+    font-family: 'Georgia';
 }
 .feed li:hover {
-    background-image:
-	-webkit-gradient(
-	    linear,
-	    left top,
-	    left bottom,
-	    color-stop(0, #dedede),
-	    color-stop(1, #fff )
-	);
-    background-image: -moz-linear-gradient(top,#dedede,#fff);
+    background: #fff;
 }
 .feed a {
     color: black;
@@ -471,20 +421,33 @@ div.document {
 }
 .feed li a.avatar{
     position: absolute;
-    top: 50%;
-    margin-top: -24px;
+    top: 1px;
     height: 46px;
-    left: -1px;
+    left: 1px;
+}
+.feed li a.username:hover {
+    border-bottom: 1px dotted black;
 }
 .feed li a.username {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 5px 10px 0 50px;
+    color: #333;
+    margin: 5px 10px 0 55px;
 }
 .feed li a.title {
     display: block;
-    padding: 17px 10px 1px 50px;
+    padding: 21px 10px 1px 53px;
+    min-height: 35px;
+}
+.feed li a.thumb {
+    margin-left: 130px;
+    display: block;
+    margin-bottom: -3px;
+}
+.feed li a.thumb img {
+    width: 46px;
+    margin: 0;
 }
 .feed h2 {
     font-size: 18px;
@@ -494,33 +457,39 @@ div.document {
     color: black;
     line-height: 18px;
 }
+#preview:before {
+    content: '';
+    width:4.5%;
+    min-width: 50px;
+    float: left;
+    padding-top: 1px;
+}
 #preview {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    display: none;
+}
+#preview div{
+    overflow: auto;
+    height: 100%;
+}
+#preview p{
     -moz-border-radius-bottomleft: 3px;
     -moz-border-radius-bottomright: 3px;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     -webkit-border-radius: 3px;
-    background-color: white;
-    border: 1px solid #333;
-    margin: 4px 0;
-    bottom: 0;
-    position: fixed;
-    right: 0.5%;
-    top: 0;
-    width: 44%;
-    background-color: #b6daef;
-    display: none;
-}
-#preview p  {
-    color: #161616;
-    font-size: 17px;
-    font-style: oblique;
-    margin: -22px auto auto;
-    padding-top: 5px;
-    position: relative;
+    border: 1px solid black;
+    font-size: 20px;
     text-align: center;
-    top: 50%;
-    width: 85%;
+    font-style: italic;
+    margin: 0 0.5% 0 0;
+    background: white;
+    width: 49%;
+    height: 98%;
+    float: right;
 }
 .contentitem img.maincontent {
     margin-left: 120px;

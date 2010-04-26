@@ -20,17 +20,12 @@
 
             include 'views/videostream/view.php';
         }
-        public static function Update( $recieverid, $secretchannel, $remove = false ){
+        public static function Update( $recieverid ){
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to upadate a videostream' );
             include 'models/db.php';
             include 'models/videostream.php';
             $id = $_SESSION[ 'user' ][ 'id' ];
-            if( $remove ){
-                $success = VideoStream::RemovePermission( $id, $recieverid );
-            }
-            else {
-                $success = VideoStream::GrantPermission( $id, $recieverid );
-            }
+            $token = VideoStream::GrantPermission( $id, $recieverid );
 
             include 'views/videostream/update.php';
         }

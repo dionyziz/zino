@@ -5,7 +5,7 @@
                     (`videostream_userid`, `videostream_stratusid`)
                 VALUES
                     (:id, :stratusid )
-                ON DUPLICATE KEY UPADTE
+                ON DUPLICATE KEY UPDATE
                     `videostream_stratusid` = :stratusid;', compact( 'id', 'stratusid' ) );
                     
         }
@@ -21,7 +21,7 @@
             return mysql_fetch_array( $res );
         }
         public static function GrantPermission( $userid, $targetuserid ){
-            $token = $this->GenerateToken();
+            $token = self::GenerateToken();
             db( 'UPDATE `videostream`
                  SET
                     `videostream_targetuserid` = :targetuserid,
@@ -31,7 +31,7 @@
                  LIMIT 1', compact( 'userid', 'targetuserid', 'token' ) );
             return $token;
         }
-        public static function GenerateToken(){
+        private static function GenerateToken(){
             $authtoken = '';
             for ( $i = 0; $i < 7; ++$i ) {
                 $authtoken .= dechex( rand( 0, 15 ) );

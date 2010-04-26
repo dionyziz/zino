@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init();">
     <mx:Script>
-        <![CDATA[
+        <![CDATA[/*
             private const StratusAddress:String = "rtmfp://stratus.adobe.com";
             private const DeveloperKey:String = "afd29db69ae6ab11613eca86-919ccefd8799";
             private var camera:Video;
@@ -19,7 +19,6 @@
             }
             private function netConnectionHandler( e:NetStatusEvent ):void {
                 txtlabel.text = netConnection.nearID;
-                trace( netConnection.unconnectedPeerStreams );
                 sendStream = new NetStream( netConnection, NetStream.DIRECT_CONNECTIONS );
                 sendStream.publish( "media" );
                 sendStream.attachAudio( Microphone.getMicrophone() );
@@ -29,7 +28,10 @@
                 foo.setMode( 640, 480, 24, true );
                 camera.attachCamera( foo );
                 uic.addChild( camera );
-            }
+            }*/
+                var bar = new HTTPService( "http://google.com" );
+                bar.addEventListener( ResultEvent.RESULT
+
         ]]>
     </mx:Script>
     <mx:UIComponent id="uic" width="320" height="240"/>
