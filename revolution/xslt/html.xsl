@@ -1,10 +1,19 @@
 <xsl:variable name="mastertemplate">
-    <xsl:value-of select="/social/@template" />
+    <xsl:value-of select="/*[1]/@resource" />.<xsl:value-of select="/*[1]/@method" />
+</xsl:variable>
+<xsl:variable name="resource">
+    <xsl:value-of select="/*[1]/@resource" />
+</xsl:variable>
+<xsl:variable name="method">
+    <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
 <xsl:template match="/" priority="1">
     <xsl:choose>
+        <!-- tiny master templates -->
         <xsl:when test="$mastertemplate = 'session.view' "><xsl:apply-templates /></xsl:when>
+        
+        <!-- full master templates -->
         <xsl:otherwise>
             <xsl:call-template name="html" />
         </xsl:otherwise>

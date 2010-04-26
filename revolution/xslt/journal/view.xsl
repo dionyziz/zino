@@ -1,8 +1,8 @@
-<xsl:template match="/social[@template='journal.view']">
+<xsl:template match="/social[@resource='journal'][@method='view']">
     <xsl:call-template name="zoomin" />
 </xsl:template>
 
-<xsl:template match="/social[@template='journal.view']//entry">
+<xsl:template match="/social[@resource='journal'][@method='view']//entry">
     <a class="xbutton" href="news">&#171;<span><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">journal_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>

@@ -1,8 +1,8 @@
-<xsl:template match="/social[@template='photo.view']">
+<xsl:template match="/social[@method='photo'][@resource='view']">
     <xsl:call-template name="zoomin" />
 </xsl:template>
 
-<xsl:template match="/social[@template='photo.view']//entry">
+<xsl:template match="/social[@method='photo'][@resource='view']//entry">
     <a class="xbutton" href="photos">&#171;<span><span>&#9650;</span>πίσω στις εικόνες</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">photo_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>

@@ -1,8 +1,8 @@
-<xsl:template match="/social[@template='poll.view']">
+<xsl:template match="/social[@resource='poll'][@method='view']">
     <xsl:call-template name="zoomin" />
 </xsl:template>
 
-<xsl:template match="/social[@template='poll.view']//entry">
+<xsl:template match="/social[@resource='poll'][@method='view']//entry">
     <a class="xbutton" href="news">&#171;<span><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">poll_<xsl:value-of select="/social/entry[1]/@id" /></xsl:attribute>

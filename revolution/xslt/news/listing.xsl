@@ -1,8 +1,8 @@
-<xsl:template match="/social[@template='news.listing']">
+<xsl:template match="/social/social[@resource='news'][@method='listing']">
     <xsl:call-template name="zoomout" />
 </xsl:template>
 
-<xsl:template match="/social[@template='news.listing']//feed">
+<xsl:template match="/social[@resource='news'][@method='listing']//feed">
     <div class="feed">
         <ul>
             <xsl:for-each select="entry">
