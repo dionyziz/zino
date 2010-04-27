@@ -1,6 +1,8 @@
 $.ajaxSetup( {
     dataType: 'xml'
 } );
+_aXSLT.defaultStylesheet = 'global.xsl';
+
 $( 'div.time' ).each( function () {
     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
     $( this ).addClass( 'processedtime' );

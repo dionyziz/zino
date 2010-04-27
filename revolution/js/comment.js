@@ -95,17 +95,16 @@ var Comment = {
             .find( 'textarea' ).focus();
     },
     Prepare: function( collection ) {
-    
-    $( collection )
-        .mousedown( function() { Comment.StillMouse = true; } )
-        .mousemove( function() { Comment.StillMouse = false; } )
-        .mouseup( function() {
-            return Comment.New.call( this );
-        } )
-        .click( function() { return false; } )
-        .find( '.author' ).click( function( event ) {
-            event.stopPropagation();
-        } );
+        $( collection )
+            .mousedown( function() { Comment.StillMouse = true; } )
+            .mousemove( function() { Comment.StillMouse = false; } )
+            .mouseup( function() {
+                return Comment.New.call( this );
+            } )
+            .click( function() { return false; } )
+            .find( '.author' ).click( function( event ) {
+                event.stopPropagation();
+            } );
     },
     LoadAvatar: function() {
         $.get( 'users/view', { 'name': User, 'details': 'false' } );
