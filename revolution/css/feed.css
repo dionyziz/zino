@@ -1,13 +1,3 @@
-.feed {
-    margin-left: 5px;
-}
-.feed:before {
-    content: '';
-    width:4.5%;
-    min-width: 50px;
-    float: left;
-    padding-top: 1px;
-}
 .feed ul{
     overflow: auto;
     border-left: 1px solid #999;
