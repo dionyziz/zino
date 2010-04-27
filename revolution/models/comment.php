@@ -182,5 +182,42 @@
                 'text' => $text
             );
         }
+        public function Item( $commentid ){
+            $comment = db( 'SELECT
+                    `comment_userid`, `comment_bulkid`, `comment_created`
+                FROM
+                    `comments`
+                WHERE
+                    `comment_id` = :commentid
+                LIMIT 1', compact( 'commentid' ) );
+            $comment = mysql_fetch_array( $comment ); //Get comment's related information
+
+            $text = db( 'SELECT
+                    `bulk_text`
+                FROM
+                    `bulk`
+                WHERE
+                    `bulk_id` = :bulkid
+                LIMIT 1', array( 'bulkid' => $comment[ 'comment_bulkid' ] ) );
+            $text = mysql_fetch_array( $text ); //Get comment's text
+
+            $user = db( 'SELECT
+                            `user_name`, `user_gender`, `user_avatarid`
+                        FROM
+                            `users`
+                        WHERE
+                            `user_id` = :userid
+                        LIMIT 1', array( 'userid' => $comment[ 'comment_userid' ] ) );
+            $user = mysql_fetch_array( $user ); //Get comment's author details
+
+            return array( 'user' => array(  'avatarid' => $user[ 'user_avatarid' ],
+                                            'gender' => $user[ 'user_gender' ],
+                                            'name' => $user[ 'user_name' ] 
+                                         ),
+                          'created' => $comment[ 'comment_created' ],
+                          'text' => $text[ 'bulk_text' ]
+                        ); //Build a scalar and return it
+
+        }
     }
 ?>
