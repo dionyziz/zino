@@ -25,6 +25,8 @@
         </ul>
     </div>
     <div class="col2">
-        <xsl:apply-templates />
+        <div class="content">
+            <xsl:apply-templates />
+        </div>
     </div>
 </xsl:template>
