@@ -45,6 +45,9 @@
         position: relative;
         width: 200px;
     }
+    .panel .selected {
+        border: 2px solid white;
+    }
         .panel .box div {
             height: 100px;
             overflow: hidden;

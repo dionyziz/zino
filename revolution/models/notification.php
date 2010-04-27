@@ -81,7 +81,8 @@
                 switch ( $type ) {
                     case 'EVENT_COMMENT_CREATED':
                         $res = db( 'SELECT
-                                        `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid
+                                        `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
+                                        `comment_created` AS created, `comment_parentid` AS parentid
                                     FROM
                                         `comments`
                                     WHERE

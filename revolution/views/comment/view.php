@@ -11,5 +11,6 @@
         <? endif; ?>
 
     </author>
+    <published><?= $comment[ 'created' ] ?></published>
     <text><?= $comment[ 'text' ]; ?></text>
 </comment>

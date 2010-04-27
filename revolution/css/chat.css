@@ -98,7 +98,7 @@
     font-family: Trebuchet MS;
     height: 29px;
 }
-.textmessages .loading {
+.loading {
     bottom: 55px;
     color: #CCCCCC;
     font-size: 200%;
@@ -110,4 +110,14 @@
     right: 0;
     text-align: center;
     top: 40%;
+}
+.loading div.progressbar {
+    border: 1px solid #749ec2;
+    background-color: #206386;
+    margin: 10px auto;
+}
+.loading div.progressbar .progress {
+    height: 20px;
+    width: 40px;
+    background-color: #749ec2;
 }

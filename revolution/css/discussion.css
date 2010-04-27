@@ -25,10 +25,16 @@ div.mine .time {
     color: #4f7eae;
 }
 a.talk {
-    background-image: url( 'images/speak.png' );
-    background-repeat: no-repeat;
-    background-position: 2px 3px;
-    padding-left: 20px;
+    -moz-border-radius: 5px;
+    background-color: white;
+    border: 1px solid #456;
+    color: #666;
+    font-size: 100%;
+    padding: 6px;
+    text-align: left;
+    width: 200px;
+    display: block;
+    margin: 0 0 0 16px;
 }
 .thread.new {
     border-top: none;

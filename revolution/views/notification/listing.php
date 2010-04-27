@@ -18,12 +18,14 @@
             break;
     endswitch;
     ?>" id="<?= $notification[ 'comment' ][ 'itemid' ] ?>">
-        <discussion><?
-                $comment = $notification[ 'comment' ];
-                $user = $notification[ 'user' ];
-                include 'views/comment/view.php';
-            ?>
-
+        <discussion>
+            <comment id="<?= $notification[ 'comment' ][ 'parentid' ] ?>">
+                <?
+                    $comment = $notification[ 'comment' ];
+                    $user = $notification[ 'user' ];
+                    include 'views/comment/view.php';
+                ?>
+            </comment>
         </discussion>
     </entry>
     <? endif; ?>

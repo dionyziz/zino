@@ -31,5 +31,12 @@
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
             include 'views/comment/view.php';
         }
+        public static function View( $commentid ) {
+            include 'models/types.php';
+            include 'models/db.php';
+            include 'models/comment.php';
+            $comment = Comment::Item( $commentid );
+            include 'views/comment/view.php';
+        }
     }
 ?>
