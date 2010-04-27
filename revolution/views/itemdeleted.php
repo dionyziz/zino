@@ -1,3 +1,1 @@
-<entry>
-	<item deleted='deleted'/>
-</entry>
+<entry deleted="yes" />

@@ -29,6 +29,7 @@
             <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
             <title>Zino</title>
             <link type="text/css" href="global.css" rel="stylesheet" />
+            <link type="text/css" href="css/panels.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <script type="text/javascript">
                 var OnLoad = function () {};
@@ -44,7 +45,9 @@
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
             <script type="text/javascript">
-                var User = '<xsl:value-of select="/social/@for" />';
+                <xsl:if test="/social/@for">
+                    var User = '<xsl:value-of select="/social/@for" />';
+                </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
             </script>

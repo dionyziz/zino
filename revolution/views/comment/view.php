@@ -1,16 +1,15 @@
-<comment id="<?= $comment[ 'id' ] ?>"><author><name><?
-echo $user[ 'username' ];
-?></name><gender><?
-echo $user[ 'gender' ];
-?></gender><?
-if ( $user[ 'avatarid' ] ) {
-    ?><avatar><media url="http://images2.zino.gr/media/<?
-    echo $user[ 'id' ];
-    ?>/<?
-    echo $user[ 'avatarid' ];
-    ?>/<?
-    echo $user[ 'avatarid' ];
-    ?>_100.jpg" /></avatar><?
-}
-?></author><text><?= $comment[ 'text' ]; ?></text>
+
+<comment id="<?= $comment[ 'id' ] ?>">
+    <author>
+        <name><?= $user[ 'username' ] ?></name>
+        <gender><?= $user[ 'gender' ] ?></gender>
+        <? if ( $user[ 'avatarid' ] ): ?>
+
+        <avatar>
+            <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
+        </avatar>
+        <? endif; ?>
+
+    </author>
+    <text><?= $comment[ 'text' ]; ?></text>
 </comment>

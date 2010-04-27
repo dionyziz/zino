@@ -1,0 +1,81 @@
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.panel {
+    border-top: 1px solid #666;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 5;
+    height: 150px;
+    overflow: hidden;
+}
+    .panel .xbutton {
+        font-size: 100%;
+        color: white;
+        float: right;
+        position: static;
+        margin: 5px 5px 0 0;
+        border: 0;
+        background-color: transparent;
+        padding: 0;
+        background-image: url( 'http://static.zino.gr/phoenix/xbutton.png' );
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    .panel .box:hover {
+        border: 2px solid white;
+    }
+    .panel .box {
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        border: 2px solid #666;
+        cursor: pointer;
+        float: left;
+        height: 100px;
+        margin: 5px 3px;
+        opacity: 1;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 200px;
+    }
+        .panel .box div {
+            height: 100px;
+            overflow: hidden;
+            width: 100px;
+        }
+        .panel .box div.details h4 {
+            display: block;
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 2px 0pt;
+            margin: 0;
+            font-size: 100%;
+        }
+        .panel .box div.details {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 80px;
+            border-left: 1px solid white;
+            background-color: #222;
+            width: auto;
+            height: auto;
+            color: white;
+        }
+            .panel .box div.details div.text {
+                font-weight: bold;
+                padding: 5px;
+            }
+    .panel h3 {
+        color: orange; font-size: 120%; padding: 5px; margin: 4px 0pt; text-align: center;
+    }

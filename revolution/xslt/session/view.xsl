@@ -19,18 +19,18 @@
                 <form class="register">
                     <span>Διάλεξε ένα ψευδώνυμο:</span>
                     <div>
-                        <input class="submit" type="submit" value="Μπες τώρα" />
-                        <input class="text" type="text" name="username" />
+                        <input class="submit" type="submit" value="Μπες τώρα" tabindex="5" />
+                        <input class="text" type="text" name="username" tabindex="4" />
                     </div>
                 </form>
                 <div class="login">
                     <h2>Έχεις ήδη zino?</h2>
                     <form>
                         <label>Ψευδώνυμο</label>
-                        <input class="text" type="text" />
+                        <input class="text" type="text" tabindex="1" />
                         <label>Κωδικός</label>
-                        <input class="text" type="password" />
-                        <input class="submit" type="submit" value="Είσοδος" />
+                        <input class="text" type="password" tabindex="2" />
+                        <input class="submit" type="submit" value="Είσοδος" tabindex="3" />
                     </form>
                 </div>
             </div>
@@ -45,6 +45,9 @@
                 </ul>
             </div>
             <script type="text/javascript">
+                setTimeout( function () {
+                    $( $( 'form' )[ 1 ] ).find( 'input' )[ 0 ].focus();
+                }, 20 );
                 $( 'form' )[ 1 ].onsubmit = function () {
                     $.post( 'session/create', {
                         username: this.getElementsByTagName( 'input' )[ 0 ].value,

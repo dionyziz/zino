@@ -39,6 +39,9 @@ RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&c
 RewriteRule ^tunnel/create$ index.php?resource=tunnel&method=create [L,QSA]
 RewriteRule ^tunnel/update/([0-9]+)$ index.php?resource=tunnel&method=update&id=$1 [L,QSA]
 
+# notifications
+RewriteRule ^notifications$ index.php?resource=notification&method=list [L,QSA]
+
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]
