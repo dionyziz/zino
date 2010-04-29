@@ -62,7 +62,7 @@
     </div>
     <div id="preview">
         <div class="contentshadow">
-            <div class="content">Τα σπάει!</div>
+            <div class="content"></div>
         </div>
     </div>
 </xsl:template>
