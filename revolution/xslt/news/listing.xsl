@@ -60,4 +60,9 @@
             </xsl:for-each>
         </ul>
     </div>
+    <div id="preview">
+        <div class="contentshadow">
+            <div class="content">Τα σπάει!</div>
+        </div>
+    </div>
 </xsl:template>

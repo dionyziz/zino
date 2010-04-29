@@ -47,3 +47,31 @@
     margin: 10px 15px 0 0;
     color: #3B5998;
 }
+#preview {
+     position: fixed;
+     height: 100%;
+     width: 100%;
+     top: 0;
+     left: 0;
+     visibility: hidden;
+}
+#preview:before {
+     content: '  ';
+     width:4.5%;
+     min-width: 50px;
+     float: left;
+     padding-top: 1px;
+     visibility: hidden;
+}
+#preview div.contentshadow {
+    visibility: hidden;
+    height: 100%;
+    overflow: auto;
+}
+#preview div.content {
+    width: 45%;
+    height: 100%;
+    float: right;
+    background-color: #aaa;
+    visibility: visible;
+}
