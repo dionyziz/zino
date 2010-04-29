@@ -67,11 +67,14 @@
     visibility: hidden;
     height: 100%;
     overflow: auto;
+    position: relative;
 }
 #preview div.content {
     width: 45%;
     height: 100%;
-    float: right;
     background-color: #aaa;
+    position: absolute;
+    right: 0;
     visibility: visible;
+    z-index: 100;
 }
