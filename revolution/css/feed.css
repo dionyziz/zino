@@ -5,8 +5,7 @@
     border-right: 1px solid black;
 }
 .feed ul li {
-    border-top: 1px solid black;
-    border-bottom: 2px solid #dfdfdf;
+    border-top: 1px dotted black;
     min-height: 67px;
 }
 .feed ul li a h2 {
@@ -21,17 +20,30 @@
 }
 .feed ul li a.title {
     text-decoration: none;
+    display: block;
+    clear: left;
 }
 .feed ul li a.username {
     display: block;
     height: 1px;
-    margin: 10px 30px;
+    margin: 10px 0px 10px 30px;
     color: #1b49c1;
     text-decoration: none;
     font-weight: bold;
+    float: left;
 }
 .feed ul li a.username img {
     display: block;
     float: left;
     margin-right: 4px;
+}
+.feed ul li p.publishtime {
+    float: left;
+    margin: 10px 0 0 5px;
+    color: #555;
+}
+.feed ul li p.commentcount {
+    text-align: right;
+    margin: 10px 15px 0 0;
+    color: #3B5998;
 }

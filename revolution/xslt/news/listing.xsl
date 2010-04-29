@@ -9,6 +9,15 @@
                 <li>
                     <xsl:attribute name="class"><xsl:value-of select="@type" /></xsl:attribute>
                     <xsl:apply-templates select="author" />
+                    <p class="publishtime">Αναρτήθηκε <xsl:value-of select="published[1]" /></p>
+                    <xsl:if test="discussion[1]/@count &gt; 0">
+                        <xsl:if test="discussion[1]/@count &lt; 2">
+                            <p class="commentcount"><xsl:value-of select="discussion[1]/@count" /> σχόλιο</p>
+                        </xsl:if>
+                        <xsl:if test="discussion[1]/@count &gt; 1">
+                            <p class="commentcount"><xsl:value-of select="discussion[1]/@count" /> σχόλια</p>
+                        </xsl:if>
+                    </xsl:if>
                     <xsl:if test="@type = 'poll' ">
                         <a class="title">
                             <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
