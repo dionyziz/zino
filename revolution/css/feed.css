@@ -1,93 +1,37 @@
-.feed ul{
-    overflow: auto;
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
-    width: 50%;
+.feed ul  {
+    width: 55%;
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
-.feed li {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #999;
-    position: relative;
-    overflow: hidden;
-    background: #f6f6f6;
-    font-family: 'Georgia';
+.feed ul li {
+    border-top: 1px solid black;
+    border-bottom: 2px solid #dfdfdf;
+    min-height: 67px;
 }
-.feed li:hover {
-    background: #fff;
-}
-.feed a {
+.feed ul li a h2 {
+    margin: 0 10px 5px 80px;
+    padding: 2px;
+    line-height: 22px;
     color: black;
+    border: 0;
+    font-weight: normal;
+    text-align: justify;
     text-decoration: none;
 }
-.feed li a.avatar{
-    position: absolute;
-    top: 1px;
-    height: 46px;
-    left: 1px;
+.feed ul li a.title {
+    text-decoration: none;
 }
-.feed li a.username:hover {
-    border-bottom: 1px dotted black;
-}
-.feed li a.username {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #333;
-    margin: 5px 10px 0 55px;
-}
-.feed li a.title {
+.feed ul li a.username {
     display: block;
-    padding: 21px 10px 1px 53px;
-    min-height: 35px;
+    height: 1px;
+    margin: 10px 30px;
+    color: #1b49c1;
+    text-decoration: none;
+    font-weight: bold;
 }
-.feed li a.thumb {
-    margin-left: 130px;
+.feed ul li a.username img {
     display: block;
-    margin-bottom: -3px;
-}
-.feed li a.thumb img {
-    width: 46px;
-    margin: 0;
-}
-.feed h2 {
-    font-size: 18px;
-    border: 0;
-    margin: 0 0 10px;
-    font-weight: normal;
-    color: black;
-    line-height: 18px;
-}
-#preview:before {
-    content: '';
-    width:4.5%;
-    min-width: 50px;
     float: left;
-    padding-top: 1px;
-}
-#preview {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    height: 100%;
-    display: none;
-}
-#preview div{
-    overflow: auto;
-    height: 100%;
-}
-#preview p{
-    -moz-border-radius-bottomleft: 3px;
-    -moz-border-radius-bottomright: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-topright: 3px;
-    -webkit-border-radius: 3px;
-    border: 1px solid black;
-    font-size: 20px;
-    text-align: center;
-    font-style: italic;
-    margin: 0 0.5% 0 0;
-    background: white;
-    width: 49%;
-    height: 98%;
-    float: right;
+    margin-right: 4px;
 }
