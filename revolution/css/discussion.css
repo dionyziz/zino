@@ -65,6 +65,7 @@ ul.tips li {
     display: inline; 
     padding-left: 20px;
     color: #4f7eae;
+    white-space: nowrap;
 }
 ul.tips strong {
     font-weight: normal;

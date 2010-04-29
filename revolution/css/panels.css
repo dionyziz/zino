@@ -1,12 +1,24 @@
 #instantbox {
+    border-bottom: 1px solid black;
+    background-color: #213f57;
 }
-    #instantbox .content {
+    #instantbox > .content {
+        float: left;
+        width: 50%;
+        overflow: hidden;
+    }
+    #instantbox > .content img {
+        display: block;
+    }
+    #instantbox > .details {
         float: left;
         width: 50%;
     }
-    #instantbox .details {
-        float: left;
-        width: 50%;
+    #instantbox > .tips {
+        text-align: center;
+        background-color: black;
+        border-bottom: 1px solid #666;
+        padding: 7px;
     }
 .bottom {
     position: fixed;

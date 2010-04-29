@@ -13,6 +13,7 @@ var Notifications = {
 
         var html =
             '<div id="instantbox">'
+                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση απάντησης</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα απαντήσω αργότερα</strong></li></ul>'
                 + '<div class="content"></div>'
                 + '<div class="details">'
                     + '<div class="thread">'
@@ -39,16 +40,24 @@ var Notifications = {
                                 + '<div class="text">' + comment + '</div>'
                                 + '<div class="eof"></div>'
                             + '</div>'
+                            + '<div class="note"><strong>Γράψε μία απάντηση:</strong>'
+                                + '<div class="thread new">'
+                                    + '<div class="message mine new">'
+                                        + '<div><textarea></textarea></div>'
+                                    + '</div>'
+                                + '</div>'
+                            + '</div>'
                         + '</div>'
                     + '</div>'
                 + '</div>'
-            + '</div>';
+            + '<div class="eof"></div></div>';
 
         $( 'body' ).prepend( html );
 
         $.get( 'comments/' + parentid, {}, function ( res ) {
             $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
             $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+            $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
         } );
         // TODO: non comment replies
         // TODO: other types
@@ -56,7 +65,8 @@ var Notifications = {
             case 'image':
                 $.get( 'photos/' + id, {}, function ( res ) {
                     var src = $( res ).find( 'entry > media' ).attr( 'url' );
-                    $( '#instantbox .content' ).append( '<img src="' + src + '" alt="" />' );
+                    var id = $( res ).find( 'entry' ).attr( 'id' );
+                    $( '#instantbox .content' ).append( '<a href="photos/' + id + '"><img src="' + src + '" alt="" /></a>' );
                 } );
                 break;
         }
