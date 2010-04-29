@@ -8,6 +8,7 @@
             <xsl:for-each select="entry">
                 <li>
                     <xsl:attribute name="class"><xsl:value-of select="@type" /></xsl:attribute>
+                    <xsl:attribute name="id"><xsl:value-of select="@type" />_<xsl:value-of select="@id" /></xsl:attribute>
                     <xsl:apply-templates select="author" />
                     <p class="publishtime">Αναρτήθηκε <xsl:value-of select="published[1]" /></p>
                     <xsl:if test="discussion[1]/@count &gt; 0">
@@ -19,6 +20,7 @@
                         </xsl:if>
                     </xsl:if>
                     <xsl:if test="@type = 'poll' ">
+                        
                         <a class="title">
                             <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
                             <h2>
@@ -35,6 +37,7 @@
                         </a>
                     </xsl:if>
                     <xsl:if test="@type = 'photo' ">
+                        <xsl:attribute name="id">photo_<xsl:value-of select="@id" /></xsl:attribute>
                         <a class="thumb">
                             <xsl:attribute name="href">
                                 photos/<xsl:value-of select="@id" />
@@ -59,6 +62,9 @@
                 </li>
             </xsl:for-each>
         </ul>
+        <script type="text/javascript">
+            News.Prepare( '.feed li' );
+        </script>
     </div>
     <div id="preview">
         <div class="contentshadow">
