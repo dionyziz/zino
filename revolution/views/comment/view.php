@@ -1,7 +1,7 @@
 
 <comment id="<?= $comment[ 'id' ] ?>">
     <author>
-        <name><?= $user[ 'username' ] ?></name>
+        <name><?= $user[ 'name' ] ?></name>
         <gender><?= $user[ 'gender' ] ?></gender>
         <? if ( $user[ 'avatarid' ] ): ?>
 

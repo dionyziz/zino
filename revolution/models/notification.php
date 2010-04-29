@@ -47,7 +47,7 @@
 
             $res = db( 'SELECT
                             `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
-                            `user_name` AS username, `user_gender` AS gender, `user_avatarid` AS avatarid
+                            `user_name` AS name, `user_gender` AS gender, `user_avatarid` AS avatarid
                         FROM
                             `notify`
                                 CROSS JOIN `users`
@@ -71,7 +71,7 @@
                     'itemid' => $row[ 'itemid' ],
                     'user' => array(
                         'id' => $row[ 'userid' ],
-                        'username' => $row[ 'username' ],
+                        'name' => $row[ 'name' ],
                         'avatarid' => $row[ 'avatarid' ],
                         'gender' => $row[ 'gender' ]
                     )

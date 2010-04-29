@@ -1,3 +1,13 @@
+#instantbox {
+}
+    #instantbox .content {
+        float: left;
+        width: 50%;
+    }
+    #instantbox .details {
+        float: left;
+        width: 50%;
+    }
 .bottom {
     position: fixed;
     bottom: 0;

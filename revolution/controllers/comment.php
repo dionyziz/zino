@@ -36,6 +36,8 @@
             include 'models/db.php';
             include 'models/comment.php';
             $comment = Comment::Item( $commentid );
+            $comment[ 'id' ] = $commentid;
+            $user = $comment[ 'user' ];
             include 'views/comment/view.php';
         }
     }

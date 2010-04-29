@@ -1,6 +1,7 @@
 <feed type="news">
 	<? foreach ( $content as $item ): ?>
     <entry type="<?= $item[ 'type' ] ?>" id="<?= $item[ 'id' ]; ?>">
+        <published><?= $item[ 'created' ] ?></published>
         <author>
             <name><?= $item[ 'username' ]; ?></name>
             <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>

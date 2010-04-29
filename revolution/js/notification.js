@@ -5,42 +5,61 @@ var Notifications = {
     CreateCommentGUI: function ( entry ) {
         var author = entry.find( 'discussion comment comment author name' ).text();
         var avatar = entry.find( 'discussion comment comment author avatar media' ).attr( 'url' );
-        var comment = entry.find( 'discussion comment comment text' ).text(); 
+        var comment = innerxml( entry.find( 'discussion comment comment text' )[ 0 ] );
         var published = entry.find( 'discussion comment comment published' ).text(); 
         var parentid = entry.find( 'discussion comment' ).attr( 'id' );
-        
+        var type = entry.attr( 'type' );
+        var id = entry.attr( 'id' );
+
         var html =
-            '<div class="thread">'
-                + '<div class="message">'
-                    + '<div class="author">'
-                        + '<img class="avatar" src="' + '" alt="' + User + '" />'
-                        + '<div class="details">'
-                            + '<span class="username">' + User + '</span>'
-                            + '<div class="time">' + '</div>'
+            '<div id="instantbox">'
+                + '<div class="content"></div>'
+                + '<div class="details">'
+                    + '<div class="thread">'
+                        + '<div class="message">'
+                            + '<div class="author">'
+                                + '<img class="avatar" src="' + '" alt="' + User + '" style="display:none" />'
+                                + '<div class="details">'
+                                    + '<span class="username">' + User + '</span>'
+                                    + '<div class="time">' + '</div>'
+                                + '</div>'
+                            + '</div>'
+                            + '<div class="text">...</div>'
+                            + '<div class="eof"></div>'
                         + '</div>'
-                    + '</div>'
-                    + '<div class="text">' + '</div>'
-                    + '<div class="eof"></div>'
-                + '</div>'
-                + '<div class="thread">'
-                    + '<div class="message">'
-                        + '<div class="author">'
-                            + '<img class="avatar" src="' + avatar + '" alt="' + author + '" />'
-                            + '<div class="details">'
-                                + '<span class="username">' + author + '</span>'
-                                + '<div class="time">' + published + '</div>'
+                        + '<div class="thread">'
+                            + '<div class="message">'
+                                + '<div class="author">'
+                                    + '<img class="avatar" src="' + avatar + '" alt="' + author + '" />'
+                                    + '<div class="details">'
+                                        + '<span class="username">' + author + '</span>'
+                                        + '<div class="time">' + published + '</div>'
+                                    + '</div>'
+                                + '</div>'
+                                + '<div class="text">' + comment + '</div>'
+                                + '<div class="eof"></div>'
                             + '</div>'
                         + '</div>'
-                        + '<div class="text">' + comment + '</div>'
-                        + '<div class="eof"></div>'
                     + '</div>'
-                + '</div>';
+                + '</div>'
             + '</div>';
 
-        $.get( 'comments/' + parentid, {}, function ( res ) {
-            alert( 'Got parent details' );
-        } );
         $( 'body' ).prepend( html );
+
+        $.get( 'comments/' + parentid, {}, function ( res ) {
+            $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
+            $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+        } );
+        // TODO: non comment replies
+        // TODO: other types
+        switch ( type ) {
+            case 'image':
+                $.get( 'photos/' + id, {}, function ( res ) {
+                    var src = $( res ).find( 'entry > media' ).attr( 'url' );
+                    $( '#instantbox .content' ).append( '<img src="' + src + '" alt="" />' );
+                } );
+                break;
+        }
     },
     Check: function () {
         if ( typeof User != 'undefined' ) {
@@ -57,7 +76,7 @@ var Notifications = {
                     entry = $( entries[ i ] );
                     author = entry.find( 'discussion comment comment author name' ).text();
                     avatar = entry.find( 'discussion comment comment author avatar media' ).attr( 'url' );
-                    comment = entry.find( 'discussion comment comment text' ).text(); 
+                    comment = innerxml( entry.find( 'discussion comment comment text' )[ 0 ] );
                     box = document.createElement( 'div' );
                     box.className = 'box';
                     box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="text">' + comment+ '</div></div>';

@@ -12,7 +12,7 @@
         ?><comment id="<?= $comment[ 'id' ] ?>"><published><?php
         echo $comment[ 'created' ];
         ?></published><author><name><?php
-        echo $comment[ 'username' ];
+        echo $comment[ 'name' ];
         ?></name><gender><?php
         echo $comment[ 'gender' ];
         ?></gender><?php

@@ -23,6 +23,7 @@ RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L]
 
 # comments
 RewriteRule ^comment/create$ index.php?resource=comment&method=create [L]
+RewriteRule ^comments/([0-9]+)$ index.php?resource=comment&method=view&commentid=$1 [L]
 
 # news
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
