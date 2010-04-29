@@ -54,6 +54,14 @@
         if ( isset( $vars[ $paramname ] ) ) {
             $params[] = $vars[ $paramname ];
         }
+        else {
+            if ( !$parameter->isDefaultValueAvailable() ) {
+                $params[] = null;
+            }
+            else { 
+                $params[] = $parameter->getDefaultValue();
+            }
+        }
     }
     
     call_user_func_array( array( 'Controller' . $resource, $method ), $params );
