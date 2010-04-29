@@ -7,6 +7,8 @@
 .feed ul li {
     border-top: 1px dotted black;
     min-height: 67px;
+    position: relative;
+    overflow: hidden;
 }
 .feed ul li a h2 {
     margin: 0 10px 5px 80px;
@@ -18,10 +20,17 @@
     text-align: justify;
     text-decoration: none;
 }
+.feed ul li:hover {
+    background-color: #dedede;
+}
 .feed ul li a.title {
     text-decoration: none;
     display: block;
-    clear: left;
+    position: absolute;
+    top: 0;
+    padding-top: 21px;
+    width: 100%;
+    height: 100%;
 }
 .feed ul li a.username {
     display: block;
@@ -31,6 +40,8 @@
     text-decoration: none;
     font-weight: bold;
     float: left;
+    position: relative;
+    z-index: 1;
 }
 .feed ul li a.username img {
     display: block;
