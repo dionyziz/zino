@@ -21,6 +21,7 @@
         <? case 'journal': ?>
         <title><?= htmlspecialchars( $item[ 'title' ] ) ?></title>
         <? endswitch; ?>
+        <discussion count="<?= $item[ 'numcomments' ] ?>" />
     </entry>
     <? endforeach; ?>
 </feed>
