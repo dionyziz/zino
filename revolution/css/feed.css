@@ -21,7 +21,10 @@
     text-decoration: none;
 }
 .feed ul li:hover {
-    background-color: #dedede;
+    background-color: #C7DAED;
+}
+.feed ul li.previewing {
+    background-color: #7a9ec2;
 }
 .feed ul li a.title {
     text-decoration: none;
