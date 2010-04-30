@@ -7,10 +7,6 @@
     class Friend {
         public static function Create( $userid, $friendid, $typeid ) {
             include 'models/db.php';
-            is_int( $userid ) or die( 'userid is not an integer' );
-            is_int( $friend ) or die( 'friendid is not an integer' );
-            is_int( $typeid ) or die( 'typeid is not an integer' );
-
             return db( 'INSERT INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
