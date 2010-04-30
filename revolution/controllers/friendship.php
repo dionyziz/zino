@@ -1,5 +1,5 @@
 <?php
-    class ControllerJournal {
+    class ControllerFriendship {
         public static function View() {
         }
         public static function Listing() {
