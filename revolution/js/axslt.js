@@ -37,7 +37,7 @@
  */
 
 function axslt( xml, template, callback, xslPath, templateMode, params ) {
-    if ( template instanceof Array ) {
+    if ( template instanceof Object ) {
         templateName = template['name'];
         if ( template[ 'type' ] == 'call' ) {
             templateMode == 'call';
@@ -260,7 +260,7 @@ var _aXSLT = {
         stylesheet = _aXSLT.addTemplate( stylesheet, templateName, templateMode );
         //alert( stylesheet );
         if ( !stylesheet ) {
-            //console.warn( 'aXSLT: Error in master template transmutation' );
+            throw new Error( 'aXSLT: Error in template juggling' );
             return;
         }
         if ( window.ActiveXObject ) {
@@ -279,6 +279,7 @@ var _aXSLT = {
             result = processor.transformToFragment( xml.responseXML, document);
         }
         if ( !result ) {
+            throw new Error( 'aXSLT: Empty result document' );
             return null;
         }
         callback.call( result.childNodes );

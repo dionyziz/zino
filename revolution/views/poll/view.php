@@ -19,7 +19,9 @@
         <? endforeach; ?>
     </options>
     <published><?= $poll[ 'created' ] ?></published>
-    <? include 'views/comment/listing.php'; ?>
+    <? if ( isset( $comments ) ) {
+        include 'views/comment/listing.php';
+    } ?>
     <? if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
         <? foreach ( $favourites as $favourite ): ?>

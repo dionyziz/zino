@@ -13,7 +13,7 @@ var News = {
         }
         var data = $.get( type + 's/' + itemid, { 'preview': 'yes' } );
         axslt( data, '/social/entry', function() {
-            $( '#preview' ).empty().append( this );
+            $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
         } );
         News.Item.itemid = itemid;
         News.Item.type = type;

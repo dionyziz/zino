@@ -90,3 +90,6 @@
     z-index: 100;
     border-left: 1px solid black;
 }
+#preview div.content h2 {
+    margin-left: 25px;
+}
