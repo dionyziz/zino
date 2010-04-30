@@ -15,7 +15,14 @@
         }
         public static function Update() {
         }
-        public static function Delete() {
+        public static function Delete( $friendid ) {
+            include 'models/db.php';
+            include 'models/friend.php';
+            $success = false;
+            if ( isset( $_SESSION[ 'user' ] ) ) {
+                $success = Friend::Delete( $_SESSION[ 'user' ][ 'id' ], $friendid );
+            }              
+            include 'views/friend/delete';    
         }
     }
 ?>
