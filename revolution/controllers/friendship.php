@@ -9,7 +9,7 @@
             include 'models/friend.php';
             $success = false;
             if ( isset( $_SESSION[ 'user' ] ) ) {
-                $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 'FRIENDS_A_HAS_B' );
+                $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 1 );
             }              
             include 'views/friend/create.php';          
         }
