@@ -3,7 +3,7 @@
     background-color: #213f57;
 }
     #instantbox > .content {
-        float: left;
+        float: right;
         width: 50%;
         overflow: hidden;
     }
@@ -19,6 +19,9 @@
         background-color: black;
         border-bottom: 1px solid #666;
         padding: 7px;
+    }
+    #instantbox .contentitem img.maincontent {
+        margin-left: 0;
     }
 .bottom {
     position: fixed;

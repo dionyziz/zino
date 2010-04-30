@@ -33,6 +33,9 @@ RewriteRule ^users/online$ index.php?resource=user&method=listing [L,QSA]
 RewriteRule ^users/([0-9]+)$ index.php?resource=user&method=view&id=$1 [L,QSA]
 RewriteRule ^users/([a-zA-Z][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=view&name=$1 [L,QSA]
 
+# friendship
+RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,QSA]
+
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]
 RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]

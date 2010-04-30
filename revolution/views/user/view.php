@@ -30,7 +30,9 @@
         <? endif;
            endforeach; ?>
     </contact>
-    <? if ( isset( $comments ) ) {
+    <?
+    if ( isset( $comments ) ):
         include 'views/comment/listing.php';
-    } ?>
+    endif;
+    ?>
 </user>

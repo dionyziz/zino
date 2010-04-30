@@ -13,6 +13,12 @@
                 </xsl:attribute>
             </img>
         </a>
+        <form action="friendship/create" method="post">
+            <input type="hidden" name="friendid">
+                <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+            </input>
+            <input type="submit" value="Προσθήκη φίλου" />
+        </form>
         <xsl:apply-templates select="discussion" />
     </xsl:for-each>
 </xsl:template>

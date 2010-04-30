@@ -4,6 +4,21 @@ var Notifications = {
         Notifications.TakenOver = true;
         $( '.col1, .col2' ).remove();
     },
+    Done: function () {
+        window.location.reload();
+    },
+    DoneWithCurrent: function () {
+        var current = $( '#notifications .selected' )[ 0 ];
+        var next;
+
+        next = current.nextSibling;
+        if ( !next ) {
+            next = current.previousSibling;
+            if ( !next ) {
+                Notifications.Done();
+            }
+        }
+    },
     CreateCommentGUI: function ( entry ) {
         var isreply = entry.find( 'discussion comment comment' ).length > 0; 
         var commentpath;
@@ -23,6 +38,7 @@ var Notifications = {
         var comment = innerxml( entry.find( commentpath + ' text' )[ 0 ] );
         var published = entry.find( commentpath + ' published' ).text(); 
         var type = entry.attr( 'type' );
+        var commentid = entry.find( commentpath ).attr( 'id' );
         var id = entry.attr( 'id' );
 
         var notificationcomment = ''
@@ -75,7 +91,33 @@ var Notifications = {
 
         $( 'body' ).prepend( html );
 
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
+        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keydown( function ( event ) {
+            if ( event.shiftKey ) {
+                return;
+            }
+            switch ( event.keyCode ) {
+                case 27: // ESC
+                    // TODO
+                    Comment.FadeOut( $( this ).closest( '.thread.new' ) );
+                    break;
+                case 13: // Enter
+                    document.body.style.cursor = 'wait';
+                    var wysiwyg = $.post( 'comment/create', {
+                        text: this.value,
+                        typeid: {
+                            'poll': 1,
+                            'photo': 2,
+                            'user': 3,
+                            'journal': 4,
+                            'school': 7
+                        }[ type ],
+                        'itemid': id,
+                        'parentid': commentid
+                    } );
+                    // TODO
+                    break;
+            }
+        } );
         if ( isreply ) {
             $.get( 'comments/' + parentid, {}, function ( res ) {
                 $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
@@ -120,7 +162,7 @@ var Notifications = {
                 
                 $( panel ).find( '.xbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
-                        window.location.reload();
+                        Notifications.Done();
                     }
                     this.parentNode.style.display = 'none';
                 } );

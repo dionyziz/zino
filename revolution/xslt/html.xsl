@@ -29,7 +29,6 @@
             <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
             <title>Zino</title>
             <link type="text/css" href="global.css" rel="stylesheet" />
-            <link type="text/css" href="css/panels.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <script type="text/javascript">
                 var OnLoad = function () {};
