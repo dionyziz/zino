@@ -7,9 +7,11 @@
         public static function Create( $friendid ) {
             include 'models/db.php';
             include 'models/friend.php';
+            $success = false;
             if ( isset( $_SESSION[ 'user' ] ) ) {
-                Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 'FRIENDS_A_HAS_B' );
-            }                        
+                $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 'FRIENDS_A_HAS_B' );
+            }              
+            include 'views/friend/create';          
         }
         public static function Update() {
         }

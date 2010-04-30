@@ -11,7 +11,7 @@
             is_int( $friend ) or die( 'friendid is not an integer' );
             is_int( $typeid ) or die( 'typeid is not an integer' );
 
-            db( 'INSERT INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
+            return db( 'INSERT INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
         }
