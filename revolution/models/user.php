@@ -32,6 +32,19 @@
             );
 			return mysql_fetch_array( $res );
         }
+        public static function ItemByName( $name ) {
+            $res = db(
+                'SELECT
+                    `user_id` AS id,
+                    `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
+                FROM
+                    `users`
+                WHERE
+                    `user_name` = :name
+                LIMIT 1;', array( 'name' => $name )
+            );
+			return mysql_fetch_array( $res );
+        }
         public static function ItemDetails( $id ) {
             $res = db(
                 'SELECT

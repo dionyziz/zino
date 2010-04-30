@@ -11,6 +11,7 @@
                 WHERE
                     `image_delid`=0 AND
                     `user_deleted`=0
+                    AND `user_deleted` = 0
                 ORDER BY
                     id DESC
                 LIMIT :offset, :limit', array( 'offset' => $offset, 'limit' => $limit )
