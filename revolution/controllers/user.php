@@ -15,7 +15,13 @@
             include 'models/db.php';
             include 'models/user.php';
             if ( $details == 'yes' && $id ) { //TODO: Only works with a given id, the model must be updated
-                $user = User::ItemDetails( $id );
+                if ( $id ) {
+                    $user = User::ItemDetails( $id );
+                }
+                elseif ( $name ) {
+                    $user = User::ItemDetailsByName( $name );
+                }
+                else die;
                 $countcomments = $user[ 'numcomments' ];
             }
             else {

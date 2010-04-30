@@ -45,8 +45,14 @@
             );
 			return mysql_fetch_array( $res );
         }
+        public static function ItemDetailsByName( $name ) {
+            return User::ItemDetailsByWhereClause( 'user_name', $name );
+        }
         public static function ItemDetails( $id ) {
-            $res = db(
+            return User::ItemDetailsByWhereClause( 'user_id', $id );
+        }
+        private static function ItemDetailsByWhereClause( $field, $value ) {
+            $query = 
                 'SELECT
                     `user_id` AS id,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
@@ -79,10 +85,10 @@
                         ON `profile_placeid`=`place_id`
                     CROSS JOIN `moods`
                         ON `profile_moodid`=`mood_id`
-                WHERE
-                    `user_id` = :id
-                LIMIT 1;', array( 'id' => $id )
-            );
+                WHERE 
+                    `' . $field . '` = :' . $field .'
+                LIMIT 1;';
+            $res = db( $query, array( $field => $value ) );
 			$row = mysql_fetch_array( $res );
             if ( $row === false ) {
                 return false;
