@@ -11,7 +11,7 @@
             if ( isset( $_SESSION[ 'user' ] ) ) {
                 $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 'FRIENDS_A_HAS_B' );
             }              
-            include 'views/friend/create';          
+            include 'views/friend/create.php';          
         }
         public static function Update() {
         }
@@ -22,7 +22,7 @@
             if ( isset( $_SESSION[ 'user' ] ) ) {
                 $success = Friend::Delete( $_SESSION[ 'user' ][ 'id' ], $friendid );
             }              
-            include 'views/friend/delete';    
+            include 'views/friend/delete.php';    
         }
     }
 ?>
