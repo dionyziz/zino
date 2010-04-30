@@ -109,5 +109,14 @@
             }
             return $notifications;
         }
+        public function Delete( $notificationid ){
+            db( 'DELETE
+                    *
+                 FROM
+                    `notifications`
+                 WHERE
+                    `notification_id` = :notificationid
+                 LIMIT 1', compact( 'notificationid' ) );
+        }
     }
 ?>
