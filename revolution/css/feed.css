@@ -89,7 +89,14 @@
     visibility: visible;
     z-index: 100;
     border-left: 1px solid black;
+    overflow: hidden;
 }
-#preview div.content h2 {
-    margin-left: 25px;
+#preview h2 {
+    margin: 25px;
+}
+#preview .document {
+    padding: 0 30px;
+}
+#preview div.content div.details {
+    display: none;
 }
