@@ -13,12 +13,20 @@
                 </xsl:attribute>
             </img>
         </a>
-        <form action="friendship/create" method="post">
-            <input type="hidden" name="friendid">
-                <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
-            </input>
-            <input type="submit" value="Προσθήκη φίλου" />
-        </form>
+        <xsl:if test="/social/@for and /social/@for!=name[1]">
+            <form action="friendship/create" method="post">
+                <input type="hidden" name="friendid">
+                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                </input>
+                <input type="submit" value="Προσθήκη φίλου" />
+            </form>
+            <form action="friendship/delete" method="post">
+                <input type="hidden" name="friendid">
+                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                </input>
+                <input type="submit" value="Διαγραφή φίλου" />
+            </form>
+        </xsl:if>
         <xsl:apply-templates select="discussion" />
     </xsl:for-each>
 </xsl:template>
