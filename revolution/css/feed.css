@@ -107,3 +107,10 @@
 #preview div.content div.details {
     display: none;
 }
+#preview .infotext {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    font-size: 130%;
+    width: 100%;
+}
