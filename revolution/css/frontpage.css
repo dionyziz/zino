@@ -41,10 +41,6 @@ a {
     background-image: -moz-linear-gradient(left,#111,#222);
     background-color: #111;
     font-weight: bold;
-    -moz-border-radius-topright: 10px;
-    -moz-border-radius-bottomright: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
 }
 .vbar ul li {
     height: 80px;
@@ -125,14 +121,10 @@ div.photofeed img {
 .col1 {
     position: fixed;
     z-index: 5;
-    height: 98%;
-    top: 1%;
     width: 4.5%;
     min-width: 50px;
-    margin-top: -2px;
-    border-style: solid;
-    border-color: #ddd;
     border: 0;
+    height: 100%;
 }
 .col2 {
     background-color: #347594;
