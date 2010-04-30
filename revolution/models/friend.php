@@ -7,7 +7,7 @@
     class Friend {
         public static function Create( $userid, $friendid, $typeid ) {
             include 'models/db.php';
-            return db( 'INSERT INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
+            return db( 'INSERT IGNORE INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
         }
