@@ -10,11 +10,22 @@ var News = {
         if ( $( this ).hasClass( 'previewing' ) ) {
             return true;
         }
+        $( this ).addClass( 'previewing' ).siblings().removeClass( 'previewing' );
+        var infotext = $( '<span />' )
+            .text( 'Παρακαλώ περιμένετε' )
+            .addClass( 'infotext' )
+            .fadeIn( 1000 );
+        $( '#preview .content' ).empty().append( infotext );
+        infotext.center();
+        
         var data = $.get( type + 's/' + itemid, { 'preview': 'yes' } );
         axslt( data, '/social/entry', function() {
             $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
         } );
-        $( this ).addClass( 'previewing' ).siblings().removeClass( 'previewing' );
         return false;
+    },
+    Init: function() {
+        $( '#preview .infotext' ).center();
+        News.Prepare( $( '.feed li' ) );
     }
 }
