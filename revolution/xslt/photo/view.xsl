@@ -7,20 +7,22 @@
     <div class="contentitem">
         <xsl:attribute name="id">photo_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
         <xsl:if test="not( @deleted )">
-            <div class="details">
-                <ul>
-                    <li>
-                        <xsl:apply-templates select="author" />
-                    </li>
-                    <li><div class="time"><xsl:value-of select="published" /></div></li>
-                    <xsl:if test="favourites[1]/@count &gt; 0">
-                        <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
-                    </xsl:if>
-                    <xsl:if test="discussion[1]/@count &gt; 0">
-                        <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
-                    </xsl:if>
-                </ul>
-            </div>
+            <xsl:if test="author">
+                <div class="details">
+                    <ul>
+                        <li>
+                            <xsl:apply-templates select="author" />
+                        </li>
+                        <li><div class="time"><xsl:value-of select="published" /></div></li>
+                        <xsl:if test="favourites[1]/@count &gt; 0">
+                            <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
+                        </xsl:if>
+                        <xsl:if test="discussion[1]/@count &gt; 0">
+                            <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
+                        </xsl:if>
+                    </ul>
+                </div>
+            </xsl:if>
             <img class="maincontent">
                 <xsl:attribute name="src"><xsl:value-of select="media[1]/@url" /></xsl:attribute>
                 <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>

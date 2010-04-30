@@ -1,16 +1,20 @@
 <entry id="<?= $photo[ 'id' ] ?>">
     <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
+    <? if ( isset( $user ) ): ?>
     <author>
-        <name><?= $photo[ 'username' ] ?></name>
-        <subdomain><?= $photo[ 'subdomain' ] ?></subdomain>
-        <gender><?= $photo[ 'gender' ] ?></gender>
+        <name><?= $user[ 'name' ] ?></name>
+        <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+        <gender><?= $user[ 'gender' ] ?></gender>
         <avatar>
-            <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $photo[ 'avatarid' ] ?>/<?= $photo[ 'avatarid' ] ?>_100.jpg" />
+            <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
     </author>
+    <? endif; ?>
     <published><?= $photo[ 'created' ] ?></published>
     <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_full.jpg" width="<?= $photo[ 'w' ] ?>" height="<?= $photo[ 'h' ] ?>" /><?
-    include 'views/comment/listing.php';
+    if ( isset( $comments ) ):
+        include 'views/comment/listing.php';
+    endif;
     if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
         <? foreach ( $favourites as $favourite ): ?>

@@ -6,20 +6,22 @@
     <a class="xbutton" href="news">&#171;<span><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">journal_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
-        <div class="details">
-            <ul>
-                <li>
-                    <xsl:apply-templates select="author" />
-                </li>
-                <li><div class="time"><xsl:value-of select="published" /></div></li>
-                <xsl:if test="favourites[1]/@count &gt; 0">
-                    <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
-                </xsl:if>
-                <xsl:if test="discussion[1]/@count &gt; 0">
-                    <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
-                </xsl:if>
-            </ul>
-        </div>
+        <xsl:if test="author">
+            <div class="details">
+                <ul>
+                    <li>
+                        <xsl:apply-templates select="author" />
+                    </li>
+                    <li><div class="time"><xsl:value-of select="published" /></div></li>
+                    <xsl:if test="favourites[1]/@count &gt; 0">
+                        <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
+                    </xsl:if>
+                    <xsl:if test="discussion[1]/@count &gt; 0">
+                        <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
+                    </xsl:if>
+                </ul>
+            </div>
+        </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
         <div class="document">
             <xsl:copy-of select="text/*" />

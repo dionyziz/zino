@@ -25,7 +25,11 @@
 		public static function Item( $id ) {
 			$res = db(
 					'SELECT
-						`user_deleted` as userdeleted, `user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `poll_id` as id, `poll_question` as question, `poll_url` as url, `poll_userid` as userid, `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
+						`user_deleted` as userdeleted, `user_name` as username, `user_subdomain` as subdomain,
+                        `user_avatarid` as avatarid, `user_gender` as gender,
+                        `poll_id` as id, `poll_question` as question, `poll_url` as url,
+                        `poll_userid` as userid, `poll_created` as created , `poll_numvotes` as numvotes,
+                        `poll_numcomments` as numcomments 
 					FROM 
 						`polls`
 					CROSS JOIN `users` ON
@@ -35,7 +39,16 @@
 			);
 			
 			$item = array();
-			$item = mysql_fetch_array( $res );
+			$row = mysql_fetch_array( $res );
+            $item = $row;
+            $item[ 'user' ] = array(
+                'id' => $row[ 'userid' ],
+                'name' => $row[ 'username' ],
+                'subdomain' => $row[ 'subdomain' ],
+                'avatarid' => $row[ 'avatarid' ],
+                'gender' => $row[ 'gender' ],
+                'deleted' => ( int )$row[ 'userdeleted' ]
+            );
 			
 			$res2 = db(
 					'SELECT

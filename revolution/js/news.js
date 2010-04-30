@@ -26,7 +26,7 @@ var News = {
         $( '#preview .content' ).empty().append( infotext );
         infotext.center();
         
-        var data = $.get( type + 's/' + itemid, { 'preview': 'yes' } );
+        var data = $.get( type + 's/' + itemid, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
             $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
         } );

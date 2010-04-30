@@ -19,13 +19,17 @@
     endswitch;
     ?>" id="<?= $notification[ 'comment' ][ 'itemid' ] ?>">
         <discussion>
+            <? if ( $notification[ 'comment' ][ 'parentid' ] != 0 ): ?>
             <comment id="<?= $notification[ 'comment' ][ 'parentid' ] ?>">
+            <? endif; ?>
                 <?
                     $comment = $notification[ 'comment' ];
                     $user = $notification[ 'user' ];
                     include 'views/comment/view.php';
                 ?>
+            <? if ( $notification[ 'comment' ][ 'parentid' ] != 0 ): ?>
             </comment>
+            <? endif; ?>
         </discussion>
     </entry>
     <? endif; ?>

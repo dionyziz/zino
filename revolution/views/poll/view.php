@@ -1,13 +1,15 @@
 <entry id="<?= $poll[ 'id' ] ?>">
     <title><?= htmlspecialchars( $poll[ 'question' ] ) ?></title>
+    <? if ( isset( $user ) ): ?>
     <author>
-        <name><?= $poll[ 'username' ] ?></name>
-        <subdomain><?= $poll[ 'subdomain' ] ?></subdomain>
-        <gender><?= $poll[ 'gender' ] ?></gender>
+        <name><?= $user[ 'name' ] ?></name>
+        <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+        <gender><?= $user[ 'gender' ] ?></gender>
         <avatar>
-            <media url="http://images2.zino.gr/media/<?= $poll[ 'userid' ] ?>/<?= $poll[ 'avatarid' ] ?>/<?= $poll[ 'avatarid' ] ?>_100.jpg" />
+            <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
     </author>
+    <? endif; ?>
     <options totalvotes="<?= $poll[ 'numvotes' ] ?>">
         <? foreach ( $options as $option ): ?>
         <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>"
@@ -19,10 +21,11 @@
         <? endforeach; ?>
     </options>
     <published><?= $poll[ 'created' ] ?></published>
-    <? if ( isset( $comments ) ) {
+    <?
+    if ( isset( $comments ) ):
         include 'views/comment/listing.php';
-    } ?>
-    <? if ( !empty( $favourites ) ): ?>
+    endif;
+    if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
         <? foreach ( $favourites as $favourite ): ?>
         <user><name><?= $favourite[ 'username' ] ?></name></user>

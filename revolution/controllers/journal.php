@@ -1,26 +1,31 @@
 <?php
     class ControllerJournal {
-        public static function View( $id, $commentpage = 1, $preview = 'yes' ) {
+        public static function View( $id, $commentpage = 1, $verbose = 3 ) {
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
             include 'models/db.php';
             include 'models/journal.php';
-            include 'models/favourite.php';
             $journal = Journal::Item( $id );
             $journal !== false or die;
-            if ( $journal[ 'userdeleted' ] === 1 ) { 
+            if ( $journal[ 'user' ][ 'deleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
                 return;
             }
-            if ( $preview != 'yes' ) {
+            if ( $verbose >= 3 ) {
                 include 'models/comment.php';
                 $commentdata = Comment::FindByPage( TYPE_JOURNAL, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $journal[ 'numcomments' ];
             }
-            $favourites = Favourite::Listing( TYPE_JOURNAL, $id );
+            if ( $verbose >= 1 ) {
+                $user = $journal[ 'user' ];
+            }
+            if ( $verbose >= 2 ) {
+                include 'models/favourite.php';
+                $favourites = Favourite::Listing( TYPE_JOURNAL, $id );
+            }
             include 'views/journal/view.php';
         }
         public static function Listing() {

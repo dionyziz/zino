@@ -10,10 +10,11 @@
     </author>
     <published><?= $journal[ 'created' ] ?></published>
     <text><?= $journal[ 'text' ] ?></text>
-    <? if ( isset( $comments ) ) {
+    <?
+    if ( isset( $comments ) ):
         include 'views/comment/listing.php';
-    } ?>
-    <? if ( !empty( $favourites ) ): ?>
+    endif;
+    if ( !empty( $favourites ) ): ?>
     <favourites count="<?= count( $favourites ) ?>">
         <? foreach ( $favourites as $favourite ): ?>
         <user><name><?= $favourite[ 'username' ] ?></name></user>

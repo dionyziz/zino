@@ -39,7 +39,14 @@
             if ( $item === false ) {
                 return false;
             }
-            $item[ 'userdeleted' ] = ( int )$item[ 'userdeleted' ];
+            $item[ 'user' ] = array(
+                'id' => $item[ 'userid' ],
+                'name' => $item[ 'username' ],
+                'gender' => $item[ 'gender' ],
+                'subdomain' => $item[ 'subdomain' ],
+                'avatarid' => $item[ 'avatarid' ],
+                'deleted' => ( int )$item[ 'userdeleted' ]
+            );
 			return $item;
         }
         public static function ListByIds( $ids ) {
