@@ -1,5 +1,7 @@
 var Notifications = {
+    TakenOver: false,
     TakeOver: function () {
+        Notifications.TakenOver = true;
         $( '.col1, .col2' ).remove();
     },
     CreateCommentGUI: function ( entry ) {
@@ -7,7 +9,7 @@ var Notifications = {
         var commentpath;
         var parentid = 0;
 
-        $( '#instantbox' ).empty();
+        $( '#instantbox' ).remove();
 
         if ( isreply ) {
             commentpath = 'comment comment';
@@ -80,21 +82,10 @@ var Notifications = {
                 $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( ' text' )[ 0 ] );
             } );
         }
-        // TODO: non comment replies
-        // TODO: other types
-        switch ( type ) {
-            case 'image':
-                var data = $.get( 'photos/' + id, { 'verbose': 0 } );
-                axslt( data, '/social/entry', function() {
-                    $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
-                } );
-                break;
-            case 'poll':
-                var data = $.get( 'polls/' + id, { 'verbose': 0 } );
-                axslt( data, '/social/entry', function() {
-                    $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
-                } );
-        }
+        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
+        axslt( data, '/social/entry', function() {
+            $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+        } );
     },
     Check: function () {
         if ( typeof User != 'undefined' ) {
@@ -104,6 +95,7 @@ var Notifications = {
                 var panel = document.createElement( 'div' );
                 var box;
 
+                panel.id = 'notifications';
                 panel.className = 'panel bottom';
                 panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (' + $( res ).find( 'feed' ).attr( 'count' ) + ')</h3>';
 
@@ -118,6 +110,7 @@ var Notifications = {
                     $( box ).click( ( function ( e ) {
                         return function () {
                             Notifications.TakeOver();
+                            $( '#notifications .box' ).removeClass( 'selected' );
                             $( this ).addClass( 'selected' );
                             Notifications.CreateCommentGUI( e );
                         };
@@ -126,6 +119,9 @@ var Notifications = {
                 }
                 
                 $( panel ).find( '.xbutton' ).click( function () {
+                    if ( Notifications.TakenOver ) {
+                        window.location.reload();
+                    }
                     this.parentNode.style.display = 'none';
                 } );
                 document.body.appendChild( panel );

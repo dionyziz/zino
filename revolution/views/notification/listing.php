@@ -5,7 +5,7 @@
     <entry type="<?
     switch ( $notification[ 'comment' ][ 'typeid' ] ):
         case TYPE_IMAGE:
-            ?>image<?
+            ?>photo<?
             break;
         case TYPE_POLL:
             ?>poll<?
