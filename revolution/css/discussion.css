@@ -47,6 +47,7 @@ div.thread .new {
     border-radius: 3px;
 }
 div.message textarea {
+    margin-left: 60px;
     font: 1.15em/1.1 'Lucida Grande',sans-serif;
     border: 1px solid #aaa;
     -moz-border-radius: 3px;

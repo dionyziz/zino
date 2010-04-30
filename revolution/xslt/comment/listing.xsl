@@ -5,6 +5,9 @@
                 <div class="message thread" style="margin-left:15px; margin-right: 0; padding: 4px 0 4px 44px"><a href="" class="talk button">Γράψε ένα σχόλιο...</a></div>
                 <div class="thread new">
                     <div class="message mine new">
+                        <div class="author">
+                            <div class="details" />
+                        </div>
                         <div><textarea></textarea></div>
                         <ul class="tips"><li>Enter = <strong>Αποθήκευση</strong></li><li>Escape = <strong>Ακύρωση</strong></li><li>Shift + Enter = <strong>Νέα γραμμή</strong></li><li><a href="">Φάτσες</a></li></ul>
                     </div>

@@ -9,8 +9,8 @@ var Comment = {
         var rootparent = $( this ).hasClass( 'talk' );
         var newcomment = $( '.discussion .note .thread.new' );
         
-        if ( $( '.discussion .note .thread.new > .author > .avatar' ).length == 0 ) {
-            //Comment.LoadAvatar();
+        if ( $( '.discussion .note .thread.new .author > img' ).length == 0 ) {
+            Comment.LoadAvatar();
         }
         
         if ( rootparent ) {
@@ -107,7 +107,14 @@ var Comment = {
             } );
     },
     LoadAvatar: function() {
-        $.get( 'users/view', { 'name': User, 'details': 'false' } );
-        $( '<img />' ).appendTo( '.discussion .note .thread.new > .author' );
+        $( '.thread.new .author' ).each( function( i, e ) {
+            var img = $( '<img />' ).addClass( 'avatar' ).prependTo( e );
+        } );
+        $.get( 'users/view', { 'name': User, 'details': 'false' }, function( xml ) {
+            var src = $( 'avatar > media', xml ).attr( 'url' );
+            $( '.thread.new .author > img' ).each( function( i, e ) {
+                $( e ).attr( 'src', $( 'avatar > media', xml ).attr( 'url' ) );
+            } );
+        } );
     }
 }

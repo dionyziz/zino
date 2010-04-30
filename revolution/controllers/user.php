@@ -1,29 +1,42 @@
 <?php
     class ControllerUser {
-        public static function View( $id, $details = true, $commentpage = 1 ) {
-            $id = ( int )$id;
+        public static function View( $id = false, $name = false, $details = 'yes', $commentpage = 1 ) {
+            if ( $name ) {
+                $name = ( string ) $name;
+            }
+            elseif ( $id ) {
+                $id = ( int )$id;
+            }
+            else {
+                die;
+            }
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
             include 'models/db.php';
-            include 'models/comment.php';
             include 'models/user.php';
-            if ( $details ) {
+            if ( $details == 'yes' && $id ) { //TODO: Only works with a given id, the model must be updated
                 $user = User::ItemDetails( $id );
+                $countcomments = $user[ 'numcomments' ];
             }
             else {
-                $user = User::Item( $id );
+                if ( $id ) {
+                    $user = User::Item( $id );
+                }
+                elseif ( $name ) {
+                    $user = User::ItemByName( $name );
+                }
             }
             $user !== false or die;
             if ( $user[ 'userdeleted' ] === 1 ) { 
                 include 'views/itemdeleted.php';
                 return;
             }
-            if ( $details ) {
-                $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $id, $commentpage );
+            if ( $details == 'yes' ) {
+                include 'models/comment.php';
+                $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
             }
-            $countcomments = $user[ 'numcomments' ];
             include 'views/user/view.php';
         }
         public static function Listing() {
