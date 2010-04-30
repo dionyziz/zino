@@ -61,6 +61,7 @@
                             </xsl:if>
                         </a>
                     </xsl:if>
+                    <span class="zoomin">Κάνε κλικ ξανά για μεγιστοποίηση</span>
                 </li>
             </xsl:for-each>
         </ul>
