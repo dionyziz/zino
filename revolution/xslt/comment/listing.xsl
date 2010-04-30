@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="text">
-                <xsl:copy-of select="text" />
+                <xsl:copy-of select="text/*" />
             </div>
             <div class="eof"></div>
         </div>
