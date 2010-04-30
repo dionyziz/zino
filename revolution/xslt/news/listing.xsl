@@ -64,13 +64,15 @@
                 </li>
             </xsl:for-each>
         </ul>
-        <script type="text/javascript">
-            News.Prepare( '.feed li' );
-        </script>
     </div>
     <div id="preview">
         <div class="contentshadow">
-            <div class="content"></div>
+            <div class="content">
+                <span class="infotext">Κάνε κλικ σε ένα Νέο για προεπισκόπηση</span>
+            </div>
         </div>
     </div>
+    <script type="text/javascript">
+        News.Init();
+    </script>
 </xsl:template>
