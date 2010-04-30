@@ -14,7 +14,15 @@ var News = {
         var infotext = $( '<span />' )
             .text( 'Παρακαλώ περιμένετε' )
             .addClass( 'infotext' )
-            .fadeIn( 1000 );
+            .hide();
+            
+        setTimeout( ( function( infotext ) {
+                return function() {
+                    if ( infotext ) {
+                        infotext.fadeIn( 1000 );
+                    }
+                }
+            } )( infotext ), 500 );
         $( '#preview .content' ).empty().append( infotext );
         infotext.center();
         
