@@ -1,5 +1,4 @@
 var News = {
-    Item: {},
     Prepare: function( collection ) {
         $( collection ).click( 
             function() { 
@@ -8,15 +7,14 @@ var News = {
             } );
     },
     Preview: function( itemid, type ) {
-        if ( News.Item.itemid == itemid && News.Item.type == type ) {
+        if ( $( this ).hasClass( 'previewing' ) ) {
             return true;
         }
         var data = $.get( type + 's/' + itemid, { 'preview': 'yes' } );
         axslt( data, '/social/entry', function() {
             $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
         } );
-        News.Item.itemid = itemid;
-        News.Item.type = type;
+        $( this ).addClass( 'previewing' ).siblings().removeClass( 'previewing' );
         return false;
     }
 }
