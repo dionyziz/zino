@@ -3,10 +3,6 @@
         public static function View() {
         }
         public static function Listing() {
-            include 'models/db.php';
-            include 'models/journal.php';
-            $journals = Journal::ListRecent();
-            include 'views/journal/listing.php';
         }
         public static function Create( $friendid ) {
             include 'models/db.php';
