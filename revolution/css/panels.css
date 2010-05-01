@@ -23,6 +23,9 @@
     #instantbox .contentitem img.maincontent {
         margin-left: 0;
     }
+    #instantbox div.document {
+        padding: 20px 20px;
+    }
 .bottom {
     position: fixed;
     bottom: 0;

@@ -143,6 +143,45 @@
             include 'models/bulk.php';
             include 'models/wysiwyg.php';
 
+            switch ( $typeid ) {
+                case TYPE_POLL:
+                    //include( 'models/poll.php' );
+                    $item = Poll::Item( $itemid );
+                    break;
+                case TYPE_IMAGE:
+                    //include( 'models/photo.php' );
+                    $item = Photo::Item( $itemid );
+                    break;
+                case TYPE_USERPROFILE:
+                    //include( 'models/user.php' );
+                    $item = User::Item( $itemid );
+                    if ( $item !== false ) {
+                        $item[ 'userid' ] = $itemid;
+                    }
+                    break;
+                case TYPE_JOURNAL:
+                    //include( 'model/journal.php' );
+                    $item = Journal::Item( $itemid );
+                    break;
+                default:
+                    // no such comment type
+                    return false;
+            }
+            if ( $item === false ) {
+                // no such target item
+                return false;
+            }
+            if ( $parentid ) {
+                $comment = Comment::Item( $parentid ); // TODO: Optimize; do not need bulk
+                if ( $comment === false ) {
+                    // no such parent comment
+                    return false;
+                }
+                $owner = $comment[ 'user' ][ 'id' ];
+            }
+            else {
+                $owner = $item[ 'userid' ];
+            }
             $text = nl2br( htmlspecialchars( $text ) );
             $text = WYSIWYG_PostProcess( $text );
 
@@ -156,26 +195,7 @@
             
             Comment::RegenerateMemcache( $typeid, $itemid );
             include( 'models/notification.php' );
-            switch( $typeid ){
-                case TYPE_POLL:
-                    //include( 'models/poll.php' );
-                    $poll = Poll::Item( $itemid );
-                    Notification::Create( $userid, $poll[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
-                    break;
-                case TYPE_IMAGE:
-                    //include( 'models/photo.php' );
-                    $photo = Photo::Item( $itemid );
-                    Notification::Create( $userid, $photo[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
-                    break;
-                case TYPE_USERPROFILE:
-                    Notification::Create( $userid, $itemid, 'EVENT_COMMENT_CREATED', $id );
-                    break;
-                case TYPE_JOURNAL:
-                    //include( 'model/journal.php' );
-                    $journal = Journal::Item( $itemid );
-                    Notification::Create( $userid, $journal[ 'userid' ], 'EVENT_COMMENT_CREATED', $id );
-                    break;
-            }
+            Notification::Create( $userid, $owner, 'EVENT_COMMENT_CREATED', $id );
             // TODO: comet
             return array(
                 'id' => $id,
@@ -194,6 +214,9 @@
                     `comment_id` = :commentid
                 LIMIT 1', compact( 'commentid' )
             );
+            if ( !mysql_num_rows( $comment ) ) {
+                return false;
+            }
             $comment = mysql_fetch_array( $comment ); //Get comment's related information
 
             $text = Bulk::FindById( $comment[ 'bulkid' ] ); //Get comment's text

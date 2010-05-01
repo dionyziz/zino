@@ -1,13 +1,15 @@
 <entry id="<?= $journal[ 'id' ] ?>">
     <title><?= htmlspecialchars( $journal[ 'title' ] ) ?></title>
-    <author>
-        <name><?= $journal[ 'username' ] ?></name>
-        <subdomain><?= $journal[ 'subdomain' ] ?></subdomain>
-        <gender><?= $journal[ 'gender' ] ?></gender>
-        <avatar>
-            <media url="http://images2.zino.gr/media/<?= $journal[ 'userid' ] ?>/<?= $journal[ 'avatarid' ] ?>/<?= $journal[ 'avatarid' ] ?>_100.jpg" />
-        </avatar>
-    </author>
+    <? if ( isset( $user ) ): ?>
+        <author>
+            <name><?= $user[ 'name' ] ?></name>
+            <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+            <gender><?= $user[ 'gender' ] ?></gender>
+            <avatar>
+                <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
+            </avatar>
+        </author>
+    <? endif; ?>
     <published><?= $journal[ 'created' ] ?></published>
     <text><?= $journal[ 'text' ] ?></text>
     <?

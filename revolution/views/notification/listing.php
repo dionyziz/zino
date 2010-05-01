@@ -14,7 +14,7 @@
             ?>user<?
             break;
         case TYPE_JOURNAL:
-            ?>user<?
+            ?>journal<?
             break;
     endswitch;
     ?>" id="<?= $notification[ 'comment' ][ 'itemid' ] ?>">

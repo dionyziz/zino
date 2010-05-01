@@ -18,6 +18,10 @@ var Notifications = {
                 Notifications.Done();
             }
         }
+        $( current ).remove();
+        if ( next ) {
+            $( next ).click();
+        }
     },
     CreateCommentGUI: function ( entry ) {
         var isreply = entry.find( 'discussion comment comment' ).length > 0; 
@@ -98,11 +102,9 @@ var Notifications = {
             switch ( event.keyCode ) {
                 case 27: // ESC
                     // TODO
-                    Comment.FadeOut( $( this ).closest( '.thread.new' ) );
                     break;
                 case 13: // Enter
-                    document.body.style.cursor = 'wait';
-                    var wysiwyg = $.post( 'comment/create', {
+                    $.post( 'comment/create', {
                         text: this.value,
                         typeid: {
                             'poll': 1,
@@ -112,9 +114,9 @@ var Notifications = {
                             'school': 7
                         }[ type ],
                         'itemid': id,
-                        'parentid': commentid
+                        'parentid': commentid,
                     } );
-                    // TODO
+                    Notifications.DoneWithCurrent();
                     break;
             }
         } );
