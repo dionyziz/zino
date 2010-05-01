@@ -95,17 +95,23 @@ var Notifications = {
 
         $( 'body' ).prepend( html );
 
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keydown( function ( event ) {
+        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
             if ( event.shiftKey ) {
                 return;
             }
             switch ( event.keyCode ) {
                 case 27: // ESC
+                    Notifications.DoneWithCurrent();
                     // TODO
                     break;
                 case 13: // Enter
+                    var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+                    if ( commenttext === '' ) {
+                        $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                        break;
+                    }
                     $.post( 'comment/create', {
-                        text: this.value,
+                        text: commenttext,
                         typeid: {
                             'poll': 1,
                             'photo': 2,

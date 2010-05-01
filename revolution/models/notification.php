@@ -43,7 +43,6 @@
         }
         public static function ListRecent( $userid ) {
             include 'models/types.php';
-            include 'models/bulk.php';
 
             $res = db( 'SELECT
                             `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
@@ -80,23 +79,12 @@
             foreach ( $idsbyeventtype as $type => $ids ) {
                 switch ( $type ) {
                     case 'EVENT_COMMENT_CREATED':
-                        $res = db( 'SELECT
-                                        `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
-                                        `comment_created` AS created, `comment_parentid` AS parentid
-                                    FROM
-                                        `comments`
-                                    WHERE
-                                        `comment_id` IN :ids', compact( 'ids' ) );
-                        $commentinfo = array();
-                        $bulkids = array();
-                        while ( $row = mysql_fetch_array( $res ) ) {
-                            $commentinfo[ $row[ 'id' ] ] = $row;
-                            $bulkids[] = $row[ 'bulkid' ];
-                        }
-                        $bulk = Bulk::FindById( $bulkids );
-                        foreach ( $commentinfo as $id => $comment ) {
-                            $commentinfo[ $id ][ 'text' ] = $bulk[ $comment[ 'bulkid' ] ];
-                        }
+                        include 'models/favourite.php';
+                        $commentinfo = Comment::ItemMulti( $ids );
+                        break;
+                    case 'EVENT_FAVOURITE_CREATED':
+                        include 'models/favourite.php';
+                        $favouriteinfo = Favourite::ItemMulti( $ids );
                         break;
                 }
             }
@@ -105,18 +93,21 @@
                     case 'EVENT_COMMENT_CREATED':
                         $notifications[ $i ][ 'comment' ] = $commentinfo[ $notification[ 'itemid' ] ];
                         break;
+                    case 'EVENT_FAVOURITE_CREATED':
+                        $notifications[ $i ][ 'favourite' ] = $favouriteinfo[ $notification[ 'itemid' ] ];
+                        break;
                 }
             }
             return $notifications;
         }
-        public function Delete( $notificationid ){
+        public static function Delete( $notificationid, $userid ) {
             db( 'DELETE
-                    *
                  FROM
-                    `notifications`
+                    `notify`
                  WHERE
-                    `notification_id` = :notificationid
-                 LIMIT 1', compact( 'notificationid' ) );
+                    `notification_eventid` = :notificationid
+                    AND `notificationid_touserid` = :userid
+                 LIMIT 1', compact( 'notificationid', 'userid' ) );
         }
     }
 ?>

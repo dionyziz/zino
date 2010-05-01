@@ -1,5 +1,25 @@
 <?php
     class Favourite {
+        public static function Item( $id ) {
+            $items = self::ItemMulti( array( $id ) );
+            if ( empty( $items ) ) {
+                return false;
+            }
+            return array_shift( $items );
+        }
+        public static function ItemMulti( $ids ) {
+             return db_array(
+                'SELECT
+                    favourite_id AS id,
+                    favourite_userid AS userid,
+                    favourite_itemid AS itemid,
+                    favourite_typeid AS typeid
+                FROM
+                    favourites
+                WHERE
+                    favourite_id IN :ids', compact( 'ids' ), 'id'
+            );
+        }
         public static function Listing( $typeid, $itemid ) {
             return db_array(
                 'SELECT

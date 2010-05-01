@@ -1,5 +1,5 @@
 <user id="<?= $user[ 'id' ] ?>">
-    <name><?= $user[ 'username' ] ?></name>
+    <name><?= $user[ 'name' ] ?></name>
     <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
     <gender><?= $user[ 'gender' ] ?></gender>
     <avatar id="<?= $user[ 'avatarid' ] ?>">

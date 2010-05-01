@@ -172,6 +172,7 @@
                 return false;
             }
             if ( $parentid ) {
+                // TODO: Check the parent of the parent and remove relevant notifications if owner of comment-to-be-created match
                 $comment = Comment::Item( $parentid ); // TODO: Optimize; do not need bulk
                 if ( $comment === false ) {
                     // no such parent comment
@@ -203,36 +204,43 @@
             );
         }
         public function Item( $commentid ){
+            $ret = self::ItemMulti( array( $commentid ) );
+            if ( !empty( $ret ) ) {
+                return array_shift( $ret );
+            }
+            return false;
+        }
+        public static function ItemMulti( $ids ) {
             include 'models/bulk.php';
 
-            $comment = db(
-                'SELECT
-                    `comment_userid` AS userid, `comment_bulkid` AS bulkid, `comment_created` AS created
-                FROM
-                    `comments`
-                WHERE
-                    `comment_id` = :commentid
-                LIMIT 1', compact( 'commentid' )
-            );
-            if ( !mysql_num_rows( $comment ) ) {
-                return false;
-            }
-            $comment = mysql_fetch_array( $comment ); //Get comment's related information
-
-            $text = Bulk::FindById( $comment[ 'bulkid' ] ); //Get comment's text
-
-            $user = db( 'SELECT
-                            `user_id` AS id, `user_name` AS name, `user_gender` AS gender, `user_avatarid` AS avatarid
+            $res = db( 'SELECT
+                            `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
+                            `comment_created` AS created, `comment_parentid` AS parentid,
+                            `user_id` AS userid, `user_name` AS username, `user_gender` AS gender,
+                            `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
                         FROM
-                            `users`
+                            `comments` CROSS JOIN `users`
+                                ON `comment_userid` = `user_id`
                         WHERE
-                            `user_id` = :userid
-                        LIMIT 1', array( 'userid' => $comment[ 'userid' ] ) );
-            $user = mysql_fetch_array( $user ); //Get comment's author details
-
-            return array( 'user' => $user,
-                          'created' => $comment[ 'created' ],
-                          'text' => $text );
+                            `comment_id` IN :ids', compact( 'ids' ) );
+            $commentinfo = array();
+            $bulkids = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $commentinfo[ $row[ 'id' ] ] = $row;
+                $bulkids[] = $row[ 'bulkid' ];
+            }
+            $bulk = Bulk::FindById( $bulkids );
+            foreach ( $commentinfo as $id => $comment ) {
+                $commentinfo[ $id ][ 'text' ] = $bulk[ $comment[ 'bulkid' ] ];
+                $commentinfo[ $id ][ 'user' ] = array(
+                    'id' => $comment[ 'userid' ],
+                    'name' => $comment[ 'username' ],
+                    'avatarid' => $comment[ 'avatarid' ],
+                    'gender' => $comment[ 'gender' ],
+                    'subdomain' => $comment[ 'subdomain' ],
+                );
+            }
+            return $commentinfo;
         }
     }
 ?>

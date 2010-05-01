@@ -26,11 +26,18 @@
         $res = mysql_query( strtr( $sql, $bind ) ) or die( mysql_error() );
         return $res;
     }
-    function db_array( $sql, $bind = false ) {
+    function db_array( $sql, $bind = false, $id_column = false ) {
         $res = db( $sql, $bind );
         $rows = array();
-        while ( $row = mysql_fetch_array( $res ) ) {
-            $rows[] = $row;
+        if ( $id_column !== false ) {
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $rows[ $row[ $id_column ] ] = $row;
+            }
+        }
+        else {
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $rows[] = $row;
+            }
         }
         return $rows;
     }

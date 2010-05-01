@@ -47,6 +47,7 @@ RewriteRule ^tunnel/update/([0-9]+)$ index.php?resource=tunnel&method=update&id=
 
 # notifications
 RewriteRule ^notifications$ index.php?resource=notification&method=list [L,QSA]
+RewriteRule ^notifications/delete$ index.php?resource=notification&method=delete [L,QSA]
 
 # global
 
