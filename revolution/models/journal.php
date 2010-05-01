@@ -33,6 +33,10 @@
 					WHERE `journal_id` = :id
 					LIMIT 1', compact( 'id' ) 
 			);
+
+            if (  mysql_num_rows( $res ) == 0 ) {
+                return false;
+            }
 			
 			$item = array();
 			$item = mysql_fetch_array( $res );

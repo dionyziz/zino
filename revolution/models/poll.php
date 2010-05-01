@@ -37,6 +37,10 @@
 					WHERE `poll_id` = :id
 					LIMIT 1', compact( 'id' ) 
 			);
+
+            if (  mysql_num_rows( $res ) == 0 ) {
+                return false;
+            }
 			
 			$item = array();
 			$row = mysql_fetch_array( $res );

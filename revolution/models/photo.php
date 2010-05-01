@@ -35,6 +35,11 @@
                     `image_id` = :id
                 LIMIT 1;', array( 'id' => $id )
             );
+            
+            if (  mysql_num_rows( $res ) == 0 ) {
+                return false;
+            }
+
 			$item = mysql_fetch_array( $res );
             if ( $item === false ) {
                 return false;
