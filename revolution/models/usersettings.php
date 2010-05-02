@@ -15,5 +15,67 @@
 
            return mysql_fetch_array( $res );
         }
+        public function Set( $userid, $pref ) {
+            include 'models/db.h';
+            if ( !is_array( $pref ) ) {
+                return false;
+            }
+            
+            $res = db( 'UPDATE
+                    `usersettings`
+                    SET
+                        `setting_emailprofilecomment` = :emailprofilecomment,
+                        `setting_emailphotocomment` = :emailphotocomment,
+                        `setting_emailphototag` = :emailphototag,
+                        `setting_emailjournalcomment` = :emailjournalcomment,
+                        `setting_emailpollcomment` = :emailpollcomment,
+                        `setting_emailreply` = :emailreply,
+                        `setting_emailfriendaddition` = :emailfriendaddition,
+                        `setting_emailfriendjournal` = :emailfriendjournal,
+                        `setting_emailfriendpoll` = :emailfriendpoll,
+                        `setting_emailfriendphoto` = :emailfriendphoto,
+                        `setting_emailfavourite` = :emailfavourite,
+                        `setting_emailbirthday` = :emailbirthday,
+                        `setting_notifyprofilecomment` = :notifyprofilecomment,
+                        `setting_notifyphotocomment` = :notifyphotocomment,
+                        `setting_notifyphototag` = :notifyphototag,
+                        `setting_notifyjournalcomment` = :notifyjournalcomment,
+                        `setting_notifypollcomment` = :notifypollcomment,
+                        `setting_notifyreply` = :notifyreply,
+                        `setting_notifyfriendaddition` = :notifyfriendaddition,
+                        `setting_notifyfriendjournal` = :notifyfriendjournal,
+                        `setting_notifyfriendphoto` = :notifyfriendphoto,
+                        `setting_notifyfriendpoll` = :notifyfriendpoll,
+                        `setting_notifyfavourite` = :notifyfavourite,
+                        `setting_notifybirthday` = :notifybirthday
+                    WHERE
+                        `setting_userid` = :userid
+                    LIMIT 1', array( 'userid' => $userid, 
+                            'emailprofilecomment' => $pref[ 'emailprofilecomment'],
+                            'emailphotocomment' => $pref[ 'emailphotocomment'],
+                            'emailphototag' => $pref[ 'emailphototag'],
+                            'emailjournalcomment' => $pref[ 'emailjournalcomment'],
+                            'emailpollcomment' => $pref[ 'emailpollcomment'],
+                            'emailreply' => $pref[ 'emailreply'],
+                            'emailfriendaddition' => $pref[ 'emailfriendaddition'],
+                            'emailfriendjournal' => $pref[ 'emailfriendjournal'],
+                            'emailfriendpoll' => $pref[ 'emailfriendpoll'],
+                            'emailfriendphoto' => $pref[ 'emailfriendphoto'],
+                            'emailfavourite' => $pref[ 'emailfavourite'],
+                            'emailbirthday' => $pref[ 'emailbirthday'],
+                            'notifyprofilecomment' => $pref[ 'notifyprofilecomment'],
+                            'notifyphotocomment' => $pref[ 'notifyphotocomment'],
+                            'notifyphototag' => $pref[ 'notifyphototag'],
+                            'notifyjournalcomment' => $pref[ 'notifyjournalcomment'],
+                            'notifypollcomment' => $pref[ 'notifypollcomment'],
+                            'notifyreply' => $pref[ 'notifyreply'],
+                            'notifyfriendaddition' => $pref[ 'notifyfriendaddition'],
+                            'notifyfriendjournal' => $pref[ 'notifyfriendjournal'],
+                            'notifyfriendphoto' => $pref[ 'notifyfriendphoto'],
+                            'notifyfriendpoll' => $pref[ 'notifyfriendpoll'],
+                            'notifyfavourite' => $pref[ 'notifyfavourite'],
+                            'notifybirthday' => $pref[ 'notifybirthday'] ) );
+            return true;
+        }
     }
 ?>
