@@ -10,6 +10,23 @@
         float: right;
         width: 50%;
         overflow: hidden;
+        cursor: pointer;
+        position: relative;
+    }
+    #instantbox .content .tips {
+        background-color: black;
+        padding: 10px;
+        color: white;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        opacity: 0.8;
+        margin: 7px;
+    }
+    #instantbox .content:hover .tips {
+        display: block;
     }
     #instantbox > .content img {
         display: block;
@@ -39,6 +56,35 @@
     left: 0;
     right: 0;
 }
+.businesscard {
+    height: 100px;
+    width: 300px;
+    margin: auto;
+    border: 1px solid rgb(68, 85, 102);
+    background-color: rgb(17, 34, 51);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+    .businesscard .avatar {
+        float: left;
+    }
+    div.businesscard div.username {
+        font-weight: bold;
+        color: white;
+        text-align: left;
+        padding: 5px;
+        display: block;
+        margin-left: 100px;
+    }
+    .businesscard ul {
+        margin-left: 100px;
+        text-align: left;
+        padding: 5px;
+    }
+    .businesscard ul li {
+        display: inline;
+    }
 .panel {
     border-top: 1px solid #666;
     background-color: black;
@@ -116,7 +162,7 @@
             }
             .panel .box div.details div.love {
                 font-size: 500%;
-                padding: 0 10px;
+                padding: 0 10px 0 8px;
                 text-align: center;
                 color: red;
                 display: block;

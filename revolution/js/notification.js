@@ -11,45 +11,71 @@ var Notifications = {
         var current = $( '#notifications .selected' )[ 0 ];
         var next;
 
+        $( '#notifications h3 span' ).text( $( '#notifications h3 span' ).text() - 1 );
         next = current.nextSibling;
         if ( !next ) {
             next = current.previousSibling;
-            if ( !next ) {
-                Notifications.Done();
-            }
         }
         $( current ).remove();
         if ( next ) {
             $( next ).click();
         }
+        else {
+            Notifications.Done();
+        }
     },
     CreateFavouriteGUI: function ( entry ) {
         $( '#instantbox' ).remove();
 
-        var author = entry.find( 'favourite user name' ).text();
-        var gender = entry.find( 'favourite user gender' ).text();
+        var id = entry.attr( 'id' );
+        var author = entry.find( 'favourites user name' ).text();
+        var gender = entry.find( 'favourites user gender' ).text();
+        var userid = entry.find( 'favourites user' ).attr( 'id' );
         var article = 'Ο';
+        var article2 = 'του';
+        var humangender = 'Αγόρι';
+
         if ( gender == 'f' ) { 
             article = 'Η';
+            article2 = 'της';
+            humangender = 'Κορίτσι';
         }
-        var avatar = entry.find( 'favourite user avatar media' ).attr( 'url' );
+        var avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
         var type = entry.attr( 'type' );
+        var humantype = {
+            'photo': 'τη φωτογραφία',
+            'poll': 'τη δημοσκόπηση',
+            'journal': 'το ημερολόγιο'
+        }[ type ];
+        var humanlocation = entry.find( 'favourites user location' ).text();
+        var humanage = entry.find( 'favourites user age' ).text();
 
         var notificationfavourite = ''
             + '<div class="thread">'
                 + '<div class="note">'
-                    + '<strong>Γράψε μία απάντηση:</strong>'
+                    + '<div class="businesscard">'
+                        + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
+                        + '<div class="username">' + author + '</div>'
+                        + '<ul class="details">'
+                            + '<li>' + humangender + ' &#8226;</li>'
+                            + '<li>' + humanage + ' &#8226;</li>'
+                            + '<li>' + humanlocation + '</li>'
+                        + '</ul>'
+                    + '</div>'
+                    + '<p><strong>' + article + ' ' + author + ' αγαπάει ' + humantype + ' σου.</strong></p>'
+                    + '<p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
                     + '<div class="thread new">'
                         + '<div class="message mine new">'
                             + '<div><textarea></textarea></div>'
                         + '</div>'
                     + '</div>'
+                    + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>'
                 + '</div>'
             + '</div>';
         var html =
             '<div id="instantbox">'
                 + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
-                + '<div class="content"></div>'
+                + '<div class="content"><div class="tips">Πάτα για μεγιστοποίηση</div></div>'
                 + '<div class="details">'
                     + notificationfavourite
                 + '</div>'
@@ -59,6 +85,9 @@ var Notifications = {
 
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
             if ( event.shiftKey ) {
+                if ( event.keyCode == 27 ) { // ESC
+
+                }
                 return;
             }
             switch ( event.keyCode ) {
@@ -74,26 +103,14 @@ var Notifications = {
                     }
                     $.post( 'comment/create', {
                         text: commenttext,
-                        typeid: {
-                            'poll': 1,
-                            'photo': 2,
-                            'user': 3,
-                            'journal': 4,
-                            'school': 7
-                        }[ type ],
-                        'itemid': id,
-                        'parentid': commentid,
+                        typeid: user = 3,
+                        'itemid': userid,
+                        'parentid': 0
                     } );
                     Notifications.DoneWithCurrent();
                     break;
             }
         } );
-        if ( isreply ) {
-            $.get( 'comments/' + parentid, {}, function ( res ) {
-                $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
-                $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( ' text' )[ 0 ] );
-            } );
-        }
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
             $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
@@ -163,7 +180,7 @@ var Notifications = {
         var html =
             '<div id="instantbox">'
                 + '<ul class="tips"><li>Enter = <strong>Αποθήκευση απάντησης</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
-                + '<div class="content"></div>'
+                + '<div class="content"><div class="tips">Πάτα για μεγιστοποίηση</div></div>'
                 + '<div class="details">'
                     + notificationcomment
                 + '</div>'
@@ -178,6 +195,10 @@ var Notifications = {
             switch ( event.keyCode ) {
                 case 27: // ESC
                     Notifications.DoneWithCurrent();
+                    $.post( 'notification/delete', {
+                        'itemid': commentid,
+                        'eventtypeid': EVENT_COMMENT_CREATED = 4,
+                    } );
                     // TODO
                     break;
                 case 13: // Enter
@@ -196,7 +217,7 @@ var Notifications = {
                             'school': 7
                         }[ type ],
                         'itemid': id,
-                        'parentid': commentid,
+                        'parentid': commentid
                     } );
                     Notifications.DoneWithCurrent();
                     break;
@@ -220,44 +241,47 @@ var Notifications = {
                 var entry, author, avatar, comment;
                 var panel = document.createElement( 'div' );
                 var box;
+                var eventtype;
 
                 panel.id = 'notifications';
                 panel.className = 'panel bottom';
-                panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (' + $( res ).find( 'feed' ).attr( 'count' ) + ')</h3>';
+                panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'feed' ).attr( 'count' ) + '</span>)</h3>';
 
                 for ( var i = 0; i < entries.length; ++i ) {
                     entry = $( entries[ i ] );
                     if ( entry.find( 'discussion' ).length ) { // comment notification
+                        eventtype = 'comment';
+                    }
+                    else {
+                        eventtype = 'favourite';
+                    }
+
+                    box = document.createElement( 'div' );
+                    box.className = 'box';
+                    if ( eventtype == 'comment' ) {
                         author = entry.find( 'discussion comment author name' ).text();
                         avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
                         comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
-                        box = document.createElement( 'div' );
-                        box.className = 'box';
                         box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="text">' + comment+ '</div></div>';
-                        $( box ).click( ( function ( e ) {
-                            return function () {
-                                Notifications.TakeOver();
-                                $( '#notifications .box' ).removeClass( 'selected' );
-                                $( this ).addClass( 'selected' );
-                                Notifications.CreateCommentGUI( e );
-                            };
-                        } )( entry ) );
                     }
-                    else { // favourite notification
+                    else {
                         author = entry.find( 'favourites user name' ).text();
                         avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
-                        box = document.createElement( 'div' );
-                        box.className = 'box';
                         box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="love">&#10084;</div></div>';
-                        $( box ).click( ( function ( e ) {
-                            return function () {
-                                Notifications.TakeOver();
-                                $( '#notifications .box' ).removeClass( 'selected' );
-                                $( this ).addClass( 'selected' );
-                                Notifications.CreateCommentGUI( e );
-                            };
-                        } )( entry ) );
                     }
+                    $( box ).click( ( function ( e, eventtype ) {
+                        return function () {
+                            Notifications.TakeOver();
+                            $( '#notifications .box' ).removeClass( 'selected' );
+                            $( this ).addClass( 'selected' );
+                            if ( eventtype == 'comment' ) { 
+                                Notifications.CreateCommentGUI( e );
+                            }
+                            else {
+                                Notifications.CreateFavouriteGUI( e );
+                            }
+                        };
+                    } )( entry, eventtype ) );
                     panel.appendChild( box );
                 }
                 

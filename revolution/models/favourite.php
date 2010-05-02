@@ -18,10 +18,19 @@
                     user_gender AS gender,
                     user_avatarid AS avatarid,
                     user_subdomain AS subdomain,
-                    user_gender AS gender
+                    user_gender AS gender,
+                    DATE_FORMAT(
+                        FROM_DAYS(
+                            TO_DAYS( NOW() ) - TO_DAYS( `profile_dob` )
+                        ),
+                        "%Y"
+                    ) + 0 AS age,
+                    place_name AS place
                 FROM
                     favourites CROSS JOIN
                         users ON favourite_userid = user_id
+                        CROSS JOIN userprofiles ON user_id = profile_userid
+                        CROSS JOIN places ON profile_placeid = place_id
                 WHERE
                     favourite_id IN :ids', compact( 'ids' ), 'id'
              );
@@ -31,7 +40,11 @@
                     'name' => $row[ 'username' ],
                     'avatarid' => $row[ 'avatarid' ],
                     'gender' => $row[ 'gender' ],
-                    'subdomain' => $row[ 'subdomain' ]
+                    'subdomain' => $row[ 'subdomain' ],
+                    'age' => $row[ 'age' ],
+                    'place' => array(
+                        'name' => $row[ 'place' ]
+                    )
                 );
              }
              return $ret;
