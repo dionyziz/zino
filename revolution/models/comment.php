@@ -142,6 +142,7 @@
         public static function Create( $userid, $text, $typeid, $itemid, $parentid ) {
             include 'models/bulk.php';
             include 'models/wysiwyg.php';
+            include 'models/notification.php';
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -171,12 +172,23 @@
                 // no such target item
                 return false;
             }
-            if ( $parentid ) {
+            if ( $parentid ) {      
                 // TODO: Check the parent of the parent and remove relevant notifications if owner of comment-to-be-created match
                 $comment = Comment::Item( $parentid ); // TODO: Optimize; do not need bulk
                 if ( $comment === false ) {
                     // no such parent comment
                     return false;
+                }
+                if ( $comment[ 'parentid' ] ) { //has grandparent
+                    $grandparentComment = Comment::Item( $comment[ 'parentid' ] );
+                    if ( $grandparentComment[ 'userid' ] == $userid ) {
+                        Notification::DeleteByInfo( 4, $comment[ 'id' ], $userid );
+                    }
+                }
+                else { //hasn't grandparent                     
+                    if ( $item[ 'userid' ] == $userid ) {
+                        Notification::DeleteByInfo( 4, $comment[ 'id' ], $userid );
+                    }
                 }
                 $owner = $comment[ 'user' ][ 'id' ];
             }
