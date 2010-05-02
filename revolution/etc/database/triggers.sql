@@ -207,6 +207,38 @@ CREATE TRIGGER userbirth AFTER INSERT ON `users`
         UPDATE `albums` SET `album_ownerid` = NEW.`user_id` WHERE `album_id`=NEW.`user_egoalbumid` LIMIT 1;
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'inbox', 'inbox');
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'outbox', 'outbox');
+        INSERT INTO `usersettings` (
+           `setting_userid`,
+           `setting_emailprofilecomment`,
+           `setting_emailphotocomment`,
+           `setting_emailphototag`,
+           `setting_emailjournalcomment`,
+           `setting_emailpollcomment`,
+           `setting_emailreply`,
+           `setting_emailfriendaddition`,
+           `setting_emailfriendjournal`,
+           `setting_emailfriendpoll`,
+           `setting_emailfriendphoto`,
+           `setting_emailfavourite`,
+           `setting_emailbirthday`,
+           `setting_notifyprofilecomment`,
+           `setting_notifyphotocomment`,
+           `setting_notifyphototag`,
+           `setting_notifyjournalcomment`,
+           `setting_notifypollcomment`,
+           `setting_notifyreply`,
+           `setting_notifyfriendaddition`,
+           `setting_notifyfriendjournal`,
+           `setting_notifyfriendphoto`,
+           `setting_notifyfriendpoll`,
+           `setting_notifyfavourite`,
+           `setting_notifybirthday`
+        ) VALUES (
+            NEW.`user_id`,
+            'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes',
+            'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes',
+            'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes'
+        );
     END;
 |
 

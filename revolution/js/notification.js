@@ -23,6 +23,82 @@ var Notifications = {
             $( next ).click();
         }
     },
+    CreateFavouriteGUI: function ( entry ) {
+        $( '#instantbox' ).remove();
+
+        var author = entry.find( 'favourite user name' ).text();
+        var gender = entry.find( 'favourite user gender' ).text();
+        var article = 'Ο';
+        if ( gender == 'f' ) { 
+            article = 'Η';
+        }
+        var avatar = entry.find( 'favourite user avatar media' ).attr( 'url' );
+        var type = entry.attr( 'type' );
+
+        var notificationfavourite = ''
+            + '<div class="thread">'
+                + '<div class="note">'
+                    + '<strong>Γράψε μία απάντηση:</strong>'
+                    + '<div class="thread new">'
+                        + '<div class="message mine new">'
+                            + '<div><textarea></textarea></div>'
+                        + '</div>'
+                    + '</div>'
+                + '</div>'
+            + '</div>';
+        var html =
+            '<div id="instantbox">'
+                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
+                + '<div class="content"></div>'
+                + '<div class="details">'
+                    + notificationfavourite
+                + '</div>'
+            + '<div class="eof"></div></div>';
+
+        $( 'body' ).prepend( html );
+
+        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
+            if ( event.shiftKey ) {
+                return;
+            }
+            switch ( event.keyCode ) {
+                case 27: // ESC
+                    Notifications.DoneWithCurrent();
+                    // TODO
+                    break;
+                case 13: // Enter
+                    var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+                    if ( commenttext === '' ) {
+                        $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                        break;
+                    }
+                    $.post( 'comment/create', {
+                        text: commenttext,
+                        typeid: {
+                            'poll': 1,
+                            'photo': 2,
+                            'user': 3,
+                            'journal': 4,
+                            'school': 7
+                        }[ type ],
+                        'itemid': id,
+                        'parentid': commentid,
+                    } );
+                    Notifications.DoneWithCurrent();
+                    break;
+            }
+        } );
+        if ( isreply ) {
+            $.get( 'comments/' + parentid, {}, function ( res ) {
+                $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
+                $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( ' text' )[ 0 ] );
+            } );
+        }
+        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
+        axslt( data, '/social/entry', function() {
+            $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+        } );
+    },
     CreateCommentGUI: function ( entry ) {
         var isreply = entry.find( 'discussion comment comment' ).length > 0; 
         var commentpath;
@@ -86,7 +162,7 @@ var Notifications = {
 
         var html =
             '<div id="instantbox">'
-                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση απάντησης</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα απαντήσω αργότερα</strong></li></ul>'
+                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση απάντησης</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
                 + '<div class="content"></div>'
                 + '<div class="details">'
                     + notificationcomment

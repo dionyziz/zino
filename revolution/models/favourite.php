@@ -29,7 +29,9 @@
                  $ret[ $i ][ 'user' ] = array(
                     'id' => $row[ 'userid' ],
                     'name' => $row[ 'username' ],
-                    'avatarid' => $row[ 'avatarid' ]
+                    'avatarid' => $row[ 'avatarid' ],
+                    'gender' => $row[ 'gender' ],
+                    'subdomain' => $row[ 'subdomain' ]
                 );
              }
              return $ret;
