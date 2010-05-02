@@ -8,7 +8,7 @@
                         <div class="author">
                             <div class="details" />
                         </div>
-                        <div><textarea></textarea></div>
+                        <div class="text"><textarea></textarea></div>
                         <ul class="tips"><li>Enter = <strong>Αποθήκευση</strong></li><li>Escape = <strong>Ακύρωση</strong></li><li>Shift + Enter = <strong>Νέα γραμμή</strong></li><li><a href="">Φάτσες</a></li></ul>
                     </div>
                 </div>
