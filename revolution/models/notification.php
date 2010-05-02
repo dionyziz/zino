@@ -105,9 +105,19 @@
                  FROM
                     `notify`
                  WHERE
-                    `notification_eventid` = :notificationid
-                    AND `notificationid_touserid` = :userid
+                    `notify_eventid` = :notificationid
+                    AND `notify_touserid` = :userid
                  LIMIT 1', compact( 'notificationid', 'userid' ) );
+        }
+        public static function DeleteByInfo( $eventtype, $itemid, $userid ) {
+            db( 'DELETE
+                 FROM
+                    `notify`
+                 WHERE
+                    `notify_typeid` = :eventtype
+                    AND `notify_touserid` = :userid
+                    AND `notify_itemid` = :itemid
+                 LIMIT 1', compact( 'eventtype', 'userid', 'itemid' ) );
         }
     }
 ?>
