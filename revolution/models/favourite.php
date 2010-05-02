@@ -8,17 +8,31 @@
             return array_shift( $items );
         }
         public static function ItemMulti( $ids ) {
-             return db_array(
+             $ret = db_array(
                 'SELECT
                     favourite_id AS id,
                     favourite_userid AS userid,
                     favourite_itemid AS itemid,
-                    favourite_typeid AS typeid
+                    favourite_typeid AS typeid,
+                    user_name AS username,
+                    user_gender AS gender,
+                    user_avatarid AS avatarid,
+                    user_subdomain AS subdomain,
+                    user_gender AS gender
                 FROM
-                    favourites
+                    favourites CROSS JOIN
+                        users ON favourite_userid = user_id
                 WHERE
                     favourite_id IN :ids', compact( 'ids' ), 'id'
-            );
+             );
+             foreach ( $ret as $i => $row ) {
+                 $ret[ $i ][ 'user' ] = array(
+                    'id' => $row[ 'userid' ],
+                    'name' => $row[ 'username' ],
+                    'avatarid' => $row[ 'avatarid' ]
+                );
+             }
+             return $ret;
         }
         public static function Listing( $typeid, $itemid ) {
             return db_array(

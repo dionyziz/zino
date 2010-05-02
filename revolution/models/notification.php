@@ -79,7 +79,7 @@
             foreach ( $idsbyeventtype as $type => $ids ) {
                 switch ( $type ) {
                     case 'EVENT_COMMENT_CREATED':
-                        include 'models/favourite.php';
+                        include 'models/comment.php';
                         $commentinfo = Comment::ItemMulti( $ids );
                         break;
                     case 'EVENT_FAVOURITE_CREATED':

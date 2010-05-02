@@ -1,3 +1,6 @@
+.love {
+    white-space: nowrap;
+}
 #instantbox {
     border-bottom: 1px solid black;
     background-color: #213f57;
@@ -110,6 +113,13 @@
             .panel .box div.details div.text {
                 font-weight: bold;
                 padding: 5px;
+            }
+            .panel .box div.details div.love {
+                font-size: 500%;
+                padding: 0 10px;
+                text-align: center;
+                color: red;
+                display: block;
             }
     .panel h3 {
         color: orange; font-size: 120%; padding: 5px; margin: 4px 0pt; text-align: center;

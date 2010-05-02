@@ -151,20 +151,37 @@ var Notifications = {
 
                 for ( var i = 0; i < entries.length; ++i ) {
                     entry = $( entries[ i ] );
-                    author = entry.find( 'discussion comment author name' ).text();
-                    avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
-                    comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
-                    box = document.createElement( 'div' );
-                    box.className = 'box';
-                    box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="text">' + comment+ '</div></div>';
-                    $( box ).click( ( function ( e ) {
-                        return function () {
-                            Notifications.TakeOver();
-                            $( '#notifications .box' ).removeClass( 'selected' );
-                            $( this ).addClass( 'selected' );
-                            Notifications.CreateCommentGUI( e );
-                        };
-                    } )( entry ) );
+                    if ( entry.find( 'discussion' ).length ) { // comment notification
+                        author = entry.find( 'discussion comment author name' ).text();
+                        avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
+                        comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
+                        box = document.createElement( 'div' );
+                        box.className = 'box';
+                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="text">' + comment+ '</div></div>';
+                        $( box ).click( ( function ( e ) {
+                            return function () {
+                                Notifications.TakeOver();
+                                $( '#notifications .box' ).removeClass( 'selected' );
+                                $( this ).addClass( 'selected' );
+                                Notifications.CreateCommentGUI( e );
+                            };
+                        } )( entry ) );
+                    }
+                    else { // favourite notification
+                        author = entry.find( 'favourites user name' ).text();
+                        avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
+                        box = document.createElement( 'div' );
+                        box.className = 'box';
+                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="love">&#10084;</div></div>';
+                        $( box ).click( ( function ( e ) {
+                            return function () {
+                                Notifications.TakeOver();
+                                $( '#notifications .box' ).removeClass( 'selected' );
+                                $( this ).addClass( 'selected' );
+                                Notifications.CreateCommentGUI( e );
+                            };
+                        } )( entry ) );
+                    }
                     panel.appendChild( box );
                 }
                 
