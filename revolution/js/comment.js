@@ -116,5 +116,8 @@ var Comment = {
                 $( e ).attr( 'src', $( 'avatar > media', xml ).attr( 'url' ) );
             } );
         } );
+    },
+    Init: function( node ) {
+        Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
     }
 }
