@@ -30,6 +30,7 @@
             <title>Zino</title>
             <link type="text/css" href="global.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
+            <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <script type="text/javascript">
                 var OnLoad = function () {};
                 var Startup = function ( method ) {

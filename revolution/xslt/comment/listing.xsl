@@ -2,7 +2,7 @@
     <div class="discussion">
         <xsl:if test="/social/@for">
             <div class="note">
-                <a href="" class="talk">Γράψε ένα σχόλιο...</a>
+                <a href="" class="talk"><span class="s1_0027">&#160;</span> Άρχισε μία νέα συζήτηση</a>
                 <div class="thread new">
                     <div class="message mine new">
                         <div class="author">
@@ -10,6 +10,7 @@
                         </div>
                         <div class="text"><textarea></textarea></div>
                         <ul class="tips"><li>Enter = <strong>Αποθήκευση</strong></li><li>Escape = <strong>Ακύρωση</strong></li><li>Shift + Enter = <strong>Νέα γραμμή</strong></li><li><a href="">Φάτσες</a></li></ul>
+                        <div class="eof"></div>
                     </div>
                 </div>
             </div>
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="text">
-                <xsl:copy-of select="text" />
+                <xsl:copy-of select="text/*|text/text()" />
             </div>
             <div class="eof"></div>
         </div>

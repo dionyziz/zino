@@ -19,6 +19,7 @@ var Comment = {
                 newthread = newcomment.clone().insertAfter( '.discussion .note' );
                 Comment.TextEvents( newthread );
             }
+            $( 'a.talk' ).fadeOut( 300 );
         }
         else {
             newthread = $( this ).siblings( '.thread.new' );
@@ -42,21 +43,24 @@ var Comment = {
             if ( event.shiftKey ) {
                 return;
             }
+            var parentid;
+            if ( $( this ).closest( '.thread.new' ).parent().hasClass( 'discussion' ) ) {
+                parentid = 0;
+            }
+            else {
+                parentid = $( this ).closest( '.thread.new' ).parent().attr( 'id' ).split( '_' )[ 1 ];
+            }
             switch ( event.keyCode ) {
                 case 27: // ESC
                     Comment.FadeOut(  $( this ).closest( '.thread.new' ) );
+                    if ( parentid == 0 ) {
+                        $( 'a.talk' ).fadeIn( 300 );
+                    }
                     break;
                 case 13: // Enter
                     // TODO
-                    var parentid;
-                    if ( $( this ).closest( '.thread.new' ).parent().hasClass( 'discussion' ) ) {
-                        parentid = 0;
-                    }
-                    else {
-                        parentid = $( this ).closest( '.thread.new' ).parent().attr( 'id' ).split( '_' )[ 1 ];
-                    }
                     document.body.style.cursor = 'wait';
-                    //alert( parentid );
+                    
                     var wysiwyg = $.post( 'comment/create', {
                         text: this.value,
                         typeid: {
@@ -71,18 +75,29 @@ var Comment = {
                         
                     var callback = ( function( thread ) {
                          return function() {
-                            Comment.Prepare( $( this ).find( '.message' ) );
-                            newthread = $( thread ).replaceWith( this ).fadeIn( 750 )
+                            newthread = $( this ).filter( '.thread' );
+                            Comment.Prepare( $( newthread ).find( '.message' ) );
+                            $( thread ).replaceWith( newthread );
+                            newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
                             document.body.style.cursor = 'default';
                         }
                     } )( $( this ).closest( '.thread.new' ) )
+
                     axslt( wysiwyg, '/social/comment', callback );
                     
-                    var message = $( '<div class="message mine"><div class="text" /></div>' );
-                    message.find( '.text' ).append( $( this ).val() );
-                    $( this ).closest( '.thread.new' ).animate( { 'opacity': 0.7 }, 500 )
-                        .find( 'ul.tips' ).hide();
-                    $( this ).replaceWith( message );
+                    var thread = $( this ).closest( '.thread.new' );
+                    
+                    thread.removeClass( 'new' )
+                        .find( '.message.new' )
+                        .removeClass( 'new' )
+                        .find( '.author .details' )
+                        .append( $( '<span />' ).addClass( 'username' ).text( User ) );
+                    thread.find( 'ul.tips' )
+                        .hide();
+                    
+                    thread.animate( { 'opacity': 0.6 }, 500 );
+                    var text =  $( this ).val();
+                    $( this ).parent().empty().append( text );
                     break;
             }
         } );

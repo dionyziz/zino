@@ -24,7 +24,7 @@
         </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
         <div class="document">
-            <xsl:copy-of select="text/*" />
+            <xsl:copy-of select="text/*|text/text()" />
         </div>
         <div class="note">
             <xsl:for-each select="favourites/user">

@@ -1,4 +1,5 @@
 div.discussion {
+    margin: 35px 0 0 0;
     padding: 10px;
     clear: both;
 }
@@ -26,25 +27,33 @@ div.mine .time {
 }
 a.talk {
     -moz-border-radius: 5px;
-    background-color: white;
-    border: 1px solid #456;
-    color: #666;
+    border-radius: 5px;
+    background-color: #284059;
+    border: 2px solid #3b5d81;
+    color: white;
     font-size: 100%;
     padding: 6px;
-    text-align: left;
-    width: 200px;
+    text-align: center;
+    width: 180px;
     display: block;
-    margin: 0 0 0 16px;
+    text-decoration: none;
+    position: absolute;
+    margin: -30px 0 0 -90px;
+    left: 50%;
 }
 .thread.new {
     border-top: none;
     border-right: none;
     display: none;
+    padding: 0;
 }
-div.thread .new {
+.message.new {
     padding: 5px 10px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+.message.new .text {
+    line-height: normal;
 }
 div.message textarea {
     font: 1.15em/1.1 'Lucida Grande',sans-serif;
