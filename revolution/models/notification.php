@@ -42,7 +42,7 @@
             $id = mysql_insert_id();
         }
         public static function ListRecent( $userid ) {
-            include 'models/types.php';
+            include_fast( 'models/types.php' );
 
             $res = db( 'SELECT
                             `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
@@ -79,11 +79,11 @@
             foreach ( $idsbyeventtype as $type => $ids ) {
                 switch ( $type ) {
                     case 'EVENT_COMMENT_CREATED':
-                        include 'models/comment.php';
+                        include_fast( 'models/comment.php' );
                         $commentinfo = Comment::ItemMulti( $ids );
                         break;
                     case 'EVENT_FAVOURITE_CREATED':
-                        include 'models/favourite.php';
+                        include_fast( 'models/favourite.php' );
                         $favouriteinfo = Favourite::ItemMulti( $ids );
                         break;
                 }

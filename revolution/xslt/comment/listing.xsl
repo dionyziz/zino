@@ -2,7 +2,7 @@
     <div class="discussion">
         <xsl:if test="/social/@for">
             <div class="note">
-                <div class="message thread" style="margin-left:15px; margin-right: 0; padding: 4px 0 4px 44px"><a href="" class="talk button">Γράψε ένα σχόλιο...</a></div>
+                <a href="" class="talk">Γράψε ένα σχόλιο...</a>
                 <div class="thread new">
                     <div class="message mine new">
                         <div class="author">

@@ -1,6 +1,6 @@
 <?php
-    include 'models/mc.php';
-    include 'models/types.php';
+    include_fast( 'models/mc.php' );
+    include_fast( 'models/types.php' );
     global $settings;
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
@@ -21,7 +21,7 @@
             return array( count( $paged ), $comments );
         }
         public static function Populate( $commentids ) {
-            include 'models/bulk.php';
+            include_fast( 'models/bulk.php' );
 
             if ( empty( $commentids ) ) {
                 return array();
@@ -140,9 +140,9 @@
             return $children;
         }
         public static function Create( $userid, $text, $typeid, $itemid, $parentid ) {
-            include 'models/bulk.php';
-            include 'models/wysiwyg.php';
-            include 'models/notification.php';
+            include_fast( 'models/bulk.php' );
+            include_fast( 'models/wysiwyg.php' );
+            include_fast( 'models/notification.php' );
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -207,7 +207,7 @@
             $id = mysql_insert_id();
             
             Comment::RegenerateMemcache( $typeid, $itemid );
-            include( 'models/notification.php' );
+            include_fast( 'models/notification.php' );
             Notification::Create( $userid, $owner, 'EVENT_COMMENT_CREATED', $id );
             // TODO: comet
             return array(
@@ -223,8 +223,7 @@
             return false;
         }
         public static function ItemMulti( $ids ) {
-            include 'models/bulk.php';
-
+            include_fast( 'models/bulk.php' );
             $res = db( 'SELECT
                             `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
                             `comment_created` AS created, `comment_parentid` AS parentid,

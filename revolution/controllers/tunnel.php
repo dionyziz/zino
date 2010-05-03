@@ -7,8 +7,8 @@
         public static function Create( $channels ) {
             global $settings;
 
-            include 'models/db.php';
-            include 'models/comet.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/comet.php' );
     
             $channelids = explode( ',', $channels );
             $tunnel = PushTunnel::Create();
@@ -19,8 +19,8 @@
             include 'views/tunnel/create.php';
         }
         public static function Update( $tunnelid, $tunnelauthtoken ) {
-            include 'models/db.php';
-            include 'models/comet.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/comet.php' );
 
             if ( !PushTunnel::Auth( $tunnelauthtoken ) ) {
                 die( 'Invalid tunnel authtoken' );

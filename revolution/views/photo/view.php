@@ -1,3 +1,4 @@
+<? global $settings ?>
 <entry id="<?= $photo[ 'id' ] ?>">
     <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
     <? if ( isset( $user ) ): ?>

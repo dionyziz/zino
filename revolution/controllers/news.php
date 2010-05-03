@@ -1,10 +1,10 @@
 <?php
     class ControllerNews {
         public static function Listing() {    
-            include 'models/db.php';
-            include 'models/poll.php';
-            include 'models/journal.php';
-            include 'models/photo.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/poll.php' );
+            include_fast( 'models/journal.php' );
+            include_fast( 'models/photo.php' );
             $polls = Poll::ListRecent( 25 );
             $journals = Journal::ListRecent( 25 );
             $photos = Photo::ListRecent( 0, 25 );

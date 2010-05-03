@@ -5,7 +5,7 @@
             ( string )( int )$offset == ( string )$offset or die( 'Offset is not an integer' );
             ( string )( int )$limit == ( string )$limit or die( 'Limit is not an integer' );
 
-            include 'models/bulk.php';
+            include_fast( 'models/bulk.php' );
 
             $res = db(
                 "SELECT
@@ -47,8 +47,8 @@
             ( string )( int )$channelid == ( string )$channelid or die( 'Channelid is not an integer' );
             ( string )( int )$userid == ( string )$userid or die( 'Userid is not an integer' );
 
-            include 'models/bulk.php';
-            include 'models/wysiwyg.php';
+            include_fast( 'models/bulk.php' );
+            include_fast( 'models/wysiwyg.php' );
 
             $text = nl2br( htmlspecialchars( $text ) );
             $text = WYSIWYG_PostProcess( $text );

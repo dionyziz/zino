@@ -12,8 +12,8 @@
             }
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
-            include 'models/db.php';
-            include 'models/user.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/user.php' );
             if ( $verbose >= 3 && $id ) { //TODO: Only works with a given id, the model must be updated
                 if ( $id ) {
                     $user = User::ItemDetails( $id );
@@ -39,7 +39,7 @@
                 return;
             }
             if ( $verbose >= 3 ) {
-                include 'models/comment.php';
+                include_fast( 'models/comment.php' );
                 $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
@@ -47,8 +47,8 @@
             include 'views/user/view.php';
         }
         public static function Listing() {
-            include 'models/db.php';
-            include 'models/user.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/user.php' );
             $users = User::ListOnline();
             include 'views/user/listing.php';
         }

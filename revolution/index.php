@@ -21,8 +21,17 @@
 		$vars = $_GET;
         $method == 'view' or $method = 'listing';
 	}
-
-    include 'models/water.php';
+    
+    function include_fast( $path ) {
+        static $included = array();
+        if ( !isset( $included[ $path ] ) ) {
+            $included[ $path ] = true;
+            return include $path;
+        }
+        return true;
+    }
+    
+    include_fast( 'models/water.php' );
 
     global $settings;
     
@@ -42,7 +51,7 @@
     ?>" method="<?= $method;
     ?>"><?php
 
-    include 'controllers/' . $resource . '.php';
+    include_fast( 'controllers/' . $resource . '.php' );
     
     $refl = New ReflectionClass( 'Controller' . $resource );
     $func = $refl->getMethod( $method );

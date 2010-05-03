@@ -4,8 +4,8 @@
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
-            include 'models/db.php';
-            include 'models/photo.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/photo.php' );
             $photo = Photo::Item( $id );
             $photo !== false or die;
             if ( $photo[ 'user' ][ 'deleted' ] === 1 ) { 
@@ -16,14 +16,14 @@
                 $user = $photo[ 'user' ];
             }
             if ( $verbose >= 3 ) {
-                include 'models/comment.php';
+                include_fast( 'models/comment.php' );
                 $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $photo[ 'numcomments' ];
             }
             if ( $verbose >= 2 ) {
-                include 'models/favourite.php';
+                include_fast( 'models/favourite.php' );
                 $favourites = Favourite::Listing( TYPE_IMAGE, $id );
             }
             include 'views/photo/view.php';
@@ -31,17 +31,17 @@
         public static function Listing( $page = 1, $limit = 100 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
-            include 'models/db.php';
-            include 'models/photo.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
             $photos = Photo::ListRecent( $offset, $limit );
             include 'views/photo/listing.php';
         }
         public static function Create( $albumid, $typeid ) {
             global $settings;
-            include 'models/db.php';
-            include 'models/photo.php';
-            include 'models/album.php';
+            include_fast( 'models/db.php' );
+            include_fast( 'models/photo.php' );
+            include_fast( 'models/album.php' );
     
             $user = $_SESSION[ 'user' ];
             $userid = $user[ 'id' ];

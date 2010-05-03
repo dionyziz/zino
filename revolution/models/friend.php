@@ -6,13 +6,13 @@
     
     class Friend {
         public static function Create( $userid, $friendid, $typeid ) {
-            include 'models/db.php';
+            include_fast( 'models/db.php' );
             return db( 'INSERT IGNORE INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
         }
         public static function Delete( $userid, $friendid ) {
-            include 'models/db.php';
+            include_fast( 'models/db.php' );
             return db( 'DELETE FROM `relations` 
                        WHERE `relation_userid` = :userid 
                        AND `relation_friendid` = :friendid', 
