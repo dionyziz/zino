@@ -9,7 +9,9 @@
 					`journals`
 				CROSS JOIN `users` ON
 					`journal_userid` = `user_id`
-				WHERE `journal_delid` = 0
+				WHERE 
+                    `journal_delid` = 0 AND
+                    `user_deleted` = 0
 				ORDER BY `journal_id` DESC
 				LIMIT :amount', array( 'amount' => $amount ) 
             );

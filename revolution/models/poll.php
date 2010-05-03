@@ -11,7 +11,9 @@
 					`polls`
 				CROSS JOIN `users` ON
 					`poll_userid` = `user_id`
-				WHERE `poll_delid` = 0
+				WHERE 
+                    `poll_delid` = 0 AND
+                    `user_deleted` = 0
 				ORDER BY `poll_id` DESC
 				LIMIT :amount', array( 'amount' => $amount ) 
             );
