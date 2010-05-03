@@ -207,8 +207,9 @@
             $id = mysql_insert_id();
             
             Comment::RegenerateMemcache( $typeid, $itemid );
-            include_fast( 'models/notification.php' );
-            Notification::Create( $userid, $owner, 'EVENT_COMMENT_CREATED', $id );
+            if ( $owner != $userid ) {
+                Notification::Create( $userid, $owner, 'EVENT_COMMENT_CREATED', $id );
+            }
             // TODO: comet
             return array(
                 'id' => $id,
