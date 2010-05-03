@@ -200,9 +200,9 @@
 
             $bulkid = Bulk::Store( $text );
             db( "INSERT INTO `comments`
-                    (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`)
+                    (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`)
                 VALUES
-                    (:userid, :bulkid, :typeid, :itemid, :parentid)", compact( 'userid', 'bulkid', 'typeid', 'itemid', 'parentid' )
+                    (:userid, :bulkid, :typeid, :itemid, :parentid, NOW())", compact( 'userid', 'bulkid', 'typeid', 'itemid', 'parentid' )
             );
             $id = mysql_insert_id();
             
