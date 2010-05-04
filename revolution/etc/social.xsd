@@ -151,7 +151,7 @@ targetNamespace="http://www.zino.gr" elementFormDefault="qualified">
     </xs:complexType>
 </xs:element>
 
-<xs:element name="feed">
+<xs:element name="stream">
     <xs:complexType>
         <xs:attribute ref="type" use="required" />
     </xs:complexType>
@@ -160,7 +160,7 @@ targetNamespace="http://www.zino.gr" elementFormDefault="qualified">
 <xs:element name="social">
     <xs:complexType>
         <xs:choice>
-            <xs:element ref="feed" minOccurs="0" />
+            <xs:element ref="stream" minOccurs="0" />
             <xs:element ref="entry" minOccurs="0" />
         </xs:choice>
         <xs:attribute ref="generated" use="required" />

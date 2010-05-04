@@ -6,12 +6,12 @@ var PhotoListing = {
     LastLoaded: null,
     Loading: false,
     Init: function(){
-        this.PhotoList = $( '.photofeed ul' );
+        this.PhotoList = $( '.photostream ul' );
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){
             this.PlaceholderHTML += '<li><a><img /></a></li>';
         }
-        this.LastLoaded = $( '.photofeed ul li:last' )[ 0 ];
+        this.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
         this.AssignEvents();
         this.Initialized = true;
     },
@@ -33,7 +33,7 @@ var PhotoListing = {
         PhotoListing.Loading = true;
         PhotoListing.RemoveEvents();
         PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
-        PhotoListing.LastLoaded = $( '.photofeed ul li')[ PhotoListing.CurrentPage * 100 - 1];
+        PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
         $.get( 'photos',
         { 'page': PhotoListing.CurrentPage },

@@ -237,7 +237,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             $.get( 'notifications', {}, function ( res ) {
-                var entries = $( res ).find( 'feed entry' );
+                var entries = $( res ).find( 'stream entry' );
                 var entry, author, avatar, comment;
                 var panel = document.createElement( 'div' );
                 var box;
@@ -245,7 +245,7 @@ var Notifications = {
 
                 panel.id = 'notifications';
                 panel.className = 'panel bottom';
-                panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'feed' ).attr( 'count' ) + '</span>)</h3>';
+                panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
 
                 for ( var i = 0; i < entries.length; ++i ) {
                     entry = $( entries[ i ] );

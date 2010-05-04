@@ -34,6 +34,6 @@ var News = {
     },
     Init: function() {
         $( '#preview .infotext' ).center();
-        News.Prepare( $( '.feed li' ) );
+        News.Prepare( $( '.stream li' ) );
     }
 }
