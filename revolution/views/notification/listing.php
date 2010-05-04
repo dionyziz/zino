@@ -1,4 +1,4 @@
-<feed type="notify" count="<?= count( $notifications ) ?>">
+<stream type="notify" count="<?= count( $notifications ) ?>">
     <? foreach ( $notifications as $notification ): ?>
     <? switch ( $notification[ 'eventtype' ] ):
     case 'EVENT_COMMENT_CREATED': 
@@ -76,4 +76,4 @@
     endswitch; ?>
     <? endforeach; ?>
 
-</feed>
+</stream>

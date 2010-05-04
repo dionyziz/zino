@@ -76,30 +76,30 @@ a {
 .content {
     overflow: auto;
 }
-div.photofeed {
+div.stream {
     margin-left: 5px;
     height: 100%;
     margin-right: 10px;
 }
-div.photofeed ul {
+div.stream ul {
     height: 100%;
     overflow: auto;
     text-align: justify;
 }
-div.photofeed li:before {
+div.stream li:before {
     content: "  ";
 }
-div.photofeed li {
+div.stream li {
     display: inline;
 }
-div.photofeed a {
+div.stream a {
     text-decoration: none;
     display: inline-block;
     width: 18%;
     max-width: 150px;
     position: relative;
 }
-div.photofeed img {
+div.stream img {
     margin: 1px;
     padding: 5px;
     width: 100%;

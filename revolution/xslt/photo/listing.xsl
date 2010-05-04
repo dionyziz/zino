@@ -2,8 +2,8 @@
     <xsl:call-template name="zoomout" />
 </xsl:template>
 
-<xsl:template match="/social[@resource='photo' and @method='listing']//feed">
-    <div class="photofeed">
+<xsl:template match="/social[@resource='photo' and @method='listing']//stream">
+    <div class="photostream">
         <ul>
             <xsl:for-each select="entry">
                 <li>

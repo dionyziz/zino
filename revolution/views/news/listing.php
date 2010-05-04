@@ -1,4 +1,4 @@
-<feed type="news">
+<stream type="news">
 	<? foreach ( $content as $item ): ?>
     <entry type="<?= $item[ 'type' ] ?>" id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>
@@ -24,4 +24,4 @@
         <discussion count="<?= $item[ 'numcomments' ] ?>" />
     </entry>
     <? endforeach; ?>
-</feed>
+</stream>

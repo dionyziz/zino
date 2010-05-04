@@ -1,4 +1,4 @@
-<feed type="photos">
+<stream type="photos">
     <? global $settings;
     foreach ( $photos as $photo ): ?>
     <entry id="<?= $photo[ 'id' ] ?>">
@@ -6,4 +6,4 @@
         <discussion count="<?= $photo[ 'numcomments' ] ?>" />
     </entry>
     <? endforeach; ?>
-</feed>
+</stream>

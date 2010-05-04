@@ -1,16 +1,16 @@
-.feed ul  {
+.sstream ul  {
     width: 55%;
     background-color: white;
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
-.feed ul li {
+.stream ul li {
     border-top: 1px dotted black;
     min-height: 67px;
     position: relative;
     overflow: hidden;
 }
-.feed ul li a h2 {
+.stream ul li a h2 {
     margin: 0 10px 5px 80px;
     padding: 2px;
     line-height: 18px;
@@ -20,13 +20,13 @@
     text-align: justify;
     text-decoration: none;
 }
-.feed ul li:hover {
+.stream ul li:hover {
     background-color: #C7DAED;
 }
-.feed ul li.previewing {
+.stream ul li.previewing {
     background-color: #7a9ec2;
 }
-.feed ul li a.title {
+.stream ul li a.title {
     text-decoration: none;
     display: block;
     position: relative;
@@ -35,11 +35,11 @@
     width: 100%;
     min-height: 48px;
 }
-.feed ul li div.details {
+.stream ul li div.details {
     position: absolute;
     width: 100%;
 }
-.feed ul li a.username {
+.stream ul li a.username {
     display: block;
     height: 1px;
     margin: 10px 0px 10px 30px;
@@ -50,22 +50,22 @@
     position: relative;
     z-index: 1;
 }
-.feed ul li a.username img {
+.stream ul li a.username img {
     display: block;
     float: left;
     margin-right: 4px;
 }
-.feed ul li p.publishtime {
+.stream ul li p.publishtime {
     float: left;
     margin: 10px 0 0 5px;
     color: #555;
 }
-.feed ul li p.commentcount {
+.stream ul li p.commentcount {
     text-align: right;
     margin: 10px 15px 0 0;
     color: #3B5998;
 }
-.feed ul li span.zoomin {
+.stream ul li span.zoomin {
     position: absolute;
     bottom: 0.5em;
     text-align: center;
@@ -73,7 +73,7 @@
     display: none;
     color: white;
 }
-.feed ul li.previewing span.zoomin {
+.stream ul li.previewing span.zoomin {
     display: inline;
 }
 #preview {
