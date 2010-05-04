@@ -92,13 +92,14 @@
     z-index: 5;
     height: 150px;
     overflow: hidden;
+    padding: 0 30px;
 }
     .panel .xbutton {
         font-size: 100%;
         color: white;
         float: right;
         position: static;
-        margin: 5px 5px 0 0;
+        margin: 5px -25px 0 0;
         border: 0;
         background-color: transparent;
         padding: 0;
