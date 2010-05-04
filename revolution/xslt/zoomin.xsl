@@ -3,4 +3,4 @@
     <div class="highlight-content">
         <xsl:apply-templates />
     </div>
-</xsl:template>
+</xsl:template> 

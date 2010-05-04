@@ -30,4 +30,4 @@
         </div>
     </div>
     <script type="text/javascript" src="js/notification.js"></script>
-</xsl:template>
+</xsl:template> 
