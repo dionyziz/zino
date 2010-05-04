@@ -34,4 +34,4 @@
             PhotoListing.Init();
         } );
     </script>
-</xsl:template>
+</xsl:template> 
