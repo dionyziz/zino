@@ -86,13 +86,21 @@
         display: inline;
     }
 .panel {
-    border-top: 1px solid #666;
-    background-color: black;
-    opacity: 0.9;
     z-index: 5;
     height: 150px;
     overflow: hidden;
     padding: 0 30px;
+}
+.panel .background {
+    border-top: 1px solid #666;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
     .panel .xbutton {
         font-size: 100%;

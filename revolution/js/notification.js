@@ -245,7 +245,7 @@ var Notifications = {
 
                 panel.id = 'notifications';
                 panel.className = 'panel bottom';
-                panel.innerHTML = '<div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
+                panel.innerHTML = '<div class="background"></div><div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
 
                 for ( var i = 0; i < entries.length; ++i ) {
                     entry = $( entries[ i ] );
