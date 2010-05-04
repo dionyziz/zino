@@ -105,7 +105,7 @@
     position: absolute;
     right: 0;
     visibility: visible;
-    z-index: 100;
+    z-index: 1;
     border-left: 1px solid black;
     overflow: hidden;
 }
@@ -124,4 +124,25 @@
     color: white;
     font-size: 130%;
     width: 100%;
+}
+ol.createitem {
+    padding: 15px 0;
+    margin: 0;
+    list-style: none;
+    background: white;
+    width: 55%;
+    font-size: 120%;
+    height: 1.5em;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    text-align: center;
+}
+ol.createitem li {
+    padding: 0 15px;
+    display: inline;
+}
+ol.createitem li a {
+    color: #008;
+    text-decoration: none;
+    font-weight: bold;
 }

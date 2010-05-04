@@ -4,6 +4,12 @@
 
 <xsl:template match="/social[@resource='news' and @method='listing']//stream">
     <div class="stream">
+        <xsl:if test="$user">
+            <ol class="createitem">
+                <li><a href="">Νέο ημερολόγιο</a></li>
+                <li><a href="">Νέα δημοσκόπηση</a></li>
+            </ol>
+        </xsl:if>
         <ul>
             <xsl:for-each select="entry">
                 <li>
