@@ -8,6 +8,8 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
+<xsl:variable name="user" select="/*[1]/@for" />
+
 <xsl:template match="/" priority="1">
     <xsl:choose>
         <!-- tiny master templates -->
