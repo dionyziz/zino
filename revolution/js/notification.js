@@ -252,33 +252,46 @@ var Notifications = {
                     if ( entry.find( 'discussion' ).length ) { // comment notification
                         eventtype = 'comment';
                     }
-                    else {
+                    else if ( entry.find( 'favourites' ).length ) { // favourites notification
                         eventtype = 'favourite';
+                    }
+                    else {
+                        eventtype = 'friend';
                     }
 
                     box = document.createElement( 'div' );
                     box.className = 'box';
-                    if ( eventtype == 'comment' ) {
-                        author = entry.find( 'discussion comment author name' ).text();
-                        avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
-                        comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
-                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
-                    }
-                    else {
-                        author = entry.find( 'favourites user name' ).text();
-                        avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
-                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
+                    switch ( eventtype ) {
+                        case 'comment':
+                            author = entry.find( 'discussion comment author name' ).text();
+                            avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
+                            comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
+                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
+                            break;
+                        case 'favourite':
+                            author = entry.find( 'favourites user name' ).text();
+                            avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
+                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
+                            break;
+                        case 'friend':
+                            //TODO
+                            break;
                     }
                     $( box ).click( ( function ( e, eventtype ) {
                         return function () {
                             Notifications.TakeOver();
                             $( '#notifications .box' ).removeClass( 'selected' );
                             $( this ).addClass( 'selected' );
-                            if ( eventtype == 'comment' ) { 
-                                Notifications.CreateCommentGUI( e );
-                            }
-                            else {
-                                Notifications.CreateFavouriteGUI( e );
+                            switch ( eventtype ) {
+                                case 'comment':
+                                    Notifications.CreateCommentGUI( e );
+                                    break;
+                                case 'favourite':
+                                    Notifications.CreateFavouriteGUI( e );
+                                    break;
+                                case 'friend':
+                                    //TODO
+                                    break;
                             }
                         };
                     } )( entry, eventtype ) );

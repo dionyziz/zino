@@ -86,6 +86,9 @@
                         include_fast( 'models/favourite.php' );
                         $favouriteinfo = Favourite::ItemMulti( $ids );
                         break;
+                    case 'EVENT_FRIENDRELATION_CREATED':
+                        include_fast( 'models/friend.php' );
+                        $friendinfo = Friend::ItemMulti( $ids );
                 }
             }
             foreach ( $notifications as $i => $notification ) {
@@ -96,6 +99,8 @@
                     case 'EVENT_FAVOURITE_CREATED':
                         $notifications[ $i ][ 'favourite' ] = $favouriteinfo[ $notification[ 'itemid' ] ];
                         break;
+                    case 'EVENT_FRIENDRELATION_CREATED':
+                        $notifications[ $i ][ 'friend' ] = $friendinfo[ $notification[ 'itemid' ] ];
                 }
             }
             return $notifications;

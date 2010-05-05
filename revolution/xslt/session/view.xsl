@@ -25,7 +25,7 @@
                 </form>
                 <div class="login">
                     <h2>Έχεις ήδη zino?</h2>
-                    <form method="POST" action="browserlogin">
+                    <form method="POST" action="session/create">
                         <label>Ψευδώνυμο</label>
                         <input class="text" type="text" tabindex="1" name="username" />
                         <label>Κωδικός</label>

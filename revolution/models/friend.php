@@ -5,6 +5,19 @@
     define( 'FRIENDS_BOTH', FRIENDS_A_HAS_B | FRIENDS_B_HAS_A );
     
     class Friend {
+        public static function Item( $relationid ) {
+            return array_shift( self::ItemMulti( array( $relationid ) ) );
+        }
+        public static function ItemMulti( $ids ) {
+            return db_array(
+                'SELECT
+                    `relation_id` AS id, `relation_userid` AS userid
+                FROM
+                    `relations`
+                WHERE
+                    `relation_id` IN :ids', compact( 'ids' ), 'id'
+            );
+        }
         public static function Create( $userid, $friendid, $typeid ) {
             include_fast( 'models/db.php' );
             return db( 'INSERT IGNORE INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
