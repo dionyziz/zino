@@ -123,7 +123,7 @@
                 $page->AttachInlineScript( "Notification.VNotifs = 0;Notification.INotifs= 0;" );
             }
             
-            ?><a href="http://atdhe.net/watch-bbc-news.php" style="border:1px solid #aaa;background-color: #fffbcd;border-radius:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 30px auto 30px auto; padding: 15px; text-align: center; font-weight: bold">3 νεκροί στα επεισόδια στην Αθήνα αυτή τη στιγμή</a><?php
+            ?><a href="http://atdhe.net/watch-bbc-news.php" style="border:1px solid #aaa;background-color: #fffbcd; display: block; border-radius:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 30px auto 30px auto; padding: 15px; text-align: center; font-weight: bold">3 νεκροί στα επεισόδια στην Αθήνα αυτή τη στιγμή</a><?php
             
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
