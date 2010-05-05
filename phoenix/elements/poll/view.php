@@ -69,6 +69,7 @@
                     ?></dd><?php
                 ?></dl><?php
                 if ( $user->Exists() ) {
+                    Spot::Visited( TYPE_POLL, $$poll->Id );
                     ?><ul class="edit"><?php
                         if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
                             ?><li>
