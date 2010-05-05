@@ -3,7 +3,7 @@ $.ajaxSetup( {
 } );
 _aXSLT.defaultStylesheet = 'global.xsl';
 
-$( 'div.time' ).each( function () {
+$( '.time' ).each( function () {
     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
     $( this ).addClass( 'processedtime' );
 } );

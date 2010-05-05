@@ -17,7 +17,7 @@
                     <xsl:attribute name="id"><xsl:value-of select="@type" />_<xsl:value-of select="@id" /></xsl:attribute>
                     <div class="details">
                         <xsl:apply-templates select="author" />
-                        <p class="publishtime">Αναρτήθηκε <xsl:value-of select="published[1]" /></p>
+                        <p class="time"><xsl:value-of select="published[1]" /></p>
                         <xsl:if test="discussion[1]/@count &gt; 0">
                             <xsl:if test="discussion[1]/@count &lt; 2">
                                 <p class="commentcount"><xsl:value-of select="discussion[1]/@count" /> σχόλιο</p>

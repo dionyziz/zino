@@ -36,7 +36,7 @@
             $res = db(
                 'SELECT
                     `user_id` AS id,
-                    `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
+                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
                 FROM
                     `users`
                 WHERE
@@ -55,7 +55,7 @@
             $query = 
                 'SELECT
                     `user_id` AS id,
-                    `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
+                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `place_name` AS location,
                     `profile_numcomments` AS numcomments,
                     `profile_height`,
