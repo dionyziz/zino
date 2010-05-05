@@ -3,7 +3,7 @@
         <xsl:when test="operation/result/text() = 'SUCCESS'">
             <meta http-equiv="refresh">
                 <xsl:attribute name="content">
-                    0;url=<xsl:value-of select="/*[1]/@generator" />
+                    0;url=<xsl:value-of select="/*[1]/@generator" />/
                 </xsl:attribute>
             </meta>
             Γίνεται είσοδος, παρακαλώ περιμένετε!
