@@ -3,10 +3,10 @@ $.ajaxSetup( {
 } );
 _aXSLT.defaultStylesheet = 'global.xsl';
 
-$( '.time' ).each( function () {
+$( function() { $( '.time' ).each( function () {
     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
     $( this ).addClass( 'processedtime' );
-} );
+} ); } );
 
 $( function() {
     $( 'ul.options li input' ).click( function () {

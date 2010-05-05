@@ -282,6 +282,8 @@ var _aXSLT = {
             throw new Error( 'aXSLT: Empty result document' );
             return null;
         }
-        callback.call( result.childNodes );
+        if ( callback ) {
+            callback.call( result.childNodes );
+        }
     }
 }
