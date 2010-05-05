@@ -95,7 +95,7 @@
     border-top: 1px solid #666;
     background-color: black;
     opacity: 0.9;
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
