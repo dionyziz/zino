@@ -122,6 +122,9 @@
             else {
                 $page->AttachInlineScript( "Notification.VNotifs = 0;Notification.INotifs= 0;" );
             }
+            
+            ?><a href="http://atdhe.net/watch-bbc-news.php" style="border:1px solid #aaa;background-color: #eee;border-radius:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 10px; padding: 5px; text-align: center">3 νεκροί στα επισόδεια στην Αθήνα αυτή τη στιγμή</a><?php
+            
             Element( 'frontpage/image/list' , $sequences[ SEQUENCE_FRONTPAGEIMAGECOMMENTS ] );
 
             /* commented out by ted
