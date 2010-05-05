@@ -23,15 +23,13 @@ foreach ( $list as $num=>$line ) {
     }
     if ( !file_exists( $line ) ) {
         //Generate viewable error
-        echo <<<EOS
-<?xml version="1.0" encoding="utf-8"?>
+        echo '<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="text" encoding="utf-8" indent="yes" />
-    <xsl:template match="/">
-        global.xsl: File in global.lst does not exist
+    <xsl:template match="/">';
+        echo "global.xsl: File $line does not exist
     </xsl:template>
-</xsl:stylesheet>
-EOS;
+</xsl:stylesheet>";
         exit;
     }
     $modtime = filemtime( $line );
