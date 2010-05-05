@@ -27,9 +27,8 @@
             }
 
             if ( $journal !== false ) {
-				if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 || $user->Id == 1 || $user->Id == 5181 || $user->Id == 3890 ) {
-                    Spot::Visited( TYPE_JOURNAL, $journal->Id );
-				}
+                Spot::Visited( TYPE_JOURNAL, $journal->Id );
+
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
                 $finder = New FavouriteFinder();
