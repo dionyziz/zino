@@ -6,12 +6,12 @@
 
     include '../models/db.php';
 
-    ?><html><body><?php
 
     if ( !isset( $_GET[ 'go' ] ) ) {
-        ?>Tell me to go!<br /><?php
+        die( "Tell me to go!" );
     }
 
+    ?><html><body><?php
     $tables = array( 'com', 'fav', 'vote' );
 
     foreach ( $table as $tbl ) {
@@ -26,7 +26,6 @@
             echo "ok<br />";
         }
     }
-
     ?></body></html><?php
 
 ?>
