@@ -10,6 +10,7 @@
             $libs->Load( 'poll/poll' );
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
+            $libs->Load( 'research/spot' );
 
             Element( 'user/subdomainmatch' );
 
