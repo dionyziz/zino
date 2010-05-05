@@ -14,18 +14,18 @@ RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]
 
 # session
-RewriteRule ^browserlogin$ login.php [L]
-RewriteRule ^wrongpass$ index.php?resource=session&method=create [L]
-RewriteRule ^session/create$ index.php?resource=session&method=create [L]
-RewriteRule ^session/delete$ index.php?resource=session&method=delete [L]
-RewriteRule ^login$ index.php?resource=session&method=view [L]
+RewriteRule ^login$ index.php?resource=session&method=view [L,QSA]
+RewriteRule ^browserlogin$ login.php [L,QSA]
+RewriteRule ^wrongpass$ index.php?resource=session&method=create [L,QSA]
+RewriteRule ^session/create$ index.php?resource=session&method=create [L,QSA]
+RewriteRule ^session/delete$ index.php?resource=session&method=delete [L,QSA]
 
 # favourites
-RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L]
+RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA]
 
 # comments
-RewriteRule ^comment/create$ index.php?resource=comment&method=create [L]
-RewriteRule ^comments/([0-9]+)$ index.php?resource=comment&method=view&commentid=$1 [L]
+RewriteRule ^comment/create$ index.php?resource=comment&method=create [L,QSA]
+RewriteRule ^comments/([0-9]+)$ index.php?resource=comment&method=view&commentid=$1 [L,QSA]
 
 # news
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
