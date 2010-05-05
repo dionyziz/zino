@@ -140,8 +140,6 @@
                 </div><?php
             } */
             
-            ?><a href="http://dionyziz.zino.gr/journals/3_nekroi_sta_epeisodia_stin_Athina" style="border:1px solid #aaa;background-color: #fffbcd; display: block; border-radius:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; margin: 30px auto 30px auto; padding: 15px; text-align: center; font-weight: bold">3 νεκροί στα επεισόδια στην Αθήνα αυτή τη στιγμή</a><?php
-            
             ?><div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php
