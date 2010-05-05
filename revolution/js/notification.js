@@ -262,12 +262,12 @@ var Notifications = {
                         author = entry.find( 'discussion comment author name' ).text();
                         avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
                         comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
-                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="text">' + comment+ '</div></div>';
+                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
                     }
                     else {
                         author = entry.find( 'favourites user name' ).text();
                         avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
-                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="love">&#10084;</div></div>';
+                        box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
                     }
                     $( box ).click( ( function ( e, eventtype ) {
                         return function () {
@@ -296,5 +296,3 @@ var Notifications = {
         }
     }
 };
-
-Notifications.Check();

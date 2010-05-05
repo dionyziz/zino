@@ -50,6 +50,8 @@ if ( USE_CACHING && @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $maxtime )
     exit;
 }
 
+$entries = array();
+
 echo <<<EOS
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -61,6 +63,9 @@ foreach ( $list as $line ) {
     $line = trim( $line );
     $entryfh = @fopen( $line, 'r' );
     $entry = @fread( $entryfh, filesize( $line ) ); 
+    if ( mb_detect_encoding( $entry ) == 'ASCII' ) {
+        $entry = utf8_encode( $entry );
+    }
     echo $entry;
     echo "\n";
     @fclose( $entryfh );

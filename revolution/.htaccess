@@ -14,6 +14,8 @@ RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]
 
 # session
+RewriteRule ^browserlogin$ login.php [L]
+RewriteRule ^wrongpass$ index.php?resource=session&method=create [L]
 RewriteRule ^session/create$ index.php?resource=session&method=create [L]
 RewriteRule ^session/delete$ index.php?resource=session&method=delete [L]
 RewriteRule ^login$ index.php?resource=session&method=view [L]

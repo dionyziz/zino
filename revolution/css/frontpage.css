@@ -66,6 +66,9 @@ a {
 .vbar ul li.selected a span {
     color: black;
 }
+.col2 {
+    min-width: 700px;
+}
 .col2:before {
     content: '';
     width:4.5%;
@@ -73,7 +76,7 @@ a {
     float: left;
     padding-top: 1px;
 }
-.content {
+#content {
     overflow: auto;
 }
 div.photostream {
@@ -95,7 +98,7 @@ div.photostream li {
 div.photostream a {
     text-decoration: none;
     display: inline-block;
-    width: 18%;
+    width: 25%;
     max-width: 150px;
     position: relative;
 }

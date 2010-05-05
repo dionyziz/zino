@@ -46,7 +46,12 @@ var PhotoListing = {
                     PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
                 } while ( PhotoListing.LastLoaded.nodeType != 1);
 
-                $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
+                if ( url ) {
+                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
+                }
+                else {
+                    alert( id );
+                }
                 $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
                 if( count != 0 ){
                     $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );

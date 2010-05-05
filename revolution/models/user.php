@@ -1,6 +1,9 @@
 <?php
     class User {
         public static function Login( $username, $password ) {
+            if ( !$username || !$password ) {
+                return false;
+            }
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
@@ -14,7 +17,7 @@
             );
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
-                $row[ 'user_id' ] = ( int )$row[ 'user_id' ];
+                $row[ 'id' ] = ( int )$row[ 'id' ];
                 return $row;
             }
             return false;

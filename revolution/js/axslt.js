@@ -36,22 +36,30 @@
  * Example call: xhr.transform( templateName, callback, xslPath, templateMode );
  */
 
-function axslt( xml, template, callback, xslPath, templateMode, params ) {
-    if ( template instanceof Object ) {
-        templateName = template['name'];
-        if ( template[ 'type' ] == 'call' ) {
-            templateMode == 'call';
-        }
-        else if ( template[ 'type' ] == 'apply' || !_aXSLT.defaultMode ) {
-            templateMode == 'apply';
-        }
-        else {
-            templateMode == _aXSLT.defaultMode;
-        }
+function axslt( xml, template, callback, xslPath, params ) {
+    var templateMode;
+    var templateName;
+    if ( template.substr( 0, 5 ) == 'call:' ) {
+        templateName = template.substr( 5 );
+        templateMode = 'call';
     }
     else {
-        templateName = template;
-        if ( templateMode != 'call' ) templateMode = 'apply'
+        if ( template instanceof Object ) {
+            templateName = template['name'];
+            if ( template[ 'type' ] == 'call' ) {
+                templateMode == 'call';
+            }
+            else if ( template[ 'type' ] == 'apply' || !_aXSLT.defaultMode ) {
+                templateMode == 'apply';
+            }
+            else {
+                templateMode == _aXSLT.defaultMode;
+            }
+        }
+        else {
+            templateName = template;
+            if ( templateMode != 'call' ) templateMode = 'apply'
+        }
     }
     if ( !xslPath ) {
         if ( !_aXSLT.defaultStylesheet ) {
@@ -67,18 +75,20 @@ var _aXSLT = {
     defaultStylesheet: false,
     defaultMode: false,
     pendingUnits: {},
-    lastUnitIndex: 5,
+    lastUnitIndex: 1,
     unitLists: {},
-    lastListIndex: 15,
+    lastListIndex: 1,
     xslCache: {},
     prepareXML: function( xml ) {
         //TODO check
         var index = this.lastListIndex++;
         this.unitLists[ index ] = [];
-        xml.onreadystatechange = ( function( xml, i ) {
-            return function() {
-                _aXSLT.checkXML( xml, i );
-            } } )( xml, index ); //code magic
+        if ( !this.xmlReady( xml ) ) {
+            xml.onreadystatechange = ( function( xml, i ) {
+                return function() {
+                    _aXSLT.checkXML( xml, i );
+                } } )( xml, index ); //code magic
+        }
         return index;
     },
     prepareXSL: function( path ) {
@@ -116,8 +126,8 @@ var _aXSLT = {
     },
     registerUnit: function( xml, xslpath, callback, templateName, templateMode, params ) {
         var xslindex = this.prepareXSL( xslpath );
-        if ( xml.readyStatus == 4 && this.xslCache[ xslpath ].readyStatus == 4 ) {
-            this.transform( xml, xsl, callback, templateName, templateMode, params );
+        if ( this.xmlReady( xml ) && this.xslCache[ xslpath ].xhr.readyState == 4 ) {
+            this.transform( xml, this.xslCache[ xslpath ].xhr, callback, templateName, templateMode, params );
             return;
         }
         var xmlindex = this.prepareXML( xml );
@@ -166,7 +176,7 @@ var _aXSLT = {
         //alert( typeof( _aXSLT.pendingUnits[ index ] ) );
     },
     checkXML: function( xml, index ) {
-        if ( xml.readyState != 4 ) {
+        if ( !this.xmlReady( xml ) ) {
             return;
         }
         var pending = _aXSLT.unitLists[ index ].slice(); //cloning the array, because the dequeue of successfully transformed units break the iteration behaviour
@@ -184,7 +194,7 @@ var _aXSLT = {
         //alert( _aXSLT.unitLists[ index ] );
         var pending = _aXSLT.unitLists[ index ].slice(); //cloning the array, because the dequeue of successfully transformed units break the iteration behaviour
         for ( var i = 0; i < pending.length; i++ ) {
-            if ( _aXSLT.pendingUnits[ pending[ i ] ].xml.readyState == 4 ) {
+            if ( this.xmlReady( _aXSLT.pendingUnits[ pending[ i ] ].xml ) ) { //test
                 _aXSLT.transformUnit( pending[ i ] );
             }
         }
@@ -210,6 +220,7 @@ var _aXSLT = {
             '</xsl:template>'+
         '</xsl:stylesheet>';
         var templateDOM;
+        //alert( templateString );
         if ( window.DOMParser ) {
             templateDOM = new DOMParser().parseFromString( templateString, 'text/xml' ).childNodes[0].childNodes[0];
             if ( basicStylesheet.childNodes[0].nodeName == 'html' ) {
@@ -238,17 +249,25 @@ var _aXSLT = {
         }
         return basicStylesheet;
     },
+    xmlReady: function( xml ) {
+        if ( !xml || typeof( xml ) == 'string' ) {
+            return true;
+        }
+        return ( xml.readyState == 4 );
+    },
     transform: function( xml, xsl, callback, templateName, templateMode, params ) {
-        if ( xml.readyState != 4 || xsl.readyState != 4 ) {
+        if ( !this.xmlReady( xml ) || xsl.readyState != 4 ) {
             return false;
         }
+        
+        var xmldoc;
         var result;
         var processor;
         var stylesheet;
         
-        if ( !xsl.responseXML && xsl.responseText ) {
+        if ( true || !xsl.responseXML && xsl.responseText ) { //TODO: remove true
             //Gecko workaround
-            stylesheet = new DOMParser().parseFromString( xsl.responseText, "text/xml");
+            stylesheet = new DOMParser().parseFromString( xsl.responseText, 'text/xml');
         }
         /*else if ( window.ActiveXObject ) {
             stylesheet = xsl;
@@ -263,11 +282,23 @@ var _aXSLT = {
             throw new Error( 'aXSLT: Error in template juggling' );
             return;
         }
+        
+        if ( typeof( xml ) == 'string' ) {
+            new DOMParser().parseFromString( xsl, 'text/xml' );
+        }
+        else if ( !xml ) {
+            //xmldoc = document.implementation.createDocument( null, null, null);
+            xmldoc = new DOMParser().parseFromString( '', 'text/xml' );
+        }
+        else if ( xml.responseXML ) {
+            xmldoc = xml.responseXML;
+        }
+        
         if ( window.ActiveXObject ) {
             var XSLTc = new ActiveXObject("MSXML2.XSLTemplate");
             XSLTc.stylesheet = xsl.documentElement;
             var XSLTProc = XSLTc.createProcessor();
-            XSLTProc.input = xml.responseXML;
+            XSLTProc.input = xmldoc;
             XSLTProc.transform();
             var xmlstring = XSLTProc.output;            
             result = document.createElement( 'div' );
@@ -276,7 +307,10 @@ var _aXSLT = {
         else if ( window.XSLTProcessor ) {
             processor = new XSLTProcessor();
             processor.importStylesheet( stylesheet );
-            result = processor.transformToFragment( xml.responseXML, document);
+            //console.warn( xmldoc );
+            //console.warn( stylesheet );
+            //console.warn( new XMLSerializer().serializeToString( stylesheet ) );
+            result = processor.transformToFragment( xmldoc, document);
         }
         if ( !result ) {
             throw new Error( 'aXSLT: Empty result document' );

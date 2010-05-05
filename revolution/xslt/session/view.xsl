@@ -25,11 +25,11 @@
                 </form>
                 <div class="login">
                     <h2>Έχεις ήδη zino?</h2>
-                    <form>
+                    <form method="POST" action="browserlogin">
                         <label>Ψευδώνυμο</label>
-                        <input class="text" type="text" tabindex="1" />
+                        <input class="text" type="text" tabindex="1" name="username" />
                         <label>Κωδικός</label>
-                        <input class="text" type="password" tabindex="2" />
+                        <input class="text" type="password" tabindex="2" name="password" />
                         <input class="submit" type="submit" value="Είσοδος" tabindex="3" />
                     </form>
                 </div>
@@ -49,7 +49,7 @@
                     $( $( 'form' )[ 1 ] ).find( 'input' )[ 0 ].focus();
                 }, 20 );
                 $( 'form' )[ 1 ].onsubmit = function () {
-                    $.post( 'session/create', {
+                    /*$.post( 'session/create', {
                         username: this.getElementsByTagName( 'input' )[ 0 ].value,
                         password: this.getElementsByTagName( 'input' )[ 1 ].value
                     }, function ( res ) {
@@ -60,11 +60,11 @@
                         else {
                             alert( 'Login failed!' );
                         }
-                    }, 'xml' );
+                    }, 'xml' );*/
                     document.body.style.cursor = 'wait';
                     this.style.opacity = '0.5';
                     this.blur();
-                    return false;
+                    //return false;
                 };
             </script>
         </body>

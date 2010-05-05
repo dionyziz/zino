@@ -11,8 +11,8 @@
     overflow: hidden;
 }
 .stream ul li a h2 {
-    margin: 0 10px 5px 80px;
-    padding: 2px;
+    margin: 5px 13px 3px 63px;
+    padding: 0;
     line-height: 18px;
     color: black;
     border: 0;
@@ -42,7 +42,7 @@
 .stream ul li a.username {
     display: block;
     height: 1px;
-    margin: 10px 0px 10px 30px;
+    margin: 10px 0px 10px 10px;
     color: #1b49c1;
     text-decoration: none;
     font-weight: bold;

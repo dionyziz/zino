@@ -6,8 +6,8 @@
     <div class="stream">
         <xsl:if test="$user">
             <ol class="createitem">
-                <li><a href="">Νέο ημερολόγιο</a></li>
-                <li><a href="">Νέα δημοσκόπηση</a></li>
+                <li><a href="" class="newjournal">Νέο ημερολόγιο</a></li>
+                <li><a href="" class="newpoll">Νέα δημοσκόπηση</a></li>
             </ol>
         </xsl:if>
         <ul>

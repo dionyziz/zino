@@ -25,9 +25,11 @@
         </ul>
     </div>
     <div class="col2">
-        <div class="content">
+        <div id="content">
             <xsl:apply-templates />
         </div>
     </div>
-    <script type="text/javascript" src="js/notification.js"></script>
+    <script type="text/javascript">
+        Notifications.Check();
+    </script>
 </xsl:template> 

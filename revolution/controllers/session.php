@@ -9,7 +9,7 @@
             }
             include 'views/session/view.php';
         }
-        public static function Create( $username, $password ) {
+        public static function Create( $username = '', $password = '') {
             include_fast( 'models/db.php' );
             include_fast( 'models/user.php' );
             $data = User::Login( $username, $password );
