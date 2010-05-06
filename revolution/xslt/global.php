@@ -39,23 +39,24 @@ foreach ( $list as $num=>$line ) {
     }
 }
 
-header( 'Pragma: public' );
-header( 'Cache-Control: maxage=' . (60*60*24*356) );
-header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' , $maxtime ).' GMT' );
-
-if ( USE_CACHING && @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $maxtime ) {
-    header( 'HTTP/1.1 304 Not Modified' );
-    exit;
+if ( USE_CACHING ) {
+    header( 'Pragma: public' );
+    header( 'Cache-Control: maxage=' . (60*60*24*356) );
+    header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' , $maxtime ).' GMT' );
+    if ( @strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == $maxtime ) {
+        header( 'HTTP/1.1 304 Not Modified' );
+        exit;
+   }
 }
 
 $entries = array();
-
 echo <<<EOS
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" indent="yes" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 
 EOS;
+echo '<!-- Last modified time: ' . $maxtime . ', Caching: ' . (int) ( USE_CACHING == true ) . '-->';
 
 foreach ( $list as $line ) {
     $line = trim( $line );

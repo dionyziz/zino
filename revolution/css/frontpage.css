@@ -6,6 +6,7 @@ body {
     background-image: url('http://static.zino.gr/revolution/bg.png');
     background-position: top;
     background-repeat: repeat-x;
+    color: white;
 }
 h1 {
     margin: 20px 0 -10px;
