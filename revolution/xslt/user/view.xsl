@@ -1,5 +1,13 @@
 <xsl:template match="/social[@resource='user' and @method='view']">
-    <xsl:for-each select="user">
+    <xsl:apply-templates select="user"/>
+</xsl:template>
+
+<xsl:template match="/social[@resource='user' and @method='view']/user">
+    <div class="contentitem">
+        <xsl:attribute name="id">
+            user_<xsl:value-of select="@id" />
+        </xsl:attribute>
+        
         <a class="xbutton" href="photos">&#171;</a>
         <h2><xsl:value-of select="name[1]" /></h2>
         <xsl:if test="slogan[1]">
@@ -27,6 +35,6 @@
                 <input type="submit" value="Διαγραφή φίλου" />
             </form>
         </xsl:if>
-        <xsl:apply-templates select="discussion" />
-    </xsl:for-each>
+    </div>
+    <xsl:apply-templates select="discussion" />
 </xsl:template>
