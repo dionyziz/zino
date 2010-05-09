@@ -12,3 +12,4 @@ news/listing.xsl
 journal/view.xsl
 session/create.xsl
 poll/create.xsl
+user/details.xsl
