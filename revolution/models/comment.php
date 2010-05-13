@@ -1,6 +1,6 @@
 <?php
-    include_fast( 'models/mc.php' );
-    include_fast( 'models/types.php' );
+    clude( 'models/mc.php' );
+    clude( 'models/types.php' );
     global $settings;
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
@@ -21,7 +21,7 @@
             return array( count( $paged ), $comments );
         }
         public static function Populate( $commentids ) {
-            include_fast( 'models/bulk.php' );
+            clude( 'models/bulk.php' );
 
             if ( empty( $commentids ) ) {
                 return array();
@@ -140,9 +140,9 @@
             return $children;
         }
         public static function Create( $userid, $text, $typeid, $itemid, $parentid ) {
-            include_fast( 'models/bulk.php' );
-            include_fast( 'models/wysiwyg.php' );
-            include_fast( 'models/notification.php' );
+            clude( 'models/bulk.php' );
+            clude( 'models/wysiwyg.php' );
+            clude( 'models/notification.php' );
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -224,7 +224,7 @@
             return false;
         }
         public static function ItemMulti( $ids ) {
-            include_fast( 'models/bulk.php' );
+            clude( 'models/bulk.php' );
             $res = db( 'SELECT
                             `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
                             `comment_created` AS created, `comment_parentid` AS parentid,

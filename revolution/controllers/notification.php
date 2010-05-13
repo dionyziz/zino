@@ -3,16 +3,16 @@
         public static function Listing() {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to access your notifications' );
 
-            include_fast( 'models/db.php' );
-            include_fast( 'models/notification.php' );
+            clude( 'models/db.php' );
+            clude( 'models/notification.php' );
             $notifications = Notification::ListRecent( $_SESSION[ 'user' ][ 'id' ] );
             include 'views/notification/listing.php';
         }
         public static function Delete( $notificationid = 0, $itemid = 0, $eventtypeid = 0 ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a notification' );
 
-            include_fast( 'models/db.php' );
-            include_fast( 'models/notification.php' );
+            clude( 'models/db.php' );
+            clude( 'models/notification.php' );
             if ( $notificationid > 0 ) {
                 Notification::Delete( $notificationid, $_SESSION[ 'user' ][ 'id' ] );
             }

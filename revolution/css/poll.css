@@ -1,0 +1,18 @@
+.newpoll input.question {
+    width: 80%;
+    font-size: 250%;
+    border: 5px solid #42688F;
+    -webkit-border-radius: 10px;
+    padding: 4px 8px;
+    margin: 2px 8px;
+    position: relative;
+}
+.newpoll div.info {
+    font-size: 140%;
+    margin: 8px;
+}
+.newpoll input.answer {
+    font-size: 120%;
+    padding: 2px 4px;
+    margin: 2px 8px;
+}

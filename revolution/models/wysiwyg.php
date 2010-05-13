@@ -1,6 +1,6 @@
 <?php
 
-    include_fast( 'models/sanitizer.php' );
+    clude( 'models/sanitizer.php' );
 
     function WYSIWYG_PresentAndSubstr( $html, $length ) {
         // called to trim an HTML string ($html) to a given length ($length) in order for it to be 

@@ -150,7 +150,7 @@
         public static function GetImages( $userid, $num = 30 ) {
             //global $water;
 
-            include_fast( 'models/photo.php' );
+            clude( 'models/photo.php' );
 
             //$water->Profile( 'Spot get images' );
 

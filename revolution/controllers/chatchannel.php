@@ -3,9 +3,9 @@
         public static function Listing() {
         }
         public static function Create( $userid ) {
-            include_fast( 'models/db.php' );
+            clude( 'models/db.php' );
             isset( $_SESSION[ 'userid' ] ) or die( 'You must be logged in to start a private chat' );
-            include_fast( 'models/chat.php' );
+            clude( 'models/chat.php' );
             $channel = array(
                 'id' => Chat::Create( $_SESSION[ 'userid' ], $userid )
             );

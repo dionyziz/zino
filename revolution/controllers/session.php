@@ -10,8 +10,8 @@
             include 'views/session/view.php';
         }
         public static function Create( $username = '', $password = '') {
-            include_fast( 'models/db.php' );
-            include_fast( 'models/user.php' );
+            clude( 'models/db.php' );
+            clude( 'models/user.php' );
             $data = User::Login( $username, $password );
             $success = $data !== false;
             if ( $success ) {

@@ -3,7 +3,7 @@
         define( 'USE_SANITIZER_EXECUTABLE', true );
     }
     
-    include_fast( 'models/xml.php' );
+    clude( 'models/xml.php' );
     
     global $xhtmlsanitizer_goodtags;
     global $xhtmlsanitizer_noautoclose;

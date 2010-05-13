@@ -1,8 +1,8 @@
 <?php
     class ControllerChatmessage {
         public static function Listing( $channelid, $userid ) {
-            include_fast( 'models/db.php' );
-            include_fast( 'models/chat.php' );
+            clude( 'models/db.php' );
+            clude( 'models/chat.php' );
             // you can request history eitehr by channelid or indirectly by a userid
             if ( $channelid == 0 && $userid == 0 ) {
                 // requesting history of public chat
@@ -31,8 +31,8 @@
         public static function Create( $channelid, $text ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a message' ); 
     
-            include_fast( 'models/db.php' );
-            include_fast( 'models/chat.php' );
+            clude( 'models/db.php' );
+            clude( 'models/chat.php' );
 
             if ( $channelid != 0 ) {
                 ChatChannel::Auth( $channelid, $_SESSION[ 'user' ][ 'id' ] ) or die( 'You are not authorized to post on this channel' );
@@ -48,7 +48,7 @@
             echo $xml;
             
             // Comet
-            include_fast( 'models/comet.php' );
+            clude( 'models/comet.php' );
             if ( $channelid != 0 ) {
                 $participants = ChatChannel::ParticipantList( $channelid );
                 foreach ( $participants as $participant ) {

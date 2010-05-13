@@ -22,7 +22,7 @@
         $method == 'view' or $method = 'listing';
 	}
     
-    function include_fast( $path ) {
+    function clude( $path ) {
         static $included = array();
         if ( !isset( $included[ $path ] ) ) {
             $included[ $path ] = true;
@@ -31,7 +31,7 @@
         return true;
     }
     
-    include_fast( 'models/water.php' );
+    clude( 'models/water.php' );
 
     global $settings;
     
@@ -51,7 +51,7 @@
     ?>" method="<?= $method;
     ?>"><?php
 
-    include_fast( 'controllers/' . $resource . '.php' );
+    clude( 'controllers/' . $resource . '.php' );
     
     $refl = New ReflectionClass( 'Controller' . $resource );
     $func = $refl->getMethod( $method );

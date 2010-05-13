@@ -63,7 +63,7 @@
             );
         }
         public static function Create( $userid, $typeid, $itemid ) {
-            include_fast( 'models/types.php' );
+            clude( 'models/types.php' );
 
             $userid > 0 or die;
             $typeid > 0 or die;

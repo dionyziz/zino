@@ -2,8 +2,8 @@
     class ControllerVideostream {
         public static function Create( $stratusid ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a videostream' );
-            include_fast( 'models/db.php' );
-            include_fast( 'models/videostream.php' );
+            clude( 'models/db.php' );
+            clude( 'models/videostream.php' );
             $id = $_SESSION[ 'user' ][ 'id' ];
             $success = VideoStream::Create( $id, $stratusid );
 
@@ -13,8 +13,8 @@
         }
         public static function View( $userid ){
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to view a videostream' );
-            include_fast( 'models/db.php' );
-            include_fast( 'models/videostream.php' );
+            clude( 'models/db.php' );
+            clude( 'models/videostream.php' );
             $id = $_SESSION[ 'user' ][ 'id' ];
             $response = VideoStream::Retrieve( $id, $userid );
 
@@ -22,8 +22,8 @@
         }
         public static function Update( $recieverid ){
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to upadate a videostream' );
-            include_fast( 'models/db.php' );
-            include_fast( 'models/videostream.php' );
+            clude( 'models/db.php' );
+            clude( 'models/videostream.php' );
             $id = $_SESSION[ 'user' ][ 'id' ];
             $token = VideoStream::GrantPermission( $id, $recieverid );
 
