@@ -9,7 +9,7 @@
     define( 'ACTIVITY_ITEM', 7 );
 
     class Activity {
-        public static function FindByUser( $userid, $limit ) {
+        public static function FindByUser( $userid, $limit = 100 ) {
             $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid LIMIT :limit;", compact( $userid, $limit ) );
             $activities = array();
             while ( $row = mysql_fetch_array( $res ) ) {
