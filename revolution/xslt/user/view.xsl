@@ -40,19 +40,19 @@
                 <xsl:attribute name="href">
                     photos/<xsl:value-of select="name[1]" />
                 </xsl:attribute>
-                Φωτογραφίες (<xsl:value-of select="feed[@type='photo']/@count" />)
+                Φωτογραφίες (<xsl:value-of select="stream[@type='photo']/@count" />)
             </a></li>
             <li><a>
                 <xsl:attribute name="href">
                     journals/<xsl:value-of select="name[1]" />
                 </xsl:attribute>
-                Ημερολόγια (<xsl:value-of select="feed[@type='journal']/@count" />)
+                Ημερολόγια (<xsl:value-of select="stream[@type='journal']/@count" />)
             </a></li>
             <li><a>
                 <xsl:attribute name="href">
                     polls/<xsl:value-of select="name[1]" />
                 </xsl:attribute>
-                Δημοσκοπίσεις (<xsl:value-of select="feed[@type='poll']/@count" />)
+                Δημοσκοπίσεις (<xsl:value-of select="stream[@type='poll']/@count" />)
             </a></li>
             <li><a>
                 <xsl:attribute name="href">
