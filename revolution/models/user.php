@@ -157,4 +157,18 @@
             return $ret;
         }
     } 
+    class UserCount { 
+        public function Item( $userid ) {
+            return db_array(
+                'SELECT
+                    `count_images` AS images, `count_polls` AS polls, `count_journals` AS journals,
+                    `count_comments` AS comments, `count_shouts` AS shouts, `count_relations` AS friends,
+                    `count_answers` AS answers, `count_favourites` AS favourites
+                FROM
+                    `usercounts`
+                WHERE
+                    `count_userid` = :userid', compact( 'userid' )
+            );
+        }
+    }
 ?>

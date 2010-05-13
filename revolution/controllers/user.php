@@ -43,6 +43,7 @@
                 $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
+                $counts = UserCount::Item( $id );
             }
             include 'views/user/view.php';
         }
