@@ -19,6 +19,10 @@
             // TODO: Response Text
             // TODO: Error checking
 
+            if ( !$xc_settings[ 'spotdaemon' ][ 'enabled' ] ) { // disabled
+                return false;
+            }
+
             $request = self::$mRequestHeader . $requestBody;
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
             // w_assert( $sock !== false, "Socket creation failed. Reason: " . socket_strerror( socket_last_error( $sock ) ) );
