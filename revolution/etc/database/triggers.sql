@@ -29,7 +29,12 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_comments` = `count_comments` + 1 WHERE `count_userid` = NEW.`comment_userid` LIMIT 1;
         CASE NEW.`comment_typeid`
-            WHEN 1 THEN UPDATE `polls` SET `poll_numcomments` = `poll_numcomments` + 1 WHERE `poll_id`=NEW.`comment_itemid` LIMIT 1;
+            WHEN 1 THEN BEGIN
+                UPDATE `polls` SET `poll_numcomments` = `poll_numcomments` + 1 WHERE `poll_id`=NEW.`comment_itemid` LIMIT 1;
+                SELECT `poll_question` FROM `polls` WHERE `poll_id`=NEW.`comment_itemid` INTO polltitle;
+                INSERT INTO `activities` 
+                    VALUES ( 0, NEW.`comment_userid`, 1, NEW.`comment_id`, NEW.`comment_itemid`, NEW.`comment_typeid`, NEW.`comment_bulkid`, polltitle );
+            END;
             WHEN 2 THEN BEGIN
                 UPDATE `images` SET `image_numcomments` = `image_numcomments` + 1 WHERE `image_id`=NEW.`comment_itemid` LIMIT 1;
             END;
