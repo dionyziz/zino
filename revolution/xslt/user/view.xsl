@@ -35,6 +35,38 @@
             </form>
         </xsl:if>
         <xsl:apply-templates select="details" />
+        <ul class="useritems">
+            <li><a>
+                <xsl:attribute name="href">
+                    photos/<xsl:value-of select="name[1]" />
+                </xsl:attribute>
+                Φωτογραφίες (<xsl:value-of select="feed[@type='photo']/@count" />)
+            </a></li>
+            <li><a>
+                <xsl:attribute name="href">
+                    journals/<xsl:value-of select="name[1]" />
+                </xsl:attribute>
+                Ημερολόγια (<xsl:value-of select="feed[@type='journal']/@count" />)
+            </a></li>
+            <li><a>
+                <xsl:attribute name="href">
+                    polls/<xsl:value-of select="name[1]" />
+                </xsl:attribute>
+                Δημοσκοπίσεις (<xsl:value-of select="feed[@type='poll']/@count" />)
+            </a></li>
+            <li><a>
+                <xsl:attribute name="href">
+                    friends/<xsl:value-of select="name[1]" />
+                </xsl:attribute>
+                Φίλοι (<xsl:value-of select="friends/@count" />)
+            </a></li>
+            <li><a>
+                <xsl:attribute name="href">
+                    favourites/<xsl:value-of select="name[1]" />
+                </xsl:attribute>
+                Αγαπημένα (<xsl:value-of select="favourites/@count" />)
+            </a></li>
+        </ul>
     </div>
     <xsl:apply-templates select="discussion" />
 </xsl:template>
