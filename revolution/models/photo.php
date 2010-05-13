@@ -1,7 +1,7 @@
 <?php
     class Photo {
         public static function ListRecent( $offset = 0, $limit = 100 ) {
-            $res = db(
+            return db_array(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
                     `user_name` AS username, `user_subdomain` AS subdomain, `user_gender` AS gender, `user_avatarid` AS avatarid
@@ -13,13 +13,25 @@
                     `user_deleted` = 0
                 ORDER BY
                     id DESC
-                LIMIT :offset, :limit', array( 'offset' => $offset, 'limit' => $limit )
+                LIMIT :offset, :limit', compact( 'offset', 'limit' )
             );
-            $images = array();
-            while ( $row = mysql_fetch_array( $res ) ) {
-                $images[] = $row;
-            }
-            return $images;
+        }
+        public static function ListByUser( $userid, $offset = 0, $limit = 100 ) {
+            return db_array(
+                'SELECT
+                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
+                    `user_name` AS username, `user_subdomain` AS subdomain, `user_gender` AS gender, `user_avatarid` AS avatarid
+                FROM
+                    `images` CROSS JOIN `users`
+                        ON image_userid = user_id
+                WHERE
+                    `image_delid`=0 AND
+                    `user_deleted` = 0 AND
+                    `image_userid` = :userid
+                ORDER BY
+                    id DESC
+                LIMIT :offset, :limit', compact( 'userid', 'offset', 'limit' )
+            );
         }
         public static function Item( $id ) {
             $res = db(

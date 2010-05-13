@@ -28,13 +28,20 @@
             }
             include 'views/photo/view.php';
         }
-        public static function Listing( $page = 1, $limit = 100 ) {
+        public static function Listing( $username = 0, $page = 1, $limit = 100 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
-            $photos = Photo::ListRecent( $offset, $limit );
+            if ( $username != '' ) {
+                clude( 'models/user.php' );
+                $user = User::ItemByName( $username );
+                $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
+            }
+            else {
+                $photos = Photo::ListRecent( $offset, $limit );
+            }
             include 'views/photo/listing.php';
         }
         public static function Create( $albumid, $typeid ) {
