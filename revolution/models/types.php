@@ -8,5 +8,8 @@
         define( 'TYPE_SHOUT', 6 );
         define( 'TYPE_SCHOOL', 7 );
         define( 'TYPE_STOREITEM', 8 );
+        define( 'TYPE_ALBUM', 9 );
+        define( 'TYPE_SONG', 10 );
+        define( 'TYPE_STATUS', 11 );
     }
 ?>
