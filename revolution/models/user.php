@@ -159,7 +159,7 @@
     } 
     class UserCount { 
         public function Item( $userid ) {
-            return db_array(
+            return array_pop( db_array(
                 'SELECT
                     `count_images` AS images, `count_polls` AS polls, `count_journals` AS journals,
                     `count_comments` AS comments, `count_shouts` AS shouts, `count_relations` AS friends,
@@ -167,7 +167,7 @@
                 FROM
                     `usercounts`
                 WHERE
-                    `count_userid` = :userid', compact( 'userid' )
+                    `count_userid` = :userid', compact( 'userid' ) )
             );
         }
     }

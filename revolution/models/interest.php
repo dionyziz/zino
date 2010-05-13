@@ -11,7 +11,9 @@
         public static function ListByUser( $userid ) {
             return db_array(
                 'SELECT
-                    `tag_text`, `tag_typeid`
+                    `tag_text` AS text, `tag_typeid` AS typeid
+                FROM
+                    `tags`
                 WHERE
                     `tag_userid` = :userid', compact( 'userid' )
             );

@@ -1,9 +1,9 @@
 <?php
-    class ControllerPhoto {
+    class ControllerInterest {
         public static function Listing( $userid ) {
             $userid = ( int )$userid;
-            include_fast( 'models/db.php' );
-            include_fast( 'models/interest.php' );
+            clude( 'models/db.php' );
+            clude( 'models/interest.php' );
             $interests = Interest::ListByUser( $userid );
             $tags = array();
             foreach ( $interests as $interest ) {

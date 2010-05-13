@@ -49,6 +49,9 @@ RewriteRule ^tunnel/update/([0-9]+)$ index.php?resource=tunnel&method=update&id=
 RewriteRule ^notifications$ index.php?resource=notification&method=list [L,QSA]
 RewriteRule ^notification/delete$ index.php?resource=notification&method=delete [L,QSA]
 
+# interests
+RewriteRule ^interests/([0-9]+)$ index.php?resource=interest&method=list&userid=$1 [L,QSA]
+
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]
