@@ -31,17 +31,26 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
         CASE NEW.`comment_typeid`
             WHEN 1 THEN BEGIN
                 UPDATE `polls` SET `poll_numcomments` = `poll_numcomments` + 1 WHERE `poll_id`=NEW.`comment_itemid` LIMIT 1;
-                SELECT `poll_question` FROM `polls` WHERE `poll_id`=NEW.`comment_itemid` INTO polltitle;
-                INSERT INTO `activities` 
-                    VALUES ( 0, NEW.`comment_userid`, 1, NEW.`comment_id`, NEW.`comment_itemid`, NEW.`comment_typeid`, NEW.`comment_bulkid`, polltitle );
+                SELECT `poll_question` FROM `polls` WHERE `poll_id`=NEW.`comment_itemid` LIMIT 1 INTO activitytext;
             END;
             WHEN 2 THEN BEGIN
                 UPDATE `images` SET `image_numcomments` = `image_numcomments` + 1 WHERE `image_id`=NEW.`comment_itemid` LIMIT 1;
+                SELECT `image_name` FROM `images` WHERE `image_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext;
             END;
-            WHEN 3 THEN UPDATE `userprofiles` SET `profile_numcomments` = `profile_numcomments` + 1 WHERE `profile_userid`=NEW.`comment_itemid` LIMIT 1;
-            WHEN 4 THEN UPDATE `journals` SET `journal_numcomments` = `journal_numcomments` + 1 WHERE `journal_id`=NEW.`comment_itemid` LIMIT 1;
-            WHEN 7 THEN UPDATE `schools` SET `school_numcomments` = `school_numcomments` + 1 WHERE `school_id`=NEW.`comment_itemid` LIMIT 1;
+            WHEN 3 THEN BEGIN
+                UPDATE `userprofiles` SET `profile_numcomments` = `profile_numcomments` + 1 WHERE `profile_userid`=NEW.`comment_itemid` LIMIT 1;
+                SELECT `user_name` FROM `users` WHERE `user_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext;
+            END;
+            WHEN 4 THEN BEGIN
+                UPDATE `journals` SET `journal_numcomments` = `journal_numcomments` + 1 WHERE `journal_id`=NEW.`comment_itemid` LIMIT 1;
+                SELECT `journal_name` FROM `journals` WHERE `journal_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext;
+            END;
+            WHEN 7 THEN BEGIN
+                UPDATE `schools` SET `school_numcomments` = `school_numcomments` + 1 WHERE `school_id`=NEW.`comment_itemid` LIMIT 1;
+                SELECT `school_name` FROM `schools` WHERE `school_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext;
+            END;
         END CASE;
+        INSERT INTO `activities` VALUES ( 0, NEW.`comment_userid`, 1, NEW.`comment_id`, NEW.`comment_itemid`, NEW.`comment_typeid`, NEW.`comment_bulkid`, activitytext );
    END;
 |
 
@@ -59,6 +68,7 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
             WHEN 7 THEN UPDATE `schools` SET `school_numcomments` = `school_numcomments` - 1 WHERE `school_id`=OLD.`comment_itemid` LIMIT 1;
         END CASE;
         DELETE FROM `bulk` WHERE `bulk_id`=OLD.`comment_bulkid` LIMIT 1;
+        DELETE FROM `activities` WHERE `activity_userid` = OLD.`comment_userid` AND `activity_typeid` = 1 AND `activity_itemid` = OLD.`comment_itemid` LIMIT 1;
    END;
 |
 
@@ -66,6 +76,7 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` + 1 WHERE `count_userid` = NEW.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` + 1 WHERE `album_id` = NEW.`image_albumid` LIMIT 1;
+        INSERT INTO `activities` VALUES ( 0, NEW.`image_userid`, 7, 0, NEW.`image_id`, 2, 0, NEW.`image_name` )
    END;
 |
 
