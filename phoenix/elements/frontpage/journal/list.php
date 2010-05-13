@@ -25,21 +25,23 @@
                 if ( $user->Id == 4005 || $user->Id == 5104 || $user->Id == 658 || $user->Id == 1 || $user->Id == 5181 || $user->Id == 3890 ) {
                     $res = $finder->FindUserRelated( $user, true );
                     
-                    $journals = $res[ 'journals' ];
-                    unset( $res[ 'journals' ] );
-                    
-                    ob_start();
-                    ?>var SPOTJournals = <?php
-                    echo w_json_encode( $res );
-                    ?>;
-                    $.each( SPOTJournals, function( i,v ) {
-                        $( "#journal_" + v.journalid ).mousedown( function() {
-                            Coala.Warm( 'spot/learn', { 'type': 4, 'id': v.journalid, 'info': v.ranks.join(',') } );
-                            $( ".event[id^=journal_]" ).unbind( 'mousedown' );
+                    if ( $res !== false ) {
+                        $journals = $res[ 'journals' ];
+                        unset( $res[ 'journals' ] );
+                        
+                        ob_start();
+                        ?>var SPOTJournals = <?php
+                        echo w_json_encode( $res );
+                        ?>;
+                        $.each( SPOTJournals, function( i,v ) {
+                            $( "#journal_" + v.journalid ).mousedown( function() {
+                                Coala.Warm( 'spot/learn', { 'type': 4, 'id': v.journalid, 'info': v.ranks.join(',') } );
+                                $( ".event[id^=journal_]" ).unbind( 'mousedown' );
+                            } );
                         } );
-                    } );
-                    <?php
-                    $page->AttachInlineScript( ob_get_clean() );
+                        <?php
+                        $page->AttachInlineScript( ob_get_clean() );
+                    }
                 }
                 else {
                     $journals = $finder->FindUserRelated( $user, false );
