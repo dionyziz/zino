@@ -23,7 +23,20 @@
             }
             return $polls;
         }
-		
+        public static function ListByUser( $userid ) {
+            return db_array(
+                'SELECT
+                    `poll_id` as id, `poll_question` as question, `poll_url` as url,
+                    `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
+                FROM
+                    `polls`
+                WHERE
+                    `poll_userid` = :userid
+                    AND `poll_delid` = 0
+                ORDER BY
+                    `poll_id` DESC', compact( 'userid' )
+            );
+        }
 		public static function Item( $id ) {
 			$res = db(
 					'SELECT

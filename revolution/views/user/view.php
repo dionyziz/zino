@@ -10,9 +10,9 @@
     <? endif;
     if ( isset( $counts ) ): ?>
         <friends count="<?= $counts[ 'friends' ]; ?>" />
-        <feed type="photo" count="<?= $counts[ 'images' ]; ?>" />
-        <feed type="poll" count="<?= $counts[ 'polls' ]; ?>" />
-        <feed type="journal" count="<?= $counts[ 'journals' ]; ?>" />
+        <stream type="photo" count="<?= $counts[ 'images' ]; ?>" />
+        <stream type="poll" count="<?= $counts[ 'polls' ]; ?>" />
+        <stream type="journal" count="<?= $counts[ 'journals' ]; ?>" />
         <answers count="<?= $counts[ 'answers' ]; ?>" />
         <favourites count="<?= $counts[ 'favourites' ]; ?>" />
         <discussion type="chat" count="<?= $counts[ 'shouts' ]; ?>" />

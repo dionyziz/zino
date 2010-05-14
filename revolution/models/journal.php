@@ -1,5 +1,4 @@
 <?php
-
 	class Journal {
 		public static function ListRecent( $amount ) { //<---TODO
 		    $res = db(
@@ -21,7 +20,19 @@
             }
             return $polls;
         }
-		
+        public static function ListByUser( $userid ) {
+            return db_array(
+                'SELECT
+					`journal_id` as id, `journal_title` as title, `journal_url` as url, `journal_userid` as userid, `journal_created` as created , `journal_numcomments` as numcomments 
+				FROM 
+					`journals`
+                WHERE
+                    `journal_userid` = :userid
+                    AND `journal_delid` = 0
+                ORDER BY
+                    `journal_id` DESC', compact( 'userid' )
+            );
+        }
 		public static function Item( $id ) {
 			$res = db(
 					'SELECT

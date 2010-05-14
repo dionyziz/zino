@@ -35,10 +35,17 @@
             }
             include 'views/poll/view.php';
         }
-        public static function Listing() {
+        public static function Listing( $username = '' ) {
             clude( 'models/db.php' );
             clude( 'models/poll.php' );
-            $polls = Poll::ListRecent();
+            if ( $username != '' ) {
+                clude( 'models/user.php' );
+                $user = User::ItemByName( $username );
+                $polls = Poll::ListByUser( $user[ 'id' ] );
+            }
+            else {
+                $polls = Poll::ListRecent();
+            }
             include 'views/poll/listing.php';
         }
         public static function Create() {

@@ -28,10 +28,17 @@
             }
             include 'views/journal/view.php';
         }
-        public static function Listing() {
+        public static function Listing( $username = '' ) {
             clude( 'models/db.php' );
             clude( 'models/journal.php' );
-            $journals = Journal::ListRecent();
+            if ( $username != '' ) {
+                clude( 'models/user.php' );
+                $user = User::ItemByName( $username );
+                $journals = Journal::ListByUser( $user[ 'id' ] );
+            }
+            else {
+                $journals = Journal::ListRecent();
+            }
             include 'views/journal/listing.php';
         }
         public static function Create() {

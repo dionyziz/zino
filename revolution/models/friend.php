@@ -9,14 +9,37 @@
             return array_shift( self::ItemMulti( array( $relationid ) ) );
         }
         public static function ItemMulti( $ids ) {
-            return db_array(
+            $friendships = db_array(
                 'SELECT
                     `relation_id` AS id, `relation_userid` AS userid
-                FROM
+                    a.user_name AS a_name, a.user_gender AS a_gender, a.user_id AS a_id,
+                    b.user_name AS b_name, b.user_gender AS b_gender, b.user_id AS b_id
+                FROM 
                     `relations`
+                    CROSS JOIN `users`
+                        ON `relation_userid` = a.user_id
+                    CROSS JOIN `users`
+                        ON `relation_friendid` = b.user_id
                 WHERE
                     `relation_id` IN :ids', compact( 'ids' ), 'id'
             );
+            $ret = array();
+            foreach ( $friendships as $i => $friendship ) {
+                $ret[] = array(
+                    'id' => $friendship[ 'id' ],
+                    'user' => array(
+                        'id' => $friendship[ 'a_id' ],
+                        'name' => $friendship[ 'a_name' ],
+                        'gender' => $friendship[ 'a_gender' ]
+                    ),
+                    'friend' => array(
+                        'id' => $friendship[ 'b_id' ],
+                        'name' => $friendship[ 'b_name' ],
+                        'gender' => $friendship[ 'b_gender' ],
+                    )
+                );
+            }
+            return $ret;
         }
         public static function Create( $userid, $friendid, $typeid ) {
             clude( 'models/db.php' );

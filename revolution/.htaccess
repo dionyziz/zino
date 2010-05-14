@@ -8,10 +8,12 @@ RewriteRule ^photo/create$ index.php?resource=photo&method=create [L,QSA]
 
 # polls
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
+RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&username=$1 [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
+RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&username=$1 [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]
 
 # session
@@ -32,7 +34,7 @@ RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
 # users
 RewriteRule ^users/online$ index.php?resource=user&method=listing [L,QSA]
 RewriteRule ^users/([0-9]+)$ index.php?resource=user&method=view&id=$1 [L,QSA]
-RewriteRule ^users/([a-zA-Z][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=view&name=$1 [L,QSA]
+RewriteRule ^users/([a-zA-Z][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=view&username=$1 [L,QSA]
 
 # friendship
 RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,QSA]

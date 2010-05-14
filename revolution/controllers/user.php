@@ -1,25 +1,17 @@
 <?php
     class ControllerUser {
-        public static function View( $id = false, $name = false, $verbose = 3, $commentpage = 1 ) {
-            if ( $name ) {
-                $name = ( string ) $name;
-            }
-            elseif ( $id ) {
-                $id = ( int )$id;
-            }
-            else {
-                die;
-            }
+        public static function View( $id = false, $username = false, $verbose = 3, $commentpage = 1 ) {
+            $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
             clude( 'models/db.php' );
             clude( 'models/user.php' );
-            if ( $verbose >= 3 && $id ) { //TODO: Only works with a given id, the model must be updated
+            if ( $verbose >= 3 ) {
                 if ( $id ) {
                     $user = User::ItemDetails( $id );
                 }
-                elseif ( $name ) {
-                    $user = User::ItemDetailsByName( $name );
+                else if ( $username ) {
+                    $user = User::ItemDetailsByName( $username );
                 }
                 else die;
                 $countcomments = $user[ 'numcomments' ];
@@ -28,8 +20,8 @@
                 if ( $id ) {
                     $user = User::Item( $id );
                 }
-                elseif ( $name ) {
-                    $user = User::ItemByName( $name );
+                else if ( $username ) {
+                    $user = User::ItemByName( $username );
                 }
                 $countcomments = 0; // TODO: remove this line
             }

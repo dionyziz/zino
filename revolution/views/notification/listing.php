@@ -73,6 +73,16 @@
     </entry>
     <?
     break;
+    case 'EVENT_FRIENDRELATION_CREATED':
+    ?>
+        <user id="<?= $notification[ 'user' ][ 'id' ] ?>">
+            <name><?= $notification[ 'user' ][ 'name' ] ?></name>
+            <knows>
+                <user id="<?= $notification[ 'friend' ][ 'id' ] ?>" />
+            </knows>
+        </user>
+    <?
+    break;
     endswitch; ?>
     <? endforeach; ?>
 
