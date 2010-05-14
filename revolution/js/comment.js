@@ -125,7 +125,7 @@ var Comment = {
         $( '.thread.new .author' ).each( function( i, e ) {
             var img = $( '<img />' ).addClass( 'avatar' ).prependTo( e );
         } );
-        $.get( 'users/view', { 'name': User, 'details': 'false' }, function( xml ) {
+        $.get( 'users/view', { 'name': User, 'verbose': 1 }, function( xml ) {
             var src = $( 'avatar > media', xml ).attr( 'url' );
             $( '.thread.new .author > img' ).each( function( i, e ) {
                 $( e ).attr( 'src', $( 'avatar > media', xml ).attr( 'url' ) );

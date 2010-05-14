@@ -36,36 +36,46 @@
         </xsl:if>
         <xsl:apply-templates select="details" />
         <ul class="useritems">
-            <li><a>
-                <xsl:attribute name="href">
-                    photos/<xsl:value-of select="name[1]" />
-                </xsl:attribute>
-                Φωτογραφίες (<xsl:value-of select="stream[@type='photo']/@count" />)
-            </a></li>
-            <li><a>
-                <xsl:attribute name="href">
-                    journals/<xsl:value-of select="name[1]" />
-                </xsl:attribute>
-                Ημερολόγια (<xsl:value-of select="stream[@type='journal']/@count" />)
-            </a></li>
-            <li><a>
-                <xsl:attribute name="href">
-                    polls/<xsl:value-of select="name[1]" />
-                </xsl:attribute>
-                Δημοσκοπίσεις (<xsl:value-of select="stream[@type='poll']/@count" />)
-            </a></li>
-            <li><a>
-                <xsl:attribute name="href">
-                    friends/<xsl:value-of select="name[1]" />
-                </xsl:attribute>
-                Φίλοι (<xsl:value-of select="friends/@count" />)
-            </a></li>
-            <li><a>
-                <xsl:attribute name="href">
-                    favourites/<xsl:value-of select="name[1]" />
-                </xsl:attribute>
-                Αγαπημένα (<xsl:value-of select="favourites/@count" />)
-            </a></li>
+            <xsl:if test="stream[@type='photo']/@count &gt; 0">
+                <li><a>
+                    <xsl:attribute name="href">
+                        photos/<xsl:value-of select="name[1]" />
+                    </xsl:attribute>
+                    Φωτογραφίες (<xsl:value-of select="stream[@type='photo']/@count" />)
+                </a></li>
+            </xsl:if>
+            <xsl:if test="stream[@type='journal']/@count &gt; 0">
+                <li><a>
+                    <xsl:attribute name="href">
+                        journals/<xsl:value-of select="name[1]" />
+                    </xsl:attribute>
+                    Ημερολόγια (<xsl:value-of select="stream[@type='journal']/@count" />)
+                </a></li>
+            </xsl:if>
+            <xsl:if test="stream[@type='poll']/@count &gt; 0">
+                <li><a>
+                    <xsl:attribute name="href">
+                        polls/<xsl:value-of select="name[1]" />
+                    </xsl:attribute>
+                    Δημοσκοπίσεις (<xsl:value-of select="stream[@type='poll']/@count" />)
+                </a></li>
+            </xsl:if>
+            <xsl:if test="friends/@count &gt; 0">
+                <li><a>
+                    <xsl:attribute name="href">
+                        friends/<xsl:value-of select="name[1]" />
+                    </xsl:attribute>
+                    Φίλοι (<xsl:value-of select="friends/@count" />)
+                </a></li>
+            </xsl:if>
+            <xsl:if test="favourites/@count &gt; 0">
+                <li><a>
+                    <xsl:attribute name="href">
+                        favourites/<xsl:value-of select="name[1]" />
+                    </xsl:attribute>
+                    Αγαπημένα (<xsl:value-of select="favourites/@count" />)
+                </a></li>
+            </xsl:if>
         </ul>
     </div>
     <xsl:apply-templates select="discussion" />
