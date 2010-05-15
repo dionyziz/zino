@@ -160,6 +160,58 @@
             $ret = array_values( $ret );
             return $ret;
         }
+        private static function ValidateUsername( $username ) {
+            static $reserved = array(
+                'anonymous',
+                'www',
+                'beta',
+                'store',
+                'radio',
+                'iphone',
+                'universe',
+                'images',
+                'images2',
+                'static',
+                'api',
+                'developers'
+            );
+            return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved );
+        }
+        private static function DeriveSubdomain( $username ) {
+            /* RFC 1034 - They must start with a letter, 
+            end with a letter or digit,
+            and have as interior characters only letters, digits, and hyphen.
+            Labels must be 63 characters or less. */
+            $username = strtolower( $username );
+            $username = preg_replace( '/([^a-z0-9-])/i', '-', $username ); //convert invalid chars to hyphens
+            $pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
+            if ( !preg_match( $pattern, $username, $matches ) ) {
+                return false;
+            }
+            return $matches[ 0 ];
+        }
+        public static function Create( $name, $email, $password ) {
+            $password = md5( $password );
+            $subdomain = self::DeriveSubdomain( $name );
+            if ( !self::ValidateUsername( $name ) ) {
+                return false;
+            }
+            if ( $subdomain === false ) {
+                // could not derive a subdomain
+                return false;
+            }
+            db( 'INSERT INTO `users`
+                 ( `user_name`, `user_email`, `user_password`, `user_subdomain` )
+                 VALUES ( :name, :email, :password, :subdomain )',
+                 compact( 'name', 'email', 'password', 'subdomain' ) );
+            if ( !mysql_affected_rows() ) {
+                return false; // username taken, or subdomain taken
+            }
+            $userid = mysql_insert_id();
+            
+            // TODO: Send welcome e-mail
+            return $userid;
+        }
     } 
     class UserCount { 
         public function Item( $userid ) {
