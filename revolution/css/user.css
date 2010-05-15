@@ -1,7 +1,7 @@
 .maininfo {
     position: relative;
     text-align: left;
-    padding: 0 0 0 110px;
+    padding: 0 0 0 120px;
     margin: 0 160px;
     display: block;
     height: 100px;
@@ -15,18 +15,27 @@
 }
 .maininfo .username {
     font-size: 160%;
-    line-height: 250%;
+    line-height: 200%;
     font-weight: bold;
     color: #72B3DB;
+}
+.maininfo ul {
+    overflow: hidden;
 }
 .maininfo ul li.dot:before {
     content: ' ▪ ';
 }
 .maininfo ul li {
     float: left;
-    margin: 0 3px;
+    margin: 0 3px 0 0;
 }
 .maininfo ul li span {
     color: #ddf;
     font-weight: bold;
+    line-height: 200%;
+}
+.maininfo .slogan {
+    position: absolute;
+    bottom: 0;
+    left: 120px;
 }
