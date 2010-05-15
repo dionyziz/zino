@@ -1,6 +1,6 @@
 <?php
     class ControllerUser {
-        public static function View( $id = false, $username = false, $verbose = 3, $commentpage = 1 ) {
+        public static function View( $id = false, $subdomain = false, $verbose = 3, $commentpage = 1 ) {
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die;
@@ -10,8 +10,8 @@
                 if ( $id ) {
                     $user = User::ItemDetails( $id );
                 }
-                else if ( $username ) {
-                    $user = User::ItemDetailsByName( $username );
+                else if ( $subdomain ) {
+                    $user = User::ItemDetailsBySubdomain( $subdomain );
                 }
                 else die;
                 $countcomments = $user[ 'numcomments' ];
@@ -20,8 +20,8 @@
                 if ( $id ) {
                     $user = User::Item( $id );
                 }
-                else if ( $username ) {
-                    $user = User::ItemByName( $username );
+                else if ( $subdomain ) {
+                    $user = User::ItemBySubdomain( $subdomain );
                 }
                 $countcomments = 0; // TODO: remove this line
             }

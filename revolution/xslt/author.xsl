@@ -1,6 +1,6 @@
 <xsl:template match="author">
     <a class="username">
-        <xsl:attribute name="href">user/<xsl:value-of select="subdomain[1]" /></xsl:attribute>
+        <xsl:attribute name="href">users/<xsl:value-of select="subdomain[1]" /></xsl:attribute>
         <xsl:if test="avatar[1]">
                 <img class="avatar">
                     <xsl:attribute name="src">

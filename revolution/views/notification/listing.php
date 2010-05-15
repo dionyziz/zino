@@ -82,6 +82,8 @@
                 <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
             </avatar>
             <gender><?= $user[ 'gender' ]; ?></gender>
+            <age><?= $user[ 'age' ]; ?></age>
+            <location><?= $user[ 'place' ][ 'name' ]; ?></location>
             <knows>
                 <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" />
             </knows>

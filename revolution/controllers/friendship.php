@@ -1,6 +1,12 @@
 <?php
     class ControllerFriendship {
-        public static function View() {
+        public static function View( $userid ) {
+            clude( 'models/db.php' );
+            clude( 'models/friend.php' );
+
+            isset( $_SESSION[ 'user' ] ) or die( 'Please login' );
+
+            $strength = Friend::Strength( $userid );
         }
         public static function Listing() {
         }

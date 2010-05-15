@@ -26,7 +26,42 @@ var Notifications = {
     },
     CreateFriendGUI: function ( entry ) {
         $( '#instantbox' ).remove();
-        // TODO
+
+        var userid = entry.attr( 'id' );
+        var gender = entry.find( 'gender' ).text();
+        var author = entry.find( 'name' ).text(); 
+        var avatar = entry.find( 'avatar media' ).attr( 'url' );
+        var humangender = 'Αγόρι';
+        var article = 'Ο';
+
+        if ( gender == 'f' ) { 
+            humangender = 'Κορίτσι';
+            article = 'Η';
+        }
+        var humanlocation = entry.find( 'location' ).text();
+        var humanage = entry.find( 'age' ).text();
+
+        var businesscard = ''
+                + '<div class="businesscard">'
+                    + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
+                    + '<div class="username">' + author + '</div>'
+                    + '<ul class="details">'
+                        + '<li>' + humangender + ' &#8226;</li>'
+                        + '<li>' + humanage + ' &#8226;</li>'
+                        + '<li>' + humanlocation + '</li>'
+                    + '</ul>'
+                + '</div>'
+                + '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
+
+        var html =
+            '<div id="instantbox">'
+                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
+                + '<div class="details">'
+                    + businesscard
+                + '</div>'
+            + '<div class="eof"></div></div>';
+
+        $( 'body' ).prepend( html );
     },
     CreateFavouriteGUI: function ( entry ) {
         $( '#instantbox' ).remove();

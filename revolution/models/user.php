@@ -48,6 +48,9 @@
             );
 			return mysql_fetch_array( $res );
         }
+        public static function ItemDetailsBySubdomain( $subdomain ) {
+            return User::ItemDetailsByWhereClause( 'user_subdomain', $subdomain );
+        }
         public static function ItemDetailsByName( $name ) {
             return User::ItemDetailsByWhereClause( 'user_name', $name );
         }
@@ -86,11 +89,11 @@
                     ) AS profile_age
                 FROM
                     `users`
-                    CROSS JOIN `userprofiles`
+                    LEFT JOIN `userprofiles`
                         ON `user_id`=`profile_userid`
-                    CROSS JOIN `places`
+                    LEFT JOIN `places`
                         ON `profile_placeid`=`place_id`
-                    CROSS JOIN `moods`
+                    LEFT JOIN `moods`
                         ON `profile_moodid`=`mood_id`
                 WHERE 
                     `' . $field . '` = :' . $field .'

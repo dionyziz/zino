@@ -101,6 +101,7 @@
                         break;
                     case 'EVENT_FRIENDRELATION_CREATED':
                         $notifications[ $i ][ 'friendship' ] = $friendinfo[ $notification[ 'itemid' ] ];
+                        break;
                 }
             }
             return $notifications;
