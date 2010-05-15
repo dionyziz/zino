@@ -9,40 +9,36 @@
         </xsl:attribute>
         <a class="xbutton" href="photos">&#171;</a>
         <div class="maininfo">
-            <img class="avatar">
-                <xsl:attribute name="src">
-                    <xsl:value-of select="avatar[1]/media[1]/@url" />
-                </xsl:attribute>
-            </img>
+            <xsl:if test="avatar[1]">
+                <img class="avatar">
+                    <xsl:attribute name="src">
+                        <xsl:value-of select="avatar[1]/media[1]/@url" />
+                    </xsl:attribute>
+                </img>
+            </xsl:if>
             <span class="username"><xsl:value-of select="name[1]" /></span>
             <ul>
-                <li>
-                    <xsl:if test="gender[1]">
+                <xsl:if test="gender[1]">
+                    <li>
                         <span class="gender">
                             <xsl:choose>
                                 <xsl:when test="gender[1] = 'f'">Κορίτσι</xsl:when>
                                 <xsl:otherwise>Αγόρι</xsl:otherwise>
                             </xsl:choose>
                         </span>
-                    </xsl:if>
-                </li>
-                <li>
-                    <xsl:if test="age[1]">
+                    </li>
+                </xsl:if>
+                <xsl:if test="age[1]">
+                    <li>
                         <span class="age"><xsl:value-of select="age[1]" /></span>
-                    </xsl:if>
-                    <xsl:if test="gender[1] or age[1]">
-                        <xsl:attribute name="class">dot</xsl:attribute>
-                    <xsl:if>
-                </li>
-                <li>
-                    <xsl:if test="location[1]">
+                    </li>
+                </xsl:if>
+                <xsl:if test="location[1]">
+                    <li>
                         <span class="location"><xsl:value-of select="location[1]" /></span>
-                    </xsl:if>
-                    <xsl:if test="gender[1] or age[1]">
-                        <xsl:attribute name="class">dot</xsl:attribute>
-                    <xsl:if>
-                </li>
-            <ul>
+                    </li>
+                </xsl:if>
+            </ul>
             <xsl:if test="slogan[1]">
                 <span class="slogan"><xsl:value-of select="slogan[1]" /></span>
             </xsl:if>
