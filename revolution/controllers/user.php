@@ -32,11 +32,12 @@
             }
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
+                clude( 'models/activity.php' );
                 $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $id );
-                $activity = Activity::ListByUser( $id );
+                // $activity = Activity::ListByUser( $id );
             }
             include 'views/user/view.php';
         }

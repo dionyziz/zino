@@ -10,7 +10,7 @@
 
     class Activity {
         public static function ListByUser( $userid, $limit = 100 ) {
-            $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid LIMIT :limit;", compact( $userid, $limit ) );
+            $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid LIMIT :limit;", compact( 'userid', 'limit' ) );
             $activities = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $activities[] = $row;
