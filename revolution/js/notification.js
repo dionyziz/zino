@@ -24,6 +24,10 @@ var Notifications = {
             Notifications.Done();
         }
     },
+    CreateFriendGUI: function ( entry ) {
+        $( '#instantbox' ).remove();
+        // TODO
+    },
     CreateFavouriteGUI: function ( entry ) {
         $( '#instantbox' ).remove();
 
@@ -237,7 +241,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             $.get( 'notifications', {}, function ( res ) {
-                var entries = $( res ).find( 'stream entry' );
+                var entries = $( res ).find( 'stream entry, stream user' );
                 var entry, author, avatar, comment;
                 var panel = document.createElement( 'div' );
                 var box;
@@ -274,7 +278,17 @@ var Notifications = {
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
                             break;
                         case 'friend':
-                            //TODO
+                            author = entry.find( 'name' ).text();
+                            avatar = entry.find( 'avatar media' ).attr( 'url' );
+                            gender = entry.find( 'gender' ).text();
+                            var friend;
+                            if ( gender == 'f' ) {
+                                friend = 'φίλη';
+                            }
+                            else {
+                                friend = 'φίλος';
+                            }
+                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="friend">' + friend + '</div></div>';
                             break;
                     }
                     $( box ).click( ( function ( e, eventtype ) {
@@ -290,7 +304,7 @@ var Notifications = {
                                     Notifications.CreateFavouriteGUI( e );
                                     break;
                                 case 'friend':
-                                    //TODO
+                                    Notifications.CreateFriendGUI( e );
                                     break;
                             }
                         };

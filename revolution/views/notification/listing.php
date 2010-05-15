@@ -74,11 +74,16 @@
     <?
     break;
     case 'EVENT_FRIENDRELATION_CREATED':
+        $user = $notification[ 'friendship' ][ 'user' ];
     ?>
-        <user id="<?= $notification[ 'user' ][ 'id' ] ?>">
-            <name><?= $notification[ 'user' ][ 'name' ] ?></name>
+        <user id="<?= $user[ 'id' ] ?>">
+            <name><?= $user[ 'name' ] ?></name>
+            <avatar id="<?= $user[ 'avatarid' ] ?>">
+                <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
+            </avatar>
+            <gender><?= $user[ 'gender' ]; ?></gender>
             <knows>
-                <user id="<?= $notification[ 'friend' ][ 'id' ] ?>" />
+                <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" />
             </knows>
         </user>
     <?

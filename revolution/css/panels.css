@@ -187,6 +187,18 @@
                 color: red;
                 display: block;
             }
+            .panel .box div.details div.friend {
+                padding: 5px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 120%;
+                background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
+                background-repeat: no-repeat;
+                background-position: 5px 5px;
+                padding-left: 22px;
+                width: 60px;
+                margin: 20px auto;
+            }
     .panel h3 {
         color: orange; font-size: 120%; padding: 5px; margin: 4px 0pt; text-align: center;
     }

@@ -100,7 +100,7 @@
                         $notifications[ $i ][ 'favourite' ] = $favouriteinfo[ $notification[ 'itemid' ] ];
                         break;
                     case 'EVENT_FRIENDRELATION_CREATED':
-                        $notifications[ $i ][ 'friend' ] = $friendinfo[ $notification[ 'itemid' ] ];
+                        $notifications[ $i ][ 'friendship' ] = $friendinfo[ $notification[ 'itemid' ] ];
                 }
             }
             return $notifications;

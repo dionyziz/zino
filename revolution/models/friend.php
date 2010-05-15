@@ -11,31 +11,33 @@
         public static function ItemMulti( $ids ) {
             $friendships = db_array(
                 'SELECT
-                    `relation_id` AS id, `relation_userid` AS userid
-                    a.user_name AS a_name, a.user_gender AS a_gender, a.user_id AS a_id,
-                    b.user_name AS b_name, b.user_gender AS b_gender, b.user_id AS b_id
+                    `relation_id` AS id, `relation_userid` AS userid,
+                    a.user_name AS a_name, a.user_gender AS a_gender, a.user_id AS a_id, a.user_avatarid AS a_avatarid,
+                    b.user_name AS b_name, b.user_gender AS b_gender, b.user_id AS b_id, b.user_avatarid AS b_avatarid
                 FROM 
                     `relations`
-                    CROSS JOIN `users`
+                    CROSS JOIN `users` AS a
                         ON `relation_userid` = a.user_id
-                    CROSS JOIN `users`
+                    CROSS JOIN `users` AS b
                         ON `relation_friendid` = b.user_id
                 WHERE
                     `relation_id` IN :ids', compact( 'ids' ), 'id'
             );
             $ret = array();
             foreach ( $friendships as $i => $friendship ) {
-                $ret[] = array(
+                $ret[ $friendship[ 'id' ] ] = array(
                     'id' => $friendship[ 'id' ],
                     'user' => array(
                         'id' => $friendship[ 'a_id' ],
                         'name' => $friendship[ 'a_name' ],
-                        'gender' => $friendship[ 'a_gender' ]
+                        'gender' => $friendship[ 'a_gender' ],
+                        'avatarid' => $friendship[ 'a_avatarid' ]
                     ),
                     'friend' => array(
                         'id' => $friendship[ 'b_id' ],
                         'name' => $friendship[ 'b_name' ],
                         'gender' => $friendship[ 'b_gender' ],
+                        'avatarid' => $friendship[ 'b_avatarid' ]
                     )
                 );
             }
