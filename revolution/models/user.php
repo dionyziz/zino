@@ -175,4 +175,45 @@
             );
         }
     }
+    class Settings {
+        public static function Update( $userid, $emailnotif ) {
+            is_int( $userid ) or die;
+            $emailnotif = $emailnotif ? "yes" : "no";
+            $res = db( 
+                "UPDATE 
+                    `usersettings` 
+                SET 
+                    `setting_emailprofilecomment` = '$emailnotif', 
+                    `setting_emailphotocomment` = '$emailnotif',
+                    `setting_emailphototag` = '$emailnotif',
+                    `setting_emailjournalcomment` = '$emailnotif',
+                    `setting_emailpollcomment` = '$emailnotif',
+                    `setting_emailreply` = '$emailnotif',
+                    `setting_emailfriendaddition` = '$emailnotif',
+                    `setting_emailfriendjournal` = '$emailnotif',
+                    `setting_emailfriendpoll` = '$emailnotif',
+                    `setting_emailfriendphoto` = '$emailnotif',
+                    `setting_emailfavourite` = '$emailnotif',
+                    `setting_emailbirthday` = '$emailnotif'
+                WHERE
+                    `setting_userid` = :userid
+                LIMIT 1;", compact( 'userid' ) 
+            );
+            return $res;
+        }
+        public static function Get( $userid ) {
+            is_int( $userid ) or die;
+            $res = db( 
+                "SELECT 
+                    `setting_emailprofilecomment`, `setting_notifyprofilecomment` 
+                FROM 
+                    `usersettings` 
+                WHERE 
+                    `setting_userid` = :userid
+                LIMIT 1;", compact( 'userid' )
+            );
+            $row = mysql_fetch_array( $res );
+            return array( $row[ 'setting_notifyprofilecomment' ] == 'yes', $row[ 'setting_emailprofilecomment' ] == 'yes' );
+        }
+    }
 ?>
