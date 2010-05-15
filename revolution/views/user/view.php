@@ -20,6 +20,7 @@
         <favourites count="<?= $counts[ 'favourites' ]; ?>" />
         <discussion type="chat" count="<?= $counts[ 'shouts' ]; ?>" />
     <? endif; ?>
+    
     <details>
         <? $stats = array(
             'height', 'weight', 'smoker', 'drinker',

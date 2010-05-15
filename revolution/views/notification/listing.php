@@ -64,7 +64,9 @@
                 <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
                 <gender><?= $user[ 'gender' ] ?></gender>
                 <age><?= $user[ 'age' ] ?></age>
+                <? if ( isset( $user[ 'place' ] ) && isset( $user[ 'place' ][ 'name' ] ) ): ?>
                 <location><?= $user[ 'place' ][ 'name' ] ?></location>
+                <? endif; ?>
                 <avatar id="<?= $user[ 'avatarid' ] ?>">
                     <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
                 </avatar>

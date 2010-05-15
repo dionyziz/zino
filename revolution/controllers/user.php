@@ -37,7 +37,7 @@
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $id );
-                // $activity = Activity::ListByUser( $id );
+                $activity = Activity::ListByUser( $id );
             }
             include 'views/user/view.php';
         }

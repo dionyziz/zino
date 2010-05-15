@@ -51,12 +51,12 @@ var Notifications = {
                         + '<li>' + humanlocation + '</li>'
                     + '</ul>'
                 + '</div>'
-                + '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
 
         var html =
             '<div id="instantbox">'
                 + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
                 + '<div class="details">'
+                    + '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
                     + businesscard
                 + '</div>'
             + '<div class="eof"></div></div>';
