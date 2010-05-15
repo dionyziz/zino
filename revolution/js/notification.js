@@ -241,7 +241,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             $.get( 'notifications', {}, function ( res ) {
-                var entries = $( res ).find( 'stream entry, stream user' );
+                var entries = $( res ).find( 'stream > entry, stream > user' );
                 var entry, author, avatar, comment;
                 var panel = document.createElement( 'div' );
                 var box;

@@ -79,7 +79,11 @@
                     `profile_aboutme`,
                     `profile_dob`,
                     `mood_labelmale`, `mood_labelfemale`,
-                    `mood_url`
+                    `mood_url`,
+                    (
+                        ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                        - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                    ) AS profile_age
                 FROM
                     `users`
                     CROSS JOIN `userprofiles`
@@ -108,7 +112,7 @@
                 'eyecolor', 'haircolor',
                 'sexualorientation', 'relationship',
                 'religion', 'politics',
-                'slogan', 'aboutme', 'dob'
+                'slogan', 'aboutme', 'dob', 'age'
             );
             foreach ( $profiledetails as $detail ) {
                 $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];

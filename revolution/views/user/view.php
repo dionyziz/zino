@@ -2,7 +2,9 @@
     <name><?= $user[ 'name' ] ?></name>
     <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
     <gender><?= $user[ 'gender' ] ?></gender>
-    <age><?= $user[ 'age' ] ?></age>
+    <? if ( isset( $user[ 'profile' ][ 'age' ] ) ): ?>
+        <age><?= $user[ 'profile' ][ 'age' ] ?></age>
+    <? endif; ?>
     <avatar id="<?= $user[ 'avatarid' ] ?>">
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
