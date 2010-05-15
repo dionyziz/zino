@@ -1,3 +1,34 @@
-.maininfo img.avatar{
-    height: 1
+.maininfo {
+    position: relative;
+    text-align: left;
+    padding: 10px 0 0 110px;
+    margin: 0 160px;
+    display: block;
+    height: 100px;
+}
+
+.maininfo img.avatar {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.maininfo .username {
+    display: block;
+    font-size: 160%;
+}
+.maininfo ul {
+    position: relative;
+}
+.maininfo ul li.dot:before {
+    content: ' ▪ ';
+}
+.maininfo ul li {
+    float: left;
+    margin: 0 3px;
+}
+.maininfo ul li span {
+    color: #ddf;
+    font-weight: bold;
 }

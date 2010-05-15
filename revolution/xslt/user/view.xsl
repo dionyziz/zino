@@ -38,8 +38,10 @@
                 </xsl:if>
                 <xsl:if test="location[1]">
                     <li>
+                        <xsl:if test="gender or age">
+                            <xsl:attribute name="class">dot</xsl:attribute>
+                        </xsl:if>
                         <span class="location"><xsl:value-of select="location[1]" /></span>
-
                     </li>
                 </xsl:if>
             </ul>
