@@ -13,12 +13,8 @@
             <xsl:if test="gender[1]">
                 <span class="gender">
                     <xsl:choose>
-                        <xsl:when test="gender[1] = 'f'">
-                            Κορίτσι
-                        </xsl:when>
-                        <xsl:otherwise>
-                            Αγόρι
-                        </xsl:otherwise>
+                        <xsl:when test="gender[1] = 'f'">Κορίτσι</xsl:when>
+                        <xsl:otherwise>Αγόρι</xsl:otherwise>
                     </xsl:choose>
                 </span>
             </xsl:if>
