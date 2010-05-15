@@ -27,6 +27,7 @@
                         $activity[ 'item' ][ 'typeid' ] = $row[ 'activity_typeid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        break;
                     case ACTIVITY_FAVOURITE:
                         $activity[ 'favourite' ] = array();
                         $activity[ 'favourite' ][ 'id' ] = $row[ 'activity_refid' ];
@@ -36,6 +37,7 @@
                         $activity[ 'item' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        break;
                     case ACTIVITY_FRIEND:
                         $activity[ 'friend' ] = array();
                         $activity[ 'friend' ][ 'id' ] = $row[ 'activity_itemid' ];
@@ -43,6 +45,7 @@
                         $activity[ 'friend' ][ 'subdomain' ] = $row[ 'activity_url' ];
                         $activity[ 'relation' ] = array();
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_relationid' ];
+                        break;
                     case ACTIVITY_FAN:
                         $activity[ 'fan' ] = array();
                         $activity[ 'fan' ][ 'id' ] = $row[ 'activity_itemid' ];
@@ -50,14 +53,17 @@
                         $activity[ 'fan' ][ 'subdomain' ] = $row[ 'activity_url' ];
                         $activity[ 'relation' ] = array();
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_relationid' ];
+                        break;
                     case ACTIVITY_SONG:
                         $activity[ 'song' ] = array();
                         $activity[ 'song' ][ 'id' ] = $row[ 'activity_refid' ];
                         $activity[ 'song' ][ 'title' ] = $row[ 'activity_text' ];
+                        break;
                     case ACTIVITY_STATUS:
                         $activity[ 'status' ] = array();
                         $activity[ 'status' ][ 'id' ] = $row[ 'activity_refid' ];
                         $activity[ 'status' ][ 'message' ] = $row[ 'activity_text' ];
+                        break;
                     case ACTIVITY_ITEM:
                         $activity[ 'item' ] = array();
                         $activity[ 'item' ][ 'id' ] = $row[ 'activity_refid' ];
@@ -65,6 +71,9 @@
                         $activity[ 'item' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        break;
+                    default:
+                        die( 'unknown activity type' );
                 }
                 return $activities[] = $activity;
             }
