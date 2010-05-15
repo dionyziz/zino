@@ -16,7 +16,7 @@
                     </xsl:attribute>
                 </img>
             </xsl:if>
-            <span class="username"><xsl:value-of select="name[1]" /></span>
+            <div class="username"><xsl:value-of select="name[1]" /></div>
             <ul>
                 <xsl:if test="gender[1]">
                     <li>
@@ -45,8 +45,8 @@
                     </li>
                 </xsl:if>
             </ul>
-            <xsl:if test="slogan[1]">
-                <span class="slogan"><xsl:value-of select="slogan[1]" /></span>
+            <xsl:if test="details/slogan">
+                <div class="slogan"><xsl:value-of select="details/slogan" /></div>
             </xsl:if>
         </div>
         <xsl:if test="/social/@for and /social/@for!=name[1]">

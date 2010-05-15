@@ -30,7 +30,7 @@
            );
            foreach ( $stats as $stat ):
            if ( isset( $user[ 'profile' ][ $stat ] ) ): ?>
-           <<?= $stat ?>><?= $user[ 'profile' ][ $stat ] ?></<?= $stat ?>>
+           <<?= $stat ?>><?= htmlspecialchars( $user[ 'profile' ][ $stat ] ) ?></<?= $stat ?>>
         <? endif;
            endforeach; ?>
     </details>
