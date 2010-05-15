@@ -30,10 +30,10 @@
                 </xsl:if>
                 <xsl:if test="age[1]">
                     <li>
-                        <span class="age"><xsl:value-of select="age[1]" /></span>
                         <xsl:if test="gender[1]">
                             <xsl:attribute name="class">dot</xsl:attribute>
                         </xsl:if>
+                        <span class="age"><xsl:value-of select="age[1]" /></span>
                     </li>
                 </xsl:if>
                 <xsl:if test="location[1]">
