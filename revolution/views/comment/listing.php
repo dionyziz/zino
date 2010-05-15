@@ -1,5 +1,14 @@
-<discussion count="<?= $countcomments ?>">
-<?
+<?php
+    if ( !isset( $comments ) ) {
+        ?><discussion /><?php
+        return;
+    }
+?>
+<discussion<?
+    if ( isset( $countcomments ) ) {
+        ?> count="<?= $countcomments ?>"<?php
+    }
+    ?>><?php
     $commentids = array( 0 );
     $indentation = 0;
     foreach ( $comments as $comment ) {

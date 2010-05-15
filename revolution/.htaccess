@@ -27,6 +27,7 @@ RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA
 # comments
 RewriteRule ^comment/create$ index.php?resource=comment&method=create [L,QSA]
 RewriteRule ^comments/([0-9]+)$ index.php?resource=comment&method=view&commentid=$1 [L,QSA]
+RewriteRule ^comments/([1-4])/([0-9]+)$ index.php?resource=comment&method=listing&typeid=$1&itemid=$2 [L,QSA]
 
 # news
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]

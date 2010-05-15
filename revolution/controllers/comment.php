@@ -40,5 +40,17 @@
             $user = $comment[ 'user' ];
             include 'views/comment/view.php';
         }
+        public static function Listing( $typeid, $itemid, $page ) {
+            clude( 'models/db.php' );
+            clude( 'models/comment.php' );
+            $page = ( int )$page;
+            $page >= 1 or die;
+            $commentdata = Comment::FindByPage( $typeid, $itemid, $page );
+            if ( $commentdata !== false ) {
+                $numpages = $commentdata[ 0 ];
+                $comments = $commentdata[ 1 ];
+            }
+            include 'views/comment/listing.php';
+        }
     }
 ?>

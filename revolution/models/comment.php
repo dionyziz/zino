@@ -14,6 +14,9 @@
 
             $paged = Comment::GetMemcached( $typeid, $itemid );
 
+            if ( !isset( $paged[ $page ] ) ) {
+                return false;
+            }
             $commentids = $paged[ $page ];
             
             $comments = Comment::Populate( $commentids );
