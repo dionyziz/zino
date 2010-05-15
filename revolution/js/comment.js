@@ -1,5 +1,23 @@
 var Comment = {
     StillMouse: false,
+    CommentList: null,
+    Init: function(){
+        //Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
+        this.CommentList = $( ".discussion" );
+        Comment.AssignEvents();
+    },
+    GetCurrentTypeId: function(){ 
+        return {
+            'poll': 1,
+            'photo': 2,
+            'user': 3,
+            'journal': 4,
+            'school': 7
+        }[ $( '.contentitem' )[ 0 ].id.split( '_' )[ 0 ] ];
+    },
+    GetCurrentItemId: function(){
+        return $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ];
+    },
     New: function() {
         if ( !Comment.StillMouse ) {
             return false;
@@ -63,14 +81,8 @@ var Comment = {
                     
                     var wysiwyg = $.post( 'comment/create', {
                         text: this.value,
-                        typeid: {
-                            'poll': 1,
-                            'photo': 2,
-                            'user': 3,
-                            'journal': 4,
-                            'school': 7
-                        }[ $( '.contentitem' )[ 0 ].id.split( '_' )[ 0 ] ],
-                        'itemid': $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
+                        typeid: Comment.GetCurrentTypeId(),
+                        'itemid': Comment.GetCurrentItemId(),
                         'parentid': parentid } );
                         
                     var callback = ( function( thread ) {
@@ -132,7 +144,27 @@ var Comment = {
             } );
         } );
     },
-    Init: function( node ) {
-        Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
+    /*Infinite Scroll Code*/
+    ScrollHandler: function(){
+        if( Comment.CommentList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
+            Comment.RemoveEvents();
+            alert( "here" );
+            Comment.FetchNewComments()
+        }
+    },
+    AssignEvents: function(){
+        $( window ).bind( 'scroll', Comment.ScrollHandler );
+    },
+    RemoveEvents: function(){
+        $( window ).unbind( 'scroll', Comment.ScrollHandler );
+    },
+    FetchNewComments: function(){
+        var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': 2 } );
+        axslt( data, '/social/discussion', function() {
+            Comment.CommentList.append( $( this ) );
+            Comment.AssignEvents();
+        } );
+
     }
+    /*END*/
 }
