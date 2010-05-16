@@ -15,6 +15,7 @@
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
 		$vars = $_POST;
+        $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die( 'Non-idempotent REST method cannot be applied with the idempotent HTTP request method "' . $_SERVER[ 'REQUEST_METHOD' ] . '"' );
 	}
 	else {
         unset( $_GET[ 'resource' ], $_GET[ 'method' ] );

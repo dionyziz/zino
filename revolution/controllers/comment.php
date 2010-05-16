@@ -7,6 +7,7 @@
             switch ( $typeid ) {
                 case TYPE_POLL:
                     // clude( 'models/poll.php' );
+                    $target = Poll::Item( $itemid );
                     break;
                 case TYPE_IMAGE:
                     clude( 'models/photo.php' );
@@ -17,6 +18,8 @@
                     // break;
                 case TYPE_JOURNAL:
                     // clude( 'models/journal.php' );
+                    $target = Journal::Item( $itemid );
+                    break;
                     // break;
                 case TYPE_SCHOOL:
                     // clude( 'models/school.php' );
