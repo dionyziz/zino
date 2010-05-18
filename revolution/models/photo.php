@@ -89,6 +89,7 @@
             while ( $row = mysql_fetch_array( $res ) ) {
                 $images[ $keys[ $row[ 'id' ] ] ] = $row;
             }
+            ksort( $images );
             
             return $images;
         }
