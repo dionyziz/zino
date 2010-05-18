@@ -63,5 +63,30 @@
             );
 			return $item;
 		}
+        public static function Create( $userid, $title, $text ) {
+            clude( 'models/url.php' );
+            clude( 'models/bulk.php' );
+            clude( 'models/wysiwyg.php' );
+
+            is_int( $userid ) or die;
+
+            $url = URL_Format( $title );
+            $text = nl2br( htmlspecialchars( $text ) );
+            $text = WYSIWYG_PostProcess( $text );
+            $bulkid = Bulk::Store( $text );
+
+            $res = db( 
+                        "INSERT INTO `journals` 
+                            ( `journal_id`, `journal_userid, `journal_title`, `journal_url`, `journal_bulkid`, `journal_created`, `journal_delid`, `journal_numcomments` )
+                        VALUES ( 0, :userid, :title, :url, :bulkid, NOW(), 0, 0 )", 
+                        compact( 'userid', 'title', 'url', 'bulkid' )
+            );
+
+            return array(
+                'id' => mysql_insert_id(),
+                'url' => $url,
+                'bulkid' => $bulkid
+            );
+        }
 	}
 ?>

@@ -87,6 +87,24 @@
             }
 			return $item;
 		}
+        public static function Create( $userid, $question ) {
+            clude( 'models/url.php' );
+            
+            is_int( $userid ) or die;
+            $url = URL_Format( $question );
+            
+            $res = db( 
+                "INSERT INTO `polls`
+                        ( `poll_id`, `poll_question`, `poll_url`, `poll_userid`, `poll_created`, `poll_delid`, `poll_numvotes`, `poll_numcomments` )
+                    VALUES
+                        ( 0, :question, :url, :userid, NOW(), 0, 0, 0 );"
+            );
+
+            return array(
+                'id' => mysql_insert_id(),
+                'url' => $url
+            );
+        }
 	}
 	
 	class PollVote {		
