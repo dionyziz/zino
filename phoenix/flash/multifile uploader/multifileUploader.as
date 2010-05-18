@@ -65,7 +65,7 @@
 			var image = new BitmapData( Math.floor( loader.width * resize ), Math.floor( loader.height * resize ) );
 			var trans = new Matrix();
 			trans.scale( resize, resize );
-			image.draw( loader, trans );
+			image.draw( loader, trans, null, null, null, true );
 			var jpgencoder = new JPGEncoder( 100 );
 			Upload( jpgencoder.encode( image ) );
 		}
