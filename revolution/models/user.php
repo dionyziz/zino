@@ -44,7 +44,7 @@
                     `users`
                 WHERE
                     `user_name` = :name
-                LIMIT 1;', array( 'name' => $name )
+                LIMIT 1;', compact( 'name' )
             );
 			return mysql_fetch_array( $res );
         }

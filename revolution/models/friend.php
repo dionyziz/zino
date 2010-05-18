@@ -13,7 +13,7 @@
                     `relations`
                 WHERE
                     ( `relation_userid` = :a AND `relation_friendid` = :b )
-                    OR ( `relation_userid` = :a AND `relation_userid` = :b )',
+                    OR ( `relation_userid` = :b AND `relation_friendid` = :a )',
                 compact( 'a', 'b' )
             );
             $strength = FRIENDS_NONE;
