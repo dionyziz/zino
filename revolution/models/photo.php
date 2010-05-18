@@ -77,10 +77,19 @@
                 WHERE
                     `image_id` IN :ids;', array( 'ids' => $ids )
             );
+
+            $keys = array();
+            $i = 1;
+            foreach ( $ids as $id ) {
+                $keys[ $id ] = $i;
+                $i = $i + 1;
+            }
+
             $images = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $images[] = $row;
+                $images[ $row[ 'id' ] ] = $row;
             }
+            
             return $images;
         }
         public static function Create( $userid, $albumid, $typeid ) {
