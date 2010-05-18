@@ -32,7 +32,7 @@
             </div>
             <div class="uploaddiv">
 				<object>
-					<param name="movie" value="bin/multifileUploader.swf"/>
+					<param name="movie" value="bin/multifileUploader.swf?1"/>
 					<param name="wmode" value="opaque"/>
 					<param name="width" value="100"/>
 					<param name="height" value="25"/>
