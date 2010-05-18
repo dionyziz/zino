@@ -150,7 +150,7 @@
         public static function GetImages( $userid, $num = 30 ) {
             //global $water;
 
-            clude( 'models/photo.php' );
+            //clude( 'models/photo.php' );
 
             //$water->Profile( 'Spot get images' );
 
@@ -164,11 +164,11 @@
             foreach ( $lines as $id ) {
                 $ids[] = $id;
             }
-            $content = Photo::ListByIds( $ids );
+            //$content = Photo::ListByIds( $ids );
 
             //$water->ProfileEnd();
 
-            return $content;
+            return $ids;
         }
         public static function GetPolls( $user, $num = 4 ) {
             global $libs;
