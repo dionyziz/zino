@@ -44,7 +44,7 @@
                         $activity[ 'friend' ][ 'name' ] = $row[ 'activity_text' ];
                         $activity[ 'friend' ][ 'subdomain' ] = $row[ 'activity_url' ];
                         $activity[ 'relation' ] = array();
-                        $activity[ 'relation' ][ 'id' ] = $row[ 'activity_relationid' ];
+                        $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;
                     case ACTIVITY_FAN:
                         $activity[ 'fan' ] = array();
@@ -52,7 +52,7 @@
                         $activity[ 'fan' ][ 'name' ] = $row[ 'activity_text' ];
                         $activity[ 'fan' ][ 'subdomain' ] = $row[ 'activity_url' ];
                         $activity[ 'relation' ] = array();
-                        $activity[ 'relation' ][ 'id' ] = $row[ 'activity_relationid' ];
+                        $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;
                     case ACTIVITY_SONG:
                         $activity[ 'song' ] = array();
