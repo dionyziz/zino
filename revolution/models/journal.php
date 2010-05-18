@@ -85,7 +85,12 @@
             return array(
                 'id' => mysql_insert_id(),
                 'url' => $url,
-                'bulkid' => $bulkid
+                'bulkid' => $bulkid,
+                'userid' => $userid,
+                'title' => $title,
+                'text' => $text,
+                'created' => date( 'Y-m-d H:i:s', time() ),
+                'numcomments' => 0,
             );
         }
 	}

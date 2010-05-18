@@ -41,7 +41,16 @@
             }
             include 'views/journal/listing.php';
         }
-        public static function Create() {
+        public static function Create( $title, $text ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a journal' );
+
+            clude( 'models/db.php' );
+            clude( 'models/journal.php' );
+
+            $journal = Journal::Create( $_SESSION[ 'user' ][ 'id' ], $title, $text );
+            $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+
+            include 'views/journal/view.php';
         }
         public static function Update() {
         }
