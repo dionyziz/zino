@@ -1,23 +1,42 @@
 var Notifications = {
     TakenOver: false,
+    PendingRequests: 0,
+    RequestDone: function () {
+        --Notifications.PendingRequests;
+    },
+    RequestStart: function () {
+        ++Notifications.PendingRequests;
+    },
     TakeOver: function () {
         Notifications.TakenOver = true;
         $( '.col1, .col2' ).remove();
     },
     Done: function () {
-        window.location.reload();
+        document.body.style.cursor = 'wait';
+        $( 'body' ).empty();
+        var Leave = function () {
+            if ( Notifications.PendingRequests ) {
+                // wait for pending requests to complete
+                setTimeout( Leave, 100 );
+                return;
+            }
+            // else
+            window.location.reload();
+        };
+        Leave();
     },
     DoneWithCurrent: function () {
         var current = $( '#notifications .selected' )[ 0 ];
         var next;
+        var count = $( '#notifications h3 span' ).text() - 1;
 
-        $( '#notifications h3 span' ).text( $( '#notifications h3 span' ).text() - 1 );
+        $( '#notifications h3 span' ).text( count );
         next = current.nextSibling;
         if ( !next ) {
             next = current.previousSibling;
         }
         $( current ).remove();
-        if ( next ) {
+        if ( count ) {
             $( next ).click();
         }
         else {
@@ -65,8 +84,10 @@ var Notifications = {
             + '<div class="eof"></div></div>';
 
         $( 'body' ).prepend( html );
-
+        
+        Notifications.RequestStart();
         $.get( 'friendship/' + author, {}, function ( res ) {
+            Notifications.RequestDone();
             var users = $( res ).find( 'user knows user name' );
 
             for ( var i = 0; i < users.length; ++i ) {
@@ -92,9 +113,10 @@ var Notifications = {
                         switch ( event.keyCode ) {
                             case 27: // ESC
                                 Notifications.DoneWithCurrent();
+                                Notifications.RequestStart();
                                 $.post( 'notification/delete', {
                                     friendname: author
-                                } );
+                                }, Notifications.RequestDone );
                                 break;
                             case 13: // Enter
                                 var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
@@ -102,15 +124,17 @@ var Notifications = {
                                     $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                                     break;
                                 }
+                                Notifications.RequestStart();
                                 $.post( 'comment/create', {
                                     text: commenttext,
                                     typeid: user = 3,
                                     'itemid': userid,
                                     'parentid': 0
-                                } );
+                                }, Notifications.RequestDone );
+                                Notifications.RequestStart();
                                 $.post( 'notification/delete', {
                                     friendname: author
-                                } );
+                                }, Notifications.RequestDone );
                                 Notifications.DoneWithCurrent();
                                 break;
                         }
@@ -122,9 +146,10 @@ var Notifications = {
             $( '#instantbox div.details' ).append( '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>' );
             $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
             $( '#instantbox a.friend' ).focus().click( function () {
+                Notifications.RequestStart();
                 $.post( 'friendship/create', {
                     username: author
-                }, function () {} );
+                }, Notifications.RequestDone );
                 return false;
             } );
         } );
@@ -205,17 +230,19 @@ var Notifications = {
                         $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                         break;
                     }
+                    Notifications.RequestStart();
                     $.post( 'comment/create', {
                         text: commenttext,
                         typeid: user = 3,
                         'itemid': userid,
                         'parentid': 0
-                    } );
+                    }, Notifications.RequestDone );
                     Notifications.DoneWithCurrent();
                     break;
             }
         } );
-        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
+        Notifications.RequestStart();
+        var data = $.get( type + 's/' + id, { 'verbose': 0 }, Notifications.RequestDone );
         axslt( data, '/social/entry', function() {
             $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
         } );
@@ -299,10 +326,11 @@ var Notifications = {
             switch ( event.keyCode ) {
                 case 27: // ESC
                     Notifications.DoneWithCurrent();
+                    Notifications.RequestStart();
                     $.post( 'notification/delete', {
                         'itemid': commentid,
                         'eventtypeid': EVENT_COMMENT_CREATED = 4,
-                    } );
+                    }, Notifications.RequestDone );
                     // TODO
                     break;
                 case 13: // Enter
@@ -311,6 +339,7 @@ var Notifications = {
                         $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                         break;
                     }
+                    Notifications.RequestStart();
                     $.post( 'comment/create', {
                         text: commenttext,
                         typeid: {
@@ -322,20 +351,24 @@ var Notifications = {
                         }[ type ],
                         'itemid': id,
                         'parentid': commentid
-                    } );
+                    }, Notifications.RequestDone );
                     Notifications.DoneWithCurrent();
                     break;
             }
         } );
         if ( isreply ) {
+            Notifications.RequestStart();
             $.get( 'comments/' + parentid, {}, function ( res ) {
+                Notifications.RequestDone();
                 $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
                 $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( ' text' )[ 0 ] );
             } );
         }
+        Notifications.RequestStart();
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
             $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+            Notifications.RequestDone();
         } );
     },
     Check: function () {
@@ -353,7 +386,7 @@ var Notifications = {
                 }
 
                 panel.id = 'notifications';
-                panel.className = 'panel bottom';
+                panel.className = 'panel bottom novideo';
                 panel.innerHTML = '<div class="background"></div><div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
 
                 for ( var i = 0; i < entries.length; ++i ) {
