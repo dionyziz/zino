@@ -1,6 +1,6 @@
 var ItemView = {
     Init: function ( typeid ) {
-        if ( User !== '' ) {
+        if ( typeof User !== 'undefined' ) {
             var favourites = $( 'div.love .username' );
             var faved = false;
             for ( i = 0; i < favourites.length; ++i ) {
