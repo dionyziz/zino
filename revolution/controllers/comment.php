@@ -6,7 +6,7 @@
             clude( 'models/db.php' );
             switch ( $typeid ) {
                 case TYPE_POLL:
-                    // clude( 'models/poll.php' );
+                    clude( 'models/poll.php' );
                     $target = Poll::Item( $itemid );
                     break;
                 case TYPE_IMAGE:

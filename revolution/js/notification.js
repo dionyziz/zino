@@ -3,9 +3,11 @@ var Notifications = {
     PendingRequests: 0,
     RequestDone: function () {
         --Notifications.PendingRequests;
+        // document.title = 'Waiting... ' + Notifications.PendingRequests;
     },
     RequestStart: function () {
         ++Notifications.PendingRequests;
+        // document.title = 'Waiting... ' + Notifications.PendingRequests;
     },
     TakeOver: function () {
         Notifications.TakenOver = true;
@@ -25,11 +27,15 @@ var Notifications = {
         $( '.progress' ).animate( {
             width: '300px'
         }, 500 );
+        var LetFinish = 30;
         var Leave = function () {
             if ( Notifications.PendingRequests ) {
                 // wait for pending requests to complete
-                setTimeout( Leave, 100 );
-                return;
+                --LetFinish;
+                if ( LetFinish ) {
+                    setTimeout( Leave, 100 );
+                    return;
+                }
             }
             // else
             window.location.href = url;
@@ -256,9 +262,10 @@ var Notifications = {
             }
         } );
         Notifications.RequestStart();
-        var data = $.get( type + 's/' + id, { 'verbose': 0 }, Notifications.RequestDone );
+        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
             $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+            Notifications.RequestDone();
         } );
     },
     CreateCommentGUI: function ( entry ) {
