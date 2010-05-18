@@ -11,6 +11,8 @@
         <? endif; ?>
 
     </author>
+    <? if ( isset( $comment[ 'created' ] ) ): ?>
     <published><?= $comment[ 'created' ] ?></published>
+    <? endif; ?>
     <text><?= $comment[ 'text' ]; ?></text>
 </comment>

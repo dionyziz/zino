@@ -33,10 +33,14 @@ var Notifications = {
         var avatar = entry.find( 'avatar media' ).attr( 'url' );
         var humangender = 'Αγόρι';
         var article = 'Ο';
+        var artacc = 'τον';
+        var article2 = 'του';
 
         if ( gender == 'f' ) { 
             humangender = 'Κορίτσι';
             article = 'Η';
+            artacc = 'την';
+            article2 = 'της';
         }
         var humanlocation = entry.find( 'location' ).text();
         var humanage = entry.find( 'age' ).text();
@@ -54,7 +58,6 @@ var Notifications = {
 
         var html =
             '<div id="instantbox">'
-                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
                 + '<div class="details">'
                     + '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
                     + businesscard
@@ -62,6 +65,69 @@ var Notifications = {
             + '<div class="eof"></div></div>';
 
         $( 'body' ).prepend( html );
+
+        $.get( 'friendship/' + author, {}, function ( res ) {
+            var users = $( res ).find( 'user knows user name' );
+
+            for ( var i = 0; i < users.length; ++i ) {
+                if ( $( users[ i ] ).text() == author ) {
+                    // You have already befriended them
+                    $( '#instantbox div.details' ).append(
+                          '<div class="note"><p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
+                        + '<div class="thread new">'
+                            + '<div class="message mine new">'
+                                + '<div><textarea></textarea></div>'
+                            + '</div>'
+                        + '</div>'
+                        + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p></div>'
+                    );
+                    $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
+
+                    $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
+                        if ( event.shiftKey ) {
+                            if ( event.keyCode == 27 ) { // ESC
+                            }
+                            return;
+                        }
+                        switch ( event.keyCode ) {
+                            case 27: // ESC
+                                Notifications.DoneWithCurrent();
+                                $.post( 'notification/delete', {
+                                    friendname: author
+                                } );
+                                break;
+                            case 13: // Enter
+                                var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+                                if ( commenttext === '' ) {
+                                    $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                                    break;
+                                }
+                                $.post( 'comment/create', {
+                                    text: commenttext,
+                                    typeid: user = 3,
+                                    'itemid': userid,
+                                    'parentid': 0
+                                } );
+                                $.post( 'notification/delete', {
+                                    friendname: author
+                                } );
+                                Notifications.DoneWithCurrent();
+                                break;
+                        }
+                    } );
+                    return;
+                }
+            }
+            // you have not friended them
+            $( '#instantbox div.details' ).append( '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>' );
+            $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
+            $( '#instantbox a.friend' ).focus().click( function () {
+                $.post( 'friendship/create', {
+                    username: author
+                }, function () {} );
+                return false;
+            } );
+        } );
     },
     CreateFavouriteGUI: function ( entry ) {
         $( '#instantbox' ).remove();
@@ -125,7 +191,6 @@ var Notifications = {
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
             if ( event.shiftKey ) {
                 if ( event.keyCode == 27 ) { // ESC
-
                 }
                 return;
             }
@@ -281,6 +346,11 @@ var Notifications = {
                 var panel = document.createElement( 'div' );
                 var box;
                 var eventtype;
+
+                if ( !entries.length ) {
+                    // no new notifications
+                    return;
+                }
 
                 panel.id = 'notifications';
                 panel.className = 'panel bottom';

@@ -15,12 +15,12 @@
                     break;
                 case TYPE_USERPROFILE:
                     clude( 'models/user.php' );
-                    // break;
+                    $target = User::Item( $itemid );
+                    break;
                 case TYPE_JOURNAL:
-                    // clude( 'models/journal.php' );
+                    clude( 'models/journal.php' );
                     $target = Journal::Item( $itemid );
                     break;
-                    // break;
                 case TYPE_SCHOOL:
                     // clude( 'models/school.php' );
                     // break;

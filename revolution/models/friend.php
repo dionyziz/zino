@@ -27,6 +27,26 @@
             }
             return $strength;
         }
+        public static function ItemByUserIds( $a, $b ) {
+            return array_shift( db_array(
+                'SELECT
+                    `relation_id` AS id
+                FROM
+                    `relations`
+                WHERE
+                    `relation_userid`=:a
+                    AND `relation_friendid`=:b
+                LIMIT 1', compact( 'a', 'b' )
+            ) );
+        }
+        public static function DeleteByUserIds( $a, $b ) {
+            db( 'DELETE FROM
+                    `relations`
+                WHERE
+                    `relation_userid` = :a
+                    AND `relation_friendid` = :b
+                LIMIT 1', compact( 'a', 'b' ) );
+        }
         public static function Item( $relationid ) {
             return array_shift( self::ItemMulti( array( $relationid ) ) );
         }
@@ -81,9 +101,12 @@
         }
         public static function Create( $userid, $friendid, $typeid ) {
             clude( 'models/db.php' );
-            return db( 'INSERT IGNORE INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
+            db( 'INSERT IGNORE INTO `relations` ( `relation_userid`, `relation_friendid`, `relation_typeid`, `relation_created` )
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
+            clude( 'models/notification.php' );
+            $reverserelation = self::ItemByUserIds( $friendid, $userid );
+            Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FRIENDRELATION_CREATED' ), $reverserelation[ 'id' ], $userid );
         }
         public static function Delete( $userid, $friendid ) {
             clude( 'models/db.php' );

@@ -1,0 +1,18 @@
+a.friend {
+    -moz-border-radius: 5px 5px 5px 5px;
+    background-color: #557799;
+    background-image: url("http://static.zino.gr/phoenix/user_add.png");
+    background-position: 8px 9px;
+    background-repeat: no-repeat;
+    border: 1px solid #AACCFF;
+    clear: both;
+    color: white;
+    display: block;
+    float: none;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 10px 0 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+}

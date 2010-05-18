@@ -16,11 +16,18 @@
         }
         public static function Listing() {
         }
-        public static function Create( $friendid ) {
-            clude( 'models/db.php' );
-            clude( 'models/friend.php' );
+        public static function Create( $friendid = 0, $username = '' ) {
+            $friendid = ( int )$friendid;
+
             $success = false;
             if ( isset( $_SESSION[ 'user' ] ) ) {
+                clude( 'models/db.php' );
+                clude( 'models/friend.php' );
+                clude( 'models/user.php' );
+                if ( $friendid == 0 ) {
+                    $friend = User::ItemByName( $username );
+                    $friendid = $friend[ 'id' ];
+                }
                 $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 1 );
             }              
             include 'views/friend/create.php';          
