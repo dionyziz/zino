@@ -27,7 +27,7 @@
 	        $libs->Load( 'research/spot' );
             ?><p>Content</p><?php
 			$spot = New Spot();
-			$res = $spot->GetJournalsExtended( $user );
+			$res = $spot->GetPhotos( $user, 100 );
 			var_dump( $res );
 			return;
         }
