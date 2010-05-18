@@ -11,9 +11,20 @@ var Notifications = {
         Notifications.TakenOver = true;
         $( '.col1, .col2' ).remove();
     },
-    Done: function () {
+    Navigate: function ( url ) {
         document.body.style.cursor = 'wait';
         $( 'body' ).empty();
+        $( 'body' ).append(
+              '<div class="wait">'
+                + '<div class="progressbar">'
+                    + '<div class="progress"></div>'
+                + '</div>'
+            + '</div>'
+        );
+        $( '.progress' ).css( { width: '25px' } );
+        $( '.progress' ).animate( {
+            width: '300px'
+        }, 500 );
         var Leave = function () {
             if ( Notifications.PendingRequests ) {
                 // wait for pending requests to complete
@@ -21,9 +32,12 @@ var Notifications = {
                 return;
             }
             // else
-            window.location.reload();
+            window.location.href = url;
         };
         Leave();
+    },
+    Done: function () {
+        Notifications.Navigate( '' );
     },
     DoneWithCurrent: function () {
         var current = $( '#notifications .selected' )[ 0 ];
@@ -319,8 +333,12 @@ var Notifications = {
 
         $( 'body' ).prepend( html );
 
+        $( '#instantbox .content' ).click( function () {
+            Notifications.Navigate( type + 's/' + id );
+        } );
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
             if ( event.shiftKey ) {
+                // TODO
                 return;
             }
             switch ( event.keyCode ) {
@@ -331,7 +349,6 @@ var Notifications = {
                         'itemid': commentid,
                         'eventtypeid': EVENT_COMMENT_CREATED = 4,
                     }, Notifications.RequestDone );
-                    // TODO
                     break;
                 case 13: // Enter
                     var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );

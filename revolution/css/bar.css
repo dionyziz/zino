@@ -20,3 +20,10 @@ div.progressbar div.progress {
     background-color: orange;
     height: 100%;
 }
+div.wait {
+    padding: 50px;
+    text-align: center;
+}
+    div.wait div.progressbar {
+        margin: 50px auto 0 auto;
+    }
