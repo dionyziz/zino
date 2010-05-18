@@ -40,11 +40,16 @@
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
                 clude( 'models/activity.php' );
+                clude( 'models/friend.php' );
                 $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
-                $counts = UserCount::Item( $id );
-                $activity = Activity::ListByUser( $id );
+                $counts = UserCount::Item( $user[ 'id' ] );
+                $activity = Activity::ListByUser( $user[ 'id' ] );
+                $friendofuser = false;
+                if ( $_SESSION[ 'user' ] ) {
+                    $friendofuser = ( bool ) ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_A_HAS_B );
+                }
             }
             include 'views/user/view.php';
         }

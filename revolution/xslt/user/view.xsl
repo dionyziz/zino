@@ -49,19 +49,25 @@
                 <div class="slogan"><xsl:value-of select="details/slogan" /></div>
             </xsl:if>
         </div>
-        <xsl:if test="/social/@for and /social/@for!=name[1]">
-            <form action="friendship/create" method="post">
-                <input type="hidden" name="friendid">
-                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
-                </input>
-                <input type="submit" value="Προσθήκη φίλου" />
-            </form>
-            <form action="friendship/delete" method="post">
-                <input type="hidden" name="friendid">
-                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
-                </input>
-                <input type="submit" value="Διαγραφή φίλου" />
-            </form>
+        <xsl:if test="$user and $user != name[1]">
+            <xsl:choose>
+                <xsl:when test="knownBy = $user">
+                    <form action="friendship/delete" method="post">
+                        <input type="hidden" name="friendid">
+                            <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                        </input>
+                        <input type="submit" value="Διαγραφή φίλου" />
+                    </form>
+                </xsl:when>
+                <xsl:otherwise>
+                    <form action="friendship/create" method="post">
+                        <input type="hidden" name="friendid">
+                            <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                        </input>
+                        <input type="submit" value="Προσθήκη φίλου" />
+                    </form>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
         <xsl:apply-templates select="details" />
         <ul class="useritems">

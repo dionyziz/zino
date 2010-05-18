@@ -18,9 +18,11 @@
         <stream type="journal" count="<?= $counts[ 'journals' ]; ?>" />
         <answers count="<?= $counts[ 'answers' ]; ?>" />
         <favourites count="<?= $counts[ 'favourites' ]; ?>" />
-        <discussion type="chat" count="<?= $counts[ 'shouts' ]; ?>" />
+        <chat count="<?= $counts[ 'shouts' ]; ?>" />
     <? endif; ?>
-    
+    <? if ( $friendofuser ): ?>
+        <knownBy><?= $_SESSION[ 'user' ][ 'name' ]; ?></knownBy>
+    <? endif; ?>
     <details>
         <? $stats = array(
             'height', 'weight', 'smoker', 'drinker',
