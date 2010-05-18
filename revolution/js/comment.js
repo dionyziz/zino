@@ -1,8 +1,9 @@
 var Comment = {
     StillMouse: false,
     CommentList: null,
-    Init: function(){
-        //Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
+    CurrentCommentPage: 1,
+    Init: function( node ){
+        Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
         this.CommentList = $( ".discussion" );
         Comment.AssignEvents();
     },
@@ -148,7 +149,6 @@ var Comment = {
     ScrollHandler: function(){
         if( Comment.CommentList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
             Comment.RemoveEvents();
-            alert( "here" );
             Comment.FetchNewComments()
         }
     },
@@ -159,8 +159,9 @@ var Comment = {
         $( window ).unbind( 'scroll', Comment.ScrollHandler );
     },
     FetchNewComments: function(){
-        var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': 2 } );
-        axslt( data, '/social/discussion', function() {
+        Comment.CurrentCommentPage++;
+        var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
+        axslt( data, '/social/discussion/*', function() {
             Comment.CommentList.append( $( this ) );
             Comment.AssignEvents();
         } );

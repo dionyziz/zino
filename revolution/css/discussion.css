@@ -37,9 +37,7 @@ a.talk {
     width: 180px;
     display: block;
     text-decoration: none;
-    position: absolute;
-    margin: -30px 0 0 -90px;
-    left: 50%;
+    margin: 0 auto;
 }
 .thread.new {
     border-top: none;
