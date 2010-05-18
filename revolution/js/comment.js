@@ -2,8 +2,10 @@ var Comment = {
     StillMouse: false,
     CommentList: null,
     CurrentCommentPage: 1,
-    Init: function( node ){
-        Comment.Prepare( $( node ).find( 'a.talk, .message' ) );
+    Init: function(){
+        if ( window.User ) {
+            Comment.Prepare( $( '.discussion:first' ).find( 'a.talk, .message' ) );
+        }
         this.CommentList = $( ".discussion" );
         Comment.AssignEvents();
     },
@@ -162,6 +164,9 @@ var Comment = {
         Comment.CurrentCommentPage++;
         var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
         axslt( data, '/social/discussion/*', function() {
+            if ( window.User ) {
+                Comment.Prepare( $( '.message', this ) );
+            }
             Comment.CommentList.append( $( this ) );
             Comment.AssignEvents();
         } );
