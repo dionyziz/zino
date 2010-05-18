@@ -87,7 +87,7 @@
 
             $images = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $images[ $row[ 'id' ] ] = $row;
+                $images[ $keys[ 'id' ] ] = $row;
             }
             
             return $images;
