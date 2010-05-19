@@ -5,6 +5,26 @@
     mysql_select_db( $settings[ 'db' ][ 'name' ] );
     mysql_query( "SET NAMES UTF8;" );
 
+    function db_debug( $sql, $bind = false ) {
+        if ( $bind == false ) {
+            $bind = array();
+        }
+        foreach ( $bind as $key => $value ) {
+            if ( is_string( $value ) ) {
+                $value = addslashes( $value );
+                $value = '"' . $value . '"';
+            }
+            else if ( is_array( $value ) ) {
+                foreach ( $value as $i => $subvalue ) {
+                    $value[ $i ] = addslashes( $subvalue );
+                }
+                $value = "(" . implode( ", ", $value ) . ")";
+            }
+            $bind[ ':' . $key ] = $value;
+            unset( $bind[ $key ] );
+        }
+        return strtr( $sql, $bind );
+    }
     function db( $sql, $bind = false ) {
         if ( $bind == false ) {
             $bind = array();

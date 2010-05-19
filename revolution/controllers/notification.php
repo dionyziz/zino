@@ -8,12 +8,21 @@
             $notifications = Notification::ListRecent( $_SESSION[ 'user' ][ 'id' ] );
             include 'views/notification/listing.php';
         }
-        public static function Delete( $notificationid = 0, $itemid = 0, $eventtypeid = 0, $friendname = '' ) {
+        public static function Delete(
+            $notificationid = 0,
+            $itemid = 0, $eventtypeid = 0,
+            $friendname = '',
+            $favouriteitemid = 0, $favouritetype = 0, $favouriteuserid = 0
+            ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a notification' );
 
             $notificationid = ( int )$notificationid;
+
             $itemid = ( int )$itemid;
             $eventtypeid = ( int )$eventtypeid;
+
+            $favouriteitemid = ( int )$favouriteitemid;
+            $favouriteuserid = ( int )$favouriteuserid;
 
             clude( 'models/db.php' );
             clude( 'models/notification.php' );
@@ -33,6 +42,25 @@
                 $friend = User::ItemByName( $friendname );
                 $relation = Friend::ItemByUserIds( $friend[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
                 Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FRIENDRELATION_CREATED' ), $relation[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
+            }
+            else if ( $favouriteitemid > 0 && $favouritetype != '' && $favouriteuserid > 0 ) {
+                clude( 'models/types.php' );
+                switch ( $favouritetype ) {
+                    case 'poll':
+                        $typeid = TYPE_POLL;
+                        break;
+                    case 'photo':
+                        $typeid = TYPE_IMAGE;
+                        break;
+                    case 'journal':
+                        $typeid = TYPE_JOURNAL;
+                        break;
+                    default:
+                        return;
+                }
+                clude( 'models/favourite.php' );
+                $favourite = Favourite::ItemByDetails( $favouriteitemid, $typeid, $favouriteuserid );
+                Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FAVOURITE_CREATED' ), $favourite[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
             }
         }
     }

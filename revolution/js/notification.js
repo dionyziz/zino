@@ -50,12 +50,22 @@ var Notifications = {
         var next;
         var count = $( '#notifications h3 span' ).text() - 1;
 
+        $( current ).addClass( 'done' ).removeClass( 'selected' ).empty().html( '&#10003;' );
+
+        setTimeout( function () {
+            $( current ).remove();
+        }, 800 );
+
         $( '#notifications h3 span' ).text( count );
-        next = current.nextSibling;
+        do {
+            next = current.nextSibling;
+        } while ( next && $( next ).hasClass( '.done' ) );
+
         if ( !next ) {
-            next = current.previousSibling;
+            do {
+                next = current.previousSibling;
+            } while ( next && $( next ).hasClass( '.done' ) );
         }
-        $( current ).remove();
         if ( count ) {
             $( next ).click();
         }
@@ -241,8 +251,13 @@ var Notifications = {
             }
             switch ( event.keyCode ) {
                 case 27: // ESC
+                    Notifications.RequestStart();
+                    $.post( 'notification/delete', {
+                        favouritetype: type,
+                        favouriteitemid: id,
+                        favouriteuserid: userid
+                    }, Notifications.RequestDone );
                     Notifications.DoneWithCurrent();
-                    // TODO
                     break;
                 case 13: // Enter
                     var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
@@ -256,6 +271,12 @@ var Notifications = {
                         typeid: user = 3,
                         'itemid': userid,
                         'parentid': 0
+                    }, Notifications.RequestDone );
+                    Notifications.RequestStart();
+                    $.post( 'notification/delete', {
+                        favouritetype: type,
+                        favouriteitemid: id,
+                        favouriteuserid: userid
                     }, Notifications.RequestDone );
                     Notifications.DoneWithCurrent();
                     break;

@@ -134,6 +134,17 @@
         position: relative;
         width: 200px;
     }
+    .panel .done {
+        background-image: -moz-linear-gradient(center bottom , #009800 3%, #83CD83 82%);
+        background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.03, rgb(0,152,0)), color-stop(0.82, rgb(131,205,131)));
+        border:2px solid white;
+        font-family: Garamond;
+        font-size: 700%;
+        font-weight:  bold;
+        padding-left: 10px;
+        text-align: center;
+        width: 190px;
+    }
     .panel .selected {
         border: 2px solid white;
     }

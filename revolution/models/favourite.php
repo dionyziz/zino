@@ -7,6 +7,20 @@
             }
             return array_shift( $items );
         }
+        public static function ItemByDetails( $itemid, $typeid, $userid ) {
+            // tuple ensures uniqueness
+            return array_shift( db_array(
+                'SELECT
+                    favourite_id AS id
+                FROM
+                    favourites
+                WHERE
+                    favourite_itemid = :itemid
+                    AND favourite_typeid = :typeid
+                    AND favourite_userid = :userid
+                LIMIT 1', compact( 'itemid', 'typeid', 'userid' )
+            ) );
+        }
         public static function ItemMulti( $ids ) {
              $ret = db_array(
                 'SELECT
