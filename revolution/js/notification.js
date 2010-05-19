@@ -3,11 +3,9 @@ var Notifications = {
     PendingRequests: 0,
     RequestDone: function () {
         --Notifications.PendingRequests;
-        // document.title = 'Waiting... ' + Notifications.PendingRequests;
     },
     RequestStart: function () {
         ++Notifications.PendingRequests;
-        // document.title = 'Waiting... ' + Notifications.PendingRequests;
     },
     TakeOver: function () {
         Notifications.TakenOver = true;
@@ -42,6 +40,11 @@ var Notifications = {
         };
         Leave();
     },
+    Delete: function ( details ) {
+        Notifications.DoneWithCurrent();
+        Notifications.RequestStart();
+        $.post( 'notification/delete', details, Notifications.RequestDone );
+    },
     Done: function () {
         Notifications.Navigate( '' );
     },
@@ -73,6 +76,60 @@ var Notifications = {
             Notifications.Done();
         }
     },
+    BusinessCard: function ( avatar, author, gender, age, loc ) {
+        var humangender = 'Αγόρι';
+
+        if ( gender == 'f' ) {
+            humangender = 'Κορίτσι';
+        }
+
+        var list = [ humangender ];
+
+        if ( age ) {
+            list.push( age );
+        }
+        if ( loc ) {
+            list.push( loc );
+        }
+
+        var listhtml = '<li>' + list.join( ' &#8226;</li><li>' ) + '</li>';
+
+        return '<div class="businesscard">'
+                + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
+                + '<div class="username">' + author + '</div>'
+                + '<ul class="details">' + listhtml + '</ul>'
+            + '</div>';
+    },
+    NewComment: function () {
+        return '<div class="thread new">'
+                + '<div class="message mine new">'
+                    + '<div><textarea></textarea></div>'
+                + '</div>'
+            + '</div>';
+    },
+    InstantBox: function( details, content, tips ) {
+        if ( typeof tips != 'undefined' && tips != [] ) {
+            tips = '<ul class="tips"><li>' + tips.join( '</li><li>' ) + '</li></ul>';
+        }
+        else {
+            tips = '';
+        }
+        if ( typeof content != 'undefined' && content !== '' ) {
+            content = '<div class="content">' + content + '</div>';
+        }
+        else {
+            content = '';
+        }
+        if ( typeof details != 'undefined' && details != '' ) {
+            details = '<div class="details">' + details + '</div>';
+        }
+        else {
+            details = '';
+        }
+        return '<div id="instantbox">'
+             + tips + content + details
+             + '<div class="eof"></div></div>';
+    },
     CreateFriendGUI: function ( entry ) {
         $( '#instantbox' ).remove();
 
@@ -80,13 +137,11 @@ var Notifications = {
         var gender = entry.find( 'gender' ).text();
         var author = entry.find( 'name' ).text(); 
         var avatar = entry.find( 'avatar media' ).attr( 'url' );
-        var humangender = 'Αγόρι';
         var article = 'Ο';
         var artacc = 'τον';
         var article2 = 'του';
 
         if ( gender == 'f' ) { 
-            humangender = 'Κορίτσι';
             article = 'Η';
             artacc = 'την';
             article2 = 'της';
@@ -94,24 +149,10 @@ var Notifications = {
         var humanlocation = entry.find( 'location' ).text();
         var humanage = entry.find( 'age' ).text();
 
-        var businesscard = ''
-                + '<div class="businesscard">'
-                    + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
-                    + '<div class="username">' + author + '</div>'
-                    + '<ul class="details">'
-                        + '<li>' + humangender + ' &#8226;</li>'
-                        + '<li>' + humanage + ' &#8226;</li>'
-                        + '<li>' + humanlocation + '</li>'
-                    + '</ul>'
-                + '</div>'
-
-        var html =
-            '<div id="instantbox">'
-                + '<div class="details">'
-                    + '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
-                    + businesscard
-                + '</div>'
-            + '<div class="eof"></div></div>';
+        var html = Notifications.InstantBox( 
+            '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
+            + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
+        );
 
         $( 'body' ).prepend( html );
         
@@ -125,11 +166,7 @@ var Notifications = {
                     // You have already befriended them
                     $( '#instantbox div.details' ).append(
                           '<div class="note"><p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
-                        + '<div class="thread new">'
-                            + '<div class="message mine new">'
-                                + '<div><textarea></textarea></div>'
-                            + '</div>'
-                        + '</div>'
+                        + Notifications.NewComment()
                         + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p></div>'
                     );
                     $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
@@ -141,13 +178,6 @@ var Notifications = {
                             return;
                         }
                         switch ( event.keyCode ) {
-                            case 27: // ESC
-                                Notifications.DoneWithCurrent();
-                                Notifications.RequestStart();
-                                $.post( 'notification/delete', {
-                                    friendname: author
-                                }, Notifications.RequestDone );
-                                break;
                             case 13: // Enter
                                 var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                                 if ( commenttext === '' ) {
@@ -161,11 +191,9 @@ var Notifications = {
                                     'itemid': userid,
                                     'parentid': 0
                                 }, Notifications.RequestDone );
-                                Notifications.RequestStart();
-                                $.post( 'notification/delete', {
-                                    friendname: author
-                                }, Notifications.RequestDone );
-                                Notifications.DoneWithCurrent();
+                                // fallthru
+                            case 27: // ESC
+                                Notifications.Delete( { friendname: author } );
                                 break;
                         }
                     } );
@@ -180,6 +208,7 @@ var Notifications = {
                 $.post( 'friendship/create', {
                     username: author
                 }, Notifications.RequestDone );
+                Notifications.DoneWithCurrent();
                 return false;
             } );
         } );
@@ -193,12 +222,10 @@ var Notifications = {
         var userid = entry.find( 'favourites user' ).attr( 'id' );
         var article = 'Ο';
         var article2 = 'του';
-        var humangender = 'Αγόρι';
 
         if ( gender == 'f' ) { 
             article = 'Η';
             article2 = 'της';
-            humangender = 'Κορίτσι';
         }
         var avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
         var type = entry.attr( 'type' );
@@ -213,33 +240,18 @@ var Notifications = {
         var notificationfavourite = ''
             + '<div class="thread">'
                 + '<div class="note">'
-                    + '<div class="businesscard">'
-                        + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
-                        + '<div class="username">' + author + '</div>'
-                        + '<ul class="details">'
-                            + '<li>' + humangender + ' &#8226;</li>'
-                            + '<li>' + humanage + ' &#8226;</li>'
-                            + '<li>' + humanlocation + '</li>'
-                        + '</ul>'
-                    + '</div>'
+                    + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
                     + '<p><strong>' + article + ' ' + author + ' αγαπάει ' + humantype + ' σου.</strong></p>'
                     + '<p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
-                    + '<div class="thread new">'
-                        + '<div class="message mine new">'
-                            + '<div><textarea></textarea></div>'
-                        + '</div>'
-                    + '</div>'
+                    + Notifications.NewComment()
                     + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>'
                 + '</div>'
             + '</div>';
-        var html =
-            '<div id="instantbox">'
-                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
-                + '<div class="content"><div class="tips">Πάτα για μεγιστοποίηση</div></div>'
-                + '<div class="details">'
-                    + notificationfavourite
-                + '</div>'
-            + '<div class="eof"></div></div>';
+        var html = Notifications.InstantBox(
+            notificationfavourite,
+            '<div class="tips">Πάτα για μεγιστοποίηση</div>',
+            [ 'Enter = <strong>Αποθήκευση μηνύματος</strong>', 'Escape = <strong>Αγνόηση</strong>', 'Shift + Esc = <strong>Θα το δω μετά</strong>' ]
+        );
 
         $( 'body' ).prepend( html );
 
@@ -250,15 +262,6 @@ var Notifications = {
                 return;
             }
             switch ( event.keyCode ) {
-                case 27: // ESC
-                    Notifications.RequestStart();
-                    $.post( 'notification/delete', {
-                        favouritetype: type,
-                        favouriteitemid: id,
-                        favouriteuserid: userid
-                    }, Notifications.RequestDone );
-                    Notifications.DoneWithCurrent();
-                    break;
                 case 13: // Enter
                     var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                     if ( commenttext === '' ) {
@@ -272,13 +275,13 @@ var Notifications = {
                         'itemid': userid,
                         'parentid': 0
                     }, Notifications.RequestDone );
-                    Notifications.RequestStart();
-                    $.post( 'notification/delete', {
+                    // fallthru
+                case 27: // ESC
+                    Notifications.Delete( {
                         favouritetype: type,
                         favouriteitemid: id,
                         favouriteuserid: userid
-                    }, Notifications.RequestDone );
-                    Notifications.DoneWithCurrent();
+                    } );
                     break;
             }
         } );
@@ -325,11 +328,7 @@ var Notifications = {
                     + '<div class="eof"></div>'
                 + '</div>'
                 + '<div class="note"><strong>Γράψε μία απάντηση:</strong>'
-                    + '<div class="thread new">'
-                        + '<div class="message mine new">'
-                            + '<div><textarea></textarea></div>'
-                        + '</div>'
-                    + '</div>'
+                    + Notifications.NewComment()
                 + '</div>'
             + '</div>';
         if ( isreply ) {
@@ -350,14 +349,8 @@ var Notifications = {
                 + '</div>'
         }
 
-        var html =
-            '<div id="instantbox">'
-                + '<ul class="tips"><li>Enter = <strong>Αποθήκευση απάντησης</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>'
-                + '<div class="content"><div class="tips">Πάτα για μεγιστοποίηση</div></div>'
-                + '<div class="details">'
-                    + notificationcomment
-                + '</div>'
-            + '<div class="eof"></div></div>';
+        var html = Notifications.InstantBox( notificationcomment, '<div class="tips">Πάτα για μεγιστοποίηση</div>', 
+            [ 'Enter = <strong>Αποθήκευση απάντησης</strong>', 'Escape = <strong>Αγνόηση</strong>', 'Shift + Esc = <strong>Θα το δω μετά</strong>' ] );
 
         $( 'body' ).prepend( html );
 
@@ -370,14 +363,6 @@ var Notifications = {
                 return;
             }
             switch ( event.keyCode ) {
-                case 27: // ESC
-                    Notifications.DoneWithCurrent();
-                    Notifications.RequestStart();
-                    $.post( 'notification/delete', {
-                        'itemid': commentid,
-                        'eventtypeid': EVENT_COMMENT_CREATED = 4,
-                    }, Notifications.RequestDone );
-                    break;
                 case 13: // Enter
                     var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                     if ( commenttext === '' ) {
@@ -398,6 +383,12 @@ var Notifications = {
                         'parentid': commentid
                     }, Notifications.RequestDone );
                     Notifications.DoneWithCurrent();
+                    break;
+                case 27: // ESC
+                    Notifications.Delete( {
+                        'itemid': commentid,
+                        'eventtypeid': EVENT_COMMENT_CREATED = 4,
+                    } );
                     break;
             }
         } );

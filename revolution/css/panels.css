@@ -34,6 +34,9 @@
     #instantbox > .details {
         text-align: center;
     }
+    #instantbox > .details .message {
+        cursor: default;
+    }
     #instantbox > .tips {
         text-align: center;
         background-color: black;

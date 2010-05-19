@@ -93,14 +93,15 @@
             
             return $images;
         }
-        public static function Create( $userid, $albumid, $typeid ) {
+        public static function Create( $userid, $albumid ) {
             is_int( $userid ) or die( 'userid is not an integer' );
             is_int( $albumid ) or die( 'albumid is not an integer' );
-            is_int( $typeid ) or die( 'typeid is not an integer' );
 
-            db( 'INSERT INTO `images` ( `image_userid`, `image_albumid`, `image_typeid`, `image_created`, `image_delid` )
-                VALUES ( :userid, :albumid, :typeid, NOW(), 0 )',
-                compact( 'userid', 'albumid', 'typeid' ) );
+            $ip = 
+            db( 'INSERT INTO `images`
+                ( `image_userid`, `image_albumid`, `image_userip`, `image_created`, `image_delid` )
+                VALUES ( :userid, :albumid, :ip, NOW(), 0 )',
+                compact( 'userid', 'albumid', 'ip' ) );
 
             $id = mysql_insert_id();
 
@@ -122,7 +123,8 @@
             is_int( $height ) or die( 'height is not an integer' );
             is_int( $size ) or die( 'size is not an integer' );
 
-            return db( 'UPDATE 
+            return
+                db( 'UPDATE 
                     `images`
                 SET
                     `image_width` = :width,

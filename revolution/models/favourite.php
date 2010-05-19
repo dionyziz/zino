@@ -44,7 +44,7 @@
                     favourites CROSS JOIN
                         users ON favourite_userid = user_id
                         CROSS JOIN userprofiles ON user_id = profile_userid
-                        CROSS JOIN places ON profile_placeid = place_id
+                        LEFT JOIN places ON profile_placeid = place_id
                 WHERE
                     favourite_id IN :ids', compact( 'ids' ), 'id'
              );

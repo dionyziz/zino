@@ -44,14 +44,17 @@
             }
             include 'views/photo/listing.php';
         }
-        public static function Create( $albumid, $typeid ) {
+        public static function Create( $albumid ) {
             global $settings;
+
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to upload a picture' );
+
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             clude( 'models/album.php' );
     
-            $user = $_SESSION[ 'user' ];
-            $userid = $user[ 'id' ];
+            $userid = $_SESSION[ 'user' ][ 'id' ];
+
             if ( !$userid || $albumid <= 0 ) {
                 return;
             }
@@ -75,7 +78,7 @@
                 $tempname = $uploadimage[ 'tempname' ];
             }
             
-            $photo = Photo::Create( $userid, $albumid, $typeid );
+            $photo = Photo::Create( $userid, $albumid );
             unlink( $tempname );
     
             if ( !is_array( $photo ) ) {
@@ -89,7 +92,7 @@
                 return;
             }
     
-            $album[ 'numphotos' ] += 1; // updated on db by trigger
+            ++$album[ 'numphotos' ]; // updated on db by trigger
             include 'views/photo/create.php';
         }
         public static function Update() {

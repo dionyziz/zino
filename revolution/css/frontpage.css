@@ -96,13 +96,39 @@ div.photostream li:before {
 div.photostream li {
     display: inline;
 }
-div.photostream a {
+div.photostream a, div.photostream form {
     text-decoration: none;
     display: inline-block;
     width: 25%;
     max-width: 150px;
     position: relative;
 }
+div.photostream form {
+    overflow: hidden;
+    height: 100px;
+    border: 1px solid red;
+}
+/*
+.SI-FILES-STYLIZED label.cabinet
+{
+    width: 30px;
+    height: 30px;
+    background: url('http://static.zino.gr/phoenix/add3.png') 0 0 no-repeat;
+
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.SI-FILES-STYLIZED label.cabinet input.file
+{
+    position: relative;
+    height: 100%;
+    width: auto;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+*/
 div.photostream img {
     margin: 1px;
     padding: 5px;
