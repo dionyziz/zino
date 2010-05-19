@@ -105,8 +105,8 @@ div.photostream a, div.photostream form {
 }
 div.photostream form {
     overflow: hidden;
-    height: 100px;
     border: 1px solid red;
+    padding-top: 100px;
 }
 /*
 .SI-FILES-STYLIZED label.cabinet
