@@ -112,7 +112,7 @@
                 return $data;
             }
 
-            $data = Photo::UpdateFileInformation( $id, $data[ 'width' ], $data[ 'height' ], $data[ 'filesize' ], $data[ 'mime' ] );
+            $state = Photo::UpdateFileInformation( $id, $data[ 'width' ], $data[ 'height' ], $data[ 'filesize' ], $data[ 'mime' ] );
             $data[ 'id' ] = $id;
 
             return $data;
@@ -123,7 +123,7 @@
             is_int( $height ) or die( 'height is not an integer' );
             is_int( $size ) or die( 'size is not an integer' );
 
-            $res = 
+            return 
                 db( 'UPDATE 
                     `images`
                 SET
@@ -135,8 +135,6 @@
                     `image_id` = :id
                 LIMIT
                     1', compact( 'id', 'width', 'height', 'size', 'mime' ) );
-            $item = mysql_fetch_array( $res );
-            return $item;
         }
         public static function Delete( $id ) {
             return db( 'DELETE FROM `images` WHERE `image_id` = :id', array( 'id' => $id ) );
