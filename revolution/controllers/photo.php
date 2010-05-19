@@ -87,6 +87,7 @@
             }
             
             $photo = Photo::Create( $userid, $albumid, $tempname );
+            $photo[ 'userid' ] = $userid;
             unlink( $tempname );
     
             if ( !is_array( $photo ) ) {
