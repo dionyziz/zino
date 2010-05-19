@@ -122,18 +122,21 @@
 
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
     <ul class="userdetails">
-        <xsl:if test="height">
-            <li>
-                <span>Ύψος:</span>
-                <xsl:value-of select="height" />
-            </li>
-        </xsl:if>
-        <xsl:if test="weight">
-            <li>
-                <span>Βάρος:</span>
-                <xsl:value-of select="weight" />
-            </li>
-        </xsl:if>
+        <li class="heightweight">
+            <xsl:if test="height">
+                <span>
+                    <xsl:value-of select="height div 100" />m
+                </span>
+            </xsl:if>
+            <xsl:if test="weight">
+                <span>
+                    <xsl:if test="height and weight">
+                        <xsl:attribute name="class">dot</xsl:attribute>
+                    </xsl:if>
+                    <xsl:value-of select="weight" />kg
+                </span>
+            </xsl:if>
+        </li>
         <xsl:if test="smoker">
             <li>
                 <span>Καπνίζει:</span>
@@ -192,12 +195,6 @@
                     <xsl:with-param name="gender" select="../gender" />
                     <xsl:with-param name="value" select="sexualorientation" />
                 </xsl:call-template>
-            </li>
-        </xsl:if>
-        <xsl:if test="slogan">
-            <li>
-                <span>Σλόγκαν:</span>
-                <xsl:value-of select="slogan" />
             </li>
         </xsl:if>
         <xsl:if test="aboutme">

@@ -22,7 +22,8 @@
 .maininfo ul {
     overflow: hidden;
 }
-.maininfo ul li.dot:before {
+.maininfo ul li.dot:before,
+.heightweight span.dot:before {
     content: ' ▪ ';
 }
 .maininfo ul li {
@@ -47,4 +48,10 @@
 .sidebar {
     width: 400px;
     float: left;
+}
+.userdetails li {
+    padding: 2px 0;
+}
+.userdetails li span {
+    font-weight: bold;
 }
