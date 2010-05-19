@@ -93,6 +93,9 @@
                         </li>
                     </xsl:if>
                 </ul>
+                <xsl:if test="slogan">
+                    <div class="slogan"><xsl:value-of select="slogan" /></div>
+                </xsl:if>
             </div>
             <xsl:if test="$user and $user != name[1]">
                 <xsl:choose>
@@ -124,9 +127,6 @@
 
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
     <ul class="userdetails">
-        <xsl:if test="slogan">
-            <li><div class="slogan"><xsl:value-of select="slogan" /></div></li>
-        </xsl:if>
         <li class="heightweight">
             <xsl:if test="height">
                 <span>
