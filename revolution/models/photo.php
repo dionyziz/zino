@@ -100,7 +100,7 @@
             $ip = 
             db( 'INSERT INTO `images`
                 ( `image_userid`, `image_albumid`, `image_userip`, `image_created`, `image_delid` )
-                VALUES ( :userid, :albumid, :ip, NOW(), 0 )',
+                VALUES ( :userid, :albumid, ":ip", NOW(), 0 )',
                 compact( 'userid', 'albumid', 'ip' ) );
 
             $id = mysql_insert_id();
