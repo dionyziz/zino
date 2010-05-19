@@ -54,6 +54,7 @@
             clude( 'models/photo.php' );
             clude( 'models/album.php' );
     
+            $user = $_SESSION[ 'user' ];
             $userid = $_SESSION[ 'user' ][ 'id' ];
 
             if ( !$userid ) {
