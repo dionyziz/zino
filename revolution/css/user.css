@@ -39,6 +39,7 @@
     width: 100%;
     position: relative;
     padding: 15px 0;
+    min-width: 750px;
 }
 .sidebar {
     width: 300px;
@@ -63,19 +64,17 @@ li.heightweight {
     font-weight: bold;
 }
 .useritems{
-    position: absolute;
-    top: 0;
-    right: 40px;
+    float: right;
 }
 .useritems li {
     float: left;
     text-align: center;
-    padding: 0 30px;
+    padding: 0 15px;
 }
 .useritems li a{
     text-decoration: none;
 }
 .useritems li a div{
-    font-size: 180%;
+    font-size: 160%;
     font-weight: bold;
 }

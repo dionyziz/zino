@@ -9,6 +9,53 @@
         </xsl:attribute>
         <a class="xbutton" href="photos">&#171;</a>
         <div class="userview">
+            <ul class="useritems">
+                <xsl:if test="stream[@type='photo']/@count &gt; 0">
+                    <li><a>
+                        <xsl:attribute name="href">
+                            photos/<xsl:value-of select="name[1]" />
+                        </xsl:attribute>
+                        <div><xsl:value-of select="stream[@type='photo']/@count" /></div>
+                        Φωτογραφίες
+                    </a></li>
+                </xsl:if>
+                <xsl:if test="stream[@type='journal']/@count &gt; 0">
+                    <li><a>
+                        <xsl:attribute name="href">
+                            journals/<xsl:value-of select="name[1]" />
+                        </xsl:attribute>
+                        <div><xsl:value-of select="stream[@type='journal']/@count" /></div>
+                        Ημερολόγια
+                    </a></li>
+                </xsl:if>
+                <xsl:if test="stream[@type='poll']/@count &gt; 0">
+                    <li><a>
+                        <xsl:attribute name="href">
+                            polls/<xsl:value-of select="name[1]" />
+                        </xsl:attribute>
+                        <div><xsl:value-of select="stream[@type='poll']/@count" /></div>
+                        Δημοσκοπίσεις
+                    </a></li>
+                </xsl:if>
+                <xsl:if test="friends/@count &gt; 0">
+                    <li><a>
+                        <xsl:attribute name="href">
+                            friends/<xsl:value-of select="name[1]" />
+                        </xsl:attribute>
+                        <div><xsl:value-of select="friends/@count" /></div>
+                        Φίλοι
+                    </a></li>
+                </xsl:if>
+                <xsl:if test="favourites/@count &gt; 0">
+                    <li><a>
+                        <xsl:attribute name="href">
+                            favourites/<xsl:value-of select="name[1]" />
+                        </xsl:attribute>
+                        <div><xsl:value-of select="favourites/@count" /></div>
+                        Αγαπημένα
+                    </a></li>
+                </xsl:if>
+            </ul>
             <div class="maininfo">
                 <xsl:if test="avatar[1]">
                     <img class="avatar">
@@ -44,53 +91,6 @@
                             </xsl:if>
                             <span class="location"><xsl:value-of select="location[1]" /></span>
                         </li>
-                    </xsl:if>
-                </ul>
-                <ul class="useritems">
-                    <xsl:if test="stream[@type='photo']/@count &gt; 0">
-                        <li><a>
-                            <xsl:attribute name="href">
-                                photos/<xsl:value-of select="name[1]" />
-                            </xsl:attribute>
-                            <div><xsl:value-of select="stream[@type='photo']/@count" /></div>
-                            Φωτογραφίες
-                        </a></li>
-                    </xsl:if>
-                    <xsl:if test="stream[@type='journal']/@count &gt; 0">
-                        <li><a>
-                            <xsl:attribute name="href">
-                                journals/<xsl:value-of select="name[1]" />
-                            </xsl:attribute>
-                            <div><xsl:value-of select="stream[@type='journal']/@count" /></div>
-                            Ημερολόγια
-                        </a></li>
-                    </xsl:if>
-                    <xsl:if test="stream[@type='poll']/@count &gt; 0">
-                        <li><a>
-                            <xsl:attribute name="href">
-                                polls/<xsl:value-of select="name[1]" />
-                            </xsl:attribute>
-                            <div><xsl:value-of select="stream[@type='poll']/@count" /></div>
-                            Δημοσκοπίσεις
-                        </a></li>
-                    </xsl:if>
-                    <xsl:if test="friends/@count &gt; 0">
-                        <li><a>
-                            <xsl:attribute name="href">
-                                friends/<xsl:value-of select="name[1]" />
-                            </xsl:attribute>
-                            <div><xsl:value-of select="friends/@count" /></div>
-                            Φίλοι
-                        </a></li>
-                    </xsl:if>
-                    <xsl:if test="favourites/@count &gt; 0">
-                        <li><a>
-                            <xsl:attribute name="href">
-                                favourites/<xsl:value-of select="name[1]" />
-                            </xsl:attribute>
-                            <div><xsl:value-of select="favourites/@count" /></div>
-                            Αγαπημένα
-                        </a></li>
                     </xsl:if>
                 </ul>
             </div>
