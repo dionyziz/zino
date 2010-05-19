@@ -85,7 +85,7 @@
                 $tempname = $uploadimage[ 'tmp_name' ];
             }
             
-            $photo = Photo::Create( $userid, $albumid );
+            $photo = Photo::Create( $userid, $albumid, $tempname );
             unlink( $tempname );
     
             if ( !is_array( $photo ) ) {
