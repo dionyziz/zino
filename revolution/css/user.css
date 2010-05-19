@@ -55,3 +55,16 @@
 .userdetails li span {
     font-weight: bold;
 }
+.useritems li {
+    float: left;
+    text-align: center;
+    padding: 4px;
+    margin: 0 20px;
+}
+.useritems li a{
+    text-decoration: none;
+}
+.useritems li a div{
+    font-size: 180%;
+    font-weight: bold;
+}
