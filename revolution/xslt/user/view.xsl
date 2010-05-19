@@ -18,7 +18,7 @@
                     </img>
                 </xsl:if>
                 <div class="username"><xsl:value-of select="name[1]" /></div>
-                <ul>
+                <ul class="asl">
                     <xsl:if test="gender[1]">
                         <li>
                             <span class="gender">
@@ -46,9 +46,53 @@
                         </li>
                     </xsl:if>
                 </ul>
-                <xsl:if test="details/slogan">
-                    <div class="slogan"><xsl:value-of select="details/slogan" /></div>
-                </xsl:if>
+                <ul class="useritems">
+                    <xsl:if test="stream[@type='photo']/@count &gt; 0">
+                        <li><a>
+                            <xsl:attribute name="href">
+                                photos/<xsl:value-of select="name[1]" />
+                            </xsl:attribute>
+                            <div><xsl:value-of select="stream[@type='photo']/@count" /></div>
+                            Φωτογραφίες
+                        </a></li>
+                    </xsl:if>
+                    <xsl:if test="stream[@type='journal']/@count &gt; 0">
+                        <li><a>
+                            <xsl:attribute name="href">
+                                journals/<xsl:value-of select="name[1]" />
+                            </xsl:attribute>
+                            <div><xsl:value-of select="stream[@type='journal']/@count" /></div>
+                            Ημερολόγια
+                        </a></li>
+                    </xsl:if>
+                    <xsl:if test="stream[@type='poll']/@count &gt; 0">
+                        <li><a>
+                            <xsl:attribute name="href">
+                                polls/<xsl:value-of select="name[1]" />
+                            </xsl:attribute>
+                            <div><xsl:value-of select="stream[@type='poll']/@count" /></div>
+                            Δημοσκοπίσεις
+                        </a></li>
+                    </xsl:if>
+                    <xsl:if test="friends/@count &gt; 0">
+                        <li><a>
+                            <xsl:attribute name="href">
+                                friends/<xsl:value-of select="name[1]" />
+                            </xsl:attribute>
+                            <div><xsl:value-of select="friends/@count" /></div>
+                            Φίλοι
+                        </a></li>
+                    </xsl:if>
+                    <xsl:if test="favourites/@count &gt; 0">
+                        <li><a>
+                            <xsl:attribute name="href">
+                                favourites/<xsl:value-of select="name[1]" />
+                            </xsl:attribute>
+                            <div><xsl:value-of select="favourites/@count" /></div>
+                            Αγαπημένα
+                        </a></li>
+                    </xsl:if>
+                </ul>
             </div>
             <xsl:if test="$user and $user != name[1]">
                 <xsl:choose>
@@ -71,55 +115,8 @@
                 </xsl:choose>
             </xsl:if>
             <div class="sidebar">
-            <xsl:apply-templates select="details" />
+                <xsl:apply-templates select="details" />
             </div>
-            <ul class="useritems">
-                <xsl:if test="stream[@type='photo']/@count &gt; 0">
-                    <li><a>
-                        <xsl:attribute name="href">
-                            photos/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='photo']/@count" /></div>
-                        Φωτογραφίες
-                    </a></li>
-                </xsl:if>
-                <xsl:if test="stream[@type='journal']/@count &gt; 0">
-                    <li><a>
-                        <xsl:attribute name="href">
-                            journals/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='journal']/@count" /></div>
-                        Ημερολόγια
-                    </a></li>
-                </xsl:if>
-                <xsl:if test="stream[@type='poll']/@count &gt; 0">
-                    <li><a>
-                        <xsl:attribute name="href">
-                            polls/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='poll']/@count" /></div>
-                        Δημοσκοπίσεις
-                    </a></li>
-                </xsl:if>
-                <xsl:if test="friends/@count &gt; 0">
-                    <li><a>
-                        <xsl:attribute name="href">
-                            friends/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
-                        <div><xsl:value-of select="friends/@count" /></div>
-                        Φίλοι
-                    </a></li>
-                </xsl:if>
-                <xsl:if test="favourites/@count &gt; 0">
-                    <li><a>
-                        <xsl:attribute name="href">
-                            favourites/<xsl:value-of select="name[1]" />
-                        </xsl:attribute>
-                        <div><xsl:value-of select="favourites/@count" /></div>
-                        Αγαπημένα
-                    </a></li>
-                </xsl:if>
-            </ul>
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
@@ -127,19 +124,24 @@
 
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
     <ul class="userdetails">
+        <xsl:if test="slogan">
+            <li><div class="slogan"><xsl:value-of select="slogan" /></div></li>
+        </xsl:if>
         <li class="heightweight">
             <xsl:if test="height">
                 <span>
-                    <xsl:value-of select="height div 100" />m
+                    <xsl:value-of select="height div 100" />
                 </span>
+                m
             </xsl:if>
             <xsl:if test="weight">
                 <span>
                     <xsl:if test="height and weight">
                         <xsl:attribute name="class">dot</xsl:attribute>
                     </xsl:if>
-                    <xsl:value-of select="weight" />kg
+                    <xsl:value-of select="weight" />
                 </span>
+                kg
             </xsl:if>
         </li>
         <xsl:if test="smoker">
@@ -202,12 +204,6 @@
                 </xsl:call-template>
             </li>
         </xsl:if>
-        <xsl:if test="aboutme">
-            <li>
-                <span>Λίγα λόγια για μένα:</span>
-                <xsl:value-of select="aboutme" />
-            </li>
-        </xsl:if>
         <xsl:if test="eyecolor">
             <li>
                 <span>Χρώμμα ματιών:</span>
@@ -226,6 +222,12 @@
                     <xsl:with-param name="gender" select="../gender" />
                     <xsl:with-param name="value" select="haircolor" />
                 </xsl:call-template>
+            </li>
+        </xsl:if>
+        <xsl:if test="aboutme">
+            <li>
+                <div>Λίγα λόγια για μένα:</div>
+                <xsl:value-of select="aboutme" />
             </li>
         </xsl:if>
     </ul>

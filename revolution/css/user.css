@@ -2,7 +2,7 @@
     position: relative;
     text-align: left;
     padding: 0 0 0 120px;
-    margin: 15px 160px;
+    margin: 0 0 15px 50px;
     display: block;
     height: 100px;
 }
@@ -19,26 +19,21 @@
     font-weight: bold;
     color: #72B3DB;
 }
-.maininfo ul {
+.maininfo ul.asl {
     overflow: hidden;
 }
-.maininfo ul li.dot:before,
+.maininfo ul.asl li.dot:before,
 .heightweight span.dot:before {
     content: ' ▪ ';
 }
-.maininfo ul li {
+.maininfo ul.asl li {
     float: left;
     margin: 0 3px 0 0;
 }
-.maininfo ul li span {
+.maininfo ul.asl li span {
     color: #ddf;
     font-weight: bold;
     line-height: 200%;
-}
-.maininfo .slogan {
-    position: absolute;
-    bottom: 0;
-    left: 120px;
 }
 .userview {
     width: 100%;
@@ -46,20 +41,36 @@
     padding: 15px 0;
 }
 .sidebar {
-    width: 400px;
+    width: 300px;
+    min-height: 400px;
     float: left;
+    padding-left: 50px;
 }
 .userdetails li {
     padding: 2px 0;
+    text-align: left;
+    width: 100%;
 }
-.userdetails li span {
+.userdetails li span, .userdetails li div {
     font-weight: bold;
+}
+li.heightweight {
+    font-weight: normal;
+    text-align: center;
+    padding: 20px 0;
+}
+.heightweight span{
+    font-weight: bold;
+}
+.useritems{
+    position: absolute;
+    top: 0;
+    right: 40px;
 }
 .useritems li {
     float: left;
     text-align: center;
-    padding: 4px;
-    margin: 0 20px;
+    padding: 0 30px;
 }
 .useritems li a{
     text-decoration: none;
