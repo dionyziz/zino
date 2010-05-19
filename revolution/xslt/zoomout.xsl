@@ -16,7 +16,12 @@
                 <a href="news"><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>
             </li>
             <xsl:if test="/social/@for">
-                <li><a href="" id="logoutbutton"><img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Temp Logout</span></a></li>
+                <li><a id="logoutbutton">
+                    <xsl:attribute name="href">
+                        users/<xsl:value-of select="/social/@for" />
+                    </xsl:attribute>
+                    <img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Προφίλ</span>
+                </a></li>
             </xsl:if>
             <xsl:if test="not(/social/@for)">
                 <li><a href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>

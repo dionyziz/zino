@@ -1,6 +1,5 @@
 <? if ( empty( $error ) ): ?>
 <photo id="<?= $photo[ 'id' ] ?>">
-    <typeid><?= $typeid ?></typeid>
     <owner id="<?= $user[ 'id' ] ?>">
         <name><?= $user[ 'name' ] ?></name>
     </owner>

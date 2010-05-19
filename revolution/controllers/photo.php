@@ -82,10 +82,10 @@
                     include 'views/photo/create.php';
                     return;
                 }
-                $tempname = $uploadimage[ 'tmp_name' ];
+                $tempname = $uploadimage[ 'tempname' ];
             }
             
-            $photo = Photo::Create( $userid, $albumid, $tempname );
+            $photo = Photo::Create( $userid, $albumid );
             unlink( $tempname );
     
             if ( !is_array( $photo ) ) {
