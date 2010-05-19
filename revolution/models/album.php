@@ -10,8 +10,8 @@
                     `albums`
                 WHERE
                     `album_id` = :id
-                LIMIT
-                    1', array( 'id' => $id ) );
+                LIMIT 1', compact( 'id' )
+            );
 
 			return mysql_fetch_array( $res );
         }

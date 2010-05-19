@@ -5,15 +5,18 @@
 <xsl:template match="/social[@resource='photo' and @method='listing']//stream">
     <div class="photostream">
         <ul>
+            <xsl:if test="/social/@for">
                 <li>
-                    <form method="post" action="photo/create">
+                    <form method="post" action="photo/create" enctype="multipart/form-data">
                         <div>
                             <label class="cabinet">
                                 <input type="file" name="uploadimage" class="file" />
                             </label>
+                            <span class="tooltip"><span>&#9650;</span>ανέβασε εικόνα</span>
                         </div>
                     </form>
                 </li>
+            </xsl:if>
             <xsl:for-each select="entry">
                 <li>
                     <a>
@@ -39,7 +42,6 @@
         </ul>
     </div>
     <script type="text/javascript">
-        // SI.Files.stylizeAll();
         Startup( function () {
             PhotoListing.Init();
         } );

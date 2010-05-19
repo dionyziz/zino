@@ -22,6 +22,17 @@
             }
             return false;
         }
+        public static function GetEgoAlbumId( $userid ) {
+            return ( int )array_shift( array_shift( db_array(
+                'SELECT
+                    `user_egoalbumid` AS egoalbumid
+                FROM
+                    `users`
+                WHERE
+                    `user_id` = :userid
+                LIMIT 1;', compact( 'userid' )
+            ) ) );
+        }
         public static function Item( $id ) {
             $res = db(
                 'SELECT
@@ -31,7 +42,7 @@
                     `users`
                 WHERE
                     `user_id` = :id
-                LIMIT 1;', array( 'id' => $id )
+                LIMIT 1;', compact( 'id' )
             );
 			return mysql_fetch_array( $res );
         }

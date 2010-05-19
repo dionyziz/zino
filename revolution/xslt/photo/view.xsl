@@ -3,7 +3,7 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='photo' and @method='view']//entry">
-    <a class="xbutton" href="photos">&#171;<span><span>&#9650;</span>πίσω στις εικόνες</span></a>
+    <a class="xbutton" href="photos">&#171;<span class="tooltip"><span>&#9650;</span>πίσω στις εικόνες</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">photo_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
         <xsl:if test="not( @deleted )">

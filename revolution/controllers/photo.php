@@ -48,6 +48,7 @@
             global $settings;
 
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to upload a picture' );
+            isset( $_FILES[ 'uploadimage' ] ) or die( 'No image specified' );
 
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
@@ -55,8 +56,14 @@
     
             $userid = $_SESSION[ 'user' ][ 'id' ];
 
-            if ( !$userid || $albumid <= 0 ) {
+            if ( !$userid ) {
                 return;
+            }
+
+            $albumid = ( int )$albumid;
+            if ( !( $albumid > 0 ) ) {
+                clude( 'models/user.php' );
+                $albumid = User::GetEgoAlbumId( $userid );
             }
     
             $album = Album::Item( $albumid );

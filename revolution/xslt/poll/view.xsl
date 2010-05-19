@@ -3,7 +3,7 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='poll' and @method='view']//entry">
-    <a class="xbutton" href="news">&#171;<span><span>&#9650;</span>πίσω στα νέα</span></a>
+    <a class="xbutton" href="news">&#171;<span class="tooltip"><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
         <xsl:attribute name="id">poll_<xsl:value-of select="/social/entry[1]/@id" /></xsl:attribute>
         <xsl:if test="author">

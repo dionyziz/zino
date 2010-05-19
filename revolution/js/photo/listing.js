@@ -6,6 +6,7 @@ var PhotoListing = {
     LastLoaded: null,
     Loading: false,
     Init: function(){
+        SI.Files.stylizeAll();
         this.PhotoList = $( '.photostream ul' );
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){
@@ -14,6 +15,15 @@ var PhotoListing = {
         this.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
         this.AssignEvents();
         this.Initialized = true;
+        $( 'form input' ).change( function () {
+            $( this ).parents( 'form' )[ 0 ].submit();
+            $( '.col1, .col2' ).css( { 'display': 'none' } );
+            $( 'body' ).append(
+                '<div class="wait">'
+                    + '<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />'
+                + '</div>'
+            );
+        } );
     },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){

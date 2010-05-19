@@ -105,10 +105,17 @@ div.photostream a, div.photostream form {
 }
 div.photostream form {
     overflow: hidden;
-    border: 1px solid red;
     padding-top: 100px;
 }
-/*
+div.photostream form div {
+    position: relative;
+    top: -70px;
+    left: 65px;
+    width: 30px;
+}
+div.photostream form div:hover .tooltip {
+    display: block;
+}
 .SI-FILES-STYLIZED label.cabinet
 {
     width: 30px;
@@ -128,7 +135,6 @@ div.photostream form {
     -moz-opacity: 0;
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }
-*/
 div.photostream img {
     margin: 1px;
     padding: 5px;
@@ -250,15 +256,16 @@ li.stat span {
 }
 .xbutton:hover {
 }
-.xbutton > span {
+.xbutton .tooltip {
+    font-size: 70%;
+}
+.tooltip {
     display: none;
     position: absolute;
-    left: -4px;
     top: 40px;
     background-color: #111;
     color: #eee;
     padding: 5px;
-    font-size: 70%;
     font-weight: normal;
     font-family: "Trebuchet MS";
     border-radius: 5px;
@@ -267,10 +274,10 @@ li.stat span {
     white-space: nowrap;
     opacity: 0.9;
 }
-.xbutton:hover > span {
+.xbutton:hover > .tooltip {
     display: block;
 }
-.xbutton span span {
+.tooltip span {
     left: 3px;
     top: -12px;
     position: absolute;
