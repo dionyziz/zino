@@ -145,8 +145,6 @@
              * Ported from phoenix, commented out ImageException throwing
              */
 
-            global $settings;
-
             if ( filesize( $tempfile ) > 4 * 1024 * 1024 ) { // 4 MB
                 return -1;
             }
