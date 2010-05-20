@@ -118,7 +118,7 @@
             }
             
             if ( $attachglobals ) {
-                if ( $user->Id == 1 ) {
+                if ( $user->Id == 1 || $user->Id == 4006 ) {
                     $page->AttachStylesheet( 'css/highcontrast.css' );
                 }
                 // attaching ALL css files
