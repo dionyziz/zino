@@ -40,7 +40,19 @@
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
             }
             else {
-                $photos = Photo::ListRecent( $offset, $limit );
+		clude( 'models/spot.php' );
+                if( $offset != 0 ) {
+			$photos = Photo::ListRecent( $offset, $limit );
+		}
+		else {
+			$ids  = Spot::GetImages( 4005, 100, $offset );
+			if ( is_array( $ids ) ) {
+				$photos = Photo::ListByIds( $ids );
+			}
+			else {
+				$photos = Photo::ListRecent( $offset, $limit );
+			}
+		}
             }
             include 'views/photo/listing.php';
         }
