@@ -38,26 +38,6 @@
     font-weight: bold;
     line-height: 200%;
 }
-.userview .tips {
-    border: 3px solid #567;
-    padding: 10px;
-    background-color: #345;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    margin: 5px;
-    width: 300px;
-}
-.userview .tips li.dot:after {
-    content: ' ● ';
-    color: #567;
-    font-size: 70%;
-    position: relative;
-    top: -2px;
-}
-.userview .tips a {
-    text-decoration: none;
-}
 .userview {
     position: relative;
     padding: 15px 0;

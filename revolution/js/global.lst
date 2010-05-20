@@ -13,3 +13,5 @@ notification.js
 poll.js
 wysiwyg.js
 si.files.js
+user/view.js
+

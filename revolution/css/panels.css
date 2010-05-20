@@ -1,3 +1,29 @@
+.pantherbox {
+    border: 3px solid #567;
+    padding: 10px;
+    background-color: #345;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 10px 5px 5px 0;
+    width: 300px;
+    position: relative;
+}
+.pantherbox li.dot:after {
+    content: ' ● ';
+    color: #567;
+    font-size: 70%;
+    position: relative;
+    top: -2px;
+}
+.pantherbox a {
+    text-decoration: none;
+}
+.pantherbox .arrow {
+    position: absolute;
+    color: #567;
+    top: -16px;
+}
 .love {
     white-space: nowrap;
 }

@@ -99,23 +99,11 @@
                     </xsl:if>
                 </div>
                 <div class="eof"></div>
-                <div class="tips" style="clear:both">
+                <div class="pantherbox" id="accountmenu" style="clear:both">
+                    <div class="arrow">&#9650;</div>
                     <ul style="float: right">
-                        <li
-                            style="
-                                float: left;
-                                padding-left: 5px;
-                            "
-                            class="dot"
-                        ><a href="" style="
-                            ">Ρυθμίσεις</a> </li>
-                        <li
-                            style="
-                                float: left;
-                                padding-left: 5px;
-                            "
-                        ><a href="" style="
-                            ">Έξοδος</a></li>
+                        <li style="float: left; padding-left: 5px;" class="dot"><a href="">Ρυθμίσεις</a></li>
+                        <li style="float: left; padding-left: 5px;"><a href="">Έξοδος</a></li>
                     </ul>
                     Εγώ
                 </div>
@@ -255,4 +243,7 @@
             </li>
         </xsl:if>
     </ul>
+    <script type="text/javascript">
+        Startup( User.Init );
+    </script>
 </xsl:template>
