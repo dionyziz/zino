@@ -104,7 +104,33 @@
             ++$album[ 'numphotos' ]; // updated on db by trigger
             include 'views/photo/create.php';
         }
-        public static function Update() {
+        public static function Update( $id, $title ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a photo' );
+            clude( 'models/db.php' );
+            clude( 'models/photo.php' );
+            clude( 'models/comment.php' );
+            clude( 'models/favourite.php' );
+
+            $photo = Photo::Item( $id );
+            if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your photo' );
+            }
+            if ( $photo[ 'user' ][ 'deleted' ] === 1 ) { 
+                include 'views/itemdeleted.php';
+                return;
+            }
+
+            $user = $photo[ 'user' ];
+            $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
+            $numpages = $commentdata[ 0 ];
+            $comments = $commentdata[ 1 ];
+            $countcomments = $photo[ 'numcomments' ];
+            $favourites = Favourite::Listing( TYPE_IMAGE, $id );
+
+            Photo::Update( $id, $title );
+            $photo[ 'title' ] = $title;
+
+            include 'view/photo/view.php';
         }
         public static function Delete() {
         }
