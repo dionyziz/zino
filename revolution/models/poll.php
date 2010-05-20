@@ -87,23 +87,56 @@
             }
 			return $item;
 		}
-        public static function Create( $userid, $question ) {
+        public static function Create( $userid, $question, $optiontexts ) {
             clude( 'models/url.php' );
             
             is_int( $userid ) or die;
             $url = URL_Format( $question );
-            
+
+            $poll = array(
+                'question' => $question,
+                'url' => $url,
+                'userid' => $userid,
+                'created' => date( 'Y-m-d H:i:s', time() ),
+                'delid' => 0,
+                'numvotes' => 0,
+                'numcomments' => 0
+            );
+            $poll[ 'id' ] = mysql_insert_id();
+
             $res = db( 
                 "INSERT INTO `polls`
                         ( `poll_id`, `poll_question`, `poll_url`, `poll_userid`, `poll_created`, `poll_delid`, `poll_numvotes`, `poll_numcomments` )
                     VALUES
-                        ( 0, :question, :url, :userid, NOW(), 0, 0, 0 );"
+                        ( 0, :question, :url, :userid, NOW(), 0, 0, 0 );", 
+                $poll
             );
 
-            return array(
-                'id' => mysql_insert_id(),
-                'url' => $url
-            );
+            $poll[ 'options' ] = array();
+            foreach ( $optiontexts as $text ) {
+                $option = array(
+                    'id' => 0,
+                    'text' => $text,
+                    'numvotes' => 0
+                );
+
+                // insert one by one to get ids
+                // may be better to insert all together, but they won't be many anyway
+
+                $res = db( 
+                    "INSERT INTO `polloptions`
+                        ( `polloption_id`, `polloption_text`, `polloption_numvotes` )
+                    VALUES
+                        ( 0, :text, 0 );",
+                    array( 'text' => $text )
+                );
+
+                $option[ 'id' ] = mysql_insert_id();
+
+                $poll[ 'options' ][] = $option;
+            }
+
+            return $poll;
         }
 	}
 	

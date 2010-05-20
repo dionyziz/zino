@@ -48,7 +48,16 @@
             }
             include 'views/poll/listing.php';
         }
-        public static function Create() {
+        public static function Create( $question, $options ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a poll' );
+            clude( 'models/db.php' );
+            clude( 'models/poll.php' );
+
+            $poll = Poll::Create( $_SESSION[ 'user' ][ 'id' ], $question, $options );
+            $options = $poll[ 'options' ];
+            $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+
+            include 'views/poll/view.php';
         }
         public static function Update() {
         }
