@@ -1,4 +1,4 @@
-#content, .comment .text, a, .sidebar, .comment, .ads, [class^="sx_"] {
+div#content, div.comment div.text, a, div.sidebar, div.comment, div.ads, div[class^="sx_"], body {
     background-color: black;
     background-image: none;
     color: white;
