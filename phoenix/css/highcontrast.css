@@ -1,0 +1,5 @@
+#content, .comment .text, a, .sidebar, .comment, .ads, [class^="sx_"] {
+    background-color: black;
+    background-image: none;
+    color: white;
+}
