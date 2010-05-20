@@ -14,7 +14,7 @@
             // do nothing! static methods
         }
         private static function SendRequest( $requestBody ) {
-            //global $xc_settings;
+            global $settings;
 
             // TODO: Response Text
             // TODO: Error checking
@@ -28,7 +28,7 @@
             }
 
             //$result = socket_connect( $sock, $xc_settings[ 'spotdaemon' ][ 'address' ], $xc_settings[ 'spotdaemon' ][ 'port' ] );
-            $result = @socket_connect( $sock, 'europa.kamibu.com', '21490' );
+            $result = @socket_connect( $sock, 'iris.kamibu.com', '21490' );
             // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             if ( $result === false ) {
                 socket_close( $sock );
