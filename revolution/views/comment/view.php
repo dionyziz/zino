@@ -3,6 +3,12 @@
     <author>
         <name><?= $user[ 'name' ] ?></name>
         <gender><?= $user[ 'gender' ] ?></gender>
+        <? if ( isset( $user[ 'age' ] ) ): ?>
+        <age><?= $user[ 'age' ]; ?></age>
+        <? endif; ?>
+        <? if ( isset( $user[ 'place' ] ) ): ?>
+        <location><?= $user[ 'place' ][ 'name' ]; ?></location>
+        <? endif; ?>
         <? if ( $user[ 'avatarid' ] ): ?>
 
         <avatar>

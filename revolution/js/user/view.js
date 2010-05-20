@@ -7,5 +7,7 @@ var Profile = {
             } );
             return false;
         } );
+        $( $( '#accountmenu a' )[ 2 ] ).click( function () {
+        } );
     }
 }

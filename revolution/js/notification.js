@@ -308,11 +308,19 @@ var Notifications = {
         }
         var author = entry.find( commentpath + ' author name' ).text();
         var avatar = entry.find( commentpath + ' author avatar media' ).attr( 'url' );
+        var gender = entry.find( commentpath + ' author gender' ).text();
+        // var humanage = entry.find( commentpath + ' author age' ).text();
+        // var humanlocation = entry.find( commentpath + ' author location' ).text();
         var comment = innerxml( entry.find( commentpath + ' text' )[ 0 ] );
         var published = entry.find( commentpath + ' published' ).text(); 
         var type = entry.attr( 'type' );
         var commentid = entry.find( commentpath ).attr( 'id' );
         var id = entry.attr( 'id' );
+        var article = 'Ο';
+
+        if ( gender == 'f' ) {
+            article = 'Η';
+        }
 
         var notificationcomment = ''
             + '<div class="thread">'
@@ -332,7 +340,9 @@ var Notifications = {
                 + '</div>'
             + '</div>';
         if ( isreply ) {
+                // + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
             var notificationcomment = ''
+                + '<p><strong>' + article + ' ' + author + ' απάντησε στο σχόλιό σου.</strong></p>'
                 + '<div class="thread">'
                     + '<div class="message">'
                         + '<div class="author">'

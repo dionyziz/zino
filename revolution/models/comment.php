@@ -226,18 +226,30 @@
             }
             return false;
         }
-        public static function ItemMulti( $ids ) {
+        public static function ItemMulti( $ids, $userdetails = false ) {
             clude( 'models/bulk.php' );
-            $res = db( 'SELECT
-                            `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
-                            `comment_created` AS created, `comment_parentid` AS parentid,
-                            `user_id` AS userid, `user_name` AS username, `user_gender` AS gender,
-                            `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
-                        FROM
-                            `comments` CROSS JOIN `users`
-                                ON `comment_userid` = `user_id`
-                        WHERE
-                            `comment_id` IN :ids', compact( 'ids' ) );
+            $sql = 'SELECT
+                        `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
+                        `comment_created` AS created, `comment_parentid` AS parentid,
+                        `user_id` AS userid, `user_name` AS username, `user_gender` AS gender,
+                        `user_subdomain` AS subdomain, `user_avatarid` AS avatarid';
+            if( $userdetails ) {
+                $sql .= ', (
+                            ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                            - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                        ) AS profile_age, `place_name` AS location';
+            }
+            $sql .= ' FROM
+                        `comments` CROSS JOIN `users`
+                            ON `comment_userid` = `user_id`';
+            if ( $userdetails ) {
+                $sql .= ' LEFT JOIN `places`
+                            ON `profile_placeid`=`place_id`';
+            }
+            $sql .= ' WHERE
+                        `comment_id` IN :ids';
+            $res = db( $sql, compact( 'ids' ) );
+
             $commentinfo = array();
             $bulkids = array();
             while ( $row = mysql_fetch_array( $res ) ) {
@@ -254,6 +266,12 @@
                     'gender' => $comment[ 'gender' ],
                     'subdomain' => $comment[ 'subdomain' ],
                 );
+                if ( $userdetails ) {
+                    $commentinfo[ $id ][ 'user' ][ 'place' ] = array(
+                        'name' => $comment[ 'location' ]
+                    );
+                    $commentinfo[ $id ][ 'user' ][ 'age' ] = $comment[ 'age' ];
+                }
             }
             return $commentinfo;
         }
