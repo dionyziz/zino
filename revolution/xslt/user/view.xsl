@@ -244,6 +244,6 @@
         </xsl:if>
     </ul>
     <script type="text/javascript">
-        Startup( User.Init );
+        Startup( Profile.Init );
     </script>
 </xsl:template>

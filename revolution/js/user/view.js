@@ -1,4 +1,4 @@
-var User = {
+var Profile = {
     Init: function () {
         $( $( '#accountmenu a' )[ 1 ] ).click( function () {
             document.body.style.cursor = 'pointer';
