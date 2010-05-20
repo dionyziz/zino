@@ -99,14 +99,16 @@
                     </xsl:if>
                 </div>
                 <div class="eof"></div>
-                <div class="pantherbox" id="accountmenu" style="clear:both">
-                    <div class="arrow">&#9650;</div>
-                    <ul style="float: right">
-                        <li style="float: left; padding-left: 5px;" class="dot"><a href="">Ρυθμίσεις</a></li>
-                        <li style="float: left; padding-left: 5px;"><a href="">Έξοδος</a></li>
-                    </ul>
-                    Εγώ
-                </div>
+                <xsl:if test="$user = name[1]">
+                    <div class="pantherbox" id="accountmenu" style="clear:both">
+                        <div class="arrow">&#9650;</div>
+                        <ul style="float: right">
+                            <li style="float: left; padding-left: 5px;" class="dot"><a href="">Ρυθμίσεις</a></li>
+                            <li style="float: left; padding-left: 5px;"><a href="">Έξοδος</a></li>
+                        </ul>
+                        Εγώ
+                    </div>
+                </xsl:if>
             </div>
             <xsl:if test="$user and $user != name[1]">
                 <xsl:choose>

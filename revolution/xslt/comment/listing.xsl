@@ -31,11 +31,14 @@
             <xsl:attribute name="class">message<xsl:if test="/social/@for = author[1]/name[1]"> mine</xsl:if></xsl:attribute>
             <div class="author">
                 <xsl:if test="author[1]/avatar[1]">
-                    <img class="avatar">
-                        <xsl:attribute name="src">
-                            <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
-                        </xsl:attribute>
-                    </img>
+                    <a>
+                        <xsl:attribute name="href">users/<xsl:value-of select="author[1]/name[1]" /></xsl:attribute>
+                        <img class="avatar">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
+                            </xsl:attribute>
+                        </img>
+                    </a>
                 </xsl:if>
                 <div class="details">
                     <span class="username"><xsl:value-of select="author[1]/name[1]" /></span>
