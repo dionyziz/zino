@@ -166,6 +166,35 @@
 
             return $row;
         }
+        public static function UpdateItemDetails( $details, $userid ) {
+            $whitelist = compact( 'profile_updated', 'profile_email', 'profile_emailvalidated', 'profile_emailvalidationhash', 'profile_placeid' , 'profile_dob', 'profile_slogan', 'profile_schoolid', 'profile_sexualorientation', 'profile_relationship', 'profile_religion', 'profile_politics', 'profile_aboutme', 'profile_moodid', 'profile_eyecolor', 'profile_haircolor', 'profile_height', 'profile_weight', 'profile_smoker', 'profile_drinker', 'profile_favquote', 'profile_mobile', 'profile_skype', 'profile_msn', 'profile_gtalk', 'profile_yim', 'profile_homepage', 'profile_firstname', 'profile_lastname', 'profile_address', 'profile_addressnum', 'profile_postcode', 'profile_area', 'profile_numcomments', 'profile_education', 'profile_educationyear', 'profile_songid', 'profile_songwidgetid' );
+
+            if ( !is_array( $details ) ) return false;
+            foreach ( $details as $key => $val ) {
+                if ( !isset( $whitelist[ $key ] ) ) {
+                    return false;
+                }
+            }
+            
+            $query = 
+                'UPDATE `userprofiles`
+                SET';
+            foreach ( $details as $key => $val ) {
+                $query = $query . " ". $key . " = :" . $key . ",";
+            }       
+            $query = $query . 'WHERE 
+                    `profile_userid` = :userid
+                LIMIT 1;';
+            
+            $values = array();
+            $values[ "userid" ] = $userid;
+            foreach ( $details as $key => $val ) {
+                $values[ $key ] = $val;
+            }
+            $res = db( $query, $values );
+			
+            return true;
+        }
         public static function ListOnline() {
             $res = db(
                 'SELECT
