@@ -35,7 +35,6 @@
     margin: 0 3px 0 0;
 }
 .maininfo ul.asl li span {
-    color: #ddf;
     font-weight: bold;
     line-height: 200%;
 }
@@ -97,7 +96,10 @@ li.heightweight {
 .useritems li a{
     text-decoration: none;
 }
-.useritems li a div{
+.useritems li a:hover {
+}
+.useritems li a span {
     font-size: 160%;
     font-weight: bold;
+    display: block;
 }

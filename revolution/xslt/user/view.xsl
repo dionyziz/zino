@@ -15,7 +15,7 @@
                         <xsl:attribute name="href">
                             photos/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='photo']/@count" /></div>
+                        <span><xsl:value-of select="stream[@type='photo']/@count" /></span>
                         Φωτογραφίες
                     </a></li>
                 </xsl:if>
@@ -24,7 +24,7 @@
                         <xsl:attribute name="href">
                             journals/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='journal']/@count" /></div>
+                        <span><xsl:value-of select="stream[@type='journal']/@count" /></span>
                         Ημερολόγια
                     </a></li>
                 </xsl:if>
@@ -33,7 +33,7 @@
                         <xsl:attribute name="href">
                             polls/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <div><xsl:value-of select="stream[@type='poll']/@count" /></div>
+                        <span><xsl:value-of select="stream[@type='poll']/@count" /></span>
                         Δημοσκοπίσεις
                     </a></li>
                 </xsl:if>
@@ -42,7 +42,7 @@
                         <xsl:attribute name="href">
                             friends/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <div><xsl:value-of select="friends/@count" /></div>
+                        <span><xsl:value-of select="friends/@count" /></span>
                         Φίλοι
                     </a></li>
                 </xsl:if>
@@ -51,7 +51,7 @@
                         <xsl:attribute name="href">
                             favourites/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <div><xsl:value-of select="favourites/@count" /></div>
+                        <span><xsl:value-of select="favourites/@count" /></span>
                         Αγαπημένα
                     </a></li>
                 </xsl:if>
