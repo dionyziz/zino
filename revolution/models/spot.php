@@ -19,6 +19,10 @@
             // TODO: Response Text
             // TODO: Error checking
 
+            if ( $settings[ 'spotdaemon' ][ 'enabled' ] == false ) {
+                return false;
+            }
+
             $request = self::$mRequestHeader . $requestBody;
             
             $sock = socket_create( AF_INET, SOCK_STREAM, SOL_TCP );
@@ -28,7 +32,7 @@
             }
 
             //$result = socket_connect( $sock, $xc_settings[ 'spotdaemon' ][ 'address' ], $xc_settings[ 'spotdaemon' ][ 'port' ] );
-            $result = @socket_connect( $sock, 'iris.kamibu.com', '21490' );
+            $result = @socket_connect( $sock, $settings[ 'spotdaemon' ][ 'address' ], $settings[ 'spotdaemon' ][ 'port' ] );
             // w_assert( $result !== false, "Spot connection failed. Run spot daemon." );
             if ( $result === false ) {
                 socket_close( $sock );
