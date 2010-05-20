@@ -64,38 +64,61 @@
                         </xsl:attribute>
                     </img>
                 </xsl:if>
-                <div class="username"><xsl:value-of select="name[1]" /></div>
-                <ul class="asl">
-                    <xsl:if test="gender[1]">
-                        <li>
-                            <span class="gender">
-                                <xsl:choose>
-                                    <xsl:when test="gender[1] = 'f'">Κορίτσι</xsl:when>
-                                    <xsl:otherwise>Αγόρι</xsl:otherwise>
-                                </xsl:choose>
-                            </span>
-                        </li>
+                <div class="details">
+                    <div class="username"><xsl:value-of select="name[1]" /></div>
+                    <ul class="asl">
+                        <xsl:if test="gender[1]">
+                            <li>
+                                <span class="gender">
+                                    <xsl:choose>
+                                        <xsl:when test="gender[1] = 'f'">Κορίτσι</xsl:when>
+                                        <xsl:otherwise>Αγόρι</xsl:otherwise>
+                                    </xsl:choose>
+                                </span>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="age[1]">
+                            <li>
+                                <xsl:if test="gender[1]">
+                                    <xsl:attribute name="class">dot</xsl:attribute>
+                                </xsl:if>
+                                <span class="age"><xsl:value-of select="age[1]" /></span>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="location[1]">
+                            <li>
+                                <xsl:if test="gender or age">
+                                    <xsl:attribute name="class">dot</xsl:attribute>
+                                </xsl:if>
+                                <span class="location"><xsl:value-of select="location[1]" /></span>
+                            </li>
+                        </xsl:if>
+                    </ul>
+                    <xsl:if test="slogan">
+                        <div class="slogan"><xsl:value-of select="slogan" /></div>
                     </xsl:if>
-                    <xsl:if test="age[1]">
-                        <li>
-                            <xsl:if test="gender[1]">
-                                <xsl:attribute name="class">dot</xsl:attribute>
-                            </xsl:if>
-                            <span class="age"><xsl:value-of select="age[1]" /></span>
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="location[1]">
-                        <li>
-                            <xsl:if test="gender or age">
-                                <xsl:attribute name="class">dot</xsl:attribute>
-                            </xsl:if>
-                            <span class="location"><xsl:value-of select="location[1]" /></span>
-                        </li>
-                    </xsl:if>
-                </ul>
-                <xsl:if test="slogan">
-                    <div class="slogan"><xsl:value-of select="slogan" /></div>
-                </xsl:if>
+                </div>
+                <div class="eof"></div>
+                <div class="tips" style="clear:both">
+                    <ul style="float: right">
+                        <li
+                            style="
+                                float: left;
+                                padding-left: 5px;
+                            "
+                            class="dot"
+                        ><a href="" style="
+                            ">Ρυθμίσεις</a> </li>
+                        <li
+                            style="
+                                float: left;
+                                padding-left: 5px;
+                            "
+                        ><a href="" style="
+                            ">Έξοδος</a></li>
+                    </ul>
+                    Εγώ
+                </div>
             </div>
             <xsl:if test="$user and $user != name[1]">
                 <xsl:choose>
@@ -117,6 +140,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
+            <div class="eof"></div>
             <div class="sidebar">
                 <xsl:apply-templates select="details" />
             </div>

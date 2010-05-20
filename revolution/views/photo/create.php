@@ -7,7 +7,7 @@
     <height><?= $photo[ 'height' ] ?></height>
     <size><?= $photo[ 'filesize' ] ?></size>
     <mime><?= $photo[ 'mime' ] ?></mime>
-    <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
+    <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
     <album id="<?= $albumid ?>">
         <name></name>
         <photocount><?= $album[ 'numphotos' ] + 1 ?></photocount>

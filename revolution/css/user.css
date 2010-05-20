@@ -1,17 +1,16 @@
 .maininfo {
     position: relative;
     text-align: left;
-    padding: 0 0 0 120px;
-    margin: 0 0 15px 50px;
     display: block;
-    height: 100px;
+    float: left;
+}
+.maininfo .details {
+    margin-left: 110px;
 }
 .maininfo img.avatar {
     height: 100px;
     width: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
+    float: left;
 }
 .maininfo .username {
     font-size: 160%;
@@ -25,7 +24,11 @@
 }
 .maininfo ul.asl li.dot:before,
 .heightweight span.dot:before {
-    content: ' ▪ ';
+    content: ' ● ';
+    color: #72b3db;
+    font-size: 70%;
+    position: relative;
+    top: -2px;
 }
 .maininfo ul.asl li {
     float: left;
@@ -36,17 +39,36 @@
     font-weight: bold;
     line-height: 200%;
 }
+.userview .tips {
+    border: 3px solid #567;
+    padding: 10px;
+    background-color: #345;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 300px;
+}
+.userview .tips li.dot:after {
+    content: ' ● ';
+    color: #567;
+    font-size: 70%;
+    position: relative;
+    top: -2px;
+}
+.userview .tips a {
+    text-decoration: none;
+}
 .userview {
-    width: 100%;
     position: relative;
     padding: 15px 0;
     min-width: 750px;
+    padding-left: 50px;
 }
 .sidebar {
     width: 300px;
     min-height: 400px;
     float: left;
-    padding-left: 50px;
 }
 .userdetails li {
     padding: 2px 0;
