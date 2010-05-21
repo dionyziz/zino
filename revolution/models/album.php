@@ -15,6 +15,68 @@
 
 			return mysql_fetch_array( $res );
         }
+        public static function Create( $userid, $name, $description ) {
+            is_int( $userid ) or die( 'userid not an integer' );
+
+            clude( 'models/agent.php' );
+            clude( 'models/url.php' );
+
+            $album = array(
+                'ownertype' => TYPE_USERPROFILE,
+                'ownerid' => $userid,
+                'userip' => UserIp(),
+                'name' => $name,
+                'url' => URL_Format( $name ),
+                'description' => $description
+            );
+
+            $res = db( 
+                "INSERT INTO `albums` ( `album_id`, `album_ownertype`, `album_ownerid`, `album_created`, `album_userip`, `album_name`, `album_url`, 
+                                        `album_mainimageid`, `album_description`, `album_delid`, `album_numcomments`, `album_numphotos` )
+                VALUES ( 0, :ownertype, :ownerid, NOW(), 0, :name, :url, 0, :description, 0, 0, 0 );",
+                $album
+            );
+
+            $album[ 'id' ] = mysql_insert_id();
+            $album[ 'created' ] = date( 'Y-m-d H:i:s', time() );
+            $album[ 'mainimageid' ] = 0;
+            $album[ 'delid' ] = 0;
+            $album[ 'numcomments' ] = 0;
+            $album[ 'numphotos' ] = 0;
+
+            return $album;
+        }
+        public static function Update( $id, $name, $description ) {
+            is_int( $id ) or die;
+
+            clude( 'models/url.php' );
+
+            $details = array(
+                'id' => $id,
+                'name' => $name,
+                'url' => URL_Format( $name ),
+                'description' => $description
+            );
+
+            $res = db( 
+                "UPDATE 
+                    `albums` 
+                SET 
+                    `album_name` = :name,
+                    `album_url` = :url,
+                    `album_description` = :description
+                WHERE
+                    `album_id` = :id
+                LIMIT 1;", $details
+            );
+
+            return mysql_affected_rows( $res ) == 1;
+        }
+        public static function Delete( $id ) {
+            is_int( $id ) or die;
+            $res = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
+            return mysql_affected_rows( $res ) == 1;
+        }
     }
 
 ?>
