@@ -4,9 +4,7 @@
 
 <xsl:template match="/social[@resource='user' and @method='view']/user">
     <div class="contentitem">
-        <xsl:attribute name="id">
-            user_<xsl:value-of select="@id" />
-        </xsl:attribute>
+        <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
         <a class="xbutton" href="photos">&#171;</a>
         <div class="userview">
             <ul class="useritems">
@@ -94,8 +92,8 @@
                             </li>
                         </xsl:if>
                     </ul>
-                    <xsl:if test="slogan">
-                        <div class="slogan"><xsl:value-of select="slogan" /></div>
+                    <xsl:if test="details/slogan">
+                        <div class="slogan"><xsl:value-of select="details/slogan" /></div>
                     </xsl:if>
                 </div>
                 <div class="eof"></div>
@@ -110,28 +108,28 @@
                     </div>
                 </xsl:if>
             </div>
-            <xsl:if test="$user and $user != name[1]">
-                <xsl:choose>
-                    <xsl:when test="knownBy = $user">
-                        <form action="friendship/delete" method="post">
-                            <input type="hidden" name="friendid">
-                                <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
-                            </input>
-                            <input type="submit" value="Διαγραφή φίλου" />
-                        </form>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <form action="friendship/create" method="post">
-                            <input type="hidden" name="friendid">
-                                <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
-                            </input>
-                            <input type="submit" value="Προσθήκη φίλου" />
-                        </form>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
             <div class="eof"></div>
             <div class="sidebar">
+                <xsl:if test="$user and $user != name[1]">
+                    <xsl:choose>
+                        <xsl:when test="knownBy = $user">
+                            <form action="friendship/delete" method="post">
+                                <input type="hidden" name="friendid">
+                                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                                </input>
+                                <input type="submit" value="Διαγραφή φίλου" />
+                            </form>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <form action="friendship/create" method="post">
+                                <input type="hidden" name="friendid">
+                                    <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                                </input>
+                                <input type="submit" value="Προσθήκη φίλου" />
+                            </form>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:if>
                 <xsl:apply-templates select="details" />
             </div>
         </div>
