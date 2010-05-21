@@ -15,6 +15,28 @@
 
 			return mysql_fetch_array( $res );
         }
+        public static function ListByUser( $userid, $offset = 0, $limit = 50 ) {
+            is_int( $userid ) or die( 'userid not an integer' );
+
+            $res = db(
+                'SELECT
+                    `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
+                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid,
+                FROM
+                    `albums` 
+                WHERE
+                    `album_userid` = :userid
+                LIMIT :offset, :limit;',
+                compact( 'userid', 'offset', 'limit' )
+            );
+
+            $albums = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $albums[] = $row;
+            }
+
+            return $albums;
+        }
         public static function Create( $userid, $name, $description ) {
             is_int( $userid ) or die( 'userid not an integer' );
 
@@ -46,7 +68,7 @@
 
             return $album;
         }
-        public static function Update( $id, $name, $description ) {
+        public static function Update( $id, $name, $description, $mainimageid ) {
             is_int( $id ) or die;
 
             clude( 'models/url.php' );
@@ -55,7 +77,8 @@
                 'id' => $id,
                 'name' => $name,
                 'url' => URL_Format( $name ),
-                'description' => $description
+                'description' => $description,
+                'mainimageid' => $mainimageid
             );
 
             $res = db( 
@@ -64,7 +87,8 @@
                 SET 
                     `album_name` = :name,
                     `album_url` = :url,
-                    `album_description` = :description
+                    `album_description` = :description,
+                    `album_mainimageid` = :mainimageid
                 WHERE
                     `album_id` = :id
                 LIMIT 1;", $details
