@@ -20,6 +20,7 @@ RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,
 RewriteRule ^login$ index.php?resource=session&method=view [L,QSA]
 RewriteRule ^session/create$ index.php?resource=session&method=create [L,QSA]
 RewriteRule ^session/delete$ index.php?resource=session&method=delete [L,QSA]
+RewriteRule ^session$ index.php?resource=session&method=view [L,QSA]
 
 # favourites
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA]

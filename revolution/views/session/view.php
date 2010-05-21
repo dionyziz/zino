@@ -1,6 +1,6 @@
 <session>
     <? if ( $user !== false ): ?>
-    <userid><?= $user[ 'id' ] ?></userid>
+    <user id="<?= $user[ 'id' ] ?>" />
     <authtoken><?= $user[ 'authtoken' ] ?></authtoken>
     <? else: ?>
     <userid>0</userid>

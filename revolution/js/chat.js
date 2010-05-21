@@ -13,6 +13,8 @@ var Chat = {
      ChannelByUserId: {},
      CurrentChannel: 0,
      Loading: false,
+     UserId: 0,
+     Authtoken: '',
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
         $.get( 'users/online', {}, function ( res ) {
@@ -102,10 +104,14 @@ var Chat = {
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
          document.domain = 'zino.gr';
          var bigNumber = 123456789;
-         Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
-         Chat.Join( '0' );
-         Chat.Join( User ); // TODO: Join( UserId + ':' + Authtoken )
-         Chat.Inited = true;
+         $.get( 'session', function ( res ) {
+             Chat.UserId = $( res ).find( 'user' ).attr( 'id' );
+             Chat.Authtoken = $( res ).find( 'authtoken' ).text();
+             Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
+             Chat.Join( '0' );
+             Chat.Join( Chat.UserId + ':' + Chat.Authtoken ); // TODO: Join( UserId + ':' + Authtoken )
+             Chat.Inited = true;
+         } );
      },
      SendMessage: function ( channelid, text ) {
          /*
