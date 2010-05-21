@@ -116,7 +116,7 @@
             ++$album[ 'numphotos' ]; // updated on db by trigger
             include 'views/photo/create.php';
         }
-        public static function Update( $id, $title ) {
+        public static function Update( $id, $title, $albumid = 0 ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a photo' );
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
@@ -132,15 +132,25 @@
                 return;
             }
 
+            if ( $albumid == 0 ) {
+                $albumid = $photo[ 'albumid' ];
+            }
+
+            if ( empty( $title ) ) {
+                $title = $photo[ 'title' ];
+            }
+
+            Photo::Update( $id, $title, $albumid );
+
+            $photo[ 'title' ] = $title;
+            $photo[ 'albumid' ] = $albumid;
+
             $user = $photo[ 'user' ];
             $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
             $numpages = $commentdata[ 0 ];
             $comments = $commentdata[ 1 ];
             $countcomments = $photo[ 'numcomments' ];
             $favourites = Favourite::Listing( TYPE_IMAGE, $id );
-
-            Photo::Update( $id, $title );
-            $photo[ 'title' ] = $title;
 
             include 'view/photo/view.php';
         }

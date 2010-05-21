@@ -117,9 +117,17 @@
 
             return $data;
         }
-        public static function UpdateTitle( $id, $title ) {
-            is_int( $id ) or die( 'phot id is not an integer' );
-            $res = db( 'UPDATE `images` SET `image_name` = :title WHERE `image_id` = :imageid LIMIT 1;', compact( 'id', 'title' ) );
+        public static function UpdateDetails( $id, $title, $albumid ) {
+            is_int( $id ) or die( 'photo id is not an integer' );
+            $res = db( 
+                'UPDATE 
+                    `images` 
+                SET 
+                    `image_name` = :title,
+                    `image_albumid` = :albumid
+                WHERE 
+                    `image_id` = :imageid 
+                LIMIT 1;', compact( 'id', 'title', 'albumid' ) );
             return mysql_affected_rows( $res ) == 1;
         }
         public static function UpdateFileInformation( $id, $width, $height, $size, $mime ) {
