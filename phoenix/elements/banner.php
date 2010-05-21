@@ -13,9 +13,6 @@
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>" class="s1_0055"> </a>
                 </h1>
-                <a href="http://intze.zino.gr/journals/Genoktonia_twn_Ellinwn_tou_Pontou_19_5" style="left:115px;position:absolute;top:20px;z-index:10;">
-                    <img src="http://static.zino.gr/phoenix/aetos.png" />
-                </a>
            </div>
            <div id="rbanner" class="s1_0056">
            </div>
