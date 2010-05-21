@@ -26,6 +26,7 @@ DROP TRIGGER IF EXISTS statusdelete;
 DROP TRIGGER IF EXISTS beforebirth;
 DROP TRIGGER IF EXISTS userbirth;
 DROP TRIGGER IF EXISTS userdeath;
+DROP TRIGGER IF EXISTS userupdate;
 
 delimiter |
 
@@ -342,5 +343,14 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
         DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id`;                                                                             
+        DELETE FROM `photos` WHERE `photo_userid`=OLD.`user_id`;
 	END;
+|
+
+CREATE TRIGGER userupdate AFTER UPDATE ON `users`
+    FOR EACH ROW BEGIN
+        IF NEW.`user_delid` = 1 AND OLD.`user_delid` = 0 THEN
+            UPDATE `photos` SET `photo_delid` = 2 WHERE `photo_userid` = NEW.`user_id`;
+        END IF;
+    END;
 |
