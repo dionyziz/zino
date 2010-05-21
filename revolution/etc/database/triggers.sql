@@ -56,7 +56,20 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
                 SELECT `school_name`, '' FROM `schools` WHERE `school_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext, activityurl;
             END;
         END CASE;
-        INSERT INTO `activities` VALUES ( 0, NEW.`comment_userid`, 1, NEW.`comment_id`, NEW.`comment_itemid`, NEW.`comment_typeid`, NEW.`comment_bulkid`, activitytext, activityurl, NOW() );
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`comment_userid`,
+        	`activity_typeid` = 1,
+        	`activity_refid` = NEW.`comment_id`,
+        	`activity_itemid` = NEW.`comment_itemid`,
+        	`activity_bulkid` = NEW.`comment_typeid`,
+        	`activity_text` = NEW.`comment_bulkid`,
+        	`activity_url` = activitytext,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`comment_userid` AND
+        	`activity_index` = RAND()*100;u
    END;
 |
 
@@ -82,7 +95,20 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` + 1 WHERE `count_userid` = NEW.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` + 1 WHERE `album_id` = NEW.`image_albumid` LIMIT 1;
-        INSERT INTO `activities` VALUES ( 0, NEW.`image_userid`, 7, NEW.`image_id`, 0, 2, 0, NEW.`image_name`, '', NOW() );
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`image_userid`,
+        	`activity_typeid` = 7,
+        	`activity_refid` = NEW.`image_id`,
+        	`activity_itemid` = 0,
+        	`activity_bulkid` = 2,
+        	`activity_text` = 0,
+        	`activity_url` = NEW.`image_name`,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`image_userid` AND
+        	`activity_index` = RAND()*100;u
    END;
 |
 
@@ -121,7 +147,20 @@ CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
     FOR EACH ROW BEGIN
 		IF NEW.`album_ownertype` = 3 THEN
 			UPDATE `usercounts` SET `count_albums` = `count_albums` + 1 WHERE `count_userid` = NEW.`album_ownerid` LIMIT 1;
-            INSERT INTO `activities` VALUES ( 0, NEW.`album_ownerid`, 7, NEW.`album_id`, 0, 9, 0, NEW.`album_name`, NEW.`album_url`, NOW() );
+            UPDATE
+            	`activities`
+            SET
+            	`activity_userid` = NEW.`album_ownerid`,
+            	`activity_typeid` = 7,
+            	`activity_refid` = NEW.`album_id`,
+            	`activity_itemid` = 0,
+            	`activity_bulkid` = 9,
+            	`activity_text` = 0,
+            	`activity_url` = NEW.`album_name`,
+            	`activity_date` = NOW()
+            WHERE
+            	`activity_userid` = NEW.`album_ownerid` AND
+            	`activity_index` = RAND()*100;u
 		END IF;
     END;
 |
@@ -144,7 +183,20 @@ CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
 CREATE TRIGGER pollinsert AFTER INSERT ON `polls`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_polls` = `count_polls` + 1 WHERE `count_userid` = NEW.`poll_userid` LIMIT 1;
-        INSERT INTO `activities` VALUES ( 0, NEW.`poll_userid`, 7, NEW.`poll_id`, 0, 1, 0, NEW.`poll_question`, NEW.`poll_url`, NOW() );
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`poll_userid`,
+        	`activity_typeid` = 7,
+        	`activity_refid` = NEW.`poll_id`,
+        	`activity_itemid` = 0,
+        	`activity_bulkid` = 1,
+        	`activity_text` = 0,
+        	`activity_url` = NEW.`poll_question`,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`poll_userid` AND
+        	`activity_index` = RAND()*100;u
     END;
 |
 
@@ -163,7 +215,20 @@ CREATE TRIGGER polldelete AFTER UPDATE ON `polls`
 CREATE TRIGGER journalinsert AFTER INSERT ON `journals`
     FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_journals` = `count_journals` + 1 WHERE `count_userid` = NEW.`journal_userid` LIMIT 1;
-        INSERT INTO `activities` VALUES ( 0, NEW.`journal_userid`, 7, NEW.`journal_id`, 0, 4, 0, NEW.`journal_title`, NEW.`journal_url`, NOW() );
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`journal_userid`,
+        	`activity_typeid` = 7,
+        	`activity_refid` = NEW.`journal_id`,
+        	`activity_itemid` = 0,
+        	`activity_bulkid` = 4,
+        	`activity_text` = 0,
+        	`activity_url` = NEW.`journal_title`,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`journal_userid` AND
+        	`activity_index` = RAND()*100;u
     END;
 |
 
@@ -200,8 +265,34 @@ CREATE TRIGGER relationinsert AFTER INSERT ON `relations`
         SELECT `user_name`, `user_subdomain` FROM `users` WHERE `user_id` = NEW.`relation_userid` LIMIT 1 INTO username, userurl;
         SELECT `user_name`, `user_subdomain` FROM `users` WHERE `user_id` = NEW.`relation_friendid` LIMIT 1 INTO friendname, friendurl;
         UPDATE `usercounts` SET `count_relations` = `count_relations` + 1 WHERE `count_userid` = NEW.`relation_userid` LIMIT 1;
-        INSERT INTO `activities` VALUES ( 0, NEW.`relation_userid`, 3, NEW.`relation_id`, NEW.`relation_friendid`, 3, 0, friendname, friendurl, NOW() ); 
-        INSERT INTO `activities` VALUES ( 0, NEW.`relation_friendid`, 4, NEW.`relation_id`, NEW.`relation_userid`, 3, 0, username, userurl, NOW() ); 
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`relation_userid`,
+        	`activity_typeid` = 3,
+        	`activity_refid` = NEW.`relation_id`,
+        	`activity_itemid` = NEW.`relation_friendid`,
+        	`activity_bulkid` = 3,
+        	`activity_text` = 0,
+        	`activity_url` = friendname,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`relation_userid` AND
+        	`activity_index` = RAND()*100;u 
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`relation_friendid`,
+        	`activity_typeid` = 4,
+        	`activity_refid` = NEW.`relation_id`,
+        	`activity_itemid` = NEW.`relation_userid`,
+        	`activity_bulkid` = 3,
+        	`activity_text` = 0,
+        	`activity_url` = username,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`relation_friendid` AND
+        	`activity_index` = RAND()*100;u 
     END;
 |
 
@@ -233,7 +324,20 @@ CREATE TRIGGER favouriteinsert AFTER INSERT ON `favourites`
                 SELECT `school_name`, '' FROM `schools` WHERE `school_id` = NEW.`favourite_itemid` LIMIT 1 INTO activitytext, activityurl;
             END;
         END CASE;
-        INSERT INTO `activities` VALUES ( 0, NEW.`favourite_userid`, 2, NEW.`favourite_id`, NEW.`favourite_itemid`, NEW.`favourite_typeid`, 0, activitytext, activityurl, NOW() ); 
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`favourite_userid`,
+        	`activity_typeid` = 2,
+        	`activity_refid` = NEW.`favourite_id`,
+        	`activity_itemid` = NEW.`favourite_itemid`,
+        	`activity_bulkid` = NEW.`favourite_typeid`,
+        	`activity_text` = 0,
+        	`activity_url` = activitytext,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`favourite_userid` AND
+        	`activity_index` = RAND()*100;u 
     END;
 |
 
@@ -271,7 +375,20 @@ CREATE TRIGGER beforebirth BEFORE INSERT ON `users`
 
 CREATE TRIGGER songinsert AFTER INSERT ON `song`
     FOR EACH ROW BEGIN
-        INSERT INTO `activities` VALUES ( 0, NEW.`song_userid`, 5, NEW.`song_id`, 0, 10, 0, NEW.`song_title`, '', NOW() ); 
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`song_userid`,
+        	`activity_typeid` = 5,
+        	`activity_refid` = NEW.`song_id`,
+        	`activity_itemid` = 0,
+        	`activity_bulkid` = 10,
+        	`activity_text` = 0,
+        	`activity_url` = NEW.`song_title`,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`song_userid` AND
+        	`activity_index` = RAND()*100;u 
     END;
 |
 
@@ -283,7 +400,20 @@ CREATE TRIGGER songdelete AFTER DELETE ON `song`
 
 CREATE TRIGGER statusinsert AFTER INSERT ON `statusbox`
     FOR EACH ROW BEGIN
-        INSERT INTO `activities` VALUES ( 0, NEW.`statusbox_userid`, 6, `statusbox_id`, 0, 11, 0, NEW.`statusbox_message`, '', NOW() );
+        UPDATE
+        	`activities`
+        SET
+        	`activity_userid` = NEW.`statusbox_userid`,
+        	`activity_typeid` = 6,
+        	`activity_refid` = `statusbox_id`,
+        	`activity_itemid` = 0,
+        	`activity_bulkid` = 11,
+        	`activity_text` = 0,
+        	`activity_url` = NEW.`statusbox_message`,
+        	`activity_date` = NOW()
+        WHERE
+        	`activity_userid` = NEW.`statusbox_userid` AND
+        	`activity_index` = RAND()*100;u
     END;
 |
 
