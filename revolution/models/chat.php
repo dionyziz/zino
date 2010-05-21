@@ -57,6 +57,9 @@
             db( 'INSERT INTO `shoutbox` 
                 ( `shout_userid`, `shout_channelid`, `shout_bulkid`, `shout_created`, `shout_delid` ) 
                 VALUES ( :userid, :channelid, :bulkid, NOW(), 0 )', compact( 'userid', 'channelid', 'bulkid' ) );
+
+            $id = mysql_insert_id();
+
             if ( $channelid != 0 ) {
                 db( 'UPDATE
                         chatparticipants
@@ -66,8 +69,6 @@
                         participant_channelid = :channelid', compact( 'channelid' )
                 );
             }
-
-            $id = mysql_insert_id();
 
             return array(
                 'id' => $id,

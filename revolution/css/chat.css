@@ -7,7 +7,7 @@
     right: 5px;
     left: 5%;
     border: 1px solid black;
-    -moz-border-radius: 5px 5px 5px 5px;
+   -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     z-index: 10;
 }
@@ -25,6 +25,9 @@
 .userlist li {
     padding: 5px;
     cursor: pointer;
+}
+.userlist .world {
+    font-weight: bold;
 }
 .userlist li.selected {
     background: -webkit-gradient(

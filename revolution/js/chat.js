@@ -53,11 +53,14 @@ var Chat = {
         var messages = $( res ).find( 'discussion comment' );
         var text;
         var html = '';
+        var shoutid;
         
         for ( i = 0; i < messages.length; ++i ) {
             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
             author = $( messages[ i ] ).find( 'author name' ).text();
-            html += '<li><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
+            shoutid = $( messages[ i ] ).find( 'comment' ).attr( 'id' );
+
+            html += '<li id="' + shoutid + '"><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
      },
@@ -114,18 +117,31 @@ var Chat = {
          } );
      },
      SendMessage: function ( channelid, text ) {
-         /*
+         if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length == 0 ) {
+             // empty message
+             return;
+         }
+
          var li = document.createElement( 'li' );
          li.innerHTML = '<strong>' + User + '</strong> <span class="text">' + text + '</span>';
          $( '#chatmessages_' + channelid )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid )[ 0 ].lastChild.scrollIntoView();
          var lastChild = $( '#chatmessages_' + channelid )[ 0 ].lastChild;
-         */
+
          $.post( 'chat/message/create', {
             channelid: channelid,
             text: text
          }, function ( res ) {
-            // $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+             var shoutid = $( res ).find( 'comment' ).attr( 'id' );
+                
+            if ( document.getElementById( shoutid ) ) {
+                // already received this message through comet
+                $( lastChild ).remove(); // remove duplicate
+            }
+            // didn't receive it through comet yet; update the innerHTML and ids
+            // when it's received through comet, it'll be ignored
+            $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+            $( lastChild )[ 0 ].id = shoutid;
          }, 'xml' );
      },
      OnMessageArrival: function ( res ) {
@@ -138,11 +154,22 @@ var Chat = {
          var text;
          var html = '';
          var li;
+         var shoutid;
 
          for ( i = 0; i < messages.length; ++i ) {
-             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
+             shoutid = $( messages[ i ] ).attr( 'id' );
              author = $( messages[ i ] ).find( 'author name' ).text();
+             // alert( shoutid );
+             if ( document.getElementById( shoutid ) ) {
+                 // message has already been received
+                 continue;
+             }
+             if ( author == User ) {
+                 continue; // don't display my own messages; they've already been added by the SendMessage function
+             }
+             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
              li = document.createElement( 'li' );
+             li.id = shoutid;
              li.innerHTML = '<strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
          }
