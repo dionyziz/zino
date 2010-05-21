@@ -110,7 +110,8 @@
                     (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                         - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
-                    ) AS profile_age
+                    ) AS profile_age,
+                    `latest`.`statusbox_message` AS status
                 FROM
                     `users`
                     LEFT JOIN `userprofiles`
@@ -119,8 +120,13 @@
                         ON `profile_placeid`=`place_id`
                     LEFT JOIN `moods`
                         ON `profile_moodid`=`mood_id`
+                    LEFT JOIN `statusbox` AS latest
+                        ON  `user_id` = `latest`.`statusbox_userid`
+                    LEFT JOIN `statusbox` AS newer
+                        ON `user_id` = `newer`.`statusbox_userid` AND `newer`.`statusbox_id` > `latest`.`statusbox_id`
                 WHERE 
-                    `' . $field . '` = :' . $field .'
+                    `' . $field . '` = :' . $field .' AND
+                    `newer`.`statusbox_id` IS NULL
                 LIMIT 1;';
             $res = db( $query, array( $field => $value ) );
 			$row = mysql_fetch_array( $res );
@@ -163,6 +169,9 @@
                     unset( $row[ 'profile' ][ $field ] );
                 }
             }
+            if ( empty( $row[ 'status' ] ) ) {
+                unset( $row[ 'status' ] );
+            }
 
             return $row;
         }
@@ -185,13 +194,9 @@
             $query = $query . 'WHERE 
                     `profile_userid` = :userid
                 LIMIT 1;';
-            
-            $values = array();
-            $values[ "userid" ] = $userid;
-            foreach ( $details as $key => $val ) {
-                $values[ $key ] = $val;
-            }
-            $res = db( $query, $values );
+
+            $details[ 'userid' ] = $userid;
+            $res = db( $query, $details );
 			
             return true;
         }
