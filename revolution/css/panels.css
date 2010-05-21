@@ -163,6 +163,11 @@
         position: relative;
         width: 200px;
     }
+    .panel .box .text img {
+        width: 75px;
+        display: block;
+        margin: auto;
+    }
     .panel .done {
         background-image: -moz-linear-gradient(center bottom , #009800 3%, #83CD83 82%);
         background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.03, rgb(0,152,0)), color-stop(0.82, rgb(131,205,131)));

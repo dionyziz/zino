@@ -9,6 +9,7 @@ RewriteRule ^photo/create$ index.php?resource=photo&method=create [L,QSA]
 # polls
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
 RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&username=$1 [L,QSA]
+RewriteRule ^poll/create$ index.php?resource=poll&method=create [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
