@@ -429,6 +429,13 @@ CREATE TRIGGER userbirth AFTER INSERT ON `users`
         UPDATE `albums` SET `album_ownerid` = NEW.`user_id` WHERE `album_id`=NEW.`user_egoalbumid` LIMIT 1;
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'inbox', 'inbox');
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'outbox', 'outbox');
+        DECLARE activity_index INT DEFAULT 0;
+        WHILE activity_index < 100 DO
+            INSERT INTO 
+                `activities` ( `activity_index`, `activity_userid`, `activity_typeid` ) 
+                VALUES ( activity_index, NEW.`user_id`, 0 );
+            SET activity_index = activity_index + 1
+        END WHILE;
         INSERT INTO `usersettings` (
            `setting_userid`,
            `setting_emailprofilecomment`,
