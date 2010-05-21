@@ -161,6 +161,16 @@ var Notifications = {
             Notifications.RequestDone();
             var users = $( res ).find( 'user knows user name' );
 
+            function addFriend() {
+                Notifications.RequestStart();
+                $.post( 'friendship/create', {
+                    username: author
+                }, Notifications.RequestDone );
+                Notifications.DoneWithCurrent();
+            }
+            function ignoreFriend() {
+                Notifications.Delete( { friendname: author } );
+            }
             for ( var i = 0; i < users.length; ++i ) {
                 if ( $( users[ i ] ).text() == author ) {
                     // You have already befriended them
@@ -193,7 +203,7 @@ var Notifications = {
                                 }, Notifications.RequestDone );
                                 // fallthru
                             case 27: // ESC
-                                Notifications.Delete( { friendname: author } );
+                                ignoreFriend();
                                 break;
                         }
                     } );
@@ -201,15 +211,28 @@ var Notifications = {
                 }
             }
             // you have not friended them
-            $( '#instantbox div.details' ).append( '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>' );
+            $( '#instantbox div.details' ).append(
+                '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>ή <a href="" class="ignore">αγνόησέ ' + artacc + '</a>'
+                + '<textarea class="invisible"></textarea>'
+            );
             $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
-            $( '#instantbox a.friend' ).focus().click( function () {
-                Notifications.RequestStart();
-                $.post( 'friendship/create', {
-                    username: author
-                }, Notifications.RequestDone );
-                Notifications.DoneWithCurrent();
+            $( '#instantbox a.friend' ).click( function () {
+                addFriend();
                 return false;
+            } );
+            $( '#instantbox a.ignore' ).click( function () {
+                ignoreFriend();
+                return false;
+            } );
+            $( '#instantbox textarea' ).focus().keyup( function ( event ) {
+                switch ( event.keyCode ) {
+                    case 13:
+                        addFriend();
+                        break;
+                    case 27:
+                        ignoreFriend(); 
+                        break;
+                }
             } );
         } );
     },
@@ -465,12 +488,9 @@ var Notifications = {
                             author = entry.find( 'name' ).text();
                             avatar = entry.find( 'avatar media' ).attr( 'url' );
                             gender = entry.find( 'gender' ).text();
-                            var friend;
+                            var friend = 'φίλος';
                             if ( gender == 'f' ) {
                                 friend = 'φίλη';
-                            }
-                            else {
-                                friend = 'φίλος';
                             }
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="friend">' + friend + '</div></div>';
                             break;

@@ -1,3 +1,11 @@
+textarea.invisible {
+    width: 0;
+    height: 0;
+    border: 0px solid transparent;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
 .pantherbox {
     border: 3px solid #567;
     padding: 10px;
@@ -28,8 +36,6 @@
     white-space: nowrap;
 }
 #instantbox {
-    border-bottom: 1px solid black;
-    background-color: #213f57;
     margin-bottom: 150px;
 }
     #instantbox > .content {
