@@ -69,7 +69,7 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`comment_userid` AND
-        	`activity_index` = RAND()*100;u
+        	`activity_index` = RAND()*100;
    END;
 |
 
@@ -108,7 +108,7 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`image_userid` AND
-        	`activity_index` = RAND()*100;u
+        	`activity_index` = RAND()*100;
    END;
 |
 
@@ -160,7 +160,7 @@ CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
             	`activity_date` = NOW()
             WHERE
             	`activity_userid` = NEW.`album_ownerid` AND
-            	`activity_index` = RAND()*100;u
+            	`activity_index` = RAND()*100;
 		END IF;
     END;
 |
@@ -196,7 +196,7 @@ CREATE TRIGGER pollinsert AFTER INSERT ON `polls`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`poll_userid` AND
-        	`activity_index` = RAND()*100;u
+        	`activity_index` = RAND()*100;
     END;
 |
 
@@ -228,7 +228,7 @@ CREATE TRIGGER journalinsert AFTER INSERT ON `journals`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`journal_userid` AND
-        	`activity_index` = RAND()*100;u
+        	`activity_index` = RAND()*100;
     END;
 |
 
@@ -278,7 +278,7 @@ CREATE TRIGGER relationinsert AFTER INSERT ON `relations`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`relation_userid` AND
-        	`activity_index` = RAND()*100;u 
+        	`activity_index` = RAND()*100; 
         UPDATE
         	`activities`
         SET
@@ -292,7 +292,7 @@ CREATE TRIGGER relationinsert AFTER INSERT ON `relations`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`relation_friendid` AND
-        	`activity_index` = RAND()*100;u 
+        	`activity_index` = RAND()*100; 
     END;
 |
 
@@ -337,7 +337,7 @@ CREATE TRIGGER favouriteinsert AFTER INSERT ON `favourites`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`favourite_userid` AND
-        	`activity_index` = RAND()*100;u 
+        	`activity_index` = RAND()*100; 
     END;
 |
 
@@ -388,7 +388,7 @@ CREATE TRIGGER songinsert AFTER INSERT ON `song`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`song_userid` AND
-        	`activity_index` = RAND()*100;u 
+        	`activity_index` = RAND()*100; 
     END;
 |
 
@@ -413,7 +413,7 @@ CREATE TRIGGER statusinsert AFTER INSERT ON `statusbox`
         	`activity_date` = NOW()
         WHERE
         	`activity_userid` = NEW.`statusbox_userid` AND
-        	`activity_index` = RAND()*100;u
+        	`activity_index` = RAND()*100;
     END;
 |
 
