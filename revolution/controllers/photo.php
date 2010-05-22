@@ -28,31 +28,35 @@
             }
             include 'views/photo/view.php';
         }
-        public static function Listing( $username = 0, $page = 1, $limit = 100 ) {
+        public static function Listing( $username = 0, $page = 1, $limit = 100, $albumid = -1 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
+            $albumid = ( int )$albumid;
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
-            if ( $username != '' ) {
+            if ( $albumid != -1 ) {
+                $photos = Photo::ListByAlbumid( $albumid, $offset, $limit );
+            }
+            else if ( $username != '' ) {
                 clude( 'models/user.php' );
                 $user = User::ItemByName( $username );
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
             }
             else {
-		clude( 'models/spot.php' );
+		        clude( 'models/spot.php' );
                 if( $offset != 0 ) {
-			$photos = Photo::ListRecent( $offset, $limit );
-		}
-		else {
-			$ids  = Spot::GetImages( 4005, 100, $offset );
-			if ( is_array( $ids ) ) {
-				$photos = Photo::ListByIds( $ids );
-			}
-			else {
-				$photos = Photo::ListRecent( $offset, $limit );
-			}
-		}
+			        $photos = Photo::ListRecent( $offset, $limit );
+		        }
+		        else {
+			        $ids  = Spot::GetImages( 4005, 100, $offset );
+		            if ( is_array( $ids ) ) {
+			            $photos = Photo::ListByIds( $ids );
+		            }
+		            else {
+			            $photos = Photo::ListRecent( $offset, $limit );
+		            }
+	            }
             }
             include 'views/photo/listing.php';
         }
