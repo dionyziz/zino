@@ -2,6 +2,7 @@ var Comment = {
     StillMouse: false,
     CommentList: null,
     CurrentCommentPage: 1,
+    EndOfComments: false,
     Init: function(){
         if ( window.User ) {
             Comment.Prepare( $( '.discussion:first' ).find( 'a.talk, .message' ) );
@@ -164,11 +165,21 @@ var Comment = {
         Comment.CurrentCommentPage++;
         var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
         axslt( data, '/social/discussion/*', function() {
+            if( $( this ) == null ){
+                Comment.EndOfComments = true;
+            }
             if ( window.User ) {
                 Comment.Prepare( $( '.message', this ) );
             }
+            $( '.time', this ).each( function () {
+                this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
+                $( this ).addClass( 'processedtime' );
+                
+            });
             Comment.CommentList.append( $( this ) );
-            Comment.AssignEvents();
+            if( !Comment.EndOfComments ){
+                Comment.AssignEvents();
+            }
         } );
 
     }

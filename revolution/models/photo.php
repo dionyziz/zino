@@ -9,7 +9,7 @@
                     `images` CROSS JOIN `users`
                         ON image_userid = user_id
                 WHERE
-                    `image_delid`=0 AND
+                    `image_delid`= 0 AND
                     `user_deleted` = 0
                 ORDER BY
                     id DESC

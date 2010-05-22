@@ -16,11 +16,9 @@
             </div>
         </xsl:if>
         <xsl:apply-templates select="comment" />
-        <xsl:if test="/social/@for">
-            <script type="text/javascript">
-                Comment.Init( '.discussion:first' );
-            </script>
-        </xsl:if>
+        <script type="text/javascript">
+            Comment.Init();
+        </script>
     </div>
 </xsl:template>
 
