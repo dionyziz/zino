@@ -215,9 +215,9 @@
             );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $ret[ $row[ 'name' ] ] = $row;
+                $ret[ strtolower( $row[ 'name' ] ) ] = $row;
             }
-            ksort( $ret );
+            ksort( $ret, array( 'User', 'Compare' ) );
             $ret = array_values( $ret );
             return $ret;
         }
