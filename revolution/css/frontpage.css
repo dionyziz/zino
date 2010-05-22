@@ -175,6 +175,7 @@ div.photostream img {
     -moz-border-radius: 3px;
     border-radius: 3px;
     float: right;
+    overflow: hidden;
 }
 .contentitem > .details img {
     border: none;
