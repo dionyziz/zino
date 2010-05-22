@@ -121,7 +121,7 @@ var Comment = {
         jQnode.stop().animate(  { 'opacity': 0, 'height': 0 }, 100, 'linear', function() { $( this ).hide(); } );
     },
     FadeIn: function( jQnode ) {
-        jQnode.stop().css( { 'opacity': 1, 'height': 'auto' } ).show().fadeIn( 200 )
+        jQnode.stop().css( { 'opacity': 1, 'height': 'auto' } ).show().fadeIn( 170 )
             .find( 'textarea' ).focus();
     },
     Prepare: function( collection ) {

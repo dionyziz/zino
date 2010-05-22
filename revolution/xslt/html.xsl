@@ -45,7 +45,6 @@
             </script>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
-            <script type="text/javascript" src="http://www.zino.gr/js/kamibu.js"></script>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
                     var User = '<xsl:value-of select="/social/@for" />';

@@ -8,6 +8,10 @@ var Poll = {
             $( '.newpoll' ).find( 'input.answer' ).keydown( function() {
                 Poll.AnswerChange( this );
             } );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.answer:eq(0)' ).get()[0],
+                'Γράψε μία απάντηση', 'black', 'grey' );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.answer:eq(1)' ).get()[0],
+                'Γράψε μία ακόμη απάντηση', 'black', 'grey' );
         } );
         return false;
     },
@@ -21,15 +25,15 @@ var Poll = {
                     return true;
                 }
             }
-            $( '.newpoll ul' ).append(
-                $( '<li><input /></li>' )
-                    .find( 'input' )
-                    .attr( 'id', 'newanswer_' + ( ++Poll.NewAnswers ) )
-                    .attr( 'class', 'answer' )
-                    .keydown( function() {
-                        Poll.AnswerChange( this );
-                    } ).end()
-            );
+            var newanswer = $( '<li><input /></li>' )
+                .find( 'input' )
+                .attr( 'id', 'newanswer_' + ( ++Poll.NewAnswers ) )
+                .attr( 'class', 'answer' )
+                .keydown( function() {
+                    Poll.AnswerChange( this );
+                } ).end();
+            $( '.newpoll ul' ).append( newanswer );
+            Kamibu.ClickableTextbox( newanswer.find( 'input' ), 'Θες επιπλέον απάντηση;', 'black', 'grey' );
         }
     }
 }
