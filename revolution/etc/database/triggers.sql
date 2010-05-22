@@ -137,7 +137,7 @@ CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
 
 CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
     FOR EACH ROW BEGIN
-		IF NEW.`album_ownertype` = 3 THEN
+		IF NEW.`album_ownertype` = 3 AND NEW.`album_ownerid` IS NOT NULL THEN
 			UPDATE `usercounts` SET `count_albums` = `count_albums` + 1 WHERE `count_userid` = NEW.`album_ownerid` LIMIT 1;
             INSERT INTO `activities` ( `activity_index`, `activity_userid`, `activity_typeid`, `activity_refid`, `activity_itemid`, `activity_itemtype`, `activity_bulkid`, `activity_text`, `activity_url`, `activity_created` ) VALUES( RAND()*100, NEW.`album_ownerid`, 7, NEW.`album_id`, 0, 9, 0, NEW.`album_name`, NEW.`album_url`, NOW() ) ON DUPLICATE KEY UPDATE
             	`activity_userid` = NEW.`album_ownerid`,
@@ -385,7 +385,7 @@ CREATE TRIGGER statusdelete AFTER DELETE ON `statusbox`
 
 CREATE TRIGGER userbirth AFTER INSERT ON `users`
     FOR EACH ROW BEGIN
-        INSERT INTO `usercounts` (`count_userid`) VALUES (NEW.`user_id`);
+        INSERT INTO `usercounts` (`count_userid`, `count_albums`) VALUES (NEW.`user_id`, 1);
         UPDATE `albums` SET `album_ownerid` = NEW.`user_id` WHERE `album_id`=NEW.`user_egoalbumid` LIMIT 1;
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'inbox', 'inbox');
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'outbox', 'outbox');
