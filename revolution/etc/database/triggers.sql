@@ -64,7 +64,7 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
         	`activity_itemtype` = NEW.`comment_typeid`,
         	`activity_bulkid` = NEW.`comment_bulkid`,
         	`activity_text` = activitytext,
-        	`activity_url` = activitiyurl,
+        	`activity_url` = activityurl,
         	`activity_created` = NOW();
    END;
 |
@@ -304,7 +304,7 @@ CREATE TRIGGER favouriteinsert AFTER INSERT ON `favourites`
         	`activity_itemtype` = NEW.`favourite_typeid`,
         	`activity_bulkid` = 0,
         	`activity_text` = activitytext,
-        	`activity_url` = activitiyurl,
+        	`activity_url` = activityurl,
         	`activity_created` = NOW(); 
     END;
 |
