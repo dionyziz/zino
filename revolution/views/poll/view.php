@@ -14,8 +14,8 @@
         <? foreach ( $options as $option ): ?>
         <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>"
             <? if ( isset( $myvote ) && $myvote == $option[ 'id' ] ): ?>
-            voted="voted"
-            <? endif ?>>
+            voted="yes"
+            <? endif; ?>>
             <title><?= htmlspecialchars( $option[ 'text' ] ) ?></title>
         </option>
         <? endforeach; ?>

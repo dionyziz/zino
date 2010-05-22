@@ -17,9 +17,7 @@ $( function() {
             optionid: this.value
         } );
         
-        axslt( vote, 'options', function () {
-            Global = this;
-            alert( this );
+        axslt( vote, '//options', function () {
             $( poll ).empty().append( $( this ) );
         } );
     } );

@@ -1,13 +1,26 @@
 <?php
     class ControllerPollvote {
         public static function Create( $pollid, $optionid ) {
-            $success = isset( $_SESSION[ 'user' ] );
-            clude( 'models/db.php' );
-            clude( 'models/poll.php' );
-            PollVote::Create( $pollid, $optionid, $_SESSION[ 'user' ][ 'id' ] );
-            $poll = Poll::Item( $pollid );
-            $poll !== false or $success = false;
-            $options = $poll[ 'options' ];
+            $pollid = ( int )$pollid;
+            $optionid = ( int )$optionid;
+            $success = true;
+
+            if ( isset( $_SESSION[ 'user' ] ) ) {
+                clude( 'models/db.php' );
+                clude( 'models/poll.php' );
+                $poll = Poll::Item( $pollid );
+                if ( $poll !== false ) {
+                    PollVote::Create( $pollid, $optionid, $_SESSION[ 'user' ][ 'id' ] );
+                    $options = $poll[ 'options' ];
+                }
+                else {
+                    $success = false;
+                }
+            }
+            else {
+                $success = false;
+            }
+
             include 'views/poll/create.php';
         }
     }
