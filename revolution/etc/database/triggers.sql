@@ -425,16 +425,16 @@ CREATE TRIGGER statusdelete AFTER DELETE ON `statusbox`
 
 CREATE TRIGGER userbirth AFTER INSERT ON `users`
     FOR EACH ROW BEGIN
+        DECLARE activity_index INT DEFAULT 0;
         INSERT INTO `usercounts` (`count_userid`) VALUES (NEW.`user_id`);
         UPDATE `albums` SET `album_ownerid` = NEW.`user_id` WHERE `album_id`=NEW.`user_egoalbumid` LIMIT 1;
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'inbox', 'inbox');
         INSERT INTO `pmfolders` (`pmfolder_userid`, `pmfolder_name`, `pmfolder_typeid`) VALUES (NEW.`user_id`, 'outbox', 'outbox');
-        DECLARE activity_index INT DEFAULT 0;
         WHILE activity_index < 100 DO
             INSERT INTO 
                 `activities` ( `activity_index`, `activity_userid`, `activity_typeid` ) 
                 VALUES ( activity_index, NEW.`user_id`, 0 );
-            SET activity_index = activity_index + 1
+            SET activity_index = activity_index + 1;
         END WHILE;
         INSERT INTO `usersettings` (
            `setting_userid`,
@@ -486,7 +486,7 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
 
 CREATE TRIGGER userupdate AFTER UPDATE ON `users`
     FOR EACH ROW BEGIN
-        IF NEW.`user_delid` = 1 AND OLD.`user_delid` = 0 THEN
+        IF NEW.`user_deleted` = 1 AND OLD.`user_deleted` = 0 THEN
             UPDATE `photos` SET `photo_delid` = 2 WHERE `photo_userid` = NEW.`user_id`;
         END IF;
     END;
