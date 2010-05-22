@@ -165,7 +165,7 @@ var Comment = {
         Comment.CurrentCommentPage++;
         var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
         axslt( data, '/social/discussion/*', function() {
-            if( $( this ) == null ){
+            if( this.length == 0 ){
                 Comment.EndOfComments = true;
             }
             if ( window.User ) {
