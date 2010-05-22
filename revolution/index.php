@@ -10,7 +10,7 @@
 
 	in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
-        'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest'
+        'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings'
     ) ) or $resource = 'photo';
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
