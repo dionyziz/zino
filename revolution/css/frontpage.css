@@ -87,7 +87,7 @@ div.photostream {
 }
 div.photostream ul {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     text-align: justify;
 }
 div.photostream li:before {
