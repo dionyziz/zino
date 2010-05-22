@@ -12,11 +12,15 @@ $( function() {
     $( 'ul.options li input' ).click( function () {
         var poll = $( this ).parents( 'ul' )[ 0 ];
 
-        $.post( 'pollvote/create', {
+        var vote = $.post( 'pollvote/create', {
             pollid: $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
             optionid: this.value
-        }, function ( res ) {
-            var options = $( res ).find( 'option' );
+        } );
+        
+        axslt( vote, 'options', function () {
+            Global = this;
+            alert( this );
+            $( poll ).empty().append( $( this ) );
         } );
     } );
 } );
