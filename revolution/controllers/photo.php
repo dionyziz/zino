@@ -36,6 +36,7 @@
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
             if ( $albumid != -1 ) {
+                clude( 'models/album.php' );
                 $album = Album::Item( $albumid );
                 if ( $album[ "delid" ] == 1 ) {
                     clude( 'views/itemdeleted.php' );
