@@ -36,6 +36,11 @@
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
             if ( $albumid != -1 ) {
+                $album = Album::Item( $albumid );
+                if ( $album[ "delid" ] == 1 ) {
+                    clude( 'views/itemdeleted.php' );
+                    return;   
+                }
                 $photos = Photo::ListByAlbumid( $albumid, $offset, $limit );
             }
             else if ( $username != '' ) {
