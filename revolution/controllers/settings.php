@@ -9,8 +9,7 @@
             }
             else {
                 //you are not logged in
-            }     
-            var_dump( $usersettings );       
+            }      
             include 'views/settings/view.php';
         }
         public static function Listing() {
