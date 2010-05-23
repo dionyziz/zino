@@ -58,9 +58,15 @@ var Chat = {
         for ( i = 0; i < messages.length; ++i ) {
             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
             author = $( messages[ i ] ).find( 'author name' ).text();
-            shoutid = $( messages[ i ] ).find( 'comment' ).attr( 'id' );
+            shoutid = $( messages[ i ] ).attr( 'id' );
 
-            html += '<li id="' + shoutid + '"><strong>' + author + '</strong> <span class="text">' + text + '</span></li>';
+            html += '<li id="' + shoutid + '"><strong';
+            if ( author == User ) {
+                html += ' class="self"';
+            }
+            html += '>';
+            html += author;
+            html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
      },
@@ -104,7 +110,7 @@ var Chat = {
                     this.value = '';
              }
          } );
-         Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], true, 'black', '#ccc' );
+         Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
          document.domain = 'zino.gr';
          var bigNumber = 123456789;
          $.get( 'session', function ( res ) {
@@ -123,7 +129,7 @@ var Chat = {
          }
 
          var li = document.createElement( 'li' );
-         li.innerHTML = '<strong>' + User + '</strong> <span class="text">' + text + '</span>';
+         li.innerHTML = '<strong class="self">' + User + '</strong> <span class="text">' + text + '</span>';
          $( '#chatmessages_' + channelid )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid )[ 0 ].lastChild.scrollIntoView();
          var lastChild = $( '#chatmessages_' + channelid )[ 0 ].lastChild;
@@ -147,7 +153,7 @@ var Chat = {
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
          if ( $( '#chatmessages_' + channelid ).length == 0 ) {
-             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
+             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="display:none" class="chatchannel" id="chatmessages_' + channelid + '"></ol>';
          }
          var history = $( '#chatmessages_' + channelid )[ 0 ];
          var messages = $( res ).find( 'discussion comment' );
@@ -173,7 +179,11 @@ var Chat = {
              li.innerHTML = '<strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
          }
-         li.scrollIntoView();
+         if ( Chat.CurrentChannel == channelid ) {
+             li.scrollIntoView();
+         }
+         else {
+         }
      },
      Join: function ( channelid ) {
          // Listen to push messages here

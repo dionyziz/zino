@@ -4,6 +4,7 @@ zoomin.xsl
 author.xsl
 photo/listing.xsl
 photo/view.xsl
+photo/create.xsl
 comment/listing.xsl
 session/view.xsl
 user/view.xsl

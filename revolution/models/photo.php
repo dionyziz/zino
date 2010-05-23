@@ -111,7 +111,7 @@
             return $images;
         }
         public static function Create( $userid, $albumid, $tempname ) {
-            cluse( 'models/agent.php' );
+            clude( 'models/agent.php' );
 
             is_int( $userid ) or die( 'userid is not an integer' );
             is_int( $albumid ) or die( 'albumid is not an integer' );
