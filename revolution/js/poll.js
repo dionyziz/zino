@@ -1,39 +1,38 @@
 var Poll = {
-    NewAnswers: 2,
+    NewOptions: 2,
     PreCreate: function() {
         axslt( false, 'call:poll.new', function() {
             $( '.col1, .col2, #notifications' ).remove();
             $( this ).appendTo( 'body' );
             $( '.newpoll' ).find( 'input.question' ).focus();
-            $( '.newpoll' ).find( 'input.answer' ).keydown( function() {
-                Poll.AnswerChange( this );
+            $( '.newpoll' ).find( 'input.option' ).keydown( function() {
+                Poll.OptionChange( this );
             } );
-            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.answer:eq(0)' ).get()[0],
-                'Γράψε μία απάντηση', 'black', 'grey' );
-            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.answer:eq(1)' ).get()[0],
-                'Γράψε μία ακόμη απάντηση', 'black', 'grey' );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ),
+                'Πρώτη επιλογή', 'black', 'grey' );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ),
+                'Δεύτερη επιλογή', 'black', 'grey' );
         } );
         return false;
     },
-    AnswerChange: function( node ) {
-        console.warn( 'answer changing' );
+    OptionChange: function( node ) {
+        console.warn( 'option changing' );
         //This is the last, and every else is filled
-        if ( $( node ).attr( 'id' ).split( '_' )[1] == Poll.NewAnswers ) {
-            for ( var i = 1; i < Poll.NewAnswers; ++i ) {
-                if ( !$( '#newanswer_' + i ).val() ) {
-                    console.warn( 'returning' + i );
+        if ( $( node ).attr( 'id' ).split( '_' )[1] == Poll.NewOptions ) {
+            for ( var i = 1; i < Poll.NewOptions; ++i ) {
+                if ( !$( '#newoption_' + i ).val() ) {
                     return true;
                 }
             }
-            var newanswer = $( '<li><input /></li>' )
+            var newoption = $( '<li><input /></li>' )
                 .find( 'input' )
-                .attr( 'id', 'newanswer_' + ( ++Poll.NewAnswers ) )
-                .attr( 'class', 'answer' )
+                .attr( 'id', 'newoption_' + ( ++Poll.NewOptions ) )
+                .attr( 'class', 'option' )
                 .keydown( function() {
-                    Poll.AnswerChange( this );
+                    Poll.OptionChange( this );
                 } ).end();
-            $( '.newpoll ul' ).append( newanswer );
-            Kamibu.ClickableTextbox( newanswer.find( 'input' ), 'Θες επιπλέον απάντηση;', 'black', 'grey' );
+            $( '.newpoll ul' ).append( newoption );
+            Kamibu.ClickableTextbox( newoption.find( 'input' ), 'Eπιπλέον επιλογή;', 'black', 'grey' );
         }
     }
 }

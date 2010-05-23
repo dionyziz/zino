@@ -2,10 +2,14 @@
     <div class="newpoll"><form>
         <div class="info">Γράψε μία ερώτηση:</div>
         <input class="question" />
-        <div class="info">Γράψε τις απαντήσεις:</div>
-        <ul>
-            <li><input class="answer" id="newanswer_1" /></li>
-            <li><input class="answer" id="newanswer_2" /></li>
+        <div class="info options">Γράψε τις επιλογές:</div>
+        <ul class="options">
+            <li><input class="option" id="newoption_1" /></li>
+            <li><input class="option" id="newoption_2" /></li>
         </ul>
-    </form></div>  
+        <ul>
+            <li><a class="button big" href="">Δημιουργία</a></li>
+            <li><a class="linkbutton" href="">Ακύρωση και πίσω</a></li>
+        </ul>
+    </form></div>
 </xsl:template>

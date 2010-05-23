@@ -1,3 +1,6 @@
+.newpoll {
+    width: 100%;
+}
 .newpoll input.question {
     width: 80%;
     font-size: 250%;
@@ -11,8 +14,23 @@
     font-size: 140%;
     margin: 8px;
 }
-.newpoll input.answer {
+.newpoll div.info.options {
+    text-align: center;
+}
+.newpoll ul.options {
+    list-style-type: disc;
+    width: 300px;
+}
+.newpoll input.option {
+    width: 300px;
     font-size: 120%;
     padding: 2px 4px;
-    margin: 2px 8px;
+    margin: 0 8px;
+}
+.newpoll a.button.big {
+}
+.newpoll ul li input {
+    border-radius: 6px;
+    border: 2px solid #42688F;
+    padding: 0 4px;
 }
