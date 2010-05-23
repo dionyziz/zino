@@ -49,7 +49,7 @@ CREATE TRIGGER commentinsert AFTER INSERT ON `comments`
             END;
             WHEN 4 THEN BEGIN
                 UPDATE `journals` SET `journal_numcomments` = `journal_numcomments` + 1 WHERE `journal_id`=NEW.`comment_itemid` LIMIT 1;
-                SELECT `journal_title` FROM `journals` WHERE `journal_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext, activityurl;
+                SELECT `journal_title`, `journal_url` FROM `journals` WHERE `journal_id` = NEW.`comment_itemid` LIMIT 1 INTO activitytext, activityurl;
             END;
             WHEN 7 THEN BEGIN
                 UPDATE `schools` SET `school_numcomments` = `school_numcomments` + 1 WHERE `school_id`=NEW.`comment_itemid` LIMIT 1;
