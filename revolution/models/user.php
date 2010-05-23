@@ -1,6 +1,7 @@
 <?php
     class User {
         public static function SetPassword( $id, $oldpassword, $newpassword ) {
+            clude( 'models/db.php' );
             $id = ( int )$id;
 
             $res = db( 
@@ -22,13 +23,9 @@
                         compact( 'id', 'newpassword' ) );
                     return true;
                 }
-                else {
-                    return false;
-                }
-            }
-            else {
                 return false;
             }
+            return false;
         }
         public static function Login( $username, $password ) {
             if ( !$username || !$password ) {

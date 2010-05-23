@@ -37,6 +37,7 @@ RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]
 
 # users
 RewriteRule ^users/online$ index.php?resource=user&method=listing [L,QSA]
+RewriteRule ^users/password$ index.php?resource=password&method=update [L,QSA]
 RewriteRule ^users/([0-9]+)$ index.php?resource=user&method=view&id=$1 [L,QSA]
 RewriteRule ^users/([a-zA-Z][a-zA-Z\-_0-9]+)$ index.php?resource=user&method=view&name=$1 [L,QSA]
 RewriteRule ^settings$ index.php?resource=settings&method=view [L,QSA]
