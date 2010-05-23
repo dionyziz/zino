@@ -1,5 +1,35 @@
 <?php
     class User {
+        public static function SetPassword( $id, $oldpassword, $newpassword ) {
+            $id = ( int )$id;
+
+            $res = db( 
+                'SELECT 
+                    `user_password` AS pass
+                FROM `users`
+                WHERE `user_id` = :id
+                LIMIT 1',
+                compact( 'id' ) );
+            if ( mysql_num_rows( $res  ) ) {
+                $row = mysql_fetch_array( $res );
+                if ( $row[ 'pass' ] == $oldpassword ) {
+                    $res = db( 
+                        'UPDATE
+                            `users`
+                        SET
+                            `user_password` = MD5( :newpassword )                            
+                        WHERE `user_id` = :id;',
+                        compact( 'id', 'newpassword' ) );
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
         public static function Login( $username, $password ) {
             if ( !$username || !$password ) {
                 return false;
@@ -288,7 +318,7 @@
             );
         }
     }
-    class Settings {
+    /*class Settings {
         public static function Update( $userid, $emailnotif ) {
             is_int( $userid ) or die;
             $emailnotif = $emailnotif ? "yes" : "no";
@@ -328,5 +358,5 @@
             $row = mysql_fetch_array( $res );
             return array( $row[ 'setting_notifyprofilecomment' ] == 'yes', $row[ 'setting_emailprofilecomment' ] == 'yes' );
         }
-    }
+    }*/
 ?>
