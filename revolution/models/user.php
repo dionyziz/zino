@@ -13,7 +13,7 @@
                 compact( 'id' ) );
             if ( mysql_num_rows( $res  ) ) {
                 $row = mysql_fetch_array( $res );
-                if ( $row[ 'pass' ] == $oldpassword ) {
+                if ( $row[ 'pass' ] == md5( $oldpassword ) ) {
                     $res = db( 
                         'UPDATE
                             `users`
