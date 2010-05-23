@@ -1,0 +1,42 @@
+a.button {
+    font-family: sans-serif, serif , arial;
+	color: #105cb6;
+	text-decoration: none;
+    line-height: 2.5em;
+    margin: 6px;
+    background: #fff;
+	text-align: center;
+    border: 2px solid #ccf;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -msie-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0.4em 0.9em;
+    font-weight: bold;
+}
+a.button:hover {
+	background: #eef;
+    color: #000033;
+}
+a.button.big {
+	font-size: 160%;
+	padding: 5px 10px;
+	font-weight: bold;	
+}
+a.button.disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+a.button.disabled:hover {
+	background: #fff;
+	color: #105cb6; 
+}
+a.linkbutton {
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 2px;
+}
+a.linkbutton:hover {
+    
+}
