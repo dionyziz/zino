@@ -118,9 +118,6 @@
             }
             
             if ( $attachglobals ) {
-                if ( $user->Id == 4006 ) {
-                    $page->AttachStylesheet( 'css/highcontrast.css' );
-                }
                 // attaching ALL css files
                 if ( $rabbit_settings[ 'production' ] ) {
                     $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
