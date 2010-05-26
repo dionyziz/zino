@@ -28,7 +28,7 @@
             }
             include 'views/photo/view.php';
         }
-        public static function Listing( $username = 0, $page = 1, $limit = 100, $albumid = -1 ) {
+        public static function Listing( $username = '', $page = 1, $limit = 100, $albumid = -1 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
             $albumid = ( int )$albumid;
@@ -38,16 +38,20 @@
             if ( $albumid != -1 ) {
                 clude( 'models/album.php' );
                 $album = Album::Item( $albumid );
-                if ( $album[ "delid" ] == 1 ) {
+                if ( $album === false || $album[ "delid" ] == 1 ) {
                     clude( 'views/album/deleted.php' );
                     return;   
                 }
+                clude( 'models/user.php' );
                 $photos = Photo::ListByAlbumid( $albumid, $offset, $limit );
+                $user = User::Item( $album[ 'ownerid' ] );
+                include 'views/photo/album_listing.php';
             }
             else if ( $username != '' ) {
                 clude( 'models/user.php' );
                 $user = User::ItemByName( $username );
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
+                include 'views/photo/user_listing.php';
             }
             else {
 		        clude( 'models/spot.php' );
@@ -63,8 +67,8 @@
 			            $photos = Photo::ListRecent( $offset, $limit );
 		            }
 	            }
+                include 'views/photo/listing.php';
             }
-            include 'views/photo/listing.php';
         }
         public static function Create( $albumid ) {
             global $settings;
