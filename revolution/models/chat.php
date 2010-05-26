@@ -84,10 +84,12 @@
 
             $res = db( 
                 "SELECT
-                    `participant_userid` AS userid, `user_authtoken` AS authtoken
+                    `participant_userid` AS userid, `user_authtoken` AS authtoken,
+                    `user_name` AS username
                 FROM
                     chatparticipants
                         CROSS JOIN users
+                    ON chatparticipants.participant_userid = user_id
                 WHERE
                     `participant_channelid` = :channelid",
                 compact( 'channelid' )

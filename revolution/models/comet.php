@@ -75,7 +75,7 @@
             curl_setopt( $curl, CURLOPT_URL, $server );
             // curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
             curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
-            // curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
+            curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
             curl_setopt( $curl, CURLOPT_POST, 1 );
             curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
 

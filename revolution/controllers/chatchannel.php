@@ -1,20 +1,29 @@
 <?php
     class ControllerChatchannel {
         public static function View( $channelid ) {
-            clude( 'modules/db.php' );
-            isset( $_SESSION[ 'userid' ] ) or die( 'You must be logged in to start a private chat' );
+            clude( 'models/db.php' );
+            isset( $_SESSION[ 'user' ][ 'id' ] ) or die( 'You must be logged in to view a private chat' );
             clude( 'models/chat.php' );
 
-            $participants = ChatChannel::ParticipantList( $channelid );
+            $channelid = ( int )$channelid;
 
-            $userids = array();
-            foreach ( $participants as $participant ) {
+            $list = ChatChannel::ParticipantList( $channelid );
+
+            $participants = array();
+            $authorized = false;
+            foreach ( $list as $participant ) {
                 $userid = $participant[ 'userid' ];
+                $username = $participant[ 'username' ];
                 if ( $userid == $_SESSION[ 'user' ][ 'id' ] ) {
                     $authorized = true;
                 }
-                $userids[] = $userid;
+                $participants[] = array(
+                    'id' => $userid,
+                    'name' => $username
+                );
             }
+            $authorized or die( 'Not authorized' );
+            $channel = array( 'id' => $channelid );
 
             include 'views/chatchannel/view.php';
         }

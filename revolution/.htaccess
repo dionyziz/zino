@@ -51,6 +51,7 @@ RewriteRule ^friendship/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]
 RewriteRule ^chat/message/create$ index.php?resource=chatmessage&method=create&channelid=$1 [L,QSA]
+RewriteRule ^chat/([0-9]+)$ index.php?resource=chatchannel&method=view&channelid=$1 [L,QSA]
 
 # tunnel
 RewriteRule ^tunnel/create$ index.php?resource=tunnel&method=create [L,QSA]

@@ -184,7 +184,7 @@ var Chat = {
              li.scrollIntoView();
          }
          else {
-             var userid, cid, found;
+             var userid, cid, found, username;
              found = false;
              for ( userid in Chat.ChannelByUserId ) {
                  cid = Chat.ChannelByUserId[ userid ];
@@ -195,10 +195,53 @@ var Chat = {
                  }
              }
              if ( !found ) {
-                 $.get( '', {}, function ( res ) {
-                     $( res ).find( 'user' )
+                 $.get( 'chat/' + channelid, {}, function ( res ) { 
+                     var users = $( res ).find( 'user' );
+                     for ( var i = 0; i < users.length; ++i ) {
+                         userid = $( users[ i ] ).attr( 'id' );
+                         username = $( uesrs[ i ] ).find( 'name' ).text();
+                         if ( userid != Chat.UserId ) {
+                             Chat.ChannelByUserId[ userid ] = channelid;
+                             if ( !$( '#u' + userid ) ) {
+                                 Chat.ComesOnline( userid, username );
+                             }
+                             Chat.Flash( userid, text );
+                             break;
+                         }
+                     }
                  } );
              }
+         }
+     },
+     ComesOnline: function ( userid, username ) {
+         alert( username + ' came online' );
+
+         var lis = $( '#onlineusers li' );
+         var li;
+         var compare;
+
+         for ( var i = 0; i < lis.length; ++i ) {
+             li = lis[ i ];
+             if ( $( li ).hasClass( 'flash' ) ) {
+                 // username of person to compare with 
+                 compare = $( li ).find( 'span.username' ).text();
+             }
+             else {
+                 compare = $( li ).text();
+             }
+             if ( username < compare ) {
+                 break;
+             }
+         }
+         var newuser = document.createElement( 'li' );
+         newuser.appendChild( document.createTextNode( username ) );
+         newuser.id = 'u' + userid;
+
+         if ( i == lis.length ) {
+             $( '#onlineusers' ).append( newuser );
+         }
+         else {
+             $( '#onlineusers' )[ 0 ].insertBefore( newuser, lis[ i ] );
          }
      },
      Flash: function ( userid, message ) {
