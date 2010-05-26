@@ -34,10 +34,11 @@ var Chat = {
             $( '#onlineusers li' ).click( function () {
                 $( '#onlineusers li' ).removeClass( 'selected' );
                 $( this ).addClass( 'selected' );
+                Chat.Unflash( this.id.substr( 1 ) );
                 var userid = this.id.split( 'u' )[ 1 ];
                 if ( userid == 0 ) {
                     Chat.Show( 0 );
-                }
+                 }
                 else {
                     Chat.ShowPrivate( userid );
                 }
@@ -183,7 +184,40 @@ var Chat = {
              li.scrollIntoView();
          }
          else {
+             var userid, cid, found;
+             found = false;
+             for ( userid in Chat.ChannelByUserId ) {
+                 cid = Chat.ChannelByUserId[ userid ];
+                 if ( cid == channelid ) {
+                     found = true;
+                     Chat.Flash( userid, text );
+                     break;
+                 }
+             }
+             if ( !found ) {
+                 $.get( '', {}, function ( res ) {
+                     $( res ).find( 'user' )
+                 } );
+             }
          }
+     },
+     Flash: function ( userid, message ) {
+         // TODO: Multiple participants
+         if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
+             return;
+         }
+         $( '#u' + userid ).addClass( 'flash' ).html(
+            '<span class="username">' + $( '#u' + userid ).text() + '</span>'
+            + '<span class="text">' + message + '</span>'
+         );
+     },
+     Unflash: function ( userid ) {
+         if ( !$( '#u' + userid ).hasClass( 'flash' ) ) {
+             return;
+         }
+         $( '#u' + userid ).removeClass( 'flash' );
+         var uname = $( '#u' + userid + ' .username' ).text();
+         $( '#u' + userid ).text( uname );
      },
      Join: function ( channelid ) {
          // Listen to push messages here

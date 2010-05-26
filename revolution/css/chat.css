@@ -46,6 +46,25 @@
     border-radius: 5px;
     color: white;
 }
+.userlist li.flash {
+    background-color: orange;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.userlist li.flash span.username {
+    color: black;
+}
+.userlist li.flash span.username:after {
+    content: ": ";
+}
+.userlist li.flash span.text {
+    display: block;
+    padding: 5px;
+    height: 15px;
+    overflow: hidden;
+    color: white;
+}
 .textmessages {
     height: 100%;
     margin-right: 200px;
