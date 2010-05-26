@@ -5,6 +5,7 @@ var PhotoListing = {
     CurrentPage: 1,
     LastLoaded: null,
     Loading: false,
+    EndOfPhotos: false,
     Init: function(){
         SI.Files.stylizeAll();
         this.PhotoList = $( '.photostream ul' );
@@ -45,10 +46,11 @@ var PhotoListing = {
         PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
         PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
-        $.get( 'photos',
+        $.get( window.location,
         { 'page': PhotoListing.CurrentPage },
         function( xml ){
-            $( xml ).find( 'entry' ).each( function(){
+            var responseSize = $( xml ).find( 'entry' ).length;
+            $( xml ).find( 'entry' ).each( function( index ){
                 var id = $( this ).attr( 'id' );
                 var url = $( this ).find( 'media' ).attr( 'url' );
                 var count = $( this ).find( 'discussion' ).attr( 'count' );
@@ -67,6 +69,19 @@ var PhotoListing = {
                     $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
                 }
             } );
+            if( responseSize < 100 ){
+                PhotoListing.EndOfPhotos = true;
+                var lastChild = $( '.photostream ul li:last' )[ 0 ];
+                for( var i = 0; i < 100 - responseSize; ++i ) {
+                    var nextLastChild = lastChild.previousSibling;
+                    $( lastChild ).remove();
+                    lastChild = nextLastChild;
+                }
+                for( var i = 0; i < 20; ++i ){ //Last Line justify hack
+                    PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
+                }
+                return; //Prevent Events From reassining
+            }
             PhotoListing.Loading = false;
             PhotoListing.AssignEvents();
             PhotoListing.ScrollHandler();

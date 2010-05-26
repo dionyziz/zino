@@ -27,6 +27,7 @@
 
 <xsl:template name="html">
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
+        <xsl:attribute name="id"><xsl:value-of select="/social/@resource" />-<xsl:value-of select="/social/@method" /></xsl:attribute>
         <head>
             <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
             <title>Zino</title>

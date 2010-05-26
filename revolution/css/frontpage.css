@@ -1,3 +1,6 @@
+#photo-listing {
+    background-color: #213549;
+}
 body {
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
     font-size: 11px;
@@ -95,6 +98,12 @@ div.photostream li:before {
 }
 div.photostream li {
     display: inline;
+}
+.photostream ul li.justifyhack {
+    overflow: hidden;
+    height: 1px;
+    display: inline-block;
+    width: 150px;
 }
 div.photostream a, div.photostream form {
     text-decoration: none;

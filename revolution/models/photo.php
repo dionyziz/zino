@@ -10,7 +10,8 @@
                         ON image_userid = user_id
                 WHERE
                     `image_delid`= 0 AND
-                    `user_deleted` = 0
+                    `user_deleted` = 0 AND
+                    `image_albumid` != 0
                 ORDER BY
                     id DESC
                 LIMIT :offset, :limit', compact( 'offset', 'limit' )
@@ -27,7 +28,8 @@
                 WHERE
                     `image_delid`=0 AND
                     `user_deleted` = 0 AND
-                    `image_userid` = :userid
+                    `image_userid` = :userid AND
+                    `image_albumid` != 0
                 ORDER BY
                     id DESC
                 LIMIT :offset, :limit', compact( 'userid', 'offset', 'limit' )
@@ -44,7 +46,7 @@
                 WHERE
                     `image_delid`=0 AND
                     `user_deleted` = 0 AND
-                    `image_albumid` = :albumid
+                    `image_albumid` = :albumid 
                 ORDER BY
                     id DESC
                 LIMIT :offset, :limit', compact( 'albumid', 'offset', 'limit' )
