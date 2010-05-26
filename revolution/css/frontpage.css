@@ -377,10 +377,10 @@ span.countbubble {
 .love strong {
     color: red;
 }
-div.button {
+div.linkbutton {
     color: red;
 }
-a.button {
+a.linkbutton {
     text-align: center;
     padding-bottom: 2px;
     text-decoration: none;
