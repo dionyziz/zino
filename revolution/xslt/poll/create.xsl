@@ -4,8 +4,8 @@
         <input class="question" />
         <div class="info options">Γράψε τις επιλογές:</div>
         <ul class="options">
-            <li><input class="option" id="newoption_1" /></li>
-            <li><input class="option" id="newoption_2" /></li>
+            <li><input class="option" id="newoption_1" value="Πρώτη επιλογή" /></li>
+            <li><input class="option" id="newoption_2" value="Δεύτερη επιλογή" /></li>
         </ul>
         <ul class="toolbox">
             <li><a class="button big" href="">Δημιουργία</a></li>

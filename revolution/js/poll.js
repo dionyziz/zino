@@ -1,5 +1,8 @@
 var Poll = {
     NewOptions: 2,
+    Create: function( question, options ) {
+        
+    },
     PreCreate: function() {
         axslt( false, 'call:poll.new', function() {
             $( '.col1, .col2, #notifications' ).remove();
@@ -8,11 +11,17 @@ var Poll = {
             $( '.newpoll' ).find( 'input.option' ).keydown( function() {
                 Poll.OptionChange( this );
             } );
-            
-            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ),
-                'Πρώτη επιλογή', 'black', 'grey' );
-            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ),
-                'Δεύτερη επιλογή', 'black', 'grey' );
+            $( '.newpoll ul.toolbox a.button.big' ).click( function() {
+                var question = $( '.newpoll' ).find( 'input.question' ).val();
+                var options = [];
+                $( 'input.option' ).each( function() {
+                    alert( this.val() );
+                } );
+                //Poll.Create( question, options );
+                return false;
+            } );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ) );
+            Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ) );
         } );
         return false;
     },

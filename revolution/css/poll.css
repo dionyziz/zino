@@ -3,6 +3,7 @@ div.newpoll {
     margin: auto;
 }
 .newpoll input.question {
+    width: 100%;
     display: block;
     font-size: 250%;
     border: 5px solid #42688F;
@@ -15,7 +16,7 @@ div.newpoll {
     font-size: 140%;
     margin: 8px;
 }
-.newpoll ul, .newpoll .options, .newpoll .options li, input {
+.newpoll ul, .newpoll .options, .newpoll .options li {
     width: 100%;
     text-align: center;
 }

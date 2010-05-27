@@ -10,27 +10,35 @@ var Kamibu = {
             element = element.get()[0];
         }
         if ( element.nodeType == 1 ) {
-        
-            element.style.color = beforecolor;
             
+            Kamibu.addClass( element, 'clickable' );
+            Kamibu.addClass( element, 'blured' );
+            
+            if ( beforecolor ) {
+                element.style.color = beforecolor;
+            }
             element.onfocus = function() {
-                element.value = '';
-                //Kamibu.removeClass( element, 'blured' );
-                if( aftercolor ) {
-                    element.style.color = aftercolor;
+                if ( Kamibu.hasClass( element, 'blured' ) ) {
+                    element.value = '';
+                    Kamibu.removeClass( element, 'blured' );
+                    if ( aftercolor ) {
+                        element.style.color = aftercolor;
+                    }
                 }
             };
             if ( reshowtext ) {
-                var text = element.value;
                 element.value = reshowtext;
-                element.onblur = function() { 
-                    if ( element.value === '' ) {
-                        //Kamibu.addClass( element, 'blured' );
-                        if ( beforecolor ) {
-                            element.style.color = beforecolor;
-                        }
-                        element.value = text;
+            }
+            else {
+                reshowtext = element.value;
+            }
+            element.onblur = function() { 
+                if ( element.value === '' && !Kamibu.hasClass( element, 'blured' ) ) {
+                    Kamibu.addClass( element, 'blured' );
+                    if ( beforecolor ) {
+                        element.style.color = beforecolor;
                     }
+                    element.value = reshowtext;
                 }
             }
             if ( typeof( callback ) == 'function' ) {
@@ -47,7 +55,7 @@ var Kamibu = {
         return false;
     },
     hasClass: function( element, name ) {
-        element.className.match( new RegExp( '(\\s|^)' + name + '(\\s|$)' ) );
+        return element.className.match( new RegExp( '(\\s|^)' + name + '(\\s|$)' ) ) != null;
     },
     addClass: function( element, name ) {
         if ( !Kamibu.hasClass( element, name ) ) {
