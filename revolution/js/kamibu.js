@@ -65,7 +65,7 @@ var Kamibu = {
     },
     removeClass: function( element, name ) {
         if ( Kamibu.hasClass( element, name ) ) {
-            element.className = element.className.replace( new RegExp( '^\\s*' + name + '\\s*$' ), ' ' ).replace( /\s+/, ' ' );
+            element.className = element.className.replace( new RegExp( '\\b' + name + '\\b' ), '' ).replace( /^\s*|\s*$/, '' ).replace( /\s+/, ' ' );
         }
     }
 }
