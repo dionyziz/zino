@@ -15,7 +15,7 @@ div.newpoll {
     font-size: 140%;
     margin: 8px;
 }
-.newpoll .options, .newpoll .options li, input {
+.newpoll ul, .newpoll .options, .newpoll .options li, input {
     width: 100%;
     text-align: center;
 }
