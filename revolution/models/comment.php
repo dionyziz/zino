@@ -146,6 +146,7 @@
             clude( 'models/bulk.php' );
             clude( 'models/wysiwyg.php' );
             clude( 'models/notification.php' );
+            clude( 'models/agent.php' );
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -201,11 +202,12 @@
             $text = nl2br( htmlspecialchars( $text ) );
             $text = WYSIWYG_PostProcess( $text );
 
-            $bulkid = Bulk::Store( $text );
+            $bulkid = Bulk::Store( $text ); 
+            $userip = UserIp();
             db( "INSERT INTO `comments`
-                    (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`)
+                    (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
                 VALUES
-                    (:userid, :bulkid, :typeid, :itemid, :parentid, NOW())", compact( 'userid', 'bulkid', 'typeid', 'itemid', 'parentid' )
+                    (:userid, :bulkid, :typeid, :itemid, :parentid, NOW(), :userip )", compact( 'userid', 'bulkid', 'typeid', 'itemid', 'parentid', 'userip' )
             );
             $id = mysql_insert_id();
             
