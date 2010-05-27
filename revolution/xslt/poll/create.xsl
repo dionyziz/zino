@@ -7,7 +7,7 @@
             <li><input class="option" id="newoption_1" /></li>
             <li><input class="option" id="newoption_2" /></li>
         </ul>
-        <ul>
+        <ul class="toolbox">
             <li><a class="button big" href="">Δημιουργία</a></li>
             <li><a class="linkbutton" href="">Ακύρωση και πίσω</a></li>
         </ul>

@@ -1,14 +1,14 @@
-.newpoll {
-    width: 100%;
+div.newpoll {
+    width: 80%;
+    position: relative;
 }
 .newpoll input.question {
     width: 80%;
     font-size: 250%;
     border: 5px solid #42688F;
     -webkit-border-radius: 10px;
-    padding: 4px 8px;
-    margin: 2px 8px;
-    position: relative;
+    padding: 2px 8px;
+    margin-left: 10%;
 }
 .newpoll div.info {
     font-size: 140%;
@@ -18,14 +18,19 @@
     text-align: center;
 }
 .newpoll ul.options {
-    list-style-type: disc;
-    width: 300px;
+    width: 360px;
 }
 .newpoll input.option {
     width: 300px;
     font-size: 120%;
     padding: 2px 4px;
     margin: 0 8px;
+}
+.newpoll ul.options li:before {
+    content: ' ● ';
+    color: #72b3db;
+    position: relative;
+    top: -2px;
 }
 .newpoll a.button.big {
 }

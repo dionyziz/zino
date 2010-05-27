@@ -8,6 +8,7 @@ var Poll = {
             $( '.newpoll' ).find( 'input.option' ).keydown( function() {
                 Poll.OptionChange( this );
             } );
+            
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ),
                 'Πρώτη επιλογή', 'black', 'grey' );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ),
@@ -31,7 +32,7 @@ var Poll = {
                 .keydown( function() {
                     Poll.OptionChange( this );
                 } ).end();
-            $( '.newpoll ul' ).append( newoption );
+            $( '.newpoll ul.options' ).append( newoption );
             Kamibu.ClickableTextbox( newoption.find( 'input' ), 'Eπιπλέον επιλογή;', 'black', 'grey' );
         }
     }
