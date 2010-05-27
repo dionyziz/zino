@@ -1,5 +1,6 @@
 var Kamibu = {
     ClickableTextbox: function( element , reshowtext , aftercolor , beforecolor ,  callback ) {
+        //todo: password fields
         if ( typeof( element ) == 'string' ) {
             element = document.getElementById( element );
         }
