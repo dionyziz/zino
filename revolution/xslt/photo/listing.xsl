@@ -18,6 +18,20 @@
         </xsl:choose>
     </xsl:for-each>
     <xsl:for-each select="stream">
+        <div class="useralbums">
+            <xsl:choose>
+                <xsl:when test="../gender = 'm'">
+                    Άλμπουμ του
+                </xsl:when>
+                <xsl:when test="../gender = 'f'">
+                    Άλμπουμ της
+                </xsl:when>
+                <xsl:otherwise>
+                    Άλμπουμ του/της
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="../name" />
+        </div>
         <xsl:call-template name="photolist" />
     </xsl:for-each>
 </xsl:template>
