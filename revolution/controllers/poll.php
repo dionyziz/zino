@@ -52,6 +52,7 @@
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a poll' );
             clude( 'models/db.php' );
             clude( 'models/poll.php' );
+            clude( 'models/user.php' );
 
             $poll = Poll::Create( $_SESSION[ 'user' ][ 'id' ], $question, $options );
             $options = $poll[ 'options' ];

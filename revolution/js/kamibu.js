@@ -20,8 +20,8 @@ var Kamibu = {
             }
             element.onfocus = function() {
                 if ( Kamibu.hasClass( element, 'blured' ) ) {
-                    element.value = '';
                     Kamibu.removeClass( element, 'blured' );
+                    element.value = '';
                     if ( aftercolor ) {
                         element.style.color = aftercolor;
                     }

@@ -4,10 +4,23 @@ div.discussion {
     clear: both;
 }
 .thread {
+    border-top: 1px solid #2c4762;
+    color: white;
+    margin-top: 5px;
+    margin-left: 20px;
+    text-align: left;
+    clear: left;
+    overflow: hidden;
     border-left: 2px solid transparent;
 }
 .thread:hover {
     border-left: 2px solid #273f57;
+}
+img.avatar {
+    height: 46px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    border: 1px solid transparent;
 }
 div.note {
     padding: 5px;
@@ -24,6 +37,14 @@ div.mine {
 }
 div.mine .time {
     color: #4f7eae;
+}
+div.time {
+    color: #3d6287;
+    padding: 5px 0;
+    display: none;
+}
+div.processedtime {
+    display: inline;
 }
 a.talk {
     -moz-border-radius: 5px;
@@ -43,6 +64,7 @@ a.talk {
     border-top: none;
     border-right: none;
     display: none;
+    cursor: default;
 }
 .message.new {
     padding: 0 5px 0 0;
@@ -63,11 +85,16 @@ div.message textarea {
     width: 100%;
     position: relative;
 }
-div.thread .new.message {
-    cursor: default;
-}
-div.thread .new.message .author img {
+.new.message .author img {
     position: absolute;
+}
+div.author div.details {
+    white-space: nowrap;
+    margin-left: 60px;
+}
+div.message div.text {
+    line-height: 25px;
+    margin-left: 60px;
 }
 ul.tips {
     text-align: right;

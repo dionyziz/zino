@@ -1,8 +1,5 @@
 var Poll = {
     NewOptions: 2,
-    Create: function( question, options ) {
-        
-    },
     PreCreate: function() {
         axslt( false, 'call:poll.new', function() {
             $( '.col1, .col2, #notifications' ).remove();
@@ -15,9 +12,19 @@ var Poll = {
                 var question = $( '.newpoll' ).find( 'input.question' ).val();
                 var options = [];
                 $( 'input.option' ).each( function() {
-                    alert( this.val() );
+                    if ( !$( this ).hasClass( 'blured' ) && $( this ).val() != '' ) {
+                        options.push( $( this ).val() );
+                    }
                 } );
-                //Poll.Create( question, options );
+                alert( options.length );
+                if ( options.length < 2 ) {
+                    return false;
+                }
+                alert( question );
+                if ( question == '' ) {
+                    return false;
+                }
+                $.post( 'poll/create', { 'question': question, 'options': options } );
                 return false;
             } );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ) );
@@ -26,11 +33,10 @@ var Poll = {
         return false;
     },
     OptionChange: function( node ) {
-        console.warn( 'option changing' );
         //This is the last, and every else is filled
         if ( $( node ).attr( 'id' ).split( '_' )[1] == Poll.NewOptions ) {
             for ( var i = 1; i < Poll.NewOptions; ++i ) {
-                if ( !$( '#newoption_' + i ).val() ) {
+                if ( $( '#newoption_' + i ).val() == '' || $( '#newoption_' + i ).hasClass( 'blured' ) ) {
                     return true;
                 }
             }
