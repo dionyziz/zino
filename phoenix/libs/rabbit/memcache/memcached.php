@@ -709,7 +709,8 @@ class memcached implements MemCacheOperations
    function _dead_sock ($sock)
    {
       $host = array_search($sock, $this->_cache_sock);
-      list ($ip, $port) = explode(":", $host);
+      $info = explode(":", $host);
+      $info = $ip[ 0 ];
       $this->_host_dead[$ip] = time() + 30 + intval(rand(0, 10));
       $this->_host_dead[$host] = $this->_host_dead[$ip];
       unset($this->_cache_sock[$host]);
