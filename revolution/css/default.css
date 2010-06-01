@@ -1,0 +1,53 @@
+body {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+    font-size: 11px;
+    margin: 0;
+    background-color: #213549;
+    background-image: url('http://static.zino.gr/revolution/bg.png');
+    background-position: top;
+    background-repeat: repeat-x;
+    color: white;
+}
+h1 {
+    margin: 20px 0 -10px;
+    width: 100%;
+}
+h1 img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+h2 {
+    color: #7399BA;
+    font-size: 130%;
+    margin: 0.5em 200px;
+    line-height: 2.5em;
+    border-bottom: 3px #246d93 solid;
+}
+a img { 
+    border: none;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: #acf;
+    font-weight: normal;
+    text-decoration: underline;
+}
+input.clickable.blured {
+    color: grey;
+}
+div.linkbutton {
+    color: red;
+}
+a.linkbutton {
+    text-align: center;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+div.eof {
+    clear: both;
+}
