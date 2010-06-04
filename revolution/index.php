@@ -24,6 +24,13 @@
         $method == 'view' or $method = 'listing';
 	}
     
+    function Template( $path, $variables ) {
+        foreach ( $variables as $_name => $_value ) {
+            $$_name = $_value; //MAGIC!
+        }
+        include 'views/' . $path . '.php';
+    }
+    
     function clude( $path ) {
         static $included = array();
         if ( !isset( $included[ $path ] ) ) {

@@ -26,7 +26,7 @@
                 clude( 'models/favourite.php' );
                 $favourites = Favourite::Listing( TYPE_IMAGE, $id );
             }
-            include 'views/photo/view.php';
+            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user' ) );
         }
         public static function Listing( $username = '', $page = 1, $limit = 100, $albumid = -1 ) {
             $page = ( int )$page;
