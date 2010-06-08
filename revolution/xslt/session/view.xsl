@@ -7,7 +7,7 @@
             </base>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
             <link href="css/loggedout.css" rel="stylesheet" type="text/css" />
-            <script type="text/javascript" src="http://www.zino.gr/js/jquery.js"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         </head>
         <body>
             <div class="card">
@@ -16,16 +16,18 @@
                     Το Zino είναι εσύ και η παρέα σου
                     ζωντανά online − είσαι μέσα?
                 </p>
-                <form class="register">
-                    <span>Διάλεξε ένα ψευδώνυμο:</span>
-                    <div>
-                        <input class="submit" type="submit" value="Μπες τώρα" tabindex="5" />
-                        <input class="text" type="text" name="username" tabindex="4" />
-                    </div>
-                </form>
+                <div class="register">
+                    <form>
+                        <span>Διάλεξε ένα ψευδώνυμο:</span>
+                        <div>
+                            <input class="submit" type="submit" value="Μπες τώρα" tabindex="5" />
+                            <input class="text" type="text" name="username" tabindex="4" />
+                        </div>
+                    </form>
+                </div>
                 <div class="login">
                     <h2>Έχεις ήδη zino?</h2>
-                    <form method="POST" action="session/create">
+                    <form method="POST" action="session/create" name="loginform">
                         <label>Ψευδώνυμο</label>
                         <input class="text" type="text" tabindex="1" name="username" />
                         <label>Κωδικός</label>
@@ -45,27 +47,31 @@
                 </ul>
             </div>
             <script type="text/javascript">
-                setTimeout( function () {
-                    $( $( 'form' )[ 1 ] ).find( 'input' )[ 0 ].focus();
-                }, 20 );
-                $( 'form' )[ 1 ].onsubmit = function () {
-                    /*$.post( 'session/create', {
-                        username: this.getElementsByTagName( 'input' )[ 0 ].value,
-                        password: this.getElementsByTagName( 'input' )[ 1 ].value
-                    }, function ( res ) {
-                        if ( $( res ).find( 'operation result' ).text() == 'SUCCESS' ) {
-                            // alert( 'Login successful!' );
-                            window.location.href = 'photos';
-                        }
-                        else {
-                            alert( 'Login failed!' );
-                        }
-                    }, 'xml' );*/
-                    document.body.style.cursor = 'wait';
-                    this.style.opacity = '0.5';
-                    this.blur();
-                    //return false;
-                };
+                var loginsuccess = false;
+                //$( function() { $( '.login > form' ).find( 'input' )[ 0 ].focus(); } );
+                $( '.login > form' ).submit( function () {
+                    if ( !loginsuccess ) {
+                        $.post( 'session/create', {
+                            username: $( 'input:eq(0)', this ).val(),
+                            password: $( 'input:eq(1)', this ).val()
+                        }, function ( res ) {
+                            if ( $( res ).find( 'operation result' ).text() == 'SUCCESS' ) {
+                                 loginsuccess = true;
+                                $( '.login > form' ).submit();
+                            }
+                            else {
+                                alert( 'Λάθος όνομα/κωδικός' );
+                                document.body.style.cursor = '';
+                                $( '.login > form' ).css( 'opacity', 1 ).find( 'input' ).attr( 'disabled', '' ).index( 1 ).focus();
+                            }
+                        }, 'xml' );
+                        document.body.style.cursor = 'wait';                        
+                        $( this ).css( 'opacity', 0.5 ).blur().find( 'input' ).attr( 'disabled', 'disabled' );
+                        return false;
+                    }
+                    $( '.login > form' ).find( 'input' ).attr( 'disabled', '' );
+                    return true;
+                } );
             </script>
         </body>
     </html>

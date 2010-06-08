@@ -13,7 +13,7 @@
 <xsl:template match="/" priority="1">
     <xsl:choose>
         <!-- tiny master templates -->
-        <xsl:when test="$mastertemplate = 'session.view' "><xsl:apply-templates /></xsl:when>
+        <xsl:when test="$resource = 'session' "><xsl:apply-templates /></xsl:when>
         
         <!-- full master templates -->
         <xsl:otherwise>
