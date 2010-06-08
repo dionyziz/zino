@@ -10,6 +10,8 @@ menu.js
 comet.js
 news.js
 jquery/jquery.center.js
+jquery/jquery.modal.js
+modal.js
 notification.js
 poll.js
 wysiwyg.js

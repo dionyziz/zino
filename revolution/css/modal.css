@@ -1,0 +1,59 @@
+.modal {
+    color: black;
+    position: fixed;
+    display: none;
+    background: #e8eaec url( 'http://static.zino.gr/images/sorabody.jpg' ) repeat-x top right;
+    text-align: center;
+    padding: 30px 25px 20px;
+    border: 9px solid #6C8ABB;
+    -moz-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -msie-border-radius: 15px;
+    border-radius: 15px;
+}
+.modal ul.buttons {
+    margin-top: 20px;
+}
+.modal ul.buttons li {
+    display: inline;
+}
+.modal h2 {
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    font-size: 200%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: -2.2em;
+    width: 100%;
+    border: none;
+}
+.modal input[type=text], .modal input[type=password] {
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -msie-border-radius: 5px;
+    border-radius: 5px;
+    color: black;
+    border: 2px solid #ccc;
+    padding: 0.2em;
+}
+.modal .close {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    background: url("http://static.zino.gr/phoenix/xbutton.png");
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: 0;
+}
+.modal .close:hover {
+    background-position: 0 -60px;
+}
+div.modaloverlay {
+	background: #000;
+}
