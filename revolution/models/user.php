@@ -27,6 +27,32 @@
             }
             return false;
         }
+        public static function AuthtokenValidation( $userid, $authtoken )  {
+            if ( !is_int( $userid ) || !$userid || !$authtoken ) {
+                return false;
+            }
+
+            $res = db(
+                'SELECT
+                    `user_id` AS id, `user_name` AS name,
+                    user_authtoken` AS authtoken, `user_gender` AS gender
+                FROM
+                    `users`
+                WHERE
+                    `user_id` = :userid AND
+                    `user_authtoken` = :authtoken
+                LIMIT 1;',
+                compact( 'userid', 'authtoken' )
+            );
+
+            if ( mysql_num_rows( $res ) ) {
+                $row = mysql_fetch_array( $res );
+                $row[ 'id' ] = (int)$row[ 'id' ];
+                return $row;
+            }
+
+            return false;
+        }
         public static function Login( $username, $password ) {
             if ( !$username || !$password ) {
                 return false;
