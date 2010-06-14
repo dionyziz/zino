@@ -74,6 +74,10 @@ div.typehere {
 	bottom: 70px;
 	width: 100%;
 }
+.channelmessages li.text div.text img{
+	max-width: 400px;
+	max-height: 400px;
+}
 em {
     color: #aaa;
     font-size: 80%;
