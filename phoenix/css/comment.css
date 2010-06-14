@@ -38,6 +38,10 @@
 	right: 5px;
 	overflow: hidden;
 }
+.comment .text img {
+	max-height: 400px;
+	max-width: 400px;
+}
 .newcomment {
 	margin: 6px 0 6px 3px;
 	padding: 0; /* a fix for the newcomment box */
