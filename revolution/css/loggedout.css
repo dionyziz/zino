@@ -56,13 +56,13 @@ p {
     margin-left: 305px;
     margin-top: 40px;
 }
-form.register {
+div.register {
     font-size: 13pt;
     clear: both;
     float: left;
     padding: 48px 50px 50px 33px;
 }
-form.register input.text {
+div.register input.text {
     border: 1px solid transparent;
     position: relative;
     top: 2px;
@@ -75,7 +75,7 @@ form.register input.text {
     font-size: 12pt;
     font-weight: bold;
 }
-form.register input.submit {
+div.register input.submit {
     color: transparent;
     width: 130px;
     height: 35px;
@@ -86,12 +86,12 @@ form.register input.submit {
     cursor: pointer;
     float: right;
 }
-form.register span {
+div.register span {
     padding-left: 2px;
     display: block;
     height: 25px;
 }
-form.register div {
+div.register div {
     vertical-align: top;
 }
 div.login {
