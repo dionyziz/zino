@@ -18,7 +18,7 @@ div#downstrip a.hoodie img{
     z-index: 50;
 }
 div#vuvuzela {
-    position: static;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 159px;
