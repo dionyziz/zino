@@ -29,6 +29,7 @@
         public static function Delete() {
             global $settings;
             setcookie( $settings[ 'cookiename' ], '', time() - 86400, '/', $settings[ 'cookiedomain' ], false, true );
+            clude( 'models/user.php' );
             User::ClearAuthtoken( $_SESSION[ 'user' ][ 'id' ] );
             unset( $_SESSION[ 'user' ] );
             $success = true;
