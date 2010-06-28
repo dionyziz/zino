@@ -27,6 +27,25 @@
             }
             return false;
         }
+        public static function GetCookieData() {
+            global $settings;
+            if ( !isset( $_COOKIE[ $settings[ 'cookiename' ] ] ) ) {
+                return false;
+            }
+            $cookie = $_COOKIE[ $settings[ 'cookiename' ] ];
+            $cookieparts = explode( ':' , $cookie );
+            $userid = (int) $cookieparts[ 0 ];
+            $authtoken = $cookieparts[ 1 ];
+            if ( $userid <= 0 ) {
+                return false;
+            }
+            if ( !preg_match( '#^[a-zA-Z0-9]{32}$#', $authtoken ) ) {
+                die( 'invalid auth' );
+                return false;
+            }
+            clude( 'models/db.php' );
+            return User::AuthtokenValidation( $userid, $authtoken );
+        }
         public function RenewAuthtoken( $userid ) {
             $userid = ( int )$userid;
 
@@ -60,6 +79,7 @@
                 $authtoken .= dechex( $first ) . dechex( $second );
             }
             
+            clude( 'models/db.php' );
             db(
                 'UPDATE
                     `users`
@@ -71,16 +91,33 @@
             );
 
             return $authtoken;
-        } 
+        }
+        public static function ClearAuthtoken( $userid ) {
+            $userid = ( int )$userid;
+            
+            clude( 'models/db.php' );
+            $authtoken = '';
+            
+            db(
+                'UPDATE
+                    `users`
+                SET
+                    `user_authtoken`=:authtoken
+                WHERE
+                    `user_id`=:userid
+                LIMIT 1', compact( 'userid', 'authtoken' )
+            );
+            
+            return true;
+        }
         public static function AuthtokenValidation( $userid, $authtoken )  {
             if ( !is_int( $userid ) || !$userid || !$authtoken ) {
                 return false;
             }
-
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
-                    user_authtoken` AS authtoken, `user_gender` AS gender
+                    `user_authtoken` AS authtoken, `user_gender` AS gender
                 FROM
                     `users`
                 WHERE
@@ -89,13 +126,13 @@
                 LIMIT 1;',
                 compact( 'userid', 'authtoken' )
             );
-
+            
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
                 $row[ 'id' ] = (int)$row[ 'id' ];
                 return $row;
             }
-
+            
             return false;
         }
         public static function Login( $username, $password ) {

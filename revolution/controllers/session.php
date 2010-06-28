@@ -15,11 +15,21 @@
             $data = User::Login( $username, $password );
             $success = $data !== false;
             if ( $success ) {
+                global $settings;
+                $eofw = 2147483646;
+                if ( $data[ 'authtoken' ] == '' ) {
+                    $data[ 'authtoken' ] = User::RenewAuthtoken( $data[ 'id' ] );
+                }
+                $cookie = $data[ 'id' ] . ':' . $data[ 'authtoken' ];
+                setcookie( $settings[ 'cookiename' ], $cookie, $eofw, '/', $settings[ 'cookiedomain' ], false, true );
                 $_SESSION[ 'user' ] = $data;
             }
             include 'views/session/create.php';
         }
         public static function Delete() {
+            global $settings;
+            setcookie( $settings[ 'cookiename' ], '', time() - 86400, '/', $settings[ 'cookiedomain' ], false, true );
+            User::ClearAuthtoken( $_SESSION[ 'user' ][ 'id' ] );
             unset( $_SESSION[ 'user' ] );
             $success = true;
             include 'views/session/delete.php';

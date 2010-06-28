@@ -48,9 +48,19 @@
     
 	$uri = $_SERVER[ 'REQUEST_URI' ];
 
+    ob_start();
+    
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl\"?>";
 
+    if ( !isset( $_SESSION[ 'user' ] ) ) {
+        clude( 'models/user.php' );
+        $user = User::GetCookieData();
+        if ( $user !== false ) {
+            $_SESSION[ 'user' ] = $user;
+        }
+    }
+    
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?
@@ -85,4 +95,6 @@
     call_user_func_array( array( 'Controller' . $resource, $method ), $params );
     
     ?></social><?php
+    
+    ob_flush();
 ?>
