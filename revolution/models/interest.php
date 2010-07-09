@@ -18,5 +18,16 @@
                     `tag_userid` = :userid', compact( 'userid' )
             );
         }
+        public static function Create( $userid, $text, $typeid ) {
+            is_int( $userid ) or die;  
+            in_array( $typeid, array( TAG_HOBBIE, TAG_MOVIE, TAG_BOOK, TAG_SONG, TAG_ARTIST, TAG_GAME, TAG_SHOW ) ) or die( "unknown tag typeid" );
+
+            $res = db( 
+                "INSERT INTO `tags` ( `tag_userid`, `tag_text`, `tag_typeid` )
+                VALUES ( :userid, :text, :typeid );"
+            );
+
+            return mysql_affected_rows( $res ) == 1;
+        }
     }
 ?>
