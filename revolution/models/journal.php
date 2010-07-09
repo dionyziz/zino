@@ -94,7 +94,7 @@
             );
         }
         public static function Delete( $id ) {
-            return db( "DELETE FROM `journals` WHERE `journal_id` = '$id' LIMIT 1;" );
+            return db( "DELETE FROM `journals` WHERE `journal_id` = :id LIMIT 1;", array( 'id' => $id ) );
         }
 	}
 ?>

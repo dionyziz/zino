@@ -24,10 +24,14 @@
 
             $res = db( 
                 "INSERT INTO `tags` ( `tag_userid`, `tag_text`, `tag_typeid` )
-                VALUES ( :userid, :text, :typeid );"
+                VALUES ( :userid, :text, :typeid );",
+                compact( $userid, $text, $typeid )
             );
 
             return mysql_affected_rows( $res ) == 1;
+        }
+        public static function Delete( $id ) {
+            return db( "DELETE FROM `tags` WHERE `tag_id` = :id", array( 'id' => $id ) );
         }
     }
 ?>
