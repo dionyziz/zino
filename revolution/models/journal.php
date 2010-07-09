@@ -93,5 +93,8 @@
                 'numcomments' => 0,
             );
         }
+        public static function Delete( $id ) {
+            return db( "DELETE FROM `journals` WHERE `journal_id` = '$id' LIMIT 1;" );
+        }
 	}
 ?>
