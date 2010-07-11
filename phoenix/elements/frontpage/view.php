@@ -140,7 +140,11 @@
                 </div><?php
             } */
             
-            ?><div id="fp_inuser">
+            ?>
+            <div style="promoband">
+                Test
+            </div>
+            <div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php
                         Element( 'frontpage/shoutbox/list' , $sequences[ SEQUENCE_SHOUT ] );
