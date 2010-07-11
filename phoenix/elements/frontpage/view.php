@@ -141,7 +141,7 @@
             } */
             
             ?>
-            <div onclick="document.location.href='http://www.zino.gr/?p=journal&id=13055'" style="cursor:pointer; background-color: black; position: absolute; left: -7px; right: -12px; height: 70px; background-image: url('http://static.zino.gr/phoenix/july14.png'); background-repeat: no-repeat; background-position: right center;"></div>
+            <div onclick="document.location.href='http://www.zino.gr/?p=journal&amp;id=13055'" style="cursor:pointer; background-color: black; position: absolute; left: -7px; right: -12px; height: 70px; background-image: url('http://static.zino.gr/phoenix/july14.png'); background-repeat: no-repeat; background-position: right center;"></div>
             <div id="fp_inuser">
                 <div id="fp_left">
                     <div id="shoutbox"><?php
