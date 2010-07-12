@@ -110,7 +110,7 @@
                     <div id="downstrip" class="sx_0002" style="position:relative"><?php
                         Element( 'footer' );
                     ?></div>
-                    <div id="vuvuzela"></div><?php
+                    <?php
                 }
                 
                 if ( is_array( $res ) && isset( $res[ 'tiny' ] ) ) {

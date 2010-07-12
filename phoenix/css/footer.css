@@ -17,11 +17,3 @@ div#downstrip a.hoodie img{
     bottom: 0;
     z-index: 50;
 }
-div#vuvuzela {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 159px;
-    height: 100px;
-    background: url( http://static.zino.gr/phoenix/vuvuzela.png );
-}
