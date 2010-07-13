@@ -149,7 +149,7 @@
                         `image_name` = :title,
                         `image_albumid` = :albumid
                     WHERE 
-                        `image_id` = :imageid
+                        `image_id` = :id
                     LIMIT 1;";
             $res = db( $sql, compact( 'id', 'title', 'albumid' ) );
             return mysql_affected_rows( $res ) == 1;
