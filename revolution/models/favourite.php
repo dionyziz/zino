@@ -7,7 +7,7 @@
 			$res = db(
                 'SELECT 
 					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created			
-					FROM `favoutires`		                    
+					FROM `favourites`		                    
           			WHERE `favourite_userid` = :userid;',
                 compact( 'userid' ) );
       
