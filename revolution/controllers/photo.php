@@ -149,6 +149,15 @@
             if ( $albumid == 0 ) {
                 $albumid = $photo[ 'albumid' ];
             }
+            else {
+                clude( 'models/album.php' );
+                clude( 'models/types.php' );
+                
+                $album = Album::Item( $albumid );
+                if ( $album[ 'ownerid' ] != $_SESSION[ 'user' ][ 'id' ] || $album[ 'ownertype' ] != TYPE_USERPROFILE ) {
+                    die( 'not your album' );
+                }
+            }
 
             if ( empty( $title ) ) {
                 $title = $photo[ 'title' ];
@@ -160,13 +169,8 @@
             $photo[ 'albumid' ] = $albumid;
 
             $user = $photo[ 'user' ];
-            $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
-            $numpages = $commentdata[ 0 ];
-            $comments = $commentdata[ 1 ];
-            $countcomments = $photo[ 'numcomments' ];
-            $favourites = Favourite::Listing( TYPE_IMAGE, $id );
 
-            include 'view/photo/view.php';
+            include 'views/photo/view.php';
         }
         public static function Delete() {
         }

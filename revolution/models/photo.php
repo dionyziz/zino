@@ -139,7 +139,7 @@
 
             return $data;
         }
-        public static function UpdateDetails( $id, $title, $albumid = false ) {
+        public static function UpdateDetails( $id, $title, $albumid ) {
             $id = ( int )$id;
             $albumid = ( int )$albumid;
             
