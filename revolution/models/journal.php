@@ -63,6 +63,21 @@
             );
 			return $item;
 		}
+		public static function ItemsPreview( $ids ) {
+			clude( 'models/db.php' );
+			$res = db(
+					'SELECT
+						`user_deleted` as userdeleted, `user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `journal_id` as id, `journal_created` as created, `journal_numcomments` as numcomments, `journal_title` as title, `journal_url` as url, `journal_userid` as userid 
+					FROM 
+						`journals`
+					CROSS JOIN `users` ON
+						`journal_userid` = `user_id`
+					WHERE `journal_id` IN :ids
+					LIMIT 1000', compact( 'ids' ) 
+			);
+			return $res;
+
+		}
         public static function Create( $userid, $title, $text ) {
             clude( 'models/url.php' );
             clude( 'models/bulk.php' );

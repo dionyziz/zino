@@ -1,5 +1,35 @@
 <?php
     class Favourite {
+		public static function GetByUserid( $userid ) {
+			clude( 'models/db.php' );
+			clude( 'models/types.php' );
+			clude( 'models/journal.php' );
+			$res = db(
+                'SELECT 
+					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created					                    
+          			WHERE `favourite_userid` = :userid;',
+                compact( 'userid' ) );
+      
+            $favourite = array();
+			$journalids = array();
+			$pollids = array();
+			$imageids = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                if ( $row [ 'typeid' ] == TYPE_JOURNAL ) {
+					$journalids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+				}
+                else if ( $row [ 'typeid' ] == TYPE_POLL ) {
+					$pollids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+				}
+                else if ( $row [ 'typeid' ] == TYPE_IMAGE ) {
+					$imageids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+				}
+            }	
+
+			$favourite[ 'journals' ] = Journal::ItemsPreview( $journalsids );
+
+            return $favourite;
+		}
         public static function Item( $id ) {
             $items = self::ItemMulti( array( $id ) );
             if ( empty( $items ) ) {

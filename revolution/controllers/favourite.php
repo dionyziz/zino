@@ -6,5 +6,18 @@
             clude( 'models/favourite.php' );
             Favourite::Create( $_SESSION[ 'user' ][ 'id' ], $typeid, $itemid );
         }
+		public static function Listing( $username ) {
+            clude( 'models/db.php' );
+            clude( 'models/favourite.php' );
+            clude( 'models/user.php' );
+            
+            $user = User::ItemByName( $username );
+            if ( empty( $user ) ) {                    
+               return;
+            }
+            $favourites = Favourite::GetByUserid( $user[ 'id' ] );
+			var_dump( $favourites );
+            //include "views/favourite/list.php";
+        }
     }
 ?>
