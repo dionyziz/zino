@@ -140,26 +140,25 @@
             return $data;
         }
         public static function UpdateDetails( $id, $title, $albumid = false ) {
-            is_int( $id ) or die( 'photo id is not an integer' );
-            is_int( $albumid ) or $albumid === false or die( 'albumid is not an integer' );
+            $id = ( int )$id;
+            $albumid = ( int )$albumid;
+            
             $sql = "UPDATE
                         `images` 
                     SET 
-                        `image_name` = :title";
-            if ( $albumid != false ) {
-                $sql .= ", `image_albumid` = :albumid";
-            }
-            $sql .= " WHERE 
-                        `image_id` = :imageid 
+                        `image_name` = :title,
+                        `image_albumid` = :albumid
+                    WHERE 
+                        `image_id` = :imageid
                     LIMIT 1;";
             $res = db( $sql, compact( 'id', 'title', 'albumid' ) );
             return mysql_affected_rows( $res ) == 1;
         }
         public static function UpdateFileInformation( $id, $width, $height, $size, $mime ) {
-            is_int( $id ) or die( 'id is not an integer' );
-            is_int( $width ) or die( 'width is not an integer' );
-            is_int( $height ) or die( 'height is not an integer' );
-            is_int( $size ) or die( 'size is not an integer' );
+            $id = ( int )$id;
+            $width = ( int )$width;
+            $height = ( int )$height;
+            $size = ( int )$size;
 
             return 
                 db( 'UPDATE 
