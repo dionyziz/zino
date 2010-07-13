@@ -27,7 +27,7 @@
 				}
             }	
 
-			$favourite[ 'journals' ] = Journal::ItemsPreview( $journalsids );
+			$favourite[ 'journals' ] = Journal::ItemsPreview( $journalids );
 
             return $favourite;
 		}
