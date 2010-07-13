@@ -1,9 +1,12 @@
 var ImageView = {
     Title: {
-        rename: function( id, title ){
-            alert( 'title of image ' + id + ': ' + title );
+        Rename: function( id, title ){
+            $.post( 'index.php?resource=photo&method=update', {
+                id: id,
+                title: title
+            });     
         },
-        init: function(){
+        Init: function(){
             $( '.title span' ).mouseover( function(){
                 $( this ).hide().siblings().show().addClass( 'hover' );
                 if( $( this ).hasClass( 'empty' ) ){
@@ -17,25 +20,31 @@ var ImageView = {
                     $( this ).removeClass( 'hover' ).hide().siblings().show();
                 }
             }).focus( function(){
-                $( this ).removeClass( 'hover' ).addClass( 'focus' );
+                $( this ).removeClass( 'hover' ).addClass( 'focus' )[ 0 ].select();
             }).blur( function(){
                 $( this ).removeClass( 'focus' ).hide().siblings().show();
-                ImageView.Title.rename( $( this ).closest( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ], $( this ).val() );
+                if( $( this ).val() != $( this ).siblings().text() && !( $( this ).val() == '' && $( this ).siblings().hasClass( 'empty' ) ) ){
+                    ImageView.Title.Rename( $( this ).closest( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ], $( this ).val() );
+                    $( this ).siblings().text( $( this ).val() );
+                    if( $( this ).val() == "" ){
+                        $( this ).siblings().addClass( 'empty' ).text( 'Γράψε τίτλο για τη φωτογραφία' );
+                    }
+                    else{
+                        $( this ).siblings().removeClass( 'empty' );
+                    }
+                }
             }).keydown( function( event ){
                 if( event.which == 13 ){
-                    if( $( this ).val() != '' && $( this ).val() != $( this ).siblings().text() ){
-                        $( this ).siblings().text( $( this ).val() );
-                        ImageView.Title.rename( $( this ).closest( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ], $( this ).val() );
-                    }
                     $( this ).blur();
                 }
                 if( event.which == 27 ){
+                    $( this ).val( $( this ).siblings().text() );
                     $( this ).blur();
                 }
             }); 
         }
     },
-    init: function(){
-        ImageView.Title.init();
+    Init: function(){
+        ImageView.Title.Init();
     }
 };
