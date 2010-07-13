@@ -5,6 +5,39 @@
     define( 'FRIENDS_BOTH', FRIENDS_A_HAS_B | FRIENDS_B_HAS_A );
     
     class Friend {
+        public static function Get( $userid ) {
+            $res = db(
+                'SELECT
+                    `relation_friendid` AS id,
+                    `user_name` as name, 
+                    `user_subdomain` as subdomain, 
+                    `user_avatarid` as avatarid,
+                    `profile_dob` as dob,
+                    `profile_placeid` as place,
+                    (
+                        ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                         - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                     ) AS age
+                FROM `relations`
+                LEFT JOIN `users`
+                     ON `user_id` = `relation_friendid`                  
+                LEFT JOIN `userprofiles`
+                    ON `profile_userid` = `relation_friendid`
+                WHERE `relation_userid` = :userid
+                AND `relation_typeid` = 1;',
+                compact( 'userid' ) );
+      
+            $friends = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                if ( $row[ 'age' ] > 1000  ) {
+                    $row[ 'age' ] = 0;
+                }
+                $friends[] = $row;
+            }	
+            return $friends;
+        } 
+
+
         public static function Strength( $a, $b ) {
             $friendships = db(
                 'SELECT
