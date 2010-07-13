@@ -154,7 +154,7 @@
                 $title = $photo[ 'title' ];
             }
 
-            Photo::Update( $id, $title, $albumid );
+            Photo::UpdateDetails( $id, $title, $albumid );
 
             $photo[ 'title' ] = $title;
             $photo[ 'albumid' ] = $albumid;
