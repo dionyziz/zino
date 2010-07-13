@@ -136,7 +136,9 @@
             clude( 'models/photo.php' );
             clude( 'models/comment.php' );
             clude( 'models/favourite.php' );
-
+            
+            $id = ( int )$id;
+            $albumid = ( int )$albumid;
             $photo = Photo::Item( $id );
             if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
                 die( 'not your photo' );
