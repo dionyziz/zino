@@ -14,7 +14,17 @@
 
             include 'views/friend/view.php';
         }
-        public static function Listing() {
+        public static function Listing( $username ) {
+            clude( 'models/db.php' );
+            clude( 'models/friend.php' );
+            clude( 'models/user.php' );
+            
+            $user = User::ItemByName( $username );
+            if ( empty( $user ) ) {                    
+               return;
+            }
+            $friends = Friend::Get( $user[ 'id' ] );
+            include "views/friend/list.php";
         }
         public static function Create( $friendid = 0, $username = '' ) {
             $friendid = ( int )$friendid;
