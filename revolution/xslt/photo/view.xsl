@@ -29,10 +29,19 @@
                 <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
             </img>
         </xsl:if>
-        <span class="title">
-            <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
-            <xsl:value-of select="title[1]" />
-        </span>
+        <div class="title">
+            <span>
+                <xsl:if test="/social/@for = author[1]/name[1]">
+                    <xsl:if test="not(title)">
+                        <xsl:attribute name="class">empty</xsl:attribute>
+                        Γράψε τίτλο για τη φωτογραφία
+                    </xsl:if>
+                </xsl:if>
+                <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
+                <xsl:value-of select="title[1]" />
+            </span>
+            <input type="text" value="" />
+        </div>
         <div class="note">
             <xsl:for-each select="favourites/user">
                 <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
@@ -45,6 +54,9 @@
     <script type="text/javascript">
     Startup( function () {
         ItemView.Init( 2 );
+        <xsl:if test="/social/@for = author[1]/name[1]">
+        ImageView.Init();
+        </xsl:if>
     } );
     </script>
 </xsl:template>
