@@ -6,7 +6,8 @@
 			clude( 'models/journal.php' );
 			$res = db(
                 'SELECT 
-					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created					                    
+					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created			
+					FROM `favoutires`		                    
           			WHERE `favourite_userid` = :userid;',
                 compact( 'userid' ) );
       
