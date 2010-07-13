@@ -1,0 +1,16 @@
+.contentitem > .title{
+    padding-top: 2px;
+    height: 20px
+}
+.contentitem > .title span.empty{
+    font-style: italic;
+}
+.contentitem > .title input{
+    display: none;
+    width: 300px;
+    text-align: center;
+}
+.contentitem > .title input.hover{
+    background: #FFFFD6;
+    cursor: pointer;
+}
