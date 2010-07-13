@@ -55,7 +55,7 @@
         public static function Item( $id ) {
             $res = db(
                 'SELECT
-                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
+                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title, `image_albumid` AS albumid
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
                 FROM
