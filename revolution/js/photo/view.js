@@ -1,5 +1,6 @@
 var ImageView = {
     Title: {
+        Empty: 'Γράψε τίτλο για τη φωτογραφία',
         Rename: function( id, title ){
             $.post( 'index.php?resource=photo&method=update', {
                 id: id,
@@ -7,41 +8,44 @@ var ImageView = {
             });     
         },
         Init: function(){
-            $( '.title span' ).mouseover( function(){
-                $( this ).hide().siblings().show().addClass( 'hover' );
-                if( $( this ).hasClass( 'empty' ) ){
-                    $( this ).siblings().val( '' );
-                }
-                else{
-                    $( this ).siblings().val ( $( this ).text() );
-                }
-            }).siblings().mouseout( function(){
+            ImageView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
+
+            $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
-                    $( this ).removeClass( 'hover' ).hide().siblings().show();
+                    $( this ).addClass( 'hover' );
+                    if( $( this ).hasClass( 'empty' ) ){
+                        $( this ).val( '' );
+                    }
+                }
+            }).mouseout( function(){
+                $( this ).removeClass( 'hover' );
+                if( !$( this ).hasClass( 'focus' ) && $( this ).hasClass( 'empty' ) ){
+                    $( this ).val( ImageView.Title.Empty );
                 }
             }).focus( function(){
-                $( this ).removeClass( 'hover' ).addClass( 'focus' )[ 0 ].select();
+                $( this ).removeClass( 'hover' ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
+                ImageView.Title.Title = $( this ).hasClass( 'empty' ) ? '' : $( this ).val();
             }).blur( function(){
-                $( this ).removeClass( 'focus' ).hide().siblings().show();
-                if( $( this ).val() != $( this ).siblings().text() && !( $( this ).val() == '' && $( this ).siblings().hasClass( 'empty' ) ) ){
-                    ImageView.Title.Rename( $( this ).closest( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ], $( this ).val() );
-                    $( this ).siblings().text( $( this ).val() );
-                    if( $( this ).val() == "" ){
-                        $( this ).siblings().addClass( 'empty' ).text( 'Γράψε τίτλο για τη φωτογραφία' );
-                    }
-                    else{
-                        $( this ).siblings().removeClass( 'empty' );
-                    }
+                $( this ).removeClass( 'focus' );
+                ImageView.Title.Title = $( this ).val();
+                if( ImageView.Title.Title == '' ){
+                    $( this ).addClass( 'empty' ).val( ImageView.Title.Empty );
                 }
+                else{
+                    $( this ).removeClass( 'empty' );
+                }
+                ImageView.Title.Rename( ImageView.Id, ImageView.Title.Title );
+            }).mouseup( function(){
+                return false;
             }).keydown( function( event ){
                 if( event.which == 13 ){
                     $( this ).blur();
                 }
                 if( event.which == 27 ){
-                    $( this ).val( $( this ).siblings().text() );
+                    $( this ).val( ImageView.Title.Title );
                     $( this ).blur();
                 }
-            }); 
+            });
         }
     },
     Init: function(){
