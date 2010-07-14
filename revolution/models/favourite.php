@@ -15,6 +15,7 @@
             $favourite = array();
 			$journalids = array();
 			$imageids = array();
+			$storeitemids = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 if ( $row [ 'typeid' ] == TYPE_JOURNAL ) {
 					$journalids[ $row[ 'id' ] ] = $row[ 'itemid' ];
@@ -22,10 +23,14 @@
                 else if ( $row [ 'typeid' ] == TYPE_IMAGE ) {
 					$imageids[ $row[ 'id' ] ] = $row[ 'itemid' ];
 				}
+				else if ( $row [ 'typeid' ] == TYPE_STOREITEM ) {
+					$storeitemids[ $row[ 'id' ] ] = $row[ 'itemid' ];					
+				}
             }	
 
 			$favourite[ 'journals' ] = Journal::ItemsPreview( $journalids );
 			$favourite[ 'photos' ] = Photo::ListByIds( $imageids );
+			//$favoutire[ 'storeitems' ] = Storeitems::ListByIds( $storeitemids ); <-TODO
 
             return $favourite;
 		}
