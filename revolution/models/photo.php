@@ -85,6 +85,10 @@
 			return $item;
         }
         public static function ListByIds( $ids ) {
+			clude( 'models/db.php' );
+			if ( empty( $ids ) ) {
+				return array();
+			}
             $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title,
