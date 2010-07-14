@@ -2,15 +2,30 @@
     padding-top: 2px;
     height: 20px
 }
-.contentitem > .title span.empty{
-    font-style: italic;
-}
 .contentitem > .title input{
-    display: none;
     width: 300px;
     text-align: center;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+    font-size: 13px;
+    background: transparent;
+    border-width: 0;
+    color: #3F8BBB;
+    padding-top: 3px;
+
 }
 .contentitem > .title input.hover{
     background: #FFFFD6;
     cursor: pointer;
+    border-width: 2px;
+    color: black;
+    padding-top: 1px;
+}
+.contentitem > .title input.focus{
+    background: white;
+    border-width: 2px;
+    color: black;
+    padding-top: 1px;
+}
+.contentitem > .title input.empty{
+    font-style: italic;
 }
