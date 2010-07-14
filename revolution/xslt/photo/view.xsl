@@ -30,17 +30,16 @@
             </img>
         </xsl:if>
         <div class="title">
-            <span>
-                <xsl:if test="/social/@for = author[1]/name[1]">
-                    <xsl:if test="not(title)">
-                        <xsl:attribute name="class">empty</xsl:attribute>
-                        Γράψε τίτλο για τη φωτογραφία
-                    </xsl:if>
+            <input type="text">
+            <xsl:attribute name="value"><xsl:value-of select="title[1]" /></xsl:attribute>
+            <xsl:if test="/social/@for = author[1]/name[1]">
+                <xsl:if test="not(title)">
+                    <xsl:attribute name="value">Γράψε τίτλο για τη φωτογραφία</xsl:attribute>
+                    <xsl:attribute name="class">empty</xsl:attribute>
                 </xsl:if>
-                <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
-                <xsl:value-of select="title[1]" />
-            </span>
-            <input type="text" value="" />
+            </xsl:if>
+            <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
+            </input>
         </div>
         <div class="note">
             <xsl:for-each select="favourites/user">
