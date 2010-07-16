@@ -7,24 +7,29 @@ var ImageView = {
                 title: title
             });     
         },
-        Init: function(){
+        Init: function( owner  ){
             ImageView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
-
+            if( !owner ){
+                $( '.title input' ).focus( function(){
+                    $( this ).blur();
+                });
+                return;
+            }
             $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
                     $( this ).addClass( 'hover' );
-                    if( $( this ).hasClass( 'empty' ) ){
-                        $( this ).val( '' );
-                    }
                 }
             }).mouseout( function(){
                 $( this ).removeClass( 'hover' );
-                if( !$( this ).hasClass( 'focus' ) && $( this ).hasClass( 'empty' ) ){
-                    $( this ).val( ImageView.Title.Empty );
-                }
             }).focus( function(){
+                if( $( this ).hasClass( 'empty' ) ){
+                    ImageView.Title.Title = '';
+                    $( this ).val( '' );
+                }
+                else{
+                    ImageView.Title.Title = $( this ).val();
+                }
                 $( this ).removeClass( 'hover' ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
-                ImageView.Title.Title = $( this ).hasClass( 'empty' ) ? '' : $( this ).val();
             }).blur( function(){
                 $( this ).removeClass( 'focus' );
                 ImageView.Title.Title = $( this ).val();
@@ -48,7 +53,7 @@ var ImageView = {
             });
         }
     },
-    Init: function(){
-        ImageView.Title.Init();
+    Init: function( owner ){
+        ImageView.Title.Init( owner );
     }
 };
