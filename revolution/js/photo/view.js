@@ -8,6 +8,7 @@ var PhotoView = {
             });     
         },
         Init: function(){
+			alert( 5 );
             ImageView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
             $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
