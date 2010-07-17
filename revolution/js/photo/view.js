@@ -1,4 +1,4 @@
-var ImageView = {
+var PhotoView = {
     Title: {
         Empty: 'Γράψε τίτλο για τη φωτογραφία',
         Rename: function( id, title ){
@@ -7,14 +7,8 @@ var ImageView = {
                 title: title
             });     
         },
-        Init: function( owner  ){
+        Init: function(){
             ImageView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
-            if( !owner ){
-                $( '.title input' ).focus( function(){
-                    $( this ).blur();
-                });
-                return;
-            }
             $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
                     $( this ).addClass( 'hover' );
@@ -53,7 +47,8 @@ var ImageView = {
             });
         }
     },
-    Init: function( owner ){
-        ImageView.Title.Init( owner );
+    Init: function(){
+        ImageView.Title.Init();
+		ItemView.Init( 2 );
     }
 };

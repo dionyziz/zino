@@ -34,26 +34,25 @@
             <link type="text/css" href="global.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
-            <script type="text/javascript">
-                var OnLoad = function () {};
-                var Startup = function ( method ) {
-                    var f = OnLoad;
-                    OnLoad = function () {
-                        f();
-                        method();
-                    };
-                };
-            </script>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
-            <script type="text/javascript">
+            <script type="text/javascript" src="global.js"></script>
+			<script type="text/javascript">
                 <xsl:if test="/social/@for">
-                    var User = '<xsl:value-of select="/social/@for" />';
+                    var User = '<xsl:value-of seleoct="/social/@for" />';
                 </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
+				
+				var XMLData = {
+					author: '<xsl:value-of select="/social/entry[1]/author[1]/name[1]" />'
+				}
+				var Routing = {
+					'photo.view': PhotoView,
+					'photo.listing': PhotoListing,
+					'news.listing': News
+				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
-            <script type="text/javascript" src="global.js"></script>
         </head>
         <body>
             <xsl:apply-templates />

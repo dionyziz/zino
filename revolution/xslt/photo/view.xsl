@@ -50,12 +50,4 @@
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
-    <script type="text/javascript">
-    Startup( function () {
-        ItemView.Init( 2 );
-        <xsl:if test="/social/@for = author[1]/name[1]">
-        ImageView.Init();
-        </xsl:if>
-    } );
-    </script>
 </xsl:template>
