@@ -16,9 +16,6 @@
             </div>
         </xsl:if>
         <xsl:apply-templates select="comment" />
-        <script type="text/javascript">
-            Comment.Init();
-        </script>
     </div>
 </xsl:template>
 

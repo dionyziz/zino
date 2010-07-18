@@ -66,7 +66,8 @@
 					'photo.view': PhotoView,
 					'photo.listing': PhotoListing,
 					'news.listing': News,
-                    'poll.view': Poll
+                    'poll.view': Poll,
+                    'journal.view': Journal,
 				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
         </body>

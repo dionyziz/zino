@@ -52,6 +52,7 @@ var Poll = {
         }
     },
     Init: function(){
+        ItemView.Init( Type.Poll );
         $( 'ul.options li input' ).click( function () {
             var poll = $( this ).parents( 'ul' )[ 0 ];
 

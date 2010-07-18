@@ -1,6 +1,6 @@
+type.js
 kamibu.js
 axslt.js
-experiment.js
 comment.js
 photo/view.js
 photo/listing.js
@@ -14,6 +14,7 @@ jquery/jquery.modal.js
 modal.js
 notification.js
 poll.js
+journal.js
 wysiwyg.js
 si.files.js
 user/view.js

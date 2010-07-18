@@ -3,7 +3,7 @@ var ItemView = {
         if ( typeof User == 'undefined' ) {
             return;
         }
-
+        Comment.Init();
         var favourites = $( 'div.love .username' );
         var faved = false;
         for ( i = 0; i < favourites.length; ++i ) {
