@@ -40,6 +40,7 @@
             </xsl:if>
             <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
             </input>
+            <span class="hidden"></span>
         </div>
         <div class="note">
             <xsl:for-each select="favourites/user">
