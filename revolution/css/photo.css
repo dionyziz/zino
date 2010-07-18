@@ -11,7 +11,7 @@
     border-width: 0;
     color: #3F8BBB;
     padding-top: 3px;
-
+    cursor: default;
 }
 .contentitem > .title input.hover{
     background: #FFFFD6;
@@ -28,4 +28,7 @@
 }
 .contentitem > .title input.empty{
     font-style: italic;
+}
+.contentitem > .title span.hidden{
+    display: none;
 }

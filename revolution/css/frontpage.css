@@ -154,7 +154,7 @@ div.photostream img {
     float: right;
     overflow: hidden;
 }
-.contentitem > .details img {
+.contentitem > .details img.avatar {
     border: none;
     display: block;
     margin: auto;
@@ -166,6 +166,13 @@ div.photostream img {
     color: #7399ba;
     padding: 5px;
     display: block;
+}
+.contentitem > .details .delete img{
+    border: none;
+    width: 20px;
+    position: relative;
+    top: 4px;
+    display: inline;
 }
 .contentitem > .title {
     color: #7399ba;
