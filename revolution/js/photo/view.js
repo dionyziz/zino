@@ -7,10 +7,25 @@ var PhotoView = {
                 title: title
             });     
         },
+        CorrectWidth: function(){
+            $( '.title span' ).text( $( '.title input' ).val() );
+            var width = $( '.title span' ).width();
+            if( width < 300 ){
+                return true;
+            }
+            $( '.title input' ).width( width + 30 );
+        },
+        Init: function( owner  ){
+            PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
+            if( !owner ){
+                $( '.title input' ).focus( function(){
+                    $( this ).blur();
+                });
         Init: function(){
             if ( $( '.contentitem .details a.username' ).text() != User ) {
                 return;
             }
+            PhotoView.Title.CorrectWidth();
             PhotoView.Title.Title = $( '.title input' ).val();
             if( PhotoView.Title.Title == '' ){
                 $( '.title input' ).addClass( 'empty' ).val( PhotoView.Title.Empty );
@@ -51,6 +66,7 @@ var PhotoView = {
                     $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
+                ImageView.Title.CorrectWidth();
             });
         }
     },
