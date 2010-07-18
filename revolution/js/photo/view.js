@@ -15,22 +15,16 @@ var PhotoView = {
             }
             $( '.title input' ).width( width + 30 );
         },
-        Init: function( owner  ){
-            PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
-            if( !owner ){
-                $( '.title input' ).focus( function(){
-                    $( this ).blur();
-                });
         Init: function(){
             if ( $( '.contentitem .details a.username' ).text() != User ) {
                 return;
             }
-            PhotoView.Title.CorrectWidth();
             PhotoView.Title.Title = $( '.title input' ).val();
             if( PhotoView.Title.Title == '' ){
                 $( '.title input' ).addClass( 'empty' ).val( PhotoView.Title.Empty );
             }
             PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
+            PhotoView.Title.CorrectWidth();
             $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
                     $( this ).addClass( 'hover' );
@@ -66,7 +60,7 @@ var PhotoView = {
                     $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
-                ImageView.Title.CorrectWidth();
+                PhotoView.Title.CorrectWidth();
             });
         }
     },
