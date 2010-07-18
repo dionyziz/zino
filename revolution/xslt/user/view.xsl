@@ -243,7 +243,4 @@
             </li>
         </xsl:if>
     </ul>
-    <script type="text/javascript">
-        Startup( Profile.Init );
-    </script>
 </xsl:template>

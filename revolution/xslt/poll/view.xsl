@@ -69,9 +69,4 @@
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
-    <script type="text/javascript">
-    Startup( function () {
-        ItemView.Init( 1 );
-    } );
-    </script>
 </xsl:template>

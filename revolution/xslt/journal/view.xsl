@@ -34,9 +34,4 @@
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
-    <script type="text/javascript">
-    Startup( function () {
-        ItemView.Init( 4 );
-    } );
-    </script>
 </xsl:template>

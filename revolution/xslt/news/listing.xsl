@@ -79,7 +79,4 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        News.Init();
-    </script>
 </xsl:template>

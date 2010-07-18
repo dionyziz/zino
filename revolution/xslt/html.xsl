@@ -39,7 +39,7 @@
             <script type="text/javascript" src="global.js"></script>
 			<script type="text/javascript">
                 <xsl:if test="/social/@for">
-                    var User = '<xsl:value-of seleoct="/social/@for" />';
+                    var User = '<xsl:value-of select="/social/@for" />';
                 </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
@@ -47,17 +47,16 @@
 				var XMLData = {
 					author: '<xsl:value-of select="/social/entry[1]/author[1]/name[1]" />'
 				}
-				var Routing = {
-					'photo.view': PhotoView,
-					'photo.listing': PhotoListing,
-					'news.listing': News
-				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
         </head>
         <body>
             <xsl:apply-templates />
             <script type="text/javascript">
-                OnLoad();
+				var Routing = {
+					'photo.view': PhotoView,
+					'photo.listing': PhotoListing,
+					'news.listing': News
+				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
         </body>
     </html>

@@ -8,8 +8,14 @@ var PhotoView = {
             });     
         },
         Init: function(){
-			alert( 5 );
-            ImageView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
+            if ( $( '.contentitem .details a.username' ).text() != User ) {
+                return;
+            }
+            PhotoView.Title.Title = $( '.title input' ).val();
+            if( PhotoView.Title.Title == '' ){
+                $( '.title input' ).addClass( 'empty' ).val( PhotoView.Title.Empty );
+            }
+            PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
             $( '.title input' ).mouseover( function(){
                 if( !$( this ).hasClass( 'focus' ) ){
                     $( this ).addClass( 'hover' );
@@ -18,23 +24,23 @@ var PhotoView = {
                 $( this ).removeClass( 'hover' );
             }).focus( function(){
                 if( $( this ).hasClass( 'empty' ) ){
-                    ImageView.Title.Title = '';
+                    PhotoView.Title.Title = '';
                     $( this ).val( '' );
                 }
                 else{
-                    ImageView.Title.Title = $( this ).val();
+                    PhotoView.Title.Title = $( this ).val();
                 }
                 $( this ).removeClass( 'hover' ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
             }).blur( function(){
                 $( this ).removeClass( 'focus' );
-                ImageView.Title.Title = $( this ).val();
-                if( ImageView.Title.Title == '' ){
-                    $( this ).addClass( 'empty' ).val( ImageView.Title.Empty );
+                PhotoView.Title.Title = $( this ).val();
+                if( PhotoView.Title.Title == '' ){
+                    $( this ).addClass( 'empty' ).val( PhotoView.Title.Empty );
                 }
                 else{
                     $( this ).removeClass( 'empty' );
                 }
-                ImageView.Title.Rename( ImageView.Id, ImageView.Title.Title );
+                PhotoView.Title.Rename( PhotoView.Id, PhotoView.Title.Title );
             }).mouseup( function(){
                 return false;
             }).keydown( function( event ){
@@ -42,14 +48,14 @@ var PhotoView = {
                     $( this ).blur();
                 }
                 if( event.which == 27 ){
-                    $( this ).val( ImageView.Title.Title );
+                    $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
             });
         }
     },
     Init: function(){
-        ImageView.Title.Init();
+        PhotoView.Title.Init();
 		ItemView.Init( 2 );
     }
 };
