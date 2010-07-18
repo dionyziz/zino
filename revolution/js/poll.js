@@ -50,5 +50,19 @@ var Poll = {
             $( '.newpoll ul.options' ).append( newoption );
             Kamibu.ClickableTextbox( newoption.find( 'input' ), 'Eπιπλέον επιλογή;', 'black', 'grey' );
         }
-    }
+    },
+    Init: function(){
+        $( 'ul.options li input' ).click( function () {
+            var poll = $( this ).parents( 'ul' )[ 0 ];
+
+            var vote = $.post( 'pollvote/create', {
+                pollid: $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ],
+                optionid: this.value
+            } );
+            
+            axslt( vote, '//options', function () {
+                $( poll ).empty().append( $( this ) );
+            } );
+        } );
+    } 
 }

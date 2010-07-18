@@ -52,10 +52,21 @@
         <body>
             <xsl:apply-templates />
             <script type="text/javascript">
+                $.ajaxSetup( {
+                    dataType: 'xml'
+                } );
+                _aXSLT.defaultStylesheet = 'global.xsl';
+
+                $( function() { $( '.time' ).each( function () {
+                    this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
+                    $( this ).addClass( 'processedtime' );
+                } ); } );
+
 				var Routing = {
 					'photo.view': PhotoView,
 					'photo.listing': PhotoListing,
-					'news.listing': News
+					'news.listing': News,
+                    'poll.view': Poll
 				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
         </body>
