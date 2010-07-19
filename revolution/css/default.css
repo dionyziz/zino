@@ -37,6 +37,9 @@ a {
     font-weight: normal;
     text-decoration: underline;
 }
+a:active {
+    outline: none;
+}
 input.clickable.blured {
     color: grey;
 }

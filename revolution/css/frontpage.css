@@ -332,9 +332,6 @@ div.document {
     color: white;
     padding: 20px 200px;
 }
-.contentitem img.maincontent {
-    margin-left: 120px;
-}
 div.useralbums {
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-bottom-left-radius: 5px;
