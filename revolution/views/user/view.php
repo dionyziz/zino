@@ -54,9 +54,6 @@
            endif;
         ?>
         </label>
-        <?php
-            var_dump( $user[ 'mood' ] );
-        ?>
         <media url="http://static.zino.gr/phoenix/moods/<?= $user[ 'mood' ][ 'url' ] ?>" />
     </mood>
     <?

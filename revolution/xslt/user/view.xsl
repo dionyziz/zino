@@ -132,6 +132,15 @@
                 </xsl:if>
                 <xsl:apply-templates select="details" />
             </div>
+            <div class="rightbar">
+                <xsl:if test="mood">
+                    <img>
+                        <xsl:attribute name="src"><xsl:value-of select="mood/media[1]/@url" /></xsl:attribute>
+                        <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                        <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                    </img>
+                </xsl:if>
+            </div>
         </div>
     </div>
     <xsl:apply-templates select="discussion" />
