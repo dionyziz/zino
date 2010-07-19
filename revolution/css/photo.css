@@ -18,6 +18,8 @@
     background: #222;
     opacity: 0.7;
     -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
     cursor: pointer;
 }
 .contentitem .image .icon_x:hover .bg{
