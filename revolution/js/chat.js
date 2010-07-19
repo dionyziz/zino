@@ -15,6 +15,18 @@ var Chat = {
      Loading: false,
      UserId: 0,
      Authtoken: '',
+     NameClick: function () {
+         $( '#onlineusers li' ).removeClass( 'selected' );
+         $( this ).addClass( 'selected' );
+         Chat.Unflash( this.id.substr( 1 ) );
+         var userid = this.id.split( 'u' )[ 1 ];
+         if ( userid == 0 ) {
+             Chat.Show( 0 );
+         }
+         else {
+             Chat.ShowPrivate( userid );
+         }
+     },
      GetOnline: function () {
         $( '#onlineusers' ).css( { opacity: 0.5 } );
         $.get( 'users/online', {}, function ( res ) {
@@ -31,18 +43,7 @@ var Chat = {
                 html += '<li id="u' + $( user ).attr( 'id' ) + '">' + name + '</li>';
             }
             online.innerHTML = html;
-            $( '#onlineusers li' ).click( function () {
-                $( '#onlineusers li' ).removeClass( 'selected' );
-                $( this ).addClass( 'selected' );
-                Chat.Unflash( this.id.substr( 1 ) );
-                var userid = this.id.split( 'u' )[ 1 ];
-                if ( userid == 0 ) {
-                    Chat.Show( 0 );
-                 }
-                else {
-                    Chat.ShowPrivate( userid );
-                }
-            } );
+            $( '#onlineusers li' ).click( Chat.NameClick );
         }, 'xml' );
      },
      HistoryFromXML: function ( res ) {
@@ -56,7 +57,7 @@ var Chat = {
         var html = '';
         var shoutid;
         
-        for ( i = 0; i < messages.length; ++i ) {
+        for ( var i = 0; i < messages.length; ++i ) {
             text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
             author = $( messages[ i ] ).find( 'author name' ).text();
             shoutid = $( messages[ i ] ).attr( 'id' );
@@ -81,6 +82,10 @@ var Chat = {
          Chat.GetMessages( channelid, callback );
      },
      Init: function () {
+         if ( typeof User == 'undefined' ) {
+             window.location.href = 'login';
+             return;
+         }
          $( '.col2' )[ 0 ].innerHTML +=
              '<div style="" id="chat">'
                  + '<div class="userlist">'
@@ -154,6 +159,8 @@ var Chat = {
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
          if ( $( '#chatmessages_' + channelid ).length == 0 ) {
+             // if there is no chat history placeholder for the particular channel
+             // then create one
              $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="display:none" class="chatchannel" id="chatmessages_' + channelid + '"></ol>';
          }
          var history = $( '#chatmessages_' + channelid )[ 0 ];
@@ -162,8 +169,9 @@ var Chat = {
          var html = '';
          var li;
          var shoutid;
+         var author;
 
-         for ( i = 0; i < messages.length; ++i ) {
+         for ( var i = 0; i < messages.length; ++i ) {
              shoutid = $( messages[ i ] ).attr( 'id' );
              author = $( messages[ i ] ).find( 'author name' ).text();
              // alert( shoutid );
@@ -199,10 +207,10 @@ var Chat = {
                      var users = $( res ).find( 'user' );
                      for ( var i = 0; i < users.length; ++i ) {
                          userid = $( users[ i ] ).attr( 'id' );
-                         username = $( uesrs[ i ] ).find( 'name' ).text();
+                         username = $( users[ i ] ).find( 'name' ).text();
                          if ( userid != Chat.UserId ) {
                              Chat.ChannelByUserId[ userid ] = channelid;
-                             if ( !$( '#u' + userid ) ) {
+                             if ( !$( '#u' + userid ).length ) {
                                  Chat.ComesOnline( userid, username );
                              }
                              Chat.Flash( userid, text );
@@ -214,13 +222,13 @@ var Chat = {
          }
      },
      ComesOnline: function ( userid, username ) {
-         alert( username + ' came online' );
-
          var lis = $( '#onlineusers li' );
          var li;
          var compare;
 
-         for ( var i = 0; i < lis.length; ++i ) {
+         username = username.toLowerCase();
+
+         for ( var i = 1; i < lis.length; ++i ) {
              li = lis[ i ];
              if ( $( li ).hasClass( 'flash' ) ) {
                  // username of person to compare with 
@@ -229,13 +237,14 @@ var Chat = {
              else {
                  compare = $( li ).text();
              }
-             if ( username < compare ) {
+             if ( username < compare.toLowerCase() ) {
                  break;
              }
          }
          var newuser = document.createElement( 'li' );
          newuser.appendChild( document.createTextNode( username ) );
          newuser.id = 'u' + userid;
+         newuser.onclick = Chat.NameClick;
 
          if ( i == lis.length ) {
              $( '#onlineusers' ).append( newuser );

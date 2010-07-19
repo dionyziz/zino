@@ -172,7 +172,16 @@
 
             include 'views/photo/view.php';
         }
-        public static function Delete() {
+        public static function Delete( $id ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a photo' );
+            clude( 'models/db.php' );
+            clude( 'models/photo.php' );
+            
+            $photo = Photo::Item( $id );
+            if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your photo' );
+            }
+            Photo::Delete( $id );
         }
     }
 ?>

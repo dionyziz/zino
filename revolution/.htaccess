@@ -5,6 +5,7 @@ RewriteRule ^photos$ index.php?resource=photo&method=listing [L,QSA]
 RewriteRule ^photos/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=photo&method=listing&username=$1 [L,QSA]
 RewriteRule ^photos/([0-9]+)$ index.php?resource=photo&method=view&id=$1 [L,QSA]
 RewriteRule ^photo/create$ index.php?resource=photo&method=create [L,QSA]
+RewriteRule ^photo/delete$ index.php?resource=photo&method=delete [L,QSA]
 RewriteRule ^photos/byalbum/([0-9]+)$ index.php?resource=photo&method=listing&albumid=$1 [L,QSA]
 
 # polls

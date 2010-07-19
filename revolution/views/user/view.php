@@ -45,6 +45,20 @@
         <? endif;
            endforeach; ?>
     </contact>
+    <mood>
+        <label>
+        <? if ( $user[ 'gender' ] == 'f' ):
+               echo $user[ 'mood' ][ 'labelfemale' ];
+           else:
+               echo $user[ 'mood' ][ 'labelmale' ];
+           endif;
+        ?>
+        </label>
+        <?php
+            var_dump( $user[ 'mood' ] );
+        ?>
+        <media url="http://static.zino.gr/phoenix/moods/<?= $user[ 'mood' ][ 'url' ] ?>" />
+    </mood>
     <?
     if ( isset( $comments ) ):
         include 'views/comment/listing.php';
