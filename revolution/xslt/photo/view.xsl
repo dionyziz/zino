@@ -23,24 +23,36 @@
                     </ul>
                 </div>
             </xsl:if>
-            <img class="maincontent">
-                <xsl:attribute name="src"><xsl:value-of select="media[1]/@url" /></xsl:attribute>
-                <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>
-                <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
-            </img>
+            <div class="image">
+                <xsl:attribute name="style">width: <xsl:value-of select="media[1]/@width" />px;</xsl:attribute>
+                <img class="maincontent">
+                    <xsl:attribute name="src"><xsl:value-of select="media[1]/@url" /></xsl:attribute>
+                    <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>
+                    <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
+                </img>
+                <div class="icon_x">
+                    <div class="bg"></div>
+                    <span>&#215;</span>
+                </div>     
+            </div>
         </xsl:if>
         <div class="title">
-            <input type="text">
-            <xsl:attribute name="value"><xsl:value-of select="title[1]" /></xsl:attribute>
             <xsl:if test="/social/@for = author[1]/name[1]">
-                <xsl:if test="not(title)">
-                    <xsl:attribute name="value">Γράψε τίτλο για τη φωτογραφία</xsl:attribute>
-                    <xsl:attribute name="class">empty</xsl:attribute>
-                </xsl:if>
+                <input type="text">
+                    <xsl:attribute name="value"><xsl:value-of select="title[1]" /></xsl:attribute>
+                    <xsl:if test="not(title)">
+                        <xsl:attribute name="value">Γράψε τίτλο για τη φωτογραφία</xsl:attribute>
+                        <xsl:attribute name="class">empty</xsl:attribute>
+                    </xsl:if>
+                </input>
             </xsl:if>
             <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
-            </input>
-            <span class="hidden"></span>
+            <span>
+                <xsl:if test="/social/@for = author[1]/name[1] or not(title[1])">
+                    <xsl:attribute name="class">hidden</xsl:attribute>
+                </xsl:if>
+                <xsl:value-of select="title[1]" />
+            </span>
         </div>
         <div class="note">
             <xsl:for-each select="favourites/user">
