@@ -64,8 +64,26 @@ var PhotoView = {
             });
         }
     },
+    Remove: { 
+        Remove: function( id ){
+            $.post( 'index.php?resource=photo&method=delete', {
+                id: id
+            }, function(){
+                window.location = 'photos/' + User;
+            });     
+        },
+        Init: function(){
+            if( $( '.contentitem .details a.username' ).text() != User ){
+                return;
+            }
+            $( '.image .icon_x' ).click( function(){
+                PhotoView.Remove.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
+            });
+        }
+    },
     Init: function(){
         PhotoView.Title.Init();
+        PhotoView.Remove.Init();
 		ItemView.Init( 2 );
     }
 };
