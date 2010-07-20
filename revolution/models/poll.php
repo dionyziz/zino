@@ -138,6 +138,9 @@
 
             return $poll;
         }
+        public static function Delete( $id ) {
+            return db( 'DELETE FROM `polls` WHERE `poll_id` = :id', array( 'id' => $id ) );
+        }
 	}
 	
 	class PollVote {		

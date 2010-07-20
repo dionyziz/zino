@@ -62,7 +62,18 @@
         }
         public static function Update() {
         }
-        public static function Delete() {
+        public static function Delete( $id ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a poll' );
+
+            clude( 'models/db.php' );
+            clude( 'models/poll.php' );
+            clude( 'models/user.php' );
+
+            $photo = Photo::Item( $id );
+            if ( $photo[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your photo' );
+            }
+            Poll::Delete( $id );
         }
     }
 ?>
