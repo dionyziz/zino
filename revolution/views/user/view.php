@@ -23,6 +23,9 @@
     <? if ( $friendofuser ): ?>
         <knownBy><?= $_SESSION[ 'user' ][ 'name' ]; ?></knownBy>
     <? endif; ?>
+    <? if ( isset( $song ) ): ?>
+        <song id="<?= $song[ 'songid' ] ?>" />
+    <? endif; ?>
     <details>
         <? $stats = array(
             'height', 'weight', 'smoker', 'drinker',
@@ -45,6 +48,9 @@
         <? endif;
            endforeach; ?>
     </contact>
+    <?
+    if ( isset( $user[ 'mood' ] ) ):
+    ?>
     <mood>
         <label>
         <? if ( $user[ 'gender' ] == 'f' ):
@@ -57,6 +63,7 @@
         <media url="http://static.zino.gr/phoenix/moods/<?= $user[ 'mood' ][ 'url' ] ?>" />
     </mood>
     <?
+    endif;
     if ( isset( $comments ) ):
         include 'views/comment/listing.php';
     endif;

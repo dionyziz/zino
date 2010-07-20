@@ -269,9 +269,13 @@
                 return false;
             }
             static $mooddetails = array( 'labelmale', 'labelfemale', 'url' );
-            $row[ 'mood' ] = array();
+            if ( $row[ 'mood_url' ] != '' ) {
+                $row[ 'mood' ] = array();
+                foreach ( $mooddetails as $detail ) {
+                    $row[ 'mood' ][ $detail ] = $row[ 'mood_' . $detail ];
+                }
+            }
             foreach ( $mooddetails as $detail ) {
-                $row[ 'mood' ][ $detail ] = $row[ 'mood_' . $detail ];
                 unset( $row[ 'mood_' . $detail ] );
             }
             static $profiledetails = array(

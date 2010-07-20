@@ -41,11 +41,17 @@
                 clude( 'models/comment.php' );
                 clude( 'models/activity.php' );
                 clude( 'models/friend.php' );
+                clude( 'models/music/song.php' );
+
                 $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $user[ 'id' ] );
                 $activity = Activity::ListByUser( $user[ 'id' ] );
+                $song = Song::Item( $user[ 'id' ] );
+                if ( $song === false ) {
+                    unset( $song );
+                }
                 $friendofuser = false;
                 if ( $_SESSION[ 'user' ] ) {
                     $friendofuser = ( bool ) ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_A_HAS_B );

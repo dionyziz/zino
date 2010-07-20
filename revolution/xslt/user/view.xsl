@@ -140,6 +140,7 @@
                         <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
                     </img>
                 </xsl:if>
+                <xsl:apply-templates select="song" />
             </div>
         </div>
     </div>

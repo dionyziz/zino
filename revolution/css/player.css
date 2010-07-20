@@ -1,0 +1,154 @@
+.mplayer .player {
+	height: 40px;
+}
+.mplayer .player object, .mplayer .player embed{
+	width: 280px;
+	height: 40px;
+	margin-left: 2px;
+	float: left;
+}
+.mplayer .toolbox{
+	display: none;
+	float: left;
+	margin: 4px 4px 0 20px;
+}
+.mplayer .toolbox span{
+	cursor: pointer;
+	display: block;
+}
+.mplayer .toolbox .search{
+	background: transparent url(http://static.zino.gr/phoenix/edit.png) no-repeat 0 0;
+	padding: 0 1px 0 11px;
+}
+.mplayer .addsong{
+	display: none;
+}
+
+#mplayersearchmodal{
+    background: #6c8abb;
+    padding: 0;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-msie-border-radius: 10px;
+	border-radius: 10px;
+}
+#mplayersearchmodal .toolbar .exit:hover{
+	background-position: 0 -60px;
+}
+#mplayersearchmodal .toolbar .exit:active{
+	background-position: 0 -30px;
+}
+
+#mplayersearchmodal .input{
+	position: relative;
+}
+#mplayersearchmodal .input input[type=text]{
+	width: 708px;
+	padding: 5px 50px 5px 5px;
+	height: 36px;
+	font-size: 28px;
+	font-family: Helvetica;
+	color: #666;
+	border: 2px solid #ccc;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-msie-border-radius: 4px;
+	border-radius: 4px;
+}
+#mplayersearchmodal .input div.search{
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	cursor: pointer;
+	background: white url( http://static.zino.gr/phoenix/search-button.png ) no-repeat 0 0;
+}
+#mplayersearchmodal .input div.search:hover{
+	background-position: 0 -46px;
+}
+#mplayersearchmodal .input div.search.active{
+	background-position: 0 -92px;
+}
+#mplayersearchmodal .search .input div.search.loading{
+	background-image: url( http://static.zino.gr/phoenix/ajax-loader.gif );
+	background-position: 14px 14px;
+	cursor: default;
+}
+
+#mplayersearchmodal .list{
+	display: none;
+	background: white;
+	margin: 6px;
+	position: relative;
+	overflow-X: hidden;
+	overflow-Y: scroll;
+	height: 345px;
+}
+#mplayersearchmodal table{
+	padding: 3px 0 3px 5px;
+	min-height: 339px;
+	display: block;
+	background: white;
+	border-collapse: collapse;
+	color: #32587d;
+}
+#mplayersearchmodal table tr{
+	padding: 3px;
+	cursor: pointer;
+}
+#mplayersearchmodal table thead tr{
+	font-weight: bold;
+	text-align: left;
+	cursor: default;
+}
+#mplayersearchmodal table thead tr.hidden{
+	visibility: collapse;
+}
+#mplayersearchmodal table thead tr th{
+	border-bottom: 2px solid #ccc;
+}
+#mplayersearchmodal table thead tr.hidden th{
+	border: none;
+}
+#mplayersearchmodal table tr[id^="song_"]:hover{
+	background: #ddeeff;
+	font-weight: 3px;
+}
+#mplayersearchmodal table tr td{
+	border-width: 0;
+	border-bottom: 1px dashed #ccc;
+}
+#mplayersearchmodal table td > div{
+	position: relative;
+}
+#mplayersearchmodal table .name {
+	width: 350px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#mplayersearchmodal table .artist{
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#mplayersearchmodal table .album{
+	width: 290px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#mplayersearchmodal table td div.fade{
+	position: absolute;
+	right: 0;
+	top:0;
+	height: 16px;
+	width: 14px;
+	background: transparent url( http://static.zino.gr/phoenix/pm-fade.png ) repeat-y 0 0;
+}
+#mplayersearchmodal table tr:hover div.fade{
+	display: none;
+}
