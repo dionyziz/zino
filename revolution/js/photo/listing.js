@@ -7,6 +7,7 @@ var PhotoListing = {
     Loading: false,
     EndOfPhotos: false,
     Init: function(){
+        Chat.Init();
         SI.Files.stylizeAll();
         this.PhotoList = $( '.photostream ul' );
         this.PlaceholderHTML = '';

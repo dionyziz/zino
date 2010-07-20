@@ -8,7 +8,7 @@ var ExcaliburSettings = {
 
 var Chat = {
      Visible: false,
-     Inited: false,
+     Loaded: false,
      ChannelsLoaded: {},
      ChannelByUserId: {},
      CurrentChannel: 0,
@@ -81,7 +81,7 @@ var Chat = {
      LoadHistory: function ( channelid, callback ) {
          Chat.GetMessages( channelid, callback );
      },
-     Init: function () {
+     Load: function () {
          if ( typeof User == 'undefined' ) {
              window.location.href = 'login';
              return;
@@ -125,8 +125,14 @@ var Chat = {
              Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
              Chat.Join( '0' );
              Chat.Join( Chat.UserId + ':' + Chat.Authtoken ); // TODO: Join( UserId + ':' + Authtoken )
-             Chat.Inited = true;
+             Chat.Loaded = true;
          } );
+     },
+     Init: function () {
+        $( '#chatbutton' ).click( function () {
+             Chat.Toggle();
+             return false;
+        } );
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length == 0 ) {
@@ -335,8 +341,8 @@ var Chat = {
      },
      // hide/show the chat application
      Toggle: function () {
-         if ( !Chat.Inited ) {
-             Chat.Init();
+         if ( !Chat.Loaded ) {
+             Chat.Load();
          }
          if ( Chat.Visible ) {
              $( '.col2 > div' ).show(); 
