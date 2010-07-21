@@ -4,6 +4,15 @@
         return strcmp( $character, $begin ) >= 0 && strcmp( $character, $end ) <= 0;
     }
 
+    // returns a url that is unique for this userid, according to function
+    function URL_FormatUnique( $string, $userid, $function ) {
+        $formatted = URL_Format( $string );
+        while ( is_array( $function( $formatted, $userid ) ) ) {
+            $formatted += '_';
+        } 
+        return $formatted;
+    }
+
     function URL_Format( $string ) {
         static $greekToLatin = array(
             'α' => 'a',

@@ -54,7 +54,18 @@
         }
         public static function Update() {
         }
-        public static function Delete() {
+        public static function Delete( $id ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a poll' );
+
+            clude( 'models/db.php' );
+            clude( 'models/journal.php' );
+            clude( 'models/user.php' );
+
+            $journal = Journal::Item( $id ); 
+            if ( $journal[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your journal' );
+            }
+            Journal::Delete( $id );
         }
     }
 ?>

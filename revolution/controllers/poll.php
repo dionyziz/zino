@@ -69,9 +69,9 @@
             clude( 'models/poll.php' );
             clude( 'models/user.php' );
 
-            $photo = Photo::Item( $id );
-            if ( $photo[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your photo' );
+            $poll = Poll::Item( $id );
+            if ( $poll[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your poll' );
             }
             Poll::Delete( $id );
         }

@@ -1,5 +1,19 @@
 <?php
     class Photo {
+        public static function FindByUrlAndUserid( $url, $userid ) {
+            $res = db( 
+                'SELECT 
+                    * 
+                FROM 
+                    `polls` 
+                WHERE 
+                    `poll_url` = :url AND
+                    `poll_userid` = :userid
+                LIMIT 1;', compact( 'url', 'userid' )
+            );
+
+            return mysql_fetch_array( $res );
+        }
         public static function ListRecent( $offset = 0, $limit = 100 ) {
             return db_array(
                 'SELECT
