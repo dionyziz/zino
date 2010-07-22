@@ -5,10 +5,12 @@
 }
 .contentitem .image:hover .icon {
     position: absolute;
+    font-weight: bold;
+    font-size: 150%;
     top: 7px;
     right: 7px;
     display: block;
-    padding: 7px 5px;
+    padding: 6px 10px;
     text-align: center;
     border-radius: 5px;
     -webkit-border-radius: 5px;
