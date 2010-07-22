@@ -30,9 +30,11 @@
                     <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>
                     <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
                 </img>
-                <div class="icon">
-                    &#215;
-                </div>     
+                <xsl:if test="/social/@for = author[1]/name[1]">
+                    <div class="icon">
+                        &#215;
+                    </div>     
+                </xsl:if>
             </div>
         </xsl:if>
         <div class="title">
