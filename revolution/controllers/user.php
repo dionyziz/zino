@@ -67,7 +67,16 @@
         }
         public static function Create() {
         }
-        public static function Update() {
+        public static function Update(
+            $gender = false, $email = false, $placeid = 0, $dob = '', $slogan = false, $schoolid, $sexualorientation, $relationship, $religion, $politics, $aboutme, $moodid, $eyecolor, $haircolor, $height, $weight, $smoker, $drinker, $favquote, $mobile, $skype, $msn, $gtalk, $yim, $homepage, $firstname, $lastname, $address, $addressnum, $postcode, $area, $numcomments, $education, $educationyear, $songid, $songwidgetid ) {
+            switch ( $gender ) {
+                case 'm':
+                case 'f':
+                case '-':
+                    break;
+                default:
+                    $gender = '';
+            }
         }
         public static function Delete() {
         }
