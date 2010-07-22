@@ -30,9 +30,8 @@
                     <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>
                     <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
                 </img>
-                <div class="icon_x">
-                    <div class="bg"></div>
-                    <span>&#215;</span>
+                <div class="icon">
+                    &#215;
                 </div>     
             </div>
         </xsl:if>

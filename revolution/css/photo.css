@@ -3,36 +3,22 @@
     margin: auto;
     padding-right: 6px;
 }
-.contentitem .image .icon_x{
+.contentitem .image:hover .icon {
     position: absolute;
     top: 7px;
     right: 7px;
-    display: none;
-}
-.contentitem .image:hover .icon_x{
     display: block;
-}
-.contentitem .image .icon_x .bg{
-    width: 30px;
-    height: 30px;
-    background: #222;
-    opacity: 0.7;
-    -moz-border-radius: 5px;
+    padding: 7px 5px;
+    text-align: center;
     border-radius: 5px;
     -webkit-border-radius: 5px;
-    cursor: pointer;
+    -moz-border-radius: 5px;
+    background-color: #222;
+    color: white;
+    opacity: 0.7;
 }
-.contentitem .image .icon_x:hover .bg{
-    opacity: 0.9;
-}
-.contentitem .image .icon_x span{
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    position: absolute;
-    right: 7px;
-    top: 2px;
-    cursor: pointer;
+.contentitem .image .icon:hover {
+    opacity: 1;
 }
 
 .contentitem > .title{
