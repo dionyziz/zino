@@ -160,7 +160,16 @@ var Notifications = {
         $.get( 'friendship/' + author, {}, function ( res ) {
             Notifications.RequestDone();
             var users = $( res ).find( 'user knows user name' );
+            var save, ignore, skip;
 
+            var unbind = function () {
+                $( document ).unbind( 'keyup', 'shift+esc', skip )
+                             .unbind( 'keyup', 'enter', save )
+                             .unbind( 'keyup', 'esc', ignore );
+            };
+            $( document ).bind( 'keyup', 'shift+esc', skip )
+                         .bind( 'keyup', 'enter', save )
+                         .bind( 'keyup', 'esc', ignore );
             function addFriend() {
                 Notifications.RequestStart();
                 $.post( 'friendship/create', {
@@ -181,35 +190,36 @@ var Notifications = {
                     );
                     $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
 
-                    $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
-                        if ( event.shiftKey ) {
-                            if ( event.keyCode == 27 ) { // ESC
-                            }
-                            return;
+                    $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
+                    save = function () {
+                        var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+                        if ( commenttext === '' ) {
+                            $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                            break;
                         }
-                        switch ( event.keyCode ) {
-                            case 13: // Enter
-                                var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-                                if ( commenttext === '' ) {
-                                    $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                                    break;
-                                }
-                                Notifications.RequestStart();
-                                $.post( 'comment/create', {
-                                    text: commenttext,
-                                    typeid: user = 3,
-                                    'itemid': userid,
-                                    'parentid': 0
-                                }, Notifications.RequestDone );
-                                // fallthru
-                            case 27: // ESC
-                                ignoreFriend();
-                                break;
-                        }
-                    } );
+                        Notifications.RequestStart();
+                        $.post( 'comment/create', {
+                            text: commenttext,
+                            typeid: user = 3,
+                            'itemid': userid,
+                            'parentid': 0
+                        }, Notifications.RequestDone );
+                        ignoreFriend();
+                        unbind();
+                    };
+                    ignore = function () {
+                        ignoreFriend();
+                        unbind();
+                    };
+                    skip = function () {
+                        // TODO
+                        unbind();
+                        return false;
+                    }
                     return;
                 }
             }
+            // else...
             // you have not friended them
             $( '#instantbox div.details' ).append(
                 '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>ή <a href="" class="ignore">αγνόησέ ' + artacc + '</a>'
@@ -218,22 +228,24 @@ var Notifications = {
             $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
             $( '#instantbox a.friend' ).click( function () {
                 addFriend();
+                unbind();
                 return false;
             } );
             $( '#instantbox a.ignore' ).click( function () {
                 ignoreFriend();
+                unbind();
                 return false;
             } );
-            $( '#instantbox textarea' ).focus().keyup( function ( event ) {
-                switch ( event.keyCode ) {
-                    case 13:
-                        addFriend();
-                        break;
-                    case 27:
-                        ignoreFriend(); 
-                        break;
-                }
-            } );
+            $( '#instantbox textarea' ).focus();
+            save = function () {
+                addFriend();
+                unbind();
+            };
+            ignore = function () {
+                ignoreFriend();
+                unbind();
+            };
+            skip = unbind;
         } );
     },
     CreateFavouriteGUI: function ( entry ) {
@@ -278,36 +290,43 @@ var Notifications = {
 
         $( 'body' ).prepend( html );
 
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
-            if ( event.shiftKey ) {
-                if ( event.keyCode == 27 ) { // ESC
-                }
-                return;
+        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
+        function ignore() {
+            // TODO
+            unbind();
+            return false;
+        }
+        function save() {
+            var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            if ( commenttext === '' ) {
+                $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                break;
             }
-            switch ( event.keyCode ) {
-                case 13: // Enter
-                    var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-                    if ( commenttext === '' ) {
-                        $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                        break;
-                    }
-                    Notifications.RequestStart();
-                    $.post( 'comment/create', {
-                        text: commenttext,
-                        typeid: user = 3,
-                        'itemid': userid,
-                        'parentid': 0
-                    }, Notifications.RequestDone );
-                    // fallthru
-                case 27: // ESC
-                    Notifications.Delete( {
-                        favouritetype: type,
-                        favouriteitemid: id,
-                        favouriteuserid: userid
-                    } );
-                    break;
-            }
-        } );
+            Notifications.RequestStart();
+            $.post( 'comment/create', {
+                text: commenttext,
+                typeid: user = 3,
+                'itemid': userid,
+                'parentid': 0
+            }, Notifications.RequestDone );
+            ignore();
+        }
+        function ignore() {
+            Notifications.Delete( {
+                favouritetype: type,
+                favouriteitemid: id,
+                favouriteuserid: userid
+            } );
+            unbind();
+        }
+        function unbind() {
+            $( document ).unbind( 'keyup', 'shift+esc', skip )
+                         .unbind( 'keyup', 'esc', ignore )
+                         .unbind( 'keyup', 'enter', save );
+        }
+        $( document ).bind( 'keyup', 'shift+esc', skip )
+                     .bind( 'keyup', 'esc', ignore )
+                     .bind( 'keyup', 'enter', save );
         Notifications.RequestStart();
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
@@ -390,41 +409,47 @@ var Notifications = {
         $( '#instantbox .content' ).click( function () {
             Notifications.Navigate( type + 's/' + id );
         } );
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus().keyup( function ( event ) {
-            if ( event.shiftKey ) {
-                // TODO
-                return;
+        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
+        function unbind() {
+            $( document ).unbind( 'keyup', 'shift+esc', skip )
+                         .unbind( 'keyup', 'esc', ignore )
+                         .unbind( 'keyup', 'enter', save );
+        }
+        function skip() {
+            unbind();
+            return false;
+        }
+        function save() {
+            var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            if ( commenttext === '' ) {
+                $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
+                break;
             }
-            switch ( event.keyCode ) {
-                case 13: // Enter
-                    var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-                    if ( commenttext === '' ) {
-                        $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                        break;
-                    }
-                    Notifications.RequestStart();
-                    $.post( 'comment/create', {
-                        text: commenttext,
-                        typeid: {
-                            'poll': 1,
-                            'photo': 2,
-                            'user': 3,
-                            'journal': 4,
-                            'school': 7
-                        }[ type ],
-                        'itemid': id,
-                        'parentid': commentid
-                    }, Notifications.RequestDone );
-                    Notifications.DoneWithCurrent();
-                    break;
-                case 27: // ESC
-                    Notifications.Delete( {
-                        'itemid': commentid,
-                        'eventtypeid': EVENT_COMMENT_CREATED = 4,
-                    } );
-                    break;
-            }
-        } );
+            Notifications.RequestStart();
+            $.post( 'comment/create', {
+                text: commenttext,
+                typeid: {
+                    'poll': 1,
+                    'photo': 2,
+                    'user': 3,
+                    'journal': 4,
+                    'school': 7
+                }[ type ],
+                'itemid': id,
+                'parentid': commentid
+            }, Notifications.RequestDone );
+            Notifications.DoneWithCurrent();
+        }
+        function ignore() {
+            Notifications.Delete( {
+                'itemid': commentid,
+                'eventtypeid': EVENT_COMMENT_CREATED = 4,
+            } );
+        }
+            
+        $( document ).bind( 'keyup', 'shift+esc', skip )
+                     .bind( 'keyup', 'esc', ignore )
+                     .bind( 'keyup', 'enter', save );
         if ( isreply ) {
             Notifications.RequestStart();
             $.get( 'comments/' + parentid, {}, function ( res ) {
