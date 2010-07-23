@@ -1,19 +1,5 @@
 <?php
     class Photo {
-        public static function FindByUrlAndUserid( $url, $userid ) {
-            $res = db( 
-                'SELECT 
-                    * 
-                FROM 
-                    `polls` 
-                WHERE 
-                    `poll_url` = :url AND
-                    `poll_userid` = :userid
-                LIMIT 1;', compact( 'url', 'userid' )
-            );
-
-            return mysql_fetch_array( $res );
-        }
         public static function ListRecent( $offset = 0, $limit = 100 ) {
             return db_array(
                 'SELECT
@@ -49,7 +35,7 @@
                 LIMIT :offset, :limit', compact( 'userid', 'offset', 'limit' )
             );
         }
-        public static function ListByAlbumid( $albumid, $offset = 0, $limit = 100 ) {
+        public static function ListByAlbum( $albumid, $offset = 0, $limit = 100 ) {
             return db_array(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,

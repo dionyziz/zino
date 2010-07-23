@@ -18,13 +18,13 @@
             }
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
-                $commentdata = Comment::FindByPage( TYPE_POLL, $id, $commentpage );
+                $commentdata = Comment::ListByPage( TYPE_POLL, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $poll[ 'numcomments' ];
             }
             if ( $verbose >= 2 ) {
-                $favourites = Favourite::Listing( TYPE_POLL, $id );
+                $favourites = Favourite::ListByTypeAndItem( TYPE_POLL, $id );
             }
             $options = $poll[ 'options' ];
             if ( isset( $_SESSION[ 'user' ] ) ) {

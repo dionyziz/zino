@@ -5,7 +5,7 @@
     define( 'FRIENDS_BOTH', FRIENDS_A_HAS_B | FRIENDS_B_HAS_A );
     
     class Friend {
-        public static function Get( $userid ) {
+        public static function ListByUser( $userid ) {
             $res = db(
                 'SELECT
                     `relation_friendid` AS id,

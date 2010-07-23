@@ -23,7 +23,7 @@
             if ( empty( $user ) ) {                    
                return;
             }
-            $friends = Friend::Get( $user[ 'id' ] );
+            $friends = Friend::ListByUser( $user[ 'id' ] );
             include "views/friend/list.php";
         }
         public static function Create( $friendid = 0, $username = '' ) {

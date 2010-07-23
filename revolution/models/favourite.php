@@ -1,6 +1,6 @@
 <?php
     class Favourite {
-		public static function GetByUserid( $userid ) {
+		public static function ListByUser( $userid ) {
 			clude( 'models/db.php' );
 			clude( 'models/types.php' );
 			clude( 'models/journal.php' );
@@ -97,7 +97,7 @@
              }
              return $ret;
         }
-        public static function Listing( $typeid, $itemid ) {
+        public static function ListByTypeAndItem( $typeid, $itemid ) {
             return db_array(
                 'SELECT
                     `user_name` AS username

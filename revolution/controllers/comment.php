@@ -48,7 +48,7 @@
             clude( 'models/comment.php' );
             $page = ( int )$page;
             $page >= 1 or die;
-            $commentdata = Comment::FindByPage( $typeid, $itemid, $page );
+            $commentdata = Comment::ListByPage( $typeid, $itemid, $page );
             if ( $commentdata !== false ) {
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];

@@ -43,7 +43,7 @@
                 clude( 'models/friend.php' );
                 clude( 'models/music/song.php' );
 
-                $commentdata = Comment::FindByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
+                $commentdata = Comment::ListByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $user[ 'id' ] );

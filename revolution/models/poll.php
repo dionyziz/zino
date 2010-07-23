@@ -91,7 +91,7 @@
             clude( 'models/url.php' );
             
             is_int( $userid ) or die;
-            $url = URL_Format( $question );
+            $url = URL_FormatUnique( $question, $userid, 'Poll::ItemByUrlAndUserid' );
 
             $poll = array(
                 'question' => $question,
@@ -140,6 +140,20 @@
         }
         public static function Delete( $id ) {
             return db( 'DELETE FROM `polls` WHERE `poll_id` = :id', array( 'id' => $id ) );
+        }
+        public static function ItemByUrlAndUserid( $url, $userid ) {
+            $res = db( 
+                'SELECT 
+                    * 
+                FROM 
+                    `polls` 
+                WHERE 
+                    `poll_url` = :url AND
+                    `poll_userid` = :userid
+                LIMIT 1;', compact( 'url', 'userid' )
+            );
+
+            return mysql_fetch_array( $res );
         }
 	}
 	

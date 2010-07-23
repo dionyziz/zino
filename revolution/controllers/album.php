@@ -33,7 +33,7 @@
                 $mainimageid = $album[ 'mainimageid' ];
             }
 
-            $details = Album::Update( $albumid, $name, $description, $mainimageid );
+            $details = Album::Update( $album, $name, $description, $mainimageid );
 
             // update array details for viewing
             $album[ 'name' ] = $details[ 'name' ];

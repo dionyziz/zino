@@ -5,7 +5,7 @@
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
     class Comment {
-        public static function FindByPage( $typeid, $itemid, $page ) {
+        public static function ListByPage( $typeid, $itemid, $page ) {
             if ( $page <= 0 ) {
                 $page = 1;
             }

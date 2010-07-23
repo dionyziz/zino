@@ -1,21 +1,6 @@
 <?php
 
 	class Journal {
-        // for checking if url is already taken. see Url_FormatForUser()
-        public static function FindByUrlAndUserid( $url, $userid ) {
-            $res = db( 
-                'SELECT 
-                    * 
-                FROM 
-                    `journals` 
-                WHERE 
-                    `journal_url` = :url AND
-                    `journal_userid` = :userid
-                LIMIT 1;', compact( 'url', 'userid' )
-            );
-
-            return mysql_fetch_array( $res );
-        }
 		public static function ListRecent( $amount ) { //<---TODO
 		    $res = db(
                 'SELECT
@@ -105,7 +90,7 @@
 
             is_int( $userid ) or die;
 
-            $url = URL_Format( $title );
+            $url = URL_FormatUnique( $title, $userid, 'Journal::ItemByUrlAndUserid' );
             $text = nl2br( htmlspecialchars( $text ) );
             $text = WYSIWYG_PostProcess( $text );
             $bulkid = Bulk::Store( $text );
@@ -130,6 +115,21 @@
         }
         public static function Delete( $id ) {
             return db( "DELETE FROM `journals` WHERE `journal_id` = :id LIMIT 1;", array( 'id' => $id ) );
+        }
+        // for checking if url is already taken. see URL_FormatUnique()
+        public static function ItemByUrlAndUserid( $url, $userid ) {
+            $res = db( 
+                'SELECT 
+                    * 
+                FROM 
+                    `journals` 
+                WHERE 
+                    `journal_url` = :url AND
+                    `journal_userid` = :userid
+                LIMIT 1;', compact( 'url', 'userid' )
+            );
+
+            return mysql_fetch_array( $res );
         }
 	}
 ?>

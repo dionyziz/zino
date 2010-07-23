@@ -1,5 +1,5 @@
 <?php
-
+    
     class Album {
         public static function Item( $id ) {
             $res = db( 
@@ -48,7 +48,7 @@
                 'ownerid' => $userid,
                 'userip' => UserIp(),
                 'name' => $name,
-                'url' => URL_Format( $name ),
+                'url' => URL_FormatUnique( $name, $userid, 'Album::ItemByUrlAndUserid' ),
                 'description' => $description
             );
 
@@ -68,15 +68,22 @@
 
             return $album;
         }
-        public static function Update( $id, $name, $description, $mainimageid ) {
+        public static function Update( $album, $name, $description, $mainimageid ) {
             is_int( $id ) or die;
 
             clude( 'models/url.php' );
 
+            if ( $album[ 'name' ] == $name ) {
+                $url = $album[ 'url' ];
+            }
+            else {
+                $url = URL_FormatUnique( $name, $album[ 'userid' ], 'Album::ItemByUrlAndUserid' );
+            }
+
             $details = array(
-                'id' => $id,
+                'id' => $album[ 'id' ],
                 'name' => $name,
-                'url' => URL_Format( $name ),
+                'url' => $url,  
                 'description' => $description,
                 'mainimageid' => $mainimageid
             );
@@ -100,6 +107,21 @@
             is_int( $id ) or die;
             $res = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
             return mysql_affected_rows( $res ) == 1;
+        }
+        public static function ItemByUrlAndUserid( $url, $userid ) {
+            $res = db(
+                "SELECT
+                    *
+                FROM
+                    `albums`
+                WHERE
+                    `album_url` = :url AND
+                    `ualbum_userid` = :userid
+                LIMIT 1;",
+                compact( 'url', 'userid' )
+            );
+
+            return mysql_fetch_array( $res );
         }
     }
 

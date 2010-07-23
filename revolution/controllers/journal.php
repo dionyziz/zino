@@ -14,7 +14,7 @@
             }
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
-                $commentdata = Comment::FindByPage( TYPE_JOURNAL, $id, $commentpage );
+                $commentdata = Comment::ListByPage( TYPE_JOURNAL, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $journal[ 'numcomments' ];
@@ -24,7 +24,7 @@
             }
             if ( $verbose >= 2 ) {
                 clude( 'models/favourite.php' );
-                $favourites = Favourite::Listing( TYPE_JOURNAL, $id );
+                $favourites = Favourite::ListByTypeAndItem( TYPE_JOURNAL, $id );
             }
             include 'views/journal/view.php';
         }

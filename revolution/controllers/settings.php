@@ -5,7 +5,7 @@
             if ( isset( $_SESSION[ 'user' ] ) ) {
                 $userid = $_SESSION[ 'user' ][ 'id' ];
                 clude( "models/usersettings.php" );
-                $usersettings = Usersettings::Get( $userid );
+                $usersettings = Usersettings::ListByUser( $userid );
             }
             else {
                 //you are not logged in

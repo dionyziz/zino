@@ -17,14 +17,14 @@
             }
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
-                $commentdata = Comment::FindByPage( TYPE_IMAGE, $id, $commentpage );
+                $commentdata = Comment::ListByPage( TYPE_IMAGE, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $photo[ 'numcomments' ];
             }
             if ( $verbose >= 2 ) {
                 clude( 'models/favourite.php' );
-                $favourites = Favourite::Listing( TYPE_IMAGE, $id );
+                $favourites = Favourite::ListByTypeAndItem( TYPE_IMAGE, $id );
             }
             Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user' ) );
         }
@@ -43,7 +43,7 @@
                     return;   
                 }
                 clude( 'models/user.php' );
-                $photos = Photo::ListByAlbumid( $albumid, $offset, $limit );
+                $photos = Photo::ListByAlbum( $albumid, $offset, $limit );
                 $user = User::Item( $album[ 'ownerid' ] );
                 include 'views/photo/album_listing.php';
             }
