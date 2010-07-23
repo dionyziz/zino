@@ -1,10 +1,9 @@
 var Presence = {
-    ServerURL: "/presence",
+    ServerURL: "http://presence.zino.gr",
     Connect: function() {
-        $.post( Presence.ServerURL, {}, function() {
-            // this should not be called
-            // reconnect!
-            setTimeout( Presence.Connect, 50 );
-        } );
+        setTimeout( function(){
+            var im = new Image();
+            im.src = Presence.ServerURL;
+        }, 1 );
     }
 };
