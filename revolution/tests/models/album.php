@@ -16,20 +16,32 @@
     include_once 'models/types.php';
     
     // require 'PHPUnit/Framework.php';
-    
-    class AlbumModelTest extends PHPUnit_Framework_Testcase {
+
+    require 'tests/base.php';
+
+    class AlbumModelTest extends ModelTestcase {
+        protected $mAlbums = array();
+        
+        public function assertProConditions() {
+            $this->AssertTrue( class_exists( 'Album' ) );
+            $this->AssertTrue( function_exists( 'Album::Item' ) );
+        }
+
         public function setUp() {
         }
         /** 
           * @dataProvider validIds
           */
+        /*
         public function testItem( $id ) {
             $album = Album::Item( $id );
             $this->assertTrue( is_array( $album ) );
             $this->assertEquals( $album[ 'id' ], $id );
         }
+        */
         /**
           * @dataProvider exampleData
+          * @producer
           */
         public function testCreate( $ownerid, $name, $description ) {
             $album = Album::Create( $ownerid, $name, $description );
@@ -55,10 +67,10 @@
             return $album;
         }
         /**
-          * @depends testCreate
+          * @consumer
           */
         public function testDelete( array $album ) {
-            var_dump( $album );
+            // var_dump( $album[ 'data' ] );
             $id = $album[ 'id' ];
             $ok = Album::Delete( $id );
             $this->AssertTrue( $ok );
@@ -71,10 +83,15 @@
         }
         public function exampleData() {
             return array(
+                array( 1, 'kamibu summer meeting', 'photos from our meeting at ioannina' )
+            );
+            /*
+            return array(
                 array( 1, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
                 array( 658, 'barcelona', 'I love this place' ),
                 array( 658, 'rome', '' ),
             );
+            */
         }
     }
 
