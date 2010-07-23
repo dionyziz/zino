@@ -3,6 +3,10 @@
     margin: auto;
     padding-right: 6px;
 }
+.contentitem .image .icon{
+    display: none;
+    cursor: pointer;
+}
 .contentitem .image:hover .icon {
     position: absolute;
     font-weight: bold;
@@ -27,7 +31,7 @@
     padding-top: 2px;
 }
 .contentitem > .title input{
-    width: 100%;
+    width: 300px;
     text-align: center;
     font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
     font-size: 13px;

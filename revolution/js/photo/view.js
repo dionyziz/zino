@@ -11,9 +11,11 @@ var PhotoView = {
             $( '.title span' ).text( $( '.title input' ).val() );
             var width = $( '.title span' ).width();
             if( width < 300 ){
-                return true;
+                $( '.title input' ).width( 300 );
             }
-            $( '.title input' ).width( width + 30 );
+            else{
+                $( '.title input' ).width( width + 30 );
+            }
         },
         Init: function(){
             if ( $( '.contentitem .details a.username' ).text() != User ) {
@@ -40,6 +42,7 @@ var PhotoView = {
                     PhotoView.Title.Title = $( this ).val();
                 }
                 $( this ).removeClass( 'hover' ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
+                PhotoView.Title.Selected = false;
             }).blur( function(){
                 $( this ).removeClass( 'focus' );
                 PhotoView.Title.Title = $( this ).val();
@@ -51,8 +54,12 @@ var PhotoView = {
                 }
                 PhotoView.Title.Rename( PhotoView.Id, PhotoView.Title.Title );
             }).mouseup( function(){
+                if( PhotoView.Title.Selected ){
+                    return true;
+                }
+                PhotoView.Title.Selected = true;
                 return false;
-            }).keydown( function( event ){
+            }).keyup( function( event ){
                 if( event.which == 13 ){
                     $( this ).blur();
                 }
