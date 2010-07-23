@@ -1,10 +1,7 @@
-.contentitem .image {
+.contentitem .image{
     position: relative;
     margin: auto;
     padding-right: 6px;
-}
-.contentitem .image .icon {
-    display: none;
 }
 .contentitem .image:hover .icon {
     position: absolute;
@@ -26,34 +23,36 @@
     opacity: 1;
 }
 
-.contentitem > .title {
+.contentitem > .title{
     padding-top: 2px;
-    display: inline;
 }
-.contentitem > .title input {
+.contentitem > .title input{
+    width: 100%;
     text-align: center;
     font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
     font-size: 13px;
     background: transparent;
-    border-color: transparent;
+    border-width: 0;
     color: #3F8BBB;
+    padding-top: 3px;
     cursor: default;
 }
-.contentitem > .title:hover input {
+.contentitem > .title input.hover{
     background: #FFFFD6;
     cursor: pointer;
-    border-color: inherit;
+    border-width: 2px;
     color: black;
+    padding-top: 1px;
 }
-.contentitem > .title input.focus {
+.contentitem > .title input.focus{
     background: white;
     border-width: 2px;
     color: black;
     padding-top: 1px;
 }
-.contentitem > .title input.empty {
+.contentitem > .title input.empty{
     font-style: italic;
 }
-.contentitem > .title span.hidden {
+.contentitem > .title span.hidden{
     display: none;
 }

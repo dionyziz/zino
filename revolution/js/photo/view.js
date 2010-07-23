@@ -25,7 +25,13 @@ var PhotoView = {
             }
             PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
             PhotoView.Title.CorrectWidth();
-            $( '.title input' ).focus( function(){
+            $( '.title input' ).mouseover( function(){
+                if( !$( this ).hasClass( 'focus' ) ){
+                    $( this ).addClass( 'hover' );
+                }
+            }).mouseout( function(){
+                $( this ).removeClass( 'hover' );
+            }).focus( function(){
                 if( $( this ).hasClass( 'empty' ) ){
                     PhotoView.Title.Title = '';
                     $( this ).val( '' );
@@ -33,7 +39,7 @@ var PhotoView = {
                 else{
                     PhotoView.Title.Title = $( this ).val();
                 }
-                $( this ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
+                $( this ).removeClass( 'hover' ).removeClass( 'empty' ).addClass( 'focus' )[ 0 ].select();
             }).blur( function(){
                 $( this ).removeClass( 'focus' );
                 PhotoView.Title.Title = $( this ).val();

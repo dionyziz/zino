@@ -1,6 +1,8 @@
 <? global $settings ?>
 <entry id="<?= $photo[ 'id' ] ?>">
-    <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
+    <? if( $photo[ 'title' ] != '' ): ?>
+        <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
+    <? endif; ?>
     <? if ( isset( $user ) ): ?>
     <author>
         <name><?= $user[ 'name' ] ?></name>
