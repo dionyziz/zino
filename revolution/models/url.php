@@ -7,8 +7,8 @@
     // return a url that is unique for this userid, according to function
     function URL_FormatUnique( $string, $userid, $function ) {
         $formatted = URL_Format( $string );
-        while ( is_array( $function( $formatted, $userid ) ) ) {
-            $formatted += '_';
+        while ( is_array( call_user_func( $function, $formatted, $userid ) ) ) {
+            $formatted = $formatted . '_';
         } 
         return $formatted;
     }

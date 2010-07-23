@@ -5,7 +5,7 @@
             $res = db( 
                 'SELECT
                     `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
-                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid
+                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description
                 FROM
                     `albums`
                 WHERE
@@ -48,7 +48,7 @@
                 'ownerid' => $userid,
                 'userip' => UserIp(),
                 'name' => $name,
-                'url' => URL_FormatUnique( $name, $userid, 'Album::ItemByUrlAndUserid' ),
+                'url' => URL_FormatUnique( $name, $userid, 'Album::ItemByUrlAndOwner' ),
                 'description' => $description
             );
 
@@ -108,7 +108,7 @@
             $res = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
             return mysql_affected_rows( $res ) == 1;
         }
-        public static function ItemByUrlAndUserid( $url, $userid ) {
+        public static function ItemByUrlAndOwner( $url, $ownerid ) {
             $res = db(
                 "SELECT
                     *
@@ -116,9 +116,9 @@
                     `albums`
                 WHERE
                     `album_url` = :url AND
-                    `ualbum_userid` = :userid
+                    `album_ownerid` = :ownerid
                 LIMIT 1;",
-                compact( 'url', 'userid' )
+                compact( 'url', 'ownerid' )
             );
 
             return mysql_fetch_array( $res );
