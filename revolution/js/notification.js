@@ -195,7 +195,7 @@ var Notifications = {
                         var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                         if ( commenttext === '' ) {
                             $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                            break;
+                            return;
                         }
                         Notifications.RequestStart();
                         $.post( 'comment/create', {
