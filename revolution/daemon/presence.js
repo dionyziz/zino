@@ -8,11 +8,14 @@ var ronline = {};
 
 server.on( 'request', function ( req, res ) {
     res.writeHead( 200, {
-        'Content-Type': 'text/plain',
-        'Set-Cookie': 'zino_login_8=5181:4891e98dy3289e30u9',
+        'Content-Type': 'text/html'
     } );
+    if( req.url != '/connect' ){
+        res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>setTimeout( function(){ $.get( "http://presence.zino.gr:8124/connect" );}, 20 );</script></body></html>' );
+        return;
+    }
     if( typeof req.headers.cookie !== 'undefined' ){
-        var cookies = req.headers.cookie.split( ';' );
+        var cookies = req.headers.cookie.split( '; ' );
         for( var i = 0; i < cookies.length; ++i ){
             cookies[ i ] = cookies[ i ].split( '=' );
             if( cookies[ i ][ 0 ] == 'zino_login_8' ){
@@ -46,4 +49,4 @@ server.on( 'request', function ( req, res ) {
     }
 });
 
-server.listen( 8124, "europa.kamibu.com" );
+server.listen( 8124, "presence.zino.gr" );
