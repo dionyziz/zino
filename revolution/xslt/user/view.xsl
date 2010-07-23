@@ -117,7 +117,11 @@
                                 <input type="hidden" name="friendid">
                                     <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
                                 </input>
-                                <a href="">&#9829; Φίλος</a>
+                                <a href="" title="Διαγραφή φίλου">
+                                    <strong>&#9829;</strong>
+                                    <strong class="delete">/</strong>
+                                    Φίλος
+                                </a>
                             </form>
                         </xsl:when>
                         <xsl:otherwise>

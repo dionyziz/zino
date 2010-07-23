@@ -68,18 +68,48 @@ li.heightweight {
 .useritems{
     float: right;
 }
-.useritems li {
+    .useritems li {
+        float: left;
+        text-align: center;
+        padding: 0 15px;
+    }
+        .useritems li a{
+            text-decoration: none;
+        }
+            .useritems li a:hover {
+            }
+            .useritems li a span {
+                font-size: 160%;
+                font-weight: bold;
+                display: block;
+            }
+#friendship {
+    padding: 5px;
+    border: 1px solid #234;
+    background-color: #abc;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
     float: left;
-    text-align: center;
-    padding: 0 15px;
 }
-.useritems li a{
-    text-decoration: none;
-}
-.useritems li a:hover {
-}
-.useritems li a span {
-    font-size: 160%;
-    font-weight: bold;
-    display: block;
-}
+    #friendship a {
+        color: #234;
+        font-weight: bold;
+        text-decoration: none;
+        position: relative;
+        display: block;
+        padding: 3px;
+    }
+    #friendship .love strong {
+        color: #234;
+    }
+    #friendship a strong.delete {
+        display: none;
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        color: #abc;
+    }
+    #friendship a:hover strong.delete {
+        display: inline;
+    }

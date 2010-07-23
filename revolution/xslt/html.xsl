@@ -69,6 +69,7 @@
 					'news.listing': News,
                     'poll.view': Poll,
                     'journal.view': Journal,
+                    'user.view': Profile
 				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
             </script>
         </body>

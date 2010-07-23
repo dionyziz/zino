@@ -16,14 +16,13 @@ var Profile = {
         var form = $( '#friendship' );
 
         if ( $( '#friendship' ).length ) {
-            form[ 0 ].onsubmit = function () {
+            form[ 0 ].getElementsByTagName( 'a' )[ 0 ].onclick = function () {
                 $.post( this.action, {
                     friendid: this.getElementsByTagName( 'input' )[ 0 ].value
                 }, function () {
+                    this.innerHTML = "OK";
                 } );
                 return false;
-                if ( this.action ) {
-                }
             };
         }
     }
