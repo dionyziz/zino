@@ -29,6 +29,7 @@
 
 .contentitem > .title{
     padding-top: 2px;
+    height: 20px;
 }
 .contentitem > .title input{
     width: 300px;
