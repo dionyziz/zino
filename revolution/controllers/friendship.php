@@ -12,7 +12,7 @@
 
             $a = User::Item( $_SESSION[ 'user' ][ 'id' ] );
 
-            include 'views/friend/view.php';
+            include 'views/friendship/view.php';
         }
         public static function Listing( $username ) {
             clude( 'models/db.php' );
@@ -24,7 +24,7 @@
                return;
             }
             $friends = Friend::ListByUser( $user[ 'id' ] );
-            include "views/friend/list.php";
+            include "views/friendship/list.php";
         }
         public static function Create( $friendid = 0, $username = '' ) {
             $friendid = ( int )$friendid;
@@ -40,7 +40,7 @@
                 }
                 $success = Friend::Create( $_SESSION[ 'user' ][ 'id' ], $friendid, 1 );
             }              
-            include 'views/friend/create.php';          
+            include 'views/friendship/create.php';          
         }
         public static function Update() {
         }
@@ -51,7 +51,7 @@
             if ( isset( $_SESSION[ 'user' ] ) ) {
                 $success = Friend::Delete( $_SESSION[ 'user' ][ 'id' ], $friendid );
             }              
-            include 'views/friend/delete.php';    
+            include 'views/friendship/delete.php';    
         }
     }
 ?>

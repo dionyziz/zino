@@ -113,19 +113,19 @@
                 <xsl:if test="$user and $user != name[1]">
                     <xsl:choose>
                         <xsl:when test="knownBy = $user">
-                            <form action="friendship/delete" method="post">
+                            <form action="friendship/delete" method="post" id="friendship">
                                 <input type="hidden" name="friendid">
                                     <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
                                 </input>
-                                <input type="submit" value="Διαγραφή φίλου" />
+                                <a href="">&#9829; Φίλος</a>
                             </form>
                         </xsl:when>
                         <xsl:otherwise>
-                            <form action="friendship/create" method="post">
+                            <form action="friendship/create" method="post" id="friendship">
                                 <input type="hidden" name="friendid">
                                     <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
                                 </input>
-                                <input type="submit" value="Προσθήκη φίλου" />
+                                <a class="love linkbutton" href=""><strong>+</strong> Προσθήκη φίλου</a>
                             </form>
                         </xsl:otherwise>
                     </xsl:choose>

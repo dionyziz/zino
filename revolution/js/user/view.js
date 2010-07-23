@@ -13,5 +13,18 @@ var Profile = {
             } );
             return false;
         } );
+        var form = $( '#friendship' );
+
+        if ( $( '#friendship' ).length ) {
+            form[ 0 ].onsubmit = function () {
+                $.post( this.action, {
+                    friendid: this.getElementsByTagName( 'input' )[ 0 ].value
+                }, function () {
+                } );
+                return false;
+                if ( this.action ) {
+                }
+            };
+        }
     }
 }
