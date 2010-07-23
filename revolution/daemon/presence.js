@@ -1,10 +1,10 @@
 var http = require('http');
 var server = http.createServer();
+var php = http.createClient( 500, 'zino.gr' );
 
 var ai_connection = 0;
 
 var online = {};
-var ronline = {};
 
 server.on( 'request', function ( req, res ) {
     res.writeHead( 200, {
@@ -41,6 +41,7 @@ server.on( 'request', function ( req, res ) {
             setTimeout( function(){
                 if( typeof( online[ userid ] ) !== 'undefined' && online[ userid ].length == 0 ) {
                     delete online[ userid ];
+
                     console.log( 'User ' + userid + ' went offline' );
                 }
             }, 10000);
