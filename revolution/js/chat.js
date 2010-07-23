@@ -86,17 +86,6 @@ var Chat = {
              window.location.href = 'login';
              return;
          }
-         $( '.col2' )[ 0 ].innerHTML +=
-             '<div style="" id="chat">'
-                 + '<div class="userlist">'
-                     + '<ol id="onlineusers"></ol>'
-                 + '</div>'
-                 + '<div class="textmessages">'
-                     + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
-                     + '<div id="chatmessages"></div>'
-                     + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
-                 + '</div>'
-             + '</div>';
          Chat.Show( 0 );
          $( '#chat textarea' ).keydown( function ( e ) {
              switch ( e.keyCode ) {
@@ -117,22 +106,33 @@ var Chat = {
              }
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
-         document.domain = 'zino.gr';
-         var bigNumber = 123456789;
-         $.get( 'session', function ( res ) {
-             Chat.UserId = $( res ).find( 'user' ).attr( 'id' );
-             Chat.Authtoken = $( res ).find( 'authtoken' ).text();
-             Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
-             Chat.Join( '0' );
-             Chat.Join( Chat.UserId + ':' + Chat.Authtoken ); // TODO: Join( UserId + ':' + Authtoken )
-             Chat.Loaded = true;
-         } );
+         Chat.Loaded = true;
      },
      Init: function () {
         $( '#chatbutton' ).click( function () {
              Chat.Toggle();
              return false;
         } );
+        document.domain = 'zino.gr';
+        var bigNumber = 123456789;
+        $.get( 'session', function ( res ) {
+            Chat.UserId = $( res ).find( 'user' ).attr( 'id' );
+            Chat.Authtoken = $( res ).find( 'authtoken' ).text();
+            Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
+            Chat.Join( '0' );
+            Chat.Join( Chat.UserId + ':' + Chat.Authtoken );
+        } );
+        $( '.col2' )[ 0 ].innerHTML +=
+             '<div style="display:none" id="chat">'
+                 + '<div class="userlist">'
+                     + '<ol id="onlineusers"></ol>'
+                 + '</div>'
+                 + '<div class="textmessages">'
+                     + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
+                     + '<div id="chatmessages"></div>'
+                     + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
+                 + '</div>'
+             + '</div>';
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length == 0 ) {
