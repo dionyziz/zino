@@ -420,7 +420,7 @@ var Notifications = {
             return false;
         }
         function save() {
-            var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
             if ( commenttext === '' ) {
                 $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                 return;
@@ -449,7 +449,7 @@ var Notifications = {
             
         $( document ).bind( 'keyup', 'shift+esc', skip )
                      .bind( 'keyup', 'esc', ignore )
-                     .bind( 'keyup', 'enter', save );
+                     .bind( 'keyup', 'return', save );
         if ( isreply ) {
             Notifications.RequestStart();
             $.get( 'comments/' + parentid, {}, function ( res ) {
