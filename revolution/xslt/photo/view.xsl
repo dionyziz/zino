@@ -55,13 +55,15 @@
                 <xsl:value-of select="title[1]" />
             </span>
         </div>
-        <div class="note">
-            <xsl:for-each select="favourites/user">
-                <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
-                <xsl:text> </xsl:text>
-            </xsl:for-each>
-            <a class="love linkbutton" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
-        </div>
+        <xsl:if test="favourites or not(/social/@for = author[1]/name[1])">
+            <div class="note">
+                <xsl:for-each select="favourites/user">
+                    <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
+                    <xsl:text> </xsl:text>
+                </xsl:for-each>
+                <a class="love linkbutton" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
+            </div>
+        </xsl:if>
     </div>
     <xsl:apply-templates select="discussion" />
 </xsl:template>
