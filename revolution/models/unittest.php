@@ -8,6 +8,7 @@
         protected $mName;
         protected $mAppliesTo;
         protected $mOnPreConditions;
+        public $Called;
         
         final public function Testcase() {
         }
@@ -106,8 +107,8 @@
             $this->Assert( method_exists( $class, $method ), $message );
         }
         protected function AssertIsArray( $array, $message = '' ) {
-            if ( empty( $message ) && $this->mCalled !== false ) {
-                $message = $this->mCalled . ' did not return an array';
+            if ( empty( $message ) && $this->Called !== false ) {
+                $message = $this->Called . ' did not return an array';
             }
             $this->AssertEquals( 'array', get_type( $array ), $message );
         }
@@ -117,8 +118,8 @@
             }
         }
         protected function AssertArrayHasKey( $array, $key, $message = '' ) {
-            if ( empty( $message ) && $this->mCalled !== false ) {
-                $message = $this->mCalled . " did not return an array with key " . $key;
+            if ( empty( $message ) && $this->Called !== false ) {
+                $message = $this->Called . " did not return an array with key " . $key;
             }
             $this->Assert( isset( $array[ $key ] ), $message );
         }
@@ -128,8 +129,8 @@
             }
         }
         protected function AssertArrayValue( $array, $key, $value, $message = '' ) {
-            if ( empty( $message ) && $this->mCalled !== false ) {
-                $message = $this->mCalled . " has wrong value for $key.";
+            if ( empty( $message ) && $this->Called !== false ) {
+                $message = $this->Called . " returned array with wrong value for $key.";
             }
             $this->AssertEquals( $value, $array[ $key ], $message );
         }
@@ -143,11 +144,6 @@
                 $this->RequireSuccess( $result );
             }
             return $this->mTester->Inform( $result );
-        }
-        protected function Call( $function, $arguments ) {
-            $ret = call_user_func_array( $function, $arguments );
-            $this->mCalled = $function;
-            return $ret;
         }
     }
     
@@ -252,99 +248,125 @@
             }
             return $annotations;
         }
+        public function RunSetUp( $testcase, &$runresults ) {
+            try {
+                $testcase->SetUp();
+                return true;
+            }
+            catch ( Exception $e ) {
+                $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[SetUp]' );
+                return false;
+            }
+        }
+        public function RunPreConditions( $testcase, &$runresults ) {
+            try {
+                $testcase->StartPreConditions();
+                return true;
+            }
+            catch ( Exception $e ) {
+                $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[PreConditions]' );
+                return false;
+            }
+        }
         public function Run() {
             global $water;
             
-            // $water->Profile( 'Running ' . count( $this->mTestcases ) . ' testcases' );
             $this->mTestcaseResults = array();
             foreach ( $this->mTestcases as $i => $testcase ) {
-                // $water->Profile( 'Running testcase ' . $testcase->Name );
-                $testcase->Tester = $this; // allows testcase to report results back to this tester
-                // Rabbit_Include( $testcase->AppliesTo() );
-                $obj = New ReflectionObject( $testcase );
-                $methods = $obj->getMethods();
-                $runresults = array();
-                $goodtogo = true;
-                try {
-                    $testcase->SetUp();
+                $runresults = $this->RunTestcase( $testcase );
+                $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
+            }
+        }
+        public function RunTestcase( $testcase ) {
+            $testcase->Tester = $this; // allows testcase to report results back to this tester
+            $obj = New ReflectionObject( $testcase );
+            $methods = $obj->getMethods();
+            $runresults = array();
+            $this->mAssertResults = array();
+            //$goodtogo = $this->RunSetUp( $testcase, $runresults );
+            $testcase->SetUp();
+            $goodtogo = $this->RunPreConditions( $testcase, $runresults );
+            if ( !$goodtogo ) {
+                // $this->RunTearDown();
+                $testcase->TearDown();
+                return array();
+            }
+            foreach ( $methods as $method ) {
+                if ( $this->ValidMethod( $method ) ) {
+                    $this->mAssertResults = array();
+                    $this->RunTest( $testcase, $method );
+                    $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                 }
-                catch ( Exception $e ) {
-                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[SetUp]' );
-                    $goodtogo = false;
+            }
+            $testcase->TearDown();
+            return $runresults;
+        }
+        public function ValidMethod( $method ) {
+            $methodname = $method->getName();
+            return ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' );
+        }
+        public function HandleAnnotations( $testcase, $method ) {
+            $annotations = $this->GetAnnotations( $method );
+            if ( isset( $annotations[ 'covers' ] ) ) {
+                $testcase->Called = $annotations[ 'covers' ][ 0 ];
+            }
+            $allParams = array();
+            if ( isset( $annotations[ 'dataProvider' ] ) ) {
+                $provider = $annotations[ 'dataProvider' ][ 0 ];
+                $allParams = call_user_func( array( $testcase, $provider ) );
+                w_assert( is_array( $allParams ), 'dataprovider did not provide array' );
+                if ( isset( $annotations[ 'producer' ] ) ) {
+                    $producer = $annotations[ 'producer' ][ '0' ];
+                    w_assert( count( $allParams ) == count( $this->mProduced[ $producer ] ), 'produced and provided must have same count' );
+                    foreach ( $allParams as $i => $params ) {
+                        if ( is_scalar( $params ) ) {
+                            $allParams[ $i ] = array( $params );
+                        }
+                        array_unshift( $allParams[ $i ], $this->mProduced[ $producer ][ $i ] );
+                    }
                 }
+            }
+            else if ( isset( $annotations[ 'producer' ] ) ) {
+                $producer = $annotations[ 'producer' ][ '0' ];
+                $allParams = $this->mProduced[ $producer ];
+            }
+            return $allParams;
+        }
+        public function HandleRunException( $e ) {
+            $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
+            $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+        }
+        public function RunTest( $testcase, $method ) {
+            $methodname = $method->getName();
+            $allParams = $this->HandleAnnotations( $testcase, $method );
+            $runresults = array();
+            if ( !empty( $allParams ) ) {
+                foreach ( $allParams as $params ) {
+                    try {
+                            $ret = call_user_func_array( array( $testcase, $methodname ), $params );
+                    }
+                    catch ( Exception $e ) {
+                        $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[PreConditions]' );
+                        continue;
+                    }
+                    if ( !empty( $ret ) ) {
+                        $this->mProduced[ $methodname ][] = $ret;
+                    }
+                }
+            }
+            else {
                 try {
-                    $testcase->StartPreConditions();
+                    $ret = call_user_func( array( $testcase, $methodname ) );
                 }
                 catch ( Exception $e ) {
                     $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[PreConditions]' );
-                    $goodtogo = false;
+                    return $runresults;
                 }
-                if ( $goodtogo ) {
-                    foreach ( $methods as $method ) {
-                        $methodname = $method->getName();
-                        if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
-
-                            // $water->Profile( 'Running testrun ' . $methodname );
-                            $annotations = $this->GetAnnotations( $method );
-                            $dataProvided = false;
-                            if ( isset( $annotations[ 'dataProvider' ] ) ) {
-                                $provider = $annotations[ 'dataProvider' ][ 0 ];
-                                $dataProvided = call_user_func( array( $testcase, $provider ) );
-                                w_assert( is_array( $dataProvided ), 'dataprovider did not provide array' );
-                            }
-                            $this->mAssertResults = array();
-                            $produced = array();
-                            try {
-                                if ( isset( $annotations[ 'dataProvider' ] ) ) {
-                                    foreach ( $dataProvided as $params ) {
-                                        if ( is_scalar( $params ) ) {
-                                            $params = array( $params );
-                                        }
-                                        $ret = call_user_func_array( array( $testcase, $methodname ), $params );
-                                        if ( !empty( $ret ) ) {
-                                            $produced[] = $ret;
-                                        }
-                                    }
-                                }
-                                else if ( isset( $annotations[ 'producer' ] ) ) {
-                                    $producer = $annotations[ 'producer' ][ 0 ];
-                                    w_assert( isset( $this->mProduced[ $producer ] ), 'Producer did not produce something' );
-                                    foreach ( $this->mProduced[ $producer ] as $arg ) {
-                                        $ret = call_user_func( array( $testcase, $methodname ), $arg );
-                                        if ( !empty( $ret ) ) {
-                                            $produced[] = $ret;
-                                        }
-                                    }
-                                }
-                                else {
-                                    $ret = call_user_func( array( $testcase, $methodname ) ); // MAGIC
-                                    if ( !empty( $ret ) ) {
-                                        $produced = array( $ret );
-                                    }
-                                }
-                            }
-                            catch ( Exception $e ) {
-                                $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
-                                $runresults[] = New RunResult( $this->mAssertResults, $methodname );
-                                // $water->ProfileEnd();
-                                break;
-                            }
-                            $this->mProduced[ $methodname ] = $produced;
-                            $runresults[] = New RunResult( $this->mAssertResults, $methodname );
-                            // $water->ProfileEnd();
-                        }
-                    }
+                if ( !empty( $ret ) ) {
+                    $this->mProduced[ $methodname ][] = $ret;
                 }
-                try {
-                    $testcase->TearDown();
-                }
-                catch ( Exception $e ) {
-                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[TearDown]' );
-                }
-                $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
-                // $water->ProfileEnd();
             }
-            // $water->ProfileEnd();
+            return $runresults;
         }
         public function GetResults() {
             return $this->mTestResults;

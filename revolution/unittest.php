@@ -1,4 +1,16 @@
+#!/usr/bin/php
 <?php
+
+    $runtests = array();
+
+    array_shift( $argv );
+
+    foreach ( $argv as $i => $value ) {
+        switch ( $value ) {
+            default:
+                $runtests[] = $value;
+        }
+    }
 
     function clude( $path ) {
         static $included = array();
@@ -15,8 +27,6 @@
     include 'models/water.php';
     include 'models/unittest.php';
     include 'models/db.php';
-
-    $runtests = array( 'album' );
 
     $validTests = Test_GetTestcases();
     $validTestsByName = array();

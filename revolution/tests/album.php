@@ -5,40 +5,31 @@
         protected $mAppliesTo = 'models/album';
 
         public function SetUp() {
-            echo "setting up...";
             clude( 'models/album.php' );
             clude( 'models/types.php' );
-            echo "ok\n";
         }
         public function PreConditions() {
-            echo "testing preconditions...";
             $this->AssertClassExists( 'Album' );
             $this->AssertMethodExists( 'Album', 'Item' );
             $this->AssertMethodExists( 'Album', 'Create' );
-            echo "ok\n";
+            $this->AssertMethodExists( 'Album', 'Delete' );
         }
         /**
          * @dataProvider ValidIds
+         * @covers Album::Item
          */
         public function TestItem( $id ) {
-            echo "testing item...";
-            $ret = $this->Call( 'Album::Item', array( $id ) );
-            $this->AssertArrayHasKeys( $ret, array( 'id', 'ownerid', 'mainimageid' ) );
-            $this->AssertArrayValues( $ret, array( 'id' => (string)$id ) );
-            echo "ok\n";
+            $album = Album::Item( $id );
+            $this->AssertArrayHasKeys( $album, array( 'id', 'ownerid', 'mainimageid' ) );
+            $this->AssertArrayValues( $album, array( 'id' => $id ) );
         }
         /**
          * @dataProvider ExampleData
+         * @covers Album::Create
          */
         public function TestCreate( $userid, $name, $description ) {
-            echo "calling...";
-            $album = $this->Call( 'Album::Create', array( $userid, $name, $description ) );
-            echo "ok\n";
-            echo "checking keys...\n";
+            $album = Album::Create( $userid, $name, $description );
             $this->AssertArrayHasKeys( $album, array( 'id', 'url', 'created' ) );
-            echo "ok\n";
-            
-            echo "checking values...\n";
             $this->AssertArrayValues( $album, array(
                 'ownerid' => $userid,
                 'name' => $name,
@@ -48,33 +39,65 @@
                 'numcomments' => 0,
                 'numphotos' => 0
             ) );
-            echo "ok\n";
+
+            $id = $album[ 'id' ];
+            $album = Album::Item( $id );
+            $this->Called = "Album::Item";
+            $this->AssertArrayValues( $album, array(
+                'id' => $id,
+                'ownerid' => $userid,
+                'name' => $name,
+                'description' => $description
+            ) );
 
             return $album;
         }
         /**
          * @producer TestCreate
+         * @dataProvider ExampleData
+         * @covers Album::Update
+         */
+        public function TestUpdate( $album, $ownerid, $name, $description ) {
+            $id = $album[ 'id' ];
+            $mainimageid = 0;
+            $success = Album::Update( $album, $name, $description, $mainimageid );
+            $this->Assert( $success, 'Album::Update failed' );
+
+            $album = Album::Item( $album[ 'id' ] );
+            $this->Called = "Album::Item";
+            $this->AssertArrayValues( $album, array(
+                'id' => $id,
+                'name' => $name,
+                'description' => $description,
+                'mainimageid' => $mainimageid
+            ) );
+            return $album;
+        }
+        /**
+         * @producer TestUpdate
+         * @covers Album::Delete
          */
         public function TestDelete( $album ) {
-            echo "testing delete...";
-            Album::Delete( $album[ 'id' ] );
-            echo "ok\n";
+            $id = (int)$album[ 'id' ];
+            $success = Album::Delete( $id );
+            $this->Assert( $success, 'Album::Delete failed' );
+
+            $album = Album::Item( $id );
+            $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
         }
         public function ValidIds() {
-            echo "getting ids\n";
             $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT 3;' );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = (int)$row[ 0 ];
             }
-            echo "got ids\n";
             return $ret;
         }
         public function ExampleData() {
             return array(
                 array( 1, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
-                // array( 658, 'barcelona', 'I love this place' ),
-                // array( 658, 'rome', '' ),
+                array( 658, 'barcelona', 'I love this place' ),
+                array( 658, 'rome', '' ),
             );
         }
     }

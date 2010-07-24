@@ -5,7 +5,7 @@
             $res = db( 
                 'SELECT
                     `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
-                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description
+                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description, `album_url` AS url
                 FROM
                     `albums`
                 WHERE
@@ -13,7 +13,18 @@
                 LIMIT 1', compact( 'id' )
             );
 
-			return mysql_fetch_array( $res );
+            $row = mysql_fetch_array( $res );
+            if ( $row === false ) {
+                return false;
+            }
+
+            $row[ 'id' ] = (int)$row[ 'id' ];
+            $row[ 'ownerid' ] = (int)$row[ 'ownerid' ];
+            $row[ 'delid' ] = (int)$row[ 'delid' ];
+            $row[ 'mainimageid' ] = (int)$row[ 'mainimageid' ];
+            $row[ 'numphotos' ] = (int)$row[ 'numphotos' ];
+
+			return $row;
         }
         public static function ListByUser( $userid, $offset = 0, $limit = 50 ) {
             is_int( $userid ) or die( 'userid not an integer' );
@@ -69,15 +80,14 @@
             return $album;
         }
         public static function Update( $album, $name, $description, $mainimageid ) {
-            is_int( $id ) or die;
-
             clude( 'models/url.php' );
 
+            $url = '';
             if ( $album[ 'name' ] == $name ) {
                 $url = $album[ 'url' ];
             }
             else {
-                $url = URL_FormatUnique( $name, $album[ 'userid' ], 'Album::ItemByUrlAndUserid' );
+                $url = URL_FormatUnique( $name, $album[ 'ownerid' ], 'Album::ItemByUrlAndOwner' );
             }
 
             $details = array(
@@ -88,7 +98,7 @@
                 'mainimageid' => $mainimageid
             );
 
-            $res = db( 
+            return db( 
                 "UPDATE 
                     `albums` 
                 SET 
@@ -100,11 +110,9 @@
                     `album_id` = :id
                 LIMIT 1;", $details
             );
-
-            return mysql_affected_rows( $res ) == 1;
         }
         public static function Delete( $id ) {
-            is_int( $id ) or die;
+            is_int( $id ) or die( 'id not an int' );
             $res = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
             // return mysql_affected_rows( $res ) == 1;
             return true;
