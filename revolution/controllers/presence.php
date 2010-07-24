@@ -11,9 +11,8 @@
             clude( 'models/comet.php' );
 
             $userid = intval( $userid );
-            $authtoken = ( string )$authtoken;
-            $success = User::UpdateLastActive( $userid, $authtoken );
-            $success = true;
+            $authtoken = (string)$authtoken;
+            $info = User::UpdateLastActive( $userid, $authtoken );
 
             ob_start();
             include 'views/presence/create.php';

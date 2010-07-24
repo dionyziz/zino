@@ -344,21 +344,38 @@
             if ( !( is_bool( $authtoken ) || is_string( $authtoken ) ) ) {
                 die( 'invalid authtoken' );
             }
+
+            $sql = 'SELECT
+                        `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid
+                    FROM
+                        `users`
+                    WHERE
+                        `user_id` = :userid';
+            if ( $authtoken !== false ) {
+                $sql .= ' AND `user_authtoken` = :authtoken ';
+            }
+            $sql .= ' LIMIT 1;';
+            
+            $user = mysql_fetch_array( db( $sql, compact( 'userid', 'authtoken' ) ) );
+            if ( $user === false ) {
+                return false;
+            }
+
             $sql = 'UPDATE
-                        `lastactive` LEFT JOIN `users` ON
-                        `user_id` = `lastactive_userid`
+                        `lastactive`
                     SET
                         `lastactive_updated` = NOW()
                     WHERE
-                        `lastactive_userid` = :userid ';
-            if ( $authtoken !== false ) {
-                $sql .= 'AND `user_authtoken` = :authtoken ';
-            }
-            $sql .= ';';
+                        `lastactive_userid` = :userid
+                    LIMIT 1';
 
-            $res = db( $sql, compact( 'userid', 'authtoken' ) );
-            
-            return mysql_affected_rows( $res ) == 1;
+            $res = db( $sql, compact( 'userid' ) );
+
+            if ( mysql_affected_rows( $res ) ) {
+                return $user;
+            }
+
+            return false;
         }
         public static function ListOnline() {
             global $settings;
@@ -379,6 +396,7 @@
             curl_close( $ch );
 
             $userids = explode( "\n", $data ); 
+
             array_pop( $userids );
 
             if ( empty( $userids ) ) {

@@ -1,11 +1,12 @@
 <operation resource="presence" method="create">
-    <? if ( $success ): ?>
+    <? if ( $info !== false ): ?>
     <result>SUCCESS</result>
     <data>
         <user id="<?= $userid ?>">
             <name><?= $username ?></name>
         </user>
     </data>
+        <name><?= $info[ 'name' ] ?></name>
     <? else: ?>
     <result>FAIL</result>
     <? endif; ?>
