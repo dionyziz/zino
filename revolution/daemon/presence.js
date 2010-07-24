@@ -1,4 +1,6 @@
-var http = require('http');
+var http = require( 'http' );
+var libxml = require( './libxmljs' );
+
 var server = http.createServer();
 var php = http.createClient( 500, 'zino.gr' );
 
@@ -28,14 +30,28 @@ server.on( 'request', function ( req, res ) {
         }
         var userid = credentials[ 0 ];
         req.connection_id = ai_connection++;
-
-        console.log( 'User ' + credentials[ 0 ] + ' connected (Connection id = ' + req.connection_id + ')' );
         
-        if( typeof( online[ userid ] ) === 'undefined' ){
-            online[ userid ] = new Array();
-        }
+        var body = 'userid=' + credentials[ 0 ] + '&authtoken=' + credentials[ 1 ];
+        var request = php.request( 'POST', '/petros/?resource=presence&method=create', { Host: 'zino.gr', 'Content-Length': body.length } );
+        request.end( body );
+        request.on( 'response', function(response){
+            response.on( 'data', function( data ){
+                var result = libxml.parseXmlString( data.toString().substr( data.toString().indexOf( '<social' ), data.toString().length ));
+                result = result.get( '//result' );
+                if( result.text() == 'SUCCESS' ){
+                    console.log( 'User ' + credentials[ 0 ] + ' connected (Connection id = ' + req.connection_id + ')' );
+                    if( typeof( online[ userid ] ) === 'undefined' ){
+                        online[ userid ] = new Array();
+                    }
 
-        online[ userid ].push( req.connection_id );
+                    online[ userid ].push( req.connection_id );
+                }
+                else {
+                    res.end();
+                }
+            });
+        });
+        
 
         req.connection.on( 'end', function(){ 
             setTimeout( function(){
