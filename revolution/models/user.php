@@ -383,7 +383,7 @@
 
             if ( empty( $userids ) ) {
                 // nobody here, return
-                return;
+                return array();
             }
 
             return db_array(
