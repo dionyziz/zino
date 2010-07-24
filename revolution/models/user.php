@@ -372,7 +372,7 @@
             curl_setopt( $ch, CURLOPT_HEADER, 0 );
             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
             
-            if ( !( $data = curl_exec( $ch ) ) ) {
+            if ( ( $data = curl_exec( $ch ) ) === false ) {
                 die( 'failed connecting to presence server' );
             }
 
