@@ -381,6 +381,11 @@
             $userids = explode( "\n", $data ); 
             array_pop( $userids );
 
+            if ( empty( $userids ) ) {
+                // nobody here, return
+                return;
+            }
+
             return db_array(
                 'SELECT
                     `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid
