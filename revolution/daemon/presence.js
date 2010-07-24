@@ -13,10 +13,12 @@ server.on( 'request', function ( req, res ) {
         'Content-Type': 'text/html'
     } );
     if( req.url == '/' ){
+        console.log( 'Sending iframe data..' );
         res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>setTimeout( function(){ $.get( "http://presence.zino.gr:8124/connect" );}, 20 );</script></body></html>' );
         return;
     }
     if( req.url == '/users/list' ){
+        console.log( 'User list request' );
         for( user in online ){
             res.write( user + "\n" );
         }
@@ -24,6 +26,7 @@ server.on( 'request', function ( req, res ) {
         return;
     }
     if( req.url == '/connect' ){
+        console.log( 'Persistent connection, checking for cookies' );
         if( typeof req.headers.cookie !== 'undefined' ){
             var cookies = req.headers.cookie.split( '; ' );
             for( var i = 0; i < cookies.length; ++i ){
@@ -34,11 +37,14 @@ server.on( 'request', function ( req, res ) {
                 }
             }
             if( typeof credentials === 'undefined' ){
+                console.log( 'Cookie zino_login_8 not found, closing connection' );
+                res.end();
                 return;
             }
             var userid = credentials[ 0 ];
             req.connection_id = ai_connection++;
             
+            console.log( 'Checking authtoken validity. userid=' + credentials[ 0 ] +  ' authtoken=' + credentials[ 1 ] );
             var body = 'userid=' + credentials[ 0 ] + '&authtoken=' + credentials[ 1 ];
             var request = php.request( 'POST', '/dionyziz/?resource=presence&method=create', { 
                 'Host': 'zino.gr', 
@@ -50,7 +56,10 @@ server.on( 'request', function ( req, res ) {
                     var result = libxml.parseXmlString( data.toString().substr( data.toString().indexOf( '<social' ), data.toString().length ));
                     result = result.get( '//result' );
                     if( result.text() == 'SUCCESS' ){
+
+                        console.log( 'Authtoken valid' );
                         console.log( 'User ' + credentials[ 0 ] + ' connected (Connection id = ' + req.connection_id + ')' );
+                        
                         if( typeof( online[ userid ] ) === 'undefined' ){
                             online[ userid ] = new Array();
                         }
@@ -58,17 +67,20 @@ server.on( 'request', function ( req, res ) {
                         online[ userid ].push( req.connection_id );
                     }
                     else {
+                        console.log( 'Invalid authtoken, closing connection' );
                         res.end();
                     }
                 });
             });
             
 
-            req.connection.on( 'end', function(){ 
+            req.connection.on( 'end', function(){
+                console.log( 'Connection ended, waiting 10s for reconnect' );
                 setTimeout( function(){
                     if( typeof( online[ userid ] ) !== 'undefined' && online[ userid ].length == 0 ) {
                         delete online[ userid ];
-
+                        
+                        console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
                         var body = 'userid=' + credentials[ 0 ];
                         var request = php.request( 'POST', '/dionyziz/?resource=presence&method=delete', { 
                             'Host': 'zino.gr', 
@@ -77,7 +89,9 @@ server.on( 'request', function ( req, res ) {
                         request.end( body );
 
                         console.log( 'User ' + userid + ' went offline' );
+                        return;
                     }
+                    console.log( 'User ' + userid + ' reconnected.' );
                 }, 10000);
                 online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
             });
