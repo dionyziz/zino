@@ -11,7 +11,7 @@
 
             $userid = intval( $userid );
             $authtoken = (string)$authtoken;
-            $success = User::UpdateLastActive( $userid, $authtoken );
+            // $success = User::UpdateLastActive( $userid, $authtoken );
             $success = true;
 
             include 'views/presence/create.php';
