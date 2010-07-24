@@ -345,11 +345,12 @@
                 die( 'invalid authtoken' );
             }
             $sql = 'UPDATE
-                        `users`
+                        `lastactive` LEFT JOIN `users` ON
+                        `user_id` = `lastactive_userid`
                     SET
-                        `user_lastactive` = NOW()
+                        `lastactive_updated` = NOW()
                     WHERE
-                        `user_id` = :userid ';
+                        `lastactive_userid` = :userid ';
             if ( $authtoken !== false ) {
                 $sql .= 'AND `user_authtoken` = :authtoken ';
             }
