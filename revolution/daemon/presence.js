@@ -7,6 +7,7 @@ var php = http.createClient( 500, 'zino.gr' );
 var ai_connection = 0;
 
 var online = {};
+var timeouts = {};
 
 server.on( 'request', function ( req, res ) {
     res.writeHead( 200, {
@@ -60,7 +61,7 @@ server.on( 'request', function ( req, res ) {
                         console.log( 'Authtoken valid' );
                         console.log( 'User ' + credentials[ 0 ] + ' connected (Connection id = ' + req.connection_id + ')' );
                         
-                        if( typeof( online[ userid ] ) === 'undefined' ){
+                        if( typeof online[ userid ]  === 'undefined' ){
                             online[ userid ] = new Array();
                         }
 
@@ -76,8 +77,12 @@ server.on( 'request', function ( req, res ) {
 
             req.connection.on( 'end', function(){
                 console.log( 'Connection ended, waiting 10s for reconnect' );
-                setTimeout( function(){
-                    if( typeof( online[ userid ] ) !== 'undefined' && online[ userid ].length == 0 ) {
+                if( typeof timeouts[ userid ] !== 'undefined' ){
+                    clearTimeout( timeouts[ userid ] );
+                }
+                timeouts[ userid ] = setTimeout( function(){
+                    delete timeouts[ userid ];
+                    if( online[ userid ].length == 0 ) {
                         delete online[ userid ];
                         
                         console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
@@ -91,8 +96,10 @@ server.on( 'request', function ( req, res ) {
                         console.log( 'User ' + userid + ' went offline' );
                         return;
                     }
+
                     console.log( 'User ' + userid + ' reconnected.' );
                 }, 10000);
+
                 online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
             });
         }
