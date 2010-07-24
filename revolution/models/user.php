@@ -379,14 +379,15 @@
             curl_close( $ch );
 
             $userids = explode( "\n", $data ); 
-            
+            array_pop( $userids );
+
             return db_array(
                 'SELECT
                     `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid
                 FROM
                     `users`
                 WHERE
-                    `user_id` IN :userids', compact( 'userids' )
+                    `user_id` IN :userids;', compact( 'userids' )
             );
         }
         /* old code, switching to presence server
