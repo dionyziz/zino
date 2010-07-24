@@ -9,7 +9,7 @@
             clude( 'models/db.php' );
             clude( 'models/user.php' );
 
-            $userid = int( $userid );
+            $userid = intval( $userid );
             $authtoken = string( $authtoken );
             $success = User::UpdateLastActive( $userid, $authtoken );
 
