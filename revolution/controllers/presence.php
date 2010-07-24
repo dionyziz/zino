@@ -10,6 +10,7 @@
             clude( 'models/user.php' );
 
             $userid = intval( $userid );
+            $authtoken = (string)$authtoken;
             $success = User::UpdateLastActive( $userid, $authtoken );
 
             include 'views/presence/create.php';
