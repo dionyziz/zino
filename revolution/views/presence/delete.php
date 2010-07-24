@@ -1,4 +1,4 @@
-<operation resource="presence" method="create">
+<operation resource="presence" method="delete">
     <? if ( $success ): ?>
     <result>SUCCESS</result>
     <data>

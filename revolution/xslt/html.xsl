@@ -71,6 +71,7 @@
                     'journal.view': Journal,
                     'user.view': Profile
 				}[ '<xsl:value-of select="/social/@resource" />' + '.' + '<xsl:value-of select="/social/@method" />' ].Init();
+                Presence.Init();
             </script>
         </body>
     </html>

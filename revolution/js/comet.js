@@ -3,6 +3,7 @@ var Comet = {
     ChannelsLength: 0,
     HandshakeCompleted: false,
     Handshake: function () {
+        //alert( 'Comet.Handshake' );
         channels = [];
         for ( channelid in Comet.Channels ) {
             channels.push( channelid );
@@ -12,6 +13,7 @@ var Comet = {
         }, Comet.OnHandshakeCompleted, 'xml' );
     },
     OnHandshakeCompleted: function ( res ) {
+        //alert( 'Comet.OnHandshakeCompleted' );
         Comet.HandshakeCompleted = true;
         Comet.TunnelAuthtoken = $( res ).find( 'tunnel authtoken' ).text();
         Comet.TunnelId = $( res ).find( 'tunnel' ).attr( 'id' );
@@ -21,6 +23,7 @@ var Comet = {
         setTimeout( Comet.Handshake, 50 );
     },
     Connect: function () {
+        //alert( 'Comet.Connect' );
         $.get( '/subscribe?id=' + Comet.TunnelId, {}, Comet.OnFishArrival, 'text' );
     },
     OnFishArrival: function ( res ) {

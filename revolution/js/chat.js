@@ -121,6 +121,7 @@ var Chat = {
             Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
             Chat.Join( '0' );
             Chat.Join( Chat.UserId + ':' + Chat.Authtoken );
+            Comet.Subscribe( 'presence', Chat.OnPresenceChange );
         } );
         $( '.col2' )[ 0 ].innerHTML +=
              '<div style="display:none" id="chat">'
@@ -217,7 +218,7 @@ var Chat = {
                          if ( userid != Chat.UserId ) {
                              Chat.ChannelByUserId[ userid ] = channelid;
                              if ( !$( '#u' + userid ).length ) {
-                                 Chat.ComesOnline( userid, username );
+                                 Chat.OnUserOnline( userid, username );
                              }
                              Chat.Flash( userid, text );
                              break;
@@ -227,7 +228,7 @@ var Chat = {
              }
          }
      },
-     ComesOnline: function ( userid, username ) {
+     OnUserOnline: function ( userid, username ) {
          var lis = $( '#onlineusers li' );
          var li;
          var compare;
@@ -259,6 +260,9 @@ var Chat = {
              $( '#onlineusers' )[ 0 ].insertBefore( newuser, lis[ i ] );
          }
      },
+     OnUserOffline: function ( userid, username ) {
+         $( '#u' + userid ).remove();
+     },
      Flash: function ( userid, message ) {
          // TODO: Multiple participants
          if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
@@ -281,6 +285,15 @@ var Chat = {
          // Listen to push messages here
          Comet.Subscribe( 'chat/messages/list/' + channelid, Chat.OnMessageArrival );
          Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnMessageArrival );
+     },
+     OnPresenceChange: function ( res ) {
+         var method = $( res ).find( 'operation' ).attr( 'method' );
+         if ( method == 'create' ) {
+             Chat.OnUserOnline( $( res ).find( 'user' ).attr( 'id' ), $( res ).find( 'user name' ).text() );
+         }
+         else { // method == 'delete'
+             Chat.OnUserOffline( $( res ).find( 'user' ).attr( 'id' ), $( res ).find( 'user name' ).text() );
+         }
      },
      NowLoading: function () {
          document.body.style.cursor = 'wait';

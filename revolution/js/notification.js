@@ -291,7 +291,7 @@ var Notifications = {
         $( 'body' ).prepend( html );
 
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
-        function ignore() {
+        function skip() {
             // TODO
             unbind();
             return false;
