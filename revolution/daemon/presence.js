@@ -40,9 +40,12 @@ server.on( 'request', function ( req, res ) {
             req.connection_id = ai_connection++;
             
             var body = 'userid=' + credentials[ 0 ] + '&authtoken=' + credentials[ 1 ];
-            var request = php.request( 'POST', '/petros/?resource=presence&method=create', { Host: 'zino.gr', 'Content-Length': body.length } );
+            var request = php.request( 'POST', '/petros/?resource=presence&method=create', { 
+                'Host': 'zino.gr', 
+                'Content-Length': body.length 
+            });
             request.end( body );
-            request.on( 'response', function(response){
+            request.on( 'response', function( response ){
                 response.on( 'data', function( data ){
                     var result = libxml.parseXmlString( data.toString().substr( data.toString().indexOf( '<social' ), data.toString().length ));
                     result = result.get( '//result' );
@@ -79,7 +82,9 @@ server.on( 'request', function ( req, res ) {
                 online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
             });
         }
+        return;
     }
+    res.end();
 });
 
 server.listen( 8124, "presence.zino.gr" );
