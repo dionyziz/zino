@@ -341,7 +341,9 @@
         }
         public static function UpdateLastActive( $userid, $authtoken = false ) {
             $userid = intval( $userid );
-            is_bool( $authtoken ) or is_string( $authtoken ) or die( 'invalid authtoken' );
+            if ( !( is_bool( $authtoken ) || is_string( $authtoken ) ) ) {
+                die( 'invalid authtoken' );
+            }
             $sql = 'UPDATE
                         `users`
                     SET
