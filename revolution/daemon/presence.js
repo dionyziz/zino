@@ -40,7 +40,7 @@ server.on( 'request', function ( req, res ) {
             req.connection_id = ai_connection++;
             
             var body = 'userid=' + credentials[ 0 ] + '&authtoken=' + credentials[ 1 ];
-            var request = php.request( 'POST', '/petros/?resource=presence&method=create', { 
+            var request = php.request( 'POST', '/dionyziz/?resource=presence&method=create', { 
                 'Host': 'zino.gr', 
                 'Content-Length': body.length 
             });
@@ -70,7 +70,7 @@ server.on( 'request', function ( req, res ) {
                         delete online[ userid ];
 
                         var body = 'userid=' + credentials[ 0 ];
-                        var request = php.request( 'POST', '/petros/?resource=presence&method=delete', { 
+                        var request = php.request( 'POST', '/dionyziz/?resource=presence&method=delete', { 
                             'Host': 'zino.gr', 
                             'Content-Length': body.length 
                         });
