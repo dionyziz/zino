@@ -31,7 +31,7 @@ var Profile = {
     },
     PopulateEditables: function() {
         Profile.MakeEditable( $( '.asl .gender' ), 'gender' );
-    }
+    },
     MakeEditable: function( element, field ) {
         element.addClass( 'editable' );
         switch( field ) {
