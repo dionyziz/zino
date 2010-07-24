@@ -33,10 +33,10 @@
  * Example call: xhr.transform( { 'name': templateName,
  *                                'mode': templateMode }, callback, xslPath );
  * ----Normal parameter mode.
- * Example call: xhr.transform( templateName, callback, xslPath, templateMode );
+ * Example call: xhr.transform( templateName, callback, templateMode, params, xslPath );
  */
 
-function axslt( xml, template, callback, xslPath, params ) {
+function axslt( xml, template, callback, params, xslPath ) {
     var templateMode;
     var templateName;
     if ( template.substr( 0, 5 ) == 'call:' ) {
@@ -205,7 +205,17 @@ var _aXSLT = {
         //alert( 'transform unit' );
         this.deQueue( unitIndex );
     },
-    addTemplate: function( basicStylesheet, templateName, templateMode ) {
+    expandParams: function( params ) {
+        var ret = '';
+        var par;
+        for ( par in params ) {
+            if ( typeof( par ) == 'string' ) {
+                ret += '<xsl:with-param name="' + par + '">' + params[ par ] + '</xsl:with-param>';
+            }
+        }
+        return ret;
+    },
+    addTemplate: function( basicStylesheet, templateName, templateMode, params ) {
         if ( !templateName || templateName == '/' ) {
             return basicStylesheet;
         }
@@ -213,7 +223,9 @@ var _aXSLT = {
         '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
             '<xsl:template match="/" priority="500000">' +
                 ( templateMode == 'call' ?
-                    '<xsl:call-template name="' + templateName + '" />'
+                    '<xsl:call-template name="' + templateName + '">' +
+                        _aXSLT.expandParams( params ) +
+                    '</xsl:call-template>'
                 :
                     '<xsl:apply-templates select="' + templateName + '" />'
                 ) +
@@ -276,7 +288,7 @@ var _aXSLT = {
         else {
             stylesheet = xsl.responseXML;
         }
-        stylesheet = _aXSLT.addTemplate( stylesheet, templateName, templateMode );
+        stylesheet = _aXSLT.addTemplate( stylesheet, templateName, templateMode, params );
         //alert( stylesheet );
         if ( !stylesheet ) {
             throw new Error( 'aXSLT: Error in template juggling' );
