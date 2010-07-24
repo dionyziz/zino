@@ -354,7 +354,7 @@
             if ( $authtoken !== false ) {
                 $sql .= 'AND `user_authtoken` = :authtoken ';
             }
-            $sql .= 'LIMIT 1;';
+            $sql .= ';';
 
             $res = db( $sql, compact( 'userid', 'authtoken' ) );
             
