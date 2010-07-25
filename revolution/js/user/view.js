@@ -32,28 +32,40 @@ var Profile = {
     PopulateEditables: function() {
         UserDetails.Init();
         Profile.MakeEditable( $( '.asl .gender' ), 'gender' );
-        Profile.MakeEditable( $( 'li.smoker span' ), 'smoker' );
+        Profile.MakeEditable( $( 'li.smoker > span' ), 'smoker' );
+        Profile.MakeEditable( $( 'li.drinker > span' ), 'drinker' );
+        Profile.MakeEditable( $( 'li.relationship > span' ), 'relationship' );
+        Profile.MakeEditable( $( 'li.politics > span' ), 'politics' );
+        Profile.MakeEditable( $( 'li.religion > span' ), 'religion' );
+        Profile.MakeEditable( $( 'li.sexualorientation > span' ), 'sexualorientation' );
+        Profile.MakeEditable( $( 'li.eyecolor > span' ), 'eyecolor' );
+        Profile.MakeEditable( $( 'li.haircolor > span' ), 'haircolor' );
     },
     MakeEditable: function( element, field ) {
-        //element.addClass( 'editable' );
+        element.addClass( 'editable' );
         switch( field ) {
             default:
-                var select = $( element ).find( 'select.dropdown' );
-                Profile.CurrentValues[ field ] = select.val();
-                select.empty();
+                var oldselect = $( element ).find( 'select.dropdown' );
+                Profile.CurrentValues[ field ] = oldselect.val();
+                oldselect.empty();
+                var select = $( '<select />' ).addClass( 'dropdown' );
+                oldselect.replaceWith( select );
                 var map;
                 map = UserDetails.GetMap( field );
-                console.log( map );
                 var nbsp = String.fromCharCode( 160 );
                 var option;
                 for ( key in map ) {
                     option = $( '<option />' ).attr( 'value', key ).text( nbsp + map[ key ] + nbsp).appendTo( select );
                 }
                 select.val( Profile.CurrentValues[ field ] );
+                if ( Profile.CurrentValues[ field ] == '-' ) {
+                    $( element ).find( 'span' ).addClass( 'notshown' );
+                }
                 select.appendTo( element ).css( 'display', 'block' );
                 $( select ).change( function() {
                     var span = $( this ).siblings().filter( 'span' );
-                    $( span ).text( UserDetails.GetString( field, $( this ).val() /*, gender*/ ) ).removeClass( 'notshown' );
+                    var text = UserDetails.GetString( field, $( this ).val() /*, gender*/ );
+                    $( span ).removeClass( 'notshown' ).text( text );
                     if ( $( this ).val() == '-' ) {
                         span.addClass( 'notshown' );
                     }

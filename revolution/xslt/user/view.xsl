@@ -65,16 +65,18 @@
                 <div class="details">
                     <div class="username"><xsl:value-of select="name[1]" /></div>
                     <ul class="asl">
-                        <xsl:if test="gender[1]">
-                            <li>
-                                <span class="gender">
-                                    <xsl:choose>
-                                        <xsl:when test="gender[1] = 'f'">Κορίτσι</xsl:when>
-                                        <xsl:otherwise>Αγόρι</xsl:otherwise>
-                                    </xsl:choose>
-                                </span>
-                            </li>
-                        </xsl:if>
+                        <li class="gender">
+                            <span>
+                                <xsl:call-template name="detailstrings">
+                                    <xsl:with-param name="field">gender</xsl:with-param>
+                                    <xsl:with-param name="value" select="gender" />
+                                    <xsl:with-param name="gender" select="gender" />
+                                </xsl:call-template>
+                            </span>
+                            <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute>
+                                <option><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute></option>
+                            </select>
+                        </li>
                         <xsl:if test="age[1]">
                             <li>
                                 <xsl:if test="gender[1]">
@@ -170,84 +172,140 @@
                 kg
             </xsl:if>
         </li>
-        <xsl:if test="smoker">
-            <li>
-                <span>Καπνίζει:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">smoker</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="smoker" />
-                </xsl:call-template>
+        <xsl:if test="smoker or $user = ../name[1]">
+            <li class="smoker">
+                Καπνίζει:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">smoker</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="smoker" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="smoker" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="smoker" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="drinker">
-            <li>
-                <span>Πίνει:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">drinker</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="drinker" />
-                </xsl:call-template>
+        <xsl:if test="drinker or $user = ../name[1]">
+            <li class="drinker">
+                Πίνει:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">drinker</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="drinker" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="drinker" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="drinker" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="relationship">
-            <li>
-                <span>Σχέση:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">relationship</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="relationship" />
-                </xsl:call-template>
+        <xsl:if test="relationship or $user = ../name[1]">
+            <li class="relationship">
+                Σχέση:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">relationship</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="relationship" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="relationship" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="relationship" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="politics">
-            <li>
-                <span>Πολιτικές πεποιθήσεις:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">politics</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="politics" />
-                </xsl:call-template>
+        <xsl:if test="politics or $user = ../name[1]">
+            <li class="politics">
+                Πολιτικές πεποιθήσεις:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">politics</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="politics" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="politics" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="politics" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="religion">
-            <li>
-                <span>Θρήσκευμα:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">religion</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="religion" />
-                </xsl:call-template>
+        <xsl:if test="religion or $user = ../name[1]">
+            <li class="religion">
+                Θρήσκευμα:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">religion</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="religion" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="religion" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="religion" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="sexualorientation">
-            <li>
-                <span>Σεξουαλικές προτιμήσεις:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">sexualorientation</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="sexualorientation" />
-                </xsl:call-template>
+        <xsl:if test="sexualorientation or $user = ../name[1]">
+            <li class="sexualorientation">
+                Σεξουαλικές προτιμήσεις:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">sexualorientation</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="sexualorientation" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="sexualorientation" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="sexualorientation" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="eyecolor">
-            <li>
-                <span>Χρώμμα ματιών:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">eyecolor</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="eyecolor" />
-                </xsl:call-template>
+        <xsl:if test="eyecolor or $user = ../name[1]">
+            <li class="eyecolor">
+                Χρώμμα ματιών:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">eyecolor</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="eyecolor" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="eyecolor" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="eyecolor" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
-        <xsl:if test="haircolor">
-            <li>
-                <span>Χρώμμα μαλλιών:</span>
-                <xsl:call-template name="detailstrings">
-                    <xsl:with-param name="type">haircolor</xsl:with-param>
-                    <xsl:with-param name="gender" select="../gender" />
-                    <xsl:with-param name="value" select="haircolor" />
-                </xsl:call-template>
+        <xsl:if test="haircolor or $user = ../name[1]">
+            <li class="haircolor">
+                Χρώμμα μαλλιών:
+                <span>
+                    <span><xsl:call-template name="detailstrings">
+                        <xsl:with-param name="field">haircolor</xsl:with-param>
+                        <xsl:with-param name="gender" select="../gender" />
+                        <xsl:with-param name="value" select="haircolor" />
+                    </xsl:call-template></span>
+                    <xsl:if test="$user = ../name[1]">
+                        <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="haircolor" /></xsl:attribute>
+                            <option><xsl:attribute name="value"><xsl:value-of select="haircolor" /></xsl:attribute></option>
+                        </select>
+                    </xsl:if>
+                </span>
             </li>
         </xsl:if>
         <xsl:if test="aboutme">

@@ -30,11 +30,11 @@
     position: relative;
     top: -2px;
 }
-.maininfo ul.asl li {
+.maininfo ul.asl > li {
     float: left;
     margin: 0 3px 0 0;
 }
-.maininfo ul.asl li span {
+.maininfo ul.asl li {
     font-weight: bold;
     line-height: 200%;
 }
@@ -45,26 +45,29 @@
     padding-left: 50px;
 }
 .sidebar {
-    width: 300px;
+    width: 400px;
     min-height: 400px;
     float: left;
 }
+
 .userdetails li {
     padding: 2px 0;
     text-align: left;
     width: 100%;
-}
-.userdetails li span, .userdetails li div {
     font-weight: bold;
 }
-li.heightweight {
-    font-weight: normal;
-    text-align: center;
-    padding: 20px 0;
-}
-.heightweight span{
-    font-weight: bold;
-}
+    ul.userdetails li span {
+        font-weight: normal;
+    }
+    li.heightweight {
+        font-weight: normal;
+        text-align: center;
+        padding: 20px 0;
+    }    
+    ul.userdetails li.heightweight span {
+        font-weight: bold;
+    }
+
 .useritems{
     float: right;
 }
@@ -83,6 +86,7 @@ li.heightweight {
                 font-weight: bold;
                 display: block;
             }
+
 #friendship {
     padding: 5px;
     border: 1px solid #234;

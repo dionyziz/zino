@@ -9,6 +9,8 @@ var UserDetails = {
                 case 'gender':
                     return 'Όρισε φύλο';
                     break;
+                default:
+                    return UserDetails.GetMap( field, gender )[ value ];
             }
         }
     },

@@ -1,9 +1,17 @@
 <xsl:template name="detailstrings">
-    <xsl:param name="type" />
+    <xsl:param name="field" />
     <xsl:param name="gender" />
     <xsl:param name="value" />
+<!-- gender -->
+    <xsl:if test="$field = 'gender'">
+        <xsl:choose>
+            <xsl:when test="$value = 'm'">Αγόρι</xsl:when>
+            <xsl:when test="$value = 'f'">Κορίτσι</xsl:when>
+            <xsl:when test="$value = '-'">Όρισε φύλο</xsl:when>
+        </xsl:choose>
+    </xsl:if>
 <!-- smoker -->
-    <xsl:if test="$type = 'smoker'">
+    <xsl:if test="$field = 'smoker'">
         <xsl:choose>
             <xsl:when test="$value = 'yes'">Ναι</xsl:when>
             <xsl:when test="$value = 'no'">Όχι</xsl:when>
@@ -11,7 +19,7 @@
         </xsl:choose>
     </xsl:if>
 <!-- drinker -->
-    <xsl:if test="$type = 'drinker'">
+    <xsl:if test="$field = 'drinker'">
         <xsl:choose>
             <xsl:when test="$value = 'yes'">Ναι</xsl:when>
             <xsl:when test="$value = 'no'">Όχι</xsl:when>
@@ -19,7 +27,7 @@
         </xsl:choose>
     </xsl:if>
 <!-- relationship -->
-    <xsl:if test="$type = 'relationship'">
+    <xsl:if test="$field = 'relationship'">
         <xsl:choose>
             <xsl:when test="$gender = 'f'">
                 <xsl:choose>
@@ -44,7 +52,7 @@
         </xsl:choose>
     </xsl:if>
 <!-- religion -->
-    <xsl:if test="$type = 'religion'">
+    <xsl:if test="$field = 'religion'">
         <xsl:choose>
             <xsl:when test="$gender ='f'">
 				<xsl:choose>
@@ -58,6 +66,9 @@
                     <xsl:when test="$value = 'budhist'">Βουδίστρια</xsl:when>
                     <xsl:when test="$value = 'greekpolytheism'">Δωδεκαθεΐστρια</xsl:when>
                     <xsl:when test="$value = 'hindu'">Ινδουίστρια</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
@@ -72,12 +83,15 @@
                     <xsl:when test="$value = 'budhist'">Βουδιστής</xsl:when>
                     <xsl:when test="$value = 'greekpolytheism'">Πολυθεϊστής</xsl:when>
                     <xsl:when test="$value = 'hindu'">Ινδουιστής</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:if>
 <!-- politics -->
-    <xsl:if test="$type = 'politics'">
+    <xsl:if test="$field = 'politics'">
         <xsl:choose>
             <xsl:when test="$gender ='f'">
 				<xsl:choose>
@@ -94,6 +108,9 @@
                     <xsl:when test="$value = 'socialism'">Σοσιαλίστρια</xsl:when>
                     <xsl:when test="$value = 'liberalism'">Φιλελεύθερη</xsl:when>
                     <xsl:when test="$value = 'green'">Πράσινη</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
@@ -111,18 +128,24 @@
                     <xsl:when test="$value = 'socialism'">Σοσιαλιστής</xsl:when>
                     <xsl:when test="$value = 'liberalism'">Φιλελεύθερος</xsl:when>
                     <xsl:when test="$value = 'green'">Πράσινος</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:if>
 <!-- sexualorientation -->
-    <xsl:if test="$type = 'sexualorientation'">
+    <xsl:if test="$field = 'sexualorientation'">
         <xsl:choose>
             <xsl:when test="$gender ='f'">
 				<xsl:choose>
 					<xsl:when test="$value = 'straight'">Straight</xsl:when>
                     <xsl:when test="$value = 'bi'">Bisexual</xsl:when>
                     <xsl:when test="$value = 'gay'">Λεσβία</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
@@ -130,22 +153,28 @@
                     <xsl:when test="$value = 'straight'">Straight</xsl:when>
                     <xsl:when test="$value = 'bi'">Bisexual</xsl:when>
                     <xsl:when test="$value = 'gay'">Gay</xsl:when>
+                    <xsl:when test="$value = '-'">
+                        Δεν έχει οριστεί
+                    </xsl:when>
                 </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:if>
 <!-- eyecolor -->
-    <xsl:if test="$type = 'eyecolor'">
+    <xsl:if test="$field = 'eyecolor'">
         <xsl:choose>
             <xsl:when test="$value = 'black'">Μαύρο</xsl:when>
             <xsl:when test="$value = 'brown'">Καφέ</xsl:when>
             <xsl:when test="$value = 'green'">Πράσινο</xsl:when>
             <xsl:when test="$value = 'blue'">Μπλε</xsl:when>
             <xsl:when test="$value = 'grey'">Γκρι</xsl:when>
+            <xsl:when test="$value = '-'">
+                Δεν έχει οριστεί
+            </xsl:when>
         </xsl:choose>
     </xsl:if>
 <!-- haircolr -->
-    <xsl:if test="$type = 'haircolor'">
+    <xsl:if test="$field = 'haircolor'">
         <xsl:choose>
             <xsl:when test="$value = 'black'">Μαύρο</xsl:when>
             <xsl:when test="$value = 'brown'">Καστανό</xsl:when>
@@ -155,6 +184,9 @@
             <xsl:when test="$value = 'dark'">Σκούρο</xsl:when>
             <xsl:when test="$value = 'grey'">Γκρι</xsl:when>
             <xsl:when test="$value = 'skinhead'">Skinhead</xsl:when>
+            <xsl:when test="$value = '-'">
+                Δεν έχει οριστεί
+            </xsl:when>
         </xsl:choose>
     </xsl:if>
 </xsl:template>
