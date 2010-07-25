@@ -53,7 +53,8 @@ server.on( 'request', function ( req, res ) {
                 'Host': 'zino.gr', 
                 'Content-Length': body.length 
             });
-            request.end( body );
+            request.write( body )
+            request.close( body );
             request.on( 'response', function( response ){
                 response.on( 'data', function( data ){
                     //libxml doesn't like proccessing instructions. Strip them from the XML and parse.
