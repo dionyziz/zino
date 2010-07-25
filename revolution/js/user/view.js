@@ -30,12 +30,36 @@ var Profile = {
         }
     },
     PopulateEditables: function() {
+        UserDetails.Init();
         Profile.MakeEditable( $( '.asl .gender' ), 'gender' );
+        Profile.MakeEditable( $( 'li.smoker span' ), 'smoker' );
     },
     MakeEditable: function( element, field ) {
-        element.addClass( 'editable' );
+        //element.addClass( 'editable' );
         switch( field ) {
-            case 'gender','sexualorientation':
+            default:
+                var select = $( element ).find( 'select.dropdown' );
+                Profile.CurrentValues[ field ] = select.val();
+                select.empty();
+                var map;
+                map = UserDetails.GetMap( field );
+                console.log( map );
+                var nbsp = String.fromCharCode( 160 );
+                var option;
+                for ( key in map ) {
+                    option = $( '<option />' ).attr( 'value', key ).text( nbsp + map[ key ] + nbsp).appendTo( select );
+                }
+                select.val( Profile.CurrentValues[ field ] );
+                select.appendTo( element ).css( 'display', 'block' );
+                $( select ).change( function() {
+                    var span = $( this ).siblings().filter( 'span' );
+                    $( span ).text( UserDetails.GetString( field, $( this ).val() /*, gender*/ ) ).removeClass( 'notshown' );
+                    if ( $( this ).val() == '-' ) {
+                        span.addClass( 'notshown' );
+                    }
+                    $.post( 'user/update', { 'gender': $( this ).val() } );
+                } );
         }
-    }
+    },
+    CurrentValues: {}
 }
