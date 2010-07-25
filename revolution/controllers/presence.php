@@ -20,7 +20,7 @@
 
             echo $xml;
 
-            if ( $success ) {
+            if ( is_array( $info ) ) {
                 PushChannel::Publish( 'presence', $xml );
             }
         }
@@ -33,13 +33,13 @@
             clude( 'models/comet.php' );
 
             $userid = int( $userid );
-            $success = User::UpdateLastActive( $userid );
+            $info = User::UpdateLastActive( $userid );
 
             ob_start();
             include 'views/presence/delete.php'; 
             $xml = ob_get_clean();
 
-            if ( $success ) {
+            if ( is_array( $info ) ) {
                 PushChannel::Publish( 'presence', $xml );
             }
         }
