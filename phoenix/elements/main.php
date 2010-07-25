@@ -110,6 +110,7 @@
                     <div id="downstrip" class="sx_0002" style="position:relative"><?php
                         Element( 'footer' );
                     ?></div>
+					<iframe src="http://presence.zino.gr:8124" style="width: 0; height: 0;"></iframe>
                     <?php
                 }
                 
