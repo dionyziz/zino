@@ -1,5 +1,4 @@
 var http = require( 'http' );
-var libxml = require( './libxmljs' );
 var querystring = require( 'querystring' );
 
 var server = http.createServer();
@@ -58,12 +57,9 @@ server.on( 'request', function ( req, res ) {
                 });
 
                 response.on( 'end', function( ){
-                    //libxml doesn't like proccessing instructions. Strip them from the XML and parse.
-                    var xml = data.substr( data.indexOf( '<social' ), data.length );
                     try {
-                        var result = libxml.parseXmlString( xml );
-                        result = result.get( '//result' );
-                        if( result.text() == 'SUCCESS' ){
+                        var result = data.search( '<result>SUCCESS</result>' );
+                        if( result != -1 ){
 
                             console.log( 'Authtoken valid' );
                             console.log( 'User ' + userid + ' connected (Connection id = ' + req.connection_id + ')' );
