@@ -67,6 +67,9 @@ RewriteRule ^notification/delete$ index.php?resource=notification&method=delete 
 # interests
 RewriteRule ^interests/([0-9]+)$ index.php?resource=interest&method=list&userid=$1 [L,QSA]
 
+# place
+RewriteRule ^places$ index.php?resource=place&method=list [L,QSA]
+
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]

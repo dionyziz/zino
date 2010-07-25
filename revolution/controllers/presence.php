@@ -11,7 +11,7 @@
             clude( 'models/comet.php' );
 
             $userid = (int)$userid;
-            $authtoken = (string)$authtoken;
+            $authtoken = ( string )$authtoken;
             $info = User::UpdateLastActive( $userid, $authtoken );
 
             ob_start();
