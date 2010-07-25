@@ -102,7 +102,7 @@ server.on( 'request', function ( req, res ) {
             });
 
             req.connection.on( 'end', function(){
-                if( typeof online[ userid ] !== 'undefined' ){
+                if( typeof online[ userid ] === 'undefined' ){
                     return; //Connection ended before we validate
                 }
                 //If a previus timeout is on cancel it
