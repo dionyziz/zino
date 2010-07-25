@@ -1,12 +1,108 @@
-<html>
+<?php
+    header( 'Content-type: application/xhtml+xml' );
+    echo '<?xml version="1.0" encoding="UTF-8"?>';
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
 		<title>JSLINT</title>
-        <script type="text/javascript" src="fulljslint.js"></script>
-        <link rel="stylesheet" type="text/css" href="jslint.css"></link>
+        <script type="text/javascript" src="http://www.zino.gr/js/jslint/fulljslint.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://www.zino.gr/css/jslint.css"></link>
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: Verdana, "Trebuchet MS", Helvetica;
+                font-size: 90%;
+            }
+            a, a:visited, a:active {
+                text-decoration: none;
+                color: #105cb6;
+            }
+            a:hover {
+                color: #000033;
+            }
+            div.content {
+                margin: 10px;
+            }
+            div.username {
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                font-weight: bold;
+                font-size: 80%;
+            }
+            div.eof {
+                clear: both;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table tr.l {
+                background-color: #eee;
+            }
+            textarea {
+                margin: 5px;
+                width: 100%;
+                height: 50px;
+            }
+            table thead tr td {
+                font-weight: bold;
+                font-size: 80%;
+            }
+            table thead tr {
+                background-color: #eee;
+            }
+            table td {
+                padding: 5px;
+            }
+            table tbody tr {
+                border-top: 1px solid #ccc;
+            }
+            h1 {
+                font-size: 150%;
+                font-weight: normal;
+                text-align: left;
+                color: #666;
+                margin: 10px;
+                padding: 0;
+            }
+            h2 {
+                font-size: 130%;
+                color: #666;
+                font-weight: normal;
+                text-align: left;
+            }
+            h3 {
+                font-size: 105%;
+                color: #666;
+                text-align: left;
+            }
+            div.diff {
+                width: 100%;
+                border: 1px solid #ccc;
+                padding: 5px;
+                overflow: auto;
+                max-height: 800px;
+            }
+            span.file {
+                font-weight: bold;
+            }
+            div.copy {
+                color: #aaa;
+                font-size: 75%;
+                margin: 20px 0 10px 10px;
+            }
+        </style>
 	</head>
     <body>
+        <h1>Javascript Lint</h1>
         <?php
-        $jspath = '../js';
+        $jspath = '../../js';
         $jslintsources = array();
         $queue = array( $jspath );
         while ( !empty( $queue ) ) {
@@ -28,11 +124,12 @@
             }
         }
         ?>
-        <br /><br /><br />
-        <span id="jslintnumerrors">no errors</span> in total
-        <br /><br />
-        <dl id="jslintresults">
-        </dl>
+        <div class="content">
+            <span id="jslintnumerrors">no errors</span> in total
+            <br /><br />
+            <dl id="jslintresults">
+            </dl>
+        </div>
         <script type="text/javascript"><?php
             ob_start();
             ?>
@@ -44,7 +141,7 @@
                 
                 filename = document.createElement( 'dt' );
                 filelink = document.createElement( 'a' );
-                filelink.href = 'js/' + file;
+                filelink.href = '../../js/' + file;
                 var loader = document.createElement( 'img' );
                 loader.src = 'http://static.zino.gr/images/ajax-loader.gif';
                 loader.style.cssFloat = 'right';
@@ -156,7 +253,7 @@
                 }( parseresult ), 50 );
             }
             var jslintsources = <?php
-            echo w_json_encode( $jslintsources );
+            echo json_encode( $jslintsources );
             ?>;
             
             j = 0;
@@ -175,5 +272,6 @@
             echo htmlspecialchars( ob_get_clean() );
             ?>
         </script>
+        <div class="copy">Kamibu Developer Tools</div>
     </body>
 </html>
