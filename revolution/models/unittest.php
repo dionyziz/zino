@@ -44,6 +44,14 @@
         final public function AppliesTo() {
             return $this->mAppliesTo;
         }
+        protected function RandomValues( $data, $num ) {
+            $keys = array_rand( $data, $num );
+            $ret = array();
+            foreach ( $keys as $key ) {
+                $ret[] = $data[ $key ];
+            }
+            return $ret;
+        }
         protected function AssertNull( $actual, $message = '' ) {
             return $this->InformTester(
                 New AssertResult( is_null( $actual ), $message, $actual, null )

@@ -94,11 +94,15 @@
             return $ret;
         }
         public function ExampleData() {
-            return array(
+            return $this->RandomValues( array(
                 array( 1, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
                 array( 658, 'barcelona', 'I love this place' ),
                 array( 658, 'rome', '' ),
-            );
+                array( 658, 'test', 'haha' ),
+                array( 658, 'foobar', '' ),
+                array( 658, 'red green', 'blue' ),
+                array( 658, 'hello', 'world' )
+            ), 3 );
         }
     }
 
