@@ -3,7 +3,7 @@
     <result>SUCCESS</result>
     <data>
         <user id="<?= $userid ?>">
-            <name><?= $username ?></name>
+            <name><?= $info[ 'name' ] ?></name>
         </user>
     </data>
         <name><?= $info[ 'name' ] ?></name>

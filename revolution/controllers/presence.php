@@ -10,7 +10,7 @@
             clude( 'models/user.php' );
             clude( 'models/comet.php' );
 
-            $userid = intval( $userid );
+            $userid = (int)$userid;
             $authtoken = (string)$authtoken;
             $info = User::UpdateLastActive( $userid, $authtoken );
 

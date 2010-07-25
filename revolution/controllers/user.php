@@ -68,7 +68,9 @@
         public static function Create() {
         }
         public static function Update(
-            $gender = false, $email = false, $placeid = 0, $dob = '', $slogan = false, $schoolid, $sexualorientation, $relationship, $religion, $politics, $aboutme, $moodid, $eyecolor, $haircolor, $height, $weight, $smoker, $drinker, $favquote, $mobile, $skype, $msn, $gtalk, $yim, $homepage, $firstname, $lastname, $address, $addressnum, $postcode, $area, $numcomments, $education, $educationyear, $songid, $songwidgetid ) {
+            $gender = false, $email = false, $placeid = 0, $dob = '', $slogan = false, $schoolid, $sexualorientation, $relationship, $religion, $politics, $aboutme, $moodid, $eyecolor, $haircolor, $height, $weight, $smoker, $drinker, $favquote, $mobile, $skype, $msn, $gtalk, $yim, $homepage, $firstname, $lastname, $address, $addressnum, $postcode, $area, $numcomments, $education, $educationyear, $songid, $songwidgetid, $emailnotify, $notify ) {
+            $userid = $_SESSION[ 'user' ][ 'id' ];
+
             switch ( $gender ) {
                 case 'm':
                 case 'f':
@@ -77,6 +79,18 @@
                 default:
                     $gender = '';
             }
+
+            clude( 'models/usersettings.php' );
+
+            if ( ( $emailnotify !== "yes" AND $emailnotify !== "no" ) 
+                OR ( $notify !== "yes" AND $notify !== "no" )  ) {
+                return false;
+            }
+            
+            $pref = array();
+            $pref[ 'emailprofilecomment'] = $pref[ 'emailphotocomment'] = $pref[ 'emailphototag'] = $pref[ 'emailjournalcomment'] = $pref[ 'emailpollcomment'] = $pref[ 'emailreply'] = $pref[ 'emailfriendaddition'] = $pref[ 'emailfriendjournal'] = $pref[ 'emailfriendpoll'] = $pref[ 'emailfriendphoto'] = $pref[ 'emailfavourite'] = $pref[ 'emailbirthday'] = $emailnotify;
+            $pref[ 'notifyprofilecomment'] = $pref[ 'notifyphotocomment'] = $pref[ 'notifyphototag'] = $pref[ 'notifyjournalcomment'] = $pref[ 'notifypollcomment'] = $pref[ 'notifyreply'] = $pref[ 'notifyfriendaddition'] = $pref[ 'notifyfriendjournal'] = $pref[ 'notifyfriendphoto'] = $pref[ 'notifyfriendpoll'] = $pref[ 'notifyfavourite'] = $pref[ 'notifybirthday'] = $notify;
+            return Usersettings::Set( $userid, $pref );
         }
         public static function Delete() {
         }

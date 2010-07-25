@@ -340,7 +340,6 @@
             return true;
         }
         public static function UpdateLastActive( $userid, $authtoken = false ) {
-            $userid = intval( $userid );
             if ( !( is_bool( $authtoken ) || is_string( $authtoken ) ) ) {
                 die( 'invalid authtoken' );
             }
@@ -355,6 +354,9 @@
                 $sql .= ' AND `user_authtoken` = :authtoken ';
             }
             $sql .= ' LIMIT 1;';
+
+            var_dump( $userid );
+            var_dump( $authtoken );
             
             $user = mysql_fetch_array( db( $sql, compact( 'userid', 'authtoken' ) ) );
             if ( $user === false ) {
