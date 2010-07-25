@@ -8,7 +8,7 @@
         protected $mName;
         protected $mAppliesTo;
         protected $mOnPreConditions;
-        public $Called;
+        protected $mCalled = false;
         
         final public function Testcase() {
         }
@@ -51,6 +51,9 @@
                 $ret[] = $data[ $key ];
             }
             return $ret;
+        }
+        public function Called( $func ) {
+            $this->mCalled = $func;
         }
         protected function AssertNull( $actual, $message = '' ) {
             return $this->InformTester(
@@ -115,10 +118,10 @@
             $this->Assert( method_exists( $class, $method ), $message );
         }
         protected function AssertIsArray( $array, $message = '' ) {
-            if ( empty( $message ) && $this->Called !== false ) {
-                $message = $this->Called . ' did not return an array';
+            if ( empty( $message ) && $this->mCalled !== false ) {
+                $message = $this->mCalled . ' did not return an array';
             }
-            $this->AssertEquals( 'array', get_type( $array ), $message );
+            $this->AssertEquals( 'array', gettype( $array ), $message );
         }
         protected function AssertArrayHasKeys( $array, $keys, $message = '' ) {
             foreach ( $keys as $key ) {
@@ -126,8 +129,8 @@
             }
         }
         protected function AssertArrayHasKey( $array, $key, $message = '' ) {
-            if ( empty( $message ) && $this->Called !== false ) {
-                $message = $this->Called . " did not return an array with key " . $key;
+            if ( empty( $message ) && $this->mCalled !== false ) {
+                $message = $this->mCalled . " did not return an array with key " . $key;
             }
             $this->Assert( isset( $array[ $key ] ), $message );
         }
@@ -137,8 +140,8 @@
             }
         }
         protected function AssertArrayValue( $array, $key, $value, $message = '' ) {
-            if ( empty( $message ) && $this->Called !== false ) {
-                $message = $this->Called . " returned array with wrong value for $key.";
+            if ( empty( $message ) && $this->mCalled !== false ) {
+                $message = $this->mCalled . " returned array with wrong value for $key.";
             }
             $this->AssertEquals( $value, $array[ $key ], $message );
         }
@@ -233,6 +236,7 @@
         protected $mTestcases;
         protected $mAssertResults;
         protected $mRequirementsFullfilled;
+        protected $mPreviousMethodname = '';
 
         public function Tester() {
             $this->mTestcases = array();
@@ -301,9 +305,15 @@
             }
             foreach ( $methods as $method ) {
                 if ( $this->ValidMethod( $method ) ) {
+                    $methodname = $method->getName();
+                    $partialname = substr( $methodname, strlen( 'Test' ) );
+                    if ( function_exists( $testcase->ClassCovered(), $partialname ) ) {
+                       // $testcase-> = $partialname;
+                    }
                     $this->mAssertResults = array();
                     $this->RunTest( $testcase, $method );
-                    $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
+                    $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+                    $this->mPreviousMethodName = $methodname;
                 }
             }
             $testcase->TearDown();
@@ -313,66 +323,70 @@
             $methodname = $method->getName();
             return ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' );
         }
+        public function GetProviderParams( $testcase, $annotations ) {
+            if ( !isset( $annotations[ 'dataProvider' ] ) ) {
+                return array();
+            }
+            $provider = $annotations[ 'dataProvider' ][ 0 ];
+            return call_user_func( array( $testcase, $provider ) );
+        }
+        public function GetProducerParams( $annotations ) {
+            if ( isset( $annotations[ 'producer' ] ) ) {
+                return $this->mProduced[ $annotations[ 'producer' ][ 0 ] ];
+            }
+            else if ( isset( $this->mProduced[ $this->mPreviousMethodName ] ) ) {
+                return $this->mProduced[ $this->mPreviousMethodName ];
+            }
+            return array();
+        }
         public function HandleAnnotations( $testcase, $method ) {
             $annotations = $this->GetAnnotations( $method );
             if ( isset( $annotations[ 'covers' ] ) ) {
-                $testcase->Called = $annotations[ 'covers' ][ 0 ];
+                $testcase->mCalled = $annotations[ 'covers' ][ 0 ];
             }
+            $provided = $this->GetProviderParams( $testcase, $annotations );
+            $produced = $this->GetProducerParams( $annotations );
             $allParams = array();
-            if ( isset( $annotations[ 'dataProvider' ] ) ) {
-                $provider = $annotations[ 'dataProvider' ][ 0 ];
-                $allParams = call_user_func( array( $testcase, $provider ) );
-                w_assert( is_array( $allParams ), 'dataprovider did not provide array' );
-                if ( isset( $annotations[ 'producer' ] ) ) {
-                    $producer = $annotations[ 'producer' ][ '0' ];
-                    w_assert( count( $allParams ) == count( $this->mProduced[ $producer ] ), 'produced and provided must have same count' );
-                    foreach ( $allParams as $i => $params ) {
-                        if ( is_scalar( $params ) ) {
-                            $allParams[ $i ] = array( $params );
-                        }
-                        array_unshift( $allParams[ $i ], $this->mProduced[ $producer ][ $i ] );
-                    }
+            if ( !empty( $provided ) && !empty( $produced ) ) {
+                w_assert( count( $provided ) == count( $produced ), 'produced and provided must have same count' );
+                foreach ( $provided as $i => $params ) {
+                    $provided[ $i ][] = $produced[ $i ];
                 }
+                return $provided;
             }
-            else if ( isset( $annotations[ 'producer' ] ) ) {
-                $producer = $annotations[ 'producer' ][ '0' ];
-                $allParams = $this->mProduced[ $producer ];
+            else if ( !empty( $provided ) ) {
+                return $provided;
             }
-            return $allParams;
-        }
-        public function HandleRunException( $e ) {
-            $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
-            $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+            return $produced;
         }
         public function RunTest( $testcase, $method ) {
             $methodname = $method->getName();
             $allParams = $this->HandleAnnotations( $testcase, $method );
             $runresults = array();
-            if ( !empty( $allParams ) ) {
-                foreach ( $allParams as $params ) {
-                    try {
-                            $ret = call_user_func_array( array( $testcase, $methodname ), $params );
-                    }
-                    catch ( Exception $e ) {
-                        $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[PreConditions]' );
-                        continue;
-                    }
-                    if ( !empty( $ret ) ) {
-                        $this->mProduced[ $methodname ][] = $ret;
-                    }
-                }
+            if ( empty( $allParams ) ) {
+                return $this->CallMethod( $testcase, $methodname );
             }
-            else {
-                try {
-                    $ret = call_user_func( array( $testcase, $methodname ) );
-                }
-                catch ( Exception $e ) {
-                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[PreConditions]' );
-                    return $runresults;
-                }
-                if ( !empty( $ret ) ) {
-                    $this->mProduced[ $methodname ][] = $ret;
-                }
+            return $this->CallMethodLoop( $testcase, $methodname, $allParams );
+        }
+        public function CallMethodLoop( $testcase, $methodname, $allParams ) {
+            $runresults = array();
+            foreach ( $allParams as $params ) {
+                $runtests[] = $this->CallMethod( $testcase, $methodname, $params );
+            }
+            return $runresults;
+        }
+        public function CallMethod( $testcase, $methodname, $params = array() ) {
+            $testcase->Called( false );
+            $runresults = array();
+            try {
+                $ret = call_user_func_array( array( $testcase, $methodname ), $params );
+            }
+            catch ( Exception $e ) {
+                $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
+                $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+            }
+            if ( !empty( $ret ) ) {
+                $this->mProduced[ $methodname ][] = $ret;
             }
             return $runresults;
         }

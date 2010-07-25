@@ -369,9 +369,7 @@
                         `lastactive_userid` = :userid
                     LIMIT 1';
 
-            $res = db( $sql, compact( 'userid' ) );
-
-            if ( mysql_affected_rows( $res ) ) {
+            if ( db( $sql, compact( 'userid' ) ) ) {
                 return $user;
             }
 
@@ -476,17 +474,21 @@
                 // could not derive a subdomain
                 return false;
             }
-            db( 'INSERT INTO `users`
+            $success = db( 'INSERT INTO `users`
                  ( `user_name`, `user_email`, `user_password`, `user_subdomain` )
                  VALUES ( :name, :email, :password, :subdomain )',
                  compact( 'name', 'email', 'password', 'subdomain' ) );
-            if ( !mysql_affected_rows() ) {
+            if ( !$success ) {
                 return false; // username taken, or subdomain taken
             }
             $userid = mysql_insert_id();
             
             // TODO: Send welcome e-mail
             return $userid;
+        }
+        // only for TESTING
+        public static function Delete( $id ) {
+            return db( "DELETE FROM `users` WHERE `user_id` = :id LIMIT 1;", compact( 'id' ) );
         }
     } 
     class UserCount { 

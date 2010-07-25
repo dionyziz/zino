@@ -7,6 +7,9 @@
         public function SetUp() {
             clude( 'models/album.php' );
             clude( 'models/types.php' );
+            clude( 'models/user.php' );
+
+            // $this->GenerateTestUsers( 2 );
         }
         public function PreConditions() {
             $this->AssertClassExists( 'Album' );
@@ -42,7 +45,7 @@
 
             $id = $album[ 'id' ];
             $album = Album::Item( $id );
-            $this->Called = "Album::Item";
+            $this->Called( "Album::Item" );
             $this->AssertArrayValues( $album, array(
                 'id' => $id,
                 'ownerid' => $userid,
@@ -50,21 +53,20 @@
                 'description' => $description
             ) );
 
-            return $album;
+            return $album; // pass to TestUpdate
         }
         /**
-         * @producer TestCreate
          * @dataProvider ExampleData
          * @covers Album::Update
          */
-        public function TestUpdate( $album, $ownerid, $name, $description ) {
+        public function TestUpdate( $ownerid, $name, $description, $album ) {
             $id = $album[ 'id' ];
             $mainimageid = 0;
             $success = Album::Update( $album, $name, $description, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $album[ 'id' ] );
-            $this->Called = "Album::Item";
+            $this->Called( "Album::Item" );
             $this->AssertArrayValues( $album, array(
                 'id' => $id,
                 'name' => $name,
@@ -74,16 +76,24 @@
             return $album;
         }
         /**
-         * @producer TestUpdate
-         * @covers Album::Delete
+         * @dataProvider RandomUsers
+         * @covers Album::ListItemsByUser
+        public function TestListItemsByUser( $user ) {
+            $albums = $this->ListItemsByUser( $user );
+            $this->AssertIsArray( $albums );
+        }
          */
+
         public function TestDelete( $album ) {
             $id = (int)$album[ 'id' ];
             $success = Album::Delete( $id );
             $this->Assert( $success, 'Album::Delete failed' );
+            $this->AssertIsArray( $success );
 
             $album = Album::Item( $id );
-            $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
+            $this->Called( "Album::Item" );
+            // $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
+            // $this->AssertIsArray( $album );
         }
         public function ValidIds() {
             $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT 3;' );

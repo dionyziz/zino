@@ -113,9 +113,7 @@
         }
         public static function Delete( $id ) {
             is_int( $id ) or die( 'id not an int' );
-            $res = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
-            // return mysql_affected_rows( $res ) == 1;
-            return true;
+            return db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
         }
         public static function ItemByUrlAndOwner( $url, $ownerid ) {
             $res = db(

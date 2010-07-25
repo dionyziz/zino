@@ -155,8 +155,7 @@
                     WHERE 
                         `image_id` = :id
                     LIMIT 1;";
-            $res = db( $sql, compact( 'id', 'title', 'albumid' ) );
-            return mysql_affected_rows( $res ) == 1;
+            return db( $sql, compact( 'id', 'title', 'albumid' ) );
         }
         public static function UpdateFileInformation( $id, $width, $height, $size, $mime ) {
             $id = ( int )$id;
