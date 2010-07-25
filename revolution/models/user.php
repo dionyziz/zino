@@ -355,9 +355,6 @@
             }
             $sql .= ' LIMIT 1;';
 
-            var_dump( $userid );
-            var_dump( $authtoken );
-            
             $user = mysql_fetch_array( db( $sql, compact( 'userid', 'authtoken' ) ) );
             if ( $user === false ) {
                 return false;
