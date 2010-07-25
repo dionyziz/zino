@@ -75,6 +75,42 @@ server.on( 'request', function ( req, res ) {
                             
                             //Add the current connetion id to the user's array of active connections.
                             online[ userid ].push( req.connection_id );
+                            
+                            req.connection.on( 'end', function(){
+                                console.log( 'Connection ended, waiting 10s for reconnect' );
+                                //If a previus timeout is on cancel it
+                                if( typeof timeouts[ userid ] !== 'undefined' ){
+                                    clearTimeout( timeouts[ userid ] );
+                                }
+                                
+                                //Same the current timeout id in case we want to cancel it
+                                timeouts[ userid ] = setTimeout( function(){
+                                    //Timeout was not canceled, delete it's id.
+                                    delete timeouts[ userid ];
+
+                                    //If user didn't reconnect the last 10s he should be deleted him from the online list
+                                    if( online[ userid ].length == 0 ) {
+                                        delete online[ userid ];
+                                        
+                                        console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
+                                        var body = 'userid=' + userid;
+                                        var request = php.request( 'POST', '/petros/?resource=presence&method=delete', { 
+                                            'Host': 'zino.gr', 
+                                            'Content-Type': 'application/x-www-form-urlencoded',
+                                            'Content-Length': body.length 
+                                        });
+                                        request.end( body );
+
+                                        console.log( 'User ' + userid + ' went offline' );
+                                        return;
+                                    }
+                                    //User has made a new connection in the last 10s. He stays on the list.
+                                    console.log( 'User ' + userid + ' reconnected.' );
+                                }, 10000);
+
+                                //Remove the connection id from the user's active connections array.
+                                online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
+                            });
                         }
                         else {
                             console.log( 'Invalid authtoken, closing connection' );
@@ -87,41 +123,6 @@ server.on( 'request', function ( req, res ) {
                 });
             });
             
-            req.connection.on( 'end', function(){
-                console.log( 'Connection ended, waiting 10s for reconnect' );
-                //If a previus timeout is on cancel it
-                if( typeof timeouts[ userid ] !== 'undefined' ){
-                    clearTimeout( timeouts[ userid ] );
-                }
-                
-                //Same the current timeout id in case we want to cancel it
-                timeouts[ userid ] = setTimeout( function(){
-                    //Timeout was not canceled, delete it's id.
-                    delete timeouts[ userid ];
-
-                    //If user didn't reconnect the last 10s he should be deleted him from the online list
-                    if( online[ userid ].length == 0 ) {
-                        delete online[ userid ];
-                        
-                        console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
-                        var body = 'userid=' + userid;
-                        var request = php.request( 'POST', '/petros/?resource=presence&method=delete', { 
-                            'Host': 'zino.gr', 
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Content-Length': body.length 
-                        });
-                        request.end( body );
-
-                        console.log( 'User ' + userid + ' went offline' );
-                        return;
-                    }
-                    //User has made a new connection in the last 10s. He stays on the list.
-                    console.log( 'User ' + userid + ' reconnected.' );
-                }, 10000);
-
-                //Remove the connection id from the user's active connections array.
-                online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
-            });
         }
         return;
     }
