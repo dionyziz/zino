@@ -35,7 +35,6 @@
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-            <script type="text/javascript" src="http://js-hotkeys.googlecode.com/files/jquery.hotkeys-0.7.9.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
             <script type="text/javascript" src="global.js"></script>
 			<script type="text/javascript">
