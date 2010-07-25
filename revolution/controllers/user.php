@@ -53,7 +53,7 @@
                     unset( $song );
                 }
                 $friendofuser = false;
-                if ( $_SESSION[ 'user' ] ) {
+                if ( isset( $_SESSION[ 'user' ] ) ) {
                     $friendofuser = ( bool ) ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_A_HAS_B );
                 }
             }
