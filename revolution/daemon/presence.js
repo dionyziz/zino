@@ -8,6 +8,10 @@ var ai_connection = 0;
 var online = {};
 var timeouts = {};
 
+console.log( 'Zino Presence Server' );
+console.log( '(c) Kamibu 2010 by Petros <petros@kamibu.com> and Chorvus <chorvus@kamibu.com>' );
+console.log( '' );
+
 server.on( 'request', function ( req, res ) {
     res.writeHead( 200, {
         'Content-Type': 'text/html'
@@ -31,13 +35,28 @@ server.on( 'request', function ( req, res ) {
     //Persistent Connection
     if( req.url == '/connect' ){
         if( typeof req.headers.cookie !== 'undefined' ){
-            cookies = querystring.parse( req.headers.cookie, '; ' )
-            if( typeof cookies[ 'zino_login_8' ] === 'undefined' ){
+            try {
+                cookies = querystring.parse( req.headers.cookie, '; ' )
+                if( typeof cookies[ 'zino_login_8' ] === 'undefined' ){
+                    throw 'Cookie not found';
+                }
+                cookies  = cookies[ 'zino_login_8' ].split( ':' );
+                
+                if( cookies.length != 2 ) {
+                    throw 'Cookie not in appropriate format';
+                }
+                if( cookies[0] - 0 < 1 ) {
+                    throw 'Wrong userid format';
+                }
+                if( !cookies[1].match( /[a-zA-Z0-9]{32}/ ) ){
+                    throw 'Wrong authtoken format';
+                }
+            }
+            catch( err ) {
+                console.log( err );
                 res.end();
                 return;
             }
-            cookies  = cookies[ 'zino_login_8' ].split( ':' );
-            
             var userid = cookies[ 0 ];
             var authtoken = cookies[ 1 ];
             req.connection_id = ai_connection++;
@@ -126,5 +145,6 @@ server.on( 'request', function ( req, res ) {
     res.end();
 });
 
+console.log( 'Listening on presence.zino.gr:8124' );
 //Start the server.
 server.listen( 8124, "presence.zino.gr" );
