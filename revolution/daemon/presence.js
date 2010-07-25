@@ -50,8 +50,7 @@ server.on( 'request', function ( req, res ) {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': body.length 
             });
-            request.write( body )
-            request.close( body );
+            request.end( body );
             request.on( 'response', function( response ){
                 var data = '';
                 response.on( 'data', function( chunk ){
