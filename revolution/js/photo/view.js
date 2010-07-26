@@ -72,7 +72,7 @@ var PhotoView = {
         }
     },
     Remove: { 
-        Remove: function( id ){
+        Remove: function( id ) {
             $.post( 'index.php?resource=photo&method=delete', {
                 id: id
             }, function(){
@@ -83,8 +83,10 @@ var PhotoView = {
             if( $( '.contentitem .details a.username' ).text() != User ){
                 return;
             }
-            $( '.image .icon_x' ).click( function(){
-                PhotoView.Remove.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
+            $( '#deletebutton' ).click( function(){
+                if ( confirm( 'Θέλεις να διαγράψεις την εικόνα;' ) ) {
+                    PhotoView.Remove.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
+                }
             });
         }
     },

@@ -27,7 +27,7 @@ RewriteRule ^session$ index.php?resource=session&method=view [L,QSA]
 
 # favourites
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA]
-RewriteRule ^favlist/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&method=listing&username=$1 [L,QSA]
+RewriteRule ^favourites/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&method=listing&username=$1 [L,QSA]
 
 # comments
 RewriteRule ^comment/create$ index.php?resource=comment&method=create [L,QSA]

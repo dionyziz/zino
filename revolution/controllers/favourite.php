@@ -15,9 +15,9 @@
             if ( empty( $user ) ) {                    
                return;
             }
-            $favourites = Favourite::GetByUserid( $user[ 'id' ] );
-			var_dump( $favourites );
-            //include "views/favourite/list.php";
+            $favourites = Favourite::ListByUser( $user[ 'id' ] );
+            var_dump( $favourites );
+            include "views/favourite/listing.php";
         }
     }
 ?>

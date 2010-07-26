@@ -5,6 +5,7 @@
 			clude( 'models/types.php' );
 			clude( 'models/journal.php' );
 			clude( 'models/photo.php' );
+
 			$res = db(
                 'SELECT 
 					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created			
