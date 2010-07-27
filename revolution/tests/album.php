@@ -1,6 +1,6 @@
 <?php
 
-    class TestAlbum extends TestCase {
+    class TestAlbum extends ModelTestCase {
         protected $mAppliesTo = 'models/album';
         protected $mCovers = 'Album';
 

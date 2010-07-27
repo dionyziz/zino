@@ -1,8 +1,9 @@
 <?php
 
-    class TestPhoto extends Testcase {
+    class TestPhoto extends ModelTestcase {
         protected $mCovers = 'Photo';
         protected $mAlbumsByUser = array();
+        protected $mImages;
 
         public function SetUp() {
             clude( 'models/user.php' );
@@ -17,6 +18,12 @@
                 $album = Album::Create( $user[ 'id' ], $user[ 'name' ] . 'album', '' );
                 $this->mAlbumsByUser[ $user[ 'id' ] ] = $album;
             }
+
+            $this->mImages = array( 
+                array( 'googlelogo.gif', 103, 40, 1991 ),
+                array( 'zinologo.png', 92, 57, 2425 ),
+                array( 'twitterlogo.png', 224, 55, 5021 )
+            );
         }
         public function TearDown() {
             unlink( 'googlelogo.gif' );
@@ -24,11 +31,6 @@
             unlink( 'twitterlogo.png' );
 
             $this->DeleteTestUsers();
-        }
-        /**
-         * @dataProvider 
-         */
-        public function TestItem() {
         }
         /**
          * @dataProvider ImageProvider
@@ -77,9 +79,9 @@
             return $photo;
         }
         public function TestUpdateFileInformation( $photo ) {
-            $width = rand( 100, 200 );
-            $height = rand( 200, 400 );
-            $filesize = rand( 20000, 30000 );
+            $width = 100;
+            $height = 200;
+            $filesize = 2000;
             $mime = 'image/png';
 
             $success = Photo::UpdateFileInformation( $photo[ 'id' ], $width, $height, $filesize, $mime );
@@ -108,14 +110,36 @@
             $success = Photo::Delete( 0 );
             $this->AssertFalse( $success );
         }
-        public function ImageProvider() {
-            $images = array( 
-                array( 'googlelogo.gif', 103, 40, 1991 ),
-                array( 'zinologo.png', 92, 57, 2425 ),
-                array( 'twitterlogo.png', 224, 55, 5021 )
-            );
-            $params = array();
+        public function TestListByAlbum() {
+            $user = $this->GetRandomTestUser();
+            $images = $this->mImages;
+            $album = Album::Create( $user[ 'id' ], 'findbyalbumtest', '' );
+            $data = array();
             foreach ( $images as $image ) {
+                $data[] = Photo::Create( $user[ 'id' ], $album[ 'id' ], $image[ 0 ] );
+            }
+         
+            $photos = Photo::ListByAlbum( $album[ 'id' ] );
+            $this->AssertIsArray( $photos );
+            $this->AssertEquals( count( $images ), count( $photos ) );
+            // TODO: better testing here
+
+            $photos = Photo::ListByAlbum( $album[ 'id' ], $offset = 1, $limit = 1 );
+            $this->AssertIsArray( $photos );
+            $this->AssertEquals( 1, count( $photos ) );
+
+            foreach ( $photos as $photo ) {
+                Photo::Delete( $photo[ 'id' ] );
+            }
+            Album::Delete( $album[ 'id' ] );
+        }
+        public function TestListRecent() {
+        }
+        public function TestListByUser() {
+        }
+        public function ImageProvider() {
+            $params = array();
+            foreach ( $this->mImages as $image ) {
                 $user = $this->GetRandomTestUser();
                 $album = $this->mAlbumsByUser[ $user[ 'id' ] ];
                 $params[] = array( $user[ 'id' ], $album[ 'id' ], $image );

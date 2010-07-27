@@ -324,6 +324,9 @@
             }
         }
         public function RunTestcase( $testcase ) {
+            $this->mPreviousMethodName = '';
+            $this->mProduced = array();
+
             $testcase->Tester = $this; // allows testcase to report results back to this tester
             $obj = New ReflectionObject( $testcase );
             $methods = $obj->getMethods();
