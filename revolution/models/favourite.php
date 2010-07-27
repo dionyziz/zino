@@ -20,7 +20,7 @@
 			$imageids = array();
 			$storeitemids = array();
             $pollids = array();
-            $items = array();
+            $ret = array();
 
             while ( $row = mysql_fetch_array( $res ) ) {
                 switch ( $row[ 'typeid' ] ) {
@@ -37,18 +37,24 @@
                         $storeitemids[ $row[ 'id' ] ] = $row[ 'itemid' ];
                         break;
 				}
-                $items[] = array(
+                $ret[] = array(
                     'created' => $row[ 'created' ],
+                    'typeid' => $row[ 'typeid' ],
                     'data' => array(
                         'id' => $row[ 'id' ]
                     )
                 );
             }	
 
-			$journals = Journal::ItemsPreview( $journalids );
-			$photos = Photo::ListByIds( $imageids );
-			$polls = Poll::ListByIds( $imageids );
-			//$favoutire[ 'storeitems' ] = Storeitems::ListByIds( $storeitemids ); <-TODO
+            $items = array();
+			$items[ TYPE_JOURNAL ] = Journal::ItemsPreview( $journalids );
+			$items[ TYPE_POLL ] = Poll::ListByIds( $pollids );
+			$items[ TYPE_PHOTO ] = Photo::ListByIds( $imageids );
+            // $items[ TYPE_STOREITEM ] = ... TODO
+
+            foreach ( $ret as $i => $favourite ) {
+                $ret[ $i ][ 'data' ] = $items[ $ret[ $i ][ 'typeid' ] ][ $ret[ $i ][ 'data' ][ 'id' ] ];
+            }
 
             return $favourite;
 		}
