@@ -5,32 +5,49 @@
 			clude( 'models/types.php' );
 			clude( 'models/journal.php' );
 			clude( 'models/photo.php' );
+			clude( 'models/poll.php' );
 
 			$res = db(
                 'SELECT 
-					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid,	`favourite_created` AS created			
-					FROM `favourites`		                    
-          			WHERE `favourite_userid` = :userid;',
-                compact( 'userid' ) );
+					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid, `favourite_created` AS created
+                FROM `favourites`		                    
+                WHERE `favourite_userid` = :userid
+                ORDER BY id DESC;', compact( 'userid' )
+            );
       
             $favourite = array();
 			$journalids = array();
 			$imageids = array();
 			$storeitemids = array();
+            $pollids = array();
+            $items = array();
+
             while ( $row = mysql_fetch_array( $res ) ) {
-                if ( $row [ 'typeid' ] == TYPE_JOURNAL ) {
-					$journalids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+                switch ( $row[ 'typeid' ] ) {
+                    case TYPE_JOURNAL:
+                        $journalids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_POLL: 
+                        $pollids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_IMAGE:
+                        $imageids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+                        break;
+                    case TYPE_STOREITEM:
+                        $storeitemids[ $row[ 'id' ] ] = $row[ 'itemid' ];
+                        break;
 				}
-                else if ( $row [ 'typeid' ] == TYPE_IMAGE ) {
-					$imageids[ $row[ 'id' ] ] = $row[ 'itemid' ];
-				}
-				else if ( $row [ 'typeid' ] == TYPE_STOREITEM ) {
-					$storeitemids[ $row[ 'id' ] ] = $row[ 'itemid' ];					
-				}
+                $items[] = array(
+                    'created' => $row[ 'created' ],
+                    'data' => array(
+                        'id' => $row[ 'id' ]
+                    )
+                );
             }	
 
-			$favourite[ 'journals' ] = Journal::ItemsPreview( $journalids );
-			$favourite[ 'photos' ] = Photo::ListByIds( $imageids );
+			$journals = Journal::ItemsPreview( $journalids );
+			$photos = Photo::ListByIds( $imageids );
+			$polls = Poll::ListByIds( $imageids );
 			//$favoutire[ 'storeitems' ] = Storeitems::ListByIds( $storeitemids ); <-TODO
 
             return $favourite;

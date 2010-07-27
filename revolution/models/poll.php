@@ -37,6 +37,18 @@
                     `poll_id` DESC', compact( 'userid' )
             );
         }
+        public static function ListByIds( $ids ) {
+            return db_array(
+                'SELECT
+                    `poll_id` as id, `poll_question` as question, `poll_url` as url,
+                    `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
+                FROM
+                    `polls`
+                WHERE
+                    `poll_id` IN :ids
+                    AND `poll_delid` = 0', compact( 'ids' )
+            );
+        }
 		public static function Item( $id ) {
 			$res = db(
 					'SELECT
