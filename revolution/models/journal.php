@@ -64,13 +64,13 @@
             );
 			return $item;
 		}
-		public static function ItemsPreview( $ids ) {
+		public static function ListByIds( $ids ) {
 			clude( 'models/db.php' );
 			if ( empty( $ids ) ) {
 				return array();
 			}
 
-			$res = db_array(
+			$res = db(
 					'SELECT
 						`user_deleted` as userdeleted, `user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `journal_id` as id, `journal_created` as created, `journal_numcomments` as numcomments, `journal_title` as title, `journal_url` as url, `journal_userid` as userid 
 					FROM 
@@ -80,8 +80,13 @@
 					WHERE `journal_id` IN :ids
 					LIMIT 1000', compact( 'ids' ) 
 			);
-			return $res;
 
+            $ret = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $ret[ $row[ 'id' ] ] = $row;
+            }
+
+			return $ret;
 		}
         public static function Create( $userid, $title, $text ) {
             clude( 'models/url.php' );

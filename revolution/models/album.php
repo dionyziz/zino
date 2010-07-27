@@ -32,17 +32,22 @@
             $res = db(
                 'SELECT
                     `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
-                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid,
+                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid
                 FROM
                     `albums` 
                 WHERE
-                    `album_userid` = :userid
+                    `album_ownerid` = :userid
                 LIMIT :offset, :limit;',
                 compact( 'userid', 'offset', 'limit' )
             );
 
             $albums = array();
             while ( $row = mysql_fetch_array( $res ) ) {
+                $row[ 'id' ] = (int)$row[ 'id' ];
+                $row[ 'ownerid' ] = (int)$row[ 'ownerid' ];
+                $row[ 'mainimageid' ] = (int)$row[ 'mainimageid' ];
+                $row[ 'numphotos' ] = (int)$row[ 'numphotos' ];
+                $row[ 'delid' ] = (int)$row[ 'delid' ];
                 $albums[] = $row;
             }
 
@@ -97,7 +102,7 @@
                 'description' => $description,
                 'mainimageid' => $mainimageid
             );
-
+            
             return db( 
                 "UPDATE 
                     `albums` 
@@ -113,7 +118,11 @@
         }
         public static function Delete( $id ) {
             is_int( $id ) or die( 'id not an int' );
-            return db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
+            $success = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
+            if ( !$success ) {
+                return false;
+            }
+            return mysql_affected_rows() == 1;
         }
         public static function ItemByUrlAndOwner( $url, $ownerid ) {
             $res = db(

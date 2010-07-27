@@ -74,8 +74,11 @@
             if ( $item === false ) {
                 return false;
             }
+            $item[ 'w' ] = (int)$item[ 'w' ] ;
+            $item[ 'h' ] = (int)$item[ 'h' ] ;
+            $item[ 'albumid' ] = (int)$item[ 'albumid' ] ;
             $item[ 'user' ] = array(
-                'id' => $item[ 'userid' ],
+                'id' => (int)$item[ 'userid' ],
                 'name' => $item[ 'username' ],
                 'gender' => $item[ 'gender' ],
                 'subdomain' => $item[ 'subdomain' ],
@@ -122,7 +125,7 @@
             is_int( $userid ) or die( 'userid is not an integer' );
             is_int( $albumid ) or die( 'albumid is not an integer' );
 
-            $ip = UserIp();
+            $ip = (string)UserIp();
 
             db( 'INSERT INTO `images`
                 ( `image_userid`, `image_albumid`, `image_userip`, `image_created`, `image_delid` )
@@ -163,8 +166,7 @@
             $height = ( int )$height;
             $size = ( int )$size;
 
-            return 
-                db( 'UPDATE 
+            return db( 'UPDATE 
                     `images`
                 SET
                     `image_width` = :width,
@@ -208,6 +210,7 @@
 
             if ( $settings[ 'beta' ] ) {
                 $data[ 'sandbox' ] = 'yes';
+                $data[ 'a' ] = 'mepwurjcEJerjWJjeIwpoqXkrotjXFPKL125XCV123501V'; // key for bypassing IP check, for photo testing from local working copies
             }
 
             $header[ 0 ] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";

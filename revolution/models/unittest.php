@@ -9,7 +9,12 @@
         protected $mAppliesTo;
         protected $mOnPreConditions;
         protected $mCalled = false;
+        protected $mCovers = '';
+        protected $mTestUsers = array();
         
+        public function GetCoveredClass() {
+            return $this->mCovers;
+        }
         final public function Testcase() {
         }
         public function __get( $key ) {
@@ -43,6 +48,32 @@
         }
         final public function AppliesTo() {
             return $this->mAppliesTo;
+        }
+        protected function GenerateTestUsers( $num ) {
+            db( "DELETE FROM `users` WHERE `user_name` LIKE 'testuser%' LIMIT 5;" );
+            for ( $i = 0; $i < $num; ++$i ) {
+                $name = "testuser" . $i;
+                $email = "testuser" . $i . "@zino.gr";
+                $userid = User::Create( $name, $email, "password" );
+                $this->mTestUsers[] = array( 'id' => $userid, 'name' => $name, 'email' => $email );
+            }
+            return $this->mTestUsers;
+        }
+        protected function DeleteTestUsers() {
+            foreach ( $this->mTestUsers as $user ) {
+                User::Delete( (int)$user[ 'id' ] );
+            }
+        }
+        public function UserProvider() {
+            return $this->mTestUsers;
+        }
+        public function GetTestUsers() {
+            return $this->mTestUsers;
+        }
+        public function GetRandomTestUser() {
+            $count = count( $this->mTestUsers );
+            $r = rand( 0, $count - 1 );
+            return $this->mTestUsers[ $r ];
         }
         protected function RandomValues( $data, $num ) {
             $keys = array_rand( $data, $num );
@@ -237,28 +268,13 @@
         protected $mAssertResults;
         protected $mRequirementsFullfilled;
         protected $mPreviousMethodname = '';
+        protected $mProduced = array();
 
         public function Tester() {
             $this->mTestcases = array();
         }
         public function AddTestcase( Testcase $testcase ) {
             $this->mTestcases[] = $testcase;
-        }
-        public function GetAnnotations( ReflectionMethod $method ) {
-            $lines = explode( "\n", $method->getDocComment() );
-            $annotations = array();
-            foreach ( $lines as $line ) {
-                $start = strpos( $line, '@' );
-                if ( $start === false ) {
-                    continue;
-                }
-                $nameEnd = strpos( $line, ' ', $start );
-                $name = substr( $line, $start + 1, $nameEnd - $start - 1 );
-                $argsLine = substr( $line, $nameEnd + 1 );
-                $args = explode( " ", $argsLine );
-                $annotations[ $name ] = $args;
-            }
-            return $annotations;
         }
         public function RunSetUp( $testcase, &$runresults ) {
             try {
@@ -306,12 +322,9 @@
             foreach ( $methods as $method ) {
                 if ( $this->ValidMethod( $method ) ) {
                     $methodname = $method->getName();
-                    $partialname = substr( $methodname, strlen( 'Test' ) );
-                    if ( function_exists( $testcase->ClassCovered(), $partialname ) ) {
-                       // $testcase-> = $partialname;
-                    }
                     $this->mAssertResults = array();
-                    $this->RunTest( $testcase, $method );
+                    $run = new TestRun( $this, $testcase, $method );
+                    $run->Init();
                     $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                     $this->mPreviousMethodName = $methodname;
                 }
@@ -323,73 +336,6 @@
             $methodname = $method->getName();
             return ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' );
         }
-        public function GetProviderParams( $testcase, $annotations ) {
-            if ( !isset( $annotations[ 'dataProvider' ] ) ) {
-                return array();
-            }
-            $provider = $annotations[ 'dataProvider' ][ 0 ];
-            return call_user_func( array( $testcase, $provider ) );
-        }
-        public function GetProducerParams( $annotations ) {
-            if ( isset( $annotations[ 'producer' ] ) ) {
-                return $this->mProduced[ $annotations[ 'producer' ][ 0 ] ];
-            }
-            else if ( isset( $this->mProduced[ $this->mPreviousMethodName ] ) ) {
-                return $this->mProduced[ $this->mPreviousMethodName ];
-            }
-            return array();
-        }
-        public function HandleAnnotations( $testcase, $method ) {
-            $annotations = $this->GetAnnotations( $method );
-            if ( isset( $annotations[ 'covers' ] ) ) {
-                $testcase->mCalled = $annotations[ 'covers' ][ 0 ];
-            }
-            $provided = $this->GetProviderParams( $testcase, $annotations );
-            $produced = $this->GetProducerParams( $annotations );
-            $allParams = array();
-            if ( !empty( $provided ) && !empty( $produced ) ) {
-                w_assert( count( $provided ) == count( $produced ), 'produced and provided must have same count' );
-                foreach ( $provided as $i => $params ) {
-                    $provided[ $i ][] = $produced[ $i ];
-                }
-                return $provided;
-            }
-            else if ( !empty( $provided ) ) {
-                return $provided;
-            }
-            return $produced;
-        }
-        public function RunTest( $testcase, $method ) {
-            $methodname = $method->getName();
-            $allParams = $this->HandleAnnotations( $testcase, $method );
-            $runresults = array();
-            if ( empty( $allParams ) ) {
-                return $this->CallMethod( $testcase, $methodname );
-            }
-            return $this->CallMethodLoop( $testcase, $methodname, $allParams );
-        }
-        public function CallMethodLoop( $testcase, $methodname, $allParams ) {
-            $runresults = array();
-            foreach ( $allParams as $params ) {
-                $runtests[] = $this->CallMethod( $testcase, $methodname, $params );
-            }
-            return $runresults;
-        }
-        public function CallMethod( $testcase, $methodname, $params = array() ) {
-            $testcase->Called( false );
-            $runresults = array();
-            try {
-                $ret = call_user_func_array( array( $testcase, $methodname ), $params );
-            }
-            catch ( Exception $e ) {
-                $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
-                $runresults[] = New RunResult( $this->mAssertResults, $methodname );
-            }
-            if ( !empty( $ret ) ) {
-                $this->mProduced[ $methodname ][] = $ret;
-            }
-            return $runresults;
-        }
         public function GetResults() {
             return $this->mTestResults;
         }
@@ -399,6 +345,132 @@
         }
         public function RequireFailed( AssertResult $result ) {
             throw New Exception( "Required assertion failed yielding to immediate TearDown: " . $result->Message );
+        }
+        public function HandleRunException( Exception $e, $methodname ) {
+            $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
+            return New RunResult( $this->mAssertResults, $methodname );
+        }
+        public function AddProduced( $producer, $stuff ) {
+            if ( !isset( $this->mProduced[ $producer ] ) ) {
+                $this->mProduced[ $producer ] = array();
+            }
+            $this->mProduced[ $producer ][] = array( $stuff );
+        }
+        public function GetProduced( $producer ) {
+            return $this->mProduced[ $producer ];
+        }
+        public function GetPreviouslyProduced() {
+            if ( isset( $this->mProduced[ $this->mPreviousMethodName ] ) ) {
+                return $this->mProduced[ $this->mPreviousMethodName ];
+            }
+            return array();
+        }
+    }
+
+
+    // represents running one test (method) of a testcase
+    class TestRun {
+        protected $mTester;
+        protected $mTestcase;
+        protected $mMethod;
+        protected $mCovers = false;
+
+        public function TestRun( $tester, $testcase, $method ) {
+            $this->mTester = $tester;
+            $this->mTestcase = $testcase;
+            $this->mMethod = $method;
+
+            $partialname = substr( $this->mMethod->getName(), strlen( 'Test' ) );
+            $class = $this->mTestcase->GetCoveredClass();
+            if ( !empty( $class ) && method_exists( $class, $partialname ) ) {
+                $this->mCovers = $this->mTestcase->GetCoveredClass() . "::" . $partialname;
+            }
+        }
+        public function Init() {
+            $allParams = $this->HandleAnnotations();
+            $runresults = array();
+            if ( empty( $allParams ) ) {
+                return $this->CallMethod();
+            }
+            return $this->CallMethodRepeatedly( $allParams );
+        }
+        public function GetAnnotations() {
+            $lines = explode( "\n", $this->mMethod->getDocComment() );
+            $annotations = array();
+            foreach ( $lines as $line ) {
+                $start = strpos( $line, '@' );
+                if ( $start === false ) {
+                    continue;
+                }
+                $nameEnd = strpos( $line, ' ', $start );
+                $name = substr( $line, $start + 1, $nameEnd - $start - 1 );
+                $argsLine = substr( $line, $nameEnd + 1 );
+                $args = explode( " ", $argsLine );
+                $annotations[ $name ] = $args;
+            }
+            return $annotations;
+        }
+        public function HandleAnnotations() {
+            $annotations = $this->GetAnnotations();
+            if ( isset( $annotations[ 'covers' ] ) ) {
+                $this->mCovers = $annotations[ 'covers' ][ 0 ];
+            }
+            $provided = $this->GetProviderParams( $annotations );
+            $produced = $this->GetProducerParams( $annotations );
+            $allParams = array();
+            if ( !empty( $provided ) && !empty( $produced ) ) {
+                // w_assert( count( $provided ) == count( $produced ), 'produced and provided must have same count' );
+                if ( count( $provided ) != count( $produced ) ) {
+                    return $provided;
+                }
+                foreach ( $provided as $i => $params ) {
+                    $provided[ $i ] = array_merge( $provided[ $i ], $produced[ $i ] );
+                }
+                return $provided;
+            }
+            else if ( !empty( $provided ) ) {
+                return $provided;
+            }
+            return $produced;
+        }
+        public function GetProviderParams( $annotations ) {
+            if ( !isset( $annotations[ 'dataProvider' ] ) ) {
+                return array();
+            }
+            $provider = $annotations[ 'dataProvider' ][ 0 ];
+            return call_user_func( array( $this->mTestcase, $provider ) );
+        }
+        public function GetProducerParams( $annotations ) {
+            if ( isset( $annotations[ 'producer' ] ) ) {
+                return $this->mTester->GetProduced( $annotations[ 'producer' ][ 0 ] );
+            }
+            return $this->mTester->GetPreviouslyProduced(); // if any
+        }
+        public function CallMethodRepeatedly( $allParams ) {
+            $runresults = array();
+            foreach ( $allParams as $params ) {
+                $runresults[] = $this->CallMethod( $params );
+            }
+            return $runresults;
+        }
+        public function CallMethod( $params = array() ) {
+            $methodname = $this->mMethod->getName();
+            // echo "calling $methodname with params: ";
+            // var_dump( $params );
+
+            $this->mTestcase->Called( $this->mCovers );
+            $runresults = array();
+            try {
+                $ret = call_user_func_array( array( $this->mTestcase, $methodname ), $params );
+            }
+            catch ( Exception $e ) {
+                $runresults[] = $this->mTester->HandleRunException( $e, $methodname );
+            }
+            if ( !empty( $ret ) ) {
+                $this->mTester->AddProduced( $methodname, $ret );
+                // $this->mProduced[ $methodname ][] = $ret;
+            }
+            return $runresults;
         }
     }
     

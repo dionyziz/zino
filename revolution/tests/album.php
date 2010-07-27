@@ -1,15 +1,18 @@
 <?php
-    // $this->AssertArrayHasKeys( $ret, array( 'id', 'ownerid', 'mainimageid', 'name', 'description', 'delid', 'numcomments', 'numphotos' ) );
 
     class TestAlbum extends TestCase {
         protected $mAppliesTo = 'models/album';
+        protected $mCovers = 'Album';
 
         public function SetUp() {
             clude( 'models/album.php' );
             clude( 'models/types.php' );
             clude( 'models/user.php' );
 
-            // $this->GenerateTestUsers( 2 );
+            $this->GenerateTestUsers( 3 );
+        }
+        public function TearDown() {
+            $this->DeleteTestUsers();
         }
         public function PreConditions() {
             $this->AssertClassExists( 'Album' );
@@ -19,7 +22,6 @@
         }
         /**
          * @dataProvider ValidIds
-         * @covers Album::Item
          */
         public function TestItem( $id ) {
             $album = Album::Item( $id );
@@ -28,7 +30,6 @@
         }
         /**
          * @dataProvider ExampleData
-         * @covers Album::Create
          */
         public function TestCreate( $userid, $name, $description ) {
             $album = Album::Create( $userid, $name, $description );
@@ -57,9 +58,10 @@
         }
         /**
          * @dataProvider ExampleData
-         * @covers Album::Update
          */
         public function TestUpdate( $ownerid, $name, $description, $album ) {
+            // ignore ownerid 
+
             $id = $album[ 'id' ];
             $mainimageid = 0;
             $success = Album::Update( $album, $name, $description, $mainimageid );
@@ -73,27 +75,48 @@
                 'description' => $description,
                 'mainimageid' => $mainimageid
             ) );
-            return $album;
+            return array( $album[ 'ownerid' ], $album );
+        }
+        public function TestListByUser( $info ) {
+            $userid = $info[ 0 ];
+            $thealbum = $info[ 1 ];
+
+            $albums = Album::ListByUser( (int)$userid );
+            $this->AssertIsArray( $albums );
+
+            $found = false;
+            foreach ( $albums as $album ) {
+                $this->AssertEquals( $userid, $album[ 'ownerid' ] );
+                if ( $album[ 'id' ] == $thealbum[ 'id' ] ) {
+                    $this->AssertArrayValues( $album, array(
+                        'ownerid' => (int)$thealbum[ 'ownerid' ],
+                        'name' => $thealbum[ 'name' ],
+                        'numphotos' => $thealbum[ 'numphotos' ],
+                        'mainimageid' => $thealbum[ 'mainimageid' ]
+                    ) );
+                    $found = true;
+                }
+            }
+
+            $this->Assert( $found, 'Album::ListByUser failed to list all albums for userid ' . $userid . ' ' . $thealbum[ 'id' ] );
         }
         /**
-         * @dataProvider RandomUsers
-         * @covers Album::ListItemsByUser
-        public function TestListItemsByUser( $user ) {
-            $albums = $this->ListItemsByUser( $user );
-            $this->AssertIsArray( $albums );
-        }
+         * @producer TestUpdate
          */
+        public function TestDelete( $info ) {
+            $album = $info[ 1 ];
 
-        public function TestDelete( $album ) {
             $id = (int)$album[ 'id' ];
             $success = Album::Delete( $id );
             $this->Assert( $success, 'Album::Delete failed' );
-            $this->AssertIsArray( $success );
 
             $album = Album::Item( $id );
             $this->Called( "Album::Item" );
-            // $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
-            // $this->AssertIsArray( $album );
+            $this->AssertFalse( $album, 'Album::Item should return false on deleted item' );
+
+            // test on invalid album
+            $success = Album::Delete( 0 );
+            $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
         }
         public function ValidIds() {
             $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT 3;' );
@@ -104,14 +127,18 @@
             return $ret;
         }
         public function ExampleData() {
+            $users = $this->GetTestUsers();
+            $userid = (int)( $users[ 0 ][ 'id' ] );
+            $userid1 = (int)( $users[ 1 ][ 'id' ] );
+            $userid2 = (int)( $users[ 2 ][ 'id' ] );
             return $this->RandomValues( array(
-                array( 1, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
-                array( 658, 'barcelona', 'I love this place' ),
-                array( 658, 'rome', '' ),
-                array( 658, 'test', 'haha' ),
-                array( 658, 'foobar', '' ),
-                array( 658, 'red green', 'blue' ),
-                array( 658, 'hello', 'world' )
+                array( $userid, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
+                array( $userid, 'barcelona', 'I love this place' ),
+                array( $userid1, 'rome', '' ),
+                array( $userid1, 'test', 'haha' ),
+                array( $userid2, 'foobar', '' ),
+                array( $userid2, 'red green', 'blue' ),
+                array( $userid1, 'hello', 'world' )
             ), 3 );
         }
     }

@@ -1,17 +1,6 @@
 #!/usr/bin/php
 <?php
 
-    $runtests = array();
-
-    array_shift( $argv );
-
-    foreach ( $argv as $i => $value ) {
-        switch ( $value ) {
-            default:
-                $runtests[] = $value;
-        }
-    }
-
     function clude( $path ) {
         static $included = array();
         if ( !isset( $included[ $path ] ) ) {
@@ -33,6 +22,21 @@
     foreach ( $validTests as $testcase ) {
         $validTestsByName[ $testcase->Name ] = $testcase;
     }
+
+    $runtests = array();
+    array_shift( $argv );
+    foreach ( $argv as $i => $value ) {
+        switch ( $value ) {
+            case "--all":
+                foreach ( $validTestsByName as $name => $testcase ) {
+                    $runtests[] = $name;
+                }
+                break;
+            default:
+                $runtests[] = $value;
+        }
+    }
+
     $tester = New Tester();
     $testsRan = array();
     $indexByName = array();

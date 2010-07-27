@@ -474,13 +474,19 @@
                 return false;
             }
             $success = db( 'INSERT INTO `users`
-                 ( `user_name`, `user_email`, `user_password`, `user_subdomain` )
-                 VALUES ( :name, :email, :password, :subdomain )',
-                 compact( 'name', 'email', 'password', 'subdomain' ) );
+                 ( `user_name`, `user_password`, `user_subdomain` )
+                 VALUES ( :name, :password, :subdomain )',
+                 compact( 'name', 'password', 'subdomain' ) );
             if ( !$success ) {
                 return false; // username taken, or subdomain taken
             }
             $userid = mysql_insert_id();
+
+            $success = db( 'INSERT INTO `userprofiles` 
+                ( `profile_userid`, `profile_email`, `profile_updated` )
+                VALUES ( :userid, :email, NOW() );',
+                compact( 'userid', 'email' )
+            );
             
             // TODO: Send welcome e-mail
             return $userid;
