@@ -1,4 +1,4 @@
-a.button {
+a.button, ul.buttons li a {
     font-family: sans-serif, serif , arial;
 	color: #105cb6;
 	text-decoration: none;
@@ -15,20 +15,20 @@ a.button {
     padding: 0.4em 0.9em;
     font-weight: bold;
 }
-a.button:hover {
+a.button:hover, ul.buttons li a:hover {
 	background: #eef;
     color: #000033;
 }
-a.button.big {
+a.button.big, .modal ul.buttons li a {
 	font-size: 160%;
 	padding: 5px 10px;
 	font-weight: bold;	
 }
-a.button.disabled {
+a.button.disabled, ul.buttons li a.disabled {
 	opacity: 0.5;
 	cursor: default;
 }
-a.button.disabled:hover {
+a.button.disabled:hover, ul.buttons li a.disabled:hover {
 	background: #fff;
 	color: #105cb6; 
 }

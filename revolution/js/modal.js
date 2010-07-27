@@ -8,6 +8,7 @@
             modal: true
         };
         config = $.extend( config, defconfig );
+        //TODO: prependTo( 'body' );
         this.jqm( config );
         if ( !config.noClose ) {
             //close = document.createElement( 'span' );

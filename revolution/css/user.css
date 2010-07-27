@@ -62,10 +62,13 @@
     li.heightweight {
         font-weight: normal;
         text-align: center;
-        padding: 20px 0;
+        padding: 1em 0;
     }    
     ul.userdetails li.heightweight span {
         font-weight: bold;
+    }
+    ul.userdetails li.aboutme {
+        padding: 1em 0;
     }
 
 .useritems{
@@ -117,3 +120,12 @@
     #friendship a:hover strong.delete {
         display: inline;
     }
+
+textarea.aboutme {
+    width: 300px;
+    height: 300px;
+}
+select.location {
+    width: 230px;
+    font-weight: bold;
+}

@@ -20,7 +20,7 @@ var UserDetails = {
             map = { m: 'Αγόρι', f: 'Κορίτσι' };
         }
         else {
-            map =  UserDetails.GenderStrings[ gender ? gender : 'm' ][ field ];
+            map =  UserDetails.GenderStrings[ gender == 'f' ? 'f' : 'm' ][ field ];
         }
         map[ '-' ] = 'Να μην εμφανίζεται';
         return map;

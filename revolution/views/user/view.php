@@ -9,7 +9,7 @@
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
     <? if ( isset( $user[ 'location' ] ) ): ?>
-    <location><?= $user[ 'location' ] ?></location>
+    <location id="<?= $user[ 'location_id' ]?>"><?= $user[ 'location' ] ?></location>
     <? endif;
     if ( isset( $counts ) ): ?>
         <friends count="<?= $counts[ 'friends' ]; ?>" />

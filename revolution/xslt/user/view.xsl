@@ -65,33 +65,45 @@
                 <div class="details">
                     <div class="username"><xsl:value-of select="name[1]" /></div>
                     <ul class="asl">
-                        <li class="gender">
-                            <span>
-                                <xsl:call-template name="detailstrings">
-                                    <xsl:with-param name="field">gender</xsl:with-param>
-                                    <xsl:with-param name="value" select="gender" />
-                                    <xsl:with-param name="gender" select="gender" />
-                                </xsl:call-template>
-                            </span>
-                            <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute>
-                                <option><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute></option>
-                            </select>
-                        </li>
+                        <xsl:if test="gender[1] or $user = name[1]">
+                            <li class="gender">
+                                <span>
+                                    <xsl:call-template name="detailstrings">
+                                        <xsl:with-param name="field">gender</xsl:with-param>
+                                        <xsl:with-param name="value" select="gender" />
+                                        <xsl:with-param name="gender" select="gender" />
+                                    </xsl:call-template>
+                                </span>
+                                <xsl:if test="$user = name[1]">
+                                    <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute>
+                                        <option><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute></option>
+                                    </select>
+                                </xsl:if>
+                            </li>
+                        </xsl:if>
                         <xsl:if test="age[1]">
-                            <li>
-                                <xsl:if test="gender[1]">
+                            <li class="age">
+                                <xsl:if test="gender[1] or $user = name[1]">
                                     <xsl:attribute name="class">dot</xsl:attribute>
                                 </xsl:if>
                                 <span class="age"><xsl:value-of select="age[1]" /></span>
                             </li>
                         </xsl:if>
-                        <xsl:if test="location[1]">
+                        <xsl:if test="location[1] or $user = name[1]">
                             <li>
-                                <xsl:if test="gender or age">
-                                    <xsl:attribute name="class">dot</xsl:attribute>
-                                </xsl:if>
-                                <span class="location"><xsl:value-of select="location[1]" /></span>
+                                <xsl:attribute name="class">
+                                    location
+                                    <xsl:if test="gender or age or $user = name[1]">
+                                        dot
+                                    </xsl:if>
+                                </xsl:attribute>
+                                <span><xsl:attribute name="id">location_<xsl:value-of select="location[1]/@id" /></xsl:attribute><xsl:value-of select="location[1]" /></span>
                             </li>
+                            <xsl:if test="$user = name[1]">
+                                <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute>
+                                    <option><xsl:attribute name="value"><xsl:value-of select="gender" /></xsl:attribute></option>
+                                </select>
+                            </xsl:if>
                         </xsl:if>
                     </ul>
                     <xsl:if test="details/slogan">
@@ -308,10 +320,10 @@
                 </span>
             </li>
         </xsl:if>
-        <xsl:if test="aboutme">
-            <li>
+        <xsl:if test="aboutme or $user = ../name[1]">
+            <li class="aboutme">
                 <div>Λίγα λόγια για μένα:</div>
-                <xsl:value-of select="aboutme" />
+                <span><xsl:value-of select="aboutme" /></span>
             </li>
         </xsl:if>
     </ul>
