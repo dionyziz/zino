@@ -6,7 +6,7 @@
 
     <entry type="<?
     switch ( $notification[ 'comment' ][ 'typeid' ] ):
-        case TYPE_IMAGE:
+        case TYPE_PHOTO:
             ?>photo<?
             break;
         case TYPE_POLL:
@@ -41,7 +41,7 @@
 
     <entry type="<?
     switch ( $notification[ 'favourite' ][ 'typeid' ] ):
-        case TYPE_IMAGE:
+        case TYPE_PHOTO:
             ?>photo<?
             break;
         case TYPE_POLL:

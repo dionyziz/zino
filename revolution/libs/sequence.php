@@ -12,7 +12,7 @@
 
     define( 'SEQUENCE_SHOUT', TYPE_SHOUT );
     define( 'SEQUENCE_COMMENT', TYPE_COMMENT );
-    define( 'SEQUENCE_IMAGE', TYPE_IMAGE );
+    define( 'SEQUENCE_IMAGE', TYPE_PHOTO );
     define( 'SEQUENCE_JOURNAL', TYPE_JOURNAL );
     define( 'SEQUENCE_POLL', TYPE_POLL );
 

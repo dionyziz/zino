@@ -50,7 +50,7 @@
                         $typeid = TYPE_POLL;
                         break;
                     case 'photo':
-                        $typeid = TYPE_IMAGE;
+                        $typeid = TYPE_PHOTO;
                         break;
                     case 'journal':
                         $typeid = TYPE_JOURNAL;

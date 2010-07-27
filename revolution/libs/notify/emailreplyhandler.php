@@ -24,7 +24,7 @@
 					$entity = New Poll( $comment->Itemid );
 					$userid = $entity->Userid;
 					break;
-				case TYPE_IMAGE:
+				case TYPE_PHOTO:
 					$libs->Load( 'image/image' );
 					$entity = New Image( $comment->Itemid );
 					$userid = $entity->Userid;

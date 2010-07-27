@@ -9,7 +9,7 @@
                     clude( 'models/poll.php' );
                     $target = Poll::Item( $itemid );
                     break;
-                case TYPE_IMAGE:
+                case TYPE_PHOTO:
                     clude( 'models/photo.php' );
                     $target = Photo::Item( $itemid );
                     break;

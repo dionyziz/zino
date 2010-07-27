@@ -30,7 +30,7 @@
                     case TYPE_POLL: 
                         $pollids[ $row[ 'id' ] ] = $row[ 'itemid' ];
                         break;
-                    case TYPE_IMAGE:
+                    case TYPE_PHOTO:
                         $imageids[ $row[ 'id' ] ] = $row[ 'itemid' ];
                         break;
                     case TYPE_STOREITEM:
@@ -150,7 +150,7 @@
                     $table = 'journals';
                     $field = 'journal';
                     break;
-                case TYPE_IMAGE:
+                case TYPE_PHOTO:
                     $table = 'images';
                     $field = 'image';
                     break;

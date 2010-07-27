@@ -61,7 +61,7 @@
                             return 'poll';                        
                         case TYPE_JOURNAL:
                             return 'journal';
-                        case TYPE_IMAGE:
+                        case TYPE_PHOTO:
                             return 'image';
                         default:
                             return 'unknown type';

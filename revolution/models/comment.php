@@ -153,7 +153,7 @@
                     //include( 'models/poll.php' );
                     $item = Poll::Item( $itemid );
                     break;
-                case TYPE_IMAGE:
+                case TYPE_PHOTO:
                     //include( 'models/photo.php' );
                     $item = Photo::Item( $itemid );
                     break;

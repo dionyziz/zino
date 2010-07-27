@@ -251,7 +251,7 @@
                         
             if ( $user->Id != $this->Userid ) {
                 $adminaction = New AdminAction();
-                $adminaction->saveAdminAction( $user->Id, UserIp(), OPERATION_DELETE, TYPE_IMAGE, $this->Id );
+                $adminaction->saveAdminAction( $user->Id, UserIp(), OPERATION_DELETE, TYPE_PHOTO, $this->Id );
             }
             
             $finder = New ImageTagFinder();

@@ -16,7 +16,7 @@
                 switch ( Type_FromObject( $comment->Item ) ) {
                     case TYPE_JOURNAL:
                         return 'journalcomment';
-                    case TYPE_IMAGE:
+                    case TYPE_PHOTO:
                         return 'photocomment';
                     case TYPE_POLL:
                         return 'pollcomment';

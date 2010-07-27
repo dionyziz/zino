@@ -87,7 +87,7 @@
             case TYPE_SCHOOL:
                 $libs->Load( 'school/school' );
                 break;
-            case TYPE_IMAGE:
+            case TYPE_PHOTO:
                 $libs->Load( 'image/image' );
                 break;
         }
@@ -680,7 +680,7 @@
             global $libs;
             
             $libs->Load( 'bulk' );
-            if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
+            if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_PHOTO, TYPE_USERPROFILE, TYPE_JOURNAL, TYPE_SCHOOL ) ) ) {
                 throw New Exception( 'Comment is not within the allowed types' );
             }
             $this->Bulkid = Bulk::Store( $this->mText );

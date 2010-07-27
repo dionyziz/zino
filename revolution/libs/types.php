@@ -8,7 +8,7 @@
     function Type_Get() {
         return array(
             1 => array( 'TYPE_POLL', 'Poll' ),
-            2 => array( 'TYPE_IMAGE', 'Image' ),
+            2 => array( 'TYPE_PHOTO', 'Image' ),
             3 => array( 'TYPE_USERPROFILE', 'User' ),
             4 => array( 'TYPE_JOURNAL', 'Journal' ),
             5 => array( 'TYPE_COMMENT', 'Comment' ),
