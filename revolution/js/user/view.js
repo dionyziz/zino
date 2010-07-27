@@ -56,7 +56,15 @@ var Profile = {
                 var location_text = $( '.asl .location span' ).text();
                 var $select = $modal.find( 'select.location' );
                 $( '<option value=' + location_id + '>' + location_text + '</option>' ).appendTo( $select );
-                //axslt( 'places', 'call:
+                axslt( $.get( 'places' ), 'call:user.modal.location.options', function() { 
+                    $modal.find( 'select.location' ).empty()
+                        .append( $( this ).filter( 'option' ) ).val( location_id )
+                        .change( function() {
+                            $.post( 'user/update', { placeid: $modal.find( 'select.location' ).val() } );
+                            $modal.jqmHide();
+                            return false;
+                        } );
+                } );
                 $select.val( location_id );
             } );
             return false;
