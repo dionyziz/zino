@@ -167,9 +167,6 @@ var Notifications = {
                              .unbind( 'keyup', 'enter', save )
                              .unbind( 'keyup', 'esc', ignore );
             };
-            $( document ).bind( 'keyup', 'shift+esc', skip )
-                         .bind( 'keyup', 'enter', save )
-                         .bind( 'keyup', 'esc', ignore );
             function addFriend() {
                 Notifications.RequestStart();
                 $.post( 'friendship/create', {
@@ -216,6 +213,9 @@ var Notifications = {
                         unbind();
                         return false;
                     }
+                    $( document ).bind( 'keyup', 'shift+esc', skip )
+                                 .bind( 'keyup', 'enter', save )
+                                 .bind( 'keyup', 'esc', ignore );
                     return;
                 }
             }
@@ -246,6 +246,9 @@ var Notifications = {
                 unbind();
             };
             skip = unbind;
+            $( document ).bind( 'keyup', 'shift+esc', skip )
+                         .bind( 'keyup', 'enter', save )
+                         .bind( 'keyup', 'esc', ignore );
         } );
     },
     CreateFavouriteGUI: function ( entry ) {
