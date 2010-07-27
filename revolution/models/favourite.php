@@ -53,10 +53,19 @@
             // $items[ TYPE_STOREITEM ] = ... TODO
 
             foreach ( $ret as $i => $favourite ) {
-                $ret[ $i ][ 'data' ] = $items[ $ret[ $i ][ 'typeid' ] ][ $ret[ $i ][ 'data' ][ 'id' ] ];
+                if ( $ret[ $i ][ 'typeid' ] == TYPE_STOREITEM ) {
+                    continue;
+                }
+                $typeid = $ret[ $i ][ 'typeid' ];
+                $itemid = $ret[ $i ][ 'data' ][ 'id' ];
+                if ( !isset( $items[ $typeid ][ $itemid ] ) ) {
+                    continue;
+                }
+                $ret[ $i ][ 'data' ] = $items[ $typeid ][ $itemid ];
             }
 
-            return $favourite;
+            return $ret;
+            // return $favourite;
 		}
         public static function Item( $id ) {
             $items = self::ItemMulti( array( $id ) );
