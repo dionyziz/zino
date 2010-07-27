@@ -104,6 +104,14 @@
                     `image_id` IN :ids;', array( 'ids' => $ids )
             );
 
+            $images = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $images[ $row[ 'id' ] ] = $row;
+            }
+
+            return $images;
+
+            /*
             $keys = array();
             $i = 1;
             foreach ( $ids as $id ) {
@@ -118,6 +126,7 @@
             ksort( $images );
             
             return $images;
+            */
         }
         public static function Create( $userid, $albumid, $tempname ) {
             clude( 'models/agent.php' );
