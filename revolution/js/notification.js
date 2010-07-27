@@ -131,21 +131,45 @@ var Notifications = {
              + '<div class="eof"></div></div>';
     },
     Shortcuts: {
-        Save: 0, Skip: 0, Ignore: 0,
+        Save: 0, Skip: 0, Ignore: 0, KeyPressed: false,
         Assign: function ( skip, save, ignore ) {
             Notifications.Shortcuts.Remove();
+            function keyDown() {
+                Notifications.Shortcuts.KeyPressed = true;
+            }
+            function keyUp() {
+                Notifications.Shortcuts.KeyPressed = false;
+            }
             Notifications.Shortcuts.Save = function () {
+                if ( !Notifications.Shortcuts.KeyPressed ) {
+                    return;
+                }
                 Notifications.Shortcuts.Remove();
-                return save();
+                save();
+                keyUp();
+                return false;
             };
             Notifications.Shortcuts.Skip = function () {
+                if ( !Notifications.Shortcuts.KeyPressed ) {
+                    return;
+                }
                 Notifications.Shortcuts.Remove();
-                return skip();
+                skip();
+                keyUp();
+                return false;
             };
             Notifications.Shortcuts.Ignore = function () {
+                if ( !Notifications.Shortcuts.KeyPressed ) {
+                    return;
+                }
                 Notifications.Shortcuts.Remove();
-                return ignore();
+                ignore();
+                keyUp();
+                return false;
             };
+            $( document ).bind( 'keydown', 'shift+esc', keyDown )
+                         .bind( 'keydown', 'return', keyDown )
+                         .bind( 'keydown', 'esc', keyDown );
             $( document ).bind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip )
                          .bind( 'keyup', 'return', Notifications.Shortcuts.Save )
                          .bind( 'keyup', 'esc', Notifications.Shortcuts.Ignore );
@@ -154,6 +178,7 @@ var Notifications = {
             if ( Notifications.Shortcuts.Skip !== 0 ) {
                 $( document ).unbind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip )
                 Notifications.Shortcuts.Skip = 0;
+                return false;
             }
             if ( Notifications.Shortcuts.Save !== 0 ) {
                 $( document ).unbind( 'keyup', 'return', Notifications.Shortcuts.Save )
@@ -457,7 +482,6 @@ var Notifications = {
                 'itemid': commentid,
                 'eventtypeid': EVENT_COMMENT_CREATED = 4,
             } );
-            Notifications.DoneWithCurrent();
         }
         Notifications.Shortcuts.Assign( skip, save, ignore );
         if ( isreply ) {
