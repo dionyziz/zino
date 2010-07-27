@@ -1,7 +1,59 @@
 <?php
     /*
-        Developer: Dionyziz
+        Developed by dionyziz (phoenix)
+        Extended by abresas (revolution)
     */
+
+    abstract class ModelTestcase extends Testcase {
+        protected $mCovers;
+        protected $mTable;
+        protected $mTablePrefix;
+        protected $mForeignKey = 'id';
+        
+        protected function GenerateTestUsers( $num ) {
+            db( "DELETE FROM `users` WHERE `user_name` LIKE 'testuser%' LIMIT 5;" );
+            for ( $i = 0; $i < $num; ++$i ) {
+                $name = "testuser" . $i;
+                $email = "testuser" . $i . "@zino.gr";
+                $userid = User::Create( $name, $email, "password" );
+                $this->mTestUsers[] = array( 'id' => $userid, 'name' => $name, 'email' => $email );
+            }
+            return $this->mTestUsers;
+        }
+        protected function DeleteTestUsers() {
+            foreach ( $this->mTestUsers as $user ) {
+                User::Delete( (int)$user[ 'id' ] );
+            }
+        }
+        public function UserProvider() {
+            return $this->mTestUsers;
+        }
+        public function GetTestUsers() {
+            return $this->mTestUsers;
+        }
+        public function GetRandomTestUser() {
+            $count = count( $this->mTestUsers );
+            $r = rand( 0, $count - 1 );
+            return $this->mTestUsers[ $r ];
+        }
+        protected function RandomValues( $data, $num ) {
+            $keys = array_rand( $data, $num );
+            $ret = array();
+            foreach ( $keys as $key ) {
+                $ret[] = $data[ $key ];
+            }
+            return $ret;
+        }
+        public function ValidIds( $num = 3 ) {
+            $primaryfield = $this->mTablePrefix . $this->mForeignKey;
+            $res = db( "SELECT $primaryfield FROM `" . $this->mTable . "` ORDER BY RAND() LIMIT $num;" );
+            $ret = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $ret[] = (int)$row[ 0 ];
+            }
+            return $ret;
+        }
+    }
     
     abstract class Testcase {
         protected $mTester;
@@ -48,40 +100,6 @@
         }
         final public function AppliesTo() {
             return $this->mAppliesTo;
-        }
-        protected function GenerateTestUsers( $num ) {
-            db( "DELETE FROM `users` WHERE `user_name` LIKE 'testuser%' LIMIT 5;" );
-            for ( $i = 0; $i < $num; ++$i ) {
-                $name = "testuser" . $i;
-                $email = "testuser" . $i . "@zino.gr";
-                $userid = User::Create( $name, $email, "password" );
-                $this->mTestUsers[] = array( 'id' => $userid, 'name' => $name, 'email' => $email );
-            }
-            return $this->mTestUsers;
-        }
-        protected function DeleteTestUsers() {
-            foreach ( $this->mTestUsers as $user ) {
-                User::Delete( (int)$user[ 'id' ] );
-            }
-        }
-        public function UserProvider() {
-            return $this->mTestUsers;
-        }
-        public function GetTestUsers() {
-            return $this->mTestUsers;
-        }
-        public function GetRandomTestUser() {
-            $count = count( $this->mTestUsers );
-            $r = rand( 0, $count - 1 );
-            return $this->mTestUsers[ $r ];
-        }
-        protected function RandomValues( $data, $num ) {
-            $keys = array_rand( $data, $num );
-            $ret = array();
-            foreach ( $keys as $key ) {
-                $ret[] = $data[ $key ];
-            }
-            return $ret;
         }
         public function Called( $func ) {
             $this->mCalled = $func;

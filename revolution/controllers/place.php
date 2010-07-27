@@ -4,7 +4,9 @@
             clude( 'models/db.php' );
             clude( 'models/place.php' );
 
-            return Place::Listing();
+            $places = Place::Listing();
+
+            include 'views/place/listing.php';
         }
     }
 ?>
