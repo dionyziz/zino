@@ -134,6 +134,15 @@
             Album::Delete( $album[ 'id' ] );
         }
         public function TestListRecent() {
+            $user = $this->GetRandomTestUser();
+            $images = $this->mImages;
+            $album = Album::Create( $user[ 'id' ], 'findbyalbumtest', '' );
+            $data = array();
+            foreach ( $images as $image ) {
+                $data[] = Photo::Create( $user[ 'id' ], $album[ 'id' ], $image[ 0 ] );
+            }
+
+            // $photos = Photo::ListRecent();
         }
         public function TestListByUser() {
         }

@@ -38,6 +38,10 @@
             );
         }
         public static function ListByIds( $ids ) {
+            if ( empty( $ids ) || !is_array( $ids ) ) {
+                return array();
+            }
+
             $res = db(
                 'SELECT
                     `poll_id` as id, `poll_question` as question, `poll_url` as url,
