@@ -47,7 +47,7 @@
             }	
 
             $items = array();
-			$items[ TYPE_JOURNAL ] = Journal::ItemsPreview( $journalids );
+			$items[ TYPE_JOURNAL ] = Journal::ListByIds( $journalids );
 			$items[ TYPE_POLL ] = Poll::ListByIds( $pollids );
 			$items[ TYPE_PHOTO ] = Photo::ListByIds( $imageids );
             // $items[ TYPE_STOREITEM ] = ... TODO

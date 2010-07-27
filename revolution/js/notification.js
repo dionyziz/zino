@@ -130,6 +130,41 @@ var Notifications = {
              + tips + content + details
              + '<div class="eof"></div></div>';
     },
+    Shortcuts: {
+        Save: 0, Skip: 0, Ignore: 0,
+        Assign: function ( skip, save, ignore ) {
+            Notifications.Shortcuts.Remove();
+            Notifications.Shortcuts.Save = function () {
+                Notifications.Shortcuts.Remove();
+                return save();
+            };
+            Notifications.Shortcuts.Skip = function () {
+                Notifications.Shortcuts.Remove();
+                return skip();
+            };
+            Notifications.Shortcuts.Ignore = function () {
+                Notifications.Shortcuts.Remove();
+                return ignore();
+            };
+            $( document ).bind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip )
+                         .bind( 'keyup', 'return', Notifications.Shortcuts.Save )
+                         .bind( 'keyup', 'esc', Notifications.Shortcuts.Ignore );
+        },
+        Remove: function () {
+            if ( Notifications.Shortcuts.Skip !== 0 ) {
+                $( document ).unbind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip )
+                Notifications.Shortcuts.Skip = 0;
+            }
+            if ( Notifications.Shortcuts.Save !== 0 ) {
+                $( document ).unbind( 'keyup', 'return', Notifications.Shortcuts.Save )
+                Notifications.Shortcuts.Save = 0;
+            }
+            if ( Notifications.Shortcuts.Ignore !== 0 ) {
+                $( document ).unbind( 'keyup', 'esc', Notifications.Shortcuts.Ignore );
+                Notifications.Shortcuts.Ignore = 0;
+            }
+        }
+    },
     CreateFriendGUI: function ( entry ) {
         $( '#instantbox' ).remove();
 
@@ -162,11 +197,6 @@ var Notifications = {
             var users = $( res ).find( 'user knows user name' );
             var save, ignore, skip;
 
-            var unbind = function () {
-                $( document ).unbind( 'keyup', 'shift+esc', skip )
-                             .unbind( 'keyup', 'enter', save )
-                             .unbind( 'keyup', 'esc', ignore );
-            };
             function addFriend() {
                 Notifications.RequestStart();
                 $.post( 'friendship/create', {
@@ -202,20 +232,18 @@ var Notifications = {
                             'parentid': 0
                         }, Notifications.RequestDone );
                         ignoreFriend();
-                        unbind();
+                        Notifications.Shortcuts.Remove();
                     };
                     ignore = function () {
                         ignoreFriend();
-                        unbind();
+                        Notifications.Shortcuts.Remove();
                     };
                     skip = function () {
                         // TODO
-                        unbind();
+                        Notifications.Shortcuts.Remove();
                         return false;
-                    }
-                    $( document ).bind( 'keyup', 'shift+esc', skip )
-                                 .bind( 'keyup', 'enter', save )
-                                 .bind( 'keyup', 'esc', ignore );
+                    };
+                    Notifications.Shortcuts.Assign( skip, save, ignore );
                     return;
                 }
             }
@@ -228,27 +256,23 @@ var Notifications = {
             $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
             $( '#instantbox a.friend' ).click( function () {
                 addFriend();
-                unbind();
                 return false;
             } );
             $( '#instantbox a.ignore' ).click( function () {
                 ignoreFriend();
-                unbind();
                 return false;
             } );
             $( '#instantbox textarea' ).focus();
             save = function () {
                 addFriend();
-                unbind();
             };
             ignore = function () {
                 ignoreFriend();
-                unbind();
             };
-            skip = unbind;
-            $( document ).bind( 'keyup', 'shift+esc', skip )
-                         .bind( 'keyup', 'enter', save )
-                         .bind( 'keyup', 'esc', ignore );
+            skip = function () {
+                // TODO
+            };
+            Notifications.Shortcuts.Assign( skip, save, ignore );
         } );
     },
     CreateFavouriteGUI: function ( entry ) {
@@ -296,7 +320,6 @@ var Notifications = {
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
         function skip() {
             // TODO
-            unbind();
             return false;
         }
         function save() {
@@ -320,16 +343,8 @@ var Notifications = {
                 favouriteitemid: id,
                 favouriteuserid: userid
             } );
-            unbind();
         }
-        function unbind() {
-            $( document ).unbind( 'keyup', 'shift+esc', skip )
-                         .unbind( 'keyup', 'esc', ignore )
-                         .unbind( 'keyup', 'enter', save );
-        }
-        $( document ).bind( 'keyup', 'shift+esc', skip )
-                     .bind( 'keyup', 'esc', ignore )
-                     .bind( 'keyup', 'enter', save );
+        Notifications.Shortcuts.Assign( skip, save, ignore );
         Notifications.RequestStart();
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
         axslt( data, '/social/entry', function() {
@@ -413,13 +428,7 @@ var Notifications = {
             Notifications.Navigate( type + 's/' + id );
         } );
         $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
-        function unbind() {
-            $( document ).unbind( 'keyup', 'shift+esc', skip )
-                         .unbind( 'keyup', 'esc', ignore )
-                         .unbind( 'keyup', 'enter', save );
-        }
         function skip() {
-            unbind();
             return false;
         }
         function save() {
@@ -448,11 +457,9 @@ var Notifications = {
                 'itemid': commentid,
                 'eventtypeid': EVENT_COMMENT_CREATED = 4,
             } );
+            Notifications.DoneWithCurrent();
         }
-            
-        $( document ).bind( 'keyup', 'shift+esc', skip )
-                     .bind( 'keyup', 'esc', ignore )
-                     .bind( 'keyup', 'return', save );
+        Notifications.Shortcuts.Assign( skip, save, ignore );
         if ( isreply ) {
             Notifications.RequestStart();
             $.get( 'comments/' + parentid, {}, function ( res ) {
