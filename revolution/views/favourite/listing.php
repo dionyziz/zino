@@ -5,10 +5,10 @@
     ?>
 
     <entry id="<?= $favourite[ "id" ] ?>" type="journal">
-		<title><?= $favourite[ "data" ][ "title" ] ?></title>
-		<text><?= substr( $favourite[ "data" ][ "text" ] , 0, 100 ); ?></text>
+		<title>"<?= $favourite[ "data" ][ "title" ] ?>"</title>
+		<text>"<?= substr( $favourite[ "data" ][ "text" ] , 0, 100 ); ?>"</text>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
-		<url><?= $favourite[ "data" ][ "url" ] ?></url>
+		<url>"<?= $favourite[ "data" ][ "url" ] ?>"</url>
 		<numcomments><?= $favourite[ "data" ][ "numcomments" ] ?></numcomments>
 		<itemid><?= $favourite[ "data" ][ "id" ] ?></itemid>
 	<?
