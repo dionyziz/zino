@@ -32,7 +32,7 @@
             clude( 'models/user.php' );
             clude( 'models/comet.php' );
 
-            $userid = int( $userid );
+            $userid = ( int )$userid;
             $info = User::UpdateLastActive( $userid );
 
             ob_start();

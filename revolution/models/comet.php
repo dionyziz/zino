@@ -78,6 +78,8 @@
             curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
             curl_setopt( $curl, CURLOPT_POST, 1 );
             curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
+            curl_setopt( $curl, CURLOPT_FORBID_REUSE, true );
+            curl_setopt( $curl, CURLOPT_FRESH_CONNECT, true );
 
             $data = curl_exec( $curl );
 

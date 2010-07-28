@@ -229,10 +229,15 @@ var Chat = {
          }
      },
      OnUserOnline: function ( userid, username ) {
+         // alert( 'user came online' + username );
          var lis = $( '#onlineusers li' );
          var li;
          var compare;
 
+         
+         if ( $( '#u' + userid ).length ) {
+             return;
+         }
          username = username.toLowerCase();
 
          for ( var i = 1; i < lis.length; ++i ) {
@@ -261,6 +266,7 @@ var Chat = {
          }
      },
      OnUserOffline: function ( userid, username ) {
+         alert( "user went offline " + username );
          $( '#u' + userid ).remove();
      },
      Flash: function ( userid, message ) {
@@ -288,6 +294,7 @@ var Chat = {
      },
      OnPresenceChange: function ( res ) {
          var method = $( res ).find( 'operation' ).attr( 'method' );
+         // alert( 'Presence changed. Method: ' + method );
          if ( method == 'create' ) {
              Chat.OnUserOnline( $( res ).find( 'user' ).attr( 'id' ), $( res ).find( 'user name' ).text() );
          }
