@@ -41,7 +41,7 @@
                 clude( 'models/user.php' );
                 $friend = User::ItemByName( $friendname );
                 $relation = Friend::ItemByUserIds( $friend[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
-                Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FRIENDRELATION_CREATED' ), $relation[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
+                Notification::DeleteByInfo( EVENT_FRIENDRELATION_CREATED, $relation[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
             }
             else if ( $favouriteitemid > 0 && $favouritetype != '' && $favouriteuserid > 0 ) {
                 clude( 'models/types.php' );
@@ -60,7 +60,7 @@
                 }
                 clude( 'models/favourite.php' );
                 $favourite = Favourite::ItemByDetails( $favouriteitemid, $typeid, $favouriteuserid );
-                Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FAVOURITE_CREATED' ), $favourite[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
+                Notification::DeleteByInfo( EVENT_FAVOURITE_CREATED, $favourite[ 'id' ], $_SESSION[ 'user' ][ 'id' ] );
             }
         }
     }

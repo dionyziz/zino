@@ -2,38 +2,17 @@
     /*
         Developer: abresas, ted
     */
-    class Event {
-        public static function Types() {
-            // New events here!
-            // EVENT_MODEL(_ATTRIBUTE)_ACTION
-            return array(
-                4 => 'EVENT_COMMENT_CREATED',
-                19 => 'EVENT_FRIENDRELATION_CREATED',
-                38 => 'EVENT_IMAGETAG_CREATED',
-                39 => 'EVENT_FAVOURITE_CREATED',
-                40 => 'EVENT_USER_BIRTHDAY' // not connected with any class. Triggered by script
-            );
-        }
-        public static function TypeByModel( $model ) {
-            $rtypes = array_flip( self::Types() );
-            if ( isset( $rtypes[ $model ] ) ) {
-                return $rtypes[ $model ];
-            }
-            return false;
-        }
-        public static function ModelByType( $typeid ) {
-            $types = self::Types();
-            if ( isset( $types[ $typeid ] ) ) {
-                return $types[ $typeid ];
-            }
-            return false;
-        }
-    }
+
+    define( 'EVENT_COMMENT_CREATED', 4 );
+    define( 'EVENT_FRIENDRELATION_CREATED', 19 );
+    define( 'EVENT_IMAGETAG_CREATED', 38 );
+    define( 'EVENT_FAVOURITE_CREATED', 39 );
+    define( 'EVENT_USER_BIRTHDAY', 40 );
+
     class Notification {
-        public function Create( $fromuserid, $touserid, $eventmodel, $itemid ){
+        public function Create( $fromuserid, $touserid, $typeid, $itemid ){
             $fromuserid = ( int )$fromuserid;
             $touserid = ( int )$touserid;
-            $typeid = Event::TypeByModel( $eventmodel );
             db( "INSERT INTO `notify`
                     (`notify_fromuserid`, `notify_touserid`, `notify_created`, `notify_typeid`, `notify_itemid`)
                 VALUES
@@ -58,15 +37,13 @@
             $idsbyeventtype = array();
             $notifications = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $row[ 'eventtype' ] = Event::ModelByType( $row[ 'eventtypeid' ] );
                 if ( !isset( $idsbyeventtype[ $row[ 'eventtype' ] ] ) ) {
                     $idsbyeventtype[ $row[ 'eventtype' ] ] = array();
                 }
-                $idsbyeventtype[ $row[ 'eventtype' ] ][] = $row[ 'itemid' ];
+                $idsbyeventtype[ $row[ 'eventtypeid' ] ][] = $row[ 'itemid' ];
                 $notifications[] = array(
                     'created' => $row[ 'created' ],
                     'eventtypeid' => $row[ 'eventtypeid' ],
-                    'eventtype' => $row[ 'eventtype' ],
                     'itemid' => $row[ 'itemid' ],
                     'user' => array(
                         'id' => $row[ 'userid' ],
@@ -92,7 +69,7 @@
                 }
             }
             foreach ( $notifications as $i => $notification ) {
-                switch ( $notification[ 'eventtype' ] ) {
+                switch ( $notification[ 'eventtypeid' ] ) {
                     case 'EVENT_COMMENT_CREATED':
                         $notifications[ $i ][ 'comment' ] = $commentinfo[ $notification[ 'itemid' ] ];
                         break;

@@ -139,7 +139,7 @@
                 compact( 'userid', 'friendid', 'typeid' ) );
             clude( 'models/notification.php' );
             $reverserelation = self::ItemByUserIds( $friendid, $userid );
-            Notification::DeleteByInfo( Event::TypeByModel( 'EVENT_FRIENDRELATION_CREATED' ), $reverserelation[ 'id' ], $userid );
+            Notification::DeleteByInfo( EVENT_FRIENDRELATION_CREATED, $reverserelation[ 'id' ], $userid );
         }
         public static function Delete( $userid, $friendid ) {
             clude( 'models/db.php' );
