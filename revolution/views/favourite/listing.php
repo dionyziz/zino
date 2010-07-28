@@ -1,5 +1,12 @@
 <stream>
     <? foreach ( $favourites as $favourite ): ?>
-    
-    <? endforeach; ?>
+	<? switch ( $favourite[ 'typeid' ] ):
+    case TYPE_JOURNAL: 
+    ?>
+
+    <entry id="<?= $favourite[ "id" ] ?>" type="journal">
+	<?
+	break;
+	endswitch; ?>
+	<? endforeach; ?>
 </stream>
