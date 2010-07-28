@@ -1,5 +1,5 @@
-<? foreach ( $tags as $type => $list ): ?>
-    <tags type="<?
+<? foreach ( $interests as $type => $tags ): ?>
+    <taglist type="<?
         switch ( $type ) {
             case TAG_HOBBIE:
                 ?>hobbies<?
@@ -27,7 +27,7 @@
                 break;
         }
     ?>">
-        <? foreach ( $list as $text ): ?>
+        <? foreach ( $tags as $text ): ?>
             <tag><?= htmlspecialchars( $text ); ?></tag>
         <? endforeach; ?>
     </tags>

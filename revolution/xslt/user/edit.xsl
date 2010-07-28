@@ -1,14 +1,12 @@
 <xsl:template name="user.modal.settings">
-    <div name="settingsmodal" class="modal">
+    <div class="modal settingsmodal">
         <h2>Λογαριασμός</h2>
-        <form>
-            <ul>
-                <li><span class="info">Παλιός κωδικός:</span><input type="password" name="oldpassword" /></li>
-                <li><span class="info">Νέος κωδικός:</span><input type="password" name="newpassword" /></li>
-                <li><span class="info">Επανάληψη νέου κωδικού:</span><input type="password" name="newpassword2" /></li>
-            </ul>
-            <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
-        </form>
+        <ul>
+            <li><span class="info">Παλιός κωδικός:</span><input type="password" name="oldpassword" /></li>
+            <li><span class="info">Νέος κωδικός:</span><input type="password" name="newpassword" /></li>
+            <li><span class="info">Επανάληψη νέου κωδικού:</span><input type="password" name="newpassword2" /></li>
+        </ul>
+        <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.aboutme">

@@ -129,3 +129,12 @@ select.location {
     width: 230px;
     font-weight: bold;
 }
+.settingsmodal ul li input{
+    width: 140px;
+    margin-left: 20px;
+}
+.settingsmodal ul li span {
+    float: left;
+    width: 180px;
+    line-height: 2.5em;
+}

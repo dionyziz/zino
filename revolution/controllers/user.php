@@ -41,6 +41,7 @@
                 clude( 'models/comment.php' );
                 clude( 'models/activity.php' );
                 clude( 'models/friend.php' );
+                clude( 'models/interest.php' );
                 clude( 'models/music/song.php' );
 
                 $commentdata = Comment::ListByPage( TYPE_USERPROFILE, $user[ 'id' ], $commentpage );
@@ -49,6 +50,8 @@
                 $counts = UserCount::Item( $user[ 'id' ] );
                 $activity = Activity::ListByUser( $user[ 'id' ] );
                 $song = Song::Item( $user[ 'id' ] );
+                $interests = Interest::ListByUser( $user[ 'id' ] );
+                
                 if ( $song === false ) {
                     unset( $song );
                 }

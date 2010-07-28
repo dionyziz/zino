@@ -4,7 +4,18 @@ var Profile = {
         if ( $( '#accountmenu' ).length ) {
             $( '#accountmenu a:eq(0)' ).click( function () {
                 axslt( false, 'call:user.modal.settings', function() {
-                    $( this ).filter( 'div' ).prependTo( 'body' ).modal();
+                    var $modal = $( this ).filter( 'div' );
+                    $modal.prependTo( 'body' ).modal();
+                    $modal.find( 'a.save' ).click( function() {
+                        var oldpass = $modal.find( 'input[name="oldpassword"]' ).val();
+                        var newpass = $modal.find( 'input[name="newpassword"]' ).val();
+                        var newpass2 = $modal.find( 'input[name="newpassword2"]' ).val();
+                        alert( oldpass );
+                        alert( newpass );
+                        alert( newpass2 );
+                        $modal.jqmHide();
+                        return false;
+                    } );
                 } );
                 return false;
             } );

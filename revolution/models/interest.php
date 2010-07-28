@@ -9,7 +9,7 @@
 
     class Interest {
         public static function ListByUser( $userid ) {
-            return db_array(
+            $res = db_array(
                 'SELECT
                     `tag_text` AS text, `tag_typeid` AS typeid
                 FROM
@@ -17,6 +17,15 @@
                 WHERE
                     `tag_userid` = :userid', compact( 'userid' )
             );
+            $interests = array();
+            foreach ( $res as $tag ) {
+                if ( !isset( $interests[ $tag[ 'typeid' ] ] ) ) {
+                    $interests[ $tag[ 'typeid' ] ] = array();
+                }
+                $interests[ $tag[ 'typeid' ] ][] = $tag[ 'text' ];
+            }
+            
+            return $interests;
         }
         public static function Create( $userid, $text, $typeid ) {
             is_int( $userid ) or die;  

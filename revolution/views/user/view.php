@@ -63,6 +63,7 @@
         <media url="http://static.zino.gr/phoenix/moods/<?= $user[ 'mood' ][ 'url' ] ?>" />
     </mood>
     <?
+        include 'views/interest/listing.php';
     endif;
     if ( isset( $comments ) ):
         include 'views/comment/listing.php';
