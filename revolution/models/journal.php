@@ -83,9 +83,8 @@
             }
 			
 			$journals = array();
-			while ( $row = mysql_fetch_array( $res ) ) {
+			while ( $item = mysql_fetch_array( $res ) ) {
 				$item = array();
-				$item = mysql_fetch_array( $res );
 		        $item[ 'user' ] = array(
 		            'id' => $item[ 'userid' ],
 		            'name' => $item[ 'username' ],
