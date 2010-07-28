@@ -128,7 +128,7 @@
             $this->AssertIsArray( $photos );
             $this->AssertEquals( 1, count( $photos ) );
 
-            foreach ( $photos as $photo ) {
+            foreach ( $data as $photo ) {
                 Photo::Delete( $photo[ 'id' ] );
             }
             Album::Delete( $album[ 'id' ] );
@@ -142,9 +142,38 @@
                 $data[] = Photo::Create( $user[ 'id' ], $album[ 'id' ], $image[ 0 ] );
             }
 
-            // $photos = Photo::ListRecent();
+            $photos = Photo::ListRecent();
+            $this->AssertIsArray( $photos );
+            // $this->AssertEquals( 100, count( $photos ) );
+            $this->AssertEquals( $data[ 2 ][ 'id' ], (int)$photos[ 0 ][ 'id' ] );
+            $this->AssertEquals( $data[ 1 ][ 'id' ], (int)$photos[ 1 ][ 'id' ] );
+            $this->AssertEquals( $data[ 0 ][ 'id' ], (int)$photos[ 2 ][ 'id' ] );
+
+            foreach ( $data as $photo ) {
+                Photo::Delete( $photo[ 'id' ] );
+            }
+            Album::Delete( $album[ 'id' ] );
         }
-        public function TestListByUser() {
+        /**
+         * @dataProvider UserProvider
+         */
+        public function TestListByUser( $userid, $name, $email ) {
+            $images = $this->mImages;
+            $album = Album::Create( $userid, 'findbyalbumtest', '' );
+            $data = array();
+            foreach ( $images as $image ) {
+                $data[] = Photo::Create( $userid, $album[ 'id' ], $image[ 0 ] );
+            }
+
+            $photos = Photo::ListByUser( $userid );
+            $this->AssertIsArray( $photos );
+            $this->AssertEquals( count( $data ), count( $photos ) );
+            // TODO
+
+            foreach ( $data as $photo ) {
+                Photo::Delete( $photo[ 'id' ] );
+            }
+            Album::Delete( $album[ 'id' ] );
         }
         public function ImageProvider() {
             $params = array();

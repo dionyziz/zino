@@ -18,6 +18,22 @@
             );
         }
         public static function ListByUser( $userid, $offset = 0, $limit = 100 ) {
+            var_dump( db_debug(
+                'SELECT
+                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
+                    `user_name` AS username, `user_subdomain` AS subdomain, `user_gender` AS gender, `user_avatarid` AS avatarid
+                FROM
+                    `images` CROSS JOIN `users`
+                        ON image_userid = user_id
+                WHERE
+                    `image_delid`=0 AND
+                    `user_deleted` = 0 AND
+                    `image_userid` = :userid AND
+                    `image_albumid` != 0
+                ORDER BY
+                    id DESC
+                LIMIT :offset, :limit', compact( 'userid', 'offset', 'limit' )
+            ) );
             return db_array(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
@@ -146,7 +162,7 @@
             $data = Photo::Upload( $userid, $id, $tempname );
 
             if ( !is_array( $data ) ) {
-                Photo::Delete( $id );
+                // Photo::Delete( $id );
                 return $data;
             }
 
