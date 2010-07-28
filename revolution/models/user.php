@@ -341,7 +341,7 @@
             return true;
         }
         public static function UpdateLastActive( $userid, $authtoken = false ) {
-            if ( !is_bool( $authtoken ) && is_string( $authtoken ) ) {
+            if ( !is_bool( $authtoken ) && !is_string( $authtoken ) ) {
                 die( 'invalid authtoken' );
             }
 
