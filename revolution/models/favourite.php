@@ -51,6 +51,7 @@
 				foreach ( $items[ $type ] as $key => $val ) {
 					$ret[ $key ][ "id" ] = $key;
 					$ret[ $key ][ "data" ] = $val;
+					$ret[ $key ][ "typeid" ] = $type;
 				}
 			}
             return $ret;
