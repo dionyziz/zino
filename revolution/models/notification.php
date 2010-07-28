@@ -38,8 +38,8 @@
             $idsbyeventtype = array();
             $notifications = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                if ( !isset( $idsbyeventtype[ $row[ 'eventtype' ] ] ) ) {
-                    $idsbyeventtype[ $row[ 'eventtype' ] ] = array();
+                if ( !isset( $idsbyeventtype[ $row[ 'eventtypeid' ] ] ) ) {
+                    $idsbyeventtype[ $row[ 'eventtypeid' ] ] = array();
                 }
                 $idsbyeventtype[ $row[ 'eventtypeid' ] ][] = $row[ 'itemid' ];
                 $notifications[] = array(
