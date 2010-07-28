@@ -34,64 +34,63 @@ server.on( 'request', function ( req, res ) {
 
     //Persistent Connection
     if( req.url == '/connect' ){
-			var credentials = ParseCookies( req.headers );
-			
-			if( credentials === false ){
-				res.end();
-				return;
-			}
-			var userid = credentials.userid;
-			var authtoken = credentials.authtoken;
-			
-            req.connection_id = ai_connection++;
-            
-            console.log( 'Checking authtoken validity. userid=' + userid +  ' authtoken=' + authtoken );
-            var body = 'userid=' + userid + '&authtoken=' + authtoken;
-            var request = php.request( 'POST', '/petros/?resource=presence&method=create', { 
-                'Host': 'zino.gr', 
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': body.length 
-            });
-            request.end( body );
-            request.on( 'response', function( response ){
-                var data = '';
-                response.on( 'data', function( chunk ){
-                    data += chunk.toString();
-                });
-
-                response.on( 'end', function( ){
-                    if( req.connection.readyState == 'closed' ){
-                        return; //Connection has already ended. Don't bother.
-                    }
-                    var result = data.search( '<result>SUCCESS</result>' );
-                    if( result != -1 ){
-
-                        console.log( 'Authtoken valid' );
-                        console.log( 'User ' + userid + ' connected (Connection id = ' + req.connection_id + ')' );
-                        
-                        //User was previously offline
-                        if( typeof online[ userid ]  === 'undefined' ){
-                            online[ userid ] = new Array();
-                        }
-                        
-                        //Add the current connetion id to the user's array of active connections.
-                        online[ userid ].push( req.connection_id );
-                        
-                    }
-                    else {
-                        console.log( 'Invalid authtoken, closing connection. ' + userid );
-                        res.end();
-                    }
-                });
-            });
-            req.connection.on( 'end', DisconnectHandler );
-			req.connection.on( 'close', DisconnectHandler );
+        var credentials = ParseCookies( req.headers );
+        
+        if( credentials === false ){
+            res.end();
+            return;
         }
+        var userid = credentials.userid;
+        var authtoken = credentials.authtoken;
+        
+        req.connection_id = ai_connection++;
+        
+        console.log( 'Checking authtoken validity. userid=' + userid +  ' authtoken=' + authtoken );
+        var body = 'userid=' + userid + '&authtoken=' + authtoken;
+        var request = php.request( 'POST', '/petros/?resource=presence&method=create', { 
+            'Host': 'zino.gr', 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': body.length 
+        });
+        request.end( body );
+        request.on( 'response', function( response ){
+            var data = '';
+            response.on( 'data', function( chunk ){
+                data += chunk.toString();
+            });
+
+            response.on( 'end', function( ){
+                if( req.connection.readyState == 'closed' ){
+                    return; //Connection has already ended. Don't bother.
+                }
+                var result = data.search( '<result>SUCCESS</result>' );
+                if( result != -1 ){
+
+                    console.log( 'Authtoken valid' );
+                    console.log( 'User ' + userid + ' connected (Connection id = ' + req.connection_id + ')' );
+                    
+                    //User was previously offline
+                    if( typeof online[ userid ]  === 'undefined' ){
+                        online[ userid ] = new Array();
+                    }
+                    
+                    //Add the current connetion id to the user's array of active connections.
+                    online[ userid ].push( req.connection_id );
+                    
+                }
+                else {
+                    console.log( 'Invalid authtoken, closing connection. ' + userid );
+                    res.end();
+                }
+            });
+        });
+        req.connection.on( 'end', DisconnectHandler );
+        req.connection.on( 'close', DisconnectHandler );
         return;
     }
     //Invalid request. Close connection.
     res.end();
-});
+} );
 
 function DisconnectHandler(){
 	if( typeof online[ userid ] === 'undefined' ){
