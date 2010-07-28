@@ -1,6 +1,6 @@
 <?php
     class Favourite {
-		public static function ListByUser( $userid ) {
+		public static function ListByUser( $userid, $offset = 0, $limit = 100 ) {
 			clude( 'models/db.php' );
 			clude( 'models/types.php' );
 			clude( 'models/journal.php' );
@@ -12,7 +12,8 @@
 					`favourite_id` AS id, `favourite_itemid` AS itemid, `favourite_typeid` AS typeid, `favourite_created` AS created
                 FROM `favourites`		                    
                 WHERE `favourite_userid` = :userid
-                ORDER BY id DESC;', compact( 'userid' )
+                ORDER BY id DESC
+                LIMIT :offset, :limit;', compact( 'userid', 'offset', 'limit' )
             );
       
             $favourite = array();
