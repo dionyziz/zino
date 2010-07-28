@@ -1,4 +1,5 @@
 <stream>
+	<? include 'models/wysiwyg.php'; ?>
     <? foreach ( $favourites as $favourite ): ?>
 	<? switch ( $favourite[ 'typeid' ] ):
     case TYPE_JOURNAL: 
