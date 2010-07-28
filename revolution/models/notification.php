@@ -31,7 +31,8 @@
                                 CROSS JOIN `users`
                             ON `notify_fromuserid` = `user_id`
                         WHERE
-                            `notify_touserid` = :userid
+                            `notify_touserid` = :userid AND
+                            `notify_typeid` != 38
                         ORDER BY
                             `notify_eventid` DESC', compact( 'userid' ) );
             $idsbyeventtype = array();
@@ -67,20 +68,25 @@
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
                     case EVENT_IMAGETAG_CREATED:
-                        // todo
+                        /*
+                        clude( 'models/imagetag.php' );
+                        $taginfo = ImageTag::ItemMulti( $ids );
+                        */
                 }
             }
             foreach ( $notifications as $i => $notification ) {
                 switch ( $notification[ 'eventtypeid' ] ) {
-                    case 'EVENT_COMMENT_CREATED':
+                    case EVENT_COMMENT_CREATED:
                         $notifications[ $i ][ 'comment' ] = $commentinfo[ $notification[ 'itemid' ] ];
                         break;
-                    case 'EVENT_FAVOURITE_CREATED':
+                    case EVENT_FAVOURITE_CREATED:
                         $notifications[ $i ][ 'favourite' ] = $favouriteinfo[ $notification[ 'itemid' ] ];
                         break;
-                    case 'EVENT_FRIENDRELATION_CREATED':
+                    case EVENT_FRIENDRELATION_CREATED:
                         $notifications[ $i ][ 'friendship' ] = $friendinfo[ $notification[ 'itemid' ] ];
                         break;
+                    case EVENT_IMAGETAG_CREATED:
+                        $notifications[ $i ][ 'tag' ] = $taginfo[ $notification[ 'itemid' ] ];
                 }
             }
             return $notifications;
