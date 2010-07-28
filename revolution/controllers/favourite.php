@@ -16,7 +16,6 @@
                return;
             }
             $favourites = Favourite::ListByUser( $user[ 'id' ], $offset, $limit );
-            var_dump( $favourites );
             include "views/favourite/listing.php";
         }
     }
