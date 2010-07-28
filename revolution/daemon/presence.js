@@ -18,14 +18,14 @@ server.on( 'request', function ( req, res ) {
     } );
 
     //Iframe request
-    if( req.url == '/' ){
+    if ( req.url == '/' ) {
         res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>setTimeout( function(){ $.get( "http://presence.zino.gr:8124/connect" );}, 20 );</script></body></html>' );
         return;
     }
 
     //User list request
-    if( req.url == '/users/list' ){
-        for( user in online ){
+    if ( req.url == '/users/list' ) {
+        for( user in online ) {
             res.write( user + "\n" );
         }
         res.end();
@@ -33,10 +33,10 @@ server.on( 'request', function ( req, res ) {
     }
 
     //Persistent Connection
-    if( req.url == '/connect' ){
+    if ( req.url == '/connect' ) {
         var credentials = ParseCookies( req.headers );
         
-        if( credentials === false ){
+        if ( credentials === false ) {
             res.end();
             return;
         }
@@ -53,24 +53,23 @@ server.on( 'request', function ( req, res ) {
             'Content-Length': body.length 
         });
         request.end( body );
-        request.on( 'response', function( response ){
+        request.on( 'response', function( response ) {
             var data = '';
-            response.on( 'data', function( chunk ){
+            response.on( 'data', function( chunk ) {
                 data += chunk.toString();
             });
 
-            response.on( 'end', function( ){
-                if( req.connection.readyState == 'closed' ){
+            response.on( 'end', function() {
+                if ( request.connection.readyState == 'closed' ) {
                     return; //Connection has already ended. Don't bother.
                 }
                 var result = data.search( '<result>SUCCESS</result>' );
-                if( result != -1 ){
-
+                if ( result != -1 ) {
                     console.log( 'Authtoken valid' );
                     console.log( 'User ' + userid + ' connected (Connection id = ' + req.connection_id + ')' );
                     
                     //User was previously offline
-                    if( typeof online[ userid ]  === 'undefined' ){
+                    if ( typeof online[ userid ]  === 'undefined' ) {
                         online[ userid ] = new Array();
                     }
                     
@@ -84,30 +83,34 @@ server.on( 'request', function ( req, res ) {
                 }
             });
         });
-        req.connection.on( 'end', DisconnectHandler );
-        req.connection.on( 'close', DisconnectHandler );
+        req.connection.on( 'end', function () {
+            DisconnectHandler( userid, req.connection_id );
+        } );
+        req.connection.on( 'close', function () {
+            DisconnectHandler( userid, req.connection_id );
+        } );
         return;
     }
     //Invalid request. Close connection.
     res.end();
 } );
 
-function DisconnectHandler(){
-	if( typeof online[ userid ] === 'undefined' ){
+function DisconnectHandler( userid, connectionId ) {
+	if ( typeof online[ userid ] === 'undefined' ) {
 		return; //Connection ended before we validate
 	}
 	//If a previus timeout is on cancel it
-	if( typeof timeouts[ userid ] !== 'undefined' ){
+	if ( typeof timeouts[ userid ] !== 'undefined' ) {
 		clearTimeout( timeouts[ userid ] );
 	}
 	
 	//Same the current timeout id in case we want to cancel it
-	timeouts[ userid ] = setTimeout( function(){
+	timeouts[ userid ] = setTimeout( function() {
 		//Timeout was not canceled, delete it's id.
 		delete timeouts[ userid ];
 
 		//If user didn't reconnect the last 10s he should be deleted him from the online list
-		if( online[ userid ].length == 0 ) {
+		if ( online[ userid ].length == 0 ) {
 			delete online[ userid ];
 			
 			console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
@@ -118,6 +121,19 @@ function DisconnectHandler(){
 				'Content-Length': body.length 
 			});
 			request.end( body );
+            request.on( 'response', function( response ) {
+                var data = '';
+                response.on( 'data', function( chunk ) {
+                    data += chunk.toString();
+                } );
+
+                response.on( 'end', function() {
+                    if ( request.connection.readyState == 'closed' ) {
+                        return; //Connection has already ended. Don't bother.
+                    }
+                    console.log( 'XML data response for presence.delete: ' + data );
+                } );
+            } );
 
 			console.log( 'User ' + userid + ' went offline' );
 			return;
@@ -127,25 +143,25 @@ function DisconnectHandler(){
 	}, 10000);
 
 	//Remove the connection id from the user's active connections array.
-	online[ userid ].splice( online[ userid ].indexOf( req.connection_id ), 1 );
+	online[ userid ].splice( online[ userid ].indexOf( connectionId ), 1 );
 }
 
-function ParseCookies( headers ){
-	if( typeof headers.cookie !== 'undefined' ){
+function ParseCookies( headers ) {
+	if ( typeof headers.cookie !== 'undefined' ) {
 		try {
 			cookies = querystring.parse( headers.cookie, '; ' )
-			if( typeof cookies[ 'zino_login_8' ] === 'undefined' ){
+			if ( typeof cookies[ 'zino_login_8' ] === 'undefined' ) {
 				throw 'Cookie not found';
 			}
 			cookies  = cookies[ 'zino_login_8' ].split( ':' );
 			
-			if( cookies.length != 2 ) {
+			if ( cookies.length != 2 ) {
 				throw 'Cookie not in appropriate format';
 			}
-			if( cookies[0] - 0 < 1 ) {
+			if ( cookies[0] - 0 < 1 ) {
 				throw 'Wrong userid format';
 			}
-			if( !cookies[1].match( /[a-zA-Z0-9]{32}/ ) ){
+			if ( !cookies[1].match( /[a-zA-Z0-9]{32}/ ) ) {
 				throw 'Wrong authtoken format';
 			}
 		}
@@ -155,6 +171,7 @@ function ParseCookies( headers ){
 		}
 		return { userid: cookies[ 0 ], authtoken: cookies[ 1 ] };
 	}
+    return false;
 }
 console.log( 'Listening on presence.zino.gr:8124' );
 //Start the server.
