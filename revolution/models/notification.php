@@ -11,6 +11,13 @@
 
     class Notification {
         public function Create( $fromuserid, $touserid, $typeid, $itemid ){
+            if ( !in_array( $typeid, array(
+                EVENT_COMMENT_CREATED, EVENT_FRIENDRELATION_CREATED,
+                EVENT_IMAGETAG_CREATED, EVENT_FAVOURITE_CREATED,
+                EVENT_USER_BIRTHDAY ) ) ) {
+                return;
+            }
+
             $fromuserid = ( int )$fromuserid;
             $touserid = ( int )$touserid;
             db( "INSERT INTO `notify`
