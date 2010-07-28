@@ -30,5 +30,5 @@
         <? foreach ( $tags as $text ): ?>
             <tag><?= htmlspecialchars( $text ); ?></tag>
         <? endforeach; ?>
-    </tags>
+    </taglist>
 <? endforeach; ?>
