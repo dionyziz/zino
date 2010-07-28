@@ -244,7 +244,7 @@ var Notifications = {
 
                     $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
                     save = function () {
-                        var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+                        var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                         if ( commenttext === '' ) {
                             $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                             return;
@@ -348,7 +348,7 @@ var Notifications = {
             return false;
         }
         function save() {
-            var commenttext = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
             if ( commenttext === '' ) {
                 $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                 return;
