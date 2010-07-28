@@ -38,35 +38,22 @@
                         $storeitemids[ $row[ 'id' ] ] = $row[ 'itemid' ];
                         break;
 				}
-                $ret[] = array(
-                    'created' => $row[ 'created' ],
-                    'typeid' => $row[ 'typeid' ],
-                    'data' => array(
-                        'id' => $row[ 'id' ]
-                    )
-                );
             }	
 
             $items = array();
 			$items[ TYPE_JOURNAL ] = Journal::ListByIds( $journalids );
 			$items[ TYPE_POLL ] = Poll::ListByIds( $pollids );
 			$items[ TYPE_PHOTO ] = Photo::ListByIds( $imageids );
-            // $items[ TYPE_STOREITEM ] = ... TODO
+            $items[ TYPE_STOREITEM ] = array();
 
-            foreach ( $ret as $i => $favourite ) {
-                if ( $ret[ $i ][ 'typeid' ] == TYPE_STOREITEM ) {
-                    continue;
-                }
-                $typeid = $ret[ $i ][ 'typeid' ];
-                $itemid = $ret[ $i ][ 'data' ][ 'id' ];
-                if ( !isset( $items[ $typeid ][ $itemid ] ) ) {
-                    continue;
-                }
-                $ret[ $i ][ 'data' ] = $items[ $typeid ][ $itemid ];
-            }
-
+			$typenames = array ( TYPE_JOURNAL, TYPE_POLL, TYPE_PHOTO, TYPE_STOREITEM );
+			foreach ( $typenames as $type ) {
+				foreach ( $items[ $type ] as $key => $val ) {
+					$ret[ $key ][ "id" ] = $key;
+					$ret[ $key ][ "data" ] = $val;
+				}
+			}
             return $ret;
-            // return $favourite;
 		}
         public static function Item( $id ) {
             $items = self::ItemMulti( array( $id ) );
