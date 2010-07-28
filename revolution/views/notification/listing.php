@@ -1,7 +1,7 @@
 <stream type="notify" count="<?= count( $notifications ) ?>">
     <? foreach ( $notifications as $notification ): ?>
-    <? switch ( $notification[ 'eventtype' ] ):
-    case 'EVENT_COMMENT_CREATED': 
+    <? switch ( $notification[ 'eventtypeid' ] ):
+    case EVENT_COMMENT_CREATED: 
     ?>
 
     <entry type="<?
@@ -36,7 +36,7 @@
     </entry>
     <? 
     break;
-    case 'EVENT_FAVOURITE_CREATED': 
+    case EVENT_FAVOURITE_CREATED: 
     ?>
 
     <entry type="<?
@@ -75,7 +75,7 @@
     </entry>
     <?
     break;
-    case 'EVENT_FRIENDRELATION_CREATED':
+    case EVENT_FRIENDRELATION_CREATED:
         $user = $notification[ 'friendship' ][ 'user' ];
     ?>
         <user id="<?= $user[ 'id' ] ?>">

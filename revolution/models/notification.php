@@ -55,17 +55,19 @@
             }
             foreach ( $idsbyeventtype as $type => $ids ) {
                 switch ( $type ) {
-                    case 'EVENT_COMMENT_CREATED':
+                    case EVENT_COMMENT_CREATED:
                         clude( 'models/comment.php' );
                         $commentinfo = Comment::ItemMulti( $ids );
                         break;
-                    case 'EVENT_FAVOURITE_CREATED':
+                    case EVENT_FAVOURITE_CREATED:
                         clude( 'models/favourite.php' );
                         $favouriteinfo = Favourite::ItemMulti( $ids );
                         break;
-                    case 'EVENT_FRIENDRELATION_CREATED':
+                    case EVENT_FRIENDRELATION_CREATED:
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
+                    case EVENT_IMAGETAG_CREATED:
+                        // todo
                 }
             }
             foreach ( $notifications as $i => $notification ) {
