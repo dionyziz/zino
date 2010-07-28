@@ -213,7 +213,7 @@
             
             Comment::RegenerateMemcache( $typeid, $itemid );
             if ( $owner != $userid ) {
-                Notification::Create( $userid, $owner, 'EVENT_COMMENT_CREATED', $id );
+                Notification::Create( $userid, $owner, EVENT_COMMENT_CREATED, $id );
             }
             // TODO: comet
             return array(

@@ -74,6 +74,7 @@
                     case EVENT_FRIENDRELATION_CREATED:
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
+                        break;
                     case EVENT_IMAGETAG_CREATED:
                         /*
                         clude( 'models/imagetag.php' );

@@ -133,7 +133,9 @@
             );
         }
         public static function Create( $userid, $typeid, $itemid ) {
+            clude( 'models/notification.php' );
             clude( 'models/types.php' );
+
 
             $userid > 0 or die;
             $typeid > 0 or die;
@@ -170,6 +172,9 @@
                     `favourite_userid` = :userid,
                     `favourite_typeid` = :typeid,
                     `favourite_itemid` = :itemid', compact( 'userid', 'typeid', 'itemid' ) );
+
+            $id = mysql_insert_id();
+            Notification::Create( $userid, $row[ 'userid' ], EVENT_FAVOURITE_CREATED, $id );
         }
     }
 ?>

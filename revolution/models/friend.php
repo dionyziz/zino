@@ -138,6 +138,8 @@
                 VALUES ( :userid, :friendid, :typeid, NOW() )',
                 compact( 'userid', 'friendid', 'typeid' ) );
             clude( 'models/notification.php' );
+            $id = mysql_insert_id();
+            Notification::Create( $userid, $friendid, EVENT_FRIENDRELATION_CREATED, $id );
             $reverserelation = self::ItemByUserIds( $friendid, $userid );
             Notification::DeleteByInfo( EVENT_FRIENDRELATION_CREATED, $reverserelation[ 'id' ], $userid );
         }
