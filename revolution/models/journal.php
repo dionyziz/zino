@@ -64,6 +64,40 @@
             );
 			return $item;
 		}
+		public static function Items( $ids ) {
+			$res = db(
+					'SELECT
+						`bulk_text` as text, `user_deleted` as userdeleted, `user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender, `journal_id` as id, `journal_created` as created, `journal_numcomments` as numcomments, `journal_title` as title, `journal_url` as url, `journal_userid` as userid 
+					FROM 
+						`journals`
+					CROSS JOIN `users` ON
+						`journal_userid` = `user_id`
+					CROSS JOIN `bulk` ON
+						`journal_bulkid` = `bulk_id`
+					WHERE `journal_id` IN :ids
+					LIMIT 10000', compact( 'ids' ) 
+			);
+
+            if (  mysql_num_rows( $res ) == 0 ) {
+                return false;
+            }
+			
+			$journals = array();
+			while ( $row = mysql_fetch_array( $res ) ) {
+				$item = array();
+				$item = mysql_fetch_array( $res );
+		        $item[ 'user' ] = array(
+		            'id' => $item[ 'userid' ],
+		            'name' => $item[ 'username' ],
+		            'gender' => $item[ 'gender' ],
+		            'subdomain' => $item[ 'subdomain' ],
+		            'avatarid' => $item[ 'avatarid' ],
+		            'deleted' => ( int )$item[ 'userdeleted' ]
+		        );
+				$journals[ $item[ "id" ] ] = $item;
+			}
+			return $journals;
+		}
 		public static function ListByIds( $ids ) {
 			clude( 'models/db.php' );
 			if ( empty( $ids ) ) {

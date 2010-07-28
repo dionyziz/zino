@@ -16,6 +16,10 @@
     ?>
 
     <entry id="<?= $favourite[ "id" ] ?>" type="photo">
+		<title><?= $favourite[ "data" ][ "title" ] ?></title>
+		<created><?= $favourite[ "data" ][ "created" ] ?></created>
+		<numcomments><?= $favourite[ "data" ][ "numcomments" ] ?></numcomments>
+		<itemid><?= $favourite[ "data" ][ "id" ] ?></itemid>
 	<?
 	break;
 	case TYPE_POLL: 
