@@ -168,5 +168,38 @@
             
             return $channelid;
         }
+        public static function UpdateLastReadMessage( $chanellid, $userid, $messageid = false ) {
+            if ( $messageid === false || !is_int( $messageid ) ) {
+                $messageid = ChatChanell::LastMessage( $channellid );
+            }
+            $success = db( 
+                "UPDATE
+                    `chatparticipants`
+                SET
+                    `participant_lastreadshoutid` = :messageid
+                WHERE
+                    `participant_channelid` = :channelid AND
+                    `participant_userid` = :userid
+                LIMIT 1;"
+            );
+
+            return $success and mysql_affected_rows() == 1;
+        }
+        public static function LastMessage( $chanellid ) {
+            $res = db( 
+                "SELECT 
+                    `shout_id` AS id
+                FROM 
+                    `shoutbox` 
+                WHERE 
+                    `shout_channelid` = :channelid 
+                ORDER BY 
+                    `shout_id` DESC 
+                LIMIT 1",
+                compact( 'channelid' )
+            );      
+            $row = mysql_fetch_array( $res );
+            return (int)$row[ 'id' ];
+        }
     }
 ?>
