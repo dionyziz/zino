@@ -5,8 +5,8 @@
             $res = db(
                 "SELECT 
                     `mood_id` AS id, 
-                    `mood_labelmale` AS male, 
-                    `mood_labelfemale` AS female, 
+                    `mood_labelmale` AS labelmale, 
+                    `mood_labelfemale` AS labelfemale, 
                     `mood_url` AS url
                 FROM
                     `moods`;"

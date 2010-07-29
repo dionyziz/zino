@@ -1,6 +1,7 @@
 <?php
     class ControllerMood {
         public static function Listing() {
+            clude( 'models/db.php' );
             clude( 'models/mood.php' );
 
             $moods = Mood::Listing();

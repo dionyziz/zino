@@ -71,6 +71,9 @@ RewriteRule ^interests/([0-9]+)$ index.php?resource=interest&method=list&userid=
 # place
 RewriteRule ^places$ index.php?resource=place&method=list [L,QSA]
 
+# mood
+RewriteRule ^moods$ index.php?resource=mood&method=list [L,QSA]
+
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]

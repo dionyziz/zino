@@ -3,7 +3,7 @@
         <mood id="<?= $mood[ 'id' ] ?>">
             <labelmale><?= $mood[ 'labelmale' ] ?></labelmale>
             <labelfemale><?= $mood[ 'labelfemale' ] ?></labelfemale>
-            <media url="<?= $mood[ 'url' ] ?>" />
+            <media url="http://static.zino.gr/phoenix/moods/<?= $mood[ 'url' ] ?>" />
         </mood>
     <? endforeach; ?>
 </moodlist>
