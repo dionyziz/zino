@@ -10,7 +10,7 @@
             clude( 'models/user.php' );
             clude( 'models/comet.php' );
 
-            $userid = (int)$userid;
+            $userid = ( int )$userid;
             $authtoken = ( string )$authtoken;
             $info = User::UpdateLastActive( $userid, $authtoken );
 
@@ -34,10 +34,14 @@
 
             $userid = ( int )$userid;
             $info = User::UpdateLastActive( $userid );
+            $success = $info !== false;
+            $username = $info[ 'name' ];
 
             ob_start();
             include 'views/presence/delete.php'; 
             $xml = ob_get_clean();
+
+            echo $xml;
 
             if ( is_array( $info ) ) {
                 PushChannel::Publish( 'presence', $xml );

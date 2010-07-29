@@ -181,7 +181,6 @@ var Chat = {
          for ( var i = 0; i < messages.length; ++i ) {
              shoutid = $( messages[ i ] ).attr( 'id' );
              author = $( messages[ i ] ).find( 'author name' ).text();
-             // alert( shoutid );
              if ( document.getElementById( shoutid ) ) {
                  // message has already been received
                  continue;
@@ -229,7 +228,6 @@ var Chat = {
          }
      },
      OnUserOnline: function ( userid, username ) {
-         // alert( 'user came online' + username );
          var lis = $( '#onlineusers li' );
          var li;
          var compare;
@@ -266,7 +264,6 @@ var Chat = {
          }
      },
      OnUserOffline: function ( userid, username ) {
-         alert( "user went offline " + username );
          $( '#u' + userid ).remove();
      },
      Flash: function ( userid, message ) {
@@ -294,7 +291,6 @@ var Chat = {
      },
      OnPresenceChange: function ( res ) {
          var method = $( res ).find( 'operation' ).attr( 'method' );
-         // alert( 'Presence changed. Method: ' + method );
          if ( method == 'create' ) {
              Chat.OnUserOnline( $( res ).find( 'user' ).attr( 'id' ), $( res ).find( 'user name' ).text() );
          }
