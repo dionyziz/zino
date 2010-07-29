@@ -57,7 +57,7 @@
             $poll = Poll::Create( $_SESSION[ 'user' ][ 'id' ], $question, $options );
             $options = $poll[ 'options' ];
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
-
+            
             include 'views/poll/view.php';
         }
         public static function Update() {

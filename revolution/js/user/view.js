@@ -60,6 +60,7 @@ var Profile = {
         } );
         $( '.asl .location span' ).addClass( 'editable' ).click( function() {
             //TODO: don't re-open the modal;
+            //TODO default value if empty
             axslt( false, 'call:user.modal.location', function() {
                 $modal = $( this ).filter( 'div' );
                 $modal.prependTo( 'body' ).modal();

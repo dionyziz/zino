@@ -8,27 +8,29 @@ var Poll = {
             $( '.newpoll' ).find( 'input.option' ).keydown( function() {
                 Poll.OptionChange( this );
             } );
-            $( '.newpoll ul.toolbox a.button.big' ).click( function() {
-                var question = $( '.newpoll' ).find( 'input.question' ).val();
-                var options = [];
-                $( 'input.option' ).each( function() {
-                    if ( !$( this ).hasClass( 'blured' ) && $( this ).val() != '' ) {
-                        options.push( $( this ).val() );
-                    }
-                } );
-                alert( options.length );
-                if ( options.length < 2 ) {
-                    return false;
-                }
-                alert( question );
-                if ( question == '' ) {
-                    return false;
-                }
-                $.post( 'poll/create', { 'question': question, 'options': options } );
-                return false;
-            } );
+            $( '.newpoll form' ).submit( function() { return Poll.Create(); } );
+            $( '.newpoll ul.toolbox a.button.big' ).click( function() { return Poll.Create(); } );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ) );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ) );
+        } );
+        return false;
+    },
+    Create: function() {
+        var question = $( '.newpoll' ).find( 'input.question' ).val();
+        var options = [];
+        $( 'input.option' ).each( function() {
+            if ( !$( this ).hasClass( 'blured' ) && $( this ).val() != '' ) {
+                options.push( $( this ).val() );
+            }
+        } );
+        if ( options.length < 2 ) {
+            return false;
+        }
+        if ( question == '' ) {
+            return false;
+        }
+        $.post( 'poll/create', { 'question': question, 'options': options }, function( xml ) { 
+            window.location.href = 'polls/' + $( xml ).find( 'entry' ).attr( 'id' );
         } );
         return false;
     },

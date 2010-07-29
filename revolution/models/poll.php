@@ -133,6 +133,8 @@
                         ( 0, :question, :url, :userid, NOW(), 0, 0, 0 );", 
                 $poll
             );
+            
+            $poll[ 'id' ] = mysql_insert_id();
 
             $poll[ 'id' ] = mysql_insert_id();
 
@@ -149,10 +151,10 @@
 
                 $res = db( 
                     "INSERT INTO `polloptions`
-                        ( `polloption_id`, `polloption_text`, `polloption_numvotes` )
+                        ( `polloption_id`, `polloption_text`, `polloption_pollid`, `polloption_numvotes` )
                     VALUES
-                        ( 0, :text, 0 );",
-                    array( 'text' => $text )
+                        ( 0, :text, :pollid, 0 );",
+                    array( 'text' => $text, 'pollid' => $poll[ 'id' ] )
                 );
 
                 $option[ 'id' ] = mysql_insert_id();

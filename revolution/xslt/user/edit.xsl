@@ -27,3 +27,8 @@
         <option><xsl:attribute name="value"><xsl:value-of select="id" /></xsl:attribute><xsl:value-of select="name" /></option>
     </xsl:for-each>
 </xsl:template>
+<xsl:template name="user.mood.edit">
+    <div class="moodpicker" style="overflow: hidden">
+        
+    </div>
+</xsl:template>
