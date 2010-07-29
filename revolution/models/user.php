@@ -418,7 +418,9 @@
                 $users[ $row[ 'name' ] ] = $row;
             }
 
-            return uksort( $users, strnatcasecmp ); // sort by name, case insensitive
+            uksort( $users, 'strnatcasecmp' ); // sort by name, case insensitive
+
+            return $users;
         }
         /* old code, switching to presence server
         public static function ListOnline() {
