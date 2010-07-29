@@ -52,15 +52,19 @@ div.moodpicker div.pick ul {
     margin: 0;
     padding: 0 0 4px 2px;
 }
-div.moodpicker div.pick ul li {
+div.moodpicker div.pick ul li, .nomood {
     display: block;
     float: left;
     list-style: none;
     width: 50px;
     height: 50px;
     margin: 0 2px 4px 2px;
-    padding: 0;
+    padding: 1px;
+    border: 1px solid black;
 }
+    .nomood {
+        background: white;
+    }
 div.moodpicker div.pick ul li a {
     height: 52px;
     cursor: pointer;

@@ -188,18 +188,20 @@
             </div>
             <div class="rightbar">
                 <xsl:if test="mood or $user = name[1]">
-                    <xsl:choose>
-                        <xsl:when test="not( mood ) and $user = name[1]">
-                            <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="nomood"></div>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <img>
-                                <xsl:attribute name="src"><xsl:value-of select="mood/media[1]/@url" /></xsl:attribute>
-                                <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                                <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                            </img>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <div class="mood">
+                        <xsl:choose>
+                            <xsl:when test="not( mood ) and $user = name[1]">
+                                <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="nomood"></div>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <img>
+                                    <xsl:attribute name="src"><xsl:value-of select="mood/media[1]/@url" /></xsl:attribute>
+                                    <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                                    <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                                </img>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </div>
                 </xsl:if>
             </div>
         </div>

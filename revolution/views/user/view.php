@@ -52,14 +52,12 @@
     if ( isset( $user[ 'mood' ] ) ):
     ?>
     <mood>
-        <label>
-        <? if ( $user[ 'gender' ] == 'f' ):
+        <label><? if ( $user[ 'gender' ] == 'f' ):
                echo $user[ 'mood' ][ 'labelfemale' ];
            else:
                echo $user[ 'mood' ][ 'labelmale' ];
            endif;
-        ?>
-        </label>
+        ?></label>
         <media url="http://static.zino.gr/phoenix/moods/<?= $user[ 'mood' ][ 'url' ] ?>" />
     </mood>
     <?

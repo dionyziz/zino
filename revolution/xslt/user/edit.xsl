@@ -28,7 +28,5 @@
     </xsl:for-each>
 </xsl:template>
 <xsl:template name="user.mood.edit">
-    <div class="moodpicker" style="overflow: hidden">
-        <!-- <xsl:for-each -->
-    </div>
+asdf
 </xsl:template>

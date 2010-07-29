@@ -42,6 +42,10 @@ var Profile = {
         Comment.Init();
     },
     PrepareInlineEditables: function() {
+        setTimeout( function() {
+        axslt( $.get( 'moods' ), 'call:user.modal.aboutme', function() {
+            alert( 'done' );
+        } ); }, 150 );
         Profile.PopulateEditables();
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
