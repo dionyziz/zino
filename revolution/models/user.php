@@ -402,7 +402,7 @@
                 return array();
             }
 
-            return db_array(
+            $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid
                 FROM
@@ -410,6 +410,15 @@
                 WHERE
                     `user_id` IN :userids;', compact( 'userids' )
             );
+
+            $users = array();
+            while ( $row = mysql_fetch_array( $res ) ){ 
+                $row[ 'id' ] = (int)$row[ 'id' ];
+                $row[ 'avatarid' ] = (int)$row[ 'avatarid' ];
+                $users[ $row[ 'name' ] ] = $row;
+            }
+
+            return uksort( $users, strnatcasecmp ); // sort by name, case insensitive
         }
         /* old code, switching to presence server
         public static function ListOnline() {
