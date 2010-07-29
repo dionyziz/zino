@@ -150,6 +150,38 @@
                     </xsl:choose>
                 </xsl:if>
                 <xsl:apply-templates select="details" />
+
+                <xsl:apply-templates select="song" />
+                
+                <ul class="userinterests">
+                    <xsl:for-each select="taglist">
+                        <li>
+                            <xsl:attribute name="class"><xsl:value-of select="./@type" /></xsl:attribute>
+                            <div>
+                                <xsl:choose>
+                                    <xsl:when test="./@type = 'hobbies'">Hobbies</xsl:when>
+                                    <xsl:when test="./@type = 'movies'">Αγαπημένες ταινίες</xsl:when>
+                                    <xsl:when test="./@type = 'shows'">Αγαπημένες σειρές</xsl:when>
+                                    <xsl:when test="./@type = 'books'">Αγαπημένα βιβλία</xsl:when>
+                                    <xsl:when test="./@type = 'games'">Αγαπημένα παιχνίδια</xsl:when>
+                                    <xsl:when test="./@type = 'artists'">Αγαπημένοι καλλιτέχνες</xsl:when>
+                                </xsl:choose>
+                            </div>
+                            <ul class="interestitems">
+                                <xsl:for-each select="./tag">
+                                    <li>
+                                        <xsl:attribute name="id">tag_<xsl:value-of select="./@id" /></xsl:attribute>
+                                        <xsl:if test="/social/@for = /social/user/name">
+                                            <xsl:attribute name="class">edditable</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="." />
+                                    </li>,&#160;
+                                </xsl:for-each>
+                            </ul>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+
             </div>
             <div class="rightbar">
                 <xsl:if test="mood">
@@ -159,7 +191,6 @@
                         <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
                     </img>
                 </xsl:if>
-                <xsl:apply-templates select="song" />
             </div>
         </div>
     </div>

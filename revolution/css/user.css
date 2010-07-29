@@ -71,6 +71,31 @@
         padding: 1em 0;
     }
 
+.mplayer{
+    margin-top: 20px;
+}
+
+.userinterests{
+    text-align: left;
+    margin-top: 20px;
+}
+    .userinterests > li{
+        margin: 10px 0;
+    }
+        .userinterests > li div{
+            font-weight: bold;
+            clear: both;
+            margin: 2px 0;
+        }
+        .userinterests > li ul li{
+            display: inline;
+        }
+        .userinterests > li ul li.edditable{
+            cursor: pointer;
+        }
+        .userinterests > li ul li.edditable:hover{
+            text-decoration: underline;
+        }
 .useritems{
     float: right;
 }
