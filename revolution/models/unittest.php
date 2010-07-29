@@ -254,6 +254,15 @@
         
         return $ret;
     }
+
+    function Test_GetTestcasesByName() {
+        $validTests = Test_GetTestcases();
+        $validTestsByName = array();
+        foreach ( $validTests as $testcase ) {
+            $validTestsByName[ $testcase->Name ] = $testcase;
+        }
+        return $validTestsByName;
+    }
     
     function Test_VarDump( $var ) {
         if ( is_scalar( $var ) ) {

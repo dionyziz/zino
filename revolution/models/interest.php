@@ -11,7 +11,7 @@
         public static function ListByUser( $userid ) {
             $res = db_array(
                 'SELECT
-                    `tag_text` AS text, `tag_typeid` AS typeid
+                    `tag_id` AS id, `tag_text` AS text, `tag_typeid` AS typeid
                 FROM
                     `tags`
                 WHERE
@@ -31,11 +31,13 @@
             is_int( $userid ) or die;  
             in_array( $typeid, array( TAG_HOBBIE, TAG_MOVIE, TAG_BOOK, TAG_SONG, TAG_ARTIST, TAG_GAME, TAG_SHOW ) ) or die( "unknown tag typeid" );
 
-            return db( 
+            db( 
                 "INSERT INTO `tags` ( `tag_userid`, `tag_text`, `tag_typeid` )
                 VALUES ( :userid, :text, :typeid );",
-                compact( $userid, $text, $typeid )
+                compact( 'userid', 'text', 'typeid' )
             );
+
+            return mysql_insert_id();
         }
         public static function Delete( $id ) {
             return db( "DELETE FROM `tags` WHERE `tag_id` = :id", array( 'id' => $id ) );
