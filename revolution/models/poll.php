@@ -125,7 +125,6 @@
                 'numvotes' => 0,
                 'numcomments' => 0
             );
-            $poll[ 'id' ] = mysql_insert_id();
 
             $res = db( 
                 "INSERT INTO `polls`
@@ -134,6 +133,8 @@
                         ( 0, :question, :url, :userid, NOW(), 0, 0, 0 );", 
                 $poll
             );
+
+            $poll[ 'id' ] = mysql_insert_id();
 
             $poll[ 'options' ] = array();
             foreach ( $optiontexts as $text ) {
