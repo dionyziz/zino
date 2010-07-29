@@ -40,7 +40,7 @@
     border: 2px solid #ccc;
     padding: 0.2em;
 }
-.modal .close {
+.modal .close, .modalclose {
     position: absolute;
     left: -20px;
     top: -20px;
@@ -51,7 +51,7 @@
     padding: 0;
     margin: 0;
 }
-.modal .close:hover {
+.modal .close:hover, .modalclose:hover {
     background-position: 0 -60px;
 }
 div.modaloverlay {

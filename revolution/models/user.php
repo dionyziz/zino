@@ -241,6 +241,7 @@
                     `profile_slogan`,
                     `profile_aboutme`,
                     `profile_dob`,
+                    `profile_moodid`,
                     `mood_labelmale`, `mood_labelfemale`,
                     `mood_url`,
                     (
@@ -275,6 +276,7 @@
                 foreach ( $mooddetails as $detail ) {
                     $row[ 'mood' ][ $detail ] = $row[ 'mood_' . $detail ];
                 }
+                $row[ 'mood' ][ 'id' ] = $row[ 'profile_moodid' ];
             }
             foreach ( $mooddetails as $detail ) {
                 unset( $row[ 'mood_' . $detail ] );

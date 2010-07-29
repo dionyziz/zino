@@ -42,10 +42,20 @@ var Profile = {
         Comment.Init();
     },
     PrepareInlineEditables: function() {
-        setTimeout( function() {
-        axslt( $.get( 'moods' ), 'call:user.modal.aboutme', function() {
-            alert( 'done' );
-        } ); }, 150 );
+        $( '.mood' ).addClass( 'editable' );
+        $( '.mood .activemood' ).click( function() {
+            axslt( $.get( 'moods' ), 'call:user.mood.edit', function() {
+                $activemood = $( '.mood > .activemood' );
+                $activemood.hide();
+                $moodpicker = $( this ).filter( 'div' );
+                $moodpicker.appendTo( '.mood' );
+                $moodpicker.find( '#mood_' + $activemood.attr( 'id' ).split( '_' )[2] ).closest( 'li' ).addClass( 'activemood' );
+                $moodpicker.find( '.modalclose' ).click( function() {
+                    $moodpicker.hide().remove();
+                    $activemood.show();
+                } );
+            }, { 'gender': Profile.CurrentValues[ 'gender' ] } );
+        } );
         Profile.PopulateEditables();
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {

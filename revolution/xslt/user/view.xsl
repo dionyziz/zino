@@ -191,14 +191,15 @@
                     <div class="mood">
                         <xsl:choose>
                             <xsl:when test="not( mood ) and $user = name[1]">
-                                <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="nomood"></div>
+                                <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="moodtile nomood activemood"></div>
                             </xsl:when>
                             <xsl:otherwise>
-                                <img>
-                                    <xsl:attribute name="src"><xsl:value-of select="mood/media[1]/@url" /></xsl:attribute>
+                                <div class="moodtile activemood">
+                                    <xsl:attribute name="style">background-image:url(<xsl:value-of select="mood/media[1]/@url" />)</xsl:attribute>
                                     <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
                                     <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                                </img>
+                                    <xsl:attribute name="id">mood_active_<xsl:value-of select="mood/@id" /></xsl:attribute>
+                                </div>
                             </xsl:otherwise>
                         </xsl:choose>
                     </div>

@@ -51,7 +51,7 @@
     <?
     if ( isset( $user[ 'mood' ] ) ):
     ?>
-    <mood>
+    <mood id="<?= $user[ 'mood' ][ 'id' ]; ?>">
         <label><? if ( $user[ 'gender' ] == 'f' ):
                echo $user[ 'mood' ][ 'labelfemale' ];
            else:

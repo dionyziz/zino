@@ -1,9 +1,4 @@
-div.moodpicker {
-    height: 55px;
-    width: 68px;
-    padding-top: 1px;
-    position: relative;
-}
+
 div.moodpicker div.view {
     border: 1px solid #666;
     margin: 1px 1px 0 1px;
@@ -38,33 +33,10 @@ div.moodpicker div.view a {
 div.moodpicker a img {
     border-width: 0px;
 }
-div.moodpicker div.pick {
-    background: #fff;
-    border: 1px solid #666;
-    width: 328px;
-    margin: -1px 1px 1px 1px;
-    padding: 0 0 2px 0;
-    position: absolute;
-    left: 0;
-    top: 56px;
-}
 div.moodpicker div.pick ul {
     margin: 0;
     padding: 0 0 4px 2px;
 }
-div.moodpicker div.pick ul li, .nomood {
-    display: block;
-    float: left;
-    list-style: none;
-    width: 50px;
-    height: 50px;
-    margin: 0 2px 4px 2px;
-    padding: 1px;
-    border: 1px solid black;
-}
-    .nomood {
-        background: white;
-    }
 div.moodpicker div.pick ul li a {
     height: 52px;
     cursor: pointer;
@@ -75,3 +47,58 @@ div.moodpicker div.pick ul li a img {
 div.moodpicker div.pick ul li a:hover img {
     border: 1px solid #469;
 }
+
+
+
+
+
+.mood {
+    position: relative;
+}
+.moodpicker {
+    background: #345;
+    border: 3px solid #567;
+    width: 360px;
+    margin: 0;
+    padding: 0 0 4px 4px;
+    top: -7px;
+    left: -7px;
+    position: absolute;
+}
+.moodpicker ul li {
+    background-color: white;
+    width: 56px;
+    height: 56px;
+    margin: 4px 4px 0 0;
+    float: left;
+}
+.editable.mood {
+    cursor: auto;
+    overflow: visible;
+}
+.moodtile {
+    display: block;
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: 3px solid #567;
+    background: no-repeat center white;
+}
+    .nomood {
+        background: white;
+    }
+    .editable .moodtile {
+        cursor: pointer;
+    }
+    .editable .moodpicker .moodtile:hover {
+        opacity: 0.8;
+    }
+    .moodpicker ul li.activemood .moodtile:hover {
+        opacity: 1;
+    }
+    .moodpicker ul li.activemood .moodtile {
+        border-color: #8ad;
+        cursor: auto;
+    }

@@ -164,3 +164,6 @@ select.location {
     width: 180px;
     line-height: 2.5em;
 }
+.rightbar {
+    float: left;
+}
