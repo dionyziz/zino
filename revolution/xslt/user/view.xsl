@@ -55,13 +55,16 @@
                 </xsl:if>
             </ul>
             <div class="maininfo">
-                <xsl:if test="avatar[1]">
-                    <img class="avatar">
-                        <xsl:attribute name="src">
-                            <xsl:value-of select="avatar[1]/media[1]/@url" />
-                        </xsl:attribute>
-                    </img>
-                </xsl:if>
+                <img class="avatar">
+                    <xsl:choose>
+                        <xsl:when test="avatar[1]/@id = 0">
+                            <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>asd
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>das
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </img>
                 <div class="details">
                     <div class="username"><xsl:value-of select="name[1]" /></div>
                     <ul class="asl">
