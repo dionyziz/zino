@@ -1,12 +1,8 @@
 var http = require( 'http' );
-var querystring = require( 'querystring' );
+var UserManager = require( './lib/usermanager' ).UserManager;
+var ParseCookies = require( './lib/utilities' ).ParseCookies;
 
 var server = http.createServer();
-var php = http.createClient( 500, 'zino.gr' );
-
-var ai_connection = 0;
-var online = {};
-var timeouts = {};
 
 console.log( 'Zino Presence Server' );
 console.log( '(c) Kamibu 2010 by Petros <petros@kamibu.com> and Chorvus <chorvus@kamibu.com>' );
@@ -34,61 +30,24 @@ server.on( 'request', function ( req, res ) {
 
     //Persistent Connection
     if ( req.url == '/connect' ) {
-        var credentials = ParseCookies( req.headers );
+        var credentials = typeof req.headers.cookie === 'undefined' ? false : ParseCookies( req.headers.cookie );
         
-        if ( credentials === false ) {
+        if ( !credentials ) {
             res.end();
             return;
         }
         var userid = credentials.userid;
         var authtoken = credentials.authtoken;
-        
-        req.connection_id = ai_connection++;
-        
+		
         console.log( 'Checking authtoken validity. userid=' + userid +  ' authtoken=' + authtoken );
-        var body = 'userid=' + userid + '&authtoken=' + authtoken;
-        var request = php.request( 'POST', '/dionyziz/?resource=presence&method=create', { 
-            'Host': 'zino.gr', 
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': body.length 
-        });
-        request.end( body );
-        request.on( 'response', function( response ) {
-            var data = '';
-            response.on( 'data', function( chunk ) {
-                data += chunk.toString();
-            });
-
-            response.on( 'end', function() {
-                if ( request.connection.readyState == 'closed' ) {
-                    return; //Connection has already ended. Don't bother.
-                }
-                var result = data.search( '<result>SUCCESS</result>' );
-                if ( result != -1 ) {
-                    console.log( 'Authtoken valid' );
-                    console.log( 'User ' + userid + ' connected (Connection id = ' + req.connection_id + ')' );
-                    
-                    //User was previously offline
-                    if ( typeof online[ userid ]  === 'undefined' ) {
-                        online[ userid ] = new Array();
-                    }
-                    
-                    //Add the current connetion id to the user's array of active connections.
-                    online[ userid ].push( req.connection_id );
-                    
-                }
-                else {
-                    console.log( 'Invalid authtoken, closing connection. ' + userid );
-                    console.log( 'XML data: ' + data );
-                    res.end();
-                }
-            });
-        });
+		
+		req.connection_id = UserManager.NewConnectionHandler( userid, authtoken );
+        
         req.connection.on( 'end', function () {
-            DisconnectHandler( userid, req.connection_id );
+            UserManager.DisconnectHandler( req.connection_id );
         } );
         req.connection.on( 'close', function () {
-            DisconnectHandler( userid, req.connection_id );
+            UserManager.DisconnectHandler( req.connection_id );
         } );
         return;
     }
@@ -96,84 +55,6 @@ server.on( 'request', function ( req, res ) {
     res.end();
 } );
 
-function DisconnectHandler( userid, connectionId ) {
-	if ( typeof online[ userid ] === 'undefined' ) {
-		return; //Connection ended before we validate
-	}
-	//If a previus timeout is on cancel it
-	if ( typeof timeouts[ userid ] !== 'undefined' ) {
-		clearTimeout( timeouts[ userid ] );
-	}
-	
-	//Same the current timeout id in case we want to cancel it
-	timeouts[ userid ] = setTimeout( function() {
-		//Timeout was not canceled, delete it's id.
-		delete timeouts[ userid ];
-
-		//If user didn't reconnect the last 10s he should be deleted him from the online list
-		if ( online[ userid ].length == 0 ) {
-			delete online[ userid ];
-			
-			console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
-			var body = 'userid=' + userid;
-			var request = php.request( 'POST', '/dionyziz/?resource=presence&method=delete', { 
-				'Host': 'zino.gr', 
-				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': body.length 
-			});
-			request.end( body );
-            request.on( 'response', function( response ) {
-                var data = '';
-                response.on( 'data', function( chunk ) {
-                    data += chunk.toString();
-                } );
-
-                response.on( 'end', function() {
-                    if ( request.connection.readyState == 'closed' ) {
-                        return; //Connection has already ended. Don't bother.
-                    }
-                    console.log( 'XML data response for presence.delete: ' + data );
-                } );
-            } );
-
-			console.log( 'User ' + userid + ' went offline' );
-			return;
-		}
-		//User has made a new connection in the last 10s. He stays on the list.
-		console.log( 'User ' + userid + ' reconnected.' );
-	}, 10000);
-
-	//Remove the connection id from the user's active connections array.
-	online[ userid ].splice( online[ userid ].indexOf( connectionId ), 1 );
-}
-
-function ParseCookies( headers ) {
-	if ( typeof headers.cookie !== 'undefined' ) {
-		try {
-			cookies = querystring.parse( headers.cookie, '; ' )
-			if ( typeof cookies[ 'zino_login_8' ] === 'undefined' ) {
-				throw 'Cookie not found';
-			}
-			cookies  = cookies[ 'zino_login_8' ].split( ':' );
-			
-			if ( cookies.length != 2 ) {
-				throw 'Cookie not in appropriate format';
-			}
-			if ( cookies[0] - 0 < 1 ) {
-				throw 'Wrong userid format';
-			}
-			if ( !cookies[1].match( /[a-zA-Z0-9]{32}/ ) ) {
-				throw 'Wrong authtoken format';
-			}
-		}
-		catch( err ) {
-			console.log( err );
-			return false;
-		}
-		return { userid: cookies[ 0 ], authtoken: cookies[ 1 ] };
-	}
-    return false;
-}
 console.log( 'Listening on presence.zino.gr:8124' );
 //Start the server.
 server.listen( 8124, "presence.zino.gr" );
