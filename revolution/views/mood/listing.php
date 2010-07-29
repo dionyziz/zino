@@ -1,8 +1,8 @@
 <moodlist>
     <? foreach ( $moods as $mood ): ?>
         <mood id="<?= $mood[ 'id' ] ?>">
-            <labelmale><?= $mood[ 'labelmale' ] ?></labelmale>
-            <labelfemale><?= $mood[ 'labelfemale' ] ?></labelfemale>
+            <text gender="m"><?= $mood[ 'labelmale' ] ?></labelmale>
+            <text gender="f"><?= $mood[ 'labelfemale' ] ?></labelfemale>
             <media url="http://static.zino.gr/phoenix/moods/<?= $mood[ 'url' ] ?>" />
         </mood>
     <? endforeach; ?>
