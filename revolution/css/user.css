@@ -90,10 +90,10 @@
         .userinterests > li ul li{
             display: inline;
         }
-        .userinterests > li ul li.edditable{
+        .userinterests > li ul li.edditable span.value{
             cursor: pointer;
         }
-        .userinterests > li ul li.edditable:hover{
+        .userinterests > li ul li.edditable span.value:hover{
             text-decoration: underline;
         }
 .useritems{
