@@ -26,7 +26,7 @@ var UserManager = {
 	DeleteUserConnection: function( connectionid ) {
 		UserManager.Users[ userid ].Connections.splice( UserManager.Users[ userid ].Connections.indexOf( connectionid ), 1 );
 		delete UserManager.Connections[ connectionid ];
-	}
+	},
 	NewConnectionHandler: function( userid, authtoken ) {
 		var id = UserManager.UniqueID++;
 		
