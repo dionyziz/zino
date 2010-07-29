@@ -145,6 +145,7 @@
                                 </input>
                                 <a class="love linkbutton" href=""><strong>+</strong> Προσθήκη φίλου</a>
                             </form>
+                            <div class="eof"></div>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:if>

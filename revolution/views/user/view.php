@@ -20,7 +20,7 @@
         <favourites count="<?= $counts[ 'favourites' ]; ?>" />
         <chat count="<?= $counts[ 'shouts' ]; ?>" />
     <? endif; ?>
-    <? if ( $friendofuser ): ?>
+    <? if ( isset( $friendofuser ) && $friendofuser ): ?>
         <knownBy><?= $_SESSION[ 'user' ][ 'name' ]; ?></knownBy>
     <? endif; ?>
     <? if ( isset( $song ) ): ?>
