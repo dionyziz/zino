@@ -6,18 +6,19 @@ var ZinoAPI = {
 		list: 'GET',
 		create: 'POST',
 		update: 'POST',
-		delete: 'POST' 
+		'delete': 'POST' 
 	},
 	Call: function( resource, method, parameters, callback ) {
 		if ( typeof ZinoAPI.Methods[ method ] === 'undefined' ) {
 			return; //Invalid Method
 		}
 		
-		if( ZinoAPI.Methods[ method ] == 'GET' ){
+		if ( ZinoAPI.Methods[ method ] == 'GET' ) {
 			parameters.resource = resource;
 			parameters.method = method;
 			var GETParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
 			var POSTParams = '';
+        }
 		else {
 			var GETParams = ZinoAPI.QueryHelper.stringify( { resource: resource, method: method }, '&', '=', false );
 			var POSTParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
@@ -30,7 +31,7 @@ var ZinoAPI = {
 		} );
 		request.end( POSTParams );
 		
-		if( typeof callback == 'function' ){
+		if ( typeof callback == 'function' ) {
 			request.on( 'response', function( response ) {
 				var data = '';
 				response.on( 'data', function( chunk ) {

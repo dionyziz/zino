@@ -21,7 +21,7 @@ server.on( 'request', function ( req, res ) {
 
     //User list request
     if ( req.url == '/users/list' ) {
-        for( user in online ) {
+        for( user in UserManager.Users ) {
             res.write( user + "\n" );
         }
         res.end();

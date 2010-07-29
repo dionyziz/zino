@@ -1,4 +1,5 @@
 function ParseCookies( cookies ) {
+    var querystring = require( 'querystring' );
 	try {
 		cookies = querystring.parse( cookies, '; ' )
 		if ( typeof cookies[ 'zino_login_8' ] === 'undefined' ) {
