@@ -61,13 +61,7 @@
             $id = mysql_insert_id();
 
             if ( $channelid != 0 ) {
-                db( 'UPDATE
-                        chatparticipants
-                    SET
-                        participant_active = 1
-                    WHERE
-                        participant_channelid = :channelid', compact( 'channelid' )
-                );
+                ChatChannel::UpdateLastReadMessage( $id );
             }
 
             return array(
@@ -160,8 +154,8 @@
                 db(
                     'INSERT INTO
                         chatparticipants
-                    ( participant_userid, participant_channelid, participant_active, participant_joined ) VALUES
-                    ( :userid1, :channelid, 1, NOW() ), ( :userid2, :channelid, 0, NOW() )',
+                    ( participant_userid, participant_channelid, participant_joined ) VALUES
+                    ( :userid1, :channelid, NOW() ), ( :userid2, :channelid, NOW() )',
                     compact( 'userid1', 'userid2', 'channelid' )
                 );
             }
@@ -171,6 +165,9 @@
         public static function UpdateLastReadMessage( $chanellid, $userid, $messageid = false ) {
             if ( $messageid === false || !is_int( $messageid ) ) {
                 $messageid = ChatChanell::LastMessage( $channellid );
+            }
+            if ( $chanellid == 0 ) {
+                return false;
             }
             $success = db( 
                 "UPDATE
