@@ -16,29 +16,33 @@ var ZinoAPI = {
 		if( ZinoAPI.Methods[ method ] == 'GET' ){
 			parameters.resource = resource;
 			parameters.method = method;
-			var GETParams = ZinoAPI.QueryHelper( parameters, '&', '=', false );
+			var GETParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
 			var POSTParams = '';
 		else {
-			var GETParams = ZinoAPI.QueryHelper( { resource: resource, method: method }, '&', '=', false );
-			var POSTParams = ZinoAPI.QueryHelper( parameters, '&', '=', false );
+			var GETParams = ZinoAPI.QueryHelper.stringify( { resource: resource, method: method }, '&', '=', false );
+			var POSTParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
 		}
 		
 		var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/dionyziz/?' + GETParams, { 
 			'Host': 'zino.gr', 
 			'Content-Type': 'application/x-www-form-urlencoded',
-			'Content-Length': body.length 
+			'Content-Length': POSTParams.length 
 		} );
 		request.end( POSTParams );
 		
-		request.on( 'response', function( response ) {
-			var data = '';
-			response.on( 'data', function( chunk ) {
-				data += chunk.toString();
-			} );
+		if( typeof callback == 'function' ){
+			request.on( 'response', function( response ) {
+				var data = '';
+				response.on( 'data', function( chunk ) {
+					data += chunk.toString();
+				} );
 
-			response.on( 'end', function() {
-				callback( data );
+				response.on( 'end', function() {
+					callback( data );
+				} );
 			} );
-		} );
+		}
 	}
 }
+
+exports.ZinoAPI = ZinoAPI;
