@@ -11,9 +11,11 @@
     }
 
     function ParseArguments( $args, $validTestsByName ) {
-        $runtests = array();
+        global $command;
 
-        array_shift( $args );
+        $command = array_shift( $args );
+
+        $runtests = array();
         foreach ( $args as $i => $value ) {
             switch ( $value ) {
                 case "--all":
@@ -21,9 +23,16 @@
                         $runtests[] = $name;
                     }
                     break;
+                case "-h":
+                case "--help":
+                    ViewHelp();
                 default:
                     $runtests[] = $value;
             }
+        }
+
+        if ( empty( $runtests ) ) {
+            ViewHelp( "Please select a test to run, or run $command --all\n" );
         }
 
         return $runtests;
@@ -36,7 +45,8 @@
         foreach ( $runtests as $testname ) {
             if ( !isset( $validTestsByName[ $testname ] ) ) {
                 // $water->Warning( 'Testname "' . $testname . '" which you tried to run is not a valid testname' );
-                echo "Testname \"" . $testname . "\" which you tried to run is not a valid testname\n";
+                // echo "Testname \"" . $testname . "\" which you tried to run is not a valid testname\n";
+                ViewHelp( "Testname \"" . $testname . "\" which you tried to run is not a valid testname\n" );
             }
             else {
                 $tester->AddTestcase( $validTestsByName[ $testname ] );
@@ -137,6 +147,24 @@
         }
     }
 
+    function ViewHelp( $message = "" ) {
+        global $command;
+
+        echo "Zino unit testing framework\n";
+        if ( !empty( $message ) ) {
+            echo $message;
+        }
+        echo "\n";
+        echo "Usage: $command [options] [testcase]\n";
+        echo "Options:\n";
+        echo "      --all           run all tests\n";
+        echo "      -h, --help      print this information\n";
+        echo "\n";
+        echo "Example: $command unittest (for tests/unittest.php)\n";
+
+        exit();
+    }
+
     $xdebugAvailable = false;
     if ( function_exists( 'xdebug_enable' ) ) {
         $xdebugAvailable = true;
@@ -154,6 +182,7 @@
 
     $validTestsByName = Test_GetTestcasesByName();
     $runtests = ParseArguments( $argv, $validTestsByName );
+    
     $indexByName = AddTestcases( $tester, $runtests, $validTestsByName );
 
     $tester->Run();

@@ -27,8 +27,8 @@
                 break;
         }
     ?>">
-        <? foreach ( $tags as $text ): ?>
-            <tag><?= htmlspecialchars( $text ); ?></tag>
+        <? foreach ( $tags as $tag ): ?>
+            <tag id="<?= $tag[ 'id' ] ?>"><?= htmlspecialchars( $tag[ 'text' ] ); ?></tag>
         <? endforeach; ?>
     </taglist>
 <? endforeach; ?>

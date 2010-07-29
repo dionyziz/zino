@@ -22,7 +22,10 @@
                 if ( !isset( $interests[ $tag[ 'typeid' ] ] ) ) {
                     $interests[ $tag[ 'typeid' ] ] = array();
                 }
-                $interests[ $tag[ 'typeid' ] ][] = $tag[ 'text' ];
+                $interests[ $tag[ 'typeid' ] ][] = array( 
+                    'id' => (int)$tag[ 'id' ], 
+                    'text' => $tag[ 'text' ] 
+                );
             }
             
             return $interests;
