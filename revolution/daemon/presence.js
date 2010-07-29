@@ -47,7 +47,7 @@ server.on( 'request', function ( req, res ) {
         
         console.log( 'Checking authtoken validity. userid=' + userid +  ' authtoken=' + authtoken );
         var body = 'userid=' + userid + '&authtoken=' + authtoken;
-        var request = php.request( 'POST', '/petros/?resource=presence&method=create', { 
+        var request = php.request( 'POST', '/dionyziz/?resource=presence&method=create', { 
             'Host': 'zino.gr', 
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': body.length 
@@ -79,6 +79,7 @@ server.on( 'request', function ( req, res ) {
                 }
                 else {
                     console.log( 'Invalid authtoken, closing connection. ' + userid );
+                    console.log( 'XML data: ' + data );
                     res.end();
                 }
             });
@@ -115,7 +116,7 @@ function DisconnectHandler( userid, connectionId ) {
 			
 			console.log( 'User ' + userid + ' disconnected for more than 10s. Making API call' );
 			var body = 'userid=' + userid;
-			var request = php.request( 'POST', '/petros/?resource=presence&method=delete', { 
+			var request = php.request( 'POST', '/dionyziz/?resource=presence&method=delete', { 
 				'Host': 'zino.gr', 
 				'Content-Type': 'application/x-www-form-urlencoded',
 				'Content-Length': body.length 
