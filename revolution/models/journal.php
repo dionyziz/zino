@@ -22,17 +22,32 @@
             return $polls;
         }
         public static function ListByUser( $userid ) {
-            return db_array(
+            $res = db(
                 'SELECT
-					`journal_id` as id, `journal_title` as title, `journal_url` as url, `journal_userid` as userid, `journal_created` as created , `journal_numcomments` as numcomments 
+					`journal_id` as id, `journal_title` as title, `journal_url` as url, `journal_userid` as userid, `journal_created` as created , `journal_numcomments` as numcomments, `user_name` AS username, `user_subdomain` AS subdomain, `user_gender` AS gender, `user_avatarid` AS avatarid
 				FROM 
-					`journals`
+					`journals` 
+                    LEFT JOIN `users` ON `journal_userid` = `user_id`
                 WHERE
                     `journal_userid` = :userid
                     AND `journal_delid` = 0
                 ORDER BY
                     `journal_id` DESC', compact( 'userid' )
             );
+            $journals = array();
+            while ( $journal = mysql_fetch_array( $res ) ) {
+                $journal[ 'id' ] = (int)$journal[ 'id' ];
+                $journal[ 'user' ] = array(
+                    'id' => (int)$journal[ 'userid' ],
+                    'name' => $journal[ 'username' ],
+                    'subdomain' => $journal[ 'subdomain' ],
+                    'gender' => $journal[ 'gender' ],
+                    'avatarid' => (int)$journal[ 'avatarid' ]
+                );
+                $journals[] = $journal;
+            }
+
+            return $journals;
         }
 		public static function Item( $id ) {
 			$res = db(
