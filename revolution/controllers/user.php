@@ -79,6 +79,7 @@
 				return false;
 			}
             
+			clude( 'models/db.php' );
 			clude( 'models/usersettings.php' );
 			clude( 'models/user.php' );
             

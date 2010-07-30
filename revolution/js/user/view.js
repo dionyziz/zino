@@ -138,8 +138,9 @@ var Profile = {
                             }
                         }
                     }
-                    
-                    $.post( 'user/update', { field: $( this ).val() } );
+                    var postvars = {};
+                    postvars[ field ] = $( this ).val();
+                    $.post( 'user/update', postvars );
                 } );
                 select.appendTo( element ).css( 'display', 'block' );
         }
