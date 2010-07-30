@@ -24,6 +24,7 @@
             $ret = array();
 
             while ( $row = mysql_fetch_array( $res ) ) {
+				$favourite[ array( $row[ 'typeid' ], $row[ 'itemid' ] ) ] = $row[ 'id' ];
                 switch ( $row[ 'typeid' ] ) {
                     case TYPE_JOURNAL:
                         $journalids[ $row[ 'id' ] ] = $row[ 'itemid' ];
@@ -49,9 +50,10 @@
 			$typenames = array ( TYPE_JOURNAL, TYPE_POLL, TYPE_PHOTO, TYPE_STOREITEM );
 			foreach ( $typenames as $type ) {
 				foreach ( $items[ $type ] as $key => $val ) {
-					$ret[ $key ][ "id" ] = $key;
-					$ret[ $key ][ "data" ] = $val;
-					$ret[ $key ][ "typeid" ] = $type;
+					$favid = $favourite[ array( $type, $key ) ];
+					$ret[ $favid ][ "id" ] = $favid;
+					$ret[ $favid ][ "data" ] = $val;
+					$ret[ $favid ][ "typeid" ] = $type;
 				}
 			}
             return $ret;
