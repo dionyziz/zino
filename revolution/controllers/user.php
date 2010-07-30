@@ -70,30 +70,56 @@
         }
         public static function Create() {
         }
-        public static function Update(
-            $gender = false, $email = false, $placeid = 0, $dob = '', $slogan = false, $schoolid, $sexualorientation, $relationship, $religion, $politics, $aboutme, $moodid, $eyecolor, $haircolor, $height, $weight, $smoker, $drinker, $favquote, $mobile, $skype, $msn, $gtalk, $yim, $homepage, $firstname, $lastname, $address, $addressnum, $postcode, $area, $numcomments, $education, $educationyear, $songid, $songwidgetid, $emailnotify, $notify ) {
+        public static function Update( $options ) {
+			clude( 'models/usersettings.php' );
+			clude( 'models/user.php' );
+
             $userid = $_SESSION[ 'user' ][ 'id' ];
 
-            switch ( $gender ) {
-                case 'm':
-                case 'f':
-                case '-':
-                    break;
-                default:
-                    $gender = '';
-            }
+			$whitelist_profile = array( 'email' => 'profile_email', 'placeid' => 'profile_placeid' , 'dob' => 'profile_dob', 'slogan' => 'profile_slogan','sexualorientation' => 'profile_sexualorientation', 'relationship' =>  'profile_relationship', 'religion' => 'profile_religion', 'politics' => 'profile_politics', 'aboutme' => 'profile_aboutme', 'moodid' => 'profile_moodid', 'eyecolor' => 'profile_eyecolor', 'haircolor' => 'profile_haircolor',  'height' => 'profile_height', 'weight' => 'profile_weight', 'smoker' => 'profile_smoker', 'drinker' => 'profile_drinker', 'favquote' => 'profile_favquote', 'mobile' => 'profile_mobile', 'skype' => 'profile_skype', 'msn' => 'profile_msn', 'gtalk' => 'profile_gtalk', 'yim' => 'profile_yim', 'homepage' => 'profile_homepage', 'firstname' => 'profile_firstname', 'lastname' => 'profile_lastname', 'address' => 'profile_address', 'addressnum' => 'profile_addressnum', 'postcode' => 'profile_postcode', 'area' => 'profile_area' );
+			$whitelist_user = array_flip( array( 'password' , 'gender' ) );
+			$whitelist_settings = array_flip( array( 'emailnotify' , 'notify' ) );
+			
 
-            clude( 'models/usersettings.php' );
+			$profile_options = array();
+			$settings_updated = 0;
+			foreach ( $options as $key => $val ) { 
+				if ( isset ( $whitelist_profile[ $key ] ) ) {
+					$profile_options[ $whitelist_profile[ $key ] ] = $val;	
+				}
+				else if ( isset ( $whitelist_user[ $key ] ) ) {
+					if ( $key == 'gender' ) {
+						User::SetGender( $userid, $val );
+					}
+					else if ( $key == 'password' ) {
+						//TODO
+					}
+				}
+				else if ( isset ( $whitelist_settings[ $key ] ) ) {
+					$settings_updated++;
+				}
 
-            if ( ( $emailnotify !== "yes" AND $emailnotify !== "no" ) 
-                OR ( $notify !== "yes" AND $notify !== "no" )  ) {
-                return false;
-            }
+			}
+
+			if ( !empty( $profile_options ) ) {
+				User::UpdateItemDetails( $profile_options, $userid );
+			}
+
+
             
-            $pref = array();
-            $pref[ 'emailprofilecomment'] = $pref[ 'emailphotocomment'] = $pref[ 'emailphototag'] = $pref[ 'emailjournalcomment'] = $pref[ 'emailpollcomment'] = $pref[ 'emailreply'] = $pref[ 'emailfriendaddition'] = $pref[ 'emailfriendjournal'] = $pref[ 'emailfriendpoll'] = $pref[ 'emailfriendphoto'] = $pref[ 'emailfavourite'] = $pref[ 'emailbirthday'] = $emailnotify;
-            $pref[ 'notifyprofilecomment'] = $pref[ 'notifyphotocomment'] = $pref[ 'notifyphototag'] = $pref[ 'notifyjournalcomment'] = $pref[ 'notifypollcomment'] = $pref[ 'notifyreply'] = $pref[ 'notifyfriendaddition'] = $pref[ 'notifyfriendjournal'] = $pref[ 'notifyfriendphoto'] = $pref[ 'notifyfriendpoll'] = $pref[ 'notifyfavourite'] = $pref[ 'notifybirthday'] = $notify;
-            return Usersettings::Set( $userid, $pref );
+			if ( $settings_updated == 2 ) {
+		        if ( ( $options[ 'emailnotify' ] !== "yes" AND $options[ 'emailnotify' ] !== "no" ) 
+		            OR ( $options[ 'notify' ] !== "yes" AND $options[ 'notify' ] !== "no" )  ) {
+		            return false;
+		        }
+		        
+		        $pref = array();
+		        $pref[ 'emailprofilecomment'] = $pref[ 'emailphotocomment'] = $pref[ 'emailphototag'] = $pref[ 'emailjournalcomment'] = $pref[ 'emailpollcomment'] = $pref[ 'emailreply'] = $pref[ 'emailfriendaddition'] = $pref[ 'emailfriendjournal'] = $pref[ 'emailfriendpoll'] = $pref[ 'emailfriendphoto'] = $pref[ 'emailfavourite'] = $pref[ 'emailbirthday'] = $emailnotify;
+		        $pref[ 'notifyprofilecomment'] = $pref[ 'notifyphotocomment'] = $pref[ 'notifyphototag'] = $pref[ 'notifyjournalcomment'] = $pref[ 'notifypollcomment'] = $pref[ 'notifyreply'] = $pref[ 'notifyfriendaddition'] = $pref[ 'notifyfriendjournal'] = $pref[ 'notifyfriendphoto'] = $pref[ 'notifyfriendpoll'] = $pref[ 'notifyfavourite'] = $pref[ 'notifybirthday'] = $notify;
+            	Usersettings::Set( $userid, $pref );
+			}
+			return;
+
         }
         public static function Delete() {
         }

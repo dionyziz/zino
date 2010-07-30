@@ -27,6 +27,23 @@
             }
             return false;
         }
+		public static function SetGender( $id, $value ) {
+			clude( 'models/db.php' );
+            $id = ( int )$id;
+			if ( $value != 'm' && $value != 'f' && $value != '-' ) {
+				return false;
+			}
+
+            $res = db( 
+                'UPDATE
+                    `users`
+                SET
+                    `user_gender` = :value                         
+                WHERE `user_id` = :id;',
+                compact( 'id', 'value' ) );
+			return true;
+	
+		}
         public static function GetCookieData() {
             global $settings;
             if ( !isset( $_COOKIE[ $settings[ 'cookiename' ] ] ) ) {
