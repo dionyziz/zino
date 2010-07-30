@@ -15,8 +15,8 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$mStatusData = array( 
-				$userid => "Aoua?",
-				$userid => "Pou kai pote"
+				array( $userid, "Aoua?" ),
+				array( $userid, "Pou kai pote" )
 			);
         }
         /*public function TearDown() {
