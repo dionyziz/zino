@@ -99,7 +99,7 @@
 					if ( $key == 'gender' ) {
 						User::SetGender( $userid, $val );
 					}
-					else if ( $key == 'newpass' || $key == 'oldpass' ) {
+					else if ( $key == 'newpass' ) {
 						//change only this and return success or failure
 						$success = false;
 						if ( !isset( $options[ 'oldpass' ] ) || !isset( $options[ 'newpass' ] ) ) {

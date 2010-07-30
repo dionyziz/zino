@@ -15,6 +15,7 @@ var Profile = {
                         alert( newpass2 );
                         $modal.jqmHide();
                         return false;
+                        /* oldpass/newpass */
                     } );
                 } );
                 return false;
@@ -49,7 +50,9 @@ var Profile = {
                 $activemood.hide();
                 $moodpicker = $( this ).filter( 'div' );
                 $moodpicker.appendTo( '.mood' );
-                $moodpicker.find( '#mood_' + $activemood.attr( 'id' ).split( '_' )[2] ).closest( 'li' ).addClass( 'activemood' );
+                $activetile = $moodpicker.find( '#mood_' + $activemood.attr( 'id' ).split( '_' )[1] );
+                $activetile.closest( 'li' ).addClass( 'activemood' );
+                $moodpicker.find( 'ul li:not( .activemood )' ).css( 'opacity', 0.4 );
                 $moodpicker.find( '.modalclose' ).click( function() {
                     $moodpicker.hide().remove();
                     $activemood.show();

@@ -52,8 +52,8 @@ div.moodpicker div.pick ul li a:hover img {
 
 
 
-.mood > .activemood {
-    
+.mood > .activemood:hover {
+    border-color: #8ad;
 }
 .mood {
     position: relative;

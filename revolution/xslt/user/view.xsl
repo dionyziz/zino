@@ -201,7 +201,7 @@
                                     <xsl:attribute name="style">background-image:url(<xsl:value-of select="mood/media[1]/@url" />)</xsl:attribute>
                                     <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
                                     <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                                    <xsl:attribute name="id">mood_active_<xsl:value-of select="mood/@id" /></xsl:attribute>
+                                    <xsl:attribute name="id">activemood_<xsl:value-of select="mood/@id" /></xsl:attribute>
                                 </div>
                             </xsl:otherwise>
                         </xsl:choose>
