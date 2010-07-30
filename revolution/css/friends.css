@@ -1,0 +1,43 @@
+ul.friends li.friend {
+    border-top: 1px solid black; 
+    margin: 0px 200px; 
+    clear: both; 
+    background-color: white; 
+    padding: 15px 0px 25px; 
+    color: black;
+}
+ul.friends li.friend a {
+    text-decoration: none;
+}
+ul.friends li.friend a:hover {
+    text-decoration: underline;
+}
+ul.friends li.friend img.avatar {
+    float: left;
+    margin-left: 5px;
+}
+ul.friends li.friend ul.asl {
+    overflow: hidden;
+}
+ul.friends li.friend div.username {
+    font-weight: bold;
+    color: blue;
+}
+ul.friends li.friend div.username, ul.friends li.friend div.details {
+    margin-left: 60px;
+}
+ul.friends li.friend ul.asl li.dot:before {
+    content: ' ● ';
+    color: #72b3db;
+    font-size: 70%;
+    position: relative;
+    top: -2px;
+}
+ul.friends li.friend ul.asl > li {
+    float: left;
+    margin: 0 3px 0 0;
+}
+ul.friends li.friend ul.asl li {
+    font-weight: bold;
+    line-height: 200%;
+}
