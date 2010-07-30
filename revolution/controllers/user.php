@@ -71,6 +71,10 @@
         public static function Create() {
         }
         public static function Update( $options ) {
+			if ( !isarray( $options ) ) {
+				return false;
+			}
+
 			clude( 'models/usersettings.php' );
 			clude( 'models/user.php' );
 
