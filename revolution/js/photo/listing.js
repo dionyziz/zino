@@ -26,6 +26,19 @@ var PhotoListing = {
                 + '</div>'
             );
         } );
+		if ( $( '.useralbums' ) ) {
+			$( '.useralbums' ).click( function() {
+				if ( $( this ).hasClass( 'expanded' ) ) {
+					$( this ).removeClass( 'expanded' ).animate( {
+						height: '15px'
+					} );
+				}
+				$( this ).addClass( 'expanded' );
+				$( this ).animate( {
+					height: '220px'
+				} );
+			} );
+		}
     },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
@@ -59,7 +72,7 @@ var PhotoListing = {
                     PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
                 } while ( PhotoListing.LastLoaded.nodeType != 1);
 
-                if ( url ) {
+\                if ( url ) {
                     $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                 }
                 else {
