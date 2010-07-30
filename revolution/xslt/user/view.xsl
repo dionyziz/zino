@@ -58,10 +58,10 @@
                 <img class="avatar">
                     <xsl:choose>
                         <xsl:when test="avatar[1]/@id = 0">
-                            <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>asd
+                            <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>das
+                            <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>
                         </xsl:otherwise>
                     </xsl:choose>
                 </img>

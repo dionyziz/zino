@@ -15,6 +15,8 @@
             include 'views/friendship/view.php';
         }
         public static function Listing( $username ) {
+            global $settings;
+
             clude( 'models/db.php' );
             clude( 'models/friend.php' );
             clude( 'models/user.php' );

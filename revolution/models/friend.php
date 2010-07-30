@@ -12,8 +12,10 @@
                     `user_name` as name, 
                     `user_subdomain` as subdomain, 
                     `user_avatarid` as avatarid,
+                    `user_gender` AS gender,
                     `profile_dob` as dob,
-                    `profile_placeid` as place,
+                    `place_id` as placeid,
+                    `place_name` AS placename,
                     (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                          - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
@@ -23,8 +25,9 @@
                      ON `user_id` = `relation_friendid`                  
                 LEFT JOIN `userprofiles`
                     ON `profile_userid` = `relation_friendid`
-                WHERE `relation_userid` = :userid
-                AND `relation_typeid` = 1;',
+                LEFT JOIN `places`
+                    ON `profile_placeid` = `place_id`
+                WHERE `relation_userid` = :userid;',
                 compact( 'userid' ) );
       
             $friends = array();
