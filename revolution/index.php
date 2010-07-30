@@ -79,7 +79,7 @@
     
     $paramlist = $func->getParameters();
     
-    if ( $paramlist[ 0 ]->getName() == 'multiargs' ) {
+    if ( !empty( $paramlist ) && $paramlist[ 0 ]->getName() == 'multiargs' ) {
         /* pass arguments compacted */
         $params[ 'multiargs' ] = $vars;
     }
