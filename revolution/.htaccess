@@ -50,7 +50,7 @@ RewriteRule ^settings/update$ index.php?resource=settings&method=update [L,QSA]
 RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,QSA]
 RewriteRule ^friendship/delete$ index.php?resource=friendship&method=delete [L,QSA]
 RewriteRule ^friendship/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=view&username=$1 [L,QSA]
-RewriteRule ^friendlist/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&username=$1 [L,QSA]
+RewriteRule ^friends/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&username=$1 [L,QSA]
 
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]
