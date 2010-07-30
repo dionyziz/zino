@@ -61,7 +61,7 @@
             $id = mysql_insert_id();
 
             if ( $channelid != 0 ) {
-                ChatChannel::UpdateLastReadMessage( $id );
+                ChatChannel::UpdateLastReadMessage( $channelid, $userid, $id );
             }
 
             return array(
@@ -164,7 +164,7 @@
         }
         public static function UpdateLastReadMessage( $chanellid, $userid, $messageid = false ) {
             if ( $messageid === false || !is_int( $messageid ) ) {
-                $messageid = ChatChanell::LastMessage( $channellid );
+                $messageid = ChatChannel::LastMessage( $channellid );
             }
             if ( $chanellid == 0 ) {
                 return false;
