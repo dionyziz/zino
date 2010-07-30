@@ -9,8 +9,8 @@
                 'text' => $text
             );
 
-            $res = db( "INSERT INTO `statusbox` ( `statusbox_id`, `statusbox_userid`, `statusbox_message`, `statusbox_created` )
-                        VALUES ( 0, :userid, :text, NOW() );", $status );
+            $res = db( "INSERT INTO `statusbox` ( `statusbox_userid`, `statusbox_message`, `statusbox_created` )
+                        VALUES ( :userid, :text, NOW() );", $status );
 
             $status[ 'id' ] = mysql_insert_id();
             return $status;
