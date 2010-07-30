@@ -162,11 +162,11 @@
             
             return $channelid;
         }
-        public static function UpdateLastReadMessage( $chanellid, $userid, $messageid = false ) {
+        public static function UpdateLastReadMessage( $channelid, $userid, $messageid = false ) {
             if ( $messageid === false || !is_int( $messageid ) ) {
-                $messageid = ChatChannel::LastMessage( $channellid );
+                $messageid = ChatChannel::LastMessage( $channelid );
             }
-            if ( $chanellid == 0 ) {
+            if ( $channelid == 0 ) {
                 return false;
             }
             $success = db( 
@@ -177,15 +177,17 @@
                 WHERE
                     `participant_channelid` = :channelid AND
                     `participant_userid` = :userid
-                LIMIT 1;"
+                LIMIT 1;",
+                compact( 'messageid', 'channelid', 'userid' )
             );
 
             return $success and mysql_affected_rows() == 1;
         }
-        public static function LastMessage( $chanellid ) {
+        public static function LastMessage( $channelid ) {
             $res = db( 
                 "SELECT 
-                    `shout_id` AS id
+                    `shout_id` AS i
+                    d
                 FROM 
                     `shoutbox` 
                 WHERE 
