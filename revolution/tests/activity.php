@@ -19,9 +19,9 @@
 				array( $userid, "Pou kai pote" )
 			);
         }
-        public function TearDown() {
+        /*public function TearDown() {
             $this->DeleteTestUsers();
-        }
+        }*/
 		public function PreConditions() {
             $this->AssertClassExists( 'Activity' );
             $this->AssertMethodExists( 'Activity', 'ListByUser' );
