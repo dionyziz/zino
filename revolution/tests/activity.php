@@ -1,13 +1,22 @@
 <?php
 
     class TestActivity extends ModelTestcase {
+		protected $mStatusData;
+
+
 		public function SetUp() {
             clude( 'models/activity.php' );
             clude( 'models/types.php' );
             clude( 'models/user.php' );
 			clude( 'models/favourite.php' );
+			clude( 'models/status.php' );
 
             $this->GenerateTestUsers( 1 );
+			$userid = $this->mUsers[ 0 ][ 'id' ];
+			$mStatusData = array( 
+				$userid => "Aoua?",
+				$userid => "Pou kai pote"
+			);
         }
         public function TearDown() {
             $this->DeleteTestUsers();
@@ -17,19 +26,21 @@
             $this->AssertMethodExists( 'Activity', 'ListByUser' );
         }
         /**
-         * @dataProvider ExampleData
+         * @dataProvider GetStatusData
          */
-        public function TestCreate( $userid, $typeid, $itemid ) {
-			//create favourite
-			//get last asctivity
-			//assert has keys and values
-			//return favorite		
-			//Favourite::Create( $userid, $typeid, $itemid );
+        public function TestCreate( $userid, $text ) {			
+			Status::Create( $userid, $text );
 			$act = Activity::ListByUser( $userid, 1 );
-			$this->AssertArrayHasKeys( $act, array( 'favourite', 'item' ) );
-			$this->AssertArrayHasKeys( $act[ 'item' ], array( 'typeid', 'bulkid', 'title', 'url' ) );
+			$this->AssertArrayHasKeys( $act[ 0 ], array( 'status', 'typeid', 'user' ) );
+			$this->AssertArrayHasKeys( $act[ 0 ][ 'status' ], array( 'message' ) );
+			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text );
+			$this->AssertEquals( $act[ 0 ][ 'typeid' ], ACTIVITY_STATUS );
         }
 
-
+		public function GetStatusData() {
+			return $mStatusData[ 0 ];	
+		}
 	}
+	
+	return New TestActivity();
 ?>
