@@ -42,6 +42,13 @@
             $got = Interest::ListByUser( $userid );
             $this->AssertIsArray( $got );
             $this->AssertEquals( count( $tags ), count( $got ) );
+            foreach ( $got as $typeid => $tags ) {
+                $this->Assert( in_array( $typeid, array( TAG_HOBBIE, TAG_MOVIE, TAG_BOOK, TAG_SONG, TAG_ARTIST, TAG_GAME, TAG_SHOW ) ) );
+                foreach ( $tags as $tag ) {
+                    $this->AssertArrayHasKeys( $tag, array( 'id', 'text', 'userid' ), 'array returned doesnt have the correct keys' );
+                    $this->AssertEquals( $userid, $tag[ 'userid' ] );
+                }
+            }
         }
         /**
          * @producer TestCreate
@@ -57,7 +64,6 @@
             $found = false;
             foreach ( $tags as $tag ) {
                 if ( $tag[ 'id' ] == $tagid ) {
-                    echo "found $tagid\n";
                     $found = true;
                 }
             }

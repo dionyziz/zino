@@ -11,7 +11,7 @@
         public static function ListByUser( $userid ) {
             $res = db_array(
                 'SELECT
-                    `tag_id` AS id, `tag_text` AS text, `tag_typeid` AS typeid
+                    `tag_id` AS id, `tag_text` AS text, `tag_typeid` AS typeid, `tag_userid` AS userid
                 FROM
                     `tags`
                 WHERE
@@ -24,7 +24,8 @@
                 }
                 $interests[ $tag[ 'typeid' ] ][] = array( 
                     'id' => (int)$tag[ 'id' ], 
-                    'text' => $tag[ 'text' ] 
+                    'text' => $tag[ 'text' ],
+                    'userid' => (int)$tag[ 'userid' ]
                 );
             }
             
