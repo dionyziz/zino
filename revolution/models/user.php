@@ -344,12 +344,20 @@
                 }
             }
             
+			$first = true;
             $query = 
                 'UPDATE `userprofiles`
                 SET';
             foreach ( $details as $key => $val ) {
-                $query = $query . " ". $key . " = :" . $key . ",";
+				if ( $first == false ) {
+					$query = "," . $query;
+				}		
+				else {
+					$first = false;
+				}
+                $query = $query . " ". $key . " = :" . $key;				
             }       
+			
             $query = $query . 'WHERE 
                     `profile_userid` = :userid
                 LIMIT 1;';
