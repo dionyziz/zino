@@ -70,7 +70,8 @@
             clude( 'models/user.php' );
 
             $poll = Poll::Item( $id );
-            if ( $poll[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+            $userid = $poll[ 'user' ][ 'id' ];
+            if ( $userid != $_SESSION[ 'user' ][ 'id' ] ) {
                 die( 'not your poll' );
             }
             Poll::Delete( $id );

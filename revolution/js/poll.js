@@ -67,5 +67,17 @@ var Poll = {
                 $( poll ).empty().append( $( this ) );
             } );
         } );
-    } 
+        $( '#deletebutton' ).click( function(){
+            if ( confirm( 'Θέλεις να διαγράψεις την εικόνα;' ) ) {
+                Poll.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
+            }
+        });
+    },
+    Remove: function( id ) {
+        $.post( 'index.php?resource=poll&method=delete', {
+            id: id
+        }, function(){
+            window.location = 'polls/' + User;
+        });     
+    }
 }
