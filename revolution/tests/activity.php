@@ -14,14 +14,14 @@
 
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
-			$mStatusData = array( 
+			$this->mStatusData = array( 
 				array( $userid, "Aoua?" ),
 				array( $userid, "Pou kai pote" )
 			);
         }
-        /*public function TearDown() {
+        public function TearDown() {
             $this->DeleteTestUsers();
-        }*/
+        }
 		public function PreConditions() {
             $this->AssertClassExists( 'Activity' );
             $this->AssertMethodExists( 'Activity', 'ListByUser' );
@@ -39,7 +39,7 @@
         }
 
 		public function GetStatusData() {
-			return $mStatusData;	
+			return $this->mStatusData;	
 		}
 	}
 	
