@@ -71,7 +71,7 @@
         public static function Create() {
         }
         public static function Update( $options ) {
-			if ( !isarray( $options ) ) {
+			if ( !is_array( $options ) ) {
 				return false;
 			}
 
