@@ -6,7 +6,7 @@
     ?>
 
     <entry id="<?= $favourite[ "id" ] ?>" type="journal">
-		<title><?= $favourite[ "data" ][ "title" ] ?></title>
+		<title><?= htmlspecialchars( $favourite[ "data" ][ "title" ] ) ?></title>
 		<text><?= WYSIWYG_PresentAndSubstr( $favourite[ "data" ][ "text" ], 100 ) ?></text>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
 		<url><?= $favourite[ "data" ][ "url" ] ?></url>
@@ -18,10 +18,11 @@
     ?>
 
     <entry id="<?= $favourite[ "id" ] ?>" type="photo">
-		<title><?= $favourite[ "data" ][ "title" ] ?></title>
+		<title><?= htmlspecialchars( $favourite[ "data" ][ "title" ] ) ?></title>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
 		<numcomments><?= $favourite[ "data" ][ "numcomments" ] ?></numcomments>
 		<itemid><?= $favourite[ "data" ][ "id" ] ?></itemid>
+        <media url="http://images2.zino.gr/media/<?= $favourite[ 'data' ][ 'userid' ] ?>/<?= $favourite[ 'data' ][ 'id' ] ?>/<?= $favourite[ 'data' ][ 'id' ] ?>_150.jpg" />
 	<?
 	break;
 	case TYPE_POLL: 
@@ -39,7 +40,6 @@
 	endswitch; ?>
 
 		<author>
-			<id><?= $favourite[ "data" ][ "userid" ] ?></id>
 			<name><?= $favourite[ "data" ][ "username" ] ?></name>
 			<subdomain><?= $favourite[ "data" ][ "subdomain" ] ?></subdomain>
 			<gender><?= $favourite[ "data" ][ "gender" ] ?></gender>

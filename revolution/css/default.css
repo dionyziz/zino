@@ -71,6 +71,11 @@ a.linkbutton {
     font-style: italic;
     padding-right: 2px;
 }
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 select.dropdown {
     position: absolute;
     top: 0;

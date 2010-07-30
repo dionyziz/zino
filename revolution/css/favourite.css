@@ -1,0 +1,11 @@
+ul.favourites li {
+}
+    ul.favourites li div.box {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0;
+        border: 0;
+        display: inline-block;
+        border: 1px solid red;
+    }
