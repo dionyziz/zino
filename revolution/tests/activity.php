@@ -1,6 +1,7 @@
 <?php
 
     class TestActivity extends ModelTestcase {
+		protected $mUsers;
 		protected $mStatusData;
 
 
@@ -11,7 +12,7 @@
 			clude( 'models/favourite.php' );
 			clude( 'models/status.php' );
 
-            $this->GenerateTestUsers( 1 );
+            $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$mStatusData = array( 
 				$userid => "Aoua?",
