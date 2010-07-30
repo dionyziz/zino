@@ -11,10 +11,10 @@
         protected $mForeignKey = 'id';
         
         protected function GenerateTestUsers( $num ) {
-            db( "DELETE FROM `users` WHERE `user_name` LIKE 'testuser%' LIMIT 5;" );
+            db( "DELETE FROM `users` WHERE `user_name` LIKE 'DELETEMEtestuser%' LIMIT 5;" );
             for ( $i = 0; $i < $num; ++$i ) {
-                $name = "testuser" . $i;
-                $email = "testuser" . $i . "@zino.gr";
+                $name = "DELETEMEtestuser" . $i;
+                $email = "DELETEMEtestuser" . $i . "@zino.gr";
                 $userid = User::Create( $name, $email, "password" );
                 $this->mTestUsers[] = array( 'id' => $userid, 'name' => $name, 'email' => $email );
             }
