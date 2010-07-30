@@ -15,7 +15,7 @@ server.on( 'request', function ( req, res ) {
 
     //Iframe request
     if ( req.url == '/' ) {
-        res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>var Connect = function() { setTimeout( function(){ $.get( "http://presence.zino.gr:8124/connect", null, Connect );}, 20 ); }</script></body></html>' );
+        res.end( '<html><head></head><body><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script>var Connect = function() { setTimeout( function(){ $.get( "http://presence.zino.gr:8124/connect");}, 20 ); }; Connect();</script></body></html>' );
         return;
     }
 

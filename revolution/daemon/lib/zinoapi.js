@@ -24,7 +24,7 @@ var ZinoAPI = {
 			var POSTParams = ZinoAPI.QueryHelper.stringify( parameters, '&', '=', false );
 		}
 		
-		var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/dionyziz/?' + GETParams, { 
+		var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/petros/?' + GETParams, { 
 			'Host': 'zino.gr', 
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'Content-Length': POSTParams.length 

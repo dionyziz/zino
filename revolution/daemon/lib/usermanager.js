@@ -36,12 +36,12 @@ var UserManager = {
 			return id;
 		}
 		
-		if ( UserManager.IsOnline( userid ) && UserManager.Users[ userid ].authtoken != authtoken ) {
-			UserManager.DeleteUser( userid );
-		}
 		
 		UserManager.ZinoAPI.Call( 'presence', 'create', { userid: userid, authtoken: authtoken }, function( data ){
 			if ( data.search( '<result>SUCCESS</result>' ) != -1 ) {
+                if ( UserManager.IsOnline( userid ) && UserManager.Users[ userid ].authtoken != authtoken ) {
+                    UserManager.DeleteUser( userid );
+                }
 				UserManager.NewUser( userid, id, authtoken );
 			}
 		} );
