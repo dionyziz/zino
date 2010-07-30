@@ -2,7 +2,7 @@ var Journal = {
     Init: function(){
         ItemView.Init( Type.Journal );
         $( '#deletebutton' ).click( function(){
-            if ( confirm( 'Θέλεις να διαγράψεις την εικόνα;' ) ) {
+            if ( confirm( 'Θέλεις να διαγράψεις αυτό το ημερολόγιο;' ) ) {
                 Journal.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
             }
         });

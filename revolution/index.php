@@ -77,21 +77,28 @@
     
     $params = array();
     
-    foreach ( $func->getParameters() as $parameter ) {
-        $paramname = $parameter->getName();
-        if ( isset( $vars[ $paramname ] ) ) {
-            $params[] = $vars[ $paramname ];
-        }
-        else {
-            if ( !$parameter->isDefaultValueAvailable() ) {
-                $params[] = null;
+    $paramlist = $func->getParameters();
+    
+    if ( $paramlist[ 0 ]->getName() == 'multiargs' ) {
+        /* pass arguments compacted */
+        $params[ 'multiargs' ] = $vars;
+    }
+    else {
+        foreach ( $paramlist as $parameter ) {
+            $paramname = $parameter->getName();
+            if ( isset( $vars[ $paramname ] ) ) {
+                $params[] = $vars[ $paramname ];
             }
-            else { 
-                $params[] = $parameter->getDefaultValue();
+            else {
+                if ( !$parameter->isDefaultValueAvailable() ) {
+                    $params[] = null;
+                }
+                else { 
+                    $params[] = $parameter->getDefaultValue();
+                }
             }
         }
     }
-    
     call_user_func_array( array( 'Controller' . $resource, $method ), $params );
     
     ?></social><?php

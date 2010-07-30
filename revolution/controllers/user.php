@@ -70,21 +70,22 @@
         }
         public static function Create() {
         }
-        public static function Update( $options ) {
-			if ( !is_array( $options ) ) {
+        public static function Update( $multiargs ) {
+            $options = $multiargs;
+            
+			if ( !is_array( $options ) || empty( $options ) ) {
 				return false;
 			}
-
+            
 			clude( 'models/usersettings.php' );
 			clude( 'models/user.php' );
-
+            
             $userid = $_SESSION[ 'user' ][ 'id' ];
-
+            
 			$whitelist_profile = array( 'email' => 'profile_email', 'placeid' => 'profile_placeid' , 'dob' => 'profile_dob', 'slogan' => 'profile_slogan','sexualorientation' => 'profile_sexualorientation', 'relationship' =>  'profile_relationship', 'religion' => 'profile_religion', 'politics' => 'profile_politics', 'aboutme' => 'profile_aboutme', 'moodid' => 'profile_moodid', 'eyecolor' => 'profile_eyecolor', 'haircolor' => 'profile_haircolor',  'height' => 'profile_height', 'weight' => 'profile_weight', 'smoker' => 'profile_smoker', 'drinker' => 'profile_drinker', 'favquote' => 'profile_favquote', 'mobile' => 'profile_mobile', 'skype' => 'profile_skype', 'msn' => 'profile_msn', 'gtalk' => 'profile_gtalk', 'yim' => 'profile_yim', 'homepage' => 'profile_homepage', 'firstname' => 'profile_firstname', 'lastname' => 'profile_lastname', 'address' => 'profile_address', 'addressnum' => 'profile_addressnum', 'postcode' => 'profile_postcode', 'area' => 'profile_area' );
 			$whitelist_user = array_flip( array( 'password' , 'gender' ) );
 			$whitelist_settings = array_flip( array( 'emailnotify' , 'notify' ) );
-			
-
+            
 			$profile_options = array();
 			$settings_updated = 0;
 			foreach ( $options as $key => $val ) { 

@@ -68,7 +68,7 @@ var Poll = {
             } );
         } );
         $( '#deletebutton' ).click( function(){
-            if ( confirm( 'Θέλεις να διαγράψεις την εικόνα;' ) ) {
+            if ( confirm( 'Θέλεις να διαγράψεις αυτήν τη δημοσκόπιση;' ) ) {
                 Poll.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
             }
         });
