@@ -38,6 +38,7 @@ var Comet = {
     Connect: function () {
         //alert( 'Comet.Connect' );
         $.get( '/subscribe?id=' + Comet.TunnelId, {}, Comet.OnFishArrival, 'text' );
+        setInterval( Comet.Renew, 60000 );
     },
     OnFishArrival: function ( res ) {
         var xmlDoc;
