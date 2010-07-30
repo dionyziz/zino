@@ -82,19 +82,32 @@
     .userinterests > li{
         margin: 10px 0;
     }
-        .userinterests > li div{
+        .userinterests li div{
             font-weight: bold;
             clear: both;
             margin: 2px 0;
         }
-        .userinterests > li ul li{
+        .userinterests li ul li{
             display: inline;
         }
-        .userinterests > li ul li.edditable span.value{
+        .userinterests li ul li.edditable span.value{
             cursor: pointer;
         }
-        .userinterests > li ul li.edditable span.value:hover{
+        .userinterests li ul li.edditable span.value:hover{
             text-decoration: underline;
+        }
+        .userinterests li ul li span.delete{
+            padding: 0 4px 2px 3px;
+            margin-left: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 8px;
+            border: 2px solid transparent;
+        }
+        .userinterests li ul li span.delete:hover{
+            border: 2px solid #22a;
+            background: black;
+            -moz-border-radius: 10px;
         }
 .useritems{
     float: right;

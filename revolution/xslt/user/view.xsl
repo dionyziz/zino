@@ -174,13 +174,15 @@
                                 <xsl:for-each select="./tag">
                                     <li>
                                         <xsl:attribute name="id">tag_<xsl:value-of select="./@id" /></xsl:attribute>
-                                        <xsl:if test="/social/@for = /social/user/name">
-                                            <xsl:attribute name="class">edditable</xsl:attribute>
+                                        <xsl:if test="./@id = ../tag[last()]/@id">
+                                            <xml:attribute name="class">last</xml:attribute>
                                         </xsl:if>
                                         <span class="value">
                                             <xsl:value-of select="." />
                                         </span>
-                                        <xsl:if test="./@id != ../tag[last()]/@id"><span class="comma">,</span></xsl:if>
+                                        <xsl:if test="/social/@for = /social/user/name">
+                                            <span class="delete">&#215;</span>
+                                        </xsl:if>
                                     </li>&#160;
                                 </xsl:for-each>
                             </ul>
