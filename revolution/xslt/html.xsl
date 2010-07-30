@@ -49,7 +49,7 @@
 				}
             </script>
         </head>
-        <body>
+        <body onload="Comet.OnBodyLoaded()">
             <xsl:apply-templates />
             <script type="text/javascript">
                 $.ajaxSetup( {

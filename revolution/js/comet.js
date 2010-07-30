@@ -2,6 +2,8 @@ var Comet = {
     Channels: {},
     ChannelsLength: 0,
     HandshakeCompleted: false,
+    BodyLoaded: false,
+    ConnectPostponed: false,
     Handshake: function () {
         //alert( 'Comet.Handshake' );
         channels = [];
@@ -17,7 +19,18 @@ var Comet = {
         Comet.HandshakeCompleted = true;
         Comet.TunnelAuthtoken = $( res ).find( 'tunnel authtoken' ).text();
         Comet.TunnelId = $( res ).find( 'tunnel' ).attr( 'id' );
-        Comet.Connect();
+        if ( Comet.BodyLoaded ) {
+            Comet.Connect();
+        }
+        else {
+            Comet.ConnectPostponed = true;
+        }
+    },
+    OnBodyLoaded: function () {
+        Comet.BodyLoaded = true;
+        if ( Comet.ConnectPostponed ) {
+            setTimeout( Comet.Connect, 50 );
+        }
     },
     Init: function () {
         setTimeout( Comet.Handshake, 50 );
