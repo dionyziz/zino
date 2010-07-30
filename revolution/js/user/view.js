@@ -44,7 +44,31 @@ var Profile = {
                 return false;
             };
         }
+        // User Interests
+        $( '.interestitems li .delete' ).click( function(){
+            Profile.Interests.Remove( $( this ).parent() );
+        });
         Comment.Init();
+    },
+    Interests: {
+        Remove: function( li ){
+            $.post( 'interest/delete', {
+                id: li.attr( 'id' ).split( '_' )[ 1 ]
+            }, function(){
+                $( li ).remove();
+            });
+        },
+        Create: function( text, type ){
+            $.post( 'interest/create', {
+                type: type,
+                text: text
+            }, function( data ){
+                var tagitem = $( '#' + type ).children( '.last' ).clone()
+                    .attr( 'id', 'tag_' + $( data ).attr( 'id' ) ).children( '.editable' ).text( $( data ).text() ).end();
+                $( '#' + type ).children( ':last' ).removeClass( 'last' );
+                $( '#' + type ).append( tagitem );
+            });
+        }
     },
     PrepareMoodPicker: function() {
         $( '.mood' ).addClass( 'editable' );

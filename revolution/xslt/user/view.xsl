@@ -175,9 +175,12 @@
                                     <li>
                                         <xsl:attribute name="id">tag_<xsl:value-of select="./@id" /></xsl:attribute>
                                         <xsl:if test="./@id = ../tag[last()]/@id">
-                                            <xml:attribute name="class">last</xml:attribute>
+                                            <xsl:attribute name="class">last</xsl:attribute>
                                         </xsl:if>
                                         <span class="value">
+                                            <xsl:if test="/social/@for = /social/user/name">
+                                                <xsl:attribute name="class">editable</xsl:attribute>
+                                            </xsl:if>
                                             <xsl:value-of select="." />
                                         </span>
                                         <xsl:if test="/social/@for = /social/user/name">
