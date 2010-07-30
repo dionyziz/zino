@@ -15,7 +15,7 @@ var UserManager = {
 		delete UserManager.Users[ userid ];
 		for( connection in UserManager.Connections ) {
 			if( UserManager.Connections[ connection ] == userid ) {
-				UserManager.Connections[ connection ];
+				delete UserManager.Connections[ connection ];
 			}
 		}
 	},
