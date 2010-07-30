@@ -9,19 +9,39 @@
                             <xsl:attribute name="src"><xsl:value-of select="media/@url" /></xsl:attribute>
                         </img>
                     </xsl:if>
-                    </a>
                     <xsl:if test="@type = 'poll'">
-                        <div class="box">
+                        <span class="box">
                             <span><xsl:value-of select="title" /></span>
-                        </div>
+                        </span>
                     </xsl:if>
                     <xsl:if test="@type = 'journal'">
-                        <div class="box">
+                        <span class="box">
                             <span><xsl:value-of select="title" /></span>
-                        </div>
+                        </span>
                     </xsl:if>
+                    </a>
                 </li>
             </xsl:for-each>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
+            <li style="height:2px;visibility:hidden"></li>
         </ul>
     </div>
 </xsl:template>

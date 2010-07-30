@@ -1,6 +1,6 @@
 ul.favourites li {
 }
-    ul.favourites li div.box {
+    ul.favourites li span.box {
         width: 150px;
         height: 150px;
         overflow: hidden;

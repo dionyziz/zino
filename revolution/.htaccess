@@ -68,6 +68,8 @@ RewriteRule ^notification/delete$ index.php?resource=notification&method=delete 
 
 # interests
 RewriteRule ^interests/([0-9]+)$ index.php?resource=interest&method=list&userid=$1 [L,QSA]
+RewriteRule ^interest/delete$ index.php?resource=interest&method=delete [L,QSA]
+RewriteRule ^interest/create$ index.php?resource=interest&method=create [L,QSA]
 
 # place
 RewriteRule ^places$ index.php?resource=place&method=list [L,QSA]
