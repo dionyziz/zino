@@ -30,8 +30,8 @@
         public static function Listing() {
         }
         public static function Create( $userid ) {
-            clude( 'models/db.php' );
             isset( $_SESSION[ 'user' ][ 'id' ] ) or die( 'You must be logged in to start a private chat' );
+            clude( 'models/db.php' );
             clude( 'models/chat.php' );
             $channel = array(
                 'id' => Chat::Create( $_SESSION[ 'user' ][ 'id' ], $userid )
@@ -41,7 +41,10 @@
             );
             include 'views/chatchannel/create.php';
         }
-        public static function Update() {
+        public static function Update( $channelid ) { // mark all messages as read
+            isset( $_SESSION[ 'user' ][ 'id' ] ) or die( 'You must be logged in to mark your chat messages as read' );
+            clude( 'models/db.php' );
+            clude( 'models/chat.php' );
         }
         public static function Delete() {
         }

@@ -72,7 +72,7 @@ var PhotoListing = {
                     PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
                 } while ( PhotoListing.LastLoaded.nodeType != 1);
 
-\                if ( url ) {
+                if ( url ) {
                     $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                 }
                 else {

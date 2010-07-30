@@ -2,7 +2,7 @@
     <div class="col1 vbar">
         <h1><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino Bubble" /></h1>
         <ul>
-            <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li>
+            <!-- <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li> -->
             <li>
                 <xsl:if test="/social/stream[1]/@type = 'photos'">
                     <xsl:attribute name="class">selected</xsl:attribute>
