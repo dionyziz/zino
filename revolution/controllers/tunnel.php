@@ -29,6 +29,10 @@
             PushTunnel::Renew( $tunnelid );
         }
         public static function Delete() {
+            clude( 'models/db.php' );
+            clude( 'models/comet.php' );
+
+            PushChannel::CleanUp();
         }
     }
 ?>

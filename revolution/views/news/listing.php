@@ -6,9 +6,11 @@
             <name><?= $item[ 'username' ]; ?></name>
             <subdomain><?= $item[ 'subdomain' ]; ?></subdomain>
             <gender><?= $item[ 'gender' ]; ?></gender>
-            <avatar>
-                <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
-            </avatar>
+            <? if ( $item[ 'avatarid' ] ): ?>
+                <avatar>
+                    <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'avatarid' ] ?>/<?= $item[ 'avatarid' ] ?>_100.jpg" />
+                </avatar>
+            <? endif ?>
         </author>
         <? switch ( $item[ 'type' ] ):
            case 'poll': ?>

@@ -1,6 +1,6 @@
 <?php
     define( 'PUSH_PUBLISH_URL', 'http://zino.gr:500/publish?id=' );
-    define( 'PUSH_SUBSCRIPTION_EXPIRY', 4 * 60 ); // seconds 
+    define( 'PUSH_SUBSCRIPTION_EXPIRY', 10 * 60 ); // seconds 
 
     class PushTunnel {
         public static function Create() {
@@ -112,7 +112,6 @@
                 compact( 'tunnelid', 'channelid' )
             );
         }
-        // TODO: expiration check; call this function somewhere!
         public static function CleanUp() {
             db(
                 'DELETE FROM

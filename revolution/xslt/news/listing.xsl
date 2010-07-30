@@ -67,7 +67,15 @@
                             </xsl:if>
                         </a>
                     </xsl:if>
-                    <span class="zoomin">Κάνε κλικ ξανά για μεγιστοποίηση</span>
+                    <a class="zoomin">
+                        <xsl:if test="@type = 'journal'">
+                            <xsl:attribute name="href">journals/<xsl:value-of select="@id" /></xsl:attribute>
+                        </xsl:if>
+                        <xsl:if test="@type = 'poll'">
+                            <xsl:attribute name="href">poll/<xsl:value-of select="@id" /></xsl:attribute>
+                        </xsl:if>
+                        Κάνε κλικ ξανά για μεγιστοποίηση
+                    </a>
                 </li>
             </xsl:for-each>
         </ul>

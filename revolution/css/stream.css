@@ -65,7 +65,7 @@
     margin: 10px 15px 0 0;
     color: #3B5998;
 }
-.stream ul li span.zoomin {
+.stream ul li .zoomin {
     position: absolute;
     bottom: 0.5em;
     text-align: center;
@@ -73,7 +73,7 @@
     display: none;
     color: white;
 }
-.stream ul li.previewing span.zoomin {
+.stream ul li.previewing .zoomin {
     display: inline;
 }
 #preview {

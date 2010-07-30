@@ -60,6 +60,7 @@ RewriteRule ^chat/([0-9]+)$ index.php?resource=chatchannel&method=view&channelid
 # tunnel
 RewriteRule ^tunnel/create$ index.php?resource=tunnel&method=create [L,QSA]
 RewriteRule ^tunnel/update/([0-9]+)$ index.php?resource=tunnel&method=update&id=$1 [L,QSA]
+RewriteRule ^tunnel/delete$ index.php?resource=tunnel&method=delete [L,QSA]
 
 # notifications
 RewriteRule ^notifications$ index.php?resource=notification&method=list [L,QSA]
