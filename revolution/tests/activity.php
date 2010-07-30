@@ -38,7 +38,7 @@
         }
 
 		public function GetStatusData() {
-			return $mStatusData[ 0 ];	
+			return $mStatusData;	
 		}
 	}
 	
