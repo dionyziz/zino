@@ -83,11 +83,11 @@ select.dropdown {
     font-weight: bold;
     display: none;
 }
-    select.dropdown option {
-        font-style: normal;
-        background: #213549;
-        color: white;
-        border: 1px solid #123;
-        line-height: 3em;
-        font-weight: bold;
-    }
+select.dropdown option {
+    font-style: normal;
+    background: #213549;
+    color: white;
+    border: 1px solid #123;
+    line-height: 3em;
+    font-weight: bold;
+}

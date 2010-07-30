@@ -428,7 +428,7 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
     FOR EACH ROW BEGIN
         DELETE FROM `usercounts` WHERE `count_userid`=OLD.`user_id`;
         DELETE FROM `userprofiles` WHERE `profile_userid`=OLD.`user_id`;
-        DELETE FROM `albums` WHERE `album_userid`=OLD.`user_id`;
+        DELETE FROM `albums` WHERE `album_ownerid`=OLD.`user_id`;
         DELETE FROM `comments` WHERE `comment_userid`=OLD.`user_id`;
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;

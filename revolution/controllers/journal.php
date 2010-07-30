@@ -61,8 +61,9 @@
             clude( 'models/journal.php' );
             clude( 'models/user.php' );
 
-            $journal = Journal::Item( $id ); 
-            if ( $journal[ 'user' ][ 'id ' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+            $journal = Journal::Item( (int)$id ); 
+            $userid = $journal[ 'userid' ];
+            if ( $userid != $_SESSION[ 'user' ][ 'id' ] ) {
                 die( 'not your journal' );
             }
             Journal::Delete( $id );
