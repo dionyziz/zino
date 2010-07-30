@@ -116,6 +116,8 @@
             db(
                 'DELETE FROM
                     push, pushtunnels
+                 USING
+                    push, pushtunnels
                  WHERE
                     push_tunnelid = tunnel_id
                     AND tunnel_expires < NOW()'

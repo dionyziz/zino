@@ -5,6 +5,8 @@
     mysql_select_db( $settings[ 'db' ][ 'name' ] );
     mysql_query( "SET NAMES UTF8;" );
 
+    class DBException extends Exception {}
+
     function db_debug( $sql, $bind = false ) {
         if ( $bind == false ) {
             $bind = array();
@@ -43,7 +45,10 @@
             $bind[ ':' . $key ] = $value;
             unset( $bind[ $key ] );
         }
-        $res = mysql_query( strtr( $sql, $bind ) ) or die( mysql_error() );
+        $res = mysql_query( strtr( $sql, $bind ) );
+        if ( $res === false ) {
+            throw new DBException( mysql_error() );
+        }
         return $res;
     }
     function db_array( $sql, $bind = false, $id_column = false ) {
