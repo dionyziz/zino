@@ -69,12 +69,26 @@ div.moodpicker div.pick ul li a:hover img {
     position: absolute;
 }
 .moodpicker ul li {
-    background-color: white;
+    background: #345;
     width: 56px;
     height: 56px;
     margin: 4px 4px 0 0;
     float: left;
 }
+    .moodpicker ul li .moodtile {
+        opacity: 0.5;
+    }
+    .moodpicker ul li:hover {
+        background: white;
+    }
+    .moodpicker ul li:hover .moodtile {
+        opacity: 0.8;
+    }
+    .moodpicker ul li.activemood .moodtile {
+        border-color: #8ad;
+        cursor: auto;
+        opacity: 1;
+    }
 .editable.mood {
     cursor: auto;
     overflow: visible;
@@ -94,14 +108,4 @@ div.moodpicker div.pick ul li a:hover img {
     }
     .editable .moodtile {
         cursor: pointer;
-    }
-    .editable .moodpicker .moodtile:hover {
-        opacity: 0.8;
-    }
-    .moodpicker ul li.activemood .moodtile:hover {
-        opacity: 1;
-    }
-    .moodpicker ul li.activemood .moodtile {
-        border-color: #8ad;
-        cursor: auto;
     }

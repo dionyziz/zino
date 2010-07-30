@@ -10,6 +10,10 @@ var Profile = {
                         var oldpass = $modal.find( 'input[name="oldpassword"]' ).val();
                         var newpass = $modal.find( 'input[name="newpassword"]' ).val();
                         var newpass2 = $modal.find( 'input[name="newpassword2"]' ).val();
+                        if ( newpass != newpass2 ) {
+                            alert( 'Η επιβεβαίωση του νέου κωδικού απέτυχε, ξαναγράψε τον νέο κωδικό σωστά και στα δύο πεδία' );
+                            return;
+                        }
                         alert( oldpass );
                         alert( newpass );
                         alert( newpass2 );
@@ -42,7 +46,7 @@ var Profile = {
         }
         Comment.Init();
     },
-    PrepareInlineEditables: function() {
+    PrepareMoodPicker: function() {
         $( '.mood' ).addClass( 'editable' );
         $( '.mood .activemood' ).click( function() {
             axslt( $.get( 'moods' ), 'call:user.mood.edit', function() {
@@ -52,13 +56,24 @@ var Profile = {
                 $moodpicker.appendTo( '.mood' );
                 $activetile = $moodpicker.find( '#mood_' + $activemood.attr( 'id' ).split( '_' )[1] );
                 $activetile.closest( 'li' ).addClass( 'activemood' );
-                $moodpicker.find( 'ul li:not( .activemood )' ).css( 'opacity', 0.4 );
-                $moodpicker.find( '.modalclose' ).click( function() {
+                $moodpicker.find( 'ul li:not( .activemood )' ).click( function() {
+                    var $newactivemood = $( this ).find( '.moodtile' );
+                    var moodid = $newactivemood.attr( 'id' ).split( '_' )[1];
+                    $activemood.replaceWith( $newactivemood );
+                    $newactivemood.attr( 'id', 'active' + $newactivemood.attr( 'id' ) ).addClass( 'activemood' );
+                    $moodpicker.hide().remove();
+                    $.post( 'user/update', { 'moodid': moodid } );
+                    Profile.PrepareMoodPicker();
+                } );
+                $moodpicker.find( '.modalclose, ul li.activemood' ).click( function() {
                     $moodpicker.hide().remove();
                     $activemood.show();
                 } );
             }, { 'gender': Profile.CurrentValues[ 'gender' ] } );
         } );
+    },
+    PrepareInlineEditables: function() {
+        Profile.PrepareMoodPicker();
         Profile.PopulateEditables();
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
