@@ -33,7 +33,7 @@
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
 			var_dump( $act );
-			$this->AssertEquals( $act[ 0 ][ 'typeid' ], ACTIVITY_STATUS, "Activity should be status type" ); 
+			$this->AssertEquals( $act[ 0 ][ 'typeid' ], 6, "Activity should be status type" ); 
 			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text, "Wrong Text" );
         }
 
