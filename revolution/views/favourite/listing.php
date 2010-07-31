@@ -4,6 +4,12 @@
         <? if ( isset( $user[ 'gender' ] ) ): ?>
         <gender><?= $user[ 'gender' ] ?></gender>
         <? endif; ?>
+        <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+        <? if ( isset( $user[ 'avatarid' ] ) ): ?>
+        <avatar>
+            <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_150.jpg" />
+        </avatar>
+        <? endif; ?>
     </author>
 	<? include 'models/wysiwyg.php'; ?>
     <? foreach ( $favourites as $favourite ): ?>

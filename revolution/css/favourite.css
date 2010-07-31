@@ -1,9 +1,12 @@
+div.favourites h2 {
+    margin-bottom: 0;
+}
 div.itemstream ul {
-    margin: 20px 200px;
+    margin: 3px 200px 20px 200px;
 }
 div.itemstream ul li {
     border-bottom: 1px solid #789;
-    padding: 5px;
+    padding: 0 5px 5px 5px;
     text-align: center;
 }
     div.itemstream ul li:hover {

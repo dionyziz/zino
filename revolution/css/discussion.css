@@ -30,13 +30,6 @@ div.note {
 div.note span.username {
     display: inline;
 }
-div.mine {
-    border-top: 1px solid #3b5d81;
-    background-color: #284059;
-}
-div.mine .time {
-    color: #4f7eae;
-}
 div.time {
     color: #3d6287;
     padding: 5px 0;
@@ -108,4 +101,33 @@ ul.tips li {
 ul.tips strong {
     font-weight: normal;
     color: #acf;
+}
+div.message {
+    position: relative;
+    background-color: #243a50;
+    font-size: 110%;
+    cursor: pointer;
+}   
+div.message .author {
+    float: left;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    font-size: 90%;
+    cursor: default;
+}
+div.message .author .avatar {
+    float: left;
+    margin-right: 5px;
+}
+span.username {
+    color: #3f8bbb;
+    font-family: Verdana;
+    display: block;
+}
+div.mine {
+    border-top: 1px solid #3b5d81;
+    background-color: #284059;
+}
+div.mine .time {
+    color: #4f7eae;
 }
