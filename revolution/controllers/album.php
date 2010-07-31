@@ -47,6 +47,7 @@
             clude( 'models/db.php' );
             clude( 'models/album.php' );
             clude( 'models/user.php' );
+            clude( 'models/types.php' );
 
             $user = User::ItemByName( $username );
             $albums = Album::ListByUser( $user[ 'id' ] );
