@@ -32,7 +32,6 @@
 			Status::Create( $userid, $text );
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
-			$this->AssertArrayHasKeys( $act[ 0 ], array( 'typeid', 'user' ), 'array returned doesnt have the correct keys' );
 			$success = false;
 			foreach ( $act as $sam ) {
 				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS ) {
