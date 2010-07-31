@@ -2,6 +2,7 @@ type.js
 kamibu.js
 axslt.js
 comment.js
+favourite.js
 photo/view.js
 photo/listing.js
 itemview.js

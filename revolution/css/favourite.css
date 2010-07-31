@@ -1,11 +1,34 @@
-ul.favourites li {
+div.itemstream ul {
+    margin: 20px 200px;
 }
-    ul.favourites li span.box {
-        width: 150px;
-        height: 150px;
-        overflow: hidden;
-        margin: 0;
+div.itemstream ul li {
+    border-bottom: 1px solid #789;
+    padding: 5px;
+    text-align: center;
+}
+    div.itemstream ul li:hover {
+        background-color: #246D93;
+        cursor: pointer;
+    }
+    div.itemstream ul li a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+    div.itemstream ul li h3 {
+        line-height: inherit;
+        border: none;
+        margin: 0 0 0 155px;
+        padding: 10px;
+        text-align: left;
+    }
+    div.itemstream ul li img {
+        float: left;
+        border: 2px solid #abc;
+    }
+    div.itemstream ul li span.preview {
+        margin: 0 0 10px 166px;
+        padding: 0;
         border: 0;
-        display: inline-block;
-        border: 1px solid red;
+        text-align: left;
+        display: block;
     }

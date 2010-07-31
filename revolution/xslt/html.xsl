@@ -68,7 +68,8 @@
 					'news.listing': News,
                     'poll.view': Poll,
                     'journal.view': Journal,
-                    'user.view': Profile
+                    'user.view': Profile,
+                    'favourite.listing': Favourite,
 				}[ '<xsl:value-of select="$mastertemplate" />' ].Init();
                 Presence.Init();
             </script>

@@ -1,4 +1,10 @@
-<stream>
+<stream type="favourites">
+    <author>
+        <name><?= $username ?></name>
+        <? if ( isset( $user[ 'gender' ] ) ): ?>
+        <gender><?= $user[ 'gender' ] ?></gender>
+        <? endif; ?>
+    </author>
 	<? include 'models/wysiwyg.php'; ?>
     <? foreach ( $favourites as $favourite ): ?>
 	<? switch ( $favourite[ 'typeid' ] ):
@@ -7,7 +13,7 @@
 
     <entry id="<?= $favourite[ "id" ] ?>" type="journal">
 		<title><?= htmlspecialchars( $favourite[ "data" ][ "title" ] ) ?></title>
-		<text><?= WYSIWYG_PresentAndSubstr( $favourite[ "data" ][ "text" ], 100 ) ?></text>
+		<text><?= WYSIWYG_PresentAndSubstr( $favourite[ "data" ][ "text" ], 400 ) ?></text>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
 		<url><?= $favourite[ "data" ][ "url" ] ?></url>
 		<numcomments><?= $favourite[ "data" ][ "numcomments" ] ?></numcomments>
