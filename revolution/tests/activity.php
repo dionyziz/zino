@@ -36,7 +36,7 @@
 			$success = false;
 			foreach ( $act as $sam ) {
 				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS 
-						&& $sam[ 'status' ][ 'message' ] == $text ) {
+						&& strcmp( $sam[ 'status' ][ 'message' ], $text ) == 0 ) {
 					$success = true;
 				}
 			}
