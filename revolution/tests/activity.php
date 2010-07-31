@@ -40,7 +40,7 @@
 					$success = true;
 				}
 			}
-			$this->AssertEquals( $sucess, true );//activity exists
+			$this->AssertEquals( $success, true );//activity exists
         }
 
 		public function GetStatusData() {
