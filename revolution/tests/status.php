@@ -1,6 +1,6 @@
 <?php
 
-    class TestActivity extends ModelTestcase {
+    class TestStatus extends ModelTestcase {
 		protected $mUsers;
 		protected $mStatusData;
 
