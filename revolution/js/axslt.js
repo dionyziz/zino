@@ -47,13 +47,13 @@ function axslt( xml, template, callback, params, xslPath ) {
         if ( template instanceof Object ) {
             templateName = template['name'];
             if ( template[ 'type' ] == 'call' ) {
-                templateMode == 'call';
+                templateMode = 'call';
             }
             else if ( template[ 'type' ] == 'apply' || !_aXSLT.defaultMode ) {
-                templateMode == 'apply';
+                templateMode = 'apply';
             }
             else {
-                templateMode == _aXSLT.defaultMode;
+                templateMode = _aXSLT.defaultMode;
             }
         }
         else {
