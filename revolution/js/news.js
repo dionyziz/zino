@@ -21,7 +21,7 @@ var News = {
                     if ( infotext ) {
                         infotext.fadeIn( 1000 );
                     }
-                }
+                };
             } )( infotext ), 500 );
         $( '#preview .content' ).empty().append( infotext );
         infotext.center();
@@ -40,4 +40,4 @@ var News = {
             return Poll.PreCreate();
         } );
     }
-}
+};

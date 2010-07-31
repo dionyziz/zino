@@ -20,7 +20,7 @@ var Chat = {
          $( this ).addClass( 'selected' );
          Chat.Unflash( this.id.substr( 1 ) );
          var userid = this.id.split( 'u' )[ 1 ];
-         if ( userid == 0 ) {
+         if ( userid === 0 ) {
              Chat.Show( 0 );
          }
          else {
@@ -48,7 +48,7 @@ var Chat = {
      },
      HistoryFromXML: function ( res ) {
         var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
-        if ( $( '#chatmessages_' + channelid ).length == 0 ) {
+        if ( $( '#chatmessages_' + channelid ).length === 0 ) {
             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
         }
         var history = $( '#chatmessages_' + channelid )[ 0 ];
@@ -100,9 +100,8 @@ var Chat = {
                     $( this ).focus();
              }
          } ).keyup( function ( e ) {
-             switch ( e.keyCode ) {
-                 case 13: // enter
-                    this.value = '';
+             if ( e.keyCode == 13 ) { // enter
+                this.value = '';
              }
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
@@ -136,7 +135,7 @@ var Chat = {
              + '</div>';
      },
      SendMessage: function ( channelid, text ) {
-         if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length == 0 ) {
+         if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
              // empty message
              return;
          }
@@ -165,7 +164,7 @@ var Chat = {
      },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
-         if ( $( '#chatmessages_' + channelid ).length == 0 ) {
+         if ( $( '#chatmessages_' + channelid ).length === 0 ) {
              // if there is no chat history placeholder for the particular channel
              // then create one
              $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="display:none" class="chatchannel" id="chatmessages_' + channelid + '"></ol>';

@@ -26,19 +26,19 @@ var Notifications = {
             width: '300px'
         }, 500 );
         var LetFinish = 30;
-        var Leave = function () {
+        var leave = function () {
             if ( Notifications.PendingRequests ) {
                 // wait for pending requests to complete
                 --LetFinish;
                 if ( LetFinish ) {
-                    setTimeout( Leave, 100 );
+                    setTimeout( leave, 100 );
                     return;
                 }
             }
             // else
             window.location.href = url;
         };
-        Leave();
+        leave();
     },
     Delete: function ( details ) {
         Notifications.DoneWithCurrent();
@@ -108,7 +108,7 @@ var Notifications = {
             + '</div>';
     },
     InstantBox: function( details, content, tips ) {
-        if ( typeof tips != 'undefined' && tips != [] ) {
+        if ( typeof tips != 'undefined' && tips.length > 0 ) {
             tips = '<ul class="tips"><li>' + tips.join( '</li><li>' ) + '</li></ul>';
         }
         else {
@@ -120,7 +120,7 @@ var Notifications = {
         else {
             content = '';
         }
-        if ( typeof details != 'undefined' && details != '' ) {
+        if ( typeof details != 'undefined' && details !== '' ) {
             details = '<div class="details">' + details + '</div>';
         }
         else {
@@ -176,12 +176,12 @@ var Notifications = {
         },
         Remove: function () {
             if ( Notifications.Shortcuts.Skip !== 0 ) {
-                $( document ).unbind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip )
+                $( document ).unbind( 'keyup', 'shift+esc', Notifications.Shortcuts.Skip );
                 Notifications.Shortcuts.Skip = 0;
                 return false;
             }
             if ( Notifications.Shortcuts.Save !== 0 ) {
-                $( document ).unbind( 'keyup', 'return', Notifications.Shortcuts.Save )
+                $( document ).unbind( 'keyup', 'return', Notifications.Shortcuts.Save );
                 Notifications.Shortcuts.Save = 0;
             }
             if ( Notifications.Shortcuts.Ignore !== 0 ) {
@@ -402,12 +402,13 @@ var Notifications = {
         var commentid = entry.find( commentpath ).attr( 'id' );
         var id = entry.attr( 'id' );
         var article = 'Ο';
+        var notificationcomment;
 
         if ( gender == 'f' ) {
             article = 'Η';
         }
 
-        var notificationcomment = ''
+        notificationcomment = ''
             + '<div class="thread">'
                 + '<div class="message">'
                     + '<div class="author">'
@@ -425,8 +426,8 @@ var Notifications = {
                 + '</div>'
             + '</div>';
         if ( isreply ) {
-                // + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
-            var notificationcomment = ''
+            // + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
+            notificationcomment = ''
                 + '<p><strong>' + article + ' ' + author + ' απάντησε στο σχόλιό σου.</strong></p>'
                 + '<div class="thread">'
                     + '<div class="message">'
@@ -441,7 +442,7 @@ var Notifications = {
                         + '<div class="eof"></div>'
                         + notificationcomment
                     + '</div>'
-                + '</div>'
+                + '</div>';
         }
 
         var html = Notifications.InstantBox( notificationcomment, '<div class="tips">Πάτα για μεγιστοποίηση</div>', 
@@ -480,7 +481,7 @@ var Notifications = {
         function ignore() {
             Notifications.Delete( {
                 'itemid': commentid,
-                'eventtypeid': EVENT_COMMENT_CREATED = 4,
+                'eventtypeid': EVENT_COMMENT_CREATED = 4
             } );
         }
         Notifications.Shortcuts.Assign( skip, save, ignore );

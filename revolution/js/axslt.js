@@ -58,7 +58,9 @@ function axslt( xml, template, callback, params, xslPath ) {
         }
         else {
             templateName = template;
-            if ( templateMode != 'call' ) templateMode = 'apply'
+            if ( templateMode != 'call' ) {
+                templateMode = 'apply';
+            }
         }
     }
     if ( !xslPath ) {
@@ -87,7 +89,8 @@ var _aXSLT = {
             xml.onreadystatechange = ( function( xml, i ) {
                 return function() {
                     _aXSLT.checkXML( xml, i );
-                } } )( xml, index ); //code magic
+                };
+            } )( xml, index ); //code magic
         }
         return index;
     },
@@ -100,13 +103,19 @@ var _aXSLT = {
         var xhr;
         if ( window.ActiveXObject ) {
             //xhr = new ActiveXObject( 'MSXML2.FreeThreadedDOMDocument' );
-            try { xhr = new ActiveXObject( 'Msxml2.XMLHTTP.6.0' ); }
+            try {
+                xhr = new ActiveXObject( 'Msxml2.XMLHTTP.6.0' );
+            }
+            catch ( err ) {
+                try {
+                    xhr = new ActiveXObject( 'Msxml2.XMLHTTP.3.0' );
+                }
                 catch ( err ) {
-            try { xhr = new ActiveXObject( 'Msxml2.XMLHTTP.3.0' ); }
-                catch ( err ) {
-            try { xhr = new ActiveXObject( 'Msxml2.XMLHTTP' ); }
-                catch ( err ) {
-                    return false;
+                    try {
+                        xhr = new ActiveXObject( 'Msxml2.XMLHTTP' );
+                    }
+                    catch ( err ) {
+                        return false;
                     }
                 }
             }
@@ -117,7 +126,8 @@ var _aXSLT = {
         xhr.onreadystatechange = ( function( xhr, i ) {
             return function() {
                 _aXSLT.checkXSL( xhr, i );
-            } } )( xhr, index ); //code magic
+            };
+        } )( xhr, index ); //code magic
         xhr.open( 'GET', path, true );
         xhr.send( null );
         this.unitLists[ index ] = [];

@@ -31,13 +31,13 @@ var Comment = {
         var rootparent = $( this ).hasClass( 'talk' );
         var newcomment = $( '.discussion .note .thread.new' );
         
-        if ( $( '.discussion .note .thread.new .author > img' ).length == 0 ) {
+        if ( $( '.discussion .note .thread.new .author > img' ).length === 0 ) {
             Comment.LoadAvatar();
         }
         
         if ( rootparent ) {
             newthread = $( '.discussion > .thread.new' );
-            if ( newthread.length == 0 ) {
+            if ( newthread.length === 0 ) {
                 newthread = newcomment.clone().insertAfter( '.discussion .note' );
                 Comment.TextEvents( newthread );
             }
@@ -45,7 +45,7 @@ var Comment = {
         }
         else {
             newthread = $( this ).siblings( '.thread.new' );
-            if( newthread.length == 0 ) {
+            if( newthread.length === 0 ) {
                 newthread = newcomment.clone().insertAfter( this );
                 Comment.TextEvents( newthread );
             }
@@ -75,7 +75,7 @@ var Comment = {
             switch ( event.keyCode ) {
                 case 27: // ESC
                     Comment.FadeOut(  $( this ).closest( '.thread.new' ) );
-                    if ( parentid == 0 ) {
+                    if ( parentid === 0 ) {
                         $( 'a.talk' ).fadeIn( 300 );
                     }
                     break;
@@ -96,8 +96,8 @@ var Comment = {
                             $( thread ).replaceWith( newthread );
                             newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
                             document.body.style.cursor = 'default';
-                        }
-                    } )( $( this ).closest( '.thread.new' ) )
+                        };
+                    } )( $( this ).closest( '.thread.new' ) );
 
                     axslt( wysiwyg, '/social/comment', callback );
                     
@@ -152,7 +152,7 @@ var Comment = {
     ScrollHandler: function(){
         if( Comment.CommentList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
             Comment.RemoveEvents();
-            Comment.FetchNewComments()
+            Comment.FetchNewComments();
         }
     },
     AssignEvents: function(){
@@ -165,7 +165,7 @@ var Comment = {
         Comment.CurrentCommentPage++;
         var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
         axslt( data, '/social/discussion/*', function() {
-            if( this.length == 0 ){
+            if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
             if ( window.User ) {
@@ -184,4 +184,4 @@ var Comment = {
 
     }
     /*END*/
-}
+};

@@ -19,14 +19,14 @@ var Poll = {
         var question = $( '.newpoll' ).find( 'input.question' ).val();
         var options = [];
         $( 'input.option' ).each( function() {
-            if ( !$( this ).hasClass( 'blured' ) && $( this ).val() != '' ) {
+            if ( !$( this ).hasClass( 'blured' ) && $( this ).val() !== '' ) {
                 options.push( $( this ).val() );
             }
         } );
         if ( options.length < 2 ) {
             return false;
         }
-        if ( question == '' ) {
+        if ( question === '' ) {
             return false;
         }
         $.post( 'poll/create', { 'question': question, 'options': options }, function( xml ) { 
@@ -38,7 +38,7 @@ var Poll = {
         //This is the last, and every else is filled
         if ( $( node ).attr( 'id' ).split( '_' )[1] == Poll.NewOptions ) {
             for ( var i = 1; i < Poll.NewOptions; ++i ) {
-                if ( $( '#newoption_' + i ).val() == '' || $( '#newoption_' + i ).hasClass( 'blured' ) ) {
+                if ( $( '#newoption_' + i ).val() === '' || $( '#newoption_' + i ).hasClass( 'blured' ) ) {
                     return true;
                 }
             }
@@ -80,4 +80,4 @@ var Poll = {
             window.location = 'polls/' + User;
         });     
     }
-}
+};

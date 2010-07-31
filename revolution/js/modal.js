@@ -39,5 +39,5 @@
             this.jqmShow();
         }
         return this;
-    }
+    };
 } ) ( jQuery );

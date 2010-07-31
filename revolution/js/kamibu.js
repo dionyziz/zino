@@ -41,7 +41,7 @@ var Kamibu = {
                     }
                     element.value = reshowtext;
                 }
-            }
+            };
             if ( typeof( callback ) == 'function' ) {
                 callback();
             }
@@ -56,7 +56,7 @@ var Kamibu = {
         return false;
     },
     hasClass: function( element, name ) {
-        return element.className.match( new RegExp( '(\\s|^)' + name + '(\\s|$)' ) ) != null;
+        return element.className.match( new RegExp( '(\\s|^)' + name + '(\\s|$)' ) ) !== null;
     },
     addClass: function( element, name ) {
         if ( !Kamibu.hasClass( element, name ) ) {
@@ -68,4 +68,4 @@ var Kamibu = {
             element.className = element.className.replace( new RegExp( '\\b' + name + '\\b' ), '' ).replace( /^\s*|\s*$/, '' ).replace( /\s+/, ' ' );
         }
     }
-}
+};

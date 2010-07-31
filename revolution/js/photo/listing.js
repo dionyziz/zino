@@ -42,7 +42,7 @@ var PhotoListing = {
     },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
-            PhotoListing.FetchNewPhotos()
+            PhotoListing.FetchNewPhotos();
         }
     },
     AssignEvents: function(){
@@ -64,6 +64,8 @@ var PhotoListing = {
         { 'page': PhotoListing.CurrentPage },
         function( xml ){
             var responseSize = $( xml ).find( 'entry' ).length;
+            var i;
+
             $( xml ).find( 'entry' ).each( function( index ){
                 var id = $( this ).attr( 'id' );
                 var url = $( this ).find( 'media' ).attr( 'url' );
@@ -79,19 +81,19 @@ var PhotoListing = {
                     alert( id );
                 }
                 $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
-                if( count != 0 ){
+                if ( count !== 0 ) {
                     $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
                 }
             } );
             if( responseSize < 100 ){
                 PhotoListing.EndOfPhotos = true;
                 var lastChild = $( '.photostream ul li:last' )[ 0 ];
-                for( var i = 0; i < 100 - responseSize; ++i ) {
+                for( i = 0; i < 100 - responseSize; ++i ) {
                     var nextLastChild = lastChild.previousSibling;
                     $( lastChild ).remove();
                     lastChild = nextLastChild;
                 }
-                for( var i = 0; i < 20; ++i ){ //Last Line justify hack
+                for( i = 0; i < 20; ++i ){ //Last Line justify hack
                     PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
                 }
                 return; //Prevent Events From reassining

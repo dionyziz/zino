@@ -22,7 +22,7 @@ var PhotoView = {
                 return;
             }
             PhotoView.Title.Title = $( '.title input' ).val();
-            if( PhotoView.Title.Title == '' ){
+            if ( PhotoView.Title.Title === '' ){
                 $( '.title input' ).addClass( 'empty' ).val( PhotoView.Title.Empty );
             }
             PhotoView.Id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
@@ -46,7 +46,7 @@ var PhotoView = {
             }).blur( function(){
                 $( this ).removeClass( 'focus' );
                 PhotoView.Title.Title = $( this ).val();
-                if( PhotoView.Title.Title == '' ){
+                if( PhotoView.Title.Title === '' ) {
                     $( this ).addClass( 'empty' ).val( PhotoView.Title.Empty );
                 }
                 else{

@@ -9,4 +9,4 @@ var WYSIWYG = {
         node.style.backgroundColor = 'black';
         node.style.clear = 'both';
     }
-}
+};

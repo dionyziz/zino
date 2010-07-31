@@ -76,5 +76,5 @@ var Comet = {
     Subscribe: function ( channelid, callback ) {
         Comet.Channels[ channelid ] = callback;
         // TODO: Call tunnel/update if we've already handshaked
-    },
+    }
 };

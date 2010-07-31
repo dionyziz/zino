@@ -8,7 +8,6 @@ var UserDetails = {
             switch( field ) {
                 case 'gender':
                     return 'Όρισε φύλο';
-                    break;
                 default:
                     return UserDetails.GetMap( field, gender )[ value ];
             }
@@ -62,7 +61,8 @@ var UserDetails = {
             grey: 'Γκρι'
         };
         var height = {};
-        for ( var i = 120; i <= 220; ++i ) {
+        var i;
+        for ( i = 120; i <= 220; ++i ) {
             height[ i ] = Math.floor( i / 100 ) + '.' +
                 (
                     ( ( i % 100 ) < 10 ) ? 
@@ -71,12 +71,12 @@ var UserDetails = {
                 )
                 + 'm';
         }
-        height[ -1 ] = 'Πάνω από 2.20m'
-        height[ -2 ] = 'Κάτω από 1.20m'
+        height[ -1 ] = 'Πάνω από 2.20m';
+        height[ -2 ] = 'Κάτω από 1.20m';
         height[ -3 ] = 'Να μην εμφανίζεται';
         
         var weight = {};
-        for ( var i = 40; i <= 120; ++i ) {
+        for ( i = 40; i <= 120; ++i ) {
             weight[ i ] = i + 'kg';
         }
         weight[ -1 ] = 'Πάνω από 120kg';

@@ -164,40 +164,37 @@ var Profile = {
     },
     MakeEditable: function( element, field ) {
         element.addClass( 'editable' );
-        switch( field ) {
-            default:
-                var oldselect = $( element ).find( 'select.dropdown' );
-                if ( field == 'height' || field == 'weight' ) {
-                    Profile.CurrentValues[ field ] = oldselect.val() || '-3';
-                }
-                else {
-                    Profile.CurrentValues[ field ] = oldselect.val() || '-';
-                }
-                oldselect.empty();
-                var select = $( '<select />' ).addClass( 'dropdown' );
-                
-                oldselect.replaceWith( select );
-                Profile.PopulateSelect( element, field );
-                
-                $( select ).change( function() {
-                    Profile.CurrentValues[ field ] = $( this ).val();
-                    var span = $( this ).siblings().filter( 'span' );
-                    Profile.UpdateField( span, field );
-                    
-                    if ( field == 'gender' ) {
-                        var ifield;
-                        for ( ifield in Profile.UpdatableFields ) { 
-                            if ( ifield != 'gender' ) {
-                                Profile.PopulateSelect( $( Profile.UpdatableFields[ ifield ] ), ifield );
-                            }
-                        }
-                    }
-                    var postvars = {};
-                    postvars[ field ] = $( this ).val();
-                    $.post( 'user/update', postvars );
-                } );
-                select.appendTo( element ).css( 'display', 'block' );
+        var oldselect = $( element ).find( 'select.dropdown' );
+        if ( field == 'height' || field == 'weight' ) {
+            Profile.CurrentValues[ field ] = oldselect.val() || '-3';
         }
+        else {
+            Profile.CurrentValues[ field ] = oldselect.val() || '-';
+        }
+        oldselect.empty();
+        var select = $( '<select />' ).addClass( 'dropdown' );
+        
+        oldselect.replaceWith( select );
+        Profile.PopulateSelect( element, field );
+        
+        $( select ).change( function() {
+            Profile.CurrentValues[ field ] = $( this ).val();
+            var span = $( this ).siblings().filter( 'span' );
+            Profile.UpdateField( span, field );
+            
+            if ( field == 'gender' ) {
+                var ifield;
+                for ( ifield in Profile.UpdatableFields ) { 
+                    if ( ifield != 'gender' ) {
+                        Profile.PopulateSelect( $( Profile.UpdatableFields[ ifield ] ), ifield );
+                    }
+                }
+            }
+            var postvars = {};
+            postvars[ field ] = $( this ).val();
+            $.post( 'user/update', postvars );
+        } );
+        select.appendTo( element ).css( 'display', 'block' );
     },
     PopulateSelect: function( element, field ) {
         var map = UserDetails.GetMap( field, Profile.CurrentValues[ 'gender' ] );
@@ -222,4 +219,4 @@ var Profile = {
             span.addClass( 'notshown' );
         }
     }
-}
+};
