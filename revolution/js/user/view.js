@@ -1,8 +1,8 @@
 var Profile = {
     CurrentValues: {},
     Init: function () {
-        if ( $( '#accountmenu' ).length ) {
-            $( '#accountmenu a:eq(0)' ).click( function () {
+        if ( $( '.accountmenu' ).length ) {
+            $( '.accountmenu a:eq(0)' ).click( function () {
                 axslt( false, 'call:user.modal.settings', function() {
                     var $modal = $( this ).filter( 'div' );
                     $modal.prependTo( 'body' ).modal();
@@ -11,20 +11,25 @@ var Profile = {
                         var newpass = $modal.find( 'input[name="newpassword"]' ).val();
                         var newpass2 = $modal.find( 'input[name="newpassword2"]' ).val();
                         if ( newpass != newpass2 ) {
-                            alert( 'Η επιβεβαίωση του νέου κωδικού απέτυχε, ξαναγράψε τον νέο κωδικό σωστά και στα δύο πεδία' );
-                            return;
+                            alert( 'Ξ— ΞµΟ€ΞΉΞ²ΞµΞ²Ξ±Ξ―Ο‰ΟƒΞ· Ο„ΞΏΟ… Ξ½Ξ­ΞΏΟ… ΞΊΟ‰Ξ΄ΞΉΞΊΞΏΟ Ξ±Ο€Ξ­Ο„Ο…Ο‡Ξµ, ΞΎΞ±Ξ½Ξ±Ξ³ΟΞ¬ΟΞµ Ο„ΞΏΞ½ Ξ½Ξ­ΞΏ ΞΊΟ‰Ξ΄ΞΉΞΊΟ ΟƒΟ‰ΟƒΟ„Ξ¬ ΞΊΞ±ΞΉ ΟƒΟ„Ξ± Ξ΄ΟΞΏ Ο€ΞµΞ΄Ξ―Ξ±' );
+                            return false;
                         }
-                        alert( oldpass );
-                        alert( newpass );
-                        alert( newpass2 );
-                        $modal.jqmHide();
+                        $.post( 'user/update', { oldpass: oldpass, newpass: newpass }, function( res ) {
+                            if ( $( res ).find( 'operation result' ).text() == 'SUCCESS' ) {
+                                alert( 'Ξ ΞΊΟ‰Ξ΄ΞΉΞΊΟΟ‚ Ξ¬Ξ»Ξ»Ξ±ΞΎΞµ ΞΌΞµ ΞµΟ€ΞΉΟ„Ο…Ο‡Ξ―Ξ±!' );
+                                $modal.jqmHide();
+                            }
+                            else {
+                                alert( 'Ξ Ο€Ξ±Ξ»ΞΉΟΟ‚ ΞΊΟ‰Ξ΄ΞΉΞΊΟΟ‚ Ο€ΞΏΟ… Ο€Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµΟ‚ ΞµΞ―Ξ½Ξ±ΞΉ Ξ»Ξ¬ΞΈΞΏΟ‚' );
+                            }
+                        } );
                         return false;
                         /* oldpass/newpass */
                     } );
                 } );
                 return false;
             } );
-            $( '#accountmenu a:eq(1)' ).click( function () {
+            $( '.accountmenu a:eq(1)' ).click( function () {
                 document.body.style.cursor = 'pointer';
                 $.post( 'session/delete', {}, function () {
                     window.location.href = 'login';

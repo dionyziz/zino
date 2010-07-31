@@ -66,7 +66,14 @@
                     </xsl:choose>
                 </img>
                 <div class="details">
-                    <div class="username"><xsl:value-of select="name[1]" /></div>
+                    <div><span class="username"><xsl:value-of select="name[1]" /></span>
+                        <xsl:if test="$user = name[1]">
+                            <ul class="accountmenu">
+                                <li><a href="">Λογαριασμός</a></li>
+                                <li class="dot"><a href="">Έξοδος</a></li>
+                            </ul>
+                        </xsl:if>
+                    </div>
                     <ul class="asl">
                         <xsl:if test="gender[1] or $user = name[1]">
                             <li class="gender">
@@ -113,17 +120,11 @@
                         <div class="slogan"><xsl:value-of select="details/slogan" /></div>
                     </xsl:if>
                 </div>
-                <div class="eof"></div>
-                <xsl:if test="$user = name[1]">
-                    <div class="pantherbox" id="accountmenu" style="clear:both">
-                        <div class="arrow">&#9650;</div>
-                        <ul style="float: right">
-                            <li style="float: left; padding-left: 5px;" class="dot"><a href="">Λογαριασμός</a></li>
-                            <li style="float: left; padding-left: 5px;"><a href="">Έξοδος</a></li>
-                        </ul>
-                        Εγώ
-                    </div>
-                </xsl:if>
+            </div>
+            <div class="eof"></div>
+            <div class="pantherbox tweetbox" style="display: none">
+                <div class="arrow">&#9650;</div>
+                <span class="tweet">tweetbox</span>
             </div>
             <div class="eof"></div>
             <div class="sidebar">
@@ -202,7 +203,8 @@
                                 <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="moodtile nomood activemood"></div>
                             </xsl:when>
                             <xsl:otherwise>
-                                <div class="moodtile activemood">
+                                <div>
+                                    <xsl:attribute name="class">moodtile<xsl:if test="$user = name[1]"> activemood</xsl:if></xsl:attribute>
                                     <xsl:attribute name="style">background-image:url(<xsl:value-of select="mood/media[1]/@url" />)</xsl:attribute>
                                     <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
                                     <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>

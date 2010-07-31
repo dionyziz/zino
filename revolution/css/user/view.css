@@ -7,6 +7,9 @@
 .maininfo .details {
     margin-left: 110px;
 }
+.maininfo .details span.username {
+    display: inline;
+}
 .maininfo img.avatar {
     height: 100px;
     width: 100px;
@@ -14,25 +17,36 @@
 }
 .maininfo .username {
     font-size: 160%;
-    line-height: 200%;
+    line-height: 50px;
     font-weight: bold;
     color: #72B3DB;
     overflow: hidden;
 }
-.maininfo ul.asl, .heightweight ul {
+.heightweight ul {
     overflow: hidden;
 }
 .maininfo ul.asl li.dot:before,
-.heightweight ul li.dot:before {
+.heightweight ul li.dot:before,
+ul.accountmenu li.dot:before {
     content: ' ● ';
     color: #72b3db;
     font-size: 70%;
     position: relative;
     top: -2px;
 }
-.maininfo ul.asl > li, .heightweight ul > li {
+.maininfo ul.asl > li {
+    display: inline;
+    margin: 0 3px 0 0;
+}
+.heightweight ul > li {
     float: left;
     margin: 0 3px 0 0;
+}
+.maininfo .slogan {
+    line-height: 25px
+}
+.maininfo ul.asl {
+    line-height: 25px;
 }
 .maininfo ul.asl li {
     font-weight: bold;
@@ -187,3 +201,22 @@ select.location {
 .rightbar {
     float: left;
 }
+ul.accountmenu{
+    float: right;
+    line-height: 200%;
+}
+ul.accountmenu li {
+    float: left;
+    padding-left: 5px;
+}
+ul.accountmenu li a {
+    text-decoration: none;
+}
+.userview .tweetbox {
+    text-align: left;
+    width: auto;
+    float: left;
+}
+    .tweetbox .tweet {
+        
+    }
