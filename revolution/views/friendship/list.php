@@ -1,4 +1,4 @@
-<friends of="<?= $username ?>">
+<friends of="<?= $username ?>" count="<?= count( $friends ); ?>">
     <? global $settings;
     foreach ( $friends as $friend ): ?>
     <entry id="<?= $friend[ 'id' ] ?>">
@@ -20,6 +20,9 @@
         <?php if ( $friend[ 'gender' ] != '-' ): ?>
         <gender><?= $friend[ 'gender' ] ?></gender>
         <?php endif; ?>
+        <? if ( isset( $friend[ 'friendofuser' ] ) ): ?>
+            <knownBy><?= $_SESSION[ 'user' ][ 'name' ]; ?></knownBy>
+        <? endif; ?>
     </entry>
     <? endforeach; ?>
 </friends>

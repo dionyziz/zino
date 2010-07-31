@@ -35,12 +35,32 @@
                 if ( $row[ 'age' ] > 1000  ) {
                     $row[ 'age' ] = 0;
                 }
+                $row[ 'id' ] = (int)$row[ 'id' ];
+                $row[ 'placeid' ] = (int)$row[ 'placeid' ];
                 $friends[] = $row;
             }	
             return $friends;
         } 
-
-
+        public static function StrengthByUserAndFriends( $userid, $friendids ) {
+            $friendships = array();
+            foreach ( $friendids as $id ) {
+                $friendships[ $id ] = false;
+            }
+            $res = db(
+                'SELECT
+                    `relation_userid` AS userid, `relation_friendid` AS friendid
+                FROM
+                    `relations`
+                WHERE
+                    `relation_userid` = :userid AND
+                    `relation_friendid` IN :friendids',
+                compact( 'userid', 'friendids' )
+            );
+            while ( $relation = mysql_fetch_array( $res ) ) {
+                $friendships[ (int)$relation[ 'friendid' ] ] = true;
+            }
+            return $friendships;
+        }
         public static function Strength( $a, $b ) {
             $friendships = db(
                 'SELECT

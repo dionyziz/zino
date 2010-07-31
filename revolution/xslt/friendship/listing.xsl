@@ -5,25 +5,73 @@
         pisw sto profil
        </span>
     </a>
+    <h2>
+        <xsl:choose>
+            <xsl:when test="$user = friends/@of">Exeis </xsl:when>
+            <xsl:otherwise>O <xsl:value-of select="friends/@of" /> exei </xsl:otherwise>
+        </xsl:choose>
+        <xsl:value-of select="friends/@count" />
+        <xsl:choose>
+            <xsl:when test="friends/@count = 1"> filo</xsl:when>
+            <xsl:otherwise> filous</xsl:otherwise>
+        </xsl:choose>
+    </h2>
     <ul class="friends">
     <xsl:for-each select="friends/entry">
         <li class="friend">
-            <a class="username">
-            <xsl:attribute name="href">users/<xsl:value-of select="name" /></xsl:attribute>
-            <img class="avatar">
+            <div style="position: absolute; right: 250px; padding-top: 5px;">
                 <xsl:choose>
-                    <xsl:when test="avatar[1]/@id = 0">
-                        <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
+                    <xsl:when test="$user and $user = /social/friends/@of">
+                        <form action="friendship/delete" method="post" class="friendship" style="margin-right: 30px;">
+                            <input type="hidden" name="friendid">
+                                <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                            </input>
+                            <a class="love linkbutton removefriend" href=""><strong>-</strong> Diagrafi filou</a>
+                        </form>
                     </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>
-                    </xsl:otherwise>
+                    <xsl:when test="$user and $user != name[1]">
+                        <xsl:choose>
+                            <xsl:when test="knownBy = $user">
+                                <form action="friendship/delete" method="post" class="friendship" style="margin-right: 30px;">
+                                    <input type="hidden" name="friendid">
+                                        <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                                    </input>
+                                    <a href="" title="Διαγραφή φίλου">
+                                        <strong>&#9829;</strong>
+                                        <strong class="delete">/</strong>
+                                        Φίλος
+                                    </a>
+                                </form>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <form action="friendship/create" method="post" class="friendship">
+                                    <input type="hidden" name="friendid">
+                                        <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
+                                    </input>
+                                    <a class="love linkbutton" href=""><strong>+</strong> Προσθήκη φίλου</a>
+                                </form>
+                                <div class="eof"></div>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
                 </xsl:choose>
-            </img>
-            <div class="username"><xsl:value-of select="name[1]" /></div>
+            </div>
+            <a class="username">
+                <xsl:attribute name="href">users/<xsl:value-of select="name" /></xsl:attribute>
+                <img class="avatar">
+                    <xsl:choose>
+                        <xsl:when test="avatar[1]/@id = 0">
+                            <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </img>
+                <div class="username"><xsl:value-of select="name[1]" /></div>
             </a>
             <div class="details">
-                <ul class="asl">
+                <ul class="asl" style="min-height: 20px;">
                     <xsl:if test="gender[1]">
                         <li class="gender">
                             <span>

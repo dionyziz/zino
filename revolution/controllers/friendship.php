@@ -25,7 +25,22 @@
             if ( empty( $user ) ) {                    
                return;
             }
-            $friends = Friend::ListByUser( $user[ 'id' ] );
+            $userid = $user[ 'id' ]; // needed by view
+            $friends = Friend::ListByUser( $userid );
+
+            // find which of these are also friends of the active user
+            if ( isset( $_SESSION[ 'user' ] ) && $_SESSION[ 'user' ][ 'name' ] != $username ) {
+                $friendids = array();
+                foreach ( $friends as $friend ) {
+                    $friendids[] = $friend[ 'id' ];
+                }
+                $friendsOfUser = Friend::StrengthByUserAndFriends( $_SESSION[ 'user' ][ 'id' ], $friendids );
+                foreach ( $friends as $i => $friend ) {
+                    if ( $friendsOfUser[ $friend[ 'id' ] ] ) {
+                        $friends[ $i ][ 'friendofuser' ] = true;
+                    }
+                }
+            }
             include "views/friendship/list.php";
         }
         public static function Create( $friendid = 0, $username = '' ) {

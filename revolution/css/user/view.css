@@ -70,23 +70,22 @@ ul.userdetails > li {
     width: 100%;
     font-weight: bold;
 }
-    ul.userdetails li span {
-        font-weight: normal;
-    }
-    li.heightweight {
-        text-align: center;
-    }
-        li.heightweight ul {
-            text-align: center;
-            padding: 1em 0;
-        }
-        li.heightweight ul li {
-            font-weight: bold;
-        }
-    ul.userdetails li.aboutme {
-        padding: 1em 0;
-    }
-
+ul.userdetails li span {
+    font-weight: normal;
+}
+li.heightweight {
+    text-align: center;
+}
+li.heightweight ul {
+    text-align: center;
+    padding: 1em 0;
+}
+li.heightweight ul li {
+    font-weight: bold;
+}
+ul.userdetails li.aboutme {
+    padding: 1em 0;
+}
 .mplayer{
     margin-top: 20px;
 }
@@ -95,61 +94,61 @@ ul.userdetails > li {
     text-align: left;
     margin-top: 20px;
 }
-    .userinterests > li{
-        margin: 10px 0;
-    }
-        .userinterests li div{
-            font-weight: bold;
-            clear: both;
-            margin: 2px 0;
-        }
-        .userinterests li ul li{
-            float: left;
-            margin-right: 5px;
-            position: relative;
-        }
-        .userinterests li ul li:after{
-            content: ',';
-        }
-        .userinterests li ul li.last:after{
-            content: '';
-        }
-        .userinterests li ul li span.delete{
-            font-weight: bold;
-            cursor: pointer;
-            border: 2px solid transparent;
-            padding: 1px;
-            display: inline-block;
-            height: 11px;
-            line-height: 9px;
-            width: 11px;
-            vertical-align: top;
-        }
-        .userinterests li ul li span.delete:hover{
-            border: 2px solid #22a;
-            background: black;
-            -moz-border-radius: 10px;
-        }
+.userinterests > li{
+    margin: 10px 0;
+}
+.userinterests li div{
+    font-weight: bold;
+    clear: both;
+    margin: 2px 0;
+}
+.userinterests li ul li{
+    float: left;
+    margin-right: 5px;
+    position: relative;
+}
+.userinterests li ul li:after{
+    content: ',';
+}
+.userinterests li ul li.last:after{
+    content: '';
+}
+.userinterests li ul li span.delete{
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 1px;
+    display: inline-block;
+    height: 11px;
+    line-height: 9px;
+    width: 11px;
+    vertical-align: top;
+}
+.userinterests li ul li span.delete:hover{
+    border: 2px solid #22a;
+    background: black;
+    -moz-border-radius: 10px;
+}
 .useritems{
     float: right;
 }
-    .useritems li {
-        float: left;
-        text-align: center;
-        padding: 0 15px;
-    }
-        .useritems li a{
-            text-decoration: none;
-        }
-            .useritems li a:hover {
-            }
-            .useritems li a span {
-                font-size: 160%;
-                font-weight: bold;
-                display: block;
-            }
+.useritems li {
+    float: left;
+    text-align: center;
+    padding: 0 15px;
+}
+.useritems li a{
+    text-decoration: none;
+}
+.useritems li a:hover {
+}
+.useritems li a span {
+    font-size: 160%;
+    font-weight: bold;
+    display: block;
+}
 
-#friendship {
+.friendship {
     margin: 3px 0;
     padding: 5px;
     border: 1px solid #234;
@@ -159,28 +158,27 @@ ul.userdetails > li {
     -webkit-border-radius: 5px;
     float: left;
 }
-    #friendship a {
-        color: #234;
-        font-weight: bold;
-        text-decoration: none;
-        position: relative;
-        display: block;
-        padding: 3px;
-    }
-    #friendship .love strong {
-        color: #234;
-    }
-    #friendship a strong.delete {
-        display: none;
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        color: #abc;
-    }
-    #friendship a:hover strong.delete {
-        display: inline;
-    }
-
+.friendship a {
+    color: #234;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    padding: 3px;
+}
+.friendship .love strong {
+    color: #234;
+}
+.friendship a strong.delete {
+    display: none;
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    color: #abc;
+}
+.friendship a:hover strong.delete {
+    display: inline;
+}
 textarea.aboutme {
     width: 300px;
     height: 300px;

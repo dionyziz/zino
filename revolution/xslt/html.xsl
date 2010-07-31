@@ -70,6 +70,7 @@
                     'journal.view': Journal,
                     'user.view': Profile,
                     'favourite.listing': Favourite,
+                    'friendship.listing': Friends,
 				}[ '<xsl:value-of select="$mastertemplate" />' ].Init();
                 Presence.Init();
             </script>

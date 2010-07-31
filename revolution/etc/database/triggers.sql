@@ -364,10 +364,10 @@ CREATE TRIGGER songdelete AFTER DELETE ON `song`
 
 CREATE TRIGGER statusinsert AFTER INSERT ON `statusbox`
     FOR EACH ROW BEGIN
-        INSERT INTO `activities` ( `activity_index`, `activity_userid`, `activity_typeid`, `activity_refid`, `activity_itemid`, `activity_itemtype`, `activity_bulkid`, `activity_text`, `activity_url`, `activity_created` ) VALUES( RAND()*100, NEW.`statusbox_userid`, 6, `statusbox_id`, 0, 11, 0, NEW.`statusbox_message`, '', NOW() ) ON DUPLICATE KEY UPDATE
+        INSERT INTO `activities` ( `activity_index`, `activity_userid`, `activity_typeid`, `activity_refid`, `activity_itemid`, `activity_itemtype`, `activity_bulkid`, `activity_text`, `activity_url`, `activity_created` ) VALUES( RAND()*100, NEW.`statusbox_userid`, 6, NEW.`statusbox_id`, 0, 11, 0, NEW.`statusbox_message`, '', NOW() ) ON DUPLICATE KEY UPDATE
         	`activity_userid` = NEW.`statusbox_userid`,
         	`activity_typeid` = 6,
-        	`activity_refid` = `statusbox_id`,
+        	`activity_refid` = NEW.`statusbox_id`,
         	`activity_itemid` = 0,
         	`activity_itemtype` = 11,
         	`activity_bulkid` = 0,
@@ -433,14 +433,14 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
         DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id`;                                                                             
-        DELETE FROM `photos` WHERE `photo_userid`=OLD.`user_id`;
+        DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
 	END;
 |
 
 CREATE TRIGGER userupdate AFTER UPDATE ON `users`
     FOR EACH ROW BEGIN
         IF NEW.`user_deleted` = 1 AND OLD.`user_deleted` = 0 THEN
-            UPDATE `photos` SET `photo_delid` = 2 WHERE `photo_userid` = NEW.`user_id`;
+            UPDATE `images` SET `image_delid` = 2 WHERE `image_userid` = NEW.`user_id`;
         END IF;
     END;
 |
