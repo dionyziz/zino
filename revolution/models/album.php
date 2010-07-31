@@ -27,7 +27,7 @@
 			return $row;
         }
         public static function ListByUser( $userid, $offset = 0, $limit = 50 ) {
-            is_int( $userid ) or die( 'userid not an integer' );
+            is_numeric( $userid ) or die( 'userid not an integer' );
 
             $res = db(
                 'SELECT
@@ -36,7 +36,8 @@
                 FROM
                     `albums` 
                 WHERE
-                    `album_ownerid` = :userid
+                    `album_ownerid` = :userid AND
+                    `album_delid` = 0
                 LIMIT :offset, :limit;',
                 compact( 'userid', 'offset', 'limit' )
             );
@@ -117,7 +118,7 @@
             );
         }
         public static function Delete( $id ) {
-            is_int( $id ) or die( 'id not an int' );
+            is_numeric( $id ) or die( 'id not numeric' );
             $success = db( "DELETE FROM `albums` WHERE `album_id` = :id LIMIT 1;", array( 'id' => $id ) );
             if ( !$success ) {
                 return false;

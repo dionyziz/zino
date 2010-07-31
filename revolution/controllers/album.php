@@ -1,6 +1,6 @@
 <?php
     
-    class Album {
+    class ControllerAlbum {
         public static function Create( $name, $description ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create an album' );
 
@@ -43,6 +43,16 @@
 
             include 'views/album/view.php';
         }
+        public static function Listing( $username ) {
+            clude( 'models/db.php' );
+            clude( 'models/album.php' );
+            clude( 'models/user.php' );
+
+            $user = User::ItemByName( $username );
+            $albums = Album::ListByUser( $user[ 'id' ] );
+
+            include 'views/album/listing.php';
+        }
         public static function Delete( $albumid ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create an album' );
 
@@ -53,11 +63,6 @@
             $album = Album::Item( $albumid );
             $album[ 'user' ][ 'id' ] == $user[ 'id' ] or die( 'This is not your album' );
             Album::Delete( $albumid );
-
-            // TODO get albums
-            $albums = Album::ListByUser( $user[ 'id' ] );
-
-            include 'view/album/list.php';
         }
     }
 

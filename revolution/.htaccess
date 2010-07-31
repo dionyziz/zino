@@ -8,6 +8,9 @@ RewriteRule ^photo/create$ index.php?resource=photo&method=create [L,QSA]
 RewriteRule ^photo/delete$ index.php?resource=photo&method=delete [L,QSA]
 RewriteRule ^photos/byalbum/([0-9]+)$ index.php?resource=photo&method=listing&albumid=$1 [L,QSA]
 
+# albums
+RewriteRule ^albums/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=album&method=listing&username=$1 [L,QSA]
+
 # polls
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
 RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&username=$1 [L,QSA]
