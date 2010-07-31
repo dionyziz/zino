@@ -104,10 +104,8 @@
 							clude( 'views/user/changepassword.php' );
 							return;
 						}		
-						echo (int)$success . " " . "Changing";
 						$success = User::SetPassword( $userid, $options[ 'oldpass' ], $options[ 'newpass' ] );
-						echo (int)$success . " " . "Changing";
-						clude( 'views/user/changepassword.php' );
+						include 'views/user/changepassword.php';
 						return;
 					}
 				}
