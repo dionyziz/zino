@@ -113,9 +113,9 @@
                  FROM
                     `notify`
                  WHERE
-                    `notify_typeid` = :eventtype
-                    AND `notify_touserid` = :userid
-                    AND `notify_itemid` = :itemid
+                    `notify_typeid` = :eventtype AND
+                    `notify_touserid` = :userid AND
+                    `notify_itemid` = :itemid
                  LIMIT 1', compact( 'eventtype', 'userid', 'itemid' ) );
         }
     }

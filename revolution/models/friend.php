@@ -164,7 +164,11 @@
             $id = mysql_insert_id();
             Notification::Create( $userid, $friendid, EVENT_FRIENDRELATION_CREATED, $id );
             $reverserelation = self::ItemByUserIds( $friendid, $userid );
-            Notification::DeleteByInfo( EVENT_FRIENDRELATION_CREATED, $reverserelation[ 'id' ], $userid );
+            if ( isset( $reverserelation[ 'id' ] ) ) {
+                Notification::DeleteByInfo( EVENT_FRIENDRELATION_CREATED, $reverserelation[ 'id' ], $userid );
+            }
+
+            return true;
         }
         public static function Delete( $userid, $friendid ) {
             clude( 'models/db.php' );
