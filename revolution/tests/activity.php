@@ -15,8 +15,7 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mStatusData = array( 
-				array( $userid, "Aoua?" ),
-				array( $userid, "Pou kai pote" )
+				array( $userid, "Aoua?" )
 			);
         }
         /*public function TearDown() {
@@ -31,11 +30,14 @@
          */
         public function TestCreate( $userid, $text ) {			
 			Status::Create( $userid, $text );
-			$act = Activity::ListByUser( $userid, 1 );
-			//$this->AssertArrayHasKeys( $act[ 0 ], array( 'status', 'typeid', 'user' ) );
-			//$this->AssertArrayHasKeys( $act[ 0 ][ 'status' ], array( 'message' ) );
-			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text );
-			$this->AssertEquals( $act[ 0 ][ 'typeid' ], ACTIVITY_STATUS );
+			$act = Activity::ListByUser( $userid, 100 );
+			$success = false;
+			foreach ( $act as $sam ) {
+				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS && $sam[ 'status' ][ 'message' ] == $text ) {
+					$success = true;
+				}
+			}
+			$this->AssertEquals( $sucess, true );//activity exists
         }
 
 		public function GetStatusData() {
