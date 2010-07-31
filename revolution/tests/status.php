@@ -37,5 +37,5 @@
 		}
 	}
 	
-	return New TestActivity();
+	return New TestStatus();
 ?>
