@@ -34,7 +34,7 @@
 			$this->AssertIsArray( $act );
 			var_dump( $act );
 			$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_STATUS, "Activity should be status type" ); 
-			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text, "Wrong Text" );
+			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text, "Status Activity: Wrong Text" );
         }
 
 		public function GetStatusData() {
