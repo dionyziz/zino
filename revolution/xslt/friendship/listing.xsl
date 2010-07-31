@@ -18,7 +18,7 @@
     </h2>
     <ul>
     <xsl:attribute name="class">friends <xsl:if test="$user = /social/friends/@of">mine</xsl:if></xsl:attribute>
-    <xsl:for-each select="friends/entry">
+    <xsl:for-each select="friends/friend">
         <li class="friend">
             <div style="position: absolute; right: 250px; padding-top: 5px;">
                 <xsl:if test="$user = /social/friends/@of">

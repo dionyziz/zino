@@ -1,7 +1,7 @@
 <friends of="<?= $username ?>" count="<?= count( $friends ); ?>">
     <? global $settings;
     foreach ( $friends as $friend ): ?>
-    <entry id="<?= $friend[ 'id' ] ?>">
+    <friend id="<?= $friend[ 'id' ] ?>">
         <name><?= $friend[ 'name' ] ?></name>
             <subdomain><?= $friend[ 'subdomain' ] ?></subdomain>
         <?php if ( $friend[ 'age' ] > 0 ): ?>
@@ -23,6 +23,6 @@
         <? if ( isset( $friend[ 'friendofuser' ] ) ): ?>
             <knownBy><?= $_SESSION[ 'user' ][ 'name' ]; ?></knownBy>
         <? endif; ?>
-    </entry>
+    </friend>
     <? endforeach; ?>
 </friends>
