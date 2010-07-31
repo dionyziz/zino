@@ -33,10 +33,9 @@
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
 			$success = false;
-			var_dump( $act );
+
 			foreach ( $act as $sam ) {
-				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS ) {
-						//&& strcmp( $sam[ 'status' ][ 'message' ], $text ) == 0 ) {
+				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS && $sam[ 'status' ][ 'message' ] == $text ) {
 					$success = true;
 				}
 			}

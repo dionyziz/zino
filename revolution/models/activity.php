@@ -75,7 +75,7 @@
                     default:
                         die( 'unknown activity type' );
                 }
-                return $activities[] = $activity;
+                $activities[] = $activity;
             }
             return $activities;
         }
