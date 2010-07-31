@@ -147,6 +147,8 @@ var Profile = {
                    'sexualorientation': 'li.sexualorientation > span',
                    'eyecolor': 'li.eyecolor > span',
                    'haircolor': 'li.haircolor > span',
+                   'height': 'li.height > span',
+                   'weight': 'li.weight > span'
                  },
     PopulateEditables: function() {
         UserDetails.Init();
@@ -160,7 +162,12 @@ var Profile = {
         switch( field ) {
             default:
                 var oldselect = $( element ).find( 'select.dropdown' );
-                Profile.CurrentValues[ field ] = oldselect.val() || '-';
+                if ( field == 'height' || field == 'weight' ) {
+                    Profile.CurrentValues[ field ] = oldselect.val() || '-3';
+                }
+                else {
+                    Profile.CurrentValues[ field ] = oldselect.val() || '-';
+                }
                 oldselect.empty();
                 var select = $( '<select />' ).addClass( 'dropdown' );
                 
@@ -192,11 +199,15 @@ var Profile = {
         var nbsp = String.fromCharCode( 160 );
         var select = $( element ).find( 'select' );
         select.empty();
+        if ( typeof( map[ -2 ] ) != 'undefined' ) {
+            $( '<option />' ).attr( 'value', -2 ).text( nbsp + map[ -2 ] + nbsp).appendTo( select );
+        }
         for ( key in map ) {
-            $( '<option />' ).attr( 'value', key ).text( nbsp + map[ key ] + nbsp).appendTo( select );
+            if ( key != -2 ) {
+                $( '<option />' ).attr( 'value', key ).text( nbsp + map[ key ] + nbsp).appendTo( select );
+            }
         }
         select.val( Profile.CurrentValues[ field ] );
-        
         Profile.UpdateField( $( element ).find( 'span' ), field );
     },
     UpdateField: function( span, field ) {

@@ -22,7 +22,9 @@ var UserDetails = {
         else {
             map =  UserDetails.GenderStrings[ gender == 'f' ? 'f' : 'm' ][ field ];
         }
-        map[ '-' ] = 'Να μην εμφανίζεται';
+        if ( field != 'height' && field != 'weight' ) {
+            map[ '-' ] = 'Να μην εμφανίζεται';
+        }
         return map;
     },
     AcceptableValues: {
@@ -59,8 +61,32 @@ var UserDetails = {
             blue: 'Μπλε',
             grey: 'Γκρι'
         };
+        var height = {};
+        for ( var i = 120; i <= 220; ++i ) {
+            height[ i ] = Math.floor( i / 100 ) + '.' +
+                (
+                    ( ( i % 100 ) < 10 ) ? 
+                        '0' + ( i % 100 ) :
+                        ( i % 100 )
+                )
+                + 'm';
+        }
+        height[ -1 ] = 'Πάνω από 2.20m'
+        height[ -2 ] = 'Κάτω από 1.20m'
+        height[ -3 ] = 'Να μην εμφανίζεται';
+        
+        var weight = {};
+        for ( var i = 40; i <= 120; ++i ) {
+            weight[ i ] = i + 'kg';
+        }
+        weight[ -1 ] = 'Πάνω από 120kg';
+        weight[ -2 ] = 'Κάτω από 40kg';
+        weight[ -3 ] = 'Να μην εμφανίζεται';
+        
         UserDetails.GenderStrings = {
             m: {
+                weight: weight,
+                height: height,
                 smoker: social,
                 drinker: social,
                 relationship: {
@@ -107,6 +133,8 @@ var UserDetails = {
                 haircolor: hair
             },
             f: {
+                weight: weight,
+                height: height,
                 smoker: social,
                 drinker: social,
                 relationship: {

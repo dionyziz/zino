@@ -35,7 +35,7 @@
             'eyecolor', 'haircolor'
            );
            foreach ( $stats as $stat ):
-           if ( isset( $user[ 'profile' ][ $stat ] ) ): ?>
+           if ( isset( $user[ 'profile' ][ $stat ] ) && $user[ 'profile' ][ $stat ] != '-' ): ?>
            <<?= $stat ?>><?= htmlspecialchars( $user[ 'profile' ][ $stat ] ) ?></<?= $stat ?>>
         <? endif;
            endforeach; ?>

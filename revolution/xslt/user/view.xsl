@@ -221,21 +221,48 @@
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
     <ul class="userdetails">
         <li class="heightweight">
-            <xsl:if test="height">
-                <span>
-                    <xsl:value-of select="height div 100" />
-                </span>
-                m
-            </xsl:if>
-            <xsl:if test="weight">
-                <span>
-                    <xsl:if test="height and weight">
-                        <xsl:attribute name="class">dot</xsl:attribute>
-                    </xsl:if>
-                    <xsl:value-of select="weight" />
-                </span>
-                kg
-            </xsl:if>
+            <ul>
+                <xsl:if test="height or $user = ../name[1]">
+                    <li class="height">Ύψος:
+                        <span>
+                            <span><xsl:choose>
+                                <xsl:when test="height &gt; 0">
+                                    <xsl:value-of select="height div 100" />m
+                                </xsl:when>
+                                <xsl:when test="height = -2">
+                                    Κάτω από 1.20m
+                                </xsl:when>
+                                <xsl:when test="height = -1">
+                                    Πάνω από 2.20m
+                                </xsl:when>
+                            </xsl:choose></span>
+                            <xsl:if test="$user = ../name[1]">
+                                <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="height" /></xsl:attribute>
+                                    <option><xsl:attribute name="value"><xsl:value-of select="height" /></xsl:attribute></option>
+                                </select>
+                            </xsl:if>
+                        </span>
+                    </li>
+                </xsl:if>
+                <xsl:if test="weight or $user = ../name[1]">
+                    <li>
+                        <xsl:attribute name="class">weight <xsl:if test="( height and weight ) or $user = ../name[1]">dot</xsl:if></xsl:attribute>
+                        Βάρος:
+                        <span>
+                            <span><xsl:choose>
+                                <xsl:when test="weight &gt; 0">
+                                    <xsl:value-of select="weight" />kg
+                                </xsl:when>
+                            </xsl:choose></span>
+                            <xsl:if test="$user = ../name[1]">
+                                <select class="dropdown"><xsl:attribute name="value"><xsl:value-of select="weight" /></xsl:attribute>
+                                    <option><xsl:attribute name="value"><xsl:value-of select="weight" /></xsl:attribute></option>
+                                </select>
+                            </xsl:if>
+                        </span>
+                    </li>
+                </xsl:if>
+            </ul>
         </li>
         <xsl:if test="smoker or $user = ../name[1]">
             <li class="smoker">

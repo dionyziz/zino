@@ -310,7 +310,22 @@
                 $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];
                 unset( $row[ 'profile_' . $detail ] );
             }
-            static $positivefields = array( 'height', 'weight' );
+            
+            if ( isset( $row[ 'profile' ][ 'height' ] ) ) {
+                $height = $row[ 'profile' ][ 'height' ];
+                if ( !( ( $height >= -3 && $height <= -1 ) || ( $height >= 120 && $height <= 220 ) ) ) {
+                    unset( $row[ 'profile' ][ 'height' ] );
+                }
+            }
+            if ( isset( $row[ 'profile' ][ 'weight' ] ) ) {
+                $weight = $row[ 'profile' ][ 'weight' ];
+                if ( !( ( $weight >= -3 && $weight <= -1 ) || ( $weight >= 40 && $weight <= 120 ) ) ) {
+                    die( $weight );
+                    unset( $row[ 'profile' ][ 'weight' ] );
+                }
+            }
+            
+            static $positivefields = array( /* 'height', 'weight' - commented out by Chorvus due to special negative values*/ );
             foreach ( $positivefields as $field ) {
                 if ( !( $row[ 'profile' ][ $field ] > 0 ) ) {
                     unset( $row[ 'profile' ][ $field ] );

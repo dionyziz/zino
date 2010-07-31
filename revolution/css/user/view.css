@@ -19,18 +19,18 @@
     color: #72B3DB;
     overflow: hidden;
 }
-.maininfo ul.asl {
+.maininfo ul.asl, .heightweight ul {
     overflow: hidden;
 }
 .maininfo ul.asl li.dot:before,
-.heightweight span.dot:before {
+.heightweight ul li.dot:before {
     content: ' ● ';
     color: #72b3db;
     font-size: 70%;
     position: relative;
     top: -2px;
 }
-.maininfo ul.asl > li {
+.maininfo ul.asl > li, .heightweight ul > li {
     float: left;
     margin: 0 3px 0 0;
 }
@@ -50,7 +50,7 @@
     float: left;
 }
 
-.userdetails li {
+ul.userdetails > li {
     padding: 2px 0;
     text-align: left;
     width: 100%;
@@ -60,13 +60,15 @@
         font-weight: normal;
     }
     li.heightweight {
-        font-weight: normal;
         text-align: center;
-        padding: 1em 0;
-    }    
-    ul.userdetails li.heightweight span {
-        font-weight: bold;
     }
+        li.heightweight ul {
+            text-align: center;
+            padding: 1em 0;
+        }
+        li.heightweight ul li {
+            font-weight: bold;
+        }
     ul.userdetails li.aboutme {
         padding: 1em 0;
     }
