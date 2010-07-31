@@ -35,7 +35,8 @@
 			$this->AssertArrayHasKeys( $act[ 0 ], array( 'typeid', 'user' ), 'array returned doesnt have the correct keys' );
 			$success = false;
 			foreach ( $act as $sam ) {
-				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS && $sam[ 'status' ][ 'message' ] == $text ) {
+				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS 
+						&& $sam[ 'status' ][ 'message' ] == $text ) {
 					$success = true;
 				}
 			}
