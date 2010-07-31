@@ -100,6 +100,7 @@
 					else if ( $key == 'newpass' ) {
 						//change only this and return success or failure
 						$success = false;
+						echo $success . " " . "Changing";
 						if ( !isset( $options[ 'oldpass' ] ) || !isset( $options[ 'newpass' ] ) ) {
 							clude( 'views/user/changepassword.php' );
 							return;
