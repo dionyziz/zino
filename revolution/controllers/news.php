@@ -25,8 +25,8 @@
             //    $content[ $i ][ 'type' ] = 'photo';
             //    ++$i;
             //}
-            shuffle( $content );
-            shuffle( $content );
+            // shuffle( $content );
+            // shuffle( $content );
             global $settings;
             include 'views/news/listing.php';
         }

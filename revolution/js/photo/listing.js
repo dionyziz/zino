@@ -81,11 +81,16 @@ var PhotoListing = {
                     alert( id );
                 }
                 $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
-                if ( count !== 0 ) {
-                    $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
+                if ( count != '0' ) {
+                    if ( count > 99 ) {
+                        $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
+                    }
+                    else {
+                        $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">∞</span>' ) );
+                    }
                 }
             } );
-            if( responseSize < 100 ){
+            if ( responseSize < 100 ){
                 PhotoListing.EndOfPhotos = true;
                 var lastChild = $( '.photostream ul li:last' )[ 0 ];
                 for( i = 0; i < 100 - responseSize; ++i ) {
