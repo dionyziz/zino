@@ -100,14 +100,13 @@
 					else if ( $key == 'newpass' ) {
 						//change only this and return success or failure
 						$success = false;
-						echo (int)$success . " " . "Changing";
 						if ( !isset( $options[ 'oldpass' ] ) || !isset( $options[ 'newpass' ] ) ) {
-							die( "prob in argum" );
 							clude( 'views/user/changepassword.php' );
 							return;
 						}		
-						die( "almost there" );				
+						echo (int)$success . " " . "Changing";
 						$success = User::SetPassword( $userid, $options[ 'oldpass' ], $options[ 'newpass' ] );
+						echo (int)$success . " " . "Changing";
 						clude( 'views/user/changepassword.php' );
 						return;
 					}
