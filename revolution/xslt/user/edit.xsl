@@ -1,6 +1,10 @@
 <xsl:template name="user.modal.settings">
-    <div class="modal settingsmodal">
+    <div class="modal tabbed settingsmodal">
         <h2>Λογαριασμός</h2>
+        <ul class="tabs">
+            <li class="selected">Κωδικός</li>
+            <li>Ειδοποιήσεις</li>
+        </ul>
         <ul>
             <li><span class="info">Παλιός κωδικός:</span><input type="password" name="oldpassword" /></li>
             <li><span class="info">Νέος κωδικός:</span><input type="password" name="newpassword" /></li>

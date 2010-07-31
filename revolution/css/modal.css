@@ -57,3 +57,30 @@
 div.modaloverlay {
 	background: #000;
 }
+.modal.tabbed {
+    padding-top: 60px;
+}
+.modal.tabbed ul.tabs {
+    background-color:#6C8ABB;
+    padding: 2px 0 0 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    line-height: 35px;
+}
+.modal.tabbed ul.tabs > li {
+    -moz-border-radius-topleft: 5px;
+    border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-radius-topright: 5px;
+    display: inline;
+    font-weight: bold;
+    margin: 0 23px;
+    padding: 9px;
+    text-decoration: underline;
+}
+.modal.tabbed ul.tabs > li.selected {
+    background-color: #e8eaec;
+    text-decoration: none;
+}
