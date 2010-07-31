@@ -1,0 +1,26 @@
+<albums>
+    <?php foreach ( $albums as $album ): ?>
+    <album id="<?= $album[ 'id' ]; ?>">
+        <name><?= $album[ 'name' ]; ?></name>  
+        <author id="<?= $album[ 'ownerid' ] ?>">
+            <type id="<?= $album[ 'ownertype' ] ?>"><?php
+            switch ( $album[ 'ownertype' ] ) {
+                case TYPE_USERPROFILE:
+                    ?>user<?php
+                    break;
+                case TYPE_SCHOOL:
+                    ?>school<?php
+                    break;
+                default:
+                    ?>unknown<?php
+            }
+            ?></type>
+        </author>
+        <?php if ( $album[ 'mainimageid' ] > 0 ): ?>
+        <photos count="<?= $album[ 'numphotos' ] ?>">
+            <photo main="yes" id="<?= $album[ 'mainimageid' ] ?>"></photo>
+        </photos>
+        <?php endif; ?>
+    </album>
+    <?php endforeach; ?>
+</albums>
