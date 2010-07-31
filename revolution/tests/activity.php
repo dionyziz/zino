@@ -32,15 +32,9 @@
 			Status::Create( $userid, $text );
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
-			$success = false;
 			var_dump( $act );
-
-			foreach ( $act as $sam ) {
-				if ( $sam[ 'typeid' ] == ACTIVITY_STATUS && $sam[ 'status' ][ 'message' ] == $text ) {
-					$success = true;
-				}
-			}
-			$this->AssertEquals( $success, true );//activity exists
+			$this->AssertEquals( $act[ 0 ][ 'typeid' ], ACTIVITY_STATUS, "Activity should be status type" ); 
+			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text, "Wrong Text" );
         }
 
 		public function GetStatusData() {
