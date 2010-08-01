@@ -130,7 +130,7 @@ var Profile = {
             if ( now.getMonth() + 1 >= month && now.getDate() >= day ) {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year;
             }
-            else (
+            else {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year - 1;
             }
         } );
