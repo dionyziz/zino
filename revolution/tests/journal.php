@@ -14,7 +14,7 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mData = array( 
-				array( $userid, "Eftasehwra", "Na fygoume" ),
+				array( $userid, "Eftase hwra?", "Na fygoume" ),
 				array( $userid, "Pws", "Alla kai gt" )
 			);
         }
@@ -33,7 +33,6 @@
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
 			$item = Journal::Item( $id );
-			var_dump( $item );
 			$this->AssertIsArray( $item );
 			$this->AssertEquals( $item[ "title" ], $title, "Wrong Title" );
 			$this->AssertEquals( $item[ "text" ], $text, "Wrong Text" );
