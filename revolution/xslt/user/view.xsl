@@ -96,7 +96,7 @@
                                 <xsl:if test="gender[1] or $user = name[1]">
                                     <xsl:attribute name="class">dot</xsl:attribute>
                                 </xsl:if>
-                                <span class="age"><xsl:value-of select="age[1]" /></span>
+                                <span id="age"><xsl:value-of select="age[1]" /></span>
                             </li>
                         </xsl:if>
                         <xsl:if test="location[1] or $user = name[1]">

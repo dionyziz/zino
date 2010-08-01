@@ -123,6 +123,7 @@ var Profile = {
     PrepareInlineEditables: function() {
         Profile.PrepareMoodPicker();
         Profile.PopulateEditables();
+        Calendar.Init( 'age' );
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
                 var $modal = $( this ).filter( 'div' );
