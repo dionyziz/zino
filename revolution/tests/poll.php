@@ -14,8 +14,8 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mData = array( 
-				array( $userid, "Pws kai gt", array( "Na fygoume", "Na pame", "gt?" ) )
-				//array( $userid, "Dwse mia stigmh", array( "Alla kai gt", "jaf", "aslfh" ) )
+				array( $userid, "Pws kai gt", array( "Na fygoume", "Na pame", "gt?" ) ), 
+				array( $userid, "Dwse mia stigmh", array( "Alla kai gt", "jaf", "aslfh" ) )
 			);
         }
         public function TearDown() {
@@ -34,7 +34,6 @@
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
 			$item = Poll::Item( $id );
-			var_dump( $item );
 			$this->AssertIsArray( $item );
 			$this->AssertEquals( $item[ "question" ], $question, "Wrong Title" );
 			$success = false;
