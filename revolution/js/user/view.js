@@ -125,14 +125,20 @@ var Profile = {
         Profile.PopulateEditables();
         $( '#age' ).addClass( 'editable' );
         Calendar.Init( 'age', function( year, month, day ) {
-            $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
             var now = new Date();
+            if( now.getFullYear() - 60 > year ){
+                year = now.getFullYear() - 60;
+            }
+            if( now.getFullYear() - 5 < year ){
+                year = now.getFullYear() - 5;
+            }
             if ( now.getMonth() + 1 >= month && now.getDate() >= day ) {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year;
             }
             else {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year - 1;
             }
+            $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
         } );
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
