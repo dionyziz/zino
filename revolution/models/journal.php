@@ -148,13 +148,11 @@
             $text = nl2br( htmlspecialchars( $text ) );
             $text = WYSIWYG_PostProcess( $text );
             $bulkid = Bulk::Store( $text );
-			echo "INSERT INTO `journals` 
-                            ( `journal_id`, `journal_userid`, `journal_title`, `journal_url`, `journal_bulkid`, `journal_created`, `journal_delid`, `journal_numcomments` )
-                        VALUES ( 0, " . $userid .", ". $title . "," . $url . ", " . $bulkid . ", NOW(), 0, 0 )";
+
             $res = db( 
                         "INSERT INTO `journals` 
                             ( `journal_id`, `journal_userid`, `journal_title`, `journal_url`, `journal_bulkid`, `journal_created`, `journal_delid`, `journal_numcomments` )
-                        VALUES ( 0, :userid, :title, :url, :bulkid, NOW(), 0, 0 )", 
+                        VALUES ( 0, :userid, ':title', ':url', :bulkid, NOW(), 0, 0 )", 
                         compact( 'userid', 'title', 'url', 'bulkid' )
             );
 

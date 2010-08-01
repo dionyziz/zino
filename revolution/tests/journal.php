@@ -14,8 +14,8 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mData = array( 
-				array( $userid, "Eftase h wra", "Na fygoume" ),
-				array( $userid, "Pws?", "Alla kai gt" )
+				array( $userid, "Eftasehwra", "Na fygoume" ),
+				array( $userid, "Pws", "Alla kai gt" )
 			);
         }
         public function TearDown() {
