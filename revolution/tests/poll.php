@@ -6,7 +6,7 @@
 
 
 		public function SetUp() {
-            clude( 'models/journal.php' );
+            clude( 'models/poll.php' );
             clude( 'models/types.php' );
             clude( 'models/user.php' );
 
@@ -14,8 +14,8 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mData = array( 
-				array( $userid, "Pws kai gt", array( "Na fygoume", "Na pame", "gt?" ) ),
-				array( $userid, "Dwse mia stigmh", array( "Alla kai gt", "jaf", "aslfh" ) )
+				array( $userid, "Pws kai gt", array( "Na fygoume", "Na pame", "gt?" ) )
+				//array( $userid, "Dwse mia stigmh", array( "Alla kai gt", "jaf", "aslfh" ) )
 			);
         }
         public function TearDown() {
