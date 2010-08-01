@@ -36,7 +36,7 @@
 			var_dump( $item );
 			$this->AssertIsArray( $item );
 			$this->AssertEquals( $item[ "title" ], $title, "Wrong Title" );
-			$this->AssertEquals( $item[ "bulk_text" ], $text, "Wrong Text" );
+			$this->AssertEquals( $item[ "text" ], $text, "Wrong Text" );
 			$this->AssertEquals( ( int )$item[ "user" ][ "id" ], $userid, "Wrong Creator" );
 			return $item;
         }
