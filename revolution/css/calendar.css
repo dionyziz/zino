@@ -1,0 +1,19 @@
+#calendar {
+    width: 175px;
+    text-align: center;
+}
+    #calendar ul {
+        margin: 0;
+        padding: 0;
+    }
+        #calendar li {
+            list-style: none;
+            float: left;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+            #calendar li a {
+                text-decoration: none;
+            }
+
