@@ -56,6 +56,19 @@
 		/**
          * @producer TestCreate
          */
+        public function TestVote( $info ) {
+            $id = (int)$info[ 'id' ];
+			$userid = ( int )$info[ "userid" ];
+			$optionid = ( int )$info[ "option" ][ "id" ];
+            PollVote::Create( $id, $optionid, $userid );
+
+            $vote = PollVote::Item( $id, $userid );
+            $this->Assert( $vote, 'PollVote::Vote wasnt created' );
+			return $info;
+        }
+		/**
+         * @producer TestVote
+         */
         public function TestDelete( $info ) {
             $id = (int)$info[ 'id' ];
             $success = Poll::Delete( $id );
