@@ -30,8 +30,9 @@ var PhotoListing = {
 			$( '.useralbums' ).click( function() {
 				if ( $( this ).hasClass( 'expanded' ) ) {
 					$( this ).removeClass( 'expanded' ).animate( {
-						height: '15px'
+						height: '22px'
 					} );
+                    return;
 				}
 				$( this ).addClass( 'expanded' );
 				$( this ).animate( {

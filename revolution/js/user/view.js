@@ -123,7 +123,17 @@ var Profile = {
     PrepareInlineEditables: function() {
         Profile.PrepareMoodPicker();
         Profile.PopulateEditables();
-        Calendar.Init( 'age' );
+        $( '#age' ).addClass( 'editable' );
+        Calendar.Init( 'age', function( year, month, day ) {
+            $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
+            var now = new Date();
+            if ( now.getMonth() + 1 >= month && now.getDate() >= day ) {
+                document.getElementById( 'age' ).innerHTML = now.getFullYear() - year;
+            }
+            else (
+                document.getElementById( 'age' ).innerHTML = now.getFullYear() - year - 1;
+            }
+        } );
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
                 var $modal = $( this ).filter( 'div' );

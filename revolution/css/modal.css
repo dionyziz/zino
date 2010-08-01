@@ -38,7 +38,7 @@
     border-radius: 5px;
     color: black;
     border: 2px solid #ccc;
-    padding: 0.2em;
+    padding: 2px;
 }
 .modal .close, .modalclose {
     position: absolute;

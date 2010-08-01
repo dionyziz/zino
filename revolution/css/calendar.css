@@ -1,6 +1,9 @@
 #calendar {
     width: 175px;
     text-align: center;
+    background: #213549;
+    padding: 10px;
+    border: 1px solid black;
 }
     #calendar ul {
         margin: 0;

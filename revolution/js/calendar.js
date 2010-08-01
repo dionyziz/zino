@@ -93,27 +93,33 @@ var Calendar = {
         $( '#' + id ).click( function( e ) {
             if ( Calendar.Element.style.display == 'none' ) {
                 Calendar.Element.style.display = 'block';
-                Calendar.Element.style.top = e.pageY + 20;
-                Calendar.Element.style.left = e.pageX;
+                Calendar.Element.style.top = e.pageY + 20 + 'px';
+                Calendar.Element.style.left = e.pageX + 'px';
                 return;
             }
             Calendar.Element.style.display = 'none';
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 0 ].getElementsByTagName( 'a' )[ 0 ] ).click( function() {
             Calendar.SetDate( Calendar.CurrentDate.getFullYear() - 1, Calendar.CurrentDate.getMonth() + 1 );
+            return false;
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 0 ].getElementsByTagName( 'a' )[ 1 ] ).click( function() {
             Calendar.SetDate( Calendar.CurrentDate.getFullYear() + 1, Calendar.CurrentDate.getMonth() + 1 );
+            return false;
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 1 ].getElementsByTagName( 'a' )[ 0 ] ).click( function() {
             Calendar.SetDate( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() == 0 ? 12 : Calendar.CurrentDate.getMonth() );
+            return false;
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 1 ].getElementsByTagName( 'a' )[ 1 ] ).click( function() {
             Calendar.SetDate( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() == 11 ? 1 : Calendar.CurrentDate.getMonth() + 2 );
+            return false;
         } );
         if( typeof callback === 'function' ){
             $( '.month li a', Calendar.Element ).click( function() {
                 callback( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() + 1, this.innerHTML );
+                Calendar.Element.style.display = 'none';
+                return false;
             } );
         }
     }

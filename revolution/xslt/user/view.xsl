@@ -91,7 +91,7 @@
                                 </xsl:if>
                             </li>
                         </xsl:if>
-                        <xsl:if test="age[1]">
+                        <xsl:if test="age[1] or $user = name[1]">
                             <li class="age">
                                 <xsl:if test="gender[1] or $user = name[1]">
                                     <xsl:attribute name="class">dot</xsl:attribute>
