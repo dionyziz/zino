@@ -59,7 +59,7 @@
         public function TestVote( $info ) {
             $id = (int)$info[ 'id' ];
 			$userid = ( int )$info[ "userid" ];
-			$optionid = ( int )$info[ "options" ][ "id" ];
+			$optionid = ( int )$info[ "options" ][ 0 ][ "id" ];
             PollVote::Create( $id, $optionid, $userid );
 
             $vote = PollVote::Item( $id, $userid );
