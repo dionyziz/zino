@@ -63,6 +63,7 @@
             PollVote::Create( $id, $optionid, $userid );
 
             $vote = PollVote::Item( $id, $userid );
+			var_dump( $vote );
             $this->Assert( $vote, 'PollVote::Vote wasnt created' );
 			return $info;
         }
