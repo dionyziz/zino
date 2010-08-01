@@ -28,7 +28,7 @@
         /**
          * @dataProvider GetData
          */
-        public function TestCreate( $userid, $text ) {		
+        public function TestCreate( $userid, $title, $text ) {		
 			$info = Journal::Create( $userid, $title, $text );
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
