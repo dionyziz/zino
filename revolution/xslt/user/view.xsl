@@ -156,44 +156,43 @@
                 <xsl:apply-templates select="details" />
 
                 <xsl:apply-templates select="song" />
-                
+               
                 <ul class="userinterests">
-                    <xsl:for-each select="taglist">
-                        <li>
-                            <xsl:attribute name="class"><xsl:value-of select="./@type" /></xsl:attribute>
-                            <div>
-                                <xsl:choose>
-                                    <xsl:when test="./@type = 'hobbies'">Hobbies</xsl:when>
-                                    <xsl:when test="./@type = 'movies'">Αγαπημένες ταινίες</xsl:when>
-                                    <xsl:when test="./@type = 'shows'">Αγαπημένες σειρές</xsl:when>
-                                    <xsl:when test="./@type = 'books'">Αγαπημένα βιβλία</xsl:when>
-                                    <xsl:when test="./@type = 'games'">Αγαπημένα παιχνίδια</xsl:when>
-                                    <xsl:when test="./@type = 'artists'">Αγαπημένοι καλλιτέχνες</xsl:when>
-                                </xsl:choose>
-                            </div>
-                            <ul class="interestitems">
-                                <xsl:for-each select="./tag">
-                                    <li>
-                                        <xsl:attribute name="id">tag_<xsl:value-of select="./@id" /></xsl:attribute>
-                                        <xsl:if test="./@id = ../tag[last()]/@id">
-                                            <xsl:attribute name="class">last</xsl:attribute>
-                                        </xsl:if>
-                                        <span class="value">
-                                            <xsl:if test="/social/@for = /social/user/name">
-                                                <xsl:attribute name="class">editable</xsl:attribute>
-                                            </xsl:if>
-                                            <xsl:value-of select="." />
-                                        </span>
-                                        <xsl:if test="/social/@for = /social/user/name">
-                                            <span class="delete">&#215;</span>
-                                        </xsl:if>
-                                    </li>&#160;
-                                </xsl:for-each>
-                            </ul>
-                        </li>
-                    </xsl:for-each>
+                    <xsl:if test="/social/@for = /social/user/name">
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">hobbies</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='hobbies']" />
+                        </xsl:call-template>
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">movies</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='movies']" />
+                        </xsl:call-template>
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">shows</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='shows']" />
+                        </xsl:call-template>
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">books</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='books']" />
+                        </xsl:call-template>
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">games</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='games']" />
+                        </xsl:call-template>
+                        <xsl:call-template name="interest">
+                            <xsl:with-param name="type">artists</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='artists']" />
+                        </xsl:call-template>
+                    </xsl:if>
+                    <xsl:if test="/social/@for != /social/user/name">
+                        <xsl:for-each select="taglist">
+                            <xsl:call-template name="interest">
+                                <xsl:with-param name="type"><xsl:value-of select="@type" /></xsl:with-param>
+                                <xsl:with-param name="data" select="." />
+                            </xsl:call-template>
+                        </xsl:for-each>
+                    </xsl:if>
                 </ul>
-
             </div>
             <div class="rightbar">
                 <xsl:if test="mood or $user = name[1]">
@@ -409,4 +408,40 @@
             </li>
         </xsl:if>
     </ul>
+</xsl:template>
+
+<xsl:template name="interest">
+    <xsl:param name="type" />
+    <xsl:param name="data" />
+    <li>
+        <xsl:attribute name="class"><xsl:value-of select="$type" /></xsl:attribute>
+        <div>
+            <xsl:choose>
+                <xsl:when test="$type = 'hobbies'">Hobbies</xsl:when>
+                <xsl:when test="$type = 'movies'">Αγαπημένες ταινίες</xsl:when>
+                <xsl:when test="$type = 'shows'">Αγαπημένες σειρές</xsl:when>
+                <xsl:when test="$type = 'books'">Αγαπημένα βιβλία</xsl:when>
+                <xsl:when test="$type = 'games'">Αγαπημένα παιχνίδια</xsl:when>
+                <xsl:when test="$type = 'artists'">Αγαπημένοι καλλιτέχνες</xsl:when>
+            </xsl:choose>
+            <xsl:if test="/social/@for = /social/user/name">
+                <span class="add">&#43;</span>
+            </xsl:if>
+        </div>
+        <ul class="interestitems">
+            <xsl:for-each select="$data/tag">
+                <li>
+                    <xsl:attribute name="id">tag_<xsl:value-of select="./@id" /></xsl:attribute>
+                    <xsl:if test="./@id = ../tag[last()]/@id">
+                        <xsl:attribute name="class">last</xsl:attribute>
+                    </xsl:if>
+                    <xsl:value-of select="." />
+                    <xsl:if test="/social/@for = /social/user/name">
+                        <span class="delete">&#215;</span>
+                    </xsl:if>
+                </li>&#160;
+            </xsl:for-each>
+        </ul>
+        <div class="eof"></div>
+    </li>
 </xsl:template>

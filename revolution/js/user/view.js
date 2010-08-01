@@ -50,9 +50,13 @@ var Profile = {
             };
         }
         // User Interests
-        $( '.interestitems li .delete' ).click( function(){
+        $( '.interestitems li .delete' ).live( 'click', function(){
             Profile.Interests.Remove( $( this ).parent() );
         });
+        $( '.userinterests li div span.add' ).click( function(){
+            Profile.Interests.StartAdd( $( this ).closest( 'li' ) );
+        });
+
         Comment.Init();
     },
     Interests: {
@@ -60,18 +64,33 @@ var Profile = {
             $.post( 'interest/delete', {
                 id: li.attr( 'id' ).split( '_' )[ 1 ]
             }, function(){
-                $( li ).remove();
+                $( li ).prev().addClass( 'last' ).end().remove();
+
             });
+        },
+        StartAdd: function( li ){
+            $( li ).append( $( '<input type="text" name="tagitem" />' ) ).children( 'input' ).focus().blur( function(){
+                Profile.Interests.CloseAdd( $( this ).closest( 'li' ) );        
+            }).keypress( function( e ){
+                if( e.which == 13 ){
+                    Profile.Interests.Create( $( this ).val(), $( this ).closest( 'li' ).attr( 'class' ));
+                    Profile.Interests.CloseAdd( li );
+                }
+            });
+        },
+        CloseAdd: function( li ){
+            $( li ).children( 'input' ).remove();
         },
         Create: function( text, type ){
             $.post( 'interest/create', {
                 type: type,
                 text: text
             }, function( data ){
-                var tagitem = $( '#' + type ).children( '.last' ).clone()
-                    .attr( 'id', 'tag_' + $( data ).attr( 'id' ) ).children( '.editable' ).text( $( data ).text() ).end();
-                $( '#' + type ).children( ':last' ).removeClass( 'last' );
-                $( '#' + type ).append( tagitem );
+                var id = $( data ).find( 'tag' ).attr( 'id' );
+                var text = $( data ).find( 'tag' ).text();
+                $( '.' + type ).find( '.last' ).removeClass( 'last' );
+                var tagitem = $( '<li class="last" id="tag_' + id + '">' + text + '<span class="delete">&#215;</span></li>' );
+                $( '.' + type ).children( 'ul' ).append( tagitem );
             });
         }
     },

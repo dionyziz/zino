@@ -97,15 +97,45 @@ ul.userdetails li.aboutme {
 .userinterests > li{
     margin: 10px 0;
 }
-.userinterests li div{
+.userinterests li div:first-child{
     font-weight: bold;
-    clear: both;
     margin: 2px 0;
+}
+.userinterests li div span.add{
+    border: 3px solid transparent;
+    display: inline-block;
+    height: 11px;
+    line-height: 8px;
+    width: 12px;
+    margin-left: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+.userinterests li div span.add:hover{
+    background: black;
+    border: 3px solid #2a2;
+    -moz-border-top-colors: #2A2 #060 #010;
+    -moz-border-right-colors: #2A2 #060 #010;
+    -moz-border-bottom-colors: #2A2 #060 #010;
+    -moz-border-left-colors: #2A2 #060 #010;
+    border-top-colors: #2A2 #060 #010;
+    border-right-colors: #2A2 #060 #010;
+    border-bottom-colors: #2A2 #060 #010;
+    border-left-colors: #2A2 #060 #010;
 }
 .userinterests li ul li{
     float: left;
-    margin-right: 5px;
+    margin-right: 13px;
+    height: 16px;
     position: relative;
+}
+
+.userinterests li ul li:hover span.delete{
+    position: absolute;
+    right: -15px;
+    top: -1px;
+    display: block;
 }
 .userinterests li ul li:after{
     content: ',';
@@ -118,16 +148,17 @@ ul.userdetails li.aboutme {
     cursor: pointer;
     border: 2px solid transparent;
     padding: 1px;
-    display: inline-block;
     height: 11px;
     line-height: 9px;
     width: 11px;
     vertical-align: top;
+    display: none;
 }
 .userinterests li ul li span.delete:hover{
     border: 2px solid #22a;
     background: black;
     -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 .useritems{
     float: right;
