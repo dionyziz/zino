@@ -54,7 +54,7 @@
 
             // test on invalid album
             $success = Journal::Delete( 0 );
-            $this->AssertFalse( $success, 'Journal::Delete succeeded on non-existing journal' );
+            $this->Assert( $success, 'Journal::Delete didnt succeeded on non-existing journal' );
         }
 
 		public function GetData() {
