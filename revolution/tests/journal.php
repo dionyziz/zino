@@ -35,8 +35,25 @@
 			$item = Journal::Item( $id );
 			$this->AssertIsArray( $info );
 			$this->AssertEquals( $item[ "title" ], $title, "Wrong Title" );
-			$this->AssertEquals( $item[ "text" ], $text, "Wrong Text" );
+			$this->AssertEquals( $item[ "bulk_text" ], $text, "Wrong Text" );
 			$this->AssertEquals( $item[ "user" ][ "id" ], $userid, "Wrong Creator" );
+			return $item;
+        }
+		/**
+         * @producer TestCreate
+         */
+        public function TestDelete( $info ) {
+            $id = (int)$info[ 'id' ];
+            $success = Journal::Delete( $id );
+            $this->Assert( $success, 'Journal::Delete failed' );
+
+            $journal = Journal::Item( $id );
+            $this->Called( "Journal::Item" );
+            $this->AssertFalse( $journal, 'Journal::Item should return false on deleted item' );
+
+            // test on invalid album
+            $success = Journal::Delete( 0 );
+            $this->AssertFalse( $success, 'Journal::Delete succeeded on non-existing journal' );
         }
 
 		public function GetData() {
