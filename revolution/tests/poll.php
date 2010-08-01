@@ -34,10 +34,12 @@
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
 			$item = Poll::Item( $id );
+			var_dump( $item );
 			$this->AssertIsArray( $item );
 			$this->AssertEquals( $item[ "question" ], $question, "Wrong Title" );
 			$success = false;
 			foreach ( $item[ 'options' ] as $option ) {
+				$success = false;
 				foreach ( $optiontexts as $text ) {
 					if ( $text == $option ) {
 						$success = true;
