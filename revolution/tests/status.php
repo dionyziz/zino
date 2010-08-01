@@ -13,7 +13,8 @@
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mStatusData = array( 
 				array( $userid, "Aoua?" ),
-				array( $userid, "What?" )
+				array( $userid, "What?" ),
+				array( $userid, "That" )
 			);
         }
         public function TearDown() {
