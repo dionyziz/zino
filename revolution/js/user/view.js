@@ -126,10 +126,10 @@ var Profile = {
         $( '#age' ).addClass( 'editable' );
         Calendar.Init( 'age', function( year, month, day ) {
             var now = new Date();
-            if( now.getFullYear() - 60 > year ){
+            if( now.getFullYear() - 60 >= year ){
                 year = now.getFullYear() - 60;
             }
-            if( now.getFullYear() - 5 < year ){
+            if( now.getFullYear() - 5 <= year ){
                 year = now.getFullYear() - 5;
             }
             if ( now.getMonth() + 1 >= month && now.getDate() >= day ) {
