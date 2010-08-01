@@ -358,6 +358,11 @@
                     return false;
                 }
             }
+
+			// data checks TODO
+
+
+			//
             
 			$first = true;
             $query = 
