@@ -41,7 +41,7 @@
 			foreach ( $item[ 'options' ] as $option ) {
 				$success = false;
 				foreach ( $optiontexts as $text ) {
-					if ( $text == $option ) {
+					if ( $text == $option[ "text" ] ) {
 						$success = true;
 					}
 				}
