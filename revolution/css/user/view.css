@@ -130,6 +130,11 @@ ul.userdetails li.aboutme {
     margin-right: 13px;
     height: 16px;
     position: relative;
+    cursor: pointer;
+}
+
+.userinterests li ul li:hover{
+    color: #def;
 }
 
 .userinterests li ul li:hover span.delete{
@@ -137,12 +142,6 @@ ul.userdetails li.aboutme {
     right: -15px;
     top: -1px;
     display: block;
-}
-.userinterests li ul li:after{
-    content: ',';
-}
-.userinterests li ul li.last:after{
-    content: '';
 }
 .userinterests li ul li span.delete{
     font-weight: bold;
