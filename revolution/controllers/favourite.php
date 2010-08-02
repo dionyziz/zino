@@ -19,5 +19,22 @@
 			arsort( $favourites );
             include "views/favourite/listing.php";
         }
+        public static function Delete( $typeid, $itemid ) {
+            isset( $_SESSION[ 'user' ] ) or die;
+
+            clude( 'models/db.php' );
+            clude( 'models/favourite.php' );
+
+            $error = '';
+            try {
+                Favourite::Delete( $typeid, $itemid );
+            }
+            catch ( Exception $e ) {
+                $error = $e->getMessage();
+            }
+
+            Template( 'favourite/delete', compact( 'error', 'typeid', 'itemid' ) );
+            include "views/favourite/delete.php";
+        }
     }
 ?>

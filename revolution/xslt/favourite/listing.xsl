@@ -1,7 +1,7 @@
 <xsl:template match="/social[@resource='favourite' and @method='listing']">
     <xsl:for-each select="stream">
-        <div class="contentitem favourites">
-            <div class="details">
+        <div class="userpage favourites">
+            <div class="userdetails">
                 <xsl:apply-templates select="author" />
             </div>
             <h2>
@@ -32,6 +32,7 @@
                                     </xsl:attribute>
                                     <xsl:value-of select="title" />
                                 </a>
+                                <span class="icon deleteicon">&#215;</span>
                             </h3>
                             <xsl:if test="@type = 'poll'">
                             </xsl:if>

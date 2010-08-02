@@ -3,7 +3,6 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='user' and @method='view']/user">
-    <div class="contentitem">
         <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
         <a class="xbutton" href="photos">&#171;</a>
         <div class="userview">
@@ -215,7 +214,6 @@
                 </xsl:if>
             </div>
         </div>
-    </div>
     <xsl:apply-templates select="discussion" />
 </xsl:template>
 

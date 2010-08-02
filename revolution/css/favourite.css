@@ -9,29 +9,77 @@ div.itemstream ul li {
     padding: 0 5px 5px 5px;
     text-align: center;
 }
-    div.itemstream ul li:hover {
-        background-color: #246D93;
-        cursor: pointer;
-    }
-    div.itemstream ul li a {
-        text-decoration: none;
-        font-weight: bold;
-    }
-    div.itemstream ul li h3 {
-        line-height: inherit;
-        border: none;
-        margin: 0 0 0 155px;
-        padding: 10px;
-        text-align: left;
-    }
-    div.itemstream ul li img {
-        float: left;
-        border: 2px solid #abc;
-    }
-    div.itemstream ul li span.preview {
-        margin: 0 0 10px 166px;
-        padding: 0;
-        border: 0;
-        text-align: left;
-        display: block;
-    }
+div.itemstream ul li:hover {
+    background-color: #246D93;
+    cursor: pointer;
+}
+div.itemstream ul li a {
+    text-decoration: none;
+    font-weight: bold;
+}
+div.itemstream ul li h3 {
+    line-height: inherit;
+    border: none;
+    margin: 0 0 0 155px;
+    padding: 10px;
+    text-align: left;
+}
+div.itemstream ul li img {
+    float: left;
+    border: 2px solid #abc;
+}
+div.itemstream ul li span.preview {
+    margin: 0 0 10px 166px;
+    padding: 0;
+    border: 0;
+    text-align: left;
+    display: block;
+}
+.favourites {
+    font-size: 120%;
+    text-align: center;
+    position: relative;
+    padding: 5px 5px 0 5px;
+}
+.favourites img {
+    border: 3px solid white;
+}
+.favourites .userdetails {
+    padding: 10px;
+    margin: 5px 0 5px 5px;
+    background-color: #206386;
+    color: white;
+    opacity: 0.8;
+    width: 120px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    float: right;
+    overflow: hidden;
+}
+.favourites .userdetails img.avatar {
+    border: none;
+    display: block;
+    margin: auto;
+}
+.favourites .userdetails .username {
+    display: inline;
+}
+.userpage .icon {
+    position: absolute;
+    right: 210px;
+    /* top: 24px; */
+    padding: 0px 5px 0px 7px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    float: right;
+    font-size: 150%;
+}
+
+.userpage .icon:hover {
+    background-color: #222;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+}

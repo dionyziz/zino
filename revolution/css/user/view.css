@@ -1,3 +1,12 @@
+.userview {
+    font-size: 120%;
+    text-align: center;
+    position: relative;
+    padding: 5px 5px 0 5px;
+}
+.userview img {
+    border: 3px solid white;
+}
 .maininfo {
     position: relative;
     text-align: left;

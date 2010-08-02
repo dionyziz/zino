@@ -11,6 +11,13 @@ var Favourite = {
                     location.href = url;
                 };
             } )( url ) );
+            /*
+            $del = $item.find( '.deleteicon' );
+            $del.click( function() {
+                Favourite.Remove();
+                return false;
+            } );
+            */
         }
     }
 };
