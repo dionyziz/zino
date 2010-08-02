@@ -9,7 +9,7 @@
                 Το album έχει διαγραφεί
             </xsl:when>
             <xsl:otherwise>
-                <xsl:for-each select="stream">
+                <xsl:for-each select="photos">
                     <xsl:call-template name="photolist">
                         <xsl:with-param name="owner"><xsl:value-of select="../../name" /></xsl:with-param>
                     </xsl:call-template>
@@ -17,7 +17,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:for-each>
-    <xsl:for-each select="stream">
+    <xsl:for-each select="photos">
         <div class="useralbums">
             <xsl:choose>
                 <xsl:when test="../gender = 'm'">
@@ -36,7 +36,7 @@
     </xsl:for-each>
 </xsl:template>
 
-<xsl:template match="/social[@resource='photo' and @method='listing']/stream">
+<xsl:template match="/social[@resource='photo' and @method='listing']/photos">
     <xsl:call-template name="photolist" />
 </xsl:template>
 
@@ -56,7 +56,7 @@
                     </form>
                 </li>
             </xsl:if>
-            <xsl:for-each select="entry">
+            <xsl:for-each select="photo">
                 <li>
                     <a>
                         <xsl:attribute name="href">photos/<xsl:value-of select="@id" /></xsl:attribute>

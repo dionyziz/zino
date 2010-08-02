@@ -1,5 +1,5 @@
 <? global $settings ?>
-<entry id="<?= $photo[ 'id' ] ?>">
+<photo id="<?= $photo[ 'id' ] ?>">
     <? if( $photo[ 'title' ] != '' ): ?>
         <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
     <? endif; ?>
@@ -25,4 +25,4 @@
         <? endforeach; ?>
     </favourites>
     <? endif; ?>
-</entry>
+</photo>

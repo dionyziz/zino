@@ -6,4 +6,4 @@
         <discussion count="<?= $photo[ 'numcomments' ] ?>" />
     </photo>
     <? endforeach; ?>
-</photo>
+</photos>
