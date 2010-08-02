@@ -13,9 +13,9 @@
     <? endif;
     if ( isset( $counts ) ): ?>
         <friends count="<?= $counts[ 'friends' ]; ?>" />
-        <stream type="photo" count="<?= $counts[ 'images' ]; ?>" />
-        <stream type="poll" count="<?= $counts[ 'polls' ]; ?>" />
-        <stream type="journal" count="<?= $counts[ 'journals' ]; ?>" />
+        <photos count="<?= $counts[ 'images' ]; ?>" />
+        <polls count="<?= $counts[ 'polls' ]; ?>" />
+        <journals count="<?= $counts[ 'journals' ]; ?>" />
         <answers count="<?= $counts[ 'answers' ]; ?>" />
         <favourites count="<?= $counts[ 'favourites' ]; ?>" />
         <chat count="<?= $counts[ 'shouts' ]; ?>" />
