@@ -8,6 +8,11 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
+<xsl:template name="tiny">
+asd
+    <xsl:apply-templates />
+</xsl:template>
+
 <xsl:variable name="user" select="/*[1]/@for" />
 
 <xsl:template match="/" priority="1">
@@ -37,16 +42,16 @@
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
             <script type="text/javascript" src="global.js"></script>
-			<script type="text/javascript">
+            <script type="text/javascript">
                 <xsl:if test="/social/@for">
                     var User = '<xsl:value-of select="/social/@for" />';
                 </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
-				
-				var XMLData = {
-					author: '<xsl:value-of select="/social/entry[1]/author[1]/name[1]" />'
-				}
+                
+                var XMLData = {
+                    author: '<xsl:value-of select="/social/entry[1]/author[1]/name[1]" />'
+                }
             </script>
         </head>
         <body onload="Comet.OnBodyLoaded()">
@@ -62,16 +67,16 @@
                     $( this ).addClass( 'processedtime' );
                 } ); } );
 
-				var Routing = {
-					'photo.view': PhotoView,
-					'photo.listing': PhotoListing,
-					'news.listing': News,
+                var Routing = {
+                    'photo.view': PhotoView,
+                    'photo.listing': PhotoListing,
+                    'news.listing': News,
                     'poll.view': Poll,
                     'journal.view': Journal,
                     'user.view': Profile,
                     'favourite.listing': Favourite,
                     'friendship.listing': Friends,
-				}[ '<xsl:value-of select="$mastertemplate" />' ].Init();
+                }[ '<xsl:value-of select="$mastertemplate" />' ].Init();
                 Presence.Init();
             </script>
         </body>

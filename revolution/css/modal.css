@@ -55,7 +55,7 @@
     background-position: 0 -60px;
 }
 div.modaloverlay {
-	background: #000;
+    background: #000;
 }
 .modal.tabbed {
     padding-top: 60px;
@@ -83,4 +83,9 @@ div.modaloverlay {
 .modal.tabbed ul.tabs > li.selected {
     background-color: #e8eaec;
     text-decoration: none;
+}
+.modal a.link {
+    display: block;
+    margin: 1em 0 0 0;
+    color: #235;
 }

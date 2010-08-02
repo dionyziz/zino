@@ -2,8 +2,8 @@
     <div class="modal tabbed settingsmodal">
         <h2>Λογαριασμός</h2>
         <ul class="tabs">
-            <li class="selected">Κωδικός</li>
-            <li>Ειδοποιήσεις</li>
+            <li class="selected"><a href="">Κωδικός</a></li>
+            <li><a href="">Ειδοποιήσεις</a></li>
         </ul>
         <ul>
             <li><span class="info">Παλιός κωδικός:</span><input type="password" name="oldpassword" /></li>
@@ -24,6 +24,7 @@
     <div name="aboutmemodal" class="modal">
         <h2>Περιοχή</h2>
         <select class="location"></select>
+        <a href="" class="link">Να μην εμφανίζεται</a>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.location.options">

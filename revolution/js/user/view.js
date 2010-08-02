@@ -126,11 +126,11 @@ var Profile = {
         $( '#age' ).addClass( 'editable' );
         Calendar.Init( 'age', function( year, month, day ) {
             var now = new Date();
-            if( now.getFullYear() - 60 >= year ){
-                year = now.getFullYear() - 60;
+            if( now.getFullYear() - 61 >= year ){
+                year = now.getFullYear() - 61;
             }
-            if( now.getFullYear() - 5 <= year ){
-                year = now.getFullYear() - 5;
+            if( now.getFullYear() - 9 <= year ){
+                year = now.getFullYear() - 9;
             }
             if ( now.getMonth() + 1 >= month && now.getDate() >= day ) {
                 document.getElementById( 'age' ).innerHTML = now.getFullYear() - year;
@@ -155,6 +155,10 @@ var Profile = {
             } );
             return false;
         } );
+        var location_id = $( '.asl .location span' ).attr( 'id' ).split( '_' )[1];
+        if ( location_id == '' ) {
+            $( '.asl .location span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
+        }
         $( '.asl .location span' ).addClass( 'editable' ).click( function() {
             //TODO: don't re-open the modal;
             //TODO default value if empty
@@ -165,14 +169,22 @@ var Profile = {
                 var location_text = $( '.asl .location span' ).text();
                 var $select = $modal.find( 'select.location' );
                 $( '<option value=' + location_id + '>' + location_text + '</option>' ).appendTo( $select );
+                alert( $select.html() );
                 axslt( $.get( 'places' ), 'call:user.modal.location.options', function() { 
-                    $modal.find( 'select.location' ).empty()
-                        .append( $( this ).filter( 'option' ) ).val( location_id )
-                        .change( function() {
+                    $select.empty();
+                    
+                    $select.append( $( this ).filter( 'option' ) ).val( location_id )
+                    $select.change( function() {
                             $.post( 'user/update', { placeid: $modal.find( 'select.location' ).val() } );
                             $modal.jqmHide();
                             return false;
                         } );
+                    $modal.find( 'a.link' ).click( function() {
+                        $.post( 'user/update', { placeid: -1 } );
+                        //TODO
+                        $modal.jqmHide();
+                        return false;
+                    } );
                 } );
                 $select.val( location_id );
             } );

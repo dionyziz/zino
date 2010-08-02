@@ -17,7 +17,7 @@ var PhotoView = {
                 $( '.title input' ).width( width + 30 );
             }
         },
-        Init: function(){
+        Init: function() {
             if ( $( '.contentitem .details a.username' ).text() != User ) {
                 return;
             }
