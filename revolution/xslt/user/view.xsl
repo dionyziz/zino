@@ -7,30 +7,30 @@
         <a class="xbutton" href="photos">&#171;</a>
         <div class="userview">
             <ul class="useritems">
-                <xsl:if test="stream[@type='photo']/@count &gt; 0">
+                <xsl:if test="photos/@count &gt; 0">
                     <li><a>
                         <xsl:attribute name="href">
                             photos/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <span><xsl:value-of select="stream[@type='photo']/@count" /></span>
+                        <span><xsl:value-of select="photos/@count" /></span>
                         Φωτογραφίες
                     </a></li>
                 </xsl:if>
-                <xsl:if test="stream[@type='journal']/@count &gt; 0">
+                <xsl:if test="journals/@count &gt; 0">
                     <li><a>
                         <xsl:attribute name="href">
                             journals/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <span><xsl:value-of select="stream[@type='journal']/@count" /></span>
+                        <span><xsl:value-of select="journals/@count" /></span>
                         Ημερολόγια
                     </a></li>
                 </xsl:if>
-                <xsl:if test="stream[@type='poll']/@count &gt; 0">
+                <xsl:if test="polls/@count &gt; 0">
                     <li><a>
                         <xsl:attribute name="href">
                             polls/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
-                        <span><xsl:value-of select="stream[@type='poll']/@count" /></span>
+                        <span><xsl:value-of select="polls/@count" /></span>
                         Δημοσκοπίσεις
                     </a></li>
                 </xsl:if>

@@ -2,7 +2,7 @@
     <xsl:call-template name="zoomout" />
 </xsl:template>
 
-<xsl:template match="/social[@resource='news' and @method='listing']//stream">
+<xsl:template match="/social[@resource='news' and @method='listing']//news">
     <div class="stream">
         <xsl:if test="$user">
             <ol class="createitem">
@@ -11,10 +11,10 @@
             </ol>
         </xsl:if>
         <ul>
-            <xsl:for-each select="entry">
+            <xsl:for-each select="journal|photo|poll">
                 <li>
-                    <xsl:attribute name="class"><xsl:value-of select="@type" /></xsl:attribute>
-                    <xsl:attribute name="id"><xsl:value-of select="@type" />_<xsl:value-of select="@id" /></xsl:attribute>
+                    <xsl:attribute name="class"><xsl:value-of select="name()" /></xsl:attribute>
+                    <xsl:attribute name="id"><xsl:value-of select="name()" />_<xsl:value-of select="@id" /></xsl:attribute>
                     <div class="details">
                         <xsl:apply-templates select="author" />
                         <p class="time"><xsl:value-of select="published[1]" /></p>
@@ -27,7 +27,7 @@
                             </xsl:if>
                         </xsl:if>
                     </div>
-                    <xsl:if test="@type = 'poll' ">
+                    <xsl:if test="name() = 'poll' ">
                         
                         <a class="title">
                             <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
@@ -36,7 +36,7 @@
                             </h2>
                         </a>
                     </xsl:if>
-                    <xsl:if test="@type = 'journal' ">
+                    <xsl:if test="name() = 'journal' ">
                         <a class="title">
                             <xsl:attribute name="href">journals/<xsl:value-of select="@id" /></xsl:attribute>
                             <h2>
@@ -44,7 +44,7 @@
                             </h2>
                         </a>
                     </xsl:if>
-                    <xsl:if test="@type = 'photo' ">
+                    <xsl:if test="name() = 'photo' ">
                         <xsl:attribute name="id">photo_<xsl:value-of select="@id" /></xsl:attribute>
                         <a class="thumb">
                             <xsl:attribute name="href">
@@ -68,10 +68,10 @@
                         </a>
                     </xsl:if>
                     <a class="zoomin">
-                        <xsl:if test="@type = 'journal'">
+                        <xsl:if test="name() = 'journal'">
                             <xsl:attribute name="href">journals/<xsl:value-of select="@id" /></xsl:attribute>
                         </xsl:if>
-                        <xsl:if test="@type = 'poll'">
+                        <xsl:if test="name() = 'poll'">
                             <xsl:attribute name="href">poll/<xsl:value-of select="@id" /></xsl:attribute>
                         </xsl:if>
                         Κάνε κλικ ξανά για μεγιστοποίηση

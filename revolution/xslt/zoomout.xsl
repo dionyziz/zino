@@ -4,13 +4,13 @@
         <ul>
             <!-- <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li> -->
             <li>
-                <xsl:if test="/social/stream[1]/@type = 'photos'">
+                <xsl:if test="/social/photos">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
                 <a href=""><img src="images/images.png" alt="Φωτογραφίες" title="Φωτογραφίες" /><span>Εικόνες</span></a>
             </li>
             <li>
-                <xsl:if test="/social/stream[1]/@type = 'news'">
+                <xsl:if test="/social/news">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
                 <a href="news"><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>

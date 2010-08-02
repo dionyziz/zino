@@ -2,10 +2,10 @@
     <xsl:call-template name="zoomin" />
 </xsl:template>
 
-<xsl:template match="/social[@resource='journal' and @method='view']//entry">
+<xsl:template match="/social[@resource='journal' and @method='view']//journal">
     <a class="xbutton" href="news">&#171;<span class="tooltip"><span>&#9650;</span>πίσω στα νέα</span></a>
     <div class="contentitem">
-        <xsl:attribute name="id">journal_<xsl:value-of select="/social/entry/@id" /></xsl:attribute>
+        <xsl:attribute name="id">journal_<xsl:value-of select="/social/journal/@id" /></xsl:attribute>
         <xsl:if test="author">
             <div class="details">
                 <ul>
