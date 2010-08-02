@@ -1,4 +1,4 @@
-<stream type="favourites">
+<favourites>
     <author>
         <name><?= $username ?></name>
         <? if ( isset( $user[ 'gender' ] ) ): ?>
@@ -17,7 +17,7 @@
     case TYPE_JOURNAL: 
     ?>
 
-    <entry id="<?= $favourite[ 'data' ][ "id" ] ?>" type="journal">
+    <journal id="<?= $favourite[ 'data' ][ "id" ] ?>">
 		<title><?= htmlspecialchars( $favourite[ "data" ][ "title" ] ) ?></title>
 		<text><?= WYSIWYG_PresentAndSubstr( $favourite[ "data" ][ "text" ], 400 ) ?></text>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
@@ -28,7 +28,7 @@
     case TYPE_PHOTO: 
     ?>
 
-    <entry id="<?= $favourite[ 'data' ][ "id" ] ?>" type="photo">
+    <photo id="<?= $favourite[ 'data' ][ "id" ] ?>">
 		<title><?= htmlspecialchars( $favourite[ "data" ][ "title" ] ) ?></title>
 		<created><?= $favourite[ "data" ][ "created" ] ?></created>
 		<numcomments><?= $favourite[ "data" ][ "numcomments" ] ?></numcomments>
@@ -38,13 +38,13 @@
 	case TYPE_POLL: 
     ?>
 
-    <entry id="<?= $favourite[ 'data' ][ "id" ] ?>" type="poll">
+    <poll id="<?= $favourite[ 'data' ][ "id" ] ?>">
 	<?
 	break;
 	case TYPE_STOREITEM: 
     ?>
 
-    <entry id="<?= $favourite[ 'data' ][ "id" ] ?>" type="product">
+    <product id="<?= $favourite[ 'data' ][ "id" ] ?>">
 	<?
 	break;
 	endswitch; ?>
@@ -55,7 +55,20 @@
 			<gender><?= $favourite[ "data" ][ "gender" ] ?></gender>
 			<avatarid><?= $favourite[ "data" ][ "avatarid" ] ?></avatarid>
 		</author>
+	<? switch ( $favourite[ 'typeid' ] ):
+    case TYPE_JOURNAL: 
+    ?></journal><?
+	break;
+    case TYPE_PHOTO: 
+    ?></photo><?
+	break;
+	case TYPE_POLL: 
+    ?></poll><?
+	break;
+	case TYPE_STOREITEM: 
+    ?></product><?
+	break;
+	endswitch; ?>
 
-	</entry>
 	<? endforeach; ?>
-</stream>
+</favourites>

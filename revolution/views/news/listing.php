@@ -1,6 +1,6 @@
-<stream type="news">
+<news>
 	<? foreach ( $content as $item ): ?>
-    <entry type="<?= $item[ 'type' ] ?>" id="<?= $item[ 'id' ]; ?>">
+    <<?= $item[ 'type' ] ?> id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>
         <author>
             <name><?= $item[ 'username' ]; ?></name>
@@ -24,6 +24,6 @@
         <title><?= htmlspecialchars( $item[ 'title' ] ) ?></title>
         <? endswitch; ?>
         <discussion count="<?= $item[ 'numcomments' ] ?>" />
-    </entry>
+    </<?= $item[ 'type' ] ?>>
     <? endforeach; ?>
-</stream>
+</news>

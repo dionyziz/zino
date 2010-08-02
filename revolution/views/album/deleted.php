@@ -1,5 +1,3 @@
-<user>
-    <album deleted="yes">
-        <stream />
-    </album>
-</user>
+<operation resource="album" method="delete">
+    <result>SUCCESS</result>
+</operation>

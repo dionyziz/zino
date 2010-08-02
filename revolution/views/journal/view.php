@@ -1,4 +1,4 @@
-<entry id="<?= $journal[ 'id' ] ?>">
+<journal id="<?= $journal[ 'id' ] ?>">
     <title><?= htmlspecialchars( $journal[ 'title' ] ) ?></title>
     <? if ( isset( $user ) ): ?>
         <author>
@@ -23,4 +23,4 @@
         <? endforeach; ?>
     </favourites>
     <? endif; ?>
-</entry>
+</journal>

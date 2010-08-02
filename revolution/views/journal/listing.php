@@ -1,6 +1,6 @@
-<stream type="journal">
+<journals>
 	<? foreach ( $journals as $item ): ?>
-    <entry type="journal" id="<?= $item[ 'id' ]; ?>">
+    <journal id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>
         <author>
             <name><?= $item[ 'user' ][ 'name' ]; ?></name>
@@ -12,6 +12,6 @@
         </author>
         <title><?= htmlspecialchars( $item[ 'title' ] ) ?></title>
         <discussion count="<?= $item[ 'numcomments' ] ?>" />
-    </entry>
+    </journal>
     <? endforeach; ?>
-</stream>
+</journals>
