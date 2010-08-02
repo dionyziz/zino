@@ -1,16 +1,18 @@
 <?php
     
     class ControllerAlbum {
-        public static function View( $id ) {
+        public static function View( $id, $page = 1, $limit = 100 ) {
             clude( 'models/db.php' );
             clude( 'models/album.php' );
+            clude( 'models/photo.php' );
+            $offset = ( $page - 1 ) * $limit;
             $album = Album::Item( $id );
             if ( $album === false || $album[ "delid" ] == 1 ) {
                 clude( 'views/album/deleted.php' );
                 return;   
             }
             clude( 'models/user.php' );
-            $photos = Photo::ListByAlbum( $albumid, $offset, $limit );
+            $photos = Photo::ListByAlbum( $id, $offset, $limit );
             $user = User::Item( $album[ 'ownerid' ] );
             Template( 'album/view', compact( 'album', 'photos', 'user' ) );
         }
