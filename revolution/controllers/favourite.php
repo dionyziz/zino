@@ -19,11 +19,25 @@
 			arsort( $favourites );
             include "views/favourite/listing.php";
         }
-        public static function Delete( $typeid, $itemid ) {
+        public static function Delete( $type, $itemid ) {
             isset( $_SESSION[ 'user' ] ) or die;
 
             clude( 'models/db.php' );
             clude( 'models/favourite.php' );
+
+            switch ( $type ) {
+                case 'photo':
+                    $typeid = TYPE_PHOTO;
+                    break;
+                case 'poll':
+                    $typeid = TYPE_POLL;
+                    break;
+                case 'journal':
+                    $typeid = TYPE_JOURNAL;
+                    break;
+                default:
+                    throw new Exception( "unknown type" );
+            }
 
             $error = '';
             try {
