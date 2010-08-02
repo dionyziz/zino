@@ -169,19 +169,18 @@ var Profile = {
                 var location_text = $( '.asl .location span' ).text();
                 var $select = $modal.find( 'select.location' );
                 $( '<option value=' + location_id + '>' + location_text + '</option>' ).appendTo( $select );
-                alert( $select.html() );
                 axslt( $.get( 'places' ), 'call:user.modal.location.options', function() { 
                     $select.empty();
-                    
-                    $select.append( $( this ).filter( 'option' ) ).val( location_id )
+                    $select.append( $( this ).filter( 'option' ) ).val( location_id );
                     $select.change( function() {
-                            $.post( 'user/update', { placeid: $modal.find( 'select.location' ).val() } );
+                            $( '.asl .location span' ).text( $select.find( 'option[value=' + $select.val() + ']' ).text() );
+                            $.post( 'user/update', { placeid: $select.val() } );
                             $modal.jqmHide();
                             return false;
                         } );
                     $modal.find( 'a.link' ).click( function() {
                         $.post( 'user/update', { placeid: -1 } );
-                        //TODO
+                        $( '.asl .location span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
                         $modal.jqmHide();
                         return false;
                     } );

@@ -16,9 +16,6 @@
 .maininfo .details {
     margin-left: 110px;
 }
-.maininfo .details span.username {
-    display: inline;
-}
 .maininfo img.avatar {
     height: 100px;
     width: 100px;
@@ -30,6 +27,7 @@
     font-weight: bold;
     color: #72B3DB;
     overflow: hidden;
+    display: inline;
 }
 .heightweight ul {
     overflow: hidden;
@@ -239,11 +237,11 @@ select.location {
     float: left;
 }
 ul.accountmenu{
-    float: right;
+    display: inline;
     line-height: 200%;
 }
 ul.accountmenu li {
-    float: left;
+    display: inline;
     padding-left: 5px;
 }
 ul.accountmenu li a {
