@@ -1,6 +1,6 @@
-<stream type="poll">
+<polls>
 	<? foreach ( $polls as $item ): ?>
-    <entry type="poll" id="<?= $item[ 'id' ]; ?>">
+    <poll id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>
         <author>
             <name><?= $user[ 'name' ]; ?></name>
@@ -13,7 +13,6 @@
         <url><?= $item[ 'url' ]; ?></url>
         <question><?= htmlspecialchars( $item[ 'question' ] ) ?></question>
         <discussion count="<?= $item[ 'numcomments' ] ?>" />
-    </entry>
+    </poll>
     <? endforeach; ?>
-</stream>
-
+</polls>
