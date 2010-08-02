@@ -30,7 +30,7 @@ var Poll = {
             return false;
         }
         $.post( 'poll/create', { 'question': question, 'options': options }, function( xml ) { 
-            window.location.href = 'polls/' + $( xml ).find( 'entry' ).attr( 'id' );
+            window.location.href = 'polls/' + $( xml ).find( 'poll' ).attr( 'id' );
         } );
         return false;
     },

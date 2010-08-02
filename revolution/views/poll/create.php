@@ -10,7 +10,7 @@ if ( !$success ):
     return;
 endif;
 ?>
-<entry>
+<poll>
 	<options totalvotes="<?= $poll[ 'numvotes' ] ?>">
         <? foreach ( $options as $option ): ?>
         <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>"<?
@@ -22,4 +22,4 @@ endif;
         </option>
         <? endforeach; ?>
     </options>
-</entry>
+</poll>

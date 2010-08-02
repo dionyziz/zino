@@ -27,7 +27,7 @@ var News = {
         infotext.center();
         
         var data = $.get( type + 's/' + itemid, { 'verbose': 0 } );
-        axslt( data, '/social/entry', function() {
+        axslt( data, '/social/' + type, function() {
             $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
         } );
         return false;

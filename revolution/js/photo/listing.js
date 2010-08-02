@@ -64,10 +64,10 @@ var PhotoListing = {
         $.get( window.location,
         { 'page': PhotoListing.CurrentPage },
         function( xml ){
-            var responseSize = $( xml ).find( 'entry' ).length;
+            var responseSize = $( xml ).find( 'photo' ).length;
             var i;
 
-            $( xml ).find( 'entry' ).each( function( index ){
+            $( xml ).find( 'photo' ).each( function( index ){
                 var id = $( this ).attr( 'id' );
                 var url = $( this ).find( 'media' ).attr( 'url' );
                 var count = $( this ).find( 'discussion' ).attr( 'count' );

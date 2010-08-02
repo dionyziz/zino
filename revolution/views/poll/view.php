@@ -1,4 +1,4 @@
-<entry id="<?= $poll[ 'id' ] ?>">
+<poll id="<?= $poll[ 'id' ] ?>">
     <title><?= htmlspecialchars( $poll[ 'question' ] ) ?></title>
     <? if ( isset( $user ) ): ?>
     <author>
@@ -32,4 +32,4 @@
         <? endforeach; ?>
     </favourites>
     <? endif; ?>
-</entry>
+</poll>
