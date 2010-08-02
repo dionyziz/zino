@@ -5,4 +5,4 @@
     <?php
         include 'views/photo/listing.php';
     ?>
-</user>
+</album>
