@@ -1,5 +1,5 @@
 <? if ( empty( $error ) ): ?>
-<entry type="photo" id="<?= $photo[ 'id' ] ?>">
+<photo id="<?= $photo[ 'id' ] ?>">
     <owner id="<?= $user[ 'id' ] ?>">
         <name><?= $user[ 'name' ] ?></name>
     </owner>
@@ -12,7 +12,7 @@
         <name></name>
         <photocount><?= $album[ 'numphotos' ] + 1 ?></photocount>
     </album>
-</entry>
+</photo>
 <? else: ?>
 <error type="<?= $error ?>"></error>
 <?
