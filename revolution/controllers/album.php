@@ -8,7 +8,7 @@
             $offset = ( $page - 1 ) * $limit;
             $album = Album::Item( $id );
             if ( $album === false || $album[ "delid" ] == 1 ) {
-                clude( 'views/album/deleted.php' );
+                Template( 'album/view', compact( 'album' ) );
                 return;   
             }
             clude( 'models/user.php' );

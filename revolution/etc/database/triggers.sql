@@ -162,8 +162,8 @@ CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
             END IF;
             /*
             UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
-            DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id`;
             */
+            DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id`;
         END IF;
    END;
 |
