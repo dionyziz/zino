@@ -34,13 +34,13 @@ var Chat = {
             var user;
             var online = $( '#onlineusers' );
             var name;
-            var html = '<li class="selected world" id="u0">Zino</li>';
+
             online.css( { opacity: 1 } );
             online = online[ 0 ];
             for ( i = 0; i < users.length; ++i ) {
                 user = users[ i ];
                 name = $( user ).find( 'name' ).text();
-                html += '<li id="u' + $( user ).attr( 'id' ) + '">' + name + '</li>';
+                Chat.OnUserOnline( $( user ).attr( 'id' ), name );
             }
             online.innerHTML = html;
             $( '#onlineusers li' ).click( Chat.NameClick );
@@ -107,6 +107,21 @@ var Chat = {
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
          Chat.Loaded = true;
      },
+     Sound: {
+         Ready: false,
+         Ding: function () {
+             if ( !Chat.Sound.Ready ) {
+                 $( document.body ).prepend( '<div id="jquery_jplayer"></div>' );
+                 $( '#jquery_jplayer' ).ready( function () {
+                     Chat.Sound.Ready = true;
+                     this.element.jPlayer( "setFile", "http://static.zino.gr/revolution/sound/glass.mp3" );
+                     Chat.Sound.Ding();
+                     return;
+                 } );
+             }
+             $( '#jquery_jplayer' ).jPlayer( 'play' );
+         }
+     },
      Init: function () {
         $( '#chatbutton' ).click( function () {
              Chat.Toggle();
@@ -125,7 +140,7 @@ var Chat = {
         $( '.col2' )[ 0 ].innerHTML +=
              '<div style="display:none" id="chat">'
                  + '<div class="userlist">'
-                     + '<ol id="onlineusers"></ol>'
+                     + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'
                  + '<div class="textmessages">'
                      + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
@@ -133,6 +148,7 @@ var Chat = {
                      + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
                  + '</div>'
              + '</div>';
+        $( '#onlineusers li' ).click( Chat.NameClick );
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
@@ -204,7 +220,13 @@ var Chat = {
                  if ( cid == channelid ) {
                      found = true;
                      Chat.Flash( userid, text );
-                     break;
+                     if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
+                         username = $( '#u' + userid ).find( 'span.username' ).text();
+                     }
+                     else {
+                         username = $( '#u' + userid ).text();
+                     }
+                     Chat.PopBubble( username, avatar, text );
                  }
              }
              if ( !found ) {
@@ -222,8 +244,14 @@ var Chat = {
                              break;
                          }
                      }
+                     Chat.PopBubble( username, avatar, text );
                  } );
              }
+         }
+     },
+     PopBubble: function ( userid, username, avatar, text ) {
+         if ( !$( '#popbubble_' + userid ).length ) {
+             $( document.body ).append( '<div id="popbubble_' + userid + '"></div>' );
          }
      },
      OnUserOnline: function ( userid, username ) {

@@ -22,6 +22,7 @@
         .vbar ul li a {
             display: block;
             border: 1px transparent black;
+            text-decoration: none;
         }
         .vbar ul li img {
             margin-top: 25%;
@@ -31,6 +32,7 @@
             line-height: 12px;
             padding-top: 5px;
             margin-bottom: 25%;
+            text-decoration: underline;
         }
     .vbar ul li.selected a {
         border: 1px solid #ccc;

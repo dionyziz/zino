@@ -22,7 +22,7 @@
             clude( 'models/db.php' );
             clude( 'models/comet.php' );
 
-            if ( !PushTunnel::Auth( $tunnelauthtoken ) ) {
+            if ( !PushTunnel::Auth( $tunnelid, $tunnelauthtoken ) ) {
                 die( 'Invalid tunnel authtoken' );
             }
 

@@ -2,18 +2,18 @@
     <a class="xbutton">
         <xsl:attribute name="href">users/<xsl:value-of select="friends/@of" /></xsl:attribute>&#171;
        <span class="tooltip"><span>&#9650;</span>
-        pisw sto profil
+        Πίσω στο προφίλ
        </span>
     </a>
     <h2>
         <xsl:choose>
-            <xsl:when test="$user = friends/@of">Exeis </xsl:when>
-            <xsl:otherwise>O <xsl:value-of select="friends/@of" /> exei </xsl:otherwise>
+            <xsl:when test="$user = friends/@of">Έχεις </xsl:when>
+            <xsl:otherwise>Ο <xsl:value-of select="friends/@of" /> έχει </xsl:otherwise>
         </xsl:choose>
         <xsl:value-of select="friends/@count" />
         <xsl:choose>
-            <xsl:when test="friends/@count = 1"> filo</xsl:when>
-            <xsl:otherwise> filous</xsl:otherwise>
+            <xsl:when test="friends/@count = 1"> φίλο</xsl:when>
+            <xsl:otherwise> φίλους</xsl:otherwise>
         </xsl:choose>
     </h2>
     <ul>
@@ -27,7 +27,7 @@
                         <input type="hidden" name="friendid">
                             <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
                         </input>
-                        <a class="love linkbutton removefriend" href=""><strong>-</strong> Diagrafi filou</a>
+                        <a class="love linkbutton removefriend" href=""><strong>-</strong> Διαγραφή φίλου</a>
                     </form>
                 </xsl:if>
             </div>

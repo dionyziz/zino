@@ -12,6 +12,7 @@ news.js
 jquery/jquery.center.js
 jquery/jquery.modal.js
 jquery/jquery.hotkeys-0.7.9.min.js
+jquery/jquery.jplayer.min.js
 modal.js
 notification.js
 poll.js
