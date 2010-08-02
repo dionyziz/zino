@@ -28,26 +28,13 @@
             }
             Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user' ) );
         }
-        public static function Listing( $username = '', $page = 1, $limit = 100, $albumid = -1 ) {
+        public static function Listing( $username = '', $page = 1, $limit = 100 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
-            $albumid = ( int )$albumid;
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
-            if ( $albumid != -1 ) {
-                clude( 'models/album.php' );
-                $album = Album::Item( $albumid );
-                if ( $album === false || $album[ "delid" ] == 1 ) {
-                    clude( 'views/album/deleted.php' );
-                    return;   
-                }
-                clude( 'models/user.php' );
-                $photos = Photo::ListByAlbum( $albumid, $offset, $limit );
-                $user = User::Item( $album[ 'ownerid' ] );
-                include 'views/photo/album_listing.php';
-            }
-            else if ( $username != '' ) {
+            if ( $username != '' ) {
                 clude( 'models/user.php' );
                 $user = User::ItemByName( $username );
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );

@@ -1,6 +1,19 @@
 <?php
     
     class ControllerAlbum {
+        public static function View( $id ) {
+            clude( 'models/db.php' );
+            clude( 'models/album.php' );
+            $album = Album::Item( $id );
+            if ( $album === false || $album[ "delid" ] == 1 ) {
+                clude( 'views/album/deleted.php' );
+                return;   
+            }
+            clude( 'models/user.php' );
+            $photos = Photo::ListByAlbum( $albumid, $offset, $limit );
+            $user = User::Item( $album[ 'ownerid' ] );
+            Template( 'album/view', compact( 'album', 'photos', 'user' ) );
+        }
         public static function Create( $name, $description ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create an album' );
 
