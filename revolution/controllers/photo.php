@@ -38,7 +38,7 @@
                 clude( 'models/user.php' );
                 $user = User::ItemByName( $username );
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
-                include 'views/photo/user_listing.php';
+                Template( 'photo/listing', compact( 'user', 'photos' ) );
             }
             else {
 		        clude( 'models/spot.php' );
@@ -54,7 +54,7 @@
 			            $photos = Photo::ListRecent( $offset, $limit );
 		            }
 	            }
-                include 'views/photo/listing.php';
+                Template( 'photo/listing', compact( 'photos' ) );
             }
         }
         public static function Create( $albumid ) {
