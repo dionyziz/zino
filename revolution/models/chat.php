@@ -145,14 +145,14 @@
                     compact( 'userid2' )
                 );
                 mysql_num_rows( $res ) or die( 'Failed to create private chat; target user does not exist' );
-                db(
+                $success = db(
                     'INSERT INTO 
                         chatchannels
                     ( channel_created ) VALUES ( NOW() )'
                 );
                 $channelid = mysql_insert_id();
                 db(
-                    'INSERT INTO
+                    'INSERT IGNORE INTO
                         chatparticipants
                     ( participant_userid, participant_channelid, participant_joined ) VALUES
                     ( :userid1, :channelid, NOW() ), ( :userid2, :channelid, NOW() )',
