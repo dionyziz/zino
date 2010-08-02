@@ -42,6 +42,9 @@
             return $friends;
         } 
         public static function StrengthByUserAndFriends( $userid, $friendids ) {
+            if ( empty( $friendids ) ) {
+                return array();
+            }
             $friendships = array();
             foreach ( $friendids as $id ) {
                 $friendships[ $id ] = false;
