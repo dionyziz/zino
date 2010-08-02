@@ -2,18 +2,7 @@
     <xsl:for-each select="stream">
         <div class="contentitem favourites">
             <div class="details">
-                <ul>
-                    <li>
-                        <xsl:apply-templates select="author" />
-                    </li>
-                    <li><div class="time"><xsl:value-of select="published" /></div></li>
-                    <xsl:if test="favourites[1]/@count &gt; 0">
-                        <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
-                    </xsl:if>
-                    <xsl:if test="discussion[1]/@count &gt; 0">
-                        <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
-                    </xsl:if>
-                </ul>
+                <xsl:apply-templates select="author" />
             </div>
             <h2>
                 Αγαπημένα 
