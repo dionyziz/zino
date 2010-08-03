@@ -48,7 +48,7 @@
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $counts = UserCount::Item( $user[ 'id' ] );
-                $activity = Activity::ListByUser( $user[ 'id' ] );
+                $activities = Activity::ListByUser( $user[ 'id' ] );
                 $song = Song::Item( $user[ 'id' ] );
                 $interests = Interest::ListByUser( $user[ 'id' ] );
                 

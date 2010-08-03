@@ -1,3 +1,5 @@
+SET NAMES UTF8;
+
 DROP TRIGGER IF EXISTS commentinsert;
 DROP TRIGGER IF EXISTS commentdelete;
 DROP TRIGGER IF EXISTS imageinsert;
@@ -433,7 +435,7 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
         DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id`;                                                                             
-        DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
+        -- DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
 	END;
 |
 

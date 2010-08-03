@@ -11,8 +11,18 @@
     class Activity {
         public static function ListByUser( $userid, $limit = 20 ) {
             $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid ORDER BY `activity_created` DESC LIMIT :limit;", compact( 'userid', 'limit' ) );
-            $activities = array();
+            $bulkids = array();
+            $rows = array();
             while ( $row = mysql_fetch_array( $res ) ) {
+                if 
+                    ( $row[ 'activity_bulkid' ] != 0 ) {
+                    $bulkids[ count( $rows ) ] = $row[ 'activity_bulkid' ];
+                }
+                $rows[] = $row;
+            }
+            $bulk = Bulk::FindById( $bulkids );
+            $activities = array();
+            foreach ( $rows as $i => $row ) {
                 $activity = array();
                 $activity[ 'typeid' ] = $row[ 'activity_typeid' ];
                 $activity[ 'user' ] = array();
@@ -22,9 +32,10 @@
                         $activity[ 'comment' ] = array(); 
                         $activity[ 'comment' ][ 'id' ] = $row[ 'activity_refid' ];
                         $activity[ 'comment' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
+                        $activity[ 'comment' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
                         $activity[ 'item' ] = array();
                         $activity[ 'item' ][ 'id' ] = $row[ 'activity_itemid' ];
-                        $activity[ 'item' ][ 'typeid' ] = $row[ 'activity_typeid' ];
+                        $activity[ 'item' ][ 'typeid' ] = $row[ 'activity_itemtype' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
                         break;
@@ -37,6 +48,7 @@
                         $activity[ 'item' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
                         break;
                     case ACTIVITY_FRIEND:
                         $activity[ 'friend' ] = array();
@@ -71,6 +83,7 @@
                         $activity[ 'item' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
                         break;
                     default:
                         die( 'unknown activity type' );
