@@ -150,11 +150,11 @@
 
             switch ( $typeid ) {
                 case TYPE_POLL:
-                    //include( 'models/poll.php' );
+                    clude( 'models/poll.php' );
                     $item = Poll::Item( $itemid );
                     break;
                 case TYPE_PHOTO:
-                    //include( 'models/photo.php' );
+                    clude( 'models/photo.php' );
                     $item = Photo::Item( $itemid );
                     break;
                 case TYPE_USERPROFILE:
