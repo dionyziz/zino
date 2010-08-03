@@ -1,7 +1,7 @@
 <operation resource="favourite" method="delete">
     <? if ( empty( $error ) ): ?>
         <result>SUCCESS</result>
-        <? switch ( $favourite[ 'typeid' ] ):
+        <? switch ( $typeid ):
             case TYPE_JOURNAL:
                 ?><journal id="<?= $itemid ?>" /><?
                 break;
@@ -14,5 +14,6 @@
         endswitch;
     else: ?>
         <result>FAIL</result>
+        <error><?= $error ?></error>
     <? endif; ?>
 </operation>

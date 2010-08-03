@@ -178,5 +178,17 @@
             $id = mysql_insert_id();
             Notification::Create( $userid, $row[ 'userid' ], EVENT_FAVOURITE_CREATED, $id );
         }
+        public static function Delete( $userid, $typeid, $itemid ) {
+            return db( 
+                'DELETE FROM 
+                    `favourites` 
+                WHERE
+                    `favourite_userid` = :userid AND
+                    `favourite_typeid` = :typeid AND
+                    `favourite_itemid` = :itemid
+                LIMIT 1;',
+                compact( 'userid', 'typeid', 'itemid' )
+            );
+        }
     }
 ?>

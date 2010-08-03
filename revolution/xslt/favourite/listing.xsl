@@ -17,6 +17,7 @@
                 <ul>
                     <xsl:for-each select="photo|poll|journal">
                         <li>
+                        <xsl:attribute name="id"><xsl:value-of select="name()" />_<xsl:value-of select="@id" /></xsl:attribute>
                             <xsl:if test="name() = 'photo'">
                                 <img>
                                     <xsl:attribute name="src"><xsl:value-of select="media/@url" /></xsl:attribute>

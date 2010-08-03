@@ -24,6 +24,7 @@
 
             clude( 'models/db.php' );
             clude( 'models/favourite.php' );
+            clude( 'models/types.php' );
 
             switch ( $type ) {
                 case 'photo':
@@ -41,14 +42,13 @@
 
             $error = '';
             try {
-                Favourite::Delete( $typeid, $itemid );
+                Favourite::Delete( $_SESSION[ 'user' ][ 'id' ], $typeid, $itemid );
             }
             catch ( Exception $e ) {
                 $error = $e->getMessage();
             }
 
             Template( 'favourite/delete', compact( 'error', 'typeid', 'itemid' ) );
-            include "views/favourite/delete.php";
         }
     }
 ?>
