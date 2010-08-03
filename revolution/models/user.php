@@ -388,7 +388,7 @@
 'profile_email' 
 'profile_dob'
 */
-			$validints = array ( 'profile_moodid', 'profile_placeid', 'profile_height', 'profile_weight' );					
+			$validints = array ( 'profile_moodid', 'profile_placeid' );//, 'profile_height', 'profile_weight' );					
 			$validarrays = array( 
 				'profile_sexualorientation' => array( '-' , 'straight', 'bi', 'gay' ) ,
  				'profile_relationship' => array( '-', 'single', 'relationship', 'casual', 'engaged', 'married','complicated' ),
