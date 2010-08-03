@@ -1,5 +1,4 @@
 <?php
-    
     class ControllerAlbum {
         public static function View( $id, $page = 1, $limit = 100 ) {
             clude( 'models/db.php' );

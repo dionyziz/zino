@@ -33,7 +33,6 @@ var News = {
         return false;
     },
     Init: function() {
-        Chat.Init();
         $( '#preview .infotext' ).center();
         News.Prepare( $( '.stream ul li' ) );
         $( 'a.newpoll' ).click( function() {

@@ -7,7 +7,6 @@ var PhotoListing = {
     Loading: false,
     EndOfPhotos: false,
     Init: function(){
-        Chat.Init();
         SI.Files.stylizeAll();
         this.PhotoList = $( '.photostream ul' );
         this.PlaceholderHTML = '';
@@ -83,7 +82,7 @@ var PhotoListing = {
                 }
                 $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
                 if ( count != '0' ) {
-                    if ( count > 99 ) {
+                    if ( count < 100 ) {
                         $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
                     }
                     else {

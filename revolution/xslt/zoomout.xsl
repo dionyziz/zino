@@ -1,32 +1,37 @@
 <xsl:template name="zoomout">
-    <div class="col1 vbar">
-        <h1><img src="http://static.zino.gr/phoenix/logo-trans.png" alt="Zino Bubble" /></h1>
+    <div class="bar">
+        <span>▼</span>
+        <img src="http://static.zino.gr/phoenix/logo-trans.png" />
+         
         <ul>
-            <!-- <li><a href=""><img src="images/house.png" alt="Όλα" title="Όλα" /><span>Όλα</span></a></li> -->
             <li>
                 <xsl:if test="/social/photos">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
-                <a href=""><img src="images/images.png" alt="Φωτογραφίες" title="Φωτογραφίες" /><span>Εικόνες</span></a>
+                <a style="background-image: url('http://zino.gr:500/dionyziz/images/images.png');" href="">Εικόνες</a>
             </li>
             <li>
                 <xsl:if test="/social/news">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
-                <a href="news"><img src="images/world.png" alt="Νέα" title="Νέα" /><span>Νέα</span></a>
+                <a style="background-image: url('http://zino.gr:500/dionyziz/images/world.png');" href="news">Νέα</a>
             </li>
-            <xsl:if test="/social/@for">
-                <li><a id="logoutbutton">
-                    <xsl:attribute name="href">
-                        users/<xsl:value-of select="/social/@for" />
-                    </xsl:attribute>
-                    <img src="images/user.png" alt="Προφίλ" title="Προφίλ" /><span>Προφίλ</span>
-                </a></li>
-            </xsl:if>
-            <xsl:if test="not(/social/@for)">
-                <li><a href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a></li>
-            </xsl:if>
-            <li class="bl"><a href="" id="chatbutton"><img src="images/comments.png" alt="Συζήτηση" title="Συζήτηση" /><span>Chat</span></a></li>
+            <li>
+                <xsl:if test="/social/@for">
+                    <a id="logoutbutton" style="background-image: url('http://zino.gr:500/dionyziz/images/user.png');">
+                        <xsl:attribute name="href">
+                            users/<xsl:value-of select="/social/@for" />
+                        </xsl:attribute>
+                        Προφίλ
+                    </a>
+                </xsl:if>
+                <xsl:if test="not(/social/@for)">
+                    <a style="background-image: url('http://zino.gr:500/dionyziz/images/user.png');" href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a>
+                </xsl:if>
+            </li>
+            <li style="float: right; padding-right: 0px;margin-right: 7px;">
+                <a href="" id="chatbutton" style="background-image: url('http://zino.gr:500/dionyziz/images/comments.png');">Chat</a>
+            </li>
         </ul>
     </div>
     <div class="col2">

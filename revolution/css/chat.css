@@ -2,15 +2,19 @@
     color: black;
     background-color: white;
     position: fixed;
-    top: 5px;
-    bottom: 5px;
-    right: 5px;
-    left: 5%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     border: 1px solid black;
-   -moz-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     z-index: 10;
 }
+    #chat .xbutton {
+        background-image: url( 'http://static.zino.gr/phoenix/xbutton.png' );
+        background-repeat: no-repeat;
+    }
 .userlist {
     float: right;
     width: 200px;
@@ -153,8 +157,23 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    position: absolute;
-    bottom: 0;
+    padding: 5px;
+    float: right;
+    border: 2px solid white;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(255,145,0)),
+        color-stop(1, rgb(255,187,97))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(255,145,0) 0%,
+        rgb(255,187,97) 100%
+    );
+    color: black;
+    cursor: pointer;
 }
 .chatbubble img {
     float: left;
@@ -162,4 +181,13 @@
 }
 .chatbubble div {
     margin-left: 55px;
+}
+.chatbubble div span {
+    display: block;
+}
+#chatbubbles {
+    z-index: 5;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
 }

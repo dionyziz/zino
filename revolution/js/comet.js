@@ -4,6 +4,7 @@ var Comet = {
     HandshakeCompleted: false,
     BodyLoaded: false,
     ConnectPostponed: false,
+    Renewing: false,
     Handshake: function () {
         //alert( 'Comet.Handshake' );
         channels = [];
@@ -36,9 +37,11 @@ var Comet = {
         setTimeout( Comet.Handshake, 50 );
     },
     Connect: function () {
-        //alert( 'Comet.Connect' );
         $.get( '/subscribe?id=' + Comet.TunnelId, {}, Comet.OnFishArrival, 'text' );
-        setInterval( Comet.Renew, 60000 );
+        if ( !Comet.Renewing ) {
+            setInterval( Comet.Renew, 60000 );
+            Comet.Renewing = true;
+        }
     },
     OnFishArrival: function ( res ) {
         var xmlDoc;

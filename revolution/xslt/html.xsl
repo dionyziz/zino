@@ -55,7 +55,9 @@ asd
             </script>
         </head>
         <body onload="Comet.OnBodyLoaded()">
-            <xsl:apply-templates />
+            <div id="world">
+                <xsl:apply-templates />
+            </div>
             <script type="text/javascript">
                 $.ajaxSetup( {
                     dataType: 'xml'
@@ -78,6 +80,7 @@ asd
                     'friendship.listing': Friends,
                 }[ '<xsl:value-of select="$mastertemplate" />' ].Init();
                 Presence.Init();
+                Chat.Init();
             </script>
         </body>
     </html>

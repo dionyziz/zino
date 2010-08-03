@@ -20,7 +20,7 @@
                     <form>
                         <span>Διάλεξε ένα ψευδώνυμο:</span>
                         <div>
-                            <input class="submit" type="submit" value="Μπες τώρα" tabindex="5" />
+                            <input class="submit" type="submit" value="" tabindex="5" />
                             <input class="text" type="text" name="username" tabindex="4" />
                         </div>
                     </form>
@@ -32,7 +32,7 @@
                         <input class="text" type="text" tabindex="1" name="username" />
                         <label>Κωδικός</label>
                         <input class="text" type="password" tabindex="2" name="password" />
-                        <input class="submit" type="submit" value="Είσοδος" tabindex="3" />
+                        <input class="submit" type="submit" value="" tabindex="3" />
                     </form>
                 </div>
             </div>

@@ -42,7 +42,6 @@ var Chat = {
                 name = $( user ).find( 'name' ).text();
                 Chat.OnUserOnline( $( user ).attr( 'id' ), name );
             }
-            online.innerHTML = html;
             $( '#onlineusers li' ).click( Chat.NameClick );
         }, 'xml' );
      },
@@ -137,8 +136,9 @@ var Chat = {
             Chat.Join( Chat.UserId + ':' + Chat.Authtoken );
             Comet.Subscribe( 'presence', Chat.OnPresenceChange );
         } );
-        $( '.col2' )[ 0 ].innerHTML +=
+        $( document.body ).append(
              '<div style="display:none" id="chat">'
+                 + '<div class="xbutton"></div>'
                  + '<div class="userlist">'
                      + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'
@@ -147,7 +147,7 @@ var Chat = {
                      + '<div id="chatmessages"></div>'
                      + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
                  + '</div>'
-             + '</div>';
+             + '</div>' );
         $( '#onlineusers li' ).click( Chat.NameClick );
      },
      SendMessage: function ( channelid, text ) {
@@ -214,6 +214,7 @@ var Chat = {
          }
          else {
              var userid, cid, found, username;
+
              found = false;
              for ( userid in Chat.ChannelByUserId ) {
                  cid = Chat.ChannelByUserId[ userid ];
@@ -226,7 +227,7 @@ var Chat = {
                      else {
                          username = $( '#u' + userid ).text();
                      }
-                     Chat.PopBubble( username, avatar, text );
+                     Chat.PopBubble( userid, username, text, channelid );
                  }
              }
              if ( !found ) {
@@ -244,14 +245,38 @@ var Chat = {
                              break;
                          }
                      }
-                     Chat.PopBubble( username, avatar, text );
+                     Chat.PopBubble( userid, username, text, channelid );
                  } );
              }
          }
      },
-     PopBubble: function ( userid, username, avatar, text ) {
+     PopBubble: function ( userid, username, text, channelid ) {
+         if ( !$( '#chatbubbles' ).length ) {
+             $( document.body ).append( '<div id="chatbubbles"></div>' );
+         }
          if ( !$( '#popbubble_' + userid ).length ) {
-             $( document.body ).append( '<div id="popbubble_' + userid + '"></div>' );
+             $( '#chatbubbles' ).append( '<div class="chatbubble" id="popbubble_' + userid + '"><img src="" alt="' + username + '" /><div class="text"><span><strong>' + username + '</strong> λέει:</span></div></div>' );
+             $( '#popbubble_' + userid + ' .text' )[ 0 ].appendChild( document.createTextNode( text ) );
+             $( '#popbubble_' + userid ).click( function () {
+                 Chat.Toggle();
+                 Chat.Show( channelid );
+                 $( '#popbubble_' + userid ).remove();
+             } );
+             $.get( 'users/' + username, { verbose: 0 }, function ( res ) {
+                 $( '#popbubble_' + userid + ' img' )[ 0 ].src = $( res ).find( 'media' ).attr( 'url' );
+             } );
+             var pos = 0;
+
+             ( function () {
+                 pos += 0.1;
+                 if ( pos > Math.PI ) {
+                     pos -= Math.PI;
+                 }
+                 if ( $( '#popbubble_' + userid ).length ) {
+                     $( '#popbubble_' + userid ).css( { opacity: 0.5 + 0.5 * Math.sin( pos ) } );
+                     setTimeout( arguments.callee, 50 );
+                 }
+             } )();
          }
      },
      OnUserOnline: function ( userid, username ) {
@@ -359,7 +384,7 @@ var Chat = {
              Chat.DisplayChannel( channelid );
          }
      },
-     // switches to given channel; loads it if not yet lo
+     // switches to given channel; loads it if not yet loaded
      Show: function ( channelid ) {
          if ( typeof Chat.ChannelsLoaded[ channelid ] == 'undefined' ) {
              Chat.NowLoading();
@@ -384,19 +409,19 @@ var Chat = {
      },
      // hide/show the chat application
      Toggle: function () {
+         alert( 'Toggle' );
          if ( !Chat.Loaded ) {
              Chat.Load();
          }
          if ( Chat.Visible ) {
-             $( '.col2 > div' ).show(); 
              $( '#chat' ).hide();
+             $( '#world' ).show();
          }
          else {
-             $( '.col2 > div' ).hide();
              $( '#chat' ).show();
+             $( '#world' ).hide();
              Chat.GetOnline();
          }
          Chat.Visible = !Chat.Visible;
      }
 };
-
