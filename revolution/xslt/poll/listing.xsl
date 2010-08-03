@@ -1,0 +1,57 @@
+<xsl:template match="/social[@resource='poll' and @method='listing']" >
+    <div class="stream">
+        <xsl:apply-templates />
+    </div>
+    <div id="preview"><div class="contentshadow"><div class="content"><span class="infotext" style="position: absolute; height: 0px; top: 50%; margin-top: 0px;">Κάνε κλικ σε ένα Νέο για προεπισκόπηση</span></div></div></div>
+</xsl:template>
+
+<xsl:template match="/social[@resource='poll' and @method='listing']/polls" >
+    <ul>
+        <xsl:for-each select="poll">
+            <li class="poll">
+                <xsl:attribute name="id">
+                    <xsl:text>poll_</xsl:text>
+                    <xsl:value-of select="@id" />
+                </xsl:attribute>
+                <div class="details">
+                    <a class="username">
+                        <xsl:attribute name="href">
+                            <xsl:text>users/</xsl:text>
+                            <xsl:value-of select="author/name" />
+                        </xsl:attribute>
+                        <img class="avatar">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="author/avatar/media/@url" />
+                            </xsl:attribute>
+                        </img>
+                        <xsl:value-of select="author/name" />
+                    </a>
+                    <p class="time">
+                        <xsl:value-of select="published" />
+                    </p>
+                    <p class="commentcount">
+                        <xsl:value-of select="discussion/@count" />
+                        <xsl:text> σχόλιο</xsl:text>
+                    </p>
+                </div>
+                <a class="title">
+                    <xsl:attribute name="href">
+                        <xsl:text>polls/</xsl:text>
+                        <xsl:value-of select="@id" />
+                    </xsl:attribute>
+                    <h2>
+                        <xsl:value-of select="question" />
+                    </h2>
+                </a>
+                <a class="zoomin">
+                    <xsl:attribute name="href">
+                        <xsl:text>polls/</xsl:text>
+                        <xsl:value-of select="@id" />
+                    </xsl:attribute>
+                    <xsl:text>Κάνε κλικ ξανά για μεγιστοποίηση</xsl:text>
+                </a>
+            </li>
+        </xsl:for-each>
+    </ul>
+</xsl:template>
+
