@@ -2,8 +2,9 @@ var Poll = {
     NewOptions: 2,
     PreCreate: function() {
         axslt( false, 'call:poll.new', function() {
-            $( '.col1, .col2, #notifications' ).remove();
-            $( this ).appendTo( 'body' );
+            $( '#content' ).remove();
+            Notifications.Hide();
+            $( this ).appendTo( '#content' );
             $( '.newpoll' ).find( 'input.question' ).focus();
             $( '.newpoll' ).find( 'input.option' ).keydown( function() {
                 Poll.OptionChange( this );

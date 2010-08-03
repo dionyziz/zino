@@ -35,6 +35,9 @@ var News = {
     Init: function() {
         $( '#preview .infotext' ).center( { horizontal: false } );
         News.Prepare( $( '.stream ul li' ) );
+        $( 'a.newjournal' ).click( function() {
+            return Journal.PreCreate();
+        } );
         $( 'a.newpoll' ).click( function() {
             return Poll.PreCreate();
         } );

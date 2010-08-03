@@ -14,7 +14,11 @@ var Journal = {
             window.location = 'journals/' + User;
         });     
     },
-    Create: function() {
-        
+    PreCreate: function() {
+        axslt( false, 'call:journal.new', function() {
+            $( '#content' ).empty().append( $( this ).filter( 'div' ) );
+            Notifications.Hide();
+        } );
+        return false;
     }
 };

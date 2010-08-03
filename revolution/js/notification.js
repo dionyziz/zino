@@ -594,5 +594,8 @@ var Notifications = {
                 document.body.appendChild( panel );
             } );
         }
+    },
+    Hide: function() {
+        $( '#notifications' ).hide();
     }
 };
