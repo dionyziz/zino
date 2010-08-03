@@ -62,9 +62,12 @@ var PhotoListing = {
         PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
         PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
-        var foo =  window.location.hash == '' ? window.location : window.location.hash;
-        foo = foo.split( '#' );
-        $.get( foo[ 1 ],
+        var target = window.location.href;
+        if( window.location.hash == '' ){
+            target = window.location.hash.split( '#' );
+            target = target[ 1 ];
+        }
+        $.get( target,
         { 'page': PhotoListing.CurrentPage },
         function( xml ){
             var responseSize = $( xml ).find( 'photo' ).length;
