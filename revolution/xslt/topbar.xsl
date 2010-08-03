@@ -29,7 +29,7 @@
                     </a>
                 </xsl:if>
                 <xsl:if test="not(/social/@for)">
-                    <a style="background-image: url('http://zino.gr:500/dionyziz/images/user.png');" href="login" id="loginbutton"><img src="images/user.png" alt="Είσοδος" title="Είσοδος" /><span>Είσοδος</span></a>
+                    <a style="background-image: url('http://zino.gr:500/dionyziz/images/user.png');" href="login" id="loginbutton">Είσοδος</a>
                 </xsl:if>
             </li>
             <li style="float: right; padding-right: 0px;margin-right: 7px;">

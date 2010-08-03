@@ -409,7 +409,6 @@ var Chat = {
      },
      // hide/show the chat application
      Toggle: function () {
-         alert( 'Toggle' );
          if ( !Chat.Loaded ) {
              Chat.Load();
          }
