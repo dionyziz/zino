@@ -68,7 +68,8 @@ div.itemstream ul li span.preview {
     position: absolute;
     right: 210px;
     /* top: 24px; */
-    padding: 0px 5px 0px 7px;
+    /* padding: 0px 5px 0px 7px; */
+    padding: 0px 6px;
     text-align: center;
     color: white;
     position: absolute;
