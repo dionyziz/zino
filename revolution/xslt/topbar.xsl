@@ -5,7 +5,7 @@
          
         <ul>
             <li>
-                <xsl:if test="/social/photos">
+                <xsl:if test="/social/photos and not(/social/photos/author)">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
                 <a style="background-image: url('http://zino.gr:500/dionyziz/images/images.png');" href="">Εικόνες</a>

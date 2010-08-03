@@ -138,7 +138,7 @@ var Chat = {
         } );
         $( document.body ).append(
              '<div style="display:none" id="chat">'
-                 + '<div class="xbutton"></div>'
+                 + '<div class="xbutton">&laquo; Πίσω</div>'
                  + '<div class="userlist">'
                      + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'

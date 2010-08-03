@@ -12,8 +12,24 @@
     z-index: 10;
 }
 #chat .xbutton {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #AABBCC;
+    bottom: 0;
+    color: white;
+    height: 20px;
+    left: 0;
+    top: auto;
+    margin: 3px;
+    padding: 0 5px;
+    width: auto;
     position: absolute;
-    
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 9pt;
+    font-weight: normal;
 }
 .userlist {
     float: right;
