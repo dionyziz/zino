@@ -28,7 +28,9 @@ var AlbumListing = {
                     window.location.hash = this.href;
                     axslt( $.get( this.href ), '/social/album', function() {
                         $( '.photostream' ).empty().append( $( this ).find( 'ul' ) );
-                        $( '.photostream input' )[ 1 ].value = albumid;
+                        if( $( '.photostream input' ).length == 2 ){
+                            $( '.photostream input' )[ 1 ].value = albumid;
+                        }
                         PhotoListing.PreparePhotoList();
                     } );
                     return false;
