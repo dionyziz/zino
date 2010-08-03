@@ -36,7 +36,7 @@ var Journal = {
                 } );
                 return false;
             } );
-            $screen.find( '.toolbox .button.big' ).click( function() { window.location.href = 'news'; return false; } );
+            $screen.find( '.toolbox .linkbutton' ).click( function() { window.location.href = 'news'; return false; } );
         } );
         return false;
     }
