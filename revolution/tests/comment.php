@@ -35,9 +35,9 @@
 			$item = Comment::Item( $id );
 			$this->AssertIsArray( $item );
 			var_dump( $item );
-			$this->AssertEquals( ( int )$item[ $id ][ "id" ], $id, "wrong comment id" );
-			$this->AssertEquals( $item[ $id ][ "text" ], $text2, "wrong comment text" );
-			$this->AssertEquals( ( int )$item[ $id ][ "typeid" ], $typeid, "wrong comment type" );
+			$this->AssertEquals( ( int )$item[ "id" ], $id, "wrong comment id" );
+			$this->AssertEquals( $item[ "text" ], $text2, "wrong comment text" );
+			$this->AssertEquals( ( int )$item[ "typeid" ], $typeid, "wrong comment type" );
 			
 			return $item;
         }
