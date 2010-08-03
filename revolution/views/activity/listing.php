@@ -39,7 +39,7 @@
         case ACTIVITY_SONG:
         ?><type>song</type>
         <song id="<?= $activity[ 'song' ][ 'id' ] ?>">
-            <title><?= $activity[ 'song' ][ 'title' ] ?></title>
+            <title><?= htmlspecialchars( $activity[ 'song' ][ 'title' ] ) ?></title>
         </song>
         <?
         break;

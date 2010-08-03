@@ -15,6 +15,7 @@ var Chat = {
      Loading: false,
      UserId: 0,
      Authtoken: '',
+     PreviousPageSelected: 0,
      NameClick: function () {
          $( '#onlineusers li' ).removeClass( 'selected' );
          $( this ).addClass( 'selected' );
@@ -138,7 +139,7 @@ var Chat = {
         } );
         $( document.body ).append(
              '<div style="display:none" id="chat">'
-                 + '<div class="xbutton">&laquo; Πίσω</div>'
+                 // + '<div class="xbutton">&laquo; Πίσω</div>'
                  + '<div class="userlist">'
                      + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'
@@ -414,11 +415,22 @@ var Chat = {
          }
          if ( Chat.Visible ) {
              $( '#chat' ).hide();
-             $( '#world' ).show();
+             $( '#content' ).show();
+             $( $( 'div.bar ul li' )[ Chat.PreviousPageSelected ] ).addClass( 'selected' );
+             $( '#chatbutton' ).parent().removeClass( 'selected' );
          }
          else {
              $( '#chat' ).show();
-             $( '#world' ).hide();
+             $( '#content' ).hide();
+             var menu = $( 'div.bar ul li' );
+             for ( var i = 0; i < menu.length; ++i ) {
+                 if ( menu[ i ].className == 'selected' ) {
+                     Chat.PreviousPageSelected = i;
+                     $( menu[ i ] ).removeClass( 'selected' );
+                     break;
+                 }
+             }
+             $( '#chatbutton' ).parent().addClass( 'selected' );
              Chat.GetOnline();
          }
          Chat.Visible = !Chat.Visible;
