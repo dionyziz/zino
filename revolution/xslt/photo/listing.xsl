@@ -26,7 +26,7 @@
                 Άλμπουμ της
             </xsl:when>
             <xsl:otherwise>
-                Άλμπουμ του/της
+                Άλμπουμ της μάνας σου
             </xsl:otherwise>
         </xsl:choose>
         <span class="user">
