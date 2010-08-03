@@ -33,7 +33,7 @@ var News = {
         return false;
     },
     Init: function() {
-        $( '#preview .infotext' ).center();
+        $( '#preview .infotext' ).center( { horizontal: false } );
         News.Prepare( $( '.stream ul li' ) );
         $( 'a.newpoll' ).click( function() {
             return Poll.PreCreate();
