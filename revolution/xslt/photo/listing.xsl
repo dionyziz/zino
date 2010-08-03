@@ -37,7 +37,6 @@
 </xsl:template>
 
 <xsl:template name="photolist">
-    <xsl:param name="owner" />
     <div class="photostream">
         <ul>
             <xsl:if test="/social/@for and (/social/@for=author/name or not(author/name))">
@@ -47,6 +46,7 @@
                             <label class="cabinet">
                                 <input type="file" name="uploadimage" class="file" />
                             </label>
+                            <input type="hidden" name="albumid" value="-1" />
                             <span class="tooltip"><span>&#9650;</span>ανέβασε εικόνα</span>
                         </div>
                     </form>
