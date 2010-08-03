@@ -358,10 +358,7 @@
                 }
             }
 
-			// data checks TODO
-
-
-			//
+			$details = User::CheckDataOnUserUpdate ( $details );
             
 			$first = true;
             $query = 
@@ -386,6 +383,39 @@
 			
             return true;
         }
+		private static function CheckDataOnUserUpdate( $data ) {
+/* TODO
+'profile_email' 
+'profile_dob'
+*/
+			$validints = array ( 'profile_moodid', 'profile_placeid', 'profile_height', 'profile_weight' );					
+			$validarrays = array( 
+				'profile_sexualorientation' => array( '-' , 'straight', 'bi', 'gay' ) ,
+ 				'profile_relationship' => array( '-', 'single', 'relationship', 'casual', 'engaged', 'married','complicated' ),
+				'profile_religion' => array( '-', 'christian', 'muslim', 'atheist','agnostic', 'nothing', 'pastafarian', 'pagan', 'budhist', 'greekpolytheism', 'hindu' ),
+				'profile_politics' => array( '-', 'right', 'left', 'center', 'radical left', 'center left', 'center right', 'nothing', 'anarchism', 'communism', 'socialism', 'liberalism', 'green' ),
+				'profile_eyecolor' => array ( '-', 'black','brown', 'green', 'blue', 'grey' ),
+				'profile_haircolor' => array( '-', 'black', 'brown', 'red', 'blond', 'highlights', 'dark', 'grey', 'skinhead' ),
+				'profile_smoker' => array( 'yes', 'no', 'socially' ),
+				'profile_drinker' => array( 'yes', 'no', 'socially' ),
+				'user_gender' => array( '-', 'm', 'f' )
+			);
+
+			foreach ( $validints as $one ) {
+				if ( isset( $data[ $one ] ) ) {
+					$data[ $one ] = ( int ) $data[ $one ];
+				}
+			}
+			foreach ( $validarrays as $key => $val ) {
+				if ( isset( $data[ $key ] ) ) {
+					if ( !in_array( $data[ $key ], $val ) ) {
+						$data[ $key ] = $val[ 0 ];
+					}
+				}	
+			}
+	
+			return $data;
+		}
         public static function UpdateLastActive( $userid, $authtoken = false ) {
             if ( !is_bool( $authtoken ) && !is_string( $authtoken ) ) {
                 die( 'invalid authtoken' );
