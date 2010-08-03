@@ -1,0 +1,42 @@
+div.useralbums {
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    background: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0, #000),
+        color-stop(1, #333 )
+    );
+    background:-moz-linear-gradient( top, #333, #000);
+    color: #fc0;
+    font-size:18px;
+    margin:0 9px;
+    padding:7px;
+    text-align:center;
+}
+#albumlist {    
+    white-space: nowrap;
+    height: 185px;
+    overflow: auto;
+    width: 100%;
+    margin-top: 5px;
+}
+    #albumlist li {
+        display: inline-block;
+        vertical-align: top;
+        margin: 4px 10px;
+    }
+    #albumlist li p {
+        font-size: 11pt;
+        margin: 5px;
+        color: #347594;
+    }
+    #albumlist img {
+        width: 120px;
+        border: 2px solid white;
+        -moz-border-radius: 5px;
+        -webit-border-radius: 5px;
+        border-radius: 5px;
+    }

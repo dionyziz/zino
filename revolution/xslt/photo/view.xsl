@@ -1,5 +1,5 @@
 <xsl:template match="/social[@resource='photo' and @method='view']">
-    <xsl:call-template name="zoomin" />
+    <xsl:apply-templates />
 </xsl:template>
 
 <xsl:template match="/social[@resource='photo' and @method='view']//photo">

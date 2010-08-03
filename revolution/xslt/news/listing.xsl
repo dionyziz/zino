@@ -1,5 +1,5 @@
 <xsl:template match="/social[@resource='news' and @method='listing']">
-    <xsl:call-template name="zoomout" />
+    <xsl:apply-templates />
 </xsl:template>
 
 <xsl:template match="/social[@resource='news' and @method='listing']//news">
