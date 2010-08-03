@@ -2,7 +2,7 @@
     <xsl:apply-templates />
 </xsl:template>
 
-<xsl:template match="/social[@resource='news' and @method='listing']//news">
+<xsl:template match="/social[@resource='news' and @method='listing']//news" name="news">
     <div class="stream">
         <xsl:if test="$user">
             <ol class="createitem">

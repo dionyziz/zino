@@ -14,6 +14,7 @@ user/edit.xsl
 user/player.xsl
 poll/view.xsl
 poll/create.xsl
+poll/listing.xsl
 news/listing.xsl
 journal/view.xsl
 journal/create.xsl
