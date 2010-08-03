@@ -10,29 +10,29 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:for-each select="photos">
-                    <xsl:call-template name="photolist">
-                        <xsl:with-param name="owner"><xsl:value-of select="../../name" /></xsl:with-param>
-                    </xsl:call-template>
+                    <xsl:call-template name="photolist" />
                 </xsl:for-each>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:for-each>
-    <div class="useralbums">
-        <xsl:choose>
-            <xsl:when test="author/gender = 'm'">
-                Άλμπουμ του
-            </xsl:when>
-            <xsl:when test="author/gender = 'f'">
-                Άλμπουμ της
-            </xsl:when>
-            <xsl:otherwise>
-                Άλμπουμ του/της
-            </xsl:otherwise>
-        </xsl:choose>
-        <span class="user">
-            <xsl:value-of select="author/name" />
-        </span>
-    </div>
+    <xsl:if test="author">
+        <div class="useralbums">
+            <xsl:choose>
+                <xsl:when test="author/gender = 'm'">
+                    Άλμπουμ του
+                </xsl:when>
+                <xsl:when test="author/gender = 'f'">
+                    Άλμπουμ της
+                </xsl:when>
+                <xsl:otherwise>
+                    Άλμπουμ του/της
+                </xsl:otherwise>
+            </xsl:choose>
+            <span class="user">
+                <xsl:value-of select="author/name" />
+            </span>
+        </div>
+    </xsl:if>
     <xsl:call-template name="photolist" />
 </xsl:template>
 
@@ -40,7 +40,7 @@
     <xsl:param name="owner" />
     <div class="photostream">
         <ul>
-            <xsl:if test="/social/@for and (($owner=/social/@for) or not($owner))">
+            <xsl:if test="/social/@for and (/social/@for=author/name or not(author/name))">
                 <li>
                     <form method="post" action="photo/create" enctype="multipart/form-data">
                         <div>

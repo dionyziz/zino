@@ -22,8 +22,9 @@ var AlbumListing = {
                 $( '.useralbums a' ).click( function() {
                     $( '.useralbums .selected' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
+                    window.location.hash = this.href;
                     axslt( $.get( this.href ), '/social/album', function() {
-                        $( '.photostream' ).empty().append( $( this ).filter( '*' ) );
+                        $( '.photostream' ).empty().append( $( this ).find( 'ul' ) );
                         PhotoListing.PreparePhotoList();
                     } );
                     return false;

@@ -28,13 +28,16 @@ var PhotoListing = {
     PreparePhotoList: function() {
         PhotoListing.PhotoList = $( '.photostream ul' );
         PhotoListing.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
-        PhotoListing.AssignEvents();
+        PhotoListing.CurrentPage = 1;
+        PhotoListing.Initialized = true;
         if ( $( '.photostream ul li' ).length < 100 ) {
             for ( i = 0; i < 20; ++i ) { //Last Line justify hack
                 PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
             }
+            PhotoListing.RemoveEvents();
+            return;
         }
-        PhotoListing.Initialized = true;
+        PhotoListing.AssignEvents();
     },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
@@ -56,7 +59,9 @@ var PhotoListing = {
         PhotoListing.PhotoList[ 0 ].innerHTML += PhotoListing.PlaceholderHTML;
         PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
-        $.get( window.location,
+        var foo =  window.location.hash == '' ? window.location : window.location.hash;
+        foo = foo.split( '#' );
+        $.get( foo[ 1 ],
         { 'page': PhotoListing.CurrentPage },
         function( xml ){
             var responseSize = $( xml ).find( 'photo' ).length;
