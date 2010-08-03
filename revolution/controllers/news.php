@@ -28,7 +28,7 @@
             // shuffle( $content );
             // shuffle( $content );
             global $settings;
-            usort( $content, array( self, 'Compare' ) );
+            usort( $content, array( __CLASS__, 'Compare' ) );
             include 'views/news/listing.php';
         }
         private static function Compare( $a, $b ) {
