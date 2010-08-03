@@ -7,13 +7,18 @@ var PhotoListing = {
     Loading: false,
     EndOfPhotos: false,
     Init: function(){
-        SI.Files.stylizeAll();
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){
             this.PlaceholderHTML += '<li><a><img /></a></li>';
         }
         PhotoListing.PreparePhotoList();
-        $( 'form input[type=file]' ).change( function () {
+        if( $( '.useralbums' ) ) {
+            AlbumListing.Init();
+        }
+    },
+    SetUploadAction: function() {
+        SI.Files.stylizeAll();
+        $( '.photostream input[type=file]' ).change( function () {
             $( this ).parents( 'form' )[ 0 ].submit();
             $( 'body' ).append(
                 '<div class="wait">'
@@ -21,22 +26,20 @@ var PhotoListing = {
                 + '</div>'
             );
         } );
-        if( $( '.useralbums' ) ) {
-            AlbumListing.Init();
-        }
     },
     PreparePhotoList: function() {
         PhotoListing.PhotoList = $( '.photostream ul' );
         PhotoListing.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
         PhotoListing.CurrentPage = 1;
-        PhotoListing.Initialized = true;
         if ( $( '.photostream ul li' ).length < 100 ) {
             for ( i = 0; i < 20; ++i ) { //Last Line justify hack
                 PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
             }
             PhotoListing.RemoveEvents();
+            PhotoListing.SetUploadAction();
             return;
         }
+        PhotoListing.SetUploadAction();
         PhotoListing.AssignEvents();
     },
     ScrollHandler: function(){
