@@ -204,6 +204,12 @@
 
             $bulkid = Bulk::Store( $text ); 
             $userip = UserIp();
+
+			echo "INSERT INTO `comments`
+                    (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
+                VALUES
+                    ($userid, $bulkid, $typeid, $itemid, $parentid, NOW(), $userip )";
+
             db( "INSERT INTO `comments`
                     (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
                 VALUES
