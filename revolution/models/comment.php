@@ -158,14 +158,14 @@
                     $item = Photo::Item( $itemid );
                     break;
                 case TYPE_USERPROFILE:
-                    //include( 'models/user.php' );
+                    clude( 'models/user.php' );
                     $item = User::Item( $itemid );
                     if ( $item !== false ) {
                         $item[ 'userid' ] = $itemid;
                     }
                     break;
                 case TYPE_JOURNAL:
-                    //include( 'model/journal.php' );
+                    clude( 'model/journal.php' );
                     $item = Journal::Item( $itemid );
                     break;
                 default:
