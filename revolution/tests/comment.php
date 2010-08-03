@@ -17,9 +17,9 @@
 				array( $userid, "Eftase hwra?", TYPE_PHOTO, 1245, 0 ),
 			);
         }
-        public function TearDown() {
+        /*public function TearDown() {
             $this->DeleteTestUsers();
-        }
+        }*/
 		public function PreConditions() {
             $this->AssertClassExists( 'Comment' );
             $this->AssertMethodExists( 'Comment', 'Create' );
