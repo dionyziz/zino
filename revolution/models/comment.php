@@ -209,6 +209,7 @@
                     (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
                 VALUES
                     ($userid, $bulkid, $typeid, $itemid, $parentid, NOW(), $userip )";
+			var_dump( $userip );
 
             db( "INSERT INTO `comments`
                     (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
