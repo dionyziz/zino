@@ -45,6 +45,7 @@
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a journal' );
 
             clude( 'models/db.php' );
+            clude( 'models/user.php' );
             clude( 'models/journal.php' );
 
             $journal = Journal::Create( $_SESSION[ 'user' ][ 'id' ], $title, $text );
