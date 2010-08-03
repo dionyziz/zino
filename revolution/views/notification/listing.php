@@ -67,9 +67,11 @@
                 <? if ( isset( $user[ 'place' ] ) && isset( $user[ 'place' ][ 'name' ] ) ): ?>
                 <location><?= $user[ 'place' ][ 'name' ] ?></location>
                 <? endif; ?>
+                <? if ( $user[ 'avatarid' ] ): ?>
                 <avatar id="<?= $user[ 'avatarid' ] ?>">
                     <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
                 </avatar>
+                <? endif; ?>
             </user>
         </favourites>
     </entry>
@@ -80,9 +82,11 @@
     ?>
         <user id="<?= $user[ 'id' ] ?>">
             <name><?= $user[ 'name' ] ?></name>
+            <? if ( $user[ 'avatarid' ] ): ?>
             <avatar id="<?= $user[ 'avatarid' ] ?>">
                 <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
             </avatar>
+            <? endif; ?>
             <gender><?= $user[ 'gender' ]; ?></gender>
             <age><?= $user[ 'age' ]; ?></age>
             <location><?= $user[ 'place' ][ 'name' ]; ?></location>

@@ -536,17 +536,26 @@ var Notifications = {
                         case 'comment':
                             author = entry.find( 'discussion comment author name' ).text();
                             avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
+                            if ( typeof avatar === 'undefined' ) {
+                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                            }
                             comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
                             break;
                         case 'favourite':
                             author = entry.find( 'favourites user name' ).text();
                             avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
+                            if ( typeof avatar === 'undefined' ) {
+                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                            }
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
                             break;
                         case 'friend':
                             author = entry.find( 'name' ).text();
                             avatar = entry.find( 'avatar media' ).attr( 'url' );
+                            if ( typeof avatar === 'undefined' ) {
+                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+                            }
                             gender = entry.find( 'gender' ).text();
                             var friend = 'φίλος';
                             if ( gender == 'f' ) {

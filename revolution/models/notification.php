@@ -49,16 +49,19 @@
                     $idsbyeventtype[ $row[ 'eventtypeid' ] ] = array();
                 }
                 $idsbyeventtype[ $row[ 'eventtypeid' ] ][] = $row[ 'itemid' ];
+                $user = array(
+                    'id' => $row[ 'userid' ],
+                    'name' => $row[ 'name' ],
+                    'gender' => $row[ 'gender' ]
+                );
+                if ( $row[ 'avatarid' ] > 0 ) {
+                    $user[ 'avatarid' ] = $row[ 'avatarid' ];
+                }
                 $notifications[] = array(
                     'created' => $row[ 'created' ],
                     'eventtypeid' => $row[ 'eventtypeid' ],
                     'itemid' => $row[ 'itemid' ],
-                    'user' => array(
-                        'id' => $row[ 'userid' ],
-                        'name' => $row[ 'name' ],
-                        'avatarid' => $row[ 'avatarid' ],
-                        'gender' => $row[ 'gender' ]
-                    )
+                    'user' => $user
                 );
             }
             foreach ( $idsbyeventtype as $type => $ids ) {
