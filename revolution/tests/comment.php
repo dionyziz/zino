@@ -16,7 +16,7 @@
 			$this->mData = array( 
 				array( $userid, "Eftase hwra?", TYPE_PHOTO, 1245, 0 ),				
 				array( $userid, "Eftase hwra?3", TYPE_POLL, 1245, 0 ),
-				array( $userid, "Eftase hwra?2", TYPE_JOURNAL, 1245, 0 ),
+				array( $userid, "Eftase hwra?2", TYPE_JOURNAL, 2300, 0 ),
 				array( $userid, "Eftase hwra?4", TYPE_USERPROFILE, $userid, 0 )				
 			);
         }
@@ -40,7 +40,6 @@
 			$this->AssertEquals( ( int )$item[ "id" ], $id, "wrong comment id" );
 			$this->AssertEquals( $item[ "text" ], $text2, "wrong comment text" );
 			$this->AssertEquals( ( int )$item[ "typeid" ], $typeid, "wrong comment type" );
-			echo $typeid . "\n";
 			
 			return $item;
         }
