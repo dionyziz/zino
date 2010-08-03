@@ -34,10 +34,8 @@
             </li>
         </ul>
     </div>
-    <div class="col2">
-        <div id="content">
-            <xsl:apply-templates />
-        </div>
+    <div id="content">
+        <xsl:apply-templates />
     </div>
     <script type="text/javascript">
         Notifications.Check();

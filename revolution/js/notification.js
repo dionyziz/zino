@@ -9,7 +9,7 @@ var Notifications = {
     },
     TakeOver: function () {
         Notifications.TakenOver = true;
-        $( '.col1, .col2' ).remove();
+        $( '#world' ).remove();
     },
     Navigate: function ( url ) {
         document.body.style.cursor = 'wait';

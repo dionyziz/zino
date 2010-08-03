@@ -46,7 +46,7 @@ textarea.invisible {
         position: relative;
     }
     #instantbox .content .tips {
-        background-color: black;
+        background-color: #172322;
         padding: 10px;
         color: white;
         display: none;
@@ -71,7 +71,7 @@ textarea.invisible {
     }
     #instantbox > .tips {
         text-align: center;
-        background-color: black;
+        background-color: #172322;
         border-bottom: 1px solid #666;
         padding: 7px;
     }
