@@ -69,6 +69,7 @@
             include 'views/user/listing.php';
         }
         public static function Create() {
+            echo 'test';
         }
         public static function Update( $multiargs ) {
             $options = $multiargs;

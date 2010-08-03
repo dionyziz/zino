@@ -19,6 +19,7 @@ RewriteRule ^poll/create$ index.php?resource=poll&method=create [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
+RewriteRule ^journal/create$ index.php?resource=journal&method=create [L,QSA]
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&username=$1 [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]
