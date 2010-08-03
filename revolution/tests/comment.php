@@ -29,12 +29,15 @@
          */
         public function TestCreate( $userid, $text, $typeid, $itemid, $parentid ) {	
 			$info = Comment::Create( $userid, $text, $typeid, $itemid, $parentid );
+			$id = $info[ 'id' ];
+			$text2 = $info[ 'text' ];
 			$this->AssertIsArray( $info );
-			$item = Comment::Item( $info[ "id" ] );
+			$item = Comment::Item( $id );
 			$this->AssertIsArray( $item );
-			$this->AssertEquals( ( int )$item[ $info[ "id" ] ][ "id" ], ( int )$info[ "id" ], "wrong comment id" );
-			$this->AssertEquals( $item[ $info[ "id" ] ][ "text" ], $info[ "text" ], "wrong comment text" );
-			$this->AssertEquals( ( int )$item[ $info[ "id" ] ][ "typeid" ], $typeid, "wrong comment text" );
+			var_dump( $item );
+			$this->AssertEquals( ( int )$item[ $id ][ "id" ], $id, "wrong comment id" );
+			$this->AssertEquals( $item[ $id ][ "text" ], $text2, "wrong comment text" );
+			$this->AssertEquals( ( int )$item[ $id ][ "typeid" ], $typeid, "wrong comment type" );
 			
 			return $item;
         }
