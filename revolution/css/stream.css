@@ -1,5 +1,8 @@
-.stream ul  {
+.stream {
     width: 55%;
+    float: left;
+}
+.stream ul  {
     background-color: white;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -76,9 +79,6 @@
 .stream ul li.previewing .zoomin {
     display: inline;
 }
-#preview {
-     width: 4
-}
 #preview div.content {
     width: 45%;
     height: 100%;
@@ -111,7 +111,6 @@ ol.createitem {
     margin: 0;
     list-style: none;
     background: white;
-    width: 55%;
     font-size: 120%;
     height: 1.5em;
     border-left: 1px black solid;

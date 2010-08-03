@@ -3,7 +3,6 @@
 }
 #content {
     overflow: auto;
-    position: relative;
 }
 div.photostream {
     margin-left: 5px;
