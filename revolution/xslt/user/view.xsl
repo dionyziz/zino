@@ -3,8 +3,8 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='user' and @method='view']/user">
-        <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
         <div class="userview">
+            <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
             <ul class="useritems">
                 <xsl:if test="photos/@count &gt; 0">
                     <li><a>
