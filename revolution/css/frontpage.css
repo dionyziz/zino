@@ -1,9 +1,6 @@
 #photo-listing {
     background-color: #213549;
 }
-#content {
-    overflow: auto;
-}
 div.photostream {
     margin-left: 5px;
     height: 100%;

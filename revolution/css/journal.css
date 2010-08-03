@@ -1,7 +1,3 @@
-div.newjournal {
-    width: 100%;
-    margin: auto;
-}
     .newjournal input.title {
         width: 80%;
         display: block;
@@ -13,7 +9,6 @@ div.newjournal {
         margin: auto;
     }
     .newjournal .edit {
-        width: 100%;
         padding: 16px;
     }
         .newjournal .edit textarea {
@@ -27,7 +22,6 @@ div.newjournal {
     margin: 8px;
 }
 .newjournal ul, .newjournal .options, .newjournal .options li {
-    width: 100%;
     text-align: center;
 }
 .newjournal input.option {

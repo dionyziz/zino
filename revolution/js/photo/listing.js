@@ -13,7 +13,7 @@ var PhotoListing = {
             this.PlaceholderHTML += '<li><a><img /></a></li>';
         }
         PhotoListing.PreparePhotoList();
-        $( 'form input' ).change( function () {
+        $( 'form input[type=file]' ).change( function () {
             $( this ).parents( 'form' )[ 0 ].submit();
             $( 'body' ).append(
                 '<div class="wait">'
