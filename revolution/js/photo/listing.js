@@ -8,17 +8,13 @@ var PhotoListing = {
     EndOfPhotos: false,
     Init: function(){
         SI.Files.stylizeAll();
-        this.PhotoList = $( '.photostream ul' );
         this.PlaceholderHTML = '';
         for( var i = 0; i < 100; ++i ){
             this.PlaceholderHTML += '<li><a><img /></a></li>';
         }
-        this.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
-        this.AssignEvents();
-        this.Initialized = true;
+        PhotoListing.PreparePhotoList();
         $( 'form input' ).change( function () {
             $( this ).parents( 'form' )[ 0 ].submit();
-            $( '.col1, .col2' ).css( { 'display': 'none' } );
             $( 'body' ).append(
                 '<div class="wait">'
                     + '<img src="http://static.zino.gr/phoenix/ajax-loader.gif" />'
@@ -43,12 +39,24 @@ var PhotoListing = {
                     $( '.useralbums a' ).click( function() {
                         axslt( $.get( this.href ), '/social/album', function() {
                             $( '.photostream' ).empty().append( $( this ).filter( '*' ) );
+                            PhotoListing.PreparePhotoList();
                         } );
                         return false;
                     } );
                 } );
 			} );
 		}
+    },
+    PreparePhotoList: function() {
+        PhotoListing.PhotoList = $( '.photostream ul' );
+        PhotoListing.LastLoaded = $( '.photostream ul li:last' )[ 0 ];
+        PhotoListing.AssignEvents();
+        if ( $( '.photostream ul li' ).length < 100 ) {
+            for ( i = 0; i < 20; ++i ) { //Last Line justify hack
+                PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
+            }
+        }
+        PhotoListing.Initialized = true;
     },
     ScrollHandler: function(){
         if( PhotoListing.PhotoList.height() - $( window ).scrollTop() - $( window ).height() < 500 ){
