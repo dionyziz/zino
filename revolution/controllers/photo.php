@@ -48,7 +48,19 @@
 		        else {
 			        $ids  = Spot::GetImages( 4005, 100, $offset );
 		            if ( is_array( $ids ) ) {
-			            $photos = Photo::ListByIds( $ids );
+			            $images = Photo::ListByIds( $ids );
+
+						$keys = array();
+						$i = 1;
+						foreach ( $ids as $id ) {
+						    $keys[ $id ] = $i;
+						    $i = $i + 1;
+						}
+						$photos = array();
+						foreach ( $images as $image ) {
+							$photos[ $keys[ $image[ 'id' ] ] ] = $image;
+						}
+						ksort( $photos );
 		            }
 		            else {
 			            $photos = Photo::ListRecent( $offset, $limit );
