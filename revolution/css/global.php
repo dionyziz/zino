@@ -25,7 +25,7 @@ foreach ( $list as $num=>$line ) {
         //Generate viewable error
         echo <<<ERROR
 body:after {
-    content: 'global.css: File in global.lst does not exist';
+    content: 'global.css: File "$line" in global.lst does not exist';
     font-size: 15px;
     text-align: center;
     width: 100%;

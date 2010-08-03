@@ -1,0 +1,40 @@
+
+
+div.newjournal {
+    width: 80%;
+    margin: auto;
+}
+.newjournal input.question {
+    width: 100%;
+    display: block;
+    font-size: 250%;
+    border: 5px solid #42688F;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 2px 8px;
+    margin: auto;
+}
+.newjournal div.info {
+    font-size: 140%;
+    margin: 8px;
+}
+.newjournal ul, .newjournal .options, .newjournal .options li {
+    width: 100%;
+    text-align: center;
+}
+.newjournal input.option {
+    width: 30%;
+    font-size: 120%;
+    padding: 2px 4px;
+    margin: 0 8px;
+}
+.newjournal ul.options li:before {
+    content: ' ? ';
+    color: #72b3db;
+}
+.newjournal ul li input {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 2px solid #42688F;
+    padding: 0 4px;
+}

@@ -23,7 +23,7 @@ foreach ( $list as $num=>$line ) {
     }
     if ( !file_exists( $line ) ) {
         //Generate viewable error
-        echo "alert( 'global.js: File $line in global.lst does not exist' );";
+        echo "alert( 'global.js: File \"$line\" in global.lst does not exist' );";
         die();
     }
     $modtime = filemtime( $line );

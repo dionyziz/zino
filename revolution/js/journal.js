@@ -13,5 +13,8 @@ var Journal = {
         }, function(){
             window.location = 'journals/' + User;
         });     
+    },
+    Create: function() {
+        
     }
 };

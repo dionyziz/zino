@@ -313,14 +313,13 @@
             
             if ( isset( $row[ 'profile' ][ 'height' ] ) ) {
                 $height = $row[ 'profile' ][ 'height' ];
-                if ( !( ( $height >= -3 && $height <= -1 ) || ( $height >= 120 && $height <= 220 ) ) ) {
+                if ( !( ( $height >= -2 && $height <= -1 ) || ( $height >= 120 && $height <= 220 ) ) ) {
                     unset( $row[ 'profile' ][ 'height' ] );
                 }
             }
             if ( isset( $row[ 'profile' ][ 'weight' ] ) ) {
                 $weight = $row[ 'profile' ][ 'weight' ];
-                if ( !( ( $weight >= -3 && $weight <= -1 ) || ( $weight >= 40 && $weight <= 120 ) ) ) {
-                    die( $weight );
+                if ( !( ( $weight >= -2 && $weight <= -1 ) || ( $weight >= 40 && $weight <= 120 ) ) ) {
                     unset( $row[ 'profile' ][ 'weight' ] );
                 }
             }

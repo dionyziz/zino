@@ -14,7 +14,7 @@
     float: left;
 }
 .maininfo .details {
-    margin-left: 110px;
+    margin-left: 110px; 
 }
 .maininfo img.avatar {
     height: 100px;
@@ -71,7 +71,9 @@ ul.accountmenu li.dot:before {
     min-height: 400px;
     float: left;
 }
-
+ul.userdetails {
+    margin: 1em 0;
+}
 ul.userdetails > li {
     padding: 2px 0;
     text-align: left;
@@ -86,7 +88,7 @@ li.heightweight {
 }
 li.heightweight ul {
     text-align: center;
-    padding: 1em 0;
+    padding: 0 0 1em 0;
 }
 li.heightweight ul li {
     font-weight: bold;

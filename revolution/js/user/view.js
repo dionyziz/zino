@@ -160,8 +160,9 @@ var Profile = {
             $( '.asl .location span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
         }
         $( '.asl .location span' ).addClass( 'editable' ).click( function() {
-            //TODO: don't re-open the modal;
-            //TODO default value if empty
+            //TODO: don't re-open the modal
+            //      default value if empty
+            //      update CurrentValues
             axslt( false, 'call:user.modal.location', function() {
                 $modal = $( this ).filter( 'div' );
                 $modal.prependTo( 'body' ).modal();
