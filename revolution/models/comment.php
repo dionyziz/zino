@@ -203,7 +203,7 @@
             $text = WYSIWYG_PostProcess( $text );
 
             $bulkid = Bulk::Store( $text ); 
-            $userip = UserIp();
+            $userip = ( string )UserIp();
 
             db( "INSERT INTO `comments`
                     (`comment_userid`, `comment_bulkid`, `comment_typeid`, `comment_itemid`, `comment_parentid`, `comment_created`, `comment_userip` )
