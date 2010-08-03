@@ -40,6 +40,12 @@ var PhotoListing = {
                 var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
                 axslt( albums, '/', function() {
                     $( '.useralbums' ).append( $( this ).find( 'ol' ) );
+                    $( '.useralbums a' ).click( function() {
+                        axslt( $.get( this.href ), '/social/album', function() {
+                            $( '.photostream' ).empty().append( $( this ).filter( '*' ) );
+                        } );
+                        return false;
+                    } );
                 } );
 			} );
 		}
