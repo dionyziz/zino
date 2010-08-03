@@ -372,8 +372,8 @@ var Notifications = {
         Notifications.Shortcuts.Assign( skip, save, ignore );
         Notifications.RequestStart();
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
-        axslt( data, '/social/entry', function() {
-            $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+        axslt( data, '/', function() {
+            $( '#instantbox .content' ).append( $( this ).find( '.contentitem' ) );
             Notifications.RequestDone();
         } );
     },
@@ -495,8 +495,8 @@ var Notifications = {
         }
         Notifications.RequestStart();
         var data = $.get( type + 's/' + id, { 'verbose': 0 } );
-        axslt( data, '/social/entry', function() {
-            $( '#instantbox .content' ).append( $( this ).filter( '.contentitem' ) );
+        axslt( data, '/', function() {
+            $( '#instantbox .content' ).append( $( this ).find( '.contentitem' ) );
             Notifications.RequestDone();
         } );
     },

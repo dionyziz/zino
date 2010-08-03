@@ -4,7 +4,6 @@
 
 <xsl:template match="/social[@resource='user' and @method='view']/user">
         <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
-        <a class="xbutton" href="photos">&#171;</a>
         <div class="userview">
             <ul class="useritems">
                 <xsl:if test="photos/@count &gt; 0">

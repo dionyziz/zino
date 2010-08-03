@@ -6,7 +6,9 @@
 .bar > span {
     display: block;
     float: left;
-    -moz-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
     padding: 0px 3px;
     color: #172322;
     background-color: #555;

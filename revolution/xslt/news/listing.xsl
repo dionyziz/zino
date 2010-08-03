@@ -28,7 +28,6 @@
                         </xsl:if>
                     </div>
                     <xsl:if test="name() = 'poll' ">
-                        
                         <a class="title">
                             <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
                             <h2>
@@ -72,7 +71,7 @@
                             <xsl:attribute name="href">journals/<xsl:value-of select="@id" /></xsl:attribute>
                         </xsl:if>
                         <xsl:if test="name() = 'poll'">
-                            <xsl:attribute name="href">poll/<xsl:value-of select="@id" /></xsl:attribute>
+                            <xsl:attribute name="href">polls/<xsl:value-of select="@id" /></xsl:attribute>
                         </xsl:if>
                         Κάνε κλικ ξανά για μεγιστοποίηση
                     </a>
