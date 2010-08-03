@@ -1,5 +1,6 @@
 <xsl:template name="zoomout">
     <div class="bar">
+    sadiohasodihasiduahsdiuh
         <span>▼</span>
         <img src="http://static.zino.gr/phoenix/logo-trans.png" />
          

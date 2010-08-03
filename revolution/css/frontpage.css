@@ -195,21 +195,4 @@ div.document {
     color: white;
     padding: 20px 200px;
 }
-div.useralbums {
-    -moz-border-radius: 0 0 5px 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    background: -webkit-gradient(
-        linear,
-        right bottom,
-        right top,
-        color-stop(0, #000),
-        color-stop(1, #333 )
-    );
-    background:-moz-linear-gradient( top, #333, #000);
-    color: #fc0;
-    font-size:18px;
-    margin:0 9px;
-    padding:7px;
-    text-align:center;
-}
+

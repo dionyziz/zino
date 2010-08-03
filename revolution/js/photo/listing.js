@@ -35,8 +35,12 @@ var PhotoListing = {
 				}
 				$( this ).addClass( 'expanded' );
 				$( this ).animate( {
-					height: '220px'
+					height: '210px'
 				} );
+                var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
+                axslt( albums, '/', function() {
+                    $( '.useralbums' ).append( $( this ).find( 'ol' ) );
+                } );
 			} );
 		}
     },
