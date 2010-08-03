@@ -12,6 +12,9 @@
                 }
                 else if ( $subdomain ) {
                     $user = User::ItemDetailsBySubdomain( $subdomain );
+                    if ( $user === false ) {
+                        $user = User::ItemDetailsByName( $subdomain );
+                    }
                 }
                 else if ( $name ) {
                     $user = User::ItemDetailsByName( $name );
