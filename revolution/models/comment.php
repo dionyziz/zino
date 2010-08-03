@@ -165,7 +165,7 @@
                     }
                     break;
                 case TYPE_JOURNAL:
-                    clude( 'model/journal.php' );
+                    clude( 'models/journal.php' );
                     $item = Journal::Item( $itemid );
                     break;
                 default:

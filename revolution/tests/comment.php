@@ -14,9 +14,9 @@
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
 			$this->mData = array( 
-				array( $userid, "Eftase hwra?", TYPE_PHOTO, 1245, 0 ),
-				array( $userid, "Eftase hwra?2", TYPE_JOURNAL, 1245, 0 ),
+				array( $userid, "Eftase hwra?", TYPE_PHOTO, 1245, 0 ),				
 				array( $userid, "Eftase hwra?3", TYPE_POLL, 1245, 0 ),
+				array( $userid, "Eftase hwra?2", TYPE_JOURNAL, 1245, 0 ),
 				array( $userid, "Eftase hwra?4", TYPE_USERPROFILE, 1245, 0 )				
 			);
         }
