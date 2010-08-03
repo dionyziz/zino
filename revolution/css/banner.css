@@ -1,0 +1,59 @@
+.bar {
+    height: 32px;
+    margin: auto;
+    background-color: #172322;
+}
+.bar > span {
+    display: block;
+    float: left;
+    -moz-border-radius: 10px 10px 10px 10px;
+    padding: 0px 3px;
+    color: #172322;
+    background-color: #555;
+    position: relative;
+    top: 4px;
+    margin: 2px;
+    left: 2px;
+    cursor: pointer;
+}
+.bar > span:hover {
+    background-color: #999;
+}
+.bar img {
+    width: 42px;
+    float: left;
+    padding: 3px 2px 0pt 7px;
+}
+.bar ul {
+    margin-left: 85px;
+}
+.bar ul li {
+    float:left;
+}
+.bar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 7px 7px 10px 26px;
+    background-position: 5px 7px;
+    background-repeat: no-repeat;
+}
+.bar ul li:hover {
+    background-color: #555;
+}
+.bar ul li.selected {
+    background-color: #fcbe4d;
+    position: relative;
+}
+.bar ul li.selected a {
+    color: black;
+    font-weight: bold;
+}
+.bar ul li.selected:after {
+    color: #FCBE4D;
+    content: "▼";
+    font-size: 16pt;
+    left: 4px;
+    position: absolute;
+    top: 20px;
+}
