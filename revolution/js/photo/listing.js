@@ -21,31 +21,9 @@ var PhotoListing = {
                 + '</div>'
             );
         } );
-		if ( $( '.useralbums' ) ) {
-			$( '.useralbums' ).click( function() {
-				if ( $( this ).hasClass( 'expanded' ) ) {
-					$( this ).removeClass( 'expanded' ).animate( {
-						height: '22px'
-					} );
-                    return;
-				}
-				$( this ).addClass( 'expanded' );
-				$( this ).animate( {
-					height: '210px'
-				} );
-                var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
-                axslt( albums, '/', function() {
-                    $( '.useralbums' ).append( $( this ).find( 'ol' ) );
-                    $( '.useralbums a' ).click( function() {
-                        axslt( $.get( this.href ), '/social/album', function() {
-                            $( '.photostream' ).empty().append( $( this ).filter( '*' ) );
-                            PhotoListing.PreparePhotoList();
-                        } );
-                        return false;
-                    } );
-                } );
-			} );
-		}
+        if( $( '.useralbums' ) ) {
+            AlbumListing.Init();
+        }
     },
     PreparePhotoList: function() {
         PhotoListing.PhotoList = $( '.photostream ul' );

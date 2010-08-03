@@ -15,6 +15,7 @@ div.useralbums {
     margin:0 9px;
     padding:7px;
     text-align:center;
+    overflow: hidden;
 }
 #albumlist {    
     white-space: nowrap;
@@ -32,6 +33,9 @@ div.useralbums {
         font-size: 11pt;
         margin: 5px;
         color: #347594;
+    }
+    #albumlist a.selected img {
+        border: 2px solid #ffba09;
     }
     #albumlist img {
         width: 120px;
