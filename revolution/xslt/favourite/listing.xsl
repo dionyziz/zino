@@ -33,7 +33,9 @@
                                     </xsl:attribute>
                                     <xsl:value-of select="title" />
                                 </a>
-                                <span class="icon deleteicon">&#215;</span>
+                                <xsl:if test="/social/@for = /social/favourites/author/name">
+                                    <span class="icon deleteicon">&#215;</span>
+                                </xsl:if>
                             </h3>
                             <xsl:if test="name() = 'poll'">
                             </xsl:if>
