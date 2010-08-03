@@ -19,7 +19,7 @@
 
 .newjournal div.info {
     font-size: 140%;
-    margin: 8px;
+    margin-left: 10px 10%;
 }
 .newjournal ul, .newjournal .options, .newjournal .options li {
     text-align: center;
