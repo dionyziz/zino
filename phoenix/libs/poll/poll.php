@@ -121,11 +121,11 @@
             return parent::__get( $key );
         }
         public function OnVoteCreate() {
-            ++$this->Numvotes;
+            // ++$this->Numvotes;
             $this->Save();
         }
         public function OnVoteDelete() {
-            --$this->Numvotes;
+            // --$this->Numvotes;
             $this->Save();
         }
         public function CreateOption( $text ) {

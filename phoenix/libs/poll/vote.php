@@ -42,7 +42,7 @@
             FireEvent( 'VoteCreated', $this );
         }
         protected function OnDelete() {
-            $this->Poll->Numvotes = $this->Poll->Numvotes - 1;
+            // $this->Poll->Numvotes = $this->Poll->Numvotes - 1;
             $this->Poll->Save();
             $this->Poll->OnVoteDelete();
             $this->Option->OnVoteDelete();
