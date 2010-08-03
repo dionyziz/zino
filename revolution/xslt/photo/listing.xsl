@@ -2,7 +2,7 @@
     <xsl:apply-templates />
 </xsl:template>
 
-<xsl:template match="/social[@resource='photo' and @method='listing']/user">
+<xsl:template match="/social[@resource='photo' and @method='listing']/photos">
     <xsl:for-each select="album">
         <xsl:choose>
             <xsl:when test="@deleted = 'yes'">
@@ -17,26 +17,22 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:for-each>
-    <xsl:for-each select="photos">
-        <div class="useralbums">
-            <xsl:choose>
-                <xsl:when test="../gender = 'm'">
-                    Άλμπουμ του
-                </xsl:when>
-                <xsl:when test="../gender = 'f'">
-                    Άλμπουμ της
-                </xsl:when>
-                <xsl:otherwise>
-                    Άλμπουμ του/της
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:value-of select="../name" />
-        </div>
-        <xsl:call-template name="photolist" />
-    </xsl:for-each>
-</xsl:template>
-
-<xsl:template match="/social[@resource='photo' and @method='listing']/photos">
+    <div class="useralbums">
+        <xsl:choose>
+            <xsl:when test="author/gender = 'm'">
+                Άλμπουμ του
+            </xsl:when>
+            <xsl:when test="author/gender = 'f'">
+                Άλμπουμ της
+            </xsl:when>
+            <xsl:otherwise>
+                Άλμπουμ του/της
+            </xsl:otherwise>
+        </xsl:choose>
+        <span class="user">
+            <xsl:value-of select="author/name" />
+        </span>
+    </div>
     <xsl:call-template name="photolist" />
 </xsl:template>
 
