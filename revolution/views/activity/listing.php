@@ -38,11 +38,17 @@
 
         case ACTIVITY_SONG:
         ?><type>song</type>
+        <song id="<?= $activity[ 'song' ][ 'id' ] ?>">
+            <title><?= $activity[ 'song' ][ 'title' ] ?></title>
+        </song>
         <?
         break;
 
         case ACTIVITY_STATUS:
         ?><type>status</type>
+        <status id="<?= $activity[ 'status' ][ 'id' ] ?>">
+            <message><?= $activity[ 'status' ][ 'message' ] ?></message>
+        </status>
         <?
         break;
 
