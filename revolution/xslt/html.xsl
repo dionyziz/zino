@@ -57,7 +57,7 @@
             <div id="world">
                 <div class="bar">
                     <span>▼</span>
-                    <img src="http://static.zino.gr/phoenix/logo-trans.png" />
+                    <img src="http://static.zino.gr/revolution/bubble-small-trans2.png" />
                      
                     <ul>
                         <li>
