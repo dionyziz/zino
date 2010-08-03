@@ -40,6 +40,7 @@
 			$this->AssertEquals( ( int )$item[ "id" ], $id, "wrong comment id" );
 			$this->AssertEquals( $item[ "text" ], $text2, "wrong comment text" );
 			$this->AssertEquals( ( int )$item[ "typeid" ], $typeid, "wrong comment type" );
+			echo $typeid . "\n";
 			
 			return $item;
         }
