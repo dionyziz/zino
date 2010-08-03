@@ -10,7 +10,7 @@ var Kamibu = {
         if ( typeof( jQuery ) != 'undefined' && element instanceof jQuery ) {
             element = element.get()[0];
         }
-        if ( element.nodeType == 1 ) {
+        if ( element && element.nodeType == 1 ) {
             
             Kamibu.addClass( element, 'clickable' );
             Kamibu.addClass( element, 'blured' );

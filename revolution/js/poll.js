@@ -2,7 +2,7 @@ var Poll = {
     NewOptions: 2,
     PreCreate: function() {
         axslt( false, 'call:poll.new', function() {
-            $( '#content' ).remove();
+            $( '#content' ).empty();
             Notifications.Hide();
             $( this ).appendTo( '#content' );
             $( '.newpoll' ).find( 'input.question' ).focus();
@@ -11,6 +11,7 @@ var Poll = {
             } );
             $( '.newpoll form' ).submit( function() { return Poll.Create(); } );
             $( '.newpoll ul.toolbox a.button.big' ).click( function() { return Poll.Create(); } );
+            $( '.newpoll ul.toolbox a.linkbutton' ).click( function() { window.location.href = 'news'; return false; } );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ) );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ) );
         } );
