@@ -6,6 +6,8 @@
             global $page;
             global $libs;
             
+            $libs->Load( 'rabbit/helpers/http' );
+            
             //Temporary banevasion action --Chorvus
             $libs->Load( 'user/profile' );
             if ( $user->Exists() && preg_match( '/.*@bofthew\.com$/', $user->Profile->Email )  ) {
@@ -13,8 +15,6 @@
                 $res = Ban::BanUser( $user->Name, '10minutemail', 2*24*60*60 );
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
-            
-            $libs->Load( 'rabbit/helpers/http' );
             
             $page->SetTitle( 'Καλωσήρθες' );
             
