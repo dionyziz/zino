@@ -32,7 +32,7 @@
 			$res = Friend::Create( $userid1, $userid2, $typeid );
 			$this->Assert( $res, "Create should return true" );
 			$res2 = Friend::ItemByUserIds( $userid1, $userid2 );
-			var_dumb( $res2 );
+			var_dump( $res2 );
 			$this->Assert( $res2[ 'relation_id' ], "Relation id should not be 0" );
 			return array( $res2[ 'relation_id' ], $userid1, $userid2 );
         }
