@@ -30,8 +30,14 @@
                         <xsl:value-of select="published" />
                     </p>
                     <p class="commentcount">
-                        <xsl:value-of select="discussion/@count" />
-                        <xsl:text> σχόλιο</xsl:text>
+                        <xsl:if test="discussion/@count = 1">
+                            <xsl:value-of select="discussion/@count" />
+                            <xsl:text> σχόλιο</xsl:text>
+                        </xsl:if>
+                        <xsl:if test="discussion[1]/@count &gt; 1">
+                            <xsl:value-of select="discussion/@count" />
+                            <xsl:text> σχόλια</xsl:text>
+                        </xsl:if>
                     </p>
                 </div>
                 <a class="title">
