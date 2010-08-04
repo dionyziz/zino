@@ -8,7 +8,10 @@
                      FROM
                         song
                      WHERE
-                        song_userid = :userid', compact( 'userid' )
+                        song_userid = :userid
+                     ORDER BY
+                        `song_id` DESC
+                    LIMIT 1', compact( 'userid' )
                 ) );
         }
     }
