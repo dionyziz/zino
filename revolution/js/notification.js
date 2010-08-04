@@ -424,7 +424,8 @@ var Notifications = {
                 + '<div class="note"><strong>Γράψε μία απάντηση:</strong>'
                     + Notifications.NewComment()
                 + '</div>'
-            + '</div>';
+            + '</div>'
+            + '<div class="note"><p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p></div>';
         if ( isreply ) {
             // + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
             notificationcomment = ''
