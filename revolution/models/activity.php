@@ -86,7 +86,9 @@
                         $activity[ 'item' ][ 'bulkid' ] = $row[ 'activity_bulkid' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
-                        $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
+                        if ( $row[ 'activity_bulkid' ] != 0 ) {
+                            $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
+                        }
                         break;
                     default:
                         die( 'unknown activity type' );
