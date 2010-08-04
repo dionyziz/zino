@@ -33,6 +33,12 @@
 			$this->Assert( $res, "Create should return true" );
 			$res2 = Friend::ItemByUserIds( $userid1, $userid2 );
 			$this->Assert( $res2[ 'id' ], "Relation id should not be 0" );
+
+			$res = Friend::Create( $userid1, $userid2, $typeid );
+			$this->Assert( $res, "Create should return true" );
+			$res3 = Friend::ItemByUserIds( $userid1, $userid2 );
+			$this->AssertEquals( $res2[ 'id' ], $res3[ 'id' ], "Relation id should be unique" );
+
 			return array( $res2[ 'id' ], $userid1, $userid2 );
         }
 		/**
