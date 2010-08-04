@@ -139,9 +139,9 @@
             clude( 'models/types.php' );
 
 
-            $userid > 0 or die;
-            $typeid > 0 or die;
-            $itemid > 0 or die;
+            $userid > 0 or die( 'Invalid user id' );
+            $typeid > 0 or die( 'Invalid type id' );
+            $itemid > 0 or die( 'Invalid item id' );
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -166,9 +166,9 @@
                     `' . $field . '_id` = :itemid',
                 compact( 'itemid' )
             );
-            mysql_num_rows( $res ) or die; // item must exist if you want to fave it
+            mysql_num_rows( $res ) or die( 'Item does not exist' );
             $row = mysql_fetch_array( $res );
-            $row[ 'userid' ] != $userid or die; // can't fave your own things
+            $row[ 'userid' ] != $userid or die( 'In Soviet Russia items like YOU!' );
 
             db( 'INSERT INTO `favourites` SET
                     `favourite_userid` = :userid,
