@@ -47,7 +47,8 @@
 
 			$friend = Friend::Item( $relid );
             $this->Called( "Friend::Item" );
-            $this->AssertFalse( $friend, 'Friend::Item should return false on deleted item' );
+			$this->AssertIsArray( $friend, "Friend::Item should return array" );
+            $this->Assert( empty( $friend ), 'Friend::Item should return empty array on deleted item' );
         }
 
 		public function GetData() {
