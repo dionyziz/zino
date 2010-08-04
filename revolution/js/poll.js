@@ -70,7 +70,7 @@ var Poll = {
             } );
         } );
         $( '#deletebutton' ).click( function(){
-            if ( confirm( 'Θέλεις να διαγράψεις αυτήν τη δημοσκόπιση;' ) ) {
+            if ( confirm( 'Θέλεις να διαγράψεις αυτήν τη δημοσκόπηση;' ) ) {
                 Poll.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
             }
         });
