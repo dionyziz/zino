@@ -18,6 +18,7 @@ poll/listing.xsl
 news/listing.xsl
 journal/view.xsl
 journal/create.xsl
+journal/listing.xsl
 friendship/listing.xsl
 album/listing.xsl
 album/view.xsl
