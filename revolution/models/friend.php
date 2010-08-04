@@ -27,7 +27,8 @@
                     ON `profile_userid` = `relation_friendid`
                 LEFT JOIN `places`
                     ON `profile_placeid` = `place_id`
-                WHERE `relation_userid` = :userid;',
+                WHERE `relation_userid` = :userid
+                ORDER BY `relation_id` DESC;',
                 compact( 'userid' ) );
       
             $friends = array();
