@@ -10,7 +10,7 @@
             $libs->Load( 'user/profile' );
             if ( $user->Exists() && preg_match( '/.*@bofthew\.com$/', $user->Profile->Email )  ) {
                 $libs->Load( 'adminpanel/ban' );
-                $res = Ban::BanUser( $user->Username, '10minutemail', 2*24*60*60 );
+                $res = Ban::BanUser( $user->Name, '10minutemail', 2*24*60*60 );
                 return Redirect( $rabbit_settings[ 'webaddress' ] );
             }
             
