@@ -361,22 +361,21 @@
                 }
             }
 
-			$details = User::CheckDataOnUserUpdate ( $details );
+			$details = User::CheckDataOnUserUpdate( $details );
             
 			$first = true;
             $query = 
                 'UPDATE `userprofiles`
-                SET';
+                SET ';
             foreach ( $details as $key => $val ) {
 				if ( $first == false ) {
-					$query = "," . $query;
+					$query .= ", ";
 				}		
 				else {
 					$first = false;
 				}
-                $query = $query . " ". $key . " = :" . $key;				
+                $query .= " $key = :$key ";
             }       
-			
             $query = $query . 'WHERE 
                     `profile_userid` = :userid
                 LIMIT 1;';

@@ -2,7 +2,7 @@
 <album id="<?= $album[ 'id' ] ?>" deleted="yes">
 <? else: ?>
 <album id="<?= $album[ 'id' ] ?>">
-    <author>
+    <author id="<?= $user[ 'id' ] ?>">
         <name><?= $user[ 'name' ] ?></name>
     </author>
     <? include 'views/photo/listing.php'; ?>

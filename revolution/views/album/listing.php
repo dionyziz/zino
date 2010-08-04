@@ -17,6 +17,7 @@
             ?></type>
         </author>
         <?php if ( $album[ 'mainimageid' ] > 0 ): ?>
+        <!-- TODO: remove photos tag -->
         <photos count="<?= $album[ 'numphotos' ] ?>">
             <photo main="yes" id="<?= $album[ 'mainimageid' ] ?>">
                 <media url="http://images2.zino.gr/media/<?= $album[ 'ownerid' ] ?>/<?= $album[ 'mainimageid' ] ?>/<?= $album[ 'mainimageid' ] ?>_150.jpg" />
