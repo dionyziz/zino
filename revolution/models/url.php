@@ -4,7 +4,7 @@
         return strcmp( $character, $begin ) >= 0 && strcmp( $character, $end ) <= 0;
     }
 
-    // return a url that is unique for this userid, according to function
+    //  return a url that is unique for this userid, according to function
     function URL_FormatUnique( $string, $userid, $function ) {
         $formatted = URL_Format( $string );
         while ( is_array( call_user_func( $function, $formatted, $userid ) ) ) {
