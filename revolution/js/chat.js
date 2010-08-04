@@ -17,10 +17,13 @@ var Chat = {
      Authtoken: '',
      PreviousPageSelected: 0,
      NameClick: function () {
+         var userid = this.id.split( 'u' )[ 1 ];
+         if ( userid == Chat.UserId ) {
+             return;
+         }
          $( '#onlineusers li' ).removeClass( 'selected' );
          $( this ).addClass( 'selected' );
          Chat.Unflash( this.id.substr( 1 ) );
-         var userid = this.id.split( 'u' )[ 1 ];
          if ( userid === 0 ) {
              Chat.Show( 0 );
          }
@@ -285,6 +288,9 @@ var Chat = {
          var li;
          var compare;
 
+         if ( username == User ) {
+             return;
+         }
          
          if ( $( '#u' + userid ).length ) {
              return;
