@@ -68,9 +68,9 @@
 				$act = Activity::ListByUser( $userid, 100 );
 				$this->AssertIsArray( $act );
 				$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_COMMENT, "Activity should be of comment type" ); 
-				$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'id' ], $id, "Comment Activity: Wrong Text" );
+				$this->AssertEquals( ( int )$act[ 0 ][ 'comment' ][ 'id' ], ( int )$id, "Comment Activity: Wrong Text" );
 				$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'text' ], $text2, "Comment Activity: Wrong Id" );
-				$this->AssertEquals( $act[ 0 ][ 'item' ][ 'typeid' ], TYPE_USERPROFILE, "Comment Activity: Wrong Type" );
+				$this->AssertEquals( ( int )$act[ 0 ][ 'item' ][ 'typeid' ], TYPE_USERPROFILE, "Comment Activity: Wrong Type" );
 			}
 
         }
