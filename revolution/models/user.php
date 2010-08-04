@@ -287,6 +287,9 @@
             if ( $row === false ) {
                 return false;
             }
+            if ( $row[ 'userdeleted' ] == 1 ) {
+                throw new Exception( 'User deleted' );
+            }
             static $mooddetails = array( 'labelmale', 'labelfemale', 'url' );
             if ( $row[ 'mood_url' ] != '' ) {
                 $row[ 'mood' ] = array();
