@@ -33,14 +33,16 @@
 			$this->Assert( $res, "Create should return true" );
 			$res2 = Friend::ItemByUserIds( $userid1, $userid2 );
 			$this->Assert( $res2, "Relation id should not be 0" );
-			return $res2;
+			return array( $res2, $userid1, $userid2 );
         }
 		/**
          * @producer TestCreate
          */
-        public function TestDelete( $relid ) {
-			$relid = ( int )$relid;
-			$success = Friend::Delete( $relid );
+        public function TestDelete( $info ) {
+			$relid = ( int )$relid[ 0 ];
+			$userid1 = ( int )$relid[ 1 ];
+			$userid2 = ( int )$relid[ 2 ];
+			$success = Friend::Delete( $userid1, $userid2 );
 			$this->Assert( $success, 'Friend::Delete failed' );
 
 			$friend = Friend::Item( $id );
