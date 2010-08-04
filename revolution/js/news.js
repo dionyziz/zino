@@ -29,6 +29,20 @@ var News = {
         var data = $.get( type + 's/' + itemid, { 'verbose': 0 } );
         axslt( data, '/social/' + type, function() {
             $( '#preview .content' ).empty().append( $( this ).filter( '.contentitem' ) );
+            if ( type == 'poll' ) {
+                $( '#preview .content ul.options li input' ).click( function () {
+                    var poll = $( this ).parents( 'ul' )[ 0 ];
+
+                    var vote = $.post( 'pollvote/create', {
+                        pollid: $( '#preview .content .contentitem' )[ 0 ].id.split( '_' )[ 1 ],
+                        optionid: this.value
+                    } );
+                    
+                    axslt( vote, '//options', function () {
+                        $( poll ).empty().append( $( this ) );
+                    } );
+                } );
+            }
         } );
         return false;
     },
