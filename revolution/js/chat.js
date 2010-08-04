@@ -260,7 +260,7 @@ var Chat = {
          }
          if ( !$( '#popbubble_' + userid ).length ) {
              $( '#chatbubbles' ).append( '<div class="chatbubble" id="popbubble_' + userid + '"><img src="" alt="' + username + '" /><div class="text"><span><strong>' + username + '</strong> λέει:</span></div></div>' );
-             $( '#popbubble_' + userid + ' .text' )[ 0 ].appendChild( document.createTextNode( text ) );
+             $( '#popbubble_' + userid + ' .text' )[ 0 ].innerHTML += text;
              $( '#popbubble_' + userid ).click( function () {
                  Chat.Toggle();
                  Chat.Show( channelid );
