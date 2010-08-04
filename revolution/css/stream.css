@@ -99,6 +99,9 @@
 #preview div.content div.details {
     display: none;
 }
+#preview div.content {
+    position: fixed;
+}
 #preview .infotext {
     text-align: center;
     margin-top: 50px;
