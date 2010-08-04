@@ -12,7 +12,7 @@
 
 			$this->mData = array( 
 				array( "ασκηασφ askfhasf ασκakjsfασφaf", "askiasf_askfhasf_askakjsfasfaf" ),
-				array( "Mono agglika prepei na epistrefei to idio me underscores","Mono_agglika_prepei_na_epistrefei_to_idio me_underscores" )
+				array( "Mono agglika prepei na epistrefei to idio me underscores","Mono_agglika_prepei_na_epistrefei_to_idio_me_underscores" )
 			);
         }
         public function TearDown() {
