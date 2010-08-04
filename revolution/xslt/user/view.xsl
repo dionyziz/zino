@@ -368,7 +368,7 @@
         </xsl:if>
         <xsl:if test="eyecolor or $user = ../name[1]">
             <li class="eyecolor">
-                Χρώμμα ματιών:
+                Χρώμα ματιών:
                 <span>
                     <span><xsl:call-template name="detailstrings">
                         <xsl:with-param name="field">eyecolor</xsl:with-param>
@@ -385,7 +385,7 @@
         </xsl:if>
         <xsl:if test="haircolor or $user = ../name[1]">
             <li class="haircolor">
-                Χρώμμα μαλλιών:
+                Χρώμα μαλλιών:
                 <span>
                     <span><xsl:call-template name="detailstrings">
                         <xsl:with-param name="field">haircolor</xsl:with-param>
