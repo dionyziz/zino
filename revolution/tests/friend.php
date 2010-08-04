@@ -44,11 +44,10 @@
 			$userid2 = ( int )$relid[ 2 ];
 			$success = Friend::Delete( $userid1, $userid2 );
 			$this->Assert( $success, 'Friend::Delete failed' );
-/*
-			$friend = Friend::Item( $id );
+
+			$friend = Friend::Item( $relid );
             $this->Called( "Friend::Item" );
             $this->AssertFalse( $friend, 'Friend::Item should return false on deleted item' );
-*/
         }
 
 		public function GetData() {
