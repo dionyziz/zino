@@ -82,8 +82,8 @@
         static $punctuation = array();
         $new = '';
         $putUnderscore = false;
-        for ( $i = 0; $i < mb_strlen( $string ); ++$i ) {
-            $c = mb_substr( $string, $i, 1 );
+        for ( $i = 0; $i < mb_strlen( $string, "UTF-8" ); ++$i ) {
+            $c = mb_substr( $string, $i, 1, "UTF-8" );
             if ( isBetween( $c, 'A', 'Z' ) ||
                 isBetween( $c, 'a', 'z' ) ||
                 isBetween( $c, '0', '9' ) ||
