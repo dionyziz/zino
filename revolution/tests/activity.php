@@ -50,7 +50,6 @@
 				$info = Journal::Create( $userid, $text, "Methysmena Kswtika" );
 				$this->AssertIsArray( $info );
 				$journalid = $info[ 'id' ];
-				var_dump( $info );
 				$act = Activity::ListByUser( $userid, 100 );
 				$this->AssertIsArray( $act );
 				$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_ITEM, "Activity should be of item type" ); 
@@ -62,7 +61,7 @@
 
 			//Comment
 			if ( $activity_type == ACTIVITY_COMMENT ) {
-				$info = Comment::Create( $userid, $text, TYPE_JOURNAL, $journalid, 0 );
+				$info = Comment::Create( $userid, $text, TYPE_USERPROFILE, $userid2, 0 );
 				$this->AssertIsArray( $info );
 				$id = $info[ 'id' ];
 				$text2 = $info[ 'text' ];
@@ -71,7 +70,7 @@
 				$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_COMMENT, "Activity should be of comment type" ); 
 				$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'id' ], $id, "Comment Activity: Wrong Text" );
 				$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'text' ], $text2, "Comment Activity: Wrong Id" );
-				$this->AssertEquals( $act[ 0 ][ 'item' ][ 'typeid' ], TYPE_JOURNAL, "Comment Activity: Wrong Type" );
+				$this->AssertEquals( $act[ 0 ][ 'item' ][ 'typeid' ], TYPE_USERPROFILE, "Comment Activity: Wrong Type" );
 			}
 
         }
