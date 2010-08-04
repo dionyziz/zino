@@ -398,8 +398,8 @@
 				'profile_politics' => array( '-', 'right', 'left', 'center', 'radical left', 'center left', 'center right', 'nothing', 'anarchism', 'communism', 'socialism', 'liberalism', 'green' ),
 				'profile_eyecolor' => array ( '-', 'black','brown', 'green', 'blue', 'grey' ),
 				'profile_haircolor' => array( '-', 'black', 'brown', 'red', 'blond', 'highlights', 'dark', 'grey', 'skinhead' ),
-				'profile_smoker' => array( 'yes', 'no', 'socially' ),
-				'profile_drinker' => array( 'yes', 'no', 'socially' ),
+				'profile_smoker' => array( '-', 'yes', 'no', 'socially' ),
+				'profile_drinker' => array( '-', 'yes', 'no', 'socially' ),
 				'user_gender' => array( '-', 'm', 'f' )
 			);
 
