@@ -59,6 +59,7 @@
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
 			$text2 = $info[ 'text' ];
+			var_dump( $info );
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
 			$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_COMMENT, "Activity should be of comment type" ); 
