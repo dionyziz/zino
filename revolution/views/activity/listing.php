@@ -47,7 +47,7 @@
         case ACTIVITY_STATUS:
         ?><type>status</type>
         <status id="<?= $activity[ 'status' ][ 'id' ] ?>">
-            <message><?= $activity[ 'status' ][ 'message' ] ?></message>
+            <message><?= htmlspecialchars( $activity[ 'status' ][ 'message' ] ) ?></message>
         </status>
         <?
         break;

@@ -87,7 +87,7 @@ var Chat = {
      Load: function () {
          if ( typeof User == 'undefined' ) {
              window.location.href = 'login';
-             return;
+             return false;
          }
          Chat.Show( 0 );
          $( '#chat textarea' ).keydown( function ( e ) {
@@ -417,7 +417,9 @@ var Chat = {
      // hide/show the chat application
      Toggle: function () {
          if ( !Chat.Loaded ) {
-             Chat.Load();
+             if ( !Chat.Load() ) {
+                 return;
+             }
          }
          if ( Chat.Visible ) {
              $( '#chat' ).hide();
