@@ -6,6 +6,13 @@
             global $page;
             global $libs;
             
+            //Temporary banevasion action --Chorvus
+            if ( $user->Exists() && preg_match( '/.*@bofthew\.com$/', $user->Profile->Email )  ) {
+                $libs->Load( 'adminpanel/ban' );
+                $res = Ban::BanUser( $user->Username, '10minutemail', 2*24*60*60 );
+                return Redirect( $rabbit_settings[ 'webaddress' ] );
+            }
+            
             $libs->Load( 'rabbit/helpers/http' );
             
             $page->SetTitle( 'Καλωσήρθες' );
