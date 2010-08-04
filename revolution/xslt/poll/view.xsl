@@ -22,7 +22,7 @@
             <ul class="options">
                 <xsl:for-each select="option">
                     <li>
-                        <strong><xsl:value-of select="ceiling( 100 * @votes div ../@totalvotes )" />%</strong>
+                        <strong><xsl:value-of select="round( 100 * @votes div ../@totalvotes )" />%</strong>
                          - 
                         <xsl:value-of select="title" />
                         <div class="progressbar">

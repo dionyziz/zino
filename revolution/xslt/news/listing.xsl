@@ -46,6 +46,7 @@
                     <xsl:if test="name() = 'photo' ">
                         <xsl:attribute name="id">photo_<xsl:value-of select="@id" /></xsl:attribute>
                         <a class="thumb">
+                            
                             <xsl:attribute name="href">
                                 photos/<xsl:value-of select="@id" />
                             </xsl:attribute>
