@@ -3,9 +3,10 @@
         public static function Listing() {
             return db_array(
                 'SELECT
-                    place_id AS id, place_name AS name
+                    `place_id` AS id, `place_name` AS name
                 FROM
-                    places'
+                    places
+                ORDER BY  `place_name` ASC'
             );
         }
     }
