@@ -39,9 +39,9 @@
          * @producer TestCreate
          */
         public function TestDelete( $info ) {
-			$relid = ( int )$relid[ 0 ];
-			$userid1 = ( int )$relid[ 1 ];
-			$userid2 = ( int )$relid[ 2 ];
+			$relid = ( int )$info[ 0 ];
+			$userid1 = ( int )$info[ 1 ];
+			$userid2 = ( int )$info[ 2 ];
 			$success = Friend::Delete( $userid1, $userid2 );
 			$this->Assert( $success, 'Friend::Delete failed' );
 
