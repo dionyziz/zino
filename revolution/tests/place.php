@@ -21,7 +21,6 @@
          * @dataProvider GetData
          */
         public function TestListing() {		
-			echo URL_Format( "ασκηασφ askfhasf ασκakjsfασφaf" ) . "\n";
 			$places = Place::Listing();
 			$this->AssertIsArray( $places, "Place::Listing should return an array" );
 			$this->AssertFalse( empty( $places ), "Place::Listing should not return an empty array" );
