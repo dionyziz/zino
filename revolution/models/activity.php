@@ -10,6 +10,7 @@
 
     class Activity {
         public static function ListByUser( $userid, $limit = 20 ) {
+			clude( "models/bulk.php" );
             $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid ORDER BY `activity_created` DESC LIMIT :limit;", compact( 'userid', 'limit' ) );
             $bulkids = array();
             $rows = array();

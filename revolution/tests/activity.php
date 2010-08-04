@@ -11,6 +11,7 @@
             clude( 'models/user.php' );
 			clude( 'models/favourite.php' );
 			clude( 'models/status.php' );
+			clude( 'models/comment.php' );
 
             $this->mUsers = $this->GenerateTestUsers( 1 );
 			$userid = $this->mUsers[ 0 ][ 'id' ];
