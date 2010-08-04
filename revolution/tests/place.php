@@ -9,6 +9,7 @@
             clude( 'models/place.php' );
             clude( 'models/types.php' );
             clude( 'models/user.php' );
+			clude( 'models/url.php' );
         }
         public function TearDown() {
         }
@@ -20,6 +21,7 @@
          * @dataProvider GetData
          */
         public function TestListing() {		
+			echo URLFormat( "ασκηασφ askfhasf ασκakjsfασφaf" );
 			$places = Place::Listing();
 			$this->AssertIsArray( $places, "Place::Listing should return an array" );
 			$this->AssertFalse( empty( $places ), "Place::Listing should not return an empty array" );
