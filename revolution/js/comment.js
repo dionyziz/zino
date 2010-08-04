@@ -17,10 +17,10 @@ var Comment = {
             'user': 3,
             'journal': 4,
             'school': 7
-        }[ $( '.contentitem' )[ 0 ].id.split( '_' )[ 0 ] ];
+        }[ $( '#content div:first' ).attr( 'id' ).split( '_' )[ 0 ] ];
     },
     GetCurrentItemId: function(){
-        return $( '.contentitem' )[ 0 ].id.split( '_' )[ 1 ];
+        return $( '#content div:first' ).attr( 'id' ).split( '_' )[ 1 ];
     },
     New: function() {
         if ( !Comment.StillMouse ) {
