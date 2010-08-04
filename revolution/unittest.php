@@ -174,9 +174,9 @@
     global $settings;
     $settings = include 'settings.php';
 
-    include 'models/water.php';
-    include 'models/unittest.php';
-    include 'models/db.php';
+    clude( 'models/water.php' );
+    clude( 'models/unittest.php' );
+    clude( 'models/db.php' );
 
     $tester = New Tester();
 
