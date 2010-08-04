@@ -41,8 +41,7 @@
             $userid = $user[ 'id' ];
 			User::Delete( $userid );
 			$user = User::Item( $userid );
-			$this->AssertIsArray( $user, "User::Item should return an array." );
-			$this->AssertEquals( ( bool )$user[ 'userdeleted' ], true, "User::Delete.User should have been deleted." );
+			$this->AssertFalse( $user, "User::Delete.User should have been deleted." );
         }
 
 		public function GetData() {
