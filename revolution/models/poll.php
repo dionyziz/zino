@@ -202,7 +202,7 @@
 		
 		public static function Create( $pollid, $optionid, $userid ) {
 			$res = db(
-				'INSERT IGNORE INTO `votes` ( `vote_userid`, `vote_created`, `vote_optionid`, `vote_pollid` )
+				'INSERT INTO `votes` ( `vote_userid`, `vote_created`, `vote_optionid`, `vote_pollid` )
 				VALUE 
 				( :userid, NOW(), :optionid, :pollid ) ', 
 				array( 'pollid' => $pollid, 'userid' => $userid, 'optionid' => $optionid  ) 

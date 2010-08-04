@@ -8,6 +8,8 @@ DROP TRIGGER IF EXISTS albuminsert;
 DROP TRIGGER IF EXISTS albumdelete;
 DROP TRIGGER IF EXISTS pollinsert;
 DROP TRIGGER IF EXISTS polldelete;
+DROP TRIGGER IF EXISTS voteinsert;
+DROP TRIGGER IF EXISTS votedelete;
 DROP TRIGGER IF EXISTS journalinsert;
 DROP TRIGGER IF EXISTS journaldelete;
 DROP TRIGGER IF EXISTS shoutinsert;
@@ -195,6 +197,20 @@ CREATE TRIGGER polldelete AFTER UPDATE ON `polls`
             DELETE FROM `comments` WHERE `comment_itemid` = `image_itemid` AND `comment_typeid` = 1 LIMIT 1;
             */
         END IF;
+    END;
+|
+
+CREATE TRIGGER voteinsert AFTER INSERT ON `votes`
+    FOR EACH ROW BEGIN
+        UPDATE `polls` SET `poll_numvotes` = `poll_numvotes` + 1 WHERE `poll_id` = NEW.`vote_pollid` LIMIT 1;
+        UPDATE `polloptions` SET `polloption_numvotes` = `polloption_numvotes` + 1 WHERE `polloption_id` = NEW.`vote_optionid` LIMIT 1;
+    END;
+|
+
+CREATE TRIGGER votedelete AFTER DELETE ON `votes`
+    FOR EACH ROW BEGIN
+        UPDATE `polls` SET `poll_numvotes` = `poll_numvotes` - 1 WHERE `poll_id` = OLD.`vote_pollid` LIMIT 1;
+        UPDATE `polloptions` SET `polloption_numvotes` = `polloption_numvotes` - 1 WHERE `polloption_id` = OLD.`vote_optionid` LIMIT 1;
     END;
 |
 
