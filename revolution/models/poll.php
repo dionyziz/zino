@@ -165,7 +165,7 @@
             return $poll;
         }
         public static function Delete( $id ) {
-            return db( 'DELETE FROM `polls` WHERE `poll_id` = :id', array( 'id' => $id ) );
+            return db( 'UPDATE `polls` SET `poll_delid` = 1 WHERE `poll_id` = :id LIMIT 1;', array( 'id' => $id ) );
         }
         public static function ItemByUrlAndUserid( $url, $userid ) {
             $res = db( 
