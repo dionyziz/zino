@@ -40,22 +40,20 @@
 			$this->AssertEquals( $act[ 0 ][ 'status' ][ 'message' ], $text, "Status Activity: Wrong Text" );
 
 			//Journal create
-/*
 			$info = Journal::Create( $userid, "Skata", "Methysmena Kswtika" );
 			$this->AssertIsArray( $info );
-			$id = $info[ 'id' ];
+			$journalid = $info[ 'id' ];
 			$act = Activity::ListByUser( $userid, 100 );
 			$this->AssertIsArray( $act );
 			$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_ITEM, "Activity should be of item type" ); 
-			$this->AssertEquals( ( int )$act[ 0 ][ 'item' ][ 'id' ], ( int )$id, "Item Activity: Wrong item id" );
+			$this->AssertEquals( ( int )$act[ 0 ][ 'item' ][ 'id' ], ( int )$journalid, "Item Activity: Wrong item id" );
 			$this->AssertEquals( $act[ 0 ][ 'item' ][ 'title' ], "Skata", "Item Activity: Wrong title" );
-			$this->AssertEquals( $act[ 0 ][ 'item' ][ 'text' ], "Methysmena Kswtika", "Item Activity: Wrong text" );
 			$this->AssertEquals( ( int )$act[ 0 ][ 'item' ][ 'typeid' ], TYPE_JOURNAL, "Item Activity: Wrong item type" );
-*/
+
 
 			//Comment
 
-			$info = Comment::Create( $userid, $text, TYPE_USERPROFILE, $userid2, 0 );
+			$info = Comment::Create( $userid, $text, TYPE_JOURNAL, $journalid, 0 );
 			$this->AssertIsArray( $info );
 			$id = $info[ 'id' ];
 			$text2 = $info[ 'text' ];
@@ -65,7 +63,7 @@
 			$this->AssertEquals( ( int )$act[ 0 ][ 'typeid' ], ACTIVITY_COMMENT, "Activity should be of comment type" ); 
 			$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'id' ], $id, "Comment Activity: Wrong Text" );
 			$this->AssertEquals( $act[ 0 ][ 'comment' ][ 'text' ], $text2, "Comment Activity: Wrong Id" );
-			$this->AssertEquals( $act[ 0 ][ 'item' ][ 'typeid' ], TYPE_USERPROFILE, "Comment Activity: Wrong Type" );
+			$this->AssertEquals( $act[ 0 ][ 'item' ][ 'typeid' ], TYPE_JOURNAL, "Comment Activity: Wrong Type" );
 
         }
 
