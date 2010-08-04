@@ -84,8 +84,9 @@ div.modaloverlay {
     background-color: #e8eaec;
     text-decoration: none;
 }
-.modal a.link {
-    display: block;
-    margin: 1em 0 0 0;
+.modal a {
     color: #235;
+}
+.modal > div {
+    padding: 1em 0 0 0;
 }

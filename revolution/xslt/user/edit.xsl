@@ -18,13 +18,14 @@
         <h2>Λίγα λόγια για μένα</h2>
         <textarea class="aboutme"></textarea>
         <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.location">
     <div name="aboutmemodal" class="modal">
         <h2>Περιοχή</h2>
         <select class="location"></select>
-        <a href="" class="link">Να μην εμφανίζεται</a>
+        <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.location.options">

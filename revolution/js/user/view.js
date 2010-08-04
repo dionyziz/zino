@@ -140,15 +140,29 @@ var Profile = {
             }
             $.post( '?resource=user&method=update', { dob: year + '-' + month + '-' + day } );
         } );
+        if ( $( 'li.aboutme > span' ).hasClass( 'notshown' ) ) {
+            $( 'li.aboutme > span' ).text( 'Να μην εμφανίζεται' );
+        }
         $( 'li.aboutme > span' ).addClass( 'editable' ).click( function() {
             axslt( false, 'call:user.modal.aboutme', function() {
                 var $modal = $( this ).filter( 'div' );
                 $modal.prependTo( 'body' ).modal();
-                $modal.find( 'textarea.aboutme' ).val( $( 'li.aboutme > span' ).text() ).focus();
+                var text = '';
+                if ( !$( 'li.aboutme > span' ).hasClass( 'notshown' ) ) {
+                    text = $( 'li.aboutme > span' ).text();
+                }
+                $modal.find( 'textarea.aboutme' ).val( text ).focus();
+                //$modal.find( 'textarea.aboutme' ).val( text ).focus();
                 $modal.find( 'a.save' ).click( function() {
                     var text = $modal.find( 'textarea.aboutme' ).val();
-                    $( 'li.aboutme > span' ).text( text );
+                    $( 'li.aboutme > span' ).text( text ).removeClass( 'notshown' );
                     $.post( 'user/update', { 'aboutme': text } );
+                    $modal.jqmHide();
+                    return false;
+                } );
+                $modal.find( 'a.linebutton' ).click( function() {
+                    $.post( 'user/update', { aboutme: '' } );
+                    $( 'li.aboutme > span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
                     $modal.jqmHide();
                     return false;
                 } );
