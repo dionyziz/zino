@@ -100,12 +100,6 @@
             }
             $newuser->Save();
             
-            //Temporary banevasion action --Chorvus
-            if ( preg_match( '/.*@bofthew\.com$/', $user->Profile->Email )  ) {
-                $libs->Load( 'adminpanel/ban' );
-                $res = Ban::BanUser( $user->Username, '10minutemail', 2*24*60*60 );
-            }
-            
     		?>location.href = '<?php
 			echo $rabbit_settings[ 'webaddress' ];
             ?>?p=notvalidated&firsttime=true&userid=<?php
