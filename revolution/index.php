@@ -99,7 +99,12 @@
             }
         }
     }
-    call_user_func_array( array( 'Controller' . $resource, $method ), $params );
+    try {
+        call_user_func_array( array( 'Controller' . $resource, $method ), $params );
+    }
+    catch (Exception $e) {
+        echo '<error>' . $e->getMessage() . '</error>';
+    }
     
     ?></social><?php
     
