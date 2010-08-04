@@ -401,7 +401,7 @@ var Notifications = {
         var type = entry.attr( 'type' );
         var commentid = entry.find( commentpath ).attr( 'id' );
         var id = entry.attr( 'id' );
-        alert( id + ': ' + comment );
+        // alert( id + ': ' + comment );
         var article = 'Ο';
         var notificationcomment;
 

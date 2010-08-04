@@ -1,4 +1,5 @@
 var Comment = {
+    AuthorClicked: false,
     StillMouse: false,
     CommentList: null,
     CurrentCommentPage: 1,
@@ -130,10 +131,14 @@ var Comment = {
             .mousedown( function() { Comment.StillMouse = true; } )
             .mousemove( function() { Comment.StillMouse = false; } )
             .mouseup( function() {
+                if ( Comment.AuthorClicked ) {
+                    return;
+                }
                 return Comment.New.call( this );
             } )
             .click( function() { return false; } )
             .find( '.author' ).click( function( event ) {
+                Comment.AuthorClicked = true;
                 event.stopPropagation();
             } );
     },
