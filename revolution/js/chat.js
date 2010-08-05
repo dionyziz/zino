@@ -109,6 +109,7 @@ var Chat = {
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
          Chat.Loaded = true;
+         return true;
      },
      Sound: {
          Ready: false,
@@ -144,6 +145,7 @@ var Chat = {
              '<div style="display:none" id="chat">'
                  // + '<div class="xbutton">&laquo; Πίσω</div>'
                  + '<div class="userlist">'
+                    + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
                      + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'
                  + '<div class="textmessages">'
@@ -153,6 +155,7 @@ var Chat = {
                  + '</div>'
              + '</div>' );
         $( '#onlineusers li' ).click( Chat.NameClick );
+        Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
