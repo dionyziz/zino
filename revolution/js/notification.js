@@ -132,9 +132,12 @@ var Notifications = {
     },
     Shortcuts: {
         Save: 0, Skip: 0, Ignore: 0, KeyPressed: false,
-        Assign: function ( skip, save, ignore ) {
+        Assign: function ( skip, save, ignore, beforeSave ) {
             Notifications.Shortcuts.Remove();
             function keyDown() {
+                if ( typeof beforeSave != 'undefined' ) {
+                    beforeSave();
+                }
                 Notifications.Shortcuts.KeyPressed = true;
             }
             function keyUp() {
@@ -404,6 +407,7 @@ var Notifications = {
         // alert( id + ': ' + comment );
         var article = 'Ο';
         var notificationcomment;
+        var txt;
 
         if ( gender == 'f' ) {
             article = 'Η';
@@ -459,15 +463,17 @@ var Notifications = {
         function skip() {
             return false;
         }
+        function beforeSave() {
+            txt = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+        }
         function save() {
-            var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-            if ( commenttext === '' ) {
+            if ( txt === '' ) {
                 $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                 return;
             }
             Notifications.RequestStart();
             $.post( 'comment/create', {
-                text: commenttext,
+                text: txt,
                 typeid: {
                     'poll': 1,
                     'photo': 2,
@@ -486,7 +492,7 @@ var Notifications = {
                 'eventtypeid': EVENT_COMMENT_CREATED = 4
             } );
         }
-        Notifications.Shortcuts.Assign( skip, save, ignore );
+        Notifications.Shortcuts.Assign( skip, save, ignore, beforeSave );
         if ( isreply ) {
             Notifications.RequestStart();
             $.get( 'comments/' + parentid, {}, function ( res ) {

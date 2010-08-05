@@ -84,11 +84,13 @@ var Comment = {
                     // TODO
                     document.body.style.cursor = 'wait';
                     
+                    var txt = this.value;
                     var wysiwyg = $.post( 'comment/create', {
-                        text: this.value,
+                        text: txt,
                         typeid: Comment.GetCurrentTypeId(),
                         'itemid': Comment.GetCurrentItemId(),
-                        'parentid': parentid } );
+                        'parentid': parentid
+                    } );
                         
                     var callback = ( function( thread ) {
                          return function() {
