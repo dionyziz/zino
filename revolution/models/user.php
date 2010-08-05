@@ -1,4 +1,6 @@
 <?php
+    class ItemDeletedException extends Exception {}
+
     class User {
         public static function SetPassword( $id, $oldpassword, $newpassword ) {
             clude( 'models/db.php' );
@@ -288,7 +290,7 @@
                 return false;
             }
             if ( $row[ 'userdeleted' ] == 1 ) {
-                throw new Exception( 'User deleted' );
+                throw new ItemDeletedException( 'User deleted' );
             }
             static $mooddetails = array( 'labelmale', 'labelfemale', 'url' );
             if ( $row[ 'mood_url' ] != '' ) {

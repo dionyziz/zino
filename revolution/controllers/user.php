@@ -6,40 +6,43 @@
             $commentpage >= 1 or die;
             clude( 'models/db.php' );
             clude( 'models/user.php' );
-            if ( $verbose >= 3 ) {
-                if ( $id ) {
-                    $user = User::ItemDetails( $id );
-                }
-                else if ( $subdomain ) {
-                    $user = User::ItemDetailsBySubdomain( $subdomain );
-                    if ( $user === false ) {
-                        $user = User::ItemDetailsByName( $subdomain );
+            try {
+                if ( $verbose >= 3 ) {
+                    if ( $id ) {
+                        $user = User::ItemDetails( $id );
                     }
+                    else if ( $subdomain ) {
+                        $user = User::ItemDetailsBySubdomain( $subdomain );
+                        if ( $user === false ) {
+                            $user = User::ItemDetailsByName( $subdomain );
+                        }
+                    }
+                    else if ( $name ) {
+                        $user = User::ItemDetailsByName( $name );
+                    }
+                    else die;
+                    $countcomments = $user[ 'numcomments' ];
                 }
-                else if ( $name ) {
-                    $user = User::ItemDetailsByName( $name );
+                else {
+                    if ( $id ) {
+                        $user = User::Item( $id );
+                    }
+                    else if ( $subdomain ) {
+                        $user = User::ItemBySubdomain( $subdomain );
+                    }
+                    else if ( $name ) {
+                        $user = User::ItemByName( $name );
+                    }
+                    else die;
+                    $countcomments = 0; // TODO: remove this line
                 }
-                else die;
-                $countcomments = $user[ 'numcomments' ];
             }
-            else {
-                if ( $id ) {
-                    $user = User::Item( $id );
-                }
-                else if ( $subdomain ) {
-                    $user = User::ItemBySubdomain( $subdomain );
-                }
-                else if ( $name ) {
-                    $user = User::ItemByName( $name );
-                }
-                else die;
-                $countcomments = 0; // TODO: remove this line
-            }
-            $user !== false or die;
-            if ( $user[ 'userdeleted' ] === 1 ) { 
-                include 'views/itemdeleted.php';
+            catch ( ItemDeletedException $e ) {
+                $deleted = true;
+                include 'views/user/deleted.php';
                 return;
             }
+            $user !== false or die;
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
                 clude( 'models/activity.php' );

@@ -1,0 +1,1 @@
+<user deleted="yes" />

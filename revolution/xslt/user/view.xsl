@@ -3,6 +3,12 @@
 </xsl:template>
 
 <xsl:template match="/social[@resource='user' and @method='view']/user">
+    <xsl:if test="@deleted='yes'">
+        <script type="text/javascript">
+            location.href = 'http://static.zino.gr/phoenix/deleted/';
+        </script>
+    </xsl:if>
+    <xsl:if test="not(@deleted='yes')">
         <div class="userview">
             <xsl:attribute name="id">user_<xsl:value-of select="@id" /></xsl:attribute>
             <ul class="useritems">
@@ -213,7 +219,8 @@
                 </xsl:if>
             </div>
         </div>
-    <xsl:apply-templates select="discussion" />
+        <xsl:apply-templates select="discussion" />
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
