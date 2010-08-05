@@ -35,7 +35,7 @@
             $user = $_SESSION[ 'user' ];
 
             $album = Album::Item( $albumid );
-            $album[ 'user' ][ 'id' ] == $user[ 'id' ] or die( 'This is not your album' );
+            $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
 
             if ( empty( $name ) ) {
                 $name = $album[ 'name' ];
