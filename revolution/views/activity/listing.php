@@ -1,7 +1,8 @@
 <activities>
 <? foreach ( $activities as $activity ): ?>
     <activity>
-        <user id="<?= $activity[ 'user' ][ 'id' ] ?>"></user><?
+        <user id="<?= $activity[ 'user' ][ 'id' ] ?>"></user>
+        <date><?= $activity[ 'created' ] ?></date><?
         switch ( $activity[ 'typeid' ] ):
 
         case ACTIVITY_COMMENT:

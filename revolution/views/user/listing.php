@@ -6,7 +6,7 @@
         <location><?= $user[ 'location' ] ?></location>
         <age><?= $user[ 'age' ] ?></age>
         <avatar id="<?= $user[ 'avatarid' ] ?>">
-            <media url="" />
+            <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
     </user>
     <? endforeach; ?>
