@@ -53,16 +53,29 @@
             );
         }
         public static function Item( $id ) {
+            /* TODO: 2 selects, stored procedure */
             $res = db(
                 'SELECT
-                    `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_name` AS title, `image_albumid` AS albumid,
+                    i.`image_id` AS id, i.`image_userid` AS userid, i.`image_created` AS created, i.`image_name` AS title, i.`image_albumid` AS albumid,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
-                    `image_width` AS w, `image_height` AS h, `image_numcomments` AS numcomments
+                    i.`image_width` AS w, i.`image_height` AS h, i.`image_numcomments` AS numcomments,
+                    MIN( next.`image_id` ) AS nextid,
+                    MAX( previous.`image_id` ) AS previousid
                 FROM
-                    `images` CROSS JOIN `users`
-                        ON `image_userid` = `user_id`
+                    `images` AS i
+                    CROSS JOIN `users`
+                        ON i.`image_userid` = `user_id`
+                    LEFT JOIN `images` as next
+                        ON i.`image_userid` = next.`image_userid` AND
+                        next.`image_id` > i.`image_id`
+                    LEFT JOIN `images` as previous
+                        ON i.`image_userid` = previous.`image_userid` AND
+                        previous.`image_id` < i.`image_id`
+
                 WHERE
-                    `image_id` = :id
+                    i.`image_id` = :id
+                GROUP BY
+                    i.`image_id`
                 LIMIT 1;', array( 'id' => $id )
             );
             

@@ -11,6 +11,14 @@
         <avatar>
             <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
+        <photos>
+            <? if ( !empty( $photo[ 'previousid' ] ) ): ?>
+            <photo id="<?= $photo[ 'previousid' ] ?>" navigation="previous" />
+            <? endif; ?>
+            <? if ( !empty( $photo[ 'nextid' ] ) ): ?>
+            <photo id="<?= $photo[ 'nextid' ] ?>" navigation="next" />
+            <? endif; ?>
+        </photos>
     </author>
     <? endif; ?>
     <published><?= $photo[ 'created' ] ?></published>

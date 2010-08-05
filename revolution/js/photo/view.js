@@ -94,5 +94,21 @@ var PhotoView = {
         PhotoView.Title.Init();
         PhotoView.Remove.Init();
 		ItemView.Init( 2 );
+        $( document ).bind( 'keydown', 'left', PhotoView.LoadNext );
+        $( document ).bind( 'keydown', 'right', PhotoView.LoadPrevious );
+    },
+    LoadNext: function( evt ) {
+        var $next = $( '.navigation .nextid' );
+        if ( $next.length ) {
+            window.location = 'photos/' + $next.text();
+        }
+        return false;
+    },
+    LoadPrevious: function() {
+        var $previous = $( '.navigation .previousid' );
+        if ( $previous.length ) {
+            window.location = 'photos/' + $previous.text();
+        }
+        return false;
     }
 };
