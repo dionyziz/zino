@@ -26,7 +26,11 @@
 .bar img {
     width: 42px;
     float: left;
-    padding: 3px 2px 0pt 7px;
+    padding: 3px 2px 2px 3px;
+    margin-left: 4px;
+}
+.bar h1 a:hover img {
+    background-color: #555;
 }
 .bar ul {
     margin-left: 85px;
