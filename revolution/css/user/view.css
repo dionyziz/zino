@@ -256,8 +256,10 @@ select.location {
     display: block;
     font-weight: bold;
 }
+.rightbar .activities li .body{
+    display: block;
+}
 .rightbar .activities li .time{
-    color: #9a9;
     font-size: 11px;
 }
 .rightbar .activities li img{

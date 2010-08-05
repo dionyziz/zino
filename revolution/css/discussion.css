@@ -30,12 +30,12 @@ div.note {
 div.note span.username {
     display: inline;
 }
-div.time {
+.time {
     color: #3d6287;
     padding: 5px 0;
     display: none;
 }
-div.processedtime {
+.processedtime {
     display: inline;
 }
 a.talk {
