@@ -68,10 +68,41 @@
             }
             include 'views/user/view.php';
         }
-        public static function Listing() {
+        public static function Listing( $query = '', $showoffline = false ) {
             clude( 'models/db.php' );
             clude( 'models/user.php' );
-            $users = User::ListOnline();
+
+            $online = User::ListOnline();
+            foreach ( $online as $i => $user ) {
+                $online[ $i ][ 'state' ] = 'online';
+            }
+
+            if ( !$showoffline && !empty( $query ) ) {
+                $users = array();
+                foreach ( $online as $user ) {
+                    $name = $user[ 'name' ];
+                    if ( substr( $user[ 'name' ], 0, strlen( $query ) ) == $query ) {
+                        $users[] = $user;
+                    }
+                }
+            }
+            else if ( $showoffline ) {
+                $list = User::ListByNameStart( $query );
+                $users = array();
+                foreach ( $online as $user ) {
+                    if ( isset( $list[ $user[ 'name' ] ] ) ) {
+                        $users[] = $user;
+                    }
+                    unset( $list[ $user[ 'name' ] ] );
+                }
+                foreach ( $list as $user ) {
+                    $user[ 'state' ] = 'offline';
+                    $users[] = $user;
+                }
+            }
+            else {
+                $users = $online;
+            }
             include 'views/user/listing.php';
         }
         public static function Create() {

@@ -484,9 +484,18 @@
 
             $res = db(
                 'SELECT
-                    `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid
+                    `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid,
+                    `user_gender` AS gender, `place_name` AS location,
+                    (
+                        ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                        - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                    ) AS age
                 FROM
-                    `users`
+                    `users` 
+                    LEFT JOIN `userprofiles` ON
+                        `profile_userid` = `user_id`
+                    LEFT JOIN `places` ON
+                        `place_id` = `profile_placeid`
                 WHERE
                     `user_id` IN :userids;', compact( 'userids' )
             );
@@ -499,6 +508,35 @@
             }
 
             uksort( $users, 'strnatcasecmp' ); // sort by name, case insensitive
+
+            return $users;
+        }
+        public static function ListByNameStart( $query ) {
+            $query .= '%';
+            $res = db(
+                'SELECT
+                    `user_id` AS id, `user_name` AS name, `user_avatarid` AS avatarid,
+                    `user_gender` AS gender, `place_name` AS location,
+                    (
+                        ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                        - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                    ) AS age
+                FROM
+                    `users` 
+                    LEFT JOIN `userprofiles` ON
+                        `profile_userid` = `user_id`
+                    LEFT JOIN `places` ON
+                        `place_id` = `profile_placeid`
+                WHERE
+                    `user_name` LIKE :query', compact( 'query' )
+            );
+
+            $users = array();
+            while ( $row = mysql_fetch_array( $res ) ) {
+                $users[ $row[ 'name' ] ] = $row;
+            }
+
+            uksort( $users, 'strnatcasecmp' );
 
             return $users;
         }
