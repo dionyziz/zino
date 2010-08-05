@@ -100,7 +100,7 @@
 					WHERE 
 						`polloption_pollid` = :id 
 					LIMIT 
-						0,25',compact( 'id' )
+						0,250',compact( 'id' )
 			);
 			
 			$item[ 'userdeleted' ] = ( int )$item[ 'userdeleted' ];
