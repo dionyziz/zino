@@ -95,8 +95,8 @@ var Notifications = {
         var listhtml = '<li>' + list.join( ' &#8226;</li><li>' ) + '</li>';
 
         return '<div class="businesscard">'
-                + '<div class="avatar"><img src="' + avatar + '" alt="' + author + '" /></div>'
-                + '<div class="username">' + author + '</div>'
+                + '<div class="avatar"><a href="users/' + author + '"><img src="' + avatar + '" alt="' + author + '" /></a></div>'
+                + '<div class="username"><a href="users/' + author + '">' + author + '</a></div>'
                 + '<ul class="details">' + listhtml + '</ul>'
             + '</div>';
     },
