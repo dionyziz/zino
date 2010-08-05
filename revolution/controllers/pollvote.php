@@ -20,8 +20,10 @@
             else {
                 $success = false;
             }
-
-            include 'views/poll/create.php';
+            
+            $myvote = $optionid;
+            $poll = Poll::Item( $pollid );
+            Template( 'poll/view', compact( 'poll', 'myvote' ) );
         }
     }
 ?>
