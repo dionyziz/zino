@@ -7,6 +7,7 @@ body {
     background-position: top;
     background-repeat: repeat-x;
     color: white;
+    min-height: 400px;
 }
 h1 {
     margin: 0;
