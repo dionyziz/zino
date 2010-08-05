@@ -236,7 +236,33 @@ select.location {
     line-height: 23px;
 }
 .rightbar {
-    float: left;
+    margin-left: 400px;
+    padding-left: 60px;
+    text-align: left;
+}
+.rightbar .activities li{
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+.rightbar .activities li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.rightbar .activities li a.photo{
+    min-height: 66px;
+}
+.rightbar .activities li .head{
+    display: block;
+    font-weight: bold;
+}
+.rightbar .activities li .time{
+    color: #9a9;
+    font-size: 11px;
+}
+.rightbar .activities li img{
+    float: right;
+    height: 60px;
 }
 ul.accountmenu{
     display: inline;

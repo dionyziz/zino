@@ -132,6 +132,24 @@
             </div>
             <div class="eof"></div>
             <div class="sidebar">
+                <xsl:if test="mood or $user = name[1]">
+                    <div class="mood">
+                        <xsl:choose>
+                            <xsl:when test="not( mood ) and $user = name[1]">
+                                <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="moodtile nomood activemood"></div>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <div>
+                                    <xsl:attribute name="class">moodtile<xsl:if test="$user = name[1]"> activemood</xsl:if></xsl:attribute>
+                                    <xsl:attribute name="style">background-image:url(<xsl:value-of select="mood/media[1]/@url" />)</xsl:attribute>
+                                    <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                                    <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
+                                    <xsl:attribute name="id">activemood_<xsl:value-of select="mood/@id" /></xsl:attribute>
+                                </div>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </div>
+                </xsl:if>
                 <xsl:if test="$user and $user != name[1]">
                     <xsl:choose>
                         <xsl:when test="knownBy = $user">
@@ -153,10 +171,10 @@
                                 </input>
                                 <a class="love linkbutton" href=""><strong>+</strong> Προσθήκη φίλου</a>
                             </form>
-                            <div class="eof"></div>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:if>
+                <div class="eof"></div>
                 <xsl:apply-templates select="details" />
 
                 <xsl:apply-templates select="song" />
@@ -199,25 +217,96 @@
                 </ul>
             </div>
             <div class="rightbar">
-                <xsl:if test="mood or $user = name[1]">
-                    <div class="mood">
-                        <xsl:choose>
-                            <xsl:when test="not( mood ) and $user = name[1]">
-                                <div alt="Δεν έχει οριστεί διάθεση" title="Δεν έχει οριστεί διάθεση" class="moodtile nomood activemood"></div>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <div>
-                                    <xsl:attribute name="class">moodtile<xsl:if test="$user = name[1]"> activemood</xsl:if></xsl:attribute>
-                                    <xsl:attribute name="style">background-image:url(<xsl:value-of select="mood/media[1]/@url" />)</xsl:attribute>
-                                    <xsl:attribute name="alt"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                                    <xsl:attribute name="title"><xsl:value-of select="mood/label[1]" /></xsl:attribute>
-                                    <xsl:attribute name="id">activemood_<xsl:value-of select="mood/@id" /></xsl:attribute>
-                                </div>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </div>
-                </xsl:if>
+                <h2>
+                    <xsl:choose>
+                        <xsl:when test="/social/user/gender = 'm'">Ο&#160;</xsl:when>
+                        <xsl:otherwise>Η&#160;</xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:value-of select="/social/user/name" /> πρόσφατα:
+                </h2>
+                <ul class="activities">
+                <xsl:for-each select="activities/activity">
+                    <li>
+                        <a>
+                            <xsl:choose>
+                                <xsl:when test="type = 'comment'">
+                                    <xsl:choose>
+                                        <xsl:when test="comment/journal">
+                                            <xsl:attribute name="href">/ted/journals/<xsl:value-of select="comment/journal/@id" /></xsl:attribute>
+                                            <span class="head">
+                                                σχολίασε στο ημερολόγιο <xsl:value-of select="comment/journal/title" />:
+                                            </span>
+                                            <span class="body"><xsl:value-of select="comment/text" /></span>
+                                        </xsl:when>
+                                        <xsl:when test="comment/poll">
+                                            <xsl:attribute name="href">/ted/polls/<xsl:value-of select="comment/poll/@id" /></xsl:attribute>
+                                            <span class="head">
+                                                σχολίασε στη δημοσκόπηση <xsl:value-of select="comment/poll/question" />:
+                                            </span>
+                                            <span class="body"><xsl:value-of select="comment/text" /></span>
+                                        </xsl:when>
+                                        <xsl:when test="comment/profile">
+                                            <xsl:attribute name="href">/ted/users/<xsl:value-of select="comment/profile/name" /></xsl:attribute>
+                                            <span class="head">
+                                                σχολίασε στο προφίλ του ([user] needed):
+                                            </span>
+                                            <span class="body"><xsl:value-of select="comment/text" /></span>
+                                        </xsl:when>
+                                        <xsl:when test="comment/photo">
+                                            <xsl:attribute name="href">/ted/photos/<xsl:value-of select="comment/photo/@id" /></xsl:attribute>
+                                            <xsl:attribute name="class">photo</xsl:attribute>
+                                            <img>
+                                                <xsl:if test="comment/photo/title">
+                                                    <xsl:attribute name="alt"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
+                                                    <xsl:attribute name="title"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="comment/photo/author/@id" />/<xsl:value-of select="comment/photo/@id" />/<xsl:value-of select="comment/photo/@id" />_100.jpg</xsl:attribute>
+                                            </img>
+                                            <span class="head">
+                                                σχολίασε στη φωτογραφία του <xsl:value-of select="comment/photo/author/name" />:
+                                            </span>
+                                            <span class="body"><xsl:value-of select="comment/text" /></span>
+                                        </xsl:when>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:when test="type = 'favourite'">
+                                    fav'd something
+                                </xsl:when>
+                                <xsl:when test="type = 'friend'">
+                                    <xsl:attribute name="href">/ted/users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
+                                    <span class="head">
+                                    <xsl:choose>
+                                        <xsl:when test="/social/user/gender = 'm'">Ο&#160;</xsl:when>
+                                        <xsl:otherwise>Η&#160;</xsl:otherwise>
+                                    </xsl:choose>
+                                    <xsl:value-of select="/social/user/name" /> πρόσθεσε 
+                                        <xsl:choose>
+                                            <xsl:when test="friend/gender = 'm'">τον&#160;</xsl:when>
+                                            <xsl:otherwise>την&#160;</xsl:otherwise>
+                                        </xsl:choose>
+                                        <xsl:value-of select="friend/name" /> στους φίλους του.
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="type = 'fav'">
+                                    wait, woot?
+                                </xsl:when>
+                                <xsl:when test="type = 'song'">
+                                    just changed his song to...
+                                </xsl:when>
+                                <xsl:when test="type = 'status'">
+                                    set a new status
+                                </xsl:when>
+                                <xsl:when test="type = 'item'">
+                                    did something
+                                </xsl:when>
+                            </xsl:choose>
+                            <span class="time"><xsl:value-of select="date" /></span>
+                        </a>
+                    </li>
+                </xsl:for-each>
+                </ul>
             </div>
+            <div class="eof"></div>
         </div>
         <xsl:apply-templates select="discussion" />
     </xsl:if>
