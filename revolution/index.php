@@ -51,7 +51,7 @@
     ob_start();
     
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl\"?>";
+    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
 
     if ( !isset( $_SESSION[ 'user' ] ) ) {
         clude( 'models/user.php' );

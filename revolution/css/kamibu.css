@@ -1,0 +1,22 @@
+.editable {
+    top: 0;
+    left: 0;
+    cursor:text;
+}
+.editableinput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    text-align: inherit;
+    padding: inherit;
+    border: inherit;
+}
+.editable:hover .editableinput {
+    display: block;
+}

@@ -1,15 +1,16 @@
 var AlbumListing = {
     Initialized: false,
     Init: function() {
-        $( '.useralbums' ).click( function() {
-            if ( $( this ).hasClass( 'expanded' ) ) {
-                $( this ).removeClass( 'expanded' ).animate( {
+        $( '.useralbums span.minimize' ).click( function() {
+            var albumlist = $( '.useralbums' );
+            if ( albumlist.hasClass( 'expanded' ) ) {
+                albumlist.removeClass( 'expanded' ).animate( {
                     height: '22px'
                 } );
                 return;
             }
-            $( this ).addClass( 'expanded' );
-            $( this ).animate( {
+            albumlist.addClass( 'expanded' );
+            albumlist.animate( {
                 height: '210px'
             } );
             if( AlbumListing.Initialized ){
@@ -19,6 +20,12 @@ var AlbumListing = {
             var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
             axslt( albums, '/', function() {
                 $( '.useralbums' ).append( $( this ).find( 'ol' ) );
+                $( '.useralbums p' ).each( function() {
+                    var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
+                    Kamibu.EditableTextElement( this, function( title ) {
+                        $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
+                    } );
+                } );
                 $( '.useralbums a' ).click( function() {
                     $( '.useralbums .selected' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );

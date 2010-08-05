@@ -16,6 +16,18 @@ div.useralbums {
     padding:7px;
     text-align:center;
     overflow: hidden;
+    position: relative;
+}
+div.useralbums .minimize {
+    position: absolute;
+    left: 1%;
+    top: 0;
+    text-align :right;
+    display: block;
+    width: 98%;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
 }
 #albumlist {    
     white-space: nowrap;

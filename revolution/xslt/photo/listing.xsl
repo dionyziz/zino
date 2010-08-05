@@ -31,6 +31,7 @@
             <span class="user">
                 <xsl:value-of select="author/name" />
             </span>
+            <span class="minimize">▼</span>
         </div>
     </xsl:if>
     <xsl:call-template name="photolist" />

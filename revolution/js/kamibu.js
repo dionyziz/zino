@@ -1,4 +1,33 @@
 var Kamibu = {
+    EditableTextElement: function( element, callback ) {
+        if( element.style.position == 'static' ){
+            element.style.top = 0;
+            element.style.left = 0;
+            element.style.position = 'relative';
+        }
+        Kamibu.addClass( element, 'editable' );
+        var input = document.createElement( 'input' );
+        input.className = 'editableinput';
+        element.appendChild( input );
+        input.value = $( element ).text();
+        input.onfocus = function() {
+            input.style.display = 'block';
+        }
+        input.onblur = function() {
+            input.style.display = '';
+        }
+        input.onkeydown = function( e ) {
+             if ( e.keyCode == 13 ) {
+                input.blur();
+             }
+        }
+        if ( typeof callback === 'function' ) {
+            input.onchange = function() {
+                callback( input.value );
+                $( element ).text( input.value );
+            }
+        }
+    },
     ClickableTextbox: function( element , reshowtext , aftercolor , beforecolor ,  callback ) {
         //todo: password fields
         if ( typeof( element ) == 'string' ) {
