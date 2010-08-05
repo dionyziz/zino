@@ -49,7 +49,7 @@
                 var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
                 
                 var XMLData = {
-                    author: '<xsl:value-of select="/social/entry[1]/author[1]/name[1]" />'
+                    author: '<xsl:value-of select="/social/*/author/name" />'
                 }
             </script>
         </head>

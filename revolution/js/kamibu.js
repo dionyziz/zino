@@ -1,5 +1,5 @@
 var Kamibu = {
-    EditableTextElement: function( element, callback ) {
+    EditableTextElement: function( element, placeholder, callback ) {
         if( element.style.position == 'static' ){
             element.style.top = 0;
             element.style.left = 0;
@@ -8,8 +8,14 @@ var Kamibu = {
         Kamibu.addClass( element, 'editable' );
         var input = document.createElement( 'input' );
         input.className = 'editableinput';
+        if ( $( element ).text() == '' ) {
+            Kamibu.addClass( element, 'editableempty' );
+            $( element ).text( placeholder );
+        }
+        else {
+            input.value = $( element ).text();
+        }
         element.appendChild( input );
-        input.value = $( element ).text();
         input.onfocus = function() {
             input.style.display = 'block';
         }
@@ -19,12 +25,17 @@ var Kamibu = {
         input.onkeydown = function( e ) {
              if ( e.keyCode == 13 ) {
                 input.blur();
+                input.style.display = '';
              }
         }
         if ( typeof callback === 'function' ) {
             input.onchange = function() {
-                callback( input.value );
+                if ( input.value == '' ) {
+                    return;
+                }
+                Kamibu.removeClass( element, 'editableempty' );
                 $( element ).text( input.value );
+                callback( input.value );
             }
         }
     },
@@ -97,4 +108,4 @@ var Kamibu = {
             element.className = element.className.replace( new RegExp( '\\b' + name + '\\b' ), '' ).replace( /^\s*|\s*$/, '' ).replace( /\s+/, ' ' );
         }
     }
-};
+ };

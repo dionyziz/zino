@@ -20,3 +20,6 @@
 .editable:hover .editableinput {
     display: block;
 }
+.editable.editableempty {
+    font-style: italic;
+}

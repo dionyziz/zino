@@ -7,8 +7,10 @@ var AlbumListing = {
                 albumlist.removeClass( 'expanded' ).animate( {
                     height: '22px'
                 } );
+                $( this ).text( '▼' );
                 return;
             }
+            $( this ).text( '▲' );
             albumlist.addClass( 'expanded' );
             albumlist.animate( {
                 height: '210px'
@@ -20,12 +22,14 @@ var AlbumListing = {
             var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
             axslt( albums, '/', function() {
                 $( '.useralbums' ).append( $( this ).find( 'ol' ) );
-                $( '.useralbums p' ).each( function() {
-                    var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
-                    Kamibu.EditableTextElement( this, function( title ) {
-                        $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
+                if( XMLData.author == User ){
+                    $( '.useralbums p' ).each( function() {
+                        var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
+                        Kamibu.EditableTextElement( this, 'Όρισε όνομα', function( title ) {
+                            $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
+                        } );
                     } );
-                } );
+                }
                 $( '.useralbums a' ).click( function() {
                     $( '.useralbums .selected' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
