@@ -77,6 +77,7 @@ var PhotoListing = {
                 var id = $( this ).attr( 'id' );
                 var url = $( this ).find( 'media' ).attr( 'url' );
                 var count = $( this ).find( 'discussion' ).attr( 'count' );
+                var user = $( this ).find( 'author name' ).text();
                 do {
                     PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
                 } while ( PhotoListing.LastLoaded.nodeType != 1);
@@ -86,6 +87,10 @@ var PhotoListing = {
                 }
                 else {
                     alert( id );
+                }
+                if ( user ) {
+                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'alt', user );
+                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'title', user );
                 }
                 $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
                 if ( count != '0' ) {
