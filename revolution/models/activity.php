@@ -46,6 +46,7 @@
                         if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
                             $photo = Photo::Item( $row[ 'activity_itemid' ] );
                             $activity[ 'item' ][ 'userid' ] = $photo[ 'userid' ];
+                            $activity[ 'item' ][ 'username' ] = $photo[ 'username' ];
                         }
                         break;
                     case ACTIVITY_FAVOURITE:
