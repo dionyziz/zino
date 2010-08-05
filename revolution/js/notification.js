@@ -407,7 +407,7 @@ var Notifications = {
         // alert( id + ': ' + comment );
         var article = 'Ο';
         var notificationcomment;
-        var txt;
+        var submittype, submititemid, submitparentid, submittext;
 
         if ( gender == 'f' ) {
             article = 'Η';
@@ -464,25 +464,28 @@ var Notifications = {
             return false;
         }
         function beforeSave() {
-            txt = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            submittext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+            submittype = type;
+            submititemid = id;
+            submitparentid = commentid;
         }
         function save() {
-            if ( txt === '' ) {
+            if ( submittext === '' ) {
                 $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
                 return;
             }
             Notifications.RequestStart();
             $.post( 'comment/create', {
-                text: txt,
+                text: submittext,
                 typeid: {
                     'poll': 1,
                     'photo': 2,
                     'user': 3,
                     'journal': 4,
                     'school': 7
-                }[ type ],
-                'itemid': id,
-                'parentid': commentid
+                }[ submittype ],
+                'itemid': submititemid,
+                'parentid': submitparentid
             }, Notifications.RequestDone );
             Notifications.DoneWithCurrent();
         }
