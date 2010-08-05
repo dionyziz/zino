@@ -24,6 +24,7 @@
         <friend id="<?= $activity[ 'friend' ][ 'id' ] ?>">
             <name><?= $activity[ 'friend' ][ 'name' ] ?></name>
             <subdomain><?= $activity[ 'friend' ][ 'subdomain' ] ?></subdomain>
+            <gender><?= $activity[ 'friend' ][ 'gender' ] ?></gender>
         </friend>
         <?
         break;
@@ -33,6 +34,7 @@
         <friend id="<?= $activity[ 'fan' ][ 'id' ] ?>">
             <name><?= $activity[ 'fan' ][ 'name' ] ?></name>
             <subdomain><?= $activity[ 'fan' ][ 'subdomain' ] ?></subdomain>
+            <gender><?= $activity[ 'fan' ][ 'gender' ] ?></gender>
         </friend>
         <?
         break;

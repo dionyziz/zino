@@ -11,6 +11,9 @@
     class Activity {
         public static function ListByUser( $userid, $limit = 20 ) {
 			clude( "models/bulk.php" );
+            clude( 'models/user.php' );
+            clude( 'models/photo.php' );
+
             $res = db( "SELECT * FROM `activities` WHERE `activity_userid` = :userid ORDER BY `activity_created` DESC LIMIT :limit;", compact( 'userid', 'limit' ) );
             $bulkids = array();
             $rows = array();
@@ -40,6 +43,10 @@
                         $activity[ 'item' ][ 'typeid' ] = $row[ 'activity_itemtype' ];
                         $activity[ 'item' ][ 'title' ] = $row[ 'activity_text' ];
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
+                        if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
+                            $photo = Photo::Item( $row[ 'activity_itemid' ] );
+                            $activity[ 'item' ][ 'userid' ] = $photo[ 'userid' ];
+                        }
                         break;
                     case ACTIVITY_FAVOURITE:
                         $activity[ 'favourite' ] = array();
@@ -55,18 +62,22 @@
                         }
                         break;
                     case ACTIVITY_FRIEND:
+                        $friend = User::Item( $row[ 'activity_itemid' ] );
                         $activity[ 'friend' ] = array();
                         $activity[ 'friend' ][ 'id' ] = $row[ 'activity_itemid' ];
                         $activity[ 'friend' ][ 'name' ] = $row[ 'activity_text' ];
                         $activity[ 'friend' ][ 'subdomain' ] = $row[ 'activity_url' ];
+                        $activity[ 'friend' ][ 'gender' ] = $friend[ 'gender' ];
                         $activity[ 'relation' ] = array();
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;
                     case ACTIVITY_FAN:
+                        $fan = User::Item( $row[ 'activity_itemid' ] );
                         $activity[ 'fan' ] = array();
                         $activity[ 'fan' ][ 'id' ] = $row[ 'activity_itemid' ];
                         $activity[ 'fan' ][ 'name' ] = $row[ 'activity_text' ];
                         $activity[ 'fan' ][ 'subdomain' ] = $row[ 'activity_url' ];
+                        $activity[ 'fan' ] = $fan[ 'gender' ];
                         $activity[ 'relation' ] = array();
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;

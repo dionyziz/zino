@@ -16,6 +16,9 @@
         break;
     case TYPE_PHOTO:
         ?><photo id="<?= $activity[ 'item' ][ 'id' ] ?>">
+        <? if ( !empty( $activity[ 'item' ][ 'userid' ] ) ): ?>
+            <author id="<?= $activity[ 'item' ][ 'userid' ] ?>"></author>
+        <? endif; ?>
         <? if ( !empty( $activity[ 'item' ][ 'title' ] ) ): ?>
             <title><?= htmlspecialchars( $activity[ 'item' ][ 'title' ] ) ?></title>
         <? endif; ?>
