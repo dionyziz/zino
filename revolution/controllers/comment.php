@@ -1,6 +1,9 @@
 <?php
     class ControllerComment {
         public static function Create( $text, $typeid, $itemid, $parentid ) {
+            if ( strlen( trim( $text ) ) == 0 ) {
+                throw new Exception( 'Cannot post empty comment' );
+            }
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a comment' ); // must be logged in to leave comment
             clude( 'models/types.php' );
             clude( 'models/db.php' );

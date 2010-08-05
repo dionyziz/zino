@@ -84,7 +84,12 @@ var Comment = {
                     // TODO
                     document.body.style.cursor = 'wait';
                     
+                    var checktxt = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
                     var txt = this.value;
+                    if ( checktxt.length == 0 ) {
+                        document.body.style.cursor = 'default';
+                        return;
+                    }
                     var wysiwyg = $.post( 'comment/create', {
                         text: txt,
                         typeid: Comment.GetCurrentTypeId(),
