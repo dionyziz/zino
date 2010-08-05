@@ -62,5 +62,13 @@
             </div>
         </xsl:if>
     </div>
+    <div class="navigation" style="display: none;">
+        <xsl:if test="//photo[ @navigation='next' ]">
+            <span id="next"><xsl:value-of select="//photo[ @navigation='next' ]/@id" /></span>
+        </xsl:if>
+        <xsl:if test="//photo[ @navigation='previous' ]">
+            <span id="previous"><xsl:value-of select="//photo[ @navigation='previous' ]/@id" /></span>
+        </xsl:if>
+    </div>
     <xsl:apply-templates select="discussion" />
 </xsl:template>
