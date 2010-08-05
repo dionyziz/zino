@@ -28,6 +28,7 @@
                 $activity[ 'typeid' ] = $row[ 'activity_typeid' ];
                 $activity[ 'user' ] = array();
                 $activity[ 'user' ][ 'id' ] = $row[ 'activity_userid' ];
+                $activity[ 'created' ] = $row[ 'activity_created' ];
                 switch ( $row[ 'activity_typeid' ] ) {
                     case ACTIVITY_COMMENT:
                         $activity[ 'comment' ] = array(); 
