@@ -94,8 +94,8 @@ var PhotoView = {
         PhotoView.Title.Init();
         PhotoView.Remove.Init();
 		ItemView.Init( 2 );
-        $( document ).bind( 'keydown', 'left', PhotoView.LoadNext );
-        $( document ).bind( 'keydown', 'right', PhotoView.LoadPrevious );
+        $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadNext );
+        $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadPrevious );
     },
     LoadNext: function( evt ) {
         var $next = $( '.navigation .nextid' );
