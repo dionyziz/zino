@@ -42,7 +42,7 @@ var Comment = {
                 newthread = newcomment.clone().insertAfter( '.discussion .note' );
                 Comment.TextEvents( newthread );
             }
-            $( 'a.talk' ).fadeOut( 300 );
+            // $( 'a.talk' ).fadeOut( 300 );
         }
         else {
             newthread = $( this ).siblings( '.thread.new' );
