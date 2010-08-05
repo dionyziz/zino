@@ -1,7 +1,7 @@
 <?php
     class Photo {
         public static function ListRecent( $offset = 0, $limit = 100 ) {
-            return db_array(
+            $res = db(
                 'SELECT
                     `image_id` AS id, `image_userid` AS userid, `image_created` AS created, `image_numcomments` AS numcomments,
                     `user_name` AS username, `user_subdomain` AS subdomain, `user_gender` AS gender, `user_avatarid` AS avatarid
@@ -16,6 +16,17 @@
                     id DESC
                 LIMIT :offset, :limit', compact( 'offset', 'limit' )
             );
+            $photos = array();
+            while ( $photo = mysql_fetch_array( $res ) ) {
+                $photo[ 'user' ] = array();
+                $photo[ 'user' ][ 'id' ] = $photo[ 'userid' ];
+                $photo[ 'user' ][ 'name' ] = $photo[ 'username' ];
+                $photo[ 'user' ][ 'subdomain' ] = $photo[ 'subdomain' ];
+                $photo[ 'user' ][ 'gender' ] = $photo[ 'gender' ];
+                $photo[ 'user' ][ 'avatarid' ] = $photo[ 'avatarid' ];
+                $photos[] = $photo;
+            }
+            return $photos;
         }
         public static function ListByUser( $userid, $offset = 0, $limit = 100 ) {
             return db_array(
@@ -117,12 +128,17 @@
                     `image_id` IN :ids;', array( 'ids' => $ids )
             );
 
-            $images = array();
-            while ( $row = mysql_fetch_array( $res ) ) {
-                $images[ $row[ 'id' ] ] = $row;
+            $photos = array();
+            while ( $photo = mysql_fetch_array( $res ) ) {
+                $photo[ 'user' ] = array();
+                $photo[ 'user' ][ 'id' ] = $photo[ 'userid' ];
+                $photo[ 'user' ][ 'name' ] = $photo[ 'username' ];
+                $photo[ 'user' ][ 'subdomain' ] = $photo[ 'subdomain' ];
+                $photo[ 'user' ][ 'gender' ] = $photo[ 'gender' ];
+                $photo[ 'user' ][ 'avatarid' ] = $photo[ 'avatarid' ];
+                $photos[ $photo[ 'id' ] ] = $photo;
             }
-
-            return $images;
+            return $photos;
 
             /*
             $keys = array();
