@@ -1,8 +1,9 @@
 <xsl:template name="banner">
     <div class="bar">
         <span>▼</span>
-        <img src="http://static.zino.gr/phoenix/logo-trans.png" />
-         
+        <a href="">
+            <img src="http://static.zino.gr/phoenix/logo-trans.png" />
+        </a>
         <ul>
             <li>
                 <xsl:if test="/social/photos and not(/social/photos/author)">
