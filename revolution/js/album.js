@@ -49,4 +49,4 @@ var AlbumListing = {
             } );
         } );
     }
-}
+};

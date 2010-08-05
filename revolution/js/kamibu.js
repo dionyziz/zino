@@ -16,27 +16,28 @@ var Kamibu = {
             input.value = $( element ).text();
         }
         element.appendChild( input );
-        input.onfocus = function() {
+        $( input ).focus( function() {
             input.style.display = 'block';
-        }
-        input.onblur = function() {
+        } );
+        $( input ).blur( function() {
             input.style.display = '';
-        }
-        input.onkeydown = function( e ) {
+        } );
+        $( input ).keydown( function( e ) {
              if ( e.keyCode == 13 ) {
                 input.blur();
                 input.style.display = '';
              }
-        }
+        } );
         if ( typeof callback === 'function' ) {
-            input.onchange = function() {
+            $( input ).change( function() {
                 if ( input.value == '' ) {
                     return;
                 }
                 Kamibu.removeClass( element, 'editableempty' );
                 $( element ).text( input.value );
+                Kamibu.EditableTextElement( element );
                 callback( input.value );
-            }
+            } );
         }
     },
     ClickableTextbox: function( element , reshowtext , aftercolor , beforecolor ,  callback ) {

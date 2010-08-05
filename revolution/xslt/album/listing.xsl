@@ -19,6 +19,7 @@
                         </xsl:if>
                     </xsl:attribute>
                 </img>
+                <div class="deletebutton">×</div>
             </a>
             <p>
                 <xsl:value-of select="name" />
