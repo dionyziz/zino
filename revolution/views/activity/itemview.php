@@ -29,4 +29,10 @@
         <? endif; ?>
         </photo><?
         break;
+    case TYPE_ALBUM:
+        ?><album id="<?= $activity[ 'item' ][ 'id' ] ?>">
+            <name><?= $activity[ 'item' ][ 'name' ] ?></name>
+            <url><?= $activity[ 'item' ][ 'url' ] ?></url>
+        </album><?
+        break;
 endswitch;
