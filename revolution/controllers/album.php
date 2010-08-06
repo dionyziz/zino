@@ -13,6 +13,8 @@
             clude( 'models/user.php' );
             $photos = Photo::ListByAlbum( $id, $offset, $limit );
             $user = User::Item( $album[ 'ownerid' ] );
+            $egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
+            $album[ 'egoalbum' ] = $album[ 'id' ] == $egoalbumid;
             Template( 'album/view', compact( 'album', 'photos', 'user' ) );
         }
         public static function Create( $name, $description ) {
@@ -65,6 +67,8 @@
 
             $user = User::ItemByName( $username );
             $albums = Album::ListByUser( $user[ 'id' ] );
+            $egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
+            $albums[ $agoalbumid ][ 'egoalbum' ] = true;
 
             include 'views/album/listing.php';
         }

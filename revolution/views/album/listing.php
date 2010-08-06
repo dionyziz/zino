@@ -1,6 +1,10 @@
 <albums>
     <?php foreach ( $albums as $album ): ?>
-    <album id="<?= $album[ 'id' ]; ?>">
+    <album id="<?= $album[ 'id' ]; ?>"<?
+    if ( isset( $album[ 'egoalbum' ] ) && $album[ 'egoalbum' ] ): 
+    ?> egoalbum="yes"<?
+    endif;
+    ?>>
         <name><?= htmlspecialchars( $album[ 'name' ] ); ?></name>  
         <author id="<?= $album[ 'ownerid' ] ?>">
             <type id="<?= $album[ 'ownertype' ] ?>"><?php

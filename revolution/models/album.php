@@ -49,7 +49,7 @@
                 $row[ 'mainimageid' ] = (int)$row[ 'mainimageid' ];
                 $row[ 'numphotos' ] = (int)$row[ 'numphotos' ];
                 $row[ 'delid' ] = (int)$row[ 'delid' ];
-                $albums[] = $row;
+                $albums[ $row[ 'id' ] ] = $row;
             }
 
             return $albums;
