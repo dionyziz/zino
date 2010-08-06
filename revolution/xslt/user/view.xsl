@@ -232,7 +232,7 @@
                                 <xsl:when test="type = 'comment'">
                                     <xsl:choose>
                                         <xsl:when test="comment/journal">
-                                            <xsl:attribute name="href">/ted/journals/<xsl:value-of select="comment/journal/@id" /></xsl:attribute>
+                                            <xsl:attribute name="href">journals/<xsl:value-of select="comment/journal/@id" /></xsl:attribute>
                                             <span class="head">
                                                 σχολίασε στο ημερολόγιο <xsl:value-of select="comment/journal/title" />:
                                             </span>
@@ -240,21 +240,21 @@
                                             
                                         </xsl:when>
                                         <xsl:when test="comment/poll">
-                                            <xsl:attribute name="href">/ted/polls/<xsl:value-of select="comment/poll/@id" /></xsl:attribute>
+                                            <xsl:attribute name="href">polls/<xsl:value-of select="comment/poll/@id" /></xsl:attribute>
                                             <span class="head">
                                                 σχολίασε στη δημοσκόπηση <xsl:value-of select="comment/poll/question" />:
                                             </span>
                                             <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
                                         </xsl:when>
                                         <xsl:when test="comment/profile">
-                                            <xsl:attribute name="href">/ted/users/<xsl:value-of select="comment/profile/name" /></xsl:attribute>
+                                            <xsl:attribute name="href">users/<xsl:value-of select="comment/profile/name" /></xsl:attribute>
                                             <span class="head">
                                                 σχολίασε στο προφίλ του ([user] needed):
                                             </span>
                                             <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
                                         </xsl:when>
                                         <xsl:when test="comment/photo">
-                                            <xsl:attribute name="href">/ted/photos/<xsl:value-of select="comment/photo/@id" /></xsl:attribute>
+                                            <xsl:attribute name="href">photos/<xsl:value-of select="comment/photo/@id" /></xsl:attribute>
                                             <xsl:attribute name="class">photo</xsl:attribute>
                                             <img>
                                                 <xsl:if test="comment/photo/title">
@@ -288,7 +288,7 @@
                                     </xsl:choose>
                                 </xsl:when>
                                 <xsl:when test="type = 'friend'">
-                                    <xsl:attribute name="href">/ted/users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
+                                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
                                     <span class="head">
                                     έκανε 
                                         <xsl:choose>
@@ -299,7 +299,7 @@
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="type = 'fan'">
-                                    <xsl:attribute name="href">/ted/users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
+                                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
                                     <span class="head">έγινε 
                                     <xsl:choose>
                                         <xsl:when test="/social/user/gender = 'f'"> φίλη </xsl:when>
@@ -323,7 +323,7 @@
                                     <xsl:choose>
                                         <xsl:when test="photo">
                                             <xsl:attribute name="class">photo</xsl:attribute>
-                                            <xsl:attribute name="href">/ted/photos/<xsl:value-of select="photo/@id" /></xsl:attribute>
+                                            <xsl:attribute name="href">photos/<xsl:value-of select="photo/@id" /></xsl:attribute>
                                             <img>
                                                 <xsl:if test="photo/title">
                                                     <xsl:attribute name="alt"><xsl:value-of select="photo/title" /></xsl:attribute>
@@ -334,7 +334,7 @@
                                             <span class="head">ανέβασε μια φωτογραφία</span>
                                         </xsl:when>
                                         <xsl:when test="poll">
-                                            <xsl:attribute name="href">/ted/polls/<xsl:value-of select="poll/@id" /></xsl:attribute>
+                                            <xsl:attribute name="href">polls/<xsl:value-of select="poll/@id" /></xsl:attribute>
                                             <span class="head">
                                                 δημιούργησε το άλμπουμ: 
                                                 <xsl:value-of select="poll/question" />
