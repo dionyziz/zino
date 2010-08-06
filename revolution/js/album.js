@@ -31,10 +31,15 @@ var AlbumListing = {
                     } );
                     $( '.useralbums a' ).each( function() {
                     $( this ).append( '<div class="deletebutton">×</div>' );
-                        $( '.deletebutton', this ).click( function() {
+                        $( '.deletebutton', this ).click( function( e ) {
+                            e.stopImmediatePropagation();
                             if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
                                 $.post( '?resource=album&method=delete', { albumid: this.parentNode.href.split( '/' ).pop() } );
+                                $( this ).parents( 'li' ).fadeOut( 400, function() {
+                                    $( this ).remove();
+                                } );
                             }
+                            return false;
                         } );
                     } );
                 }
