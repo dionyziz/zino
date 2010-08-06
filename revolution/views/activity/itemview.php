@@ -19,6 +19,7 @@
         <? if ( !empty( $activity[ 'item' ][ 'user' ][ 'id' ] ) ): ?>
             <author id="<?= $activity[ 'item' ][ 'user' ][ 'id' ] ?>">
                 <name><?= $activity[ 'item' ][ 'user' ][ 'name' ] ?></name>
+                <gender><?= $activity[ 'item' ][ 'user' ][ 'gender' ] ?></gender>
             </author>
         <? endif; ?>
         <? if ( !empty( $activity[ 'item' ][ 'title' ] ) ): ?>

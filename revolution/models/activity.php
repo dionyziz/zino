@@ -47,6 +47,7 @@
                             $photo = Photo::Item( $row[ 'activity_itemid' ] );
                             $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
                             $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
+                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $photo[ 'gender' ];
                         }
                         else if ( $activity[ 'item' ][ 'typeid' ] == TYPE_USERPROFILE ) {
                             $user = User::Item( $activity[ 'item' ][ 'id' ] );
@@ -71,6 +72,7 @@
                             $photo = Photo::Item( $row[ 'activity_itemid' ] );
                             $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
                             $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
+                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $photo[ 'gender' ];
                         }
                         break;
                     case ACTIVITY_FRIEND:
