@@ -50,8 +50,8 @@
                         }
                         else if ( $activity[ 'item' ][ 'typeid' ] == TYPE_USERPROFILE ) {
                             $user = User::Item( $activity[ 'item' ][ 'id' ] );
-                            $activity[ 'item' ][ 'userid' ] = $user[ 'userid' ];
-                            $activity[ 'item' ][ 'username' ] = $user[ 'username' ];
+                            $activity[ 'item' ][ 'userid' ] = $user[ 'id' ];
+                            $activity[ 'item' ][ 'username' ] = $user[ 'name' ];
                         }
                         break;
                     case ACTIVITY_FAVOURITE:
