@@ -409,11 +409,12 @@ var Chat = {
          }
      },
      // switch to an already loaded channel
-     DisplayChannel: function ( channelid ) {
+     DisplayChannel: function ( channelid, userid ) {
          $( '.chatchannel' ).hide();
          $( '#chatmessages_' + channelid ).show();
          if ( $(' #chatmessages_' + channelid + ' li' ).length ) {
-             $( '#chatmessages_' + channelid )[ 0 ].lastChild.scrollIntoView();
+             var messages = $( '#chatmessages_' + channelid + ' li' );
+             messages[ messages.length - 1 ].scrollIntoView();
          }
          Chat.CurrentChannel = channelid;
      },
