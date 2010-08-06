@@ -30,7 +30,7 @@
         public static function ListRecent( $userid ) {
             clude( 'models/types.php' );
 
-            $res = db( 'SELECT
+            $res = db( 'SELECT SQL_CALC_FOUND_ROWS
                             `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
                             `user_name` AS name, `user_gender` AS gender, `user_avatarid` AS avatarid
                         FROM
@@ -41,7 +41,8 @@
                             `notify_touserid` = :userid AND
                             `notify_typeid` != 38
                         ORDER BY
-                            `notify_eventid` DESC', compact( 'userid' ) );
+                            `notify_eventid` DESC
+                        LIMIT 20', compact( 'userid' ) );
             $idsbyeventtype = array();
             $notifications = array();
             while ( $row = mysql_fetch_array( $res ) ) {
@@ -64,6 +65,9 @@
                     'user' => $user
                 );
             }
+            $res = db( 'SELECT FOUND_ROWS() AS fr' );
+            $row = mysql_fetch_array( $res );
+            $count = $row[ 'fr' ]; 
             foreach ( $idsbyeventtype as $type => $ids ) {
                 switch ( $type ) {
                     case EVENT_COMMENT_CREATED:
@@ -100,7 +104,7 @@
                         $notifications[ $i ][ 'tag' ] = $taginfo[ $notification[ 'itemid' ] ];
                 }
             }
-            return $notifications;
+            return array( $notifications, $count );
         }
         public static function Delete( $notificationid, $userid ) {
             db( 'DELETE

@@ -427,13 +427,16 @@ var Chat = {
          if ( Chat.Visible ) {
              $( '#chat' ).hide();
              $( '#content' ).show();
-             $( $( 'div.bar ul li' )[ Chat.PreviousPageSelected ] ).addClass( 'selected' );
+             if ( Chat.PreviousPageSelected != -1 ) {
+                 $( $( 'div.bar ul li' )[ Chat.PreviousPageSelected ] ).addClass( 'selected' );
+             }
              $( '#chatbutton' ).parent().removeClass( 'selected' );
          }
          else {
              $( '#chat' ).show();
              $( '#content' ).hide();
              var menu = $( 'div.bar ul li' );
+             Chat.PreviousPageSelected = -1;
              for ( var i = 0; i < menu.length; ++i ) {
                  if ( menu[ i ].className == 'selected' ) {
                      Chat.PreviousPageSelected = i;

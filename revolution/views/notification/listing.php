@@ -1,4 +1,4 @@
-<stream type="notify" count="<?= count( $notifications ) ?>">
+<stream type="notify" count="<?= $count ?>">
     <? foreach ( $notifications as $notification ): ?>
     <? switch ( $notification[ 'eventtypeid' ] ):
     case EVENT_COMMENT_CREATED: 

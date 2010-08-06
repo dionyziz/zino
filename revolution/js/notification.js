@@ -69,7 +69,7 @@ var Notifications = {
                 next = current.previousSibling;
             } while ( next && $( next ).hasClass( '.done' ) );
         }
-        if ( count ) {
+        if ( count && next ) {
             $( next ).click();
         }
         else {

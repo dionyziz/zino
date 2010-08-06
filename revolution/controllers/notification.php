@@ -5,8 +5,10 @@
 
             clude( 'models/db.php' );
             clude( 'models/notification.php' );
-            $notifications = Notification::ListRecent( $_SESSION[ 'user' ][ 'id' ] );
-            include 'views/notification/listing.php';
+            $data = Notification::ListRecent( $_SESSION[ 'user' ][ 'id' ] );
+            $notifications = $data[ 0 ];
+            $count = $data[ 1 ];
+            Template( 'notification/listing', compact( 'notifications', 'count' ) );
         }
         public static function Delete(
             $notificationid = 0,
