@@ -24,6 +24,7 @@
 
         $song = New Song();
         $song->Songid = $info[ "songID" ];
+        $song->Title = $info[ 'songName' ];
         $song->Albumid = $info[ "albumID" ];
         $song->Artistid = $info[ "artistID" ];
         $song->Save();
