@@ -26,13 +26,14 @@
                     </form>
                 </div>
                 <div class="login">
+                    <iframe id="iframe" src="login.html" style="height: 100%; left: 0; position: absolute; border: none; top: 0; width: 100%;margin: 0;"></iframe>
                     <h2>Έχεις ήδη zino?</h2>
-                    <form method="POST" action="session/create" name="loginform">
-                        <label>Ψευδώνυμο</label>
-                        <input class="text" type="text" tabindex="1" name="username" />
-                        <label>Κωδικός</label>
-                        <input class="text" type="password" tabindex="2" name="password" />
-                        <input class="submit" type="submit" value="" tabindex="3" />
+                    <form method="post" action="session/create" name="loginform">
+                        <label for="username">Ψευδώνυμο</label>
+                        <input id="username" class="text" type="text" tabindex="1" name="username" />
+                        <label for="password">Κωδικός</label>
+                        <input id="password" class="text" type="password" tabindex="2" name="password" />
+                        <input class="submit" type="submit" />
                     </form>
                 </div>
             </div>
@@ -47,31 +48,13 @@
                 </ul>
             </div>
             <script type="text/javascript">
-                var loginsuccess = false;
-                //$( function() { $( '.login > form' ).find( 'input' )[ 0 ].focus(); } );
-                $( '.login > form' ).submit( function () {
-                    if ( !loginsuccess ) {
-                        $.post( 'session/create', {
-                            username: $( 'input:eq(0)', this ).val(),
-                            password: $( 'input:eq(1)', this ).val()
-                        }, function ( res ) {
-                            if ( $( res ).find( 'operation result' ).text() == 'SUCCESS' ) {
-                                 loginsuccess = true;
-                                $( '.login > form' ).submit();
-                            }
-                            else {
-                                alert( 'Λάθος όνομα/κωδικός' );
-                                document.body.style.cursor = '';
-                                $( '.login > form' ).css( 'opacity', 1 ).find( 'input' ).attr( 'disabled', '' ).index( 1 ).focus();
-                            }
-                        }, 'xml' );
-                        document.body.style.cursor = 'wait';                        
-                        $( this ).css( 'opacity', 0.5 ).blur().find( 'input' ).attr( 'disabled', 'disabled' );
-                        return false;
+                var username = document.getElementById( 'username' );
+                var password = document.getElementById( 'password' );
+                function loginresult( result ) {
+                    if ( result ) {
+                        window.location.href = 'http://zino.gr:500/petros/photos';
                     }
-                    $( '.login > form' ).find( 'input' ).attr( 'disabled', '' );
-                    return true;
-                } );
+                }
             </script>
         </body>
     </html>

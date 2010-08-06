@@ -236,9 +236,12 @@ select.location {
     line-height: 23px;
 }
 .rightbar {
-    margin-left: 400px;
+    margin: 0 15px 0 400px;
     padding-left: 10px;
     text-align: left;
+}
+.rightbar h2 {
+    margin: 0 0 10px;
 }
 .rightbar .activities li{
  

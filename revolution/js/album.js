@@ -1,5 +1,6 @@
 var AlbumListing = {
     Initialized: false,
+    CurrentAlbum: null,
     Init: function() {
         $( '.useralbums span.minimize' ).click( function() {
             var albumlist = $( '.useralbums' );
@@ -34,10 +35,17 @@ var AlbumListing = {
                         $( '.deletebutton', this ).click( function( e ) {
                             e.stopImmediatePropagation();
                             if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
-                                $.post( '?resource=album&method=delete', { albumid: this.parentNode.href.split( '/' ).pop() } );
+                                var albumid = this.parentNode.href.split( '/' ).pop();
+                                $.post( '?resource=album&method=delete', { albumid: albumid } );
                                 $( this ).parents( 'li' ).fadeOut( 400, function() {
                                     $( this ).remove();
                                 } );
+                                if ( AlbumListing.CurrentAlbum == null || albumid == AlbumListing.CurrentAlbum ) {
+                                    axslt( $.get( 'photos/' + User ), '/social/photos', function() {
+                                        $( '.photostream' ).empty().append( this );
+                                        $( '.photostreams .useralbums:last' ).remove();
+                                    } );
+                                }
                             }
                             return false;
                         } );
@@ -49,6 +57,7 @@ var AlbumListing = {
 
                     var albumid = this.href.split( '/' );
                     albumid = albumid[ albumid.length - 1 ];
+                    AlbumListing.CurrentAlbum = albumid;
                     window.location.hash = this.href;
                     axslt( $.get( this.href ), '/social/album', function() {
                         $( '.photostream' ).empty().append( $( this ).find( 'ul' ) );

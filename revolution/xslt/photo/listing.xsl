@@ -34,10 +34,6 @@
             <span class="minimize">▼</span>
         </div>
     </xsl:if>
-    <xsl:call-template name="photolist" />
-</xsl:template>
-
-<xsl:template name="photolist">
     <div class="photostream">
         <ul>
             <xsl:if test="/social/@for and (/social/@for=author/name or not(author/name))">
@@ -53,34 +49,36 @@
                     </form>
                 </li>
             </xsl:if>
-            <xsl:for-each select="photo">
-                <li>
-                    <a>
-                        <xsl:attribute name="href">photos/<xsl:value-of select="@id" /></xsl:attribute>
-                        <img>
-                            <xsl:attribute name="src">
-                                <xsl:value-of select="media[1]/@url" />
-                            </xsl:attribute>
-                            <xsl:attribute name="alt">
-                                <xsl:value-of select="author/name" />
-                            </xsl:attribute>
-                            <xsl:attribute name="title">
-                                <xsl:value-of select="author/name" />
-                            </xsl:attribute>
-                        </img>
-                        <xsl:if test="discussion[1]/@count &gt; 0">
-                            <span class="countbubble">
-                                <xsl:if test="discussion[1]/@count &gt; 99">
-                                    &#8734;
-                                </xsl:if>
-                                <xsl:if test="discussion[1]/@count &lt; 100">
-                                    <xsl:value-of select="discussion[1]/@count" />
-                                </xsl:if>
-                            </span>
-                        </xsl:if>
-                    </a>
-                </li>
-            </xsl:for-each>
+            <xsl:apply-templates select="photo"/>
         </ul>
     </div>
+</xsl:template>
+
+<xsl:template name="photolist" match="photos/photo">
+    <li>
+        <a>
+            <xsl:attribute name="href">photos/<xsl:value-of select="@id" /></xsl:attribute>
+            <img>
+                <xsl:attribute name="src">
+                    <xsl:value-of select="media[1]/@url" />
+                </xsl:attribute>
+                <xsl:attribute name="alt">
+                    <xsl:value-of select="author/name" />
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                    <xsl:value-of select="author/name" />
+                </xsl:attribute>
+            </img>
+            <xsl:if test="discussion[1]/@count &gt; 0">
+                <span class="countbubble">
+                    <xsl:if test="discussion[1]/@count &gt; 99">
+                        &#8734;
+                    </xsl:if>
+                    <xsl:if test="discussion[1]/@count &lt; 100">
+                        <xsl:value-of select="discussion[1]/@count" />
+                    </xsl:if>
+                </span>
+            </xsl:if>
+        </a>
+    </li>
 </xsl:template>

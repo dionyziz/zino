@@ -103,6 +103,8 @@ div.login {
     background-repeat: no-repeat;
     color: #5f6366;
     font-size: 9pt;
+    overflow: hidden;
+    position: relative;
     /*border-bottom: 1px solid #249eda;*/
 }
 div.login h2 {
