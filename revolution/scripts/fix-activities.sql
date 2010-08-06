@@ -1,17 +1,4 @@
-UPDATE
-    `activities` 
-    LEFT JOIN `polls` ON 
-        ( `activity_typeid` IN (1,2) AND 
-        `activity_itemid` = `poll_id` ) OR
-        ( `activity_typeid` = 7 AND 
-        `activity_refid` = `poll_id` )
-SET
-    `activity_text` = `poll_question`,
-    `activity_url` = `poll_url`
-WHERE
-    `activity_itemtype` = 1 AND
-    `activity_typeid` IN (1,2,7);
-
+/*
 UPDATE
     `activities` 
     LEFT JOIN `journals` ON 
@@ -28,18 +15,33 @@ WHERE
 
 UPDATE
     `activities` 
+    LEFT JOIN `polls` ON 
+        ( `activity_typeid` IN (1,2) AND 
+        `activity_itemid` = `poll_id` ) OR
+        ( `activity_typeid` = 7 AND 
+        `activity_refid` = `poll_id` )
+SET
+    `activity_text` = `poll_question`
+WHERE
+    `activity_text` LIKE '%???%' AND
+    `activity_itemtype` = 1 AND
+    `activity_typeid` IN (1,2,7);
+*/
+
+UPDATE
+    `activities` 
     LEFT JOIN `images` ON 
         ( `activity_typeid` IN (1,2) AND 
         `activity_itemid` = `image_id` ) OR
         ( `activity_typeid` = 7 AND 
         `activity_refid` = `image_id` )
 SET
-    `activity_text` = `image_title`,
-    `activity_url` = `image_url`
+    `activity_text` = `image_name`
 WHERE
+    `activity_text` LIKE '%???%' AND
     `activity_itemtype` = 2 AND
     `activity_typeid` IN (1,2,7);
-
+/*
 UPDATE
     `activities`
     LEFT JOIN `statusbox` ON

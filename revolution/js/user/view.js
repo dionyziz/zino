@@ -39,16 +39,30 @@ var Profile = {
             
             Profile.PrepareInlineEditables();
         }
-        if ( $( '#friendship' ).length ) {
-            $( '#friendship' )[ 0 ].getElementsByTagName( 'a' )[ 0 ].onclick = function () {
-                $.post( this.action, {
-                    friendid: this.getElementsByTagName( 'input' )[ 0 ].value
-                }, function () {
-                    this.innerHTML = "OK";
-                } );
-                return false;
-            };
+        
+        if ( $( '.friendship' ).length ) {
+            alert( 'foo' );
+            $( '.friendship a' ).onclick = ( function( $form ) {
+                return function() {
+                    $.post( form[ 0 ].action, form.serialize(), function() {
+                        method = $( res ).find( 'operation' ).attr( 'method' );
+                        friendid = $( res ).find( 'friend' ).attr( 'id' );
+                        $( '.friendship' )[ 0 ].innerHTML = 'Ok';
+                        /*
+                        if ( method == 'delete' && 0 in $( 'ul.mine' ) ) {
+                            $( '#friendship_' + friendid ).parent().parent().fadeOut();
+                        }
+                        else {
+                            $( '#friendship_' + friendid )[ 0 ].innerHTML = 'OK';
+                        }
+                        */
+                    }
+                    return false;
+                }
+            } )( $( '.friendship' ) );
         }
+        alert( 'hm' );
+        
         // User Interests
         $( '.interestitems li .delete' ).live( 'click', function(){
             Profile.Interests.Remove( $( this ).parent() );
