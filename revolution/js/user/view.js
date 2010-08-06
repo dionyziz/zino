@@ -41,27 +41,25 @@ var Profile = {
         }
         
         if ( $( '.friendship' ).length ) {
-            alert( 'foo' );
-            $( '.friendship a' ).onclick = ( function( $form ) {
+            $( '.friendship a' ).click( function( $form ) {
                 return function() {
-                    $.post( form[ 0 ].action, form.serialize(), function() {
+                    $.post( $form[ 0 ].action, $form.serialize(), function( res ) {
                         method = $( res ).find( 'operation' ).attr( 'method' );
                         friendid = $( res ).find( 'friend' ).attr( 'id' );
-                        $( '.friendship' )[ 0 ].innerHTML = 'Ok';
-                        /*
-                        if ( method == 'delete' && 0 in $( 'ul.mine' ) ) {
-                            $( '#friendship_' + friendid ).parent().parent().fadeOut();
+                        if ( method == 'delete' ) {
+                            $( '.friendship' )[ 0 ].action = 'friendship/create';
+                            $( '.friendship a' )[ 0 ].className = 'love linkbutton';
+                            $( '.friendship a' )[ 0 ].innerHTML = '<strong>+</strong> Προσθήκη φίλου';
                         }
                         else {
-                            $( '#friendship_' + friendid )[ 0 ].innerHTML = 'OK';
+                            $( '.friendship' )[ 0 ].action = 'friendship/delete';
+                            $( '.friendship a' )[ 0 ].innerHTML = '<strong>&#9829;</strong><strong class="delete">/</strong>Φίλος';
                         }
-                        */
-                    }
+                    } );
                     return false;
                 }
-            } )( $( '.friendship' ) );
+            }( $( '.friendship' ) ) );
         }
-        alert( 'hm' );
         
         // User Interests
         $( '.interestitems li .delete' ).live( 'click', function(){
