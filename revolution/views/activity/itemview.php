@@ -16,9 +16,9 @@
         break;
     case TYPE_PHOTO:
         ?><photo id="<?= $activity[ 'item' ][ 'id' ] ?>">
-        <? if ( !empty( $activity[ 'item' ][ 'userid' ] ) ): ?>
-            <author id="<?= $activity[ 'item' ][ 'userid' ] ?>">
-                <name><?= $activity[ 'item' ][ 'username' ] ?></name>
+        <? if ( !empty( $activity[ 'item' ][ 'user' ][ 'id' ] ) ): ?>
+            <author id="<?= $activity[ 'item' ][ 'user' ][ 'id' ] ?>">
+                <name><?= $activity[ 'item' ][ 'user' ][ 'name' ] ?></name>
             </author>
         <? endif; ?>
         <? if ( !empty( $activity[ 'item' ][ 'title' ] ) ): ?>
@@ -36,8 +36,8 @@
         </album><?
         break;
     case TYPE_USERPROFILE:
-        ?><profile id="<?= $activity[ 'item' ][ 'userid' ] ?>">
-            <name><?= $activity[ 'item' ][ 'username' ] ?></name>
+        ?><profile id="<?= $activity[ 'item' ][ 'user' ][ 'id' ] ?>">
+            <name><?= $activity[ 'item' ][ 'user' ][ 'name' ] ?></name>
         </profile><?
         break;
 endswitch;

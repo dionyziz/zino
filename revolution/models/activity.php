@@ -45,13 +45,14 @@
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
                         if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
                             $photo = Photo::Item( $row[ 'activity_itemid' ] );
-                            $activity[ 'item' ][ 'userid' ] = $photo[ 'userid' ];
-                            $activity[ 'item' ][ 'username' ] = $photo[ 'username' ];
+                            $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
+                            $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
                         }
                         else if ( $activity[ 'item' ][ 'typeid' ] == TYPE_USERPROFILE ) {
                             $user = User::Item( $activity[ 'item' ][ 'id' ] );
-                            $activity[ 'item' ][ 'userid' ] = $user[ 'id' ];
-                            $activity[ 'item' ][ 'username' ] = $user[ 'name' ];
+                            $activity[ 'item' ][ 'user' ][ 'id' ] = $user[ 'id' ];
+                            $activity[ 'item' ][ 'user' ][ 'name' ] = $user[ 'name' ];
+                            $activity[ 'item' ][ 'user' ][ 'gender' ] = $user[ 'gender' ];
                         }
                         break;
                     case ACTIVITY_FAVOURITE:
@@ -65,6 +66,11 @@
                         $activity[ 'item' ][ 'url' ] = $row[ 'activity_url' ];
                         if ( $row[ 'activity_bulkid' ] != 0 ) {
                             $activity[ 'item' ][ 'text' ] = $bulk[ $row[ 'activity_bulkid' ] ];
+                        }
+                        if ( $activity[ 'item' ][ 'typeid' ] == TYPE_PHOTO ) {
+                            $photo = Photo::Item( $row[ 'activity_itemid' ] );
+                            $activity[ 'item' ][ 'user' ][ 'id' ] = $photo[ 'userid' ];
+                            $activity[ 'item' ][ 'user' ][ 'name' ] = $photo[ 'username' ];
                         }
                         break;
                     case ACTIVITY_FRIEND:
