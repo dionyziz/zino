@@ -68,7 +68,7 @@
             $user = User::ItemByName( $username );
             $albums = Album::ListByUser( $user[ 'id' ] );
             $egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
-            $albums[ $agoalbumid ][ 'egoalbum' ] = true;
+            $albums[ $egoalbumid ][ 'egoalbum' ] = true;
 
             include 'views/album/listing.php';
         }
