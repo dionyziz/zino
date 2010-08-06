@@ -308,7 +308,7 @@ CREATE TRIGGER favouriteinsert AFTER INSERT ON `favourites`
                 SELECT `user_name`, `user_subdomain` FROM `users` WHERE `user_id` = NEW.`favourite_itemid` LIMIT 1 INTO activitytext, activityurl;
             END;
             WHEN 4 THEN BEGIN
-                SELECT `journal_title` FROM `journals` WHERE `journal_id` = NEW.`favourite_itemid` LIMIT 1 INTO activitytext, activityurl;
+                SELECT `journal_title`, `journal_url` FROM `journals` WHERE `journal_id` = NEW.`favourite_itemid` LIMIT 1 INTO activitytext, activityurl;
             END;
             WHEN 7 THEN BEGIN
                 SELECT `school_name`, '' FROM `schools` WHERE `school_id` = NEW.`favourite_itemid` LIMIT 1 INTO activitytext, activityurl;
