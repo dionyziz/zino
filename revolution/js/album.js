@@ -29,6 +29,14 @@ var AlbumListing = {
                             $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
                         } );
                     } );
+                    $( '.useralbums a' ).each( function() {
+                    $( this ).append( '<div class="deletebutton">×</div>' );
+                        $( '.deletebutton', this ).click( function() {
+                            if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
+                                $.post( '?resource=album&method=delete', { albumid: this.parentNode.href.split( '/' ).pop() } );
+                            }
+                        } );
+                    } );
                 }
                 $( '.useralbums a' ).click( function() {
                     $( '.useralbums .selected' ).removeClass( 'selected' );

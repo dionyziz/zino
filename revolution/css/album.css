@@ -40,6 +40,10 @@ div.useralbums .minimize {
         display: inline-block;
         vertical-align: top;
         margin: 4px 10px;
+        position: relative;
+    }
+    #albumlist li a {
+        text-decoration: none;
     }
     #albumlist li p {
         font-size: 11pt;
@@ -55,4 +59,26 @@ div.useralbums .minimize {
         -moz-border-radius: 5px;
         -webit-border-radius: 5px;
         border-radius: 5px;
+    }
+    #albumlist li:hover div.deletebutton {
+        display: block;
+    }
+    #albumlist a div.deletebutton {
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        background: black;
+        height: 25px;
+        line-height: 25px;
+        opacity: 0.7;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 25px;
+        display: none;
+    }
+    #albumlist a div.deletebutton:hover {
+        background: #333;
+    }
+    #albumlist a.egoalbum div.deletebutton {
+        display: none;
     }
