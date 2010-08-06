@@ -41,7 +41,7 @@ a {
 a:hover {
     color: #def;
 }
-a:active {
+a:focus {
     outline: none;
 }
 input.clickable.blured {
