@@ -48,6 +48,11 @@
                             $activity[ 'item' ][ 'userid' ] = $photo[ 'userid' ];
                             $activity[ 'item' ][ 'username' ] = $photo[ 'username' ];
                         }
+                        else if ( $activity[ 'item' ][ 'typeid' ] == TYPE_USERPROFILE ) {
+                            $user = User::Item( $activity[ 'item' ][ 'id' ] );
+                            $activity[ 'item' ][ 'userid' ] = $user[ 'userid' ];
+                            $activity[ 'item' ][ 'username' ] = $user[ 'username' ];
+                        }
                         break;
                     case ACTIVITY_FAVOURITE:
                         $activity[ 'favourite' ] = array();

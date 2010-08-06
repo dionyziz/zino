@@ -34,5 +34,9 @@
             <name><?= $activity[ 'item' ][ 'name' ] ?></name>
             <url><?= $activity[ 'item' ][ 'url' ] ?></url>
         </album><?
+    case TYPE_USERPROFILE:
+        ?><profile id="<?= $activity[ 'item' ][ 'userid' ] ?>">
+            <name><?= $activity[ 'item' ][ 'username' ] ?></name>
+        </profile><?
         break;
 endswitch;
