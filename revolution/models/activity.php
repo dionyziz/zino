@@ -78,7 +78,7 @@
                         $activity[ 'fan' ][ 'id' ] = $row[ 'activity_itemid' ];
                         $activity[ 'fan' ][ 'name' ] = $row[ 'activity_text' ];
                         $activity[ 'fan' ][ 'subdomain' ] = $row[ 'activity_url' ];
-                        $activity[ 'fan' ] = $fan[ 'gender' ];
+                        $activity[ 'fan' ][ 'gender' ] = $fan[ 'gender' ];
                         $activity[ 'relation' ] = array();
                         $activity[ 'relation' ][ 'id' ] = $row[ 'activity_refid' ];
                         break;
