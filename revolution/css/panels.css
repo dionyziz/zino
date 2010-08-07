@@ -151,7 +151,7 @@ textarea.invisible {
         cursor: pointer;
     }
     .panel .xbutton:hover, .panel .vbutton:hover {
-        margin: 5px -45px 0 0;
+        background-position: 0 -60px;
     }
     .panel .xbutton {
         background-image: url( 'http://static.zino.gr/phoenix/xbutton.png' );
