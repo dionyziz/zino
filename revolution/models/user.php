@@ -605,8 +605,8 @@
             }
 
             $success = db( 'INSERT INTO `users`
-                 ( `user_name`, `user_password`, `user_subdomain` )
-                 VALUES ( :name, :password, :subdomain )',
+                 ( `user_name`, `user_password`, `user_subdomain`, `user_rights`, `user_created` )
+                 VALUES ( :name, :password, :subdomain, 30, NOW() )',
                  compact( 'name', 'password', 'subdomain' ) );
 
             if ( !mysql_affected_rows() ) {
@@ -620,6 +620,8 @@
                 VALUES ( :id, :email, NOW() );',
                 compact( 'id', 'email' )
             );
+
+            User::RenewAuthtoken( $id );
             
             // TODO: Send welcome e-mail
             return compact( 'id', 'name', 'email', 'subdomain', 'password' );
