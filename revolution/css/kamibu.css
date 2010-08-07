@@ -1,4 +1,4 @@
-.editable {
+.editabletext {
     top: 0;
     left: 0;
     cursor:text;
@@ -17,9 +17,12 @@
     padding: inherit;
     border: inherit;
 }
-.editable:hover .editableinput {
+.editabletext:hover .editableinput {
     display: block;
 }
-.editable.editableempty {
+.editabletext.editableempty {
     font-style: italic;
+}
+input.clickable.blured {
+    color: grey;
 }

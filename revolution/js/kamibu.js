@@ -5,7 +5,7 @@ var Kamibu = {
             element.style.left = 0;
             element.style.position = 'relative';
         }
-        Kamibu.addClass( element, 'editable' );
+        Kamibu.addClass( element, 'editabletext' );
         var input = document.createElement( 'input' );
         input.className = 'editableinput';
         if ( $( element ).text() == '' ) {

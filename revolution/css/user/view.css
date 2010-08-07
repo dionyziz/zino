@@ -227,13 +227,15 @@ select.location {
     width: 230px;
     font-weight: bold;
 }
-.settingsmodal ul li {
-    margin-top: 5px;
+.settingsmodal {
+    width: 260px;
+    height: 230px;
 }
-.settingsmodal ul li span {
-    float: left;
-    width: 150px;
-    line-height: 23px;
+.settingsmodal #tab_password input {
+    width: 170px;
+}
+.settingsmodal #tab_email input[type=text] {
+    width: 250px;
 }
 .rightbar {
     margin: 0 15px 0 400px;

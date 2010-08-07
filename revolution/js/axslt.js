@@ -230,8 +230,7 @@ var _aXSLT = {
             return basicStylesheet;
         }
         var templateString =
-        '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
-            '<xsl:template match="/" priority="500000">' +
+            '<xsl:template match="/' + ( window.ActiveXObject ? '*' : '' ) + '" priority="500000">' +
                 ( templateMode == 'call' ?
                     '<xsl:call-template name="' + templateName + '">' +
                         _aXSLT.expandParams( params ) +
@@ -239,17 +238,36 @@ var _aXSLT = {
                 :
                     '<xsl:apply-templates select="' + templateName + '" />'
                 ) +
-            '</xsl:template>'+
-        '</xsl:stylesheet>';
+            '</xsl:template>';
         var templateDOM;
         //alert( templateString );
         if ( window.DOMParser ) {
+            templateString =
+                '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
+                    templateString +
+                '</xsl:stylesheet>';
             templateDOM = new DOMParser().parseFromString( templateString, 'text/xml' ).childNodes[0].childNodes[0];
             if ( basicStylesheet.childNodes[0].nodeName == 'html' ) {
                 throw new Error( 'aXSLT: The xsl file has an html structure' );
             }
             basicStylesheet.childNodes[0].appendChild( basicStylesheet.importNode( templateDOM, true ) );
         }
+        else {
+            var offset = 0;
+            var styleEndTagStart = basicStylesheet.indexOf( '</xsl:stylesheet>' );
+            //alert( basicStylesheet.substring( styleEndTagStart - 50, 50 ) );
+            var xmlBefore = basicStylesheet.substring( 0, styleEndTagStart );
+            //alert( xmlBefore.substring(  xmlBefore.length - 150 ) );
+            /*
+            var styleSheetEnd = basicStylesheet.indexOf( '>', styleSheetStart ) + 1;
+            var xmlBefore = basicStylesheet.substring( 0, styleSheetEnd );
+            var xmlAfter = basicStylesheet.substring( styleSheetEnd );
+            
+            //alert( xmlAfter ); */
+            basicStylesheet = xmlBefore + templateString + '</xsl:stylesheet>';
+            //alert( basicStylesheet.substring(  basicStylesheet.length - 350 ) );
+        }
+        /*
         else if ( window.ActiveXObject ) {
             var finalDoc = new ActiveXObject('MSXML2.FreeThreadedDOMDocument');
             var doc = new ActiveXObject('MSXML2.FreeThreadedDOMDocument');
@@ -268,7 +286,7 @@ var _aXSLT = {
             //alert( templateDOM.nodeName );
             //basicStylesheet.childNodes[0].appendChild( 
             //basicStylesheet.childNodes[0].appendChild( templateDOM );
-        }
+        } */
         return basicStylesheet;
     },
     xmlReady: function( xml ) {
@@ -287,14 +305,13 @@ var _aXSLT = {
         var processor;
         var stylesheet;
         
-        if ( true || !xsl.responseXML && xsl.responseText ) { //TODO: remove true
-            //Gecko workaround
-            stylesheet = new DOMParser().parseFromString( xsl.responseText, 'text/xml');
+        if ( window.ActiveXObject ) {
+            stylesheet = xsl.responseText;
         }
-        /*else if ( window.ActiveXObject ) {
-            stylesheet = xsl;
-            alert( xsl.responseXML );
-        }*/
+        else if ( document.DOMParser && !xsl.responseXML && xsl.responseText ) { //TODO: remove true
+            //Gecko workaround
+            stylesheet = new document.DOMParser().parseFromString( xsl.responseText, 'text/xml');
+        }
         else {
             stylesheet = xsl.responseXML;
         }
@@ -306,25 +323,150 @@ var _aXSLT = {
         }
         
         if ( typeof( xml ) == 'string' ) {
-            new DOMParser().parseFromString( xsl, 'text/xml' );
+            if ( window.DOMParser ) {
+                new DOMParser().parseFromString( xsl, 'text/xml' );
+            }
+            else if ( window.ActiveXObject ) {
+                xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+                xmldoc.async = "false";
+                xmldoc.loadXML( xml );
+            }
         }
         else if ( !xml ) {
             //xmldoc = document.implementation.createDocument( null, null, null);
-            xmldoc = new DOMParser().parseFromString( '', 'text/xml' );
+            if ( window.DOMParser ) {
+                xmldoc = new DOMParser().parseFromString( '', 'text/xml' );
+                //alert( xmldoc.documentElement.nodeName );
+            }
+            else if ( window.ActiveXObject ) {
+                xmldoc = '<html />';
+            }
         }
-        else if ( xml.responseXML ) {
-            xmldoc = xml.responseXML;
+        else {
+            if ( window.ActiveXObject ) {
+                xmldoc = xml.responseText;
+            }
+            else if ( xml.responseXML ) {
+                xmldoc = xml.responseXML;
+            }
         }
         
         if ( window.ActiveXObject ) {
+            
+            //alert( xmldoc.nodeName );
+            //alert( xml.responseText );
+            //var xsldoc = new ActiveXObject("Msxml2.FreeThreadedDOMDocument.3.0");
+            var xmldom;
+            if ( typeof( xmldoc ) == 'string' ) {
+                xmldom = new ActiveXObject("Microsoft.XMLDOM");
+                xmldom.async = 'false';
+                xmldom.loadXML( xmldoc );
+            }
+            else {
+                xmldom = xmldoc;
+            }
+            
+            //alert( xmldom.xml );
+            var	xsldom = new ActiveXObject("Microsoft.XMLDOM");
+            xsldom.async = 'false';
+            //$( '#world' ).empty().text( stylesheet + xmldoc );
+            xsldom.loadXML( stylesheet );
+            
+            var div = document.createElement( 'body' );
+            
+            //var container = new ActiveXObject("Microsoft.XMLDOM");
+            //var container = new ActiveXObject("htmlfile");
+            //container.async = 'false';
+            
+            //$( '#world' ).empty().text( xmldom.documentElement.transformNode( xsldom.documentElement ) );
+            var transxml = xmldom.documentElement.transformNode( xsldom.documentElement );
+            var startDTD = transxml.indexOf( '<!DOCTYPE' );
+            //Strip DTD to avoid text chunking - IE hate points: ***
+            if ( startDTD >= 0 ) {
+                var endDTD = transxml.indexOf( '>', startDTD ) + 1;
+                transxml = transxml.substring( endDTD );
+            }
+            
+            //Special <option> tags case - IE hate points: ****
+            if ( /(\s*<option(\s+[a-z:-]+=("[^"]*"|\'[^\']*\'))*>.*<\/option>\s*)+/i.test( transxml ) ) {
+                transxml = '<select>' + transxml + '</select>';
+                div.innerHTML = transxml;
+                _aXSLT.postTransform( div.childNodes[0], callback );
+            }
+            else {
+                div.innerHTML = transxml;
+                _aXSLT.postTransform( div, callback );
+            }
+            //container.loadXML( transxml );
+            //return;
+            //alert( '>' + div.innerHTML + '<' );
+            //alert( '>' + container.xml + '<' );
+            //alert( div.innerHTML )
+            
+            /*
+            var xsltdom = document.createElement( 'xml' );
+            xsltdom.change = function() {
+                if ( xsltdom.readyState == 'complete
+            }
+            xsltdom.async = 'false';
+            //alert( xmldom.documentElement.transformNode( xsldom.documentElement ) );
+            xsltdom.loadXML( xmldom.documentElement.transformNode( xsldom.documentElement ) );
+            //alert( xsltdom.readyState );*/
+            
+            
+            //xsldoc.async = false;
+            //xsldoc.innerXML = stylesheet;
+            //for ( i in xsldoc ) {
+            //alert( i );
+            //}
+            //alert( xsldoc.childNodes.length );
+            /*
             var XSLTc = new ActiveXObject("MSXML2.XSLTemplate");
-            XSLTc.stylesheet = xsl.documentElement;
+            XSLTc.stylesheet = xsl.responseXML;
             var XSLTProc = XSLTc.createProcessor();
             XSLTProc.input = xmldoc;
             XSLTProc.transform();
             var xmlstring = XSLTProc.output;            
             result = document.createElement( 'div' );
             result.innerHTML = xmlstring;
+            //alert( stylesheet );*/
+            
+            
+            /*var xmldoc = document.createElement( 'xml' );
+            var xsldoc = document.createElement( 'xml' );
+            var div = document.createElement( 'div' );
+            var transformed = false;
+            var change = function() {
+                //alert( xmldoc.readyState + ' ' + xsldoc.readyState );
+                if ( xmldoc.readyState == 'complete' && xsldoc.readyState == 'complete' && !transformed ) {
+                    //alert( xmldoc.XMLDocument.childNodes[0].nodeName );
+                    //alert( xmldoc.XMLDocument.childNodes[1].nodeName );
+                    //alert( xmldoc.XMLDocument.childNodes[2].nodeName );
+                    setTimeout( function() {
+                    result = xmldoc.transformNode( xsldoc.XMLDocument );
+                    alert( result.childNodes.length );
+                    transformed = true;
+                    _aXSLT.postTransform( result, callback );
+                    }, 1000 );
+                }
+            }
+            xmldoc.onreadystatechange = change;
+            xsldoc.onreadystatechange = change;
+            if ( typeof( xmldoc.innerHTML ) != 'undefined' ) {
+                xmldoc.innerHTML = xml.responseText;
+                xsldoc.innerHTML = stylesheet;
+            }
+            else {
+                xmldoc.src = xml.responseText;
+                xsldoc.src = stylesheet;
+            }
+            div.appendChild( xmldoc );
+            div.appendChild( xsldoc );
+            //alert( 'here' );
+            //alert( xmldoc.childNodes.length );
+            //var result = $( 'div' ).append( xmldoc ).append( xsldoc )[0];
+            //alert( div.childNodes.length );
+            //alert( $( div.childNodes ).filter( '*' ).length ); */
         }
         else if ( window.XSLTProcessor ) {
             processor = new XSLTProcessor();
@@ -333,7 +475,11 @@ var _aXSLT = {
             //console.warn( stylesheet );
             //console.warn( new XMLSerializer().serializeToString( stylesheet ) );
             result = processor.transformToFragment( xmldoc, document);
+            //alert( new XMLSerializer().serializeToString( result ) );
+            _aXSLT.postTransform( result, callback );
         }
+    },
+    postTransform: function( result, callback ) {
         if ( !result ) {
             throw new Error( 'aXSLT: Empty result document' );
             return null;

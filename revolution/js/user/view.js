@@ -6,7 +6,24 @@ var Profile = {
                 axslt( false, 'call:user.modal.settings', function() {
                     var $modal = $( this ).filter( 'div' );
                     $modal.prependTo( 'body' ).modal();
-                    $modal.find( 'a.save' ).click( function() {
+                    //tabbing
+                    $modal.find( '.tablist > li > a' ).click( function() {
+                        var tabname = $( this ).parent().attr( 'id' ).split( '_' )[1];
+                        
+                        if ( !$( this ).parent().hasClass( 'selected' ) ) {
+                            $( this ).parent().addClass( 'selected' )
+                                    .siblings( '.selected' ).removeClass( 'selected' );
+                            $modal.find( 'div#tab_' + tabname ).show().siblings( 'div.tab' ).hide();
+                            $modal.center();
+                        }
+                        return false;
+                    } );
+                    //password change
+                    $modal.find( '#tab_email a.save' ).click( function() {
+                        alert( 'Υπό ανάπτυξη' );
+                        return false;
+                    } );
+                    $modal.find( '#tab_password a.save' ).click( function() {
                         var oldpass = $modal.find( 'input[name="oldpassword"]' ).val();
                         var newpass = $modal.find( 'input[name="newpassword"]' ).val();
                         var newpass2 = $modal.find( 'input[name="newpassword2"]' ).val();
@@ -24,7 +41,6 @@ var Profile = {
                             }
                         } );
                         return false;
-                        /* oldpass/newpass */
                     } );
                 } );
                 return false;
@@ -196,7 +212,7 @@ var Profile = {
                 var location_text = $( '.asl .location span' ).text();
                 var $select = $modal.find( 'select.location' );
                 $( '<option value=' + location_id + '>' + location_text + '</option>' ).appendTo( $select );
-                axslt( $.get( 'places' ), 'call:user.modal.location.options', function() { 
+                axslt( $.get( 'places' ), 'call:user.modal.location.options', function() {
                     $select.empty();
                     $select.append( $( this ).filter( 'option' ) ).val( location_id );
                     $select.change( function() {
@@ -216,6 +232,9 @@ var Profile = {
             } );
             return false;
         } );
+        if ( window.ActiveXObject ) {
+            $( '.editable select' ).css( { opacity: 0, width: 'auto' } );
+        }
     },
     UpdatableFields: { 'gender': '.asl .gender',
                    'smoker': 'li.smoker > span',
@@ -268,7 +287,7 @@ var Profile = {
             postvars[ field ] = $( this ).val();
             $.post( 'user/update', postvars );
         } );
-        select.appendTo( element ).css( 'display', 'block' );
+        select.appendTo( element );//.css( 'display', 'block' );
     },
     PopulateSelect: function( element, field ) {
         var map = UserDetails.GetMap( field, Profile.CurrentValues[ 'gender' ] );

@@ -1,23 +1,31 @@
 <xsl:template name="user.modal.settings">
     <div class="modal tabbed settingsmodal">
         <h2>Λογαριασμός</h2>
-        <ul class="tabs">
-            <li class="selected"><a href="">Κωδικός</a></li>
-            <li><a href="">Ειδοποιήσεις</a></li>
+        <ul class="tablist">
+            <li class="selected" id="view_password"><a href="">Κωδικός</a></li>
+            <li id="view_email"><a href="">E-Mail</a></li>
         </ul>
-        <ul>
-            <li><span class="info">Παλιός κωδικός:</span><input type="password" name="oldpassword" /></li>
-            <li><span class="info">Νέος κωδικός:</span><input type="password" name="newpassword" /></li>
-            <li><span class="info">Επανάληψη νέου κωδικού:</span><input type="password" name="newpassword2" /></li>
-        </ul>
-        <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        <div class="tab selected" id="tab_password">
+            <form><fieldset>
+                <label>Παλιός κωδικός:</label><input type="password" name="oldpassword" />
+                <label>Νέος κωδικός:</label><input type="password" name="newpassword" />
+                <label>Επανάληψη νέου κωδικού:</label><input type="password" name="newpassword2" />
+            </fieldset></form>
+            <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        </div>
+        <div class="tab" id="tab_email">
+            <ul><li><span>Καταχωρημένο e-mail</span>
+            <input type="text" value="email" /></li></ul>
+            <div><input type="checkbox" checked="checked"/>Aποστολή ενημερώσεων με e-mail</div>
+            <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        </div>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.aboutme">
     <div name="aboutmemodal" class="modal">
         <h2>Λίγα λόγια για μένα</h2>
         <textarea class="aboutme"></textarea>
-        <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
+        <ul class="buttons"><li><a class="changepass" href="">Αποθήκευση</a></li></ul>
         <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
