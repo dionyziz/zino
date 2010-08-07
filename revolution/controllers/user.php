@@ -107,7 +107,7 @@
         }
         public static function Create( $name, $email, $password ) {
             clude( 'models/db.php' );
-            clude( 'moldes/user.php' );
+            clude( 'models/user.php' );
 
             if ( !ValidEmail( $email ) ) {
                 $error = 'invalid email';
