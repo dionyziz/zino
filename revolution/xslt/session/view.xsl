@@ -41,9 +41,9 @@
             <div class="copy">
                 &#0169; 2010 Kamibu
                 <ul>
-                    <li><a href="">Πρόσβαση χωρίς είσοδο</a></li>
+                    <li><a href="photos">Πρόσβαση χωρίς είσοδο</a></li>
                     <li><a href="">Πληροφορίες</a></li>
-                    <li><a href="">Διαφήμιση</a></li>
+                    <li><a href="mailto:info@zino.gr">Διαφήμιση</a></li>
                     <li><a href="">API</a></li>
                     <li><a href="">Νομικά</a></li>
                 </ul>

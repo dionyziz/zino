@@ -217,6 +217,7 @@
                 </ul>
             </div>
             <div class="rightbar">
+                <xsl:if test="activities">
                 <h2>
                     <xsl:choose>
                         <xsl:when test="/social/user/gender = 'f'">Η&#160;</xsl:when>
@@ -401,6 +402,7 @@
                     </li>
                 </xsl:for-each>
                 </ul>
+                </xsl:if>
             </div>
             <div class="eof"></div>
         </div>

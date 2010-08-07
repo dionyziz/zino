@@ -52,9 +52,9 @@ var Chat = {
      HistoryFromXML: function ( res ) {
         var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
         if ( $( '#chatmessages_' + channelid ).length === 0 ) {
-            $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="" class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"></ol>';
+            Chat.CreateChannelHTML( channelid );
         }
-        var history = $( '#chatmessages_' + channelid )[ 0 ];
+        var history = $( '#chatmessages_' + channelid + ' ol' )[ 0 ];
         var messages = $( res ).find( 'discussion comment' );
         var text;
         var html = '';
@@ -165,9 +165,9 @@ var Chat = {
 
          var li = document.createElement( 'li' );
          li.innerHTML = '<strong class="self">' + User + '</strong> <span class="text">' + text + '</span>';
-         $( '#chatmessages_' + channelid )[ 0 ].appendChild( li );
-         $( '#chatmessages_' + channelid )[ 0 ].lastChild.scrollIntoView();
-         var lastChild = $( '#chatmessages_' + channelid )[ 0 ].lastChild;
+         $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
+         $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
+         var lastChild = $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild;
 
          $.post( 'chat/message/create', {
             channelid: channelid,
@@ -187,18 +187,12 @@ var Chat = {
      },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
-         if ( $( '#chatmessages_' + channelid ).length === 0 ) {
-             // if there is no chat history placeholder for the particular channel
-             // then create one
-             $( '#chatmessages' )[ 0 ].innerHTML += '<ol style="display:none" class="chatchannel" id="chatmessages_' + channelid + '"></ol>';
-         }
-         var history = $( '#chatmessages_' + channelid )[ 0 ];
+         Chat.CreateChannelHTML( channelid );
+         var history = $( '#chatmessages_' + channelid + ' ol' )[ 0 ];
          var messages = $( res ).find( 'discussion comment' );
-         var text;
+         var text, newmessage = false;
          var html = '';
-         var li;
-         var shoutid;
-         var author;
+         var li, shoutid, author;
 
          for ( var i = 0; i < messages.length; ++i ) {
              shoutid = $( messages[ i ] ).attr( 'id' );
@@ -210,6 +204,7 @@ var Chat = {
              if ( author == User ) {
                  continue; // don't display my own messages; they've already been added by the SendMessage function
              }
+             newmessage = true;
              text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
              li = document.createElement( 'li' );
              li.id = shoutid;
@@ -237,7 +232,7 @@ var Chat = {
                      Chat.PopBubble( userid, username, text, channelid );
                  }
              }
-             if ( !found ) {
+             if ( !found && newmessage ) {
                  $.get( 'chat/' + channelid, {}, function ( res ) { 
                      var users = $( res ).find( 'user' );
                      for ( var i = 0; i < users.length; ++i ) {
@@ -406,6 +401,34 @@ var Chat = {
          }
          else {
              Chat.DisplayChannel( channelid );
+         }
+     },
+     CreateChannelHTML: function ( channelid ) {
+         if ( $( '#chatmessages_' + channelid ).length === 0 ) {
+             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><ol></ol></div>';
+             var chatmessages = $( '#chatmessages_' + channelid )[ 0 ];
+             var panel = document.createElement( 'div' );
+
+             chatmessages.getElementsByTagName( 'ol' )[ 0 ].style.top = '50px';
+             panel.innerHTML = '<div class="userinfo"><img src="http://images2.zino.gr/media/15796/255327/255327_100.jpg">'
+                             + '<div><h3></h3>'
+                             + '<ul><li>15</li><li>Αγόρι</li><li>Θεσσαλονίκη</li></ul></div></div>';
+             chatmessages.insertBefore( panel, chatmessages.childNodes[ 0 ] );
+             $.get( 'chat/' + channelid, function ( res ) {
+                 var users = $( res ).find( 'user' );
+                 for ( var i = 0; i < users.length; ++i ) {
+                     userid = $( users[ i ] ).attr( 'id' );
+                     username = $( users[ i ] ).find( 'name' ).text();
+                     if ( userid != Chat.UserId ) {
+                         Chat.ChannelByUserId[ userid ] = channelid;
+                         break;
+                     }
+                 }
+                 panel.getElementsByTagName( 'h3' )[ 0 ].innerHTML = username;
+                 $.get( 'user/' + username, function ( res ) {
+                     $( res )
+                 } );
+             } );
          }
      },
      // switch to an already loaded channel
