@@ -406,14 +406,19 @@ var Chat = {
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
              $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><ol></ol></div>';
-             var chatmessages = $( '#chatmessages_' + channelid )[ 0 ];
-             var panel = document.createElement( 'div' );
+             if ( channelid == 0 ) {
+                 return;
+             }
+             // create the user pane
+             var $chatmessages = $( '#chatmessages_' + channelid );
+             var $panel = $( '<div>'
+                            + '<div class="userinfo">'
+                            + '  <div><h3></h3><ul></ul></div>'
+                            + '</div>'
+                           + '</div>' );
 
-             chatmessages.getElementsByTagName( 'ol' )[ 0 ].style.top = '50px';
-             panel.innerHTML = '<div class="userinfo"><img src="http://images2.zino.gr/media/15796/255327/255327_100.jpg">'
-                             + '<div><h3></h3>'
-                             + '<ul><li>15</li><li>Αγόρι</li><li>Θεσσαλονίκη</li></ul></div></div>';
-             chatmessages.insertBefore( panel, chatmessages.childNodes[ 0 ] );
+             $chatmessages.find( 'ol' ).css( { top: '50px' } );
+             $chatmessages.prepend( $panel );
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );
                  for ( var i = 0; i < users.length; ++i ) {
@@ -424,9 +429,36 @@ var Chat = {
                          break;
                      }
                  }
-                 panel.getElementsByTagName( 'h3' )[ 0 ].innerHTML = username;
-                 $.get( 'user/' + username, function ( res ) {
-                     $( res )
+                 $panel.find( 'h3' ).text( username );
+                 $.get( 'users/' + username + '?verbose=2', function ( res ) {
+                     var img = '<a href="users/' + username + '"><img src="' + $( res ).find( 'user avatar media' ).attr( 'url' ) + '" alt="' + username + '" title="Προβολή προφίλ" /></a>';
+                     var lis = [];
+                     if ( $( res ).find( 'gender' ).length ) {
+                         if ( $( res ).find( 'gender' ).text() == 'f' ) {
+                             lis.push( 'Κορίτσι' );
+                         }
+                         else {
+                             lis.push( 'Αγόρι' );
+                         }
+                     }
+                     if ( $( res ).find( 'age' ).length ) {
+                         lis.push( $( res ).find( 'age' ).text() );
+                     }
+                     if ( $( res ).find( 'location' ).length ) {
+                         lis.push( $( res ).find( 'location' ).text() );
+                     }
+                     var lihtml = '';
+                     for ( var i = 0; i < lis.length; ++i ) {
+                         if ( i == lis.length - 1 ) {
+                             lihtml += '<li class="last">';
+                         }
+                         else {
+                             lihtml += '<li>';
+                         }
+                         lihtml += lis[ i ] + '</li>';
+                     }
+                     $panel.find( '.userinfo' ).prepend( img );
+                     $panel.find( 'ul' ).prepend( lihtml );
                  } );
              } );
          }

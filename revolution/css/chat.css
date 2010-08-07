@@ -51,9 +51,17 @@
     }
     .chatchannel .userinfo h3 {
         padding: 2px 0pt 0pt;
+        margin: 0;
     }
     .chatchannel .userinfo ul li {
-        display: inline; padding: 5px;
+        display: inline;
+    }
+    .chatchannel .userinfo ul li:after {
+        content: "●";
+        padding: 0 5px;
+    }
+    .chatchannel .userinfo ul li.last:after {
+        display: none;
     }
     #chat .search {
         height: 20px;
@@ -62,6 +70,7 @@
         border-bottom: 1px solid #ddd;
     }
         #chat .search input {
+            margin: 0;
             -moz-border-radius: 5px;
             -webkit-border-radius: 5px;
             border-radius: 5px;
