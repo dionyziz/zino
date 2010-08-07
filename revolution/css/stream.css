@@ -60,7 +60,7 @@
 }
 .stream ul li p.time {
     float: left;
-    margin: 10px 0 0 5px;
+    margin: 5px 0 0 5px;
     color: #555;
 }
 .stream ul li p.commentcount {
@@ -69,15 +69,15 @@
     color: #3B5998;
 }
 .stream ul li .zoomin {
-    position: absolute;
     bottom: 0.5em;
     text-align: center;
     width: 100%;
     display: none;
     color: white;
+    margin: 0 0 5px;
 }
 .stream ul li.previewing .zoomin {
-    display: inline;
+    display: block;
 }
 #preview div.content {
     width: 45%;
