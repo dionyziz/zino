@@ -136,7 +136,7 @@ textarea.invisible {
     top: 0;
     left: 0;
 }
-    .panel .xbutton {
+    .panel .xbutton, .panel .vbutton {
         font-size: 100%;
         color: white;
         float: right;
@@ -145,11 +145,19 @@ textarea.invisible {
         border: 0;
         background-color: transparent;
         padding: 0;
-        background-image: url( 'http://static.zino.gr/phoenix/xbutton.png' );
         background-repeat: no-repeat;
         width: 30px;
         height: 30px;
         cursor: pointer;
+    }
+    .panel .xbutton:hover, .panel .vbutton:hover {
+        margin: 5px -45px 0 0;
+    }
+    .panel .xbutton {
+        background-image: url( 'http://static.zino.gr/phoenix/xbutton.png' );
+    }
+    .panel .vbutton {
+        background-image: url( 'http://static.zino.gr/revolution/vbutton.png' );
     }
     .panel .box:hover {
         border: 2px solid white;
