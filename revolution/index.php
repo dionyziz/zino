@@ -8,11 +8,20 @@
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
 
-	in_array( $resource, array(
+	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
         'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings',
         'chatchannel', 'presence', 'place', 'mood', 'album', 'song'
-    ) ) or $resource = 'photo';
+    ) ) ) {
+        if ( isset( $_SESSION[ 'user' ] ) ) {
+            $resource = 'photo';
+            $method = 'listing';
+        }
+        else {
+            $resource = 'session';
+            $method = 'view';
+        }
+    }
 
 	if ( $method == 'create' || $method == 'delete' || $method == 'update' ) {
 		$vars = $_POST;
