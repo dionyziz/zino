@@ -450,8 +450,7 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `comments` WHERE `comment_userid`=OLD.`user_id`;
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
-        DELETE FROM `pmfolders` WHERE `pmfolder_userid`=OLD.`user_id`;                                                                             
-        -- DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
+        DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
 	END;
 |
 

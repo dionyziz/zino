@@ -344,10 +344,11 @@
             //$goodtogo = $this->RunSetUp( $testcase, $runresults );
             $testcase->SetUp();
             $goodtogo = $this->RunPreConditions( $testcase, $runresults );
+            // var_dump( $runresults );
             if ( !$goodtogo ) {
                 // $this->RunTearDown();
                 $testcase->TearDown();
-                return array();
+                return $runresults;
             }
             foreach ( $methods as $method ) {
                 if ( $this->ValidMethod( $method ) ) {
