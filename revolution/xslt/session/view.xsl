@@ -73,7 +73,7 @@
                 var password = document.getElementById( 'password' );
                 function loginresult( result ) {
                     if ( result ) {
-                        window.location.href = 'http://zino.gr:500/petros/photos';
+                        window.location.href = 'photos';
                     }
                 }
                 $( '.register form' ).submit( function() {
