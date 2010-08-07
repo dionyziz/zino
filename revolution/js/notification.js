@@ -527,7 +527,7 @@ var Notifications = {
 
                 panel.id = 'notifications';
                 panel.className = 'panel bottom novideo';
-                panel.innerHTML = '<div class="background"></div><div class="xbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
+                panel.innerHTML = '<div class="background"></div><div class="vbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
 
                 for ( var i = 0; i < entries.length; ++i ) {
                     entry = $( entries[ i ] );
@@ -596,7 +596,7 @@ var Notifications = {
                     panel.appendChild( box );
                 }
                 
-                $( panel ).find( '.xbutton' ).click( function () {
+                $( panel ).find( '.vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
                         Notifications.Done();
                     }
