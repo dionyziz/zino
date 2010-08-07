@@ -7,6 +7,7 @@
             </base>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
             <link href="css/loggedout.css" rel="stylesheet" type="text/css" />
+            <link href="css/panel.css" rel="stylesheet" type="text/css" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         </head>
         <body>
@@ -47,6 +48,26 @@
                     <li><a href="">Νομικά</a></li>
                 </ul>
             </div>
+
+            <div id="registerbackground"></div>
+            <div id="registermodal">
+                <h2>Μπες στην παρέα</h2>
+                <form action="?resource=user&amp;method=create" method="post">
+                    <fieldset>
+                        <label for="username">Ψευδώνυμο</label>
+                            <input type="text" name="username"/>
+                        <label for="password">Κωδικός</label>
+                            <input type="password" name="password"/>
+                        <label for="password2">Κωδικός (ξανά)</label>
+                            <input type="password" name="password2"/>
+                        <label for="email">Email</label>
+                            <input type="text" name="email"/>
+                        <input class="submit" type="submit" value="Πάμε"/>
+                    </fieldset>
+                </form>
+                <div class="xbutton"></div>
+            </div>
+
             <script type="text/javascript">
                 var username = document.getElementById( 'username' );
                 var password = document.getElementById( 'password' );
@@ -55,6 +76,11 @@
                         window.location.href = 'http://zino.gr:500/petros/photos';
                     }
                 }
+                $( '.register form' ).submit( function() {
+                    $( '#registermodal input[name=username]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
+                    $( '#registermodal, #registerbackground' ).css( { display: 'block' } );
+                    return false;
+                } );
             </script>
         </body>
     </html>

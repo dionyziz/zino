@@ -2,7 +2,7 @@
     <xsl:apply-templates />
 </xsl:template>
 
-<xsl:template match="/social[@resource='photo' and @method='listing']/photos">
+<xsl:template match="photos">
     <xsl:for-each select="album">
         <xsl:choose>
             <xsl:when test="@deleted = 'yes'">

@@ -62,7 +62,7 @@ div.register {
     float: left;
     padding: 48px 50px 50px 33px;
 }
-div.register input.text {
+div.register input.text, #registermodal input {
     border: 1px solid transparent;
     position: relative;
     top: 2px;
@@ -143,4 +143,83 @@ div.login form input.submit {
     height: 28px;
     border: 1px solid transparent;
     cursor: pointer;
+}
+#registerbackground {
+    background: black;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: none;
+}
+#registermodal {
+    position: fixed;
+    width: 350px;
+    height: 450px;
+    margin-left: -175px;
+    margin-top: -225px;
+    top: 50%;
+    left: 50%;
+    background: #2DA0D8;
+    color: white;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: none;
+}
+#registermodal:after {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    -moz-border-radius: 350px;
+    background-color: #93BA20;
+    top: 330px;
+    left: 50%;
+    margin-left: -350px;
+    content: ' ';
+}
+    #registermodal h2 {
+        text-align: center;
+    }
+    #registermodal fieldset {
+        border: none;
+        text-align: center;
+    }
+        #registermodal label {
+            display: block;
+            margin-top: 6px;
+        }
+        #registermodal input {
+            font-size: 11pt;
+            text-align: center;
+        }
+        #registermodal input.submit {   
+            color: transparent;
+            width: 130px;
+            height: 35px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            background-image: url( '../images/loggedout/register.png' );
+            background-repeat: no-repeat;
+            cursor: pointer;
+            display: block;
+            margin: 50px auto 0;
+            z-index: 1;
+        }
+.xbutton {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    background: url("http://static.zino.gr/phoenix/xbutton.png");
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: 0;
+}
+.xbutton:hover {
+    background-position: 0 -60px;
 }
