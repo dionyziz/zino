@@ -11,7 +11,7 @@
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
         'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings',
-        'chatchannel', 'presence', 'place', 'mood', 'album', 'song'
+        'chatchannel', 'presence', 'place', 'mood', 'album', 'song', 'imagetag'
     ) ) ) {
         if ( isset( $_SESSION[ 'user' ] ) ) {
             $resource = 'photo';
