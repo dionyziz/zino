@@ -7,7 +7,7 @@
             clude( 'models/db.php' );
             clude( 'models/user.php' );
             try {
-                if ( $verbose >= 3 ) {
+                if ( $verbose >= 2 ) {
                     if ( $id ) {
                         $user = User::ItemDetails( $id );
                     }

@@ -9,7 +9,7 @@
         <? if ( isset( $user[ 'place' ] ) ): ?>
         <location><?= $user[ 'place' ][ 'name' ]; ?></location>
         <? endif; ?>
-        <? if ( $user[ 'avatarid' ] ): ?>
+        <? if ( !empty( $user[ 'avatarid' ] ) ): ?>
 
         <avatar>
             <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
