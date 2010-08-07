@@ -75,6 +75,9 @@
                     if ( result ) {
                         window.location.href = 'photos';
                     }
+                    else {
+                        alert( 'Λάθος κωδικός/όνομα χρήστη' );
+                    }
                 }
                 $( '.register form' ).submit( function() {
                     $( '#registermodal input[name=username]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
