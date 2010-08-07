@@ -65,7 +65,9 @@
         <xsl:apply-templates select="options" />
         <div class="note">
             <xsl:for-each select="favourites/user">
-                <div class="love">&#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
+                <div class="love">
+                <xsl:attribute name="id">love_<xsl:value-of select="/social/poll/@id" /></xsl:attribute>
+                &#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
             </xsl:for-each>
             <a class="love linkbutton" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
         </div>

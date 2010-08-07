@@ -22,7 +22,11 @@ var ItemView = {
             $( 'a.love' ).show();
             if ( $( 'a.love' ).length ) {
                 $( 'a.love' )[ 0 ].onclick = function () {
-                    $.post( 'favourite/create', { typeid: typeid, itemid: Which } );
+                    var nodeid = $( '.love' )[ 0 ].id;
+                    alert( nodeid );
+                    var id = nodeid.substring( nodeid.indexOf( '_' ) + 1 );
+                    alert( id );
+                    $.post( 'favourite/create', { typeid: typeid, itemid: id } );
                     this.href = '';
                     this.style.cursor = 'default';
                     this.onclick = function () { return false; };

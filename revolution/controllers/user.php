@@ -105,7 +105,23 @@
             }
             include 'views/user/listing.php';
         }
-        public static function Create() {
+        public static function Create( $name, $email, $password ) {
+            clude( 'models/db.php' );
+            clude( 'moldes/user.php' );
+
+            if ( !ValidEmail( $email ) ) {
+                $error = 'invalid email';
+                Template( 'user/create', compact( 'error' ) );
+            }
+            $error = '';
+            try {
+                $user = User::Create( $name, $email, $password );
+            }
+            catch ( Exception $e ) {
+                $error = $e->getMessage();
+            }
+
+            Template( 'user/create', compact( 'user', 'error' ) );
         }
         public static function Update( $multiargs ) {
             $options = $multiargs;
