@@ -221,197 +221,196 @@
                 </ul>
             </div>
             <div class="rightbar">
-                <xsl:if test="activities">
-                <h2>
-                    <xsl:choose>
-                        <xsl:when test="/social/user/gender = 'f'">Η&#160;</xsl:when>
-                        <xsl:otherwise>Ο&#160;</xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:value-of select="/social/user/name" /> πρόσφατα:
-                </h2>
-                <ul class="activities">
-                <xsl:for-each select="activities/activity">
-                    <li>
-                        <a>
-                            <xsl:choose>
-                                <xsl:when test="type = 'comment'">
-                                    <xsl:choose>
-                                        <xsl:when test="comment/journal">
-                                            <xsl:attribute name="href">journals/<xsl:value-of select="comment/journal/@id" /></xsl:attribute>
-                                            <span class="head">
-                                                σχολίασε στο ημερολόγιο <xsl:value-of select="comment/journal/title" />:
-                                            </span>
-                                            <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
-                                            
-                                        </xsl:when>
-                                        <xsl:when test="comment/poll">
-                                            <xsl:attribute name="href">polls/<xsl:value-of select="comment/poll/@id" /></xsl:attribute>
-                                            <span class="head">
-                                                σχολίασε στη δημοσκόπηση <xsl:value-of select="comment/poll/question" />:
-                                            </span>
-                                            <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
-                                        </xsl:when>
-                                        <xsl:when test="comment/profile">
-                                            <xsl:attribute name="href">users/<xsl:value-of select="comment/profile/name" /></xsl:attribute>
-                                            <span class="head">
-                                                σχολίασε στο προφίλ
-                                                <xsl:choose>
-                                                    <xsl:when test="comment/profile/gender = 'f'"> της </xsl:when>
-                                                    <xsl:otherwise> του </xsl:otherwise>
-                                                </xsl:choose>
-                                                <xsl:if test="/social/user/@id != comment/profile/@id">
-                                                    <xsl:value-of select="comment/profile/name" />
-                                                </xsl:if>
-                                            </span>
-                                            <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
-                                        </xsl:when>
-                                        <xsl:when test="comment/photo">
-                                            <xsl:attribute name="href">photos/<xsl:value-of select="comment/photo/@id" /></xsl:attribute>
-                                            <xsl:attribute name="class">photo</xsl:attribute>
-                                            <img>
-                                                <xsl:if test="comment/photo/title">
-                                                    <xsl:attribute name="alt"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
-                                                    <xsl:attribute name="title"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="comment/photo/author/@id" />/<xsl:value-of select="comment/photo/@id" />/<xsl:value-of select="comment/photo/@id" />_100.jpg</xsl:attribute>
-                                            </img>
-                                            <span class="head">
-                                                σχολίασε στη φωτογραφία 
-                                                <xsl:choose>
-                                                    <xsl:when test="comment/photo/author/gender = 'f'">της </xsl:when>
-                                                    <xsl:otherwise>του </xsl:otherwise>
-                                                </xsl:choose>
-                                                <xsl:if test="/social/user/@id != comment/photo/author/@id">
-                                                    <xsl:value-of select="comment/photo/author/name" />
-                                                </xsl:if>
-                                            </span>
-                                            <span class="body"><xsl:copy-of select="comment/text/*|comment/text/text()" /></span>
-                                        </xsl:when>
-                                    </xsl:choose>
-                                </xsl:when>
-                                <xsl:when test="type = 'favourite'">
-                                    <xsl:attribute name="href">
-                                        <xsl:choose>
-                                            <xsl:when test="photo">photos/<xsl:value-of select="photo/@id" /></xsl:when>
-                                            <xsl:when test="journal">journals/<xsl:value-of select="journal/@id" /></xsl:when>
-                                            <xsl:when test="poll">poll/<xsl:value-of select="poll/@id" /></xsl:when>
-                                        </xsl:choose>
-                                    </xsl:attribute>
-                                    <xsl:if test="photo">
-                                        <xsl:attribute name="class">photo</xsl:attribute>
-                                        <img>
-                                            <xsl:if test="photo/title">
-                                                <xsl:attribute name="alt"><xsl:value-of select="photo/title" /></xsl:attribute>
-                                                <xsl:attribute name="title"><xsl:value-of select="photo/title" /></xsl:attribute>
-                                            </xsl:if>
-                                            <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="photo/author/@id" />/<xsl:value-of select="photo/@id" />/<xsl:value-of select="photo/@id" />_100.jpg</xsl:attribute>
-                                        </img>
-                                    </xsl:if>
-                                    <span class="head">
-                                        πρόσθεσε στα αγαπημένα <xsl:choose>
-                                            <xsl:when test="/social/user/gender = 'f'">της</xsl:when>
-                                            <xsl:otherwise>του</xsl:otherwise>
-                                        </xsl:choose>
-                                        <xsl:choose>
-                                            <xsl:when test="photo"> μια φωτογραφία <xsl:choose>
-                                                <xsl:when test="photo/author/gender = 'f'"> της </xsl:when>
-                                                <xsl:otherwise> του </xsl:otherwise>
-                                            </xsl:choose>
-                                            <xsl:value-of select="photo/author/name" />.</xsl:when>
-                                            <xsl:when test="journal"> το ημερολόγιο <xsl:value-of select="journal/title" />.</xsl:when>
-                                            <xsl:when test="poll"> τη δημοσκόπηση <xsl:value-of select="poll/question" />.</xsl:when>
-                                        </xsl:choose>
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="type = 'friend'">
-                                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
-                                    <span class="head">
-                                    έκανε 
-                                        <xsl:choose>
-                                            <xsl:when test="friend/gender = 'f'">φίλη την&#160;</xsl:when>
-                                            <xsl:otherwise>φίλο τον&#160;</xsl:otherwise>
-                                        </xsl:choose>
-                                        <xsl:value-of select="friend/name" /> 
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="type = 'fan'">
-                                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
-                                    <span class="head">έγινε 
-                                    <xsl:choose>
-                                        <xsl:when test="/social/user/gender = 'f'"> φίλη </xsl:when>
-                                        <xsl:otherwise> φίλος </xsl:otherwise>
-                                    </xsl:choose>
-                                    <xsl:choose>
-                                        <xsl:when test="friend/gender = 'f'"> της </xsl:when>
-                                        <xsl:otherwise> του </xsl:otherwise>
-                                    </xsl:choose>
-                                    <xsl:value-of select="friend/name" />
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="type = 'song'">
-                                    <span class="head">έβαλε στο προφίλ του το τραγούδι</span>
-                                    <span class="body"><xsl:value-of select="song/title" /></span>
-                                </xsl:when>
-                                <xsl:when test="type = 'status'">
-                                    <span class="head">άλλαξε το status <xsl:choose>
-                                        <xsl:when test="/social/user/gender = 'f'">της</xsl:when>
-                                        <xsl:otherwise>του</xsl:otherwise>
-                                    </xsl:choose>
-                                    </span>
-                                    <span class="body">
-                                        <xsl:value-of select="status/message" />
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="type = 'item'">
-                                
-                                    <xsl:choose>
-                                        <xsl:when test="photo">
-                                            <xsl:attribute name="class">photo</xsl:attribute>
-                                            <xsl:attribute name="href">photos/<xsl:value-of select="photo/@id" /></xsl:attribute>
-                                            <img>
-                                                <xsl:if test="photo/title">
-                                                    <xsl:attribute name="alt"><xsl:value-of select="photo/title" /></xsl:attribute>
-                                                    <xsl:attribute name="title"><xsl:value-of select="photo/title" /></xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="/social/user/@id" />/<xsl:value-of select="photo/@id" />/<xsl:value-of select="photo/@id" />_100.jpg</xsl:attribute>
-                                            </img>
-                                            <span class="head">ανέβασε μια φωτογραφία</span>
-                                        </xsl:when>
-                                        <xsl:when test="album">
-                                            <xsl:attribute name="href">photos/<xsl:value-of select="/social/user/name" /></xsl:attribute>
-                                            <span class="head">
-                                                δημιούργησε το άλμπουμ
-                                                <xsl:value-of select="album/name" />
-                                            </span>
-                                        </xsl:when>
-                                        <xsl:when test="poll">
-                                            <xsl:attribute name="href">polls/<xsl:value-of select="poll/@id" /></xsl:attribute>
-                                            <span class="head">
-                                                δημιούργησε τη δημοσκόπηση 
-                                                <xsl:value-of select="poll/question" />
-                                            </span>
-                                        </xsl:when>
-                                        <xsl:when test="journal">
-                                            <xsl:attribute name="href">journals/<xsl:value-of select="journal/@id" /></xsl:attribute>
-                                            <span class="head">
-                                                δημιούργησε το ημερολόγιο 
-                                                <xsl:value-of select="journal/title" />
-                                            </span>
-                                        </xsl:when>
-                                    </xsl:choose>
-                                 </xsl:when>
-                            </xsl:choose>
-                            <span class="time"><xsl:value-of select="date" /></span>
-                        </a>
-                    </li>
-                </xsl:for-each>
-                </ul>
-                </xsl:if>
+                <xsl:apply-templates select="activities" />
             </div>
             <div class="eof"></div>
         </div>
         <xsl:apply-templates select="discussion" />
     </xsl:if>
+</xsl:template>
+
+<xsl:template match="activities">
+    <h2>
+        <xsl:choose>
+            <xsl:when test="/social/user/gender = 'f'">Η&#160;</xsl:when>
+            <xsl:otherwise>Ο&#160;</xsl:otherwise>
+        </xsl:choose>
+        <xsl:value-of select="/social/user/name" /> πρόσφατα:
+    </h2>
+    <ul class="activities">
+        <xsl:apply-templates select="activity" />
+    </ul>
+</xsl:template>
+
+<xsl:template match="activity">
+    <li>
+        <a>
+            <xsl:choose>
+                <xsl:when test="type = 'comment'">
+                    <xsl:choose>
+                        <xsl:when test="comment/journal">
+                            <xsl:attribute name="href">journals/<xsl:value-of select="comment/journal/@id" /></xsl:attribute>
+                            <span class="head">
+                                σχολίασε στο ημερολόγιο <xsl:value-of select="comment/journal/title" />:
+                            </span>
+                        </xsl:when>
+                        <xsl:when test="comment/poll">
+                            <xsl:attribute name="href">polls/<xsl:value-of select="comment/poll/@id" /></xsl:attribute>
+                            <span class="head">
+                                σχολίασε στη δημοσκόπηση <xsl:value-of select="comment/poll/question" />:
+                            </span>
+                        </xsl:when>
+                        <xsl:when test="comment/profile">
+                            <xsl:attribute name="href">users/<xsl:value-of select="comment/profile/name" /></xsl:attribute>
+                            <span class="head">
+                                σχολίασε στο προφίλ
+                                <xsl:choose>
+                                    <xsl:when test="comment/profile/gender = 'f'"> της </xsl:when>
+                                    <xsl:otherwise> του </xsl:otherwise>
+                                </xsl:choose>
+                                <xsl:if test="/social/user/@id != comment/profile/@id">
+                                    <xsl:value-of select="comment/profile/name" />
+                                </xsl:if>
+                            </span>
+                        </xsl:when>
+                        <xsl:when test="comment/photo">
+                            <xsl:attribute name="href">photos/<xsl:value-of select="comment/photo/@id" /></xsl:attribute>
+                            <xsl:attribute name="class">photo</xsl:attribute>
+                            <img>
+                                <xsl:if test="comment/photo/title">
+                                    <xsl:attribute name="alt"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
+                                    <xsl:attribute name="title"><xsl:value-of select="comment/photo/title" /></xsl:attribute>
+                                </xsl:if>
+                                <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="comment/photo/author/@id" />/<xsl:value-of select="comment/photo/@id" />/<xsl:value-of select="comment/photo/@id" />_100.jpg</xsl:attribute>
+                            </img>
+                            <span class="head">
+                                σχολίασε στη φωτογραφία 
+                                <xsl:choose>
+                                    <xsl:when test="comment/photo/author/gender = 'f'">της </xsl:when>
+                                    <xsl:otherwise>του </xsl:otherwise>
+                                </xsl:choose>
+                                <xsl:if test="/social/user/@id != comment/photo/author/@id">
+                                    <xsl:value-of select="comment/photo/author/name" />
+                                </xsl:if>
+                            </span>
+                        </xsl:when>
+                    </xsl:choose>
+                    <div class="body novideo"><xsl:copy-of select="comment/text/*|comment/text/text()" /></div>
+                </xsl:when>
+                <xsl:when test="type = 'favourite'">
+                    <xsl:attribute name="href">
+                        <xsl:choose>
+                            <xsl:when test="photo">photos/<xsl:value-of select="photo/@id" /></xsl:when>
+                            <xsl:when test="journal">journals/<xsl:value-of select="journal/@id" /></xsl:when>
+                            <xsl:when test="poll">poll/<xsl:value-of select="poll/@id" /></xsl:when>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:if test="photo">
+                        <xsl:attribute name="class">photo</xsl:attribute>
+                        <img>
+                            <xsl:if test="photo/title">
+                                <xsl:attribute name="alt"><xsl:value-of select="photo/title" /></xsl:attribute>
+                                <xsl:attribute name="title"><xsl:value-of select="photo/title" /></xsl:attribute>
+                            </xsl:if>
+                            <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="photo/author/@id" />/<xsl:value-of select="photo/@id" />/<xsl:value-of select="photo/@id" />_100.jpg</xsl:attribute>
+                        </img>
+                    </xsl:if>
+                    <span class="head">
+                        πρόσθεσε στα αγαπημένα <xsl:choose>
+                            <xsl:when test="/social/user/gender = 'f'">της</xsl:when>
+                            <xsl:otherwise>του</xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="photo"> μια φωτογραφία <xsl:choose>
+                                <xsl:when test="photo/author/gender = 'f'"> της </xsl:when>
+                                <xsl:otherwise> του </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:value-of select="photo/author/name" />.</xsl:when>
+                            <xsl:when test="journal"> το ημερολόγιο <xsl:value-of select="journal/title" />.</xsl:when>
+                            <xsl:when test="poll"> τη δημοσκόπηση <xsl:value-of select="poll/question" />.</xsl:when>
+                        </xsl:choose>
+                    </span>
+                </xsl:when>
+                <xsl:when test="type = 'friend'">
+                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
+                    <span class="head">
+                    έκανε 
+                        <xsl:choose>
+                            <xsl:when test="friend/gender = 'f'">φίλη την&#160;</xsl:when>
+                            <xsl:otherwise>φίλο τον&#160;</xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:value-of select="friend/name" /> 
+                    </span>
+                </xsl:when>
+                <xsl:when test="type = 'fan'">
+                    <xsl:attribute name="href">users/<xsl:value-of select="friend/subdomain" /></xsl:attribute>
+                    <span class="head">έγινε 
+                    <xsl:choose>
+                        <xsl:when test="/social/user/gender = 'f'"> φίλη </xsl:when>
+                        <xsl:otherwise> φίλος </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="friend/gender = 'f'"> της </xsl:when>
+                        <xsl:otherwise> του </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:value-of select="friend/name" />
+                    </span>
+                </xsl:when>
+                <xsl:when test="type = 'song'">
+                    <span class="head">έβαλε στο προφίλ του το τραγούδι</span>
+                    <div class="body"><xsl:value-of select="song/title" /></div>
+                </xsl:when>
+                <xsl:when test="type = 'status'">
+                    <span class="head">άλλαξε το status <xsl:choose>
+                        <xsl:when test="/social/user/gender = 'f'">της</xsl:when>
+                        <xsl:otherwise>του</xsl:otherwise>
+                    </xsl:choose>
+                    </span>
+                    <div class="body">
+                        <xsl:value-of select="status/message" />
+                    </div>
+                </xsl:when>
+                <xsl:when test="type = 'item'">
+                    <xsl:choose>
+                        <xsl:when test="photo">
+                            <xsl:attribute name="class">photo</xsl:attribute>
+                            <xsl:attribute name="href">photos/<xsl:value-of select="photo/@id" /></xsl:attribute>
+                            <img>
+                                <xsl:if test="photo/title">
+                                    <xsl:attribute name="alt"><xsl:value-of select="photo/title" /></xsl:attribute>
+                                    <xsl:attribute name="title"><xsl:value-of select="photo/title" /></xsl:attribute>
+                                </xsl:if>
+                                <xsl:attribute name="src">http://images2.zino.gr/media/<xsl:value-of select="/social/user/@id" />/<xsl:value-of select="photo/@id" />/<xsl:value-of select="photo/@id" />_100.jpg</xsl:attribute>
+                            </img>
+                            <span class="head">ανέβασε μια φωτογραφία</span>
+                        </xsl:when>
+                        <xsl:when test="album">
+                            <xsl:attribute name="href">photos/<xsl:value-of select="/social/user/name" /></xsl:attribute>
+                            <span class="head">
+                                δημιούργησε το άλμπουμ
+                                <xsl:value-of select="album/name" />
+                            </span>
+                        </xsl:when>
+                        <xsl:when test="poll">
+                            <xsl:attribute name="href">polls/<xsl:value-of select="poll/@id" /></xsl:attribute>
+                            <span class="head">
+                                δημιούργησε τη δημοσκόπηση 
+                                <xsl:value-of select="poll/question" />
+                            </span>
+                        </xsl:when>
+                        <xsl:when test="journal">
+                            <xsl:attribute name="href">journals/<xsl:value-of select="journal/@id" /></xsl:attribute>
+                            <span class="head">
+                                δημιούργησε το ημερολόγιο 
+                                <xsl:value-of select="journal/title" />
+                            </span>
+                        </xsl:when>
+                    </xsl:choose>
+                 </xsl:when>
+            </xsl:choose>
+            <span class="time"><xsl:value-of select="date" /></span>
+        </a>
+    </li>
 </xsl:template>
 
 <xsl:template match="/social[@resource='user' and @method='view']/user/details">
