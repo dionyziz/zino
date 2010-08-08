@@ -19,17 +19,26 @@
                 </xsl:if>
                 <img>
                     <xsl:attribute name="src">
-                        <xsl:if test="photos/photo/@main='yes'">
-                            <xsl:value-of select="photos/photo[@main='yes']/media/@url" />
-                        </xsl:if>
-                        <xsl:if test="not(photos/photo/@main='yes')">
-                            <xsl:text>http://static.zino.gr/phoenix/anonymous150.jpg</xsl:text>
-                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="photos/photo/@mail='yes'">
+                                <xsl:value-of select="photos/photo[@main='yes']/media/@url" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>http://static.zino.gr/phoenix/anonymous150.jpg</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:attribute>
                 </img>
             </a>
             <p>
-                <xsl:value-of select="name" />
+                <xsl:choose>
+                    <xsl:when test="./@egoalbum='yes'">
+                        <xsl:text>Εγώ</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select=".//name" />
+                    </xsl:otherwise>
+                </xsl:choose>
             </p>
         </li>
     </xsl:for-each>
