@@ -47,7 +47,6 @@
                     var User = '<xsl:value-of select="/social/@for" />';
                 </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
-                var Which = '<xsl:value-of select="/social/entry[1]/@id" />';
                 
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
