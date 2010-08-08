@@ -83,7 +83,11 @@
                     'user.view': Profile,
                     'favourite.listing': Favourite,
                     'friendship.listing': Friends,
-                }[ '<xsl:value-of select="$mastertemplate" />' ].Init();
+                };
+                var MasterTemplate = '<xsl:value-of select="$mastertemplate" />';
+                if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
+                    Routing[ MasterTemplate ].Init();
+                }
                 Presence.Init();
                 Chat.Init();
             </script>

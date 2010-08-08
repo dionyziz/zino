@@ -52,6 +52,9 @@ a.talk {
     text-decoration: none;
     margin: 0 auto;
 }
+.thread.new a {
+    text-decoration: none;
+}
 .thread.new {
     border-top: none;
     border-right: none;
@@ -131,3 +134,16 @@ div.mine {
 div.mine .time {
     color: #4f7eae;
 }
+table.smileys {
+    width: 400px;
+    border-collapse: collapse;
+}
+    table.smileys tbody {
+        height: 300px;
+        width: 100%;
+        overflow: auto;
+    }
+    table.smileys tbody tr {
+        width: 100%;
+        overflow: hidden;
+    }

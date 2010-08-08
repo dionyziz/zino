@@ -6,6 +6,7 @@ photo/listing.xsl
 photo/view.xsl
 photo/create.xsl
 comment/listing.xsl
+comment/view.xsl
 session/view.xsl
 session/create.xsl
 user/view.xsl

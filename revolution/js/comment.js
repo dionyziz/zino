@@ -28,100 +28,126 @@ var Comment = {
             return false;
         }
         
-        var newthread;
+        var $newthread;
         var rootparent = $( this ).hasClass( 'talk' );
-        var newcomment = $( '.discussion .note .thread.new' );
+        var $newcomment = $( '.discussion .note .thread.new' );
         
         if ( $( '.discussion .note .thread.new .author > img' ).length === 0 ) {
             Comment.LoadAvatar();
         }
         
+        var parentid;
+
         if ( rootparent ) {
-            newthread = $( '.discussion > .thread.new' );
-            if ( newthread.length === 0 ) {
-                newthread = newcomment.clone().insertAfter( '.discussion .note' );
-                Comment.TextEvents( newthread );
+            $newthread = $( '.discussion > .thread.new' );
+            if ( $newthread.length === 0 ) {
+                $newthread = $newcomment.clone().insertAfter( '.discussion .note' );
+                Comment.TextEvents( $newthread, parentid );
             }
             // $( 'a.talk' ).fadeOut( 300 );
         }
         else {
-            newthread = $( this ).siblings( '.thread.new' );
-            if( newthread.length === 0 ) {
-                newthread = newcomment.clone().insertAfter( this );
-                Comment.TextEvents( newthread );
+            $newthread = $( this ).siblings( '.thread.new' );
+            if ( $newthread.length === 0 ) {
+                $newthread = $newcomment.clone().insertAfter( this );
+                Comment.TextEvents( $newthread, parentid );
             }
         }
-        
-        if ( newthread.css( 'display' ) == 'none' || newthread.css( 'height' ) != 'auto' ) {
-            Comment.FadeOut( $( '.discussion .thread .thread.new:visible' ) );
-            Comment.FadeIn( newthread );
+        if ( $newthread.parent().hasClass( 'discussion' ) ) {
+            parentid = 0;
         }
         else {
-            Comment.FadeOut( newthread );
+            parentid = jQnode.parent().attr( 'id' ).split( '_' )[ 1 ];
         }
+        
+        if ( $newthread.css( 'display' ) == 'none' || $newthread.css( 'height' ) != 'auto' ) {
+            Comment.FadeOut( $( '.discussion .thread .thread.new:visible' ) );
+            Comment.FadeIn( $newthread );
+        }
+        else {
+            Comment.FadeOut( $newthread );
+        }
+        $newthread.find( 'a' ).eq( 0 ).click( function () {
+            Comment.Post( $newthread, parentid );
+            return false;
+        } );
+        $newthread.find( 'a' ).eq( 1 ).click( function () {
+            Comment.Cancel( $newthread, parentid );
+            return false;
+        } );
+        $newthread.find( 'a' ).eq( 2 ).click( function () {
+            var textarea = $newthread.find( 'textarea' )[ 0 ];
+
+            textarea.value += "\n";
+            textarea.focus();
+            return false;
+        } );
+        $newthread.find( 'a' ).eq( 3 ).click( function () {
+            axslt( false, 'call:comment.modal.smileys', function() {
+                $( this ).filter( 'div' ).prependTo( 'body' ).modal();
+            } );
+            return false;
+        } );
         return false;
     },
-    TextEvents: function( jQnode ) {
+    Cancel: function ( jQnode, parentid ) {
+        Comment.FadeOut( jQnode );
+        if ( parentid === 0 ) {
+            $( 'a.talk' ).fadeIn( 300 );
+        }
+    },
+    Post: function ( jQnode, parentid ) {
+        document.body.style.cursor = 'wait';
+        
+        var textarea = jQnode.find( 'textarea' )[ 0 ];
+        var checktxt = textarea.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
+        var txt = textarea.value;
+        if ( checktxt.length == 0 ) {
+            document.body.style.cursor = 'default';
+            return;
+        }
+        var wysiwyg = $.post( 'comment/create', {
+            text: txt,
+            typeid: Comment.GetCurrentTypeId(),
+            'itemid': Comment.GetCurrentItemId(),
+            'parentid': parentid
+        } );
+            
+        var callback = ( function( thread ) {
+             return function() {
+                var newthread = $( this ).filter( '.thread' );
+                Comment.Prepare( $( newthread ).find( '.message' ) );
+                $( thread ).replaceWith( newthread );
+                newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
+                document.body.style.cursor = 'default';
+            };
+        } )( jQnode );
+
+        axslt( wysiwyg, '/social/comment', callback );
+        
+        jQnode.removeClass( 'new' )
+            .find( '.message.new' )
+            .removeClass( 'new' )
+            .find( '.author .details' )
+            .append( $( '<span />' ).addClass( 'username' ).text( User ) );
+        jQnode.find( 'ul.tips' )
+            .hide();
+        
+        jQnode.animate( { 'opacity': 0.6 }, 500 );
+        var text =  $( textarea ).val();
+        $( textarea ).parent().empty().append( text );
+    },
+    TextEvents: function( jQnode, parentid ) {
         jQnode.find( 'textarea' ).keydown( function ( event ) {
             if ( event.shiftKey ) {
                 return;
             }
-            var parentid;
-            if ( $( this ).closest( '.thread.new' ).parent().hasClass( 'discussion' ) ) {
-                parentid = 0;
-            }
-            else {
-                parentid = $( this ).closest( '.thread.new' ).parent().attr( 'id' ).split( '_' )[ 1 ];
-            }
             switch ( event.keyCode ) {
                 case 27: // ESC
-                    Comment.FadeOut(  $( this ).closest( '.thread.new' ) );
-                    if ( parentid === 0 ) {
-                        $( 'a.talk' ).fadeIn( 300 );
-                    }
+                    Comment.Cancel( jQnode, parentid );
                     break;
                 case 13: // Enter
-                    // TODO
-                    document.body.style.cursor = 'wait';
-                    
-                    var checktxt = this.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-                    var txt = this.value;
-                    if ( checktxt.length == 0 ) {
-                        document.body.style.cursor = 'default';
-                        return;
-                    }
-                    var wysiwyg = $.post( 'comment/create', {
-                        text: txt,
-                        typeid: Comment.GetCurrentTypeId(),
-                        'itemid': Comment.GetCurrentItemId(),
-                        'parentid': parentid
-                    } );
-                        
-                    var callback = ( function( thread ) {
-                         return function() {
-                            newthread = $( this ).filter( '.thread' );
-                            Comment.Prepare( $( newthread ).find( '.message' ) );
-                            $( thread ).replaceWith( newthread );
-                            newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
-                            document.body.style.cursor = 'default';
-                        };
-                    } )( $( this ).closest( '.thread.new' ) );
-
-                    axslt( wysiwyg, '/social/comment', callback );
-                    
-                    var thread = $( this ).closest( '.thread.new' );
-                    
-                    thread.removeClass( 'new' )
-                        .find( '.message.new' )
-                        .removeClass( 'new' )
-                        .find( '.author .details' )
-                        .append( $( '<span />' ).addClass( 'username' ).text( User ) );
-                    thread.find( 'ul.tips' )
-                        .hide();
-                    
-                    thread.animate( { 'opacity': 0.6 }, 500 );
-                    var text =  $( this ).val();
-                    $( this ).parent().empty().append( text );
+                    Comment.Post( jQnode, parentid );
                     break;
             }
         } );
@@ -153,7 +179,7 @@ var Comment = {
         $( '.thread.new .author' ).each( function( i, e ) {
             var img = $( '<img />' ).addClass( 'avatar' ).prependTo( e );
         } );
-        $.get( 'users/view', { 'name': User, 'verbose': 1 }, function( xml ) {
+        $.get( 'users/' + User, { 'verbose': 1 }, function( xml ) {
             var src = $( 'avatar > media', xml ).attr( 'url' );
             $( '.thread.new .author > img' ).each( function( i, e ) {
                 $( e ).attr( 'src', $( 'avatar > media', xml ).attr( 'url' ) );
