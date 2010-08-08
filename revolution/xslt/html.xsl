@@ -68,6 +68,9 @@
                     dataType: 'xml'
                 } );
                 _aXSLT.defaultStylesheet = 'global.xsl';
+                if ( window.ActiveXObject ) {
+                    _aXSLT.ROOT_PATH = '*[1]';
+                }
 
                 $( function() { $( '.time' ).each( function () {
                     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );

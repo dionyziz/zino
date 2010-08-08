@@ -91,7 +91,7 @@ select.dropdown {
     width: auto;
     height: auto;
     font-weight: bold;
-    display: none;
+    /* display: none; */
 }
 .editable:hover select.dropdown {
     display: block;
