@@ -550,7 +550,12 @@ var Notifications = {
                             if ( typeof avatar === 'undefined' ) {
                                 avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
                             }
-                            comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
+                            if ( entry.find( 'discussion comment comment' ).length ) {
+                                comment = innerxml( entry.find( 'discussion comment comment text' )[ 0 ] );
+                            }
+                            else {
+                                comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
+                            }
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
                             break;
                         case 'favourite':
