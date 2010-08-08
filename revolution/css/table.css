@@ -1,0 +1,15 @@
+table tbody {
+    border: 1px solid #6C8ABB;
+}
+table caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #123;
+    font-size: 130%;
+}
+table thead {
+    background-color: #6C8ABB;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+}
