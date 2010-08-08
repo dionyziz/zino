@@ -24,7 +24,7 @@ var AlbumListing = {
             axslt( albums, '/', function() {
                 $( '.useralbums' ).append( $( this ).find( 'ol' ) );
                 if( XMLData.author == User ){
-                    $( '.useralbums a[class!=egoalbum] p' ).each( function() {
+                    $( '.useralbums p' ).each( function() {
                         var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
                         Kamibu.EditableTextElement( this, 'Όρισε όνομα', function( title ) {
                             $.post( '?resource=album&method=update', { albumid: albumid, name: title } );

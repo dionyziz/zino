@@ -29,14 +29,7 @@
                 </img>
             </a>
             <p>
-                <xsl:choose>
-                    <xsl:when test="./@egoalbum='yes'">
-                        <xsl:text>Εγώ</xsl:text>
-                    <xsl:when test="not(./@egoalbum='yes'">
-                    <xsl:otherwise>
-                        <xsl:value-of select="name" />
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:value-of select="name" />
             </p>
         </li>
     </xsl:for-each>

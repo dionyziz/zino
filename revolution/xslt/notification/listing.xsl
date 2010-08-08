@@ -11,16 +11,12 @@
     </div>
 </xsl:template>
 
-<xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry[type='photo]">
+<xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry">
     <div class="box">
         <div>
             <img>
-                <xsl:attribute name="src">
-                    <xsl:value-of select=".//avatar/media/@url" />
-                </xsl:attribute>
-
+                
             </img>
-
         </div>
     </div>
 </xsl:template>
