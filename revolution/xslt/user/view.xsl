@@ -205,6 +205,10 @@
                             <xsl:with-param name="type">artists</xsl:with-param>
                             <xsl:with-param name="data" select="taglist[@type='artists']" />
                         </xsl:call-template>
+						<xsl:call-template name="interest">
+                            <xsl:with-param name="type">songs</xsl:with-param>
+                            <xsl:with-param name="data" select="taglist[@type='songs']" />
+                        </xsl:call-template>
                     </xsl:if>
                     <xsl:if test="/social/@for != /social/user/name">
                         <xsl:for-each select="taglist">
@@ -625,6 +629,7 @@
                 <xsl:when test="$type = 'books'">Αγαπημένα βιβλία</xsl:when>
                 <xsl:when test="$type = 'games'">Αγαπημένα παιχνίδια</xsl:when>
                 <xsl:when test="$type = 'artists'">Αγαπημένοι καλλιτέχνες</xsl:when>
+				<xsl:when test="$type = 'songs'">Αγαπημένα τραγουδια</xsl:when>
             </xsl:choose>
             <xsl:if test="/social/@for = /social/user/name">
                 <span class="add">&#43;</span>
