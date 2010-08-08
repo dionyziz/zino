@@ -40,6 +40,7 @@ var Comment = {
 
         if ( rootparent ) {
             $newthread = $( '.discussion > .thread.new' );
+            parentid = 0;
             if ( $newthread.length === 0 ) {
                 $newthread = $newcomment.clone().insertAfter( '.discussion .note' );
                 Comment.TextEvents( $newthread, parentid );
@@ -50,14 +51,12 @@ var Comment = {
             $newthread = $( this ).siblings( '.thread.new' );
             if ( $newthread.length === 0 ) {
                 $newthread = $newcomment.clone().insertAfter( this );
+                parentid = $newthread.parent().attr( 'id' ).split( '_' )[ 1 ];
                 Comment.TextEvents( $newthread, parentid );
             }
-        }
-        if ( $newthread.parent().hasClass( 'discussion' ) ) {
-            parentid = 0;
-        }
-        else {
-            parentid = jQnode.parent().attr( 'id' ).split( '_' )[ 1 ];
+            else {
+                parentid = $newthread.parent().attr( 'id' ).split( '_' )[ 1 ];
+            }
         }
         
         if ( $newthread.css( 'display' ) == 'none' || $newthread.css( 'height' ) != 'auto' ) {
