@@ -1,9 +1,25 @@
 <?php
+    ob_start();
+    
     session_start();
     error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
-
+    
+    clude( 'models/water.php' );
     header( 'Content-type: application/xml' );
 
+    global $settings;
+    $settings = include 'settings.php';
+    
+	$uri = $_SERVER[ 'REQUEST_URI' ];
+    
+    if ( !isset( $_SESSION[ 'user' ] ) ) {
+        clude( 'models/user.php' );
+        $user = User::GetCookieData();
+        if ( $user !== false ) {
+            $_SESSION[ 'user' ] = $user;
+        }
+    }
+    
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
@@ -49,26 +65,8 @@
         return true;
     }
     
-    clude( 'models/water.php' );
-
-    global $settings;
-    
-    $settings = include 'settings.php';
-    
-	$uri = $_SERVER[ 'REQUEST_URI' ];
-
-    ob_start();
-    
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
-
-    if ( !isset( $_SESSION[ 'user' ] ) ) {
-        clude( 'models/user.php' );
-        $user = User::GetCookieData();
-        if ( $user !== false ) {
-            $_SESSION[ 'user' ] = $user;
-        }
-    }
     
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {
