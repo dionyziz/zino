@@ -22,7 +22,7 @@
                         <span>Διάλεξε ένα ψευδώνυμο:</span>
                         <div>
                             <input class="submit" type="submit" value="" tabindex="5" />
-                            <input class="text" type="text" name="username" tabindex="4" />
+                            <input class="text" type="text" name="name" tabindex="4" />
                         </div>
                     </form>
                 </div>
@@ -54,8 +54,8 @@
                 <h2>Μπες στην παρέα</h2>
                 <form action="?resource=user&amp;method=create" method="post">
                     <fieldset>
-                        <label for="username">Ψευδώνυμο</label>
-                            <input type="text" name="username"/>
+                        <label for="name">Ψευδώνυμο</label>
+                            <input type="text" name="name"/>
                         <label for="password">Κωδικός</label>
                             <input type="password" name="password"/>
                         <label for="password2">Κωδικός (ξανά)</label>
@@ -80,7 +80,7 @@
                     }
                 }
                 $( '.register form' ).submit( function() {
-                    $( '#registermodal input[name=username]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
+                    $( '#registermodal input[name=name]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
                     $( '#registermodal, #registerbackground' ).css( { display: 'block' } );
                     return false;
                 } );
