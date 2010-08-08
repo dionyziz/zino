@@ -1,6 +1,6 @@
 var Kamibu = {
     EditableTextElement: function( element, placeholder, callback ) {
-        if( element.style.position == 'static' ){
+        if( window.getComputedStyle( element, null ).getPropertyValue( 'position' ) == 'static' ){
             element.style.top = 0;
             element.style.left = 0;
             element.style.position = 'relative';
