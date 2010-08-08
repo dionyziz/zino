@@ -31,10 +31,12 @@
         <div class="note">
             <xsl:for-each select="favourites/user">
                 <div class="love">
-                <xsl:attribute name="id">love_<xsl:value-of select="/social/journal/@id" /></xsl:attribute>
                 &#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
             </xsl:for-each>
-            <a class="love linkbutton" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
+            <a class="love linkbutton" href="" style="display:none">
+                <xsl:attribute name="id">love_<xsl:value-of select="/social/journal/@id" /></xsl:attribute>
+                <strong>&#9829;</strong> Το αγαπώ!
+            </a>
         </div>
     </div>
     <xsl:apply-templates select="discussion" />

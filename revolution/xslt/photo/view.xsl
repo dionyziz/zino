@@ -56,11 +56,13 @@
             <div class="note">
                 <xsl:for-each select="favourites/user">
                     <div class="love">
-                    <xsl:attribute name="id">love_<xsl:value-of select="/social/photo/@id" /></xsl:attribute>
                     &#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
                     <xsl:text> </xsl:text>
                 </xsl:for-each>
-                <a class="love linkbutton" href="" style="display:none"><strong>&#9829;</strong> Το αγαπώ!</a>
+                <a class="love linkbutton" href="" style="display:none">
+                    <xsl:attribute name="id">love_<xsl:value-of select="/social/photo/@id" /></xsl:attribute>
+                    <strong>&#9829;</strong> Το αγαπώ!
+                </a>
             </div>
         </xsl:if>
     </div>
