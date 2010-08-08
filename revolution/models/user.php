@@ -567,6 +567,7 @@
             static $reserved = array(
                 'anonymous',
                 'www',
+                'alpha',
                 'beta',
                 'store',
                 'radio',

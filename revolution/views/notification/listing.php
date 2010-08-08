@@ -23,6 +23,9 @@
         <discussion>
             <? if ( $notification[ 'comment' ][ 'parentid' ] != 0 ): ?>
             <comment id="<?= $notification[ 'comment' ][ 'parentid' ] ?>">
+            <? if ( $notification[ 'comment' ][ 'parenttext' ] ): ?>
+                <text><?= $notification[ 'comment' ][ 'parenttext' ]; ?></text>
+            <? endif; ?>
             <? endif; ?>
                 <?
                     $comment = $notification[ 'comment' ];

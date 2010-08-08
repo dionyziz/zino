@@ -54,12 +54,12 @@
                 <h2>Μπες στην παρέα</h2>
                 <form action="?resource=user&amp;method=create" method="post">
                     <fieldset>
-                        <label for="username">Ψευδώνυμο</label>
+                        <label for="name">Ψευδώνυμο</label>
                             <input type="text" name="username"/>
                         <label for="password">Κωδικός</label>
-                            <input type="password" name="password"/>
+                            <input type="password" name="password" id="password" />
                         <label for="password2">Κωδικός (ξανά)</label>
-                            <input type="password" name="password2"/>
+                            <input type="password" name="password2" id="password2" />
                         <label for="email">Email</label>
                             <input type="text" name="email"/>
                         <input class="submit" type="submit" value="Πάμε"/>
@@ -67,24 +67,7 @@
                 </form>
                 <div class="xbutton"></div>
             </div>
-
-            <script type="text/javascript">
-                var username = document.getElementById( 'username' );
-                var password = document.getElementById( 'password' );
-                function loginresult( result ) {
-                    if ( result ) {
-                        window.location.href = 'photos';
-                    }
-                    else {
-                        alert( 'Λάθος κωδικός/όνομα χρήστη' );
-                    }
-                }
-                $( '.register form' ).submit( function() {
-                    $( '#registermodal input[name=username]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
-                    $( '#registermodal, #registerbackground' ).css( { display: 'block' } );
-                    return false;
-                } );
-            </script>
+            <script type="text/javascript" src="js/session.js"></script>
         </body>
     </html>
 </xsl:template>

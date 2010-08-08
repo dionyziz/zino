@@ -232,8 +232,10 @@
         public static function ItemMulti( $ids, $userdetails = false ) {
             clude( 'models/bulk.php' );
             $sql = 'SELECT
-                        `comment_id` AS id, `comment_typeid` AS typeid, `comment_itemid` AS itemid, `comment_bulkid` AS bulkid,
-                        `comment_created` AS created, `comment_parentid` AS parentid,
+                        a.`comment_id` AS id, a.`comment_typeid` AS typeid, a.`comment_itemid` AS itemid,
+                        a.`comment_bulkid` AS bulkid,
+                        a.`comment_created` AS created,
+                        a.`comment_parentid` AS parentid, parent.`comment_bulkid` AS parentbulkid,
                         `user_id` AS userid, `user_name` AS username, `user_gender` AS gender,
                         `user_subdomain` AS subdomain, `user_avatarid` AS avatarid';
             if( $userdetails ) {
@@ -243,14 +245,16 @@
                         ) AS profile_age, `place_name` AS location';
             }
             $sql .= ' FROM
-                        `comments` CROSS JOIN `users`
-                            ON `comment_userid` = `user_id`';
+                        `comments` AS a CROSS JOIN `users`
+                            ON `comment_userid` = `user_id`
+                            LEFT JOIN `comments` AS parent
+                                ON a.`comment_parentid` = parent.`comment_id`';
             if ( $userdetails ) {
                 $sql .= ' LEFT JOIN `places`
                             ON `profile_placeid`=`place_id`';
             }
             $sql .= ' WHERE
-                        `comment_id` IN :ids';
+                        a.`comment_id` IN :ids';
             $res = db( $sql, compact( 'ids' ) );
 
             $commentinfo = array();
@@ -258,10 +262,16 @@
             while ( $row = mysql_fetch_array( $res ) ) {
                 $commentinfo[ $row[ 'id' ] ] = $row;
                 $bulkids[] = $row[ 'bulkid' ];
+                if ( !empty( $row[ 'parentbulkid' ] ) ) {
+                    $bulkids[] = $row[ 'parentbulkid' ];
+                }
             }
             $bulk = Bulk::FindById( $bulkids );
             foreach ( $commentinfo as $id => $comment ) {
                 $commentinfo[ $id ][ 'text' ] = $bulk[ $comment[ 'bulkid' ] ];
+                if ( isset( $bulk[ $comment[ 'parentbulkid' ] ] ) ) {
+                    $commentinfo[ $id ][ 'parenttext' ] = $bulk[ $comment[ 'parentbulkid' ] ];
+                }
                 $commentinfo[ $id ][ 'user' ] = array(
                     'id' => $comment[ 'userid' ],
                     'name' => $comment[ 'username' ],
