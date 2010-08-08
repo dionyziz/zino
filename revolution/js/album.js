@@ -24,13 +24,13 @@ var AlbumListing = {
             axslt( albums, '/', function() {
                 $( '.useralbums' ).append( $( this ).find( 'ol' ) );
                 if( XMLData.author == User ){
-                    $( '.useralbums p' ).each( function() {
+                    $( '.useralbums li[class!=egoalbum] p' ).each( function() {
                         var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
                         Kamibu.EditableTextElement( this, 'Όρισε όνομα', function( title ) {
                             $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
                         } );
                     } );
-                    $( '.useralbums a' ).each( function() {
+                    $( '.useralbums li[class!=egoalbum] a' ).each( function() {
                     $( this ).append( '<div class="deletebutton">×</div>' );
                         $( '.deletebutton', this ).click( function( e ) {
                             e.stopImmediatePropagation();
