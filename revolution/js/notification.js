@@ -545,16 +545,18 @@ var Notifications = {
                     box.className = 'box';
                     switch ( eventtype ) {
                         case 'comment':
-                            author = entry.find( 'discussion comment author name' ).text();
-                            avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
                             if ( typeof avatar === 'undefined' ) {
                                 avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
                             }
                             if ( entry.find( 'discussion comment comment' ).length ) {
                                 comment = innerxml( entry.find( 'discussion comment comment text' )[ 0 ] );
+                                author = entry.find( 'discussion comment comment author name' ).text();
+                                avatar = entry.find( 'discussion comment comment author avatar media' ).attr( 'url' );
                             }
                             else {
                                 comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
+                                author = entry.find( 'discussion comment author name' ).text();
+                                avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
                             }
                             box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
                             break;

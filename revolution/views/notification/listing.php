@@ -23,8 +23,17 @@
         <discussion>
             <? if ( $notification[ 'comment' ][ 'parentid' ] != 0 ): ?>
             <comment id="<?= $notification[ 'comment' ][ 'parentid' ] ?>">
-            <? if ( $notification[ 'comment' ][ 'parenttext' ] ): ?>
-                <text><?= $notification[ 'comment' ][ 'parenttext' ]; ?></text>
+            <? if ( $notification[ 'comment' ][ 'parent' ][ 'text' ] ): ?>
+                <text><?= $notification[ 'comment' ][ 'parent' ][ 'text' ]; ?></text>
+                <author id="<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'id' ] ?>">
+                    <name><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'name' ]; ?></name>
+                    <gender><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'gender' ]; ?></gender>
+                    <subdomain><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'subdomain' ]; ?></subdomain>
+                    <avatar>
+                        <media url="http://images2.zino.gr/media/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'id' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>" />
+" />
+                    </avatar>
+                </author>
             <? endif; ?>
             <? endif; ?>
                 <?

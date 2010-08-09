@@ -235,9 +235,13 @@
                         a.`comment_id` AS id, a.`comment_typeid` AS typeid, a.`comment_itemid` AS itemid,
                         a.`comment_bulkid` AS bulkid,
                         a.`comment_created` AS created,
-                        a.`comment_parentid` AS parentid, parent.`comment_bulkid` AS parentbulkid,
-                        `user_id` AS userid, `user_name` AS username, `user_gender` AS gender,
-                        `user_subdomain` AS subdomain, `user_avatarid` AS avatarid';
+                        a.`comment_parentid` AS parentid,
+                        parent.`comment_bulkid` AS parentbulkid,
+                        uparent.`user_id` AS puserid, uparent.`user_name` AS pusername,
+                        uparent.`user_gender` AS pgender, uparent.`user_subdomain` AS psubdomain,
+                        uparent.`user_avatarid` AS pavatarid,
+                        u.`user_id` AS userid, u.`user_name` AS username, u.`user_gender` AS gender,
+                        u.`user_subdomain` AS subdomain, u.`user_avatarid` AS avatarid';
             if( $userdetails ) {
                 $sql .= ', (
                             ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
@@ -245,10 +249,12 @@
                         ) AS profile_age, `place_name` AS location';
             }
             $sql .= ' FROM
-                        `comments` AS a CROSS JOIN `users`
+                        `comments` AS a CROSS JOIN `users` AS u
                             ON `comment_userid` = `user_id`
                             LEFT JOIN `comments` AS parent
-                                ON a.`comment_parentid` = parent.`comment_id`';
+                                ON a.`comment_parentid` = parent.`comment_id`
+                            LEFT JOIN `users` AS uparent
+                                ON parent.`comment_userid` = uparent.`user_id`';
             if ( $userdetails ) {
                 $sql .= ' LEFT JOIN `places`
                             ON `profile_placeid`=`place_id`';
@@ -270,7 +276,17 @@
             foreach ( $commentinfo as $id => $comment ) {
                 $commentinfo[ $id ][ 'text' ] = $bulk[ $comment[ 'bulkid' ] ];
                 if ( isset( $bulk[ $comment[ 'parentbulkid' ] ] ) ) {
-                    $commentinfo[ $id ][ 'parenttext' ] = $bulk[ $comment[ 'parentbulkid' ] ];
+                    $commentinfo[ $id ][ 'parent' ] = array(
+                        'id' => $comment[ 'parentid' ],
+                        'text' => $bulk[ $comment[ 'parentbulkid' ] ],
+                        'user' => array(
+                            'id' => $comment[ 'puserid' ],
+                            'name' => $comment[ 'pusername' ],
+                            'avatarid' => $comment[ 'pavatarid' ],
+                            'gender' => $comment[ 'pgender' ],
+                            'subdomain' => $comment[ 'psubdomain' ],
+                        )
+                    );
                 }
                 $commentinfo[ $id ][ 'user' ] = array(
                     'id' => $comment[ 'userid' ],
