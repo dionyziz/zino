@@ -112,10 +112,23 @@
             if ( !ValidEmail( $email ) ) {
                 $error = 'invalid email';
                 Template( 'user/create', compact( 'error' ) );
+                return;
             }
             $error = '';
             try {
                 $user = User::Create( $name, $email, $password );
+                $data = User::Login( $username, $password );
+                $success = $data !== false;
+                if ( $success ) {
+                    global $settings;
+                    $eofw = 2147483646;
+                    if ( $data[ 'authtoken' ] == '' ) {
+                        $data[ 'authtoken' ] = User::RenewAuthtoken( $data[ 'id' ] );
+                    }
+                    $cookie = $data[ 'id' ] . ':' . $data[ 'authtoken' ];
+                    setcookie( $settings[ 'cookiename' ], $cookie, $eofw, '/', $settings[ 'cookiedomain' ], false, true );
+                    $_SESSION[ 'user' ] = $data;
+                }
             }
             catch ( Exception $e ) {
                 $error = $e->getMessage();

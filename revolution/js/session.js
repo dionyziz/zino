@@ -9,7 +9,7 @@ function loginresult( result ) {
     }
 }
 $( '.register form' ).submit( function() {
-    $( '#registermodal input[name=username]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
+    $( '#registermodal input[name=name]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) ).focus();
     $( '#registermodal, #registerbackground' ).css( { display: 'block' } );
     $( '#registermodal form' ).submit( function () {
         if ( $( '#name' ).val() === '' ) {
@@ -17,9 +17,9 @@ $( '.register form' ).submit( function() {
             $( '#name' ).focus();
             return false;
         }
-        if ( $( '#password' ).val() == '' ) {
+        if ( $( '#pass' ).val() == '' ) {
             alert( 'Πληκτρολόγησε τον κωδικό πρόσβασης που θέλεις' );
-            $( '#password' ).focus();
+            $( '#pass' ).focus();
             return false;
         }
         if ( $( '#email' ).val() == '' ) {
@@ -27,10 +27,10 @@ $( '.register form' ).submit( function() {
             $( '#email' ).focus();
             return false;
         }
-        if ( $( '#password' ).val() != $( '#password2' ).val() ) {
+        if ( $( '#pass' ).val() != $( '#pass2' ).val() ) {
             alert( 'Οι δύο κωδικοί δεν ταιριάζουν' );
-            $( '#password2' ).val( '' );
-            $( '#password' ).val( '' ).focus();
+            $( '#pass2' ).val( '' );
+            $( '#pass' ).val( '' ).focus();
             return false;
         }
     } );

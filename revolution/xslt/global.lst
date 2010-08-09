@@ -10,6 +10,7 @@ comment/view.xsl
 session/view.xsl
 session/create.xsl
 user/view.xsl
+user/create.xsl
 user/details.xsl
 user/edit.xsl
 user/player.xsl
