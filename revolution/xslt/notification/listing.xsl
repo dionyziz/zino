@@ -7,7 +7,7 @@
             <xsl:value-of select="stream/@count" />
             <xsl:text>)</xsl:text>
         </h3>
-        <xsl:apply-templates select="stream/entry" mode="list"/>
+        <xsl:apply-templates select="stream/*" mode="list"/>
     </div> 
 </xsl:template>
 
