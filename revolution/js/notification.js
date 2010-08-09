@@ -513,11 +513,10 @@ var Notifications = {
     },
     Check: function () {
         if ( typeof User != 'undefined' ) {
-            alert( 'bar' );
             axslt( $.get( 'notifications' ), '/social', function() {
                 alert( 'foo' );
                 $( document.body ).append( $( this ) );
-                $( '.box' ).click( function() {
+                /*$( '.box' ).click( function() {
                     Notifications.TakeOver();
                     $( '#notifications .box' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
@@ -525,7 +524,7 @@ var Notifications = {
                     //        Notifications.CreateFavouriteGUI( e );
                     //        Notifications.CreateFriendGUI( e );
                 } );
-                /*$( '#notifications .vbutton' ).click( function () {
+                $( '#notifications .vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
                         Notifications.Done();
                     }
