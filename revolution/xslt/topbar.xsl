@@ -1,6 +1,6 @@
 <xsl:template name="banner">
     <div class="bar">
-        <span>▼</span>
+        <!-- <span>▼</span> -->
         <h1><a href=""><img src="http://static.zino.gr/phoenix/logo-trans.png" /></a></h1>
          
         <ul>

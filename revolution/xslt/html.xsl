@@ -41,7 +41,33 @@
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
             <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
-            <script type="text/javascript" src="global.js"></script>
+			<script type="text/javascript" src="js/type.js"></script>
+			<script type="text/javascript" src="js/kamibu.js"></script>
+			<script type="text/javascript" src="js/axslt.js"></script>
+			<script type="text/javascript" src="js/comment.js"></script>
+			<script type="text/javascript" src="js/favourite.js"></script>
+			<script type="text/javascript" src="js/photo/view.js"></script>
+			<script type="text/javascript" src="js/photo/listing.js"></script>
+			<script type="text/javascript" src="js/itemview.js"></script>
+			<script type="text/javascript" src="js/chat.js"></script>
+			<script type="text/javascript" src="js/comet.js"></script>
+			<script type="text/javascript" src="js/news.js"></script>
+			<script type="text/javascript" src="js/jquery/jquery.center.js"></script>
+			<script type="text/javascript" src="js/jquery/jquery.modal.js"></script>
+			<script type="text/javascript" src="js/jquery/jquery.hotkeys-0.7.9.min.js"></script>
+			<script type="text/javascript" src="js/jquery/jquery.jplayer.min.js"></script>
+			<script type="text/javascript" src="js/modal.js"></script>
+			<script type="text/javascript" src="js/notification.js"></script>
+			<script type="text/javascript" src="js/poll.js"></script>
+			<script type="text/javascript" src="js/journal.js"></script>
+			<script type="text/javascript" src="js/wysiwyg.js"></script>
+			<script type="text/javascript" src="js/si.files.js"></script>
+			<script type="text/javascript" src="js/user/view.js"></script>
+			<script type="text/javascript" src="js/presence.js"></script>
+			<script type="text/javascript" src="js/user/details.js"></script>
+			<script type="text/javascript" src="js/calendar.js"></script>
+			<script type="text/javascript" src="js/friends.js"></script>
+			<script type="text/javascript" src="js/album.js"></script>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
                     var User = '<xsl:value-of select="/social/@for" />';
