@@ -8,17 +8,7 @@
             <xsl:text>)</xsl:text>
         </h3>
         <xsl:apply-templates select="stream/entry" mode="list"/>
-    </div>
-<!--    <div id="instantbox">
-        <ul class="tips">
-            <li>Enter = <strong>Αποθήκευση απάντησης</strong></li>
-            <li>Escape = <strong>Αγνόηση</strong></li>
-            <li>Shift + Esc = <strong>Θα το δω μετά</strong></li>
-        </ul>
-        <div>
-            <xsl:apply-templates select="stream/entry" mode="view"/>
-        </div>
-    </div> -->
+    </div> 
 </xsl:template>
 
 <xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="list">
@@ -67,16 +57,15 @@
                     </div>
                 </xsl:otherwise>
             </xsl:choose>
-            </div>
         </div>
     </div>
 </xsl:template>
 
 <xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry" mode="view">
-    <div class="content">
-        <xsl:choose>
-            <xsl:when test="@type='photo'">
-                <div class="tips">Πάτα για μεγιστοποίηση</div>
+<div class="content">
+    <xsl:choose>
+        <xsl:when test="@type='photo'">
+            <div class="tips">Πάτα για μεγιστοποίηση</div>
                 <div class="contentitem">
                     <xsl:attribute name="id">
                         <xsl:text>photo_</xsl:text>
@@ -103,4 +92,4 @@
     <div class="details">
         
     </div>
-</xsl:template>
+</xsl:template> -->
