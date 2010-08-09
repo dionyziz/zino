@@ -81,7 +81,6 @@ var _aXSLT = {
     unitLists: {},
     lastListIndex: 1,
     xslCache: {},
-    ROOT_PATH: '',
     prepareXML: function( xml ) {
         //TODO check
         var index = this.lastListIndex++;
@@ -234,7 +233,8 @@ var _aXSLT = {
             return basicStylesheet;
         }
         var templateString =
-            '<xsl:template match="/' + _aXSLT.ROOT_PATH + '" priority="500000">' +
+        '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">' +
+            '<xsl:template match="/" priority="500000">' +
                 ( templateMode == 'call' ?
                     '<xsl:call-template name="' + templateName + '">' +
                         _aXSLT.expandParams( params ) +
@@ -310,14 +310,7 @@ var _aXSLT = {
         }
         
         if ( typeof( xml ) == 'string' ) {
-            if ( window.DOMParser ) {
-                new DOMParser().parseFromString( xsl, 'text/xml' );
-            }
-            else if ( window.ActiveXObject ) {
-                xmldoc = new ActiveXObject("Microsoft.XMLDOM.3.0");
-                xmldoc.async = "false";
-                xmldoc.loadXML( xml );
-            }
+            new DOMParser().parseFromString( xsl, 'text/xml' );
         }
         else if ( !xml ) {
             //xmldoc = document.implementation.createDocument( null, null, null);
