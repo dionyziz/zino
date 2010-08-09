@@ -147,6 +147,8 @@ var WYSIWYG = {
         var toolbox = document.createElement( 'div' );
         var which = document.createElement( 'iframe' );
         
+        which.src = WYSIWYG.blankPage;
+        
         toolbox.className = 'toolbox';
         for ( i = 0; i < buttons.length; ++i ) {
             var link = document.createElement( 'a' );
@@ -189,7 +191,7 @@ var WYSIWYG = {
         where.appendChild( which );
         
         which.tabIndex = tabindex;
-
+        
         var doc = WYSIWYG.GetDocument( which );
         
         if ( doc === false ) {
@@ -205,7 +207,6 @@ var WYSIWYG = {
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
-                WYSIWYG.GetDocument( which ).location.href = WYSIWYG.blankPage;
                 WYSIWYG.Enable( which, fieldname, oldcontents );
             }, 100 );
             return;
@@ -306,9 +307,9 @@ function XbDesignMode( aIFrame ) {
     else {
         throw "Argument isn't an id of an iframe or an iframe reference";
     }
-
     if ( this.mIFrameElement.contentDocument ) {
         // Gecko
+        console.log( 'in' );
         this.mEditorDocument = this.mIFrameElement.contentDocument;
         this.mEditorDocument.designMode = "On";
     }

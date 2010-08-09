@@ -10,7 +10,7 @@ var Journal = {
     },
     Edit: function() {
         var $wysiwyg = $( '<div class="wysiwyg" />' ).css( {background:'blue', height:50,width:50} );
-        $( '.document' ).before( $wysiwyg );
+        $( '.document' ).before( $( '<form name="editjournal" />' ).append( $wysiwyg ) );
         WYSIWYG.CreateReal( $wysiwyg.get( 0 ), 'text', {}, 3 );
         return false;
     },
