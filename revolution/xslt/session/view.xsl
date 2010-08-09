@@ -55,13 +55,13 @@
                 <form action="?resource=user&amp;method=create" method="post">
                     <fieldset>
                         <label for="name">Ψευδώνυμο</label>
-                            <input type="text" name="username"/>
+                            <input type="text" name="name" id="name"/>
                         <label for="password">Κωδικός</label>
                             <input type="password" name="password" id="password" />
                         <label for="password2">Κωδικός (ξανά)</label>
                             <input type="password" name="password2" id="password2" />
                         <label for="email">Email</label>
-                            <input type="text" name="email"/>
+                            <input type="text" name="email" id="email"/>
                         <input class="submit" type="submit" value="Πάμε"/>
                     </fieldset>
                 </form>
