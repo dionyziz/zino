@@ -17,7 +17,7 @@
                     <xsl:text>albums/</xsl:text>
                     <xsl:value-of select="@id" />
                 </xsl:attribute>
-                <img>
+                <img width="120" height="120">
                     <xsl:attribute name="src">
                         <xsl:choose>
                             <xsl:when test="photos/photo/@main='yes'">
