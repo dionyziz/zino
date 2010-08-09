@@ -61,8 +61,6 @@
                 <tr><td>:evil:</td><td><span class="emoticon-devil"></span></td></tr>
                 <tr><td>:dog:</td><td><span class="emoticon-dog"></span></td></tr>
                 <tr><td>:mail:</td><td><span class="emoticon-email"></span></td></tr>
-                <tr><td>:email:</td><td><span class="emoticon-email"></span></td></tr>
-                <tr><td>:e-mail:</td><td><span class="emoticon-email"></span></td></tr>
                 <tr><td>^^Uu</td><td><span class="emoticon-embarassed"></span></td></tr>
                 <tr><td>:film:</td><td><span class="emoticon-film"></span></td></tr>
                 <tr><td>:smooch:</td><td><span class="emoticon-kiss"></span></td></tr>
@@ -78,7 +76,6 @@
                 <tr><td>:star:</td><td><span class="emoticon-star"></span></td></tr>
                 <tr><td>:X</td><td><span class="emoticon-uptight"></span></td></tr>
                 <tr><td>:gift:</td><td><span class="emoticon-present"></span></td></tr>
-                <tr><td>:present:</td><td><span class="emoticon-present"></span></td></tr>
                 <tr><td>:love:</td><td><span class="emoticon-love"></span></td></tr>
                 <tr><td>:music:</td><td><span class="emoticon-note"></span></td></tr>
                 <tr><td>:note:</td><td><span class="emoticon-note"></span></td></tr>
