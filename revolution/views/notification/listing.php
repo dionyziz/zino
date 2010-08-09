@@ -31,7 +31,6 @@
                     <subdomain><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'subdomain' ]; ?></subdomain>
                     <avatar>
                         <media url="http://images2.zino.gr/media/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'id' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>" />
-" />
                     </avatar>
                 </author>
             <? endif; ?>
