@@ -513,103 +513,22 @@ var Notifications = {
     },
     Check: function () {
         if ( typeof User != 'undefined' ) {
-            $.get( 'notifications', {}, function ( res ) {
-                var entries = $( res ).find( 'stream > entry, stream > user' );
-                var entry, author, avatar, comment;
-                var panel = document.createElement( 'div' );
-                var box;
-                var eventtype;
-
-                if ( !entries.length ) {
-                    // no new notifications
-                    return;
-                }
-
-                panel.id = 'notifications';
-                panel.className = 'panel bottom novideo';
-                panel.innerHTML = '<div class="background"></div><div class="vbutton"></div><h3>Ενημερώσεις (<span>' + $( res ).find( 'stream' ).attr( 'count' ) + '</span>)</h3>';
-
-                for ( var i = 0; i < entries.length; ++i ) {
-                    entry = $( entries[ i ] );
-                    if ( entry.find( 'discussion' ).length ) { // comment notification
-                        eventtype = 'comment';
-                    }
-                    else if ( entry.find( 'favourites' ).length ) { // favourites notification
-                        eventtype = 'favourite';
-                    }
-                    else {
-                        eventtype = 'friend';
-                    }
-
-                    box = document.createElement( 'div' );
-                    box.className = 'box';
-                    switch ( eventtype ) {
-                        case 'comment':
-                            if ( typeof avatar === 'undefined' ) {
-                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
-                            }
-                            if ( entry.find( 'discussion comment comment' ).length ) {
-                                comment = innerxml( entry.find( 'discussion comment comment text' )[ 0 ] );
-                                author = entry.find( 'discussion comment comment author name' ).text();
-                                avatar = entry.find( 'discussion comment comment author avatar media' ).attr( 'url' );
-                            }
-                            else {
-                                comment = innerxml( entry.find( 'discussion comment text' )[ 0 ] );
-                                author = entry.find( 'discussion comment author name' ).text();
-                                avatar = entry.find( 'discussion comment author avatar media' ).attr( 'url' );
-                            }
-                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="text">' + comment+ '</div></div>';
-                            break;
-                        case 'favourite':
-                            author = entry.find( 'favourites user name' ).text();
-                            avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
-                            if ( typeof avatar === 'undefined' ) {
-                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
-                            }
-                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="background"></div><div class="love">&#10084;</div></div>';
-                            break;
-                        case 'friend':
-                            author = entry.find( 'name' ).text();
-                            avatar = entry.find( 'avatar media' ).attr( 'url' );
-                            if ( typeof avatar === 'undefined' ) {
-                                avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg';
-                            }
-                            gender = entry.find( 'gender' ).text();
-                            var friend = 'φίλος';
-                            if ( gender == 'f' ) {
-                                friend = 'φίλη';
-                            }
-                            box.innerHTML = '<div><img alt="' + author + '" src="' + avatar + '" /></div><div class="details"><h4>' + author + '</h4><div class="friend">' + friend + '</div></div>';
-                            break;
-                    }
-                    $( box ).click( ( function ( e, eventtype ) {
-                        return function () {
-                            Notifications.TakeOver();
-                            $( '#notifications .box' ).removeClass( 'selected' );
-                            $( this ).addClass( 'selected' );
-                            switch ( eventtype ) {
-                                case 'comment':
-                                    Notifications.CreateCommentGUI( e );
-                                    break;
-                                case 'favourite':
-                                    Notifications.CreateFavouriteGUI( e );
-                                    break;
-                                case 'friend':
-                                    Notifications.CreateFriendGUI( e );
-                                    break;
-                            }
-                        };
-                    } )( entry, eventtype ) );
-                    panel.appendChild( box );
-                }
-                
-                $( panel ).find( '.vbutton' ).click( function () {
+            axslt( $.get( 'notifications' ), '/social', function() {
+                $( document.body ).append( $( this ) );
+                $( '.box' ).click( function() {
+                    Notifications.TakeOver();
+                    $( '#notifications .box' ).removeClass( 'selected' );
+                    $( this ).addClass( 'selected' );
+                    //        Notifications.CreateCommentGUI( e );
+                    //        Notifications.CreateFavouriteGUI( e );
+                    //        Notifications.CreateFriendGUI( e );
+                } );
+                /*$( '#notifications .vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
                         Notifications.Done();
                     }
-                    this.parentNode.style.display = 'none';
-                } );
-                document.body.appendChild( panel );
+                    Notifications.hide();
+                } );*/
             } );
         }
     },

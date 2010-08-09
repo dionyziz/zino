@@ -13,6 +13,18 @@
 
 <xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="list">
     <div class="box">
+        <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="name">
+                    <xsl:text>user_</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="@type" />
+                    <xsl:text>_</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="@id"/>
+        </xsl:attribute>
         <div>
             <img>
                 <xsl:attribute name="src">
