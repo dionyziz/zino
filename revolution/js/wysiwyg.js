@@ -1,5 +1,5 @@
 var WYSIWYG = {
-    blankPage: 'http://static.zino.gr/revolution/blank.html',
+    blankPage: 'blank.html',
     
     VideoPlay: function ( id, node ) {
         if ( $( node ).parents( '.novideo' ).length ) {
