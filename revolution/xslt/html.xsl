@@ -85,9 +85,6 @@
                 <div id="content">
                     <xsl:apply-templates />
                 </div>
-                <script type="text/javascript">
-                    Notifications.Check();
-                </script>
             </div>
             <script type="text/javascript">
                 $.ajaxSetup( {
@@ -117,6 +114,7 @@
                 if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
                     Routing[ MasterTemplate ].Init();
                 }
+                Notifications.Check();
                 Presence.Init();
                 Chat.Init();
             </script>
