@@ -1,17 +1,27 @@
 <xsl:template match="/social[@resource='notification' and @method='listing']">
     <div id="notifications" class="panel bottom novideo">
         <div class="background"></div>
-        <div class="xbutton"></div>
+        <div class="vbutton"></div>
         <h3>
             <xsl:text>Ενημερώσεις (</xsl:text>
             <xsl:value-of select="stream/@count" />
             <xsl:text>)</xsl:text>
         </h3>
-        <xsl:apply-templates select="stream/entry" />
+        <xsl:apply-templates select="stream/entry" mode="list"/>
     </div>
+<!--    <div id="instantbox">
+        <ul class="tips">
+            <li>Enter = <strong>Αποθήκευση απάντησης</strong></li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+            <li>Shift + Esc = <strong>Θα το δω μετά</strong></li>
+        </ul>
+        <div>
+            <xsl:apply-templates select="stream/entry" mode="view"/>
+        </div>
+    </div>-->
 </xsl:template>
 
-<xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry">
+<xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="list">
     <div class="box">
         <div>
             <img>
@@ -27,17 +37,70 @@
             <h4>
                 <xsl:value-of select=".//name" />
             </h4>
-            <div class="background"></div>
-            <div class="text">
-                <xsl:choose>
-                    <xsl:when test="discussion/comment/comment">
+            <xsl:choose>
+                <xsl:when test="name">
+                    <div class="friend">
+                        <xsl:choose>
+                            <xsl:when test="gender='f'">
+                                <xsl:text>φίλη</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>φίλος</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </div>
+                </xsl:when>
+                <xsl:when test="favorites">
+                    <div class="background"></div>
+                    <div class="love">❤</div>
+                </xsl:when>
+                <xsl:when test="discussion/comment/comment">
+                    <div class="background"></div>
+                    <div class="text">
                         <xsl:value-of select="discussion/comment/comment/text" />
-                    </xsl:when>
-                    <xsl:otherwise>
+                    </div>
+                </xsl:when>
+                <xsl:otherwise>
+                    <div class="background"></div>
+                    <div class="text">
                         <xsl:value-of select="discussion/comment/text" />
-                    </xsl:otherwise>
-                </xsl:choose>
+                    </div>
+                </xsl:otherwise>
+            </xsl:choose>
             </div>
         </div>
+    </div>
+</xsl:template>
+
+<xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry" mode="view">
+    <div class="content">
+        <xsl:choose>
+            <xsl:when test="@type='photo'">
+                <div class="tips">Πάτα για μεγιστοποίηση</div>
+                <div class="contentitem">
+                    <xsl:attribute name="id">
+                        <xsl:text>photo_</xsl:text>
+                        <xsl:value-of select="@id" />
+                    </xsl:attribute>
+                    <div class="image">
+                        <img class="maincontent">
+                            <xsl:attribute name="src">
+                            </xsl:attribute>
+                        </img>
+                    </div>
+                    <div class="title">
+                        
+                    </div>
+                    <div class="note">
+
+                    </div>
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
+            </xsl:otherwise>
+        </xsl:choose>
+    </div>
+    <div class="details">
+        
     </div>
 </xsl:template>
