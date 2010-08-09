@@ -28,7 +28,14 @@ var Profile = {
                     } );
                     //password change
                     $modal.find( '#tab_email a.save' ).click( function() {
-                        alert( 'Υπό ανάπτυξη' );
+                        var email = $( '#tab_email input[name=email]' ).val();
+                        if ( Kamibu.ValidEmail( email ) ) {
+                            $.post( 'user/update', { email: email } );
+                            $modal.jqmHide();
+                        }
+                        else {
+                            alert( 'Η μορφή του email που έγραψες είναι λάθος' );
+                        }
                         return false;
                     } );
                     $modal.find( '#tab_password a.save' ).click( function() {
