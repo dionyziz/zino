@@ -46,7 +46,12 @@
            if ( isset( $user[ 'profile' ][ $im ] ) ): ?>
         <im type="<?= $im ?>"><?= $user[ 'profile' ][ $im ] ?></im>
         <? endif;
-           endforeach; ?>
+           endforeach;
+           if ( isset( $user[ 'profile' ][ 'email' ] )
+                && isset( $_SESSION[ 'user' ] )
+                && $_SESSION[ 'user' ][ 'id' ] == $user[ 'id' ] ): ?>
+           <email><?= $user[ 'profile' ][ 'email' ] ?></email>
+        <? endif; ?>
     </contact>
     <?
     if ( isset( $user[ 'mood' ] ) ):

@@ -242,6 +242,7 @@
                     `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     `place_name` AS location,
                     `place_id` AS location_id,
+                    `profile_email`,
                     `profile_numcomments` AS numcomments,
                     `profile_height`,
                     `profile_weight`,
@@ -305,7 +306,7 @@
             }
             static $profiledetails = array(
                 'height', 'weight', 'smoker', 'drinker',
-                'skype', 'msn', 'gtalk', 'yim',
+                'skype', 'msn', 'gtalk', 'yim', 'email',
                 'eyecolor', 'haircolor',
                 'sexualorientation', 'relationship',
                 'religion', 'politics',
