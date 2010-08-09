@@ -28,7 +28,7 @@
         <div class="document">
             <xsl:copy-of select="text/*|text/text()" />
         </div>
-        <xsl:if test="$user = author/name">
+        <xsl:if test="false() and $user = author/name">
             <ul class="journaleditmenu">
                 <li><a class="edit linkbutton" href="">Επεξεργασία</a></li>
                 <li><a class="save linkbutton" href="">Αποθήκευση</a></li>
