@@ -189,5 +189,24 @@
 
             return mysql_fetch_array( $res );
         }
+        public static function Update( $id, $title, $text = false ) {
+            clude( 'models/bulk.php' );
+
+            $details = array(
+                'id' => $id,
+                'title' => $tite
+            );
+
+            $sql = 'UPDATE `journals` SET ';
+            if ( $text !== false ) {
+                $bulkid = Bulk::Store( $text );
+                $details[ 'bulkid' ] = $bulkid;
+                $sql .= '`journal_bulkid` = :bulkid, ';
+            }
+            
+            $sql .= '`journal_title` = :title WHERE `journal_id` = :id LIMIT 1;';
+
+            db( $sql, $details );
+        }
 	}
 ?>

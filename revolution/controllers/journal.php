@@ -53,10 +53,28 @@
 
             include 'views/journal/view.php';
         }
-        public static function Update() {
+        public static function Update( $id, $title = false, $text = false ) {
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a journal' );
+            
+            clude( 'models/db.php' );
+            clude( 'models/journal.php' );
+
+            $journal = Journal::Item( (int)$id );
+            $user = $journal[ 'user' ];
+
+            if ( $user[ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
+                die( 'not your journal' );
+            }
+
+            $title = $title !== false ? $title : $journal[ 'title' ];
+            Journal::Update( $id, $title, $text );
+            $journal[ 'title' ] = $title;
+            $journal[ 'text' ] = $text;
+
+            Template( 'journal/view', compact( 'journal', 'user' ) );
         }
         public static function Delete( $id ) {
-            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a poll' );
+            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a journal' );
 
             clude( 'models/db.php' );
             clude( 'models/journal.php' );
@@ -67,6 +85,7 @@
             if ( $userid != $_SESSION[ 'user' ][ 'id' ] ) {
                 die( 'not your journal' );
             }
+            
             Journal::Delete( $id );
         }
     }

@@ -33,7 +33,7 @@
                     else if ( $name ) {
                         $user = User::ItemByName( $name );
                     }
-                    else die;
+                    else;
                     $countcomments = 0; // TODO: remove this line
                 }
             }
