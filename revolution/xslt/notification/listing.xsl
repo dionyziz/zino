@@ -40,7 +40,7 @@
                         </xsl:choose>
                     </div>
                 </xsl:when>
-                <xsl:when test="favorites">
+                <xsl:when test="favourites">
                     <div class="background"></div>
                     <div class="love">❤</div>
                 </xsl:when>
