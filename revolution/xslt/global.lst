@@ -24,3 +24,4 @@ journal/listing.xsl
 friendship/listing.xsl
 album/listing.xsl
 album/view.xsl
+notification/listing.xsl
