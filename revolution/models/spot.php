@@ -129,27 +129,20 @@
 
             return $content;
         }
-        public static function GetJournals( $user, $num = 4 ) {
-            global $libs;
-            global $water;
-            $libs->Load( 'journal/journal' );
-
-            $water->Profile( 'Spot get journals' );
-
-            $userid = $user->Id;
+        public static function GetJournals( $userid, $num = 10 ) {
+            $userid = ( int )$userid;
             $request = "GET JOURNALS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
             if ( $lines === false ) {
                 return $lines;
             }
 
-            foreach ( $lines as $index => $id ) {
-                $lines[ $index ] = (int)$id;
+            $ids = array();
+            foreach ( $lines as $id ) {
+                $ids[] = $id;
             }
 
-            $water->ProfileEnd();
-
-            return $lines; // journal ids
+            return $ids; // journal ids
         }
         public static function GetImages( $userid, $num = 30 ) {
             //global $water;
