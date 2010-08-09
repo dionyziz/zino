@@ -45,7 +45,7 @@
                     <li><a href="">Πληροφορίες</a></li>
                     <li><a href="mailto:info@zino.gr">Διαφήμιση</a></li>
                     <li><a href="">API</a></li>
-                    <li><a href="">Νομικά</a></li>
+                    <li><a href="http://static.zino.gr/revolution/legal/" target="_blank">Νομικά</a></li>
                 </ul>
             </div>
 
