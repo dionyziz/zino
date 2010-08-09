@@ -41,14 +41,9 @@
             </thead>
             <tbody>
                 <tr><td>:D</td><td><span class="emoticon-teeth"></span></td></tr>
-                <tr><td>:-)</td><td><span class="emoticon-smile"></span></td></tr>
                 <tr><td>:)</td><td><span class="emoticon-smile"></span></td></tr>
                 <tr><td>:P</td><td><span class="emoticon-tongue"></span></td></tr>
-                <tr><td>:p</td><td><span class="emoticon-tongue"></span></td></tr>
-                <tr><td>:-P</td><td><span class="emoticon-tongue"></span></td></tr>
-                <tr><td>:-p</td><td><span class="emoticon-tongue"></span></td></tr>
                 <tr><td>:-D</td><td><span class="emoticon-teeth"></span></td></tr>
-                <tr><td>:-S</td><td><span class="emoticon-confused"></span></td></tr>
                 <tr><td>:S</td><td><span class="emoticon-confused"></span></td></tr>
                 <tr><td>:'(</td><td><span class="emoticon-cry"></span></td></tr>
                 <tr><td>:angel:</td><td><span class="emoticon-innocent"></span></td></tr>
@@ -78,8 +73,6 @@
                 <tr><td>:no:</td><td><span class="emoticon-thumbs-down"></span></td></tr>
                 <tr><td>:yes:</td><td><span class="emoticon-thumbs-up"></span></td></tr>
                 <tr><td>:yuck:</td><td><span class="emoticon-tongue"></span></td></tr>
-                <tr><td>:heartbroken:</td><td><span class="emoticon-unlove"></span></td></tr>
-                <tr><td>:unlove:</td><td><span class="emoticon-unlove"></span></td></tr>
                 <tr><td>:hate:</td><td><span class="emoticon-unlove"></span></td></tr>
                 <tr><td>:rose:</td><td><span class="emoticon-wilted-rose"></span></td></tr>
                 <tr><td>:star:</td><td><span class="emoticon-star"></span></td></tr>
@@ -87,7 +80,6 @@
                 <tr><td>:gift:</td><td><span class="emoticon-present"></span></td></tr>
                 <tr><td>:present:</td><td><span class="emoticon-present"></span></td></tr>
                 <tr><td>:love:</td><td><span class="emoticon-love"></span></td></tr>
-                <tr><td>:heart:</td><td><span class="emoticon-love"></span></td></tr>
                 <tr><td>:music:</td><td><span class="emoticon-note"></span></td></tr>
                 <tr><td>:note:</td><td><span class="emoticon-note"></span></td></tr>
                 <tr><td>:airplane:</td><td><span class="emoticon-airplane"></span></td></tr>
@@ -96,15 +88,11 @@
                 <tr><td>:smoke:</td><td><span class="emoticon-cigarette"></span></td></tr>
                 <tr><td>:computer:</td><td><span class="emoticon-computer"></span></td></tr>
                 <tr><td>:girl:</td><td><span class="emoticon-girl"></span></td></tr>
-                <tr><td>:-I</td><td><span class="emoticon-indifferent"></span></td></tr>
                 <tr><td>:-|</td><td><span class="emoticon-indifferent"></span></td></tr>
                 <tr><td>:island:</td><td><span class="emoticon-ip"></span></td></tr>
                 <tr><td>:!!:</td><td><span class="emoticon-lightning"></span></td></tr>
                 <tr><td>:sms:</td><td><span class="emoticon-mobile-phone"></span></td></tr>
                 <tr><td>:wow:</td><td><span class="emoticon-omg"></span></td></tr>
-                <tr><td>:-O</td><td><span class="emoticon-omg"></span></td></tr>
-                <tr><td>:O</td><td><span class="emoticon-omg"></span></td></tr>
-                <tr><td>:-(</td><td><span class="emoticon-sad"></span></td></tr>
                 <tr><td>:(</td><td><span class="emoticon-sad"></span></td></tr>
                 <tr><td>:sheep:</td><td><span class="emoticon-sheep"></span></td></tr>
                 <tr><td>:@:</td><td><span class="emoticon-snail"></span></td></tr>
