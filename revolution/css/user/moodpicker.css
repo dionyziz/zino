@@ -3,10 +3,16 @@
 }
 .mood {
     position: relative;
+    height: 58px;
+    width: 58px;
+    margin: 4px 0 0 25px;
 }
 .moodpicker {
     background: #345;
     border: 3px solid #567;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     width: 360px;
     margin: 0;
     padding: 0 0 4px 4px;
@@ -20,6 +26,9 @@
     height: 56px;
     margin: 4px 4px 0 0;
     float: left;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
     .moodpicker ul li .moodtile {
         opacity: 0.5;
@@ -38,6 +47,7 @@
 .editable.mood {
     cursor: auto;
     overflow: visible;
+    z-index: 3;
 }
 .moodtile {
     display: block;
@@ -48,6 +58,9 @@
     padding: 0;
     border: 3px solid #567;
     background: no-repeat center white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
     .nomood {
         background: white;

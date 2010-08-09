@@ -66,6 +66,7 @@ a.linkbutton {
     cursor: pointer;
     color: white;
     text-decoration: underline;
+    z-index: 0;
 }
 .editable:hover {
     color: #def;

@@ -25,7 +25,7 @@
     <div name="aboutmemodal" class="modal">
         <h2>Λίγα λόγια για μένα</h2>
         <textarea class="aboutme"></textarea>
-        <ul class="buttons"><li><a class="changepass" href="">Αποθήκευση</a></li></ul>
+        <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
         <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>

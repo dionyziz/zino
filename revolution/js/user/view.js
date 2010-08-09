@@ -55,7 +55,6 @@ var Profile = {
             
             Profile.PrepareInlineEditables();
         }
-        
         if ( $( '.friendship' ).length ) {
             $( '.friendship a' ).click( function( $form ) {
                 return function() {
