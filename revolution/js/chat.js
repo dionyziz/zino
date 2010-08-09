@@ -286,7 +286,7 @@ var Chat = {
          var li;
          var compare;
 
-         if ( username == User ) {
+         if ( typeof User != 'undefined' && username == User ) {
              return;
          }
          
