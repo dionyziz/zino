@@ -18,7 +18,7 @@
         <div>
             <xsl:apply-templates select="stream/entry" mode="view"/>
         </div>
-    </div>-->
+    </div> -->
 </xsl:template>
 
 <xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="list">
