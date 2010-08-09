@@ -6,6 +6,13 @@ var Journal = {
                 Journal.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
             }
         });
+        $( 'a#editjournal' ).click( function() { return Journal.Edit(); } );
+    },
+    Edit: function() {
+        var $wysiwyg = $( '<div class="wysiwyg" />' ).css( {background:'blue', height:50,width:50} );
+        $( '.document' ).before( $wysiwyg );
+        WYSIWYG.CreateReal( $wysiwyg.get( 0 ), 'text', {}, 3 );
+        return false;
     },
     Remove: function( id ) {
         $.post( 'index.php?resource=journal&method=delete', {

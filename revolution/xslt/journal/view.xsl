@@ -25,6 +25,9 @@
             <span class="icon" id="deletebutton">&#215;</span>
         </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
+        <xsl:if test="$user = author/name">
+            <a id="editjournal" href="">Επεξεργασία</a>
+        </xsl:if>
         <div class="document">
             <xsl:copy-of select="text/*|text/text()" />
         </div>
