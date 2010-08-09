@@ -45,3 +45,4 @@ $( '.register form' ).submit( function() {
     } );
     return false;
 } );
+CFInstall.check({ mode: "overlay" });

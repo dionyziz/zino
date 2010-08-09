@@ -6,6 +6,8 @@
                 <xsl:attribute name="href"><xsl:value-of select="@generator" />/</xsl:attribute>
             </base>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+            <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
             <link href="css/loggedout.css" rel="stylesheet" type="text/css" />
             <link href="css/panel.css" rel="stylesheet" type="text/css" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>

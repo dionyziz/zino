@@ -36,7 +36,7 @@
                 <a href="" id="chatbutton" style="background-image: url('http://zino.gr:500/dionyziz/images/comments.png');">Chat</a>
             </li>
             <li style="float: right; padding-right: 0px;margin-right: 7px; background-color:#FC575E">
-                <a href="http://dionyziz.zino.gr/journals/Xwros_anaforas_problimatwn" style="background-image:url('http://static.zino.gr/phoenix/up.png')">Feedback</a>
+                <a href="journals/13371" style="background-image:url('http://static.zino.gr/phoenix/up.png')">Feedback</a>
             </li>
         </ul>
     </div>
