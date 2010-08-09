@@ -86,7 +86,7 @@ var Chat = {
      },
      Load: function () {
          if ( typeof User == 'undefined' ) {
-             window.location.href = 'login';
+             Kamibu.Go( 'login' );
              return false;
          }
          Chat.Show( 0 );

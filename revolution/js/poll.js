@@ -9,9 +9,16 @@ var Poll = {
             $( '.newpoll' ).find( 'input.option' ).keydown( function() {
                 Poll.OptionChange( this );
             } );
-            $( '.newpoll form' ).submit( function() { return Poll.Create(); } );
-            $( '.newpoll ul.toolbox a.button.big' ).click( function() { return Poll.Create(); } );
-            $( '.newpoll ul.toolbox a.linkbutton' ).click( function() { window.location.href = 'news'; return false; } );
+            $( '.newpoll form' ).submit( function() {
+                return Poll.Create();
+            } );
+            $( '.newpoll ul.toolbox a.button.big' ).click( function() {
+                return Poll.Create();
+            } );
+            $( '.newpoll ul.toolbox a.linkbutton' ).click( function() {
+                Kamibu.Go( 'news' );
+                return false;
+            } );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(0)' ) );
             Kamibu.ClickableTextbox( $( '.newpoll' ).find( 'input.option:eq(1)' ) );
         } );
@@ -32,7 +39,7 @@ var Poll = {
             return false;
         }
         $.post( 'poll/create', { 'question': question, 'options': options }, function( xml ) { 
-            window.location.href = 'polls/' + $( xml ).find( 'poll' ).attr( 'id' );
+            Kamibu.Go( 'polls/' + $( xml ).find( 'poll' ).attr( 'id' ) );
         } );
         return false;
     },
@@ -78,8 +85,8 @@ var Poll = {
     Remove: function( id ) {
         $.post( 'index.php?resource=poll&method=delete', {
             id: id
-        }, function(){
-            window.location = 'polls/' + User;
+        }, function() {
+            Kamibu.Go( 'polls/' + User );
         });     
     }
 };

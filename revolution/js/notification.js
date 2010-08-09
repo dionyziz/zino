@@ -36,7 +36,7 @@ var Notifications = {
                 }
             }
             // else
-            window.location.href = url;
+            Kamibu.Go( url );
         };
         leave();
     },

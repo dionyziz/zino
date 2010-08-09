@@ -27,14 +27,14 @@
                     </form>
                 </div>
                 <div class="login">
-                    <iframe id="iframe" src="login.html" style="height: 100%; left: 0; position: absolute; border: none; top: 0; width: 100%;margin: 0;"></iframe>
+                    <!-- <iframe id="iframe" src="login.html" style="height: 100%; left: 0; position: absolute; border: none; top: 0; width: 100%;margin: 0;"></iframe> -->
                     <h2>Έχεις ήδη zino?</h2>
                     <form method="post" action="session/create" name="loginform">
                         <label for="username">Ψευδώνυμο</label>
                         <input id="username" class="text" type="text" tabindex="1" name="username" />
                         <label for="password">Κωδικός</label>
                         <input id="password" class="text" type="password" tabindex="2" name="password" />
-                        <input class="submit" type="submit" />
+                        <input class="submit" type="submit" value="" />
                     </form>
                 </div>
             </div>

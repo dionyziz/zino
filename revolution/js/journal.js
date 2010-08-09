@@ -39,11 +39,14 @@ var Journal = {
                     return false;
                 }
                 $.post( 'journal/create', { 'title': title, 'text': text }, function( xml ) { 
-                    window.location.href = 'journals/' + $( xml ).find( 'journal' ).attr( 'id' );
+                    Kamibu.Go( 'journals/' + $( xml ).find( 'journal' ).attr( 'id' ) );
                 } );
                 return false;
             } );
-            $screen.find( '.toolbox .linkbutton' ).click( function() { window.location.href = 'news'; return false; } );
+            $screen.find( '.toolbox .linkbutton' ).click( function() {
+                Kamibu.Go( 'news' );
+                return false;
+            } );
         } );
         return false;
     }

@@ -48,7 +48,7 @@ var Profile = {
             $( '.accountmenu a:eq(1)' ).click( function () {
                 document.body.style.cursor = 'pointer';
                 $.post( 'session/delete', {}, function () {
-                    window.location.href = 'login';
+                    Kamibu.Go( 'login' );
                 } );
                 return false;
             } );

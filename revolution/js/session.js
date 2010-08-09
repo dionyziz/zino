@@ -2,7 +2,7 @@ var username = document.getElementById( 'username' );
 var password = document.getElementById( 'password' );
 function loginresult( result ) {
     if ( result ) {
-        window.location.href = 'photos';
+        Kamibu.Go( 'photos' );
     }
     else {
         alert( 'Λάθος κωδικός/όνομα χρήστη' );

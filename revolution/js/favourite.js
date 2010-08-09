@@ -8,7 +8,7 @@ var Favourite = {
             url = $item.find( 'a' ).attr( 'href' );
             $item.click( ( function ( url ) {
                 return function() {
-                    location.href = url;
+                    Kamibu.Go( url );
                 };
             } )( url ) );
             id = url.substring( url.indexOf( '/' ) + 1 );

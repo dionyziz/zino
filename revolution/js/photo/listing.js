@@ -68,56 +68,56 @@ var PhotoListing = {
             target = target[ 1 ];
         }
         $.get( target,
-        { 'page': PhotoListing.CurrentPage },
-        function( xml ){
-            var responseSize = $( xml ).find( 'photo' ).length;
-            var i;
+            { 'page': PhotoListing.CurrentPage },
+            function( xml ) {
+                var responseSize = $( xml ).find( 'photo' ).length;
+                var i;
 
-            $( xml ).find( 'photo' ).each( function( index ){
-                var id = $( this ).attr( 'id' );
-                var url = $( this ).find( 'media' ).attr( 'url' );
-                var count = $( this ).find( 'discussion' ).attr( 'count' );
-                var user = $( this ).find( 'author name' ).text();
-                do {
-                    PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
-                } while ( PhotoListing.LastLoaded.nodeType != 1);
+                $( xml ).find( 'photo' ).each( function( index ){
+                    var id = $( this ).attr( 'id' );
+                    var url = $( this ).find( 'media' ).attr( 'url' );
+                    var count = $( this ).find( 'discussion' ).attr( 'count' );
+                    var user = $( this ).find( 'author name' ).text();
+                    do {
+                        PhotoListing.LastLoaded = PhotoListing.LastLoaded.nextSibling;
+                    } while ( PhotoListing.LastLoaded.nodeType != 1);
 
-                if ( url ) {
-                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
-                }
-                else {
-                    alert( id );
-                }
-                if ( user ) {
-                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'alt', user );
-                    $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'title', user );
-                }
-                $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
-                if ( count != '0' ) {
-                    if ( count < 100 ) {
-                        $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) );
+                    if ( url ) {
+                        $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'src', url );
                     }
                     else {
-                        $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">∞</span>' ) );
+                        alert( id );
                     }
+                    if ( user ) {
+                        $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'alt', user );
+                        $( 'img', $( PhotoListing.LastLoaded ) ).attr( 'title', user );
+                    }
+                    $( 'a', $( PhotoListing.LastLoaded ) ).attr( 'href', 'photos/' + id );
+                    if ( count != '0' ) {
+                        if ( count < 100 ) {
+                            $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">' + count + '</span>' ) ); }
+                        else {
+                            $( 'a', $( PhotoListing.LastLoaded ) ).append( $( '<span class="countbubble">∞</span>' ) );
+                        }
+                    }
+                } );
+                if ( responseSize < 100 ){
+                    PhotoListing.EndOfPhotos = true;
+                    var lastChild = $( '.photostream ul li:last' )[ 0 ];
+                    for( i = 0; i < 100 - responseSize; ++i ) {
+                        var nextLastChild = lastChild.previousSibling;
+                        $( lastChild ).remove();
+                        lastChild = nextLastChild;
+                    }
+                    for( i = 0; i < 20; ++i ){ //Last Line justify hack
+                        PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
+                    }
+                    return; //Prevent Events From reassining
                 }
-            } );
-            if ( responseSize < 100 ){
-                PhotoListing.EndOfPhotos = true;
-                var lastChild = $( '.photostream ul li:last' )[ 0 ];
-                for( i = 0; i < 100 - responseSize; ++i ) {
-                    var nextLastChild = lastChild.previousSibling;
-                    $( lastChild ).remove();
-                    lastChild = nextLastChild;
-                }
-                for( i = 0; i < 20; ++i ){ //Last Line justify hack
-                    PhotoListing.PhotoList[ 0 ].innerHTML += ' <li class="justifyhack"><a><img /></a></li> ';
-                }
-                return; //Prevent Events From reassining
+                PhotoListing.Loading = false;
+                PhotoListing.AssignEvents();
+                PhotoListing.ScrollHandler();
             }
-            PhotoListing.Loading = false;
-            PhotoListing.AssignEvents();
-            PhotoListing.ScrollHandler();
-        } );
+        );
     }
 };
