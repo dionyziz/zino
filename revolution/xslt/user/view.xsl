@@ -230,16 +230,18 @@
 </xsl:template>
 
 <xsl:template match="activities">
-    <h2>
-        <xsl:choose>
-            <xsl:when test="/social/user/gender = 'f'">Η&#160;</xsl:when>
-            <xsl:otherwise>Ο&#160;</xsl:otherwise>
-        </xsl:choose>
-        <xsl:value-of select="/social/user/name" /> πρόσφατα:
-    </h2>
-    <ul class="activities">
-        <xsl:apply-templates select="activity" />
-    </ul>
+    <xsl:if test="activity">
+        <h2>
+            <xsl:choose>
+                <xsl:when test="/social/user/gender = 'f'">Η&#160;</xsl:when>
+                <xsl:otherwise>Ο&#160;</xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="/social/user/name" /> πρόσφατα:
+        </h2>
+        <ul class="activities">
+            <xsl:apply-templates select="activity" />
+        </ul>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="activity">

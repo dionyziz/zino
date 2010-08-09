@@ -9,8 +9,17 @@ function loginresult( result ) {
     }
 }
 $( '.register form' ).submit( function() {
-    $( '#registermodal input[name=name]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) ).focus();
+    $( '#registermodal input[name=name]' ).attr( 'value', $( '.register .text' ).attr( 'value' ) );
     $( '#registermodal, #registerbackground' ).css( { display: 'block' } );
+    if ( $( '.register .text' ).attr( 'value' ) ) {
+        $( '#pass' )[ 0 ].focus();
+    }
+    else {
+        $( '#name' )[ 0 ].focus();
+    }
+    $( '#registermodal .xbutton' ).click( function () {
+        $( '#registermodal, #registerbackground' ).css( { display: 'none' } );
+    } );
     $( '#registermodal form' ).submit( function () {
         if ( $( '#name' ).val() === '' ) {
             alert( 'Πληκτρολόγησε το ψευδώνυμο που θέλεις' );

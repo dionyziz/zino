@@ -167,22 +167,29 @@ div.login form input.submit {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    overflow: hidden;
     display: none;
-}
-#registermodal:after {
-    width: 700px;
-    height: 700px;
-    position: absolute;
-    -moz-border-radius: 350px;
-    background-color: #93BA20;
-    top: 330px;
-    left: 50%;
-    margin-left: -350px;
-    content: ' ';
 }
     #registermodal h2 {
         text-align: center;
+    }
+    #registermodal .strawberryfields {
+        width: 350px;
+        height: 450px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    #registermodal .strawberryfields:after {
+        width: 700px;
+        height: 700px;
+        position: absolute;
+        -moz-border-radius: 350px;
+        background-color: #93BA20;
+        top: 330px;
+        left: 50%;
+        margin-left: -350px;
+        content: ' ';
     }
     #registermodal fieldset {
         border: none;

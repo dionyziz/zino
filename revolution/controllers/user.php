@@ -117,7 +117,7 @@
             $error = '';
             try {
                 $user = User::Create( $name, $email, $password );
-                $data = User::Login( $username, $password );
+                $data = User::Login( $name, $password );
                 $success = $data !== false;
                 if ( $success ) {
                     global $settings;

@@ -66,6 +66,7 @@
                     </fieldset>
                 </form>
                 <div class="xbutton"></div>
+                <div class="strawberryfields"></div>
             </div>
             <script type="text/javascript" src="js/session.js"></script>
         </body>
