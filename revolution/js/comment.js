@@ -201,7 +201,7 @@ var Comment = {
     FetchNewComments: function(){
         Comment.CurrentCommentPage++;
         var data = $.get( 'comments/' + Comment.GetCurrentTypeId() + '/' + Comment.GetCurrentItemId(), { 'page': Comment.CurrentCommentPage } );
-        axslt( data, '/social/discussion/*', function() {
+        axslt( data, '/social/discussion/comment', function() {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
