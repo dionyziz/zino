@@ -53,7 +53,7 @@
                     tunnel_expires = NOW() + INTERVAL ' . PUSH_SUBSCRIPTION_EXPIRY . ' SECOND
                 WHERE
                     tunnel_id = :tunnelid
-                LIMIT 1', compact( $tunnelid )
+                LIMIT 1', compact( 'tunnelid' )
             );
         }
         public static function Publish(
