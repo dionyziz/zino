@@ -19,7 +19,7 @@
                     <xsl:text>user_</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="@type" />
+                    <xsl:value-of select="@type"/>
                     <xsl:text>_</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
@@ -28,7 +28,14 @@
         <div>
             <img>
                 <xsl:attribute name="src">
-                    <xsl:value-of select=".//media/@url" />
+                    <xsl:choose>
+                        <xsl:when test=".//media">
+                            <xsl:value-of select=".//media/@url" />
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:attribute>
                 <xsl:attribute name="alt">
                     <xsl:value-of select=".//name" />
