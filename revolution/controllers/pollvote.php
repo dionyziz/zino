@@ -23,7 +23,7 @@
             
             $myvote = $optionid;
             $poll = Poll::Item( $pollid );
-            Template( 'poll/view', compact( 'poll', 'myvote' ) );
+            Template( 'poll/view', compact( 'poll', 'myvote', 'options' ) );
         }
     }
 ?>
