@@ -15,6 +15,14 @@ var Profile = {
                                     .siblings( '.selected' ).removeClass( 'selected' );
                             $modal.find( 'div#tab_' + tabname ).show().siblings( 'div.tab' ).hide();
                             $modal.center();
+                            if ( tabname == 'email' ) {
+                                var $email = $( '#tab_email input[name=email]' );
+                                if ( $email.val() == '' ) {
+                                    $.get( 'users/' + User, {}, function( res ) {
+                                        $email.val( $( res ).find( 'email' ).text() );
+                                    } );
+                                }
+                            }
                         }
                         return false;
                     } );

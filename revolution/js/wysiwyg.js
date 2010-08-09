@@ -18,11 +18,16 @@ var WYSIWYG = {
         } , 300 );
     },
     GetDocument: function ( iframe ) {
-        if ( typeof iframe.contentWindow != 'undefined' ) {
-            return iframe.contentWindow.document;
+        try {
+            if ( typeof iframe.contentWindow != 'undefined' ) {
+                return iframe.contentWindow.document;
+            }
+            if ( typeof iframe.contentDocument != 'undefined' ) {
+                return iframe.contentDocument;
+            }
         }
-        if ( typeof iframe.contentDocument != 'undefined' ) {
-            return iframe.contentDocument;
+        catch ( err ) {
+            return false;
         }
         return false;
     },
@@ -307,9 +312,9 @@ function XbDesignMode( aIFrame ) {
     else {
         throw "Argument isn't an id of an iframe or an iframe reference";
     }
+    console.log( typeof this.mIFrameElement.contentDocument );
     if ( this.mIFrameElement.contentDocument ) {
         // Gecko
-        console.log( 'in' );
         this.mEditorDocument = this.mIFrameElement.contentDocument;
         this.mEditorDocument.designMode = "On";
     }

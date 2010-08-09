@@ -6,12 +6,16 @@ var Journal = {
                 Journal.Remove( $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ] );
             }
         });
-        $( 'a#editjournal' ).click( function() { return Journal.Edit(); } );
+        $( '.journaleditmenu a.edit' ).click( function() { return Journal.Edit(); } );
     },
     Edit: function() {
-        var $wysiwyg = $( '<div class="wysiwyg" />' ).css( {background:'blue', height:50,width:50} );
-        $( '.document' ).before( $( '<form name="editjournal" />' ).append( $wysiwyg ) );
-        WYSIWYG.CreateReal( $wysiwyg.get( 0 ), 'text', {}, 3 );
+        //var $wysiwyg = $( '<div class="wysiwyg" />' );
+        var $wysiwyg = $( '.document' ).clone();
+        $wysiwyg.addClass( 'wysiwyg' );
+        $( '.journaleditmenu' ).find( 'a' ).show().find( '.edit' ).hide();
+        
+        $( '.document' ).replaceWith( $( '<form id="editjournal"/>' ).append( $wysiwyg ) );
+        WYSIWYG.Create( $wysiwyg.get( 0 ), 'text', {}, 3 );
         return false;
     },
     Remove: function( id ) {

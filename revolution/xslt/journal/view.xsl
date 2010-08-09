@@ -25,12 +25,16 @@
             <span class="icon" id="deletebutton">&#215;</span>
         </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
-        <xsl:if test="$user = author/name">
-            <a id="editjournal" href="">Επεξεργασία</a>
-        </xsl:if>
         <div class="document">
             <xsl:copy-of select="text/*|text/text()" />
         </div>
+        <xsl:if test="$user = author/name">
+            <ul class="journaleditmenu">
+                <li><a class="edit linkbutton" href="">Επεξεργασία</a></li>
+                <li><a class="save linkbutton" href="">Αποθήκευση</a></li>
+                <li><a class="cancel linkbutton" href="">Ακύρωση</a></li>
+            </ul>
+        </xsl:if>
         <div class="note">
             <xsl:for-each select="favourites/user">
                 <div class="love">

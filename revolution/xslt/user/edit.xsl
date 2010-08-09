@@ -15,7 +15,7 @@
         </div>
         <div class="tab" id="tab_email">
             <ul><li><span>Καταχωρημένο e-mail</span>
-            <input type="text" value="email" /></li></ul>
+            <input type="text" value="" name="email" /></li></ul>
             <div><input type="checkbox" checked="checked"/>Aποστολή ενημερώσεων με e-mail</div>
             <ul class="buttons"><li><a class="save" href="">Αποθήκευση</a></li></ul>
         </div>
