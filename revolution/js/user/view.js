@@ -213,7 +213,7 @@ var Profile = {
         } );
         var location_id = $( '.asl .location span' ).attr( 'id' ).split( '_' )[1];
         if ( location_id == '' ) {
-            $( '.asl .location span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
+            $( '.asl .location span' ).text( 'Όρισε περιοχή' ).addClass( 'notshown' );
         }
         $( '.asl .location span' ).addClass( 'editable' ).click( function() {
             //TODO: don't re-open the modal
@@ -222,27 +222,36 @@ var Profile = {
             axslt( false, 'call:user.modal.location', function() {
                 $modal = $( this ).filter( 'div' );
                 $modal.prependTo( 'body' ).modal();
-                var location_id = $( '.asl .location span' ).attr( 'id' ).split( '_' )[1];
-                var location_text = $( '.asl .location span' ).text();
                 var $select = $modal.find( 'select.location' );
-                $( '<option value=' + location_id + '>' + location_text + '</option>' ).appendTo( $select );
                 axslt( $.get( 'places' ), 'call:user.modal.location.options', function() {
+                    var location_id = $( '.asl .location span' ).attr( 'id' ).split( '_' )[1];
+                    if ( location_id == '' ) {
+                        location_id = -1;
+                    }
                     $select.empty();
                     $select.append( $( this ).filter( 'option' ) ).val( location_id );
+                    var $notshown = $( '<option value="-1">Να μην εμφανίζεται</option>' );
+                    if ( location_id == -1 ) {
+                        $select.prepend( $notshown );
+                    }
+                    else {
+                        $select.append( $notshown );
+                    }
+                    $select.val( location_id );
                     $select.change( function() {
-                            $( '.asl .location span' ).text( $select.find( 'option[value=' + $select.val() + ']' ).text() );
-                            $.post( 'user/update', { placeid: $select.val() } );
-                            $modal.jqmHide();
-                            return false;
-                        } );
-                    $modal.find( 'a.link' ).click( function() {
-                        $.post( 'user/update', { placeid: -1 } );
-                        $( '.asl .location span' ).text( 'Να μην εμφανίζεται' ).addClass( 'notshown' );
+                        $.post( 'user/update', { placeid: $select.val() } );
+                        if ( $select.val() == -1 ) {
+                            $( '.asl .location span' ).text( 'Όρισε περιοχή' ).addClass( 'notshown' ).attr( 'id', 'location_' );
+                        }
+                        else {
+                            $( '.asl .location span' ).text( $select.find( 'option[value=' + $select.val() + ']' ).text() )
+                                .removeClass( 'notshown' ).attr( 'id', 'location_' + $select.val() );
+                        }
+                        
                         $modal.jqmHide();
                         return false;
                     } );
                 } );
-                $select.val( location_id );
             } );
             return false;
         } );

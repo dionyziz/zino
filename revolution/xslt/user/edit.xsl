@@ -33,7 +33,6 @@
     <div name="aboutmemodal" class="modal">
         <h2>Περιοχή</h2>
         <select class="location"></select>
-        <div><a href="" class="linebutton">Να μην εμφανίζεται</a></div>
     </div>
 </xsl:template>
 <xsl:template name="user.modal.location.options">
