@@ -192,7 +192,6 @@ var Notifications = {
         if( notificationtype != 'comment' ){
             $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
         }
-        $( 
     },
     ItemNotification: function( type, id ) {
         $( '.instantbox' ).hide();
