@@ -177,7 +177,7 @@
             return false;
         }
         public static function GetEgoAlbumId( $userid ) {
-            return ( int )array_shift( db_array(
+            $res = db_array(
                 'SELECT
                     `user_egoalbumid` AS egoalbumid
                 FROM
@@ -185,7 +185,9 @@
                 WHERE
                     `user_id` = :userid
                 LIMIT 1;', compact( 'userid' )
-            ) );
+            );
+			var_dump( $res );
+			return $res[ 0 ][ 'egoalbumid' ];
         }
         public static function Item( $id ) {
             $res = db(
