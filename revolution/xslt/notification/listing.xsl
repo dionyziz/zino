@@ -5,9 +5,7 @@
         <h3>Ενημερώσεις (<xsl:value-of select="notifications/@count" />)</h3>
         <xsl:apply-templates select="notifications/notification" mode="list"/>
     </div>
-    <div id="instantbox">
-        <xsl:apply-templates select="notifications/notification" mode="view"/>
-    </div>
+    <xsl:apply-templates select="notifications/notification" mode="view"/>
 </xsl:template>
 
 <xsl:template match="notification[@type='favourite']" mode="list">
