@@ -83,7 +83,7 @@
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
 						foreach ( $friendinfo as $key => $val ) { //find srtenghts , could b be optimized possibly
-							$val[ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id' ] );
+							$friendinfo[ $key ][ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id' ] );
 						}
 						var_dump( $friendinfo );
                         break;
