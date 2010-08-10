@@ -7,15 +7,22 @@
             clude( 'models/photo.php' );
             clude( 'models/spot.php' );
 
-	        $ids  = Spot::GetPolls( 4005, 25 );//polls from spot
-            if ( is_array( $ids ) ) {
-	            $polls = Poll::ListByIds( $ids );
+	        $pollids = Spot::GetPolls( 4005, 25 );//polls from spot
+            if ( is_array( $pollids ) ) {
+	            $polls = Poll::ListByIds( $pollids );
             }
             else {
             	$polls = Poll::ListRecent( 25 );
             }
 
-            $journals = Journal::ListRecent( 25 );
+			$journalids = Spot::GetJournals( 4005, 25 );//journals from spot
+            if ( is_array( $journalids ) ) {
+	            $journals = Journal::ListByIds( $journalids );
+            }
+            else {
+            	$journals = Journal::ListRecent( 25 );
+            }
+
             $photos = Photo::ListRecent( 0, 25 );
             $content = array();
             $i = 0;
