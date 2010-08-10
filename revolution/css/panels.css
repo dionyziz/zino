@@ -37,18 +37,16 @@ textarea.invisible {
 }
 .instantbox {
     display: none;
-}
-#instantbox {
     margin-bottom: 150px;
 }
-    #instantbox .contentitem {
+    .instantbox .contentitem {
         float: right;
         width: 50%;
         overflow: hidden;
         cursor: pointer;
         position: relative;
     }
-    #instantbox .content .tips {
+    .instantbox .content .tips {
         background-color: #172322;
         padding: 10px;
         color: white;
@@ -60,31 +58,31 @@ textarea.invisible {
         opacity: 0.8;
         margin: 7px;
     }
-    #instantbox .content:hover .tips {
+    .instantbox .content:hover .tips {
         display: block;
     }
-    #instantbox .content img {
+    .instantbox .content img {
         display: block;
     }
-    #instantbox .details {
+    .instantbox .details {
         text-align: center;
     }
-    #instantbox .details .message {
+    .instantbox .details .message {
         cursor: default;
     }
-    #instantbox .tips {
+    .instantbox .tips {
         text-align: center;
         background-color: #172322;
         border-bottom: 1px solid #666;
         padding: 7px;
     }
-    #instantbox .contentitem img.maincontent {
+    .instantbox .contentitem img.maincontent {
         margin-left: 0;
     }
-    #instantbox div.document {
+    .instantbox div.document {
         padding: 20px 20px;
     }
-    #instantbox div.message textarea {
+    .instantbox div.message textarea {
         margin-left: 0;
     }
 .bottom {

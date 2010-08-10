@@ -144,13 +144,20 @@ var Notifications = {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
                 $( document.body ).append( $( this ) );
+                $( '.instantbox form' ).submit( function () {
+                    Notifications.Save();
+                    return false;
+                } );
                 $( '.box' ).click( function() {
+                    if ( !Notifications.TakenOver ) {
+                        Notifications.Shortcuts.Assign( null, Notifications.Save, Notifications.Ignore );
+                    }
                     Notifications.TakeOver();
                     $( '#notifications .box' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
 
                     var element  = $( this ).attr( 'id' ).split( '_' );
-                    Notifications.Select( element[ 1 ] );
+                    Notifications.Select( element[ 1 ], element[ 2 ] );
                 } );
                 $( '#notifications .vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
@@ -161,9 +168,31 @@ var Notifications = {
             } );
         }
     },
-    Select: function ( notificationid ) {
+    Select: function ( notificationtype, notificationid ) {
         $( '.instantbox' ).hide();
-        $( '#ib_' + notificationid ).show();
+        $( '#ib_' + notificationtype + '_' +  notificationid ).show().find( 'textarea' ).focus();
+    },
+    Ignore: function () {
+        var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' )[ 2 ];
+        $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
+    },
+    Save: function() {
+        var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' );
+        var notificationtype = notificationid[ 1 ];
+        notificationid = notification[ 2 ];
+        var form = $( '#ib_' + notificationtype + '_' + notificationid + ' form.save' );
+        var url = form.attr( 'action' );
+        var params = form.serializeArray();
+        var postdata = {};
+        for( param in params ){
+            postdata[ params[ param ].name ] = params[ param ].value;
+        }
+        alert( url );
+        $.post( url, postdata );
+        if( notificationtype != 'comment' ){
+            $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
+        }
+        $( 
     },
     ItemNotification: function( type, id ) {
         $( '.instantbox' ).hide();
