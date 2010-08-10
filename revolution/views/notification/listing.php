@@ -111,7 +111,11 @@
             <age><?= $user[ 'age' ]; ?></age>
             <location><?= $user[ 'place' ][ 'name' ]; ?></location>
             <knows>
-                <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" />
+                <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" >
+					<? if ( $notification[ 'strength' ] > 0 ): ?>
+						<knows/>
+					<? endif; ?>
+				</user>
             </knows>
         </user>
     <?

@@ -82,6 +82,9 @@
                     case EVENT_FRIENDRELATION_CREATED:
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
+						foreach ( $friendinfo as $key => $val ) { //find srtenghts , could b be optimized possibly
+							$friendinfo[ $key ][ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id ' ] );
+						}
                         break;
                     case EVENT_IMAGETAG_CREATED:
                         /*
