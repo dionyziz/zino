@@ -64,13 +64,13 @@
 
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
-			//$name = $album[ 'name' ];
+			$oldname = $album[ 'name' ];
             $success = Album::Update( $id, $name, $description, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $album[ 'id' ] );
             $this->Called( "Album::Item" );
-			if ( User::GetEgoAlbumId( $ownerid )  != $album ) {
+			if ( User::GetEgoAlbumId( $ownerid )  != $albumid ) {
 		        $this->AssertArrayValues( $album, array(
 		            'id' => $id,
 		            'name' => $name,
@@ -81,7 +81,7 @@
 			else {
 				$this->AssertArrayValues( $album, array(
 		            'id' => $id,
-		            'name' => $name,
+		            'name' => $oldname,
 		            'description' => $description,
 		            'mainimageid' => $mainimageid
 		        ) );
