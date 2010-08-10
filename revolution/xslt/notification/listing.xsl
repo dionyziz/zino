@@ -2,7 +2,7 @@
     <div id="notifications" class="panel bottom novideo">
         <div class="background"></div>
         <div class="vbutton"></div>
-        <h3>Ενημερώσεις (<xsl:value-of select="notifications/@count" />)</h3>
+        <h3>Ενημερώσεις (<span><xsl:value-of select="notifications/@count" /></span>)</h3>
         <xsl:apply-templates select="notifications/notification" mode="list"/>
     </div>
     <xsl:apply-templates select="notifications/notification" mode="view"/>
