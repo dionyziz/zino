@@ -84,7 +84,7 @@
                         $friendinfo = Friend::ItemMulti( $ids );
 						foreach ( $friendinfo as $key => $val ) { //find srtenghts , could b be optimized possibly
 							var_dump( $val );
-							$friendinfo[ $key ][ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id ' ] );
+							$friendinfo[ $key ][ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id' ] );
 						}
                         break;
                     case EVENT_IMAGETAG_CREATED:
