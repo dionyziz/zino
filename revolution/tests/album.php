@@ -148,10 +148,8 @@
             $userid1 = (int)( $users[ 1 ][ 'id' ] );
             $userid2 = (int)( $users[ 2 ][ 'id' ] );
 			$egoalbum1 = User::GetEgoAlbumId( $userid1 );
-			return $this->RandomValues( array(
-                array( $userid, 'barcelona', 'I love this place', $egoalbum1  )
-				)
-			);
+			return array( $userid, 'barcelona', 'I love this place', $egoalbum1  );
+
 
             return $this->RandomValues( array(
                 array( $userid, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
