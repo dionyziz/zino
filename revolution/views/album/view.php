@@ -2,13 +2,15 @@
 <album id="<?= $album[ 'id' ] ?>" deleted="yes">
 <? else: ?>
 <album id="<?= $album[ 'id' ] ?>"
-<? if ( $album[ 'egoalbum' ] ): ?>
+<? if ( !empty( $album[ 'egoalbum' ] ) ): ?>
  egoalbum="yes"
 <? endif; ?>
 >
     <author id="<?= $user[ 'id' ] ?>">
         <name><?= $user[ 'name' ] ?></name>
     </author>
-    <? include 'views/photo/listing.php'; ?>
-<? endif; ?>
+    <? if ( isset( $photos ) ): 
+       include 'views/photo/listing.php';
+       endif;
+   endif; ?>
 </album>

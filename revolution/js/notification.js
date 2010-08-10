@@ -514,7 +514,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
-                alert( 'foo' );
+                // alert( 'foo' );
                 $( document.body ).append( $( this ) );
                 /*$( '.box' ).click( function() {
                     Notifications.TakeOver();

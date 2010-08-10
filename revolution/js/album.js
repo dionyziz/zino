@@ -31,7 +31,7 @@ var AlbumListing = {
                         } );
                     } );
                     $( '.useralbums li[class!=egoalbum] a' ).each( function() {
-                    $( this ).append( '<div class="deletebutton">×</div>' );
+                    $( this ).append( '<span class="deletebutton">×</span>' );
                         $( '.deletebutton', this ).click( function( e ) {
                             e.stopImmediatePropagation();
                             if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
@@ -65,6 +65,26 @@ var AlbumListing = {
                             $( '.photostream input' )[ 1 ].value = albumid;
                         }
                         PhotoListing.PreparePhotoList();
+                        $( '.photostream a' ).each( function ( i ) {
+                            var $span = $( '<span class="mainbutton" title="Ορισμός ως προεπιλεγμένης εικόνας του album">↑</span>' );
+                            var spanClicked = false;
+
+                            $span.click( function ( e ) {
+                                spanClicked = true;
+                                $( '#albumlist .selected img' )[ 0 ].src = $( this ).siblings( 'img' )[ 0 ].src;
+                                $.post( 'album/update', {
+                                    albumid: albumid,
+                                    mainimageid: $( this ).parent()[ 0 ].href.split( '/' ).pop(),
+                                } );
+                            } );
+                            $( this ).append( $span );
+                            $( this ).click( function () {
+                                if ( spanClicked ) {
+                                    spanClicked = false;
+                                    return false;
+                                }
+                            } );
+                        } );
                     } );
                     return false;
                 } );

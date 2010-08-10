@@ -60,10 +60,10 @@ div.useralbums .minimize {
         -webit-border-radius: 5px;
         border-radius: 5px;
     }
-    #albumlist li:hover div.deletebutton {
+    #albumlist li:hover span.deletebutton, .photostream li:hover span.mainbutton {
         display: block;
     }
-    #albumlist a div.deletebutton {
+    #albumlist a span.deletebutton, .photostream a span.mainbutton {
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
         background: black;
@@ -76,9 +76,15 @@ div.useralbums .minimize {
         width: 25px;
         display: none;
     }
-    #albumlist a div.deletebutton:hover {
+    .photostream a span.mainbutton {
+        right: 0;
+        top: 11px;
+        text-align: center;
+        font-size: 250%;
+    }
+    #albumlist a span.deletebutton:hover, .photostream a span.mainbutton:hover {
         background: #333;
     }
-    #albumlist a.egoalbum div.deletebutton {
+    #albumlist a.egoalbum span.deletebutton {
         display: none;
     }
