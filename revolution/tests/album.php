@@ -70,7 +70,7 @@
             $success = Album::Update( $id, $name, $description, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
-            $album = Album::Item( $album[ 'id' ] );
+            $album = Album::Item( $albumid );
             $this->Called( "Album::Item" );
 			if ( User::GetEgoAlbumId( $ownerid )  != $albumid ) {
 		        $this->AssertArrayValues( $album, array(
