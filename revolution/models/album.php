@@ -119,7 +119,10 @@
         }
         public static function Delete( $id ) {
             is_numeric( $id ) or die( 'id not numeric' );
-            $success = db( "UPDATE `albums` SET `album_delid` = 1 WHERE `album_id` = :id LIMIT 1;", array( 'id' ) );
+            $success = db(
+                "UPDATE `albums` SET `album_delid` = 1 WHERE `album_id` = :id LIMIT 1;",
+                compact( 'id' )
+            );
             if ( !$success ) {
                 return false;
             }
