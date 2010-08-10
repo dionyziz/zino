@@ -146,7 +146,7 @@
             $userid = (int)( $users[ 0 ][ 'id' ] );
             $userid1 = (int)( $users[ 1 ][ 'id' ] );
             $userid2 = (int)( $users[ 2 ][ 'id' ] );
-			$egoalbum1 = User::GetEgoAlbumId( $user[ 'id' ] );
+			$egoalbum1 = User::GetEgoAlbumId( $userid1 );
 			return $this->RandomValues( array(
                 array( $userid, 'barcelona', 'I love this place', $egoalbum1  )
 				)
