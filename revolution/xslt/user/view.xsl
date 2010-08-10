@@ -361,7 +361,7 @@
                 <xsl:when test="type = 'song'">
                     <span class="head">έβαλε στο προφίλ 
                         <xsl:choose>
-                            <xsl:when test="friend/gender = 'f'"> της </xsl:when>
+                            <xsl:when test="/social/user/gender = 'f'"> της </xsl:when>
                             <xsl:otherwise> του </xsl:otherwise>
                         </xsl:choose>
                         το τραγούδι
