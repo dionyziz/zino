@@ -59,16 +59,22 @@
                 </xsl:if>
             </ul>
             <div class="maininfo">
-                <img class="avatar">
-                    <xsl:choose>
-                        <xsl:when test="avatar[1]/@id = 0">
-                            <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </img>
+                <div id="useravatar">
+                    <xsl:if test="$user = name[1]">
+                        <xsl:attribute name="class">useravatar editable</xsl:attribute>
+                        <div class="changeavatar">Αλλαγή</div>
+                    </xsl:if>
+                    <img class="avatar">
+                        <xsl:choose>
+                            <xsl:when test="avatar[1]/@id = 0">
+                                <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="src"><xsl:value-of select="avatar[1]/media[1]/@url" /></xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </img>
+                </div>
                 <div class="details">
                     <div><span class="username"><xsl:value-of select="name[1]" /></span>
                         <xsl:if test="$user = name[1]">
@@ -79,7 +85,7 @@
                         </xsl:if>
                     </div>
                     <ul class="asl">
-                        <xsl:if test="gender[1] or $user = name[1]">
+                        <xsl:if test="( gender[1] and gender[1] != '-' ) or $user = name[1]">
                             <li class="gender">
                                 <span>
                                     <xsl:call-template name="detailstrings">
@@ -97,7 +103,7 @@
                         </xsl:if>
                         <xsl:if test="age[1] or $user = name[1]">
                             <li class="age">
-                                <xsl:if test="gender[1] or $user = name[1]">
+                                <xsl:if test="( gender[1] and gender[1] != '-' ) or $user = name[1]">
                                     <xsl:attribute name="class">dot</xsl:attribute>
                                 </xsl:if>
                                 <span id="age"><xsl:value-of select="age[1]" /></span>
@@ -107,7 +113,7 @@
                             <li>
                                 <xsl:attribute name="class">
                                     location
-                                    <xsl:if test="gender or age or $user = name[1]">
+                                    <xsl:if test="( gender and gender != '-' ) or age or $user = name[1]">
                                         dot
                                     </xsl:if>
                                 </xsl:attribute>

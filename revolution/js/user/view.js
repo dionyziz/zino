@@ -69,6 +69,17 @@ var Profile = {
             } );
             
             Profile.PrepareInlineEditables();
+            $( '#useravatar' ).click( function() { 
+                alert( 'change avatar' );
+                return false;
+            } );
+        }
+        else {
+            //not your profile
+            $( '#useravatar' ).click( function() { 
+                
+                return false;
+            } );
         }
         if ( $( '.friendship' ).length ) {
             $( '.friendship a' ).click( function( $form ) {

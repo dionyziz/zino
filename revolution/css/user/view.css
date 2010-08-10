@@ -16,6 +16,29 @@
 .maininfo .details {
     margin-left: 110px; 
 }
+.maininfo #useravatar {
+    position: relative;
+    cursor: pointer;
+    display: inline;
+}
+.maininfo #useravatar .changeavatar {
+    display: none;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 14px;
+    width: 106px;
+    top: 46px;
+    left: 0;
+    padding: 2px 0 4px;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.9;
+}
+.maininfo #useravatar:hover .changeavatar {
+    display: block;
+}
 .maininfo img.avatar {
     height: 100px;
     width: 100px;
