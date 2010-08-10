@@ -31,7 +31,7 @@
             clude( 'models/types.php' );
 
             $res = db( 'SELECT SQL_CALC_FOUND_ROWS
-                            `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
+                            `notify_eventid` AS id, `notify_fromuserid` AS userid, `notify_created` AS created, `notify_typeid` AS eventtypeid, `notify_itemid` AS itemid,
                             `user_name` AS name, `user_gender` AS gender, `user_avatarid` AS avatarid
                         FROM
                             `notify`
@@ -59,6 +59,7 @@
                     $user[ 'avatarid' ] = $row[ 'avatarid' ];
                 }
                 $notifications[] = array(
+                    'id' => $row[ 'id' ],
                     'created' => $row[ 'created' ],
                     'eventtypeid' => $row[ 'eventtypeid' ],
                     'itemid' => $row[ 'itemid' ],

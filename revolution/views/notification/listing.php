@@ -1,25 +1,33 @@
-<stream type="notify" count="<?= $count ?>">
+<notifications count="<?= $count ?>">
     <? foreach ( $notifications as $notification ): ?>
+    <notification type="<?
+    switch ( $notification[ 'eventtypeid' ] ):
+        case EVENT_COMMENT_CREATED:
+            ?>comment<?
+        case EVENT_FAVOURITE_CREATED:
+            ?>favourite<?
+        case EVENT_FRIENDRELATION_CREATED:
+            ?>friend<?
+    endswitch;
+    ?>" id="<?= $notification[ 'id' ] ?>">
     <? switch ( $notification[ 'eventtypeid' ] ):
     case EVENT_COMMENT_CREATED: 
-    ?>
-
-    <entry type="<?
     switch ( $notification[ 'comment' ][ 'typeid' ] ):
         case TYPE_PHOTO:
-            ?>photo<?
+            $type = 'photo';
             break;
         case TYPE_POLL:
-            ?>poll<?
+            $type = 'poll';
             break;
         case TYPE_USERPROFILE:
-            ?>user<?
+            $type = 'user';
             break;
         case TYPE_JOURNAL:
-            ?>journal<?
+            $type = 'journal';
             break;
     endswitch;
-    ?>" id="<?= $notification[ 'comment' ][ 'itemid' ] ?>">
+    ?>
+    <<?= $type ?> id="<?= $notification[ 'comment' ][ 'itemid' ] ?>">
         <discussion>
             <? if ( $notification[ 'comment' ][ 'parentid' ] != 0 ): ?>
             <comment id="<?= $notification[ 'comment' ][ 'parentid' ] ?>">
@@ -48,28 +56,23 @@
             </comment>
             <? endif; ?>
         </discussion>
-    </entry>
+    </<?= $type ?>>
     <? 
     break;
     case EVENT_FAVOURITE_CREATED: 
-    ?>
-
-    <entry type="<?
     switch ( $notification[ 'favourite' ][ 'typeid' ] ):
         case TYPE_PHOTO:
-            ?>photo<?
+            $type = 'photo';
             break;
         case TYPE_POLL:
-            ?>poll<?
-            break;
-        case TYPE_USERPROFILE:
-            ?>user<?
+            $type = 'poll';
             break;
         case TYPE_JOURNAL:
-            ?>journal<?
+            $type = 'journal';
             break;
     endswitch;
-    ?>" id="<?= $notification[ 'favourite' ][ 'itemid' ] ?>">
+    ?>
+    <<?= $type ?> id="<?= $notification[ 'favourite' ][ 'itemid' ] ?>">
         <favourites>
             <user id="<?= $notification[ 'favourite' ][ 'user' ][ 'id' ] ?>">
                 <?
@@ -89,12 +92,12 @@
                 <? endif; ?>
             </user>
         </favourites>
-    </entry>
+    </<?= $type ?>>
     <?
     break;
     case EVENT_FRIENDRELATION_CREATED:
         $user = $notification[ 'friendship' ][ 'user' ];
-    ?>
+        ?>
         <user id="<?= $user[ 'id' ] ?>">
             <name><?= $user[ 'name' ] ?></name>
             <? if ( $user[ 'avatarid' ] ): ?>
@@ -112,6 +115,6 @@
     <?
     break;
     endswitch; ?>
+    </notification>
     <? endforeach; ?>
-
-</stream>
+</notifications>
