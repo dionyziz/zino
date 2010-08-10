@@ -5,24 +5,19 @@ var AlbumListing = {
         $( '.useralbums span.minimize' ).click( function() {
             var albumlist = $( '.useralbums' );
             if ( albumlist.hasClass( 'expanded' ) ) {
-                albumlist.removeClass( 'expanded' ).animate( {
-                    height: '22px'
-                } );
+                albumlist.removeClass( 'expanded' ).children( 'ol' ).slideUp();
                 $( this ).text( '▼' );
                 return;
             }
             $( this ).text( '▲' );
-            albumlist.addClass( 'expanded' );
-            albumlist.animate( {
-                height: '210px'
-            } );
+            albumlist.addClass( 'expanded' ).children( 'ol' ).slideDown();
             if( AlbumListing.Initialized ){
                 return;
             }
             AlbumListing.Initialized = true;
             var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
             axslt( albums, '/social', function() {
-                $( '.useralbums' ).append( $( this ).filter( 'ol' ) );
+                $( '.useralbums' ).append( $( this ).filter( 'ol' ) ).children( 'ol' ).hide().slideDown();
                 if( XMLData.author == User ){
                     $( '.useralbums li[class!=egoalbum] p' ).each( function() {
                         var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
@@ -30,20 +25,19 @@ var AlbumListing = {
                             $.post( '?resource=album&method=update', { albumid: albumid, name: title } );
                         } );
                     } );
-                    $( '.useralbums li[class!=egoalbum] a' ).each( function() {
+                    $( '.useralbums li:not(.egoalbum) a' ).each( function() {
                     $( this ).append( '<span class="deletebutton">×</span>' );
                         $( '.deletebutton', this ).click( function( e ) {
                             e.stopImmediatePropagation();
                             if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
                                 var albumid = this.parentNode.href.split( '/' ).pop();
                                 $.post( '?resource=album&method=delete', { albumid: albumid } );
-                                $( this ).parents( 'li' ).fadeOut( 400, function() {
+                                $( this ).parent( 'li' ).fadeOut( 400, function() {
                                     $( this ).remove();
                                 } );
                                 if ( AlbumListing.CurrentAlbum == null || albumid == AlbumListing.CurrentAlbum ) {
                                     axslt( $.get( 'photos/' + User ), '/social/photos', function() {
-                                        $( '.photostream' ).empty().append( this );
-                                        $( '.photostreams .useralbums:last' ).remove();
+                                        $( '.photostream' ).empty().append( $( this ).filter( '.photostream' ).children( 'ul' ) );
                                     } );
                                 }
                             }
