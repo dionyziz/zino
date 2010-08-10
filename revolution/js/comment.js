@@ -5,7 +5,16 @@ var Comment = {
     EndOfComments: false,
     Init: function(){
         if ( window.User ) {
-            Comment.Prepare( $( '.discussion:first' ).find( 'a.talk, .message' ) );
+            $( 'a.talk, .message' )
+            .live( 'mousedown', function(){ Comment.StillMouse = true; } )
+            .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
+            .live( 'click', function( e ){
+                if( $( e.originalTarget ).closest( 'a' ).length ){ //is or is included in an anchor
+                    window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
+                    return false;
+                }
+                return Comment.New.call( this );
+            });
         }
         this.CommentList = $( ".discussion" );
         Comment.AssignEvents();
@@ -114,7 +123,6 @@ var Comment = {
         var callback = ( function( thread ) {
              return function() {
                 var newthread = $( this ).filter( '.thread' );
-                Comment.Prepare( $( newthread ).find( '.message' ) );
                 $( thread ).replaceWith( newthread );
                 newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
                 document.body.style.cursor = 'default';
@@ -156,17 +164,6 @@ var Comment = {
     FadeIn: function( jQnode ) {
         jQnode.stop().css( { 'opacity': 1, 'height': 'auto' } ).show().fadeIn( 170 )
             .find( 'textarea' ).focus();
-    },
-    Prepare: function( collection ) {
-        $( collection )
-            .mousedown( function() { Comment.StillMouse = true; } )
-            .mousemove( function() { Comment.StillMouse = false; } )
-            .mouseup( function( e ) {
-                if( $( e.originalTarget ).is( 'a' ) || $( e.originalTarget ).closest( 'a' ).length ){
-                    return;
-                }
-                return Comment.New.call( this );
-            } );
     },
     LoadAvatar: function() {
         $( '.thread.new .author' ).each( function( i, e ) {
