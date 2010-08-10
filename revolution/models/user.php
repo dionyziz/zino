@@ -186,7 +186,6 @@
                     `user_id` = :userid
                 LIMIT 1;', compact( 'userid' )
             );
-			var_dump( $res );
 			return $res[ 0 ][ 'egoalbumid' ];
         }
         public static function Item( $id ) {
