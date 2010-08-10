@@ -44,7 +44,14 @@
                 $polls = Poll::ListByUser( $user[ 'id' ] );
             }
             else {
-                $polls = Poll::ListRecent();
+				clude( 'models/spot.php' );
+		        $ids  = Spot::GetPolls( 4005, 25 );
+	            if ( is_array( $ids ) ) {
+		            $polls = Poll::ListByIds( $ids );
+	            }
+	            else {
+	            	$polls = Poll::ListRecent();
+	            }
             }
             include 'views/poll/listing.php';
         }
