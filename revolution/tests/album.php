@@ -64,6 +64,7 @@
             // ignore ownerid 
 			echo "In update";
 			echo $ownerid . " " . $name . " " . $description . " ". $albumid . "\n";
+			echo "----" . User::GetEgoAlbumId( $ownerid ) . "\n";
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
