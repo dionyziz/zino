@@ -113,7 +113,7 @@
             <knows>
                 <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" >
 					<? if ( $notification[ 'friendship' ][ 'strength' ] > 0 ): ?>
-						<knows/>
+					<knows/>
 					<? endif; ?>
 				</user>
             </knows>
