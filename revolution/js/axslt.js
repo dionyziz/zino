@@ -36,7 +36,7 @@
  * Example call: xhr.transform( templateName, callback, templateMode, params, xslPath );
  */
 
-function axslt( xml, template, callback, params, xslPath ) {
+var axslt = function( xml, template, callback, params, xslPath ) {
     var templateMode;
     var templateName;
     if ( template.substr( 0, 5 ) == 'call:' ) {
@@ -71,6 +71,43 @@ function axslt( xml, template, callback, params, xslPath ) {
         xslPath = _aXSLT.defaultStylesheet;
     }
     _aXSLT.registerUnit( xml, xslPath, callback, templateName, templateMode, params );
+}
+
+var node_dump = function( nodeset ) {
+    var xmls =  new XMLSerializer();
+    var alertstring = '//Total nodes: ' + nodeset.length + '\n';
+    for ( var i = 0; i < nodeset.length; i++ ) {
+         alertstring += '//Node [' + i + ']:\n' + xmls.serializeToString( nodeset[ i ] ) + '\n\n';
+    }
+    return alertstring;
+}
+
+var node_strip = function( nodeset ) {
+    var ret = [];
+    for ( var i = 0; i < nodeset.length; ++i ) {
+        if ( i == 0 ) {
+            if ( nodeset[ 0 ].nodeType = Node.TEXT_NODE ) {
+                var nodetext = nodeset[ 0 ].nodeValue.replace( /(\s)+/g, '' );
+                if ( nodetext != '' ) {
+                    //nodeset[ 0 ].nodeValue = nodetext;
+                    ret.push( nodeset[ 0 ] );
+                }
+            }
+        }
+        else if ( nodeset.length > 2 && i == nodeset.length - 1 ) {
+            var nodetext = nodeset[ i ].nodeValue.replace( /(\s)+/g, '' );
+            if ( nodetext != ''  ) {
+                if ( nodetext != '' ) {
+                    //nodeset[ 0 ].nodeValue = nodetext;
+                    ret.push( nodeset[ 0 ] );
+                }
+            }
+        }
+        else {
+            ret.push( nodeset[ i ] );
+        }
+    }
+    return ret;
 }
 
 var _aXSLT = {

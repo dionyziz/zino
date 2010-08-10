@@ -21,8 +21,8 @@ var AlbumListing = {
             }
             AlbumListing.Initialized = true;
             var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
-            axslt( albums, '/', function() {
-                $( '.useralbums' ).append( $( this ).find( 'ol' ) );
+            axslt( albums, '/social', function() {
+                $( '.useralbums' ).append( $( this ).filter( 'ol' ) );
                 if( XMLData.author == User ){
                     $( '.useralbums li[class!=egoalbum] p' ).each( function() {
                         var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
