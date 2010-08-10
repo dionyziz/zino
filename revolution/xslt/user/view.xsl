@@ -359,7 +359,13 @@
                     </span>
                 </xsl:when>
                 <xsl:when test="type = 'song'">
-                    <span class="head">έβαλε στο προφίλ του το τραγούδι</span>
+                    <span class="head">έβαλε στο προφίλ 
+                        <xsl:choose>
+                            <xsl:when test="friend/gender = 'f'"> της </xsl:when>
+                            <xsl:otherwise> του </xsl:otherwise>
+                        </xsl:choose>
+                        το τραγούδι
+                    </span>
                     <div class="body"><xsl:value-of select="song/title" /></div>
                 </xsl:when>
                 <xsl:when test="type = 'status'">
