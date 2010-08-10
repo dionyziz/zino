@@ -62,6 +62,14 @@
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
+			echo User::GetEgoAlbumId( 4005 ) . " <---\n";
+			return;
+
+			
+
+
+
+
 			echo "In update";
 			echo $ownerid . " " . $name . " " . $description . " ". $albumid . "\n";
 			echo "----" . User::GetEgoAlbumId( $ownerid ) . "\n";
