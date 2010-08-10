@@ -137,7 +137,7 @@
     </div>
 </xsl:template>
 
-<xsl:template match="notification[@type='comment'">
+<xsl:template match="notification[@type='comment']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
         <div class="details">
@@ -175,7 +175,7 @@
     </div>
 </xsl:template>
 
-<xsl:template match="notification[@type='friend'">
+<xsl:template match="notification[@type='friend']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
         <div class="businesscard">
