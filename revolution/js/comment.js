@@ -141,7 +141,7 @@ var Comment = {
         
         jQnode.animate( { 'opacity': 0.6 }, 500 );
         var text =  $( textarea ).val();
-        $( textarea ).parent().empty().append( text );
+        $( textarea ).parent().empty().text( text );
     },
     TextEvents: function( jQnode, parentid ) {
         jQnode.find( 'textarea' ).keydown( function ( event ) {
