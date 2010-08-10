@@ -1,5 +1,4 @@
 var Comment = {
-    AuthorClicked: false,
     StillMouse: false,
     CommentList: null,
     CurrentCommentPage: 1,
@@ -162,16 +161,11 @@ var Comment = {
         $( collection )
             .mousedown( function() { Comment.StillMouse = true; } )
             .mousemove( function() { Comment.StillMouse = false; } )
-            .mouseup( function() {
-                if ( Comment.AuthorClicked ) {
+            .mouseup( function( e ) {
+                if( $( e.originalTarget ).is( 'a' ) || $( e.originalTarget ).closest( 'a' ).length ){
                     return;
                 }
                 return Comment.New.call( this );
-            } )
-            .click( function() { return false; } )
-            .find( '.author' ).click( function( event ) {
-                Comment.AuthorClicked = true;
-                event.stopPropagation();
             } );
     },
     LoadAvatar: function() {
