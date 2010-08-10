@@ -63,6 +63,7 @@
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
 			echo "In update";
+			echo $ownerid . " " . $name . " " . $description . " ". $albumid . "\n";
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
