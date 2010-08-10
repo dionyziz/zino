@@ -59,22 +59,33 @@
         /**
          * @dataProvider ExampleData
          */
-        public function TestUpdate( $ownerid, $name, $description, $album ) {
+        public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
 
+			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
-            $mainimageid = 0;
-            $success = Album::Update( $album, $name, $description, $mainimageid );
+			//$name = $album[ 'name' ];
+            $success = Album::Update( $id, $name, $description, $mainimageid );
             $this->Assert( $success, 'Album::Update failed' );
 
             $album = Album::Item( $album[ 'id' ] );
             $this->Called( "Album::Item" );
-            $this->AssertArrayValues( $album, array(
-                'id' => $id,
-                'name' => $name,
-                'description' => $description,
-                'mainimageid' => $mainimageid
-            ) );
+			if ( User::GetEgoAlbumId( $ownerid )  != $album ) {
+		        $this->AssertArrayValues( $album, array(
+		            'id' => $id,
+		            'name' => $name,
+		            'description' => $description,
+		            'mainimageid' => $mainimageid
+		        ) );
+			}
+			else {
+				$this->AssertArrayValues( $album, array(
+		            'id' => $id,
+		            'name' => $name,
+		            'description' => $description,
+		            'mainimageid' => $mainimageid
+		        ) );
+			}
             return array( $album[ 'ownerid' ], $album );
         }
         public function TestListByUser( $info ) {
@@ -131,6 +142,12 @@
             $userid = (int)( $users[ 0 ][ 'id' ] );
             $userid1 = (int)( $users[ 1 ][ 'id' ] );
             $userid2 = (int)( $users[ 2 ][ 'id' ] );
+			$egoalbum1 = User::GetEgoAlbumId( $user[ 'id' ] );
+			return $this->RandomValues( array(
+                array( $userid, 'barcelona', 'I love this place', $egoalbum1  )
+				)
+			);
+
             return $this->RandomValues( array(
                 array( $userid, 'kamibu summer meeting', 'photos from our meeting at ioannina' ),
                 array( $userid, 'barcelona', 'I love this place' ),

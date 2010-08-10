@@ -37,7 +37,7 @@
 
             $user = $_SESSION[ 'user' ];
 
-			$egoalbumid = GetEgoAlbumId( $user[ 'id' ] );
+			$egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
 
             $album = Album::Item( $albumid );
             $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
