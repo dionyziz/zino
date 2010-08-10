@@ -55,8 +55,7 @@
                     `poll_delid` = 0 AND
                     `user_deleted` = 0 AND
 					`poll_id` IN :ids			
-				ORDER BY `poll_id` DESC
-				LIMIT :amount', array( 'amount' => $amount, 'ids' => $ids ) 
+				ORDER BY `poll_id` DESC', array( 'ids' => $ids ) 
             );
             $polls = array();
             while ( $row = mysql_fetch_array( $res ) ) {
