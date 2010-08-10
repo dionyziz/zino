@@ -141,6 +141,66 @@
                         <xsl:text>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</xsl:text>
                     </p>
                 </xsl:when>
+                <xsl:when test="favourites">
+                    <div class="businesscard">
+                        <div class="avatar">
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:text>users/</xsl:text>
+                                    <xsl:value-of select="favourites/user/name" />
+                                </xsl:attribute>
+                                <img>
+                                    <xsl:attribute name="src">
+                                        <xsl:choose>
+                                            <xsl:when test="favourites/user/avatar/media">
+                                                <xsl:value-of select="favourites/user/avatar/media/@url" />
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                               <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="alt">
+                                        <xsl:value-of select="favourites/user/name"/>
+                                    <xsl:attribute>
+                                </img>
+                            </a>
+                        </div>
+                        <div class="username">
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:text>users/</xsl:text>
+                                    <xsl:value-of select="favourites/user/name"/>
+                                <xsl:attribute>
+                                <xsl:value-of select="favourites/user/name" />
+                            </a>
+                        </div>
+                        <ul class="details">
+                            <xsl:if test="favourites/user/gender!='-'">
+                                <li>
+                                    <xsl:choose>
+                                        <xsl:when test="favourites/user/gender='f'">
+                                            <xsl:text>Κορίτσι</xsl:text>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:text>Αγόρι</xsl:text>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </li>
+                            </xsl:if>
+                            <xsl:if test="favourites/user/age">
+                                <li>
+                                    <xsl:value-of select="favourites/user/age" />
+                                </li>
+                            </xsl:if>
+                            <xsl:if test="favourites/user/location">
+                                <li>
+                                    <xsl:value-of select="favourites/user/location" />
+                                </li>
+                            </xsl:if>
+                        </ul>
+                    </div>
+                </xsl:text>
                 <xsl:otherwise>
                 </xsl:otherwise>
             </xsl:choose>
