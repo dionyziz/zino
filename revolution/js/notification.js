@@ -150,7 +150,7 @@ var Notifications = {
                 } );
                 $( '.box' ).click( function() {
                     if ( !Notifications.TakenOver ) {
-                        Notifications.Shortcuts.Assign( null, Notifications.Save, Notifications.Ignore );
+                        Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
                     }
                     Notifications.TakeOver();
                     $( '#notifications .box' ).removeClass( 'selected' );
