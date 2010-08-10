@@ -179,7 +179,7 @@ var Notifications = {
     Save: function() {
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' );
         var notificationtype = notificationid[ 1 ];
-        notificationid = notification[ 2 ];
+        notificationid = notificationid[ 2 ];
         var form = $( '#ib_' + notificationtype + '_' + notificationid + ' form.save' );
         var url = form.attr( 'action' );
         var params = form.serializeArray();
