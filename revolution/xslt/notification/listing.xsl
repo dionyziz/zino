@@ -109,15 +109,15 @@
                 <xsl:when test="discussion/comment/comment">
                     <p><strong>
                         <xsl:choose>
-                            <xsl:when test="discussion/comment/comment/gender='f'">
+                            <xsl:when test="discussion/comment/comment/author/gender='f'">
                                 <xsl:text>Η </xsl:text>
-                                <xsl:value-of select="discussion/comment/comment/name" />
-                                <xsl:text>απάντησε στο σχόλιό σου</xsl:text>
+                                <xsl:value-of select="discussion/comment/comment/author/name" />
+                                <xsl:text> απάντησε στο σχόλιό σου</xsl:text>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:text>O </xsl:text>
-                                <xsl:value-of select="discussion/comment/comment/gender" />
-                                <xsl:text>απάντησε στο σχόλιό σου</xsl:text>
+                                <xsl:value-of select="discussion/comment/comment/author/name" />
+                                <xsl:text> απάντησε στο σχόλιό σου</xsl:text>
                             </xsl:otherwise>
                         </xsl:choose>
                     </strong></p>
