@@ -317,6 +317,9 @@
                 $row[ 'profile' ][ $detail ] = $row[ 'profile_' . $detail ];
                 unset( $row[ 'profile_' . $detail ] );
             }
+            if ( $row[ 'profile' ][ 'age' ] > 100 || $row[ 'profile' ][ 'age' ] < 6 ) {
+                unset( $row[ 'profile' ][ 'age' ] );
+            }
             
             if ( isset( $row[ 'profile' ][ 'height' ] ) ) {
                 $height = $row[ 'profile' ][ 'height' ];

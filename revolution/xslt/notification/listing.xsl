@@ -40,7 +40,7 @@
         <div class="details">
             <h4><xsl:value-of select="*/favourites/user/name" /></h4>
             <div class="background"></div>
-            <div class="love">❤</div>
+            <div class="love">♥</div>
         </div>
     </div>
 </xsl:template>
