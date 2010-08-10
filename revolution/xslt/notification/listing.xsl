@@ -131,7 +131,7 @@
 
 <xsl:template match="notification[@type='comment']" mode="view">
     <div class="instantbox">
-        <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
             <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
             <li>Escape = <strong>Αγνόηση</strong></li>
@@ -196,7 +196,7 @@
 
 <xsl:template match="notification[@type='favourite']" mode="view">
     <div class="instantbox">
-        <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
             <li>
                 Enter =
@@ -325,7 +325,7 @@
 
 <xsl:template match="notification[@type='friend']" mode="view">
     <div class="instantbox">
-        <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
             <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
             <li>Escape = <strong>Αγνόηση</strong></li>
