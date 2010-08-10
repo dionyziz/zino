@@ -200,7 +200,7 @@
                             </xsl:if>
                         </ul>
                     </div>
-                </xsl:text>
+                </xsl:when>
                 <xsl:otherwise>
                 </xsl:otherwise>
             </xsl:choose>
