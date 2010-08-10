@@ -41,24 +41,28 @@
             if ( empty( $ids ) || !is_array( $ids ) ) {
                 return array();
             }
-
-            $res = db(
+		
+			$res = db(
                 'SELECT
+					`user_name` as username, `user_subdomain` as subdomain, `user_avatarid` as avatarid, `user_gender` as gender,
                     `poll_id` as id, `poll_question` as question, `poll_url` as url,
-                    `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
-                FROM
-                    `polls`
-                WHERE
-                    `poll_id` IN :ids
-                    AND `poll_delid` = 0', compact( 'ids' )
+                    `poll_userid` as userid, `poll_created` as created , `poll_numvotes` as numvotes, `poll_numcomments` as numcomments 
+				FROM 
+					`polls`
+				CROSS JOIN `users` ON
+					`poll_userid` = `user_id`
+				WHERE 
+                    `poll_delid` = 0 AND
+                    `user_deleted` = 0 AND
+					`poll_id` IN :ids			
+				ORDER BY `poll_id` DESC
+				LIMIT :amount', array( 'amount' => $amount, 'ids' => $ids ) 
             );
-
-            $ret = array();
+            $polls = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                $ret[ $row[ 'id' ] ] = $row;
+                $polls[] = $row;
             }
-
-            return $ret;
+            return $polls;
         }
 		public static function Item( $id ) {
 			$res = db(
