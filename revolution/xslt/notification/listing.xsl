@@ -171,7 +171,7 @@
                             </xsl:choose>
                         </xsl:attribute>
                     </input>
-                    <input type="hidden" name="itemid"><xsl:value-of select="@id" /></input>
+                    <input type="hidden" name="itemid"><xsl:value-of select="*/@id" /></input>
                     <input type="hidden" name="parentid">
                         <xsl:attribute name="value">
                             <xsl:choose>
