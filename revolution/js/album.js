@@ -32,7 +32,7 @@ var AlbumListing = {
                             if ( confirm( 'Διαγραφή αυτού του άλμπουμ;' ) ) {
                                 var albumid = this.parentNode.href.split( '/' ).pop();
                                 $.post( '?resource=album&method=delete', { albumid: albumid } );
-                                $( this ).parent( 'li' ).fadeOut( 400, function() {
+                                $( this ).closest( 'li' ).fadeOut( 400, function() {
                                     $( this ).remove();
                                 } );
                                 if ( AlbumListing.CurrentAlbum == null || albumid == AlbumListing.CurrentAlbum ) {
