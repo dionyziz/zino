@@ -6,12 +6,6 @@
         <xsl:apply-templates select="notifications/notification" mode="list"/>
     </div>
     <div id="instantbox">
-        <ul class="tips">
-            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
-            <li>Escape = <strong>Αγνόηση</strong></li>
-            <li>Shift + Esc = <strong>Θα το δω μετά</strong></li>
-        </ul>
-        <div class="content" />
         <xsl:apply-templates select="notifications/notification" mode="view"/>
     </div>
 </xsl:template>
