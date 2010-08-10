@@ -10,7 +10,9 @@ var Comment = {
             .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
             .live( 'click', function( e ){
                 if( $( e.originalTarget ).closest( 'a' ).length ){ //is or is included in an anchor
-                    window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
+                    if( typeof( $( e.originalTarget ).closest( 'a' ).attr( 'onclick' ) ) != 'function' ){
+                        window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
+                    }
                     return false;
                 }
                 return Comment.New.call( this );
