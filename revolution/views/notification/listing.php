@@ -27,11 +27,15 @@
                 <text><?= $notification[ 'comment' ][ 'parent' ][ 'text' ]; ?></text>
                 <author id="<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'id' ] ?>">
                     <name><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'name' ]; ?></name>
+                    <? if ( !empty( $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'gender' ] ) ): ?>
                     <gender><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'gender' ]; ?></gender>
+                    <? endif; ?>
                     <subdomain><?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'subdomain' ]; ?></subdomain>
+                    <? if ( !empty( $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ] ) ): ?>
                     <avatar>
                         <media url="http://images2.zino.gr/media/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'id' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>/<?= $notification[ 'comment' ][ 'parent' ][ 'user' ][ 'avatarid' ]; ?>" />
                     </avatar>
+                    <? endif; ?>
                 </author>
             <? endif; ?>
             <? endif; ?>
