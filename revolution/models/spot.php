@@ -167,26 +167,20 @@
 
             return $ids;
         }
-        public static function GetPolls( $user, $num = 4 ) {
-            global $libs;
-            global $water;
-            $libs->Load( 'poll/poll' );
-
-            $water->Profile( 'Spot get polls' );
-
-            $userid = $user->Id;
+        public static function GetPolls( $userid, $num = 10 ) {
+            $userid = ( int )$userid;
             $request = "GET POLLS\n$userid\n$num\n";
             $lines = self::SendRequest( $request );
             if ( $lines === false ) {
                 return $lines;
             }
-            foreach ( $lines as $index => $id ) {
-                $lines[ $index ] = (int)$id;
+
+            $ids = array();
+            foreach ( $lines as $id ) {
+                $ids[] = $id;
             }
 
-            $water->ProfileEnd();
-
-            return $lines; // journal ids
+            return $ids; // journal ids
         }
         public static function GetSamecom( $auser, $buser ) { // for testing only.
             $auserid = $auser->Id;
