@@ -196,9 +196,6 @@ var Comment = {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
-            if ( window.User ) {
-                Comment.Prepare( $( '.message', this ) );
-            }
             $( '.time', this ).each( function () {
                 this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
                 $( this ).addClass( 'processedtime' );
