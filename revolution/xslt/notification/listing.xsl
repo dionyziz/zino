@@ -162,7 +162,7 @@
                                     </xsl:attribute>
                                     <xsl:attribute name="alt">
                                         <xsl:value-of select="favourites/user/name"/>
-                                    <xsl:attribute>
+                                    </xsl:attribute>
                                 </img>
                             </a>
                         </div>
@@ -171,7 +171,7 @@
                                 <xsl:attribute name="href">
                                     <xsl:text>users/</xsl:text>
                                     <xsl:value-of select="favourites/user/name"/>
-                                <xsl:attribute>
+                                </xsl:attribute>
                                 <xsl:value-of select="favourites/user/name" />
                             </a>
                         </div>
