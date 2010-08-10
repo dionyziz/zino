@@ -127,6 +127,7 @@ var Chat = {
          }
      },
      Init: function () {
+        return;
         $( '#chatbutton' ).click( function () {
              Chat.Toggle();
              return false;

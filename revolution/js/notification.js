@@ -1,4 +1,5 @@
 var Notifications = {
+    World: null,
     TakenOver: false,
     PendingRequests: 0,
     RequestDone: function () {
@@ -9,7 +10,7 @@ var Notifications = {
     },
     TakeOver: function () {
         Notifications.TakenOver = true;
-        $( '#world' ).remove();
+        Notifications.World = $( '#world' ).detach();
     },
     Navigate: function ( url ) {
         document.body.style.cursor = 'wait';
@@ -76,60 +77,6 @@ var Notifications = {
             Notifications.Done();
         }
     },
-    BusinessCard: function ( avatar, author, gender, age, loc ) {
-        var humangender = 'Αγόρι';
-
-        if ( gender == 'f' ) {
-            humangender = 'Κορίτσι';
-        }
-
-        var list = [ humangender ];
-
-        if ( age ) {
-            list.push( age );
-        }
-        if ( loc ) {
-            list.push( loc );
-        }
-
-        var listhtml = '<li>' + list.join( ' &#8226;</li><li>' ) + '</li>';
-
-        return '<div class="businesscard">'
-                + '<div class="avatar"><a href="users/' + author + '"><img src="' + avatar + '" alt="' + author + '" /></a></div>'
-                + '<div class="username"><a href="users/' + author + '">' + author + '</a></div>'
-                + '<ul class="details">' + listhtml + '</ul>'
-            + '</div>';
-    },
-    NewComment: function () {
-        return '<div class="thread new">'
-                + '<div class="message mine new">'
-                    + '<div><textarea></textarea></div>'
-                + '</div>'
-            + '</div>';
-    },
-    InstantBox: function( details, content, tips ) {
-        if ( typeof tips != 'undefined' && tips.length > 0 ) {
-            tips = '<ul class="tips"><li>' + tips.join( '</li><li>' ) + '</li></ul>';
-        }
-        else {
-            tips = '';
-        }
-        if ( typeof content != 'undefined' && content !== '' ) {
-            content = '<div class="content">' + content + '</div>';
-        }
-        else {
-            content = '';
-        }
-        if ( typeof details != 'undefined' && details !== '' ) {
-            details = '<div class="details">' + details + '</div>';
-        }
-        else {
-            details = '';
-        }
-        return '<div id="instantbox">'
-             + tips + content + details
-             + '<div class="eof"></div></div>';
-    },
     Shortcuts: {
         Save: 0, Skip: 0, Ignore: 0, KeyPressed: false,
         Assign: function ( skip, save, ignore, beforeSave ) {
@@ -193,345 +140,43 @@ var Notifications = {
             }
         }
     },
-    CreateFriendGUI: function ( entry ) {
-        $( '#instantbox' ).remove();
-
-        var userid = entry.attr( 'id' );
-        var gender = entry.find( 'gender' ).text();
-        var author = entry.find( 'name' ).text(); 
-        var avatar = entry.find( 'avatar media' ).attr( 'url' );
-        var article = 'Ο';
-        var artacc = 'τον';
-        var article2 = 'του';
-
-        if ( gender == 'f' ) { 
-            article = 'Η';
-            artacc = 'την';
-            article2 = 'της';
-        }
-        var humanlocation = entry.find( 'location' ).text();
-        var humanage = entry.find( 'age' ).text();
-
-        var html = Notifications.InstantBox( 
-            '<p><strong>' + article + ' ' + author + ' σε πρόσθεσε στους φίλους.</strong></p>'
-            + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
-        );
-
-        $( 'body' ).prepend( html );
-        
-        Notifications.RequestStart();
-        $.get( 'friendship/' + author, {}, function ( res ) {
-            Notifications.RequestDone();
-            var users = $( res ).find( 'user knows user name' );
-            var save, ignore, skip;
-
-            function addFriend() {
-                Notifications.RequestStart();
-                $.post( 'friendship/create', {
-                    username: author
-                }, Notifications.RequestDone );
-                Notifications.DoneWithCurrent();
-            }
-            function ignoreFriend() {
-                Notifications.Delete( { friendname: author } );
-            }
-            for ( var i = 0; i < users.length; ++i ) {
-                if ( $( users[ i ] ).text() == author ) {
-                    // You have already befriended them
-                    $( '#instantbox div.details' ).append(
-                          '<div class="note"><p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
-                        + Notifications.NewComment()
-                        + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p></div>'
-                    );
-                    $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Αποθήκευση μηνύματος</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
-
-                    $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
-                    save = function () {
-                        var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-                        if ( commenttext === '' ) {
-                            $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                            return;
-                        }
-                        Notifications.RequestStart();
-                        $.post( 'comment/create', {
-                            text: commenttext,
-                            typeid: user = 3,
-                            'itemid': userid,
-                            'parentid': 0
-                        }, Notifications.RequestDone );
-                        ignoreFriend();
-                        Notifications.Shortcuts.Remove();
-                    };
-                    ignore = function () {
-                        ignoreFriend();
-                        Notifications.Shortcuts.Remove();
-                    };
-                    skip = function () {
-                        // TODO
-                        Notifications.Shortcuts.Remove();
-                        return false;
-                    };
-                    Notifications.Shortcuts.Assign( skip, save, ignore );
-                    return;
-                }
-            }
-            // else...
-            // you have not friended them
-            $( '#instantbox div.details' ).append(
-                '<a class="friend" href="">Πρόσθεσέ ' + artacc + '!</a>ή <a href="" class="ignore">αγνόησέ ' + artacc + '</a>'
-                + '<textarea class="invisible"></textarea>'
-            );
-            $( '#instantbox' ).prepend( '<ul class="tips"><li>Enter = <strong>Προσθήκη φίλου</strong></li><li>Escape = <strong>Αγνόηση</strong></li><li>Shift + Esc = <strong>Θα το δω μετά</strong></li></ul>' );
-            $( '#instantbox a.friend' ).click( function () {
-                addFriend();
-                return false;
-            } );
-            $( '#instantbox a.ignore' ).click( function () {
-                ignoreFriend();
-                return false;
-            } );
-            $( '#instantbox textarea' ).focus();
-            save = function () {
-                addFriend();
-            };
-            ignore = function () {
-                ignoreFriend();
-            };
-            skip = function () {
-                // TODO
-            };
-            Notifications.Shortcuts.Assign( skip, save, ignore );
-        } );
-    },
-    CreateFavouriteGUI: function ( entry ) {
-        $( '#instantbox' ).remove();
-
-        var id = entry.attr( 'id' );
-        var author = entry.find( 'favourites user name' ).text();
-        var gender = entry.find( 'favourites user gender' ).text();
-        var userid = entry.find( 'favourites user' ).attr( 'id' );
-        var article = 'Ο';
-        var article2 = 'του';
-
-        if ( gender == 'f' ) { 
-            article = 'Η';
-            article2 = 'της';
-        }
-        var avatar = entry.find( 'favourites user avatar media' ).attr( 'url' );
-        var type = entry.attr( 'type' );
-        var humantype = {
-            'photo': 'τη φωτογραφία',
-            'poll': 'τη δημοσκόπηση',
-            'journal': 'το ημερολόγιο'
-        }[ type ];
-        var humanlocation = entry.find( 'favourites user location' ).text();
-        var humanage = entry.find( 'favourites user age' ).text();
-
-        var notificationfavourite = ''
-            + '<div class="thread">'
-                + '<div class="note">'
-                    + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
-                    + '<p><strong>' + article + ' ' + author + ' αγαπάει ' + humantype + ' σου.</strong></p>'
-                    + '<p><strong>Γράψε ένα σχόλιο στο προφίλ ' + article2 + ':</strong></p>'
-                    + Notifications.NewComment()
-                    + '<p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>'
-                + '</div>'
-            + '</div>';
-        var html = Notifications.InstantBox(
-            notificationfavourite,
-            '<div class="tips">Πάτα για μεγιστοποίηση</div>',
-            [ 'Enter = <strong>Αποθήκευση μηνύματος</strong>', 'Escape = <strong>Αγνόηση</strong>', 'Shift + Esc = <strong>Θα το δω μετά</strong>' ]
-        );
-
-        $( 'body' ).prepend( html );
-
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
-        function skip() {
-            // TODO
-            return false;
-        }
-        function save() {
-            var commenttext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-            if ( commenttext === '' ) {
-                $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                return;
-            }
-            Notifications.RequestStart();
-            $.post( 'comment/create', {
-                text: commenttext,
-                typeid: user = 3,
-                'itemid': userid,
-                'parentid': 0
-            }, Notifications.RequestDone );
-            ignore();
-        }
-        function ignore() {
-            Notifications.Delete( {
-                favouritetype: type,
-                favouriteitemid: id,
-                favouriteuserid: userid
-            } );
-        }
-        Notifications.Shortcuts.Assign( skip, save, ignore );
-        Notifications.RequestStart();
-        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
-        axslt( data, '/', function() {
-            $( '#instantbox .content' ).append( $( this ).find( '.contentitem' ) );
-            Notifications.RequestDone();
-        } );
-    },
-    CreateCommentGUI: function ( entry ) {
-        var isreply = entry.find( 'discussion comment comment' ).length > 0; 
-        var commentpath;
-        var parentid = 0;
-
-        $( '#instantbox' ).remove();
-
-        if ( isreply ) {
-            commentpath = 'comment comment';
-            parentid = entry.find( 'comment' ).attr( 'id' );
-        }
-        else {
-            commentpath = 'comment';
-        }
-        var author = entry.find( commentpath + ' author name' ).text();
-        var avatar = entry.find( commentpath + ' author avatar media' ).attr( 'url' );
-        var gender = entry.find( commentpath + ' author gender' ).text();
-        // var humanage = entry.find( commentpath + ' author age' ).text();
-        // var humanlocation = entry.find( commentpath + ' author location' ).text();
-        var comment = innerxml( entry.find( commentpath + ' text' )[ 0 ] );
-        var published = entry.find( commentpath + ' published' ).text(); 
-        var type = entry.attr( 'type' );
-        var commentid = entry.find( commentpath ).attr( 'id' );
-        var id = entry.attr( 'id' );
-        // alert( id + ': ' + comment );
-        var article = 'Ο';
-        var notificationcomment;
-        var submittype, submititemid, submitparentid, submittext;
-
-        if ( gender == 'f' ) {
-            article = 'Η';
-        }
-
-        notificationcomment = ''
-            + '<div class="thread">'
-                + '<div class="message">'
-                    + '<div class="author">'
-                        + '<a href="users/' + author + '"><img class="avatar" src="' + avatar + '" alt="' + author + '" /></a>'
-                        + '<div class="details">'
-                            + '<span class="username">' + author + '</span>'
-                            + '<div class="time">' + published + '</div>'
-                        + '</div>'
-                    + '</div>'
-                    + '<div class="text">' + comment + '</div>'
-                    + '<div class="eof"></div>'
-                + '</div>'
-                + '<div class="note"><strong>Γράψε μία απάντηση:</strong>'
-                    + Notifications.NewComment()
-                + '</div>'
-            + '</div>'
-            + '<div class="note"><p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p></div>';
-        if ( isreply ) {
-            // + Notifications.BusinessCard( avatar, author, gender, humanage, humanlocation )
-            notificationcomment = ''
-                + '<p><strong>' + article + ' ' + author + ' απάντησε στο σχόλιό σου.</strong></p>'
-                + '<div class="thread">'
-                    + '<div class="message">'
-                        + '<div class="author">'
-                            + '<a href="users/' + User + '"><img class="avatar" src="' + '" alt="' + User + '" style="display:none" /></a>'
-                            + '<div class="details">'
-                                + '<span class="username">' + User + '</span>'
-                                + '<div class="time">' + '</div>'
-                            + '</div>'
-                        + '</div>'
-                        + '<div class="text">...</div>'
-                        + '<div class="eof"></div>'
-                        + notificationcomment
-                    + '</div>'
-                + '</div>';
-        }
-
-        var html = Notifications.InstantBox( notificationcomment, '<div class="tips">Πάτα για μεγιστοποίηση</div>', 
-            [ 'Enter = <strong>Αποθήκευση απάντησης</strong>', 'Escape = <strong>Αγνόηση</strong>', 'Shift + Esc = <strong>Θα το δω μετά</strong>' ] );
-
-        $( 'body' ).prepend( html );
-
-        $( '#instantbox .content' ).click( function () {
-            Notifications.Navigate( type + 's/' + id );
-        } );
-        $( '#instantbox > .details .new' ).show().find( 'textarea' ).focus();
-        function skip() {
-            return false;
-        }
-        function beforeSave() {
-            submittext = $( '#instantbox textarea' )[ 0 ].value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
-            submittype = type;
-            submititemid = id;
-            submitparentid = commentid;
-        }
-        function save() {
-            if ( submittext === '' ) {
-                $( '#instantbox textarea' ).css( { 'border': '3px solid red' } )[ 0 ].value = '';
-                return;
-            }
-            Notifications.RequestStart();
-            $.post( 'comment/create', {
-                text: submittext,
-                typeid: {
-                    'poll': 1,
-                    'photo': 2,
-                    'user': 3,
-                    'journal': 4,
-                    'school': 7
-                }[ submittype ],
-                'itemid': submititemid,
-                'parentid': submitparentid
-            }, Notifications.RequestDone );
-            Notifications.DoneWithCurrent();
-        }
-        function ignore() {
-            Notifications.Delete( {
-                'itemid': commentid,
-                'eventtypeid': EVENT_COMMENT_CREATED = 4
-            } );
-        }
-        Notifications.Shortcuts.Assign( skip, save, ignore, beforeSave );
-        if ( isreply ) {
-            Notifications.RequestStart();
-            $.get( 'comments/' + parentid, {}, function ( res ) {
-                Notifications.RequestDone();
-                $( '.message .author img' ).show()[ 0 ].src = $( res ).find( 'author avatar media' ).attr( 'url' );
-                $( '.message .text' )[ 0 ].innerHTML = innerxml( $( res ).find( ' text' )[ 0 ] );
-            } );
-        }
-        Notifications.RequestStart();
-        var data = $.get( type + 's/' + id, { 'verbose': 0 } );
-        axslt( data, '/', function() {
-            $( '#instantbox .content' ).append( $( this ).find( '.contentitem' ) );
-            Notifications.RequestDone();
-        } );
-    },
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
-                // alert( 'foo' );
                 $( document.body ).append( $( this ) );
-                /*$( '.box' ).click( function() {
+                $( '.box' ).click( function() {
                     Notifications.TakeOver();
                     $( '#notifications .box' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
-                    //        Notifications.CreateCommentGUI( e );
-                    //        Notifications.CreateFavouriteGUI( e );
-                    //        Notifications.CreateFriendGUI( e );
+
+                    var element  = $( this ).attr( 'id' ).split( '_' );
+                    switch( element[ 0 ] ){
+                        case 'user':
+                            Notifications.UserNotification( element[ 1 ] );
+                            break;
+                        default:
+                            Notifications.ItemNotification( element[ 0 ], element[ 1 ] );
+                    }
                 } );
                 $( '#notifications .vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
                         Notifications.Done();
                     }
-                    Notifications.hide();
-                } );*/
+                    Notifications.Hide();
+                } );
             } );
         }
+    },
+    UserNotification: function( userid ) {
+        $( '.instantbox' ).hide();
+        $( '#ib_user_' + userid ).show();
+    },
+    ItemNotification: function( type, id ) {
+        $( '.instantbox' ).hide();
+        $( '#ib_' + type + '_' +  id ).show();
+        axslt( $.get( type + 's/' + id, { verbose: 0 } ), '/social', function() {
+            $( '#ib_' + type + '_' +  id ).prepend( this );
+        } );
     },
     Hide: function() {
         $( '#notifications' ).hide();

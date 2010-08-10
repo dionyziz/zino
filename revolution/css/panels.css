@@ -35,10 +35,13 @@ textarea.invisible {
 .love {
     white-space: nowrap;
 }
+.instantbox {
+    display: none;
+}
 #instantbox {
     margin-bottom: 150px;
 }
-    #instantbox > .content {
+    #instantbox .contentitem {
         float: right;
         width: 50%;
         overflow: hidden;
@@ -60,16 +63,16 @@ textarea.invisible {
     #instantbox .content:hover .tips {
         display: block;
     }
-    #instantbox > .content img {
+    #instantbox .content img {
         display: block;
     }
-    #instantbox > .details {
+    #instantbox .details {
         text-align: center;
     }
-    #instantbox > .details .message {
+    #instantbox .details .message {
         cursor: default;
     }
-    #instantbox > .tips {
+    #instantbox .tips {
         text-align: center;
         background-color: #172322;
         border-bottom: 1px solid #666;

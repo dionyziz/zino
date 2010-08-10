@@ -4,16 +4,21 @@
         <div>
             <xsl:attribute name="class">message<xsl:if test="/social/@for = author[1]/name[1]"> mine</xsl:if></xsl:attribute>
             <div class="author">
-                <xsl:if test="author[1]/avatar[1]">
-                    <a>
-                        <xsl:attribute name="href">users/<xsl:value-of select="author[1]/name[1]" /></xsl:attribute>
-                        <img class="avatar">
-                            <xsl:attribute name="src">
-                                <xsl:value-of select="author[1]/avatar[1]/media[1]/@url" />
-                            </xsl:attribute>
-                        </img>
-                    </a>
-                </xsl:if>
+                <a>
+                    <xsl:attribute name="href">users/<xsl:value-of select="author[1]/name[1]" /></xsl:attribute>
+                    <img class="avatar">
+                        <xsl:attribute name="src">
+                            <xsl:choose>
+                                <xsl:when test=".//media">
+                                    <xsl:value-of select=".//media/@url" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:attribute>
+                    </img>
+                </a>
                 <div class="details">
                     <span class="username"><xsl:value-of select="author[1]/name[1]" /></span>
                     <div class="time">

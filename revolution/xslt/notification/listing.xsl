@@ -8,7 +8,16 @@
             <xsl:text>)</xsl:text>
         </h3>
         <xsl:apply-templates select="stream/*" mode="list"/>
-    </div> 
+    </div>
+    <div id="instantbox">
+        <ul class="tips">
+            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+            <li>Shift + Esc = <strong>Θα το δω μετά</strong></li>
+        </ul>
+        <div class="content" />
+        <xsl:apply-templates select="stream/*" mode="view"/>
+    </div>
 </xsl:template>
 
 <xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="list">
@@ -80,35 +89,61 @@
     </div>
 </xsl:template>
 
-<xsl:template match="/social[@resource='notification' and @method='listing']/stream/entry" mode="view">
-<div class="content">
-    <xsl:choose>
-        <xsl:when test="@type='photo'">
-            <div class="tips">Πάτα για μεγιστοποίηση</div>
-                <div class="contentitem">
-                    <xsl:attribute name="id">
-                        <xsl:text>photo_</xsl:text>
-                        <xsl:value-of select="@id" />
-                    </xsl:attribute>
-                    <div class="image">
-                        <img class="maincontent">
-                            <xsl:attribute name="src">
-                            </xsl:attribute>
-                        </img>
-                    </div>
-                    <div class="title">
-                        
-                    </div>
-                    <div class="note">
-
-                    </div>
-                </div>
-            </xsl:when>
-            <xsl:otherwise>
-            </xsl:otherwise>
-        </xsl:choose>
-    </div>
-    <div class="details">
-        
+<xsl:template match="/social[@resource='notification' and @method='listing']/stream/*" mode="view">
+    <div class="instantbox">
+        <xsl:attribute name="id">
+            <xsl:text>ib_</xsl:text>
+            <xsl:choose>
+                <xsl:when test="name">
+                    <xsl:text>user_</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="@type"/>
+                    <xsl:text>_</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="@id"/>
+        </xsl:attribute>
+        <div class="details">
+            <xsl:choose>
+                <xsl:when test="discussion/comment/comment">
+                    <p><strong>
+                        <xsl:choose>
+                            <xsl:when test="discussion/comment/gender='f'">
+                                <xsl:text>Η </xsl:text>
+                                <xsl:value-of select="discussion/comment/name" />
+                                <xsl:text>απάντησε στο σχόλιό σου</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>O </xsl:text>
+                                <xsl:value-of select="discussion/comment/name" />
+                                <xsl:text>απάντησε στο σχόλιό σου</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </strong></p>
+                    <xsl:apply-templates select="discussion/comment"/>
+                    <p class="note">
+                        <div class="thread new" style="display: block;">
+                            <div class="message mine new">
+                                <div><textarea></textarea></div>
+                            </div>
+                        </div>
+                    </p>
+                </xsl:when>
+                <xsl:when test="discussion/comment">
+                    <xsl:apply-templates select="discussion/comment"/>
+                    <p class="note">
+                        <div class="thread new" style="display: block">
+                            <div class="message mine new">
+                                <div><textarea></textarea></div>
+                            </div>
+                        </div>
+                        <xsl:text>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</xsl:text>
+                    </p>
+                </xsl:when>
+                <xsl:otherwise>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
     </div>
 </xsl:template>
