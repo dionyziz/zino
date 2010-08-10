@@ -62,7 +62,7 @@
          */
         public function TestUpdate( $ownerid, $name, $description, $albumid, $mainimageid = 0  ) {
             // ignore ownerid 
-
+			echo "In update";
 			$album = Album::Item( $albumid );
             $id = $album[ 'id' ];
 			$oldname = $album[ 'name' ];
@@ -87,6 +87,7 @@
 		            'mainimageid' => $mainimageid
 		        ) );
 			}
+			echo "Off update";
             return array( $album[ 'ownerid' ], $album );
         }
         public function TestListByUser( $info ) {
