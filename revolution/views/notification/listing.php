@@ -4,8 +4,10 @@
     switch ( $notification[ 'eventtypeid' ] ):
         case EVENT_COMMENT_CREATED:
             ?>comment<?
+            break;
         case EVENT_FAVOURITE_CREATED:
             ?>favourite<?
+            break;
         case EVENT_FRIENDRELATION_CREATED:
             ?>friend<?
     endswitch;

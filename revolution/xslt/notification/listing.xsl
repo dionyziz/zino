@@ -16,7 +16,7 @@
     </div>
 </xsl:template>
 
-<xsl:template match="notification[type='favourite']" mode="list">
+<xsl:template match="notification[@type='favourite']" mode="list">
     <div class="box">
         <xsl:attribute name="id">notification_<xsl:value-of select="@id" /></xsl:attribute>
         <div>
@@ -40,7 +40,7 @@
     </div>
 </xsl:template>
 
-<xsl:template match="notification[type='friend']" mode="list">
+<xsl:template match="notification[@type='friend']" mode="list">
     <div class="box">
         <xsl:attribute name="id">notification_<xsl:value-of select="@id" /></xsl:attribute>
         <div>
@@ -72,7 +72,7 @@
     </div>
 </xsl:template>
 
-<xsl:template match="notification[type='comment']" mode="list">
+<xsl:template match="notification[@type='comment']" mode="list">
     <div class="box">
         <xsl:attribute name="id">notification_<xsl:value-of select="@id" /></xsl:attribute>
         <div>
