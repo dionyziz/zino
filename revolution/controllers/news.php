@@ -5,7 +5,16 @@
             clude( 'models/poll.php' );
             clude( 'models/journal.php' );
             clude( 'models/photo.php' );
-            $polls = Poll::ListRecent( 25 );
+            clude( 'models/spot.php' );
+
+	        $ids  = Spot::GetPolls( 4005, 25 );//polls from spot
+            if ( is_array( $ids ) ) {
+	            $polls = Poll::ListByIds( $ids );
+            }
+            else {
+            	$polls = Poll::ListRecent( 25 );
+            }
+
             $journals = Journal::ListRecent( 25 );
             $photos = Photo::ListRecent( 0, 25 );
             $content = array();
