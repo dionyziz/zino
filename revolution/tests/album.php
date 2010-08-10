@@ -149,7 +149,7 @@
             $userid2 = (int)( $users[ 2 ][ 'id' ] );
 			$egoalbum1 = User::GetEgoAlbumId( $userid1 );
 			return array( 
-				array( $userid, 'barcelona', 'I love this place', $egoalbum1  )
+				array( $userid1, 'barcelona', 'I love this place', $egoalbum1  )
 			);
 
 
