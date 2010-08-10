@@ -21,9 +21,11 @@
                 </a>
                 <div class="details">
                     <span class="username"><xsl:value-of select="author[1]/name[1]" /></span>
-                    <div class="time">
-                        <xsl:value-of select="published" />
-                    </div>
+                    <xsl:if test="published">
+                        <div class="time">
+                            <xsl:value-of select="published" />
+                        </div>
+                    </xsl:if>
                 </div>
             </div>
             <div class="text">
