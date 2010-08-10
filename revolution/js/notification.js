@@ -150,13 +150,7 @@ var Notifications = {
                     $( this ).addClass( 'selected' );
 
                     var element  = $( this ).attr( 'id' ).split( '_' );
-                    switch( element[ 0 ] ){
-                        case 'user':
-                            Notifications.UserNotification( element[ 1 ] );
-                            break;
-                        default:
-                            Notifications.ItemNotification( element[ 0 ], element[ 1 ] );
-                    }
+                    Notifications.Select( element[ 1 ] );
                 } );
                 $( '#notifications .vbutton' ).click( function () {
                     if ( Notifications.TakenOver ) {
@@ -167,9 +161,9 @@ var Notifications = {
             } );
         }
     },
-    UserNotification: function( userid ) {
+    Select: function ( notificationid ) {
         $( '.instantbox' ).hide();
-        $( '#ib_user_' + userid ).show();
+        $( '#ib_' + notificationid ).show();
     },
     ItemNotification: function( type, id ) {
         $( '.instantbox' ).hide();

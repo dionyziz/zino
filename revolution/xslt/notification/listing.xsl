@@ -140,6 +140,10 @@
 <xsl:template match="notification[@type='comment']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <ul class="tips">
+            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+        </ul>
         <div class="details">
             <form action="comment/create" method="post" class="save">
                 <xsl:choose>
@@ -194,23 +198,6 @@
                     Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο
                 </p>
             </form>
-            <form action="notification/delete" method="post" class="ignore">
-                <p>
-                    <input type="hidden" name="eventtypeid" value="4" />
-                    <input type="hidden" name="itemid">
-                        <xsl:attribute name="value">
-                            <xsl:choose>
-                                <xsl:when test="*/discussion/comment/comment">
-                                    <xsl:value-of select="*/discussion/comment/comment/@id" />
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="*/discussion/comment/@id" />
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:attribute>
-                    </input>
-                </p>
-            </form>
         </div>
     </div>
 </xsl:template>
@@ -218,6 +205,20 @@
 <xsl:template match="notification[@type='favourite']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <ul class="tips">
+            <li>
+                Enter =
+                <xsl:choose>
+                    <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->
+                        <strong>Αποθήκευση μηνύματος</strong>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <strong>Προσθήκη φίλου</strong>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+        </ul>
         <div class="details">
             <div class="thread">
                 <div class="note">
@@ -324,29 +325,6 @@
                     </form>
                 </div>
             </div>
-            <form action="notification/delete" method="post" class="ignore">
-                <p>
-                    <input type="hidden" name="favouritetype">
-                        <xsl:attribute name="value">
-                            <xsl:choose>
-                                <xsl:when test="poll">1</xsl:when>
-                                <xsl:when test="photo">2</xsl:when>
-                                <xsl:when test="journal">4</xsl:when>
-                            </xsl:choose>
-                        </xsl:attribute>
-                    </input>
-                    <input type="hidden" name="favouriteitemid">
-                        <xsl:attribute name="value">
-                            <xsl:value-of select="@id" />
-                        </xsl:attribute>
-                    </input>
-                    <input type="hidden" name="favouriteuserid">
-                        <xsl:attribute name="value">
-                            <xsl:value-of select="*/favourites/user/@id" />
-                        </xsl:attribute>
-                    </input>
-                </p>
-            </form>
         </div>
         <div class="content"><!-- TODO: load content here using axslt? -->
         </div>
@@ -356,6 +334,10 @@
 <xsl:template match="notification[@type='friend']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@id"/></xsl:attribute>
+        <ul class="tips">
+            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+        </ul>
         <div class="details">
             <p><strong>
                 <xsl:choose>
@@ -491,14 +473,5 @@
                 </a>
             </xsl:otherwise>
         </xsl:choose>
-        <form action="notification/delete" method="post" class="ignore">
-            <p>
-                <input type="hidden" name="friendname">
-                    <xsl:attribute name="value">
-                        <xsl:value-of select="user/name" />
-                    </xsl:attribute>
-                </input>
-            </p>
-        </form>
     </div>
 </xsl:template>
