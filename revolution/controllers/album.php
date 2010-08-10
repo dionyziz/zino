@@ -33,11 +33,23 @@
 
             clude( 'models/db.php' );
             clude( 'models/album.php' );
+			clude( 'models/user.php' );
 
             $user = $_SESSION[ 'user' ];
 
+			$egoalbumid = GetEgoAlbumId( $user[ 'id' ] );
+
             $album = Album::Item( $albumid );
             $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
+
+			if ( $egoalbumid == $albumid ) {
+				if ( !empty( $name ) ) {
+					$name = $album[ 'name' ];
+				}
+				if ( $mainimageid != 0 ) { //change useravatarid when egoalbums mainimageid is changed 
+					User::UpdateAvatarid( $user[ 'id' ], $mainimageid );
+				}
+			}
 
             if ( empty( $name ) ) {
                 $name = $album[ 'name' ];
