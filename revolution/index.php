@@ -21,6 +21,7 @@
         switch ( $_SESSION[ 'user' ][ 'name' ] ) {
             case 'shinda_tori':
             case 'Maybeshewill':
+            case 'Beren2112':
                 die( 'Access denied' );
             default:
         }
