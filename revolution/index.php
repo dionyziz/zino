@@ -19,15 +19,18 @@
             $_SESSION[ 'user' ] = $user;
         }
     }
-    switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
-        case 'shinda_tori':
-        case 'maybeshewill':
-        case 'beren2112':
-        case 'donhoulio':
-        case 'satanoulis':
-        case 'annaaa':
-            die( 'Access denied' );
-        default:
+    if ( isset( $_SESSION[ 'user' ] ) ) {
+        switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
+            case 'shinda_tori':
+            case 'maybeshewill':
+            case 'maybeshewiii':
+            case 'beren2112':
+            case 'donhoulio':
+            case 'satanoulis':
+            case 'annaaa':
+                die( 'Access denied' );
+            default:
+        }
     }
     
     $resource = $method = '';
