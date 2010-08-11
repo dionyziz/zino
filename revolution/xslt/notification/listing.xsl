@@ -59,7 +59,7 @@
             </img>
         </div>
         <div class="details">
-            <h4><xsl:value-of select="*/favourites/user/name" /></h4>
+            <h4><xsl:value-of select="user/name" /></h4>
             <div class="friend">
                 <xsl:choose>
                     <xsl:when test="user/gender='f'">
@@ -136,6 +136,7 @@
             <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
             <li>Escape = <strong>Αγνόηση</strong></li>
         </ul>
+        <div class="content"></div>
         <div class="details">
             <form action="comment/create" method="post" class="save">
                 <xsl:choose>
@@ -161,6 +162,16 @@
                     </xsl:otherwise>
                 </xsl:choose>
                 <p class="note">
+                    <input type="hidden" name="type">
+                        <xsl:attribute name="value">
+                            <xsl:choose>
+                                <xsl:when test="poll">poll</xsl:when>
+                                <xsl:when test="photo">photo</xsl:when>
+                                <xsl:when test="user">user</xsl:when>
+                                <xsl:when test="journal">journal</xsl:when>
+                            </xsl:choose>
+                        </xsl:attribute>
+                    </input>
                     <input type="hidden" name="typeid">
                         <xsl:attribute name="value">
                             <xsl:choose>
@@ -217,6 +228,7 @@
             </li>
             <li>Escape = <strong>Αγνόηση</strong></li>
         </ul>
+        <div class="content"></div>
         <div class="details">
             <div class="thread">
                 <div class="note">
@@ -323,8 +335,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="content"><!-- TODO: load content here using axslt? -->
         </div>
     </div>
 </xsl:template>

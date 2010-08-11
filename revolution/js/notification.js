@@ -164,7 +164,7 @@ var Notifications = {
                     $( '#notifications .box' ).removeClass( 'selected' );
                     $( this ).addClass( 'selected' );
 
-                    var element  = $( this ).attr( 'id' ).split( '_' );
+                    var element = $( this ).attr( 'id' ).split( '_' );
                     Notifications.Select( element[ 1 ], element[ 2 ] );
                 } );
                 $( '#notifications .vbutton' ).click( function () {
@@ -177,8 +177,23 @@ var Notifications = {
         }
     },
     Select: function ( notificationtype, notificationid ) {
+        var $ib = $( '#ib_' + notificationtype + '_' + notificationid );
+        if ( notificationtype == 'comment' ) {
+            var $form = $ib.find( 'form.save' );
+            var url = $form.find( 'input[name="type"]' ).val() + 's/'
+                    + $form.find( 'input[name="itemid"]' ).val();
+            axslt( $.get( url + '?verbose=0' ), '/social',
+                function () {
+                    $ib.find( '.content' ).append( $( this ) );
+                    $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
+                    $ib.find( '.content' ).click( function () {
+                        Notifications.Navigate( url );
+                    } );
+                }
+            );
+        }
         $( '.instantbox' ).hide();
-        $( '#ib_' + notificationtype + '_' +  notificationid ).show().find( 'textarea' ).focus();
+        $ib.show().find( 'textarea' ).focus();
     },
     Ignore: function () {
         Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
