@@ -18,14 +18,14 @@
         if ( $user !== false ) {
             $_SESSION[ 'user' ] = $user;
         }
-        switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
-            case 'shinda_tori':
-            case 'maybeshewill':
-            case 'beren2112':
-            case 'donhoulio':
-                die( 'Access denied' );
-            default:
-        }
+    }
+    switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
+        case 'shinda_tori':
+        case 'maybeshewill':
+        case 'beren2112':
+        case 'donhoulio':
+            die( 'Access denied' );
+        default:
     }
     
     $resource = $method = '';
