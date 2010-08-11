@@ -187,11 +187,15 @@ var Notifications = {
         for( param in params ){
             postdata[ params[ param ].name ] = params[ param ].value;
         }
-        alert( url );
+        if( form.find( 'textarea' ).text() == '' ){
+            form.find( 'textarea' ).css( { border: '3px solid red' } ).focus();
+            return;
+        }
         $.post( url, postdata );
         if( notificationtype != 'comment' ){
             $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
         }
+        Notifications.DoneWithCurrent();
     },
     ItemNotification: function( type, id ) {
         $( '.instantbox' ).hide();
@@ -202,5 +206,6 @@ var Notifications = {
     },
     Hide: function() {
         $( '#notifications' ).hide();
+        Notifications.Remove();
     }
 };
