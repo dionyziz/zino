@@ -78,6 +78,7 @@
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             clude( 'models/album.php' );
+			clude( 'models/user.php' );
     
             $user = $_SESSION[ 'user' ];
             $userid = $_SESSION[ 'user' ][ 'id' ];
