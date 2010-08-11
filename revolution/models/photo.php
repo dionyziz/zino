@@ -78,11 +78,12 @@
                         ON i.`image_userid` = `user_id`
                     LEFT JOIN `images` as next
                         ON i.`image_userid` = next.`image_userid` AND
-                        next.`image_id` > i.`image_id`
+                        next.`image_id` > i.`image_id` AND
+						next.`image_delid` = 0
                     LEFT JOIN `images` as previous
                         ON i.`image_userid` = previous.`image_userid` AND
-                        previous.`image_id` < i.`image_id`
-
+                        previous.`image_id` < i.`image_id` AND
+						previous.`image_delid` = 0
                 WHERE
                     i.`image_id` = :id 
                 GROUP BY
