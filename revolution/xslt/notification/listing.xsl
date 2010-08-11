@@ -182,7 +182,9 @@
                                 <xsl:when test="*/discussion/comment/comment">
                                     <xsl:value-of select="*/discussion/comment/comment/@id" />
                                 </xsl:when>
-                                <xsl:otherwise>0</xsl:otherwise>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="*/discussion/comment/@id" />
+                                </xsl:otherwise>
                             </xsl:choose>
                         </xsl:attribute>
                     </input>
