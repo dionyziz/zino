@@ -40,7 +40,6 @@
             <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-            <script type="text/javascript" src="http://www.zino.gr/js/date.js"></script>
 			<script type="text/javascript" src="global.js"></script>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
