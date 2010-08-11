@@ -176,9 +176,8 @@
 .textmessages strong.self {
     color: #999;
 }
-.textmessages #chatmessages img {
+.textmessages #chatmessages ol img {
     max-height: 200px;
-    display: none;
 }
 .textmessages ol {
     list-style: none;
