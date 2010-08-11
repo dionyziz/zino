@@ -70,15 +70,24 @@ var Profile = {
             
             Profile.PrepareInlineEditables();
             $( '#useravatar' ).click( function() { 
-                alert( 'change avatar' );
-                return false;
+                $.get( 'albums/' + $( '.maininfo .username' ).text(), {}, function( res ) {
+                    var egoalbumid = $( res ).find( 'album[egoalbum=yes]' ).attr( 'id' );
+                    axslt( $.get( 'albums/' + egoalbumid ), 'call:user.avatar.edit', function() {
+                        var $modal = $( this ).filter( 'div' );
+                        $modal.prependTo( 'body' ).modal();
+                        $modal.find( 'a.noimage' ).attr( 'href', 'albums/' + egoalbumid );
+                        $modal.find( 'ul li' ).click( function( event ) {
+                            $.post( 'album/update', { albumid: egoalbumid, mainimageid: $( this ).attr( 'id' ).split( '_' )[1] } );
+                            $( '#useravatar' ).find( 'img' ).attr( 'src', $( this ).find( 'img' ).attr( 'src' ) );
+                            $modal.jqmHide().remove();
+                        } );
+                    } );
+                } );
             } );
         }
         else {
-            //not your profile
             $( '#useravatar' ).click( function() { 
-                
-                return false;
+                window.location.href = 'photos/' + $( '.maininfo .username' ).text();
             } );
         }
         if ( $( '.friendship' ).length ) {

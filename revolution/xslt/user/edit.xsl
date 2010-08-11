@@ -64,3 +64,25 @@
         </ul>
     </div>
 </xsl:template>
+
+<xsl:template name="user.avatar.edit">
+    <div class="avataredit modal">
+        <h2>Αλλαγή εικόνας</h2>
+        <div class="scrollbox">
+            <xsl:choose>
+                <xsl:when test="//photos/photo">
+                    <ul><xsl:attribute name="style">width: <xsl:value-of select="count( //photos/photo ) * 110" />px</xsl:attribute>
+                        <xsl:for-each select="//photos/photo">
+                            <li><xsl:attribute name="id">avphoto_<xsl:value-of select="@id" /></xsl:attribute>
+                                <img><xsl:attribute name="src"><xsl:value-of select="media/@url" /></xsl:attribute></img>
+                            </li>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:when>
+                <xsl:otherwise>
+                    <div>Δεν έχεις ανεβάσει καμία εικόνα στο <a class="noimage" href="">album</a> σου.</div>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </div>
+</xsl:template>
