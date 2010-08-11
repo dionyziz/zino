@@ -173,11 +173,13 @@ var Notifications = {
         $( '#ib_' + notificationtype + '_' +  notificationid ).show().find( 'textarea' ).focus();
     },
     Ignore: function () {
+        Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' )[ 2 ];
         $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
         DoneWithCurrent();
     },
     Save: function() {
+        Notifications.Shortcuts.Assign( function(){}, Notifications.Save, Notifications.Ignore );
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' );
         var notificationtype = notificationid[ 1 ];
         notificationid = notificationid[ 2 ];
