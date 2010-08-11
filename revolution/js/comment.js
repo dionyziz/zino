@@ -9,7 +9,7 @@ var Comment = {
             .live( 'mousedown', function(){ Comment.StillMouse = true; } )
             .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
             .live( 'click', function( e ){
-                if( $( e.originalTarget ).closest( 'a' ).length ){ //is or is included in an anchor
+                if( $( e.originalTarget ).closest( 'a' ).length && !$( this ).hasClass( 'talk' ) ){ //is or is included in an anchor
                     if( typeof( $( e.originalTarget ).closest( 'a' ).attr( 'onclick' ) ) != 'function' ){
                         window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
                     }

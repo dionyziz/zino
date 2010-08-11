@@ -31,7 +31,6 @@ div.useralbums .minimize {
 }
 #albumlist {    
     white-space: nowrap;
-    height: 185px;
     overflow: auto;
     width: 100%;
     margin-top: 5px;
@@ -41,6 +40,8 @@ div.useralbums .minimize {
         vertical-align: top;
         margin: 4px 10px;
         position: relative;
+        width: 134px;
+        overflow: hidden;
     }
     #albumlist li a {
         text-decoration: none;
