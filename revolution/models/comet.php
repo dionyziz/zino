@@ -60,6 +60,7 @@
             /* int or array of ints */ $tunnelid,
             $xml
             ) {
+            return;
             if ( is_array( $tunnelid ) ) {
                 foreach ( $tunnelid as $id ) {
                     self::Publish( $id, $xml );
@@ -88,6 +89,7 @@
     }
     class PushChannel {
         public static function Publish( $channelid, $xml ) {
+            return;
             $xml = '<channel id="' . $channelid . '">' . $xml . '</channel>';
             $res = db(
                 'SELECT
