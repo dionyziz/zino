@@ -18,10 +18,11 @@
         if ( $user !== false ) {
             $_SESSION[ 'user' ] = $user;
         }
-        switch ( $_SESSION[ 'user' ][ 'name' ] ) {
+        switch ( strtolower( $_SESSION[ 'user' ][ 'name' ] ) ) {
             case 'shinda_tori':
-            case 'Maybeshewill':
-            case 'Beren2112':
+            case 'maybeshewill':
+            case 'beren2112':
+            case 'donhoulio':
                 die( 'Access denied' );
             default:
         }
