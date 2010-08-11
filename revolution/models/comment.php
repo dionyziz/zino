@@ -148,6 +148,10 @@
             clude( 'models/notification.php' );
             clude( 'models/agent.php' );
 
+			if ( !is_int( $itemid ) || !is_int( $parentid ) ) {
+				return false;
+			}
+
             switch ( $typeid ) {
                 case TYPE_POLL:
                     clude( 'models/poll.php' );
