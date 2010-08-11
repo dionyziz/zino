@@ -22,8 +22,7 @@ var ItemView = {
             $( 'a.love' ).show();
             if ( $( 'a.love' ).length ) {
                 $( 'a.love' )[ 0 ].onclick = function () {
-                    var nodeid = $( '.love' )[ 0 ].id;
-                    var id = nodeid.substring( nodeid.indexOf( '_' ) + 1 );
+                    var id = $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ];
                     $.post( 'favourite/create', { typeid: typeid, itemid: id } );
                     this.href = '';
                     this.style.cursor = 'default';
