@@ -233,7 +233,7 @@ textarea.invisible {
             padding: 0;
             margin: 0;
             z-index: -1;
-            background: url( http://images2.zino.gr/media/4571/_239510/239510_150.jpg );
+            /* background: url( http://images2.zino.gr/media/4571/_239510/239510_150.jpg ); */
             opacity: 0.2;
         }
             .panel .box div.details div.text {
