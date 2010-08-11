@@ -24,6 +24,8 @@
         case 'maybeshewill':
         case 'beren2112':
         case 'donhoulio':
+        case 'satanoulis':
+        case 'annaaa':
             die( 'Access denied' );
         default:
     }
