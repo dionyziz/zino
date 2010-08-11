@@ -175,6 +175,7 @@ var Notifications = {
     Ignore: function () {
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' )[ 2 ];
         $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
+        DoneWithCurrent();
     },
     Save: function() {
         var notificationid = $( '#notifications .box.selected' ).attr( 'id' ).split( '_' );
@@ -187,7 +188,7 @@ var Notifications = {
         for( param in params ){
             postdata[ params[ param ].name ] = params[ param ].value;
         }
-        if( form.find( 'textarea' ).text() == '' ){
+        if( form.find( 'textarea' ).val() == '' ){
             form.find( 'textarea' ).css( { border: '3px solid red' } ).focus();
             return;
         }
