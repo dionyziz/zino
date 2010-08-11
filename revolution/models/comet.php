@@ -1,6 +1,7 @@
 <?php
     define( 'PUSH_PUBLISH_URL', 'http://www.zino.gr/publish?id=' );
-    define( 'PUSH_SUBSCRIPTION_EXPIRY', 10 * 60 ); // seconds 
+    define( 'PUSH_SUBSCRIPTION_EXPIRY', 2 * 60 ); // seconds 
+    define( 'PUSH_ENABLED', true );
 
     class PushTunnel {
         public static function Create() {
@@ -60,7 +61,9 @@
             /* int or array of ints */ $tunnelid,
             $xml
             ) {
-            return;
+            if ( !PUSH_ENABLED ) {
+                return;
+            }
             if ( is_array( $tunnelid ) ) {
                 foreach ( $tunnelid as $id ) {
                     self::Publish( $id, $xml );
@@ -89,7 +92,9 @@
     }
     class PushChannel {
         public static function Publish( $channelid, $xml ) {
-            return;
+            if ( !PUSH_ENABLED ) {
+                return;
+            }
             $xml = '<channel id="' . $channelid . '">' . $xml . '</channel>';
             $res = db(
                 'SELECT
