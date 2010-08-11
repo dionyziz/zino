@@ -148,7 +148,10 @@
             clude( 'models/notification.php' );
             clude( 'models/agent.php' );
 
-			
+			if ( !is_numeric( $parentid ) ) {
+				return false;
+			}
+
 			$parentid = ( int ) $parentid;
 			$itemid = ( int ) $itemid;
 
