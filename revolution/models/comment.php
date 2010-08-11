@@ -148,9 +148,9 @@
             clude( 'models/notification.php' );
             clude( 'models/agent.php' );
 
-			if ( !is_int( $itemid ) || !is_int( $parentid ) ) {
-				return false;
-			}
+			
+			$parentid = ( int ) $parentid;
+			$itemid = ( int ) $itemid;
 
             switch ( $typeid ) {
                 case TYPE_POLL:
@@ -183,7 +183,7 @@
             if ( $parentid ) {      
                 // TODO: Check the parent of the parent and remove relevant notifications if owner of comment-to-be-created match
                 $comment = Comment::Item( $parentid ); // TODO: Optimize; do not need bulk
-                if ( $comment === false ) {
+                if ( $comment === false || $comment[ 'typeid' ] != $typeid || $comment[ 'itemid' ] != $itemid ) {
                     // no such parent comment
                     return false;
                 }
