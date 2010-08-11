@@ -143,6 +143,9 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
+                if( $( '#notifications h3 span' ).text() == '0' ) {
+                    return;
+                }
                 $( document.body ).append( $( this ) );
                 $( '.instantbox form' ).submit( function () {
                     Notifications.Save();
@@ -210,6 +213,7 @@ var Notifications = {
     Hide: function() {
         $( '#notifications' ).hide();
         $( '.instantbox' ).hide();
+        $( document.body ).prepend( Notifications.World );
         Notifications.Shortcuts.Remove();
     }
 };

@@ -115,13 +115,13 @@
                 <xsl:when test="*/discussion/comment/comment">
                     <div class="background"></div>
                     <div class="text">
-                        <xsl:value-of select="*/discussion/comment/comment/text" />
+                        <xsl:copy-of select="*/discussion/comment/comment/text/*|*/discussion/comment/comment/text/text()" />
                     </div>
                 </xsl:when>
                 <xsl:otherwise>
                     <div class="background"></div>
                     <div class="text">
-                        <xsl:value-of select="*/discussion/comment/text" />
+                        <xsl:copy-of select="*/discussion/comment/text/*|*/discussion/comment/text/text()" />
                     </div>
                 </xsl:otherwise>
             </xsl:choose>
