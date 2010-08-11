@@ -36,7 +36,7 @@
                             polls/<xsl:value-of select="name[1]" />
                         </xsl:attribute>
                         <span><xsl:value-of select="polls/@count" /></span>
-                        Δημοσκοπίσεις
+                        Δημοσκοπήσεις
                     </a></li>
                 </xsl:if>
                 <xsl:if test="friends/@count &gt; 0">
