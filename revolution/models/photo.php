@@ -84,7 +84,7 @@
                         previous.`image_id` < i.`image_id`
 
                 WHERE
-                    i.`image_id` = :id AND
+                    i.`image_id` = :id 
                 GROUP BY
                     i.`image_id`
                 LIMIT 1;', array( 'id' => $id )
