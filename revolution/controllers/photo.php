@@ -126,6 +126,14 @@
                 include 'views/photo/create.php';
                 return;
             }
+
+			if ( $album[ 'mainimageid' ] == 0 ) {
+				Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $photo[ 'id' ] );
+				$egoalbumid = User::GetEgoAlbumId( $photo[ 'userid' ] );
+				if ( $egoalbumid == $album[ 'id' ] ) {					
+						User::UpdateAvatarid( $photo[ 'userid' ], $photo[ 'id' ] );
+				}
+			}
     
             ++$album[ 'numphotos' ]; // updated on db by trigger
             include 'views/photo/create.php';
@@ -182,6 +190,24 @@
                 die( 'not your photo' );
             }
             Photo::Delete( $id );
+
+			$album = Album::Item( $albumid );
+			$egoalbumid = User::GetEgoAlbumId( $photo[ 'user' ][ 'id' ] );
+			if ( $album[ 'mainimageid' ] == $id ) {
+				$album_photos = Album::ListByAlbum( $albumid, 0, 1 );
+				$mainimageid = 0;
+				if ( empty( $album_photos ) ) {
+					$mainimageid = 0;
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
+				}
+				else {
+					$mainimageid = $album_photos[ 0 ][ 'id' ];
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
+				}
+				if ( $albumid == $egoalbumid ) {
+					User::UpdateAvatarid( $user[ 'id' ], $mainimageid );
+				}
+			}
         }
     }
 ?>
