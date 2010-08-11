@@ -178,6 +178,7 @@
 }
 .textmessages #chatmessages img {
     max-height: 200px;
+    display: none;
 }
 .textmessages ol {
     list-style: none;
