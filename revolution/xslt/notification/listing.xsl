@@ -256,22 +256,22 @@
                                 <li>
                                     <xsl:choose>
                                         <xsl:when test="*/favourites/user/gender='f'">
-                                            Κορίτσι
+                                            Κορίτσι &#8226; 
                                         </xsl:when>
                                         <xsl:otherwise>
-                                            Αγόρι
+                                            Αγόρι &#8226; 
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </li>
                             </xsl:if>
                             <xsl:if test="*/favourites/user/age">
                                 <li>
-                                    <xsl:value-of select="*/favourites/user/age" />
+                                    <xsl:value-of select="*/favourites/user/age" /> &#8226; 
                                 </li>
                             </xsl:if>
                             <xsl:if test="*/favourites/user/location">
                                 <li>
-                                    <xsl:value-of select="*/favourites/user/location" />
+                                    <xsl:value-of select="*/favourites/user/location" /> &#8226; 
                                 </li>
                             </xsl:if>
                         </ul>
