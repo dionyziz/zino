@@ -61,14 +61,13 @@ var Notifications = {
         }, 800 );
 
         $( '#notifications h3 span' ).text( count );
-        do {
-            next = current.nextSibling;
-        } while ( next && $( next ).hasClass( '.done' ) );
 
-        if ( !next ) {
-            do {
-                next = current.previousSibling;
-            } while ( next && $( next ).hasClass( '.done' ) );
+        next = $( current ).siblings( '.box' );
+        for( i in next ) {
+            if( !$( next[ i ] ).hasClass( 'done' ) ){
+                next = next[ i ];
+                break;
+            }
         }
         if ( count && next ) {
             $( next ).click();
