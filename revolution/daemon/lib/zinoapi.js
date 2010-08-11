@@ -1,5 +1,5 @@
 var ZinoAPI = {
-	RequestHandler: require( 'http' ).createClient( 500, 'zino.gr' ),
+	RequestHandler: require( 'http' ).createClient( 80, 'zino.gr' ),
 	QueryHelper: require( 'querystring' ),
 	Methods: {
 		view: 'GET', 
