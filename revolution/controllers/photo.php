@@ -111,7 +111,6 @@
                 }
                 $tempname = $uploadimage[ 'tmp_name' ];
             }
-			die( "DIE BITCJ" );
             
             $photo = Photo::Create( $userid, $albumid, $tempname );
             $photo[ 'userid' ] = $userid;
