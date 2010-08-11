@@ -9,11 +9,11 @@ var Comment = {
             .live( 'mousedown', function(){ Comment.StillMouse = true; } )
             .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
             .live( 'click', function( e ){
-                if( $( e.originalTarget ).closest( 'a' ).length && !$( this ).hasClass( 'talk' ) ){ //is or is included in an anchor
-                    if( typeof( $( e.originalTarget ).closest( 'a' ).attr( 'onclick' ) ) != 'function' ){
+                if( !$( this ).hasClass( 'talk' ) &&
+                    $( e.originalTarget ).closest( 'a' ).length && 
+                    typeof( $( e.originalTarget ).closest( 'a' ).attr( 'onclick' ) ) != 'function' ){
                         window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
-                    }
-                    return false;
+                        return false;
                 }
                 return Comment.New.call( this );
             });
