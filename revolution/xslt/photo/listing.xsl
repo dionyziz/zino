@@ -43,7 +43,7 @@
                             <label class="cabinet">
                                 <input type="file" name="uploadimage" class="file" />
                             </label>
-                            <input type="hidden" name="albumid" value="-1" />
+                            <input type="hidden" name="albumid" value="0" />
                             <span class="tooltip"><span>&#9650;</span>ανέβασε εικόνα</span>
                         </div>
                     </form>
