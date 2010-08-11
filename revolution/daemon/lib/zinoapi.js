@@ -25,7 +25,7 @@ var ZinoAPI = {
 		}
 		
 		var request = ZinoAPI.RequestHandler.request( ZinoAPI.Methods[ method ], '/?' + GETParams, { 
-			'Host': 'zino.gr', 
+			'Host': 'www.zino.gr', 
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'Content-Length': POSTParams.length 
 		} );
