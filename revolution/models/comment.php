@@ -149,7 +149,8 @@
             clude( 'models/agent.php' );
 
 			if ( !is_numeric( $parentid ) ) {
-				return false;
+				throw New Exception( "invalid parentid" );
+				return;
 			}
 
 			$parentid = ( int ) $parentid;
@@ -188,7 +189,7 @@
                 $comment = Comment::Item( $parentid ); // TODO: Optimize; do not need bulk
                 if ( $comment === false || $comment[ 'typeid' ] != $typeid || $comment[ 'itemid' ] != $itemid ) {
                     // no such parent comment
-                    return false;
+                    throw New Exception( "invalid parentid, the parent comment doesn't exist" );
                 }
                 if ( $comment[ 'parentid' ] ) { //has grandparent
                     $grandparentComment = Comment::Item( $comment[ 'parentid' ] );
