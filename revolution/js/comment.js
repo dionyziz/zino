@@ -15,6 +15,9 @@ var Comment = {
                         window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
                         return false;
                 }
+                if( $( this ).hasClass( 'new' ) ){
+                    return false;
+                }
                 return Comment.New.call( this );
             });
         }
