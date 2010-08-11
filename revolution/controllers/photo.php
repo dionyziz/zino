@@ -90,7 +90,7 @@
             $albumid = ( int )$albumid;
             if ( !( $albumid > 0 ) ) {
                 clude( 'models/user.php' );
-                $albumid = User::GetEgoAlbumId( $userid );
+                $albumid = ( int )User::GetEgoAlbumId( $userid );
             }
     
             $album = Album::Item( $albumid );
