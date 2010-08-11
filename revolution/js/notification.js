@@ -62,12 +62,18 @@ var Notifications = {
 
         $( '#notifications h3 span' ).text( count );
 
-        next = $( current ).siblings( '.box' );
-        for( i in next ) {
-            if( !$( next[ i ] ).hasClass( 'done' ) ){
-                next = next[ i ];
-                break;
+        next = $( '.done ~ .box' );
+        if ( next.length == 0 ) {
+            next = $( '#notifications .box' );
+            for( i in next ) {
+                if( !$( next[ i ] ).hasClass( 'done' ) ){
+                    next = next[ i ];
+                    break;
+                }
             }
+        }
+        else {
+            next = next[ 0 ];
         }
         if ( count && next ) {
             $( next ).click();
