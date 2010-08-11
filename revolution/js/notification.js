@@ -180,8 +180,14 @@ var Notifications = {
         var $ib = $( '#ib_' + notificationtype + '_' + notificationid );
         if ( notificationtype == 'comment' ) {
             var $form = $ib.find( 'form.save' );
-            var url = $form.find( 'input[name="type"]' ).val() + 's/'
-                    + $form.find( 'input[name="itemid"]' ).val();
+            var type = $form.find( 'input[name="type"]' ).val();
+            var itemid = $form.find( 'input[name="itemid"]' ).val();
+            var url = type + 's/' + itemid;
+
+            if ( type == 'user' ) {
+                return; // for now
+            }
+
             axslt( $.get( url + '?verbose=0' ), '/social',
                 function () {
                     $ib.find( '.content' ).append( $( this ) );
