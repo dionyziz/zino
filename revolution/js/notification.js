@@ -207,6 +207,7 @@ var Notifications = {
     },
     Hide: function() {
         $( '#notifications' ).hide();
-        Notifications.Remove();
+        $( '.instantbox' ).hide();
+        Notifications.Shortcuts.Remove();
     }
 };
