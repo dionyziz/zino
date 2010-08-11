@@ -180,7 +180,7 @@
                         <xsl:attribute name="value">
                             <xsl:choose>
                                 <xsl:when test="*/discussion/comment/comment">
-                                    <xsl:value-of select="*/discussion/comment/@id" />
+                                    <xsl:value-of select="*/discussion/comment/comment/@id" />
                                 </xsl:when>
                                 <xsl:otherwise>0</xsl:otherwise>
                             </xsl:choose>
