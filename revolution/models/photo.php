@@ -85,8 +85,6 @@
 
                 WHERE
                     i.`image_id` = :id AND
-					next.`image_delid` = 0 AND
-					previous.`image_delid` = 0
                 GROUP BY
                     i.`image_id`
                 LIMIT 1;', array( 'id' => $id )
