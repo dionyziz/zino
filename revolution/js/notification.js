@@ -184,19 +184,17 @@ var Notifications = {
             var itemid = $form.find( 'input[name="itemid"]' ).val();
             var url = type + 's/' + itemid;
 
-            if ( type == 'user' ) {
-                return; // for now
+            if ( type != 'user' ) { // for now 
+                axslt( $.get( url + '?verbose=0' ), '/social',
+                    function () {
+                        $ib.find( '.content' ).append( $( this ) );
+                        $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
+                        $ib.find( '.content' ).click( function () {
+                            Notifications.Navigate( url );
+                        } );
+                    }
+                );
             }
-
-            axslt( $.get( url + '?verbose=0' ), '/social',
-                function () {
-                    $ib.find( '.content' ).append( $( this ) );
-                    $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
-                    $ib.find( '.content' ).click( function () {
-                        Notifications.Navigate( url );
-                    } );
-                }
-            );
         }
         $( '.instantbox' ).hide();
         $ib.show().find( 'textarea' ).focus();
