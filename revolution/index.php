@@ -18,6 +18,12 @@
         if ( $user !== false ) {
             $_SESSION[ 'user' ] = $user;
         }
+        switch ( $_SESSION[ 'user' ][ 'name' ] ) {
+            case 'shinda_tori':
+            case 'Maybeshewill':
+                die( 'Access denied' );
+            default:
+        }
     }
     
     $resource = $method = '';
