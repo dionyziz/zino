@@ -148,7 +148,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
-                if( $( '#notifications h3 span' ).text() == '0' ) {
+                if ( $( this ).find( 'h3 span' ).text() == '0' ) {
                     return;
                 }
                 $( document.body ).append( $( this ) );
