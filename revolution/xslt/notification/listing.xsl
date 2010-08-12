@@ -204,7 +204,7 @@
                             <div><textarea name="text"></textarea></div>
                         </div>
                     </div>
-                    Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο
+                    <p class="note">Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
                 </p>
             </form>
         </div>
@@ -340,7 +340,7 @@
                                 <div><textarea name="text"></textarea></div>
                             </div>
                         </div>
-                        <p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
+                        <p class="note">Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
                     </form>
                 </div>
             </div>
@@ -403,7 +403,7 @@
                                 <div><textarea name="text"></textarea></div>
                             </div>
                         </div>
-                        <p>Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
+                        <p class="note">Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
                     </form>
                 </div>
             </xsl:when>
