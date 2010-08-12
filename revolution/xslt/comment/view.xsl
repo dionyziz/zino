@@ -9,8 +9,8 @@
                     <img class="avatar">
                         <xsl:attribute name="src">
                             <xsl:choose>
-                                <xsl:when test=".//media">
-                                    <xsl:value-of select=".//media/@url" />
+                                <xsl:when test="author/avatar">
+                                    <xsl:value-of select="author/avatar/media/@url" />
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
