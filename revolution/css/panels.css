@@ -47,6 +47,9 @@ textarea.invisible {
         cursor: pointer;
         position: relative;
     }
+    .instantbox .contentitem h2 {
+        margin: 0.5em;
+    }
     .instantbox .content .tips {
         background-color: #172322;
         padding: 10px;

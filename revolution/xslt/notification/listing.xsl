@@ -141,7 +141,7 @@
             <form action="comment/create" method="post" class="save">
                 <xsl:choose>
                     <xsl:when test="*/discussion/comment/comment">
-                        <p><strong>
+                        <p class="note"><strong>
                             <xsl:choose>
                                 <xsl:when test="*/discussion/comment/comment/author/gender='f'">
                                     <xsl:text>Η </xsl:text>
