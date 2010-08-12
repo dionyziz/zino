@@ -48,12 +48,16 @@
 		}
         public static function GetCookieData() {
             global $settings;
+
             if ( !isset( $_COOKIE[ $settings[ 'cookiename' ] ] ) ) {
                 return false;
             }
             $cookie = $_COOKIE[ $settings[ 'cookiename' ] ];
             $cookieparts = explode( ':' , $cookie );
-            $userid = (int) $cookieparts[ 0 ];
+            if ( count( $cookieparts ) != 2 ) {
+                return false;
+            }
+            $userid = ( int )$cookieparts[ 0 ];
             $authtoken = $cookieparts[ 1 ];
             if ( $userid <= 0 ) {
                 return false;
