@@ -18,7 +18,7 @@ var AlbumListing = {
             var albums = $.get( '?resource=album&method=listing', { username: $( '.useralbums .user' ).text() } );
             axslt( albums, '/social', function() {
                 $( '.useralbums' ).append( $( this ).filter( 'ol' ) ).children( 'ol' ).hide().slideDown();
-                if( XMLData.author == User ){
+                if ( XMLData.author == User ) {
                     $( '.useralbums li[class!=egoalbum] p' ).each( function() {
                         var albumid = $( this ).siblings( 'a' ).attr( 'href' ).split( '/' )[ 1 ];
                         Kamibu.EditableTextElement( this, 'Όρισε όνομα', function( title ) {
@@ -59,26 +59,28 @@ var AlbumListing = {
                             $( '.photostream input' )[ 1 ].value = albumid;
                         }
                         PhotoListing.PreparePhotoList();
-                        $( '.photostream a' ).each( function ( i ) {
-                            var $span = $( '<span class="mainbutton" title="Ορισμός ως προεπιλεγμένης εικόνας του album">↑</span>' );
-                            var spanClicked = false;
+                        if ( XMLData.author == User ) {
+                            $( '.photostream a' ).each( function ( i ) {
+                                var $span = $( '<span class="mainbutton" title="Ορισμός ως προεπιλεγμένης εικόνας του album">↑</span>' );
+                                var spanClicked = false;
 
-                            $span.click( function ( e ) {
-                                spanClicked = true;
-                                $( '#albumlist .selected img' )[ 0 ].src = $( this ).siblings( 'img' )[ 0 ].src;
-                                $.post( 'album/update', {
-                                    albumid: albumid,
-                                    mainimageid: $( this ).parent()[ 0 ].href.split( '/' ).pop(),
+                                $span.click( function ( e ) {
+                                    spanClicked = true;
+                                    $( '#albumlist .selected img' )[ 0 ].src = $( this ).siblings( 'img' )[ 0 ].src;
+                                    $.post( 'album/update', {
+                                        albumid: albumid,
+                                        mainimageid: $( this ).parent()[ 0 ].href.split( '/' ).pop(),
+                                    } );
+                                } );
+                                $( this ).append( $span );
+                                $( this ).click( function () {
+                                    if ( spanClicked ) {
+                                        spanClicked = false;
+                                        return false;
+                                    }
                                 } );
                             } );
-                            $( this ).append( $span );
-                            $( this ).click( function () {
-                                if ( spanClicked ) {
-                                    spanClicked = false;
-                                    return false;
-                                }
-                            } );
-                        } );
+                        }
                     } );
                     return false;
                 } );
