@@ -188,18 +188,26 @@ var Notifications = {
                 itemid = $form.find( 'input[name="favouriteitemid"]' ).val();
                 url = type + 's/' + itemid;
                 break;
+            case 'friend':
+                $ib.find( 'a.friend' ).click( function () {
+                    Notifications.Save();
+                    return false;
+                } );
         }
 
         if ( url !== '' ) {
-            axslt( $.get( url + '?verbose=0' ), '/social',
-                function () {
-                    $ib.find( '.content' ).append( $( this ) );
-                    $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
-                    $ib.find( '.content' ).click( function () {
-                        Notifications.Navigate( url );
-                    } );
-                }
-            );
+            if ( $ib.children().length != 0 ) { // content not yet loaded
+                $ib.find( '.content' ).html( '<div class="contentitem">...</div>' );
+                axslt( $.get( url + '?verbose=0' ), '/social',
+                    function () {
+                        $ib.find( '.content' ).empty().append( $( this ) );
+                        $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
+                        $ib.find( '.content' ).click( function () {
+                            Notifications.Navigate( url );
+                        } );
+                    }
+                );
+            }
         }
         $( '.instantbox' ).hide();
         $ib.show().find( 'textarea' ).focus();

@@ -215,17 +215,7 @@
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
-            <li>
-                Enter =
-                <xsl:choose>
-                    <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->
-                        <strong>Αποθήκευση μηνύματος</strong>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <strong>Προσθήκη φίλου</strong>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </li>
+            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
             <li>Escape = <strong>Αγνόηση</strong></li>
         </ul>
         <div class="content"></div>
@@ -358,11 +348,20 @@
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <ul class="tips">
-            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Enter = 
+                <xsl:choose>
+                    <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->
+                        <strong>Αποθήκευση μηνύματος</strong>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <strong>Προσθήκη φίλου</strong>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </li>
             <li>Escape = <strong>Αγνόηση</strong></li>
         </ul>
         <div class="details">
-            <p><strong>
+            <p class="note"><strong>
                 <xsl:choose>
                     <xsl:when test="user/gender = 'f'">Η</xsl:when>
                     <xsl:otherwise>Ο</xsl:otherwise>
@@ -464,7 +463,7 @@
             <xsl:otherwise>
                 <form action="friendship/create" method="post" class="save">
                     <p>
-                        <input type="hidden" name="name">
+                        <input type="hidden" name="username">
                             <xsl:attribute name="value">
                                 <xsl:value-of select="user/name" />
                             </xsl:attribute>

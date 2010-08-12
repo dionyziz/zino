@@ -38,6 +38,7 @@ textarea.invisible {
 .instantbox {
     display: none;
     margin-bottom: 150px;
+    text-align: center;
 }
     .instantbox .contentitem {
         float: right;
@@ -65,7 +66,7 @@ textarea.invisible {
         display: block;
     }
     .instantbox .details {
-        text-align: center;
+        text-align: left;
     }
     .instantbox .details .message {
         cursor: default;

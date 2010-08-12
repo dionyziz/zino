@@ -21,13 +21,13 @@ img.avatar {
     -webkit-border-bottom-left-radius: 6px;
     border: 1px solid transparent;
 }
-div.note {
+.note {
     padding: 5px;
     display: block;
     color: white;
     text-align: center;
 }
-div.note span.username {
+.note span.username {
     display: inline;
 }
 .time {
