@@ -1,7 +1,7 @@
 <?php
     class Song {
         public static function Item( $userid ) {
-			clude( "models/db.h" );
+			clude( "models/db.php" );
             return
                 array_shift( db_array(
                      'SELECT
@@ -16,7 +16,7 @@
                 ) );
         }
 		public static function RandomList() {
-			clude( "models/db.h" );
+			clude( "models/db.php" );
 			return db_array(
 					'SELECT 
 						song_id AS id, song_songid AS songid
