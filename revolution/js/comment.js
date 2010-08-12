@@ -8,14 +8,21 @@ var Comment = {
             $( 'a.talk, .message' )
             .live( 'mousedown', function(){ Comment.StillMouse = true; } )
             .live( 'mousemove',   function(){ Comment.StillMouse = false; } )
-            .live( 'click', function( e ){
-                if( !$( this ).hasClass( 'talk' ) &&
-                    $( e.originalTarget ).closest( 'a' ).length && 
-                    typeof( $( e.originalTarget ).closest( 'a' ).attr( 'onclick' ) ) != 'function' ){
-                        window.open( $( e.originalTarget ).children().andSelf().closest( 'a' ).attr( 'href' ) );
-                        return false;
+            .live( 'click', function( e ) {
+                if ( !$( this ).hasClass( 'talk' ) &&
+                    $( e.target ).closest( 'a' ).length ) {
+                    if ( typeof $( e.target ).attr( 'onclick' ) != 'function' ) {
+                        var href = $( e.target ).attr( 'href' );
+                        var parts = href.split( '/' );
+
+                        if ( parts[ 2 ].substr( parts[ 2 ].length - 'zino.gr'.length, 'zino.gr'.length ) == 'zino.gr' ) {
+                            return true;
+                        }
+                        window.open( href );
+                    }
+                    return false;
                 }
-                if( $( this ).hasClass( 'new' ) ){
+                if ( $( this ).hasClass( 'new' ) ) {
                     return false;
                 }
                 return Comment.New.call( this );

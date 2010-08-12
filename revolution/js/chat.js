@@ -266,7 +266,12 @@ var Chat = {
                  $( '#popbubble_' + userid ).remove();
              } );
              $.get( 'users/' + username, { verbose: 0 }, function ( res ) {
-                 $( '#popbubble_' + userid + ' img' )[ 0 ].src = $( res ).find( 'media' ).attr( 'url' );
+                 if ( $( res ).find( 'avatar' ) ) {
+                     $( '#popbubble_' + userid + ' img' )[ 0 ].src = $( res ).find( 'media' ).attr( 'url' );
+                 }
+                 else {
+                     $( '#popbubble_' + userid + ' img' )[ 0 ].src = 'http://static.zino.gr/phoenix/anonymous100.jpg'; 
+                 }
              } );
              var pos = 0;
 
@@ -432,7 +437,11 @@ var Chat = {
                  }
                  $panel.find( 'h3' ).text( username );
                  $.get( 'users/' + username + '?verbose=2', function ( res ) {
-                     var img = '<a href="users/' + username + '"><img src="' + $( res ).find( 'user avatar media' ).attr( 'url' ) + '" alt="' + username + '" title="Προβολή προφίλ" /></a>';
+                     var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg'; 
+                     if ( $( res ).find( 'user avatar' ) ) {
+                         avatar = $( res ).find( 'user avatar media' ).attr( 'url' );
+                     }
+                     var img = '<a href="users/' + username + '"><img src="' + avatar + '" alt="' + username + '" title="Προβολή προφίλ" /></a>';
                      var lis = [];
                      if ( $( res ).find( 'gender' ).length ) {
                          if ( $( res ).find( 'gender' ).text() == 'f' ) {

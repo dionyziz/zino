@@ -66,7 +66,7 @@
                     </xsl:if>
                     <img class="avatar">
                         <xsl:choose>
-                            <xsl:when test="avatar[1]/@id = 0">
+                            <xsl:when test="avatar">
                                 <xsl:attribute name="src">http://static.zino.gr/phoenix/anonymous100.jpg</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
