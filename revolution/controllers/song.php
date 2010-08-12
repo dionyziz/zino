@@ -2,7 +2,7 @@
 
     class ControllerSong {
         public function Listing( $query, $randomlist = 0 ) {
-			clude( "models/song.php" );
+			clude( "models/music/song.php" );
 			clude( 'models/music/grooveshark.php' );
 			if ( $randomlist != 0 ) {
 				$songlist = Song::RandomList();
