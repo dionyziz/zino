@@ -211,6 +211,67 @@
     </div>
 </xsl:template>
 
+<xsl:template match="notification//user">
+    <div class="businesscard">
+        <div class="avatar">
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:text>users/</xsl:text>
+                    <xsl:value-of select="name" />
+                </xsl:attribute>
+                <img>
+                    <xsl:attribute name="src">
+                        <xsl:choose>
+                            <xsl:when test="avatar/media">
+                                <xsl:value-of select="avatar/media/@url" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                               <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:attribute name="alt">
+                        <xsl:value-of select="name"/>
+                    </xsl:attribute>
+                </img>
+            </a>
+        </div>
+        <div class="username">
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:text>users/</xsl:text>
+                    <xsl:value-of select="name"/>
+                </xsl:attribute>
+                <xsl:value-of select="name" />
+            </a>
+        </div>
+        <ul class="details">
+            <xsl:if test="gender!='-'">
+                <li>
+                    <xsl:choose>
+                        <xsl:when test="gender='f'">
+                            Κορίτσι
+                        </xsl:when>
+                        <xsl:otherwise>
+                            Αγόρι
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </li>
+            </xsl:if>
+            <xsl:if test="age">
+                <li>
+                    <xsl:value-of select="age" />
+                </li>
+            </xsl:if>
+            <xsl:if test="location">
+                <li>
+                    <xsl:value-of select="location" />
+                </li>
+            </xsl:if>
+        </ul>
+    </div>
+</xsl:template>
+
 <xsl:template match="notification[@type='favourite']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
@@ -222,64 +283,7 @@
         <div class="details">
             <div class="thread">
                 <div class="note">
-                    <div class="businesscard">
-                        <div class="avatar">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:text>users/</xsl:text>
-                                    <xsl:value-of select="*/favourites/user/name" />
-                                </xsl:attribute>
-                                <img>
-                                    <xsl:attribute name="src">
-                                        <xsl:choose>
-                                            <xsl:when test="*/favourites/user/avatar/media">
-                                                <xsl:value-of select="*/favourites/user/avatar/media/@url" />
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                               <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </xsl:attribute>
-                                    <xsl:attribute name="alt">
-                                        <xsl:value-of select="*/favourites/user/name"/>
-                                    </xsl:attribute>
-                                </img>
-                            </a>
-                        </div>
-                        <div class="username">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:text>users/</xsl:text>
-                                    <xsl:value-of select="*/favourites/user/name"/>
-                                </xsl:attribute>
-                                <xsl:value-of select="*/favourites/user/name" />
-                            </a>
-                        </div>
-                        <ul class="details">
-                            <xsl:if test="*/favourites/user/gender!='-'">
-                                <li>
-                                    <xsl:choose>
-                                        <xsl:when test="*/favourites/user/gender='f'">
-                                            Κορίτσι &#8226; 
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            Αγόρι &#8226; 
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </li>
-                            </xsl:if>
-                            <xsl:if test="*/favourites/user/age">
-                                <li>
-                                    <xsl:value-of select="*/favourites/user/age" /> &#8226; 
-                                </li>
-                            </xsl:if>
-                            <xsl:if test="*/favourites/user/location">
-                                <li>
-                                    <xsl:value-of select="*/favourites/user/location" /> &#8226; 
-                                </li>
-                            </xsl:if>
-                        </ul>
-                    </div>
+                    <xsl:apply-templates select="*/favourites/user" />
                     <p><strong>
                         <xsl:choose>
                             <xsl:when test="*/favourites/user/gender='f'">
@@ -371,64 +375,7 @@
                 <xsl:text> </xsl:text>
                 σε πρόσθεσε στους φίλους.
             </strong></p>
-            <div class="businesscard">
-                <div class="avatar">
-                    <a>
-                        <xsl:attribute name="href">
-                            <xsl:text>users/</xsl:text>
-                            <xsl:value-of select="user/name" />
-                        </xsl:attribute>
-                        <img>
-                            <xsl:attribute name="src">
-                                <xsl:choose>
-                                    <xsl:when test="user/avatar/media">
-                                        <xsl:value-of select="user/avatar/media/@url" />
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                       <xsl:text>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:attribute>
-                            <xsl:attribute name="alt">
-                                <xsl:value-of select="user/name"/>
-                            </xsl:attribute>
-                        </img>
-                    </a>
-                </div>
-                <div class="username">
-                    <a>
-                        <xsl:attribute name="href">
-                            <xsl:text>users/</xsl:text>
-                            <xsl:value-of select="user/name"/>
-                        </xsl:attribute>
-                        <xsl:value-of select="user/name" />
-                    </a>
-                </div>
-                <ul class="details">
-                    <xsl:if test="user/gender!='-'">
-                        <li>
-                            <xsl:choose>
-                                <xsl:when test="user/gender='f'">
-                                    Κορίτσι
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    Αγόρι
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="user/age">
-                        <li>
-                            <xsl:value-of select="user/age" />
-                        </li>
-                    </xsl:if>
-                    <xsl:if test="user/location">
-                        <li>
-                            <xsl:value-of select="user/location" />
-                        </li>
-                    </xsl:if>
-                </ul>
-            </div><!-- businesscard -->
+            <xsl:apply-templates select="user" />
         </div>
         <xsl:choose>
             <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->

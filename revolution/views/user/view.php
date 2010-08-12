@@ -1,7 +1,9 @@
 <user id="<?= $user[ 'id' ] ?>">
     <name><?= $user[ 'name' ] ?></name>
     <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+    <? if ( isset( $user[ 'gender' ] ) ): ?>
     <gender><?= $user[ 'gender' ] ?></gender>
+    <? endif; ?>
     <? if ( isset( $user[ 'profile' ][ 'age' ] ) ): ?>
     <age><?= $user[ 'profile' ][ 'age' ] ?></age>
     <? endif; ?>

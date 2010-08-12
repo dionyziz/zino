@@ -100,10 +100,12 @@ var Profile = {
                             $( '.friendship' )[ 0 ].action = 'friendship/create';
                             $( '.friendship a' )[ 0 ].className = 'love linkbutton';
                             $( '.friendship a' )[ 0 ].innerHTML = '<strong>+</strong> Προσθήκη φίλου';
+                            $( '.friendship a' )[ 0 ].title = 'Προσθήκη φίλου';
                         }
                         else {
                             $( '.friendship' )[ 0 ].action = 'friendship/delete';
                             $( '.friendship a' )[ 0 ].innerHTML = '<strong>&#9829;</strong><strong class="delete">/</strong>Φίλος';
+                            $( '.friendship a' )[ 0 ].title = 'Διαγραφή φίλου';
                         }
                     } );
                     return false;

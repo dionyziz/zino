@@ -143,6 +143,7 @@ var Notifications = {
                 if ( $( this ).find( 'h3 span' ).text() == '0' ) {
                     return;
                 }
+                $( this ).find( '.businesscard ul li:last' ).addClass( 'last' );
                 $( document.body ).append( $( this ) );
                 $( '.instantbox form' ).submit( function () {
                     Notifications.Save();

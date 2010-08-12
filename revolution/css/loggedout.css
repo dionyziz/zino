@@ -191,6 +191,10 @@ div.login form input.submit {
         margin-left: -350px;
         content: ' ';
     }
+    #registermodal form {
+        position: relative;
+        z-index: 1;
+    }
     #registermodal fieldset {
         border: none;
         text-align: center;

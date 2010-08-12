@@ -33,8 +33,8 @@
       
             $friends = array();
             while ( $row = mysql_fetch_array( $res ) ) {
-                if ( $row[ 'age' ] > 1000  ) {
-                    $row[ 'age' ] = 0;
+                if ( $row[ 'age' ] > 100 || $row[ 'age' ] < 6 ) {
+                    unset( $row[ 'age' ] );
                 }
                 $row[ 'id' ] = (int)$row[ 'id' ];
                 $row[ 'placeid' ] = (int)$row[ 'placeid' ];

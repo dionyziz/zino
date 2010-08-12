@@ -82,8 +82,12 @@
                 ?>
                 <name><?= $user[ 'name' ] ?></name>
                 <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+                <? if ( isset( $user[ 'gender' ] ) ): ?>
                 <gender><?= $user[ 'gender' ] ?></gender>
+                <? endif; ?>
+                <? if ( isset( $user[ 'age' ] ) ): ?>
                 <age><?= $user[ 'age' ] ?></age>
+                <? endif; ?>
                 <? if ( isset( $user[ 'place' ] ) && isset( $user[ 'place' ][ 'name' ] ) ): ?>
                 <location><?= $user[ 'place' ][ 'name' ] ?></location>
                 <? endif; ?>
@@ -107,9 +111,15 @@
                 <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
             </avatar>
             <? endif; ?>
+            <? if ( isset( $user[ 'gender' ] ) ): ?>
             <gender><?= $user[ 'gender' ]; ?></gender>
+            <? endif; ?>
+            <? if ( isset( $user[ 'age' ] ) ): ?>
             <age><?= $user[ 'age' ]; ?></age>
+            <? endif; ?>
+            <? if ( isset( $user[ 'place' ] ) ): ?>
             <location><?= $user[ 'place' ][ 'name' ]; ?></location>
+            <? endif; ?>
             <knows>
                 <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" >
 					<? if ( $notification[ 'friendship' ][ 'strength' ] > 1 ): ?>

@@ -53,8 +53,10 @@
                 $user = array(
                     'id' => $row[ 'userid' ],
                     'name' => $row[ 'name' ],
-                    'gender' => $row[ 'gender' ]
                 );
+                if ( $row[ 'gender' ] != '-' ) { 
+                    $user[ 'gender' ] = $row[ 'gender' ];
+                }
                 if ( $row[ 'avatarid' ] > 0 ) {
                     $user[ 'avatarid' ] = $row[ 'avatarid' ];
                 }
@@ -102,7 +104,12 @@
                         $notifications[ $i ][ 'favourite' ] = $favouriteinfo[ $notification[ 'itemid' ] ];
                         break;
                     case EVENT_FRIENDRELATION_CREATED:
-                        $notifications[ $i ][ 'friendship' ] = $friendinfo[ $notification[ 'itemid' ] ];
+                        if ( isset( $friendinfo[ $notification[ 'itemid' ] ] ) ) {
+                            $notifications[ $i ][ 'friendship' ] = $friendinfo[ $notification[ 'itemid' ] ];
+                        }
+                        else {
+                            unset( $notifications[ $i ] );
+                        }
                         break;
                     case EVENT_IMAGETAG_CREATED:
                         $notifications[ $i ][ 'tag' ] = $taginfo[ $notification[ 'itemid' ] ];

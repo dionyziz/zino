@@ -121,6 +121,12 @@ textarea.invisible {
         text-align: left;
         padding: 5px;
     }
+    .businesscard ul li.last:after {
+        content: '';
+    }
+    .businesscard ul li:after {
+        content: '•';
+    }
     .businesscard ul li {
         display: inline;
     }

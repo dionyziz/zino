@@ -175,7 +175,7 @@
                                 <input type="hidden" name="friendid">
                                     <xsl:attribute name="value"><xsl:value-of select="@id" /></xsl:attribute>
                                 </input>
-                                <a class="love linkbutton" href=""><strong>+</strong> Προσθήκη φίλου</a>
+                                <a class="love linkbutton" href="" title="Προσθήκη φίλου"><strong>+</strong> Προσθήκη φίλου</a>
                             </form>
                         </xsl:otherwise>
                     </xsl:choose>
