@@ -5,6 +5,18 @@
 		$gsapi = GSAPI::getInstance( array( 'APIKey' => "1100e42a014847408ff940b233a39930" ) );
 		return $gsapi->searchSongs( $query, 70 );
 	}
+
+	function Grooveshark_AboutSongs( $ids ) {
+		if ( !is_array( $ids ) ) {
+			return false;
+		}
+		$gsapi = GSAPI::getInstance( array( 'APIKey' => "1100e42a014847408ff940b233a39930" ) );
+		$info = array();
+		foreach ( $ids as $id ) {
+			$info[] = $gsapi->songAbout( $id );
+		}
+		return $info;
+	}
 	
     /*
 	function Grooveshark_SetSong( $songid ){
