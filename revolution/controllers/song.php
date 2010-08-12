@@ -6,12 +6,14 @@
 			clude( 'models/music/grooveshark.php' );
 			if ( $randomlist != 0 ) {
 				$songlist = Song::RandomList();
+				var_dump( $songlist );
 				$ids = array();
 				foreach ( $songlist as $song ) {
 					$ids[] = $song[ 'song_id' ];
 				}
 				$songs = Grooveshark_AboutSongs( $ids );
-				Template( 'song/listing', compact( 'songs', 'random' ) );
+				$query = "random";
+				Template( 'song/listing', compact( 'songs', 'query' ) );
 				return;
 			}
             $songs = Grooveshark_SearchSong( $query );
