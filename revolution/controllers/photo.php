@@ -184,6 +184,8 @@
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to delete a photo' );
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
+			clude( 'models/album.php' );
+			clude( 'models/user.php' );
 
             $photo = Photo::Item( $id );
             if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {

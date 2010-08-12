@@ -218,6 +218,7 @@
                     1', compact( 'id', 'width', 'height', 'size', 'mime' ) );
         }
         public static function Delete( $id ) {
+			clude( 'models/db.php' );
             $success = db( 'DELETE FROM `images` WHERE `image_id` = :id LIMIT 1', array( 'id' => $id ) );
             return $success and mysql_affected_rows() == 1;
         }
