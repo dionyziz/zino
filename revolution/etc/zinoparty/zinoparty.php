@@ -1,11 +1,27 @@
 <?php
 	$data = file( "http://www.zino.gr/randomsongs" );
-	var_dump( $data );
+	$xml = "";
+	foreach ( $data as $piece ) {
+		$xml .= $piece;	
+	}
+	//var_dump( $data );
+	//echo $xml;
 	$p = xml_parser_create();
-	xml_parse_into_struct($p, $data, $vals, $index);
-	var_dump( $vals );
-	var_dump( $index );
+	xml_parse_into_struct($p, $xml, $vals, $index);
+	xml_parser_free( $p );
+	//var_dump( $vals );
+	//var_dump( $index );
 	$songid = 1787526;	
+
+	$ids = array();
+	foreach( $index[ 'SONG' ] as $songtag ) {
+		if ( $vals[ $songtag ][ 'type' ] == 'open' ) {
+			$ids[] = ( int )$vals[ $songtag ][ 'attributes' ][ 'ID' ];
+		}
+	}
+	//var_dump( $ids );
+	$songid = $ids[ 0 ];
+
 ?>
 
 <html>
