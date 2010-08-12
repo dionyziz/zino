@@ -13,14 +13,14 @@
         <xsl:attribute name="id">notification_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
         <div>
             <img>
-                <xsl:choose>
-                    <xsl:when test="*/favourites/user/avatar">
-                        <xsl:attribute name="src">
+                <xsl:attribute name="src">
+                    <xsl:choose>
+                        <xsl:when test="*/favourites/user/avatar">
                             <xsl:value-of select="*/favourites/user/avatar/media/@url" />
-                        </xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:otherwise>
-                </xsl:choose>
+                        </xsl:when>
+                        <xsl:otherwise>http://static.zino.gr/phoenix/anonymous100.jpg</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
                 <xsl:attribute name="alt">
                     <xsl:value-of select="*/favourites/user/name" />
                 </xsl:attribute>
@@ -307,6 +307,7 @@
                             <xsl:when test="poll">τη δημοσκόπησή</xsl:when>
                             <xsl:when test="journal">το ημερολόγιό</xsl:when>
                         </xsl:choose>
+                        <xsl:text> σου</xsl:text>
                     </strong></p>
                     <p><strong>Γράψε ένα σχόλιο στο προφίλ 
                         <xsl:choose>
@@ -320,6 +321,20 @@
                     </strong></p>
                     <form action="comment/create" method="post" class="save">
                         <div class="thread new" style="display: block;">
+                            <input type="hidden" name="favouritetype">
+                                <xsl:attribute name="value">
+                                    <xsl:choose>
+                                        <xsl:when test="poll">poll</xsl:when>
+                                        <xsl:when test="photo">photo</xsl:when>
+                                        <xsl:when test="journal">journal</xsl:when>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                            </input>
+                            <input type="hidden" name="favouriteitemid">
+                                <xsl:attribute name="value">
+                                    <xsl:value-of select="*/@id" />
+                                </xsl:attribute>
+                            </input>
                             <input type="hidden" name="typeid" value="3" />
                             <input type="hidden" name="itemid">
                                 <xsl:attribute name="value">

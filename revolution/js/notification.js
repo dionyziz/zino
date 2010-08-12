@@ -178,24 +178,35 @@ var Notifications = {
     },
     Select: function ( notificationtype, notificationid ) {
         var $ib = $( '#ib_' + notificationtype + '_' + notificationid );
-        if ( notificationtype == 'comment' ) {
-            var $form = $ib.find( 'form.save' );
-            var type = $form.find( 'input[name="type"]' ).val();
-            var itemid = $form.find( 'input[name="itemid"]' ).val();
-            var url = type + 's/' + itemid;
+        var url = '';
+        var $form = $ib.find( 'form.save' );
+        var type, itemid;
 
-            if ( type != 'user' ) { // for now 
-                axslt( $.get( url + '?verbose=0' ), '/social',
-                    function () {
-                        $ib.find( '.content' ).append( $( this ) );
-                        $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
-                        $ib.find( '.content' ).click( function () {
-                            Notifications.Navigate( url );
-                        } );
-                    }
-                );
-            }
+        switch ( notificationtype ) {
+            case 'comment':
+                type = $form.find( 'input[name="type"]' ).val();
+                itemid = $form.find( 'input[name="itemid"]' ).val();
+
+                if ( type != 'user' ) { // for now 
+                    url = type + 's/' + itemid;
+                }
+                break;
+            case 'favourite':
+                type = $form.find( 'input[name="favouritetype"]' ).val();
+                itemid = $form.find( 'input[name="favouriteitemid"]' ).val();
+                url = type + 's/' + itemid;
+                break;
         }
+
+        axslt( $.get( url + '?verbose=0' ), '/social',
+            function () {
+                $ib.find( '.content' ).append( $( this ) );
+                $ib.find( '.content .contentitem' ).append( '<div class="tips">Κάνε κλικ για μεγιστοποίηση</div>' );
+                $ib.find( '.content' ).click( function () {
+                    Notifications.Navigate( url );
+                } );
+            }
+        );
         $( '.instantbox' ).hide();
         $ib.show().find( 'textarea' ).focus();
     },
@@ -214,15 +225,15 @@ var Notifications = {
         var url = form.attr( 'action' );
         var params = form.serializeArray();
         var postdata = {};
-        for( param in params ){
+        for ( param in params ){
             postdata[ params[ param ].name ] = params[ param ].value;
         }
-        if( form.find( 'textarea' ).val() == '' ){
+        if ( form.find( 'textarea' ).val() == '' ){
             form.find( 'textarea' ).css( { border: '3px solid red' } ).focus();
             return;
         }
         $.post( url, postdata );
-        if( notificationtype != 'comment' ){
+        if ( notificationtype != 'comment' ){
             $.post( '?resource=notification&method=delete', { notificationid: notificationid } );
         }
         Notifications.DoneWithCurrent();
