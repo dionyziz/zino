@@ -9,7 +9,7 @@
 				var_dump( $songlist );
 				$ids = array();
 				foreach ( $songlist as $song ) {
-					$ids[] = $song[ 'song_id' ];
+					$ids[] = $song[ 'songid' ];
 				}
 				$songs = Grooveshark_AboutSongs( $ids );
 				$query = "random";
