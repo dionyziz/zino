@@ -196,7 +196,7 @@
 			$album = Album::Item( $photo[ 'albumid' ] );
 			$egoalbumid = User::GetEgoAlbumId( $photo[ 'user' ][ 'id' ] );
 			if ( $album[ 'mainimageid' ] == $id ) {
-				$album_photos = Album::ListByAlbum( $photo[ 'albumid' ], 0, 1 );
+				$album_photos = Photo::ListByAlbum( $photo[ 'albumid' ], 0, 1 );
 				$mainimageid = 0;
 				if ( empty( $album_photos ) ) {
 					$mainimageid = 0;
