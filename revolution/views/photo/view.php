@@ -8,9 +8,11 @@
         <name><?= $user[ 'name' ] ?></name>
         <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
         <gender><?= $user[ 'gender' ] ?></gender>
+        <? if ( !empty( $user[ 'avatarid' ] ) ): ?>
         <avatar>
             <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
         </avatar>
+        <? endif; ?>
         <photos>
             <? if ( !empty( $photo[ 'previousid' ] ) ): ?>
             <photo id="<?= $photo[ 'previousid' ] ?>" navigation="previous" />

@@ -175,7 +175,15 @@ var Comment = {
             var img = $( '<img />' ).addClass( 'avatar' ).prependTo( e );
         } );
         $.get( 'users/' + User, { 'verbose': 1 }, function( xml ) {
-            var src = $( 'avatar > media', xml ).attr( 'url' );
+            var src;
+
+            if ( $( 'avatar', xml ).length == 0 ) {
+                // no avatar set
+                src = 'http://static.zino.gr/phoenix/anonymous100.jpg';
+            }
+            else {
+                src = $( 'avatar > media', xml ).attr( 'url' );
+            }
             $( '.thread.new .author > img' ).each( function( i, e ) {
                 $( e ).attr( 'src', $( 'avatar > media', xml ).attr( 'url' ) );
             } );

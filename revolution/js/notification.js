@@ -62,25 +62,17 @@ var Notifications = {
 
         $( '#notifications h3 span' ).text( count );
 
-        next = $( '.done ~ .box' );
+        next = $( current ).nextAll( '.box' );
         if ( next.length == 0 ) {
-            next = $( '#notifications .box' );
-            for( i in next ) {
-                if( !$( next[ i ] ).hasClass( 'done' ) ){
-                    next = next[ i ];
-                    break;
-                }
+            next = $( current ).prevAll( '.box' );
+            if ( next.length == 0 ) {
+                // no more notification boxes
+                Notifications.Done();
+                return;
             }
         }
-        else {
-            next = next[ 0 ];
-        }
-        if ( count && next ) {
-            $( next ).click();
-        }
-        else {
-            Notifications.Done();
-        }
+        next = next[ 0 ];
+        $( next ).click();
     },
     Shortcuts: {
         Save: 0, Skip: 0, Ignore: 0, KeyPressed: false,

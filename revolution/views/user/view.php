@@ -5,9 +5,11 @@
     <? if ( isset( $user[ 'profile' ][ 'age' ] ) ): ?>
     <age><?= $user[ 'profile' ][ 'age' ] ?></age>
     <? endif; ?>
+    <? if ( !empty( $user[ 'avatarid' ] ) ): ?>
     <avatar id="<?= $user[ 'avatarid' ] ?>">
         <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
     </avatar>
+    <? endif; ?>
     <? if ( isset( $user[ 'location' ] ) ): ?>
     <location id="<?= $user[ 'location_id' ]?>"><?= $user[ 'location' ] ?></location>
     <? endif;
