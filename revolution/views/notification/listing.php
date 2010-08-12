@@ -112,7 +112,7 @@
             <location><?= $user[ 'place' ][ 'name' ]; ?></location>
             <knows>
                 <user id="<?= $notification[ 'friendship' ][ 'friend' ][ 'id' ] ?>" >
-					<? if ( $notification[ 'friendship' ][ 'strength' ] > 0 ): ?>
+					<? if ( $notification[ 'friendship' ][ 'strength' ] > 1 ): ?>
 					<knows/>
 					<? endif; ?>
 				</user>
