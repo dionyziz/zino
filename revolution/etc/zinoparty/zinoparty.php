@@ -27,20 +27,55 @@
 <html>
 	<head>
 		<title>Zino Party!</title>
+		<script type="text/javascript">
+			var songid = new Array();
+			<?php 
+				$i = 0;
+				foreach ( $ids as $id ) {
+					echo "songid[" .  $i . "] = " . $id . ";";
+					$i++;
+				}
+			?>
+			songcounter = 0;
+			songamount = <?php echo count( $ids ); ?>;
+			function LoadNext() { 
+				alert( "happy" );
+				if ( songamount <= $songcounter	) {
+					alert( "no more  songs" );
+					return;
+				}
+
+				songcounter++;
+				document.getElementById("player").innerHTML = "<object>" +
+		            '<param name="movie" value="http://listen.grooveshark.com/songWidget.swf">' +
+		            '<param name="wmode" value="opaque">' +
+		            '<param name="allowScriptAccess" value="always">' +
+		            '<param name="flashvars" value="hostname=cowbell.grooveshark.com&amp;songID=<?php echo $songid ?>&amp;style=metal">' +
+		            '<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&amp;songID=' + songid[ songcounter ] + '&amp;style=metal" allowScriptAccess="always" wmode="opaque"></embed>' +
+		        '</object>';
+				return;
+			}
+        </script>
+
 	</head>
 	<body>
 
-		<div class="mplayer">
-		    <div class="player">
+		<div class="mplayer" >
+		    <div class="player" id = "player">
 		        <object>
-		            <param name="movie" value="http://listen.grooveshark.com/songWidget.swf"></param>
-		            <param name="wmode" value="opaque"></param>
-		            <param name="allowScriptAccess" value="always"></param>
-		            <param name="flashvars" value="hostname=cowbell.grooveshark.com&amp;songID=<?php echo $songid ?>&amp;style=metal"></param>
-		            <embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&amp;songID=<?php echo $songid ?>&amp;style=metal" allowScriptAccess="always" wmode="opaque"></embed>
+		            <param name="movie" value="http://listen.grooveshark.com/songWidget.swf">
+		            <param name="wmode" value="opaque">
+		            <param name="allowScriptAccess" value="always">
+		            <param name="flashvars" value="hostname=cowbell.grooveshark.com&amp;songID=<?php echo $songid ?>&amp;style=metal">
+		            <embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&amp;songID=<?php echo $ids[ 0 ]; ?>&amp;style=metal" allowScriptAccess="always" wmode="opaque"></embed>
 		        </object>
 		    </div>
 		</div>
 
+		<div class = "nextbutton" >
+			<form>		
+				<div><input type = "button" name="next" value = "next" onclick = "javascript:LoadNext();" /></div>
+			</form>
+		</div>
 	</body>
 </html>
