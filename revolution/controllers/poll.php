@@ -9,8 +9,7 @@
             clude( 'models/favourite.php' );
             $poll = Poll::Item( $id );
             $poll !== false or die;
-            if ( $poll[ 'user' ][ 'deleted' ] === 1 || $poll[ 'delid' ] === 1 ) { 
-				echo "hi\n";
+            if ( ( int )$poll[ 'user' ][ 'deleted' ] === 1 || ( int )$poll[ 'delid' ] === 1 ) { 
                 include 'views/itemdeleted.php';
                 return;
             }
