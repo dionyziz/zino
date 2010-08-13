@@ -13,6 +13,7 @@ RewriteRule ^imagetags/([0-9]+)$ index.php?resource=imagetag&method=listing&phot
 RewriteRule ^albums/([0-9]+)$ index.php?resource=album&method=view&id=$1 [L,QSA]
 RewriteRule ^albums/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=album&method=listing&username=$1 [L,QSA]
 RewriteRule ^album/update$ index.php?resource=album&method=update [L,QSA]
+RewriteRule ^album/create$ index.php?resource=album&method=create [L,QSA]
 
 # polls
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
