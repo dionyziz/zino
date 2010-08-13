@@ -1,4 +1,7 @@
 <albums>
+    <author id="<?= $user[ 'id' ]; ?>">
+        <name><?= $user[ 'name' ]; ?></name>
+    </author>
     <?php foreach ( $albums as $album ): ?>
     <album id="<?= $album[ 'id' ]; ?>"<?
     if ( isset( $album[ 'egoalbum' ] ) && $album[ 'egoalbum' ] ): 
