@@ -29,7 +29,7 @@
             case 'satanoulis':
             case 'annaaa':
 			case 'nitrio2' :
-			case 'Stak_O_Gamiac' :
+			case strtolower( 'Stak_O_Gamiac' ) :
                 die( 'Access denied' );
             default:
         }
