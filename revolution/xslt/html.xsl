@@ -8,20 +8,76 @@
     <xsl:value-of select="/*[1]/@method" />
 </xsl:variable>
 
-<xsl:template name="tiny">
-    <xsl:apply-templates />
-</xsl:template>
-
 <xsl:variable name="user" select="/*[1]/@for" />
 
 <xsl:template match="/" priority="1">
     <xsl:choose>
         <!-- tiny master templates -->
-        <xsl:when test="$resource = 'session' "><xsl:apply-templates /></xsl:when>
+        <xsl:when test="$resource = 'session'"><xsl:apply-templates /></xsl:when>
         
         <!-- full master templates -->
         <xsl:otherwise>
             <xsl:call-template name="html" />
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+<xsl:template name="title">
+    <xsl:choose>
+        <xsl:when test="/social/@resource = 'user' and /social/@method = 'view'">
+            <xsl:value-of select="/social/user/name" />
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'photo' and /social/@method = 'view'">
+            <xsl:choose>
+                <xsl:when test="/social/photo/title">
+                    <xsl:value-of select="/social/photo/title" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="/social/photo/author/name" />
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:text> ● zino</xsl:text>
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'poll' and /social/@method = 'view'">
+            <xsl:value-of select="/social/poll/title" /> ●
+            <xsl:value-of select="/social/poll/author/name" /> ● zino
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'journal' and /social/@method = 'view'">
+            <xsl:value-of select="/social/journal/title" />
+            <xsl:text> ● </xsl:text>
+            <xsl:value-of select="/social/journal/author/name" />
+            <xsl:text> ● zino</xsl:text>
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'news' and /social/@method = 'list'">
+            Νέα ● zino
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'journal' and /social/@method = 'list'">
+            Ημερολόγια 
+            <xsl:if test="/social/journals/author">
+                <xsl:text> ● </xsl:text><xsl:value-of select="/social/journals/author/name" />
+            </xsl:if>
+            <xsl:text> ● zino</xsl:text>
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'poll' and /social/@method = 'list'">
+            Δημοσκοπήσεις
+            <xsl:if test="/social/journals/author">
+                <xsl:text> ● </xsl:text><xsl:value-of select="/social/journals/author/name" />
+            </xsl:if> ● zino
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'photo' and /social/@method = 'list'">
+            <xsl:if test="/social/photos/author">
+                <xsl:value-of select="/social/photos/author/name" />
+                <xsl:text> ●</xsl:text>
+            </xsl:if>
+            Εικόνες ● zino
+        </xsl:when>
+        <xsl:when test="/social/@resource = 'favourite' and /social/@method = 'list'">
+            <xsl:value-of select="/social/photos/author/name" />
+            <xsl:text> ●</xsl:text>
+            Αγαπημένα ● zino
+        </xsl:when>
+        <xsl:otherwise>
+            zino
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>

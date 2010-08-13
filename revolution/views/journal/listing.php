@@ -1,4 +1,9 @@
 <journals>
+    <? if ( isset( $user ) ): ?>
+    <author>
+        <name><?= $user[ 'name' ] ?></name>
+    </author>
+    <? endif; ?>
 	<? foreach ( $journals as $item ): ?>
     <journal id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>

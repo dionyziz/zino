@@ -1,4 +1,9 @@
 <polls>
+    <? if ( isset( $user ) ): ?>
+    <author>
+        <name><?= $user[ 'name' ] ?></name>
+    </author>
+    <? endif; ?>
 	<? foreach ( $polls as $item ): ?>
     <poll id="<?= $item[ 'id' ]; ?>">
         <published><?= $item[ 'created' ] ?></published>

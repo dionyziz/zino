@@ -53,7 +53,7 @@
 	            	$polls = Poll::ListRecent();
 	            }
             }
-            include 'views/poll/listing.php';
+            Template( 'poll/listing', compact( 'user', 'polls' ) );
         }
         public static function Create( $question, $options ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a poll' );

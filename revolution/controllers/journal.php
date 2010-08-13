@@ -39,7 +39,7 @@
             else {
                 $journals = Journal::ListRecent();
             }
-            include 'views/journal/listing.php';
+            Template( 'journal/listing', compact( 'journals', 'user' ) );
         }
         public static function Create( $title, $text ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create a journal' );
