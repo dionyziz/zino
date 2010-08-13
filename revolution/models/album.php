@@ -5,7 +5,7 @@
             return array_shift( db_array( 
                 'SELECT
                     `album_id` AS id, `album_name` AS name, `album_delid` AS delid, `album_ownerid` AS ownerid, `album_numphotos` AS numphotos,
-                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description, `album_url` AS url
+                    `album_ownertype` AS ownertype, `album_mainimageid` AS mainimageid, `album_description` AS description
                 FROM
                     `albums`
                 WHERE
@@ -80,7 +80,7 @@
 
             return $album;
         }
-        public static function Update( $album, $name, $description, $mainimageid ) {
+        public static function Update( $albumid, $name = false, $mainimageid = false ) {
             assert( is_array( $album ) );
             assert( isset( $album[ 'name' ] ) );
             assert( isset( $album[ 'id' ] ) );
@@ -88,26 +88,7 @@
             assert( is_string( $description ) );
             assert( is_numeric( $mainimageid ) );
 
-            $url = '';
-            if ( $album[ 'name' ] == $name ) {
-                assert( isset( $album[ 'url' ] ) );
-                $url = $album[ 'url' ];
-            }
-            else {
-                clude( 'models/url.php' );
-                assert( isset( $album[ 'ownerid' ] ) );
-                $url = URL_FormatUnique( $name, $album[ 'ownerid' ], 'Album::ItemByUrlAndOwner' );
-            }
-
-            $details = array(
-                'id' => $album[ 'id' ],
-                'name' => $name,
-                'url' => $url,  
-                'description' => $description,
-                'mainimageid' => $mainimageid
-            );
-            
-            return db( 
+            db( 
                 "UPDATE 
                     `albums` 
                 SET 
@@ -116,8 +97,8 @@
                     `album_description` = :description,
                     `album_mainimageid` = :mainimageid
                 WHERE
-                    `album_id` = :id
-                LIMIT 1;", $details
+                    `album_id` = :albumid
+                LIMIT 1;", compact( 'albumid', 'name', 'mainimageid' )
             );
         }
         public static function Delete( $id ) {

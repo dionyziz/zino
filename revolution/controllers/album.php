@@ -29,7 +29,7 @@
 
             include 'views/album/view.php';
         }
-        public static function Update( $albumid, $name, $description, $mainimageid ) {
+        public static function Update( $albumid, $name, $mainimageid ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to create an album' );
 
             clude( 'models/db.php' );
@@ -56,22 +56,15 @@
             if ( empty( $name ) ) {
                 $name = $album[ 'name' ];
             }
-            if ( empty( $description )  ) {
-                $description = $album[ 'description' ];
-            }
             if ( $mainimageid == 0 ) {
                 $mainimageid = $album[ 'mainimageid' ];
             }
 
-            $details = Album::Update( $album, $name, $description, $mainimageid );
+            Album::Update( $albumid, $name, $mainimageid );
+            $album[ 'name' ] = $name;
+            $album[ 'mainimageid' ] = $mainimageid;
 
-            // update array details for viewing
-            $album[ 'name' ] = $details[ 'name' ];
-            $album[ 'url' ] = $details[ 'url' ];
-            $album[ 'description' ] = $details[ 'description' ];
-            $album[ 'mainimageid' ] = $details[ 'mainimageid' ];
-
-            include 'views/album/view.php';
+            Template( 'album/view', compact( 'album', 'user' ) );
         }
         public static function Listing( $username ) {
             clude( 'models/db.php' );

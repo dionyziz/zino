@@ -128,10 +128,10 @@
             }
 
 			if ( $album[ 'mainimageid' ] == 0 ) {
-				Album::Update( $album, $album[ 'name' ], $album[ 'description' ], $photo[ 'id' ] );
+				Album::Update( $album[ 'id' ], $album[ 'name' ], $photo[ 'id' ] );
 				$egoalbumid = User::GetEgoAlbumId( $photo[ 'userid' ] );
 				if ( $egoalbumid == $album[ 'id' ] ) {					
-						User::UpdateAvatarid( $photo[ 'userid' ], $photo[ 'id' ] );
+                    User::UpdateAvatarid( $photo[ 'userid' ], $photo[ 'id' ] );
 				}
 			}
     
@@ -200,11 +200,11 @@
 				$mainimageid = 0;
 				if ( empty( $album_photos ) ) {
 					$mainimageid = 0;
-					Album::Update( $album, $album[ 'name' ], $album[ 'description' ], $mainimageid );
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
 				}
 				else {
 					$mainimageid = $album_photos[ 0 ][ 'id' ];
-					Album::Update( $album, $album[ 'name' ], $album[ 'description' ], $mainimageid );
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
 				}
 				if ( $albumid == $egoalbumid ) {
 					User::UpdateAvatarid( $user[ 'id' ], $mainimageid );
