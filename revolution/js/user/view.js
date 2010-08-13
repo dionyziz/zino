@@ -153,7 +153,8 @@ var Profile = {
                 var id = $( data ).find( 'tag' ).attr( 'id' );
                 var text = $( data ).find( 'tag' ).text();
                 $( '.' + type ).find( '.last' ).removeClass( 'last' );
-                var tagitem = $( '<li class="last" id="tag_' + id + '">' + text + '<span class="delete">&#215;</span></li>' );
+                var tagitem = $( '<li class="last" id="tag_' + id + '"></li>' )
+                    .text( text ).append( '<span class="delete">&#215;</span>' );
                 $( '.' + type ).children( 'ul' ).append( tagitem );
             });
         }
