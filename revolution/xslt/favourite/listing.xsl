@@ -50,3 +50,22 @@
         </div>
     </xsl:for-each>
 </xsl:template>
+
+<xsl:template name="favourite.list">
+    <xsl:if test="favourites or not(/social/@for = author/name)">
+        <div class="note">
+            <xsl:for-each select="favourites/user">
+                <div class="love">
+                &#9829; <span class="username"><a>
+                <xsl:attribute name="href">users/<xsl:value-of select="name" /></xsl:attribute>
+                <xsl:value-of select="name" /></a> </span>
+                </div>
+                <xsl:text> </xsl:text>
+            </xsl:for-each>
+            <a class="love linkbutton" href="" style="display:none">
+                <xsl:attribute name="id">love_<xsl:value-of select="/social/*/@id" /></xsl:attribute>
+                <strong>&#9829;</strong> Το αγαπώ!
+            </a>
+        </div>
+    </xsl:if>
+</xsl:template>

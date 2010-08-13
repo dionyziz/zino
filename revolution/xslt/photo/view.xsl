@@ -35,9 +35,6 @@
             </div>
         </xsl:if>
         <div class="title">
-            <xsl:if test="/social/@for = author/name or not(title)">
-                <xsl:attribute name="class">hidden</xsl:attribute>
-            </xsl:if>
             <xsl:if test="/social/@for = author/name">
                 <input type="text">
                     <xsl:attribute name="value"><xsl:value-of select="title" /></xsl:attribute>
@@ -49,25 +46,13 @@
             </xsl:if>
             <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
             <span>
+                <xsl:if test="/social/@for = author/name or not(title)">
+                    <xsl:attribute name="class">hidden</xsl:attribute>
+                </xsl:if>
                 <xsl:value-of select="title" />
             </span>
         </div>
-        <xsl:if test="favourites or not(/social/@for = author/name)">
-            <div class="note">
-                <xsl:for-each select="favourites/user">
-                    <div class="love">
-                    &#9829; <span class="username"><a>
-                    <xsl:attribute name="href">users/<xsl:value-of select="name" /></xsl:attribute>
-                    <xsl:value-of select="name" /></a> </span>
-                    </div>
-                    <xsl:text> </xsl:text>
-                </xsl:for-each>
-                <a class="love linkbutton" href="" style="display:none">
-                    <xsl:attribute name="id">love_<xsl:value-of select="/social/photo/@id" /></xsl:attribute>
-                    <strong>&#9829;</strong> Το αγαπώ!
-                </a>
-            </div>
-        </xsl:if>
+        <xsl:call-template name="favourite.list" />
     </div>
     <div class="navigation" style="display: none;">
         <xsl:if test="//photo[ @navigation='next' ]">

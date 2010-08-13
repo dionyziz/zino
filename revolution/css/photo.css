@@ -95,6 +95,6 @@
 .contentitem > .title input.empty{
     font-style: italic;
 }
-.contentitem > .title.hidden {
+.contentitem .hidden {
     display: none;
 }

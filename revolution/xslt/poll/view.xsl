@@ -63,19 +63,7 @@
         </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
         <xsl:apply-templates select="options" />
-        <div class="note">
-            <xsl:for-each select="favourites/user">
-                <div class="love">
-                &#9829; <span class="username"><a>
-                <xsl:attribute name="href">users/<xsl:value-of select="name" /></xsl:attribute>
-                <xsl:value-of select="name" /></a> </span>
-                </div>
-            </xsl:for-each>
-            <a class="love linkbutton" href="" style="display:none">
-                <xsl:attribute name="id">love_<xsl:value-of select="/social/poll/@id" /></xsl:attribute>
-                <strong>&#9829;</strong> Το αγαπώ!
-            </a>
-        </div>
+        <xsl:call-template name="favourite.list" />
     </div>
     <xsl:apply-templates select="discussion" />
 </xsl:template>
