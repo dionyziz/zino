@@ -58,6 +58,12 @@
 			clude( "models/types.php" );
 	
             is_int( $userid ) or die( 'userid not an integer' );
+			if ( !is_string( $name ) ) {
+				throw new Exception( "No name given" );
+			}
+			if ( !is_string( $description ) ) {
+				$description = "";
+			}
 
             clude( 'models/agent.php' );
             clude( 'models/url.php' );
