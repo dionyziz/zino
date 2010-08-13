@@ -35,6 +35,9 @@ textarea.invisible {
 .love {
     white-space: nowrap;
 }
+.love a {
+    text-decoration: none;
+}
 .instantbox {
     display: none;
     margin-bottom: 150px;

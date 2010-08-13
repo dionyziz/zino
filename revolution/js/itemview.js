@@ -4,7 +4,7 @@ var ItemView = {
             return;
         }
         Comment.Init();
-        var favourites = $( 'div.love .username' );
+        var favourites = $( 'div.love .username a' );
         var faved = false;
         for ( i = 0; i < favourites.length; ++i ) {
             if ( favourites[ i ].innerHTML == User ) {

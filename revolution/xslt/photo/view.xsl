@@ -13,31 +13,34 @@
                             <xsl:apply-templates select="author" />
                         </li>
                         <li><div class="time"><xsl:value-of select="published" /></div></li>
-                        <xsl:if test="favourites[1]/@count &gt; 0">
-                            <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites[1]/@count" /></span></li>
+                        <xsl:if test="favourites/@count &gt; 0">
+                            <li class="stat numfavourites">&#9829; <span><xsl:value-of select="favourites/@count" /></span></li>
                         </xsl:if>
-                        <xsl:if test="discussion[1]/@count &gt; 0">
-                            <li class="stat numcomments"><span><xsl:value-of select="discussion[1]/@count" /></span></li>
+                        <xsl:if test="discussion/@count &gt; 0">
+                            <li class="stat numcomments"><span><xsl:value-of select="discussion/@count" /></span></li>
                         </xsl:if>
                     </ul>
                 </div>
             </xsl:if>
             <div class="image">
-                <xsl:attribute name="style">width: <xsl:value-of select="media[1]/@width" />px;</xsl:attribute>
+                <xsl:attribute name="style">width: <xsl:value-of select="media/@width" />px;</xsl:attribute>
                 <img class="maincontent">
-                    <xsl:attribute name="src"><xsl:value-of select="media[1]/@url" /></xsl:attribute>
-                    <xsl:attribute name="width"><xsl:value-of select="media[1]/@width" /></xsl:attribute>
-                    <xsl:attribute name="height"><xsl:value-of select="media[1]/@height" /></xsl:attribute>
+                    <xsl:attribute name="src"><xsl:value-of select="media/@url" /></xsl:attribute>
+                    <xsl:attribute name="width"><xsl:value-of select="media/@width" /></xsl:attribute>
+                    <xsl:attribute name="height"><xsl:value-of select="media/@height" /></xsl:attribute>
                 </img>
-                <xsl:if test="/social/@for = author[1]/name[1]">
+                <xsl:if test="/social/@for = author/name">
                     <div class="icon" id="deletebutton">&#215;</div>     
                 </xsl:if>
             </div>
         </xsl:if>
         <div class="title">
-            <xsl:if test="/social/@for = author[1]/name[1]">
+            <xsl:if test="/social/@for = author/name or not(title)">
+                <xsl:attribute name="class">hidden</xsl:attribute>
+            </xsl:if>
+            <xsl:if test="/social/@for = author/name">
                 <input type="text">
-                    <xsl:attribute name="value"><xsl:value-of select="title[1]" /></xsl:attribute>
+                    <xsl:attribute name="value"><xsl:value-of select="title" /></xsl:attribute>
                     <xsl:if test="not(title)">
                         <xsl:attribute name="value">Γράψε τίτλο για τη φωτογραφία</xsl:attribute>
                         <xsl:attribute name="class">empty</xsl:attribute>
@@ -46,17 +49,18 @@
             </xsl:if>
             <xsl:if test="@deleted">Η φωτογραφία έχει διαγραφεί.</xsl:if>
             <span>
-                <xsl:if test="/social/@for = author[1]/name[1] or not(title[1])">
-                    <xsl:attribute name="class">hidden</xsl:attribute>
-                </xsl:if>
-                <xsl:value-of select="title[1]" />
+                <xsl:value-of select="title" />
             </span>
         </div>
-        <xsl:if test="favourites or not(/social/@for = author[1]/name[1])">
+        <xsl:if test="favourites or not(/social/@for = author/name)">
             <div class="note">
                 <xsl:for-each select="favourites/user">
                     <div class="love">
-                    &#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
+                    &#9829; <span class="username"><a>
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="name" />
+                    </xsl:attribute><xsl:value-of select="name" /></a> </span>
+                    </div>
                     <xsl:text> </xsl:text>
                 </xsl:for-each>
                 <a class="love linkbutton" href="" style="display:none">

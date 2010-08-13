@@ -38,7 +38,11 @@
         <div class="note">
             <xsl:for-each select="favourites/user">
                 <div class="love">
-                &#9829; <span class="username"><xsl:value-of select="name[1]" /> </span> </div>
+                &#9829; <span class="username"><a>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="name" />
+                </xsl:attribute><xsl:value-of select="name" /></a> </span>
+                </div>
             </xsl:for-each>
             <a class="love linkbutton" href="" style="display:none">
                 <xsl:attribute name="id">love_<xsl:value-of select="/social/journal/@id" /></xsl:attribute>
