@@ -10,6 +10,7 @@
             $poll = Poll::Item( $id );
             $poll !== false or die;
             if ( $poll[ 'user' ][ 'deleted' ] === 1 || $poll[ 'delid' ] === 1 ) { 
+				echo "hi\n";
                 include 'views/itemdeleted.php';
                 return;
             }
