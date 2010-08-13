@@ -19,7 +19,7 @@
 .maininfo #useravatar {
     position: relative;
     cursor: pointer;
-    display: inline;
+    float: left;
 }
 .maininfo #useravatar .changeavatar {
     display: none;
