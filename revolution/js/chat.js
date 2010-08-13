@@ -164,7 +164,11 @@ var Chat = {
          }
 
          var li = document.createElement( 'li' );
-         li.innerHTML = '<strong class="self">' + User + '</strong> <span class="text">' + text + '</span>';
+         li.innerHTML = '<strong class="self"></strong> <span class="text"></span>';
+         $( li )
+            .children( 'strong' ).text( User ).end()
+            .children( 'span' ).text( text );
+
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
          var lastChild = $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild;
