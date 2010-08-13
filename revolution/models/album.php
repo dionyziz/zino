@@ -81,11 +81,7 @@
             return $album;
         }
         public static function Update( $albumid, $name = false, $mainimageid = false ) {
-            assert( is_array( $album ) );
-            assert( isset( $album[ 'name' ] ) );
-            assert( isset( $album[ 'id' ] ) );
             assert( is_string( $name ) );
-            assert( is_string( $description ) );
             assert( is_numeric( $mainimageid ) );
 
             db( 
@@ -93,8 +89,6 @@
                     `albums` 
                 SET 
                     `album_name` = :name,
-                    `album_url` = :url,
-                    `album_description` = :description,
                     `album_mainimageid` = :mainimageid
                 WHERE
                     `album_id` = :albumid
