@@ -134,8 +134,8 @@ var AlbumListing = {
                     albumid: id,
                     name: title
                 });
-            $( '#albumlist .add' ).show();
             });
+            $( '#albumlist .add' ).show();
         }, 'xml');
     },
     Init: function() {
