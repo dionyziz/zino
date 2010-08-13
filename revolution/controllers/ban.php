@@ -1,6 +1,7 @@
 <?php
     class ControllerBan {
 		public static function Listing() {
+			clude( 'models/db.php' );
 			clude( 'models/ban.php' );
 			clude( 'models/user.php' );
 
