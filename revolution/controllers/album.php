@@ -41,6 +41,7 @@
 			$egoalbumid = User::GetEgoAlbumId( $user[ 'id' ] );
 
             $album = Album::Item( $albumid );
+            assert( isset( $album[ 'url' ] ) );
             $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
 
 			if ( $egoalbumid == $albumid ) {

@@ -88,14 +88,13 @@
             assert( is_string( $description ) );
             assert( is_numeric( $mainimageid ) );
 
-            clude( 'models/url.php' );
-
             $url = '';
             if ( $album[ 'name' ] == $name ) {
                 assert( isset( $album[ 'url' ] ) );
                 $url = $album[ 'url' ];
             }
             else {
+                clude( 'models/url.php' );
                 assert( isset( $album[ 'ownerid' ] ) );
                 $url = URL_FormatUnique( $name, $album[ 'ownerid' ], 'Album::ItemByUrlAndOwner' );
             }
