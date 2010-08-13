@@ -32,7 +32,7 @@
         break;
     case TYPE_ALBUM:
         ?><album id="<?= $activity[ 'item' ][ 'id' ] ?>">
-            <name><?= $activity[ 'item' ][ 'title' ] ?></name>
+            <name><?= htmlspecialchars( $activity[ 'item' ][ 'title' ] ) ?></name>
             <url><?= $activity[ 'item' ][ 'url' ] ?></url>
         </album><?
         break;
