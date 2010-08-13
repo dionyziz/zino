@@ -4,10 +4,12 @@ var Kamibu = {
         window.location.href = base + href;
     },
     EditableTextElement: function( element, placeholder, callback ) {
-        if( window.getComputedStyle( element, null ).getPropertyValue( 'position' ) == 'static' ){
-            element.style.top = 0;
-            element.style.left = 0;
-            element.style.position = 'relative';
+        if( $( element ).css( 'position' ) == 'static' ){
+            $( element ).css({
+                'top': 0,
+                'left': 0,
+                'position': 'relative'
+            });
         }
         Kamibu.addClass( element, 'editabletext' );
         var input = document.createElement( 'input' );

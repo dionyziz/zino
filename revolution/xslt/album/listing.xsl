@@ -7,6 +7,7 @@
 <xsl:template match="/social[@resource='album' and @method='listing']/albums">
     <xsl:for-each select="album">
         <li>
+            <xsl:attribute name="id">album_<xsl:value-of select="@id" /></xsl:attribute>
             <xsl:if test="./@egoalbum='yes'">
                 <xsl:attribute name="class">
                     <xsl:text>egoalbum</xsl:text>
@@ -42,4 +43,7 @@
             </p>
         </li>
     </xsl:for-each>
+        <li class="add">
+            <label class="cabinet"></label>
+        </li>
 </xsl:template>

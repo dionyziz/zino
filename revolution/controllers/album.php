@@ -22,6 +22,7 @@
 
             clude( 'models/db.php' );
             clude( 'models/album.php' );
+            clude( 'models/user.php' );
 
             $album = Album::Create( $_SESSION[ 'user' ][ 'id' ], $name, $description );
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );

@@ -43,6 +43,17 @@ div.useralbums .minimize {
         width: 134px;
         overflow: hidden;
     }
+    #albumlist li.add{
+        height: 134px;
+    }
+    #albumlist li.add label{
+        position: relative;
+        top: 50px;
+        left: 50px;
+    }
+    #albumlist li.new input{
+        width: 124px;
+    }
     #albumlist li a {
         text-decoration: none;
     }
@@ -50,6 +61,7 @@ div.useralbums .minimize {
         font-size: 11pt;
         margin: 5px;
         color: #347594;
+        position: relative;
     }
     #albumlist a.selected img {
         border: 2px solid #ffba09;
