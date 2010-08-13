@@ -55,6 +55,8 @@
             return $albums;
         }
         public static function Create( $userid, $name, $description ) {
+			clude( "models/types.php" );
+	
             is_int( $userid ) or die( 'userid not an integer' );
 
             clude( 'models/agent.php' );
