@@ -70,7 +70,7 @@
                         `user_avatarid` as avatarid, `user_gender` as gender,
                         `poll_id` as id, `poll_question` as question, `poll_url` as url,
                         `poll_userid` as userid, `poll_created` as created , `poll_numvotes` as numvotes,
-                        `poll_numcomments` as numcomments 
+                        `poll_numcomments` as numcomments, `poll_delid` as delid
 					FROM 
 						`polls`
 					CROSS JOIN `users` ON
