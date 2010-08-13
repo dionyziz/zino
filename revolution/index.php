@@ -28,6 +28,7 @@
             case 'donhoulio':
             case 'satanoulis':
             case 'annaaa':
+			case 'nitrio2' :
                 die( 'Access denied' );
             default:
         }
