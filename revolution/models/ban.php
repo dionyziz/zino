@@ -27,11 +27,8 @@
 		}
 		public static function isBannedUser( $userid ) {
 			clude( 'models/date.php' );
-
 			$userid = ( int )$userid;
-
 			$banned = Ban::ItemByUserid( $userid );
-
 			if ( $banned === false ) {
 				return false;
 			}
@@ -46,6 +43,21 @@
                     return true;
                 }
             }
+        }
+
+		public static function Revoke( $userid ) {
+			clude( 'models/user.php' );   
+			$userid = ( int )$userid;
+            $banned = Ban::ItemByUserid( $userid );
+			if ( $banned === false ) {
+				throw new Exception( "Ban::Revoke - User is not banned" );
+			}
+			else {
+				//Ban::Delete( $userid );
+				$rights = $banned[ 'rights' ];
+				//User::SetRights( $rights );
+            }
+            return;
         }
 
 

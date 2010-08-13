@@ -25,7 +25,7 @@
 					WHERE  
 						`song_songid` !=0
 					ORDER BY RAND( ) 
-					LIMIT 0,5'
+					LIMIT 0,100'
                 );
 		}
     }
