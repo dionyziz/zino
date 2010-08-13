@@ -196,7 +196,7 @@
             $res = db(
                 'SELECT
                     `user_id` AS id,
-                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
+                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid, `user_rights` AS rights
                 FROM
                     `users`
                 WHERE
