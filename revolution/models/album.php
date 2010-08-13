@@ -94,13 +94,22 @@
             return $album;
         }
         public static function Update( $album, $name, $description, $mainimageid ) {
+            assert( is_array( $album ) );
+            assert( isset( $album[ 'name' ] ) );
+            assert( isset( $album[ 'id' ] ) );
+            assert( is_string( $name ) );
+            assert( is_string( $description ) );
+            assert( is_numeric( $mainimageid ) );
+
             clude( 'models/url.php' );
 
             $url = '';
             if ( $album[ 'name' ] == $name ) {
+                assert( isset( $album[ 'url' ] ) );
                 $url = $album[ 'url' ];
             }
             else {
+                assert( isset( $album[ 'ownerid' ] ) );
                 $url = URL_FormatUnique( $name, $album[ 'ownerid' ], 'Album::ItemByUrlAndOwner' );
             }
 
