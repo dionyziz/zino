@@ -43,7 +43,9 @@
             </p>
         </li>
     </xsl:for-each>
+    <xsl:if test="/social/@for = author/name">    
         <li class="add">
             <label class="cabinet"></label>
         </li>
+    </xsl:if>
 </xsl:template>
