@@ -25,6 +25,28 @@
 					`bannedusers`'
 			);
 		}
+		public static function isBannedUser( $userid ) {
+			clude( 'models/date.php' );
+
+			$userid = ( int )$userid;
+
+			$banned = Ban::ItemByUserid( $userid );
+
+			if ( $banned === false ) {
+				return false;
+			}
+			else {
+                $diff = strtotime( NowDate() ) - strtotime( $banned[ 'expire' ] );
+                
+                if ( $diff > 0 ) {
+                    //self::Revoke( $banned[ 'userid' ] );
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        }
 
 
 /*
