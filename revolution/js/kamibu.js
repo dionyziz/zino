@@ -97,6 +97,9 @@ var Kamibu = {
         return;
     },
     TimeFollow: function( timeNode ){
+    /*
+        Developer: ted
+    */
         var diff = dateDiff( $( timeNode ).text(), Now );
         $( timeNode ).html( '<span class="friendly">' + greekDateDiff( diff ) + '</span>'
                            +'<span class="timestamp">' + stringToDate( $( timeNode ).text() ).getTime() + '</span>' );
@@ -111,17 +114,18 @@ var Kamibu = {
             var newfri = greekDateDiff( dateDiff( dt, Now ) );
             
             $( timeNode ).children( '.friendly' ).text( newfri );
-            if( diff / 60000 < 15 ){
+            if( diff / 60000 < 15 ){ //for a quarter
                 setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
                 return;
             }
-            if( diff / 60000 < 60 ){
+            if( diff / 60000 < 60 ){ //for an hour
                 setTimeout( fol, 15 * 60000 - ( diff / 1000 ) % 60000 ); //15 mins - seconds of diff
                 return;
             }
-            if( diff / 60000 < 60 * 24 ){
+            if( diff / 60000 < 60 * 24 ){ //for a day
                 setTimeout( fol, 60 * 60000 - ( diff / 1000 ) % 60000 ); //60 mins - seconds of diff
             }
+            //No need of more, I think
         };
         fol();
     },

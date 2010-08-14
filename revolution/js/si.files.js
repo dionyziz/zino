@@ -13,7 +13,7 @@ SI.Files =
         this.fini = true;
         
         var ie = 0 //@cc_on + @_jscript_version
-        if (window.opera || (ie && ie < 5.5) || !document.getElementsByTagName) { return; } // no support for opacity or the DOM
+        if ( (ie && ie < 5.5) || !document.getElementsByTagName) { return; } // no support for opacity or the DOM
         this.able = true;
         
         var html = document.getElementsByTagName('html')[0];
