@@ -7,8 +7,7 @@
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $photo = Photo::Item( $id );
-            $photo !== false or die;
-            if ( $photo[ 'user' ][ 'deleted' ] === 1 ) { 
+            if ( $photo[ 'user' ][ 'deleted' ] === 1 || $photo === false ) { 
                 include 'views/itemdeleted.php';
                 return;
             }

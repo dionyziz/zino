@@ -1,4 +1,8 @@
 <? global $settings ?>
+<? if ( $photo[ 'deleted' ] ): ?>
+<photo deleted="yes" />
+<? return;
+   endif; ?>
 <photo id="<?= $photo[ 'id' ] ?>">
     <? if( $photo[ 'title' ] != '' ): ?>
         <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
