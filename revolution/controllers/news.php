@@ -53,7 +53,7 @@
 			$pflag = false;
 			$jflag = false;
 			while ( $pflag == false || $jflag == false ) {
-				if ( $pfalg == true || current( $polls ) == false ) {
+				if ( $pflag == true || current( $polls ) == false ) {
 					while ( current ( $journals ) != false ) {
 						$content[ $i ] = current ( $journals );
 						$content[ $i ][ 'type' ] = 'journal';
