@@ -6,18 +6,16 @@ var Favourite = {
         for ( var i = 0; i < $items.length; ++i ) {
             $item = $( $items[ i ] );
             url = $item.find( 'a' ).attr( 'href' );
-            $item.click( ( function ( url ) {
-                return function() {
-                    Kamibu.Go( url );
-                };
-            } )( url ) );
+            $item.click( function () {
+                Kamibu.Go( url );
+            } );
             id = url.substring( url.indexOf( '/' ) + 1 );
             type = url.substring( 0, url.indexOf( '/' ) - 1 );
             $del = $item.find( '.deleteicon' );
-            $del.click( function( id, type ) { return function() {
+            $del.click( function() {
                 Favourite.Remove( id, type );
                 return false;
-            }; }( id, type ) );
+            });
         }
     },
     Remove: function( id, type ) {

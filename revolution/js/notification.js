@@ -65,9 +65,9 @@ var Notifications = {
         document.title = '(' + count + ') ' + Notifications.OriginalTitle;
 
         next = $( current ).nextAll( '.box' );
-        if ( next.length == 0 ) {
+        if ( next.length === 0 ) {
             next = $( current ).prevAll( '.box' );
-            if ( next.length == 0 ) {
+            if ( next.length === 0 ) {
                 // no more notification boxes
                 Notifications.Done();
                 return;
@@ -142,7 +142,7 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
-                if ( $( this ).find( 'h3 span' ).text() == '0' || $( this ).find( '.box' ).length == 0 ) {
+                if ( $( this ).find( 'h3 span' ).text() == '0' || $( this ).find( '.box' ).length === 0 ) {
                     return;
                 }
                 Notifications.OriginalTitle = document.title;
@@ -201,7 +201,7 @@ var Notifications = {
         }
 
         if ( url !== '' ) {
-            if ( $ib.children().length != 0 ) { // content not yet loaded
+            if ( $ib.children().length !== 0 ) { // content not yet loaded
                 $ib.find( '.content' ).html( '<div class="contentitem">...</div>' );
                 axslt( $.get( url + '?verbose=0' ), '/social',
                     function () {
@@ -232,10 +232,10 @@ var Notifications = {
         var url = form.attr( 'action' );
         var params = form.serializeArray();
         var postdata = {};
-        for ( param in params ){
-            postdata[ params[ param ].name ] = params[ param ].value;
+        for ( var i = 0; i < params.length; ++i ){
+            postdata[ params[ i ].name ] = params[ i ].value;
         }
-        if ( form.find( 'textarea' ).val() == '' ){
+        if ( form.find( 'textarea' ).val() === '' ){
             form.find( 'textarea' ).css( { border: '3px solid red' } ).focus();
             return;
         }

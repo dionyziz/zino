@@ -121,7 +121,7 @@ var Comment = {
         var textarea = jQnode.find( 'textarea' )[ 0 ];
         var checktxt = textarea.value.replace( /^\s\s*/, '' ).replace( /\s\s*$/, '' );
         var txt = textarea.value;
-        if ( checktxt.length == 0 ) {
+        if ( checktxt.length === 0 ) {
             document.body.style.cursor = 'default';
             return;
         }
@@ -184,7 +184,7 @@ var Comment = {
         $.get( 'users/' + User, { 'verbose': 1 }, function( xml ) {
             var src;
 
-            if ( $( 'avatar', xml ).length == 0 ) {
+            if ( $( 'avatar', xml ).length === 0 ) {
                 // no avatar set
                 src = 'http://static.zino.gr/phoenix/anonymous100.jpg';
             }

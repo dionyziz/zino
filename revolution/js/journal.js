@@ -34,11 +34,11 @@ var Journal = {
                 var title = $screen.find( '.title' ).val();
                 var text = $screen.find( '.edit textarea' ).val();
                 
-                if ( title.length == 0 ) {
+                if ( title.length === 0 ) {
                     alert( 'Όρισε έναν τίτλο!' );
                     return false;
                 }
-                if ( text.length == 0 ) {
+                if ( text.length === 0 ) {
                     alert( 'Γράψε κάτι στο ημερολόγιο!' );
                     return false;
                 }

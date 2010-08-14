@@ -5,12 +5,10 @@ var UserDetails = {
             return UserDetails.GetMap( field, gender )[ value ];
         }
         else {
-            switch( field ) {
-                case 'gender':
-                    return 'Όρισε φύλο';
-                default:
-                    return UserDetails.GetMap( field, gender )[ value ];
+            if( field == 'gender' ){
+                return 'Όρισε φύλο';
             }
+            return UserDetails.GetMap( field, gender )[ value ];
         }
     },
     GetMap: function( field, gender ) {

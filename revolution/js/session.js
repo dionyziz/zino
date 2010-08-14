@@ -26,12 +26,12 @@ $( '.register form' ).submit( function() {
             $( '#name' ).focus();
             return false;
         }
-        if ( $( '#pass' ).val() == '' ) {
+        if ( $( '#pass' ).val() === '' ) {
             alert( 'Πληκτρολόγησε τον κωδικό πρόσβασης που θέλεις' );
             $( '#pass' ).focus();
             return false;
         }
-        if ( $( '#email' ).val() == '' ) {
+        if ( $( '#email' ).val() === '' ) {
             alert( 'Πληκτρολόγησε την διεύθυνση e-mail σου' );
             $( '#email' ).focus();
             return false;

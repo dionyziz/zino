@@ -25,7 +25,7 @@ var AlbumListing = {
         } );
     },
     LoadAlbum: function( albumid ){
-        if( albumid == 0 ){
+        if( albumid === 0 ){
             axslt( $.get( 'photos/' + User ), '/social/photos', function() {
                 $( '.photostream' ).empty().append( $( this ).filter( '.photostream' ).children( 'ul' ) );
             } );
@@ -54,7 +54,7 @@ var AlbumListing = {
                         $( '#albumlist .selected img' )[ 0 ].src = $( this ).siblings( 'img' )[ 0 ].src;
                         $.post( 'album/update', {
                             albumid: albumid,
-                            mainimageid: $( this ).parent()[ 0 ].href.split( '/' ).pop(),
+                            mainimageid: $( this ).parent()[ 0 ].href.split( '/' ).pop()
                         } );
                     } );
                     $( this ).append( $span );
@@ -87,7 +87,7 @@ var AlbumListing = {
         $( '#album_' + albumid ).fadeOut( 400, function() {
             $( this ).remove();
         } );
-        if ( AlbumListing.CurrentAlbum == null || albumid == AlbumListing.CurrentAlbum ) {
+        if ( AlbumListing.CurrentAlbum === null || albumid == AlbumListing.CurrentAlbum ) {
             AlbumListing.LoadAlbum( 0 );
         }
     },
@@ -98,7 +98,7 @@ var AlbumListing = {
                     +'</li>' );
         $( li ).hide().insertBefore( '#albumlist .add' ).fadeIn();
         $( li ).find( 'input' ).show().focus().blur( function(){
-            if( $( this ).val() == '' ){
+            if( $( this ).val() === '' ){
                 AlbumListing.AddCancel();
                 return;
             }

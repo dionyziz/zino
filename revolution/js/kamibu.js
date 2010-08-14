@@ -14,7 +14,7 @@ var Kamibu = {
         Kamibu.addClass( element, 'editabletext' );
         var input = document.createElement( 'input' );
         input.className = 'editableinput';
-        if ( $( element ).text() == '' ) {
+        if ( $( element ).text() === '' ) {
             Kamibu.addClass( element, 'editableempty' );
             $( element ).text( placeholder );
         }
@@ -36,7 +36,7 @@ var Kamibu = {
         } );
         if ( typeof callback === 'function' ) {
             $( input ).change( function() {
-                if ( input.value == '' ) {
+                if ( input.value === '' ) {
                     return;
                 }
                 Kamibu.removeClass( element, 'editableempty' );

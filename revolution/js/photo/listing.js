@@ -23,11 +23,12 @@ var PhotoListing = {
             $( '.imageoverlay .arrow' ).removeClass( 'disabled' );
             $( '.photostream ul li' ).removeClass( 'selected' );
             var id = $( '.imageoverlay img' ).attr( 'id' ).split( '_' )[ 1 ];
+            var fid;
             if( $( this ).hasClass( 'left' ) ){
-                var fid = $( '#photo_' + id ).prev().addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
+                fid = $( '#photo_' + id ).prev().addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
             }
             else{
-                var fid = $( '#photo_' + id ).next( ':not(.justifyhack)' ).addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
+                fid = $( '#photo_' + id ).next( ':not(.justifyhack)' ).addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1 ];
             }
             var src = $( '#photo_' + fid ).find( 'img' ).attr( 'src' ).slice( 0, -7 ) + 'full.jpg';
             if( !$( '#photo_' + fid ).prev().length ){
@@ -97,7 +98,7 @@ var PhotoListing = {
         PhotoListing.LastLoaded = $( '.photostream ul li')[ PhotoListing.CurrentPage * 100 - 1];
         PhotoListing.CurrentPage++;
         var target = window.location.href;
-        if( window.location.hash == '' ){
+        if( window.location.hash === '' ){
             target = window.location.hash.split( '#' );
             target = target[ 1 ];
         }

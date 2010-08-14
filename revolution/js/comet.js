@@ -8,8 +8,8 @@ var Comet = {
     Handshake: function () {
         //alert( 'Comet.Handshake' );
         channels = [];
-        for ( channelid in Comet.Channels ) {
-            channels.push( channelid );
+        for ( var i = 0; i < Comet.Channels.length; ++i ){
+            channels.push( i );
         }
         $.post( 'tunnel/create', {
             channels: channels.join( "," )

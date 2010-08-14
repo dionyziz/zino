@@ -45,11 +45,11 @@ var axslt = function( xml, template, callback, params, xslPath ) {
     }
     else {
         if ( template instanceof Object ) {
-            templateName = template['name'];
-            if ( template[ 'type' ] == 'call' ) {
+            templateName = template.name;
+            if ( template.type == 'call' ) {
                 templateMode = 'call';
             }
-            else if ( template[ 'type' ] == 'apply' || !_aXSLT.defaultMode ) {
+            else if ( template.type == 'apply' || !_aXSLT.defaultMode ) {
                 templateMode = 'apply';
             }
             else {
@@ -71,7 +71,7 @@ var axslt = function( xml, template, callback, params, xslPath ) {
         xslPath = _aXSLT.defaultStylesheet;
     }
     _aXSLT.registerUnit( xml, xslPath, callback, templateName, templateMode, params );
-}
+};
 
 var node_dump = function( nodeset ) {
     var xmls =  new XMLSerializer();
@@ -80,24 +80,25 @@ var node_dump = function( nodeset ) {
          alertstring += '//Node [' + i + ']:\n' + xmls.serializeToString( nodeset[ i ] ) + '\n\n';
     }
     return alertstring;
-}
+};
 
 var node_strip = function( nodeset ) {
     var ret = [];
+    var nodetext;
     for ( var i = 0; i < nodeset.length; ++i ) {
-        if ( i == 0 ) {
+        if ( i === 0 ) {
             if ( nodeset[ 0 ].nodeType = Node.TEXT_NODE ) {
-                var nodetext = nodeset[ 0 ].nodeValue.replace( /(\s)+/g, '' );
-                if ( nodetext != '' ) {
+                nodetext = nodeset[ 0 ].nodeValue.replace( /(\s)+/g, '' );
+                if ( nodetext !== '' ) {
                     //nodeset[ 0 ].nodeValue = nodetext;
                     ret.push( nodeset[ 0 ] );
                 }
             }
         }
         else if ( nodeset.length > 2 && i == nodeset.length - 1 ) {
-            var nodetext = nodeset[ i ].nodeValue.replace( /(\s)+/g, '' );
-            if ( nodetext != ''  ) {
-                if ( nodetext != '' ) {
+            nodetext = nodeset[ i ].nodeValue.replace( /(\s)+/g, '' );
+            if ( nodetext !== ''  ) {
+                if ( nodetext !== '' ) {
                     //nodeset[ 0 ].nodeValue = nodetext;
                     ret.push( nodeset[ 0 ] );
                 }
@@ -108,7 +109,7 @@ var node_strip = function( nodeset ) {
         }
     }
     return ret;
-}
+};
 
 var _aXSLT = {
     defaultStylesheet: false,
@@ -357,7 +358,6 @@ var _aXSLT = {
         //alert( stylesheet );
         if ( !stylesheet ) {
             throw new Error( 'aXSLT: Error in template juggling' );
-            return;
         }
         
         if ( typeof( xml ) == 'string' ) {
@@ -520,10 +520,9 @@ var _aXSLT = {
     postTransform: function( result, callback ) {
         if ( !result ) {
             throw new Error( 'aXSLT: Empty result document' );
-            return null;
         }
         if ( callback ) {
             callback.call( result.childNodes );
         }
     }
-}
+};

@@ -224,18 +224,18 @@ var Chat = {
              var userid, cid, found, username;
 
              found = false;
-             for ( userid in Chat.ChannelByUserId ) {
-                 cid = Chat.ChannelByUserId[ userid ];
+             for ( var i = 0; i < Chat.ChannelByUserId.length; ++i ) {
+                 cid = Chat.ChannelByUserId[ i ];
                  if ( cid == channelid ) {
                      found = true;
-                     Chat.Flash( userid, text );
-                     if ( $( '#u' + userid ).hasClass( 'flash' ) ) {
-                         username = $( '#u' + userid ).find( 'span.username' ).text();
+                     Chat.Flash( i, text );
+                     if ( $( '#u' + i ).hasClass( 'flash' ) ) {
+                         username = $( '#u' + i ).find( 'span.username' ).text();
                      }
                      else {
-                         username = $( '#u' + userid ).text();
+                         username = $( '#u' + i ).text();
                      }
-                     Chat.PopBubble( userid, username, text, channelid );
+                     Chat.PopBubble( i, username, text, channelid );
                  }
              }
              if ( !found && newmessage ) {
@@ -419,7 +419,7 @@ var Chat = {
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
              $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><ol></ol></div>';
-             if ( channelid == 0 ) {
+             if ( channelid === 0 ) {
                  return;
              }
              // create the user pane

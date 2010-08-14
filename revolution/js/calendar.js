@@ -27,6 +27,8 @@ var Calendar = {
         document.body.appendChild( Calendar.Element );
     },
     SetDate: function( year, month ) {
+        var i;
+        var day;
         Calendar.CurrentDate.setFullYear( year );
         Calendar.CurrentDate.setMonth( month - 1 );
         Calendar.CurrentDate.setDate( 1 );
@@ -36,21 +38,21 @@ var Calendar = {
         var days = Calendar.Element.getElementsByTagName( 'ul' )[ 1 ].getElementsByTagName( 'li' );
         if( Calendar.IsLeapYear() && Calendar.CurrentDate.getMonth() == 1 ){
             days[ 28 ].style.display = 'block';
-            for( var i = 29; i < 31; ++i ){
+            for( i = 29; i < 31; ++i ){
                 days[ i ].style.display = 'none';
             }
             return;
         }
-        for( var i = 28; i < 31; ++i ){
+        for( i = 28; i < 31; ++i ){
             days[ i ].style.display = 'block';
         }
-        for( var i = 30; i >= Calendar.Months[ Calendar.CurrentDate.getMonth() ][ 1 ]; --i ){
+        for( i = 30; i >= Calendar.Months[ Calendar.CurrentDate.getMonth() ][ 1 ]; --i ){
             days[ i ].style.display = 'none';
         }
     },
     IsLeapYear: function() {
         var year = Calendar.CurrentDate.getFullYear();
-        return ( ( year % 4 == 0 ) && ( year % 100 !== 0 ) ) || ( year % 400 == 0 ) ? true : false;
+        return ( ( year % 4 === 0 ) && ( year % 100 !== 0 ) ) || ( year % 400 === 0 ) ? true : false;
     },
     Construct: function() {
         var calendar = document.createElement( 'div' );
@@ -67,18 +69,19 @@ var Calendar = {
 
         var month = document.createElement( 'ul' );
         var days = document.createElement( 'ul' );
-
+        var day;
+        var i;
         month.className = 'month';
         days.className = 'days';
-
-        for ( var i = 0; i < 7; ++i ) {
-            var day = document.createElement( 'li' );
+        
+        for ( i = 0; i < 7; ++i ) {
+            day = document.createElement( 'li' );
             day.innerHTML = Calendar.Days[ i ];
             days.appendChild( day );
         }
 
-        for ( var i = 1; i <= 31; ++i ) {
-            var day = document.createElement( 'li' );
+        for ( i = 1; i <= 31; ++i ) {
+            day = document.createElement( 'li' );
             day.innerHTML = '<a href="#">' + i + '</a>';
             month.appendChild( day );
         }
@@ -108,7 +111,7 @@ var Calendar = {
             return false;
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 1 ].getElementsByTagName( 'a' )[ 0 ] ).click( function() {
-            Calendar.SetDate( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() == 0 ? 12 : Calendar.CurrentDate.getMonth() );
+            Calendar.SetDate( Calendar.CurrentDate.getFullYear(), Calendar.CurrentDate.getMonth() === 0 ? 12 : Calendar.CurrentDate.getMonth() );
             return false;
         } );
         $( Calendar.Element.getElementsByTagName( 'div' )[ 1 ].getElementsByTagName( 'a' )[ 1 ] ).click( function() {
