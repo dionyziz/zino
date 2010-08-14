@@ -200,14 +200,14 @@
 				$mainimageid = 0;
 				if ( empty( $album_photos ) ) {
 					$mainimageid = 0;
-					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $mainimageid ); //description missing from model --ted
 				}
 				else {
 					$mainimageid = $album_photos[ 0 ][ 'id' ];
-					Album::Update( $album[ 'id' ], $album[ 'name' ], $album[ 'description' ], $mainimageid );
+					Album::Update( $album[ 'id' ], $album[ 'name' ], $mainimageid ); //description missing from model --ted
 				}
-				if ( $albumid == $egoalbumid ) {
-					User::UpdateAvatarid( $user[ 'id' ], $mainimageid );
+				if ( $photo[ 'albumid' ] == $egoalbumid ) {
+					User::UpdateAvatarid( $photo[ 'user' ][ 'id' ], $mainimageid );
 				}
 			}
         }
