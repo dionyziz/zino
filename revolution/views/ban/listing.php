@@ -9,7 +9,7 @@
 		<reason><?= $user[ 'reason' ]; ?></reason>
 		<bannedBy>
 				<user>
-					<name><?= $user[ 'name' ]; ?></name>							
+					<name><?= $user[ 'admin' ]; ?></name>							
 				</user>
 		</bannedBy>
 	</ban>
