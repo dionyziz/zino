@@ -218,8 +218,15 @@
                     1', compact( 'id', 'width', 'height', 'size', 'mime' ) );
         }
         public static function Delete( $id ) {
-            $success = db( 'DELETE FROM `images` WHERE `image_id` = :id LIMIT 1', array( 'id' => $id ) );
-            return $success and mysql_affected_rows() == 1;
+            db(
+                'UPDATE
+                    `images`
+                SET
+                    `image_deleted`=1
+                WHERE
+                    `image_id` = :id
+                LIMIT 1', compact( 'id' )
+            );
         }
         public static function Upload( $userid, $imageid, $tempfile, $resizeto = false /* 700x600 */ ) {
             /*

@@ -91,7 +91,7 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
    END;
 |
 
-    CREATE TRIGGER imageinsert AFTER INSERT ON `images`
+CREATE TRIGGER imageinsert AFTER INSERT ON `images`
    FOR EACH ROW BEGIN
         UPDATE `usercounts` SET `count_images` = `count_images` + 1 WHERE `count_userid` = NEW.`image_userid` LIMIT 1;
         UPDATE `albums` SET `album_numphotos` = `album_numphotos` + 1 WHERE `album_id` = NEW.`image_albumid` LIMIT 1;
