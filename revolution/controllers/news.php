@@ -20,6 +20,7 @@
 				foreach ( $foundpolls as $poll ) {
 					$polls[ $keys[ $poll[ 'id' ] ] ] = $poll;
 				}
+				unset( $foundpolls );
 				ksort( $polls );
             }
             else {
@@ -39,6 +40,7 @@
 				foreach ( $foundjournals as $journal ) {
 					$journals[ $keys[ $journal[ 'id' ] ] ] = $journal;
 				}
+				unset( $foundjournals );
 				ksort( $journals );
             }
             else {
@@ -50,8 +52,6 @@
 			$i = 0;
 			reset( $polls );//mix results randomly while keeping the initial order
 			reset( $journals );
-			$pflag = false;
-			$jflag = false;
 			$pamt = count( $polls );
 			$jamt = count( $journals );
 			$pcnt = 0;
@@ -92,6 +92,8 @@
 					}
 				}
 			}
+			unset( $journals );
+			unset( $polls );
 
 /*
            
