@@ -18,7 +18,7 @@
                     readyState: 4
                 }
                 _aXSLT.xslCache[ 'global.xsl' ] = { xhr: magic, index: 1 };
-                axslt( $.get( 'http://www.zino.gr' ), '', function() {
+                axslt( $.get( 'http://' + document.domain ), '', function() {
                     $( document.body ).append( this );
                 } );
             </script>
