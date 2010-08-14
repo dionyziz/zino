@@ -63,7 +63,7 @@
 						$content[ $i ][ 'type' ] = 'journal';
 						++$i;
 						next( $journals );
-						$jamt++;
+						$jcnt++;
 					}
 				}
 				else if ( $jcnt >= $jamt ) {
