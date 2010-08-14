@@ -156,7 +156,7 @@
                 setInterval( function(){
                     NowDate.setSeconds( NowDate.getSeconds() + 1 );
                     Now = dateToString( NowDate );
-                }, 1000 );
+                }, 60000 );
                 
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
@@ -181,8 +181,6 @@
 
                 $( function() { $( '.time' ).each( function () {
                     Kamibu.TimeFollow( this );
-                //     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
-               //     $( this ).addClass( 'processedtime' );
                 } ); } );
 
                 var Routing = {
