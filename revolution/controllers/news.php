@@ -58,7 +58,7 @@
 			$jcnt = 0;
 			while ( $pcnt < $pamt || $jcnt < $jamt ) {
 				if ( $pcnt >= $pamt ) {
-					while ( current ( $journals ) !== false ) {
+					while ( $jcnt < $jamt ) {
 						$content[ $i ] = current ( $journals );
 						$content[ $i ][ 'type' ] = 'journal';
 						++$i;
@@ -67,7 +67,7 @@
 					}
 				}
 				else if ( $jcnt >= $jamt ) {
-					while ( current ( $polls ) !== false ) {
+					while ( $pcnt < $pamt ) {
 						$content[ $i ] = current ( $polls );
 						$content[ $i ][ 'type' ] = 'poll';
 						++$i;
