@@ -305,6 +305,7 @@ var Chat = {
          if ( $( '#u' + userid ).length ) {
              return;
          }
+         var origname = username;
          username = username.toLowerCase();
 
          for ( var i = 1; i < lis.length; ++i ) {
@@ -321,7 +322,7 @@ var Chat = {
              }
          }
          var newuser = document.createElement( 'li' );
-         newuser.appendChild( document.createTextNode( username ) );
+         newuser.appendChild( document.createTextNode( origname ) );
          newuser.id = 'u' + userid;
          newuser.onclick = Chat.NameClick;
 
