@@ -216,7 +216,9 @@ var Chat = {
              history.appendChild( li );
          }
          if ( Chat.CurrentChannel == channelid ) {
-             li.scrollIntoView();
+             if ( typeof li != 'undefined' ) {
+                 li.scrollIntoView();
+             }
          }
          else {
              var userid, cid, found, username;
@@ -495,6 +497,7 @@ var Chat = {
              }
          }
          if ( Chat.Visible ) {
+             document.title = Chat.OriginalTitle;
              $( '#chat' ).hide();
              $( '#content' ).show();
              if ( Chat.PreviousPageSelected != -1 ) {
@@ -503,6 +506,8 @@ var Chat = {
              $( '#chatbutton' ).parent().removeClass( 'selected' );
          }
          else {
+             Chat.OriginalTitle = document.title;
+             document.title = 'Chat στο zino';
              $( '#chat' ).show();
              $( '#content' ).hide();
              var menu = $( 'div.bar ul li' );

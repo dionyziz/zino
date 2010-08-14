@@ -2,6 +2,7 @@ var Notifications = {
     World: null,
     TakenOver: false,
     PendingRequests: 0,
+    OriginalTitle: '',
     RequestDone: function () {
         --Notifications.PendingRequests;
     },
@@ -61,6 +62,7 @@ var Notifications = {
         }, 800 );
 
         $( '#notifications h3 span' ).text( count );
+        document.title = '(' + count + ') ' + Notifications.OriginalTitle;
 
         next = $( current ).nextAll( '.box' );
         if ( next.length == 0 ) {
@@ -140,9 +142,11 @@ var Notifications = {
     Check: function () {
         if ( typeof User != 'undefined' ) {
             axslt( $.get( 'notifications' ), '/social', function() {
-                if ( $( this ).find( 'h3 span' ).text() == '0' ) {
+                if ( $( this ).find( 'h3 span' ).text() == '0' || $( this ).find( '.box' ).length == 0 ) {
                     return;
                 }
+                Notifications.OriginalTitle = document.title;
+                document.title = '(' + $( this ).find( 'h3 span' ).text() + ') ' + document.title;
                 $( this ).find( '.businesscard ul li:last' ).addClass( 'last' );
                 $( document.body ).append( $( this ) );
                 $( '.instantbox form' ).submit( function () {
