@@ -154,7 +154,7 @@
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var NowDate = stringToDate( Now );
                 setInterval( function(){
-                    NowDate.setSeconds( NowDate.getSeconds() + 1 );
+                    NowDate.setSeconds( NowDate.getSeconds() + 60 );
                     Now = dateToString( NowDate );
                 }, 60000 );
                 
