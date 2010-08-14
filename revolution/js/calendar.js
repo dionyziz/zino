@@ -52,7 +52,7 @@ var Calendar = {
     },
     IsLeapYear: function() {
         var year = Calendar.CurrentDate.getFullYear();
-        return ( ( year % 4 === 0 ) && ( year % 100 !== 0 ) ) || ( year % 400 === 0 ) ? true : false;
+        return ( year % 4 === 0 && year % 100 !== 0 ) || year % 400 === 0;
     },
     Construct: function() {
         var calendar = document.createElement( 'div' );
