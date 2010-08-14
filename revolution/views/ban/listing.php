@@ -7,7 +7,11 @@
 		<started><?= $user[ 'started' ]; ?></started>
 		<expire><?= $user[ 'expire' ]; ?></expire>
 		<reason><?= $user[ 'reason' ]; ?></reason>
-		<admin><?= $user[ 'admin' ]; ?></admin>
+		<bannedBy>
+				<user>
+					<name><?= $user[ 'name' ]; ?></name>							
+				</user>
+		</bannedBy>
 	</ban>
 	<?php endforeach; ?>
 </banned>
