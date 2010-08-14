@@ -94,8 +94,11 @@ var PhotoView = {
         PhotoView.Title.Init();
         PhotoView.Remove.Init();
 		ItemView.Init( 2 );
-        $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadNext );
-        $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadPrevious );
+        $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadPrevious );
+        $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadNext );
+        $( '.image img.maincontent' ).click( function(){ // Photo tagging guy, check that ( --ted )
+            PhotoView.LoadNext();
+        });
     },
     LoadNext: function( evt ) {
         var $next = $( '.navigation .nextid' );

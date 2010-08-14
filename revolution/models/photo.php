@@ -70,8 +70,8 @@
                     i.`image_id` AS id, i.`image_userid` AS userid, i.`image_created` AS created, i.`image_name` AS title, i.`image_albumid` AS albumid,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     i.`image_width` AS w, i.`image_height` AS h, i.`image_numcomments` AS numcomments,
-                    MIN( next.`image_id` ) AS nextid,
-                    MAX( previous.`image_id` ) AS previousid
+                    MIN( next.`image_id` ) AS previousid,
+                    MAX( previous.`image_id` ) AS nextid
                 FROM
                     `images` AS i
                     CROSS JOIN `users`
@@ -89,7 +89,7 @@
                 GROUP BY
                     i.`image_id`
                 LIMIT 1;', array( 'id' => $id )
-            );
+            ); //previousid and nextid fix by ted
             
             if (  mysql_num_rows( $res ) == 0 ) {
                 return false;
