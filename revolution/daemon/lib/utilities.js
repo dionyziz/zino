@@ -1,10 +1,13 @@
 function ParseCookies( cookies ) {
+    console.log( "Requiring querystring" );
     var querystring = require( 'querystring' );
 	try {
+        console.log( 'Parsing Cookies ' + cookies );
 		cookies = querystring.parse( cookies, '; ' )
 		if ( typeof cookies[ 'zino_login_8' ] === 'undefined' ) {
 			throw 'Cookie not found';
 		}
+        console.log( 'Spliting Cookies' );
 		cookies  = cookies[ 'zino_login_8' ].split( ':' );
 		
 		if ( cookies.length != 2 ) {
@@ -18,6 +21,7 @@ function ParseCookies( cookies ) {
 		}
 	}
 	catch( err ) {
+        console.log( 'Error in cookie parsing' );
 		console.log( err );
 		return false;
 	}

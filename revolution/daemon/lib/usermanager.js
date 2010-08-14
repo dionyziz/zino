@@ -30,18 +30,22 @@ var UserManager = {
 	},
 	NewConnectionHandler: function( userid, authtoken ) {
 		var id = UserManager.UniqueID++;
-		
+		console.log( 'New connection. ' + [ userid, authtoken, id ].join( ' ' ) );
 		if ( UserManager.IsOnline( userid ) && UserManager.Users[ userid ].authtoken == authtoken ) {
+            console.log( 'User was online before' );
 			UserManager.AddUserConnection( userid, id )
 			return id;
 		}
 		
-		
+		console.log( 'Unknown authtoken' );
 		UserManager.ZinoAPI.Call( 'presence', 'create', { userid: userid, authtoken: authtoken }, function( data ){
 			if ( data.search( '<result>SUCCESS</result>' ) != -1 ) {
+                console.log( 'Authtoken Valid' );
                 if ( UserManager.IsOnline( userid ) && UserManager.Users[ userid ].authtoken != authtoken ) {
+                    console.log( 'User changed authtoken, deleting his connections' );
                     UserManager.DeleteUser( userid );
                 }
+                console.log( 'Register new user ' + [ userid, id, authtoken ].join( ' ' ) );
 				UserManager.NewUser( userid, id, authtoken );
 			}
 		} );
