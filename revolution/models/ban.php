@@ -53,12 +53,22 @@
 				throw new Exception( "Ban::Revoke - User is not banned" );
 			}
 			else {
-				//Ban::Delete( $userid );
+				Ban::Delete( $banned[ 'id' ] );
 				$rights = $banned[ 'rights' ];
-				//User::SetRights( $rights );
+				User::SetRights( $rights );
             }
             return;
         }
+
+		public static function Delete( $id ) {
+			$id = ( int )$id;
+			db( 'DELETE
+                 FROM
+                    `bannedusers`
+                 WHERE
+                    `bannedusers_id` = :id
+                 LIMIT 1', compact( 'id' ) );    
+		}
 
 
 /*

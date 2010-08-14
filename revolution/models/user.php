@@ -29,6 +29,21 @@
             }
             return false;
         }
+		public static function SetRights( $id, $value ) {
+			clude( 'models/db.php' );
+            $id = ( int )$id;
+			$value = ( int )$value;
+
+            $res = db( 
+                'UPDATE
+                    `users`
+                SET
+                    `user_rights` = :value                         
+                WHERE `user_id` = :id;',
+                compact( 'id', 'value' ) );
+			return true;
+	
+		}
 		public static function SetGender( $id, $value ) {
 			clude( 'models/db.php' );
             $id = ( int )$id;
