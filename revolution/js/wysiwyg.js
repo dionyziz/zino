@@ -54,16 +54,16 @@ var WYSIWYG = {
             // youtube
             var match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
             if ( match !== null && match.length == 2 ) { // youtube video
-                WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
+                WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?v=' + match[ 1 ] + '" alt="Ξ£Ο„Ξ· ΞΈΞ­ΟƒΞ· Ξ±Ο…Ο„Ξ® ΞΈΞ± ΞµΞΌΟ†Ξ±Ξ½ΞΉΟƒΟ„ΞµΞ― Ο„ΞΏ video ΟƒΞΏΟ…" style="border:1px dotted blue;" /><br />' );
             }
             else {
                 // veoh
                 match = /v([a-zA-Z0-9_-]+)/.exec( userstring );
                 if ( match !== null && match.length ==2 ) { // veoh video
-                    WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?w=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
+                    WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?w=' + match[ 1 ] + '" alt="Ξ£Ο„Ξ· ΞΈΞ­ΟƒΞ· Ξ±Ο…Ο„Ξ® ΞΈΞ± ΞµΞΌΟ†Ξ±Ξ½ΞΉΟƒΟ„ΞµΞ― Ο„ΞΏ video ΟƒΞΏΟ…" style="border:1px dotted blue;" /><br />' );
                 }
                 else {
-                    alert( 'Το video δεν είναι έγκυρη διεύθυνση του YouTube' );
+                    alert( 'Ξ¤ΞΏ video Ξ΄ΞµΞ½ ΞµΞ―Ξ½Ξ±ΞΉ Ξ­Ξ³ΞΊΟ…ΟΞ· Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο„ΞΏΟ… YouTube' );
                 }
             }
         }
@@ -72,7 +72,7 @@ var WYSIWYG = {
         if ( typeof userstring == 'string' && userstring !== '' ) {
             match = /^https?\:\/\/[a-z.0-9-]{5,128}\/[a-zA-Z0-9_.,?&=\/-]{1,256}$/.exec( userstring );
             if ( match === null || match.length != 1 ) {
-                alert( 'Η εικόνα δεν είχε έγκυρη διεύθυνση' );
+                alert( 'Ξ— ΞµΞΉΞΊΟΞ½Ξ± Ξ΄ΞµΞ½ ΞµΞ―Ο‡Ξµ Ξ­Ξ³ΞΊΟ…ΟΞ· Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ·' );
                 return;
             }
             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + match[ 0 ].replace(/&/, "&amp;") + '" alt="" style="border:1px dotted blue;" /><br />' );
@@ -82,7 +82,7 @@ var WYSIWYG = {
         var img = document.createElement( 'img' );
         
         img.src = ExcaliburSettings.imagesurl + 'ajax-loader.gif';
-        img.alt = 'Φόρτωση...';
+        img.alt = 'Ξ¦ΟΟΟ„Ο‰ΟƒΞ·...';
 
         $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' ).empty().append( img );
 
@@ -138,7 +138,7 @@ var WYSIWYG = {
     },
     CommandLink: function ( target ) {
         return function () {
-            var q = prompt( 'Πληκτρολόγησε την διεύθυνση προς την οποία θέλεις να γινει link:', 'http://www.zino.gr/' );
+            var q = prompt( 'Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο€ΟΞΏΟ‚ Ο„Ξ·Ξ½ ΞΏΟ€ΞΏΞ―Ξ± ΞΈΞ­Ξ»ΞµΞΉΟ‚ Ξ½Ξ± Ξ³ΞΉΞ½ΞµΞΉ link:', 'http://www.zino.gr/' );
             
             if ( typeof q == "string" && q !== '' ) {
                 WYSIWYG.ExecCommand( target, 'createLink', q );
