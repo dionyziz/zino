@@ -36,6 +36,7 @@
                 _aXSLT.xslCache[ 'global.xsl' ] = { xhr: magic, index: 1 };
                 axslt( $.get( 'http://' + document.domain ), '', function() {
                     $( document.body ).append( $( this ).find( 'body > *' ) );
+                    $( document.head ).append( $( this ).find( 'title' ) );
                 } );
             </script>
         </head>
