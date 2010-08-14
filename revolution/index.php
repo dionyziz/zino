@@ -81,6 +81,11 @@
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
     
+    if ( isset( $_GET[ 'realsubdomain' ] ) ) {
+        echo "<!-- ";
+        var_dump( $_GET );
+        echo " -->";
+    }
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?
