@@ -66,7 +66,7 @@
             // shuffle( $content );
             // shuffle( $content );
             global $settings;
-            usort( $content, array( __CLASS__, 'Compare' ) );
+            //usort( $content, array( __CLASS__, 'Compare' ) );
             include 'views/news/listing.php';
         }
         private static function Compare( $a, $b ) {
