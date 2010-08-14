@@ -38,13 +38,16 @@
 .bar ul li {
     float:left;
 }
-.bar ul li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 7px 7px 10px 26px;
-    background-position: 5px 7px;
-    background-repeat: no-repeat;
+.bar ul li#chat_icon{
+    float: right;
+    padding-right: 0px;
+    margin-right: 7px;
+}
+.bar ul li#feedback_icon{
+    float: right;
+    padding-right: 0px;
+    margin-right: 7px;
+    background-color: #FC575E;
 }
 .bar ul li:hover {
     background-color: #555;
@@ -53,10 +56,6 @@
     background-color: #fcbe4d;
     position: relative;
 }
-.bar ul li.selected a {
-    color: black;
-    font-weight: bold;
-}
 .bar ul li.selected:after {
     color: #FCBE4D;
     content: "▼";
@@ -64,4 +63,34 @@
     left: 4px;
     position: absolute;
     top: 20px;
+}
+.bar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 7px 7px 10px 26px;
+    background-position: 5px 7px;
+    background-repeat: no-repeat;
+}
+.bar ul li.selected a {
+    color: black;
+    font-weight: bold;
+}
+.bar ul li#photo_icon a{
+    background-image: url('http://static.zino.gr/phoenix/photo.png');
+}
+.bar ul li#news_icon a{
+    background-image: url('http://static.zino.gr/phoenix/world.png');
+}
+.bar ul li#login_icon a{
+    background-image: url('http://static.zino.gr/phoenix/user.png');
+}
+.bar ul li#profile_icon a{
+    background-image: url('http://static.zino.gr/phoenix/user.png');
+}
+.bar ul li#chat_icon a{
+   background-image: url('http://static.zino.gr/phoenix/comments.png'); 
+}
+.bar ul li#feedback_icon a{
+    background-image: url('http://static.zino.gr/phoenix/up.png');
 }

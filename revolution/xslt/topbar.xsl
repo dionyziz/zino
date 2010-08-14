@@ -4,24 +4,25 @@
         <h1><a href=""><img src="http://static.zino.gr/phoenix/logo-trans.png" /></a></h1>
          
         <ul>
-            <li>
+            <li id="photo_icon">
                 <xsl:if test="/social/photos and not(/social/photos/author)">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
-                <a style="background-image: url('http://static.zino.gr/phoenix/photo.png');" href="">Εικόνες</a>
+                <a href="">Εικόνες</a>
             </li>
-            <li>
+            <li id="news_icon">
                 <xsl:if test="/social/news">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
-                <a style="background-image: url('http://static.zino.gr/phoenix/world.png');" href="news">Νέα</a>
+                <a href="news">Νέα</a>
             </li>
             <li>
                 <xsl:if test="/social[@resource='user' and @method='view']/user/name = /social/@for">
                     <xsl:attribute name="class">selected</xsl:attribute>
                 </xsl:if>
                 <xsl:if test="/social/@for">
-                    <a id="logoutbutton" style="background-image: url('http://zino.gr/images/user.png');">
+                    <xsl:attribute name="id">profile_icon</xsl:attribute>
+                    <a id="logoutbutton">
                         <xsl:attribute name="href">
                             users/<xsl:value-of select="/social/@for" />
                         </xsl:attribute>
@@ -29,14 +30,15 @@
                     </a>
                 </xsl:if>
                 <xsl:if test="not(/social/@for)">
-                    <a style="background-image: url('http://zino.gr/images/user.png');" href="login" id="loginbutton">Είσοδος</a>
+                    <xsl:attribute name="id">login_icon</xsl:attribute>
+                    <a href="login" id="loginbutton">Είσοδος</a>
                 </xsl:if>
             </li>
-            <li style="float: right; padding-right: 0px;margin-right: 7px;">
-                <a href="" id="chatbutton" style="background-image: url('http://static.zino.gr/phoenix/comments.png');">Chat</a>
+            <li id="chat_icon">
+                <a href="" id="chatbutton">Chat</a>
             </li>
-            <li style="float: right; padding-right: 0px;margin-right: 7px; background-color:#FC575E">
-                <a href="journals/13371" style="background-image:url('http://static.zino.gr/phoenix/up.png')">Feedback</a>
+            <li id="feedback_icon">
+                <a href="journals/13371">Feedback</a>
             </li>
         </ul>
     </div>
