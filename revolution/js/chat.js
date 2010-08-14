@@ -197,6 +197,8 @@ var Chat = {
          var text, newmessage = false;
          var html = '';
          var li, shoutid, author;
+         var container = $( '#chatmessages_' + channelid + ' div.scrollcontainer' )[ 0 ];
+         var atEnd = container.offsetHeight + container.scrollTop > history.offsetHeight - 50;
 
          for ( var i = 0; i < messages.length; ++i ) {
              shoutid = $( messages[ i ] ).attr( 'id' );
@@ -217,8 +219,6 @@ var Chat = {
          }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {
-                 var container = $( '#chatmessages_' + channelid + ' div.scrollcontainer' )[ 0 ];
-                 var atEnd = container.offsetHeight + container.scrollTop > history.offsetHeight + 50;
                  if ( atEnd ) { // if the user has already scrolled to the end show new message
                      li.scrollIntoView();
                  } // else, don't scroll them down if they're browsing the history
