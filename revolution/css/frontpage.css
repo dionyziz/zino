@@ -56,18 +56,15 @@ div.photostream {
     display: inline-block;
     width: 150px;
 }
-.SI-FILES-STYLIZED label.cabinet
-{
+.SI-FILES-STYLIZED label.cabinet{
     width: 30px;
     height: 30px;
     background: url('http://static.zino.gr/phoenix/add3.png') 0 0 no-repeat;
-
     display: block;
     overflow: hidden;
     cursor: pointer;
 }
-.SI-FILES-STYLIZED label.cabinet input.file
-{
+.SI-FILES-STYLIZED label.cabinet input.file{
     position: relative;
     height: 100%;
     width: auto;
