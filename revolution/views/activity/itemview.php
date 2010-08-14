@@ -39,6 +39,7 @@
     case TYPE_USERPROFILE:
         ?><profile id="<?= $activity[ 'item' ][ 'user' ][ 'id' ] ?>">
             <name><?= $activity[ 'item' ][ 'user' ][ 'name' ] ?></name>
+            <gender><?= $activity[ 'item' ][ 'user' ][ 'gender' ] ?></gender>
         </profile><?
         break;
 endswitch;
