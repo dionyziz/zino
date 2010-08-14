@@ -50,6 +50,7 @@
             $photos = Photo::ListRecent( 0, 25 );
             $content = array();
 			$i = 0;
+/*
 			reset( $polls );//mix results randomly while keeping the initial order
 			reset( $journals );
 			$pamt = count( $polls );
@@ -95,7 +96,7 @@
 			unset( $journals );
 			unset( $polls );
 
-/*
+*/
            
             foreach ( $polls as $poll ) {
                 $content[ $i ] = $poll;
@@ -107,7 +108,7 @@
                 $content[ $i ][ 'type' ] = 'journal';
                 ++$i;
             }
-*/
+
             //foreach ( $photos as $photo ) {
             //    $content[ $i ] = $photo;
             //    $content[ $i ][ 'type' ] = 'photo';
