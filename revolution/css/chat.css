@@ -11,15 +11,16 @@
     border-radius: 5px 5px 5px 5px;
     z-index: 10;
 }
-    .chatchannel ol {
+    .chatchannel div.scrollcontainer {
         bottom: 55px;
-        display: block;
         right: 200px;
         overflow: auto;
         position: absolute;
         right: 200px;
         top: 0;
         left: 6px;
+    }
+    .chatchannel ol {
     }
     .chatchannel .userinfo div {
         margin-left: 48px;

@@ -217,7 +217,11 @@ var Chat = {
          }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {
-                 li.scrollIntoView();
+                 var container = $( '#chatmessages_' + channelid + ' div.scrollcontainer' )[ 0 ];
+                 var atEnd = container.offsetHeight + container.scrollTop > history.offsetHeight + 50;
+                 if ( atEnd ) { // if the user has already scrolled to the end show new message
+                     li.scrollIntoView();
+                 } // else, don't scroll them down if they're browsing the history
              }
          }
          else {
@@ -418,7 +422,7 @@ var Chat = {
      },
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
-             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><ol></ol></div>';
+             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol></div></div>';
              if ( channelid == 0 ) {
                  return;
              }
@@ -430,7 +434,7 @@ var Chat = {
                             + '</div>'
                            + '</div>' );
 
-             $chatmessages.find( 'ol' ).css( { top: '50px' } );
+             $chatmessages.find( '.scrollcontainer' ).css( { top: '50px' } );
              $chatmessages.prepend( $panel );
              $.get( 'chat/' + channelid, function ( res ) {
                  var users = $( res ).find( 'user' );

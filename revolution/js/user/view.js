@@ -109,7 +109,7 @@ var Profile = {
                         }
                     } );
                     return false;
-                }
+                };
             }( $( '.friendship' ) ) );
         }
         
