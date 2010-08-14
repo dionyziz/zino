@@ -98,3 +98,60 @@
 .contentitem .hidden {
     display: none;
 }
+
+.imageoverlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.imageoverlay .bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    opacity: 0.7;
+}
+.imageoverlay img{
+    display: block;
+    width: auto;
+    margin: 40px auto;
+    position: relative;
+    z-index: 20;
+    border: 2px solid wheat;
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 5px 5px 25px black;
+}
+
+.imageoverlay .arrow{
+    width: 45px;
+    height: 60px;
+    position: absolute;
+    top: 200px;
+    cursor: pointer;
+    z-index: 25;
+}
+.imageoverlay .arrow.disabled{
+    opacity: 0.7;
+    cursor: default;
+}
+.imageoverlay .left{
+    left: 10px;
+    background: url(http://www.microsoft.com/web/Hosting/Static/Default/images/left-arrow.png);
+}
+.imageoverlay .right{
+    right: 10px;
+    background: url(http://www.microsoft.com/web/Hosting/Static/Default/images/right-arrow.png);
+}
+.photostream ul li.selected img{
+    padding: 1px;
+    border: 4px solid wheat;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}

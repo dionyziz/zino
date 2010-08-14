@@ -1,33 +1,29 @@
-function dateDiff( dateTimeBegin, dateTimeEnd ) {
-    var endval = new Date();
-    var beginval = new Date();
-
-    if ( typeof dateTimeEnd != 'undefined' ) {
-        var dateAndTime = dateTimeEnd.split( ' ' );
-        var dateEnd = dateAndTime[ 0 ];
-        var timeEnd = dateAndTime[ 1 ];
-        var dateParts = dateEnd.split( '-' );
-        var timeParts = timeEnd.split( ':' );
-
-        endval.setFullYear( dateParts[ 0 ] );
-        endval.setMonth( dateParts[ 1 ] );
-        endval.setDate( dateParts[ 2 ] );
-        endval.setHours( timeParts[ 0 ] );
-        endval.setMinutes( timeParts[ 1 ] );
-        endval.setSeconds( timeParts[ 2 ] );
+function stringToDate( str ){ //str: dd-mm-yyyy hh:mm:ss
+    if( typeof str == 'undefined' ){
+        return false;
     }
-    var dateAndTime = dateTimeBegin.split( ' ' );
-    var dateBegin = dateAndTime[ 0 ];
-    var timeBegin = dateAndTime[ 1 ];
-    var dateParts = dateBegin.split( '-' );
-    var timeParts = timeBegin.split( ':' );
-
-    beginval.setFullYear( dateParts[ 0 ] );
-    beginval.setMonth( dateParts[ 1 ] );
-    beginval.setDate( dateParts[ 2 ] );
-    beginval.setHours( timeParts[ 0 ] );
-    beginval.setMinutes( timeParts[ 1 ] );
-    beginval.setSeconds( timeParts[ 2 ] );
+    var dt = str.split( ' ' );
+    var d = dt[ 0 ];
+    var t = dt[ 1 ];
+    return new Date( d.split( '-' )[ 0 ],
+                     d.split( '-' )[ 1 ],
+                     d.split( '-' )[ 2 ],
+                     t.split( ':' )[ 0 ],
+                     t.split( ':' )[ 1 ],
+                     t.split( ':' )[ 2 ] );
+                            
+}
+function dateToString( d ){
+    return d.getFullYear() + '-'
+         + d.getMonth() + '-'
+         + d.getDate() + ' '
+         + d.getHours() + ':'
+         + ( ( d.getMinutes() + '' ).length == 1 ? '0' : '' ) + d.getMinutes() + ':'
+         + ( ( d.getSeconds() + '' ).length == 1 ? '0' : '' ) + d.getSeconds();
+}
+function dateDiff( dateTimeBegin, dateTimeEnd ) {
+    var endval = stringToDate( dateTimeEnd );
+    var beginval = stringToDate( dateTimeBegin );
 
     var diff = Date.parse( endval.toString() ) - Date.parse( beginval.toString() );
     diff /= 1000;

@@ -56,6 +56,7 @@
 
 <xsl:template name="photolist" match="photos/photo">
     <li>
+        <xsl:attribute name="id">photo_<xsl:value-of select="@id" /></xsl:attribute>
         <a>
             <xsl:attribute name="href">photos/<xsl:value-of select="@id" /></xsl:attribute>
             <img lowsrc="http://static.zino.gr/revolution/placeholder.png">

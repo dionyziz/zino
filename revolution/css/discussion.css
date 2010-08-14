@@ -37,6 +37,9 @@ img.avatar {
     padding: 5px 0;
     display: none;
 }
+.time .timestamp{
+    display: none;
+}
 .processedtime {
     display: inline;
 }

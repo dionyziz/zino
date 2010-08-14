@@ -95,7 +95,36 @@ var Kamibu = {
         }
 
         return;
-    }, 
+    },
+    TimeFollow: function( timeNode ){
+        var diff = dateDiff( $( timeNode ).text(), Now );
+        $( timeNode ).html( '<span class="friendly">' + greekDateDiff( diff ) + '</span>'
+                           +'<span class="timestamp">' + stringToDate( $( timeNode ).text() ).getTime() + '</span>' );
+        $( timeNode ).addClass( 'processedtime' );
+        var fol = function(){
+            var fri = $( timeNode ).children( '.friendly' ).text();
+            var ts = $( timeNode ).children( '.timestamp' ).text();
+            var dat = new Date();
+            dat.setTime( ts );
+            var diff = NowDate.getTime() - ts;
+            var dt = dateToString( dat );
+            var newfri = greekDateDiff( dateDiff( dt, Now ) );
+            
+            $( timeNode ).children( '.friendly' ).text( newfri );
+            if( diff / 60000 < 15 ){
+                setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
+                return;
+            }
+            if( diff / 60000 < 60 ){
+                setTimeout( fol, 15 * 60000 - ( diff / 1000 ) % 60000 ); //15 mins - seconds of diff
+                return;
+            }
+            if( diff / 60000 < 60 * 24 ){
+                setTimeout( fol, 60 * 60000 - ( diff / 1000 ) % 60000 ); //60 mins - seconds of diff
+            }
+        };
+        fol();
+    },
     ValidEmail: function( email ) {
         if ( typeof( email ) == 'string' ) {
             return /^[a-zA-Z0-9.\-_]+@([a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,4}$/.test( email );

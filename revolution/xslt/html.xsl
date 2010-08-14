@@ -152,6 +152,11 @@
                     var User = '<xsl:value-of select="/social/@for" />';
                 </xsl:if>
                 var Now = '<xsl:value-of select="/social/@generated" />';
+                var NowDate = stringToDate( Now );
+                setInterval( function(){
+                    NowDate.setSeconds( NowDate.getSeconds() + 1 );
+                    Now = dateToString( NowDate );
+                }, 1000 );
                 
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
@@ -175,8 +180,9 @@
                 }
 
                 $( function() { $( '.time' ).each( function () {
-                    this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
-                    $( this ).addClass( 'processedtime' );
+                    Kamibu.TimeFollow( this );
+                //     this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
+               //     $( this ).addClass( 'processedtime' );
                 } ); } );
 
                 var Routing = {

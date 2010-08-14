@@ -15,6 +15,40 @@ var PhotoListing = {
         if( $( '.useralbums' ) ) {
             AlbumListing.Init();
         }
+        $( '.photostream ul li ar' ).live( 'click', function(){
+            PhotoListing.Preview( $( this ).parent().attr( 'id' ).split( '_' )[1], $( this ).children( 'img' ).attr( 'src' ).slice( 0, -7 ) + 'full.jpg' );
+            return false;
+        });
+        $( '.imageoverlay .arrow:not(.disabled)' ).live( 'click', function(){
+            $( '.imageoverlay .arrow' ).removeClass( 'disabled' );
+            $( '.photostream ul li' ).removeClass( 'selected' );
+            var id = $( '.imageoverlay img' ).attr( 'id' ).split( '_' )[ 1 ];
+            if( $( this ).hasClass( 'left' ) ){
+                var fid = $( '#photo_' + id ).prev().addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
+            }
+            else{
+                var fid = $( '#photo_' + id ).next( ':not(.justifyhack)' ).addClass( 'selected' ).attr( 'id' ).split( '_' )[ 1];
+            }
+            var src = $( '#photo_' + fid ).find( 'img' ).attr( 'src' ).slice( 0, -7 ) + 'full.jpg';
+            if( !$( '#photo_' + fid ).prev().length ){
+                $( '.imageoverlay .left' ).addClass( 'disabled' );
+            }
+            if( !$( '#photo_' + fid ).next().length ){
+                $( '.imageoverlay .right' ).addClass( 'disabled' );
+            }
+            $( '.imageoverlay img' ).attr( 'id', 'sel_' + fid ).attr( 'src', src );
+        });
+    },
+    Preview: function( id, src ){
+        $( '#photo_' + id ).addClass( 'selected' );
+        $( '<div class="imageoverlay">'
+                +'<div class="arrow left"></div>'
+                +'<div class="arrow right"></div>'
+                +'<img id="sel_' + id + '" src="' + src + ' />'
+            +'</div>' ).appendTo( 'body' );
+    },
+    CancelPreview: function(){
+        
     },
     SetUploadAction: function() {
         SI.Files.stylizeAll();
