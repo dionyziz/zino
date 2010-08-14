@@ -114,12 +114,8 @@ var Kamibu = {
             var newfri = greekDateDiff( dateDiff( dt, Now ) );
             
             $( timeNode ).children( '.friendly' ).text( newfri );
-            if( diff / 60000 < 15 ){ //for a quarter
-                setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
-                return;
-            }
             if( diff / 60000 < 60 ){ //for an hour
-                setTimeout( fol, 15 * 60000 - ( diff / 1000 ) % 60000 ); //15 mins - seconds of diff
+                setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
                 return;
             }
             if( diff / 60000 < 60 * 24 ){ //for a day
