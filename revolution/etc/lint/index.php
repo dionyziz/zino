@@ -6,8 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
 		<title>JSLINT</title>
-        <script type="text/javascript" src="http://www.zino.gr/js/jslint/fulljslint.js"></script>
-        <link rel="stylesheet" type="text/css" href="http://www.zino.gr/css/jslint.css"></link>
+        <script type="text/javascript" src="http://www.jslint.com/webjslint.js"></script>
+        <link rel="stylesheet" type="text/css" href="jslint.css"></link>
         <style type="text/css">
             html, body {
                 width: 100%;
