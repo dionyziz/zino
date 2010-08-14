@@ -136,6 +136,7 @@ var AlbumListing = {
                 });
             });
             $( '#albumlist .add' ).show();
+            AlbumListing.LoadAlbum( id );
         }, 'xml');
     },
     Init: function() {
