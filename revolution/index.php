@@ -79,8 +79,8 @@
     }
     
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    
-    if ( isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] )) {
+    $subdomain = isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] );
+    if ( $subdomain ) {
         echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'realsubdomain' ] . '.zino.gr/hack.xsl"?>';
     }
     else {
@@ -90,7 +90,7 @@
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?
     }
-    ?> generator="<?= $settings[ 'base' ];
+    ?> generator="<?= $subdomain ? 'http://' . $_GET[ 'realsubdomain' ] . '.zino.gr' : $settings[ 'base' ];
     ?>" resource="<?= $resource;
     ?>" method="<?= $method;
     ?>"><?php
