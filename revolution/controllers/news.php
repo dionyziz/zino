@@ -62,7 +62,7 @@
 					}
 					$jflag = true;
 				}
-				else if ( $jfalg == true || current( $journals ) == false ) {
+				else if ( $jflag == true || current( $journals ) == false ) {
 					while ( current ( $polls ) != false ) {
 						$content[ $i ] = current ( $polls );
 						$content[ $i ][ 'type' ] = 'poll';
