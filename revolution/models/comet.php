@@ -1,5 +1,5 @@
 <?php
-    define( 'PUSH_PUBLISH_URL', 'http://www.zino.gr/publish?id=' );
+    define( 'PUSH_PUBLISH_URL', 'http://zino.gr/publish?id=' );
     define( 'PUSH_SUBSCRIPTION_EXPIRY', 2 * 60 ); // seconds 
     define( 'PUSH_ENABLED', true );
 
