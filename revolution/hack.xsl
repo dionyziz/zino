@@ -3,13 +3,13 @@
 <xsl:template match="/social">
     <html>
         <head>
-            <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
+            <base href="http://zino.gr/" />
             <link type="text/css" href="global.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-			<script type="text/javascript" src="global.js"></script>
+			<script type="text/javascript"><xsl:attribute name="src"><xsl:value-of select="/social[1]/@generator" />/global.js</xsl:attribute></script>
             <script src="http://static.zino.gr/revolution/global.xsl.js" type="text/javascript"></script>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
