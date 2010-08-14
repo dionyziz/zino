@@ -79,12 +79,12 @@
     }
     
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
     
-    if ( isset( $_GET[ 'realsubdomain' ] ) ) {
-        echo "<!-- ";
-        var_dump( $_GET );
-        echo " -->";
+    if ( isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] )) {
+        echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'realsubdomain' ] . '.zino.gr/hack.xsl"?>';
+    }
+    else {
+        echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
     }
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {
