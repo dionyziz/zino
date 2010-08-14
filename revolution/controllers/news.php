@@ -9,7 +9,18 @@
 
 	        $pollids = Spot::GetPolls( 4005, 25 );//polls from spot
             if ( is_array( $pollids ) ) {
-	            $polls = Poll::ListByIds( $pollids );
+	            $foundpolls = Poll::ListByIds( $pollids );
+				$keys = array();
+				$i = 1;
+				foreach ( $pollids as $id ) {
+				    $keys[ $id ] = $i;
+				    $i = $i + 1;
+				}
+				$polls = array();
+				foreach ( $foundpolls as $poll ) {
+					$polls[ $keys[ $poll[ 'id' ] ] ] = $poll;
+				}
+				ksort( $polls );
             }
             else {
             	$polls = Poll::ListRecent( 25 );
@@ -17,7 +28,18 @@
 
 			$journalids = Spot::GetJournals( 4005, 25 );//journals from spot
             if ( is_array( $journalids ) ) {
-	            $journals = Journal::ListByIds( $journalids );
+	            $foundjournals = Journal::ListByIds( $journalids );
+				$keys = array();
+				$i = 1;
+				foreach ( $journalids as $id ) {
+				    $keys[ $id ] = $i;
+				    $i = $i + 1;
+				}
+				$journals = array();
+				foreach ( $foundjournals as $journal ) {
+					$journals[ $keys[ $journal[ 'id' ] ] ] = $journal;
+				}
+				ksort( $journals );
             }
             else {
             	$journals = Journal::ListRecent( 25 );
