@@ -7,7 +7,7 @@
         </head>
         <body>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-            <script src="http://www.zino.gr/global.xsl.js" type="text/javascript"></script>
+            <script src="http://static.zino.gr/revolution/global.xsl.js" type="text/javascript"></script>
             <script src="http://www.zino.gr/global.js" type="text/javascript"></script>
             <script type="text/javascript">
                 _aXSLT.defaultStylesheet = 'global.xsl';
