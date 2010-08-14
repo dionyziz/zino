@@ -47,7 +47,48 @@
 
             $photos = Photo::ListRecent( 0, 25 );
             $content = array();
-            $i = 0;
+			$i = 0;
+			reset( $polls );//mix results randomly while keeping the initial order
+			reset( $journals );
+			$pflag = false;
+			$jflag = false;
+			while ( $pflag == false || $jflag == false ) {
+				if ( $pfalg == true || current( $polls ) == false ) {
+					while ( current ( $journals ) != false ) {
+						$content[ $i ] = current ( $journals );
+						$content[ $i ][ 'type' ] = 'journal';
+						++$i;
+						next( $journals );
+					}
+					$jflag = true;
+				}
+				else if ( $jfalg == true || current( $journals ) == false ) {
+					while ( current ( $polls ) != false ) {
+						$content[ $i ] = current ( $polls );
+						$content[ $i ][ 'type' ] = 'poll';
+						++$i;
+						next( $polls );
+					}
+					$pflag = true;
+				}
+				else {
+					if ( rand( 1, 10 ) < 6 ) {
+						$content[ $i ] = current ( $journals );
+						$content[ $i ][ 'type' ] = 'journal';
+						++$i;
+						next( $journals );
+					}
+					else {
+						$content[ $i ] = current ( $polls );
+						$content[ $i ][ 'type' ] = 'poll';
+						++$i;
+						next( $polls );
+					}
+				}
+			}
+
+/*
+           
             foreach ( $polls as $poll ) {
                 $content[ $i ] = $poll;
                 $content[ $i ][ 'type' ] = 'poll';
@@ -58,6 +99,7 @@
                 $content[ $i ][ 'type' ] = 'journal';
                 ++$i;
             }
+*/
             //foreach ( $photos as $photo ) {
             //    $content[ $i ] = $photo;
             //    $content[ $i ][ 'type' ] = 'photo';
@@ -66,7 +108,7 @@
             // shuffle( $content );
             // shuffle( $content );
             global $settings;
-            //usort( $content, array( __CLASS__, 'Compare' ) );
+            //usort( $content, array( __CLASS__, 'Compare' ) );// dont sort the news
             include 'views/news/listing.php';
         }
         private static function Compare( $a, $b ) {
