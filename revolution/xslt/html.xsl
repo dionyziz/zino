@@ -182,6 +182,7 @@
                 var Routing = {
                     'photo.view': PhotoView,
                     'photo.listing': PhotoListing,
+                    'album.view': PhotoListing, //not sure if it's as supposed to
                     'news.listing': News,
                     'poll.view': Poll,
                     'journal.view': Journal,
