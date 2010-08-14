@@ -52,24 +52,28 @@
 			reset( $journals );
 			$pflag = false;
 			$jflag = false;
-			while ( $pflag == false || $jflag == false ) {
-				if ( $pflag == true || current( $polls ) == false ) {
-					while ( current ( $journals ) != false ) {
+			$pamt = count( $polls );
+			$jamt = count( $journals );
+			$pcnt = 0;
+			$jcnt = 0;
+			while ( $pcnt < $pamt || $jcnt < $jamt ) {
+				if ( $pcnt >= $pamt ) {
+					while ( current ( $journals ) !== false ) {
 						$content[ $i ] = current ( $journals );
 						$content[ $i ][ 'type' ] = 'journal';
 						++$i;
 						next( $journals );
+						$jamt++;
 					}
-					$jflag = true;
 				}
-				else if ( $jflag == true || current( $journals ) == false ) {
-					while ( current ( $polls ) != false ) {
+				else if ( $jcnt >= $jamt ) {
+					while ( current ( $polls ) !== false ) {
 						$content[ $i ] = current ( $polls );
 						$content[ $i ][ 'type' ] = 'poll';
 						++$i;
 						next( $polls );
+						$pcnt++;
 					}
-					$pflag = true;
 				}
 				else {
 					if ( rand( 1, 10 ) < 6 ) {
@@ -77,12 +81,14 @@
 						$content[ $i ][ 'type' ] = 'journal';
 						++$i;
 						next( $journals );
+						$jcnt++;
 					}
 					else {
 						$content[ $i ] = current ( $polls );
 						$content[ $i ][ 'type' ] = 'poll';
 						++$i;
 						next( $polls );
+						$pcnt++;
 					}
 				}
 			}
