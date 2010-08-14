@@ -1,4 +1,4 @@
-<banned>
+<bans>
     <?php foreach ( $banned as $user ): ?>
 	<ban id ="<?= $user[ 'id' ]; ?>">
 		<user id ="<?= $user[ 'userid' ]; ?>">
@@ -14,4 +14,4 @@
 		</bannedBy>
 	</ban>
 	<?php endforeach; ?>
-</banned>
+</bans>
