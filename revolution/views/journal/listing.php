@@ -2,6 +2,9 @@
     <? if ( isset( $user ) ): ?>
     <author>
         <name><?= $user[ 'name' ] ?></name>
+        <? if ( isset( $user[ 'gender' ] ) ): ?>
+        <gender><?= $user[ 'gender' ] ?></gender>
+        <? endif; ?>
     </author>
     <? endif; ?>
 	<? foreach ( $journals as $item ): ?>
