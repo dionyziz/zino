@@ -15,6 +15,10 @@
 		}
 
 		public static function Create( $username, $reason, $days_banned = 20 ) {
+			clude( 'models/db.php' );
+			clude( 'models/ban.php' );
+			clude( 'models/user.php' );
+
 			$user = User::ItemByName( $username );
 			if ( $user == false ) {
 				throw new Exception( "Ban::Revoke - This user doesnt exist" );
