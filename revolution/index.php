@@ -27,7 +27,7 @@
             case 'satanoulis':
             case 'annaaa':
 			case 'nitrio2' :
-			case strtolower( 'Stak_O_Gamiac' ) :
+			case 'stak_o_gamiac':
                 die( 'Access denied' );
             default:
         }
@@ -92,6 +92,7 @@
     $subdomain = isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] );
     if ( $subdomain ) {
         echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'realsubdomain' ] . '.zino.gr/hack.xsl"?>';
+        die( var_dump( isset( $_SESSION[ 'user' ] ) ) );
     }
     else {
         echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
