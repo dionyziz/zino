@@ -35,7 +35,7 @@
                 }
                 _aXSLT.xslCache[ 'global.xsl' ] = { xhr: magic, index: 1 };
                 axslt( $.get( window.location ), '', function() {
-                    $( document.body ).append( $( this ).find( 'body' ) );
+                    $( document.body ).append( $( this ).find( 'body > *' ) );
                     $( document.head ).append( $( this ).find( 'title' ) );
                 } );
             </script>
