@@ -40,8 +40,6 @@
                     <link type="text/css" href="http://static.zino.gr/css/global.css?1" rel="stylesheet" />
                 </xsl:otherwise>
             </xsl:choose>
-            <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
-            <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
         </head>
         <body onload="Comet.OnBodyLoaded()">
@@ -100,9 +98,9 @@
                     // these less important things can be loaded right
                     // afterwards to make sure the user experiences
                     // a faster loading time of more important page elements
-                    $( function() { $( '.time' ).live( 'load', function () {
+                    $( '.time' ).live( 'load', function () {
                         Kamibu.TimeFollow( this );
-                    } ).load(); } );
+                    } ).load();
 
                     Notifications.Check();
                     Presence.Init();
