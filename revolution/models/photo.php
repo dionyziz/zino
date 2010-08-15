@@ -71,7 +71,8 @@
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     i.`image_width` AS w, i.`image_height` AS h, i.`image_numcomments` AS numcomments,
                     MIN( next.`image_id` ) AS previousid,
-                    MAX( previous.`image_id` ) AS nextid
+                    MAX( previous.`image_id` ) AS nextid,
+                    i.`image_delid` AS deleted
                 FROM
                     `images` AS i
                     CROSS JOIN `users`
@@ -99,16 +100,17 @@
             if ( $item === false ) {
                 return false;
             }
-            $item[ 'w' ] = (int)$item[ 'w' ] ;
-            $item[ 'h' ] = (int)$item[ 'h' ] ;
-            $item[ 'albumid' ] = (int)$item[ 'albumid' ] ;
+            $item[ 'w' ] = $item[ 'w' ] ;
+            $item[ 'h' ] = $item[ 'h' ] ;
+            $item[ 'albumid' ] = $item[ 'albumid' ] ;
+            $item[ 'deleted' ] = $item[ 'deleted' ] ;
             $item[ 'user' ] = array(
                 'id' => (int)$item[ 'userid' ],
                 'name' => $item[ 'username' ],
                 'gender' => $item[ 'gender' ],
                 'subdomain' => $item[ 'subdomain' ],
                 'avatarid' => $item[ 'avatarid' ],
-                'deleted' => ( int )$item[ 'userdeleted' ]
+                'deleted' => $item[ 'userdeleted' ]
             );
 			return $item;
         }
@@ -222,7 +224,7 @@
                 'UPDATE
                     `images`
                 SET
-                    `image_deleted`=1
+                    `image_delid`=1
                 WHERE
                     `image_id` = :id
                 LIMIT 1', compact( 'id' )
