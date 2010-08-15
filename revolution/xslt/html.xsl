@@ -49,8 +49,14 @@
                     <xsl:apply-templates />
                 </div>
             </div>
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-			<script type="text/javascript" src="global.js?1"></script>
+            <xsl:choose>
+                <xsl:when test="$sandbox">
+                    <script type="text/javascript" src="global.js"></script>
+                </xsl:when>
+                <xsl:otherwise>
+                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?1"></script>
+                </xsl:otherwise>
+            </xsl:choose>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
                     var User = '<xsl:value-of select="/social/@for" />';
