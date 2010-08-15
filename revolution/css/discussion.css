@@ -57,6 +57,12 @@ a.talk {
     text-decoration: none;
     margin: 0 auto;
 }
+.s1_0027 { 
+	background-image: url( 'http://static.zino.gr/phoenix/spriting/sprite1/sprite1_4.png' );
+	background-repeat: no-repeat;
+    background-position: 0 -1152px; 
+    padding: 0 0 0 15px;
+} 
 .thread.new a {
     text-decoration: none;
 }
