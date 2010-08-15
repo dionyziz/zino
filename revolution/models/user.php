@@ -178,12 +178,6 @@
             if ( !$username || !$password ) {
                 return false;
             }
-			
-			if ( Ban::isBannedUser( $userid ) === false ) {
-				return false;
-			}
-
-
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
@@ -198,6 +192,9 @@
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
                 $row[ 'id' ] = ( int )$row[ 'id' ];
+                if ( Ban::isBannedUser( $row[ 'id' ] ) === false ) {
+                    return false;
+                }
                 return $row;
             }
             return false;
