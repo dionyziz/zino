@@ -1,5 +1,5 @@
 <? global $settings ?>
-<? if ( $photo[ 'deleted' ] ): ?>
+<? if ( !empty( $photo[ 'deleted' ] ) ): ?>
 <photo deleted="yes" />
 <? return;
    endif; ?>
