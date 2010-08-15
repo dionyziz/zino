@@ -79,7 +79,7 @@
 			$time_banned = ( int )$time_banned;//secs
 			$userid = ( int )$userid;
 			$reason = ( string )$reason;
-			$oldrights = ( int )$oldrigths;
+			$oldrights = ( int )$oldrights;
 			if ( $time_banned <= 0 ) {
 				throw New Exception( "Ban::Create - time to be banned should be a positive value" );
 			}

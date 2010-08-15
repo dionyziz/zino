@@ -174,9 +174,13 @@
             return false;
         }
         public static function Login( $username, $password ) {
+			clude( 'models/ban.php' );
             if ( !$username || !$password ) {
                 return false;
             }
+			
+
+
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
