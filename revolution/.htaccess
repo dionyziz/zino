@@ -16,12 +16,14 @@ RewriteRule ^album/update$ index.php?resource=album&method=update [L,QSA]
 RewriteRule ^album/create$ index.php?resource=album&method=create [L,QSA]
 
 # polls
+RewriteRule ^polls$ index.php?resource=poll&method=listing [L,QSA]
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
 RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^poll/create$ index.php?resource=poll&method=create [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
+RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journal/create$ index.php?resource=journal&method=create [L,QSA]
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&subdomain=$1 [L,QSA]
@@ -34,6 +36,7 @@ RewriteRule ^session/delete$ index.php?resource=session&method=delete [L,QSA]
 RewriteRule ^session$ index.php?resource=session&method=view [L,QSA]
 
 # favourites
+RewriteRule ^favourites$ index.php?resource=favourite&method=listing [L,QSA]
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA]
 RewriteRule ^favourites/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&method=listing&subdomain=$1 [L,QSA]
 
@@ -64,6 +67,7 @@ RewriteRule ^settings$ index.php?resource=settings&method=view [L,QSA]
 RewriteRule ^settings/update$ index.php?resource=settings&method=update [L,QSA]
 
 # friendship
+RewriteRule ^friends$ index.php?resource=friends&method=listing [L,QSA]
 RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,QSA]
 RewriteRule ^friendship/delete$ index.php?resource=friendship&method=delete [L,QSA]
 RewriteRule ^friendship/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=view&username=$1 [L,QSA]
