@@ -62,7 +62,7 @@
 		if ( isset( $pieces[ 2 ] ) ) {
 			$domain = substr( $pieces[ 2 ], -8 );
 			if ( $domain !== ".zino.gr" || $domain !== "/zino.gr" ) {
-				throw New Exception( 'Not Valid Post Referer' );
+				throw New Exception( 'Not Valid Post Referer ' . $domain  );
 			}
 		}
 	}
