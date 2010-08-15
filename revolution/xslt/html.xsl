@@ -45,6 +45,12 @@
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
         </head>
         <body onload="Comet.OnBodyLoaded()">
+            <div id="world">
+                <xsl:call-template name="banner" />
+                <div id="content">
+                    <xsl:apply-templates />
+                </div>
+            </div>
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 			<script type="text/javascript" src="global.js?1"></script>
             <script type="text/javascript">
@@ -61,15 +67,7 @@
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
                 }
-            </script>
-            <div id="world">
-                <xsl:call-template name="banner" />
-                <div id="content">
-                    <xsl:apply-templates />
-                </div>
-            </div>
-            <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-            <script type="text/javascript">
+
                 $.ajaxSetup( {
                     dataType: 'xml'
                 } );
@@ -113,6 +111,7 @@
                     pageTracker._trackPageview();
                 } );
             </script>
+            <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
         </body>
     </html>
 </xsl:template> 
