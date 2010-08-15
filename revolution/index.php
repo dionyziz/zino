@@ -36,7 +36,7 @@
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
-    $subdomain = isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] );
+    $subdomain = isset( $_GET[ 'subdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'subdomain' ] );
 
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
@@ -97,7 +97,7 @@
     
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
     if ( $subdomain ) {
-        echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'realsubdomain' ] . '.zino.gr/hack.xsl"?>';
+        echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'subdomain' ] . '.zino.gr/hack.xsl"?>';
     }
     else {
         echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
@@ -106,7 +106,7 @@
     if ( isset( $_SESSION[ 'user' ] ) ) {
         ?> for="<?= $_SESSION[ 'user' ][ 'name' ]; ?>"<?
     }
-    ?> generator="<?= $subdomain ? 'http://' . $_GET[ 'realsubdomain' ] . '.zino.gr' : $settings[ 'base' ];
+    ?> generator="<?= $subdomain ? 'http://' . $_GET[ 'subdomain' ] . '.zino.gr' : $settings[ 'base' ];
     ?>" resource="<?= $resource;
     ?>" method="<?= $method;
     ?>"><?php
