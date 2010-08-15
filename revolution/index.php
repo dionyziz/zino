@@ -36,19 +36,26 @@
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
+    $subdomain = isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] );
 
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
         'user', 'chatmessage', 'tunnel', 'videostream', 'notification','friendship', 'interest', 'settings',
         'chatchannel', 'presence', 'place', 'mood', 'album', 'song', 'imagetag', 'ban'
     ) ) ) {
-        if ( isset( $_SESSION[ 'user' ] ) ) {
-            $resource = 'photo';
-            $method = 'listing';
+        if ( $subdomain ) {
+            $resource = 'user';
+            $method = 'view';
         }
         else {
-            $resource = 'session';
-            $method = 'view';
+            if ( isset( $_SESSION[ 'user' ] ) ) {
+                $resource = 'photo';
+                $method = 'listing';
+            }
+            else {
+                $resource = 'session';
+                $method = 'view';
+            }
         }
     }
 
@@ -89,10 +96,8 @@
     }
     
     echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-    $subdomain = isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] );
     if ( $subdomain ) {
         echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'realsubdomain' ] . '.zino.gr/hack.xsl"?>';
-        die( var_dump( isset( $_SESSION[ 'user' ] ) ) );
     }
     else {
         echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
