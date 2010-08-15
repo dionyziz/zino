@@ -25,3 +25,4 @@ friendship/listing.xsl
 album/listing.xsl
 album/view.xsl
 notification/listing.xsl
+ban/listing.xsl

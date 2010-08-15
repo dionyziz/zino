@@ -46,7 +46,9 @@ RewriteRule ^comments/([1-4])/([0-9]+)$ index.php?resource=comment&method=listin
 RewriteRule ^randomsongs$ index.php?resource=song&method=listing&randomlist=1 [L,QSA]
 
 #ban
-RewriteRule ^banned$ index.php?resource=ban&method=listing [L,QSA]
+RewriteRule ^ban/list$ index.php?resource=ban&method=listing [L,QSA]
+RewriteRule ^ban/create$ index.php?resource=ban&method=create [L,QSA]
+RewriteRule ^ban/delete$ index.php?resource=ban&method=delete [L,QSA]
 
 # news
 RewriteRule ^news$ index.php?resource=news&method=listing [L,QSA]

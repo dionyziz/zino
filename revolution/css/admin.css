@@ -1,0 +1,8 @@
+table.bans {
+    background-color: #123;
+    border-collapse: collapse;
+    margin: auto;
+}
+table.bans td {
+    padding: 3px;
+}

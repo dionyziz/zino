@@ -193,6 +193,7 @@
                     'user.view': Profile,
                     'favourite.listing': Favourite,
                     'friendship.listing': Friends,
+                    'ban.listing': Admin.Banlist
                 };
                 var MasterTemplate = '<xsl:value-of select="$mastertemplate" />';
                 if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
