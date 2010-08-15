@@ -216,7 +216,7 @@ var Comment = {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
-            $( '.time', this ).each( function () {
+            $( '.time:not(.when)', this ).each( function () {
                 this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
                 $( this ).addClass( 'processedtime' );
                 

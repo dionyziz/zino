@@ -94,7 +94,7 @@ var Chat = {
             html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
-        $( '.time:not(.processedtime)' ).load();
+        $( '.when:not(.processedtime)' ).load();
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
@@ -177,13 +177,14 @@ var Chat = {
              + '</div>' );
         $( '#onlineusers li' ).click( Chat.NameClick );
         Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
+        
         $( '.time.when' ).live( 'load', function () {
             Kamibu.TimeFollow( this, function( node ){
                 return function(){
-                    Chat.TimestampCheck( node )
+                    Chat.TimestampCheck( node );
                 }
             }( this ) );
-        } ).load();
+        } ).load(); 
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {

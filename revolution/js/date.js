@@ -5,6 +5,7 @@ function stringToDate( str ){ //str: dd-mm-yyyy hh:mm:ss
     var dt = str.split( ' ' );
     var d = dt[ 0 ];
     var t = dt[ 1 ];
+
     return new Date( d.split( '-' )[ 0 ],
                      d.split( '-' )[ 1 ],
                      d.split( '-' )[ 2 ],
@@ -15,8 +16,8 @@ function stringToDate( str ){ //str: dd-mm-yyyy hh:mm:ss
 }
 function dateToString( d ){
     return d.getFullYear() + '-'
-         + d.getMonth() + '-'
-         + d.getDate() + ' '
+         + ( ( d.getMonth() + '' ).length == 1 ? '0' : '' ) + d.getMonth() + '-'
+         + ( ( d.getDate() + '' ).length == 1 ? '0' : '' ) + d.getDate() + ' '
          + d.getHours() + ':'
          + ( ( d.getMinutes() + '' ).length == 1 ? '0' : '' ) + d.getMinutes() + ':'
          + ( ( d.getSeconds() + '' ).length == 1 ? '0' : '' ) + d.getSeconds();

@@ -99,7 +99,10 @@ var Kamibu = {
     TimeFollow: function( timeNode, callback ){
     /*
         Developer: ted
-    */
+    */  
+        if( $( timeNode ).hasClass( 'processedtime' ) ){
+            return true;
+        }
         var diff = dateDiff( $( timeNode ).text(), Now );
         $( timeNode ).html( '<span class="friendly">' + greekDateDiff( diff ) + '</span>'
                            +'<span class="timestamp">' + stringToDate( $( timeNode ).text() ).getTime() + '</span>' );
