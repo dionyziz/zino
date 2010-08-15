@@ -26,7 +26,8 @@
 				LEFT JOIN
 					`users`
 				ON
-					`user_id` = `bannedusers_userid`'
+					`user_id` = `bannedusers_userid`
+				ORDER BY `bannedusers_created` DESC'
 				
 			);
 		}
