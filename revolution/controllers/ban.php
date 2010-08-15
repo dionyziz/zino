@@ -25,13 +25,13 @@
 
 			$user = User::ItemByName( $username );
 			if ( $user == false ) {
-				throw new Exception( "Ban::Revoke - This user doesnt exist" );
+				throw new Exception( "Ban::Create - This user doesnt exist" );
 			} 
 			$userid = $user[ 'id' ];
 			$oldrights = $user[ 'rights' ];
 			$time_banned = ( int )$daysbanned*60*60*24;
 			Ban::Create( $userid, $reason, $time_banned, $oldrights );
-			User::SetRights( 0 );	
+			User::SetRights( $userid, 0 );	
 			return;
 		}
 		

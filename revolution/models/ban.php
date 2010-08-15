@@ -60,7 +60,7 @@
 			}
 			else {
 				Ban::Delete( $banned[ 'id' ] );
-				User::SetRights( $banned[ 'rights' ] );
+				User::SetRights( $userid, $banned[ 'rights' ] );
             }
             return;
         }
