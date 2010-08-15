@@ -3,7 +3,7 @@
         public static function View( $id = false, $subdomain = false, $name = false, $verbose = 3, $commentpage = 1 ) {
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
-            $commentpage >= 1 or die;
+            $commentpage >= 1 or die( 'Comment page is invalid' );
             clude( 'models/db.php' );
             clude( 'models/user.php' );
             try {
@@ -20,7 +20,7 @@
                     else if ( $name ) {
                         $user = User::ItemDetailsByName( $name );
                     }
-                    else die;
+                    else die( 'id, subdomain, nor name specified for verbosity level 2' );
                     $countcomments = $user[ 'numcomments' ];
                 }
                 else {
@@ -33,7 +33,6 @@
                     else if ( $name ) {
                         $user = User::ItemByName( $name );
                     }
-                    else;
                     $countcomments = 0; // TODO: remove this line
                 }
             }
@@ -42,7 +41,7 @@
                 include 'views/user/deleted.php';
                 return;
             }
-            $user !== false or die;
+            $user !== false or die( 'Specified user was not found' );
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
                 clude( 'models/activity.php' );
