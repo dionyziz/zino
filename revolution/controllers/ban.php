@@ -5,6 +5,10 @@
 			clude( 'models/ban.php' );
 			clude( 'models/user.php' );
 
+			if ( !isset( $_SESSION[ 'user' ][ 'id' ] ) ) {
+				throw new Exception( "Ban::Listing - Doesnt have the rights" );
+			}
+
 			$user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
 			if ( ( int )$user[ 'rights' ] < 60 ) {
 				throw new Exception( "Ban::Listing - Doesnt have the rights" );
