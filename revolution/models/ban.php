@@ -50,7 +50,7 @@
             }
         }
 
-		public static function Revoke( $userid ) {//should be on the controller TODO
+		public static function Revoke( $userid ) {
 			clude( 'models/user.php' );   
 			$userid = ( int )$userid;
             $banned = Ban::ItemByUserid( $userid );
@@ -59,8 +59,7 @@
 			}
 			else {
 				Ban::Delete( $banned[ 'id' ] );
-				$rights = $banned[ 'rights' ];
-				User::SetRights( $rights );
+				User::SetRights( $banned[ 'rights' ] );
             }
             return;
         }

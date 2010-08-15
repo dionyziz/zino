@@ -18,7 +18,7 @@
 			Template( 'ban/listing', compact( 'banned' ) );
 		}
 
-		public static function Create( $username, $reason, $days_banned = 20 ) {
+		public static function Create( $username, $reason, $daysbanned = 20 ) {
 			clude( 'models/db.php' );
 			clude( 'models/ban.php' );
 			clude( 'models/user.php' );
@@ -29,15 +29,14 @@
 			} 
 			$userid = $user[ 'id' ];
 			$oldrights = $user[ 'rights' ];
-			$time_banned = ( int )$days_banned*60*60*24;
+			$time_banned = ( int )$daysbanned*60*60*24;
 			Ban::Create( $userid, $reason, $time_banned, $oldrights );
 			User::SetRights( 0 );	
 			return;
 		}
 		
 		public static function Delete( $userid ) {
-
-
+			Ban::Revoke( $userid );
 		}
 	}
 ?>
