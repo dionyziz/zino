@@ -20,14 +20,14 @@
 		public static function Listing() {
 			return db_array(
 				'SELECT
-					`user_name` as name, `bannedusers_id` as id, `bannedusers_userid` as userid, `bannedusers_rights` as rights, `bannedusers_started` as started, `bannedusers_expire` as expire, `bannedusers_delalbums` as delalbums,	`bannedusers_reason` as reason, `bannedusers_admin` as admin
+					`user_name` as name, `bannedusers_id` as id, `bannedusers_userid` as userid, `bannedusers_rights` as rights, `bannedusers_started` as started, `bannedusers_expire` as expire, `bannedusers_delalbums` as delalbums, `bannedusers_reason` as reason, `bannedusers_admin` as admin
 				FROM 
 					`bannedusers`
 				LEFT JOIN
 					`users`
 				ON
 					`user_id` = `bannedusers_userid`
-				ORDER BY `bannedusers_created` DESC'
+				ORDER BY `bannedusers_started` DESC'
 				
 			);
 		}
