@@ -80,10 +80,6 @@
                     _aXSLT.ROOT_PATH = '*[1]';
                 }
 
-                $( function() { $( '.time' ).live( 'load', function () {
-                    Kamibu.TimeFollow( this );
-                } ).load(); } );
-
                 var Routing = {
                     'photo.view': PhotoView,
                     'photo.listing': PhotoListing,
@@ -98,13 +94,26 @@
                 };
                 var MasterTemplate = '<xsl:value-of select="$mastertemplate" />';
                 if ( typeof Routing[ MasterTemplate ] != 'undefined' ) {
+                    // this must run asap after the body has been downloaded
+                    // as this fills in page elements and until it is run
+                    // it appears to the user as if the page is still loading
                     Routing[ MasterTemplate ].Init();
                 }
-                Notifications.Check();
-                Presence.Init();
-                Chat.Init();
-                var pageTracker = _gat._getTracker("UA-1065489-1");
-                pageTracker._trackPageview();
+                $( function () {
+                    // delay these until page has loaded completely
+                    // these less important things can be loaded right
+                    // afterwards to make sure the user experiences
+                    // a faster loading time of more important page elements
+                    $( function() { $( '.time' ).live( 'load', function () {
+                        Kamibu.TimeFollow( this );
+                    } ).load(); } );
+
+                    Notifications.Check();
+                    Presence.Init();
+                    Chat.Init();
+                    var pageTracker = _gat._getTracker("UA-1065489-1");
+                    pageTracker._trackPageview();
+                } );
             </script>
         </body>
     </html>
