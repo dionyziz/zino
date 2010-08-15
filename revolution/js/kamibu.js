@@ -96,7 +96,7 @@ var Kamibu = {
 
         return;
     },
-    TimeFollow: function( timeNode ){
+    TimeFollow: function( timeNode, callback ){
     /*
         Developer: ted
     */
@@ -122,6 +122,9 @@ var Kamibu = {
                 setTimeout( fol, 60 * 60000 - ( diff / 1000 ) % 60000 ); //60 mins - seconds of diff
             }
             //No need of more, I think
+            if( typeof( callback ) == 'function' ) {
+                callback();
+            }
         };
         fol();
     },

@@ -16,6 +16,26 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
+     TimestampCheck: function( node ){
+        var next = $( node ).closest( 'li' ).next().children( '.when' );
+        var prev = $( node ).closest( 'li' ).prev().children( '.when' );
+        if( next.length ){
+            if( next.children( '.friendly' ).text() == $( node ).children( '.friendly' ).text() ) {
+                $( node ).hide();
+            }
+            else{
+                $( node ).show();
+            }
+        }
+        if( prev.length ){
+            if( prev.children( '.friendly' ).text() == $( node ).children( '.friendly' ).text() ) {
+                prev.hide();
+            }
+            else{
+                prev.show();
+            }
+        }
+     },
      NameClick: function () {
          var userid = this.id.split( 'u' )[ 1 ];
          if ( userid == Chat.UserId ) {
@@ -157,6 +177,13 @@ var Chat = {
              + '</div>' );
         $( '#onlineusers li' ).click( Chat.NameClick );
         Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
+        $( '.time.when' ).live( 'load', function () {
+            Kamibu.TimeFollow( this, function( node ){
+                return function(){
+                    Chat.TimestampCheck( node )
+                }
+            }( this ) );
+        } ).load();
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
