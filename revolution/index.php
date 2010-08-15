@@ -57,7 +57,8 @@
         $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die( 'Non-idempotent REST method cannot be applied with the idempotent HTTP request method "' . $_SERVER[ 'REQUEST_METHOD' ] . '"' );
 
 		//check http referer
-		$pieces = explode( "/", $_POST[ 'Referer' ] );
+		$referer = $_SERVER['HTTP_REFERER'];
+		$pieces = explode( "/", $referer );
 		if ( isset( $pieces[ 2 ] ) ) {
 			$domain = substr( $pieces[ 2 ], -8 );
 			if ( $domain !== ".zino.gr" || $domain !== "/zino.gr" ) {
