@@ -11,6 +11,7 @@
                 <? endif ?>
             </author>
             <text><?= $chatmessage[ 'text' ] ?></text>
+            <date><?= $chatmessage[ 'date' ] ?></date>
         </comment>
         <? endforeach; ?>
     </discussion>

@@ -65,7 +65,7 @@ var Chat = {
             author = $( messages[ i ] ).find( 'author name' ).text();
             shoutid = $( messages[ i ] ).attr( 'id' );
 
-            html += '<li id="' + shoutid + '"><strong';
+            html += '<li id="' + shoutid + '"><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong';
             if ( author == User ) {
                 html += ' class="self"';
             }
@@ -74,6 +74,7 @@ var Chat = {
             html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
+        $( '.time:not(.processedtime)' ).load();
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
@@ -167,7 +168,7 @@ var Chat = {
          li.innerHTML = '<strong class="self"></strong> <span class="text"></span>';
          $( li )
             .children( 'strong' ).text( User ).end()
-            .children( 'span' ).text( text );
+            .children( 'span.text' ).text( text );
 
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
@@ -185,8 +186,9 @@ var Chat = {
             }
             // didn't receive it through comet yet; update the innerHTML and ids
             // when it's received through comet, it'll be ignored
-            $( lastChild ).find( 'span' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
+            $( lastChild ).find( 'span.text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
             $( lastChild )[ 0 ].id = shoutid;
+            $( lastChild ).prepend( '<span class="when time">' + $( res ).find( 'date' ).text()  + '</span>' ).children( '.when' ).load();
          }, 'xml' );
      },
      OnMessageArrival: function ( res ) {
@@ -214,8 +216,10 @@ var Chat = {
              text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
              li = document.createElement( 'li' );
              li.id = shoutid;
-             li.innerHTML = '<strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
+             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
+            $( '.time:not(.processedtime)' ).load();
+
          }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {

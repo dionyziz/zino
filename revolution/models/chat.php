@@ -9,7 +9,7 @@
 
             $res = db(
                 "SELECT
-                    `shout_id` AS id,
+                    `shout_id` AS id, `shout_created` AS date,
                     `user_name` AS username, `user_id` AS userid, `user_avatarid` AS avatarid,
                     `shout_bulkid` AS bulkid
                 FROM
@@ -66,7 +66,8 @@
 
             return array(
                 'id' => $id,
-                'text' => $text
+                'text' => $text,
+                'date' => date( 'Y-m-d G:i:s' )
             );
         }
     }

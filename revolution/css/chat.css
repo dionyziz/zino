@@ -168,6 +168,16 @@
 .textmessages li {
     clear: both;
     line-height: 23px;
+    position: relative;
+    padding-right: 100px;
+}
+.textmessages li span.when{
+    position: absolute;
+    right: 10px;
+    color: #aDd2f7;
+}
+.textmessages li:hover span.when{
+    color: #3D6287;
 }
 .textmessages strong {
     color: #39f;

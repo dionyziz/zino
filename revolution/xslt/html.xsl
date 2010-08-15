@@ -154,9 +154,9 @@
                 var Now = '<xsl:value-of select="/social/@generated" />';
                 var NowDate = stringToDate( Now );
                 setInterval( function(){
-                    NowDate.setSeconds( NowDate.getSeconds() + 60 );
+                    NowDate.setSeconds( NowDate.getSeconds() + 5 );
                     Now = dateToString( NowDate );
-                }, 60000 );
+                }, 5 * 1000 );
                 
                 var XMLData = {
                     author: '<xsl:value-of select="/social/*/author/name" />'
@@ -179,9 +179,9 @@
                     _aXSLT.ROOT_PATH = '*[1]';
                 }
 
-                $( function() { $( '.time' ).each( function () {
+                $( function() { $( '.time' ).live( 'load', function () {
                     Kamibu.TimeFollow( this );
-                } ); } );
+                } ).load(); } );
 
                 var Routing = {
                     'photo.view': PhotoView,
