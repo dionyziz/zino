@@ -36,7 +36,11 @@
     $resource = $method = '';
     !isset( $_GET[ 'resource' ] ) or $resource = $_GET[ 'resource' ];
     !isset( $_GET[ 'method' ] ) or $method = $_GET[ 'method' ];
-    $subdomain = isset( $_GET[ 'subdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'subdomain' ] );
+    if ( isset( $_GET[ 'realsubdomain' ] ) && preg_match( '/^[a-zA-Z0-9-]*$/', $_GET[ 'realsubdomain' ] ) ) {
+        $subdomain = true;
+        $_GET[ 'subdomain' ] = $_GET[ 'realsubdomain' ];
+        unset( $_GET[ 'realsubdomain' ] );
+    }
 
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
