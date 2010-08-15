@@ -9,7 +9,7 @@
 </xsl:variable>
 
 <xsl:variable name="user" select="/*[1]/@for" />
-<xsl:variable name="sandbox"><xsl:if test="substring( /social/@generator, 0, 12 ) = 'http://beta.'">yes</xsl:if></xsl:variable>
+<xsl:variable name="sandbox" select="contains( /social/@generator, 'http://beta.zino.gr/' )" />
 
 <xsl:template match="/" priority="1">
     <xsl:choose>
