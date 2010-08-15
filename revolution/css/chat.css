@@ -168,6 +168,8 @@
 .textmessages li {
     clear: both;
     line-height: 23px;
+}
+.scrollcontainer li{
     position: relative;
     padding-right: 100px;
 }
