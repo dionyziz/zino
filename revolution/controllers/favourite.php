@@ -6,12 +6,12 @@
             clude( 'models/favourite.php' );
             Favourite::Create( $_SESSION[ 'user' ][ 'id' ], $typeid, $itemid );
         }
-		public static function Listing( $username, $offset = 0, $limit = 100 ) {
+		public static function Listing( $subdomain, $offset = 0, $limit = 100 ) {
             clude( 'models/db.php' );
             clude( 'models/favourite.php' );
             clude( 'models/user.php' );
             
-            $user = User::ItemByName( $username );
+            $user = User::ItemByName( $subdomain );
             if ( empty( $user ) ) {                    
                return;
             }

@@ -28,12 +28,12 @@
             }
             include 'views/journal/view.php';
         }
-        public static function Listing( $username = '' ) {
+        public static function Listing( $subdomain = '' ) {
             clude( 'models/db.php' );
             clude( 'models/journal.php' );
-            if ( $username != '' ) {
+            if ( $subdomain != '' ) {
                 clude( 'models/user.php' );
-                $user = User::ItemByName( $username );
+                $user = User::ItemByName( $subdomain );
                 $journals = Journal::ListByUser( $user[ 'id' ] );
             }
             else {

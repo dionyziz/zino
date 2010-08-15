@@ -35,12 +35,12 @@
             }
             include 'views/poll/view.php';
         }
-        public static function Listing( $username = '' ) {
+        public static function Listing( $subdomain = '' ) {
             clude( 'models/db.php' );
             clude( 'models/poll.php' );
-            if ( $username != '' ) {
+            if ( $subdomain != '' ) {
                 clude( 'models/user.php' );
-                $user = User::ItemByName( $username );
+                $user = User::ItemByName( $subdomain );
                 $polls = Poll::ListByUser( $user[ 'id' ] );
             }
             else {

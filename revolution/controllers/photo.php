@@ -27,15 +27,15 @@
             }
             Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user' ) );
         }
-        public static function Listing( $username = '', $page = 1, $limit = 100 ) {
+        public static function Listing( $subdomain = '', $page = 1, $limit = 100 ) {
             $page = ( int )$page;
             $limit = ( int )$limit;
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $offset = ( $page - 1 ) * $limit;
-            if ( $username != '' ) {
+            if ( $subdomain != '' ) {
                 clude( 'models/user.php' );
-                $user = User::ItemByName( $username );
+                $user = User::ItemByName( $subdomain );
                 $photos = Photo::ListByUser( $user[ 'id' ], $offset, $limit );
                 Template( 'photo/listing', compact( 'user', 'photos' ) );
             }

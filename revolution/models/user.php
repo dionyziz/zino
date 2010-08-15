@@ -236,20 +236,8 @@
                     `users`
                 WHERE
                     `user_name` = :name
+                    OR `user_subdomain` = :name
                 LIMIT 1;', compact( 'name' )
-            );
-			return mysql_fetch_array( $res );
-        }
-        public static function ItemBySubdomain( $subdomain ) {
-            $res = db(
-                'SELECT
-                    `user_id` AS id,
-                    `user_deleted` as userdeleted, `user_name` AS name, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid
-                FROM
-                    `users`
-                WHERE
-                    `user_subdomain` = :subdomain
-                LIMIT 1;', compact( 'subdomain' )
             );
 			return mysql_fetch_array( $res );
         }

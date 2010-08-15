@@ -1,6 +1,6 @@
 <?php
     class ControllerUser {
-        public static function View( $id = false, $subdomain = false, $name = false, $verbose = 3, $commentpage = 1 ) {
+        public static function View( $id = false, $subdomain = false, $verbose = 3, $commentpage = 1 ) {
             $id = ( int )$id;
             $commentpage = ( int )$commentpage;
             $commentpage >= 1 or die( 'Comment page is invalid' );
@@ -12,15 +12,9 @@
                         $user = User::ItemDetails( $id );
                     }
                     else if ( $subdomain ) {
-                        $user = User::ItemDetailsBySubdomain( $subdomain );
-                        if ( $user === false ) {
-                            $user = User::ItemDetailsByName( $subdomain );
-                        }
+                        $user = User::ItemDetailsByName( $subdomain );
                     }
-                    else if ( $name ) {
-                        $user = User::ItemDetailsByName( $name );
-                    }
-                    else die( 'id, subdomain, nor name specified for verbosity level 2' );
+                    else die( 'nor id nor subdomain specified for verbosity level 2' );
                     $countcomments = $user[ 'numcomments' ];
                 }
                 else {
@@ -28,10 +22,7 @@
                         $user = User::Item( $id );
                     }
                     else if ( $subdomain ) {
-                        $user = User::ItemBySubdomain( $subdomain );
-                    }
-                    else if ( $name ) {
-                        $user = User::ItemByName( $name );
+                        $user = User::ItemByName( $subdomain );
                     }
                     $countcomments = 0; // TODO: remove this line
                 }

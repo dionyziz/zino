@@ -2,7 +2,7 @@ RewriteEngine On
 
 # photos 
 RewriteRule ^photos$ index.php?resource=photo&method=listing [L,QSA]
-RewriteRule ^photos/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=photo&method=listing&username=$1 [L,QSA]
+RewriteRule ^photos/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=photo&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^photos/([0-9]+)$ index.php?resource=photo&method=view&id=$1 [L,QSA]
 RewriteRule ^photo/create$ index.php?resource=photo&method=create [L,QSA]
 RewriteRule ^photo/delete$ index.php?resource=photo&method=delete [L,QSA]
@@ -17,14 +17,14 @@ RewriteRule ^album/create$ index.php?resource=album&method=create [L,QSA]
 
 # polls
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
-RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&username=$1 [L,QSA]
+RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^poll/create$ index.php?resource=poll&method=create [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
 RewriteRule ^journal/create$ index.php?resource=journal&method=create [L,QSA]
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
-RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&username=$1 [L,QSA]
+RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]
 
 # session
@@ -35,7 +35,7 @@ RewriteRule ^session$ index.php?resource=session&method=view [L,QSA]
 
 # favourites
 RewriteRule ^favourite/create$ index.php?resource=favourite&method=create [L,QSA]
-RewriteRule ^favourites/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&method=listing&username=$1 [L,QSA]
+RewriteRule ^favourites/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=favourite&method=listing&subdomain=$1 [L,QSA]
 
 # comments
 RewriteRule ^comment/create$ index.php?resource=comment&method=create [L,QSA]
@@ -67,7 +67,7 @@ RewriteRule ^settings/update$ index.php?resource=settings&method=update [L,QSA]
 RewriteRule ^friendship/create$ index.php?resource=friendship&method=create [L,QSA]
 RewriteRule ^friendship/delete$ index.php?resource=friendship&method=delete [L,QSA]
 RewriteRule ^friendship/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=view&username=$1 [L,QSA]
-RewriteRule ^friends/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&username=$1 [L,QSA]
+RewriteRule ^friends/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=friendship&method=list&subdomain=$1 [L,QSA]
 
 # chat
 RewriteRule ^chat/messages$ index.php?resource=chatmessage&method=listing [L,QSA]

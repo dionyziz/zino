@@ -14,14 +14,14 @@
 
             include 'views/friendship/view.php';
         }
-        public static function Listing( $username ) {
+        public static function Listing( $subdomain ) {
             global $settings;
 
             clude( 'models/db.php' );
             clude( 'models/friend.php' );
             clude( 'models/user.php' );
             
-            $user = User::ItemByName( $username );
+            $user = User::ItemByName( $subdomain );
             if ( empty( $user ) ) {                    
                return;
             }
@@ -29,7 +29,7 @@
             $friends = Friend::ListByUser( $userid );
 
             // find which of these are also friends of the active user
-            if ( isset( $_SESSION[ 'user' ] ) && $_SESSION[ 'user' ][ 'name' ] != $username ) {
+            if ( isset( $_SESSION[ 'user' ] ) && $_SESSION[ 'user' ][ 'name' ] != $subdomain ) {
                 $friendids = array();
                 foreach ( $friends as $friend ) {
                     $friendids[] = $friend[ 'id' ];
@@ -41,7 +41,7 @@
                     }
                 }
             }
-            include "views/friendship/list.php";
+            Template( 'friendship/list', compact( 'friends', 'friendsOfUser', 'friendids', 'subdomain' ) );
         }
         public static function Create( $friendid = 0, $username = '' ) {
             $friendid = ( int )$friendid;
