@@ -70,6 +70,7 @@
 		$vars = $_POST;
         $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die( 'Non-idempotent REST method cannot be applied with the idempotent HTTP request method "' . $_SERVER[ 'REQUEST_METHOD' ] . '"' );
 
+        /*
 		//check http referer
 		$referer = $_SERVER['HTTP_REFERER'];
 		$pieces = explode( "/", $referer );
@@ -79,6 +80,7 @@
 				throw New Exception( 'Not Valid Post Referer'  );
 			}
 		}
+        */ // needs fixing
 	}
 	else {
         unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
