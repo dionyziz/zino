@@ -449,7 +449,7 @@ var Chat = {
                  $panel.find( 'h3' ).text( username );
                  $.get( 'users/' + username + '?verbose=2', function ( res ) {
                      var avatar = 'http://static.zino.gr/phoenix/anonymous100.jpg'; 
-                     if ( $( res ).find( 'user avatar' ) ) {
+                     if ( $( res ).find( 'user avatar' ).length ) {
                          avatar = $( res ).find( 'user avatar media' ).attr( 'url' );
                      }
                      var img = '<a href="users/' + username + '"><img src="' + avatar + '" alt="' + username + '" title="Προβολή προφίλ" /></a>';
