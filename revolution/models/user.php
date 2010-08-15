@@ -179,6 +179,9 @@
                 return false;
             }
 			
+			if ( Ban::isBannedUser( $userid ) === false ) {
+				return false;
+			}
 
 
             $res = db(
