@@ -1,6 +1,7 @@
 html.xsl
 topbar.xsl
 author.xsl
+title.xsl
 favourite/listing.xsl
 photo/listing.xsl
 photo/view.xsl
