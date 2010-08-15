@@ -239,15 +239,15 @@
 			return mysql_fetch_array( $res );
         }
         public static function ItemDetailsBySubdomain( $subdomain ) {
-            return User::ItemDetailsByWhereClause( 'user_subdomain', $subdomain );
+            return User::ItemDetailsByWhereClause( 'user_subdomain = :subdomain', compact( 'subdomain' ) );
         }
         public static function ItemDetailsByName( $name ) {
-            return User::ItemDetailsByWhereClause( 'user_name', $name );
+            return User::ItemDetailsByWhereClause( 'user_name = :name OR user_subdomain = :name', compact( 'name' ) );
         }
         public static function ItemDetails( $id ) {
-            return User::ItemDetailsByWhereClause( 'user_id', $id );
+            return User::ItemDetailsByWhereClause( 'user_id = :id', compact( 'id' ) );
         }
-        private static function ItemDetailsByWhereClause( $field, $value ) {
+        private static function ItemDetailsByWhereClause( $clause, $fields ) {
             $query = 
                 'SELECT
                     `user_id` AS id,
@@ -294,10 +294,10 @@
                     LEFT JOIN `statusbox` AS newer
                         ON `user_id` = `newer`.`statusbox_userid` AND `newer`.`statusbox_id` > `latest`.`statusbox_id`
                 WHERE 
-                    `' . $field . '` = :' . $field .' AND
+                    ' . $clause . ' AND
                     `newer`.`statusbox_id` IS NULL
                 LIMIT 1;';
-            $res = db( $query, array( $field => $value ) );
+            $res = db( $query, $fields );
 			$row = mysql_fetch_array( $res );
             if ( $row === false ) {
                 return false;

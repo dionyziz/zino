@@ -139,14 +139,14 @@
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
         <xsl:attribute name="id"><xsl:value-of select="/social/@resource" />-<xsl:value-of select="/social/@method" /></xsl:attribute>
         <head>
-            <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
             <title><xsl:call-template name="title" /></title>
-            <link type="text/css" href="global.css" rel="stylesheet" />
+            <base><xsl:attribute name="href"><xsl:value-of select="/social[1]/@generator" />/</xsl:attribute></base>
+            <link type="text/css" href="global.css?1" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/emoticons.css" rel="stylesheet" />
             <link type="text/css" href="http://static.zino.gr/css/spriting/sprite1.css" rel="stylesheet" />
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-			<script type="text/javascript" src="global.js"></script>
+			<script type="text/javascript" src="global.js?1"></script>
             <script type="text/javascript">
                 <xsl:if test="/social/@for">
                     var User = '<xsl:value-of select="/social/@for" />';
@@ -170,6 +170,7 @@
                     <xsl:apply-templates />
                 </div>
             </div>
+            <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
             <script type="text/javascript">
                 $.ajaxSetup( {
                     dataType: 'xml'
@@ -202,9 +203,6 @@
                 Notifications.Check();
                 Presence.Init();
                 Chat.Init();
-            </script>
-            <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-            <script type="text/javascript">
                 var pageTracker = _gat._getTracker("UA-1065489-1");
                 pageTracker._trackPageview();
             </script>
