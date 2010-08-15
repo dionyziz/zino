@@ -13,5 +13,23 @@
 			$banned = Ban::Listing();
 			Template( 'ban/listing', compact( 'banned' ) );
 		}
+
+		public static function Create( $username, $reason, $days_banned = 20 ) {
+			$user = User::ItemByName( $username );
+			if ( $user == false ) {
+				throw new Exception( "Ban::Revoke - This user doesnt exist" );
+			} 
+			$userid = $user[ 'id' ];
+			$oldrights = $user[ 'rights' ];
+			$time_banned = ( int )$days_banned*60*60*24;
+			Ban::Create( $userid, $reason, $time_banned, $oldrights );
+			User::SetRights( 0 );	
+			return;
+		}
+		
+		public static function Delete( $userid ) {
+
+
+		}
 	}
 ?>
