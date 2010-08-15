@@ -36,6 +36,9 @@
 		}
 		
 		public static function Delete( $userid ) {
+			clude( 'models/db.php' );
+			clude( 'models/ban.php' );
+			clude( 'models/user.php' );
 			Ban::Revoke( $userid );
 		}
 	}
