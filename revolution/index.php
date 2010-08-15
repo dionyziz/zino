@@ -41,6 +41,9 @@
         $_GET[ 'subdomain' ] = $_GET[ 'realsubdomain' ];
         unset( $_GET[ 'realsubdomain' ] );
     }
+    else {
+        $subdomain = false;
+    }
 
 	if ( !in_array( $resource, array(
         'photo', 'session', 'comment', 'favourite', 'poll', 'journal', 'pollvote', 'news',
