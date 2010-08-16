@@ -148,7 +148,7 @@ var Chat = {
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
          $( '#chat textarea' ).keydown( function () {
-             $.post( 
+             // $.post(); 
          } );
          Chat.Loaded = true;
          return true;
