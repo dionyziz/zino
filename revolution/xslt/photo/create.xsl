@@ -12,11 +12,11 @@
             Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας
         </xsl:when>
         
-        <xsl:otherwise>
+        <xsl:when test="/social/photo/@id">
             <script type="text/javascript">
-                window.location.href = 'photos/<xsl:value-of select="//photo/@id" />';
+                window.location.href = 'photos/<xsl:value-of select="/social/photo/@id" />';
             </script>
-        </xsl:otherwise> 
+        </xsl:when>
     </xsl:choose>
 </xsl:template>
 

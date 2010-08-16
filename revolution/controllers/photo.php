@@ -104,8 +104,8 @@
             $realname = $uploadimage[ 'name' ];
             if ( !empty( $uploadimage ) ) {
                 $extension = substr( $realname, strrpos( $realname, "." ) + 1 );
-                if ( !in_array( $extension, array( 'jpg', 'jpeg', 'png', 'gif' ) ) ) {
-                    $error = "wrongtype";
+                if ( !in_array( strtolower( $extension ), array( 'jpg', 'jpeg', 'png', 'gif' ) ) ) {
+                    $error = "wrongextension";
                     include 'views/photo/create.php';
                     return;
                 }
