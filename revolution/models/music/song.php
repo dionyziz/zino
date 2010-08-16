@@ -15,7 +15,7 @@
                     LIMIT 1', compact( 'userid' )
                 ) );
         }
-		public static function RandomList() {
+		public static function RandomList( $amount ) {
 			clude( "models/db.php" );
 			return db_array(
 					'SELECT 
@@ -25,7 +25,7 @@
 					WHERE  
 						`song_songid` !=0
 					ORDER BY RAND( ) 
-					LIMIT 0,100'
+					LIMIT 0,:amount', compact( 'amount' )
                 );
 		}
 
