@@ -173,8 +173,6 @@
 			if ( !empty( $profile_options ) ) {
 				User::UpdateItemDetails( $profile_options, $userid );
 			}
-
-
             
 			if ( $settings_updated == 2 ) {
 		        if ( ( $options[ 'emailnotify' ] !== "yes" AND $options[ 'emailnotify' ] !== "no" ) 
