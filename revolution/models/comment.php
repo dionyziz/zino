@@ -23,6 +23,33 @@
 
             return array( count( $paged ), $comments );
         }
+        public function ListNear( $typeid, $itemid, $commentid, $offset = 0, $limit = 100000 ) {
+            global $mc;
+
+            $paged = Comment::GetMemcached( $typeid, $itemid );
+            $cur_page = -1;
+			
+            foreach ( $paged as $page => $commentids ) { /* slow? at least not if the comment is on the first pages */
+                foreach ( $commentids as $needlecommentid ) {
+                    if ( $needlecommentid == $commentid ) {
+                        $cur_page = $page;
+                        break;
+                    }
+                }
+                if ( $cur_page >= 0 ) {
+                    break;
+                }
+            }
+
+            if ( $cur_page === -1 ) {
+                return false;
+            }
+
+            $commentids = $paged[ $cur_page ];
+            $comments = self::Populate( $commentids );
+
+            return array( count( $paged ), $cur_page + 1, $comments ); 
+        }
         public static function Populate( $commentids ) {
             clude( 'models/bulk.php' );
 
@@ -106,6 +133,7 @@
         }
         public static function GetMemcached( $typeid, $itemid ) {
             global $mc;
+
             $paged = $mc->get( 'comtree_' . $itemid . '_' . $typeid );
             if ( $paged === false ) {
                 return Comment::RegenerateMemcache( $typeid, $itemid );
