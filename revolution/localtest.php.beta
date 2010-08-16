@@ -1,0 +1,14 @@
+<?php
+    return array(
+        'db' => array(
+            'host' => 'code.kamibu.com',
+            'user' => 'zinophoenix',
+            'password' => 'rm99fixed',
+            'name' => 'zinophoenix'
+        ),
+        'base' => 'http://beta.zino.gr/USERNAME',
+        'enablemc' => false,
+        'beta' => true,
+        'imagesurl' => 'http://static.zino.gr/phoenix/',
+    );
+?>
