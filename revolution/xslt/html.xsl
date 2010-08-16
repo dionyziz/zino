@@ -37,7 +37,7 @@
                     <link type="text/css" href="global.css" rel="stylesheet" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <link type="text/css" href="http://static.zino.gr/css/global.css?1" rel="stylesheet" />
+                    <link type="text/css" href="http://static.zino.gr/css/global.css?2" rel="stylesheet" />
                 </xsl:otherwise>
             </xsl:choose>
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
