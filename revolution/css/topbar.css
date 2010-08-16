@@ -34,6 +34,8 @@
 }
 .bar ul {
     margin-left: 85px;
+    position: relative;
+    z-index: 2;
 }
 .bar ul li {
     float:left;
