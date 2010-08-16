@@ -38,12 +38,38 @@
 .bar ul li {
     float:left;
 }
-.bar ul li#chat_icon{
+.bar ul li.breadcrumb {
+    float: none;
+    text-align: center;
+}
+    .bar ul li.breadcrumb li {
+        float: none;
+        display: inline;
+        border: 1px solid transparent;
+        padding: 3px; 
+    }
+    .bar ul li.breadcrumb li:hover {
+        background-color: inherit;
+    }
+    .bar ul li.breadcrumb li a {
+        display: inline;
+        padding: 4px;
+        -moz-border-radius: 4px;
+    }
+    .bar ul li.breadcrumb li a:hover {
+        background-color: #444;
+    }
+    .bar ul li.breadcrumb li.arrow, .bar ul li.breadcrumb li.arrow:hover {
+        border: none;
+        background-color: transparent;
+        padding: 0 6px;
+    }
+.bar ul li#chat_icon {
     float: right;
     padding-right: 0px;
     margin-right: 7px;
 }
-.bar ul li#feedback_icon{
+.bar ul li#feedback_icon {
     float: right;
     padding-right: 0px;
     margin-right: 7px;
@@ -51,6 +77,9 @@
 }
 .bar ul li:hover {
     background-color: #555;
+}
+.bar ul li.breadcrumb:hover {
+    background-color: inherit;
 }
 .bar ul li.selected {
     background-color: #fcbe4d;

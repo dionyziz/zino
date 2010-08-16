@@ -67,16 +67,20 @@
             /* TODO: 2 selects, stored procedure */
             $res = db(
                 'SELECT
-                    i.`image_id` AS id, i.`image_userid` AS userid, i.`image_created` AS created, i.`image_name` AS title, i.`image_albumid` AS albumid,
+                    i.`image_id` AS id, i.`image_userid` AS userid, i.`image_created` AS created, i.`image_name` AS title,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     i.`image_width` AS w, i.`image_height` AS h, i.`image_numcomments` AS numcomments,
                     MIN( next.`image_id` ) AS previousid,
                     MAX( previous.`image_id` ) AS nextid,
-                    i.`image_delid` AS deleted
+                    i.`image_delid` AS deleted,
+                    `album_name` AS albumname, `album_id` AS albumid,
+                    (`album_id` = `user_egoalbumid`) AS isegoalbum
                 FROM
                     `images` AS i
                     CROSS JOIN `users`
                         ON i.`image_userid` = `user_id`
+                    CROSS JOIN `albums`
+                        ON i.`image_albumid` = `album_id`
                     LEFT JOIN `images` as next
                         ON i.`image_userid` = next.`image_userid` AND
                         next.`image_id` > i.`image_id` AND
@@ -102,8 +106,12 @@
             }
             $item[ 'w' ] = $item[ 'w' ] ;
             $item[ 'h' ] = $item[ 'h' ] ;
-            $item[ 'albumid' ] = $item[ 'albumid' ] ;
-            $item[ 'deleted' ] = $item[ 'deleted' ] ;
+            $item[ 'album' ] = array(
+                'id' => $item[ 'albumid' ],
+                'egoalbum' => ( bool )$item[ 'isegoalbum' ],
+                'name' => $item[ 'albumname' ]
+            );
+            $item[ 'deleted' ] = $item[ 'deleted' ];
             $item[ 'user' ] = array(
                 'id' => (int)$item[ 'userid' ],
                 'name' => $item[ 'username' ],

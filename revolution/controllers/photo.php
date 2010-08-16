@@ -7,6 +7,7 @@
             clude( 'models/db.php' );
             clude( 'models/photo.php' );
             $photo = Photo::Item( $id );
+            $album = $photo[ 'album' ];
             if ( $photo[ 'user' ][ 'deleted' ] === 1 || $photo === false ) { 
                 include 'views/itemdeleted.php';
                 return;
@@ -25,7 +26,7 @@
                 clude( 'models/favourite.php' );
                 $favourites = Favourite::ListByTypeAndItem( TYPE_PHOTO, $id );
             }
-            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user' ) );
+            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user', 'album' ) );
         }
         public static function Listing( $subdomain = '', $page = 1, $limit = 100 ) {
             $page = ( int )$page;

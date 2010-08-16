@@ -1,5 +1,4 @@
 <?php
-
     class ControllerSong {
         public function Listing( $query, $randomlist = 0 ) {
 			clude( "models/music/song.php" );

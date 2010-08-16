@@ -7,6 +7,16 @@
     <? if( $photo[ 'title' ] != '' ): ?>
         <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
     <? endif; ?>
+    <? if ( isset( $album ) ): ?>
+    <containedWithin>
+        <album id="<?= $album[ 'id' ] ?>"
+        <? if ( !empty( $album[ 'egoalbum' ] ) ): ?>
+         egoalbum="yes"
+        <? endif; ?>>
+            <name><?= $album[ 'name' ] ?></name>
+        </album>
+    </containedWithin>
+    <? endif; ?>
     <? if ( isset( $user ) ): ?>
     <author>
         <name><?= $user[ 'name' ] ?></name>
