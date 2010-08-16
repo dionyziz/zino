@@ -4,7 +4,7 @@
 			clude( "models/music/song.php" );
 			clude( 'models/music/grooveshark.php' );
 			if ( $randomlist != 0 ) {
-				$songlist = Song::RandomList( 20 );
+				$songlist = Song::RandomList( 10 );
 				$ids = array();
 				 foreach ( $songlist as $song ) {
 				   $ids[] = $song[ 'songid' ];
