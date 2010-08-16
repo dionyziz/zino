@@ -122,6 +122,8 @@ var Chat = {
          Chat.GetMessages( channelid, callback );
      },
      Load: function () {
+         $( '#onlineusers li' ).click( Chat.NameClick );
+         Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {
              Kamibu.Go( 'login' );
              return false;
@@ -145,6 +147,9 @@ var Chat = {
              }
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
+         $( '#chat textarea' ).keydown( function () {
+             $.post( 
+         } );
          Chat.Loaded = true;
          return true;
      },
@@ -164,16 +169,21 @@ var Chat = {
          }
      },
      Init: function () {
+         // keep this function short
+         // these things run on every page load
+         // if you just want some initialization operation that only needs to
+         // run when the chat is opened
+         // use the Chat.Load() function, not this.
+         // Chat.Load() is only called once.
         $( '#chatbutton' ).click( function () {
              Chat.Toggle();
              return false;
         } );
         document.domain = 'zino.gr';
-        var bigNumber = 123456789;
         $.get( 'session', function ( res ) {
             Chat.UserId = $( res ).find( 'user' ).attr( 'id' );
             Chat.Authtoken = $( res ).find( 'authtoken' ).text();
-            Comet.Init( Math.random() * bigNumber, 'universe.alpha.zino.gr' );
+            Comet.Init();
             Chat.Join( '0' );
             Chat.Join( Chat.UserId + ':' + Chat.Authtoken );
             Comet.Subscribe( 'presence', Chat.OnPresenceChange );
@@ -182,7 +192,7 @@ var Chat = {
              '<div style="display:none" id="chat">'
                  // + '<div class="xbutton">&laquo; Πίσω</div>'
                  + '<div class="userlist">'
-                    + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
+                     + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
                      + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
                  + '</div>'
                  + '<div class="textmessages">'
@@ -191,12 +201,6 @@ var Chat = {
                      + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
                  + '</div>'
              + '</div>' );
-        $( '#onlineusers li' ).click( Chat.NameClick );
-        Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
-        
-       /* $( '.time.when' ).live( 'updated', function () {
-            Chat.TimestampCheck( this );
-        } ); */
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
@@ -407,7 +411,12 @@ var Chat = {
      Join: function ( channelid ) {
          // Listen to push messages here
          Comet.Subscribe( 'chat/messages/list/' + channelid, Chat.OnMessageArrival );
-         Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnMessageArrival );
+         Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnTypingStateChange );
+     },
+     OnTypingStateChange: function ( channelid, username, onoff ) {
+         if ( User == 'dionyziz' ) {
+             alert( username + ' typing in channel ' + channelid );
+         }
      },
      OnPresenceChange: function ( res ) {
          var method = $( res ).find( 'operation' ).attr( 'method' );
