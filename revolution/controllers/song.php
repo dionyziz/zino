@@ -4,8 +4,16 @@
 			clude( "models/music/song.php" );
 			clude( 'models/music/grooveshark.php' );
 			if ( $randomlist != 0 ) {
-				$songs = Song::RandomList();
-				Template( 'song/smalllisting', compact( 'songs' ) );
+				$songlist = Song::RandomList( 20 );
+				$ids = array();
+				 foreach ( $songlist as $song ) {
+				   $ids[] = $song[ 'songid' ];
+				}
+				$songs = Grooveshark_AboutSongs( $ids );
+				$query = "random";
+				Template( 'song/listing', compact( 'songs', 'query' ) );
+				//$songs = Song::RandomList();
+				//Template( 'song/listing', compact( 'songs' ) );
 				return;
 			}
             $songs = Grooveshark_SearchSong( $query );
