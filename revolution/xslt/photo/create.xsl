@@ -17,6 +17,6 @@
                 window.location.href = 'photos/<xsl:value-of select="//photo/@id" />';
             </script>
         </xsl:otherwise> 
-    <xsl:choose>
+    </xsl:choose>
 </xsl:template>
 
