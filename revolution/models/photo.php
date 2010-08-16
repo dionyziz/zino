@@ -178,7 +178,7 @@
             $data = Photo::Upload( $userid, $id, $tempname );
 
             if ( !is_array( $data ) ) {
-                // Photo::Delete( $id );
+                Photo::Delete( $id );
                 return $data;
             }
 
