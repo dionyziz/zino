@@ -24,10 +24,8 @@ var Chat = {
                 $( this ).show();
                 return true;
             }
-            var thisdate = $( this ).children( '.friendly' );
-            var lastdate = Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' );
-            if( thisdate.attr( 'id' ).split( '_' )[ 1 ] - 5 * 60 * 1000 > lastdate.attr( 'id' ).split( '_' )[ 1 ]
-                && thisdate.text() != lastdate.text() ){
+            if( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > Chat.vts[ Chat.vts.length - 1 ].children( '.timestamp' ).text()
+                && $( this ).children( '.friendly' ).text() != Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' ).text() ){
                 Chat.vts.push( $( this ) );
                 $( this ).show();
             }
@@ -102,13 +100,13 @@ var Chat = {
             author = $( messages[ i ] ).find( 'author name' ).text();
             shoutid = $( messages[ i ] ).attr( 'id' );
 
-            html += '<li id="' + shoutid + '"><strong';
+            html += '<li id="' + shoutid + '"><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong';
             if ( author == User ) {
                 html += ' class="self"';
             }
             html += '>';
             html += author;
-            html += '</strong> <span class="text">' + text + '</span><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span></li>';
+            html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
         $( '.when:not(.processedtime)' ).load();
@@ -230,7 +228,7 @@ var Chat = {
             // when it's received through comet, it'll be ignored
             $( lastChild ).find( 'span.text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
             $( lastChild )[ 0 ].id = shoutid;
-            $( lastChild ).append( '<span class="when time">' + $( res ).find( 'date' ).text()  + '</span>' ).children( '.when' ).load();
+            $( lastChild ).prepend( '<span class="when time">' + $( res ).find( 'date' ).text()  + '</span>' ).children( '.when' ).load();
             Chat.TimestampsToggle( $( lastChild ).find( '.when' ) );
          }, 'xml' );
      },
@@ -259,7 +257,7 @@ var Chat = {
              text = innerxml( $( messages[ i ] ).find( 'text' )[ 0 ] );
              li = document.createElement( 'li' );
              li.id = shoutid;
-             li.innerHTML = '<strong>' + author + '</strong> <span class="text">' + text + '</span><span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span></li>'; 
+             li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
             

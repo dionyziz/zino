@@ -104,11 +104,12 @@ var Kamibu = {
             return true;
         }
         var diff = dateDiff( $( timeNode ).text(), Now );
-        $( timeNode ).html( '<span style="display:hidden">, </span><span id="ts_' + stringToDate( $( timeNode ).text() ).getTime() + '" class="friendly">' + greekDateDiff( diff ) + '</span>' )
-            .addClass( 'processedtime' );
+        $( timeNode ).html( '<span class="friendly">' + greekDateDiff( diff ) + '</span>'
+                           +'<span class="timestamp">' + stringToDate( $( timeNode ).text() ).getTime() + '</span>' );
+        $( timeNode ).addClass( 'processedtime' );
         var fol = function(){
             var fri = $( timeNode ).children( '.friendly' ).text();
-            var ts = $( timeNode ).children( '.friendly' ).attr( 'id' ).split( '_' )[ 1 ];
+            var ts = $( timeNode ).children( '.timestamp' ).text();
             var dat = new Date();
             dat.setTime( ts );
             var diff = NowDate.getTime() - ts;
