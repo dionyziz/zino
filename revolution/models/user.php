@@ -390,6 +390,10 @@
                 }
             }
 
+			if ( isset( $details[ 'profile_songid' ] ) ) {
+				Song::Insert( $userid, $details[ 'profile_songid' ] );
+			}
+
 			$details = User::CheckDataOnUserUpdate( $details );
             
 			$first = true;
@@ -419,7 +423,7 @@
 			'profile_email' 
 			'profile_dob'
 			*/
-			$validints = array ( 'profile_moodid', 'profile_placeid' );
+			$validints = array ( 'profile_moodid', 'profile_placeid', 'profile_songid' );
 			$validarrays = array( 
 				'profile_sexualorientation' => array( '-' , 'straight', 'bi', 'gay' ) ,
  				'profile_relationship' => array( '-', 'single', 'relationship', 'casual', 'engaged', 'married','complicated' ),
