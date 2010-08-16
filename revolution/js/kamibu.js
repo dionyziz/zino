@@ -116,8 +116,8 @@ var Kamibu = {
             var dt = dateToString( dat );
             var newfri = greekDateDiff( dateDiff( dt, Now ) );
             
-            $( timeNode ).trigger( 'updated' );
             $( timeNode ).children( '.friendly' ).text( newfri );
+            $( timeNode ).trigger( 'updated' );
             if( diff / 60000 < 60 ){ //for an hour
                 setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
                 return;
