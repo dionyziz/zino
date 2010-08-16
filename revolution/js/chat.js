@@ -122,6 +122,9 @@ var Chat = {
          Chat.GetMessages( channelid, callback );
      },
      Load: function () {
+         var typingSent = false;
+         var typingTimeout = 0;
+
          $( '#onlineusers li' ).click( Chat.NameClick );
          Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {
@@ -148,7 +151,23 @@ var Chat = {
          } );
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
          $( '#chat textarea' ).keydown( function () {
-             // $.post(); 
+             clearTimeout( typingTimeout );
+             typingTimeout = setTimeout( function () { // if user has not touched the keyboard for 4 seconds, show them as not typing explicitly
+                $.post( 'chat/typing', {
+                    typing: 0
+                } );
+                typingSent = false;
+             }, 4000 );
+             if ( !typingSent ) { // sent the fact that we are still typing every 10 seconds; just so that remote client doesn't "timeout" and thinks we've stopped
+                 $.post( 'chat/typing', {
+                     channelid: CurrentChannel,
+                     typing: 1
+                 } ); 
+                 typingSent = true;
+                 setTimeout( function () {
+                     typingSent = false;
+                 }, 10000 );
+             }
          } );
          Chat.Loaded = true;
          return true;
@@ -415,7 +434,7 @@ var Chat = {
      },
      OnTypingStateChange: function ( channelid, username, onoff ) {
          if ( User == 'dionyziz' ) {
-             alert( username + ' typing in channel ' + channelid );
+             window.title = username + ' typing in channel ' + channelid;
          }
      },
      OnPresenceChange: function ( res ) {
