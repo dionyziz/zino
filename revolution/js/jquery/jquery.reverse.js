@@ -1,0 +1,1 @@
+$.fn.reverse = [].reverse;
