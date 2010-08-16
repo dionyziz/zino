@@ -177,6 +177,7 @@
     position: absolute;
     right: 10px;
     color: #aDd2f7;
+    display: none;
 }
 .textmessages strong {
     color: #39f;

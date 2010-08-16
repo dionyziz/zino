@@ -16,7 +16,22 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
-     TimestampCheck: function( node ){
+     vts: [], //visible timestamps
+     TimestampsToggle: function( items ){
+        $( items ).each( function(){
+            if( !Chat.vts.length ){
+                Chat.vts.push( $( this ) );
+                $( this ).show();
+                return true;
+            }
+            if( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > Chat.vts[ Chat.vts.length - 1 ].children( '.timestamp' ).text()
+                && $( this ).children( '.friendly' ).text() != Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' ).text() ){
+                Chat.vts.push( $( this ) );
+                $( this ).show();
+            }
+        });
+     },
+     TimestampCheck: function( node ){ //not in use, for now
         var next = $( node ).closest( 'li' ).next().children( '.when' );
         var prev = $( node ).closest( 'li' ).prev().children( '.when' );
         if( next.length ){
@@ -95,6 +110,7 @@ var Chat = {
         }
         history.innerHTML = html;
         $( '.when:not(.processedtime)' ).load();
+        Chat.TimestampsToggle( $( '.when' ) );
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
@@ -178,9 +194,9 @@ var Chat = {
         $( '#onlineusers li' ).click( Chat.NameClick );
         Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
         
-        $( '.time.when' ).live( 'updated', function () {
+       /* $( '.time.when' ).live( 'updated', function () {
             Chat.TimestampCheck( this );
-        } ); 
+        } ); */
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
@@ -213,6 +229,7 @@ var Chat = {
             $( lastChild ).find( 'span.text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
             $( lastChild )[ 0 ].id = shoutid;
             $( lastChild ).prepend( '<span class="when time">' + $( res ).find( 'date' ).text()  + '</span>' ).children( '.when' ).load();
+            Chat.TimestampsToggle( $( lastChild ).find( '.when' ) );
          }, 'xml' );
      },
      OnMessageArrival: function ( res ) {
@@ -242,7 +259,8 @@ var Chat = {
              li.id = shoutid;
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
-            $( '.time:not(.processedtime)' ).load();
+             Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
+            
 
          }
          if ( Chat.CurrentChannel == channelid ) {
