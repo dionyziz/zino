@@ -1,22 +1,22 @@
 <xsl:template match="/social[@resource='photo' and @method='create']">
     <xsl:choose>
         <xsl:when test="error and error/@type = 'wrongextension'">
-            Αυτός ο τύπος εικόνας δεν υποστηρίζεται
+            Ξ‘Ο…Ο„ΟΟ‚ ΞΏ Ο„ΟΟ€ΞΏΟ‚ ΞµΞΉΞΊΟΞ½Ξ±Ο‚ Ξ΄ΞµΞ½ Ο…Ο€ΞΏΟƒΟ„Ξ·ΟΞ―Ξ¶ΞµΟ„Ξ±ΞΉ
         <xsl:when>
         
         <xsl:when test="error and error/@type = 'largefile'">
-            H φωτογραφία σου δεν πρέπει να ξεπερνάει τα 4MB
+            H Ο†Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―Ξ± ΟƒΞΏΟ… Ξ΄ΞµΞ½ Ο€ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± ΞΎΞµΟ€ΞµΟΞ½Ξ¬ΞµΞΉ Ο„Ξ± 4MB
         <xsl:when>
         
         <xsl:when test="error and error/@type = 'fileupload'">
-            Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας
+            Ξ Ξ±ΟΞΏΟ…ΟƒΞΉΞ¬ΟƒΟ„Ξ·ΞΊΞµ Ο€ΟΟΞ²Ξ»Ξ·ΞΌΞ± ΞΊΞ±Ο„Ξ¬ Ο„Ξ· ΞΌΞµΟ„Ξ±Ο†ΞΏΟΞ¬ Ο„Ξ·Ο‚ ΞµΞΉΞΊΟΞ½Ξ±Ο‚
         <xsl:when>
         
         <xsl:otherwise>
             <script type="text/javascript">
                 window.location.href = 'photos/<xsl:value-of select="//photo/@id" />';
             </script>
-        </xsl:otherwise>
+        </xsl:otherwise> 
     <xsl:choose>
 </xsl:template>
 
