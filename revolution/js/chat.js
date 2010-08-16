@@ -178,13 +178,9 @@ var Chat = {
         $( '#onlineusers li' ).click( Chat.NameClick );
         Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
         
-        $( '.time.when' ).live( 'load', function () {
-            Kamibu.TimeFollow( this, function( node ){
-                return function(){
-                    Chat.TimestampCheck( node );
-                }
-            }( this ) );
-        } ).load(); 
+        $( '.time.when' ).live( 'updated', function () {
+            Chat.TimestampCheck( this );
+        } ); 
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {

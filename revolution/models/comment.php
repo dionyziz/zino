@@ -255,7 +255,8 @@
             // TODO: comet
             return array(
                 'id' => $id,
-                'text' => $text
+                'text' => $text,
+                'created' => date( 'Y-m-d G:i:s' )
             );
         }
         public function Item( $commentid ){

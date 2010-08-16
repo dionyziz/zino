@@ -138,6 +138,7 @@ var Comment = {
                 $( thread ).replaceWith( newthread );
                 newthread.css( { 'opacity': 0.6 } ).animate( { 'opacity': 1 }, 250 );
                 document.body.style.cursor = 'default';
+                $( '.time:not(.processedtime)' ).load();
             };
         } )( jQnode );
 
@@ -216,15 +217,11 @@ var Comment = {
             if( this.length === 0 ) {
                 Comment.EndOfComments = true;
             }
-            $( '.time:not(.when)', this ).each( function () {
-                this.innerHTML = greekDateDiff( dateDiff( this.innerHTML, Now ) );
-                $( this ).addClass( 'processedtime' );
-                
-            });
             Comment.CommentList.append( $( this ) );
             if( !Comment.EndOfComments ){
                 Comment.AssignEvents();
             }
+            $( '.time:not(.processedtime)' ).load();
         } );
 
     }

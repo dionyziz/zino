@@ -97,6 +97,7 @@ div.message textarea {
 div.author div.details {
     white-space: nowrap;
     margin-left: 60px;
+    min-width: 53px;
 }
 div.message div.text {
     line-height: 25px;

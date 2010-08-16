@@ -104,7 +104,7 @@
                     // these less important things can be loaded right
                     // afterwards to make sure the user experiences
                     // a faster loading time of more important page elements
-                    $( '.time:not(.when)' ).live( 'load', function () {
+                    $( '.time' ).live( 'load', function () {
                         Kamibu.TimeFollow( this );
                     } ).load();
 

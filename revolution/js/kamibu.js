@@ -96,7 +96,7 @@ var Kamibu = {
 
         return;
     },
-    TimeFollow: function( timeNode, callback ){
+    TimeFollow: function( timeNode ){
     /*
         Developer: ted
     */  
@@ -116,6 +116,7 @@ var Kamibu = {
             var dt = dateToString( dat );
             var newfri = greekDateDiff( dateDiff( dt, Now ) );
             
+            $( timeNode ).trigger( 'updated' );
             $( timeNode ).children( '.friendly' ).text( newfri );
             if( diff / 60000 < 60 ){ //for an hour
                 setTimeout( fol, 60000 - ( diff / 1000 ) % 60000 ); //1 min - seconds of diff
@@ -125,9 +126,6 @@ var Kamibu = {
                 setTimeout( fol, 60 * 60000 - ( diff / 1000 ) % 60000 ); //60 mins - seconds of diff
             }
             //No need of more, I think
-            if( typeof( callback ) == 'function' ) {
-                callback();
-            }
         };
         fol();
     },
