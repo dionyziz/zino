@@ -28,6 +28,7 @@
             case 'annaaa':
 			case 'nitrio2' :
 			case 'stak_o_gamiac':
+            case 'e3wghinos':
                 die( 'Access denied' );
             default:
         }
