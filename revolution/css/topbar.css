@@ -38,31 +38,43 @@
 .bar ul li {
     float:left;
 }
-.bar ul li.breadcrumb {
-    float: none;
+.bar .breadcrumb {
     text-align: center;
+    position: absolute;
+    width: 100%;
+    padding: 4px 0;
+    margin: 0;
 }
-    .bar ul li.breadcrumb li {
+    .bar .breadcrumb li {
         float: none;
         display: inline;
         border: 1px solid transparent;
         padding: 3px; 
     }
-    .bar ul li.breadcrumb li:hover {
+    .bar .breadcrumb li:hover {
         background-color: inherit;
     }
-    .bar ul li.breadcrumb li a {
+    .bar .breadcrumb a {
         display: inline;
         padding: 4px;
         -moz-border-radius: 4px;
+        text-decoration: none;
+        color: #ddd;
     }
-    .bar ul li.breadcrumb li a:hover {
+    .bar .breadcrumb a:hover {
         background-color: #444;
+        color: #fff;
     }
-    .bar ul li.breadcrumb li.arrow, .bar ul li.breadcrumb li.arrow:hover {
+    .bar .breadcrumb li.arrow, .bar ul li.breadcrumb li.arrow:hover {
         border: none;
         background-color: transparent;
-        padding: 0 6px;
+        padding: 0 1px;
+        color: #5ac;
+        font-size: 155%;
+        font-weight: bold;
+        font-family: Verdana;
+        position: relative;
+        top: 2px;
     }
 .bar ul li#chat_icon {
     float: right;

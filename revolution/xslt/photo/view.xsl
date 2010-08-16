@@ -30,7 +30,7 @@
                     <xsl:attribute name="height"><xsl:value-of select="media/@height" /></xsl:attribute>
                 </img>
                 <xsl:if test="/social/@for = author/name">
-                    <div class="icon" id="deletebutton">&#215;</div>     
+                    <div class="icon" id="deletebutton" title="Διαγραφή εικόνας">&#215;</div>     
                 </xsl:if>
             </div>
         </xsl:if>
