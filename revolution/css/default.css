@@ -11,7 +11,8 @@ body {
 }
 h1 {
     margin: 0;
-    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 h1 img {
     width: 100%;
