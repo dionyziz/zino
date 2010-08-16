@@ -25,7 +25,7 @@
                                     photos/<xsl:value-of select="/social/photo/author/name" />#album_<xsl:value-of select="/social/photo/containedWithin/album/id" />
                                 </xsl:attribute>
                                 <xsl:choose>
-                                    <xsl:when test="/social/photo/containedWithin/album/egoalbum">
+                                    <xsl:when test="/social/photo/containedWithin/album/@egoalbum">
                                         εγώ
                                     </xsl:when>
                                     <xsl:otherwise>
