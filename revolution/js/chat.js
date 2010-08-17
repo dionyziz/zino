@@ -168,7 +168,7 @@ var Chat = {
              }
          } );
          $( '.when:visible' ).live( 'updated', function(){
-            Chat.TimestampsTogle( $( this ) );
+            Chat.TimestampsToggle( $( this ) );
          });
          Chat.Loaded = true;
          return true;
@@ -258,7 +258,7 @@ var Chat = {
      },
      AtEnd: function () {
          var container = $( '#chatmessages_' + Chat.CurrentChannel + ' .scrollcontainer' )[ 0 ];
-         var history = $( '#chatmessages_' + ' ol' )[ 0 ];
+         var history = $( '#chatmessages_' + Chat.CurrentChannel + ' ol' )[ 0 ];
 
          return container.offsetHeight + container.scrollTop > history.offsetHeight - 50;
      },
