@@ -49,4 +49,21 @@
         <? endforeach; ?>
     </favourites>
     <? endif; ?>
+	<? if ( isset( $imagetags ) ): ?>
+	<imagetags photoid="<?= $photoid ?>" >
+	<? foreach ( $imagetags as $tag ): ?>
+		<imagetag>
+			<id><?= $tag[ 'id' ] ?></id>
+			<user id ="<?= $tag[ 'personid' ] ?>" >
+				<name><?= $tag[ 'name' ] ?></name>
+			</user>
+			<created><?= $tag[ 'created' ] ?></created>
+			<left><?= $tag[ 'tagleft' ] ?></left>
+			<top><?= $tag[ 'tagtop' ] ?></top>
+			<width><?= $tag[ 'width' ] ?></width>
+			<height><?= $tag[ 'height' ] ?></height>
+		</imagetag>
+		<?  endforeach; ?>
+	</imagetags>
+    <? endif; ?>
 </photo>

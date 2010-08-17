@@ -17,16 +17,19 @@
             }
             if ( $verbose >= 3 ) {
                 clude( 'models/comment.php' );
+				clude( 'models/imagetag.php' );
                 $commentdata = Comment::ListByPage( TYPE_PHOTO, $id, $commentpage );
                 $numpages = $commentdata[ 0 ];
                 $comments = $commentdata[ 1 ];
                 $countcomments = $photo[ 'numcomments' ];
+				$imagetags = ImageTag::ListByPhoto( $id );
+
             }
             if ( $verbose >= 2 ) {
                 clude( 'models/favourite.php' );
                 $favourites = Favourite::ListByTypeAndItem( TYPE_PHOTO, $id );
             }
-            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user', 'album' ) );
+            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user', 'album', 'imagetags' ) );
         }
         public static function Listing( $subdomain = '', $page = 1, $limit = 100 ) {
             $page = ( int )$page;
