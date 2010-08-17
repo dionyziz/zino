@@ -15,6 +15,7 @@
             }
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to access the chat application.' );
             clude( 'models/comet.php' );
+            clude( 'models/db.php' );
             $userid = $_SESSION[ 'user' ][ 'id' ];
             $username = $_SESSION[ 'user' ][ 'name' ];
             ob_start();
