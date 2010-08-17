@@ -162,19 +162,12 @@ ul.userdetails li.aboutme {
     margin-right: 13px;
     height: 16px;
     position: relative;
-    cursor: pointer;
 }
 
 .userinterests li ul li:hover{
     color: #def;
 }
 
-.userinterests li ul li:hover span.delete{
-    position: absolute;
-    right: -15px;
-    top: -1px;
-    display: block;
-}
 .userinterests li ul li span.delete{
     font-weight: bold;
     cursor: pointer;
@@ -185,12 +178,16 @@ ul.userdetails li.aboutme {
     width: 11px;
     vertical-align: top;
     display: none;
-}
-.userinterests li ul li span.delete:hover{
-    border: 2px solid #22a;
-    background: black;
+    position: absolute;
+    right: -15px;
+    top: -1px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+}
+.userinterests li ul li:hover span.delete{
+    display: block;
+    border: 2px solid #22a;
+    background: black;
 }
 .useritems{
     float: right;

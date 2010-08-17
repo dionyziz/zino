@@ -18,7 +18,7 @@ var PhotoView = {
             }
         },
         Init: function() {
-            if ( $( '.contentitem .details a.username' ).text() != User ) {
+            if( typeof( User ) != 'string' || $( '.contentitem .details a.username' ).text() != User ){
                 return;
             }
             PhotoView.Title.Title = $( '.title input' ).val();
@@ -80,7 +80,7 @@ var PhotoView = {
             });     
         },
         Init: function(){
-            if( $( '.contentitem .details a.username' ).text() != User ){
+            if( typeof( User ) != 'string' || $( '.contentitem .details a.username' ).text() != User ){
                 return;
             }
             $( '#deletebutton' ).click( function(){
