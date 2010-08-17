@@ -71,17 +71,19 @@
 		$vars = $_POST;
         $_SERVER[ 'REQUEST_METHOD' ] == 'POST' or die( 'Non-idempotent REST method cannot be applied with the idempotent HTTP request method "' . $_SERVER[ 'REQUEST_METHOD' ] . '"' );
 
-        /*
+        
 		//check http referer
-		$referer = $_SERVER['HTTP_REFERER'];
-		$pieces = explode( "/", $referer );
-		if ( isset( $pieces[ 2 ] ) ) {
-			$domain = substr( $pieces[ 2 ], -8 );
-			if ( ( $domain !== ".zino.gr" && $domain !== "/zino.gr" ) && $referer !== "" ) {
-				throw New Exception( 'Not Valid Post Referer'  );
+		if ( isset( $_SESSION[ 'user' ] ) && strtolower( $_SESSION[ 'user' ][ 'name' ] ) == 'pagio91' ) {
+			$referer = $_SERVER['HTTP_REFERER'];
+			$pieces = explode( "/", $referer );
+			if ( isset( $pieces[ 2 ] ) ) {
+				$domain = substr( $pieces[ 2 ], -8 );
+				if ( ( $domain !== ".zino.gr" && $domain !== "/zino.gr" ) && $referer !== "" ) {
+					throw New Exception( 'Not Valid Post Referer'  );
+				}
 			}
 		}
-        */ // needs fixing
+        // needs fixing
 	}
 	else {
         unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
