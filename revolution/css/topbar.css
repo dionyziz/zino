@@ -60,6 +60,8 @@
         display: inline;
         padding: 4px;
         -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
         text-decoration: none;
         color: #ddd;
     }

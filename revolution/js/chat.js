@@ -434,8 +434,19 @@ var Chat = {
      },
      OnTypingStateChange: function ( res ) {
          if ( User == 'dionyziz' ) {
-             document.title = 'Typing typing';
-             // window.title = username + ' typing in channel ' + channelid;
+             var channelid = $( 'chatchannel' ).attr( 'id' );
+             var username = $( 'chatchannel user name' ).text();
+             var typing = $( 'chatchannel user' ).attr( 'typing' );
+
+             if ( username != User ) {
+                 if ( typing ) {
+                     document.title = username + ' typing';
+                 }
+                 else {
+                     document.title = username + ' stopped typing';
+                 }
+                 // window.title = username + ' typing in channel ' + channelid;
+             }
          }
      },
      OnPresenceChange: function ( res ) {
