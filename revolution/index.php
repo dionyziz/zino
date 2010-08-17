@@ -78,8 +78,16 @@
 			$pieces = explode( "/", $referer );
 			var_dump( $pieces );
 			if ( isset( $pieces[ 2 ] ) ) {
-				$domain = substr( $pieces[ 2 ], -8 );
-				if ( ( $domain !== ".zino.gr" && $domain !== "/zino.gr" ) && $referer !== "" ) {
+				if ( strlen( $domain ) > 7 )  {
+					$domain = substr( $pieces[ 2 ], -8 );
+				}
+				else if (  strlen( $domain ) == 7 )  {
+					$domain = substr( $pieces[ 2 ], -7 );
+				}
+				else {
+					$domain = "";
+				}
+				if ( ( $domain !== ".zino.gr" && $domain !== "zino.gr" ) && $referer !== "" ) {
 					throw New Exception( 'Not Valid Post Referer -' . $referer . '- -'. $domain .'-'   );
 				}
 			}
