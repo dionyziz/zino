@@ -479,7 +479,6 @@ var Chat = {
              var typingHTML = '';
              var typists = [];
              var i;
-             var typingli;
 
              for ( i in Chat.Typing.People[ channelid ] ) {
                  typists.push( i );
@@ -504,7 +503,7 @@ var Chat = {
                  if ( typingHTML ) {
                      var $typingli = $( '<li class="typing"><strong>&nbsp;</strong>' + typingHTML + '</li>' ).appendTo( $( '#chatmessages_' + channelid + ' ol' ) );
                      if ( Chat.AtEnd() ) {
-                         $typingli.scrollIntoView();
+                         $typingli[ 0 ].scrollIntoView();
                      }
                  }
              }
