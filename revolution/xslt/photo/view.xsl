@@ -32,6 +32,32 @@
                 <xsl:if test="/social/@for = author/name">
                     <div class="icon" id="deletebutton" title="Διαγραφή εικόνας">&#215;</div>     
                 </xsl:if>
+                <xsl:for-each select="imagetags/imagetag">
+                    <div class="tag">
+                        <xsl:attribute name="style">
+                            left: <xsl:value-of select="left" />px;
+                            top: <xsl:value-of select="top" />px;
+                            width: <xsl:value-of select="width" />px;
+                            height: <xsl:value-of select="height" />px;
+                        </xsl:attribute>
+                        <xsl:attribute name="id">tag_<xsl:value-of select="id" /></xsl:attribute>
+                        <div class="namecontainer">
+                            <xsl:if test="top + height &gt; /social/photo/media/@height - '50'">
+                                <xsl:attribute name="class">namecontainer top</xsl:attribute>
+                            </xsl:if>
+                            <span class="name"><xsl:value-of select="user" /></span>
+                        </div>
+                        <div class="imagecontainer">
+                            <img>
+                                <xsl:attribute name="src"><xsl:value-of select="/social/photo/media/@url" /></xsl:attribute>
+                                <xsl:attribute name="style">
+                                    left: -<xsl:value-of select="left" />px;
+                                    top: -<xsl:value-of select="top" />px;
+                                </xsl:attribute>
+                            </img>
+                        </div>
+                    </div>
+                </xsl:for-each>
             </div>
         </xsl:if>
         <div class="title">

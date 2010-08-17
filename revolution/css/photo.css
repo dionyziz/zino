@@ -1,6 +1,7 @@
 .contentitem .image{
     position: relative;
     margin: auto;
+    overflow: hidden;
 }
     .contentitem .image .icon{
         display: none;
@@ -24,6 +25,49 @@
     }
     .contentitem .image .icon:hover {
         opacity: 1;
+    }
+    #world .debug{
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 200px;
+    }
+    .contentitem .image .tag{
+        position: absolute;
+        z-index: 10;
+        cursor: pointer;
+        text-align: center;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    .contentitem .image .tag .imagecontainer{
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .contentitem .image .tag img{
+        position: absolute;
+    }
+    .contentitem .image .tag .namecontainer{
+        position: absolute;
+        z-index: 10;
+        bottom: -30px;
+        left: -100%;
+        width: 300%;
+        cursor: default;
+    }
+    .contentitem .image .tag .namecontainer.top{
+        bottom: auto;
+        top: -30px;
+    }
+    .contentitem .image .tag .name{
+        padding: 2px 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background: wheat;
+        color: #339;
+        font-weight: bold;
     }
     .contentitem .image .tagarea {
         background: #666;

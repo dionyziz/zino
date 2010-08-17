@@ -7,8 +7,9 @@
     width: 120px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    float: right;
     overflow: hidden;
+    position: absolute;
+    right: 5px;
 }
 .contentitem > .details img.avatar {
     border: none;

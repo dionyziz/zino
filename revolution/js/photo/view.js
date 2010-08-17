@@ -99,6 +99,20 @@ var PhotoView = {
         $( '.image img.maincontent' ).click( function(){ // Photo tagging guy, check that ( --ted )
             PhotoView.LoadNext();
         });
+        PhotoView.Tag.Init();
+    },
+    Tag: {
+        Init: function(){
+            $( '.image .tag .imagecontainer' ).hover( function(){
+                $( this ).parent().fadeTo( 0, 1 ).siblings( '.tag' ).hide().end();
+                $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 0.4 );
+            }, function(){
+                $( '.tag' ).show().fadeTo( 0, 0 );
+                $( '.image img.maincontent ' ).stop( 1 ).fadeTo( 100, 1 );
+            }).click( function(){
+                window.open( 'users/' + $( this ).siblings( '.name' ).text() );
+            });
+        }
     },
     LoadNext: function( evt ) {
         var $next = $( '.navigation .nextid' );
