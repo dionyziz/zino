@@ -261,7 +261,7 @@ var Chat = {
          var history = $( '#chatmessages_' + Chat.CurrentChannel + ' ol' )[ 0 ];
          var EPSILON = 200;
 
-         return container.offsetHeight + container.scrollTop > history.offsetHeight - 200;
+         return container.offsetHeight + container.scrollTop > history.offsetHeight - EPSILON;
      },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
@@ -502,9 +502,9 @@ var Chat = {
              else {
                  if ( typingHTML ) {
                      $( '#chatmessages_' + channelid + ' ol' ).append( '<li class="typing"><strong>&nbsp;</strong>' + typingHTML + '</li>' );
-                     var messages = $( '#chatmessages_' + channelid + ' li' );
+                     var typingli = $( '#chatmessages_' + channelid + ' li.typing' )[ 0 ];
                      if ( Chat.AtEnd() ) {
-                         messages[ messages.length - 1 ].scrollIntoView();
+                         typingli.scrollIntoView();
                      }
                  }
              }
