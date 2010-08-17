@@ -160,7 +160,7 @@ var Chat = {
              }, 4000 );
              if ( !typingSent ) { // sent the fact that we are still typing every 10 seconds; just so that remote client doesn't "timeout" and thinks we've stopped
                  $.post( 'chat/typing', {
-                     channelid: CurrentChannel,
+                     channelid: Chat.CurrentChannel,
                      typing: 1
                  } ); 
                  typingSent = true;
