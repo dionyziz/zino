@@ -22,7 +22,7 @@
             </div>
         </xsl:if>
         <xsl:if test="$user = author/name[1]">
-            <span class="icon" id="deletebutton">&#215;</span>
+            <span class="icon" id="deletebutton" title="Διαγραφή ημερολογίου">&#215;</span>
         </xsl:if>
         <h2><xsl:value-of select="title[1]" /></h2>
         <div class="document">

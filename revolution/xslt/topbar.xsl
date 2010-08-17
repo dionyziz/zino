@@ -7,6 +7,9 @@
         <xsl:choose>
             <xsl:when test="$breadcrumb">
                 <ol class="breadcrumb">
+                    <xsl:if test="not(/social/photo/author/photos/photo[@navigation])">
+                        <xsl:attribute name="style">padding:4px</xsl:attribute>
+                    </xsl:if>
                     <xsl:if test="/social/photo">
                         <xsl:if test="/social/photo/author/photos/photo[@navigation='previous']/@id">
                             <li class="nav">
