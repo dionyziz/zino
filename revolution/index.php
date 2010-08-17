@@ -79,7 +79,6 @@
 		else {
 			$referer = $_SERVER['HTTP_REFERER'];
 			$pieces = explode( "/", $referer );
-			var_dump( $pieces );
 			if ( isset( $pieces[ 2 ] ) ) {
 				if ( strlen( $pieces[ 2 ] ) > 7 )  {
 					$domain = substr( $pieces[ 2 ], -8 );
