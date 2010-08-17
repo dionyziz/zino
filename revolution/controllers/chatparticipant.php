@@ -1,5 +1,5 @@
 <?php
-    class Controller {
+    class ControllerChatParticipant {
         public static function View() {
         }
         public static function Listing() {
