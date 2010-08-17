@@ -415,6 +415,7 @@ var Chat = {
      },
      OnUserOffline: function ( userid, username ) {
          $( '#u' + userid ).remove();
+         Chat.Typing.OnStop( username );
      },
      Flash: function ( userid, message ) {
          // TODO: Multiple participants
