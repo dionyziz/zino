@@ -440,23 +440,18 @@ var Chat = {
          Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.Typing.OnStateChange );
      },
      Typing: {
-         People: { // channelid => [ username1, username2, ... ]
-         },
+         People: {}, // channelid => [ username1, username2, ... ]
          OnStateChange: function ( res ) {
-             var i;
+             var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
+             var username = $( res ).find( 'chatchannel user name' ).text();
+             var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' ) == '1';
 
-             if ( User == 'dionyziz' ) {
-                 var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
-                 var username = $( res ).find( 'chatchannel user name' ).text();
-                 var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' ) == '1';
-
-                 if ( username != User ) {
-                     if ( typing ) {
-                         Chat.Typing.OnStart( channelid, username );
-                     }
-                     else {
-                         Chat.Typing.OnStop( username );
-                     }
+             if ( username != User ) {
+                 if ( typing ) {
+                     Chat.Typing.OnStart( channelid, username );
+                 }
+                 else {
+                     Chat.Typing.OnStop( username );
                  }
              }
          },
@@ -488,14 +483,16 @@ var Chat = {
 
              if ( typists.length > 0 ) {
                  if ( typists.length == 1 ) {
-                     typingHTML = 'Πληκτρολογεί: ' + typists[ 0 ];
+                     typingHTML = typists[ 0 ] + ' πληκτρολογεί...';
                  }
-                 typingHTML = 'Πληκτρολογούν: ' + typists.join( ', ' );
+                 else {
+                     typingHTML = typists.join( ', ' ) + ' πληκτρολογούν...';
+                 }
              }
                  
              if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
                  if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( '<srong>&nbsp;</strong>' + typingHTML );
+                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( '<strong>&nbsp;</strong>' + typingHTML );
                  }
                  else {
                      $( '#chatmessages_' + channelid + ' ol li.typing' ).remove();
