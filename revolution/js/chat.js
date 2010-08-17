@@ -288,10 +288,10 @@ var Chat = {
              li = document.createElement( 'li' );
              li.id = shoutid;
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
+             history.find( 'li.typing' ).remove();
              history.appendChild( li );
+             Chat.Typing.OnStop( author );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
-            
-
          }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {
@@ -452,20 +452,26 @@ var Chat = {
 
                  if ( username != User ) {
                      if ( typing ) {
-                         if ( typeof Chat.Typing.People[ channelid ] == 'undefined' ) {
-                             Chat.Typing.People[ channelid ] = {};
-                         }
-                         Chat.Typing.People[ channelid ][ username ] = true;
-                         Chat.Typing.Update( channelid );
+                         Chat.Typing.OnStart( username );
                      }
                      else {
-                         for ( i in Chat.Typing.People ) {
-                             if ( typeof Chat.Typing.People[ i ][ username ] != 'undefined' ) {
-                                 delete Chat.Typing.People[ i ][ username ];
-                                 Chat.Typing.Update( i );
-                             }
-                         }
+                         Chat.Typing.OnStop( username );
                      }
+                 }
+             }
+         },
+         OnStart: function ( channelid, name ) {
+             if ( typeof Chat.Typing.People[ channelid ] == 'undefined' ) {
+                 Chat.Typing.People[ channelid ] = {};
+             }
+             Chat.Typing.People[ channelid ][ username ] = true;
+             Chat.Typing.Update( channelid );
+         },
+         OnStop: function ( username ) {
+             for ( i in Chat.Typing.People ) {
+                 if ( typeof Chat.Typing.People[ i ][ username ] != 'undefined' ) {
+                     delete Chat.Typing.People[ i ][ username ];
+                     Chat.Typing.Update( i );
                  }
              }
          },
