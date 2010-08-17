@@ -481,7 +481,6 @@ var Chat = {
                  typingHTML = 'Πληκτρολογούν: ' + typists.join( ', ' );
              }
                  
-             Chat.Typing.People[ channelid ].join( ', ' );
              if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
                  if ( typingHTML !== '' ) {
                      $( '#chatmessages_' + channelid + ' ol li.typing' ).html( typingHTML );
