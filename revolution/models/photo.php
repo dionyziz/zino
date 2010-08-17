@@ -70,8 +70,8 @@
                     i.`image_id` AS id, i.`image_userid` AS userid, i.`image_created` AS created, i.`image_name` AS title,
                     `user_deleted` as userdeleted, `user_name` AS username, `user_gender` AS gender, `user_subdomain` AS subdomain, `user_avatarid` AS avatarid,
                     i.`image_width` AS w, i.`image_height` AS h, i.`image_numcomments` AS numcomments,
-                    MIN( next.`image_id` ) AS previousid,
-                    MAX( previous.`image_id` ) AS nextid,
+                    MAX( next.`image_id` ) AS nextid,
+                    MIN( previous.`image_id` ) AS previd,
                     i.`image_delid` AS deleted,
                     `album_name` AS albumname, `album_id` AS albumid,
                     (`album_id` = `user_egoalbumid`) AS isegoalbum
@@ -83,18 +83,18 @@
                         ON i.`image_albumid` = `album_id`
                     LEFT JOIN `images` as next
                         ON i.`image_userid` = next.`image_userid` AND
-                        next.`image_id` > i.`image_id` AND
+                        next.`image_id` < i.`image_id` AND
 						next.`image_delid` = 0
                     LEFT JOIN `images` as previous
                         ON i.`image_userid` = previous.`image_userid` AND
-                        previous.`image_id` < i.`image_id` AND
+                        previous.`image_id` > i.`image_id` AND
 						previous.`image_delid` = 0
                 WHERE
                     i.`image_id` = :id 
                 GROUP BY
                     i.`image_id`
                 LIMIT 1;', array( 'id' => $id )
-            ); //previousid and nextid fix by ted
+            );
             
             if (  mysql_num_rows( $res ) == 0 ) {
                 return false;
