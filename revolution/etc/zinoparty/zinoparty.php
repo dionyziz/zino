@@ -9,17 +9,26 @@
 	$p = xml_parser_create();
 	xml_parse_into_struct($p, $xml, $vals, $index);
 	xml_parser_free( $p );
-	//var_dump( $vals );
-	//var_dump( $index );
+//	var_dump( $vals );
+//	var_dump( $index );
 	$songid = 1787526;	
 
 	$ids = array();
+	$duration = array();
+	$i = 0;
 	foreach( $index[ 'SONG' ] as $songtag ) {
-		if ( $vals[ $songtag ][ 'type' ] == 'complete' ) {
-			$ids[] = ( int )$vals[ $songtag ][ 'attributes' ][ 'ID' ];
+		if ( $vals[ $songtag ][ 'type' ] == 'open' ) {
+			$ids[ $i ] = ( int )$vals[ $songtag ][ 'attributes' ][ 'ID' ];
+			$i++;
 		}
 	}
-	//var_dump( $ids );
+	$i = 0;
+	foreach ( $index[ 'DURATION' ] as $tag ) {
+		$duration[ $i ] = (int )$vals[ $tag ][ 'value' ];
+		$i++; 
+	}
+//	var_dump( $ids );
+//	var_dump( $duration );
 	$songid = $ids[ 0 ];
 
 ?>
@@ -51,22 +60,34 @@
 		</style>
 		<script type="text/javascript">
 			var songid = new Array();
+			var duration = new Array();
+			var timers = [];
 			<?php 
 				$i = 0;
-				foreach ( $ids as $id ) {
-					echo "songid[" .  $i . "] = " . $id . ";";
+				foreach ( $ids as $key => $val ) {
+					echo "songid[" .  $i . "] = " . $val . ";";
+					echo "duration[" . $i ."] =  " . $duration[ $i ] . ";";
 					$i++;
 				}
 			?>
-			songcounter = 0;
+			songcounter = 1;
 			songamount = <?php echo count( $ids ); ?>;
+			function Init() {
+				LoadNext();
+			}
+			function StopAutoplay() {
+				for ( x in timers ) {
+					clearTimeout( timers[ x ] );
+				}
+				timers = [];
+				return;
+			}
 			function LoadNext() { 
 				if ( songamount + 1 <= songcounter	) {
-					alert( "no more  songs" );
+					location.reload( true );
 					return;
 				}
 
-				songcounter++;
 				document.getElementById("player").innerHTML = "<object>" +
 		            '<param name="movie" value="http://listen.grooveshark.com/songWidget.swf">' +
 		            '<param name="wmode" value="opaque">' +
@@ -74,13 +95,20 @@
 		            '<param name="flashvars" value="hostname=cowbell.grooveshark.com&amp;songID=' + songid[ songcounter ] + '&amp;style=metal&amp;p=1">' +
 		            '<embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" flashvars="hostname=cowbell.grooveshark.com&amp;songID=' + songid[ songcounter ] + '&amp;style=metal&amp;p=1" allowScriptAccess="always" wmode="opaque"></embed>' +
 		        '</object>';
+				for ( x in timers ) {
+					clearTimeout(timers[ x ] );
+				}
+				timers = [];
+				var k = setTimeout( 'LoadNext();', duration[ songcounter]*1000 + 5000 );
+				timers.push( k );
+				songcounter++;
 				return;
 			}
         </script>
 
 	</head>
-	<body onKeyDown="javascript:LoadNext();">
-
+	<body onload = "var x = setTimeout( 'LoadNext();', <? echo $duration[ 0 ]*1000+5000; ?> );timers.push( x );">
+ 
 		<div class="mplayer" >
 		    <div class="player" id = "player">
 		        <object>
@@ -96,6 +124,7 @@
 		<div class = "nextbutton" >
 			<form>		
 				<div><input type = "button" name="next" value = "next" onclick = "javascript:LoadNext();" /></div>
+				<div><input type = "button" name="stop" value = "stop Autoplay" onclick ="javascript:StopAutoplay();" /></div>
 			</form>
 		</div>
 	</body>
