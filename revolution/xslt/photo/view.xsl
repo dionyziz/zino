@@ -42,6 +42,12 @@
                         </xsl:attribute>
                         <xsl:attribute name="id">tag_<xsl:value-of select="id" /></xsl:attribute>
                         <div class="namecontainer">
+                            <xsl:if test="top + height &gt; /social/photo/media/@height - '50'">
+                                <xsl:attribute name="class">namecontainer top</xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="width &gt; '200'">
+                                <xsl:attribute name="class">namecontainer inside</xsl:attribute>
+                            </xsl:if>
                             <span class="name"><xsl:value-of select="user" /></span>
                         </div>
                         <div class="imagecontainer">

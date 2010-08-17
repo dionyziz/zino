@@ -106,11 +106,16 @@ var PhotoView = {
             $( '.image .tag .imagecontainer' ).hover( function(){
                 $( this ).parent().fadeTo( 0, 1 ).siblings( '.tag' ).hide().end();
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 0.4 );
-            }, function(){
+            }, function( e ){
                 $( '.tag' ).show().fadeTo( 0, 0 );
                 $( '.image img.maincontent ' ).stop( 1 ).fadeTo( 100, 1 );
             }).click( function(){
-                window.open( 'users/' + $( this ).siblings( '.name' ).text() );
+                window.open( 'users/' + $( this ).siblings( '.namecontainer' ).children( '.name' ).text() );
+            });
+            $( '.image .tag .namecontainer.inside' ).hover( function(){
+                $( this ).siblings( '.imagecontainer' ).mouseover();
+            }, function(){
+                $( this ).siblings( '.imagecontainer' ).mouseout();
             });
         }
     },

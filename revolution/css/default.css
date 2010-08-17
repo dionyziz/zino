@@ -109,3 +109,7 @@ select.dropdown option {
     line-height: 3em;
     font-weight: bold;
 }
+#world{
+    position: relative;
+    overflow: hidden;
+}
