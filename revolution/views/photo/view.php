@@ -28,8 +28,8 @@
         </avatar>
         <? endif; ?>
         <photos>
-            <? if ( !empty( $photo[ 'previousid' ] ) ): ?>
-            <photo id="<?= $photo[ 'previousid' ] ?>" navigation="previous" />
+            <? if ( !empty( $photo[ 'previd' ] ) ): ?>
+            <photo id="<?= $photo[ 'previd' ] ?>" navigation="previous" />
             <? endif; ?>
             <? if ( !empty( $photo[ 'nextid' ] ) ): ?>
             <photo id="<?= $photo[ 'nextid' ] ?>" navigation="next" />

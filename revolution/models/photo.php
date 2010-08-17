@@ -81,11 +81,11 @@
                         ON i.`image_userid` = `user_id`
                     CROSS JOIN `albums`
                         ON i.`image_albumid` = `album_id`
-                    LEFT JOIN `images` as next
+                    LEFT JOIN `images` AS next
                         ON i.`image_userid` = next.`image_userid` AND
                         next.`image_id` < i.`image_id` AND
 						next.`image_delid` = 0
-                    LEFT JOIN `images` as previous
+                    LEFT JOIN `images` AS previous
                         ON i.`image_userid` = previous.`image_userid` AND
                         previous.`image_id` > i.`image_id` AND
 						previous.`image_delid` = 0
