@@ -78,10 +78,10 @@
 			$pieces = explode( "/", $referer );
 			var_dump( $pieces );
 			if ( isset( $pieces[ 2 ] ) ) {
-				if ( strlen( $domain ) > 7 )  {
+				if ( strlen( $pieces[ 2 ] ) > 7 )  {
 					$domain = substr( $pieces[ 2 ], -8 );
 				}
-				else if (  strlen( $domain ) == 7 )  {
+				else if (  strlen( $pieces[ 2 ] ) == 7 )  {
 					$domain = substr( $pieces[ 2 ], -7 );
 				}
 				else {
