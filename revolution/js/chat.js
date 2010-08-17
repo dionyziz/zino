@@ -288,7 +288,7 @@ var Chat = {
              li = document.createElement( 'li' );
              li.id = shoutid;
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
-             history.find( 'li.typing' ).remove();
+             $( history ).find( 'li.typing' ).remove();
              history.appendChild( li );
              Chat.Typing.OnStop( author );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
