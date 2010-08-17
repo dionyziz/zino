@@ -44,7 +44,7 @@
     text-align: center;
     position: absolute;
     width: 100%;
-    padding: 4px 0;
+    padding: 0;
     margin: 0;
 }
     .bar .breadcrumb li {
@@ -52,6 +52,24 @@
         display: inline;
         border: 1px solid transparent;
         padding: 3px; 
+    }
+    .bar .breadcrumb li.nav img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.5;
+        float: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: 6px;
+        cursor: pointer;
+    }
+    .bar .breadcrumb li.nav a {
+        padding: 0;
+    }
+    .bar .breadcrumb li.nav a:hover img {
+        opacity: 1;
+        background-color: none;
     }
     .bar .breadcrumb li:hover {
         background-color: inherit;

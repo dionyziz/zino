@@ -7,6 +7,24 @@
         <xsl:choose>
             <xsl:when test="$breadcrumb">
                 <ol class="breadcrumb">
+                    <xsl:if test="/social/photo">
+                        <xsl:if test="/social/photo/author/photos/photo[@navigation='previous']/@id">
+                            <li class="nav">
+                                <a>
+                                    <xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/photos/photo[@navigation='previous']/@id" /></xsl:attribute>
+                                    <img height="20" width="20" src="http://static.zino.gr/revolution/back.png" />
+                                </a>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="/social/photo/author/photos/photo[@navigation='next']/@id">
+                            <li class="nav">
+                                <a> 
+                                    <xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/photos/photo[@navigation='next']/@id" /></xsl:attribute>
+                                    <img height="20" width="20" src="http://static.zino.gr/revolution/next.png" />
+                                </a>
+                            </li>
+                        </xsl:if>
+                    </xsl:if>
                     <li>
                         <a>
                             <xsl:attribute name="href">users/<xsl:value-of select="/social/*/author/name" /></xsl:attribute>
@@ -53,7 +71,7 @@
         </xsl:choose>
         <ul>
             <li id="chat_icon">
-                <a href="" id="chatbutton">Chat</a>
+                <a href="#chat" id="chatbutton">Chat</a>
             </li>
             <li id="feedback_icon">
                 <a href="journals/13371">Feedback</a>
