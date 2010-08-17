@@ -13,7 +13,7 @@
         <? if ( !empty( $album[ 'egoalbum' ] ) ): ?>
          egoalbum="yes"
         <? endif; ?>>
-            <name><?= $album[ 'name' ] ?></name>
+            <name><?= htmlspecialchars( $album[ 'name' ] ) ?></name>
         </album>
     </containedWithin>
     <? endif; ?>

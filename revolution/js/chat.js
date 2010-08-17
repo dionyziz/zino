@@ -472,6 +472,8 @@ var Chat = {
                  typists.push( Chat.Typing.People[ channelid ][ i ] );
              }
 
+             document.title = '++' + typists.length;
+
              if ( typists.length > 0 ) {
                  if ( typists.length == 1 ) {
                      typingHTML = 'Πληκτρολογεί: ' + typists[ 0 ];
