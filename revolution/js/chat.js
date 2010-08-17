@@ -256,6 +256,12 @@ var Chat = {
             Chat.TimestampsToggle( $( lastChild ).find( '.when' ) );
          }, 'xml' );
      },
+     AtEnd: function () {
+         var container = $( '#chatmessages_' + Chat.CurrentChannel + ' .scrollcontainer' )[ 0 ];
+         var history = $( '#chatmessages_' + ' ol' )[ 0 ];
+
+         return container.offsetHeight + container.scrollTop > history.offsetHeight - 50;
+     },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
          Chat.CreateChannelHTML( channelid );
@@ -265,7 +271,6 @@ var Chat = {
          var html = '';
          var li, shoutid, author;
          var container = $( '#chatmessages_' + channelid + ' div.scrollcontainer' )[ 0 ];
-         var atEnd = container.offsetHeight + container.scrollTop > history.offsetHeight - 50;
 
          for ( var i = 0; i < messages.length; ++i ) {
              shoutid = $( messages[ i ] ).attr( 'id' );
@@ -289,7 +294,7 @@ var Chat = {
          }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {
-                 if ( atEnd ) { // if the user has already scrolled to the end show new message
+                 if ( Chat.AtEnd() ) { // if the user has already scrolled to the end show new message
                      li.scrollIntoView();
                  } // else, don't scroll them down if they're browsing the history
              }
@@ -442,7 +447,7 @@ var Chat = {
              if ( User == 'dionyziz' ) {
                  var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
                  var username = $( res ).find( 'chatchannel user name' ).text();
-                 var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' );
+                 var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' ) == '1';
 
                  if ( username != User ) {
                      if ( typing ) {
@@ -469,10 +474,8 @@ var Chat = {
              var i;
 
              for ( i in Chat.Typing.People[ channelid ] ) {
-                 typists.push( Chat.Typing.People[ channelid ][ i ] );
+                 typists.push( i );
              }
-
-             document.title = '++' + typists.length;
 
              if ( typists.length > 0 ) {
                  if ( typists.length == 1 ) {
@@ -492,6 +495,10 @@ var Chat = {
              else {
                  if ( typingHTML ) {
                      $( '#chatmessages_' + channelid + ' ol' ).append( '<li class="typing"><strong>&nbsp;</strong>' + typingHTML + '</li>' );
+                     var messages = $( '#chatmessages_' + channelid + ' li' );
+                     if ( Chat.AtEnd() ) {
+                         messages[ messages.length - 1 ].scrollIntoView();
+                     }
                  }
              }
          }
