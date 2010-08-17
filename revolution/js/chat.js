@@ -259,8 +259,9 @@ var Chat = {
      AtEnd: function () {
          var container = $( '#chatmessages_' + Chat.CurrentChannel + ' .scrollcontainer' )[ 0 ];
          var history = $( '#chatmessages_' + Chat.CurrentChannel + ' ol' )[ 0 ];
+         var EPSILON = 200;
 
-         return container.offsetHeight + container.scrollTop > history.offsetHeight - 50;
+         return container.offsetHeight + container.scrollTop > history.offsetHeight - 200;
      },
      OnMessageArrival: function ( res ) {
          var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
@@ -486,7 +487,7 @@ var Chat = {
                  
              if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
                  if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( typingHTML );
+                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( '<srong>&nbsp;</strong>' + typingHTML );
                  }
                  else {
                      $( '#chatmessages_' + channelid + ' ol li.typing' ).remove();

@@ -183,6 +183,7 @@
 .textmessages li.typing {
     font-size: 90%;
     color: #aaa;
+    border-bottom: 1px solid #eee;
 }
 .textmessages strong {
     color: #39f;

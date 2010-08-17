@@ -7,12 +7,7 @@
         public static function Create() { // add person to group chat
         }
         public static function Update( $channelid, $typing ) {
-            if ( $typing ) {
-                $typing = true;
-            }
-            else {
-                $typing = false;
-            }
+            $typing = ( bool )$typing;
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to access the chat application.' );
             clude( 'models/comet.php' );
             clude( 'models/db.php' );
