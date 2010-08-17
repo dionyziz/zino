@@ -432,9 +432,10 @@ var Chat = {
          Comet.Subscribe( 'chat/messages/list/' + channelid, Chat.OnMessageArrival );
          Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnTypingStateChange );
      },
-     OnTypingStateChange: function ( channelid, username, onoff ) {
+     OnTypingStateChange: function ( res ) {
          if ( User == 'dionyziz' ) {
-             window.title = username + ' typing in channel ' + channelid;
+             document.title = 'Typing typing';
+             // window.title = username + ' typing in channel ' + channelid;
          }
      },
      OnPresenceChange: function ( res ) {
