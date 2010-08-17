@@ -48,6 +48,9 @@ var UserManager = {
                 console.log( 'Register new user ' + [ userid, id, authtoken ].join( ' ' ) );
 				UserManager.NewUser( userid, id, authtoken );
 			}
+            else {
+                console.log( 'Got invalid authtoken XML response: ' + data );
+            }
 		} );
 		
 		return id;
