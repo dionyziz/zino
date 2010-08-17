@@ -1,7 +1,6 @@
 .contentitem .image{
     position: relative;
     margin: auto;
-    overflow: hidden;
 }
     .contentitem .image .icon{
         display: none;
@@ -56,10 +55,6 @@
         left: -100%;
         width: 300%;
         cursor: default;
-    }
-    .contentitem .image .tag .namecontainer.top{
-        bottom: auto;
-        top: -30px;
     }
     .contentitem .image .tag .name{
         padding: 2px 5px;
