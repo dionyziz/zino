@@ -1,6 +1,6 @@
 <favourites>
     <author>
-        <name><?= $username ?></name>
+        <name><?= $user[ 'name' ] ?></name>
         <? if ( isset( $user[ 'gender' ] ) ): ?>
         <gender><?= $user[ 'gender' ] ?></gender>
         <? endif; ?>

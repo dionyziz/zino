@@ -180,6 +180,10 @@
     display: none;
     padding: 0;
 }
+.textmessages li.typing {
+    font-size: 90%;
+    color: #aaa;
+}
 .textmessages strong {
     color: #39f;
     font-weight: normal;

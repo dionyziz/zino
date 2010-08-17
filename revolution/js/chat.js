@@ -17,19 +17,19 @@ var Chat = {
      Authtoken: '',
      PreviousPageSelected: 0,
      vts: [], //visible timestamps
-     TimestampsToggle: function( items ){
-        $( items ).each( function(){
-            if( !Chat.vts.length ){
+     TimestampsToggle: function( items ) {
+        $( items ).each( function() {
+            if ( !Chat.vts.length ) {
                 Chat.vts.push( $( this ) );
                 $( this ).show();
                 return true;
             }
-            if( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > Chat.vts[ Chat.vts.length - 1 ].children( '.timestamp' ).text()
-                && $( this ).children( '.friendly' ).text() != Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' ).text() ){
+            if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > Chat.vts[ Chat.vts.length - 1 ].children( '.timestamp' ).text()
+                && $( this ).children( '.friendly' ).text() != Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' ).text() ){ 
                 Chat.vts.push( $( this ) );
                 $( this ).show();
             }
-        });
+        } );
      },
      TimestampCheck: function( node ){ //not in use, for now
         var next = $( node ).closest( 'li' ).next().children( '.when' );
@@ -430,24 +430,37 @@ var Chat = {
      Join: function ( channelid ) {
          // Listen to push messages here
          Comet.Subscribe( 'chat/messages/list/' + channelid, Chat.OnMessageArrival );
-         Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.OnTypingStateChange );
+         Comet.Subscribe( 'chat/typing/list/' + channelid, Chat.Typing.OnStateChange );
      },
-     OnTypingStateChange: function ( res ) {
-         if ( User == 'dionyziz' ) {
-             var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
-             var username = $( res ).find( 'chatchannel user name' ).text();
-             var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' );
+     Typing: {
+         People: { // channelid => [ username1, username2, ... ]
+         },
+         OnStateChange: function ( res ) {
+             var i;
 
-             if ( username != User ) {
-                 if ( typing ) {
-                     document.title = username + ' typing';
+             if ( User == 'dionyziz' ) {
+                 var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
+                 var username = $( res ).find( 'chatchannel user name' ).text();
+                 var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' );
+
+                 if ( username != User ) {
+                     if ( typing ) {
+                         if ( typeof Chat.Typing.People[ channelid ] == 'undefined' ) {
+                             Chat.Typing.People[ channelid ] = {};
+                         }
+                         Chat.Typing.People[ channelid ][ username ] = true;
+                         $( '#chatmessages_' + channelid + ' ol' ).append( '<li class="typing"><strong>&nbsp;</strong>buggs_bunny, Kwstak1s πληκτρολογούν...</li>' );
+                     }
+                     else {
+                         for ( i in Chat.Typing.People ) {
+                             if ( typeof Chat.Typing.People[ i ][ username ] != 'undefined' ) {
+                                 delete Chat.Typing.People[ i ][ username ];
+                             }
+                         }
+                     }
                  }
-                 else {
-                     document.title = username + ' stopped typing';
-                 }
-                 // window.title = username + ' typing in channel ' + channelid;
              }
-         }
+         },
      },
      OnPresenceChange: function ( res ) {
          var method = $( res ).find( 'operation' ).attr( 'method' );
