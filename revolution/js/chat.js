@@ -450,18 +450,50 @@ var Chat = {
                              Chat.Typing.People[ channelid ] = {};
                          }
                          Chat.Typing.People[ channelid ][ username ] = true;
-                         $( '#chatmessages_' + channelid + ' ol' ).append( '<li class="typing"><strong>&nbsp;</strong>buggs_bunny, Kwstak1s πληκτρολογούν...</li>' );
+                         Chat.Typing.Update( channelid );
                      }
                      else {
                          for ( i in Chat.Typing.People ) {
                              if ( typeof Chat.Typing.People[ i ][ username ] != 'undefined' ) {
                                  delete Chat.Typing.People[ i ][ username ];
+                                 Chat.Typing.Update( i );
                              }
                          }
                      }
                  }
              }
          },
+         Update: function ( channelid ) {
+             var typingHTML = '';
+             var typists = [];
+             var i;
+
+             for ( i in Chat.Typing.People[ channelid ] ) {
+                 typists.push( Chat.Typing.People[ channelid ][ i ] );
+             }
+
+             if ( typists.length > 0 ) {
+                 if ( typists.length == 1 ) {
+                     typingHTML = 'Πληκτρολογεί: ' + typists[ 0 ];
+                 }
+                 typingHTML = 'Πληκτρολογούν: ' + typists.join( ', ' );
+             }
+                 
+             Chat.Typing.People[ channelid ].join( ', ' );
+             if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
+                 if ( typingHTML !== '' ) {
+                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( typingHTML );
+                 }
+                 else {
+                     $( '#chatmessages_' + channelid + ' ol li.typing' ).remove();
+                 }
+             }
+             else {
+                 if ( typingHTML ) {
+                     $( '#chatmessages_' + channelid + ' ol' ).append( '<li class="typing"><strong>&nbsp;</strong>' + typingHTML + '</li>' );
+                 }
+             }
+         }
      },
      OnPresenceChange: function ( res ) {
          var method = $( res ).find( 'operation' ).attr( 'method' );
