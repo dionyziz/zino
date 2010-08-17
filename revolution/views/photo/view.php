@@ -50,7 +50,7 @@
     </favourites>
     <? endif; ?>
 	<? if ( isset( $imagetags ) ): ?>
-	<imagetags photoid="<?= $photoid ?>" >
+	<imagetags>
 	<? foreach ( $imagetags as $tag ): ?>
 		<imagetag>
 			<id><?= $tag[ 'id' ] ?></id>
