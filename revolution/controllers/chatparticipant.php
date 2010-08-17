@@ -4,7 +4,7 @@
         }
         public static function Listing() {
         }
-        public static function Create() {
+        public static function Create() { // add person to group chat
         }
         public static function Update( $channelid, $typing ) {
             if ( $typing ) {
@@ -21,9 +21,10 @@
             ob_start();
             Template( 'chatchannel/typing.php', compact( 'channelid', 'typing', 'username' ) );
             $xml = ob_get_clean();
+            echo $xml;
             PushChannel::Publish( 'chat/typing/list/' . $channelid, $xml );
         }
-        public static function Delete() {
+        public static function Delete() { // remove person from group chat
         }
     }
 ?>
