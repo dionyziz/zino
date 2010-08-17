@@ -452,7 +452,7 @@ var Chat = {
 
                  if ( username != User ) {
                      if ( typing ) {
-                         Chat.Typing.OnStart( username );
+                         Chat.Typing.OnStart( channelid, username );
                      }
                      else {
                          Chat.Typing.OnStop( username );
@@ -468,6 +468,8 @@ var Chat = {
              Chat.Typing.Update( channelid );
          },
          OnStop: function ( username ) {
+             var i;
+
              for ( i in Chat.Typing.People ) {
                  if ( typeof Chat.Typing.People[ i ][ username ] != 'undefined' ) {
                      delete Chat.Typing.People[ i ][ username ];
