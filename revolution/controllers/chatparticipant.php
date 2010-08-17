@@ -19,7 +19,7 @@
             $userid = $_SESSION[ 'user' ][ 'id' ];
             $username = $_SESSION[ 'user' ][ 'name' ];
             ob_start();
-            Template( 'chatchannel/typing.php', compact( 'channelid', 'typing', 'username' ) );
+            Template( 'chatchannel/typing', compact( 'channelid', 'typing', 'username' ) );
             $xml = ob_get_clean();
             echo $xml;
             PushChannel::Publish( 'chat/typing/list/' . $channelid, $xml );
