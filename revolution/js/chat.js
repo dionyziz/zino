@@ -16,18 +16,16 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
-     vts: [], //visible timestamps
      TimestampsToggle: function( items ) {
-        $( items ).each( function() {
-            if ( !Chat.vts.length ) {
-                Chat.vts.push( $( this ) );
-                $( this ).show();
+        // we need the class visible, because this function runs while in initialize state, when the container is not visible
+         $( items ).each( function( i ) {
+            if ( i === 0 ) {
+                $( this ).show().addClass( 'visible' );
                 return true;
             }
-            if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > Chat.vts[ Chat.vts.length - 1 ].children( '.timestamp' ).text()
-                && $( this ).children( '.friendly' ).text() != Chat.vts[ Chat.vts.length - 1 ].children( '.friendly' ).text() ){ 
-                Chat.vts.push( $( this ) );
-                $( this ).show();
+            if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( '.when.visible:last' ).children( '.timestamp' ).text()
+                && $( this ).children( '.friendly' ).text() != $( '.when.visible:last' ).children( '.friendly' ).text() ){ 
+                $( this ).show().addClass( 'visible' );
             }
         } );
      },
@@ -169,6 +167,9 @@ var Chat = {
                  }, 10000 );
              }
          } );
+         $( '.when:visible' ).live( 'updated', function(){
+            Chat.TimestampsTogle( $( this ) );
+         });
          Chat.Loaded = true;
          return true;
      },
