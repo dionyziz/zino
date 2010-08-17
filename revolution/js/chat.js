@@ -460,7 +460,7 @@ var Chat = {
                  }
              }
          },
-         OnStart: function ( channelid, name ) {
+         OnStart: function ( channelid, username ) {
              if ( typeof Chat.Typing.People[ channelid ] == 'undefined' ) {
                  Chat.Typing.People[ channelid ] = {};
              }
