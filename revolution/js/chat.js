@@ -434,9 +434,9 @@ var Chat = {
      },
      OnTypingStateChange: function ( res ) {
          if ( User == 'dionyziz' ) {
-             var channelid = $( 'chatchannel' ).attr( 'id' );
-             var username = $( 'chatchannel user name' ).text();
-             var typing = $( 'chatchannel user' ).attr( 'typing' );
+             var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
+             var username = $( res ).find( 'chatchannel user name' ).text();
+             var typing = $( res ).find( 'chatchannel user' ).attr( 'typing' );
 
              if ( username != User ) {
                  if ( typing ) {
