@@ -76,6 +76,7 @@
 		if ( isset( $_SESSION[ 'user' ] ) && strtolower( $_SESSION[ 'user' ][ 'name' ] ) == 'pagio91' ) {
 			$referer = $_SERVER['HTTP_REFERER'];
 			$pieces = explode( "/", $referer );
+			var_dump( $pieces );
 			if ( isset( $pieces[ 2 ] ) ) {
 				$domain = substr( $pieces[ 2 ], -8 );
 				if ( ( $domain !== ".zino.gr" && $domain !== "/zino.gr" ) && $referer !== "" ) {
