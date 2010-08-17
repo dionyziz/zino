@@ -73,7 +73,10 @@
 
         
 		//check http referer
-		if ( isset( $_SESSION[ 'user' ] ) && strtolower( $_SESSION[ 'user' ][ 'name' ] ) == 'pagio91' ) {
+		if ( !isset( $_SERVER['HTTP_REFERER'] ) ) {
+			throw New Exception( 'Not Valid Post Referer -'  );
+		}
+		else {
 			$referer = $_SERVER['HTTP_REFERER'];
 			$pieces = explode( "/", $referer );
 			var_dump( $pieces );
@@ -88,11 +91,10 @@
 					$domain = "";
 				}
 				if ( ( $domain !== ".zino.gr" && $domain !== "zino.gr" ) && $referer !== "" ) {
-					throw New Exception( 'Not Valid Post Referer -' . $referer . '- -'. $domain .'-'   );
+					throw New Exception( 'Not Valid Post Referer -'  );
 				}
 			}
 		}
-        // needs fixing
 	}
 	else {
         unset( $_GET[ 'resource' ], $_GET[ 'method' ] );
