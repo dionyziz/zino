@@ -53,7 +53,7 @@
 				height : 40px;
 				width : 280px;
 			}
-			div.nextbutton form input {
+			div.nextbutton form input {	
 				height : 40px;
 				width : 100px;
 			}
@@ -123,8 +123,8 @@
 
 		<div class = "nextbutton" >
 			<form>		
-				<div><input type = "button" name="next" value = "next" onclick = "javascript:LoadNext();" /></div>
-				<div><input type = "button" name="stop" value = "stop Autoplay" onclick ="javascript:StopAutoplay();" /></div>
+				<span><input type = "button" name="stop" value = "stop autoplay" id = "stop" onclick ="javascript:StopAutoplay();" /></span>
+				<span><input type = "button" name="next" value = "next" id = "next" onclick = "javascript:LoadNext();" /></span>				
 			</form>
 		</div>
 	</body>
