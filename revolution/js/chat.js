@@ -17,7 +17,6 @@ var Chat = {
      Authtoken: '',
      PreviousPageSelected: 0,
      TimestampsToggle: function( items, init ) {
-        // we need the class visible, because this function runs while in initialize state, when the container is not visible
          if( init === true ){
              items = $( items ).reverse();
          }
@@ -39,26 +38,6 @@ var Chat = {
                 }
             }
         } );
-     },
-     TimestampCheck: function( node ){ //not in use, for now
-        var next = $( node ).closest( 'li' ).next().children( '.when' );
-        var prev = $( node ).closest( 'li' ).prev().children( '.when' );
-        if( next.length ){
-            if( next.children( '.friendly' ).text() == $( node ).children( '.friendly' ).text() ) {
-                $( node ).hide();
-            }
-            else{
-                $( node ).show();
-            }
-        }
-        if( prev.length ){
-            if( prev.children( '.friendly' ).text() == $( node ).children( '.friendly' ).text() ) {
-                prev.hide();
-            }
-            else{
-                prev.show();
-            }
-        }
      },
      NameClick: function () {
          var userid = this.id.split( 'u' )[ 1 ];
@@ -178,8 +157,10 @@ var Chat = {
                  }, 10000 );
              }
          } );
-         $( '.when:visible' ).live( 'updated', function(){
-            Chat.TimestampsToggle( $( this ) );
+         $( '.when.visible' ).live( 'updated', function(){
+            if( $( this ).children( '.friendly' ).text() == $( this ).closest( 'li' ).prevAll( ':has(.when.visible):first' ).find( '.when .friendly' ).text() ){
+                $( this ).hide();
+            }
          });
          Chat.Loaded = true;
          return true;
