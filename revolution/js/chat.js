@@ -114,9 +114,6 @@ var Chat = {
          Chat.GetMessages( channelid, callback );
     },
     Load: function () {
-         var typingSent = false;
-         var typingTimeout = 0;
-
          Chat.Join( '0' ); // listen for global chat messages too
          Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
          $( '#onlineusers li' ).click( Chat.NameClick );
@@ -143,26 +140,8 @@ var Chat = {
                 this.value = '';
              }
          } );
+         Chat.Typing.Init();
          Kamibu.ClickableTextbox( $( '#chat textarea' )[ 0 ], 'Γράψε ένα μήνυμα', 'black', '#ccc' );
-         $( '#chat textarea' ).keydown( function () {
-             clearTimeout( typingTimeout );
-             typingTimeout = setTimeout( function () { // if user has not touched the keyboard for 4 seconds, show them as not typing explicitly
-                $.post( 'chat/typing', {
-                    typing: 0
-                } );
-                typingSent = false;
-             }, 4000 );
-             if ( !typingSent ) { // sent the fact that we are still typing every 10 seconds; just so that remote client doesn't "timeout" and thinks we've stopped
-                 $.post( 'chat/typing', {
-                     channelid: Chat.CurrentChannel,
-                     typing: 1
-                 } ); 
-                 typingSent = true;
-                 setTimeout( function () {
-                     typingSent = false;
-                 }, 10000 );
-             }
-         } );
          $( '.when.visible' ).live( 'updated', function(){
             if( $( this ).children( '.friendly' ).text() == $( this ).closest( 'li' ).prevAll( ':has(.when.visible):first' ).find( '.when .friendly' ).text() ){
                 $( this ).hide().removeClass( 'visible' );
@@ -452,6 +431,9 @@ var Chat = {
      },
      Typing: {
          People: {}, // channelid => [ username1, username2, ... ]
+         Sent: false, // whether we've sent that we're currently typing; don't resend too often to avoid excessive network traffic
+         StopTimeout: 0, // the timeout object before we sent the event that we've stopped typing
+         ResendTimeout: 0, // the timeout object before we know we must send again the fact that we're typing
          OnStateChange: function ( res ) {
              var channelid = $( res ).find( 'chatchannel' ).attr( 'id' );
              var username = $( res ).find( 'chatchannel user name' ).text();
@@ -511,6 +493,28 @@ var Chat = {
              else {
                  $( '#chatmessages_' + channelid + ' p.typing' ).css( { display: 'none' } );
              }
+         },
+         Init: function () {
+             $( '#chat textarea' ).keypress( function ( e ) {
+                 clearTimeout( Chat.Typing.StopTimeout ); // make sure we don't stop; we just started
+                 Chat.Typing.StopTimeout = setTimeout( function () { // if user has not touched the keyboard for 4 seconds, show them as not typing explicitly
+                    $.post( 'chat/typing', {
+                        typing: 0
+                    } );
+                    Chat.Typing.Sent = false;
+                    clearTimeout( Chat.Typing.Resendtimeout ); // we've already set Sent = false
+                 }, 4000 );
+                 if ( !Chat.Typing.Sent ) { // sent the fact that we are still typing every 10 seconds; just so that remote client doesn't "timeout" and thinks we've stopped
+                    $.post( 'chat/typing', {
+                        channelid: Chat.CurrentChannel,
+                        typing: 1
+                    } ); 
+                    Chat.Typing.Sent = true;
+                    Chat.Typing.ResendTimeout = setTimeout( function () { // after a while, know that we should send the typing event again
+                        Chat.Typing.Sent = false;
+                    }, 10000 );
+                 }
+             } );
          }
      },
      OnPresenceChange: function ( res ) {
