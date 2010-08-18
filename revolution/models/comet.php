@@ -33,6 +33,17 @@
                 compact( 'tunnelid', 'channelid' )
             );
         }
+        public static function RemoveChannel( $tunnelid, $channelid ) {
+            db(
+                'DELETE FROM
+                    `push`
+                 WHERE
+                    `push_tunnelid`=:tunnelid
+                    AND `push_channelid`=:channelid
+                 LIMIT 1',
+                compact( 'tunnelid', 'channelid' )
+            );
+        }
         public static function Auth( $tunnelid, $auth ) {
             $res = db(
                 'SELECT
@@ -110,14 +121,6 @@
                 $tunnelids[] = $row[ 'tunnelid' ];
             }
             PushTunnel::Publish( $tunnelids, $xml );
-        }
-        public static function AddToTunnel( $channelid, $tunnelid ) {
-            db(
-                'INSERT INTO push
-                ( push_tunnelid, push_channelid ) VALUES
-                ( :tunnelid, :channelid )',
-                compact( 'tunnelid', 'channelid' )
-            );
         }
         public static function CleanUp() {
             db(

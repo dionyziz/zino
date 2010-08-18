@@ -18,7 +18,7 @@
 
             include 'views/tunnel/create.php';
         }
-        public static function Update( $tunnelid, $tunnelauthtoken ) {
+        public static function Update( $tunnelid, $tunnelauthtoken, $addchannelid = '', $removechannelid = '' ) {
             clude( 'models/db.php' );
             clude( 'models/comet.php' );
 
@@ -26,9 +26,17 @@
                 die( 'Invalid tunnel authtoken' );
             }
 
-            PushTunnel::Renew( $tunnelid );
+            PushTunnel::Renew( $tunnelid ); // make sure it doesn't expire
+            
+            // apply channel changes if necessary
+            if ( $addchannelid != '' ) {
+                PushTunnel::AddChannel( $tunnelid, $addchannelid );
+            }
+            else if ( $removechannelid != '' ) {
+                PushTunnel::RemoveChannel( $tunnelid, $removechannelid );
+            }
         }
-        public static function Delete() {
+        public static function Delete() { // called by cronjob
             clude( 'models/db.php' );
             clude( 'models/comet.php' );
 

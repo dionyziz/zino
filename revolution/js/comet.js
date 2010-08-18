@@ -74,10 +74,27 @@ var Comet = {
         } );
     },
     Unsubscribe: function ( channelid ) {
-        // TODO: remove channelid from Comet.Channels; call tunnel/update
+        if ( typeof Comet.Channels[ channelid ] != 'undefined' ) {
+            delete Comet.Channels[ channelid ];
+            if ( Comet.HandshakeCompleted ) {
+                $.post( 'tunnel/update', {
+                    tunnelid: Comet.TunnelId,
+                    tunnelauthtoken: Comet.TunnelAuthtoken,
+                    removechannelid: channelid
+                } );
+            }
+        }
     },
     Subscribe: function ( channelid, callback ) {
-        Comet.Channels[ channelid ] = callback;
-        // TODO: Call tunnel/update if we've already handshaked
+        if ( typeof Comet.Channels[ channelid ] == 'undefined' ) {
+            Comet.Channels[ channelid ] = callback;
+            if ( Comet.HandshakeCompleted ) {
+                $.post( 'tunnel/update', {
+                    tunnelid: Comet.TunnelId,
+                    tunnelauthtoken: Comet.TunnelAuthtoken,
+                    addchannelid: channelid
+                } );
+            }
+        }
     }
 };
