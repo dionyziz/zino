@@ -102,6 +102,7 @@ RewriteRule ^moods$ index.php?resource=mood&method=list [L,QSA]
 # global
 
 RewriteRule ^global.xsl$ xslt/global.php [L,QSA]
+RewriteRule ^global.xsl.js$ xslt/globaljs.php [L,QSA]
 RewriteRule ^global.js$ js/global.php [L,QSA]
 RewriteRule ^global.css$ css/global.php [L,QSA]
 

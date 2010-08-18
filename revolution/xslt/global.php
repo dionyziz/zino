@@ -1,5 +1,5 @@
 <?php
-header( 'Content-Type: text/xsl' );
+$js or header( 'Content-Type: text/xsl; charset=UTF-8' );
 
 if ( file_exists( '../nocache' ) ) {
     define( 'USE_CACHING', false );

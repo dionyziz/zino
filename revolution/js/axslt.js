@@ -1,10 +1,11 @@
 /**
  * axslt.js - Version 1.0 ( 12:19 UTC 4/21/2010 )
  *
- * Copyright (c) 2010 Tzortzidis Alexandros ( chorvus@gmail.com )
- * Project page: <http://chorvus.com/axslt>
+ * Copyright (c) 2010 Tzortzidis Alexandros ( chorvus@kamibu.com )
+ * Project page: <http://chorvus.com/axsltjs>
  * 
  * Changelog:
+ *      1.1 ( 14:56 UTC 8/17/2010 ) - Wider browser compatibility - code improvements
  *      1.0 ( 12:19 UTC 4/21/2010 ) - First cross-browser working release
  *      0.9 ( 22:18 UTC 4/19/2010 ) - Initial release             
  * 
@@ -65,7 +66,7 @@ var axslt = function( xml, template, callback, params, xslPath ) {
     }
     if ( !xslPath ) {
         if ( !_aXSLT.defaultStylesheet ) {
-            //console.error( 'aXSLT: Please specify a (default) stylesheet' );
+            throw new Error( 'aXSLT: Please specify a (default) stylesheet or pass an XSL path' );
             return;
         }
         xslPath = _aXSLT.defaultStylesheet;
@@ -87,12 +88,15 @@ var node_strip = function( nodeset ) {
     var nodetext;
     for ( var i = 0; i < nodeset.length; ++i ) {
         if ( i === 0 ) {
-            if ( nodeset[ 0 ].nodeType = Node.TEXT_NODE ) {
+            if ( nodeset[ 0 ].nodeType == Node.TEXT_NODE ) {
                 nodetext = nodeset[ 0 ].nodeValue.replace( /(\s)+/g, '' );
                 if ( nodetext !== '' ) {
                     //nodeset[ 0 ].nodeValue = nodetext;
                     ret.push( nodeset[ 0 ] );
                 }
+            }
+            else {
+                ret.push( nodeset[ 0 ] );
             }
         }
         else if ( nodeset.length > 2 && i == nodeset.length - 1 ) {
@@ -132,47 +136,60 @@ var _aXSLT = {
         }
         return index;
     },
-    prepareXSL: function( path ) {
+    prepareXSL: function( path, arbitraryContent ) {
         if ( this.xslCache[ path ] ) { //If the xsl is already cached, escape the procedure
             return this.xslCache[ path ].index;
         }
         
         var index = this.lastListIndex++;
-        var xhr;
-        if ( window.ActiveXObject ) {
-            //xhr = new ActiveXObject( 'MSXML2.FreeThreadedDOMDocument' );
-            try {
-                xhr = new ActiveXObject( 'Msxml2.XMLHTTP.6.0' );
+
+        if ( typeof( arbitraryContent ) == 'string' ) {
+            var xhr = {
+                responseText: arbitraryContent,
+                readyState: 4
             }
-            catch ( err ) {
+        }
+        else {
+            var xhr;
+            if ( window.ActiveXObject ) {
+                //xhr = new ActiveXObject( 'MSXML2.FreeThreadedDOMDocument' );
                 try {
-                    xhr = new ActiveXObject( 'Msxml2.XMLHTTP.3.0' );
+                    xhr = new ActiveXObject( 'Msxml2.XMLHTTP.6.0' );
                 }
                 catch ( err ) {
                     try {
-                        xhr = new ActiveXObject( 'Msxml2.XMLHTTP' );
+                        xhr = new ActiveXObject( 'Msxml2.XMLHTTP.3.0' );
                     }
                     catch ( err ) {
-                        return false;
+                        try {
+                            xhr = new ActiveXObject( 'Msxml2.XMLHTTP' );
+                        }
+                        catch ( err ) {
+                            return false;
+                        }
                     }
                 }
             }
+            else if ( window.XMLHttpRequest ) {
+                xhr = new XMLHttpRequest();
+            }
+            xhr.onreadystatechange = ( function( xhr, i ) {
+                return function() {
+                    _aXSLT.checkXSL( xhr, i );
+                };
+            } )( xhr, index ); //code magic
+            xhr.open( 'GET', path, true );
+            xhr.send( null );
         }
-        else if ( window.XMLHttpRequest ) {
-            xhr = new XMLHttpRequest();
-        }
-        xhr.onreadystatechange = ( function( xhr, i ) {
-            return function() {
-                _aXSLT.checkXSL( xhr, i );
-            };
-        } )( xhr, index ); //code magic
-        xhr.open( 'GET', path, true );
-        xhr.send( null );
+        
         this.unitLists[ index ] = [];
         this.xslCache[ path ] = { 'xhr': xhr, 'index': index };
         return index;
     },
     registerUnit: function( xml, xslpath, callback, templateName, templateMode, params ) {
+        if ( xslpath === false ) {
+            throw new Error( 'aXSLT: Invalid xsl path / default xsl not defined' );
+        }
         var xslindex = this.prepareXSL( xslpath );
         if ( this.xmlReady( xml ) && this.xslCache[ xslpath ].xhr.readyState == 4 ) {
             this.transform( xml, this.xslCache[ xslpath ].xhr, callback, templateName, templateMode, params );

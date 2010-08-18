@@ -4,6 +4,8 @@ var Kamibu = {
         window.location.href = base + href;
     },
     EditableTextElement: function( element, placeholder, callback ) {
+        /** Requirements: jQuery */
+        
         if( $( element ).css( 'position' ) == 'static' ){
             $( element ).css({
                 'top': 0,
@@ -97,9 +99,11 @@ var Kamibu = {
         return;
     },
     TimeFollow: function( timeNode ){
-    /*
-        Developer: ted
-    */  
+        /** Requirements: jQuery */
+        
+        /*
+            Developer: ted
+        */  
         if( $( timeNode ).hasClass( 'processedtime' ) ){
             return true;
         }
@@ -147,5 +151,10 @@ var Kamibu = {
         if ( Kamibu.hasClass( element, name ) ) {
             element.className = element.className.replace( new RegExp( '\\b' + name + '\\b' ), '' ).replace( /^\s*|\s*$/, '' ).replace( /\s+/, ' ' );
         }
+    },
+    PreLoadImage: function( url, callback ) {
+        var loader = new Image();
+        loader.onload = callback.call( loader );
+        loader.src = url;
     }
  };
