@@ -84,7 +84,7 @@
             clude( 'models/db.php' );
             return User::AuthtokenValidation( $userid, $authtoken );
         }
-        public function RenewAuthtoken( $userid ) {
+        public static function RenewAuthtoken( $userid ) {
             $userid = ( int )$userid;
 
             // generate authtoken
@@ -653,8 +653,8 @@
                 compact( 'id', 'email' )
             );
 
-            User::RenewAuthtoken( $id );
-            
+            self::RenewAuthtoken( $id );
+           
             // TODO: Send welcome e-mail
             return compact( 'id', 'name', 'email', 'subdomain', 'password' );
         }

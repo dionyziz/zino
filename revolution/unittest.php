@@ -172,7 +172,13 @@
     }
     
     global $settings;
+
     $settings = include 'settings.php';
+
+    if ( !isset( $argv ) ) {
+        echo "This utility can only be executed from the command line.\n";
+        exit;
+    }
 
     clude( 'models/water.php' );
     clude( 'models/unittest.php' );

@@ -143,8 +143,8 @@
             $success = Album::Delete( 0 );
             $this->AssertFalse( $success, 'Album::Delete succeeded on non-existing album' );
         }
-        public function ValidIds() {
-            $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT 3;' );
+        public function ValidIds( $num = 3 ) {
+            $res = db( 'SELECT `album_id` FROM `albums` ORDER BY RAND() LIMIT ' . ( string )$num );
             $ret = array();
             while ( $row = mysql_fetch_array( $res ) ) {
                 $ret[] = (int)$row[ 0 ];
