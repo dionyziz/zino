@@ -21,19 +21,19 @@ var Chat = {
              items = $( items ).reverse();
          }
          $( items ).each( function() {
-            if ( !$( '.when.visible' ).length ) {
+            if ( !$( items ).filter( '.when.visible' ).length ) {
                 $( this ).show().addClass( 'visible' );
                 return true;
             }
             if( init === true ){
-                if ( $( this ).children( '.timestamp' ).text() < $( '.when.visible:first' ).children( '.timestamp' ).text() - 0 + 5 * 60 * 1000
-                    && $( this ).children( '.friendly' ).text() != $( '.when.visible:first' ).children( '.friendly' ).text() ){ 
+                if ( $( this ).children( '.timestamp' ).text() < $( items ).filter( '.when.visible:last' ).children( '.timestamp' ).text() - 5 * 60 * 1000
+                    && $( this ).children( '.friendly' ).text() != $( items ).filter( '.when.visible:last' ).children( '.friendly' ).text() ){ 
                     $( this ).show().addClass( 'visible' );
                 }
             }
             else{
-                if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( '.when.visible:last' ).children( '.timestamp' ).text()
-                    && $( this ).children( '.friendly' ).text() != $( '.when.visible:last' ).children( '.friendly' ).text() ){ 
+                if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( items ).filter( '.when.visible:last' ).children( '.timestamp' ).text()
+                    && $( this ).children( '.friendly' ).text() != $( items ).filter( '.when.visible:last' ).children( '.friendly' ).text() ){ 
                     $( this ).show().addClass( 'visible' );
                 }
             }
@@ -97,8 +97,7 @@ var Chat = {
             html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
-        $( '.when:not(.processedtime)' ).load();
-        Chat.TimestampsToggle( $( '.when' ), true );
+        Chat.TimestampsToggle( $( '.when:not(.processedtime)' ).load(), true );
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
