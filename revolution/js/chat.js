@@ -295,6 +295,10 @@ var Chat = {
              Chat.Typing.OnStop( author );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
          }
+         if ( typeof text == 'undefined' ) {
+             // no need to handle any messages
+             return;
+         }
          if ( Chat.CurrentChannel == channelid ) {
              if ( typeof li != 'undefined' ) {
                  if ( Chat.AtEnd() ) { // if the user has already scrolled to the end show new message
@@ -495,7 +499,7 @@ var Chat = {
                  
              if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
                  if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( '<strong>&nbsp;</strong>' + typingHTML );
+                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( typingHTML );
                  }
                  else {
                      $( '#chatmessages_' + channelid + ' ol li.typing' ).remove();
@@ -503,9 +507,12 @@ var Chat = {
              }
              else {
                  if ( typingHTML ) {
-                     var $typingli = $( '<li class="typing"><strong>&nbsp;</strong>' + typingHTML + '</li>' ).appendTo( $( '#chatmessages_' + channelid + ' ol' ) );
+                     var li = document.createElement( 'li' );
+                     li.innerHTML = typingHTML;
+                     li.className = 'typing';
+                     $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
                      if ( Chat.AtEnd() ) {
-                         $typingli[ 0 ].scrollIntoView();
+                         $( '#chatmessages_' + channelid + ' ol li.typing' )[ 0 ].scrollIntoView();
                      }
                  }
              }

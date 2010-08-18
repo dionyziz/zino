@@ -183,6 +183,7 @@
 .textmessages li.typing {
     font-size: 90%;
     color: #aaa;
+    padding-left: 115px;
 }
 .textmessages li.typing span {
     color: #666;
