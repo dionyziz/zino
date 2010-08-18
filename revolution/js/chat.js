@@ -497,13 +497,13 @@ var Chat = {
                  
              if ( typingHTML !== '' ) {
                  $( '#chatmessages_' + channelid + ' p.typing' ).html( typingHTML );
-                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { display: 'block' } );
+                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { visibility: 'visible', height: 'auto' } );
                  if ( Chat.AtEnd() ) {
                      $( '#chatmessages_' + channelid + ' .typing' )[ 0 ].scrollIntoView();
                  }
              }
              else {
-                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { display: 'none' } );
+                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { visibility: 'hidden', height: '1px' } );
              }
          }
      },
