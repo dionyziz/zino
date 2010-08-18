@@ -16,28 +16,32 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
-     TimestampsToggle: function( items, init ) {
-         if( init === true ){
-             items = $( items ).reverse();
+     Timestamps: {
+         Init: function( chatid ) {
+             var items = $( chatid ).find( '.when' ).reverse();
+             $( items ).each( function() {
+                if ( !$( items ).filter( '.when.visible' ).length ) {
+                    $( this ).show().addClass( 'visible' );
+                    return true;
+                }
+                if ( $( this ).children( '.timestamp' ).text() < items.filter( '.when.visible:last' ).find( '.timestamp' ).text() - 5 * 60 * 1000
+                    && $( this ).children( '.friendly' ).text() != items.filter( '.when.visible:last' ).find( '.friendly' ).text() ){ 
+                    $( this ).show().addClass( 'visible' );
+                }
+            } );
+         },
+         Add: function( item ){
+             var items = $( item ).closest( '.chatchannel' ).find( '.when.visible' );
+             if( !items.length ){
+                 $( item ).show().addClass( 'visible' );
+                 return true;
+             }
+             if( item.children( '.timestamp' ).text() - 5 * 60 * 1000 > items.filter( ':last' ).find( '.timestamp' ).text()
+                 && item.children( '.friendly' ).text() != items.filter( ':last' ).find( '.friendly' ).text() ) {
+                 item.show().addClass( 'visible' );
+             }
+
          }
-         $( items ).each( function() {
-            if ( !$( items ).filter( '.when.visible' ).length ) {
-                $( this ).show().addClass( 'visible' );
-                return true;
-            }
-            if( init === true ){
-                if ( $( this ).children( '.timestamp' ).text() < $( items ).filter( '.when.visible:last' ).children( '.timestamp' ).text() - 5 * 60 * 1000
-                    && $( this ).children( '.friendly' ).text() != $( items ).filter( '.when.visible:last' ).children( '.friendly' ).text() ){ 
-                    $( this ).show().addClass( 'visible' );
-                }
-            }
-            else{
-                if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( items ).filter( '.when.visible:last' ).children( '.timestamp' ).text()
-                    && $( this ).children( '.friendly' ).text() != $( items ).filter( '.when.visible:last' ).children( '.friendly' ).text() ){ 
-                    $( this ).show().addClass( 'visible' );
-                }
-            }
-        } );
      },
      NameClick: function () {
          var userid = this.id.split( 'u' )[ 1 ];
@@ -97,7 +101,8 @@ var Chat = {
             html += '</strong> <span class="text">' + text + '</span></li>';
         }
         history.innerHTML = html;
-        Chat.TimestampsToggle( $( '.when:not(.processedtime)' ).load(), true );
+        $( '.when:not(.processedtime)' ).load();
+        Chat.Timestamps.Init( '#chatmessages_' + channelid );
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
@@ -158,7 +163,7 @@ var Chat = {
          } );
          $( '.when.visible' ).live( 'updated', function(){
             if( $( this ).children( '.friendly' ).text() == $( this ).closest( 'li' ).prevAll( ':has(.when.visible):first' ).find( '.when .friendly' ).text() ){
-                $( this ).hide();
+                $( this ).hide().removeClass( 'visible' );
             }
          });
          Chat.Loaded = true;
@@ -245,7 +250,7 @@ var Chat = {
             $( lastChild ).find( 'span.text' )[ 0 ].innerHTML = innerxml( $( res ).find( 'text' )[ 0 ] );
             $( lastChild )[ 0 ].id = shoutid;
             $( lastChild ).prepend( '<span class="when time">' + $( res ).find( 'date' ).text()  + '</span>' ).children( '.when' ).load();
-            Chat.TimestampsToggle( $( lastChild ).find( '.when' ) );
+            Chat.Timestamps.Add( $( lastChild ).find( '.when' ) );
          }, 'xml' );
      },
      AtEnd: function () {
@@ -282,7 +287,7 @@ var Chat = {
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
              history.appendChild( li );
              Chat.Typing.OnStop( author );
-             Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
+             Chat.Timestamps.Add( $( '.time:not(.processedtime)' ).load() );
          }
          if ( typeof text == 'undefined' ) {
              // no need to handle any messages
