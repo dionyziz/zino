@@ -16,16 +16,27 @@ var Chat = {
      UserId: 0,
      Authtoken: '',
      PreviousPageSelected: 0,
-     TimestampsToggle: function( items ) {
+     TimestampsToggle: function( items, init ) {
         // we need the class visible, because this function runs while in initialize state, when the container is not visible
-         $( items ).each( function( i ) {
-            if ( i === 0 ) {
+         if( init === true ){
+             items = $( items ).reverse();
+         }
+         $( items ).each( function() {
+            if ( !$( '.when.visible' ).length ) {
                 $( this ).show().addClass( 'visible' );
                 return true;
             }
-            if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( '.when.visible:last' ).children( '.timestamp' ).text()
-                && $( this ).children( '.friendly' ).text() != $( '.when.visible:last' ).children( '.friendly' ).text() ){ 
-                $( this ).show().addClass( 'visible' );
+            if( init === true ){
+                if ( $( this ).children( '.timestamp' ).text() < $( '.when.visible:first' ).children( '.timestamp' ).text() - 0 + 5 * 60 * 1000
+                    && $( this ).children( '.friendly' ).text() != $( '.when.visible:first' ).children( '.friendly' ).text() ){ 
+                    $( this ).show().addClass( 'visible' );
+                }
+            }
+            else{
+                if ( $( this ).children( '.timestamp' ).text() - 5 * 60 * 1000 > $( '.when.visible:last' ).children( '.timestamp' ).text()
+                    && $( this ).children( '.friendly' ).text() != $( '.when.visible:last' ).children( '.friendly' ).text() ){ 
+                    $( this ).show().addClass( 'visible' );
+                }
             }
         } );
      },
@@ -108,7 +119,7 @@ var Chat = {
         }
         history.innerHTML = html;
         $( '.when:not(.processedtime)' ).load();
-        Chat.TimestampsToggle( $( '.when' ) );
+        Chat.TimestampsToggle( $( '.when' ), true );
      },
      GetMessages: function ( channelid, callback ) {
          $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
