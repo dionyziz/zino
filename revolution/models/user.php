@@ -1,5 +1,4 @@
 <?php
-    // Comment for chorvus
     class ItemDeletedException extends Exception {}
 
     class User {
@@ -182,8 +181,7 @@
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
-                    `user_authtoken` AS authtoken, `user_gender` AS gender,
-                    `user_rights` AS rights
+                    `user_authtoken` AS authtoken, `user_gender` AS gender
                 FROM
                     `users`
                 WHERE
@@ -193,8 +191,7 @@
             );
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
-                $row[ 'id' ] = ( int ) $row[ 'id' ];
-                $row[ 'rights' ] = ( int ) $row[ 'rights' ];
+                $row[ 'id' ] = ( int )$row[ 'id' ];
                 if ( Ban::isBannedUser( $row[ 'id' ] ) === true ) {
                     return false;
                 }
