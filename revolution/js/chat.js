@@ -236,7 +236,6 @@ var Chat = {
 
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
-         $( '#chatmessages_' + channelid + ' .typing' ).remove();
          Chat.Typing.Update( channelid );
          var lastChild = $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild;
 
@@ -290,7 +289,6 @@ var Chat = {
              li = document.createElement( 'li' );
              li.id = shoutid;
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
-             $( history ).find( '.typing' ).remove();
              history.appendChild( li );
              Chat.Typing.OnStop( author );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
@@ -497,24 +495,15 @@ var Chat = {
                  }
              }
                  
-             if ( $( '#chatmessages_' + channelid + ' p.typing' ).length ) {
-                 if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' p.typing' ).html( typingHTML );
-                 }
-                 else {
-                     $( '#chatmessages_' + channelid + ' p.typing' ).remove();
+             if ( typingHTML !== '' ) {
+                 $( '#chatmessages_' + channelid + ' p.typing' ).html( typingHTML );
+                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { display: 'block' } );
+                 if ( Chat.AtEnd() ) {
+                     $( '#chatmessages_' + channelid + ' .typing' )[ 0 ].scrollIntoView();
                  }
              }
              else {
-                 if ( typingHTML ) {
-                     var p = document.createElement( 'p' );
-                     p.innerHTML = typingHTML;
-                     p.className = 'typing';
-                     $( '#chatmessages_' + channelid + ' .scrollcontainer' )[ 0 ].appendChild( p );
-                     if ( Chat.AtEnd() ) {
-                         $( '#chatmessages_' + channelid + ' .typing' )[ 0 ].scrollIntoView();
-                     }
-                 }
+                 $( '#chatmessages_' + channelid + ' p.typing' ).css( { display: 'none' } );
              }
          }
      },
@@ -577,7 +566,7 @@ var Chat = {
      },
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
-             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol></div></div>';
+             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol><div class="typing"></div></div></div>';
              if ( channelid == 0 ) {
                  return;
              }
