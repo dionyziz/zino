@@ -236,6 +236,8 @@ var Chat = {
 
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
+         $( '#chatmessages_' + channelid + ' li.typing' ).remove();
+         Chat.Typing.Update( channelid );
          var lastChild = $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild;
 
          $.post( 'chat/message/create', {
