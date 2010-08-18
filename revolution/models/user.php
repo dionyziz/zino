@@ -181,7 +181,8 @@
             $res = db(
                 'SELECT
                     `user_id` AS id, `user_name` AS name,
-                    `user_authtoken` AS authtoken, `user_gender` AS gender
+                    `user_authtoken` AS authtoken, `user_gender` AS gender,
+                    `user_rights` AS rights
                 FROM
                     `users`
                 WHERE
