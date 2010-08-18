@@ -566,7 +566,7 @@ var Chat = {
      },
      CreateChannelHTML: function ( channelid ) {
          if ( $( '#chatmessages_' + channelid ).length === 0 ) {
-             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol><div class="typing"></div></div></div>';
+             $( '#chatmessages' )[ 0 ].innerHTML += '<div class="chatchannel" id="chatmessages_' + channelid + '" style="display:none"><div class="scrollcontainer"><ol></ol><p class="typing"></p></div></div>';
              if ( channelid == 0 ) {
                  return;
              }
