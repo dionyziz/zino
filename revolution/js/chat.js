@@ -497,12 +497,12 @@ var Chat = {
                  }
              }
                  
-             if ( $( '#chatmessages_' + channelid + ' div.typing' ).length ) {
+             if ( $( '#chatmessages_' + channelid + ' p.typing' ).length ) {
                  if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' div.typing' ).html( typingHTML );
+                     $( '#chatmessages_' + channelid + ' p.typing' ).html( typingHTML );
                  }
                  else {
-                     $( '#chatmessages_' + channelid + ' div.typing' ).remove();
+                     $( '#chatmessages_' + channelid + ' p.typing' ).remove();
                  }
              }
              else {
