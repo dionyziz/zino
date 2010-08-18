@@ -192,7 +192,8 @@
             );
             if ( mysql_num_rows( $res ) ) {
                 $row = mysql_fetch_array( $res );
-                $row[ 'id' ] = ( int )$row[ 'id' ];
+                $row[ 'id' ] = ( int ) $row[ 'id' ];
+                $row[ 'rights' ] = ( int ) $row[ 'rights' ];
                 if ( Ban::isBannedUser( $row[ 'id' ] ) === true ) {
                     return false;
                 }
