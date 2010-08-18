@@ -103,20 +103,22 @@ var Chat = {
         history.innerHTML = html;
         $( '.when:not(.processedtime)' ).load();
         Chat.Timestamps.Init( '#chatmessages_' + channelid );
-     },
-     GetMessages: function ( channelid, callback ) {
-         $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
-             Chat.HistoryFromXML( res );
-             callback( res );
-         }, 'xml' );
-     },
-     LoadHistory: function ( channelid, callback ) {
+    },
+    GetMessages: function ( channelid, callback ) {
+        $.get( 'chat/messages', { channelid: channelid }, function ( res ) {
+            Chat.HistoryFromXML( res );
+            callback( res );
+        }, 'xml' );
+    },
+    LoadHistory: function ( channelid, callback ) {
          Chat.GetMessages( channelid, callback );
-     },
-     Load: function () {
+    },
+    Load: function () {
          var typingSent = false;
          var typingTimeout = 0;
 
+         Chat.Join( '0' ); // listen for global chat messages too
+         Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
          $( '#onlineusers li' ).click( Chat.NameClick );
          Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {
@@ -192,31 +194,39 @@ var Chat = {
          // use the Chat.Load() function, not this.
          // Chat.Load() is only called once.
         $( '#chatbutton' ).click( function () {
-             Chat.Toggle();
-             return false;
+            if ( Chat.UserId == 0 ) { // session request hasn't yet finished
+                                      // wait for it... dary.
+                 Chat.Visible = true; // must become visible asap
+            }
+            else {
+                 Chat.Toggle();
+            }
+            return false;
         } );
         document.domain = 'zino.gr';
         $.get( 'session', function ( res ) {
             Chat.UserId = $( res ).find( 'user' ).attr( 'id' );
             Chat.Authtoken = $( res ).find( 'authtoken' ).text();
             Comet.Init();
-            Chat.Join( '0' );
-            Chat.Join( Chat.UserId + ':' + Chat.Authtoken );
-            Comet.Subscribe( 'presence', Chat.OnPresenceChange );
+            Chat.Join( Chat.UserId + ':' + Chat.Authtoken ); // listen for private messages only
+            $( document.body ).append(
+                 '<div style="display:none" id="chat">'
+                     // + '<div class="xbutton">&laquo; Πίσω</div>'
+                     + '<div class="userlist">'
+                         + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
+                         + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
+                     + '</div>'
+                     + '<div class="textmessages">'
+                         + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
+                         + '<div id="chatmessages"></div>'
+                         + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
+                     + '</div>'
+                 + '</div>' );
+            if ( Chat.Visible ) { // user has already clicked the chat button
+                Chat.Visible = false;
+                Chat.Toggle();
+            }
         } );
-        $( document.body ).append(
-             '<div style="display:none" id="chat">'
-                 // + '<div class="xbutton">&laquo; Πίσω</div>'
-                 + '<div class="userlist">'
-                     + '<div class="search"><input type="text" value="Αναζήτηση"></div>'
-                     + '<ol id="onlineusers"><li class="selected world" id="u0">Zino</li></ol>'
-                 + '</div>'
-                 + '<div class="textmessages">'
-                     + '<div class="loading" style="display:none">Λίγα δευτερόλεπτα υπομονή...</div>'
-                     + '<div id="chatmessages"></div>'
-                     + '<div id="outgoing"><div><textarea style="color:#ccc">Στείλε ένα μήνυμα</textarea></div></div>'
-                 + '</div>'
-             + '</div>' );
      },
      SendMessage: function ( channelid, text ) {
          if ( text.replace( /^\s+/, '' ).replace( /\s+$/, '' ).length === 0 ) {
