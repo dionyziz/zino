@@ -1,0 +1,36 @@
+<?php
+    // Module inspired by "Building Scalable Web Sites', Cal Henderson, O'Reilly Press (page 86)
+    // Developer: Dionyziz
+
+    function Email_FormatSubject( $subject ) {
+        if ( preg_match( "#^[a-z0-9 _-]*+$#i", $subject ) ) {
+            // trivial case: subject is simple ASCII with no control characters
+            return $subject;
+        }
+        $subject = preg_replace( "#([^a-z ])#ie", 'sprintf( "=%02x", ord( "\\1" ) )', $subject );
+        $subject = str_replace( ' ', '_', $subject );
+
+        return "=?utf-8?Q?$subject?=";
+    }
+
+    function Email( $toname, $toemail, $subject, $message, $fromname, $fromemail, $replyto = false ) {
+      	clude( 'models/validate.php' );
+
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ), '$toname contains invalid characters: ' . $toname );
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ), '$fromname contains invalid characters: ' . $fromname );
+		w_assert( !empty( $toemail ), 'Recipient e-mail cannot be left empty' );
+		w_assert( ValidEmail( $toemail ), 'Invalid recipient e-mail: ' . $toemail );
+		w_assert( ValidEmail( $fromemail ), 'Invalid sender e-mail: ' . $fromemail );
+
+		if ( $replyto === false ) {
+			$replyto = $fromemail;
+		}
+		
+        $headers = "From: $fromname <$fromemail>\r\n"
+                 . "Reply-To: $replyto\r\n"
+                 . "Content-type: text/plain; charset=utf-8";
+        
+        $subject = Email_FormatSubject( $subject );
+        return mail( $toemail, $subject, $message, $headers );
+    }
+?>
