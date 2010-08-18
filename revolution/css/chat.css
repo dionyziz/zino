@@ -180,12 +180,13 @@
     display: none;
     padding: 0;
 }
-.textmessages li.typing {
+.textmessages .typing {
     font-size: 90%;
     color: #aaa;
     padding-left: 115px;
+    margin: 0;
 }
-.textmessages li.typing span {
+.textmessages .typing span {
     color: #666;
 }
 .textmessages strong {

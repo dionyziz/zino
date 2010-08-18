@@ -236,7 +236,7 @@ var Chat = {
 
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
          $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild.scrollIntoView();
-         $( '#chatmessages_' + channelid + ' li.typing' ).remove();
+         $( '#chatmessages_' + channelid + ' .typing' ).remove();
          Chat.Typing.Update( channelid );
          var lastChild = $( '#chatmessages_' + channelid + ' ol' )[ 0 ].lastChild;
 
@@ -290,7 +290,7 @@ var Chat = {
              li = document.createElement( 'li' );
              li.id = shoutid;
              li.innerHTML = '<span class="when time">' + $( messages[ i ] ).find( 'date' ).text()  + '</span><strong>' + author + '</strong> <span class="text">' + text + '</span></li>'; 
-             $( history ).find( 'li.typing' ).remove();
+             $( history ).find( '.typing' ).remove();
              history.appendChild( li );
              Chat.Typing.OnStop( author );
              Chat.TimestampsToggle( $( '.time:not(.processedtime)' ).load() );
@@ -497,22 +497,22 @@ var Chat = {
                  }
              }
                  
-             if ( $( '#chatmessages_' + channelid + ' li.typing' ).length ) {
+             if ( $( '#chatmessages_' + channelid + ' div.typing' ).length ) {
                  if ( typingHTML !== '' ) {
-                     $( '#chatmessages_' + channelid + ' ol li.typing' ).html( typingHTML );
+                     $( '#chatmessages_' + channelid + ' div.typing' ).html( typingHTML );
                  }
                  else {
-                     $( '#chatmessages_' + channelid + ' ol li.typing' ).remove();
+                     $( '#chatmessages_' + channelid + ' div.typing' ).remove();
                  }
              }
              else {
                  if ( typingHTML ) {
-                     var li = document.createElement( 'li' );
-                     li.innerHTML = typingHTML;
-                     li.className = 'typing';
-                     $( '#chatmessages_' + channelid + ' ol' )[ 0 ].appendChild( li );
+                     var p = document.createElement( 'p' );
+                     p.innerHTML = typingHTML;
+                     p.className = 'typing';
+                     $( '#chatmessages_' + channelid + ' .scrollcontainer' )[ 0 ].appendChild( p );
                      if ( Chat.AtEnd() ) {
-                         $( '#chatmessages_' + channelid + ' ol li.typing' )[ 0 ].scrollIntoView();
+                         $( '#chatmessages_' + channelid + ' .typing' )[ 0 ].scrollIntoView();
                      }
                  }
              }
