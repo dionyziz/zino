@@ -11,6 +11,7 @@ if ( !$success ):
 endif;
 ?>
 <poll>
+    <title><?= htmlspecialchars( $poll[ 'question' ] ) ?></title>
 	<options totalvotes="<?= $poll[ 'numvotes' ] ?>">
         <? foreach ( $options as $option ): ?>
         <option id="<?= $option[ 'id' ] ?>" votes="<?= $option[ 'numvotes' ] ?>"<?
