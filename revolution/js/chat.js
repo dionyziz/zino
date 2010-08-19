@@ -138,7 +138,7 @@ var Chat = {
                  Chat.Narrator.Say( HTML );
              }
         }
-    }
+    },
     Load: function () {
          Chat.Join( '0' ); // listen for global chat messages too
          Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
