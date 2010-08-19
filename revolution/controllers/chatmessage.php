@@ -28,21 +28,37 @@
             );
             include 'views/chatmessage/listing.php';
         }
-        public static function Create( $channelid, $text ) {
-            isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a message' ); 
+        public static function Create(
+            $channelid, $text, $narrator = false,
+            $_localauthorization = false
+            ) {
+            if ( $narrator ) {
+                $_localauthorization === true or die( 'Local authorization required for narrator access' );
+                $channelid === 0 or die( 'Narrator can only in public' );
+                $userid = 0;
+                $username = $_SESSION[ 'user' ][ 'name' ];
+            }
+            else {
+                isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to post a message' ); 
+                $userid = $_SESSION[ 'user' ][ 'id' ];
+                $username = $_SESSION[ 'user' ][ 'name' ];
+            }
     
             clude( 'models/db.php' );
             clude( 'models/chat.php' );
 
             if ( $channelid != 0 ) {
-                ChatChannel::Auth( $channelid, $_SESSION[ 'user' ][ 'id' ] ) or die( 'You are not authorized to post on this channel' );
+                ChatChannel::Auth( $channelid, $userid ) or die( 'You are not authorized to post on this channel' );
             }
-            $chatmessage = ChatMessage::Create( $channelid, $_SESSION[ 'user' ][ 'id' ], $text );
+            $chatmessage = ChatMessage::Create( $channelid, $userid, $text );
             $channel = array( 'id' => $channelid );
-            $chatmessage[ 'name' ] = $_SESSION[ 'user' ][ 'name' ];
+            $chatmessage[ 'user' ] = array(
+                'id' => $userid,
+                'name' => $username
+            );
 
             ob_start();
-            include 'views/chatmessage/create.php';
+            Template( 'chatmessage/create', compact( 'channel', 'chatmessage' ) );
             $xml = ob_get_clean();
 
             echo $xml;
