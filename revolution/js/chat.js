@@ -120,7 +120,7 @@ var Chat = {
              li = document.createElement( 'li' );
              li.className = 'narrator';
              li.innerHTML = HTML;
-             $( '#chatmessages_0 ol' ).appendChild( li );
+             $( '#chatmessages_0 ol' )[ 0 ].appendChild( li );
              if ( Chat.AtEnd() && Chat.CurrentChannel == 0 ) {
                  li.scrollIntoView();
              }
