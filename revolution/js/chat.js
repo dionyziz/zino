@@ -117,9 +117,14 @@ var Chat = {
         Say: function ( HTML ) {
              var li;
 
-             li = document.createElement( 'li' );
+             if ( typeof HTML == 'string' ) {
+                 li = document.createElement( 'li' );
+                 li.innerHTML = HTML;
+             }
+             else {
+                 li = HTML;
+             }
              li.className = 'narrator';
-             li.innerHTML = HTML;
              $( '#chatmessages_0 ol' )[ 0 ].appendChild( li );
              if ( Chat.AtEnd() && Chat.CurrentChannel == 0 ) {
                  li.scrollIntoView();
@@ -140,40 +145,42 @@ var Chat = {
         },
         OnJournalCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
-                 alert( 'Journal created' );
-                 var HTML, a;
+                 var text, a, li;
 
+                 li = document.createElement( 'li' );
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
-                     HTML = 'Η ';
+                     text = 'Η ';
                  }
                  else {
-                     HTML = 'Ο ';
+                     text = 'Ο ';
                  }
-                 HTML += $( res ).find( 'author name' ).text() + ' έγραψε το ημερολόγιο ';
+                 text += $( res ).find( 'author name' ).text() + ' έγραψε το ημερολόγιο ';
+                 li.appendChild( document.createTextNode( text ) );
                  a = document.createElement( 'a' );
                  a.href = 'journals/' + $( res ).find( 'journal' ).attr( 'id' );
-                 a.appendChild( $( res ).find( 'journal title' ).text() );
-                 HTML += a.innerHTML;
-                 Chat.Narrator.Say( HTML );
+                 a.appendChild( document.createTextNode( $( res ).find( 'journal title' ).text() ) );
+                 li.appendChild( a );
+                 Chat.Narrator.Say( li );
              }
         },
         OnPollCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
-                 alert( 'Poll created' );
-                 var HTML, a;
+                 var text, a, li;
 
+                 li = document.createElement( 'li' );
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
-                     HTML = 'Η ';
+                     text = 'Η ';
                  }
                  else {
-                     HTML = 'Ο ';
+                     text = 'Ο ';
                  }
-                 HTML += $( res ).find( 'author name' ).text() + ' ρωτάει ';
+                 text += $( res ).find( 'author name' ).text() + ' ρωτάει ';
+                 li.appendChild( document.createTextNode( text ) );
                  a = document.createElement( 'a' );
                  a.href = 'polls/' + $( res ).find( 'poll' ).attr( 'id' );
-                 a.appendChild( $( res ).find( 'poll title' ).text() );
-                 HTML += a.innerHTML;
-                 Chat.Narrator.Say( HTML );
+                 a.appendChild( document.createTextNode( $( res ).find( 'poll title' ).text() ) );
+                 li.appendChild( a );
+                 Chat.Narrator.Say( li );
              }
         }
     },
