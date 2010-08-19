@@ -55,7 +55,7 @@
             Template( 'journal/view', compact( 'journal', 'user' ) );
             $xml = ob_get_clean();
 
-            clude( 'model/comet.php' );
+            clude( 'models/comet.php' );
             PushChannel::Publish( 'journal/list', $xml );
         }
         public static function Update( $id, $title = false, $text = false ) {
