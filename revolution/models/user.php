@@ -227,7 +227,7 @@
         public static function ItemByName( $name ) {
 			$name = ( string )$name;
 			if ( $name == "" ) {
-				return array();	
+				return false;	
 			}
             $res = db(
                 'SELECT
