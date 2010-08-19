@@ -225,6 +225,9 @@
 			return mysql_fetch_array( $res );
         }
         public static function ItemByName( $name ) {
+			if ( empty( $name ) ) {
+				throw New Exception( "User name is empty" );
+			}
             $res = db(
                 'SELECT
                     `user_id` AS id,
