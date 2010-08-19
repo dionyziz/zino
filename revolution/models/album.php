@@ -25,6 +25,8 @@
                 WHERE
                     `album_ownerid` = :userid AND
                     `album_delid` = 0
+                ORDER BY
+                    `album_id` DESC
                 LIMIT :offset, :limit;',
                 compact( 'userid', 'offset', 'limit' )
             );
