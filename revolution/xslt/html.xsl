@@ -41,6 +41,17 @@
                 </xsl:otherwise>
             </xsl:choose>
             <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1" />
+            <script type="text/javascript">
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-1065489-1']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            </script>
         </head>
         <body onload="Comet.OnBodyLoaded()">
             <div id="world">
@@ -111,11 +122,8 @@
                     Notifications.Check();
                     Presence.Init();
                     Chat.Init();
-                    var pageTracker = _gat._getTracker("UA-1065489-1");
-                    pageTracker._trackPageview();
                 } );
             </script>
-            <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
         </body>
     </html>
 </xsl:template> 
