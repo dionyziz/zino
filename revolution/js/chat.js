@@ -179,7 +179,8 @@ var Chat = {
          Chat.Join( '0' ); // listen for global chat messages too
          Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
          Comet.Subscribe( 'photo/list', Chat.Narrator.OnPhotoUploaded );
-         Comet.Subscribe( 'photo/list', Chat.Narrator.OnPollCreated );
+         Comet.Subscribe( 'poll/list', Chat.Narrator.OnPollCreated );
+         Comet.Subscribe( 'journal/list', Chat.Narrator.OnJournalCreated );
          $( '#onlineusers li' ).click( Chat.NameClick );
          Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {
