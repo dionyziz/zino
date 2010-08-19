@@ -146,6 +146,7 @@ var Chat = {
         OnJournalCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
                  var text, a, li;
+                 alert( 'Journal created' );
 
                  li = document.createElement( 'li' );
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
