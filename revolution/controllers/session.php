@@ -24,6 +24,7 @@
                 setcookie( $settings[ 'cookiename' ], $cookie, $eofw, '/', $settings[ 'cookiedomain' ], false, true );
                 $_SESSION[ 'user' ] = $data;
             }
+			$name = ( string ) $username;
             include 'views/session/create.php';
         }
         public static function Delete() {
