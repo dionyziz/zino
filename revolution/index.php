@@ -175,6 +175,7 @@
     catch ( Exception $e ) {
         echo '<error>' . $e->getMessage() . '</error>';
     }
+
     ?></social><?php
     
     ob_flush();
