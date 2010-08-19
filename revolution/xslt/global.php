@@ -50,13 +50,6 @@ if ( USE_CACHING ) {
 }
 
 $entries = array();
-echo <<<EOS
-<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="html" indent="yes" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
-
-EOS;
-echo '<!-- Last modified time: ' . $maxtime . ', Caching: ' . (int) ( USE_CACHING == true ) . '-->';
 
 foreach ( $list as $line ) {
     $line = trim( $line );
@@ -70,6 +63,5 @@ foreach ( $list as $line ) {
     @fclose( $entryfh );
 }
 
-echo '</xsl:stylesheet>';
-
+// echo '<!-- Last modified time: ' . $maxtime . ', Caching: ' . (int) ( USE_CACHING == true ) . '-->';
 ?>

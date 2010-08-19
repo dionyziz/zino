@@ -1,3 +1,5 @@
+intro.xsl
+
 html.xsl
 topbar.xsl
 author.xsl
@@ -27,3 +29,5 @@ album/listing.xsl
 album/view.xsl
 notification/listing.xsl
 ban/listing.xsl
+
+outro.xsl
