@@ -139,7 +139,16 @@
 			}
     
             ++$album[ 'numphotos' ]; // updated on db by trigger
+
+			clude( 'models/comet.php' );
+
+            ob_start();
             include 'views/photo/create.php';
+            $xml = ob_get_clean();
+
+            PushChannel::Publish( 'photo/list', $xml );
+
+            echo $xml;
         }
         public static function Update( $id, $title, $albumid = 0 ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a photo' );

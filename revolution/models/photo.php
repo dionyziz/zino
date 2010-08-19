@@ -174,7 +174,7 @@
             is_int( $userid ) or die( 'userid is not an integer' );
             is_int( $albumid ) or die( 'albumid is not an integer' );
 
-            $ip = (string)UserIp();
+            $ip = ( string )UserIp();
 
             db( 'INSERT INTO `images`
                 ( `image_userid`, `image_albumid`, `image_userip`, `image_created`, `image_delid` )

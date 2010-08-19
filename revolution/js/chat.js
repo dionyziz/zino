@@ -116,6 +116,11 @@ var Chat = {
     Load: function () {
          Chat.Join( '0' ); // listen for global chat messages too
          Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
+         Comet.Subscribe( 'photo/list', function ( res ) {
+             if ( User == 'dionyziz' ) {
+                 alert( 'Someone uploaded a picture!' );
+             }
+         } );
          $( '#onlineusers li' ).click( Chat.NameClick );
          Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {

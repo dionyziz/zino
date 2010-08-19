@@ -1,17 +1,21 @@
 <? if ( empty( $error ) ): ?>
 <photo id="<?= $photo[ 'id' ] ?>">
-    <owner id="<?= $user[ 'id' ] ?>">
+    <author id="<?= $user[ 'id' ] ?>">
         <name><?= $user[ 'name' ] ?></name>
-    </owner>
+        <? if ( isset( $user[ 'gender' ] ) ): ?>
+        <gender><?= $user[ 'gender' ] ?></gender>
+        <? endif; ?>
+    </author>
     <width><?= $photo[ 'width' ] ?></width>
     <height><?= $photo[ 'height' ] ?></height>
     <size><?= $photo[ 'filesize' ] ?></size>
     <mime><?= $photo[ 'mime' ] ?></mime>
-    <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
-    <album id="<?= $albumid ?>">
-        <name></name>
-        <photocount><?= $album[ 'numphotos' ] + 1 ?></photocount>
-    </album>
+    <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
+    <containedWithin>
+        <album id="<?= $albumid ?>">
+            <photos count="<?= $album[ 'numphotos' ] + 1 ?>" />
+        </album>
+    </containedWithin>
 </photo>
 <? else: ?>
 <error type="<?= $error ?>"></error>
