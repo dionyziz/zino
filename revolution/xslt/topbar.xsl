@@ -12,7 +12,7 @@
                     </xsl:if>
                     <xsl:if test="/social/photo">
                         <xsl:if test="/social/photo/author/photos/photo[@navigation='previous']/@id">
-                            <li class="nav">
+                            <li class="nav prev">
                                 <a title="Προηγούμενη φωτογραφία">
                                     <xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/photos/photo[@navigation='previous']/@id" /></xsl:attribute>
                                     <img height="20" width="20" src="http://static.zino.gr/revolution/back.png" />
@@ -20,7 +20,7 @@
                             </li>
                         </xsl:if>
                         <xsl:if test="/social/photo/author/photos/photo[@navigation='next']/@id">
-                            <li class="nav">
+                            <li class="nav next">
                                 <a title="Επόμενη φωτογραφία"> 
                                     <xsl:attribute name="href">photos/<xsl:value-of select="/social/photo/author/photos/photo[@navigation='next']/@id" /></xsl:attribute>
                                     <img height="20" width="20" src="http://static.zino.gr/revolution/next.png" />

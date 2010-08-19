@@ -122,14 +122,16 @@ var PhotoView = {
     LoadNext: function( evt ) {
         var $next = $( '.navigation .nextid' );
         if ( $next.length ) {
-            window.location = 'photos/' + $next.text();
+            $( '.breadcrumb .nav.next' ).css( { opacity: 1 } );
+            Kamibu.Go( 'photos/' + $next.text() );
         }
         return false;
     },
     LoadPrevious: function() {
         var $previous = $( '.navigation .previousid' );
         if ( $previous.length ) {
-            window.location = 'photos/' + $previous.text();
+            $( '.breadcrumb .nav.prev' ).css( { opacity: 1 } );
+            Kamibu.Go( 'photos/' + $previous.text() );
         }
         return false;
     }
