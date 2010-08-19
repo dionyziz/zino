@@ -86,7 +86,7 @@
                 $.ajaxSetup( {
                     dataType: 'xml'
                 } );
-                _aXSLT.defaultStylesheet = 'global.xsl';
+                _aXSLT.defaultStylesheet = 'http://zino.gr/static/global.xsl';
                 if ( window.ActiveXObject ) {
                     _aXSLT.ROOT_PATH = '*[1]';
                 }
