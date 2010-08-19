@@ -21,6 +21,10 @@
             clude( 'models/friend.php' );
             clude( 'models/user.php' );
             
+			
+			if ( empty( $subdomain ) ) {
+				return;	
+			}
             $user = User::ItemByName( $subdomain );
             if ( empty( $user ) ) {                    
                return;
