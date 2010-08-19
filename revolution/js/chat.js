@@ -113,14 +113,36 @@ var Chat = {
     LoadHistory: function ( channelid, callback ) {
          Chat.GetMessages( channelid, callback );
     },
+    Narrator: {
+        Say: function ( HTML ) {
+             li = document.createElement( 'li' );
+             li.className = 'narrator';
+             li.innerHTML = HTML;
+             $( '#chatmessages_0 ol' ).appendChid( li );
+             if ( Chat.AtEnd() && Chat.CurrentChannel == 0 ) {
+                 li.scrollIntoView();
+             }
+        },
+        OnPhotoUploaded: function ( res ) {
+             if ( User == 'dionyziz' ) {
+                 var HTML, li;
+
+                 if ( $( res ).find( 'gender' ).length() && $( res ).find( 'gender' ).text() == 'f' ) {
+                     HTML = 'Η ';
+                 }
+                 else {
+                     HTML = 'Ο ';
+                 }
+                 HTML += $( res ).find( 'user name' ).text() + ' ανέβασε ';
+                 HTML += '<a href="photos/' + $( res ).find( 'photo' ).attr( 'id' ) + '">μια φωτογραφία</a>';
+                 Chat.Narrator.Say( HTML );
+             }
+        }
+    }
     Load: function () {
          Chat.Join( '0' ); // listen for global chat messages too
          Comet.Subscribe( 'presence', Chat.OnPresenceChange ); // listen for presence changes
-         Comet.Subscribe( 'photo/list', function ( res ) {
-             if ( User == 'dionyziz' ) {
-                 alert( 'Someone uploaded a picture!' );
-             }
-         } );
+         Comet.Subscribe( 'photo/list', Chat.Narrator.OnPhotoUploaded );
          $( '#onlineusers li' ).click( Chat.NameClick );
          Kamibu.ClickableTextbox( $( '#chat .search input' )[ 0 ], 'Αναζήτηση', 'black', '#aaa' );
          if ( typeof User == 'undefined' ) {
