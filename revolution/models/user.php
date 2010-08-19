@@ -226,6 +226,9 @@
         }
         public static function ItemByName( $name ) {
 			$name = ( string )$name;
+			if ( $name == "" ) {
+				return array();	
+			}
             $res = db(
                 'SELECT
                     `user_id` AS id,
