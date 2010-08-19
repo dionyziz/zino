@@ -129,7 +129,12 @@
         echo '<?xml-stylesheet type="text/xsl" href="http://' . $_GET[ 'subdomain' ] . '.zino.gr/hack.xsl"?>';
     }
     else {
-        echo "<?xml-stylesheet type=\"text/xsl\" href=\"" . $settings[ 'base' ] . "/global.xsl?" . $settings[ 'cachecontrol' ][ 'xslversion' ] . "\"?>";
+        if ( !$settings[ 'beta' ] && $_SESSION[ 'user' ][ 'name' ] == 'dionyziz' ) {
+            echo '<?xml-stylesheet type="text/xsl" href="http://zino.gr/static/global.xsl?1"?>';
+        }
+        else {
+            echo '<?xml-stylesheet type="text/xsl" href="global.xsl?1"?>';
+        }
     }
     ?><social generated="<?= date( "Y-m-d H:i:s", $_SERVER[ 'REQUEST_TIME' ] ); ?>"<?
     if ( isset( $_SESSION[ 'user' ] ) ) {

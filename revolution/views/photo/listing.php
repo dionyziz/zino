@@ -13,7 +13,7 @@
             <name><?= $photo[ 'user' ][ 'name' ] ?></name>
         </author>
         <? endif; ?>
-        <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
+        <media url="http://images2.zino.gr/media/<?= $photo[ 'userid' ] ?>/<?= $photo[ 'id' ] ?>/<?= $photo[ 'id' ] ?>_150.jpg" />
         <discussion count="<?= $photo[ 'numcomments' ] ?>" />
     </photo>
     <? endforeach; ?>

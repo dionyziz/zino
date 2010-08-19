@@ -18,7 +18,7 @@
         <question><?= htmlspecialchars( $item[ 'question' ] ) ?></question>
         <? break; ?>
         <? case 'photo': ?>
-        <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $settings[ 'beta' ]? '_': '' ?><?= $item[ 'id' ] ?>/<?= $item[ 'id' ] ?>_150.jpg" />
+        <media url="http://images2.zino.gr/media/<?= $item[ 'userid' ] ?>/<?= $item[ 'id' ] ?>/<?= $item[ 'id' ] ?>_150.jpg" />
         <? break; ?>
         <? case 'journal': ?>
         <title><?= htmlspecialchars( $item[ 'title' ] ) ?></title>
