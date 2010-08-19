@@ -140,6 +140,7 @@ var Chat = {
         },
         OnJournalCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
+                 alert( 'Journal created' );
                  var HTML, a;
 
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
@@ -158,6 +159,7 @@ var Chat = {
         },
         OnPollCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
+                 alert( 'Poll created' );
                  var HTML, a;
 
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
