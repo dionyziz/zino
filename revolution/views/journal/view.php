@@ -4,7 +4,9 @@
         <author>
             <name><?= $user[ 'name' ] ?></name>
             <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
+            <? if ( isset( $user[ 'gender' ] ) ): ?>
             <gender><?= $user[ 'gender' ] ?></gender>
+            <? endif; ?>
             <avatar>
                 <media url="http://images2.zino.gr/media/<?= $user[ 'id' ] ?>/<?= $user[ 'avatarid' ] ?>/<?= $user[ 'avatarid' ] ?>_100.jpg" />
             </avatar>

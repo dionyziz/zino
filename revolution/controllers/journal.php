@@ -51,7 +51,12 @@
             $journal = Journal::Create( $_SESSION[ 'user' ][ 'id' ], $title, $text );
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
 
-            include 'views/journal/view.php';
+            ob_start();
+            Template( 'journal/view', compact( 'journal', 'user' ) );
+            $xml = ob_get_clean();
+
+            clude( 'model/comet.php' );
+            PushChannel::Publish( 'journal/list', $xml );
         }
         public static function Update( $id, $title = false, $text = false ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a journal' );

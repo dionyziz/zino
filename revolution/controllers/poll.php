@@ -65,7 +65,14 @@
             $options = $poll[ 'options' ];
             $user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
             
-            include 'views/poll/view.php';
+            ob_start();
+            Template( 'poll/view', compact( 'poll', 'user', 'optoins' ) );
+            $xml = ob_get_clean();
+
+            echo $xml;
+
+            clude( 'models/comet.php' );
+            PushChannel::Publish( 'poll/list', $xml );
         }
         public static function Update() {
         }

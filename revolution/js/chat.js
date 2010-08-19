@@ -138,6 +138,24 @@ var Chat = {
              HTML += '<a href="photos/' + $( res ).find( 'photo' ).attr( 'id' ) + '">μια φωτογραφία</a>';
              Chat.Narrator.Say( HTML );
         },
+        OnJournalCreated: function ( res ) {
+             if ( User == 'dionyziz' ) {
+                 var HTML, a;
+
+                 if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
+                     HTML = 'Η ';
+                 }
+                 else {
+                     HTML = 'Ο ';
+                 }
+                 HTML += $( res ).find( 'author name' ).text() + ' έγραψε το ημερολόγιο ';
+                 a = document.createElement( 'a' );
+                 a.href = 'journals/' + $( res ).find( 'journal' ).attr( 'id' );
+                 a.appendChild( $( res ).find( 'journal title' ).text() );
+                 HTML += a.innerHTML;
+                 Chat.Narrator.Say( HTML );
+             }
+        },
         OnPollCreated: function ( res ) {
              if ( User == 'dionyziz' ) {
                  var HTML, a;
@@ -150,7 +168,7 @@ var Chat = {
                  }
                  HTML += $( res ).find( 'author name' ).text() + ' ρωτάει ';
                  a = document.createElement( 'a' );
-                 a.href = 'poll/' + $( res ).find( 'poll' ).attr( 'id' );
+                 a.href = 'polls/' + $( res ).find( 'poll' ).attr( 'id' );
                  a.appendChild( $( res ).find( 'poll title' ).text() );
                  HTML += a.innerHTML;
                  Chat.Narrator.Say( HTML );
