@@ -24,6 +24,15 @@
                 setcookie( $settings[ 'cookiename' ], $cookie, $eofw, '/', $settings[ 'cookiedomain' ], false, true );
                 $_SESSION[ 'user' ] = $data;
             }
+			else {
+				$data2 = User::ItemByName( $username );
+				if ( !empty( $data2 ) ) {
+					$cause = "PASS";
+				}
+				else {
+					$cause = "NAME";
+				}
+			}
 			$name = ( string ) $username;
             include 'views/session/create.php';
         }
