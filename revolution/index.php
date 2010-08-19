@@ -1,4 +1,12 @@
 <?php
+    /*
+        Zino (c) 2010, Kamibu Development Group
+        All rights reserved.
+
+        Each file in this repository may not be used outside the Kamibu Development Group
+        unless you are the sole author of the file, or you have explicit permission from
+        all authors of the file.
+    */
     ob_start();
     
     session_start();
