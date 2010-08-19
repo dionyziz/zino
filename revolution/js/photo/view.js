@@ -122,7 +122,7 @@ var PhotoView = {
     LoadNext: function( evt ) {
         var $next = $( '.navigation .nextid' );
         if ( $next.length ) {
-            $( '.breadcrumb .nav.next' ).css( { opacity: 1 } );
+            $( '.breadcrumb .nav.next img' ).css( { opacity: 1 } );
             Kamibu.Go( 'photos/' + $next.text() );
         }
         return false;
@@ -130,7 +130,7 @@ var PhotoView = {
     LoadPrevious: function() {
         var $previous = $( '.navigation .previousid' );
         if ( $previous.length ) {
-            $( '.breadcrumb .nav.prev' ).css( { opacity: 1 } );
+            $( '.breadcrumb .nav.prev img' ).css( { opacity: 1 } );
             Kamibu.Go( 'photos/' + $previous.text() );
         }
         return false;
