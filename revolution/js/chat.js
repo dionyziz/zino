@@ -115,17 +115,19 @@ var Chat = {
     },
     Narrator: {
         Say: function ( HTML ) {
+             var li;
+
              li = document.createElement( 'li' );
              li.className = 'narrator';
              li.innerHTML = HTML;
-             $( '#chatmessages_0 ol' ).appendChid( li );
+             $( '#chatmessages_0 ol' ).appendChild( li );
              if ( Chat.AtEnd() && Chat.CurrentChannel == 0 ) {
                  li.scrollIntoView();
              }
         },
         OnPhotoUploaded: function ( res ) {
              if ( User == 'dionyziz' ) {
-                 var HTML, li;
+                 var HTML;
 
                  if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
                      HTML = 'Η ';
