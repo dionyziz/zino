@@ -127,7 +127,7 @@ var Chat = {
              if ( User == 'dionyziz' ) {
                  var HTML, li;
 
-                 if ( $( res ).find( 'gender' ).length() && $( res ).find( 'gender' ).text() == 'f' ) {
+                 if ( $( res ).find( 'gender' ).length && $( res ).find( 'gender' ).text() == 'f' ) {
                      HTML = 'Η ';
                  }
                  else {
