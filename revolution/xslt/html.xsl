@@ -65,7 +65,7 @@
                     <script type="text/javascript" src="global.js"></script>
                 </xsl:when>
                 <xsl:otherwise>
-                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?4"></script>
+                    <script type="text/javascript" src="http://static.zino.gr/js/global.js?5"></script>
                 </xsl:otherwise>
             </xsl:choose>
             <script type="text/javascript">
