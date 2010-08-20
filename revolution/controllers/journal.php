@@ -88,7 +88,13 @@
             $journal = Journal::Item( (int)$id ); 
             $userid = $journal[ 'userid' ];
             if ( $userid != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your journal' );
+                $admin = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+                if ( $admin[ 'rights' ] > 30 ) {
+                    // admin override
+                }
+                else {
+                    die( 'not your journal' );
+                }
             }
             
             Journal::Delete( $id );

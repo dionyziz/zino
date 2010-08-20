@@ -86,7 +86,13 @@
             $poll = Poll::Item( $id );
             $userid = $poll[ 'user' ][ 'id' ];
             if ( $userid != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your poll' );
+                $admin = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+                if ( $admin[ 'rights' ] > 30 ) {
+                    // admin override
+                }
+                else {
+                    die( 'not your poll' );
+                }
             }
             Poll::Delete( $id );
         }

@@ -203,7 +203,13 @@
 
             $photo = Photo::Item( $id );
             if ( $photo[ 'user' ][ 'id' ] != $_SESSION[ 'user' ][ 'id' ] ) {
-                die( 'not your photo' );
+                $admin = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+                if ( $admin[ 'rights' ] > 30 ) {
+                    // admin override
+                }
+                else {
+                    die( 'Not your photo' );
+                }
             }
             Photo::Delete( $id );
 

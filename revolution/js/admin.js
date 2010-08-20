@@ -175,6 +175,15 @@ var Admin = {
                 }
             } );
         },
+        Select: function( $element ) {
+            var div = document.createElement( 'div' );
+            div.className = 'adminselection';
+            div.style.top = $element.offset().top + 'px';
+            div.style.left = $element.offset().left + 'px';
+            div.style.width = $element.width() + 'px';
+            div.style.height = $element.height() + 'px';
+            return div;
+        },
         ThreadClick: function () {
             var dta = this.id.split( '_' );
             var commentid;
@@ -187,12 +196,7 @@ var Admin = {
             }
             Admin.Bar.Selection.Threads.push( commentid );
             Admin.Bar.MakeThreadButtons();
-            var div = document.createElement( 'div' );
-            div.className = 'adminselection';
-            div.style.top = $( this ).offset().top + 'px';
-            div.style.left = $( this ).offset().left + 'px';
-            div.style.width = $( this ).width() + 'px';
-            div.style.height = $( this ).height() + 'px';
+            var div = Admin.Bar.Select( $( this ) );
             $( div ).click( function () {
                 var i;
                 $( this ).remove();
@@ -213,10 +217,15 @@ var Admin = {
 
             return false;
         },
-        AttachPage: function () {
-            $( '.thread' ).each( function () {
-                $( this ).click( Admin.Bar.ThreadClick );
+        PhotoClick: function () {
+            var div = Admin.Bar.Select( $( this ) );
+            $( div ).click( function () {
+                $( this ).remove();
             } );
+        },
+        AttachPage: function () {
+            $( '.thread' ).click( Admin.Bar.ThreadClick );
+            $( '.photostream li' ).click( Admin.Bar.PhotoClick );
         },
         DetachPage: function () {
             $( '.thread' ).unbind( 'click', Admin.Bar.ThreadClick );
