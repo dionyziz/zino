@@ -57,6 +57,8 @@
 
             clude( 'models/comet.php' );
             PushChannel::Publish( 'journal/list', $xml );
+
+            echo $xml;
         }
         public static function Update( $id, $title = false, $text = false ) {
             isset( $_SESSION[ 'user' ] ) or die( 'You must be logged in to update a journal' );
