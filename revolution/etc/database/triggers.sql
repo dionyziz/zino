@@ -5,6 +5,7 @@ DROP TRIGGER IF EXISTS commentdelete;
 DROP TRIGGER IF EXISTS imageinsert;
 DROP TRIGGER IF EXISTS imageupdate;
 DROP TRIGGER IF EXISTS albuminsert;
+DROP TRIGGER IF EXISTS albumupdate;
 DROP TRIGGER IF EXISTS albumdelete;
 DROP TRIGGER IF EXISTS pollinsert;
 DROP TRIGGER IF EXISTS polldelete;
@@ -88,6 +89,7 @@ CREATE TRIGGER commentdelete AFTER DELETE ON `comments`
         END CASE;
         DELETE FROM `bulk` WHERE `bulk_id`=OLD.`comment_bulkid` LIMIT 1;
         DELETE FROM `activities` WHERE `activity_userid` = OLD.`comment_userid` AND `activity_typeid` = 1 AND `activity_itemid` = OLD.`comment_itemid` LIMIT 1;
+        DELETE FROM `comments` WHERE `comment_parentid` = OLD.`comment_id`;
    END;
 |
 
@@ -110,10 +112,33 @@ CREATE TRIGGER imageinsert AFTER INSERT ON `images`
 
 CREATE TRIGGER imageupdate AFTER UPDATE ON `images`
     FOR EACH ROW BEGIN
+   		DECLARE albummainid INT(11);
         IF OLD.`image_delid` = 0 AND NEW.`image_delid` = 1 THEN
             UPDATE `usercounts` SET `count_images` = `count_images` - 1 WHERE `count_userid` = OLD.`image_userid` LIMIT 1;
             UPDATE `albums` SET `album_numphotos` = `album_numphotos` - 1 WHERE `album_id` = OLD.`image_albumid` LIMIT 1;
             DELETE FROM `activities` WHERE `activity_userid` = OLD.`image_userid` AND `activity_typeid` = 7 AND `activity_itemid` = OLD.`image_id` LIMIT 1;
+
+            SELECT 
+                `album_mainimageid`, `photo_id` 
+            FROM 
+                `albums` 
+                LEFT JOIN `images` ON
+                    `image_albumid` = `album_id` AND
+                    `image_delid` = 0
+            WHERE 
+                `album_id` = OLD.`image_albumid` 
+            ORDER BY
+                `photo_id` ASC
+            LIMIT 1
+            INTO albummainid, albumfirstid;
+
+            IF albummainid = OLD.`image_id` THEN
+                IF albumfirstid IS NULL THEN -- is this necessary?
+                    albumfirstid = 0
+                END IF;
+                UPDATE `albums` SET `album_mainimageid` = albumfirstid WHERE `album_id` = OLD.`image_albumid`;
+            END IF;
+
             /*
             DELETE FROM `comments` WHERE `comment_itemid` = OLD.`image_id` AND `comment_typeid` = 2 LIMIT 1;
             DELETE FROM `favourites` WHERE `favourite_itemid` = OLD.`image_id` AND `favourite_typeid` = 2 LIMIT 1;
@@ -157,8 +182,9 @@ CREATE TRIGGER albuminsert AFTER INSERT ON `albums`
     END;
 |
 
-CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
+CREATE TRIGGER albumupdate AFTER UPDATE ON `albums`
    FOR EACH ROW BEGIN
+        DECLARE useregoalbumid INT(11);
         IF OLD.`album_delid` = 0 AND NEW.`album_delid` = 1 THEN
             IF OLD.`album_ownertype` = 3 THEN 
                 UPDATE `usercounts` SET `count_albums` = `count_albums` - 1, `count_images` = `count_images` - OLD.`album_numphotos` WHERE `count_userid` = OLD.`album_ownerid` LIMIT 1;
@@ -168,6 +194,12 @@ CREATE TRIGGER albumdelete AFTER UPDATE ON `albums`
             UPDATE `images` SET `image_delid`=1 WHERE `image_albumid` = OLD.`album_id`;
             */
             DELETE FROM `images` WHERE `image_albumid` = OLD.`album_id`;
+        END IF;
+        IF OLD.`album_mainimageid` <> NEW.`album_mainimageid` THEN
+            SELECT `user_egoalbumid` FROM `users` WHERE `user_id` = NEW.`album_ownerid` INTO useregoalbumid;
+            IF useregoalbumid = NEW.`album_id` THEN
+                UPDATE `user_avatarid` = NEW.`album_mainimageid` WHERE `user_id` = OLD.`album_ownerid` LIMIT 1;
+            END IF;
         END IF;
    END;
 |

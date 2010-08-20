@@ -44,6 +44,7 @@
             assert( isset( $album[ 'url' ] ) );
             $album[ 'ownerid' ] == $user[ 'id' ] or die( 'This is not your album' );
 
+            /*
 			if ( $egoalbumid == $albumid ) {
 				if ( !empty( $name ) ) {
 					$name = $album[ 'name' ];
@@ -52,6 +53,7 @@
 					User::UpdateAvatarid( $user[ 'id' ], $mainimageid );
 				}
 			}
+            */
 
             if ( empty( $name ) ) {
                 $name = $album[ 'name' ];

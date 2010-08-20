@@ -130,6 +130,7 @@
                 return;
             }
 
+            /* TRIGGERED!
 			if ( $album[ 'mainimageid' ] == 0 ) {
 				Album::Update( $album[ 'id' ], $album[ 'name' ], $photo[ 'id' ] );
 				$egoalbumid = User::GetEgoAlbumId( $photo[ 'userid' ] );
@@ -137,6 +138,7 @@
                     User::UpdateAvatarid( $photo[ 'userid' ], $photo[ 'id' ] );
 				}
 			}
+            */
     
             ++$album[ 'numphotos' ]; // updated on db by trigger
 
@@ -205,6 +207,7 @@
             }
             Photo::Delete( $id );
 
+            /* TRIGGERED!
 			$album = Album::Item( $photo[ 'albumid' ] );
 			$egoalbumid = User::GetEgoAlbumId( $photo[ 'user' ][ 'id' ] );
 			if ( $album[ 'mainimageid' ] == $id ) {
@@ -222,6 +225,7 @@
 					User::UpdateAvatarid( $photo[ 'user' ][ 'id' ], $mainimageid );
 				}
 			}
+            */
         }
     }
 ?>

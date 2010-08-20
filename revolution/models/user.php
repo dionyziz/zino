@@ -374,6 +374,7 @@
 
             return $row;
         }
+        /* TRIGGERED!
 		public static function UpdateAvatarid( $userid, $avatarid ) {
 			$userid = ( int )$userid;
 			$avatarid = ( int  )$avatarid;
@@ -385,6 +386,7 @@
                 LIMIT 1;', compact( 'userid', 'avatarid' ) 
 			);
 		}
+        */
         public static function UpdateItemDetails( $details, $userid ) {
             $whitelist = array_flip( array( 'profile_email', 'profile_emailvalidated', 'profile_emailvalidationhash', 'profile_placeid' , 'profile_dob', 'profile_slogan', 'profile_schoolid', 'profile_sexualorientation', 'profile_relationship', 'profile_religion', 'profile_politics', 'profile_aboutme', 'profile_moodid', 'profile_eyecolor', 'profile_haircolor', 'profile_height', 'profile_weight', 'profile_smoker', 'profile_drinker', 'profile_favquote', 'profile_mobile', 'profile_skype', 'profile_msn', 'profile_gtalk', 'profile_yim', 'profile_homepage', 'profile_firstname', 'profile_lastname', 'profile_address', 'profile_addressnum', 'profile_postcode', 'profile_area', 'profile_numcomments', 'profile_education', 'profile_educationyear', 'profile_songid', 'profile_songwidgetid' ) );
 

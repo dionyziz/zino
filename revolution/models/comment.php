@@ -341,5 +341,7 @@
             }
             return $commentinfo;
         }
+        public function DeleteByIds( $ids ) {
+        }
     }
 ?>
