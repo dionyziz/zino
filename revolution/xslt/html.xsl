@@ -122,6 +122,7 @@
                     Notifications.Check();
                     Presence.Init();
                     Chat.Init();
+                    Admin.Bar.Init();
                 } );
             </script>
         </body>

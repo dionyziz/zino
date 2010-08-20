@@ -6,3 +6,36 @@ table.bans {
 table.bans td {
     padding: 3px;
 }
+div#admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16pt;
+    background-color: #d92027;
+    z-index: 11;
+    border-bottom: 3px solid #b1000a;
+}
+#admin span {
+    font-size: 10pt;
+    border: 1px solid white;
+    padding: 5px;
+    -moz-border-radius: 6px;
+    background-color: red;
+    float: right;
+    margin-left: 5px;
+    cursor: pointer;
+}
+#admin span:hover {
+    background-color: black;
+}
+.adminselection {
+    border: 3px solid #3f5;
+    background-color: green;
+    opacity: 0.2;
+    z-index: 5;
+    position: absolute;
+}

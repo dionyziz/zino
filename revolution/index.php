@@ -130,7 +130,7 @@
     }
     else {
         if ( $settings[ 'beta' ] ) {
-            echo '<?xml-stylesheet type="text/xsl" href="global.xsl"?>';
+            echo '<?xml-stylesheet type="text/xsl" href="' . $settings[ 'base' ] . '/global.xsl"?>';
         }
         else {
             echo '<?xml-stylesheet type="text/xsl" href="http://zino.gr/static/global.xsl?1"?>';

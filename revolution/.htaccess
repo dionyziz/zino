@@ -20,11 +20,13 @@ RewriteRule ^polls$ index.php?resource=poll&method=listing [L,QSA]
 RewriteRule ^polls/([0-9]+)$ index.php?resource=poll&method=view&id=$1 [L,QSA]
 RewriteRule ^polls/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=poll&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^poll/create$ index.php?resource=poll&method=create [L,QSA]
+RewriteRule ^poll/delete$ index.php?resource=poll&method=delete [L,QSA]
 RewriteRule ^pollvote/create$ index.php?resource=pollvote&method=create [L,QSA]
 
 # journals
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journal/create$ index.php?resource=journal&method=create [L,QSA]
+RewriteRule ^journal/delete$ index.php?resource=journal&method=delete [L,QSA]
 RewriteRule ^journals$ index.php?resource=journal&method=listing [L,QSA]
 RewriteRule ^journals/([a-zA-Z][a-zA-Z_0-9-]*)$ index.php?resource=journal&method=listing&subdomain=$1 [L,QSA]
 RewriteRule ^journals/([0-9]+)$ index.php?resource=journal&method=view&id=$1 [L,QSA]

@@ -19,7 +19,7 @@ var Journal = {
         return false;
     },
     Remove: function( id ) {
-        $.post( 'index.php?resource=journal&method=delete', {
+        $.post( 'journal/delete', {
             id: id
         }, function(){
             window.location = 'journals/' + User;

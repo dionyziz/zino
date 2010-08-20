@@ -16,6 +16,10 @@
                     }
                     else die( 'nor id nor subdomain specified for verbosity level 2' );
                     $countcomments = $user[ 'numcomments' ];
+                    if ( !isset( $_SESSION[ 'user' ] ) || $_SESSION[ 'user' ][ 'id' ] != $user[ 'id' ] ) {
+                        // only let myself know my rights
+                        unset( $user[ 'rights' ] );
+                    }
                 }
                 else {
                     if ( $id ) {

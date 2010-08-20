@@ -5,12 +5,12 @@
 			clude( 'models/ban.php' );
 			clude( 'models/user.php' );
 
-			if ( !isset( $_SESSION[ 'user' ][ 'id' ] ) ) {
+			if ( !isset( $_SESSION[ 'user' ] ) ) {
 				throw new Exception( "Ban::Listing - Doesnt have the rights" );
 			}
 
 			$user = User::Item( $_SESSION[ 'user' ][ 'id' ] );
-			if ( ( int )$user[ 'rights' ] < 60 ) {
+			if ( $user[ 'rights' ] < 60 ) {
 				throw new Exception( "Ban::Listing - Doesnt have the rights" );
 			}
 
@@ -23,13 +23,20 @@
 			clude( 'models/ban.php' );
 			clude( 'models/user.php' );
 
+			if ( !isset( $_SESSION[ 'user' ] ) ) {
+				throw new Exception( "Ban::Create - Doesnt have the rights" );
+			}
+            $admin = User::Item( $_SESSION[ 'user' ][ 'id' ] );
+			if ( $admin[ 'rights' ] < 60 ) {
+				throw new Exception( "Ban::Create - Doesnt have the rights" );
+			}
 			$user = User::ItemByName( $username );
 			if ( $user == false ) {
 				throw new Exception( "Ban::Create - This user doesnt exist" );
 			} 
 			$userid = $user[ 'id' ];
 			$oldrights = $user[ 'rights' ];
-			$time_banned = ( int )$daysbanned*60*60*24;
+			$time_banned = $daysbanned * 60 * 60 * 24;
 			Ban::Create( $userid, $reason, $time_banned, $oldrights );
 			User::SetRights( $userid, 0 );	
 			return;

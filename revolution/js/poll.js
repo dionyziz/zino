@@ -83,7 +83,7 @@ var Poll = {
         });
     },
     Remove: function( id ) {
-        $.post( 'index.php?resource=poll&method=delete', {
+        $.post( 'poll/delete', {
             id: id
         }, function() {
             Kamibu.Go( 'polls/' + User );

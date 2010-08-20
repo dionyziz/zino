@@ -1,4 +1,10 @@
-<user id="<?= $user[ 'id' ] ?>">
+<user id="<?= $user[ 'id' ] ?>"<?
+    if ( isset( $user[ 'rights' ] ) && $user[ 'rights' ] > 30 ):
+    ?>
+    admin="yes"
+    <?
+    endif;
+    ?>>
     <name><?= $user[ 'name' ] ?></name>
     <subdomain><?= $user[ 'subdomain' ] ?></subdomain>
     <? if ( isset( $user[ 'gender' ] ) ): ?>
