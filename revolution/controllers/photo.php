@@ -23,13 +23,17 @@
                 $comments = $commentdata[ 1 ];
                 $countcomments = $photo[ 'numcomments' ];
 				$imagetags = ImageTag::ListByPhoto( $id );
-
+                if ( isset( $_SESSION[ 'user' ] ) ) {
+                    // strength of friendship between user and author
+                    $userfriendship = Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) | FRIENDS_BOTH == FRIENDS_BOTH;
+                    $me = $_SESSION;
+                }
             }
             if ( $verbose >= 2 ) {
                 clude( 'models/favourite.php' );
                 $favourites = Favourite::ListByTypeAndItem( TYPE_PHOTO, $id );
             }
-            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user', 'album', 'imagetags' ) );
+            Template( 'photo/view', compact( 'id', 'commentpage', 'photo', 'numpages', 'comments', 'countcomments', 'favourites', 'user', 'userfriendship', 'album', 'imagetags', 'userfriendship', 'me' ) );
         }
         public static function Listing( $subdomain = '', $page = 1, $limit = 100 ) {
             $page = ( int )$page;

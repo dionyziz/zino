@@ -35,6 +35,9 @@
             <photo id="<?= $photo[ 'nextid' ] ?>" navigation="next" />
             <? endif; ?>
         </photos>
+        <? if ( isset( $userfriendship ) && $userfriendship === true ): ?>
+        <friends><user id="<?= $me[ 'id' ] ?>" /></friends>
+        <? endif; ?>
     </author>
     <? endif; ?>
     <published><?= $photo[ 'created' ] ?></published>
