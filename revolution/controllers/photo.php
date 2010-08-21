@@ -23,10 +23,11 @@
                 $comments = $commentdata[ 1 ];
                 $countcomments = $photo[ 'numcomments' ];
 				$imagetags = ImageTag::ListByPhoto( $id );
-                if ( isset( $_SESSION[ 'user' ] ) ) {
+                if ( isset( $_SESSION[ 'user' ] ) && $_SESSION[ 'user' ][ 'id' ] != $user[ 'id' ] ) {
+                    clude( 'models/friend.php' );
                     // strength of friendship between user and author
-                    $userfriendship = Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) | FRIENDS_BOTH == FRIENDS_BOTH;
-                    $me = $_SESSION;
+                    $userfriendship = ( Friend::Strength( $_SESSION[ 'user' ][ 'id' ], $user[ 'id' ] ) & FRIENDS_BOTH ) == FRIENDS_BOTH;
+                    $me = $_SESSION[ 'user' ];
                 }
             }
             if ( $verbose >= 2 ) {
