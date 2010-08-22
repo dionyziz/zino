@@ -29,7 +29,7 @@
 
             $info = compact( 'personid', 'photoid', 'ownerid', 'top', 'left', 'width', 'height' );
             db( 'INSERT INTO `imagetags` ( 
-                `tag_personid`,  `tag_photoid`, 
+                `tag_personid`,  `tag_imageid`, 
                 `tag_ownerid`, `tag_top`, 
                 `tag_left`, `tag_width`, 
                 `tag_height`, `tag_created` )
