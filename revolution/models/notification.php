@@ -89,10 +89,8 @@
 						}
                         break;
                     case EVENT_IMAGETAG_CREATED:
-                        /*
                         clude( 'models/imagetag.php' );
                         $taginfo = ImageTag::ItemMulti( $ids );
-                        */
                 }
             }
             foreach ( $notifications as $i => $notification ) {

@@ -43,7 +43,26 @@
             $info[ 'id' ] = mysql_insert_id();
             return $info;
         }
-        public static function Delete() {
+		public static function ItemMulti( $ids ) {
+			if ( !is_array( $ids ) ) {
+				return array();
+			}
+			return db_array( 
+				'SELECT 
+					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid, `tag_ownerid` as ownerid, `tag_created` as created, `tag_left` as tagleft, `tag_top` as tagtop, `tag_width` as width, `tag_height` as height, `user_name` as ownername, `user_deleted` as ownerdeleted, `user_avatarid` as owneravatarid, `user_gender` as ownergender, `image_userid` as imageownerid, `image_name` as imagename
+				FROM
+					`imagetags`
+				LEFT JOIN
+					`users`
+				ON `user_id` = `tag_ownerid`
+				LEFT JOIN
+					`images`
+				ON `image_id` = `tag_imageid`
+				WHERE `tag_id` IN :ids
+				LIMIT 1,100', compact( 'ids' )
+			);
+		}
+        public static function Delete( $id ) {
         }
     }
 

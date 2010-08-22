@@ -6,6 +6,7 @@
 			clude( "models/photo.php" );
 			clude( "models/friend.php" );
 			clude( "models/imagetag.php" );
+			clude( "models/notification.php" );
 			$top = ( int )$top;
 			$left = ( int )$left;
 			$width = ( int )$width;
@@ -29,6 +30,7 @@
             	throw Exception( 'You are not related to the person you are going to tag' );
 	        }
 			ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
+			Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
 			return;
         }
         public static function Listing( $photoid ) {
