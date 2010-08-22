@@ -483,6 +483,7 @@ CREATE TRIGGER userdeath AFTER DELETE ON `users`
         DELETE FROM `polls` WHERE `poll_userid`=OLD.`user_id`;
         DELETE FROM `journals` WHERE `journal_userid`=OLD.`user_id`;
         DELETE FROM `images` WHERE `image_userid`=OLD.`user_id`;
+        DELETE FROM `notifications` WHERE `notify_touserid`=OLD.`user_id` OR `notify_fromuserid`=OLD.`user_id`;
 	END;
 |
 
@@ -490,6 +491,9 @@ CREATE TRIGGER userupdate AFTER UPDATE ON `users`
     FOR EACH ROW BEGIN
         IF NEW.`user_deleted` = 1 AND OLD.`user_deleted` = 0 THEN
             UPDATE `images` SET `image_delid` = 2 WHERE `image_userid` = NEW.`user_id`;
+            UPDATE `polls` SET `journal_delid` = 2 WHERE `poll_userid`=OLD.`user_id`;
+            UPDATE `journals` SET `journal_delid` = 2 WHERE `journal_userid`=OLD.`user_id`;
+            DELETE FROM `notifications` WHERE `notify_touserid`=OLD.`user_id` OR `notify_fromuserid`=OLD.`user_id`;
         END IF;
     END;
 |
