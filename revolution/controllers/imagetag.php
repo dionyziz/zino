@@ -1,6 +1,6 @@
 <?php
     class ControllerImagetag {
-        public static function Create( $photoid, $name, $ownerid, $top, $left, $width, $height ) {
+        public static function Create( $photoid, $personid, $ownerid, $top, $left, $width, $height ) {
 			clude( "models/db.php" );
 			clude( "models/user.php" );
 			$top = ( int )$top;
@@ -13,10 +13,6 @@
 			if ( $ownerid != $_SESSION[ 'user' ][ 'id' ] ) {
 				throw New Exception( "imagetag::Create - Owner should be logged in" );
 			}
-			$user = User::ItemByName( $name );
-			if( $user == false ) {
-				throw New Exception( "Imagetag::Create - This user doesn't exist" );
-			}
 			$photo = Photo::Item( $photoid );
             if ( empty( $photo ) ) {
                 throw Exception( 'Invalid photo' );
@@ -27,11 +23,11 @@
 		         throw Exception( 'You are not related to the owner of the image' );
 		    }
 			// now check that the tagged person is the friend of the user; you can't tag who doesn't know you
-			if ( Friend::Strength( $ownerid, $user[ 'id' ] ) != FRIENDS_BOTH 
-				&& $ownerid != $user[ 'id' ] ) {
+			if ( Friend::Strength( $ownerid, $personid ) != FRIENDS_BOTH 
+				&& $ownerid != $personid ) {
             	throw Exception( 'You are not related to the person you are going to tag' );
 	        }
-			ImageTag::Create( $user[ 'id' ], $photoid, $ownerid, $top, $left, $width, $height );
+			ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
 			return;
         }
         public static function Listing( $photoid ) {
