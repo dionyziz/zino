@@ -5,6 +5,7 @@
 			clude( "models/user.php" );
 			clude( "models/photo.php" );
 			clude( "models/friend.php" );
+			clude( "models/imagetag.php" );
 			$top = ( int )$top;
 			$left = ( int )$left;
 			$width = ( int )$width;
