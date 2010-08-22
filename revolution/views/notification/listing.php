@@ -130,6 +130,20 @@
         </user>
     <?
     break;
+    case EVENT_IMAGETAG_CREATED:
+        $tag = $notifications[ 'tag' ];
+        $photo = $tag[ 'photo' ];
+        ?>
+            <photo>
+                <? if( $photo[ 'title' ] != '' ): ?>
+                    <title><?= htmlspecialchars( $photo[ 'title' ] ) ?></title>
+                <? endif; ?>
+                <author id="<?= $tag[ 'imageownerid' ] ?>">
+                </author>
+                <media url="http://images2.zino.gr/media/<?= $tag[ 'imageownerid' ] ?>/<?= $tag[ 'imageid' ] ?>/<?= $tag[ 'imageid' ] ?>_150.jpg" />
+            </photo>
+        <?
+    break;
     endswitch; ?>
     </notification>
     <? endforeach; ?>

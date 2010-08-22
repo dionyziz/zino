@@ -239,6 +239,9 @@ textarea.invisible {
             background-color: #222;
             z-index: 1;
         }
+        .panel .box div.details.tag {
+            left: 0;
+        }
         .panel .box div.details .background{
             position: absolute;
             width: 100%;

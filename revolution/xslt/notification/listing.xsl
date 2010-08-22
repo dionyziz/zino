@@ -74,6 +74,22 @@
     </div>
 </xsl:template>
 
+<xsl:template match="notification[@type='tag']" mode="list">
+    <div class="box">
+        <xsl:attribute name="id">notification_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
+        <div class="details">
+            <img>
+                <xsl:attribute name="src">
+                    <xsl:value-of select="photo/media/@url" />
+                </xsl:attribute>
+                <xsl:attribute name="alt">
+                    <xsl:value-of select="photo/title" />
+                </xsl:attribute>
+            </img>
+        </div>
+    </div>
+</xsl:template>
+
 <xsl:template match="notification[@type='comment']" mode="list">
     <div class="box">
         <xsl:attribute name="id">notification_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>

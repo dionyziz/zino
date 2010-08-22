@@ -38,8 +38,7 @@
                                 CROSS JOIN `users`
                             ON `notify_fromuserid` = `user_id`
                         WHERE
-                            `notify_touserid` = :userid AND
-                            `notify_typeid` != 38
+                            `notify_touserid` = :userid
                         ORDER BY
                             `notify_eventid` DESC
                         LIMIT 20', compact( 'userid' ) );

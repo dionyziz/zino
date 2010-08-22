@@ -47,9 +47,15 @@
 			if ( !is_array( $ids ) ) {
 				return array();
 			}
-			return db_array( 
+			$rows = db_array( 
 				'SELECT 
-					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid, `tag_ownerid` as ownerid, `tag_created` as created, `tag_left` as tagleft, `tag_top` as tagtop, `tag_width` as width, `tag_height` as height, `user_name` as ownername, `user_deleted` as ownerdeleted, `user_avatarid` as owneravatarid, `user_gender` as ownergender, `image_userid` as imageownerid, `image_name` as imagename,	`profile_placeid` as placeid, (
+					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid,
+                    `tag_created` as created,
+                    `tag_left` as tagleft, `tag_top` as tagtop, `tag_width` as width, `tag_height` as height,
+                    `tag_ownerid` as ownerid, `user_name` as ownername, `user_deleted` as ownerdeleted,
+                    `user_avatarid` as owneravatarid, `user_gender` as ownergender,
+                    `image_userid` as imageownerid,
+                    `image_name` as imagename,	`profile_placeid` as placeid, (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                         - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
                     ) AS age,
@@ -67,6 +73,28 @@
 				WHERE `tag_id` IN :ids
 				LIMIT 1,100', compact( 'ids' )
 			);
+            foreach ( $rows as $i => $row ) {
+                $rows[ $i ][ 'photo' ] = array(
+                    'id' => $row[ 'imageid' ],
+                    'title' => $row[ 'imagename' ],
+                    'user' => array(
+                        'id' => $row[ 'imageownerid' ]
+                    )
+                );
+                $rows[ $i ][ 'owner' ] = array(
+                    'id' => $row[ 'ownerid' ],
+                    'name' => $row[ 'ownername' ],
+                    'deleted' => $row[ 'ownerdeleted' ],
+                    'avatarid' => $row[ 'owneravatarid' ],
+                    'gender' => $row[ 'ownergender' ]
+                );
+            }
+            unset(
+                $row[ 'imageid' ], $row[ 'imageownerid' ], $row[ 'imagename' ],
+                $row[ 'ownerid' ], $row[ 'ownername' ], $row[ 'ownerdeleted' ],
+                $row[ 'owneravatarid' ], $row[ 'ownergender' ]
+            );
+            return $rows;
 		}
         public static function Delete( $id ) {
         }
