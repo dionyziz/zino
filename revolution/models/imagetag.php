@@ -19,10 +19,13 @@
             if ( empty( $person ) ) {
                 throw Exception( 'Invalid personid' );
             }
-            $photo = Photo::Item( $photoid );
+            /*$photo = Photo::Item( $photoid ); //Being done in the controller 
             if ( empty( $photo ) ) {
                 throw Exception( 'Invalid photo' );
-            }
+            }*/
+			if ( $width < 45 || $height < 45 ) {
+				throw New Exception( 'Invalid value of width or height.Too small' );
+			}
 
             $info = compact( 'personid', 'photoid', 'ownerid', 'top', 'left', 'width', 'height' );
             db( 'INSERT INTO `imagetags` ( 
