@@ -49,7 +49,10 @@
 			}
 			return db_array( 
 				'SELECT 
-					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid, `tag_ownerid` as ownerid, `tag_created` as created, `tag_left` as tagleft, `tag_top` as tagtop, `tag_width` as width, `tag_height` as height, `user_name` as ownername, `user_deleted` as ownerdeleted, `user_avatarid` as owneravatarid, `user_gender` as ownergender, `image_userid` as imageownerid, `image_name` as imagename
+					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid, `tag_ownerid` as ownerid, `tag_created` as created, `tag_left` as tagleft, `tag_top` as tagtop, `tag_width` as width, `tag_height` as height, `user_name` as ownername, `user_deleted` as ownerdeleted, `user_avatarid` as owneravatarid, `user_gender` as ownergender, `image_userid` as imageownerid, `image_name` as imagename,	`profile_placeid` as placeid, (
+                        ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
+                        - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
+                    ) AS age,
 				FROM
 					`imagetags`
 				LEFT JOIN
@@ -58,6 +61,9 @@
 				LEFT JOIN
 					`images`
 				ON `image_id` = `tag_imageid`
+				LEFT JOIN
+					`userprofiles`
+				ON `profile_userid` = `tagownerid`
 				WHERE `tag_id` IN :ids
 				LIMIT 1,100', compact( 'ids' )
 			);

@@ -30,7 +30,9 @@
             	throw Exception( 'You are not related to the person you are going to tag' );
 	        }
 			ImageTag::Create( $personid, $photoid, $ownerid, $top, $left, $width, $height );
-			Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
+			if(  $ownerid !== $personid ) {
+				Notification::Create( $ownerid, $personid, EVENT_IMAGETAG_CREATED, $photoid );
+			}
 			return;
         }
         public static function Listing( $photoid ) {
