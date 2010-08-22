@@ -133,6 +133,7 @@
     case EVENT_IMAGETAG_CREATED:
         $tag = $notifications[ 'tag' ];
         $photo = $tag[ 'photo' ];
+        $owner = $tag[ 'owner' ];
         ?>
             <photo>
                 <? if( $photo[ 'title' ] != '' ): ?>
@@ -141,6 +142,22 @@
                 <author id="<?= $tag[ 'imageownerid' ] ?>">
                 </author>
                 <media url="http://images2.zino.gr/media/<?= $tag[ 'imageownerid' ] ?>/<?= $tag[ 'imageid' ] ?>/<?= $tag[ 'imageid' ] ?>_150.jpg" />
+                <imagetags>
+                    <imagetag id="<?= $tag[ 'id' ] ?>">
+                        <creator id="<?= $owner[ 'id' ] ?>">
+                            <name><?= $owner[ 'name' ] ?></name>
+                            <gender><?= $owner[ 'gender' ] ?></gender>
+                            <age><?= $owner[ 'age' ] ?></age>
+                            <location><?= $owner[ 'location' ] ?></location>
+                        </creator>
+                        <user id="<?= $tag[ 'personid' ] ?>" />
+                        <created><?= $tag[ 'created' ] ?></created>
+                        <left><?= $tag[ 'tagleft' ] ?></left>
+                        <top><?= $tag[ 'tagtop' ] ?></top>
+                        <width><?= $tag[ 'width' ] ?></width>
+                        <height><?= $tag[ 'height' ] ?></height>
+                    </imagetag>
+                </imagetags>
             </photo>
         <?
     break;

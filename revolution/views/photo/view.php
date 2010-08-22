@@ -55,8 +55,7 @@
 	<? if ( isset( $imagetags ) ): ?>
 	<imagetags>
 	<? foreach ( $imagetags as $tag ): ?>
-		<imagetag>
-			<id><?= $tag[ 'id' ] ?></id>
+		<imagetag id="<?= $tag[ 'id' ] ?>">
 			<user id ="<?= $tag[ 'personid' ] ?>" >
 				<name><?= $tag[ 'name' ] ?></name>
 			</user>

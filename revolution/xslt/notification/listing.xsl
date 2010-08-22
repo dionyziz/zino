@@ -364,6 +364,50 @@
     </div>
 </xsl:template>
 
+<xsl:template match="notification[@type='tag']" mode="view">
+    <div class="instantbox">
+        <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>
+        <ul class="tips">
+            <li>Enter = <strong>Αποθήκευση μηνύματος</strong></li>
+            <li>Escape = <strong>Αγνόηση</strong></li>
+        </ul>
+        <div class="details">
+            <p class="note"><strong>
+                <xsl:choose>
+                    <xsl:when test="photo/imagetags/imagetag/creator/gender = 'f'">Η</xsl:when>
+                    <xsl:otherwise>Ο</xsl:otherwise>
+                </xsl:choose>
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="photo/imagetags/image/tag/creator/name" />
+                <xsl:text> </xsl:text>
+                σε αναγνώρισε σε μία φωτογραφία.
+            </strong></p>
+            <xsl:apply-templates select="photo/imagetags/image/tag/creator" />
+        </div>
+        <xsl:choose>
+            <xsl:when test="user/knows/user/knows"><!-- friend relationship mutual already -->
+                <div class="note">
+                    <p><strong>Γράψε ένα σχόλιο στη φωτογραφία:</strong></p>
+                    <form action="comment/create" method="post" class="save">
+                        <div class="thread new" style="display: block;">
+                            <input type="hidden" name="typeid" value="2" />
+                            <input type="hidden" name="itemid">
+                                <xsl:attribute name="value">
+                                    <xsl:value-of select="photo/@id" />
+                                </xsl:attribute>
+                            </input>
+                            <input type="hidden" name="parentid" value="0" />
+                            <div class="message mine new">
+                                <div><textarea name="text"></textarea></div>
+                            </div>
+                        </div>
+                        <p class="note">Ή πάτησε ESC αν δεν θέλεις να αφήσεις σχόλιο</p>
+                    </form>
+                </div>
+            </xsl:when>
+        </xsl:choose>
+    </div>
+</xsl:template>
 <xsl:template match="notification[@type='friend']" mode="view">
     <div class="instantbox">
         <xsl:attribute name="id">ib_<xsl:value-of select="@type" />_<xsl:value-of select="@id"/></xsl:attribute>

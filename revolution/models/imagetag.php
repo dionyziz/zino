@@ -58,7 +58,7 @@
                     `image_name` as imagename,	`profile_placeid` as placeid, (
                         ( DATE_FORMAT( NOW(), "%Y" ) - DATE_FORMAT( `profile_dob`, "%Y" ))
                         - ( DATE_FORMAT( NOW(), "00-%m-%d" ) < DATE_FORMAT( `profile_dob`,"00-%m-%d" ) )
-                    ) AS age,
+                    ) AS age, `place_name` AS location
 				FROM
 					`imagetags`
 				LEFT JOIN
@@ -70,6 +70,9 @@
 				LEFT JOIN
 					`userprofiles`
 				ON `profile_userid` = `tagownerid`
+                LEFT JOIN 
+                    `places`
+                ON `profile_placeid` = `place_id`
 				WHERE `tag_id` IN :ids
 				LIMIT 1,100', compact( 'ids' )
 			);
@@ -86,13 +89,16 @@
                     'name' => $row[ 'ownername' ],
                     'deleted' => $row[ 'ownerdeleted' ],
                     'avatarid' => $row[ 'owneravatarid' ],
-                    'gender' => $row[ 'ownergender' ]
+                    'gender' => $row[ 'ownergender' ],
+                    'age' => $row[ 'age' ],
+                    'location' => $row[ 'location' ]
                 );
             }
             unset(
                 $row[ 'imageid' ], $row[ 'imageownerid' ], $row[ 'imagename' ],
                 $row[ 'ownerid' ], $row[ 'ownername' ], $row[ 'ownerdeleted' ],
-                $row[ 'owneravatarid' ], $row[ 'ownergender' ]
+                $row[ 'owneravatarid' ], $row[ 'ownergender' ],
+                $row[ 'age' ], $row[ 'location' ]
             );
             return $rows;
 		}
