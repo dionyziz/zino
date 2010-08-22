@@ -1,6 +1,6 @@
 <?php
     class ControllerImagetag {
-        public static function Create( $photoid, $personid, $ownerid, $top, $left, $width, $height ) {
+        public static function Create( $photoid, $personid, $top, $left, $width, $height ) {
 			clude( "models/db.php" );
 			clude( "models/user.php" );
 			$top = ( int )$top;
@@ -10,9 +10,7 @@
 			if ( !isset( $_SESSION[ 'user' ] ) ) {				
 				throw New Exception( "Imagetag::Create - You are not logged in" );
 			}
-			if ( $ownerid != $_SESSION[ 'user' ][ 'id' ] ) {
-				throw New Exception( "imagetag::Create - Owner should be logged in" );
-			}
+			$ownerid = $_SESSION[ 'user' ][ 'id' ];
 			$photo = Photo::Item( $photoid );
             if ( empty( $photo ) ) {
                 throw Exception( 'Invalid photo' );
