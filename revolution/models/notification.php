@@ -84,12 +84,14 @@
                         clude( 'models/friend.php' );
                         $friendinfo = Friend::ItemMulti( $ids );
 						foreach ( $friendinfo as $key => $val ) { //find srtenghts , could b be optimized possibly
+                            // TODO: Optimize!
 							$friendinfo[ $key ][ 'strength' ] = Friend::Strength( $val[ 'user' ][ 'id' ], $val[ 'friend' ][ 'id' ] );
 						}
                         break;
                     case EVENT_IMAGETAG_CREATED:
                         clude( 'models/imagetag.php' );
                         $taginfo = ImageTag::ItemMulti( $ids );
+                        die( var_dump( $taginfo ) );
                 }
             }
             foreach ( $notifications as $i => $notification ) {
@@ -110,6 +112,7 @@
                         break;
                     case EVENT_IMAGETAG_CREATED:
                         $notifications[ $i ][ 'tag' ] = $taginfo[ $notification[ 'itemid' ] ];
+                        break;
                 }
             }
             return array( $notifications, $count );

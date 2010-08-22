@@ -47,6 +47,7 @@
 			if ( !is_array( $ids ) ) {
 				return array();
 			}
+            die( var_dump( $ids ) );
 			$rows = db_array( 
 				'SELECT 
 					`tag_id` as id, `tag_imageid` as imageid, `tag_personid` as personid,
@@ -69,13 +70,14 @@
 				ON `image_id` = `tag_imageid`
 				LEFT JOIN
 					`userprofiles`
-				ON `profile_userid` = `tagownerid`
+				ON `profile_userid` = tag_ownerid
                 LEFT JOIN 
                     `places`
                 ON `profile_placeid` = `place_id`
 				WHERE `tag_id` IN :ids
 				LIMIT 1,100', compact( 'ids' )
 			);
+            $ret = array();
             foreach ( $rows as $i => $row ) {
                 $rows[ $i ][ 'photo' ] = array(
                     'id' => $row[ 'imageid' ],
@@ -93,17 +95,17 @@
                     'age' => $row[ 'age' ],
                     'location' => $row[ 'location' ]
                 );
+                unset(
+                    $rows[ $i ][ 'imageid' ], $rows[ $i ][ 'imageownerid' ], $rows[ $i ][ 'imagename' ],
+                    $rows[ $i ][ 'ownerid' ], $rows[ $i ][ 'ownername' ], $rows[ $i ][ 'ownerdeleted' ],
+                    $rows[ $i ][ 'owneravatarid' ], $rows[ $i ][ 'ownergender' ],
+                    $rows[ $i ][ 'age' ], $rows[ $i ][ 'location' ]
+                );
+                $ret[ $row[ 'id' ] ] = $rows;
             }
-            unset(
-                $row[ 'imageid' ], $row[ 'imageownerid' ], $row[ 'imagename' ],
-                $row[ 'ownerid' ], $row[ 'ownername' ], $row[ 'ownerdeleted' ],
-                $row[ 'owneravatarid' ], $row[ 'ownergender' ],
-                $row[ 'age' ], $row[ 'location' ]
-            );
-            return $rows;
+            return $ret;
 		}
         public static function Delete( $id ) {
         }
     }
-
 ?>
