@@ -31,6 +31,10 @@
                 </img>
                 <xsl:if test="/social/@for = author/name">
                     <div class="icon" id="deletebutton" title="Διαγραφή εικόνας">&#215;</div>     
+                    <div class="icon left" id="tagbutton"></div>
+                </xsl:if>
+                <xsl:if test="/social/photo/author/friends">
+                    <div class="icon" id="tagbutton"></div>
                 </xsl:if>
                 <xsl:for-each select="imagetags/imagetag">
                     <div class="tag">
@@ -48,7 +52,10 @@
                             <xsl:if test="width &gt; '200'">
                                 <xsl:attribute name="class">namecontainer inside</xsl:attribute>
                             </xsl:if>
-                            <span class="name"><xsl:value-of select="user" /></span>
+                            <span class="name">
+                                <xsl:attribute name="id">user_<xsl:value-of select="user/@id" /></xsl:attribute>
+                                <xsl:value-of select="user" />
+                            </span>
                         </div>
                         <div class="imagecontainer">
                             <img>

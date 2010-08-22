@@ -45,7 +45,7 @@ var PhotoListing = {
         $( '<div class="imageoverlay">'
                 +'<div class="arrow left"></div>'
                 +'<div class="arrow right"></div>'
-                +'<img id="sel_' + id + '" src="' + src + ' />'
+                +'<img id="sel_' + id + '" src="' + src + '" />'
             +'</div>' ).appendTo( 'body' );
     },
     CancelPreview: function(){

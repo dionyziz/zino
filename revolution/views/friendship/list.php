@@ -1,4 +1,4 @@
-<friends of="<?= $subdomain ?>" count="<?= count( $friends ); ?>">
+<friends of="<?= $subdomain ?>" id="<?= $userid ?>" count="<?= count( $friends ); ?>">
     <? global $settings;
     foreach ( $friends as $friend ): ?>
     <friend id="<?= $friend[ 'id' ] ?>">

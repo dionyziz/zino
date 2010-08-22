@@ -45,7 +45,7 @@
                     }
                 }
             }
-            Template( 'friendship/list', compact( 'friends', 'friendsOfUser', 'friendids', 'subdomain' ) );
+            Template( 'friendship/list', compact( 'friends', 'friendsOfUser', 'friendids', 'subdomain', 'userid' ) );
         }
         public static function Create( $friendid = 0, $username = '' ) {
             $friendid = ( int )$friendid;

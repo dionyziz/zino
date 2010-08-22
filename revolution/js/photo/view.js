@@ -60,10 +60,11 @@ var PhotoView = {
                 PhotoView.Title.Selected = true;
                 return false;
             }).keyup( function( event ){
-                if( event.which == 13 ){
+                e.stopImmediatePropagation();
+                if( event.which == 13 ){ // esc
                     $( this ).blur();
                 }
-                if( event.which == 27 ){
+                if( event.which == 27 ){ // enter
                     $( this ).val( PhotoView.Title.Title );
                     $( this ).blur();
                 }
@@ -94,22 +95,304 @@ var PhotoView = {
         PhotoView.Title.Init();
         PhotoView.Remove.Init();
 		ItemView.Init( 2 );
+        PhotoView.Tag.Init();
         $( document ).bind( 'keydown', { combi: 'left', disableInInput: true }, PhotoView.LoadPrevious );
         $( document ).bind( 'keydown', { combi: 'right', disableInInput: true }, PhotoView.LoadNext );
-        $( '.image img.maincontent' ).click( function(){ // Photo tagging guy, check that ( --ted )
+        $( '.image' ).click( function(){ // Photo tagging guy, check that ( --ted )
             PhotoView.LoadNext();
         });
-        PhotoView.Tag.Init();
     },
     Tag: {
+        Friend: {
+            list: {},
+            Load: function(){
+                var friendlist = $( 
+                    '<div class="friendlist">' + 
+                        '<label for="friendfield">Πληκτρολόγησε το όνομα<br /> του φίλου σου</label>' +
+                        '<input type="text" id="friendfield" />' + 
+                        '<label>Ή επίλεξέ τον από τη λίστα</label>' + 
+                        '<ul><li class="friend_loading"><img src="http://static.zino.gr/revolution/loading.gif" /></li></ul>' + 
+                        '<button class="save">αποθήκευση</button>' + 
+                        '<button class="cancel">ακύρωση</button>' + 
+                    '</div>' );
+                $( friendlist ).hide().appendTo( '.image' );
+                $.get( 'friends/' + User, function( data ){
+                    $( '.friendlist ul li.friend_loading' ).hide();
+                    window.asdf = $(data );
+                    if( !PhotoView.Tag.Friend.list[ $( data ).find( 'friends' ).attr( 'id' ) ] ){
+                        var li = $( '<li id="friend_' + $( data ).find( 'friends' ).attr( 'id' ) + '">' +
+                                        '<a href="">εγώ<span style="display:none;">' + User + '</span></a>' + 
+                                    '</li>' );
+                        $( '.friendlist ul' ).append( li );
+                    }
+                    $( data ).find( 'friend' ).each( function(){
+                        if( PhotoView.Tag.Friend.list[ $( this ).attr( 'id' ) ] === true ){
+                            return;
+                        }
+                        var li = $( '<li id="friend_' + $( this ).attr( 'id' ) + '">' + 
+                                        '<a href="">' + $( this ).children( 'name' ).text() + '</a>' +
+                                    '</li>' );
+                        $( '.friendlist ul' ).append( li );
+                    });
+                }, 'xml' );
+            },
+            Show: function(){
+                var top = $( '.newtag' ).top();
+                if( top > $( '.image' ).height() - 300 ){
+                    var top = $( '.image' ).height() - 300;
+                }
+                $( '.friendlist' ).show().css({
+                    top: top,
+                    left: $( '.newtag' ).left() + $( '.newtag' ).width() + 20
+                }).find( 'input' ).val( '' ).trigger( 'keyup' ).focus();
+            },
+            Type: function( text ){
+                if( text.length ){
+                    $( '.friendlist ul li:not(.friend_loading)' ).hide().removeClass( 'selected' )
+                        .filter( ':contains(' + text + ')' ).show().end()
+                        .filter( ':visible:first' ).addClass( 'selected' );
+                }
+                else{
+                    $( '.friendlist ul li:not(.friend_loading)' ).removeClass( 'selected' ).show();
+                }
+            },
+            Init: function(){
+                PhotoView.Tag.Friend.initialized = true;
+                $( '.image .tag .name' ).each( function(){
+                    PhotoView.Tag.Friend.list[ $( this ).attr( 'id' ).split( '_' )[ 1 ] ] = true;
+                });
+                PhotoView.Tag.Friend.Load();
+                $( '.friendlist input' ).keyup( function( e ){
+                    if( e.which == 13 ){
+                        PhotoView.Tag.StopTagging();
+                    }
+                    if( e.which == 27 ){
+                        PhotoView.Tag.Save();
+                    }
+                    PhotoView.Tag.Friend.Type( $( this ).val() );
+
+                });
+                $( '.friendlist .cancel' ).click( function(){
+                    PhotoView.Tag.StopTagging();
+                    return false;
+                });
+                $( '.friendlist .save' ).click( function(){
+                    PhotoView.Tag.Save();
+                    return false;
+                });
+                $( '.friendlist a' ).live( 'click', function(){
+                    var id = $( this ).parent().attr( 'id' ).split( '_' )[ 1 ];
+                    PhotoView.Tag.Save( id );
+                    return false;
+                });
+            }
+        },
+        Save: function( id ){
+            if( typeof( id ) == 'undefined' ){
+                if( $( '.friendlist ul li.selected' ).length == 0 ){
+                    return false;
+                }
+                id = $( '.friendlist ul li.selected' ).attr( 'id' ).split( '_' )[ 1 ];
+            }
+            var data = {
+                personid: id,
+                photoid: $( '.contentitem' ).attr( 'id' ).split( '_' )[ 1 ],
+                top: $( '.newtag' ).top(),
+                left: $( '.newtag' ).left(),
+                width: $( '.newtag' ).width(),
+                height: $( '.newtag' ).height()
+            };
+            $( '.friendlist' ).hide();
+            $( '.newtag' ).remove();
+            $( '#friend_' + data.personid ).remove();
+            $.post( 'imagetag/create', data, function( data ){
+                var tag = $( '<div class="tag">' + 
+                                '<div class="namecontainer">' + 
+                                    '<span class="name"></span>' + 
+                                '</div>' +
+                                '<div class="imagecontainer">' + 
+                                    '<img />' + 
+                                '</div>' + 
+                            '</div>' );
+                if( $( data ).find( 'width' ).text() > 200 ){
+                    $( tag ).children( '.namecontainer' ).addClass( 'inside' );
+                }
+                if( $( data ).find( 'top' ).text() > $( '.image' ).height() - 30 - $( data ).find( 'height' ).text() ){
+                    $( tag ).children( '.namecontainer' ).removeClass( 'inside' ).addClass( 'top' );
+                }
+                tag.attr( 'id', 'tag_' + $( data ).find( 'id' ).text() )
+                    .css({
+                        left: $( data ).find( 'left' ).text(),
+                        top: $( data ).find( 'top' ).text(),
+                        width: $( data ).find( 'width' ).text(),
+                        height: $( data ).find( 'height' ).text()
+                    })
+                    .find( 'namecontainer name' ).text( $( data ).find( 'name' ).text() )
+                        .attr( 'id', 'user_' + $( data ).find( 'user' ).attr( 'id' ) ).end()
+                    .find( 'img' ).attr( 'src', $( '.image .maincontent' ).attr( 'src' ) )
+                        .css({
+                            top: $( data ).find( 'top' ).text(),
+                            left: $( data ).find( 'left' ).text()
+                        });
+                tag.appendTo( '.image' ).hide();
+            });
+        },
+        Cancel: function(){
+            $( '.friendlist' ).hide();
+            $( '.newtag' ).remove();
+        },
+        Down: function( pos ){
+            PhotoView.Tag.Cancel();
+            PhotoView.Tag.mousedown = true;
+            PhotoView.Tag.downpos = pos;
+            var newtag = $( '<div class="newtag"></div>' );
+            newtag.css( pos ).appendTo( '.image' );
+        },
+        Move: function( pos ){
+            var down = PhotoView.Tag.downpos;
+            var height = $( '.newtag' ).height();
+            var width = $( '.newtag' ).width();
+            if( pos.top < down.top ){
+                $( '.newtag' ).height( down.top - pos.top ).css( 'top', pos.top );
+            }
+            else{
+                $( '.newtag' ).height( pos.top - down.top ).css( 'top', down.top );
+            }
+            if( pos.left < down.left ){
+                $( '.newtag' ).width( down.left - pos.left ).css( 'left', pos.left );
+            }
+            else{
+                $( '.newtag' ).width( pos.left - down.left ).css( 'left', down.left );
+            }
+        },
+        Up: function(){
+            PhotoView.Tag.mousedown = false;
+            
+            if( $( '.newtag' ).height() < 100 ){
+                $( '.newtag' ).css({
+                    top: $( '.newtag' ).top() - ( 100 - $( '.newtag' ).height() ) / 2,
+                    height: 100
+                });
+            }
+            if( $( '.newtag' ).width() < 100 ){
+                $( '.newtag' ).css({
+                    left: $( '.newtag' ).left() - ( 100 - $( '.newtag' ).width() ) / 2,
+                    width: 100
+                });
+            }
+            $( '.newtag' ).css( PhotoView.Tag.CorrectPos({
+                top: $( '.newtag' ).top(),
+                left: $( '.newtag' ).left(),
+                width: $( '.newtag' ).width(),
+                height: $( '.newtag' ).height()
+            }) );
+            PhotoView.Tag.Friend.Show();
+        },
+        CorrectPos: function( pos ){
+            if( pos.left < 0 ){
+                pos.left = 0;
+            }
+            if( pos.left + pos.width > $( '.image' ).width() - 4 ){
+                pos.left = $( '.image' ).width() - 4 - pos.width;
+            }
+            if( pos.top < 0 ){
+                pos.top = 0;
+            }
+            if( pos.top + pos.height > $( '.image' ).height() - 4 ){
+                pos.top = $( '.image' ).height() - 7 - pos.height;
+            }
+            return pos;
+        },
+        StartTagging: function(){
+            if( PhotoView.Tag.Friend.initialized !== true ){
+                PhotoView.Tag.Friend.Init();
+            }
+            PhotoView.Tag.running = true;
+            $( '.image .tag' ).hide();
+            $( '.image' ).css( 'cursor', 'crosshair' );
+            $( '#tagbutton' ).addClass( 'selected' );
+            $( '.image img.maincontent' ).mousedown( function( e ){
+                PhotoView.Tag.Down({
+                    top: e.layerY,
+                    left: e.layerX
+                });
+                return false;
+            });
+            $( '.newtag' ).live( 'mousedown', function( e ){
+                var top = $( this ).top() + e.layerY;
+                var left = $( this ).left() + e.layerX;
+
+                PhotoView.Tag.Cancel();
+                PhotoView.Tag.Down({
+                    top: top,
+                    left: left
+                });
+            });
+
+            $( window ).mousemove( function( e ){
+                if( PhotoView.Tag.mousedown !== true ){
+                    return false;
+                }
+                var imagepos = {
+                    top: $( '.image' ).offset().top,
+                    left: $( '.image' ).offset().left,
+                    width: $( '.image' ).width(),
+                    height: $( '.image' ).height()
+                };
+                var pos = {
+                    left: e.pageX - imagepos.left,
+                    top:  e.pageY - imagepos.top
+                };
+                if( pos.left <= 0 ){
+                    pos.left = 0;
+                }
+                if( pos.left >= imagepos.width - 4 ){ //4 px border
+                    pos.left = imagepos.width - 4;
+                }
+                if( pos.top <= 0 ){
+                    pos.top = 0;
+                }
+                if( pos.top >= imagepos.height - 7 ){ //4px border, +3 unknown
+                    pos.top = imagepos.height - 7;
+                }
+                PhotoView.Tag.Move( pos );
+            }).mouseup( function( e ){
+                if( PhotoView.Tag.mousedown !== true ){
+                    return false;
+                }
+                PhotoView.Tag.Up();
+                return false;
+            }).keyup( function( e ){
+                if( e.which == 27 ){ //esc
+                    PhotoView.Tag.StopTagging();
+                }
+            });
+        },
+        StopTagging: function(){
+            $( window ).unbind( 'mousemove mouseup keyup' );
+            $( '.maincontent' ).unbind( 'mousedown' );
+            $( '.image .tag' ).show();
+            $( '.image' ).css( 'cursor', 'default' );
+            PhotoView.Tag.Cancel();
+            $( '#tagbutton' ).removeClass( 'selected' );
+            PhotoView.Tag.running = false;
+        },
         Init: function(){
             $( '.image .tag .imagecontainer' ).hover( function(){
-                $( this ).parent().fadeTo( 0, 1 ).siblings( '.tag' ).hide().end();
+                $( this )
+                    .siblings( '.namecontainer' ).show()
+                    .parent().fadeTo( 0, 1 )
+                        .siblings( '.tag' ).fadeTo( 0, 0 );
                 $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 0.4 );
             }, function( e ){
-                $( '.tag' ).show().fadeTo( 0, 0 );
-                $( '.image img.maincontent ' ).stop( 1 ).fadeTo( 100, 1 );
-            }).click( function(){
+                $( this ).siblings( '.namecontainer' ).hide();
+                $( '.image img.maincontent' ).stop( 1 ).fadeTo( 100, 1, function( item ){
+                    return function(){
+                        $( item ).parent().show().fadeTo( 0, 0 );
+                    }
+                }( this ) );
+            }).click( function( e ){
+                e.stopImmediatePropagation();
                 window.open( 'users/' + $( this ).siblings( '.namecontainer' ).children( '.name' ).text() );
             });
             $( '.image .tag .namecontainer.inside' ).hover( function(){
@@ -117,9 +400,25 @@ var PhotoView = {
             }, function(){
                 $( this ).siblings( '.imagecontainer' ).mouseout();
             });
-        }
+            $( '#tagbutton' ).click( function(){
+                if( PhotoView.Tag.running ){
+                    PhotoView.Tag.StopTagging();
+                    return false;
+                }
+                PhotoView.Tag.StartTagging();
+                return false;
+            });
+            $( '.image img.maincontent' ).click( function( e ){
+                if( PhotoView.Tag.running ){
+                    e.stopImmediatePropagation();
+                }
+            });
+        },
     },
     LoadNext: function( evt ) {
+        if( PhotoView.Tag.running ){
+            return false;
+        }
         var $next = $( '.navigation .nextid' );
         if ( $next.length ) {
             $( '.breadcrumb .nav.next img' ).css( { opacity: 1 } );
@@ -128,6 +427,9 @@ var PhotoView = {
         return false;
     },
     LoadPrevious: function() {
+        if( PhotoView.Tag.running ){
+            return false;
+        }
         var $previous = $( '.navigation .previousid' );
         if ( $previous.length ) {
             $( '.breadcrumb .nav.prev img' ).css( { opacity: 1 } );
