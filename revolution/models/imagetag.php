@@ -31,7 +31,7 @@
             db( 'INSERT INTO `imagetags` ( 
                 `tag_personid`,  `tag_photoid`, 
                 `tag_ownerid`, `tag_top`, 
-                `tag_left`, `tag_width, 
+                `tag_left`, `tag_width`, 
                 `tag_height`, `tag_created` )
                  VALUES ( 
                     :personid, :photoid, 
