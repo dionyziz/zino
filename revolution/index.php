@@ -37,6 +37,10 @@
 			case 'nitrio2' :
 			case 'stak_o_gamiac':
             case 'e3wghinos':
+            case 'gogkas':
+            case 'gkogac':
+            case 'parvati':
+            case 'ilias':
                 die( 'Access denied' );
             default:
         }

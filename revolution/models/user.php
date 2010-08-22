@@ -186,7 +186,9 @@
                     `users`
                 WHERE
                     `user_name` = :username
-                    AND `user_password` = MD5( :password ) LIMIT 1',
+                    AND `user_password` = MD5( :password )
+                    AND `user_deleted` = 0
+                LIMIT 1',
                 compact( 'username', 'password' )
             );
             if ( mysql_num_rows( $res ) ) {
